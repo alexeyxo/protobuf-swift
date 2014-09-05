@@ -1,0 +1,43 @@
+// Protocol Buffers for Swift
+//
+// Copyright 2014 AlexeyXo.
+// Copyright 2008 Google Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import "google/protobuf/descriptor.proto";
+
+package google.protobuf;
+
+message SwiftFileOptions {
+  // Sets the ObjectiveC package where classes generated from this .proto
+  // will be placed.  This is typically used since Objective C libraries output
+  // all their headers into a single directory.  i.e.  Foundation\*
+  // AddressBook\*   UIKit\*   etc. etc.
+  optional string package = 1;
+  
+  // The string to be prefixed in front of all classes in order to make them
+  // 'cocoa-y'.  i.e. 'NS/AB/CF/PB' for the
+  // NextStep/AddressBook/CoreFoundation/ProtocolBuffer libraries respectively.
+  // This will commonly be the capitalized letters from the above defined
+  // 'objectivec_directory'
+  optional string class_prefix = 2;
+}
+
+extend google.protobuf.FileOptions {
+
+  // The extension #1002 has been reserved for us and is registered with
+
+  // Google as being 'in use'.
+  optional SwiftFileOptions swift_file_options = 1002;
+}
