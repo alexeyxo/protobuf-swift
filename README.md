@@ -14,7 +14,7 @@ This project is based on an implementation of Protocol Buffers from Google.  See
 
 
 ## How To Install Protobuf
-1.Download `https://protobuf.googlecode.com/svn/rc/protobuf-2.6.0.tar.gz"`
+1.Download `https://protobuf.googlecode.com/svn/rc/protobuf-2.6.0.tar.gz`
 
 2.`cd protobuf-2.6.0`
 
@@ -49,11 +49,11 @@ message Person {
     personBuilder.id = 123
     personBuilder.name = "Bob"
     personBuilder.email = "bob@example.com"
-    let person = person.build()
+    let person = personBuilder.build()
     println("\(person)")
 
     person.data() //return [Byte]
-    person.getNSDate() //Return NSData
+    person.getNSData() //Return NSData
 ```
 
 ### Credits

@@ -507,12 +507,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
           if (field->type() == FieldDescriptor::TYPE_BYTES) {
             if (field->has_default_value()) {
               return
-                "[NSData dataWithBytes:\"" +
-                CEscape(field->default_value_string()) +
-                "\" length:" + SimpleItoa(field->default_value_string().length()) +
-                "]";
+                "([Byte]() + \"" + CEscape(field->default_value_string()) + "\".utf8)";
             } else {
-              return "[NSData data]";
+              return "[Byte]()";
             }
           } else {
             if (AllAscii(field->default_value_string())) {
@@ -521,15 +518,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 "\"";
             } else {
               return
-                "[NSString stringWithUTF8String:\"" +
+                "" +
                 EscapeTrigraphs(CEscape(field->default_value_string())) +
-                "\"]";
+                "";
             }
           }
         case FieldDescriptor::CPPTYPE_ENUM:
           return EnumValueName(field->default_value_enum());
         case FieldDescriptor::CPPTYPE_MESSAGE:
-          return "[" + ClassName(field->message_type()) + " defaultInstance]";
+          return "" + ClassName(field->message_type()) + "()";
     }
 
     GOOGLE_LOG(FATAL) << "Can't get here.";
