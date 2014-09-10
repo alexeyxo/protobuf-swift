@@ -111,12 +111,12 @@ class CodedOutputStream
         writeFloatNoTag(aValue)
     }
     
-    func writeUInt64NoTag(value:Int64)
+    func writeUInt64NoTag(value:UInt64)
     {
-        writeRawVarint64(value)
+        writeRawVarint64(Int64(value))
     }
     
-    func writeUInt64(fieldNumber:Int32, value:Int64)
+    func writeUInt64(fieldNumber:Int32, value:UInt64)
     {
         writeTag(fieldNumber, format:WireFormat.WireFormatVarint)
         writeUInt64NoTag(value)
@@ -242,12 +242,12 @@ class CodedOutputStream
         writeDataNoTag(value)
     }
     
-    func writeUInt32NoTag(value:Int32)
+    func writeUInt32NoTag(value:UInt32)
     {
-        writeRawVarint32(value)
+        writeRawVarint32(Int32(value))
     }
     
-    func writeUInt32(fieldNumber:Int32, value:Int32)
+    func writeUInt32(fieldNumber:Int32, value:UInt32)
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatVarint)
         writeUInt32NoTag(value)
@@ -309,7 +309,7 @@ class CodedOutputStream
     func writeMessageSetExtension(fieldNumber:Int32, value:Message)
     {
         writeTag(WireFormatMessage.WireFormatMessageSetItem.toRaw(), format:WireFormat.WireFormatStartGroup)
-        writeUInt32(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value:fieldNumber)
+        writeUInt32(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value:UInt32(fieldNumber))
         writeMessage(WireFormatMessage.WireFormatMessageSetMessage.toRaw(), value: value)
         writeTag(WireFormatMessage.WireFormatMessageSetItem.toRaw(), format:WireFormat.WireFormatEndGroup)
     }
@@ -317,7 +317,7 @@ class CodedOutputStream
     func writeRawMessageSetExtension(fieldNumber:Int32, value:[Byte]?)
     {
         writeTag(WireFormatMessage.WireFormatMessageSetItem.toRaw(), format:WireFormat.WireFormatStartGroup)
-        writeUInt32(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value:fieldNumber)
+        writeUInt32(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value:UInt32(fieldNumber))
         writeData( WireFormatMessage.WireFormatMessageSetMessage.toRaw(), value: value!)
         writeTag(WireFormatMessage.WireFormatMessageSetItem.toRaw(), format:WireFormat.WireFormatEndGroup)
     }

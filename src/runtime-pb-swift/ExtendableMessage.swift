@@ -22,7 +22,7 @@ class ExtendableMessage : GeneratedMessage
     var extensionRegistry:[Int32:ExtensionField] = [Int32:ExtensionField]()
     
     
-    override init()
+    required init()
     {
         super.init()
     }
@@ -63,7 +63,7 @@ class ExtendableMessage : GeneratedMessage
         {
             return value
         }
-        return ExtendableMessage()
+        return extensions.initialize()
     }
     func hasExtension(extensions:ExtensionField) -> Bool
     {

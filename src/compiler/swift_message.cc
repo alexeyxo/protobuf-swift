@@ -246,7 +246,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       field_generators_.get(descriptor_->field(i)).GenerateMembersSource(printer);
     }
 
-    printer->Print("override init() {\n");
+    printer->Print("required init() {\n");
     printer->Indent();
     printer->Indent();
     for (int i = 0; i < descriptor_->field_count(); i++) {

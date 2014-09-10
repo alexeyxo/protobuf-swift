@@ -19,6 +19,7 @@ import Foundation
 
 protocol Message
 {
+    init()
     var unknownFields:UnknownFieldSet{get}
     func serializedSize() -> Int32
     func isInitialized() -> Bool
@@ -35,6 +36,7 @@ protocol MessageBuilder
     func clear() -> Self
     var unknownFields:UnknownFieldSet{get}
     func isInitialized()-> Bool
+    func build<T where T:Message>() -> T
     func mergeUnknownFields(unknownField:UnknownFieldSet) ->Self
     func mergeFromCodedInputStream(input:CodedInputStream) -> Self
     func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Self
@@ -51,7 +53,7 @@ func == (lhs: AbstractMessage, rhs: AbstractMessage) -> Bool
 class AbstractMessage:Equatable, Printable, Message {
     
     var unknownFields:UnknownFieldSet
-    init()
+    required init()
     {
         unknownFields = UnknownFieldSet(fields: Dictionary())
     }
@@ -134,6 +136,10 @@ class AbstractMessageBuilder:MessageBuilder
     }
     
     
+    func build<T where T : Message>() -> T {
+        
+        return T()
+    }
     
     func clone() -> Self
     {

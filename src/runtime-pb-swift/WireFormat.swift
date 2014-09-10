@@ -129,9 +129,9 @@ enum WireFormat:Int32
     }
     
     
-    static func computeUInt64SizeNoTag(value:Int64) -> Int32
+    static func computeUInt64SizeNoTag(value:UInt64) -> Int32
     {
-        return computeRawVarint64Size(value)
+        return computeRawVarint64Size(Int64(value))
     }
     
     static func computeInt64SizeNoTag(value:Int64) ->Int32
@@ -173,9 +173,9 @@ enum WireFormat:Int32
         return computeRawVarint32Size(Int32(value.count)) + Int32(value.count)
     }
     
-    static func computeUInt32SizeNoTag(value:Int32) -> Int32
+    static func computeUInt32SizeNoTag(value:UInt32) -> Int32
     {
-        return computeRawVarint32Size(value)
+        return computeRawVarint32Size(Int32(value))
     }
     
     static func computeEnumSizeNoTag(value:Int32) -> Int32
@@ -204,7 +204,7 @@ enum WireFormat:Int32
         return computeTagSize(fieldNumber) + computeFloatSizeNoTag(value)
     }
     
-    static func computeUInt64Size(fieldNumber:Int32, value:Int64) ->Int32
+    static func computeUInt64Size(fieldNumber:Int32, value:UInt64) ->Int32
     {
         return computeTagSize(fieldNumber) + computeUInt64SizeNoTag(value)
     }
@@ -269,7 +269,7 @@ enum WireFormat:Int32
         return computeTagSize(fieldNumber) + computeDataSizeNoTag(value);
     }
     
-    static func computeUInt32Size(fieldNumber:Int32, value:Int32) -> Int32 {
+    static func computeUInt32Size(fieldNumber:Int32, value:UInt32) -> Int32 {
         return computeTagSize(fieldNumber) + computeUInt32SizeNoTag(value);
     }
     
@@ -347,12 +347,12 @@ enum WireFormat:Int32
     static func computeMessageSetExtensionSize(fieldNumber:Int32,  value:Message) -> Int32
     {
         
-        return computeTagSize(WireFormatMessage.WireFormatMessageSetItem.toRaw()) * 2 + computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value: fieldNumber) + computeMessageSize(WireFormatMessage.WireFormatMessageSetMessage.toRaw(), value: value)
+        return computeTagSize(WireFormatMessage.WireFormatMessageSetItem.toRaw()) * 2 + computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value: UInt32(fieldNumber)) + computeMessageSize(WireFormatMessage.WireFormatMessageSetMessage.toRaw(), value: value)
     }
     
     static func computeRawMessageSetExtensionSize(fieldNumber:Int32, value:[Byte]?) -> Int32
     {
-        return computeTagSize(WireFormatMessage.WireFormatMessageSetItem.toRaw()) * 2 + computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value: fieldNumber) + computeDataSize(WireFormatMessage.WireFormatMessageSetMessage.toRaw(), value: value!)
+        return computeTagSize(WireFormatMessage.WireFormatMessageSetItem.toRaw()) * 2 + computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value: UInt32(fieldNumber)) + computeDataSize(WireFormatMessage.WireFormatMessageSetMessage.toRaw(), value: value!)
     }
     
 }

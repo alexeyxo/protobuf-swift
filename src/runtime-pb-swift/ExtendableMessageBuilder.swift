@@ -64,22 +64,22 @@ class ExtendableMessageBuilder:GeneratedMessageBuilder
     
     override func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
         
-        var message = internalGetResult
-        var wireType = WireFormat.wireFormatGetTagWireType(tag);
-        var fieldNumber:Int32 = WireFormat.wireFormatGetTagFieldNumber(tag)
-        
+//        var message = internalGetResult
+//        var wireType = WireFormat.wireFormatGetTagWireType(tag);
+//        var fieldNumber:Int32 = WireFormat.wireFormatGetTagFieldNumber(tag)
+//        
 //        var extensions = extensionRegistry.getExtension(message, fieldNumber: fieldNumber)
-
-         NSException(name:"InvalidProtocolBuffer", reason:"", userInfo: nil).raise()
-        
+//
+//         NSException(name:"InvalidProtocolBuffer", reason:"", userInfo: nil).raise()
+//        
 //        if (extensions != nil) {
 //            if (extensions.wireType == wireType) {
 //                extensions.mergeFromCodedInputStream(input, unknownFields:unknownFields, extensionRegistry:extensionRegistry, builder:self, tag:tag)
 //                return true
 //            }
 //        }
-        return super.parseUnknownField(input, unknownFields: unknownFields, extensionRegistry: extensionRegistry, tag: tag)
-//        return false
+//        return super.parseUnknownField(input, unknownFields: unknownFields, extensionRegistry: extensionRegistry, tag: tag)
+        return false
     }
     
     
@@ -88,8 +88,8 @@ class ExtendableMessageBuilder:GeneratedMessageBuilder
 //    {
 //        return internalGetResult!.getExtension(extensions)
 //    }
-//    
-//    
+////
+////    
 //    func hasExtension(extensions:ExtensionField) -> ExtendableMessage {
 //        return internalGetResult!.hasExtension(extensions)
 //    }

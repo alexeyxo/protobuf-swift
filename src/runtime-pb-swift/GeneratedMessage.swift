@@ -19,7 +19,7 @@ import Foundation
 class GeneratedMessage:AbstractMessage
 {
     var memoizedSerializedSize:Int32 = -1
-    override init()
+    required init()
     {
         super.init()
        self.unknownFields = UnknownFieldSet(fields: [:])

@@ -176,9 +176,9 @@ final class ConcreteExtensionField<T, ExtC where ExtC:ExtendableMessage>:Extensi
         case .ExtensionTypeSInt64:
             output.writeSInt64(fieldNumber, value:(value as Int64))
         case .ExtensionTypeUInt32:
-            output.writeUInt32(fieldNumber, value:(value as Int32))
+            output.writeUInt32(fieldNumber, value:(value as UInt32))
         case .ExtensionTypeUInt64:
-            output.writeUInt64(fieldNumber, value:(value as Int64))
+            output.writeUInt64(fieldNumber, value:(value as UInt64))
         case .ExtensionTypeBytes:
             output.writeData(fieldNumber, value:(value as [Byte]))
         case .ExtensionTypeString:
@@ -222,9 +222,9 @@ final class ConcreteExtensionField<T, ExtC where ExtC:ExtendableMessage>:Extensi
         case .ExtensionTypeSInt64:
             output.writeSInt64NoTag((value as Int64))
         case .ExtensionTypeUInt32:
-            output.writeUInt32NoTag((value as Int32))
+            output.writeUInt32NoTag((value as UInt32))
         case .ExtensionTypeUInt64:
-            output.writeUInt64NoTag((value as Int64))
+            output.writeUInt64NoTag((value as UInt64))
         case .ExtensionTypeBytes:
             output.writeDataNoTag((value as [Byte]))
         case .ExtensionTypeString:
@@ -266,9 +266,9 @@ final class ConcreteExtensionField<T, ExtC where ExtC:ExtendableMessage>:Extensi
         case .ExtensionTypeSInt64:
             return WireFormat.computeSInt64Size(fieldNumber, value: (value as Int64))
         case .ExtensionTypeUInt32:
-            return WireFormat.computeUInt32Size(fieldNumber, value: (value as Int32))
+            return WireFormat.computeUInt32Size(fieldNumber, value: (value as UInt32))
         case .ExtensionTypeUInt64:
-           return WireFormat.computeUInt64Size(fieldNumber, value: (value as Int64))
+           return WireFormat.computeUInt64Size(fieldNumber, value: (value as UInt64))
         case .ExtensionTypeBytes:
             return WireFormat.computeDataSize(fieldNumber, value: (value as [Byte]))
         case .ExtensionTypeString:
@@ -315,9 +315,9 @@ final class ConcreteExtensionField<T, ExtC where ExtC:ExtendableMessage>:Extensi
         case .ExtensionTypeSInt64:
             return WireFormat.computeSInt64SizeNoTag((value as Int64))
         case .ExtensionTypeUInt32:
-            return WireFormat.computeUInt32SizeNoTag((value as Int32))
+            return WireFormat.computeUInt32SizeNoTag((value as UInt32))
         case .ExtensionTypeUInt64:
-            return WireFormat.computeUInt64SizeNoTag((value as Int64))
+            return WireFormat.computeUInt64SizeNoTag((value as UInt64))
         case .ExtensionTypeBytes:
             return WireFormat.computeDataSizeNoTag((value as [Byte]))
         case .ExtensionTypeString:
@@ -462,16 +462,21 @@ final class ConcreteExtensionField<T, ExtC where ExtC:ExtendableMessage>:Extensi
     {
         
         
-//        func readExtensionsGroup(input:CodedInputStream, extensionsRegistry:ExtensionRegistry) -> ExtendableMessage
+//        func readExtensionsGroup(input:CodedInputStream, extensionsRegistry:ExtensionRegistry) -> Message
 //        {
-//            var buider:MessageBuilder = messageOrGroupClass!.buider()
+//            var buider:MessageBuilder
+//            let mg = messageOrGroupClass as AbstractMessage
+//            buider = mg.buider()
 //            input.readGroup(fieldNumber, builder: buider, extensionRegistry: extensionRegistry)
 //            return buider.build()
+//            
 //        }
 //        
-//        func readExtensionsMesssage(input:CodedInputStream, extensionsRegistry:ExtensionRegistry) -> ExtendableMessage
+//        func readExtensionsMesssage(input:CodedInputStream, extensionsRegistry:ExtensionRegistry) -> Message
 //        {
-//            var buider = messageOrGroupClass!.buider()
+//            var buider:MessageBuilder
+//            let mg = messageOrGroupClass as AbstractMessage
+//            buider = mg.buider()
 //            input.readMessage(buider, extensionRegistry: extensionsRegistry)
 //            return buider.build()
 //        }
@@ -511,9 +516,9 @@ final class ConcreteExtensionField<T, ExtC where ExtC:ExtendableMessage>:Extensi
         case .ExtensionTypeEnum:
             return input.readEnum()
 //        case .ExtensionTypeGroup:
-//            return readExtensionsGroup(input, extensionRegistry).build()
+//            return readExtensionsGroup(input, extensionRegistry)
 //        case .ExtensionTypeMessage:
-//            return readExtensionsMesssage(input, extensionRegistry).build()
+//            return readExtensionsMesssage(input, extensionRegistry)
         default:
             NSException(name:"InternalError", reason:"", userInfo: nil).raise()
     
@@ -521,13 +526,13 @@ final class ConcreteExtensionField<T, ExtC where ExtC:ExtendableMessage>:Extensi
         return ""
     }
     
-    func mergeFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32){
+    func mergeFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) {
 //        if (isPacked) {
 //            var length:Int32 = input.readRawVarint32()
 //            var limit:Int32 = input.pushLimit(length)
 //            while (input.bytesUntilLimit() > 0) {
 //                var value = readSingleValueFromCodedInputStream(input, extensionRegistry:extensionRegistry)
-//                builder.addExtension(self, value:value)
+////                builder.addExtension(self, value:value)
 //            }
 //            input.popLimit(limit)
 //        }
