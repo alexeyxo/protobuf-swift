@@ -113,7 +113,9 @@ class CodedOutputStream
     
     func writeUInt64NoTag(value:UInt64)
     {
-        writeRawVarint64(Int64(value))
+        var retvalue:Int64 = 0
+        WireFormat.convertTypes(convertValue: value, retValue: &retvalue)
+        writeRawVarint64(retvalue)
     }
     
     func writeUInt64(fieldNumber:Int32, value:UInt64)
@@ -244,7 +246,9 @@ class CodedOutputStream
     
     func writeUInt32NoTag(value:UInt32)
     {
-        writeRawVarint32(Int32(value))
+        var retvalue:Int32 = 0
+        WireFormat.convertTypes(convertValue: value, retValue: &retvalue)
+        writeRawVarint32(retvalue)
     }
     
     func writeUInt32(fieldNumber:Int32, value:UInt32)

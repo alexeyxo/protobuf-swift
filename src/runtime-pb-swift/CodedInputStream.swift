@@ -393,7 +393,9 @@ class CodedInputStream
     
     func readUInt64() -> UInt64
     {
-        return UInt64(readRawVarint64())
+        var retvalue:UInt64 = 0
+        WireFormat.convertTypes(convertValue: readRawVarint64(), retValue: &retvalue)
+        return retvalue
     }
     
     func readInt64() -> Int64
@@ -509,7 +511,11 @@ class CodedInputStream
     
     func readUInt32() -> UInt32
     {
-        return UInt32(readRawVarint32())
+        
+        var value:Int32 = readRawVarint32()
+        var retvalue:UInt32 = 0
+        WireFormat.convertTypes(convertValue: value, retValue: &retvalue)
+        return retvalue
     }
     
     func readEnum() ->Int32 {

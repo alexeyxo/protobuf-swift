@@ -131,7 +131,9 @@ enum WireFormat:Int32
     
     static func computeUInt64SizeNoTag(value:UInt64) -> Int32
     {
-        return computeRawVarint64Size(Int64(value))
+        var retvalue:Int64 = 0
+        convertTypes(convertValue: value, retValue: &retvalue)
+        return computeRawVarint64Size(retvalue)
     }
     
     static func computeInt64SizeNoTag(value:Int64) ->Int32
@@ -175,7 +177,10 @@ enum WireFormat:Int32
     
     static func computeUInt32SizeNoTag(value:UInt32) -> Int32
     {
-        return computeRawVarint32Size(Int32(value))
+
+        var retvalue:Int32 = 0
+        convertTypes(convertValue: value, retValue: &retvalue)
+        return computeRawVarint32Size(retvalue)
     }
     
     static func computeEnumSizeNoTag(value:Int32) -> Int32
