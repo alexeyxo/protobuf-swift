@@ -518,6 +518,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
   void MessageGenerator::GenerateParseFromMethodsSource(io::Printer* printer) {
     printer->Print(
+      "class func parseFromNSData(data:NSData) -> $classname$ {\n"
+      "  return $classname$.builder().mergeFromInputStream(NSInputStream(data:data)).build()\n"
+      "}\n"
+      "class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
+      "  return $classname$.builder().mergeFromInputStream(NSInputStream(data:data), extensionRegistry:extensionRegistry).build()\n"
+      "}\n"
       "class func parseFromData(data:[Byte]) -> $classname$ {\n"
       "  return $classname$.builder().mergeFromData(data).build()\n"
       "}\n"
