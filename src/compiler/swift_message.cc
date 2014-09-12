@@ -189,8 +189,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
   void MessageGenerator::DetermineDependencies(set<string>* dependencies) {
-    dependencies->insert("@class " + ClassName(descriptor_));
-    dependencies->insert("@class " + ClassName(descriptor_) + "Builder");
+//    dependencies->insert("@class " + ClassName(descriptor_));
+//    dependencies->insert("@class " + ClassName(descriptor_) + "Builder");
 
     for (int i = 0; i < descriptor_->nested_type_count(); i++) {
       MessageGenerator(descriptor_->nested_type(i)).DetermineDependencies(dependencies);
@@ -212,13 +212,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
   void MessageGenerator::GenerateSource(io::Printer* printer) {
-//    printer->Print(
-//      "@interface $classname$ ()\n",
-//      "classname", ClassName(descriptor_));
-//    for (int i = 0; i < descriptor_->field_count(); i++) {
-//      field_generators_.get(descriptor_->field(i)).GenerateExtensionSource(printer);
-//    }
-//    printer->Print("@end\n\n");
 
       scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByType(descriptor_));
 
@@ -723,13 +716,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     printer->Indent();
 
     printer->Print(
-      "var tag:Int32 = input.readTag()\n");
+      "var tag = input.readTag()\n"
+      "switch tag {\n");
     printer->Indent();
      printer->Print(
-      "if tag == 0 {\n"          // zero signals EOF / limit reached
+
+      "case 0: \n"          // zero signals EOF / limit reached
       "     self.unknownFields = unknownFieldsBuilder.build()\n"
-      "     return self"
-      "}\n"
+      "     return self\n"
+      "\n"
      );
 
     for (int i = 0; i < descriptor_->field_count(); i++) {
@@ -738,7 +733,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         WireFormat::WireTypeForField(field));
 
       printer->Print(
-        "else if tag == $tag$ {\n",
+        "case $tag$ :\n",
         "tag", SimpleItoa(tag));
       printer->Indent();
 
@@ -746,10 +741,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
       printer->Outdent();
       printer->Print(
-        "}\n");
+        "\n");
     }
      printer->Print(
-                 "else {\n"
+                 "default:\n"
                  "      if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {\n"
                  "          unknownFields = unknownFieldsBuilder.build()\n"
                  "          return self\n"
