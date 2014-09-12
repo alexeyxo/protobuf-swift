@@ -435,19 +435,43 @@ class CodedInputStream
     
     func readRawVarint32() -> Int32
     {
-        var shift:Int32 = 0
-        var result:Int32 = 0
-        while (shift < 32) {
-            var b = readRawByte()
-            result |= (Int32(b & 0x7F) << shift)
-            if ((Int32(b) & 0x80) == 0) {
+        //C++ protobuf varints
+        var b:Byte = readRawByte()
+        var result:Int32 = Int32(b)
+        if (b & 0x80) == 0 {
+            return result
+        }
+        result -= 0x80;
+        b = readRawByte()
+        result += Int32(b) <<  7
+        if (b & 0x80) == 0 {
+            return result
+        }
+        result -= (0x80 << 7)
+        b = readRawByte()
+        result += Int32(b) << 14
+        if (b & 0x80) == 0 {
+            return result
+        }
+        result -= Int32(0x80 << 14)
+        b = readRawByte()
+        result += Int32(b) << 21
+        if (b & 0x80) == 0 {
+            return result
+        }
+        result -= Int32(0x80 << 21)
+        b = readRawByte()
+        result += Int32(b) << 28
+        if (b & 0x80) == 0 {
+            return result
+        }
+        for i in 1..<5 {
+            b = readRawByte()
+            if (Int32(b) & 0x80) == 0 {
                 return result
             }
-            shift += 7;
         }
-        
-        NSException(name:"InvalidProtocolBuffer", reason:"malformedVarint", userInfo: nil).raise()
-        return 0
+        return result
     }
     
     func readRawVarint64() -> Int64
@@ -462,8 +486,6 @@ class CodedInputStream
             }
             shift += 7;
         }
-        
-        NSException(name:"InvalidProtocolBuffer", reason:"malformedVarint", userInfo: nil).raise()
         return 0
     }
     
