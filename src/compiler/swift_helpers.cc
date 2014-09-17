@@ -36,32 +36,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
   }
 
-  bool isObjectArray(const FieldDescriptor* field){
-	 switch (field->type()) {
-		  case FieldDescriptor::TYPE_STRING  :
-	      case FieldDescriptor::TYPE_BYTES   :
-	      case FieldDescriptor::TYPE_ENUM    :
-	      case FieldDescriptor::TYPE_GROUP   :
-	      case FieldDescriptor::TYPE_MESSAGE : return true;
-	      case FieldDescriptor::TYPE_INT32   :
-	      case FieldDescriptor::TYPE_UINT32  :
-	      case FieldDescriptor::TYPE_SINT32  :
-	      case FieldDescriptor::TYPE_FIXED32 :
-	      case FieldDescriptor::TYPE_SFIXED32:
-	      case FieldDescriptor::TYPE_INT64   :
-	      case FieldDescriptor::TYPE_UINT64  :
-	      case FieldDescriptor::TYPE_SINT64  :
-	      case FieldDescriptor::TYPE_FIXED64 :
-	      case FieldDescriptor::TYPE_SFIXED64:
-	      case FieldDescriptor::TYPE_FLOAT   :
-	      case FieldDescriptor::TYPE_DOUBLE  :
-	      case FieldDescriptor::TYPE_BOOL    : return false  ;
-
-	    }
-	    GOOGLE_LOG(FATAL) << "Can't get here.";
-	    return NULL;
-  }
-
 
     string UnderscoresToCapitalizedCamelCase(const string& input) {
       vector<string> values;
@@ -193,16 +167,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     } else {
       return StripSuffixString(filename, ".proto");
     }
-  }
-
-  bool IsRetainedName(const string& name) {
-    static std::string retainednames[] = { "new", "alloc", "copy", "mutableCopy" };
-    for (size_t i = 0; i < sizeof(retainednames) / sizeof(retainednames[0]); ++i) {
-      if (name.compare(0, retainednames[i].length(), retainednames[i]) == 0) {
-        return true;
-      }
-    }
-    return false;
   }
 
   bool IsBootstrapFile(const FileDescriptor* file) {
@@ -352,7 +316,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
     case FieldDescriptor::TYPE_ENUM:
       return SWIFTTYPE_ENUM;
-
+//            
+//    case FieldDescriptor::TYPE_ONEOF:
+//        return SWIFTTYPE_ONEOF;
+        
     case FieldDescriptor::TYPE_GROUP:
     case FieldDescriptor::TYPE_MESSAGE:
       return SWIFTTYPE_MESSAGE;
@@ -389,6 +356,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     case SWIFTTYPE_DOUBLE :
     case SWIFTTYPE_BOOLEAN:
     case SWIFTTYPE_ENUM   :
+//    case SWIFTTYPE_ONEOF   :
       return true;
 
     default:
@@ -440,25 +408,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       result.append("_");
     }
     return result;
-  }
-
-  string BoxValue(const FieldDescriptor* field, const string& value) {
-    switch (GetSwiftType(field)) {
-      case SWIFTTYPE_INT:
-        return "[NSNumber numberWithInteger:" + value + "]";
-      case SWIFTTYPE_LONG:
-        return "[NSNumber numberWithLongLong:" + value + "]";
-      case SWIFTTYPE_FLOAT:
-        return "[NSNumber numberWithFloat:" + value + "]";
-      case SWIFTTYPE_DOUBLE:
-        return "[NSNumber numberWithDouble:" + value + "]";
-      case SWIFTTYPE_BOOLEAN:
-        return "[NSNumber numberWithBool:" + value + "]";
-      case SWIFTTYPE_ENUM:
-        return "[NSNumber numberWithInteger:" + value + "]";
-    default:
-        return value;
-    }
   }
 
   bool AllAscii(const string& text) {

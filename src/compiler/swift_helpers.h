@@ -47,11 +47,9 @@ string StripProto(const string& filename);
 
 // Returns true if the name requires a ns_returns_not_retained attribute applied
 // to it.
-bool IsRetainedName(const string& name);
 
 bool IsBootstrapFile(const FileDescriptor* file);
 
-bool isObjectArray(const FieldDescriptor* field);
 // Gets the name of the file we're going to generate (sans the .pb.h
 // extension).  This does not include the path to that file.
 string FileName(const FileDescriptor* file);
@@ -85,6 +83,7 @@ enum SwiftType {
   SWIFTTYPE_STRING,
   SWIFTTYPE_DATA,
   SWIFTTYPE_ENUM,
+  SWIFTTYPE_ONEOF,
   SWIFTTYPE_MESSAGE
 };
 
@@ -106,7 +105,6 @@ bool ReturnsPrimitiveType(const FieldDescriptor* field);
 bool ReturnsReferenceType(const FieldDescriptor* field);
 
 string DefaultValue(const FieldDescriptor* field);
-string BoxValue(const FieldDescriptor* field, const string& value);
 
 //const char* GetArrayValueType(const FieldDescriptor* field);
 

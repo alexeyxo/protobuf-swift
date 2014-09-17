@@ -218,11 +218,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       GenerateMessageIsEqualSource(printer);
       if (descriptor_->extension_range_count() > 0) {
           printer->Print(
-                         "class $classname$ : ExtendableMessage {\n",
+                         "final class $classname$ : ExtendableMessage {\n",
                          "classname", ClassName(descriptor_));
       } else {
           printer->Print(
-                         "class $classname$ : GeneratedMessage {\n",
+                         "final class $classname$ : GeneratedMessage {\n",
                          "classname", ClassName(descriptor_));
       }
      printer->Indent();
@@ -594,18 +594,19 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
       if (descriptor_->extension_range_count() > 0) {
           printer->Print(
-                         "class $classname$Builder : ExtendableMessageBuilder {\n",
+                         "final class $classname$Builder : ExtendableMessageBuilder {\n",
                          "classname", ClassName(descriptor_));
       } else {
           printer->Print(
-                         "class $classname$Builder : GeneratedMessageBuilder {\n",
+                         "final class $classname$Builder : GeneratedMessageBuilder {\n",
                          "classname", ClassName(descriptor_));
       }
 
     printer->Print(
       "private var result:$classname$\n\n"
-      "override init () {\n"
+      "required override init () {\n"
       "   result = $classname$()\n"
+      "   super.init()\n"
       "}\n",
       "classname", ClassName(descriptor_));
   for (int i = 0; i < descriptor_->field_count(); i++) {
