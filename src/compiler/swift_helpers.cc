@@ -258,6 +258,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     name += ClassNameWorker(descriptor);
     return name;
   }
+    
+  bool isOneOfField(const FieldDescriptor* descriptor) {
+      if (descriptor->containing_oneof())
+      {
+          return true;
+          
+      }
+      return false;
+  }
 
 
   string ClassName(const EnumDescriptor* descriptor) {

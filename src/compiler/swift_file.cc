@@ -22,9 +22,11 @@
 #include <google/protobuf/io/zero_copy_stream.h>
 #include <google/protobuf/descriptor.pb.h>
 #include <google/protobuf/stubs/strutil.h>
+
 #include <sstream>
 
 #include "swift_enum.h"
+#include "swift_oneof.h"
 #include "swift_extension.h"
 #include "swift_helpers.h"
 #include "swift_message.h"
@@ -152,7 +154,9 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
       "}\n\n");
     printer->Outdent();
     printer->Outdent();
-
+//      for (int i = 0; i < file_->oneof_type_count(); i++) {
+//          EnumGenerator(file_->enum_type(i)).GenerateSource(printer);
+//      }
     for (int i = 0; i < file_->enum_type_count(); i++) {
       EnumGenerator(file_->enum_type(i)).GenerateSource(printer);
     }

@@ -50,6 +50,7 @@ string StripProto(const string& filename);
 
 bool IsBootstrapFile(const FileDescriptor* file);
 
+
 // Gets the name of the file we're going to generate (sans the .pb.h
 // extension).  This does not include the path to that file.
 string FileName(const FileDescriptor* file);
@@ -83,7 +84,7 @@ enum SwiftType {
   SWIFTTYPE_STRING,
   SWIFTTYPE_DATA,
   SWIFTTYPE_ENUM,
-  SWIFTTYPE_ONEOF,
+//  SWIFTTYPE_ONEOF,
   SWIFTTYPE_MESSAGE
 };
 
@@ -100,6 +101,7 @@ const char* BoxedPrimitiveTypeName(SwiftType type);
 
 bool IsPrimitiveType(SwiftType type);
 bool IsReferenceType(SwiftType type);
+bool isOneOfField(const FieldDescriptor* descriptor);
 
 bool ReturnsPrimitiveType(const FieldDescriptor* field);
 bool ReturnsReferenceType(const FieldDescriptor* field);

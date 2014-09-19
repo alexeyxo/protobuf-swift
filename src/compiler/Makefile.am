@@ -7,6 +7,7 @@ protoc_gen_swift_SOURCES = 	\
 	swift_enum_field.cc		\
 	swift_file.cc			\
 	swift_message_field.cc	\
+	swift_oneof.cc			\
 	swift_enum.cc			\
 	swift_generator.cc		\
 	swift_primitive_field.cc	\

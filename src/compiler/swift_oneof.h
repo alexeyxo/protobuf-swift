@@ -15,8 +15,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef swift_ENUM_H
-#define swift_ENUM_H
+#ifndef swift_ONEOF_H
+#define swift_ONEOF_H
 
 #include <string>
 #include <set>
@@ -34,24 +34,17 @@ namespace protobuf {
 namespace compiler {
 namespace swift {
 
-class EnumGenerator {
+class OneofGenerator {
  public:
-  explicit EnumGenerator(const EnumDescriptor* descriptor);
-  ~EnumGenerator();
+  explicit OneofGenerator(const OneofDescriptor* descriptor);
+  ~OneofGenerator();
 
   void GenerateSource(io::Printer* printer);
 
  private:
-  const EnumDescriptor* descriptor_;
-  vector<const EnumValueDescriptor*> canonical_values_;
+  const OneofDescriptor* descriptor_;
 
-  struct Alias {
-    const EnumValueDescriptor* value;
-    const EnumValueDescriptor* canonical_value;
-  };
-  vector<Alias> aliases_;
-
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(EnumGenerator);
+  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(OneofGenerator);
 };
 
 }  // namespace swift

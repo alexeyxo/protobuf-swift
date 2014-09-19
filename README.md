@@ -56,6 +56,29 @@ message Person {
     person.getNSData() //Return NSData
 ```
 
+## Using Oneof
+```
+message SubMessage {
+    optional string str = 1;
+}
+
+message SampleMessage {
+  oneof test_oneof {
+     string name = 4;
+     int32 id = 5;
+     SubMessage mes = 6;
+  }
+}
+```
+
+```
+     var sm = SampleMessage.builder()
+     sm.name = "Alex"
+     sm.id = 123
+     println(ss.build()) //->  id: 123
+
+```
+
 ### Credits
 
 Developer

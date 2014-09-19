@@ -69,6 +69,7 @@ class FieldGeneratorMap {
   const Descriptor* descriptor_;
   scoped_array<scoped_ptr<FieldGenerator> > field_generators_;
   scoped_array<scoped_ptr<FieldGenerator> > extension_generators_;
+  scoped_array<scoped_ptr<FieldGenerator> > oneof_generators_;
 
   static FieldGenerator* MakeGenerator(const FieldDescriptor* field);
 

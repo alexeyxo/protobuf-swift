@@ -40,7 +40,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         (*variables)["classname"]             = ClassName(descriptor->containing_type());
         (*variables)["name"]                  = UnderscoresToCamelCase(descriptor);
         (*variables)["capitalized_name"]      = UnderscoresToCapitalizedCamelCase(descriptor);
-//        (*variables)["list_name"]             = UnderscoresToCamelCase(descriptor) + "Array";
         (*variables)["number"] = SimpleItoa(descriptor->number());
         (*variables)["type"] = type;
         (*variables)["default"] = EnumValueName(default_value);
@@ -71,8 +70,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
   void EnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
       printer->Print(variables_, "private(set) var $name$:$type$ = .$default$\n");
-      printer->Print(variables_,"private(set) var has$capitalized_name$:Bool = false"
-                     "\n");
+      printer->Print(variables_,"private(set) var has$capitalized_name$:Bool = false\n");
   }
 
 
@@ -80,8 +78,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
   void EnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
   }
-
-
 
 
   void EnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {

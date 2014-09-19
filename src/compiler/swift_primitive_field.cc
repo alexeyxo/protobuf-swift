@@ -147,35 +147,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       return -1;
     }
 
-    void SetPrimitiveVariables(const FieldDescriptor* descriptor,
-      map<string, string>* variables) {
+    void SetPrimitiveVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
         std::string name = UnderscoresToCamelCase(descriptor);
         (*variables)["classname"] = ClassName(descriptor->containing_type());
         (*variables)["name"] = name;
         (*variables)["capitalized_name"] = UnderscoresToCapitalizedCamelCase(descriptor);
-//        (*variables)["list_name"] = UnderscoresToCamelCase(descriptor) + "Array";
         (*variables)["number"] = SimpleItoa(descriptor->number());
         (*variables)["type"] = PrimitiveTypeName(descriptor);
 
-//        if (IsPrimitiveType(GetSwiftType(descriptor))) {
         (*variables)["storage_type"] = PrimitiveTypeName(descriptor);
         (*variables)["storage_attribute"] = "";
-//        } else {
-//          (*variables)["storage_type"] = string(PrimitiveTypeName(descriptor));
-//          if (IsRetainedName(name)) {
-//            (*variables)["storage_attribute"] = " NS_RETURNS_NOT_RETAINED";
-//          } else {
-//            (*variables)["storage_attribute"] = "";
-//          }
-//        }
-
-
-//        if(!isObjectArray(descriptor))
-//        {
-//        (*variables)["array_value_type"] = GetArrayValueType(descriptor);
-//		(*variables)["array_value_type_name"] = GetArrayValueTypeName(descriptor);
-//        (*variables)["array_value_type_name_cap"] = GetCapitalizedArrayValueTypeName(descriptor);
-//	}
+        if (isOneOfField(descriptor)) {
+                const OneofDescriptor* oneof = descriptor->containing_oneof();
+                (*variables)["oneof_name"] = UnderscoresToCapitalizedCamelCase(oneof->name());
+        }
 
         (*variables)["default"] = DefaultValue(descriptor);
         (*variables)["capitalized_type"] = GetCapitalizedType(descriptor);
@@ -196,6 +181,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     : descriptor_(descriptor) {
       SetPrimitiveVariables(descriptor, &variables_);
   }
+    
 
 
   PrimitiveFieldGenerator::~PrimitiveFieldGenerator() {
@@ -212,10 +198,33 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
   void PrimitiveFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-         "private(set) var has$capitalized_name$:Bool = false\n"
-      );
-      printer->Print(variables_, "private(set) var $name$:$storage_type$ = $default$\n\n");
+      
+      if (isOneOfField(descriptor_)) {
+          printer->Print(variables_,"private(set) var has$capitalized_name$:Bool {\n"
+                                    "      get {\n"
+                                    "           if $oneof_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
+                                    "               return false\n"
+                                    "           }\n"
+                                    "           return true\n"
+                                    "      }\n"
+                                    "      set(newValue) {\n"
+                                    "      }\n"
+                                    "}\n");
+          
+          printer->Print(variables_,"private(set) var $name$:$storage_type$!{\n"
+                                     "     get {\n"
+                                     "          return $oneof_name$.get$capitalized_name$(storage$oneof_name$)\n"
+                                     "     }\n"
+                                     "     set (newvalue) {\n"
+                                     "          storage$oneof_name$ = $oneof_name$.$capitalized_name$(newvalue)\n"
+                                     "     }\n"
+                                     "}\n");
+      }
+      else
+      {
+          printer->Print(variables_,"private(set) var has$capitalized_name$:Bool = false\n");
+          printer->Print(variables_,"private(set) var $name$:$storage_type$ = $default$\n\n");
+      }
   }
 
 
@@ -228,26 +237,28 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
   }
 
   void PrimitiveFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
-    printer->Print(variables_,
-      "var has$capitalized_name$:Bool {\n"
-      "     get {\n"
-      "          return result.has$capitalized_name$\n"
-      "     }\n"
-      "}\n"
-      "var $name$:$storage_type$ {\n"
-      "     get {\n"
-      "          return result.$name$\n"
-      "     }\n"
-      "     set (value) {\n"
-      "         result.has$capitalized_name$ = true\n"
-      "         result.$name$ = value\n"
-      "     }\n"
-      "}\n"
-      "func clear$capitalized_name$() -> $classname$Builder{\n"
-      "     result.has$capitalized_name$ = false\n"
-      "     result.$name$ = $default$\n"
-      "     return self\n"
-      "}\n");
+
+          printer->Print(variables_,
+                         "var has$capitalized_name$:Bool {\n"
+                         "     get {\n"
+                         "          return result.has$capitalized_name$\n"
+                         "     }\n"
+                         "}\n"
+                         "var $name$:$storage_type$ {\n"
+                         "     get {\n"
+                         "          return result.$name$\n"
+                         "     }\n"
+                         "     set (value) {\n"
+                         "         result.has$capitalized_name$ = true\n"
+                         "         result.$name$ = value\n"
+                         "     }\n"
+                         "}\n"
+                         "func clear$capitalized_name$() -> $classname$Builder{\n"
+                         "     result.has$capitalized_name$ = false\n"
+                         "     result.$name$ = $default$\n"
+                         "     return self\n"
+                         "}\n");
+
   }
 
 
@@ -340,6 +351,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
   }
 
   void RepeatedPrimitiveFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
+      
+      
 		printer->Print(variables_,
 	      "var $name$:[$storage_type$] {\n"
           "     get {\n"
@@ -440,7 +453,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
 
     printer->Outdent();
-//    printer->Print("}\n");
   }
 
 

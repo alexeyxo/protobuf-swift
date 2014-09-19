@@ -29,6 +29,7 @@
 #include "swift_enum.h"
 #include "swift_extension.h"
 #include "swift_helpers.h"
+#include "swift_oneof.h"
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
 
@@ -83,7 +84,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     const FieldDescriptor** SortFieldsByType(const Descriptor* descriptor) {
       const FieldDescriptor** fields = new const FieldDescriptor*[descriptor->field_count()];
       for (int i = 0; i < descriptor->field_count(); i++) {
+          
         fields[i] = descriptor->field(i);
+      
       }
       sort(fields, fields + descriptor->field_count(), FieldOrderingByType());
       return fields;
@@ -189,10 +192,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
   void MessageGenerator::DetermineDependencies(set<string>* dependencies) {
-//    dependencies->insert("@class " + ClassName(descriptor_));
-//    dependencies->insert("@class " + ClassName(descriptor_) + "Builder");
 
     for (int i = 0; i < descriptor_->nested_type_count(); i++) {
+
       MessageGenerator(descriptor_->nested_type(i)).DetermineDependencies(dependencies);
     }
   }
@@ -226,6 +228,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                          "classname", ClassName(descriptor_));
       }
      printer->Indent();
+      
+      for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
+          
+          OneofGenerator(descriptor_->oneof_decl(i)).GenerateSource(printer);
+          printer->Print("private var storage$classname$:$classname$ =  $classname$.$classname$NotSet(0)\n","classname", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()));
+      }
+      
     for (int i = 0; i < descriptor_->field_count(); i++) {
       field_generators_.get(descriptor_->field(i)).GenerateSynthesizeSource(printer);
     }
@@ -278,7 +287,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     GenerateMessageHashSource(printer);
 
     printer->Print("}\n\n");
-
+      
     for (int i = 0; i < descriptor_->enum_type_count(); i++) {
       EnumGenerator(descriptor_->enum_type(i)).GenerateSource(printer);
     }

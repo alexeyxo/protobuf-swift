@@ -18,11 +18,12 @@
 #include "swift_field.h"
 
 #include <google/protobuf/stubs/common.h>
-
+#include <map>
 #include "swift_field.h"
 #include "swift_helpers.h"
 #include "swift_primitive_field.h"
 #include "swift_enum_field.h"
+//#include "swift_oneof.h"
 #include "swift_message_field.h"
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
@@ -34,16 +35,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
   FieldGeneratorMap::FieldGeneratorMap(const Descriptor* descriptor)
     : descriptor_(descriptor),
     field_generators_(new scoped_ptr<FieldGenerator>[descriptor->field_count()]),
-    extension_generators_(new scoped_ptr<FieldGenerator>[descriptor->extension_count()]) {
+    extension_generators_(new scoped_ptr<FieldGenerator>[descriptor->extension_count()]){
+//    oneof_generators_(new scoped_ptr<FieldGenerator>[descriptor->oneof_count()]) {
 
-      // Construct all the FieldGenerators.
       for (int i = 0; i < descriptor->field_count(); i++) {
-        field_generators_[i].reset(MakeGenerator(descriptor->field(i)));
+          field_generators_[i].reset(MakeGenerator(descriptor->field(i)));
       }
       for (int i = 0; i < descriptor->extension_count(); i++) {
         extension_generators_[i].reset(MakeGenerator(descriptor->extension(i)));
       }
-  }
+        
+    }
 
 
   FieldGenerator* FieldGeneratorMap::MakeGenerator(const FieldDescriptor* field) {

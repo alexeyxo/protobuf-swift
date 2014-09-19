@@ -17,6 +17,9 @@
 
 import Foundation
 
+
+typealias ONEOF_NOT_SET = Int
+
 protocol Message
 {
     init()

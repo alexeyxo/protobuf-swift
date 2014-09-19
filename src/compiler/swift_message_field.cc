@@ -34,7 +34,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         std::string name = UnderscoresToCamelCase(descriptor);
         (*variables)["classname"] = ClassName(descriptor->containing_type());
         (*variables)["name"] = name;
-        (*variables)["list_name"] = UnderscoresToCamelCase(descriptor) + "Array";
         (*variables)["capitalized_name"] = UnderscoresToCapitalizedCamelCase(descriptor);
         (*variables)["number"] = SimpleItoa(descriptor->number());
         (*variables)["type"] = ClassName(descriptor->message_type());
@@ -48,6 +47,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         (*variables)["group_or_message"] =
           (descriptor->type() == FieldDescriptor::TYPE_GROUP) ?
           "Group" : "Message";
+        
+        if (isOneOfField(descriptor)) {
+            const OneofDescriptor* oneof = descriptor->containing_oneof();
+            (*variables)["oneof_name"] = UnderscoresToCapitalizedCamelCase(oneof->name());
+        }
     }
   }  // namespace
 
@@ -73,13 +77,36 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
   void MessageFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
-      printer->Print(variables_, "private(set) var has$capitalized_name$:Bool = false\n");
-      printer->Print(variables_, "private(set) var $name$:$type$ = $type$()\n");
+      if (isOneOfField(descriptor_)) {
+          
+          printer->Print(variables_,"private(set) var has$capitalized_name$:Bool {\n"
+                         "      get {\n"
+                         "           if $oneof_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
+                         "               return false\n"
+                         "           }\n"
+                         "           return true\n"
+                         "      }\n"
+                         "      set(newValue) {\n"
+                         "      }\n"
+                         "}\n");
+          
+          printer->Print(variables_,"private(set) var $name$:$type$!{\n"
+                         "     get {\n"
+                         "          return $oneof_name$.get$capitalized_name$(storage$oneof_name$)\n"
+                         "     }\n"
+                         "     set (newvalue) {\n"
+                         "          storage$oneof_name$ = $oneof_name$.$capitalized_name$(newvalue)\n"
+                         "     }\n"
+                         "}\n");
+      }
+      else {
+          printer->Print(variables_, "private(set) var has$capitalized_name$:Bool = false\n");
+          printer->Print(variables_, "private(set) var $name$:$type$ = $type$()\n");
+      }
 
   }
 
   void MessageFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
-//    printer->Print(variables_, );
   }
 
   void MessageFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {

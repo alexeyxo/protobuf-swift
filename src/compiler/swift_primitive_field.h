@@ -20,7 +20,7 @@
 
 #include <map>
 #include <string>
-
+#include <google/protobuf/descriptor.h>
 #include "swift_field.h"
 
 namespace google {
