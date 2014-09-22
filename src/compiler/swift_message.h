@@ -43,6 +43,7 @@ class MessageGenerator {
   void GenerateStaticVariablesInitialization(io::Printer* printer);
   void GenerateStaticVariablesSource(io::Printer* printer);
   void GenerateSource(io::Printer* printer);
+   void GenerateMessageIsEqualSource(io::Printer* printer);
   void GenerateExtensionRegistrationSource(io::Printer* printer);
   void DetermineDependencies(set<string>* dependencies);
 
@@ -61,7 +62,7 @@ class MessageGenerator {
   void GenerateDescriptionOneExtensionRangeSource(
       io::Printer* printer, const Descriptor::ExtensionRange* range);
 
-  void GenerateMessageIsEqualSource(io::Printer* printer);
+ 
   void GenerateIsEqualOneFieldSource(io::Printer* printer,
                                  const FieldDescriptor* field);
   void GenerateIsEqualOneExtensionRangeSource(

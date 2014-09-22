@@ -69,7 +69,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
   void EnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
-      printer->Print(variables_, "private(set) var $name$:$type$ = .$default$\n");
+      printer->Print(variables_, "private(set) var $name$:$type$ = $type$.$default$\n");
       printer->Print(variables_,"private(set) var has$capitalized_name$:Bool = false\n");
   }
 
@@ -84,23 +84,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       printer->Print(variables_,
      "  var has$capitalized_name$:Bool{\n"
      "      get {\n"
-     "          return result.has$capitalized_name$\n"
+     "          return builderResult.has$capitalized_name$\n"
      "      }\n"
      "  }\n"
      "  var $name$:$type$ {\n"
      "      get {\n"
-     "          return result.$name$\n"
+     "          return builderResult.$name$\n"
      "      }\n"
      "      set (value) {\n"
-     "          result.has$capitalized_name$ = true\n"
-     "          result.$name$ = value\n"
+     "          builderResult.has$capitalized_name$ = true\n"
+     "          builderResult.$name$ = value\n"
      "      }\n"
      "  }\n");
 
     printer->Print(variables_,
       "  func clear$capitalized_name$() -> $classname$Builder {\n"
-      "     result.has$capitalized_name$ = false\n"
-      "     result.$name$ = .$default$\n"
+      "     builderResult.has$capitalized_name$ = false\n"
+      "     builderResult.$name$ = .$default$\n"
       "     return self\n"
       "  }\n");
   }
@@ -122,9 +122,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     printer->Print(variables_,
 
       "var value = input.readEnum()\n"
-      "var enums:$type$ = $type$.fromRaw(value)!\n"
-      "if ($type$.$type$IsValidValue(enums)) {\n"
-      "     $name$ = enums\n"
+      "var enumMergResult:$type$ = $type$.fromRaw(value)!\n"
+      "if ($type$.IsValidValue(enumMergResult)) {\n"
+      "     $name$ = enumMergResult\n"
       "} else {\n"
       "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(value))\n"
       "}\n");
@@ -201,21 +201,21 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       printer->Print(variables_,
                      "private var $name$MemoizedSerializedSize:Int32 = 0\n");
     printer->Print(variables_,
-      "private(set) var $name$:[$type$] = [$type$]()\n");
+      "private(set) var $name$:Array<$type$> = Array<$type$>()\n");
   }
 
   void RepeatedEnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
     printer->Print(variables_,
-      "var $name$:[$type$] {\n"
+      "var $name$:Array<$type$> {\n"
                    "    get {\n"
-                   "        return result.$name$\n"
+                   "        return builderResult.$name$\n"
                    "    }\n"
                    "    set (value) {\n"
-                   "        result.$name$ += value\n"
+                   "        builderResult.$name$ += value\n"
                    "    }\n"
       "}\n"
       "func clear$capitalized_name$() -> $classname$Builder {\n"
-      "  result.$name$.removeAll(keepCapacity: false)\n"
+      "  builderResult.$name$.removeAll(keepCapacity: false)\n"
       "  return self\n"
       "}\n");
   }
@@ -223,7 +223,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
   void RepeatedEnumFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
     printer->Print(variables_,
       "if !other.$name$.isEmpty {\n"
-      "   result.$name$ += other.$name$\n"
+      "   builderResult.$name$ += other.$name$\n"
       "}\n"
       );
   }
@@ -243,8 +243,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
     printer->Print(variables_,
       "var value:$type$ = $type$.fromRaw(input.readEnum())!\n"
-      "if $type$.$type$IsValidValue(value) {\n"
-      "     result.$name$ += [value]\n"
+      "if $type$.IsValidValue(value) {\n"
+      "     builderResult.$name$ += [value]\n"
       "} else {\n"
       "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(value.toRaw()))\n"
       "}\n");

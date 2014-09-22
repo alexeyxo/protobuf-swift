@@ -72,11 +72,32 @@ message SampleMessage {
 ```
 
 ```
-     var sm = SampleMessage.builder()
-     sm.name = "Alex"
-     sm.id = 123
-     println(ss.build()) //->  id: 123
+    var sm = SampleMessage.builder()
+    sm.name = "Alex"
+    sm.id = 123
+    println(ss.build()) //->  id: 123
+```
 
+## Nested Types
+
+```
+message SearchResponse {
+    message Result {
+        required string url = 1;
+        optional string title = 2;
+        repeated string snippets = 3;
+    }
+    repeated Result result = 1;
+}
+```
+
+```
+    var builderResult = SearchResponse.Result.builder()
+    builderResult.url = "http://protobuf.axo.io"
+    builderResult.title = "Protocol Bufers Apple Swift"
+    var searchRespons = SearchResponse.builder()
+    searchRespons.result += [builderResult.build()]
+    println(searchRespons.build())
 ```
 
 ### Credits

@@ -236,7 +236,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string name;
     if (descriptor->containing_type() != NULL) {
       name = ClassNameWorker(descriptor->containing_type());
-      name += "";
+      name += ".";
     }
     return name + descriptor->name();
   }
@@ -246,7 +246,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string name;
     if (descriptor->containing_type() != NULL) {
       name = ClassNameWorker(descriptor->containing_type());
-      name += "";
+      name += ".";
     }
     return name + descriptor->name();
   }
@@ -287,7 +287,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
   string EnumValueName(const EnumValueDescriptor* descriptor) {
     return
-      ClassName(descriptor->type()) +
       UnderscoresToCapitalizedCamelCase(SafeName(descriptor->name()));
   }
 
@@ -365,7 +364,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     case SWIFTTYPE_DOUBLE :
     case SWIFTTYPE_BOOLEAN:
     case SWIFTTYPE_ENUM   :
-//    case SWIFTTYPE_ONEOF   :
       return true;
 
     default:

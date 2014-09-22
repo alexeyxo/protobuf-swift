@@ -241,21 +241,21 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
           printer->Print(variables_,
                          "var has$capitalized_name$:Bool {\n"
                          "     get {\n"
-                         "          return result.has$capitalized_name$\n"
+                         "          return builderResult.has$capitalized_name$\n"
                          "     }\n"
                          "}\n"
                          "var $name$:$storage_type$ {\n"
                          "     get {\n"
-                         "          return result.$name$\n"
+                         "          return builderResult.$name$\n"
                          "     }\n"
                          "     set (value) {\n"
-                         "         result.has$capitalized_name$ = true\n"
-                         "         result.$name$ = value\n"
+                         "         builderResult.has$capitalized_name$ = true\n"
+                         "         builderResult.$name$ = value\n"
                          "     }\n"
                          "}\n"
                          "func clear$capitalized_name$() -> $classname$Builder{\n"
-                         "     result.has$capitalized_name$ = false\n"
-                         "     result.$name$ = $default$\n"
+                         "     builderResult.has$capitalized_name$ = false\n"
+                         "     builderResult.$name$ = $default$\n"
                          "     return self\n"
                          "}\n");
 
@@ -344,7 +344,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
   void RepeatedPrimitiveFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
 
-      printer->Print(variables_, "private(set) var $name$:[$storage_type$] = [$storage_type$]()\n");
+      printer->Print(variables_, "private(set) var $name$:Array<$storage_type$> = Array<$storage_type$>()\n");
       if (descriptor_->options().packed()) {
           printer->Print(variables_,"private var $name$MemoizedSerializedSize:Int32 = -1\n");
       }
@@ -354,16 +354,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       
       
 		printer->Print(variables_,
-	      "var $name$:[$storage_type$] {\n"
+	      "var $name$:Array<$storage_type$> {\n"
           "     get {\n"
-          "         return result.$name$\n"
+          "         return builderResult.$name$\n"
           "     }\n"
           "     set (array) {\n"
-          "         result.$name$ = array\n"
+          "         builderResult.$name$ = array\n"
           "     }\n"
 	      "}\n"
 	      "func clear$capitalized_name$() -> $classname$Builder {\n"
-	      "   result.$name$.removeAll(keepCapacity: false)\n"
+	      "   builderResult.$name$.removeAll(keepCapacity: false)\n"
 	      "   return self\n"
 	      "}\n");
   }
@@ -371,7 +371,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
   void RepeatedPrimitiveFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
    	 printer->Print(variables_,
 	      "if !other.$name$.isEmpty {\n"
-	      "    result.$name$ += other.$name$\n"
+	      "    builderResult.$name$ += other.$name$\n"
 	      "}\n");
   }
 
@@ -387,7 +387,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                          "var length:Int32 = input.readRawVarint32()\n"
                          "var limit:Int32 = input.pushLimit(length)\n"
                          "while (input.bytesUntilLimit() > 0) {\n"
-                         "  result.$name$ += [input.read$capitalized_type$()]\n"
+                         "  builderResult.$name$ += [input.read$capitalized_type$()]\n"
                          "}\n"
                          "input.popLimit(limit)\n");
       }

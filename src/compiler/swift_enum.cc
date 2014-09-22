@@ -57,7 +57,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
       printer->Print(
                      "enum $classname$:Int32 {\n",
-                     "classname",ClassName(descriptor_));
+                     "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
       printer->Indent();
 
       for (int i = 0; i < canonical_values_.size(); i++) {
@@ -69,10 +69,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       printer->Print("\n");
 
     printer->Print(
-      "static func $classname$IsValidValue(value:$classname$) ->Bool {\n"
+      "static func IsValidValue(value:$classname$) ->Bool {\n"
       "  switch value {\n"
       "    case .$name$",
-      "classname", ClassName(descriptor_),
+      "classname", UnderscoresToCapitalizedCamelCase(descriptor_->name()),
       "name", EnumValueName(canonical_values_[0]));
 
     for (int i = 1; i < canonical_values_.size(); i++) {

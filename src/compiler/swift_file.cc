@@ -154,14 +154,21 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
       "}\n\n");
     printer->Outdent();
     printer->Outdent();
-//      for (int i = 0; i < file_->oneof_type_count(); i++) {
-//          EnumGenerator(file_->enum_type(i)).GenerateSource(printer);
-//      }
+
     for (int i = 0; i < file_->enum_type_count(); i++) {
-      EnumGenerator(file_->enum_type(i)).GenerateSource(printer);
+        EnumGenerator(file_->enum_type(i)).GenerateSource(printer);
     }
+    
     for (int i = 0; i < file_->message_type_count(); i++) {
-      MessageGenerator(file_->message_type(i)).GenerateSource(printer);
+       
+        for (int j = 0; j < file_->message_type(i)->nested_type_count(); j++) {
+            MessageGenerator(file_->message_type(i)->nested_type(j)).GenerateMessageIsEqualSource(printer);
+        }
+        MessageGenerator(file_->message_type(i)).GenerateMessageIsEqualSource(printer);
+    }
+      
+    for (int i = 0; i < file_->message_type_count(); i++) {
+        MessageGenerator(file_->message_type(i)).GenerateSource(printer);
     }
 
     printer->Print(
