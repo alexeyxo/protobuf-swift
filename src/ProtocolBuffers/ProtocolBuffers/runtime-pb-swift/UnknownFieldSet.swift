@@ -17,25 +17,25 @@
 
 import Foundation
 
-func == (lhs: UnknownFieldSet, rhs: UnknownFieldSet) -> Bool
+public func == (lhs: UnknownFieldSet, rhs: UnknownFieldSet) -> Bool
 {
     return lhs.fields == rhs.fields
 }
 
-class UnknownFieldSet:Hashable,Equatable
+public class UnknownFieldSet:Hashable,Equatable
 {
     var fields:Dictionary<Int32,Field>
 
-    convenience init()
+    convenience public init()
     {
         self.init(fields: Dictionary())
     }
    
-    init(fields:Dictionary<Int32,Field>)
+    public init(fields:Dictionary<Int32,Field>)
     {
         self.fields = fields
     }
-    var hashValue:Int
+    public var hashValue:Int
     {
         get {
             return 0
@@ -43,14 +43,14 @@ class UnknownFieldSet:Hashable,Equatable
         
     }
     
-    func hasField(number:Int32) -> Bool
+    public func hasField(number:Int32) -> Bool
     {
         if let unwrappedValue = fields[number] {
             return true
         }
         return false
     }
-    func getField(number:Int32) -> Field
+    public func getField(number:Int32) -> Field
     {
         if let field = fields[number]
         {
@@ -58,7 +58,7 @@ class UnknownFieldSet:Hashable,Equatable
         }
         return Field()
     }
-    func writeToCodedOutputStream(output:CodedOutputStream)
+    public func writeToCodedOutputStream(output:CodedOutputStream)
     {
 
         var sortedKeys = Array(fields.keys)
@@ -69,14 +69,14 @@ class UnknownFieldSet:Hashable,Equatable
         }
     }
     
-    func writeToOutputStream(output:NSOutputStream)
+    public func writeToOutputStream(output:NSOutputStream)
     {
         let codedOutput:CodedOutputStream = CodedOutputStream(output: output)
         writeToCodedOutputStream(codedOutput)
         codedOutput.flush()
     }
     
-    func writeDescriptionTo(inout output:String, indent:String)
+    public func writeDescriptionTo(inout output:String, indent:String)
     {
         var sortedKeys = fields.keys
         for number in sortedKeys
@@ -86,33 +86,33 @@ class UnknownFieldSet:Hashable,Equatable
         }
     }
     
-    class func builder() -> UnknownFieldSetBuilder {
+    public class func builder() -> UnknownFieldSetBuilder {
         return UnknownFieldSetBuilder()
     }
     
-    class func parseFromCodedInputStream(input:CodedInputStream) -> UnknownFieldSet {
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> UnknownFieldSet {
         return UnknownFieldSet.builder().mergeFromCodedInputStream(input).build()
     }
     
     
-    class func parseFromData(data:[Byte]) -> UnknownFieldSet {
+    public class func parseFromData(data:[Byte]) -> UnknownFieldSet {
         return UnknownFieldSet.builder().mergeFromData(data).build()
     }
     
     
-    class func parseFromInputStream(input:NSInputStream) -> UnknownFieldSet
+    public class func parseFromInputStream(input:NSInputStream) -> UnknownFieldSet
     {
         return UnknownFieldSet.builder().mergeFromInputStream(input).build()
     }
     
 
     
-    class func builderWithUnknownFields(copyFrom:UnknownFieldSet) -> UnknownFieldSetBuilder
+    public class func builderWithUnknownFields(copyFrom:UnknownFieldSet) -> UnknownFieldSetBuilder
     {
         return UnknownFieldSet.builder().mergeUnknownFields(copyFrom)
     }
     
-    func serializedSize()->Int32
+    public func serializedSize()->Int32
     {
         var result:Int32 = 0
         for number in fields.keys
@@ -123,7 +123,7 @@ class UnknownFieldSet:Hashable,Equatable
         return result
     }
     
-    func writeAsMessageSetTo(output:CodedOutputStream)
+    public func writeAsMessageSetTo(output:CodedOutputStream)
     {
         for number in fields.keys
         {
@@ -132,7 +132,7 @@ class UnknownFieldSet:Hashable,Equatable
         }
     }
     
-    func serializedSizeAsMessageSet() -> Int32
+    public func serializedSizeAsMessageSet() -> Int32
     {
         var result:Int32 = 0
         for number in fields.keys
@@ -143,7 +143,7 @@ class UnknownFieldSet:Hashable,Equatable
         return result
     }
     
-    func data() ->[Byte]
+    public func data() ->[Byte]
     {
         var bytes:[Byte] = [Byte](count:Int(serializedSize()), repeatedValue: 0)
         var output:CodedOutputStream = CodedOutputStream(data: bytes)

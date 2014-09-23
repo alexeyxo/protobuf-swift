@@ -16,13 +16,13 @@
 // limitations under the License.
 
 import Foundation
-class Field:NSObject
+final public class Field:NSObject
 {
-    var variantArray:Array<Int64>
-    var fixed32Array:Array<Int32>
-    var fixed64Array:Array<Int64>
-    var lengthDelimited:Array<Array<Byte>>
-    var groupArray:Array<UnknownFieldSet>
+    public var variantArray:Array<Int64>
+    public var fixed32Array:Array<Int32>
+    public var fixed64Array:Array<Int64>
+    public var lengthDelimited:Array<Array<Byte>>
+    public var groupArray:Array<UnknownFieldSet>
     
     override init()
     {
@@ -35,7 +35,7 @@ class Field:NSObject
         super.init()
     }
     
-    func getSerializedSize(fieldNumber:Int32) -> Int32
+    public func getSerializedSize(fieldNumber:Int32) -> Int32
     {
         var result:Int32 = 0
         
@@ -66,7 +66,7 @@ class Field:NSObject
         return result
     }
     
-    func getSerializedSizeAsMessageSetExtension(fieldNumber:Int32) -> Int32 {
+    public func getSerializedSizeAsMessageSetExtension(fieldNumber:Int32) -> Int32 {
         var result:Int32 = 0
         for value in lengthDelimited {
             result += WireFormat.computeRawMessageSetExtensionSize(fieldNumber, value:value)
@@ -74,7 +74,7 @@ class Field:NSObject
         return result
     }
     
-    func writeTo(fieldNumber:Int32, output:CodedOutputStream)
+    public func writeTo(fieldNumber:Int32, output:CodedOutputStream)
     {
 
         for (var i:Int = 0; i < variantArray.count; ++i)
@@ -100,7 +100,7 @@ class Field:NSObject
 
     }
     
-    func writeDescriptionFor(fieldNumber:Int32,  inout outputString:String, indent:String)
+    public func writeDescriptionFor(fieldNumber:Int32,  inout outputString:String, indent:String)
     {
         
         for (var i:Int = 0; i < variantArray.count; ++i)
@@ -133,7 +133,7 @@ class Field:NSObject
 
     }
     
-    func writeAsMessageSetExtensionTo(fieldNumber:Int32, output:CodedOutputStream)
+    public func writeAsMessageSetExtensionTo(fieldNumber:Int32, output:CodedOutputStream)
     {
         for value in lengthDelimited
         {
@@ -142,9 +142,9 @@ class Field:NSObject
     }
 }
 
-extension Field
+public extension Field
 {
-    func clear()
+    public func clear()
     {
         variantArray.removeAll(keepCapacity: false)
         fixed32Array.removeAll(keepCapacity: false)
@@ -153,7 +153,7 @@ extension Field
         lengthDelimited.removeAll(keepCapacity: false)
     }
     
-    func mergeFromField(other:Field) -> Field
+    public func mergeFromField(other:Field) -> Field
     {
         if (other.variantArray.count > 0)
         {

@@ -26,7 +26,7 @@ This project is based on an implementation of Protocol Buffers from Google.  See
 
 6.`./build.sh`
 
-7.Add `/src/runtime-pb-swift/` folder in your project.
+7.Add `/src/ProtocolBuffers/ProtocolBuffers.xcodeproj` in your project.
 
 
 

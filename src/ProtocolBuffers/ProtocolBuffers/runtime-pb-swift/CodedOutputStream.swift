@@ -19,42 +19,42 @@ import Foundation
 
 var DEFAULT_BUFFER_SIZE:Int32 = 4 * 1024
 
-class CodedOutputStream
+public class CodedOutputStream
 {
-    var output:NSOutputStream?
+    private var output:NSOutputStream!
     var buffer:RingBuffer
     
-    init (output aOutput:NSOutputStream?, data:[Byte])
+    public init (output aOutput:NSOutputStream!, data:[Byte])
     {
         output = aOutput
         buffer = RingBuffer(data:data)
     }
   
-    init(output aOutput:NSOutputStream?, bufferSize:Int32?)
+    public init(output aOutput:NSOutputStream!, bufferSize:Int32?)
     {
         var data = [Byte](count: Int(bufferSize!), repeatedValue: 0)
         output = aOutput
         buffer = RingBuffer(data: data)
     }
    
-    init(output:NSOutputStream?)
+    public init(output:NSOutputStream?)
     {
         var data = [Byte](count: Int(DEFAULT_BUFFER_SIZE), repeatedValue: 0)
         self.output = output
         buffer = RingBuffer(data: data)
     }
     
-    init(data aData:[Byte]?)
+    public init(data aData:[Byte])
     {
-        buffer = RingBuffer(data: aData!)
+        buffer = RingBuffer(data: aData)
     }
     
-    func flush()
+    public func flush()
     {
         buffer.flushToOutputStream(output!)
     }
    
-    func writeRawByte(byte aByte:Byte)
+    public func writeRawByte(byte aByte:Byte)
     {
         while (!buffer.appendByte(byte: aByte))
         {
@@ -62,12 +62,12 @@ class CodedOutputStream
         }
     }
     
-    func writeRawData(data:[Byte])
+    public func writeRawData(data:[Byte])
     {
         writeRawData(data, offset:0, length: Int32(data.count))
     
     }
-    func writeRawData(data:[Byte], var offset aOffset:Int32, var length aLength:Int32)
+    public func writeRawData(data:[Byte], var offset aOffset:Int32, var length aLength:Int32)
     {
         while (aLength > 0)
         {
@@ -83,7 +83,7 @@ class CodedOutputStream
     
   
     
-    func writeDoubleNoTag(value:Double)
+    public func writeDoubleNoTag(value:Double)
     {
         var convertValue = value
         var returnValue:Int64 = 0
@@ -91,13 +91,13 @@ class CodedOutputStream
         writeRawLittleEndian64(returnValue)
     }
     
-    func writeDouble(fieldNumber:Int32, value aValue:Double)
+    public func writeDouble(fieldNumber:Int32, value aValue:Double)
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatFixed64)
         writeDoubleNoTag(aValue)
     }
     
-    func writeFloatNoTag(value:Float)
+    public func writeFloatNoTag(value:Float)
     {
         var convertValue = value
         var returnValue:Int32 = 0
@@ -105,37 +105,37 @@ class CodedOutputStream
         writeRawLittleEndian32(returnValue)
     }
     
-    func writeFloat(fieldNumber:Int32, value aValue:Float)
+    public func writeFloat(fieldNumber:Int32, value aValue:Float)
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatFixed32)
         writeFloatNoTag(aValue)
     }
     
-    func writeUInt64NoTag(value:UInt64)
+    public func writeUInt64NoTag(value:UInt64)
     {
         var retvalue:Int64 = 0
         WireFormat.convertTypes(convertValue: value, retValue: &retvalue)
         writeRawVarint64(retvalue)
     }
     
-    func writeUInt64(fieldNumber:Int32, value:UInt64)
+    public func writeUInt64(fieldNumber:Int32, value:UInt64)
     {
         writeTag(fieldNumber, format:WireFormat.WireFormatVarint)
         writeUInt64NoTag(value)
     }
     
-    func writeInt64NoTag(value:Int64)
+    public func writeInt64NoTag(value:Int64)
     {
         writeRawVarint64(value)
     }
     
-    func writeInt64(fieldNumber:Int32, value aValue:Int64)
+    public func writeInt64(fieldNumber:Int32, value aValue:Int64)
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatVarint)
         writeInt64NoTag(aValue)
     }
     
-    func writeInt32NoTag(value:Int32)
+    public func writeInt32NoTag(value:Int32)
     {
         if (value >= 0) {
             writeRawVarint32(value)
@@ -145,46 +145,46 @@ class CodedOutputStream
         }
     }
     
-    func writeInt32(fieldNumber:Int32, value:Int32)
+    public func writeInt32(fieldNumber:Int32, value:Int32)
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatVarint)
         writeInt32NoTag(value)
     }
     
-    func writeFixed64NoTag(value:Int64)
+    public func writeFixed64NoTag(value:Int64)
     {
         writeRawLittleEndian64(value)
     }
     
-    func writeFixed64(fieldNumber:Int32, value:Int64)
+    public func writeFixed64(fieldNumber:Int32, value:Int64)
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatFixed64)
         writeFixed64NoTag(value)
     }
     
-    func writeFixed32NoTag(value:Int32)
+    public func writeFixed32NoTag(value:Int32)
     {
         writeRawLittleEndian32(value)
     }
     
-    func writeFixed32(fieldNumber:Int32, value:Int32)
+    public func writeFixed32(fieldNumber:Int32, value:Int32)
     {
         writeTag(fieldNumber, format:WireFormat.WireFormatFixed32)
         writeFixed32NoTag(value)
     }
     
-    func writeBoolNoTag(value:Bool)
+    public func writeBoolNoTag(value:Bool)
     {
         writeRawByte(byte: value ? 1 : 0)
     }
     
-    func writeBool(fieldNumber:Int32, value:Bool)
+    public func writeBool(fieldNumber:Int32, value:Bool)
     {
         writeTag(fieldNumber, format:WireFormat.WireFormatVarint)
         writeBoolNoTag(value)
     }
     
-    func writeStringNoTag(value:String)
+    public func writeStringNoTag(value:String)
     {        
         var result:[Byte] = [Byte]()
         result += value.utf8
@@ -192,125 +192,126 @@ class CodedOutputStream
         writeRawData(result)
     }
     
-    func writeString(fieldNumber:Int32, value:String)
+    public func writeString(fieldNumber:Int32, value:String)
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatLengthDelimited)
         writeStringNoTag(value)
     }
     
-    func writeGroupNoTag(fieldNumber:Int32, value:Message)
+    public func writeGroupNoTag(fieldNumber:Int32, value:Message)
     {
         value.writeToCodedOutputStream(self)
         writeTag(fieldNumber, format: WireFormat.WireFormatEndGroup)
     }
     
-    func writeGroup(fieldNumber:Int32, value:Message)
+    public func writeGroup(fieldNumber:Int32, value:Message)
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatStartGroup)
         writeGroupNoTag(fieldNumber, value: value)
     }
     
-    func writeUnknownGroupNoTag(fieldNumber:Int32, value:UnknownFieldSet) {
+    public func writeUnknownGroupNoTag(fieldNumber:Int32, value:UnknownFieldSet) {
         value.writeToCodedOutputStream(self)
         writeTag(fieldNumber, format:WireFormat.WireFormatEndGroup)
     }
-    func writeUnknownGroup(fieldNumber:Int32, value:UnknownFieldSet)
+    
+    public func writeUnknownGroup(fieldNumber:Int32, value:UnknownFieldSet)
     {
         writeTag(fieldNumber, format:WireFormat.WireFormatStartGroup)
         writeUnknownGroupNoTag(fieldNumber, value:value)
     }
     
-    func writeMessageNoTag(value:Message)
+    public func writeMessageNoTag(value:Message)
     {
         writeRawVarint32(value.serializedSize())
         value.writeToCodedOutputStream(self)
     }
     
-    func writeMessage(fieldNumber:Int32, value:Message)
+    public func writeMessage(fieldNumber:Int32, value:Message)
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatLengthDelimited)
         writeMessageNoTag(value)
     }
     
-    func writeDataNoTag(data:[Byte]?)
+    public func writeDataNoTag(data:[Byte]?)
     {
         writeRawVarint32(Int32(data!.count))
         writeRawData(data!)
     }
     
-    func writeData(fieldNumber:Int32, value:[Byte]?)
+    public func writeData(fieldNumber:Int32, value:[Byte]?)
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatLengthDelimited)
         writeDataNoTag(value)
     }
     
-    func writeUInt32NoTag(value:UInt32)
+    public func writeUInt32NoTag(value:UInt32)
     {
         var retvalue:Int32 = 0
         WireFormat.convertTypes(convertValue: value, retValue: &retvalue)
         writeRawVarint32(retvalue)
     }
     
-    func writeUInt32(fieldNumber:Int32, value:UInt32)
+    public func writeUInt32(fieldNumber:Int32, value:UInt32)
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatVarint)
         writeUInt32NoTag(value)
     }
     
-    func writeEnumNoTag(value:Int32)
+    public func writeEnumNoTag(value:Int32)
     {
         writeRawVarint32(value)
     }
     
-    func writeEnum(fieldNumber:Int32, value:Int32)
+    public func writeEnum(fieldNumber:Int32, value:Int32)
     {
         writeTag(fieldNumber, format:WireFormat.WireFormatVarint)
         writeEnumNoTag(value)
     }
     
-    func writeSFixed32NoTag(value:Int32)
+    public func writeSFixed32NoTag(value:Int32)
     {
         writeRawLittleEndian32(value)
     }
     
-    func writeSFixed32(fieldNumber:Int32, value:Int32)
+    public func writeSFixed32(fieldNumber:Int32, value:Int32)
     {
         writeTag(fieldNumber, format:WireFormat.WireFormatFixed32)
         writeSFixed32NoTag(value)
     }
 
-    func writeSFixed64NoTag(value:Int64)
+    public func writeSFixed64NoTag(value:Int64)
     {
         writeRawLittleEndian64(value)
     }
     
-    func writeSFixed64(fieldNumber:Int32, value:Int64)
+    public func writeSFixed64(fieldNumber:Int32, value:Int64)
     {
         writeTag(fieldNumber, format:WireFormat.WireFormatFixed64)
         writeSFixed64NoTag(value)
     }
     
-    func writeSInt32NoTag(value:Int32) {
+    public func writeSInt32NoTag(value:Int32) {
         writeRawVarint32(WireFormat.encodeZigZag32(value));
     }
     
-    func writeSInt32(fieldNumber:Int32, value:Int32)
+    public func writeSInt32(fieldNumber:Int32, value:Int32)
     {
         writeTag(fieldNumber, format:WireFormat.WireFormatVarint)
         writeSInt32NoTag(value)
     }
     
-    func writeSInt64NoTag(value:Int64) {
+    public func writeSInt64NoTag(value:Int64) {
         writeRawVarint64(WireFormat.encodeZigZag64(value));
     }
     
-    func writeSInt64(fieldNumber:Int32, value:Int64)
+    public func writeSInt64(fieldNumber:Int32, value:Int64)
     {
         writeTag(fieldNumber, format:WireFormat.WireFormatVarint)
         writeSInt64NoTag(value)
     }
     
-    func writeMessageSetExtension(fieldNumber:Int32, value:Message)
+    public func writeMessageSetExtension(fieldNumber:Int32, value:Message)
     {
         writeTag(WireFormatMessage.WireFormatMessageSetItem.toRaw(), format:WireFormat.WireFormatStartGroup)
         writeUInt32(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value:UInt32(fieldNumber))
@@ -318,7 +319,7 @@ class CodedOutputStream
         writeTag(WireFormatMessage.WireFormatMessageSetItem.toRaw(), format:WireFormat.WireFormatEndGroup)
     }
     
-    func writeRawMessageSetExtension(fieldNumber:Int32, value:[Byte]?)
+    public func writeRawMessageSetExtension(fieldNumber:Int32, value:[Byte]?)
     {
         writeTag(WireFormatMessage.WireFormatMessageSetItem.toRaw(), format:WireFormat.WireFormatStartGroup)
         writeUInt32(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value:UInt32(fieldNumber))
@@ -326,12 +327,12 @@ class CodedOutputStream
         writeTag(WireFormatMessage.WireFormatMessageSetItem.toRaw(), format:WireFormat.WireFormatEndGroup)
     }
     
-    func writeTag(fieldNumber:Int32, format:WireFormat)
+    public func writeTag(fieldNumber:Int32, format:WireFormat)
     {
         writeRawVarint32(format.wireFormatMakeTag(fieldNumber))
     }
     
-    func writeRawLittleEndian32(value:Int32)
+    public func writeRawLittleEndian32(value:Int32)
     {
         writeRawByte(byte:Byte(value & 0xFF))
         writeRawByte(byte:Byte((value >> 8) & 0xFF))
@@ -339,7 +340,7 @@ class CodedOutputStream
         writeRawByte(byte:Byte((value >> 24) & 0xFF))
     }
     
-    func writeRawLittleEndian64(value:Int64)
+    public func writeRawLittleEndian64(value:Int64)
     {
         writeRawByte(byte:Byte(value & 0xFF))
         writeRawByte(byte:Byte((value >> 8) & 0xFF))
@@ -352,7 +353,7 @@ class CodedOutputStream
     }
     
     
-    func writeRawVarint32(var value:Int32) {
+    public func writeRawVarint32(var value:Int32) {
         while (true) {
             if ((value & ~0x7F) == 0) {
                 writeRawByte(byte:Byte(value))
@@ -365,11 +366,11 @@ class CodedOutputStream
         }
     }
     
-    func writeRawVarint64(var value:Int64) {
+    public func writeRawVarint64(var value:Int64) {
         while (true) {
             if ((value & ~0x7F) == 0) {
                 writeRawByte(byte:Byte(value))
-                return;
+                break;
             } else {
                 writeRawByte(byte: Byte((value & 0x7F) | 0x80))
                 value = WireFormat.logicalRightShift64(value: value, spaces: 7)

@@ -8,6 +8,7 @@
 
 import Foundation
 import XCTest
+import ProtocolBuffers
 internal class CodedOuputStreamTests: XCTestCase
 {
     func openMemoryStream() ->NSOutputStream {

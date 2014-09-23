@@ -17,7 +17,7 @@
 
 import Foundation
 
-enum ExtensionType : Int32 {
+public enum ExtensionType : Int32 {
     case ExtensionTypeBool
     case ExtensionTypeFixed32
     case ExtensionTypeSFixed32

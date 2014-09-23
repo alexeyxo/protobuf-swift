@@ -18,9 +18,9 @@
 import Foundation
 
 
-typealias ONEOF_NOT_SET = Int
+public typealias ONEOF_NOT_SET = Int
 
-protocol Message
+public protocol Message
 {
     init()
     var unknownFields:UnknownFieldSet{get}
@@ -34,34 +34,34 @@ protocol Message
     var description:String {get}
 }
 
-protocol MessageBuilder
+public protocol MessageBuilder
 {
-    func clear() -> Self
-    var unknownFields:UnknownFieldSet{get}
-    func isInitialized()-> Bool
-    func build<T where T:Message>() -> T
-    func mergeUnknownFields(unknownField:UnknownFieldSet) ->Self
-    func mergeFromCodedInputStream(input:CodedInputStream) -> Self
-    func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Self
-    func mergeFromData(data:[Byte]) -> Self
-    func mergeFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Self
-    func mergeFromInputStream(input:NSInputStream) -> Self
-    func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Self
+     func clear() -> Self
+     var unknownFields:UnknownFieldSet{get}
+     func isInitialized()-> Bool
+     func build<T where T:Message>() -> T
+     func mergeUnknownFields(unknownField:UnknownFieldSet) ->Self
+     func mergeFromCodedInputStream(input:CodedInputStream) -> Self
+     func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Self
+     func mergeFromData(data:[Byte]) -> Self
+     func mergeFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Self
+     func mergeFromInputStream(input:NSInputStream) -> Self
+     func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Self
 }
 
-func == (lhs: AbstractMessage, rhs: AbstractMessage) -> Bool
+public func == (lhs: AbstractMessage, rhs: AbstractMessage) -> Bool
 {
     return true;
 }
-class AbstractMessage:Equatable, Printable, Message {
+public class AbstractMessage:Equatable, Printable, Message {
     
-    var unknownFields:UnknownFieldSet
-    required init()
+    public var unknownFields:UnknownFieldSet
+    required public init()
     {
         unknownFields = UnknownFieldSet(fields: Dictionary())
     }
     
-    var description:String {
+    public var description:String {
         get {
             var output:String = ""
             writeDescriptionTo(&output, indent:"")
@@ -69,12 +69,12 @@ class AbstractMessage:Equatable, Printable, Message {
     
         }
     }
-    func writeDescriptionTo(inout output:String, indent:String)
+    public func writeDescriptionTo(inout output:String, indent:String)
     {
         
     }
     
-    func data() -> [Byte]
+    public func data() -> [Byte]
     {
         var size = serializedSize()
         let data:[Byte] = [Byte](count: Int(size), repeatedValue: 0)
@@ -82,38 +82,34 @@ class AbstractMessage:Equatable, Printable, Message {
         writeToCodedOutputStream(stream)
         return stream.buffer.buffer
     }
-    func isInitialized() -> Bool
+    public func isInitialized() -> Bool
     {
         return false
     }
-    func serializedSize() -> Int32
+    public func serializedSize() -> Int32
     {
         return 0
     }
-    func writeToCodedOutputStream(output: CodedOutputStream)
+    public func writeToCodedOutputStream(output: CodedOutputStream)
     {
         println("failed")
     }
-    func writeToOutputStream(output: NSOutputStream)
+    public func writeToOutputStream(output: NSOutputStream)
     {
         var codedOutput:CodedOutputStream = CodedOutputStream(output:output)
         writeToCodedOutputStream(codedOutput)
         codedOutput.flush()
     }
-    func defaultInstance() -> Message
-    {
-        return AbstractMessage()
-    }
-    func buider() -> MessageBuilder
+    public func buider() -> MessageBuilder
     {
         return AbstractMessageBuilder()
     }
-    func toBuider() -> MessageBuilder
+    public func toBuider() -> MessageBuilder
     {
         return AbstractMessageBuilder()
     }
     
-    var hashValue: Int {
+    public var hashValue: Int {
         get {
             return 0
         }
@@ -130,54 +126,54 @@ extension AbstractMessage
     }
 }
 
-class AbstractMessageBuilder:MessageBuilder
+public class AbstractMessageBuilder:MessageBuilder
 {
-    var unknownFields:UnknownFieldSet
-    init()
+    public var unknownFields:UnknownFieldSet
+    public init()
     {
         unknownFields = UnknownFieldSet(fields:Dictionary())
     }
     
     
-    func build<T where T : Message>() -> T {
+    public func build<T where T : Message>() -> T {
         
         return T()
     }
     
-    func clone() -> Self
+    public func clone() -> Self
     {
         return self
     }
-    func clear() -> Self
+    public func clear() -> Self
     {
         return self
     }
     
-    func isInitialized() -> Bool
+    public func isInitialized() -> Bool
     {
         return false
     }
     
-    func mergeFromCodedInputStream(input:CodedInputStream) -> Self
+    public func mergeFromCodedInputStream(input:CodedInputStream) -> Self
     {
         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     
-    func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Self
+    public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Self
     {
         NSException(name:"ImproperSubclassing", reason:"", userInfo: nil).raise()
         return  self
     }
 
     
-    func mergeUnknownFields(unknownField:UnknownFieldSet) -> Self
+    public func mergeUnknownFields(unknownField:UnknownFieldSet) -> Self
     {
         var merged:UnknownFieldSet = UnknownFieldSet.builderWithUnknownFields(unknownFields).mergeUnknownFields(unknownField).build()
         unknownFields = merged
         return self
     }
     
-    func mergeFromData(data:[Byte]) -> Self
+    public func mergeFromData(data:[Byte]) -> Self
     {
         let input:CodedInputStream = CodedInputStream(data:data)
         mergeFromCodedInputStream(input)
@@ -186,7 +182,7 @@ class AbstractMessageBuilder:MessageBuilder
     }
     
     
-    func mergeFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Self
+    public func mergeFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Self
     {
         var input:CodedInputStream = CodedInputStream(data:data)
         mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry)
@@ -194,14 +190,14 @@ class AbstractMessageBuilder:MessageBuilder
         return self
     }
     
-    func mergeFromInputStream(input:NSInputStream) -> Self
+    public func mergeFromInputStream(input:NSInputStream) -> Self
     {
         var codedInput:CodedInputStream = CodedInputStream(inputStream: input)
         mergeFromCodedInputStream(codedInput)
         codedInput.checkLastTagWas(0)
         return self
     }
-    func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Self
+    public func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Self
     {
         var codedInput:CodedInputStream = CodedInputStream(inputStream: input)
         mergeFromCodedInputStream(codedInput, extensionRegistry:extensionRegistry)

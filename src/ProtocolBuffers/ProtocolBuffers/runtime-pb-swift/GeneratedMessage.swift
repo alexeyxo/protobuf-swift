@@ -16,10 +16,10 @@
 // limitations under the License.
 
 import Foundation
-class GeneratedMessage:AbstractMessage
+public class GeneratedMessage:AbstractMessage
 {
-    var memoizedSerializedSize:Int32 = -1
-    required init()
+    public var memoizedSerializedSize:Int32 = -1
+    required public init()
     {
         super.init()
        self.unknownFields = UnknownFieldSet(fields: [:])
@@ -28,9 +28,9 @@ class GeneratedMessage:AbstractMessage
 
 
 
-class GeneratedMessageBuilder:AbstractMessageBuilder
+public class GeneratedMessageBuilder:AbstractMessageBuilder
 {
-    var internalGetResult:GeneratedMessage?
+    public var internalGetResult:GeneratedMessage?
     {
         get
         {
@@ -40,7 +40,7 @@ class GeneratedMessageBuilder:AbstractMessageBuilder
         
     }
     
-    var unknowFields:UnknownFieldSet
+    public var unknowFields:UnknownFieldSet
     {
         get
         {
@@ -53,7 +53,7 @@ class GeneratedMessageBuilder:AbstractMessageBuilder
         }
         
     }
-    func checkInitialized()
+    public func checkInitialized()
     {
         let result = internalGetResult?
         if (result != nil  && !result!.isInitialized())
@@ -62,7 +62,7 @@ class GeneratedMessageBuilder:AbstractMessageBuilder
         }
     }
     
-    func checkInitializedParsed()
+    public func checkInitializedParsed()
     {
         let result = internalGetResult?
         if (result != nil  && !result!.isInitialized())
@@ -71,18 +71,18 @@ class GeneratedMessageBuilder:AbstractMessageBuilder
         }
     }
     
-    override func isInitialized() -> Bool
+    override public func isInitialized() -> Bool
     {
         return internalGetResult!.isInitialized()
     }
     
-    override func mergeUnknownFields(unknownFields: UnknownFieldSet) -> Self
+    override public func mergeUnknownFields(unknownFields: UnknownFieldSet) -> Self
     {
         let result:GeneratedMessage = internalGetResult!
         result.unknownFields = UnknownFieldSet.builderWithUnknownFields(result.unknownFields).mergeUnknownFields(unknownFields).build()
         return self
     }
-    func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
+    public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
         return unknownFields.mergeFieldFrom(tag, input:input)
     }
 }

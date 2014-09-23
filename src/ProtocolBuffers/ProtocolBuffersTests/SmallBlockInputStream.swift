@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 class SmallBlockInputStream:NSInputStream
 {
     var underlyingStream:NSInputStream?

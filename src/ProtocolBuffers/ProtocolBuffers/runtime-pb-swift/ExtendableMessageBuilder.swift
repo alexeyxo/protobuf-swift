@@ -16,10 +16,10 @@
 // limitations under the License.
 
 import Foundation
-class ExtendableMessageBuilder:GeneratedMessageBuilder
+public class ExtendableMessageBuilder:GeneratedMessageBuilder
 {
     
-    override var unknowFields:UnknownFieldSet
+    override public var unknowFields:UnknownFieldSet
     {
         get
         {
@@ -32,7 +32,7 @@ class ExtendableMessageBuilder:GeneratedMessageBuilder
             
     }
     
-    override func checkInitialized()
+    override public func checkInitialized()
     {
         let result = internalGetResult?
         if (result != nil  && result!.isInitialized())
@@ -41,7 +41,7 @@ class ExtendableMessageBuilder:GeneratedMessageBuilder
         }
     }
     
-    override func checkInitializedParsed()
+    override public func checkInitializedParsed()
     {
         let result = internalGetResult?
         if (result != nil  && !result!.isInitialized())
@@ -50,19 +50,19 @@ class ExtendableMessageBuilder:GeneratedMessageBuilder
         }
     }
     
-    override func isInitialized() -> Bool
+    override public func isInitialized() -> Bool
     {
         return internalGetResult!.isInitialized()
     }
     
-    override func mergeUnknownFields(unknownFields: UnknownFieldSet) -> Self
+    override public func mergeUnknownFields(unknownFields: UnknownFieldSet) -> Self
     {
         let result:GeneratedMessage = internalGetResult!
         result.unknownFields = UnknownFieldSet.builderWithUnknownFields(result.unknownFields).mergeUnknownFields(unknownFields).build()
         return self
     }
     
-    override func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
+    override public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
         
 //        var message = internalGetResult
 //        var wireType = WireFormat.wireFormatGetTagWireType(tag);

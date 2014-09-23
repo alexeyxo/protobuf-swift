@@ -16,9 +16,9 @@
 // limitations under the License.
 
 import Foundation
-class RingBuffer
+internal class RingBuffer
 {
-    var buffer:[Byte]
+    internal var buffer:[Byte]
     var position:Int32 = 0
     var tail:Int32 = 0
     

@@ -16,32 +16,42 @@
 // limitations under the License.
 
 import Foundation
-class ExtensionRegistry
+
+public protocol ExtensionField
 {
-    var classMap:[String : [Int32 : ExtensionField]]?
-    init()
+    var fieldNumber:Int32 {get set}
+    var nameOfExtension:String {get}
+    var wireType:WireFormat {get}
+    func initialize() -> Self
+    func writeValueIncludingTagToCodedOutputStream(value:Any, output:CodedOutputStream)
+    func computeSerializedSizeIncludingTag(value:Any) -> Int32
+    func writeDescriptionOf(value:Any, inout output:String, indent:String)
+    func mergeFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32);
+    
+}
+
+public class ExtensionRegistry
+{
+    private var classMap:[String : [Int32 : ExtensionField]]?
+    public init()
     {
         
     }
-    init(classMap:[String : [Int32 : ExtensionField]])
+    public init(classMap:[String : [Int32 : ExtensionField]])
     {
         self.classMap = classMap
     }
     
-    func getExtension(clName:ExtensionField, fieldNumber:Int32) -> Any {
+    public func getExtension(clName:ExtensionField, fieldNumber:Int32) -> Any {
         
         let extensionMap:[Int32 : ExtensionField] = classMap![clName.nameOfExtension]!
         return extensionMap[fieldNumber]!
     }
     
-}
-
-extension ExtensionRegistry
-{
-    func addExtension(extensions:ExtensionField)
+    public func addExtension(extensions:ExtensionField)
     {
         let extendedClass = extensions.nameOfExtension
-       
+        
         var extensionMap = classMap![extendedClass]
         if (extensionMap == nil)
         {

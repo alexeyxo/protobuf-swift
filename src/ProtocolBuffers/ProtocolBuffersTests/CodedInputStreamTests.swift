@@ -8,6 +8,7 @@
 
 import Foundation
 import XCTest
+import ProtocolBuffers
 class CodedInputStreamTests: XCTestCase
 {
     func bytes(from:Byte...) -> NSData

@@ -16,18 +16,18 @@
 // limitations under the License.
 
 import Foundation
-class UnknownFieldSetBuilder
+public class UnknownFieldSetBuilder
 {
-    var fields:Dictionary<Int32,Field>
-    var lastFieldNumber:Int32
-    var lastField:Field?
+    public var fields:Dictionary<Int32,Field>
+    public var lastFieldNumber:Int32
+    public var lastField:Field?
     init()
     {
         fields = Dictionary()
         lastFieldNumber = 0
     }
     
-    func addField(field:Field?, number:Int32) ->UnknownFieldSetBuilder {
+    public func addField(field:Field?, number:Int32) ->UnknownFieldSetBuilder {
         if (number == 0) {
             NSException(name:"IllegalArgument", reason:"", userInfo: nil).raise()
         }
@@ -38,7 +38,7 @@ class UnknownFieldSetBuilder
         fields[number]=field
         return self
     }
-    func getFieldBuilder(number:Int32) ->Field?
+    public func getFieldBuilder(number:Int32) ->Field?
     {
         if (lastField != nil) {
             if (number == lastFieldNumber) {
@@ -63,7 +63,7 @@ class UnknownFieldSetBuilder
         }
     }
     
-    func build() -> UnknownFieldSet
+    public func build() -> UnknownFieldSet
     {
         getFieldBuilder(0)
         var result:UnknownFieldSet
@@ -81,31 +81,31 @@ class UnknownFieldSetBuilder
         return result
     }
     
-    func buildPartial() -> UnknownFieldSet?
+    public func buildPartial() -> UnknownFieldSet?
     {
         NSException(name:"UnsupportedMethod", reason:"", userInfo: nil).raise()
         return  nil
     }
     
-    func clone() -> UnknownFieldSet?
+    public func clone() -> UnknownFieldSet?
     {
         NSException(name:"UnsupportedMethod", reason:"", userInfo: nil).raise()
         return nil
     }
     
-    func isInitialized() -> Bool
+    public func isInitialized() -> Bool
     {
         return true
     }
-    func unknownFields() -> UnknownFieldSet {
+    public func unknownFields() -> UnknownFieldSet {
         return  build()
     }
-    func setUnknownFields(unknownFields:UnknownFieldSet) -> MessageBuilder?
+    public func setUnknownFields(unknownFields:UnknownFieldSet) -> MessageBuilder?
     {
         NSException(name:"UnsupportedMethod", reason:"", userInfo: nil).raise()
         return nil
     }
-    func hasField(number:Int32) ->Bool
+    public func hasField(number:Int32) ->Bool
     {
         if (number == 0) {
             NSException(name:"IllegalArgument", reason:"", userInfo: nil).raise()
@@ -114,7 +114,7 @@ class UnknownFieldSetBuilder
         return number == lastFieldNumber || (fields[number] != nil)
     }
     
-    func mergeField(field:Field, number:Int32) -> UnknownFieldSetBuilder
+    public func mergeField(field:Field, number:Int32) -> UnknownFieldSetBuilder
     {
         if (number == 0) {
             NSException(name:"IllegalArgument", reason:"", userInfo: nil).raise()
@@ -129,7 +129,7 @@ class UnknownFieldSetBuilder
         return self
     }
     
-    func mergeUnknownFields(other:UnknownFieldSet) -> UnknownFieldSetBuilder
+    public func mergeUnknownFields(other:UnknownFieldSet) -> UnknownFieldSetBuilder
     {
         
         for number in other.fields.keys
@@ -141,7 +141,7 @@ class UnknownFieldSetBuilder
     }
     
     
-    func mergeFromData(data:[Byte]) -> UnknownFieldSetBuilder
+    public func mergeFromData(data:[Byte]) -> UnknownFieldSetBuilder
     {
         var input:CodedInputStream = CodedInputStream(data: data)
         mergeFromCodedInputStream(input)
@@ -149,18 +149,18 @@ class UnknownFieldSetBuilder
         return self
     }
     
-    func mergeFromInputStream(input:NSInputStream) -> UnknownFieldSetBuilder
+    public func mergeFromInputStream(input:NSInputStream) -> UnknownFieldSetBuilder
     {
         NSException(name:"UnsupportedMethod", reason:"", userInfo: nil).raise()
         return UnknownFieldSetBuilder()
     }
-    func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> UnknownFieldSetBuilder
+    public func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> UnknownFieldSetBuilder
     {
         NSException(name:"UnsupportedMethod", reason:"", userInfo: nil).raise()
         return UnknownFieldSetBuilder()
     }
     
-    func mergeVarintField(number:Int32, value:Int64) -> UnknownFieldSetBuilder
+    public func mergeVarintField(number:Int32, value:Int64) -> UnknownFieldSetBuilder
     {
         if (number == 0) {
              NSException(name:"IllegalArgument", reason:"Zero is not a valid field number.", userInfo: nil).raise()
@@ -169,11 +169,8 @@ class UnknownFieldSetBuilder
         return self
     }
     
-    func mergeFieldFrom(tag:Int32, input:CodedInputStream) ->Bool
+    public func mergeFieldFrom(tag:Int32, input:CodedInputStream) ->Bool
     {
-//        var number:Int32 = WireFormatObject.wireFormatGetTagFieldNumber(tag)
-//        var tag:Int32 = WireFormatObject.wireFormatGetTagWireType(tag)
-//        if (tag == WireFormat.WireFormatVarint.toRaw())
         
         let number:Int32 = WireFormat.wireFormatGetTagFieldNumber(tag)
         let format:WireFormat = WireFormat.fromRaw(number)!
@@ -218,7 +215,7 @@ class UnknownFieldSetBuilder
     }
     
 
-    func mergeFromCodedInputStream(input:CodedInputStream) -> UnknownFieldSetBuilder {
+    public func mergeFromCodedInputStream(input:CodedInputStream) -> UnknownFieldSetBuilder {
         while (true) {
             var tag:Int32 = input.readTag()
             if tag == 0 || mergeFieldFrom(tag, input:input)
@@ -229,13 +226,13 @@ class UnknownFieldSetBuilder
         return self
     }
     
-    func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UnknownFieldSetBuilder
+    public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UnknownFieldSetBuilder
     {
         NSException(name:"UnsupportedMethod", reason:"", userInfo: nil).raise()
         return UnknownFieldSetBuilder()
     }
     
-    func mergeFromData(data:[Byte], extensionRegistry:ExtensionRegistry) ->UnknownFieldSetBuilder
+    public func mergeFromData(data:[Byte], extensionRegistry:ExtensionRegistry) ->UnknownFieldSetBuilder
     {
         var input = CodedInputStream(data: data)
          mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry)
@@ -243,7 +240,7 @@ class UnknownFieldSetBuilder
         return self;
     }
     
-    func clear() ->UnknownFieldSetBuilder
+    public func clear() ->UnknownFieldSetBuilder
     {
         fields = Dictionary()
         lastFieldNumber = 0
