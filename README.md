@@ -14,21 +14,19 @@ This project is based on an implementation of Protocol Buffers from Google.  See
 
 
 ## How To Install Protobuf
-1.Download `https://protobuf.googlecode.com/svn/rc/protobuf-2.6.0.tar.gz`
+1.`ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
 
-2.`cd protobuf-2.6.0`
+2.`brew install automake`
 
-3.`./configure`
+3.`brew install libtool`
 
-4.`make`
+4.`brew instal protobuf`
 
-5.`sudo make install`
+5.`git clone git@github.com:alexeyxo/protobuf-swift.git`
 
-6.`git clone git@github.com:alexeyxo/protobuf-swift.git`
+6.`./build.sh`
 
-7.`./build.sh`
-
-8.Add `/src/runtime-pb-swift/` folder in your project.
+7.Add `/src/runtime-pb-swift/` folder in your project.
 
 
 
