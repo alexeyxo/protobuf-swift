@@ -43,10 +43,10 @@ class MessageGenerator {
   void GenerateStaticVariablesInitialization(io::Printer* printer);
   void GenerateStaticVariablesSource(io::Printer* printer);
   void GenerateSource(io::Printer* printer);
-   void GenerateMessageIsEqualSource(io::Printer* printer);
+  void GenerateMessageIsEqualSource(io::Printer* printer);
   void GenerateExtensionRegistrationSource(io::Printer* printer);
   void DetermineDependencies(set<string>* dependencies);
-
+  void GenerateParseFromExtensionMethodsSource(io::Printer* printer);
  private:
 
   void GenerateMessageSerializationMethodsSource(io::Printer* printer);

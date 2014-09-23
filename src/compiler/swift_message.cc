@@ -558,6 +558,24 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       "}\n",
       "classname", ClassName(descriptor_));
   }
+  
+   void MessageGenerator::GenerateParseFromExtensionMethodsSource(io::Printer* printer) {
+        printer->Print(
+                       "extension $classname$ {\n"
+                       "    class func parseFromNSData(data:NSData) -> $classname$ {\n"
+                       "        var bytes = [Byte](count: data.length, repeatedValue: 0)\n"
+                       "        data.getBytes(&bytes)\n"
+                       "        return $classname$.builder().mergeFromData(bytes).build()\n"
+                       "    }\n"
+                       "    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
+                       "        var bytes = [Byte](count: data.length, repeatedValue: 0)\n"
+                       "        data.getBytes(&bytes)\n"
+                       "        return $classname$.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()\n"
+                       "    }\n"
+                       "}\n",
+                      "classname", ClassName(descriptor_));
+    }
+    
 
 
   void MessageGenerator::GenerateSerializeOneFieldSource(

@@ -22,7 +22,7 @@ var DEFAULT_BUFFER_SIZE:Int32 = 4 * 1024
 public class CodedOutputStream
 {
     private var output:NSOutputStream!
-    var buffer:RingBuffer
+    internal var buffer:RingBuffer
     
     public init (output aOutput:NSOutputStream!, data:[Byte])
     {

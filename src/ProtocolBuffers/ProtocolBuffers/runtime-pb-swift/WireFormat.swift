@@ -55,7 +55,7 @@ public enum WireFormat:Int32
     }
     
     
-    ///Utilies
+    ///Utilities
     
     public static func convertTypes<Type, ReturnType>(var convertValue value:Type, inout retValue:ReturnType)
     {

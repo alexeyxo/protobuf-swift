@@ -40,8 +40,6 @@ public class CodedInputStream
     {
         buffer = aData
         bufferSize = Int32(buffer!.count)
-        
-        //
         currentLimit = INT_MAX
         recursionLimit = DEFAULT_RECURSION_LIMIT
         sizeLimit = DEFAULT_SIZE_LIMIT

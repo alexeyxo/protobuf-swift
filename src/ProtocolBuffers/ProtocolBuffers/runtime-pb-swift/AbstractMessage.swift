@@ -117,9 +117,9 @@ public class AbstractMessage:Equatable, Printable, Message {
     
 }
 
-extension AbstractMessage
+public extension AbstractMessage
 {
-    func getNSData() -> NSData
+    public func getNSData() -> NSData
     {
         var nsdata:NSData = NSData(bytes: data(), length: data().count)
         return nsdata

@@ -21,8 +21,7 @@ m4
 stamp-h1
 
 # Targets
-src/compiler/protoc-gen-objc
-src/compiler/protoc-gen-objc-arc
+src/compiler/protoc-gen-swift
 
 # Mac stuff
 .DS_Store
