@@ -160,6 +160,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (isOneOfField(descriptor)) {
                 const OneofDescriptor* oneof = descriptor->containing_oneof();
                 (*variables)["oneof_name"] = UnderscoresToCapitalizedCamelCase(oneof->name());
+                (*variables)["oneof_class_name"] = ClassNameOneof(oneof);
         }
 
         (*variables)["default"] = DefaultValue(descriptor);
@@ -202,7 +203,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       if (isOneOfField(descriptor_)) {
           printer->Print(variables_,"private(set) var has$capitalized_name$:Bool {\n"
                                     "      get {\n"
-                                    "           if $oneof_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
+                                    "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
                                     "               return false\n"
                                     "           }\n"
                                     "           return true\n"
@@ -213,10 +214,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
           
           printer->Print(variables_,"private(set) var $name$:$storage_type$!{\n"
                                      "     get {\n"
-                                     "          return $oneof_name$.get$capitalized_name$(storage$oneof_name$)\n"
+                                     "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                                      "     }\n"
                                      "     set (newvalue) {\n"
-                                     "          storage$oneof_name$ = $oneof_name$.$capitalized_name$(newvalue)\n"
+                                     "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
                                      "     }\n"
                                      "}\n");
       }
@@ -401,8 +402,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
   void RepeatedPrimitiveFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
 
-      printer->Print(variables_,
-                     "if !$name$.isEmpty {\n");
+      printer->Print(variables_,"if !$name$.isEmpty {\n");
       printer->Indent();
 
       if (descriptor_->options().packed()) {
@@ -424,7 +424,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
   void RepeatedPrimitiveFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
-    printer->Indent();
+    
     printer->Print(variables_,
       "var dataSize$capitalized_name$:Int32 = 0\n");
 
@@ -452,7 +452,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         "size += $tag_size$ * Int32($name$.count)\n");
     }
 
-    printer->Outdent();
+    
   }
 
 

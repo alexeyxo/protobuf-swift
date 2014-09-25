@@ -75,8 +75,8 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
     printer->Print(
       "private class $classname$ {\n",
       "classname", classname_);
-      printer->Indent();
-      printer->Indent();
+      
+      
 
     for (int i = 0; i < file_->extension_count(); i++) {
       ExtensionGenerator(classname_, file_->extension(i)).GenerateFieldsSource(printer);
@@ -97,8 +97,8 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
       "",
       "classname", classname_);
 
-    printer->Indent();
-    printer->Indent();
+    
+    
 
     for (int i = 0; i < file_->extension_count(); i++) {
       ExtensionGenerator(classname_, file_->extension(i)).GenerateInitializationSource(printer);
@@ -117,19 +117,19 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         "$dependency$.registerAllExtensions(registry)\n",
         "dependency", FileClassName(file_->dependency(i)));
     }
-    printer->Outdent();
+    
 
     printer->Print(
       ""
       "}\n");
 
-    printer->Outdent();
+    
 
     // -----------------------------------------------------------------
 
     printer->Print(
       "func registerAllExtensions(registry:ExtensionRegistry) {\n");
-    printer->Indent();
+    
 
     for (int i = 0; i < file_->extension_count(); i++) {
       ExtensionGenerator(classname_, file_->extension(i))
@@ -141,7 +141,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         .GenerateExtensionRegistrationSource(printer);
     }
 
-    printer->Outdent();
+    
     printer->Print(
       "}\n");
 
@@ -153,8 +153,8 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
 
     printer->Print(
       "}\n\n");
-    printer->Outdent();
-    printer->Outdent();
+    
+    
 
     for (int i = 0; i < file_->enum_type_count(); i++) {
         EnumGenerator(file_->enum_type(i)).GenerateSource(printer);

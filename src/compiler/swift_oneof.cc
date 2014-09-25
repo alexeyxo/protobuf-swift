@@ -66,13 +66,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
   void OneofGenerator::GenerateSource(io::Printer* printer) {
-      printer->Print("\n\n//OneOf declaration\n\n");
-      printer->Indent();
+      printer->Print("\n\n//OneOf declaration start\n\n");
+      
       printer->Print("enum $classname$ {\n",
                      "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
-      printer->Indent();
-      printer->Indent();
       
+      
+      printer->Indent();
       printer->Print("case $classname$NotSet(ONEOF_NOT_SET)\n\n",
                      "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
       
@@ -85,11 +85,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                      "     }\n"
                      "}\n",
                      "name",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
-      
+     printer->Outdent();
       for (int i = 0; i < descriptor_->field_count(); i++) {
           
           const FieldDescriptor* fieldType = descriptor_->field(i);
-          
+          printer->Indent();
           if (GetSwiftType(fieldType) == SWIFTTYPE_MESSAGE) {
               
               printer->Print("case $name$($type$)\n\n",
@@ -126,14 +126,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                              "fieldType",PrimitiveTypeName(fieldType),
                              "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
           }
-        
+          printer->Outdent();
       
       }
-      printer->Outdent();
-      printer->Outdent();
+      
+      
       printer->Print("}\n");
-      printer->Outdent();
+      
       printer->Print("\n");
+      printer->Print("\n\n//OneOf declaration end\n\n");
      
   }
 }  // namespace swift

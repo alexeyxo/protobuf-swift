@@ -51,6 +51,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (isOneOfField(descriptor)) {
             const OneofDescriptor* oneof = descriptor->containing_oneof();
             (*variables)["oneof_name"] = UnderscoresToCapitalizedCamelCase(oneof->name());
+            (*variables)["oneof_class_name"] = ClassNameOneof(oneof);
         }
     }
   }  // namespace
@@ -81,7 +82,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
           
           printer->Print(variables_,"private(set) var has$capitalized_name$:Bool {\n"
                          "      get {\n"
-                         "           if $oneof_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
+                         "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
                          "               return false\n"
                          "           }\n"
                          "           return true\n"
@@ -92,10 +93,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
           
           printer->Print(variables_,"private(set) var $name$:$type$!{\n"
                          "     get {\n"
-                         "          return $oneof_name$.get$capitalized_name$(storage$oneof_name$)\n"
+                         "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                          "     }\n"
                          "     set (newvalue) {\n"
-                         "          storage$oneof_name$ = $oneof_name$.$capitalized_name$(newvalue)\n"
+                         "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
                          "     }\n"
                          "}\n");
       }

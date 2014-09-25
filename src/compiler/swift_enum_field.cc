@@ -238,7 +238,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         "var length:Int32 = input.readRawVarint32()\n"
         "var oldLimit:Int32 = input.pushLimit(length)\n"
         "while input.bytesUntilLimit() > 0 {\n");
-      printer->Indent();
+      
     }
 
     printer->Print(variables_,
@@ -250,7 +250,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       "}\n");
 
     if (descriptor_->options().packed()) {
-      printer->Outdent();
+      
       printer->Print(variables_,
         "}\n"
         "input.popLimit(oldLimit)\n");
@@ -279,8 +279,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
   void RepeatedEnumFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
     printer->Print(variables_,
-      "  var dataSize$name$:Int32 = 0\n");
-    printer->Indent();
+      "var dataSize$name$:Int32 = 0\n");
+    
 
     printer->Print(variables_,
       "for value in $name$ {\n"
@@ -305,7 +305,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         "$name$MemoizedSerializedSize = dataSize$name$\n");
     }
 
-    printer->Outdent();
+    
 //    printer->Print("}\n");
   }
 

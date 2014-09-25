@@ -58,8 +58,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       printer->Print(
                      "enum $classname$:Int32 {\n",
                      "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+      
       printer->Indent();
-
       for (int i = 0; i < canonical_values_.size(); i++) {
           printer->Print(
                          "case $name$ = $value$\n",

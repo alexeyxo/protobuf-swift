@@ -229,36 +229,39 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       
       //Nested Types
       for (int i = 0; i < descriptor_->nested_type_count(); i++) {
-          printer->Indent();
+          printer->Print("\n\n//Nested type declaration start \n\n");
           printer->Indent();
           MessageGenerator(descriptor_->nested_type(i)).GenerateSource(printer);
           printer->Outdent();
-          printer->Outdent();
+          printer->Print("\n\n//Nested type declaration end \n\n");
+          
       }
       
       ///
       
       //Oneof
-      printer->Indent();
+      
       for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
-          printer->Indent();
           OneofGenerator(descriptor_->oneof_decl(i)).GenerateSource(printer);
-          printer->Print("private var storage$classname$:$classname$ =  $classname$.$classname$NotSet(0)\n",
-                         "classname", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()));
-          printer->Outdent();
+          printer->Print("private var storage$storageName$:$classname$ =  $classname$.$storageName$NotSet(0)\n",
+                         "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
+                         "classname", ClassNameOneof(descriptor_->oneof_decl(i)));
+          
       }
-      printer->Outdent();
+      
       ////
       
       
       ///Enums
-      printer->Indent();
+      
       for (int i = 0; i < descriptor_->enum_type_count(); i++) {
+          printer->Print("\n\n//Enum type declaration start \n\n");
           printer->Indent();
           EnumGenerator(descriptor_->enum_type(i)).GenerateSource(printer);
           printer->Outdent();
+          printer->Print("\n\n//Enum type declaration end \n\n");
       }
-      printer->Outdent();
+      
       
       
       
@@ -277,13 +280,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
 
     printer->Print("required init() {\n");
-    printer->Indent();
-    printer->Indent();
+    
+    
     for (int i = 0; i < descriptor_->field_count(); i++) {
         field_generators_.get(descriptor_->field(i)).GenerateInitializationSource(printer);
     }
-    printer->Outdent();
-    printer->Outdent();
+    
+    
     printer->Print("     super.init()\n"
                  "}\n");
 
@@ -312,8 +315,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
     GenerateMessageHashSource(printer);
-
+    printer->Outdent();
     printer->Print("}\n\n");
+    
     GenerateBuilderSource(printer);
   }
 
@@ -330,8 +334,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
     printer->Print(
       "override func writeToCodedOutputStream(output:CodedOutputStream) {\n");
-    printer->Indent();
-
+      printer->Indent();
     // Merge the fields and the extension ranges, both sorted by field number.
     for (int i = 0, j = 0;
       i < descriptor_->field_count() || j < sorted_extensions.size(); ) {
@@ -353,23 +356,22 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       printer->Print(
         "unknownFields.writeToCodedOutputStream(output)\n");
     }
-
-    printer->Outdent();
-    printer->Print(
-      "}\n"
-      "override func serializedSize() -> Int32 {\n"
-      "  var size:Int32 = memoizedSerializedSize\n"
-      "  if size != -1 {\n"
-      "    return size\n"
-      "  }\n"
-      "\n"
-      "  size = 0\n");
+      printer->Outdent();
+    
+    printer->Print("}\n");
+      
+    printer->Print("override func serializedSize() -> Int32 {\n");
     printer->Indent();
-
+    printer->Print("var size:Int32 = memoizedSerializedSize\n"
+      "if size != -1 {\n"
+      " return size\n"
+      "}\n"
+      "\n"
+      "size = 0\n");
     for (int i = 0; i < descriptor_->field_count(); i++) {
       field_generators_.get(sorted_fields[i]).GenerateSerializedSizeCodeSource(printer);
     }
-
+    
     if (descriptor_->extension_range_count() > 0) {
       printer->Print(
         "size += extensionsSerializedSize()\n");
@@ -383,11 +385,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         "size += unknownFields.serializedSize()\n");
     }
 
-    printer->Outdent();
+    
     printer->Print(
-      "  memoizedSerializedSize = size\n"
-      "  return size\n"
-      "}\n");
+      "memoizedSerializedSize = size\n"
+                   "return size\n");
+    printer->Outdent();
+    printer->Print("}\n");
   }
 
   void MessageGenerator::GenerateMessageDescriptionSource(io::Printer* printer) {
@@ -402,8 +405,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
     printer->Print(
       "override func writeDescriptionTo(inout output:String, indent:String) {\n");
+    
     printer->Indent();
-
+     
     // Merge the fields and the extension ranges, both sorted by field number.
     for (int i = 0, j = 0;
       i < descriptor_->field_count() || j < sorted_extensions.size(); ) {
@@ -443,8 +447,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     printer->Print(
       "func == (lhs: $classname$, rhs: $classname$) -> Bool {\n","classname", ClassName(descriptor_));
     printer->Indent();
-    printer->Indent();
-    printer->Indent();
+    
+    
     printer->Print(
       "if (lhs === rhs) {\n"
       "  return true\n"
@@ -478,16 +482,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print("fieldCheck = fieldCheck && ");
             GenerateIsEqualOneExtensionRangeSource(printer, sorted_extensions[j++]);
             printer->Print("\n");
-
         }
-        printer->Print(" ");
+
     }
 
     printer->Print("return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))\n");
+    
+    
     printer->Outdent();
-    printer->Outdent();
-    printer->Outdent();
-    printer->Print("}\n");
+    printer->Print("}\n\n");
   }
 
 
@@ -502,12 +505,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       ExtensionRangeOrdering());
 
     printer->Print(
-      "override var hashValue:Int {\n ");
-    printer->Indent();
+      "override var hashValue:Int {\n");
+      printer->Indent();
+      printer->Indent();
     printer->Print("get {\n");
-    printer->Indent();
-    printer->Indent();
-
+    
+    
+      printer->Indent();
+      printer->Indent();
     printer->Print("var hashCode:Int = 7\n");
 
 //    // Merge the fields and the extension ranges, both sorted by field number.
@@ -528,11 +533,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                    "return hashCode\n");
 
     printer->Outdent();
-    printer->Print("}\n");
     printer->Outdent();
+    printer->Print("}\n");
+      printer->Outdent();
+      printer->Outdent();
     printer->Print(
       "}\n");
-    printer->Outdent();
+    
   }
 
 
@@ -647,6 +654,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                          "classname", UnderscoresToCapitalizedCamelCase(descriptor_->name()));
       }
 
+    printer->Indent();
+     
     printer->Print(
       "private var builderResult:$classname$\n\n"
       "required override init () {\n"
@@ -654,12 +663,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       "   super.init()\n"
       "}\n",
       "classname", ClassName(descriptor_));
-  for (int i = 0; i < descriptor_->field_count(); i++) {
-      field_generators_.get(descriptor_->field(i)).GenerateBuilderMembersSource(printer);
-  }
+      for (int i = 0; i < descriptor_->field_count(); i++) {
+          field_generators_.get(descriptor_->field(i)).GenerateBuilderMembersSource(printer);
+      }
 
     GenerateCommonBuilderMethodsSource(printer);
     GenerateBuilderParsingMethodsSource(printer);
+    printer->Outdent();
 
 
 
@@ -701,13 +711,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       "}\n"
       "func buildPartial() -> $classname$ {\n",
       "classname", ClassName(descriptor_));
-    printer->Indent();
+    
 
     for (int i = 0; i < descriptor_->field_count(); i++) {
       field_generators_.get(descriptor_->field(i)).GenerateBuildingCodeSource(printer);
     }
 
-    printer->Outdent();
+    
     printer->Print(
       "  var returnMe:$classname$ = builderResult\n"
       "  return returnMe\n"
@@ -722,13 +732,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       "    return self\n"
       "  }\n",
       "classname", ClassName(descriptor_));
-    printer->Indent();
+    
 
     for (int i = 0; i < descriptor_->field_count(); i++) {
       field_generators_.get(descriptor_->field(i)).GenerateMergingCodeSource(printer);
     }
 
-    printer->Outdent();
+    
 
     if (descriptor_->extension_range_count() > 0) {
       printer->Print(
@@ -754,25 +764,25 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       "}\n"
       "override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classname$Builder {\n",
       "classname", ClassName(descriptor_));
+    
     printer->Indent();
-
     printer->Print(
       "var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)\n"
       "while (true) {\n");
     printer->Indent();
-
     printer->Print(
       "var tag = input.readTag()\n"
       "switch tag {\n");
-    printer->Indent();
+    
      printer->Print(
-
-      "case 0: \n"          // zero signals EOF / limit reached
-      "     self.unknownFields = unknownFieldsBuilder.build()\n"
-      "     return self\n"
+     "case 0: \n");
+     printer->Indent();
+     printer->Print(
+      "self.unknownFields = unknownFieldsBuilder.build()\n"
+      "return self\n"
       "\n"
      );
-
+    printer->Outdent();
     for (int i = 0; i < descriptor_->field_count(); i++) {
       const FieldDescriptor* field = sorted_fields[i];
       uint32 tag = WireFormatLite::MakeTag(field->number(),
@@ -781,37 +791,33 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       printer->Print(
         "case $tag$ :\n",
         "tag", SimpleItoa(tag));
+      
       printer->Indent();
-
       field_generators_.get(field).GenerateParsingCodeSource(printer);
-
       printer->Outdent();
-      printer->Print(
-        "\n");
+      printer->Print("\n");
     }
      printer->Print(
                  "default:\n"
-                 "      if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {\n"
-                 "          unknownFields = unknownFieldsBuilder.build()\n"
-                 "          return self\n"
-                 "      }\n"
+                 "  if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {\n"
+                 "     unknownFields = unknownFieldsBuilder.build()\n"
+                 "     return self\n"
+                 "  }\n"
                  "}\n");
 
+    
+    
     printer->Outdent();
+    printer->Print("}\n");
     printer->Outdent();
-    printer->Outdent();
-    printer->Print(
-        // switch (tag)
-      "      }\n"   // while (true)
-      "   }\n");
+    printer->Print("}\n");
   }
 
 
   void MessageGenerator::GenerateIsInitializedSource(io::Printer* printer) {
     printer->Print(
       "override func isInitialized() -> Bool {\n");
-    printer->Indent();
-
+      printer->Indent();
     // Check that all required fields in this message are set.
     // TODO(kenton):  We can optimize this when we switch to putting all the
     //   "has" fields into a single bitfield.
@@ -848,9 +854,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::LABEL_OPTIONAL:
               printer->Print(vars,
                 "if has$capitalized_name$ {\n"
-                "  if !$name$.isInitialized() {\n"
-                "    return false\n"
-                "  }\n"
+                " if !$name$.isInitialized() {\n"
+                "   return false\n"
+                " }\n"
                 "}\n");
               break;
             case FieldDescriptor::LABEL_REPEATED:
@@ -872,13 +878,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     if (descriptor_->extension_range_count() > 0) {
       printer->Print(
         "if !extensionsAreInitialized() {\n"
-        "  return false\n"
+        " return false\n"
         "}\n");
     }
 
     printer->Outdent();
     printer->Print(
-      "  return true\n"
+      " return true\n"
       "}\n");
   }
 }  // namespace objectivec

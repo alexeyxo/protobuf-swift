@@ -70,7 +70,7 @@ string FileClassName(const FileDescriptor* file);
 string ClassName(const Descriptor* descriptor);
 string ClassName(const EnumDescriptor* descriptor);
 string ClassName(const ServiceDescriptor* descriptor);
-
+    string ClassNameOneof(const OneofDescriptor* descriptor);
 string EnumValueName(const EnumValueDescriptor* descriptor);
 
 string SafeName(const string& name);
