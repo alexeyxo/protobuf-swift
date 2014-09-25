@@ -248,7 +248,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       name = ClassNameWorker(descriptor->containing_type());
       name += ".";
     }
-    return name + descriptor->name();
+    return name + UnderscoresToCapitalizedCamelCase(descriptor->name());
   }
 
 

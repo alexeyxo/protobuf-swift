@@ -108,6 +108,25 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                              "fieldType",ClassName(fieldType->message_type()),
                              "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
           }
+          else if (GetSwiftType(fieldType) == SWIFTTYPE_ENUM)
+          {
+              const FieldDescriptor* enumDesc = descriptor_->field(i);
+              printer->Print("case $name$($type$)\n\n",
+                             "name",UnderscoresToCapitalizedCamelCase(enumDesc->name()),
+                             "type",ClassName(enumDesc->enum_type()));
+              
+              printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
+                             "     switch value {\n"
+                             "     case .$name$(let enumValue):\n"
+                             "          return enumValue\n"
+                             "     default:\n"
+                             "          return nil\n"
+                             "     }\n"
+                             "}\n",
+                             "name",UnderscoresToCapitalizedCamelCase(enumDesc->name()),
+                             "fieldType",ClassName(enumDesc->enum_type()),
+                             "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+          }
           else
           {
               printer->Print("case $name$($type$)\n\n",

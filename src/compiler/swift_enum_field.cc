@@ -46,6 +46,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         (*variables)["tag"] = SimpleItoa(internal::WireFormat::MakeTag(descriptor));
         (*variables)["tag_size"] = SimpleItoa(
           internal::WireFormat::TagSize(descriptor->number(), descriptor->type()));
+        if (isOneOfField(descriptor)) {
+            const OneofDescriptor* oneof = descriptor->containing_oneof();
+            (*variables)["oneof_name"] = UnderscoresToCapitalizedCamelCase(oneof->name());
+            (*variables)["oneof_class_name"] = ClassNameOneof(oneof);
+        }
     }
   }  // namespace
 
@@ -69,8 +74,32 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
   void EnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
-      printer->Print(variables_, "private(set) var $name$:$type$ = $type$.$default$\n");
-      printer->Print(variables_,"private(set) var has$capitalized_name$:Bool = false\n");
+      if (isOneOfField(descriptor_)) {
+          printer->Print(variables_,"private(set) var has$capitalized_name$:Bool {\n"
+                         "      get {\n"
+                         "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
+                         "               return false\n"
+                         "           }\n"
+                         "           return true\n"
+                         "      }\n"
+                         "      set(newValue) {\n"
+                         "      }\n"
+                         "}\n");
+          
+          printer->Print(variables_,"private(set) var $name$:$type$!{\n"
+                         "     get {\n"
+                         "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
+                         "     }\n"
+                         "     set (newvalue) {\n"
+                         "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
+                         "     }\n"
+                         "}\n");
+      }
+      else
+      {
+          printer->Print(variables_, "private(set) var $name$:$type$ = $type$.$default$\n");
+          printer->Print(variables_,"private(set) var has$capitalized_name$:Bool = false\n");
+      }
   }
 
 
