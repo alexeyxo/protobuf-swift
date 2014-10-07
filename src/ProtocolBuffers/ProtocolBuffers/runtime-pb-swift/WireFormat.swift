@@ -45,8 +45,7 @@ public enum WireFormat:Int32
     
     public static func wireFormatGetTagWireType(tag:Int32) -> Int32
     {
-        let res:Int32 = tag &  WireFormatTagTypeMask.toRaw()
-        return res
+        return tag &  WireFormat.WireFormatTagTypeMask.toRaw()
     }
     
     public static func wireFormatGetTagFieldNumber(tag:Int32) -> Int32
@@ -118,12 +117,12 @@ public enum WireFormat:Int32
         return LITTLE_ENDIAN_32_SIZE
     }
     
-    public static func computeFixed64SizeNoTag(value:Int64) ->Int32
+    public static func computeFixed64SizeNoTag(value:UInt64) ->Int32
     {
         return LITTLE_ENDIAN_64_SIZE
     }
     
-    public static func  computeFixed32SizeNoTag(value:Int32) ->Int32
+    public static func  computeFixed32SizeNoTag(value:UInt32) ->Int32
     {
         return LITTLE_ENDIAN_32_SIZE
     }
@@ -226,13 +225,13 @@ public enum WireFormat:Int32
     }
     
     
-    public static func computeFixed64Size(fieldNumber:Int32, value:Int64) ->Int32
+    public static func computeFixed64Size(fieldNumber:Int32, value:UInt64) ->Int32
     {
         return computeTagSize(fieldNumber) + computeFixed64SizeNoTag(value)
     }
     
     
-    public static func computeFixed32Size(fieldNumber:Int32, value:Int32) ->Int32
+    public static func computeFixed32Size(fieldNumber:Int32, value:UInt32) ->Int32
     {
         return computeTagSize(fieldNumber) + computeFixed32SizeNoTag(value)
     }
@@ -361,6 +360,7 @@ public enum WireFormat:Int32
     }
     
 }
+
 
 
 

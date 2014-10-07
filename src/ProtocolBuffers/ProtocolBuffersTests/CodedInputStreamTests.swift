@@ -117,7 +117,6 @@ class CodedInputStreamTests: XCTestCase
             
             var input2:CodedInputStream = CodedInputStream(inputStream:smallblock)
             var readRes2 = input2.readRawLittleEndian32()
-            println("\(readRes2)")
             XCTAssertTrue(value == readRes2, "")
         }
     }
@@ -241,6 +240,8 @@ class CodedInputStreamTests: XCTestCase
     
 //        XCTAssertThrows([input readData], @"");
     }
+    
+    
 
     
 }
