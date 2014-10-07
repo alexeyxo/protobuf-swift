@@ -259,6 +259,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     return name;
   }
   
+    string ClassNameMessage(const Descriptor* descriptor) {
+        string name;
+        name += FileClassPrefix(descriptor->file());
+        name += descriptor ->name();
+        return name;
+    }
+  
+  
     string ClassNameOneof(const OneofDescriptor* descriptor) {
         string name;
         if (descriptor->containing_type() != NULL) {
@@ -439,33 +447,33 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     // Switch on cpp_type since we need to know which default_value_* method
     // of FieldDescriptor to call.
     switch (field->cpp_type()) {
-        case FieldDescriptor::CPPTYPE_INT32:  return SimpleItoa(field->default_value_int32());
-        case FieldDescriptor::CPPTYPE_UINT32: return SimpleItoa(static_cast<int32>(field->default_value_uint32()));
-        case FieldDescriptor::CPPTYPE_INT64:  return SimpleItoa(field->default_value_int64()) + "";
-        case FieldDescriptor::CPPTYPE_UINT64: return SimpleItoa(static_cast<int64>(field->default_value_uint64())) + "";
+        case FieldDescriptor::CPPTYPE_INT32:  return "Int32(" + SimpleItoa(field->default_value_int32()) +")";
+        case FieldDescriptor::CPPTYPE_UINT32: return "UInt32(" + SimpleItoa(field->default_value_uint32()) + ")";
+        case FieldDescriptor::CPPTYPE_INT64:  return "Int64(" + SimpleItoa(field->default_value_int64()) + ")";
+        case FieldDescriptor::CPPTYPE_UINT64: return "UInt64(" + SimpleItoa(field->default_value_uint64()) + ")";
         case FieldDescriptor::CPPTYPE_BOOL:   return field->default_value_bool() ? "true" : "false";
         case FieldDescriptor::CPPTYPE_DOUBLE: {
           const double value = field->default_value_double();
           if (value == numeric_limits<double>::infinity()) {
-            return "HUGE_VAL";
+            return "Double(HUGE)";
           } else if (value == -numeric_limits<double>::infinity()) {
-            return "-HUGE_VAL";
+            return "Double(-HUGE)";
           } else if (value != value) {
-            return "NAN";
+            return "0.0";
           } else {
-            return SimpleDtoa(field->default_value_double());
+            return "Double("+ SimpleDtoa(field->default_value_double()) + ")";
           }
         }
         case FieldDescriptor::CPPTYPE_FLOAT: {
           const float value = field->default_value_float();
           if (value == numeric_limits<float>::infinity()) {
-            return "HUGE_VALF";
+            return "HUGE";
           } else if (value == -numeric_limits<float>::infinity()) {
-            return "-HUGE_VALF";
+            return "-HUGE";
           } else if (value != value) {
-            return "NAN";
+            return "0.0";
           } else {
-            return SimpleFtoa(value);
+            return "Float(" + SimpleFtoa(value) + ")";
           }
         }
         case FieldDescriptor::CPPTYPE_STRING:
@@ -478,20 +486,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             }
           } else {
             if (AllAscii(field->default_value_string())) {
-              return "\"" +
-                EscapeTrigraphs(CEscape(field->default_value_string())) +
-                "\"";
+              return "\"" + EscapeTrigraphs(CEscape(EscapeUnicode(field->default_value_string()))) + "\"";
             } else {
-              return
-                "" +
-                EscapeTrigraphs(CEscape(field->default_value_string())) +
-                "";
+              return "\"" + EscapeTrigraphs(CEscape(EscapeUnicode(field->default_value_string()))) + "\"";
             }
           }
         case FieldDescriptor::CPPTYPE_ENUM:
           return EnumValueName(field->default_value_enum());
         case FieldDescriptor::CPPTYPE_MESSAGE:
-          return "" + ClassName(field->message_type()) + "()";
+          return ClassName(field->message_type()) + "()";
     }
 
     GOOGLE_LOG(FATAL) << "Can't get here.";
@@ -525,9 +528,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 //  }
 
   // Escape C++ trigraphs by escaping question marks to \?
-  string EscapeTrigraphs(const string& to_escape) {
-    return StringReplace(to_escape, "?", "\\?", true);
-  }
+  
+    string EscapeTrigraphs(const string& to_escape) {
+        return StringReplace(to_escape, "?", "\\?", true);
+    }
+    
+    string EscapeUnicode(const string& to_escape) {
+        return to_escape;//StringReplace(to_escape, "\", "", true);
+
+    }
 
 }  // namespace swift
 }  // namespace compiler

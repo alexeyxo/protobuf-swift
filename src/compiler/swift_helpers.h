@@ -70,7 +70,8 @@ string FileClassName(const FileDescriptor* file);
 string ClassName(const Descriptor* descriptor);
 string ClassName(const EnumDescriptor* descriptor);
 string ClassName(const ServiceDescriptor* descriptor);
-    string ClassNameOneof(const OneofDescriptor* descriptor);
+string ClassNameMessage(const Descriptor* descriptor);
+string ClassNameOneof(const OneofDescriptor* descriptor);
 string EnumValueName(const EnumValueDescriptor* descriptor);
 
 string SafeName(const string& name);
@@ -112,6 +113,7 @@ string DefaultValue(const FieldDescriptor* field);
 
 // Escape C++ trigraphs by escaping question marks to \?
 string EscapeTrigraphs(const string& to_escape);
+string EscapeUnicode(const string& to_escape);
 
 // Do message classes in this file keep track of unknown fields?
 inline bool HasUnknownFields(const FileDescriptor *file) {

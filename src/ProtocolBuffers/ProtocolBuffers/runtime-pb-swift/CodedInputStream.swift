@@ -182,7 +182,6 @@ public class CodedInputStream
                     var n:Int = 0
                     if (input != nil) {
                         
-                        //                        var data = chunk[pos...chunk.count-1]
                         n = input!.read(&chunk, maxLength:chunk.count - Int(pos))
                     }
                     if (n <= 0) {
@@ -200,12 +199,10 @@ public class CodedInputStream
             var pos:Int = originalBufferSize - originalBufferPos;
             
             bytes[0...bytes.count-1] = buffer![Int(originalBufferSize)...Int(pos)]
-            //            memcpy(bytes.mutableBytes, ((int8_t*)buffer.bytes) + originalBufferPos, pos);
             
             for chunk in chunks
             {
                 bytes[Int(pos)..<bytes.count] = chunk[0..<chunk.count]
-                //                memcpy(((int8_t*)bytes.mutableBytes) + pos, chunk.bytes, chunk.length);
                 pos += chunk.count
             }
             
@@ -401,17 +398,22 @@ public class CodedInputStream
     
     public func readInt32() -> Int32
     {
+        
         return readRawVarint32()
     }
     
-    public func readFixed64() -> Int64
+    public func readFixed64() -> UInt64
     {
-        return readRawLittleEndian64()
+        var retvalue:UInt64 = 0
+        WireFormat.convertTypes(convertValue: readRawLittleEndian64(), retValue: &retvalue)
+        return retvalue
     }
     
-    public func readFixed32() -> Int32
+    public func readFixed32() -> UInt32
     {
-        return readRawLittleEndian32()
+        var retvalue:UInt32 = 0
+        WireFormat.convertTypes(convertValue: readRawLittleEndian32(), retValue: &retvalue)
+        return retvalue
     }
     
     public func readBool() ->Bool

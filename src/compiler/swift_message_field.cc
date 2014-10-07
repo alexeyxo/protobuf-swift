@@ -119,7 +119,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       "}\n"
       "var $name$:$storage_type$ {\n"
       "     get {\n"
-      "         return builderResult.$name$"
+      "         return builderResult.$name$\n"
       "     }\n"
       "     set (value) {\n"
       "         builderResult.has$capitalized_name$ = true\n"

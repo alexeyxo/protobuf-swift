@@ -47,6 +47,7 @@ class MessageGenerator {
   void GenerateExtensionRegistrationSource(io::Printer* printer);
   void DetermineDependencies(set<string>* dependencies);
   void GenerateParseFromExtensionMethodsSource(io::Printer* printer);
+  void GenerateGlobalStaticVariablesSource(io::Printer* printer, string rootclass);
  private:
 
   void GenerateMessageSerializationMethodsSource(io::Printer* printer);

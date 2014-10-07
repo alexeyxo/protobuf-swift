@@ -1,8 +1,5 @@
-##Protobuf Extensions And Services will be coming soon
+#Protocol Buffers for Swift
 
-
-##Protocol Buffers 2.6 for Swift
-=================
 
 An implementation of Protocol Buffers in Swift.
 
@@ -12,6 +9,7 @@ This project is based on an implementation of Protocol Buffers from Google.  See
 
 [g-protobuf]: https://developers.google.com/protocol-buffers/docs/overview
 
+####Required Protocol Buffers 2.6
 
 ## How To Install Protobuf
 1.`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
@@ -26,7 +24,7 @@ This project is based on an implementation of Protocol Buffers from Google.  See
 
 6.`./build.sh`
 
-7.Add `/src/ProtocolBuffers/ProtocolBuffers.xcodeproj` in your project.
+7.Add `./src/ProtocolBuffers/ProtocolBuffers.xcodeproj` in your project.
 
 
 

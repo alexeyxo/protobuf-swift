@@ -20,26 +20,36 @@ import Foundation
 
 public typealias ONEOF_NOT_SET = Int
 
-public protocol Message
+public protocol MessageInit:class
 {
     init()
-    var unknownFields:UnknownFieldSet{get}
-    func serializedSize() -> Int32
-    func isInitialized() -> Bool
-    func writeToCodedOutputStream(output:CodedOutputStream)
-    func writeToOutputStream(output:NSOutputStream)
-    func data()-> [Byte]
-    func buider()-> MessageBuilder
-    func toBuider()-> MessageBuilder
-    var description:String {get}
 }
 
-public protocol MessageBuilder
+public protocol Message:class,MessageInit
 {
-     func clear() -> Self
+    
+    var unknownFields:UnknownFieldSet{get}
+    var description:String {get}
+    
+    func serializedSize() -> Int32
+    func isInitialized() -> Bool
+    
+    func writeToCodedOutputStream(output:CodedOutputStream)
+    func writeToOutputStream(output:NSOutputStream)
+    
+    func data()-> [Byte]
+    
+    class func buider()-> AbstractMessageBuilder
+    func toBuider()-> AbstractMessageBuilder
+    
+}
+
+public protocol MessageBuilder: class
+{
      var unknownFields:UnknownFieldSet{get}
+     func clear() -> Self
      func isInitialized()-> Bool
-     func build<T where T:Message>() -> T
+     func build() -> AbstractMessage
      func mergeUnknownFields(unknownField:UnknownFieldSet) ->Self
      func mergeFromCodedInputStream(input:CodedInputStream) -> Self
      func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Self
@@ -60,6 +70,7 @@ public class AbstractMessage:Equatable, Printable, Message {
     {
         unknownFields = UnknownFieldSet(fields: Dictionary())
     }
+    
     
     public var description:String {
         get {
@@ -92,7 +103,7 @@ public class AbstractMessage:Equatable, Printable, Message {
     }
     public func writeToCodedOutputStream(output: CodedOutputStream)
     {
-        println("failed")
+         NSException(name:"Override", reason:"", userInfo: nil).raise()
     }
     public func writeToOutputStream(output: NSOutputStream)
     {
@@ -100,11 +111,11 @@ public class AbstractMessage:Equatable, Printable, Message {
         writeToCodedOutputStream(codedOutput)
         codedOutput.flush()
     }
-    public func buider() -> MessageBuilder
+    public class func buider() -> AbstractMessageBuilder
     {
         return AbstractMessageBuilder()
     }
-    public func toBuider() -> MessageBuilder
+    public func toBuider() -> AbstractMessageBuilder
     {
         return AbstractMessageBuilder()
     }
@@ -135,9 +146,9 @@ public class AbstractMessageBuilder:MessageBuilder
     }
     
     
-    public func build<T where T : Message>() -> T {
+    public func build() -> AbstractMessage {
         
-        return T()
+        return AbstractMessage()
     }
     
     public func clone() -> Self
@@ -175,7 +186,7 @@ public class AbstractMessageBuilder:MessageBuilder
     
     public func mergeFromData(data:[Byte]) -> Self
     {
-        let input:CodedInputStream = CodedInputStream(data:data)
+        var input:CodedInputStream = CodedInputStream(data:data)
         mergeFromCodedInputStream(input)
         input.checkLastTagWas(0)
         return self

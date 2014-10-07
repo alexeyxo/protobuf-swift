@@ -38,7 +38,9 @@ class ExtensionGenerator {
   ~ExtensionGenerator();
 
   void GenerateMembersSource(io::Printer* printer);
+  void GenerateMembersSourceExtensions(io::Printer* printer, string fileClass);
   void GenerateFieldsSource(io::Printer* printer);
+  void GenerateFieldsGetterSource(io::Printer* printer, string rootclassname);
   void GenerateInitializationSource(io::Printer* printer);
   void GenerateRegistrationSource(io::Printer* printer);
 

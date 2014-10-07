@@ -73,17 +73,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       
       
       printer->Indent();
-      printer->Print("case $classname$NotSet(ONEOF_NOT_SET)\n\n",
+      printer->Print("case $classname$OneOfNotSet\n\n",
                      "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
       
-      printer->Print("static func check$name$Set(value:$name$) -> Bool {\n"
-                     "     switch value {\n"
-                     "     case .$name$NotSet(let enumValue):\n"
-                     "          return true\n"
-                     "     default:\n"
+      printer->Print("func checkOneOfIsSet() -> Bool {\n"
+                     "     switch self {\n"
+                     "     case .$name$OneOfNotSet:\n"
                      "          return false\n"
+                     "     default:\n"
+                     "          return true\n"
                      "     }\n"
                      "}\n",
+                     "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
                      "name",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
      printer->Outdent();
       for (int i = 0; i < descriptor_->field_count(); i++) {
@@ -93,7 +94,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
           if (GetSwiftType(fieldType) == SWIFTTYPE_MESSAGE) {
               
               printer->Print("case $name$($type$)\n\n",
-                             "name",UnderscoresToCapitalizedCamelCase(fieldType->name()),
+                             "name",UnderscoresToCapitalizedCamelCase(fieldType),
                              "type",ClassName(fieldType->message_type()));
               
               printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
@@ -104,7 +105,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                              "          return nil\n"
                              "     }\n"
                              "}\n",
-                             "name",UnderscoresToCapitalizedCamelCase(fieldType->name()),
+                             "name",UnderscoresToCapitalizedCamelCase(fieldType),
                              "fieldType",ClassName(fieldType->message_type()),
                              "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
           }

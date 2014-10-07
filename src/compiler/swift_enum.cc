@@ -55,6 +55,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
   void EnumGenerator::GenerateSource(io::Printer* printer) {
 
+      printer->Print("\n\n//Enum type declaration start \n\n");
       printer->Print(
                      "enum $classname$:Int32 {\n",
                      "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
@@ -93,6 +94,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       printer->Print(
                      "}\n"
                      "\n");
+     printer->Print("\n\n//Enum type declaration end \n\n");
   }
 }  // namespace swift
 }  // namespace compiler

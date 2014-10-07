@@ -316,14 +316,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       "    dataSize$name$ += WireFormat.computeEnumSizeNoTag(value.toRaw())\n"
       "}\n");
 
-    printer->Print(variables_,
-      "size += dataSize$name$\n");
+    printer->Print(variables_,"size += dataSize$name$\n");
 
     if (descriptor_->options().packed()) {
-      printer->Print(variables_,
+     
+        printer->Print(variables_,
         "if !$name$.isEmpty {\n"
         "  size += $tag_size$\n"
-        "  size += WireFormat.computeRawVarint32Size(dataSize$name$)\n");
+        "  size += WireFormat.computeRawVarint32Size(dataSize$name$)\n"
+        "}\n");
+   
     } else {
       printer->Print(variables_,
         "size += ($tag_size$ * Int32($name$.count))\n");

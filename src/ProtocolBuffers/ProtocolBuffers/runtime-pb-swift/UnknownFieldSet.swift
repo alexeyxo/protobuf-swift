@@ -24,7 +24,7 @@ public func == (lhs: UnknownFieldSet, rhs: UnknownFieldSet) -> Bool
 
 public class UnknownFieldSet:Hashable,Equatable
 {
-    var fields:Dictionary<Int32,Field>
+    public var fields:Dictionary<Int32,Field>
 
     convenience public init()
     {
@@ -38,11 +38,14 @@ public class UnknownFieldSet:Hashable,Equatable
     public var hashValue:Int
     {
         get {
-            return 0
+            var hashCode:Int = 0
+            for value in fields.values
+            {
+                hashCode = (hashCode &* 31) &+ value.hashValue
+            }
+            return hashCode
         }
-        
     }
-    
     public func hasField(number:Int32) -> Bool
     {
         if let unwrappedValue = fields[number] {
@@ -61,8 +64,7 @@ public class UnknownFieldSet:Hashable,Equatable
     public func writeToCodedOutputStream(output:CodedOutputStream)
     {
 
-        var sortedKeys = Array(fields.keys)
-        for number in sortedKeys
+        for number in fields.keys
         {
             let value:Field = fields[number]!
             value.writeTo(number, output: output)
@@ -150,5 +152,6 @@ public class UnknownFieldSet:Hashable,Equatable
         writeToCodedOutputStream(output)
         return bytes
     }
+    
     
 }

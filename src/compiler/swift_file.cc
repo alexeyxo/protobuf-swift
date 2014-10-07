@@ -72,32 +72,44 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
       "import Foundation\n"
       "import ProtocolBuffers\n\n");
 
-    printer->Print(
-      "private class $classname$ {\n",
-      "classname", classname_);
+     //fields
+      for (int i = 0; i < file_->extension_count(); i++) {
+          ExtensionGenerator(classname_, file_->extension(i)).GenerateFieldsGetterSource(printer, classname_);
+      }
+      
+      for (int i = 0; i < file_->message_type_count(); i++) {
+          MessageGenerator(file_->message_type(i)).GenerateGlobalStaticVariablesSource(printer, classname_);
+      }
+      
+      printer->Print(
+                     "struct $classname$ {\n",
+                     "classname", classname_);
+
+      printer->Indent();
+      printer->Print(
+      "static var sharedInstance : $classname$ {\n"
+      " struct Static {\n"
+      "     static let instance : $classname$ = $classname$()\n"
+      " }\n"
+      " return Static.instance\n"
+      "}\n","classname", classname_);
+
+      for (int i = 0; i < file_->extension_count(); i++) {
+          ExtensionGenerator(classname_, file_->extension(i)).GenerateFieldsSource(printer);
+      }
       
       
-
-    for (int i = 0; i < file_->extension_count(); i++) {
-      ExtensionGenerator(classname_, file_->extension(i)).GenerateFieldsSource(printer);
-    }
-
-    for (int i = 0; i < file_->message_type_count(); i++) {
-      MessageGenerator(file_->message_type(i)).GenerateStaticVariablesSource(printer);
-    }
+      for (int i = 0; i < file_->message_type_count(); i++) {
+          MessageGenerator(file_->message_type(i)).GenerateStaticVariablesSource(printer);
+      }
 
       //TODO
     printer->Print("var extensionRegistry:ExtensionRegistry\n");
     printer->Print(
-//      "class func extensionRegistry() -> ExtensionRegistry {\n"
-//      "  return ExtensionRegistry()\n"
-//      "}\n"
       "\n"
-      "init() {\n"
-      "",
-      "classname", classname_);
+      "init() {\n");
 
-    
+    printer->Indent();
     
 
     for (int i = 0; i < file_->extension_count(); i++) {
@@ -107,30 +119,27 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
     for (int i = 0; i < file_->message_type_count(); i++) {
       MessageGenerator(file_->message_type(i)).GenerateStaticVariablesInitialization(printer);
     }
-
+      
     printer->Print(
       "extensionRegistry = ExtensionRegistry()\n"
       "registerAllExtensions(extensionRegistry)\n");
 
     for (int i = 0; i < file_->dependency_count(); i++) {
       printer->Print(
-        "$dependency$.registerAllExtensions(registry)\n",
+        "$dependency$.sharedInstance.registerAllExtensions(extensionRegistry)\n",
         "dependency", FileClassName(file_->dependency(i)));
     }
     
-
+    printer->Outdent();
     printer->Print(
       ""
       "}\n");
-
     
-
-    // -----------------------------------------------------------------
 
     printer->Print(
       "func registerAllExtensions(registry:ExtensionRegistry) {\n");
     
-
+    printer->Indent();
     for (int i = 0; i < file_->extension_count(); i++) {
       ExtensionGenerator(classname_, file_->extension(i))
         .GenerateRegistrationSource(printer);
@@ -140,20 +149,15 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
       MessageGenerator(file_->message_type(i))
         .GenerateExtensionRegistrationSource(printer);
     }
-
-    
-    printer->Print(
-      "}\n");
-
-    // -----------------------------------------------------------------
+    printer->Outdent();
+    printer->Print("}\n");
 
     for (int i = 0; i < file_->extension_count(); i++) {
-      ExtensionGenerator(classname_, file_->extension(i)).GenerateMembersSource(printer);
+      ExtensionGenerator(classname_, file_->extension(i)).GenerateMembersSourceExtensions(printer,classname_);
     }
 
-    printer->Print(
-      "}\n\n");
-    
+    printer->Outdent();
+    printer->Print("}\n\n");
     
 
     for (int i = 0; i < file_->enum_type_count(); i++) {

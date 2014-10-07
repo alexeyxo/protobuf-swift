@@ -16,41 +16,104 @@
 // limitations under the License.
 
 import Foundation
-final public class Field:NSObject
+
+public func ==(lhs:Field, rhs:Field) -> Bool
+{
+    var check = (lhs.variantArray == rhs.variantArray)
+    check = check && (lhs.fixed32Array == rhs.fixed32Array)
+    check = check && (lhs.fixed64Array == rhs.fixed64Array)
+    check = check && (lhs.groupArray == rhs.groupArray)
+    check = check && (lhs.lengthDelimited == rhs.lengthDelimited)
+    return check
+}
+
+public func ==(lhs:Array<Array<Byte>>, rhs:Array<Array<Byte>>) -> Bool
+{
+    if lhs.count == rhs.count
+    {
+        for (var i = 0; i < lhs.count; i++)
+        {
+            var lbytes = lhs[i]
+            var rbytes = rhs[i]
+            
+            if lbytes.count == rbytes.count
+            {
+                if lbytes == rbytes
+                {
+                    continue
+                }
+                else
+                {
+                    return false
+                }
+            }
+            else
+            {
+                return false
+            }
+        }
+        return true
+    }
+    return false
+}
+
+public func ==(lhs:Array<Byte>, rhs:Array<Byte>) -> Bool
+{
+    if lhs.count == rhs.count
+    {
+        for (var i = 0; i < lhs.count; i++)
+        {
+            var lbytes = lhs[i]
+            var rbytes = rhs[i]
+            if lbytes == rbytes
+            {
+                continue
+            }
+            else
+            {
+                return false
+            }
+        }
+        return true
+    }
+    return false
+}
+
+final public class Field:Equatable,Hashable
 {
     public var variantArray:Array<Int64>
-    public var fixed32Array:Array<Int32>
-    public var fixed64Array:Array<Int64>
+    public var fixed32Array:Array<UInt32>
+    public var fixed64Array:Array<UInt64>
     public var lengthDelimited:Array<Array<Byte>>
     public var groupArray:Array<UnknownFieldSet>
     
-    override init()
+    public init()
     {
         
         variantArray = [Int64](count: 0, repeatedValue: 0)
-        fixed32Array = [Int32](count: 0, repeatedValue: 0)
-        fixed64Array = [Int64](count: 0, repeatedValue: 0)
+        fixed32Array = [UInt32](count: 0, repeatedValue: 0)
+        fixed64Array = [UInt64](count: 0, repeatedValue: 0)
         lengthDelimited = Array<Array<Byte>>()
         groupArray = Array<UnknownFieldSet>()
-        super.init()
     }
     
     public func getSerializedSize(fieldNumber:Int32) -> Int32
     {
         var result:Int32 = 0
+    
+        for value in variantArray
+        {
+            result += WireFormat.computeInt64Size(fieldNumber, value: value)
+        }
         
-
-        for (var i:Int = 0; i < variantArray.count; ++i)
+        for value in fixed32Array
         {
-            result += WireFormat.computeInt64Size(fieldNumber, value: variantArray[i])
+            result += WireFormat.computeFixed32Size(fieldNumber, value: value)
         }
-        for (var i:Int = 0; i < fixed32Array.count; ++i)
+        
+        for value in fixed64Array
         {
-            result += WireFormat.computeFixed32Size(fieldNumber, value: fixed32Array[i])
-        }
-        for (var i:Int = 0; i < fixed64Array.count; ++i)
-        {
-            result += WireFormat.computeFixed64Size(fieldNumber, value: fixed64Array[i])
+            result += WireFormat.computeFixed64Size(fieldNumber, value: value)
         }
 
         for value in lengthDelimited
@@ -77,17 +140,17 @@ final public class Field:NSObject
     public func writeTo(fieldNumber:Int32, output:CodedOutputStream)
     {
 
-        for (var i:Int = 0; i < variantArray.count; ++i)
+        for value in variantArray
         {
-            output.writeInt64(fieldNumber, value:variantArray[i])
+            output.writeInt64(fieldNumber, value:value)
         }
-        for (var i:Int = 0; i < fixed32Array.count; ++i)
+        for value in fixed32Array
         {
-            output.writeFixed32(fieldNumber, value: fixed32Array[i])
+            output.writeFixed32(fieldNumber, value: value)
         }
-        for (var i:Int = 0; i < fixed64Array.count; ++i)
+        for value in fixed64Array
         {
-            output.writeFixed64(fieldNumber, value: fixed64Array[i])
+            output.writeFixed64(fieldNumber, value:value)
         }
         for value in lengthDelimited
         {
@@ -103,20 +166,19 @@ final public class Field:NSObject
     public func writeDescriptionFor(fieldNumber:Int32,  inout outputString:String, indent:String)
     {
         
-        for (var i:Int = 0; i < variantArray.count; ++i)
+        for value in variantArray
         {
-            outputString += "\(indent)\(fieldNumber): \(variantArray[i])\n"
+            outputString += "\(indent)\(fieldNumber): \(value)\n"
         }
 
- 
-        for (var i:Int = 0; i < fixed32Array.count; ++i)
+        for value in fixed32Array
         {
-            outputString += "\(indent)\(fieldNumber): \(fixed32Array[i])\n"
+            outputString += "\(indent)\(fieldNumber): \(value)\n"
         }
 
-        for (var i:Int = 0; i < fixed64Array.count; ++i)
+        for value in fixed64Array
         {
-            outputString += "\(indent)\(fieldNumber): \(fixed64Array[i])\n"
+            outputString += "\(indent)\(fieldNumber): \(value)\n"
         }
         
         for value in lengthDelimited
@@ -140,6 +202,38 @@ final public class Field:NSObject
             output.writeRawMessageSetExtension(fieldNumber, value: value)
         }
     }
+    
+    public var hashValue:Int {
+        get {
+            var hashCode = 0
+            
+            for value in variantArray
+            {
+                hashCode = (hashCode &* 31) &+ value.hashValue
+            }
+            for value in fixed32Array
+            {
+                hashCode = (hashCode &* 31) &+ value.hashValue
+            }
+            for value in fixed64Array
+            {
+                hashCode = (hashCode &* 31) &+ value.hashValue
+            }
+            for value in lengthDelimited
+            {
+                for byteVal in value
+                {
+                    hashCode = (hashCode &* 31) &+ byteVal.hashValue
+                }
+            }
+            for value in groupArray
+            {
+                hashCode = (hashCode &* 31) &+ value.hashValue
+            }
+            return hashCode
+        }
+    }
+    
 }
 
 public extension Field

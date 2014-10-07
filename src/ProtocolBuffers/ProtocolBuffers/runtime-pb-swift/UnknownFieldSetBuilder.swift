@@ -27,7 +27,7 @@ public class UnknownFieldSetBuilder
         lastFieldNumber = 0
     }
     
-    public func addField(field:Field?, number:Int32) ->UnknownFieldSetBuilder {
+    public func addField(field:Field, number:Int32) ->UnknownFieldSetBuilder {
         if (number == 0) {
             NSException(name:"IllegalArgument", reason:"", userInfo: nil).raise()
         }
@@ -44,7 +44,7 @@ public class UnknownFieldSetBuilder
             if (number == lastFieldNumber) {
                 return lastField
             }
-            addField(lastField, number:lastFieldNumber)
+            addField(lastField!, number:lastFieldNumber)
             
         }
         if (number == 0)
@@ -169,11 +169,12 @@ public class UnknownFieldSetBuilder
         return self
     }
     
-    public func mergeFieldFrom(tag:Int32, input:CodedInputStream) ->Bool
+    public func mergeFieldFrom(tag:Int32, input:CodedInputStream) -> Bool
     {
         
         let number:Int32 = WireFormat.wireFormatGetTagFieldNumber(tag)
-        let format:WireFormat = WireFormat.fromRaw(number)!
+        var tags:Int32 = WireFormat.wireFormatGetTagWireType(tag)
+        let format = WireFormat.fromRaw(tags)
         if (format == WireFormat.WireFormatVarint)
         {
             getFieldBuilder(number)?.variantArray.append(input.readInt64())
@@ -186,7 +187,7 @@ public class UnknownFieldSetBuilder
         }
         else if (format == WireFormat.WireFormatFixed64)
         {
-            getFieldBuilder(number)?.fixed64Array.append(input.readInt64())
+            getFieldBuilder(number)?.fixed64Array.append(input.readFixed64())
             return true
         }
         else if (format == WireFormat.WireFormatLengthDelimited)

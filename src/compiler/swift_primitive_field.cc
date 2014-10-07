@@ -54,7 +54,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         case FieldDescriptor::TYPE_DOUBLE  : return "Double" ;
         case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
         case FieldDescriptor::TYPE_STRING  : return "String";
-        case FieldDescriptor::TYPE_BYTES   : return "[Byte]"  ;
+        case FieldDescriptor::TYPE_BYTES   : return "Array<Byte>"  ;
         default                            : return NULL;
       }
 
@@ -307,10 +307,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
   }
 
   void PrimitiveFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-      "if has$capitalized_name$ {\n"
-      "   hashCode = (hashCode &* 31) &+ $name$.hashValue\n"
-      "}\n");
+      if (descriptor_->type() == FieldDescriptor::TYPE_BYTES) {
+          printer->Print(variables_,
+                         "for value in $name$ {\n"
+                         "   hashCode = (hashCode &* 31) &+ value.hashValue\n"
+                         "}\n");
+      }
+      else
+      {
+          printer->Print(variables_,
+                         "if has$capitalized_name$ {\n"
+                         "   hashCode = (hashCode &* 31) &+ $name$.hashValue\n"
+                         "}\n");
+      }
+    
   }
 
   RepeatedPrimitiveFieldGenerator::RepeatedPrimitiveFieldGenerator(const FieldDescriptor* descriptor)
@@ -474,19 +484,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
   void RepeatedPrimitiveFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
-    if (ReturnsPrimitiveType(descriptor_)) {
-      printer->Print(variables_,
-      "for element in $name$ {\n"
-      "    hashCode = (hashCode &* 31) &+ element.hashValue\n");
-     printer->Print("}\n");
 
-    } else {
-      printer->Print(variables_,
-      "for element in $name$ {\n"
-      "    hashCode = (hashCode &* 31) &+ element.hashValue\n");
-      printer->Print("}\n");
-
-    }
+      if (descriptor_->type() == FieldDescriptor::TYPE_BYTES) {
+          printer->Print(variables_,
+                         "for value in $name$ {\n"
+                         "  for element in value {\n"
+                         "      hashCode = (hashCode &* 31) &+ element.hashValue\n"
+                         "  }\n"
+                         "}\n");
+      }
+      else
+      {
+          printer->Print(variables_,
+                         "for element in $name$ {\n"
+                         "    hashCode = (hashCode &* 31) &+ element.hashValue\n"
+                         "}\n");
+      }
+    
   }
 }  // namespace swift
 }  // namespace compiler

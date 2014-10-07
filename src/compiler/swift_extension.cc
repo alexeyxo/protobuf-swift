@@ -41,6 +41,31 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 //      vars["name"] = UnderscoresToCamelCase(descriptor_);
 //  }
 
+void ExtensionGenerator::GenerateFieldsGetterSource(io::Printer* printer, string rootclassname) {
+    map<string, string> vars;
+    vars["name"] = UnderscoresToCamelCase(descriptor_);
+    vars["containing_type"] = classname_;
+    vars["root_name"] = rootclassname;
+    
+    SwiftType java_type = GetSwiftType(descriptor_);
+    string singular_type;
+    switch (java_type) {
+        case SWIFTTYPE_MESSAGE:
+            vars["type"] = ClassName(descriptor_->message_type());
+            break;
+        default:
+            vars["type"] = BoxedPrimitiveTypeName(java_type);
+            break;
+    }
+    
+    vars["extended_type"] = ClassName(descriptor_->containing_type());
+    
+    printer->Print(vars,"var $containing_type$$name$:ConcreateExtensionField {\n"
+                        "   get {\n"
+                        "       return $root_name$.sharedInstance.$containing_type$$name$Static\n"
+                        "   }\n"
+                        "}\n");
+}
 
   void ExtensionGenerator::GenerateFieldsSource(io::Printer* printer) {
     map<string, string> vars;
@@ -61,9 +86,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     vars["extended_type"] = ClassName(descriptor_->containing_type());
 
     printer->Print(vars,
-      "private var $containing_type$_$name$:ConcreteExtensionField<$type$,$extended_type$>\n");
+      "var $containing_type$$name$Static:ConcreateExtensionField\n");
   }
 
+    void ExtensionGenerator::GenerateMembersSourceExtensions(io::Printer* printer, string fileClass) {
+        map<string, string> vars;
+        vars["name"] = UnderscoresToCamelCase(descriptor_);
+        vars["containing_type"] = classname_;
+        vars["rootclass_type"] = fileClass;
+        
+        printer->Print(vars,
+                       "static func $name$() -> ConcreateExtensionField {\n"
+                       "     return $rootclass_type$.sharedInstance.$containing_type$$name$Static\n"
+                       "}\n");
+    }
 
   void ExtensionGenerator::GenerateMembersSource(io::Printer* printer) {
     map<string, string> vars;
@@ -71,10 +107,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     vars["containing_type"] = classname_;
 
     printer->Print(vars,
-      "var $name$:ExtensionField {\n"
-      "     get {\n"
-      "         return $containing_type$_$name$\n"
-      "     }\n"
+      "class func $name$() -> ConcreateExtensionField {\n"
+      "     return $containing_type$$name$\n"
       "}\n");
   }
 
@@ -160,8 +194,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
     	if(descriptor_->is_repeated())
         {
-			vars["default"] = string("[$type$]()");
+            vars["default"] = string("Array<") + vars["type"] + string(">()");
 		}
+        else if (descriptor_->type() == FieldDescriptor::TYPE_ENUM)
+        {
+            vars["default"] =  ClassName(descriptor_->enum_type()) + "." + EnumValueName(descriptor_->default_value_enum()) + ".toRaw()";
+        }
         else
         {
             vars["default"] =  DefaultValue(descriptor_);
@@ -169,15 +207,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
 
-    printer->Print(
-      vars,
-      "$containing_type$_$name$ = ConcreteExtensionField(type:$extension_type$, fieldNumber:$number$, defaultValue:$default$, isRepeated:$is_repeated$, isPacked:$is_packed$, isMessageSetWireFormat:$is_wire_format$)\n");
-
+    printer->Print(vars,"$containing_type$$name$Static = ConcreateExtensionField(type:$extension_type$, extendedClass:$extended_type$.self, fieldNumber: $number$, defaultValue:$default$, messageOrGroupClass:$type$.self, isRepeated:$is_repeated$, isPacked:$is_packed$, isMessageSetWireFormat:$is_wire_format$)\n");
   }
 
   void ExtensionGenerator::GenerateRegistrationSource(io::Printer* printer) {
     printer->Print(
-      "registry.addExtension($scope$_$name$)\n",
+      "registry.addExtension($scope$$name$Static)\n",
       "scope", classname_,
       "name", UnderscoresToCamelCase(descriptor_));
   }

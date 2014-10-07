@@ -17,12 +17,13 @@
 
 import Foundation
 
+public typealias AnyClassType = GeneratedMessage.Type
+
 public protocol ExtensionField
 {
     var fieldNumber:Int32 {get set}
-    var nameOfExtension:String {get}
+    var extendedClass:AnyClassType {get}
     var wireType:WireFormat {get}
-    func initialize() -> Self
     func writeValueIncludingTagToCodedOutputStream(value:Any, output:CodedOutputStream)
     func computeSerializedSizeIncludingTag(value:Any) -> Int32
     func writeDescriptionOf(value:Any, inout output:String, indent:String)
@@ -32,32 +33,37 @@ public protocol ExtensionField
 
 public class ExtensionRegistry
 {
-    private var classMap:[String : [Int32 : ExtensionField]]?
+    private var classMap:[String : [Int32 : ConcreateExtensionField]]
+    
     public init()
     {
-        
+        self.classMap = [:]
     }
-    public init(classMap:[String : [Int32 : ExtensionField]])
+    public init(classMap:[String : [Int32 : ConcreateExtensionField]])
     {
         self.classMap = classMap
     }
     
-    public func getExtension(clName:ExtensionField, fieldNumber:Int32) -> Any {
+    public func getExtension(clName:AnyClassType, fieldNumber:Int32) -> ConcreateExtensionField? {
         
-        let extensionMap:[Int32 : ExtensionField] = classMap![clName.nameOfExtension]!
-        return extensionMap[fieldNumber]!
+        let extensionMap = classMap[clName.className()]
+        if extensionMap == nil
+        {
+            return nil
+        }
+        return extensionMap![fieldNumber]
     }
     
-    public func addExtension(extensions:ExtensionField)
+    public func addExtension(extensions:ConcreateExtensionField)
     {
-        let extendedClass = extensions.nameOfExtension
-        
-        var extensionMap = classMap![extendedClass]
+        let extendedClass = extensions.extendedClass.className()
+        var extensionMap = classMap[extendedClass]?
         if (extensionMap == nil)
         {
-            classMap![extendedClass] = extensionMap
+            extensionMap = [Int32 : ConcreateExtensionField]()
+            classMap[extendedClass] = extensionMap
         }
-        extensionMap![extensions.fieldNumber]! = extensions
+        extensionMap![extensions.fieldNumber] = extensions
     }
     
 }

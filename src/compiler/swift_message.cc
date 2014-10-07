@@ -154,38 +154,51 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
   void MessageGenerator::GenerateStaticVariablesInitialization(io::Printer* printer) {
-//    map<string, string> vars;
-//    vars["identifier"] = UniqueFileScopeIdentifier(descriptor_);
-//    vars["index"] = SimpleItoa(descriptor_->index());
-//    vars["classname"] = ClassName(descriptor_);
-//    if (descriptor_->containing_type() != NULL) {
-//      vars["parent"] = UniqueFileScopeIdentifier(descriptor_->containing_type());
-//    }
-//
-//    for (int i = 0; i < descriptor_->extension_count(); i++) {
-//      ExtensionGenerator(ClassName(descriptor_), descriptor_->extension(i)).GenerateInitializationSource(printer);
-//    }
-//    for (int i = 0; i < descriptor_->nested_type_count(); i++) {
-//      MessageGenerator(descriptor_->nested_type(i)).GenerateStaticVariablesInitialization(printer);
-//    }
+    map<string, string> vars;
+    vars["identifier"] = UniqueFileScopeIdentifier(descriptor_);
+    vars["index"] = SimpleItoa(descriptor_->index());
+    vars["classname"] = ClassName(descriptor_);
+    if (descriptor_->containing_type() != NULL) {
+      vars["parent"] = UniqueFileScopeIdentifier(descriptor_->containing_type());
+    }
+
+    for (int i = 0; i < descriptor_->extension_count(); i++) {
+      ExtensionGenerator(ClassName(descriptor_), descriptor_->extension(i)).GenerateInitializationSource(printer);
+    }
+    for (int i = 0; i < descriptor_->nested_type_count(); i++) {
+      MessageGenerator(descriptor_->nested_type(i)).GenerateStaticVariablesInitialization(printer);
+    }
   }
 
 
   void MessageGenerator::GenerateStaticVariablesSource(io::Printer* printer) {
-//    map<string, string> vars;
-//    vars["identifier"] = UniqueFileScopeIdentifier(descriptor_);
-//    vars["index"] = SimpleItoa(descriptor_->index());
-//    vars["classname"] = ClassName(descriptor_);
-//    if (descriptor_->containing_type() != NULL) {
-//      vars["parent"] = UniqueFileScopeIdentifier(descriptor_->containing_type());
-//    }
-//
-//    for (int i = 0; i < descriptor_->extension_count(); i++) {
-//      ExtensionGenerator(ClassName(descriptor_), descriptor_->extension(i))
-//        .GenerateFieldsSource(printer);
-//    }
+    map<string, string> vars;
+    vars["identifier"] = UniqueFileScopeIdentifier(descriptor_);
+    vars["index"] = SimpleItoa(descriptor_->index());
+    vars["classname"] = ClassName(descriptor_);
+    if (descriptor_->containing_type() != NULL) {
+      vars["parent"] = UniqueFileScopeIdentifier(descriptor_->containing_type());
+    }
 
+    for (int i = 0; i < descriptor_->extension_count(); i++) {
+      ExtensionGenerator(ClassName(descriptor_), descriptor_->extension(i))
+        .GenerateFieldsSource(printer);
+    }
   }
+    
+    void MessageGenerator::GenerateGlobalStaticVariablesSource(io::Printer* printer, string rootclass) {
+        map<string, string> vars;
+        vars["identifier"] = UniqueFileScopeIdentifier(descriptor_);
+        vars["index"] = SimpleItoa(descriptor_->index());
+        vars["classname"] = ClassName(descriptor_);
+        if (descriptor_->containing_type() != NULL) {
+            vars["parent"] = UniqueFileScopeIdentifier(descriptor_->containing_type());
+        }
+        for (int i = 0; i < descriptor_->extension_count(); i++) {
+            ExtensionGenerator(ClassName(descriptor_), descriptor_->extension(i))
+            .GenerateFieldsGetterSource(printer, rootclass);
+        }
+    }
 
 
   void MessageGenerator::DetermineDependencies(set<string>* dependencies) {
@@ -217,23 +230,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       
       if (descriptor_->extension_range_count() > 0) {
           printer->Print(
-                         "final class $classname$ : ExtendableMessage {\n",
-                         "classname", UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+                         "final public class $classname$ : ExtendableMessage {\n",
+                         "classname", ClassNameMessage(descriptor_));
       } else {
           printer->Print(
-                         "final class $classname$ : GeneratedMessage {\n",
-                         "classname", UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+                         "final public class $classname$ : GeneratedMessage {\n",
+                         "classname", ClassNameMessage(descriptor_));
       }
       printer->Indent();
       
       
       //Nested Types
       for (int i = 0; i < descriptor_->nested_type_count(); i++) {
-          printer->Print("\n\n//Nested type declaration start \n\n");
+          printer->Print("\n\n//Nested type declaration start\n\n");
           printer->Indent();
           MessageGenerator(descriptor_->nested_type(i)).GenerateSource(printer);
           printer->Outdent();
-          printer->Print("\n\n//Nested type declaration end \n\n");
+          printer->Print("\n\n//Nested type declaration end\n\n");
           
       }
       
@@ -243,7 +256,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       
       for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
           OneofGenerator(descriptor_->oneof_decl(i)).GenerateSource(printer);
-          printer->Print("private var storage$storageName$:$classname$ =  $classname$.$storageName$NotSet(0)\n",
+          printer->Print("private var storage$storageName$:$classname$ =  $classname$.$storageName$OneOfNotSet\n",
                          "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
                          "classname", ClassNameOneof(descriptor_->oneof_decl(i)));
           
@@ -255,11 +268,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       ///Enums
       
       for (int i = 0; i < descriptor_->enum_type_count(); i++) {
-          printer->Print("\n\n//Enum type declaration start \n\n");
+          
           printer->Indent();
           EnumGenerator(descriptor_->enum_type(i)).GenerateSource(printer);
           printer->Outdent();
-          printer->Print("\n\n//Enum type declaration end \n\n");
+          
       }
       
       
@@ -279,7 +292,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       field_generators_.get(descriptor_->field(i)).GenerateMembersSource(printer);
     }
 
-    printer->Print("required init() {\n");
+    printer->Print("required public init() {\n");
     
     
     for (int i = 0; i < descriptor_->field_count(); i++) {
@@ -309,12 +322,28 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       "func toBuilder() -> $classname$Builder {\n"
       "  return $classname$.builderWithPrototype(self)\n"
       "}\n",
-      "classname", UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+      "classname", ClassName(descriptor_));
 
     GenerateMessageDescriptionSource(printer);
 
 
     GenerateMessageHashSource(printer);
+    //Meta informations
+    printer->Print("\n\n//Meta information declaration start\n\n");
+  
+    printer->Print("override public class func className() -> String {\n"
+                   "    return \"$classname$\"\n"
+                   "}\n",
+                   "classname",
+                   ClassName(descriptor_));
+  
+    printer->Print("override public func classMetaType() -> GeneratedMessage.Type {\n"
+                   "    return $classname$.self\n"
+                   "}\n",
+                   "classname",
+                   ClassName(descriptor_));
+  
+    printer->Print("\n\n//Meta information declaration end\n\n");
     printer->Outdent();
     printer->Print("}\n\n");
     
@@ -333,7 +362,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       ExtensionRangeOrdering());
 
     printer->Print(
-      "override func writeToCodedOutputStream(output:CodedOutputStream) {\n");
+      "override public func writeToCodedOutputStream(output:CodedOutputStream) {\n");
       printer->Indent();
     // Merge the fields and the extension ranges, both sorted by field number.
     for (int i = 0, j = 0;
@@ -360,7 +389,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     printer->Print("}\n");
       
-    printer->Print("override func serializedSize() -> Int32 {\n");
+    printer->Print("override public func serializedSize() -> Int32 {\n");
     printer->Indent();
     printer->Print("var size:Int32 = memoizedSerializedSize\n"
       "if size != -1 {\n"
@@ -404,7 +433,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       ExtensionRangeOrdering());
 
     printer->Print(
-      "override func writeDescriptionTo(inout output:String, indent:String) {\n");
+      "override public func writeDescriptionTo(inout output:String, indent:String) {\n");
     
     printer->Indent();
      
@@ -505,7 +534,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       ExtensionRangeOrdering());
 
     printer->Print(
-      "override var hashValue:Int {\n");
+      "override public var hashValue:Int {\n");
       printer->Indent();
       printer->Indent();
     printer->Print("get {\n");
@@ -647,11 +676,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       if (descriptor_->extension_range_count() > 0) {
           printer->Print(
                          "final class $classname$Builder : ExtendableMessageBuilder {\n",
-                         "classname", UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+                         "classname", ClassNameMessage(descriptor_));
       } else {
           printer->Print(
                          "final class $classname$Builder : GeneratedMessageBuilder {\n",
-                         "classname", UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+                         "classname", ClassNameMessage(descriptor_));
       }
 
     printer->Indent();
@@ -705,7 +734,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       "classname", ClassName(descriptor_));
 
     printer->Print(
-      "func build() -> $classname$ {\n"
+      "override func build() -> $classname$ {\n"
       "     checkInitialized()\n"
       "     return buildPartial()\n"
       "}\n"
@@ -724,13 +753,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       "}\n",
       "classname", ClassName(descriptor_));
 
-    printer->Print(
-      "func mergeFrom(other:$classname$) -> $classname$Builder {\n"
+    printer->Print("func mergeFrom(other:$classname$) -> $classname$Builder {\n","classname", ClassName(descriptor_));
       // Optimization:  If other is the default instance, we know none of its
       //   fields are set so we can skip the merge.
-      "  if (other == $classname$()) {\n"
-      "    return self\n"
-      "  }\n",
+      printer->Indent();
+      printer->Print("if (other == $classname$()) {\n"
+      " return self\n"
+      "}\n",
       "classname", ClassName(descriptor_));
     
 
@@ -742,13 +771,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
     if (descriptor_->extension_range_count() > 0) {
       printer->Print(
-        "  mergeExtensionFields(other)\n");
+        "mergeExtensionFields(other)\n");
     }
 
     printer->Print(
-      "    mergeUnknownFields(other.unknownFields)\n"
-      "  return self\n"
-      "}\n");
+      "mergeUnknownFields(other.unknownFields)\n"
+      "return self\n");
+    printer->Outdent();
+    printer->Print("}\n");
   }
 
     //////////////////////////////////////////////////////////
@@ -816,7 +846,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
   void MessageGenerator::GenerateIsInitializedSource(io::Printer* printer) {
     printer->Print(
-      "override func isInitialized() -> Bool {\n");
+      "override public func isInitialized() -> Bool {\n");
       printer->Indent();
     // Check that all required fields in this message are set.
     // TODO(kenton):  We can optimize this when we switch to putting all the

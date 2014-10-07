@@ -151,23 +151,27 @@ public class CodedOutputStream
         writeInt32NoTag(value)
     }
     
-    public func writeFixed64NoTag(value:Int64)
+    public func writeFixed64NoTag(value:UInt64)
     {
-        writeRawLittleEndian64(value)
+        var retvalue:Int64 = 0
+        WireFormat.convertTypes(convertValue: value, retValue: &retvalue)
+        writeRawLittleEndian64(retvalue)
     }
     
-    public func writeFixed64(fieldNumber:Int32, value:Int64)
+    public func writeFixed64(fieldNumber:Int32, value:UInt64)
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatFixed64)
         writeFixed64NoTag(value)
     }
     
-    public func writeFixed32NoTag(value:Int32)
+    public func writeFixed32NoTag(value:UInt32)
     {
-        writeRawLittleEndian32(value)
+        var retvalue:Int32 = 0
+        WireFormat.convertTypes(convertValue: value, retValue: &retvalue)
+        writeRawLittleEndian32(retvalue)
     }
     
-    public func writeFixed32(fieldNumber:Int32, value:Int32)
+    public func writeFixed32(fieldNumber:Int32, value:UInt32)
     {
         writeTag(fieldNumber, format:WireFormat.WireFormatFixed32)
         writeFixed32NoTag(value)

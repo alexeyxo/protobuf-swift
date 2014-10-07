@@ -24,39 +24,50 @@ public class GeneratedMessage:AbstractMessage
         super.init()
        self.unknownFields = UnknownFieldSet(fields: [:])
     }
+    
+    //Override
+    public class func className() -> String
+    {
+        return "GeneratedMessage"
+    }
+    public func classMetaType() -> GeneratedMessage.Type
+    {
+        return GeneratedMessage.self
+    }
+    //
 }
 
 
 
 public class GeneratedMessageBuilder:AbstractMessageBuilder
 {
-    public var internalGetResult:GeneratedMessage?
+    public var internalGetResult:GeneratedMessage
     {
         get
         {
             NSException(name:"ImproperSubclassing", reason:"", userInfo: nil).raise()
-            return nil
+            return GeneratedMessage()
         }
         
     }
     
-    public var unknowFields:UnknownFieldSet
+    override public var unknownFields:UnknownFieldSet
     {
         get
         {
-            return internalGetResult!.unknownFields
+            return internalGetResult.unknownFields
         }
 
         set (fields)
         {
-            internalGetResult!.unknownFields = fields
+            internalGetResult.unknownFields = fields
         }
         
     }
     public func checkInitialized()
     {
-        let result = internalGetResult?
-        if (result != nil  && !result!.isInitialized())
+        let result = internalGetResult
+        if (!result.isInitialized())
         {
             NSException(name:"UninitializedMessage", reason:"", userInfo: nil).raise()
         }
@@ -64,8 +75,8 @@ public class GeneratedMessageBuilder:AbstractMessageBuilder
     
     public func checkInitializedParsed()
     {
-        let result = internalGetResult?
-        if (result != nil  && !result!.isInitialized())
+        let result = internalGetResult
+        if (!result.isInitialized())
         {
             NSException(name:"InvalidProtocolBuffer", reason:"", userInfo: nil).raise()
         }
@@ -73,12 +84,12 @@ public class GeneratedMessageBuilder:AbstractMessageBuilder
     
     override public func isInitialized() -> Bool
     {
-        return internalGetResult!.isInitialized()
+        return internalGetResult.isInitialized()
     }
     
     override public func mergeUnknownFields(unknownFields: UnknownFieldSet) -> Self
     {
-        let result:GeneratedMessage = internalGetResult!
+        let result:GeneratedMessage = internalGetResult
         result.unknownFields = UnknownFieldSet.builderWithUnknownFields(result.unknownFields).mergeUnknownFields(unknownFields).build()
         return self
     }
