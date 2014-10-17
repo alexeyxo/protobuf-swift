@@ -198,7 +198,7 @@ void ExtensionGenerator::GenerateFieldsGetterSource(io::Printer* printer, string
 		}
         else if (descriptor_->type() == FieldDescriptor::TYPE_ENUM)
         {
-            vars["default"] =  ClassName(descriptor_->enum_type()) + "." + EnumValueName(descriptor_->default_value_enum()) + ".toRaw()";
+            vars["default"] =  ClassName(descriptor_->enum_type()) + "." + EnumValueName(descriptor_->default_value_enum()) + ".rawValue";
         }
         else
         {

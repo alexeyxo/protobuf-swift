@@ -317,18 +317,18 @@ public class CodedOutputStream
     
     public func writeMessageSetExtension(fieldNumber:Int32, value:Message)
     {
-        writeTag(WireFormatMessage.WireFormatMessageSetItem.toRaw(), format:WireFormat.WireFormatStartGroup)
-        writeUInt32(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value:UInt32(fieldNumber))
-        writeMessage(WireFormatMessage.WireFormatMessageSetMessage.toRaw(), value: value)
-        writeTag(WireFormatMessage.WireFormatMessageSetItem.toRaw(), format:WireFormat.WireFormatEndGroup)
+        writeTag(WireFormatMessage.WireFormatMessageSetItem.rawValue, format:WireFormat.WireFormatStartGroup)
+        writeUInt32(WireFormatMessage.WireFormatMessageSetTypeId.rawValue, value:UInt32(fieldNumber))
+        writeMessage(WireFormatMessage.WireFormatMessageSetMessage.rawValue, value: value)
+        writeTag(WireFormatMessage.WireFormatMessageSetItem.rawValue, format:WireFormat.WireFormatEndGroup)
     }
     
     public func writeRawMessageSetExtension(fieldNumber:Int32, value:[Byte]?)
     {
-        writeTag(WireFormatMessage.WireFormatMessageSetItem.toRaw(), format:WireFormat.WireFormatStartGroup)
-        writeUInt32(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value:UInt32(fieldNumber))
-        writeData( WireFormatMessage.WireFormatMessageSetMessage.toRaw(), value: value!)
-        writeTag(WireFormatMessage.WireFormatMessageSetItem.toRaw(), format:WireFormat.WireFormatEndGroup)
+        writeTag(WireFormatMessage.WireFormatMessageSetItem.rawValue, format:WireFormat.WireFormatStartGroup)
+        writeUInt32(WireFormatMessage.WireFormatMessageSetTypeId.rawValue, value:UInt32(fieldNumber))
+        writeData( WireFormatMessage.WireFormatMessageSetMessage.rawValue, value: value!)
+        writeTag(WireFormatMessage.WireFormatMessageSetItem.rawValue, format:WireFormat.WireFormatEndGroup)
     }
     
     public func writeTag(fieldNumber:Int32, format:WireFormat)

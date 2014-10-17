@@ -27,6 +27,7 @@ namespace protobuf {
 namespace compiler {
 namespace swift {
 
+string CheckReservedNames(const string& input);
 // Converts the field's name to camel-case, e.g. "foo_bar_baz" becomes
 // "fooBarBaz" or "FooBarBaz", respectively.
 string UnderscoresToCamelCase(const FieldDescriptor* field);

@@ -27,10 +27,10 @@ class CodedInputStreamTests: XCTestCase
     
     func testDecodeZigZag()
     {
-        XCTAssertEqual(0, WireFormat.decodeZigZag32(0))
-        XCTAssertEqual(-1, WireFormat.decodeZigZag32(1))
-        XCTAssertEqual(1, WireFormat.decodeZigZag32(2))
-        XCTAssertEqual(-2, WireFormat.decodeZigZag32(3))
+        XCTAssertEqual(Int32(0), WireFormat.decodeZigZag32(0))
+        XCTAssertEqual(Int32(-1), WireFormat.decodeZigZag32(1))
+        XCTAssertEqual(Int32(1), WireFormat.decodeZigZag32(2))
+        XCTAssertEqual(Int32(-2), WireFormat.decodeZigZag32(3))
         
         //    014-06-24 16:03:45.345 xctest[2274:30b] 1073741823 - 1073741823
         //    2014-06-24 16:03:45.346 xctest[2274:30b] -1073741824 - 3221225472
@@ -42,13 +42,13 @@ class CodedInputStreamTests: XCTestCase
         //  XCTAssertEqual((SInt32)0x7FFFFFFF, decodeZigZag32(0xFFFFFFFE));
         //  XCTAssertEqual((SInt32)0x80000000, decodeZigZag32(0xFFFFFFFF));
         
-        XCTAssertEqual(0, WireFormat.decodeZigZag64(0))
-        XCTAssertEqual(-1, WireFormat.decodeZigZag64(1))
-        XCTAssertEqual(1, WireFormat.decodeZigZag64(2))
-        XCTAssertEqual(-2, WireFormat.decodeZigZag64(3))
-        XCTAssertEqual(0x000000003FFFFFFF, WireFormat.decodeZigZag64(0x000000007FFFFFFE))
+        XCTAssertEqual(Int64(0), WireFormat.decodeZigZag64(0))
+        XCTAssertEqual(Int64(-1), WireFormat.decodeZigZag64(1))
+        XCTAssertEqual(Int64(1), WireFormat.decodeZigZag64(2))
+        XCTAssertEqual(Int64(-2), WireFormat.decodeZigZag64(3))
+        XCTAssertEqual(Int64(0x000000003FFFFFFF), WireFormat.decodeZigZag64(0x000000007FFFFFFE))
 //        XCTAssertEqual(0xFFFFFFFFC0000000, WireFormat.decodeZigZag64(0x000000007FFFFFFF))
-        XCTAssertEqual(0x000000007FFFFFFF, WireFormat.decodeZigZag64(0x00000000FFFFFFFE))
+        XCTAssertEqual(Int64(0x000000007FFFFFFF), WireFormat.decodeZigZag64(0x00000000FFFFFFFE))
 //        XCTAssertEqual(0xFFFFFFFF80000000, WireFormat.decodeZigZag64(0x00000000FFFFFFFF))
 //        XCTAssertEqual(0x7FFFFFFFFFFFFFFF, WireFormat.decodeZigZag64(0xFFFFFFFFFFFFFFFE))
 //        XCTAssertEqual(0x8000000000000000, WireFormat.decodeZigZag64(0xFFFFFFFFFFFFFFFF))
@@ -165,9 +165,9 @@ class CodedInputStreamTests: XCTestCase
     
     func testReadVarint()
     {
-        assertReadVarint(bytes(0x00), value:0)
-        assertReadVarint(bytes(0x01), value:1)
-        assertReadVarint(bytes(0x7f), value:127)
+        assertReadVarint(bytes(Byte(0x00)), value:0)
+        assertReadVarint(bytes(Byte(0x01)), value:1)
+        assertReadVarint(bytes(Byte(0x7f)), value:127)
         var rvalue14882:Int64 = (0x22 << 0)
         rvalue14882 |= (0x74 << 7)
         assertReadVarint(bytes(0xa2, 0x74), value:rvalue14882)

@@ -173,7 +173,7 @@ public class ExtendableMessage : GeneratedMessage
         case let value as AbstractMessage:
             return value.hashValue
         default:
-            return false
+            return nil
         }
     }
     private func getHashBytes(bytes:[Byte]) -> Int
@@ -273,7 +273,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         var extensions = extensionRegistry.getExtension(message.classMetaType(), fieldNumber: fieldNumber)
         
         if extensions != nil {
-            if extensions!.wireType.toRaw() == wireType {
+            if extensions!.wireType.rawValue == wireType {
                 extensions!.mergeFromCodedInputStream(input, unknownFields:unknownFields, extensionRegistry:extensionRegistry, builder:self, tag:tag)
                 return true
             }

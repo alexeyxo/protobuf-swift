@@ -318,32 +318,32 @@ public class CodedInputStream
     private func skipField(tag:Int32) -> Bool
     {
         var wireFormat = WireFormat.wireFormatGetTagFieldNumber(tag)
-        if (WireFormat.fromRaw(wireFormat) == WireFormat.WireFormatVarint)
+        if (WireFormat(rawValue:wireFormat) == WireFormat.WireFormatVarint)
         {
             readInt32()
             return true
         }
-        else if (WireFormat.fromRaw(wireFormat) == WireFormat.WireFormatFixed32)
+        else if (WireFormat(rawValue:wireFormat) == WireFormat.WireFormatFixed32)
         {
             readRawLittleEndian64()
             return true
         }
-        else if (WireFormat.fromRaw(wireFormat) == WireFormat.WireFormatLengthDelimited)
+        else if (WireFormat(rawValue:wireFormat) == WireFormat.WireFormatLengthDelimited)
         {
             skipRawData(readRawVarint32())
             return true;
         }
-        else if (WireFormat.fromRaw(wireFormat) == WireFormat.WireFormatStartGroup)
+        else if (WireFormat(rawValue:wireFormat) == WireFormat.WireFormatStartGroup)
         {
             skipMessage()
             checkLastTagWas(WireFormat.WireFormatEndGroup.wireFormatMakeTag(WireFormat.wireFormatGetTagFieldNumber(tag)))
             return true
         }
-        else if (WireFormat.fromRaw(wireFormat) == WireFormat.WireFormatEndGroup)
+        else if (WireFormat(rawValue:wireFormat) == WireFormat.WireFormatEndGroup)
         {
             return false
         }
-        else if (WireFormat.fromRaw(wireFormat) == WireFormat.WireFormatFixed32)
+        else if (WireFormat(rawValue:wireFormat) == WireFormat.WireFormatFixed32)
         {
             readRawLittleEndian32()
             return true
@@ -499,7 +499,7 @@ public class CodedInputStream
         {
 
             var data = buffer[Int(bufferPos)..<Int(bufferPos+size)]
-            var result:String = String.stringWithBytes(data, encoding: NSUTF8StringEncoding)!
+            var result:String = String(bytes: data, encoding:  NSUTF8StringEncoding)!
             bufferPos += size
             return result
             
@@ -508,7 +508,7 @@ public class CodedInputStream
         {
             
             let  data = readRawData(size)
-            return String.stringWithBytes(data, encoding: NSUTF8StringEncoding)!
+            return String(bytes: data, encoding:  NSUTF8StringEncoding)!
         }
     }
     

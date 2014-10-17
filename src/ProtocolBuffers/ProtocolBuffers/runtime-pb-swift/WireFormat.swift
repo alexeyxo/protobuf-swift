@@ -39,18 +39,18 @@ public enum WireFormat:Int32
     
     public func wireFormatMakeTag(fieldNumber:Int32) -> Int32
     {
-        let res:Int32 = fieldNumber << WireFormatStartGroup.toRaw()
-        return res | self.toRaw()
+        let res:Int32 = fieldNumber << WireFormatStartGroup.rawValue
+        return res | self.rawValue
     }
     
     public static func wireFormatGetTagWireType(tag:Int32) -> Int32
     {
-        return tag &  WireFormat.WireFormatTagTypeMask.toRaw()
+        return tag &  WireFormat.WireFormatTagTypeMask.rawValue
     }
     
     public static func wireFormatGetTagFieldNumber(tag:Int32) -> Int32
     {
-        return WireFormat.logicalRightShift32(value: tag, spaces: WireFormatStartGroup.toRaw())
+        return WireFormat.logicalRightShift32(value: tag, spaces: WireFormatStartGroup.rawValue)
     }
     
     
@@ -351,12 +351,12 @@ public enum WireFormat:Int32
     public static func computeMessageSetExtensionSize(fieldNumber:Int32,  value:Message) -> Int32
     {
         
-        return computeTagSize(WireFormatMessage.WireFormatMessageSetItem.toRaw()) * 2 + computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value: UInt32(fieldNumber)) + computeMessageSize(WireFormatMessage.WireFormatMessageSetMessage.toRaw(), value: value)
+        return computeTagSize(WireFormatMessage.WireFormatMessageSetItem.rawValue) * 2 + computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.rawValue, value: UInt32(fieldNumber)) + computeMessageSize(WireFormatMessage.WireFormatMessageSetMessage.rawValue, value: value)
     }
     
     public static func computeRawMessageSetExtensionSize(fieldNumber:Int32, value:[Byte]?) -> Int32
     {
-        return computeTagSize(WireFormatMessage.WireFormatMessageSetItem.toRaw()) * 2 + computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.toRaw(), value: UInt32(fieldNumber)) + computeDataSize(WireFormatMessage.WireFormatMessageSetMessage.toRaw(), value: value!)
+        return computeTagSize(WireFormatMessage.WireFormatMessageSetItem.rawValue) * 2 + computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.rawValue, value: UInt32(fieldNumber)) + computeDataSize(WireFormatMessage.WireFormatMessageSetMessage.rawValue, value: value!)
     }
     
 }

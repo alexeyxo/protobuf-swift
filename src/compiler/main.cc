@@ -16,13 +16,15 @@
 // limitations under the License.
 
 #include <google/protobuf/compiler/plugin.h>
-
 #include "swift_generator.h"
+#include <iostream>
+#include <stdio.h>
 
 using namespace google::protobuf::compiler::swift;
 
 int main(int argc, char **argv)
 {
+  
 	SwiftGenerator	generator;
 	return PluginMain(argc, argv, &generator);
 }

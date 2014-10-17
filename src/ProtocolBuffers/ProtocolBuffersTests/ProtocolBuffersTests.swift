@@ -21,15 +21,23 @@ class ProtocolBuffersTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
+//    func testExample() {
+//        // This is an example of a functional test case.
+//        XCTAssert(true, "Pass")
+//    }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+    func testPerformance() {
+        var originalBuilder:PerfomanceBuilder = Perfomance.builder()
+        originalBuilder.ints = Int32(32)
+        originalBuilder.ints64 = Int64(64)
+        originalBuilder.doubles = Double(12.12)
+        originalBuilder.floats = Float(123.123)
+        originalBuilder.str = "string"
+        let original = originalBuilder.build()
         self.measureBlock() {
-            // Put the code you want to measure the time of here.
+            for _ in 0...10000 {
+                var clone = Perfomance.parseFromData(original.data())
+            }
         }
     }
     

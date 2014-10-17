@@ -1,0 +1,8 @@
+message Perfomance
+{
+   required int32 ints = 1;
+   required int64 ints64 = 2;
+   required double doubles = 3;
+   required float floats  = 4;
+   required string str  = 5;
+}

@@ -40,7 +40,7 @@ func == (lhs: PBFileDescriptorProto, rhs: PBFileDescriptorProto) -> Bool {
   fieldCheck = fieldCheck && (lhs.messageType == rhs.messageType)
   fieldCheck = fieldCheck && (lhs.enumType == rhs.enumType)
   fieldCheck = fieldCheck && (lhs.service == rhs.service)
-  fieldCheck = fieldCheck && (lhs.extension == rhs.extension)
+  fieldCheck = fieldCheck && (lhs.extension_ == rhs.extension_)
   fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
   fieldCheck = fieldCheck && (lhs.hasSourceCodeInfo == rhs.hasSourceCodeInfo) && (!lhs.hasSourceCodeInfo || lhs.sourceCodeInfo == rhs.sourceCodeInfo)
   fieldCheck = fieldCheck && (lhs.publicDependency == rhs.publicDependency)
@@ -68,7 +68,7 @@ func == (lhs: PBDescriptorProto, rhs: PBDescriptorProto) -> Bool {
   fieldCheck = fieldCheck && (lhs.nestedType == rhs.nestedType)
   fieldCheck = fieldCheck && (lhs.enumType == rhs.enumType)
   fieldCheck = fieldCheck && (lhs.extensionRange == rhs.extensionRange)
-  fieldCheck = fieldCheck && (lhs.extension == rhs.extension)
+  fieldCheck = fieldCheck && (lhs.extension_ == rhs.extension_)
   fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
@@ -82,7 +82,7 @@ func == (lhs: PBFieldDescriptorProto, rhs: PBFieldDescriptorProto) -> Bool {
   fieldCheck = fieldCheck && (lhs.hasExtendee == rhs.hasExtendee) && (!lhs.hasExtendee || lhs.extendee == rhs.extendee)
   fieldCheck = fieldCheck && (lhs.hasNumber == rhs.hasNumber) && (!lhs.hasNumber || lhs.number == rhs.number)
   fieldCheck = fieldCheck && (lhs.hasLabel == rhs.hasLabel) && (!lhs.hasLabel || lhs.label == rhs.label)
-  fieldCheck = fieldCheck && (lhs.hasType == rhs.hasType) && (!lhs.hasType || lhs.type == rhs.type)
+  fieldCheck = fieldCheck && (lhs.hasTypes == rhs.hasTypes) && (!lhs.hasTypes || lhs.types == rhs.types)
   fieldCheck = fieldCheck && (lhs.hasTypeName == rhs.hasTypeName) && (!lhs.hasTypeName || lhs.typeName == rhs.typeName)
   fieldCheck = fieldCheck && (lhs.hasDefaultValue == rhs.hasDefaultValue) && (!lhs.hasDefaultValue || lhs.defaultValue == rhs.defaultValue)
   fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
@@ -465,7 +465,7 @@ final public class PBFileDescriptorProto : GeneratedMessage {
   private(set) var messageType:Array<PBDescriptorProto>  = Array<PBDescriptorProto>()
   private(set) var enumType:Array<PBEnumDescriptorProto>  = Array<PBEnumDescriptorProto>()
   private(set) var service:Array<PBServiceDescriptorProto>  = Array<PBServiceDescriptorProto>()
-  private(set) var extension:Array<PBFieldDescriptorProto>  = Array<PBFieldDescriptorProto>()
+  private(set) var extension_:Array<PBFieldDescriptorProto>  = Array<PBFieldDescriptorProto>()
   required public init() {
        super.init()
   }
@@ -500,15 +500,15 @@ final public class PBFileDescriptorProto : GeneratedMessage {
     if !isInitservice {
      return isInitservice
      }
-    var isInitextension:Bool = true
-    for element in extension {
+    var isInitextension_:Bool = true
+    for element in extension_ {
         if (!element.isInitialized()) {
-            isInitextension = false
+            isInitextension_ = false
             break 
         }
     }
-    if !isInitextension {
-     return isInitextension
+    if !isInitextension_ {
+     return isInitextension_
      }
     if hasOptions {
      if !options.isInitialized() {
@@ -538,7 +538,7 @@ final public class PBFileDescriptorProto : GeneratedMessage {
     for element in service {
         output.writeMessage(6, value:element)
     }
-    for element in extension {
+    for element in extension_ {
         output.writeMessage(7, value:element)
     }
     if hasOptions {
@@ -587,7 +587,7 @@ final public class PBFileDescriptorProto : GeneratedMessage {
     for element in service {
         size += WireFormat.computeMessageSize(6, value:element)
     }
-    for element in extension {
+    for element in extension_ {
         size += WireFormat.computeMessageSize(7, value:element)
     }
     if hasOptions {
@@ -675,12 +675,12 @@ final public class PBFileDescriptorProto : GeneratedMessage {
         output += "\(indent)}\n"
         serviceElementIndex++
     }
-    var extensionElementIndex:Int = 0
-    for element in extension {
-        output += "\(indent) extension[\(extensionElementIndex)] {\n"
+    var extension_ElementIndex:Int = 0
+    for element in extension_ {
+        output += "\(indent) extension_[\(extension_ElementIndex)] {\n"
         element.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
-        extensionElementIndex++
+        extension_ElementIndex++
     }
     if hasOptions {
       output += "\(indent) options {\n"
@@ -725,7 +725,7 @@ final public class PBFileDescriptorProto : GeneratedMessage {
           for element in service {
               hashCode = (hashCode &* 31) &+ element.hashValue
           }
-          for element in extension {
+          for element in extension_ {
               hashCode = (hashCode &* 31) &+ element.hashValue
           }
           if hasOptions {
@@ -877,16 +877,16 @@ final class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
     builderResult.service.removeAll(keepCapacity: false)
     return self
   }
-  var extension:Array<PBFieldDescriptorProto> {
+  var extension_:Array<PBFieldDescriptorProto> {
        get {
-           return builderResult.extension
+           return builderResult.extension_
        }
        set (value) {
-           builderResult.extension = value
+           builderResult.extension_ = value
        }
   }
   func clearExtension() -> PBFileDescriptorProtoBuilder {
-    builderResult.extension.removeAll(keepCapacity: false)
+    builderResult.extension_.removeAll(keepCapacity: false)
     return self
   }
   var hasOptions:Bool {
@@ -1001,8 +1001,8 @@ final class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
     if !other.service.isEmpty  {
        builderResult.service += other.service
     }
-    if !other.extension.isEmpty  {
-       builderResult.extension += other.extension
+    if !other.extension_.isEmpty  {
+       builderResult.extension_ += other.extension_
     }
     if (other.hasOptions) {
         mergeOptions(other.options)
@@ -1052,7 +1052,7 @@ final class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
       case 58 :
         var subBuilder = PBFieldDescriptorProto.builder()
         input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-        extension += [subBuilder.buildPartial()]
+        extension_ += [subBuilder.buildPartial()]
 
       case 66 :
         var subBuilder:PBFileOptionsBuilder = PBFileOptions.builder()
@@ -1091,7 +1091,7 @@ final public class PBDescriptorProto : GeneratedMessage {
 
   //Nested type declaration start
 
-    final public class PBExtensionRange : GeneratedMessage {
+    final public class ExtensionRange : GeneratedMessage {
       private(set) var hasStart:Bool = false
       private(set) var start:Int32 = Int32(0)
 
@@ -1198,7 +1198,7 @@ final public class PBDescriptorProto : GeneratedMessage {
 
     }
 
-    final class PBExtensionRangeBuilder : GeneratedMessageBuilder {
+    final class ExtensionRangeBuilder : GeneratedMessageBuilder {
       private var builderResult:PBDescriptorProto.ExtensionRange
 
       required override init () {
@@ -1314,7 +1314,7 @@ final public class PBDescriptorProto : GeneratedMessage {
   private(set) var hasOptions:Bool = false
   private(set) var options:PBMessageOptions = PBMessageOptions()
   private(set) var field:Array<PBFieldDescriptorProto>  = Array<PBFieldDescriptorProto>()
-  private(set) var extension:Array<PBFieldDescriptorProto>  = Array<PBFieldDescriptorProto>()
+  private(set) var extension_:Array<PBFieldDescriptorProto>  = Array<PBFieldDescriptorProto>()
   private(set) var nestedType:Array<PBDescriptorProto>  = Array<PBDescriptorProto>()
   private(set) var enumType:Array<PBEnumDescriptorProto>  = Array<PBEnumDescriptorProto>()
   private(set) var extensionRange:Array<PBDescriptorProto.ExtensionRange>  = Array<PBDescriptorProto.ExtensionRange>()
@@ -1332,15 +1332,15 @@ final public class PBDescriptorProto : GeneratedMessage {
     if !isInitfield {
      return isInitfield
      }
-    var isInitextension:Bool = true
-    for element in extension {
+    var isInitextension_:Bool = true
+    for element in extension_ {
         if (!element.isInitialized()) {
-            isInitextension = false
+            isInitextension_ = false
             break 
         }
     }
-    if !isInitextension {
-     return isInitextension
+    if !isInitextension_ {
+     return isInitextension_
      }
     var isInitnestedType:Bool = true
     for element in nestedType {
@@ -1385,7 +1385,7 @@ final public class PBDescriptorProto : GeneratedMessage {
     for element in extensionRange {
         output.writeMessage(5, value:element)
     }
-    for element in extension {
+    for element in extension_ {
         output.writeMessage(6, value:element)
     }
     if hasOptions {
@@ -1415,7 +1415,7 @@ final public class PBDescriptorProto : GeneratedMessage {
     for element in extensionRange {
         size += WireFormat.computeMessageSize(5, value:element)
     }
-    for element in extension {
+    for element in extension_ {
         size += WireFormat.computeMessageSize(6, value:element)
     }
     if hasOptions {
@@ -1487,12 +1487,12 @@ final public class PBDescriptorProto : GeneratedMessage {
         output += "\(indent)}\n"
         extensionRangeElementIndex++
     }
-    var extensionElementIndex:Int = 0
-    for element in extension {
-        output += "\(indent) extension[\(extensionElementIndex)] {\n"
+    var extension_ElementIndex:Int = 0
+    for element in extension_ {
+        output += "\(indent) extension_[\(extension_ElementIndex)] {\n"
         element.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
-        extensionElementIndex++
+        extension_ElementIndex++
     }
     if hasOptions {
       output += "\(indent) options {\n"
@@ -1519,7 +1519,7 @@ final public class PBDescriptorProto : GeneratedMessage {
           for element in extensionRange {
               hashCode = (hashCode &* 31) &+ element.hashValue
           }
-          for element in extension {
+          for element in extension_ {
               hashCode = (hashCode &* 31) &+ element.hashValue
           }
           if hasOptions {
@@ -1583,16 +1583,16 @@ final class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
     builderResult.field.removeAll(keepCapacity: false)
     return self
   }
-  var extension:Array<PBFieldDescriptorProto> {
+  var extension_:Array<PBFieldDescriptorProto> {
        get {
-           return builderResult.extension
+           return builderResult.extension_
        }
        set (value) {
-           builderResult.extension = value
+           builderResult.extension_ = value
        }
   }
   func clearExtension() -> PBDescriptorProtoBuilder {
-    builderResult.extension.removeAll(keepCapacity: false)
+    builderResult.extension_.removeAll(keepCapacity: false)
     return self
   }
   var nestedType:Array<PBDescriptorProto> {
@@ -1693,8 +1693,8 @@ final class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
     if !other.field.isEmpty  {
        builderResult.field += other.field
     }
-    if !other.extension.isEmpty  {
-       builderResult.extension += other.extension
+    if !other.extension_.isEmpty  {
+       builderResult.extension_ += other.extension_
     }
     if !other.nestedType.isEmpty  {
        builderResult.nestedType += other.nestedType
@@ -1749,7 +1749,7 @@ final class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
       case 50 :
         var subBuilder = PBFieldDescriptorProto.builder()
         input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-        extension += [subBuilder.buildPartial()]
+        extension_ += [subBuilder.buildPartial()]
 
       case 58 :
         var subBuilder:PBMessageOptionsBuilder = PBMessageOptions.builder()
@@ -1774,7 +1774,7 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
 
     //Enum type declaration start 
 
-    enum Type:Int32 {
+    enum Types:Int32 {
       case TypeDouble = 1
       case TypeFloat = 2
       case TypeInt64 = 3
@@ -1794,7 +1794,7 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
       case TypeSint32 = 17
       case TypeSint64 = 18
 
-      static func IsValidValue(value:Type) ->Bool {
+      static func IsValidValue(value:Types) ->Bool {
         switch value {
           case .TypeDouble, .TypeFloat, .TypeInt64, .TypeUint64, .TypeInt32, .TypeFixed64, .TypeFixed32, .TypeBool, .TypeString, .TypeGroup, .TypeMessage, .TypeBytes, .TypeUint32, .TypeEnum, .TypeSfixed32, .TypeSfixed64, .TypeSint32, .TypeSint64:
             return true;
@@ -1839,8 +1839,8 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
 
   private(set) var label:PBFieldDescriptorProto.Label = PBFieldDescriptorProto.Label.LabelOptional
   private(set) var hasLabel:Bool = false
-  private(set) var type:PBFieldDescriptorProto.Type = PBFieldDescriptorProto.Type.TypeDouble
-  private(set) var hasType:Bool = false
+  private(set) var types:PBFieldDescriptorProto.Types = PBFieldDescriptorProto.Types.TypeDouble
+  private(set) var hasTypes:Bool = false
   private(set) var hasTypeName:Bool = false
   private(set) var typeName:String = ""
 
@@ -1874,10 +1874,10 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
       output.writeInt32(3, value:number)
     }
     if hasLabel {
-      output.writeEnum(4, value:label.toRaw())
+      output.writeEnum(4, value:label.rawValue)
     }
-    if hasType {
-      output.writeEnum(5, value:type.toRaw())
+    if hasTypes {
+      output.writeEnum(5, value:types.rawValue)
     }
     if hasTypeName {
       output.writeString(6, value:typeName)
@@ -1907,10 +1907,10 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
       size += WireFormat.computeInt32Size(3, value:number)
     }
     if (hasLabel) {
-      size += WireFormat.computeEnumSize(4, value:label.toRaw())
+      size += WireFormat.computeEnumSize(4, value:label.rawValue)
     }
-    if (hasType) {
-      size += WireFormat.computeEnumSize(5, value:type.toRaw())
+    if (hasTypes) {
+      size += WireFormat.computeEnumSize(5, value:types.rawValue)
     }
     if hasTypeName {
       size += WireFormat.computeStringSize(6, value:typeName)
@@ -1966,10 +1966,10 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
       output += "\(indent) number: \(number) \n"
     }
     if (hasLabel) {
-      output += "\(indent) label: \(label.toRaw())\n"
+      output += "\(indent) label: \(label.rawValue)\n"
     }
-    if (hasType) {
-      output += "\(indent) type: \(type.toRaw())\n"
+    if (hasTypes) {
+      output += "\(indent) types: \(types.rawValue)\n"
     }
     if hasTypeName {
       output += "\(indent) typeName: \(typeName) \n"
@@ -1997,10 +1997,10 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ number.hashValue
           }
           if hasLabel {
-             hashCode = (hashCode &* 31) &+ Int(label.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(label.rawValue)
           }
-          if hasType {
-             hashCode = (hashCode &* 31) &+ Int(type.toRaw())
+          if hasTypes {
+             hashCode = (hashCode &* 31) &+ Int(types.rawValue)
           }
           if hasTypeName {
              hashCode = (hashCode &* 31) &+ typeName.hashValue
@@ -2095,23 +2095,23 @@ final class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
        builderResult.label = .LabelOptional
        return self
     }
-    var hasType:Bool{
+    var hasTypes:Bool{
         get {
-            return builderResult.hasType
+            return builderResult.hasTypes
         }
     }
-    var type:PBFieldDescriptorProto.Type {
+    var types:PBFieldDescriptorProto.Types {
         get {
-            return builderResult.type
+            return builderResult.types
         }
         set (value) {
-            builderResult.hasType = true
-            builderResult.type = value
+            builderResult.hasTypes = true
+            builderResult.types = value
         }
     }
-    func clearType() -> PBFieldDescriptorProtoBuilder {
-       builderResult.hasType = false
-       builderResult.type = .TypeDouble
+    func clearTypes() -> PBFieldDescriptorProtoBuilder {
+       builderResult.hasTypes = false
+       builderResult.types = .TypeDouble
        return self
     }
   var hasTypeName:Bool {
@@ -2236,8 +2236,8 @@ final class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
     if other.hasLabel {
          label = other.label
     }
-    if other.hasType {
-         type = other.type
+    if other.hasTypes {
+         types = other.types
     }
     if other.hasTypeName {
          typeName = other.typeName
@@ -2277,7 +2277,7 @@ final class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
 
       case 32 :
         var value = input.readEnum()
-        var enumMergResult:PBFieldDescriptorProto.Label = PBFieldDescriptorProto.Label.fromRaw(value)!
+        var enumMergResult:PBFieldDescriptorProto.Label = PBFieldDescriptorProto.Label(rawValue:value)!
         if (PBFieldDescriptorProto.Label.IsValidValue(enumMergResult)) {
              label = enumMergResult
         } else {
@@ -2286,9 +2286,9 @@ final class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
 
       case 40 :
         var value = input.readEnum()
-        var enumMergResult:PBFieldDescriptorProto.Type = PBFieldDescriptorProto.Type.fromRaw(value)!
-        if (PBFieldDescriptorProto.Type.IsValidValue(enumMergResult)) {
-             type = enumMergResult
+        var enumMergResult:PBFieldDescriptorProto.Types = PBFieldDescriptorProto.Types(rawValue:value)!
+        if (PBFieldDescriptorProto.Types.IsValidValue(enumMergResult)) {
+             types = enumMergResult
         } else {
              unknownFieldsBuilder.mergeVarintField(5, value:Int64(value))
         }
@@ -3557,7 +3557,7 @@ final public class PBFileOptions : ExtendableMessage {
       output.writeString(8, value:javaOuterClassname)
     }
     if hasOptimizeFor {
-      output.writeEnum(9, value:optimizeFor.toRaw())
+      output.writeEnum(9, value:optimizeFor.rawValue)
     }
     if hasJavaMultipleFiles {
       output.writeBool(10, value:javaMultipleFiles)
@@ -3597,7 +3597,7 @@ final public class PBFileOptions : ExtendableMessage {
       size += WireFormat.computeStringSize(8, value:javaOuterClassname)
     }
     if (hasOptimizeFor) {
-      size += WireFormat.computeEnumSize(9, value:optimizeFor.toRaw())
+      size += WireFormat.computeEnumSize(9, value:optimizeFor.rawValue)
     }
     if hasJavaMultipleFiles {
       size += WireFormat.computeBoolSize(10, value:javaMultipleFiles)
@@ -3663,7 +3663,7 @@ final public class PBFileOptions : ExtendableMessage {
       output += "\(indent) javaOuterClassname: \(javaOuterClassname) \n"
     }
     if (hasOptimizeFor) {
-      output += "\(indent) optimizeFor: \(optimizeFor.toRaw())\n"
+      output += "\(indent) optimizeFor: \(optimizeFor.rawValue)\n"
     }
     if hasJavaMultipleFiles {
       output += "\(indent) javaMultipleFiles: \(javaMultipleFiles) \n"
@@ -3703,7 +3703,7 @@ final public class PBFileOptions : ExtendableMessage {
              hashCode = (hashCode &* 31) &+ javaOuterClassname.hashValue
           }
           if hasOptimizeFor {
-             hashCode = (hashCode &* 31) &+ Int(optimizeFor.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(optimizeFor.rawValue)
           }
           if hasJavaMultipleFiles {
              hashCode = (hashCode &* 31) &+ javaMultipleFiles.hashValue
@@ -4015,7 +4015,7 @@ final class PBFileOptionsBuilder : ExtendableMessageBuilder {
 
       case 72 :
         var value = input.readEnum()
-        var enumMergResult:PBFileOptions.OptimizeMode = PBFileOptions.OptimizeMode.fromRaw(value)!
+        var enumMergResult:PBFileOptions.OptimizeMode = PBFileOptions.OptimizeMode(rawValue:value)!
         if (PBFileOptions.OptimizeMode.IsValidValue(enumMergResult)) {
              optimizeFor = enumMergResult
         } else {
@@ -4386,7 +4386,7 @@ final public class PBFieldOptions : ExtendableMessage {
   }
   override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasCtype {
-      output.writeEnum(1, value:ctype.toRaw())
+      output.writeEnum(1, value:ctype.rawValue)
     }
     if hasPacked {
       output.writeBool(2, value:packed)
@@ -4417,7 +4417,7 @@ final public class PBFieldOptions : ExtendableMessage {
 
     size = 0
     if (hasCtype) {
-      size += WireFormat.computeEnumSize(1, value:ctype.toRaw())
+      size += WireFormat.computeEnumSize(1, value:ctype.rawValue)
     }
     if hasPacked {
       size += WireFormat.computeBoolSize(2, value:packed)
@@ -4474,7 +4474,7 @@ final public class PBFieldOptions : ExtendableMessage {
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
     if (hasCtype) {
-      output += "\(indent) ctype: \(ctype.toRaw())\n"
+      output += "\(indent) ctype: \(ctype.rawValue)\n"
     }
     if hasPacked {
       output += "\(indent) packed: \(packed) \n"
@@ -4505,7 +4505,7 @@ final public class PBFieldOptions : ExtendableMessage {
       get {
           var hashCode:Int = 7
           if hasCtype {
-             hashCode = (hashCode &* 31) &+ Int(ctype.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(ctype.rawValue)
           }
           if hasPacked {
              hashCode = (hashCode &* 31) &+ packed.hashValue
@@ -4742,7 +4742,7 @@ final class PBFieldOptionsBuilder : ExtendableMessageBuilder {
 
       case 8 :
         var value = input.readEnum()
-        var enumMergResult:PBFieldOptions.Ctype = PBFieldOptions.Ctype.fromRaw(value)!
+        var enumMergResult:PBFieldOptions.Ctype = PBFieldOptions.Ctype(rawValue:value)!
         if (PBFieldOptions.Ctype.IsValidValue(enumMergResult)) {
              ctype = enumMergResult
         } else {
@@ -5576,7 +5576,7 @@ final public class PBUninterpretedOption : GeneratedMessage {
 
   //Nested type declaration start
 
-    final public class PBNamePart : GeneratedMessage {
+    final public class NamePart : GeneratedMessage {
       private(set) var hasNamePart:Bool = false
       private(set) var namePart:String = ""
 
@@ -5689,7 +5689,7 @@ final public class PBUninterpretedOption : GeneratedMessage {
 
     }
 
-    final class PBNamePartBuilder : GeneratedMessageBuilder {
+    final class NamePartBuilder : GeneratedMessageBuilder {
       private var builderResult:PBUninterpretedOption.NamePart
 
       required override init () {
@@ -6223,7 +6223,7 @@ final public class PBSourceCodeInfo : GeneratedMessage {
 
   //Nested type declaration start
 
-    final public class PBLocation : GeneratedMessage {
+    final public class Location : GeneratedMessage {
       private(set) var hasLeadingComments:Bool = false
       private(set) var leadingComments:String = ""
 
@@ -6384,7 +6384,7 @@ final public class PBSourceCodeInfo : GeneratedMessage {
 
     }
 
-    final class PBLocationBuilder : GeneratedMessageBuilder {
+    final class LocationBuilder : GeneratedMessageBuilder {
       private var builderResult:PBSourceCodeInfo.Location
 
       required override init () {

@@ -584,9 +584,9 @@ struct UnittestLiteRoot {
     UnittestLiteRootoptionalNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 18, defaultValue:TestAllTypesLite.NestedMessage(), messageOrGroupClass:TestAllTypesLite.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootoptionalForeignMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 19, defaultValue:ForeignMessageLite(), messageOrGroupClass:ForeignMessageLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootoptionalImportMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 20, defaultValue:ImportMessageLite(), messageOrGroupClass:ImportMessageLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootoptionalNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 21, defaultValue:TestAllTypesLite.NestedEnum.Foo.toRaw(), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootoptionalForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 22, defaultValue:ForeignEnumLite.ForeignLiteFoo.toRaw(), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootoptionalImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 23, defaultValue:ImportEnumLite.ImportLiteFoo.toRaw(), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootoptionalNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 21, defaultValue:TestAllTypesLite.NestedEnum.Foo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootoptionalForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 22, defaultValue:ForeignEnumLite.ForeignLiteFoo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootoptionalImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 23, defaultValue:ImportEnumLite.ImportLiteFoo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootoptionalStringPieceExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensionsLite.self, fieldNumber: 24, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootoptionalCordExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensionsLite.self, fieldNumber: 25, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootoptionalPublicImportMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 26, defaultValue:PublicImportMessageLite(), messageOrGroupClass:PublicImportMessageLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -631,9 +631,9 @@ struct UnittestLiteRoot {
     UnittestLiteRootdefaultBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:TestAllExtensionsLite.self, fieldNumber: 73, defaultValue:true, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootdefaultStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensionsLite.self, fieldNumber: 74, defaultValue:"hello", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootdefaultBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensionsLite.self, fieldNumber: 75, defaultValue:([Byte]() + "world".utf8), messageOrGroupClass:[Byte].self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootdefaultNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 81, defaultValue:TestAllTypesLite.NestedEnum.Bar.toRaw(), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootdefaultForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 82, defaultValue:ForeignEnumLite.ForeignLiteBar.toRaw(), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootdefaultImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 83, defaultValue:ImportEnumLite.ImportLiteBar.toRaw(), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootdefaultNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 81, defaultValue:TestAllTypesLite.NestedEnum.Bar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootdefaultForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 82, defaultValue:ForeignEnumLite.ForeignLiteBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootdefaultImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 83, defaultValue:ImportEnumLite.ImportLiteBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootdefaultStringPieceExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensionsLite.self, fieldNumber: 84, defaultValue:"abc", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootdefaultCordExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensionsLite.self, fieldNumber: 85, defaultValue:"123", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootoneofUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:TestAllExtensionsLite.self, fieldNumber: 111, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -2225,13 +2225,13 @@ final public class TestAllTypesLite : GeneratedMessage {
       output.writeMessage(20, value:optionalImportMessage)
     }
     if hasOptionalNestedEnum {
-      output.writeEnum(21, value:optionalNestedEnum.toRaw())
+      output.writeEnum(21, value:optionalNestedEnum.rawValue)
     }
     if hasOptionalForeignEnum {
-      output.writeEnum(22, value:optionalForeignEnum.toRaw())
+      output.writeEnum(22, value:optionalForeignEnum.rawValue)
     }
     if hasOptionalImportEnum {
-      output.writeEnum(23, value:optionalImportEnum.toRaw())
+      output.writeEnum(23, value:optionalImportEnum.rawValue)
     }
     if hasOptionalStringPiece {
       output.writeString(24, value:optionalStringPiece)
@@ -2333,13 +2333,13 @@ final public class TestAllTypesLite : GeneratedMessage {
         output.writeMessage(50, value:element)
     }
     for value in repeatedNestedEnum {
-        output.writeEnum(51, value:value.toRaw())
+        output.writeEnum(51, value:value.rawValue)
     }
     for value in repeatedForeignEnum {
-        output.writeEnum(52, value:value.toRaw())
+        output.writeEnum(52, value:value.rawValue)
     }
     for value in repeatedImportEnum {
-        output.writeEnum(53, value:value.toRaw())
+        output.writeEnum(53, value:value.rawValue)
     }
     if !repeatedStringPiece.isEmpty {
       for value in repeatedStringPiece {
@@ -2400,13 +2400,13 @@ final public class TestAllTypesLite : GeneratedMessage {
       output.writeData(75, value:defaultBytes)
     }
     if hasDefaultNestedEnum {
-      output.writeEnum(81, value:defaultNestedEnum.toRaw())
+      output.writeEnum(81, value:defaultNestedEnum.rawValue)
     }
     if hasDefaultForeignEnum {
-      output.writeEnum(82, value:defaultForeignEnum.toRaw())
+      output.writeEnum(82, value:defaultForeignEnum.rawValue)
     }
     if hasDefaultImportEnum {
-      output.writeEnum(83, value:defaultImportEnum.toRaw())
+      output.writeEnum(83, value:defaultImportEnum.rawValue)
     }
     if hasDefaultStringPiece {
       output.writeString(84, value:defaultStringPiece)
@@ -2493,13 +2493,13 @@ final public class TestAllTypesLite : GeneratedMessage {
       size += WireFormat.computeMessageSize(20, value:optionalImportMessage)
     }
     if (hasOptionalNestedEnum) {
-      size += WireFormat.computeEnumSize(21, value:optionalNestedEnum.toRaw())
+      size += WireFormat.computeEnumSize(21, value:optionalNestedEnum.rawValue)
     }
     if (hasOptionalForeignEnum) {
-      size += WireFormat.computeEnumSize(22, value:optionalForeignEnum.toRaw())
+      size += WireFormat.computeEnumSize(22, value:optionalForeignEnum.rawValue)
     }
     if (hasOptionalImportEnum) {
-      size += WireFormat.computeEnumSize(23, value:optionalImportEnum.toRaw())
+      size += WireFormat.computeEnumSize(23, value:optionalImportEnum.rawValue)
     }
     if hasOptionalStringPiece {
       size += WireFormat.computeStringSize(24, value:optionalStringPiece)
@@ -2603,19 +2603,19 @@ final public class TestAllTypesLite : GeneratedMessage {
     }
     var dataSizerepeatedNestedEnum:Int32 = 0
     for value in repeatedNestedEnum {
-        dataSizerepeatedNestedEnum += WireFormat.computeEnumSizeNoTag(value.toRaw())
+        dataSizerepeatedNestedEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
     }
     size += dataSizerepeatedNestedEnum
     size += (2 * Int32(repeatedNestedEnum.count))
     var dataSizerepeatedForeignEnum:Int32 = 0
     for value in repeatedForeignEnum {
-        dataSizerepeatedForeignEnum += WireFormat.computeEnumSizeNoTag(value.toRaw())
+        dataSizerepeatedForeignEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
     }
     size += dataSizerepeatedForeignEnum
     size += (2 * Int32(repeatedForeignEnum.count))
     var dataSizerepeatedImportEnum:Int32 = 0
     for value in repeatedImportEnum {
-        dataSizerepeatedImportEnum += WireFormat.computeEnumSizeNoTag(value.toRaw())
+        dataSizerepeatedImportEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
     }
     size += dataSizerepeatedImportEnum
     size += (2 * Int32(repeatedImportEnum.count))
@@ -2680,13 +2680,13 @@ final public class TestAllTypesLite : GeneratedMessage {
       size += WireFormat.computeDataSize(75, value:defaultBytes)
     }
     if (hasDefaultNestedEnum) {
-      size += WireFormat.computeEnumSize(81, value:defaultNestedEnum.toRaw())
+      size += WireFormat.computeEnumSize(81, value:defaultNestedEnum.rawValue)
     }
     if (hasDefaultForeignEnum) {
-      size += WireFormat.computeEnumSize(82, value:defaultForeignEnum.toRaw())
+      size += WireFormat.computeEnumSize(82, value:defaultForeignEnum.rawValue)
     }
     if (hasDefaultImportEnum) {
-      size += WireFormat.computeEnumSize(83, value:defaultImportEnum.toRaw())
+      size += WireFormat.computeEnumSize(83, value:defaultImportEnum.rawValue)
     }
     if hasDefaultStringPiece {
       size += WireFormat.computeStringSize(84, value:defaultStringPiece)
@@ -2807,13 +2807,13 @@ final public class TestAllTypesLite : GeneratedMessage {
       output += "\(indent) }\n"
     }
     if (hasOptionalNestedEnum) {
-      output += "\(indent) optionalNestedEnum: \(optionalNestedEnum.toRaw())\n"
+      output += "\(indent) optionalNestedEnum: \(optionalNestedEnum.rawValue)\n"
     }
     if (hasOptionalForeignEnum) {
-      output += "\(indent) optionalForeignEnum: \(optionalForeignEnum.toRaw())\n"
+      output += "\(indent) optionalForeignEnum: \(optionalForeignEnum.rawValue)\n"
     }
     if (hasOptionalImportEnum) {
-      output += "\(indent) optionalImportEnum: \(optionalImportEnum.toRaw())\n"
+      output += "\(indent) optionalImportEnum: \(optionalImportEnum.rawValue)\n"
     }
     if hasOptionalStringPiece {
       output += "\(indent) optionalStringPiece: \(optionalStringPiece) \n"
@@ -2936,17 +2936,17 @@ final public class TestAllTypesLite : GeneratedMessage {
     }
     var repeatedNestedEnumElementIndex:Int = 0
     for element in repeatedNestedEnum {
-        output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(element.toRaw())"
+        output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(element.rawValue)"
         repeatedNestedEnumElementIndex++
     }
     var repeatedForeignEnumElementIndex:Int = 0
     for element in repeatedForeignEnum {
-        output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(element.toRaw())"
+        output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(element.rawValue)"
         repeatedForeignEnumElementIndex++
     }
     var repeatedImportEnumElementIndex:Int = 0
     for element in repeatedImportEnum {
-        output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(element.toRaw())"
+        output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(element.rawValue)"
         repeatedImportEnumElementIndex++
     }
     var repeatedStringPieceElementIndex:Int = 0
@@ -3012,13 +3012,13 @@ final public class TestAllTypesLite : GeneratedMessage {
       output += "\(indent) defaultBytes: \(defaultBytes) \n"
     }
     if (hasDefaultNestedEnum) {
-      output += "\(indent) defaultNestedEnum: \(defaultNestedEnum.toRaw())\n"
+      output += "\(indent) defaultNestedEnum: \(defaultNestedEnum.rawValue)\n"
     }
     if (hasDefaultForeignEnum) {
-      output += "\(indent) defaultForeignEnum: \(defaultForeignEnum.toRaw())\n"
+      output += "\(indent) defaultForeignEnum: \(defaultForeignEnum.rawValue)\n"
     }
     if (hasDefaultImportEnum) {
-      output += "\(indent) defaultImportEnum: \(defaultImportEnum.toRaw())\n"
+      output += "\(indent) defaultImportEnum: \(defaultImportEnum.rawValue)\n"
     }
     if hasDefaultStringPiece {
       output += "\(indent) defaultStringPiece: \(defaultStringPiece) \n"
@@ -3103,13 +3103,13 @@ final public class TestAllTypesLite : GeneratedMessage {
             hashCode = (hashCode &* 31) &+ optionalImportMessage.hashValue
           }
           if hasOptionalNestedEnum {
-             hashCode = (hashCode &* 31) &+ Int(optionalNestedEnum.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(optionalNestedEnum.rawValue)
           }
           if hasOptionalForeignEnum {
-             hashCode = (hashCode &* 31) &+ Int(optionalForeignEnum.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(optionalForeignEnum.rawValue)
           }
           if hasOptionalImportEnum {
-             hashCode = (hashCode &* 31) &+ Int(optionalImportEnum.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(optionalImportEnum.rawValue)
           }
           if hasOptionalStringPiece {
              hashCode = (hashCode &* 31) &+ optionalStringPiece.hashValue
@@ -3183,13 +3183,13 @@ final public class TestAllTypesLite : GeneratedMessage {
               hashCode = (hashCode &* 31) &+ element.hashValue
           }
           for element in repeatedNestedEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.toRaw())
+              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
           }
           for element in repeatedForeignEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.toRaw())
+              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
           }
           for element in repeatedImportEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.toRaw())
+              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
           }
           for element in repeatedStringPiece {
               hashCode = (hashCode &* 31) &+ element.hashValue
@@ -3246,13 +3246,13 @@ final public class TestAllTypesLite : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ value.hashValue
           }
           if hasDefaultNestedEnum {
-             hashCode = (hashCode &* 31) &+ Int(defaultNestedEnum.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(defaultNestedEnum.rawValue)
           }
           if hasDefaultForeignEnum {
-             hashCode = (hashCode &* 31) &+ Int(defaultForeignEnum.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(defaultForeignEnum.rawValue)
           }
           if hasDefaultImportEnum {
-             hashCode = (hashCode &* 31) &+ Int(defaultImportEnum.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(defaultImportEnum.rawValue)
           }
           if hasDefaultStringPiece {
              hashCode = (hashCode &* 31) &+ defaultStringPiece.hashValue
@@ -4983,7 +4983,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
 
       case 168 :
         var value = input.readEnum()
-        var enumMergResult:TestAllTypesLite.NestedEnum = TestAllTypesLite.NestedEnum.fromRaw(value)!
+        var enumMergResult:TestAllTypesLite.NestedEnum = TestAllTypesLite.NestedEnum(rawValue:value)!
         if (TestAllTypesLite.NestedEnum.IsValidValue(enumMergResult)) {
              optionalNestedEnum = enumMergResult
         } else {
@@ -4992,7 +4992,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
 
       case 176 :
         var value = input.readEnum()
-        var enumMergResult:ForeignEnumLite = ForeignEnumLite.fromRaw(value)!
+        var enumMergResult:ForeignEnumLite = ForeignEnumLite(rawValue:value)!
         if (ForeignEnumLite.IsValidValue(enumMergResult)) {
              optionalForeignEnum = enumMergResult
         } else {
@@ -5001,7 +5001,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
 
       case 184 :
         var value = input.readEnum()
-        var enumMergResult:ImportEnumLite = ImportEnumLite.fromRaw(value)!
+        var enumMergResult:ImportEnumLite = ImportEnumLite(rawValue:value)!
         if (ImportEnumLite.IsValidValue(enumMergResult)) {
              optionalImportEnum = enumMergResult
         } else {
@@ -5096,27 +5096,27 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
         repeatedImportMessage += [subBuilder.buildPartial()]
 
       case 408 :
-        var value:TestAllTypesLite.NestedEnum = TestAllTypesLite.NestedEnum.fromRaw(input.readEnum())!
+        var value:TestAllTypesLite.NestedEnum = TestAllTypesLite.NestedEnum(rawValue:input.readEnum())!
         if TestAllTypesLite.NestedEnum.IsValidValue(value) {
              builderResult.repeatedNestedEnum += [value]
         } else {
-             unknownFieldsBuilder.mergeVarintField(51, value:Int64(value.toRaw()))
+             unknownFieldsBuilder.mergeVarintField(51, value:Int64(value.rawValue))
         }
 
       case 416 :
-        var value:ForeignEnumLite = ForeignEnumLite.fromRaw(input.readEnum())!
+        var value:ForeignEnumLite = ForeignEnumLite(rawValue:input.readEnum())!
         if ForeignEnumLite.IsValidValue(value) {
              builderResult.repeatedForeignEnum += [value]
         } else {
-             unknownFieldsBuilder.mergeVarintField(52, value:Int64(value.toRaw()))
+             unknownFieldsBuilder.mergeVarintField(52, value:Int64(value.rawValue))
         }
 
       case 424 :
-        var value:ImportEnumLite = ImportEnumLite.fromRaw(input.readEnum())!
+        var value:ImportEnumLite = ImportEnumLite(rawValue:input.readEnum())!
         if ImportEnumLite.IsValidValue(value) {
              builderResult.repeatedImportEnum += [value]
         } else {
-             unknownFieldsBuilder.mergeVarintField(53, value:Int64(value.toRaw()))
+             unknownFieldsBuilder.mergeVarintField(53, value:Int64(value.rawValue))
         }
 
       case 434 :
@@ -5177,7 +5177,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
 
       case 648 :
         var value = input.readEnum()
-        var enumMergResult:TestAllTypesLite.NestedEnum = TestAllTypesLite.NestedEnum.fromRaw(value)!
+        var enumMergResult:TestAllTypesLite.NestedEnum = TestAllTypesLite.NestedEnum(rawValue:value)!
         if (TestAllTypesLite.NestedEnum.IsValidValue(enumMergResult)) {
              defaultNestedEnum = enumMergResult
         } else {
@@ -5186,7 +5186,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
 
       case 656 :
         var value = input.readEnum()
-        var enumMergResult:ForeignEnumLite = ForeignEnumLite.fromRaw(value)!
+        var enumMergResult:ForeignEnumLite = ForeignEnumLite(rawValue:value)!
         if (ForeignEnumLite.IsValidValue(enumMergResult)) {
              defaultForeignEnum = enumMergResult
         } else {
@@ -5195,7 +5195,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
 
       case 664 :
         var value = input.readEnum()
-        var enumMergResult:ImportEnumLite = ImportEnumLite.fromRaw(value)!
+        var enumMergResult:ImportEnumLite = ImportEnumLite(rawValue:value)!
         if (ImportEnumLite.IsValidValue(enumMergResult)) {
              defaultImportEnum = enumMergResult
         } else {
@@ -5540,7 +5540,7 @@ final public class TestPackedTypesLite : GeneratedMessage {
       output.writeRawVarint32(packedEnumMemoizedSerializedSize)
     }
     for value in packedEnum {
-        output.writeEnumNoTag(value.toRaw())
+        output.writeEnumNoTag(value.rawValue)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
@@ -5669,7 +5669,7 @@ final public class TestPackedTypesLite : GeneratedMessage {
     packedBoolMemoizedSerializedSize = dataSizePackedBool
     var dataSizepackedEnum:Int32 = 0
     for value in packedEnum {
-        dataSizepackedEnum += WireFormat.computeEnumSizeNoTag(value.toRaw())
+        dataSizepackedEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
     }
     size += dataSizepackedEnum
     if !packedEnum.isEmpty {
@@ -5779,7 +5779,7 @@ final public class TestPackedTypesLite : GeneratedMessage {
     }
     var packedEnumElementIndex:Int = 0
     for element in packedEnum {
-        output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(element.toRaw())"
+        output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(element.rawValue)"
         packedEnumElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -5827,7 +5827,7 @@ final public class TestPackedTypesLite : GeneratedMessage {
               hashCode = (hashCode &* 31) &+ element.hashValue
           }
           for element in packedEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.toRaw())
+              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -6213,11 +6213,11 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
         var length:Int32 = input.readRawVarint32()
         var oldLimit:Int32 = input.pushLimit(length)
         while input.bytesUntilLimit() > 0 {
-        var value:ForeignEnumLite = ForeignEnumLite.fromRaw(input.readEnum())!
+        var value:ForeignEnumLite = ForeignEnumLite(rawValue:input.readEnum())!
         if ForeignEnumLite.IsValidValue(value) {
              builderResult.packedEnum += [value]
         } else {
-             unknownFieldsBuilder.mergeVarintField(103, value:Int64(value.toRaw()))
+             unknownFieldsBuilder.mergeVarintField(103, value:Int64(value.rawValue))
         }
         }
         input.popLimit(oldLimit)
