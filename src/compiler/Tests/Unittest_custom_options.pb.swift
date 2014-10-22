@@ -203,6 +203,11 @@ var UnittestCustomOptionsRootmethodopt:ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodoptStatic
    }
 }
+var ComplexOptionType2ComplexOptionType4complexOpt4:ConcreateExtensionField {
+   get {
+       return UnittestCustomOptionsRoot.sharedInstance.ComplexOptionType2ComplexOptionType4complexOpt4Static
+   }
+}
 var AggregateMessageSetElementmessageSetExtension:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.AggregateMessageSetElementmessageSetExtensionStatic
@@ -265,6 +270,7 @@ struct UnittestCustomOptionsRoot {
   var UnittestCustomOptionsRootenumvaloptStatic:ConcreateExtensionField
   var UnittestCustomOptionsRootserviceoptStatic:ConcreateExtensionField
   var UnittestCustomOptionsRootmethodoptStatic:ConcreateExtensionField
+  var ComplexOptionType2ComplexOptionType4complexOpt4Static:ConcreateExtensionField
   var AggregateMessageSetElementmessageSetExtensionStatic:ConcreateExtensionField
   var AggregatenestedStatic:ConcreateExtensionField
   var NestedOptionTypenestedExtensionStatic:ConcreateExtensionField
@@ -311,7 +317,7 @@ struct UnittestCustomOptionsRoot {
     UnittestCustomOptionsRootenumvaloptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBEnumValueOptions.self, fieldNumber: 15486921, defaultValue:Aggregate(), messageOrGroupClass:Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestCustomOptionsRootserviceoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBServiceOptions.self, fieldNumber: 15497145, defaultValue:Aggregate(), messageOrGroupClass:Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestCustomOptionsRootmethodoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBMethodOptions.self, fieldNumber: 15512713, defaultValue:Aggregate(), messageOrGroupClass:Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    ComplexOptionType2.ComplexOptionType4complexOpt4Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBMessageOptions.self, fieldNumber: 7633546, defaultValue:ComplexOptionType2.ComplexOptionType4(), messageOrGroupClass:ComplexOptionType2.ComplexOptionType4.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    ComplexOptionType2ComplexOptionType4complexOpt4Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBMessageOptions.self, fieldNumber: 7633546, defaultValue:ComplexOptionType2.ComplexOptionType4(), messageOrGroupClass:ComplexOptionType2.ComplexOptionType4.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     AggregateMessageSetElementmessageSetExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:AggregateMessageSet.self, fieldNumber: 15447542, defaultValue:AggregateMessageSetElement(), messageOrGroupClass:AggregateMessageSetElement.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:true)
     AggregatenestedStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBFileOptions.self, fieldNumber: 15476903, defaultValue:Aggregate(), messageOrGroupClass:Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     NestedOptionTypenestedExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:PBFileOptions.self, fieldNumber: 7912573, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -360,7 +366,7 @@ struct UnittestCustomOptionsRoot {
     registry.addExtension(UnittestCustomOptionsRootenumvaloptStatic)
     registry.addExtension(UnittestCustomOptionsRootserviceoptStatic)
     registry.addExtension(UnittestCustomOptionsRootmethodoptStatic)
-    registry.addExtension(ComplexOptionType2.ComplexOptionType4complexOpt4Static)
+    registry.addExtension(ComplexOptionType2ComplexOptionType4complexOpt4Static)
     registry.addExtension(AggregateMessageSetElementmessageSetExtensionStatic)
     registry.addExtension(AggregatenestedStatic)
     registry.addExtension(NestedOptionTypenestedExtensionStatic)
@@ -2744,7 +2750,7 @@ final public class ComplexOptionType2 : ExtendableMessage {
       private(set) var waldo:Int32 = Int32(0)
 
       class func complexOpt4() -> ConcreateExtensionField {
-           return ComplexOptionType2.ComplexOptionType4complexOpt4
+           return ComplexOptionType2ComplexOptionType4complexOpt4
       }
       required public init() {
            super.init()

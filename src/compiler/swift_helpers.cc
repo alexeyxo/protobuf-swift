@@ -258,6 +258,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     return CheckReservedNames(name + descriptor->name());
   }
 
+    string ClassNameWorkerExtensions(const Descriptor* descriptor) {
+        string name;
+        if (descriptor->containing_type() != NULL) {
+            name = ClassNameWorker(descriptor->containing_type());
+            name += "";
+        }
+        return CheckReservedNames(name + descriptor->name());
+    }
+
 
   string ClassNameWorker(const EnumDescriptor* descriptor) {
     string name;
@@ -275,6 +284,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     name += ClassNameWorker(descriptor);
     return CheckReservedNames(name);
   }
+    string ClassNameExtensions(const Descriptor* descriptor) {
+        string name;
+        name += FileClassPrefix(descriptor->file());
+        name += ClassNameWorkerExtensions(descriptor);
+        return CheckReservedNames(name);
+    }
   
     string ClassNameMessage(const Descriptor* descriptor) {
         string name;

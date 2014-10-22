@@ -36,11 +36,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
   }
 
 
-//  void ExtensionGenerator::GenerateMembersHeader(io::Printer* printer) {
-//      map<string, string> vars;
-//      vars["name"] = UnderscoresToCamelCase(descriptor_);
-//  }
-
 void ExtensionGenerator::GenerateFieldsGetterSource(io::Printer* printer, string rootclassname) {
     map<string, string> vars;
     vars["name"] = UnderscoresToCamelCase(descriptor_);

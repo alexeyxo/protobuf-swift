@@ -203,6 +203,11 @@ var UnittestCustomOptionsRootmethodopt:ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodoptStatic
    }
 }
+var ComplexOptionType2ComplexOptionType4complexOpt4:ConcreateExtensionField {
+   get {
+       return UnittestCustomOptionsRoot.sharedInstance.ComplexOptionType2ComplexOptionType4complexOpt4Static
+   }
+}
 var AggregateMessageSetElementmessageSetExtension:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.AggregateMessageSetElementmessageSetExtensionStatic
@@ -217,12 +222,6 @@ var NestedOptionTypenestedExtension:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.NestedOptionTypenestedExtensionStatic
    }
-}
-var ComplexOptionType2ComplexOptionType4complexOpt4:ConcreateExtensionField
-{
-    get {
-        return UnittestCustomOptionsRoot.sharedInstance.ComplexOptionType2ComplexOptionType4complexOpt4Static
-    }
 }
 struct UnittestCustomOptionsRoot {
   static var sharedInstance : UnittestCustomOptionsRoot {
@@ -271,10 +270,10 @@ struct UnittestCustomOptionsRoot {
   var UnittestCustomOptionsRootenumvaloptStatic:ConcreateExtensionField
   var UnittestCustomOptionsRootserviceoptStatic:ConcreateExtensionField
   var UnittestCustomOptionsRootmethodoptStatic:ConcreateExtensionField
+  var ComplexOptionType2ComplexOptionType4complexOpt4Static:ConcreateExtensionField
   var AggregateMessageSetElementmessageSetExtensionStatic:ConcreateExtensionField
   var AggregatenestedStatic:ConcreateExtensionField
   var NestedOptionTypenestedExtensionStatic:ConcreateExtensionField
-  var ComplexOptionType2ComplexOptionType4complexOpt4Static:ConcreateExtensionField
   var extensionRegistry:ExtensionRegistry
 
   init() {
