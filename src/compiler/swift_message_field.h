@@ -24,68 +24,68 @@
 #include "swift_field.h"
 
 namespace google {
-namespace protobuf {
-namespace compiler {
-namespace swift {
-
-class MessageFieldGenerator : public FieldGenerator {
- public:
-  explicit MessageFieldGenerator(const FieldDescriptor* descriptor);
-  ~MessageFieldGenerator();
-
-  void GenerateExtensionSource(io::Printer* printer) const;
-  void GenerateSynthesizeSource(io::Printer* printer) const;
-  void GenerateInitializationSource(io::Printer* printer) const;
-  void GenerateMembersSource(io::Printer* printer) const;
-  void GenerateBuilderMembersSource(io::Printer* printer) const;
-  void GenerateMergingCodeSource(io::Printer* printer) const;
-  void GenerateBuildingCodeSource(io::Printer* printer) const;
-  void GenerateParsingCodeSource(io::Printer* printer) const;
-  void GenerateSerializationCodeSource(io::Printer* printer) const;
-  void GenerateSerializedSizeCodeSource(io::Printer* printer) const;
-  void GenerateDescriptionCodeSource(io::Printer* printer) const;
-  void GenerateIsEqualCodeSource(io::Printer* printer) const;
-  void GenerateHashCodeSource(io::Printer* printer) const;
-
-  string GetBoxedType() const;
-
- private:
-  const FieldDescriptor* descriptor_;
-  map<string, string> variables_;
-
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(MessageFieldGenerator);
-};
-
-class RepeatedMessageFieldGenerator : public FieldGenerator {
- public:
-  explicit RepeatedMessageFieldGenerator(const FieldDescriptor* descriptor);
-  ~RepeatedMessageFieldGenerator();
-
-  void GenerateExtensionSource(io::Printer* printer) const;
-  void GenerateSynthesizeSource(io::Printer* printer) const;
-  void GenerateInitializationSource(io::Printer* printer) const;
-  void GenerateMembersSource(io::Printer* printer) const;
-  void GenerateBuilderMembersSource(io::Printer* printer) const;
-  void GenerateMergingCodeSource(io::Printer* printer) const;
-  void GenerateBuildingCodeSource(io::Printer* printer) const;
-  void GenerateParsingCodeSource(io::Printer* printer) const;
-  void GenerateSerializationCodeSource(io::Printer* printer) const;
-  void GenerateSerializedSizeCodeSource(io::Printer* printer) const;
-  void GenerateDescriptionCodeSource(io::Printer* printer) const;
-  void GenerateIsEqualCodeSource(io::Printer* printer) const;
-  void GenerateHashCodeSource(io::Printer* printer) const;
-
-  string GetBoxedType() const;
-
- private:
-  const FieldDescriptor* descriptor_;
-  map<string, string> variables_;
-
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(RepeatedMessageFieldGenerator);
-};
-}  // namespace swift
-}  // namespace compiler
-}  // namespace protobuf
+    namespace protobuf {
+        namespace compiler {
+            namespace swift {
+                
+                class MessageFieldGenerator : public FieldGenerator {
+                public:
+                    explicit MessageFieldGenerator(const FieldDescriptor* descriptor);
+                    ~MessageFieldGenerator();
+                    
+                    void GenerateExtensionSource(io::Printer* printer) const;
+                    void GenerateSynthesizeSource(io::Printer* printer) const;
+                    void GenerateInitializationSource(io::Printer* printer) const;
+                    void GenerateMembersSource(io::Printer* printer) const;
+                    void GenerateBuilderMembersSource(io::Printer* printer) const;
+                    void GenerateMergingCodeSource(io::Printer* printer) const;
+                    void GenerateBuildingCodeSource(io::Printer* printer) const;
+                    void GenerateParsingCodeSource(io::Printer* printer) const;
+                    void GenerateSerializationCodeSource(io::Printer* printer) const;
+                    void GenerateSerializedSizeCodeSource(io::Printer* printer) const;
+                    void GenerateDescriptionCodeSource(io::Printer* printer) const;
+                    void GenerateIsEqualCodeSource(io::Printer* printer) const;
+                    void GenerateHashCodeSource(io::Printer* printer) const;
+                    
+                    string GetBoxedType() const;
+                    
+                private:
+                    const FieldDescriptor* descriptor_;
+                    map<string, string> variables_;
+                    
+                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(MessageFieldGenerator);
+                };
+                
+                class RepeatedMessageFieldGenerator : public FieldGenerator {
+                public:
+                    explicit RepeatedMessageFieldGenerator(const FieldDescriptor* descriptor);
+                    ~RepeatedMessageFieldGenerator();
+                    
+                    void GenerateExtensionSource(io::Printer* printer) const;
+                    void GenerateSynthesizeSource(io::Printer* printer) const;
+                    void GenerateInitializationSource(io::Printer* printer) const;
+                    void GenerateMembersSource(io::Printer* printer) const;
+                    void GenerateBuilderMembersSource(io::Printer* printer) const;
+                    void GenerateMergingCodeSource(io::Printer* printer) const;
+                    void GenerateBuildingCodeSource(io::Printer* printer) const;
+                    void GenerateParsingCodeSource(io::Printer* printer) const;
+                    void GenerateSerializationCodeSource(io::Printer* printer) const;
+                    void GenerateSerializedSizeCodeSource(io::Printer* printer) const;
+                    void GenerateDescriptionCodeSource(io::Printer* printer) const;
+                    void GenerateIsEqualCodeSource(io::Printer* printer) const;
+                    void GenerateHashCodeSource(io::Printer* printer) const;
+                    
+                    string GetBoxedType() const;
+                    
+                private:
+                    const FieldDescriptor* descriptor_;
+                    map<string, string> variables_;
+                    
+                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(RepeatedMessageFieldGenerator);
+                };
+            }  // namespace swift
+        }  // namespace compiler
+    }  // namespace protobuf
 }  // namespace google
 
 #endif // swift_MESSAGE_FIELD_H

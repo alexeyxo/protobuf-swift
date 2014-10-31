@@ -30,6 +30,7 @@ func == (lhs: Perfomance, rhs: Perfomance) -> Bool {
   fieldCheck = fieldCheck && (lhs.hasDoubles == rhs.hasDoubles) && (!lhs.hasDoubles || lhs.doubles == rhs.doubles)
   fieldCheck = fieldCheck && (lhs.hasFloats == rhs.hasFloats) && (!lhs.hasFloats || lhs.floats == rhs.floats)
   fieldCheck = fieldCheck && (lhs.hasStr == rhs.hasStr) && (!lhs.hasStr || lhs.str == rhs.str)
+  fieldCheck = fieldCheck && (lhs.hasBytes == rhs.hasBytes) && (!lhs.hasBytes || lhs.bytes == rhs.bytes)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
@@ -49,6 +50,9 @@ final public class Perfomance : GeneratedMessage {
   private(set) var hasStr:Bool = false
   private(set) var str:String = ""
 
+  private(set) var hasBytes:Bool = false
+  private(set) var bytes:Array<Byte> = [Byte]()
+
   required public init() {
        super.init()
   }
@@ -63,9 +67,6 @@ final public class Perfomance : GeneratedMessage {
       return false
     }
     if !hasFloats {
-      return false
-    }
-    if !hasStr {
       return false
     }
    return true
@@ -85,6 +86,9 @@ final public class Perfomance : GeneratedMessage {
     }
     if hasStr {
       output.writeString(5, value:str)
+    }
+    if hasBytes {
+      output.writeData(6, value:bytes)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
@@ -109,6 +113,9 @@ final public class Perfomance : GeneratedMessage {
     }
     if hasStr {
       size += WireFormat.computeStringSize(5, value:str)
+    }
+    if hasBytes {
+      size += WireFormat.computeDataSize(6, value:bytes)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
@@ -160,6 +167,9 @@ final public class Perfomance : GeneratedMessage {
     if hasStr {
       output += "\(indent) str: \(str) \n"
     }
+    if hasBytes {
+      output += "\(indent) bytes: \(bytes) \n"
+    }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
   override public var hashValue:Int {
@@ -179,6 +189,9 @@ final public class Perfomance : GeneratedMessage {
           }
           if hasStr {
              hashCode = (hashCode &* 31) &+ str.hashValue
+          }
+          for value in bytes {
+             hashCode = (hashCode &* 31) &+ value.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -302,6 +315,25 @@ final class PerfomanceBuilder : GeneratedMessageBuilder {
        builderResult.str = ""
        return self
   }
+  var hasBytes:Bool {
+       get {
+            return builderResult.hasBytes
+       }
+  }
+  var bytes:Array<Byte> {
+       get {
+            return builderResult.bytes
+       }
+       set (value) {
+           builderResult.hasBytes = true
+           builderResult.bytes = value
+       }
+  }
+  func clearBytes() -> PerfomanceBuilder{
+       builderResult.hasBytes = false
+       builderResult.bytes = [Byte]()
+       return self
+  }
   override var internalGetResult:GeneratedMessage {
        get {
           return builderResult
@@ -341,6 +373,9 @@ final class PerfomanceBuilder : GeneratedMessageBuilder {
     if other.hasStr {
          str = other.str
     }
+    if other.hasBytes {
+         bytes = other.bytes
+    }
     mergeUnknownFields(other.unknownFields)
     return self
   }
@@ -370,6 +405,9 @@ final class PerfomanceBuilder : GeneratedMessageBuilder {
 
       case 42 :
         str = input.readString()
+
+      case 50 :
+        bytes = input.readData()
 
       default:
         if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {

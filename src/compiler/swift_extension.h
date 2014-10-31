@@ -21,37 +21,37 @@
 #include <google/protobuf/stubs/common.h>
 
 namespace google {
-namespace protobuf {
-  class FieldDescriptor;       // descriptor.h
-  namespace io {
-    class Printer;             // printer.h
-  }
-}
-
-namespace protobuf {
-namespace compiler {
-namespace swift {
-
-class ExtensionGenerator {
- public:
-  explicit ExtensionGenerator(string classname, const FieldDescriptor* descriptor);
-  ~ExtensionGenerator();
-
-  void GenerateMembersSource(io::Printer* printer);
-  void GenerateMembersSourceExtensions(io::Printer* printer, string fileClass);
-  void GenerateFieldsSource(io::Printer* printer);
-  void GenerateFieldsGetterSource(io::Printer* printer, string rootclassname);
-  void GenerateInitializationSource(io::Printer* printer);
-  void GenerateRegistrationSource(io::Printer* printer);
-
- private:
-  string classname_;
-  const FieldDescriptor* descriptor_;
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(ExtensionGenerator);
-};
-}  // namespace swift
-}  // namespace compiler
-}  // namespace protobuf
+    namespace protobuf {
+        class FieldDescriptor;       // descriptor.h
+        namespace io {
+            class Printer;             // printer.h
+        }
+    }
+    
+    namespace protobuf {
+        namespace compiler {
+            namespace swift {
+                
+                class ExtensionGenerator {
+                public:
+                    explicit ExtensionGenerator(string classname, const FieldDescriptor* descriptor);
+                    ~ExtensionGenerator();
+                    
+                    void GenerateMembersSource(io::Printer* printer);
+                    void GenerateMembersSourceExtensions(io::Printer* printer, string fileClass);
+                    void GenerateFieldsSource(io::Printer* printer);
+                    void GenerateFieldsGetterSource(io::Printer* printer, string rootclassname);
+                    void GenerateInitializationSource(io::Printer* printer);
+                    void GenerateRegistrationSource(io::Printer* printer);
+                    
+                private:
+                    string classname_;
+                    const FieldDescriptor* descriptor_;
+                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(ExtensionGenerator);
+                };
+            }  // namespace swift
+        }  // namespace compiler
+    }  // namespace protobuf
 }  // namespace google
 
 #endif // swift_MESSAGE_H

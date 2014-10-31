@@ -25,69 +25,69 @@
 #include "swift_field.h"
 
 namespace google {
-namespace protobuf {
-  namespace io {
-    class Printer;             // printer.h
-  }
-}
-
-namespace protobuf {
-namespace compiler {
-namespace swift {
-
-class MessageGenerator {
- public:
-  explicit MessageGenerator(const Descriptor* descriptor);
-  ~MessageGenerator();
-
-  void GenerateStaticVariablesInitialization(io::Printer* printer);
-  void GenerateStaticVariablesSource(io::Printer* printer);
-  void GenerateSource(io::Printer* printer);
-  void GenerateMessageIsEqualSource(io::Printer* printer);
-  void GenerateExtensionRegistrationSource(io::Printer* printer);
-  void DetermineDependencies(set<string>* dependencies);
-  void GenerateParseFromExtensionMethodsSource(io::Printer* printer);
-  void GenerateGlobalStaticVariablesSource(io::Printer* printer, string rootclass);
- private:
-
-  void GenerateMessageSerializationMethodsSource(io::Printer* printer);
-  void GenerateParseFromMethodsSource(io::Printer* printer);
-  void GenerateSerializeOneFieldSource(io::Printer* printer,
-                                 const FieldDescriptor* field);
-  void GenerateSerializeOneExtensionRangeSource(
-      io::Printer* printer, const Descriptor::ExtensionRange* range);
-
-  void GenerateMessageDescriptionSource(io::Printer* printer);
-  void GenerateDescriptionOneFieldSource(io::Printer* printer,
-                                 const FieldDescriptor* field);
-  void GenerateDescriptionOneExtensionRangeSource(
-      io::Printer* printer, const Descriptor::ExtensionRange* range);
-
- 
-  void GenerateIsEqualOneFieldSource(io::Printer* printer,
-                                 const FieldDescriptor* field);
-  void GenerateIsEqualOneExtensionRangeSource(
-      io::Printer* printer, const Descriptor::ExtensionRange* range);
-
-  void GenerateMessageHashSource(io::Printer* printer);
-  void GenerateHashOneFieldSource(io::Printer* printer,
-                                 const FieldDescriptor* field);
-  void GenerateHashOneExtensionRangeSource(
-      io::Printer* printer, const Descriptor::ExtensionRange* range);
-
-  void GenerateBuilderSource(io::Printer* printer);
-  void GenerateCommonBuilderMethodsSource(io::Printer* printer);
-  void GenerateBuilderParsingMethodsSource(io::Printer* printer);
-  void GenerateIsInitializedSource(io::Printer* printer);
-
-  const Descriptor* descriptor_;
-  FieldGeneratorMap field_generators_;
-
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(MessageGenerator);
-};
-}  // namespace swift
-}  // namespace compiler
-}  // namespace protobuf
+    namespace protobuf {
+        namespace io {
+            class Printer;             // printer.h
+        }
+    }
+    
+    namespace protobuf {
+        namespace compiler {
+            namespace swift {
+                
+                class MessageGenerator {
+                public:
+                    explicit MessageGenerator(const Descriptor* descriptor);
+                    ~MessageGenerator();
+                    
+                    void GenerateStaticVariablesInitialization(io::Printer* printer);
+                    void GenerateStaticVariablesSource(io::Printer* printer);
+                    void GenerateSource(io::Printer* printer);
+                    void GenerateMessageIsEqualSource(io::Printer* printer);
+                    void GenerateExtensionRegistrationSource(io::Printer* printer);
+                    void DetermineDependencies(set<string>* dependencies);
+                    void GenerateParseFromExtensionMethodsSource(io::Printer* printer);
+                    void GenerateGlobalStaticVariablesSource(io::Printer* printer, string rootclass);
+                private:
+                    
+                    void GenerateMessageSerializationMethodsSource(io::Printer* printer);
+                    void GenerateParseFromMethodsSource(io::Printer* printer);
+                    void GenerateSerializeOneFieldSource(io::Printer* printer,
+                                                         const FieldDescriptor* field);
+                    void GenerateSerializeOneExtensionRangeSource(
+                                                                  io::Printer* printer, const Descriptor::ExtensionRange* range);
+                    
+                    void GenerateMessageDescriptionSource(io::Printer* printer);
+                    void GenerateDescriptionOneFieldSource(io::Printer* printer,
+                                                           const FieldDescriptor* field);
+                    void GenerateDescriptionOneExtensionRangeSource(
+                                                                    io::Printer* printer, const Descriptor::ExtensionRange* range);
+                    
+                    
+                    void GenerateIsEqualOneFieldSource(io::Printer* printer,
+                                                       const FieldDescriptor* field);
+                    void GenerateIsEqualOneExtensionRangeSource(
+                                                                io::Printer* printer, const Descriptor::ExtensionRange* range);
+                    
+                    void GenerateMessageHashSource(io::Printer* printer);
+                    void GenerateHashOneFieldSource(io::Printer* printer,
+                                                    const FieldDescriptor* field);
+                    void GenerateHashOneExtensionRangeSource(
+                                                             io::Printer* printer, const Descriptor::ExtensionRange* range);
+                    
+                    void GenerateBuilderSource(io::Printer* printer);
+                    void GenerateCommonBuilderMethodsSource(io::Printer* printer);
+                    void GenerateBuilderParsingMethodsSource(io::Printer* printer);
+                    void GenerateIsInitializedSource(io::Printer* printer);
+                    
+                    const Descriptor* descriptor_;
+                    FieldGeneratorMap field_generators_;
+                    
+                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(MessageGenerator);
+                };
+            }  // namespace swift
+        }  // namespace compiler
+    }  // namespace protobuf
 }  // namespace google
 
 #endif // swift_MESSAGE_H

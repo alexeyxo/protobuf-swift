@@ -33,6 +33,7 @@ class ProtocolBuffersTests: XCTestCase {
         originalBuilder.doubles = Double(12.12)
         originalBuilder.floats = Float(123.123)
         originalBuilder.str = "string"
+        originalBuilder.bytes = [1,2,3,4]
         let original = originalBuilder.build()
         self.measureBlock() {
             for _ in 0...10000 {

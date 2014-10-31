@@ -22,26 +22,26 @@
 #include <google/protobuf/compiler/code_generator.h>
 
 namespace google {
-namespace protobuf {
-namespace compiler {
-namespace swift {
-
-class SwiftGenerator : public CodeGenerator {
- public:
-  SwiftGenerator();
-  ~SwiftGenerator();
-
-  bool Generate(const FileDescriptor* file,
-                const string& parameter,
-                OutputDirectory* output_directory,
-                string* error) const;
-
- private:
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(SwiftGenerator);
-};
-}  // namespace swift
-}  // namespace compiler
-}  // namespace protobuf
+    namespace protobuf {
+        namespace compiler {
+            namespace swift {
+                
+                class SwiftGenerator : public CodeGenerator {
+                public:
+                    SwiftGenerator();
+                    ~SwiftGenerator();
+                    
+                    bool Generate(const FileDescriptor* file,
+                                  const string& parameter,
+                                  OutputDirectory* output_directory,
+                                  string* error) const;
+                    
+                private:
+                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(SwiftGenerator);
+                };
+            }  // namespace swift
+        }  // namespace compiler
+    }  // namespace protobuf
 }  // namespace google
 
 #endif // swift_GENERATOR_H

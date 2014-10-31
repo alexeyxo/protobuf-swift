@@ -25,7 +25,7 @@ let BUFFER_SIZE:Int32 = 4096;
 
 public class CodedInputStream
 {
-    public var buffer:[Byte]!
+    public var buffer:[Byte]
     private var input:NSInputStream!
     private var bufferSize:Int32 = 0
     private var bufferSizeAfterLimit:Int32 = 0
@@ -39,7 +39,7 @@ public class CodedInputStream
     public init (data aData:[Byte])
     {
         buffer = aData
-        bufferSize = Int32(buffer!.count)
+        bufferSize = Int32(buffer.count)
         currentLimit = INT_MAX
         recursionLimit = DEFAULT_RECURSION_LIMIT
         sizeLimit = DEFAULT_SIZE_LIMIT
@@ -87,7 +87,7 @@ public class CodedInputStream
         
         if input != nil
         {
-            bufferSize = Int32(input!.read(&buffer!, maxLength:buffer!.count))
+            bufferSize = Int32(input!.read(&buffer, maxLength:buffer.count))
             
         }
         
@@ -131,8 +131,9 @@ public class CodedInputStream
         
         if (size <= bufferSize - bufferPos) {
             
-            var data = [Byte](count: buffer!.count - Int(bufferPos), repeatedValue: 0)
-            data[0...data.count-1] = buffer![Int(bufferPos)...Int(buffer!.count-1)]
+            var data = [Byte](count: buffer.count - Int(bufferPos), repeatedValue: 0)
+//            data[0...data.count-1] = buffer![Int(bufferPos)...Int(buffer!.count-1)]
+            memcpy(&data, &buffer + Int(bufferPos), UInt(buffer.count - Int(bufferPos)))
             bufferPos += size;
             return data;
         }
@@ -140,21 +141,23 @@ public class CodedInputStream
             
             var bytes = [Byte](count:Int(size), repeatedValue: 0)
             var pos:Int32 = bufferSize - bufferPos;
-            bytes[0...bytes.count-1] = buffer![Int(bufferPos)...Int(buffer!.count-1)]
+//            bytes[0...bytes.count-1] = buffer![Int(bufferPos)...Int(buffer!.count-1)]
+            memcpy(&bytes, &buffer + Int(bufferPos), UInt(pos))
             bufferPos = bufferSize;
             
             refillBuffer(true)
             
             while (size - pos > bufferSize)
             {
-                
-                bytes[Int(pos)...Int(bufferSize)] = buffer![0...Int(bufferSize)]
+                memcpy(&bytes + Int(pos), &buffer, UInt(bufferSize))
+//                bytes[Int(pos)...Int(bufferSize)] = buffer![0...Int(bufferSize)]
                 pos += bufferSize
                 bufferPos = bufferSize
                 refillBuffer(true)
             }
             
-            bytes[Int(pos)...Int(bufferSize)] = buffer![0...Int(size - pos)]
+//            bytes[Int(pos)...Int(bufferSize)] = buffer![0...Int(size - pos)]
+            memcpy(&bytes + Int(pos), &buffer, UInt(size - pos))
             bufferPos = size - pos;
             return bytes
             
@@ -198,11 +201,12 @@ public class CodedInputStream
             var bytes:[Byte] = [Byte](count: Int(size), repeatedValue: 0)
             var pos:Int = originalBufferSize - originalBufferPos;
             
-            bytes[0...bytes.count-1] = buffer![Int(originalBufferSize)...Int(pos)]
-            
+//            bytes[0...bytes.count-1] = buffer[Int(originalBufferSize)...Int(pos)]
+            memcpy(&bytes, &buffer + Int(originalBufferPos), UInt(pos))
             for chunk in chunks
             {
-                bytes[Int(pos)..<bytes.count] = chunk[0..<chunk.count]
+//                bytes[Int(pos)..<bytes.count] = chunk[0..<chunk.count]
+                memcpy(&bytes + pos, chunk, UInt(chunk.count))
                 pos += chunk.count
             }
             
@@ -210,6 +214,7 @@ public class CodedInputStream
             
         }
     }
+
     
     
     public func skipRawData(var size:Int32)
@@ -427,7 +432,7 @@ public class CodedInputStream
         {
             refillBuffer(true)
         }
-        var res = buffer![Int(bufferPos++)]
+        var res = buffer[Int(bufferPos++)]
         return res
     }
     
@@ -497,8 +502,8 @@ public class CodedInputStream
         var size:Int32 = readRawVarint32()
         if (size <= (bufferSize - bufferPos) && size > 0)
         {
-
-            var data = buffer[Int(bufferPos)..<Int(bufferPos+size)]
+            var data:[Byte] = [Byte](count: Int(size), repeatedValue: 0)
+            memcpy(&data, &buffer+Int(bufferPos), UInt(data.count))
             var result:String = String(bytes: data, encoding:  NSUTF8StringEncoding)!
             bufferPos += size
             return result
@@ -517,10 +522,10 @@ public class CodedInputStream
         let size = readRawVarint32()
         if (size < bufferSize - bufferPos && size > 0)
         {
-            var result:[Byte] = [Byte](count: Int(size), repeatedValue: 0)
-            result[0..<result.count] = buffer![Int(bufferPos)...Int(size)]
-            bufferPos += size;
-            return result;
+            var data:[Byte] = [Byte](count: Int(size), repeatedValue: 0)
+            memcpy(&data, &buffer+Int(bufferPos), UInt(data.count))
+            bufferPos += size
+            return data
         }
         else
         {

@@ -24,39 +24,39 @@
 #include <google/protobuf/descriptor.h>
 
 namespace google {
-namespace protobuf {
-  namespace io {
-    class Printer;             // printer.h
-  }
-}
-
-namespace protobuf {
-namespace compiler {
-namespace swift {
-
-class EnumGenerator {
- public:
-  explicit EnumGenerator(const EnumDescriptor* descriptor);
-  ~EnumGenerator();
-
-  void GenerateSource(io::Printer* printer);
-
- private:
-  const EnumDescriptor* descriptor_;
-  vector<const EnumValueDescriptor*> canonical_values_;
-
-  struct Alias {
-    const EnumValueDescriptor* value;
-    const EnumValueDescriptor* canonical_value;
-  };
-  vector<Alias> aliases_;
-
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(EnumGenerator);
-};
-
-}  // namespace swift
-}  // namespace compiler
-}  // namespace protobuf
+    namespace protobuf {
+        namespace io {
+            class Printer;             // printer.h
+        }
+    }
+    
+    namespace protobuf {
+        namespace compiler {
+            namespace swift {
+                
+                class EnumGenerator {
+                public:
+                    explicit EnumGenerator(const EnumDescriptor* descriptor);
+                    ~EnumGenerator();
+                    
+                    void GenerateSource(io::Printer* printer);
+                    
+                private:
+                    const EnumDescriptor* descriptor_;
+                    vector<const EnumValueDescriptor*> canonical_values_;
+                    
+                    struct Alias {
+                        const EnumValueDescriptor* value;
+                        const EnumValueDescriptor* canonical_value;
+                    };
+                    vector<Alias> aliases_;
+                    
+                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(EnumGenerator);
+                };
+                
+            }  // namespace swift
+        }  // namespace compiler
+    }  // namespace protobuf
 }  // namespace google
 
 #endif // swift_ENUM_H

@@ -23,68 +23,67 @@
 #include "swift_helpers.h"
 #include "swift_primitive_field.h"
 #include "swift_enum_field.h"
-//#include "swift_oneof.h"
 #include "swift_message_field.h"
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
-
-  FieldGenerator::~FieldGenerator() {
-  }
-
-
-  FieldGeneratorMap::FieldGeneratorMap(const Descriptor* descriptor)
+    
+    FieldGenerator::~FieldGenerator() {
+    }
+    
+    
+    FieldGeneratorMap::FieldGeneratorMap(const Descriptor* descriptor)
     : descriptor_(descriptor),
     field_generators_(new scoped_ptr<FieldGenerator>[descriptor->field_count()]),
     extension_generators_(new scoped_ptr<FieldGenerator>[descriptor->extension_count()]){
-//    oneof_generators_(new scoped_ptr<FieldGenerator>[descriptor->oneof_count()]) {
-
-      for (int i = 0; i < descriptor->field_count(); i++) {
-          field_generators_[i].reset(MakeGenerator(descriptor->field(i)));
-      }
-      for (int i = 0; i < descriptor->extension_count(); i++) {
-        extension_generators_[i].reset(MakeGenerator(descriptor->extension(i)));
-      }
+        //    oneof_generators_(new scoped_ptr<FieldGenerator>[descriptor->oneof_count()]) {
+        
+        for (int i = 0; i < descriptor->field_count(); i++) {
+            field_generators_[i].reset(MakeGenerator(descriptor->field(i)));
+        }
+        for (int i = 0; i < descriptor->extension_count(); i++) {
+            extension_generators_[i].reset(MakeGenerator(descriptor->extension(i)));
+        }
         
     }
-
-
-  FieldGenerator* FieldGeneratorMap::MakeGenerator(const FieldDescriptor* field) {
-    if (field->is_repeated()) {
-      switch (GetSwiftType(field)) {
-      case SWIFTTYPE_MESSAGE:
-        return new RepeatedMessageFieldGenerator(field);
-      case SWIFTTYPE_ENUM:
-        return new RepeatedEnumFieldGenerator(field);
-      default:
-        return new RepeatedPrimitiveFieldGenerator(field);
-      }
-    } else {
-      switch (GetSwiftType(field)) {
-      case SWIFTTYPE_MESSAGE:
-        return new MessageFieldGenerator(field);
-      case SWIFTTYPE_ENUM:
-        return new EnumFieldGenerator(field);
-      default:
-        return new PrimitiveFieldGenerator(field);
-      }
+    
+    
+    FieldGenerator* FieldGeneratorMap::MakeGenerator(const FieldDescriptor* field) {
+        if (field->is_repeated()) {
+            switch (GetSwiftType(field)) {
+                case SWIFTTYPE_MESSAGE:
+                    return new RepeatedMessageFieldGenerator(field);
+                case SWIFTTYPE_ENUM:
+                    return new RepeatedEnumFieldGenerator(field);
+                default:
+                    return new RepeatedPrimitiveFieldGenerator(field);
+            }
+        } else {
+            switch (GetSwiftType(field)) {
+                case SWIFTTYPE_MESSAGE:
+                    return new MessageFieldGenerator(field);
+                case SWIFTTYPE_ENUM:
+                    return new EnumFieldGenerator(field);
+                default:
+                    return new PrimitiveFieldGenerator(field);
+            }
+        }
     }
-  }
-
-
-  FieldGeneratorMap::~FieldGeneratorMap() {
-  }
-
-
-  const FieldGenerator& FieldGeneratorMap::get(
-    const FieldDescriptor* field) const {
-      GOOGLE_CHECK_EQ(field->containing_type(), descriptor_);
-      return *field_generators_[field->index()];
-  }
-
-
-  const FieldGenerator& FieldGeneratorMap::get_extension(int index) const {
-    return *extension_generators_[index];
-  }
+    
+    
+    FieldGeneratorMap::~FieldGeneratorMap() {
+    }
+    
+    
+    const FieldGenerator& FieldGeneratorMap::get(
+                                                 const FieldDescriptor* field) const {
+        GOOGLE_CHECK_EQ(field->containing_type(), descriptor_);
+        return *field_generators_[field->index()];
+    }
+    
+    
+    const FieldGenerator& FieldGeneratorMap::get_extension(int index) const {
+        return *extension_generators_[index];
+    }
 }  // namespace swift
 }  // namespace compiler
 }  // namespace protobuf

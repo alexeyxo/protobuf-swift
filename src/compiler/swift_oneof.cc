@@ -27,10 +27,10 @@
 #include "swift_helpers.h"
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
-
-  OneofGenerator::OneofGenerator(const OneofDescriptor* descriptor)
+    
+    OneofGenerator::OneofGenerator(const OneofDescriptor* descriptor)
     : descriptor_(descriptor) {
-  }
+    }
     
     const char* PrimitiveTypeName(const FieldDescriptor* field) {
         switch (field->type()) {
@@ -57,106 +57,106 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         GOOGLE_LOG(FATAL) << "Can't get here.";
         return NULL;
     }
-
-
-  OneofGenerator::~OneofGenerator() {
-  }
-
-
-
-
-  void OneofGenerator::GenerateSource(io::Printer* printer) {
-      printer->Print("\n\n//OneOf declaration start\n\n");
-      
-      printer->Print("enum $classname$ {\n",
-                     "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
-      
-      
-      printer->Indent();
-      printer->Print("case $classname$OneOfNotSet\n\n",
-                     "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
-      
-      printer->Print("func checkOneOfIsSet() -> Bool {\n"
-                     "     switch self {\n"
-                     "     case .$name$OneOfNotSet:\n"
-                     "          return false\n"
-                     "     default:\n"
-                     "          return true\n"
-                     "     }\n"
-                     "}\n",
-                     "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
-                     "name",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
-     printer->Outdent();
-      for (int i = 0; i < descriptor_->field_count(); i++) {
-          
-          const FieldDescriptor* fieldType = descriptor_->field(i);
-          printer->Indent();
-          if (GetSwiftType(fieldType) == SWIFTTYPE_MESSAGE) {
-              
-              printer->Print("case $name$($type$)\n\n",
-                             "name",UnderscoresToCapitalizedCamelCase(fieldType),
-                             "type",ClassName(fieldType->message_type()));
-              
-              printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
-                             "     switch value {\n"
-                             "     case .$name$(let enumValue):\n"
-                             "          return enumValue\n"
-                             "     default:\n"
-                             "          return nil\n"
-                             "     }\n"
-                             "}\n",
-                             "name",UnderscoresToCapitalizedCamelCase(fieldType),
-                             "fieldType",ClassName(fieldType->message_type()),
-                             "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
-          }
-          else if (GetSwiftType(fieldType) == SWIFTTYPE_ENUM)
-          {
-              const FieldDescriptor* enumDesc = descriptor_->field(i);
-              printer->Print("case $name$($type$)\n\n",
-                             "name",UnderscoresToCapitalizedCamelCase(enumDesc->name()),
-                             "type",ClassName(enumDesc->enum_type()));
-              
-              printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
-                             "     switch value {\n"
-                             "     case .$name$(let enumValue):\n"
-                             "          return enumValue\n"
-                             "     default:\n"
-                             "          return nil\n"
-                             "     }\n"
-                             "}\n",
-                             "name",UnderscoresToCapitalizedCamelCase(enumDesc->name()),
-                             "fieldType",ClassName(enumDesc->enum_type()),
-                             "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
-          }
-          else
-          {
-              printer->Print("case $name$($type$)\n\n",
-                             "name",UnderscoresToCapitalizedCamelCase(fieldType->name()),
-                             "type",PrimitiveTypeName(fieldType));
-              
-              printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
-                             "     switch value {\n"
-                             "     case .$name$(let enumValue):\n"
-                             "          return enumValue\n"
-                             "     default:\n"
-                             "          return nil\n"
-                             "     }\n"
-                             "}\n",
-                             "name",UnderscoresToCapitalizedCamelCase(fieldType->name()),
-                             "fieldType",PrimitiveTypeName(fieldType),
-                             "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
-          }
-          printer->Outdent();
-      
-      }
-      
-      
-      printer->Print("}\n");
-      
-      printer->Print("\n");
-      printer->Print("\n\n//OneOf declaration end\n\n");
-     
-  }
+    
+    
+    OneofGenerator::~OneofGenerator() {
+    }
+    
+    
+    
+    
+    void OneofGenerator::GenerateSource(io::Printer* printer) {
+        printer->Print("\n\n//OneOf declaration start\n\n");
+        
+        printer->Print("enum $classname$ {\n",
+                       "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+        
+        
+        printer->Indent();
+        printer->Print("case $classname$OneOfNotSet\n\n",
+                       "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+        
+        printer->Print("func checkOneOfIsSet() -> Bool {\n"
+                       "     switch self {\n"
+                       "     case .$name$OneOfNotSet:\n"
+                       "          return false\n"
+                       "     default:\n"
+                       "          return true\n"
+                       "     }\n"
+                       "}\n",
+                       "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
+                       "name",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+        printer->Outdent();
+        for (int i = 0; i < descriptor_->field_count(); i++) {
+            
+            const FieldDescriptor* fieldType = descriptor_->field(i);
+            printer->Indent();
+            if (GetSwiftType(fieldType) == SWIFTTYPE_MESSAGE) {
+                
+                printer->Print("case $name$($type$)\n\n",
+                               "name",UnderscoresToCapitalizedCamelCase(fieldType),
+                               "type",ClassName(fieldType->message_type()));
+                
+                printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
+                               "     switch value {\n"
+                               "     case .$name$(let enumValue):\n"
+                               "          return enumValue\n"
+                               "     default:\n"
+                               "          return nil\n"
+                               "     }\n"
+                               "}\n",
+                               "name",UnderscoresToCapitalizedCamelCase(fieldType),
+                               "fieldType",ClassName(fieldType->message_type()),
+                               "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+            }
+            else if (GetSwiftType(fieldType) == SWIFTTYPE_ENUM)
+            {
+                const FieldDescriptor* enumDesc = descriptor_->field(i);
+                printer->Print("case $name$($type$)\n\n",
+                               "name",UnderscoresToCapitalizedCamelCase(enumDesc->name()),
+                               "type",ClassName(enumDesc->enum_type()));
+                
+                printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
+                               "     switch value {\n"
+                               "     case .$name$(let enumValue):\n"
+                               "          return enumValue\n"
+                               "     default:\n"
+                               "          return nil\n"
+                               "     }\n"
+                               "}\n",
+                               "name",UnderscoresToCapitalizedCamelCase(enumDesc->name()),
+                               "fieldType",ClassName(enumDesc->enum_type()),
+                               "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+            }
+            else
+            {
+                printer->Print("case $name$($type$)\n\n",
+                               "name",UnderscoresToCapitalizedCamelCase(fieldType->name()),
+                               "type",PrimitiveTypeName(fieldType));
+                
+                printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
+                               "     switch value {\n"
+                               "     case .$name$(let enumValue):\n"
+                               "          return enumValue\n"
+                               "     default:\n"
+                               "          return nil\n"
+                               "     }\n"
+                               "}\n",
+                               "name",UnderscoresToCapitalizedCamelCase(fieldType->name()),
+                               "fieldType",PrimitiveTypeName(fieldType),
+                               "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+            }
+            printer->Outdent();
+            
+        }
+        
+        
+        printer->Print("}\n");
+        
+        printer->Print("\n");
+        printer->Print("\n\n//OneOf declaration end\n\n");
+        
+    }
 }  // namespace swift
 }  // namespace compiler
 }  // namespace protobuf

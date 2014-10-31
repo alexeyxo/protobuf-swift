@@ -67,14 +67,14 @@ public class CodedOutputStream
         writeRawData(data, offset:0, length: Int32(data.count))
     
     }
-    public func writeRawData(data:[Byte], var offset aOffset:Int32, var length aLength:Int32)
+    public func writeRawData(data:[Byte], var offset:Int32, var length:Int32)
     {
-        while (aLength > 0)
+        while (length > 0)
         {
-            var written:Int32 = buffer.appendData(data, offset: aOffset, length: aLength)
-            aOffset += Int32(written)
-            aLength -= Int32(written)
-            if (written == 0 && aLength > 0)
+            var written:Int32 = buffer.appendData(data, offset: offset, length: length)
+            offset += Int32(written)
+            length -= Int32(written)
+            if (written == 0 || length > 0)
             {
                 flush()
             }
@@ -237,13 +237,13 @@ public class CodedOutputStream
         writeMessageNoTag(value)
     }
     
-    public func writeDataNoTag(data:[Byte]?)
+    public func writeDataNoTag(data:[Byte])
     {
-        writeRawVarint32(Int32(data!.count))
-        writeRawData(data!)
+        writeRawVarint32(Int32(data.count))
+        writeRawData(data)
     }
     
-    public func writeData(fieldNumber:Int32, value:[Byte]?)
+    public func writeData(fieldNumber:Int32, value:[Byte])
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatLengthDelimited)
         writeDataNoTag(value)

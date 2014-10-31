@@ -24,7 +24,7 @@ using namespace google::protobuf::compiler::swift;
 
 int main(int argc, char **argv)
 {
-  
-	SwiftGenerator	generator;
-	return PluginMain(argc, argv, &generator);
+    
+    SwiftGenerator	generator;
+    return PluginMain(argc, argv, &generator);
 }

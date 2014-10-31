@@ -4,5 +4,6 @@ message Perfomance
    required int64 ints64 = 2;
    required double doubles = 3;
    required float floats  = 4;
-   required string str  = 5;
+   optional string str  = 5;
+   optional bytes bytes  = 6;
 }

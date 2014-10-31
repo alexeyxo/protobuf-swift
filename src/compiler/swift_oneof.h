@@ -24,32 +24,32 @@
 #include <google/protobuf/descriptor.h>
 
 namespace google {
-namespace protobuf {
-  namespace io {
-    class Printer;             // printer.h
-  }
-}
-
-namespace protobuf {
-namespace compiler {
-namespace swift {
-
-class OneofGenerator {
- public:
-  explicit OneofGenerator(const OneofDescriptor* descriptor);
-  ~OneofGenerator();
-
-  void GenerateSource(io::Printer* printer);
-
- private:
-  const OneofDescriptor* descriptor_;
-
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(OneofGenerator);
-};
-
-}  // namespace swift
-}  // namespace compiler
-}  // namespace protobuf
+    namespace protobuf {
+        namespace io {
+            class Printer;             // printer.h
+        }
+    }
+    
+    namespace protobuf {
+        namespace compiler {
+            namespace swift {
+                
+                class OneofGenerator {
+                public:
+                    explicit OneofGenerator(const OneofDescriptor* descriptor);
+                    ~OneofGenerator();
+                    
+                    void GenerateSource(io::Printer* printer);
+                    
+                private:
+                    const OneofDescriptor* descriptor_;
+                    
+                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(OneofGenerator);
+                };
+                
+            }  // namespace swift
+        }  // namespace compiler
+    }  // namespace protobuf
 }  // namespace google
 
 #endif // swift_ENUM_H

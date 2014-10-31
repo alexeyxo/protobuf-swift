@@ -27,75 +27,75 @@
 #include "swift_helpers.h"
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
-
-  EnumGenerator::EnumGenerator(const EnumDescriptor* descriptor)
+    
+    EnumGenerator::EnumGenerator(const EnumDescriptor* descriptor)
     : descriptor_(descriptor) {
-      for (int i = 0; i < descriptor_->value_count(); i++) {
-        const EnumValueDescriptor* value = descriptor_->value(i);
-        const EnumValueDescriptor* canonical_value =
-          descriptor_->FindValueByNumber(value->number());
-
-        if (value == canonical_value) {
-          canonical_values_.push_back(value);
-        } else {
-          Alias alias;
-          alias.value = value;
-          alias.canonical_value = canonical_value;
-          aliases_.push_back(alias);
+        for (int i = 0; i < descriptor_->value_count(); i++) {
+            const EnumValueDescriptor* value = descriptor_->value(i);
+            const EnumValueDescriptor* canonical_value =
+            descriptor_->FindValueByNumber(value->number());
+            
+            if (value == canonical_value) {
+                canonical_values_.push_back(value);
+            } else {
+                Alias alias;
+                alias.value = value;
+                alias.canonical_value = canonical_value;
+                aliases_.push_back(alias);
+            }
         }
-      }
-  }
-
-
-  EnumGenerator::~EnumGenerator() {
-  }
-
-
-
-
-  void EnumGenerator::GenerateSource(io::Printer* printer) {
-
-      printer->Print("\n\n//Enum type declaration start \n\n");
-      printer->Print(
-                     "enum $classname$:Int32 {\n",
-                     "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
-      
-      printer->Indent();
-      for (int i = 0; i < canonical_values_.size(); i++) {
-          printer->Print(
-                         "case $name$ = $value$\n",
-                         "name", EnumValueName(canonical_values_[i]),
-                         "value", SimpleItoa(canonical_values_[i]->number()));
-      }
-      printer->Print("\n");
-
-    printer->Print(
-      "static func IsValidValue(value:$classname$) ->Bool {\n"
-      "  switch value {\n"
-      "    case .$name$",
-      "classname", UnderscoresToCapitalizedCamelCase(descriptor_->name()),
-      "name", EnumValueName(canonical_values_[0]));
-
-    for (int i = 1; i < canonical_values_.size(); i++) {
-      printer->Print(
-        ", .$name$",
-        "name", EnumValueName(canonical_values_[i]));
     }
-      printer->Print(":\n");
-
-    printer->Print(
-      "      return true;\n"
-      "    default:\n"
-      "      return false;\n"
-      "  }\n"
-      "}\n");
-
-      printer->Outdent();
-      printer->Print(
-                     "}\n"
-                     "\n");
-     printer->Print("\n\n//Enum type declaration end \n\n");
-  }
+    
+    
+    EnumGenerator::~EnumGenerator() {
+    }
+    
+    
+    
+    
+    void EnumGenerator::GenerateSource(io::Printer* printer) {
+        
+        printer->Print("\n\n//Enum type declaration start \n\n");
+        printer->Print(
+                       "enum $classname$:Int32 {\n",
+                       "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+        
+        printer->Indent();
+        for (int i = 0; i < canonical_values_.size(); i++) {
+            printer->Print(
+                           "case $name$ = $value$\n",
+                           "name", EnumValueName(canonical_values_[i]),
+                           "value", SimpleItoa(canonical_values_[i]->number()));
+        }
+        printer->Print("\n");
+        
+        printer->Print(
+                       "static func IsValidValue(value:$classname$) ->Bool {\n"
+                       "  switch value {\n"
+                       "    case .$name$",
+                       "classname", UnderscoresToCapitalizedCamelCase(descriptor_->name()),
+                       "name", EnumValueName(canonical_values_[0]));
+        
+        for (int i = 1; i < canonical_values_.size(); i++) {
+            printer->Print(
+                           ", .$name$",
+                           "name", EnumValueName(canonical_values_[i]));
+        }
+        printer->Print(":\n");
+        
+        printer->Print(
+                       "      return true;\n"
+                       "    default:\n"
+                       "      return false;\n"
+                       "  }\n"
+                       "}\n");
+        
+        printer->Outdent();
+        printer->Print(
+                       "}\n"
+                       "\n");
+        printer->Print("\n\n//Enum type declaration end \n\n");
+    }
 }  // namespace swift
 }  // namespace compiler
 }  // namespace protobuf

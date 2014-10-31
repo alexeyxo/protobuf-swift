@@ -28,340 +28,338 @@
 #include "swift_helpers.h"
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
-
-  namespace {
-    void SetEnumVariables(const FieldDescriptor* descriptor,
-      map<string, string>* variables) {
-        const EnumValueDescriptor* default_value;
-        default_value = descriptor->default_value_enum();
-
-        string type = ClassName(descriptor->enum_type());
-
-        (*variables)["classname"]             = ClassName(descriptor->containing_type());
-        (*variables)["name"]                  = UnderscoresToCamelCase(descriptor);
-        (*variables)["capitalized_name"]      = UnderscoresToCapitalizedCamelCase(descriptor);
-        (*variables)["number"] = SimpleItoa(descriptor->number());
-        (*variables)["type"] = type;
-        (*variables)["default"] = EnumValueName(default_value);
-        (*variables)["tag"] = SimpleItoa(internal::WireFormat::MakeTag(descriptor));
-        (*variables)["tag_size"] = SimpleItoa(
-          internal::WireFormat::TagSize(descriptor->number(), descriptor->type()));
-        if (isOneOfField(descriptor)) {
-            const OneofDescriptor* oneof = descriptor->containing_oneof();
-            (*variables)["oneof_name"] = UnderscoresToCapitalizedCamelCase(oneof->name());
-            (*variables)["oneof_class_name"] = ClassNameOneof(oneof);
+    
+    namespace {
+        void SetEnumVariables(const FieldDescriptor* descriptor,
+                              map<string, string>* variables) {
+            const EnumValueDescriptor* default_value;
+            default_value = descriptor->default_value_enum();
+            
+            string type = ClassName(descriptor->enum_type());
+            
+            (*variables)["classname"]             = ClassName(descriptor->containing_type());
+            (*variables)["name"]                  = UnderscoresToCamelCase(descriptor);
+            (*variables)["capitalized_name"]      = UnderscoresToCapitalizedCamelCase(descriptor);
+            (*variables)["number"] = SimpleItoa(descriptor->number());
+            (*variables)["type"] = type;
+            (*variables)["default"] = EnumValueName(default_value);
+            (*variables)["tag"] = SimpleItoa(internal::WireFormat::MakeTag(descriptor));
+            (*variables)["tag_size"] = SimpleItoa(
+                                                  internal::WireFormat::TagSize(descriptor->number(), descriptor->type()));
+            if (isOneOfField(descriptor)) {
+                const OneofDescriptor* oneof = descriptor->containing_oneof();
+                (*variables)["oneof_name"] = UnderscoresToCapitalizedCamelCase(oneof->name());
+                (*variables)["oneof_class_name"] = ClassNameOneof(oneof);
+            }
+        }
+    }  // namespace
+    
+    EnumFieldGenerator::EnumFieldGenerator(const FieldDescriptor* descriptor)
+    : descriptor_(descriptor) {
+        SetEnumVariables(descriptor, &variables_);
+    }
+    
+    
+    EnumFieldGenerator::~EnumFieldGenerator() {
+    }
+    
+    
+    void EnumFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "var $name$:$type$\n");
+    }
+    
+    void EnumFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
+    }
+    
+    
+    void EnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
+        if (isOneOfField(descriptor_)) {
+            printer->Print(variables_,"private(set) var has$capitalized_name$:Bool {\n"
+                           "      get {\n"
+                           "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
+                           "               return false\n"
+                           "           }\n"
+                           "           return true\n"
+                           "      }\n"
+                           "      set(newValue) {\n"
+                           "      }\n"
+                           "}\n");
+            
+            printer->Print(variables_,"private(set) var $name$:$type$!{\n"
+                           "     get {\n"
+                           "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
+                           "     }\n"
+                           "     set (newvalue) {\n"
+                           "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
+                           "     }\n"
+                           "}\n");
+        }
+        else
+        {
+            printer->Print(variables_, "private(set) var $name$:$type$ = $type$.$default$\n");
+            printer->Print(variables_,"private(set) var has$capitalized_name$:Bool = false\n");
         }
     }
-  }  // namespace
-
-  EnumFieldGenerator::EnumFieldGenerator(const FieldDescriptor* descriptor)
-    : descriptor_(descriptor) {
-      SetEnumVariables(descriptor, &variables_);
-  }
-
-
-  EnumFieldGenerator::~EnumFieldGenerator() {
-  }
-
-
-  void EnumFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-    printer->Print(variables_,
-      "var $name$:$type$\n");
-  }
-
-  void EnumFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
-  }
-
-
-  void EnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
-      if (isOneOfField(descriptor_)) {
-          printer->Print(variables_,"private(set) var has$capitalized_name$:Bool {\n"
-                         "      get {\n"
-                         "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
-                         "               return false\n"
-                         "           }\n"
-                         "           return true\n"
-                         "      }\n"
-                         "      set(newValue) {\n"
-                         "      }\n"
-                         "}\n");
-          
-          printer->Print(variables_,"private(set) var $name$:$type$!{\n"
-                         "     get {\n"
-                         "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
-                         "     }\n"
-                         "     set (newvalue) {\n"
-                         "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
-                         "     }\n"
-                         "}\n");
-      }
-      else
-      {
-          printer->Print(variables_, "private(set) var $name$:$type$ = $type$.$default$\n");
-          printer->Print(variables_,"private(set) var has$capitalized_name$:Bool = false\n");
-      }
-  }
-
-
-
-
-  void EnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
-  }
-
-
-  void EnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
-      printer->Print(variables_,
-     "  var has$capitalized_name$:Bool{\n"
-     "      get {\n"
-     "          return builderResult.has$capitalized_name$\n"
-     "      }\n"
-     "  }\n"
-     "  var $name$:$type$ {\n"
-     "      get {\n"
-     "          return builderResult.$name$\n"
-     "      }\n"
-     "      set (value) {\n"
-     "          builderResult.has$capitalized_name$ = true\n"
-     "          builderResult.$name$ = value\n"
-     "      }\n"
-     "  }\n");
-
-    printer->Print(variables_,
-      "  func clear$capitalized_name$() -> $classname$Builder {\n"
-      "     builderResult.has$capitalized_name$ = false\n"
-      "     builderResult.$name$ = .$default$\n"
-      "     return self\n"
-      "  }\n");
-  }
-
-
-
-  void EnumFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-      "if other.has$capitalized_name$ {\n"
-      "     $name$ = other.$name$\n"
-      "}\n");
-  }
-
-
-  void EnumFieldGenerator::GenerateBuildingCodeSource(io::Printer* printer) const {
-  }
-
-  void EnumFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-
-      "var value = input.readEnum()\n"
-      "var enumMergResult:$type$ = $type$(rawValue:value)!\n"
-      "if ($type$.IsValidValue(enumMergResult)) {\n"
-      "     $name$ = enumMergResult\n"
-      "} else {\n"
-      "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(value))\n"
-      "}\n");
-  }
-
-  void EnumFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-      "if has$capitalized_name$ {\n"
-      "  output.writeEnum($number$, value:$name$.rawValue)\n"
-      "}\n");
-  }
-
-
-  void EnumFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-      "if (has$capitalized_name$) {\n"
-      "  size += WireFormat.computeEnumSize($number$, value:$name$.rawValue)\n"
-      "}\n");
-  }
-
-
-  void EnumFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-      "if (has$capitalized_name$) {\n"
-      "  output += \"\\(indent) $name$: \\($name$.rawValue)\\n\"\n"
-      "}\n");
-  }
-
-
-  void EnumFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-      "(lhs.has$capitalized_name$ == rhs.has$capitalized_name$) && (!lhs.has$capitalized_name$ || lhs.$name$ == rhs.$name$)");
-  }
-
-
-  void EnumFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-      "if has$capitalized_name$ {\n"
-      "   hashCode = (hashCode &* 31) &+ Int($name$.rawValue)\n"
-      "}\n");
-  }
-
-
-  string EnumFieldGenerator::GetBoxedType() const {
-    return ClassName(descriptor_->enum_type());
-  }
-
-
-  RepeatedEnumFieldGenerator::RepeatedEnumFieldGenerator(const FieldDescriptor* descriptor)
-    : descriptor_(descriptor) {
-      SetEnumVariables(descriptor, &variables_);
-  }
-
-
-  RepeatedEnumFieldGenerator::~RepeatedEnumFieldGenerator() {
-  }
-
-
-
-  void RepeatedEnumFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-      printer->Print(variables_,"var $name$:[$type$] = [$type$]()\n");
-  }
-
-  void RepeatedEnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
-//    printer->Print(variables_, "var $name$:$type$\n");
-  }
-
-
-
-  void RepeatedEnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
-  }
-
-  void RepeatedEnumFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
-      printer->Print(variables_,
-                     "private var $name$MemoizedSerializedSize:Int32 = 0\n");
-    printer->Print(variables_,
-      "private(set) var $name$:Array<$type$> = Array<$type$>()\n");
-  }
-
-  void RepeatedEnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
-    printer->Print(variables_,
-      "var $name$:Array<$type$> {\n"
-                   "    get {\n"
-                   "        return builderResult.$name$\n"
-                   "    }\n"
-                   "    set (value) {\n"
-                   "        builderResult.$name$ += value\n"
-                   "    }\n"
-      "}\n"
-      "func clear$capitalized_name$() -> $classname$Builder {\n"
-      "  builderResult.$name$.removeAll(keepCapacity: false)\n"
-      "  return self\n"
-      "}\n");
-  }
-
-  void RepeatedEnumFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-      "if !other.$name$.isEmpty {\n"
-      "   builderResult.$name$ += other.$name$\n"
-      "}\n"
-      );
-  }
-
-  void RepeatedEnumFieldGenerator::GenerateBuildingCodeSource(io::Printer* printer) const {
-  }
-
-  void RepeatedEnumFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
-    // If packed, set up the while loop
-    if (descriptor_->options().packed()) {
-      printer->Print(variables_,
-        "var length:Int32 = input.readRawVarint32()\n"
-        "var oldLimit:Int32 = input.pushLimit(length)\n"
-        "while input.bytesUntilLimit() > 0 {\n");
-      
-    }
-
-    printer->Print(variables_,
-      "var value:$type$ = $type$(rawValue:input.readEnum())!\n"
-      "if $type$.IsValidValue(value) {\n"
-      "     builderResult.$name$ += [value]\n"
-      "} else {\n"
-      "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(value.rawValue))\n"
-      "}\n");
-
-    if (descriptor_->options().packed()) {
-      
-      printer->Print(variables_,
-        "}\n"
-        "input.popLimit(oldLimit)\n");
-    }
-  }
-
-  void RepeatedEnumFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
-
-    if (descriptor_->options().packed()) {
-      printer->Print(variables_,
-        "if !$name$.isEmpty {\n"
-        "  output.writeRawVarint32($tag$)\n"
-        "  output.writeRawVarint32($name$MemoizedSerializedSize)\n"
-        "}\n"
-        "for value in $name$ {\n"
-        "    output.writeEnumNoTag(value.rawValue)\n"
-        "}\n");
-    } else {
-      printer->Print(variables_,
-        "for value in $name$ {\n"
-        "    output.writeEnum($number$, value:value.rawValue)\n"
-        "}\n");
-    }
-  }
-
-
-  void RepeatedEnumFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-      "var dataSize$name$:Int32 = 0\n");
     
-
-    printer->Print(variables_,
-      "for value in $name$ {\n"
-      "    dataSize$name$ += WireFormat.computeEnumSizeNoTag(value.rawValue)\n"
-      "}\n");
-
-    printer->Print(variables_,"size += dataSize$name$\n");
-
-    if (descriptor_->options().packed()) {
-     
+    
+    
+    
+    void EnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
+    }
+    
+    
+    void EnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         printer->Print(variables_,
-        "if !$name$.isEmpty {\n"
-        "  size += $tag_size$\n"
-        "  size += WireFormat.computeRawVarint32Size(dataSize$name$)\n"
-        "}\n");
-   
-    } else {
-      printer->Print(variables_,
-        "size += ($tag_size$ * Int32($name$.count))\n");
+                       "  var has$capitalized_name$:Bool{\n"
+                       "      get {\n"
+                       "          return builderResult.has$capitalized_name$\n"
+                       "      }\n"
+                       "  }\n"
+                       "  var $name$:$type$ {\n"
+                       "      get {\n"
+                       "          return builderResult.$name$\n"
+                       "      }\n"
+                       "      set (value) {\n"
+                       "          builderResult.has$capitalized_name$ = true\n"
+                       "          builderResult.$name$ = value\n"
+                       "      }\n"
+                       "  }\n");
+        
+        printer->Print(variables_,
+                       "  func clear$capitalized_name$() -> $classname$Builder {\n"
+                       "     builderResult.has$capitalized_name$ = false\n"
+                       "     builderResult.$name$ = .$default$\n"
+                       "     return self\n"
+                       "  }\n");
     }
-
-    if (descriptor_->options().packed()) {
-      printer->Print(variables_,
-        "$name$MemoizedSerializedSize = dataSize$name$\n");
-    }
-
     
-//    printer->Print("}\n");
-  }
-
-
-  void RepeatedEnumFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-    "var $name$ElementIndex:Int = 0\n"
-    "for element in $name$ {\n"
-    "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(element.rawValue)\"\n"
-    "    $name$ElementIndex++\n"
-    "}\n");
-  }
-
-
-  void RepeatedEnumFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
-    printer->Print(variables_, "(lhs.$name$ == rhs.$name$)");
-  }
-
-
-  void RepeatedEnumFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
-    printer->Print(variables_,
-   "for element in $name$ {\n"
-   "    hashCode = (hashCode &* 31) &+ Int(element.rawValue)\n"
-   "}\n");
-  }
+    
+    
+    void EnumFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if other.has$capitalized_name$ {\n"
+                       "     $name$ = other.$name$\n"
+                       "}\n");
+    }
+    
+    
+    void EnumFieldGenerator::GenerateBuildingCodeSource(io::Printer* printer) const {
+    }
+    
+    void EnumFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       
+                       "var value = input.readEnum()\n"
+                       "var enumMergResult:$type$ = $type$(rawValue:value)!\n"
+                       "if ($type$.IsValidValue(enumMergResult)) {\n"
+                       "     $name$ = enumMergResult\n"
+                       "} else {\n"
+                       "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(value))\n"
+                       "}\n");
+    }
+    
+    void EnumFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if has$capitalized_name$ {\n"
+                       "  output.writeEnum($number$, value:$name$.rawValue)\n"
+                       "}\n");
+    }
+    
+    
+    void EnumFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if (has$capitalized_name$) {\n"
+                       "  size += WireFormat.computeEnumSize($number$, value:$name$.rawValue)\n"
+                       "}\n");
+    }
+    
+    
+    void EnumFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if (has$capitalized_name$) {\n"
+                       "  output += \"\\(indent) $name$: \\($name$.rawValue)\\n\"\n"
+                       "}\n");
+    }
+    
+    
+    void EnumFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "(lhs.has$capitalized_name$ == rhs.has$capitalized_name$) && (!lhs.has$capitalized_name$ || lhs.$name$ == rhs.$name$)");
+    }
+    
+    
+    void EnumFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if has$capitalized_name$ {\n"
+                       "   hashCode = (hashCode &* 31) &+ Int($name$.rawValue)\n"
+                       "}\n");
+    }
+    
+    
+    string EnumFieldGenerator::GetBoxedType() const {
+        return ClassName(descriptor_->enum_type());
+    }
+    
+    
+    RepeatedEnumFieldGenerator::RepeatedEnumFieldGenerator(const FieldDescriptor* descriptor)
+    : descriptor_(descriptor) {
+        SetEnumVariables(descriptor, &variables_);
+    }
+    
+    
+    RepeatedEnumFieldGenerator::~RepeatedEnumFieldGenerator() {
+    }
+    
+    
+    
+    void RepeatedEnumFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
+        printer->Print(variables_,"var $name$:[$type$] = [$type$]()\n");
+    }
+    
+    void RepeatedEnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
+        //    printer->Print(variables_, "var $name$:$type$\n");
+    }
+    
+    
+    
+    void RepeatedEnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
+    }
+    
+    void RepeatedEnumFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "private var $name$MemoizedSerializedSize:Int32 = 0\n");
+        printer->Print(variables_,
+                       "private(set) var $name$:Array<$type$> = Array<$type$>()\n");
+    }
+    
+    void RepeatedEnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "var $name$:Array<$type$> {\n"
+                       "    get {\n"
+                       "        return builderResult.$name$\n"
+                       "    }\n"
+                       "    set (value) {\n"
+                       "        builderResult.$name$ += value\n"
+                       "    }\n"
+                       "}\n"
+                       "func clear$capitalized_name$() -> $classname$Builder {\n"
+                       "  builderResult.$name$.removeAll(keepCapacity: false)\n"
+                       "  return self\n"
+                       "}\n");
+    }
+    
+    void RepeatedEnumFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if !other.$name$.isEmpty {\n"
+                       "   builderResult.$name$ += other.$name$\n"
+                       "}\n"
+                       );
+    }
+    
+    void RepeatedEnumFieldGenerator::GenerateBuildingCodeSource(io::Printer* printer) const {
+    }
+    
+    void RepeatedEnumFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
+        // If packed, set up the while loop
+        if (descriptor_->options().packed()) {
+            printer->Print(variables_,
+                           "var length:Int32 = input.readRawVarint32()\n"
+                           "var oldLimit:Int32 = input.pushLimit(length)\n"
+                           "while input.bytesUntilLimit() > 0 {\n");
+            
+        }
+        
+        printer->Print(variables_,
+                       "var value:$type$ = $type$(rawValue:input.readEnum())!\n"
+                       "if $type$.IsValidValue(value) {\n"
+                       "     builderResult.$name$ += [value]\n"
+                       "} else {\n"
+                       "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(value.rawValue))\n"
+                       "}\n");
+        
+        if (descriptor_->options().packed()) {
+            
+            printer->Print(variables_,
+                           "}\n"
+                           "input.popLimit(oldLimit)\n");
+        }
+    }
+    
+    void RepeatedEnumFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
+        
+        if (descriptor_->options().packed()) {
+            printer->Print(variables_,
+                           "if !$name$.isEmpty {\n"
+                           "  output.writeRawVarint32($tag$)\n"
+                           "  output.writeRawVarint32($name$MemoizedSerializedSize)\n"
+                           "}\n"
+                           "for value in $name$ {\n"
+                           "    output.writeEnumNoTag(value.rawValue)\n"
+                           "}\n");
+        } else {
+            printer->Print(variables_,
+                           "for value in $name$ {\n"
+                           "    output.writeEnum($number$, value:value.rawValue)\n"
+                           "}\n");
+        }
+    }
+    
+    
+    void RepeatedEnumFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "var dataSize$name$:Int32 = 0\n");
+        
+        
+        printer->Print(variables_,
+                       "for value in $name$ {\n"
+                       "    dataSize$name$ += WireFormat.computeEnumSizeNoTag(value.rawValue)\n"
+                       "}\n");
+        
+        printer->Print(variables_,"size += dataSize$name$\n");
+        
+        if (descriptor_->options().packed()) {
+            
+            printer->Print(variables_,
+                           "if !$name$.isEmpty {\n"
+                           "  size += $tag_size$\n"
+                           "  size += WireFormat.computeRawVarint32Size(dataSize$name$)\n"
+                           "}\n");
+            
+        } else {
+            printer->Print(variables_,
+                           "size += ($tag_size$ * Int32($name$.count))\n");
+        }
+        
+        if (descriptor_->options().packed()) {
+            printer->Print(variables_,
+                           "$name$MemoizedSerializedSize = dataSize$name$\n");
+        }
+        
+    }
+    
+    
+    void RepeatedEnumFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "var $name$ElementIndex:Int = 0\n"
+                       "for element in $name$ {\n"
+                       "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(element.rawValue)\"\n"
+                       "    $name$ElementIndex++\n"
+                       "}\n");
+    }
+    
+    
+    void RepeatedEnumFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
+        printer->Print(variables_, "(lhs.$name$ == rhs.$name$)");
+    }
+    
+    
+    void RepeatedEnumFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "for element in $name$ {\n"
+                       "    hashCode = (hashCode &* 31) &+ Int(element.rawValue)\n"
+                       "}\n");
+    }
 }  // namespace swift
 }  // namespace compiler
 }  // namespace protobuf

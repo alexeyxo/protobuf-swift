@@ -57,19 +57,17 @@ internal class RingBuffer
         return true
     }
     
-    func appendData(data:[Byte], var offset:Int32, var length:Int32) -> Int32
+    func appendData(var input:[Byte], var offset:Int32, var length:Int32) -> Int32
     {
         var totalWritten:Int32 = 0
-        
         if (position >= tail)
         {
             totalWritten = min(Int32(buffer.count) - Int32(position), Int32(length))
-            var subdata = data[Int(offset)..<data.count]
-            buffer[Int(position)..<(Int(position)+Int(totalWritten))] = subdata
+            memcpy(&buffer + Int(position), &input + Int(offset), UInt(totalWritten))
             position += totalWritten
             if totalWritten == length
             {
-                return Int32(length)
+                return length
             }
             length -= Int32(totalWritten)
             offset += Int32(totalWritten)
@@ -88,9 +86,7 @@ internal class RingBuffer
         }
         
         let written:Int32 = min(Int32(freeSpaces), length);
-        
-        var subdata = data[Int(offset)..<data.count]
-        buffer[Int(position)...Int(written)] = subdata
+        memcpy(&buffer + Int(position), &input + Int(offset), UInt(written));
         position += written
         totalWritten += written
         
@@ -101,11 +97,10 @@ internal class RingBuffer
     {
         var totalWritten:Int32 = 0
         
-        var data = [Byte](count: Int(buffer.count - Int(tail)), repeatedValue: 0)
-        data[0..<data.count] = buffer[Int(tail)..<Int(buffer.count)]
+        var data = buffer
         if tail > position
         {
-            var written:Int = stream.write(&data, maxLength:Int(buffer.count - Int(tail)))
+            var written:Int = stream.write(&data + Int(tail), maxLength:Int(buffer.count - Int(tail)))
             if written <= 0
             {
                 return totalWritten
@@ -119,7 +114,7 @@ internal class RingBuffer
         
         if (tail < position) {
             
-            var written:Int = stream.write(&data, maxLength:Int(position - tail))
+            var written:Int = stream.write(&data + Int(tail), maxLength:Int(position - tail))
             if (written <= 0)
             {
                 return totalWritten
