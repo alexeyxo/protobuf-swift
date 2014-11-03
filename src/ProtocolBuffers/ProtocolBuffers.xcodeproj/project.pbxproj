@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1422981A07FDBF0090CEE9 /* ProtocolBuffers.framework in Copy Framework */ = {isa = PBXBuildFile; fileRef = 3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3F181E1319D1D83900F7FA0D /* AbstractMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0619D1D83900F7FA0D /* AbstractMessage.swift */; };
 		3F181E1419D1D83900F7FA0D /* CodedInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0719D1D83900F7FA0D /* CodedInputStream.swift */; };
 		3F181E1519D1D83900F7FA0D /* CodedOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0819D1D83900F7FA0D /* CodedOutputStream.swift */; };
@@ -53,6 +54,20 @@
 			remoteInfo = ProtocolBuffers;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3F1422971A07FD990090CEE9 /* Copy Framework */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3F1422981A07FDBF0090CEE9 /* ProtocolBuffers.framework in Copy Framework */,
+			);
+			name = "Copy Framework";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3F181E0619D1D83900F7FA0D /* AbstractMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractMessage.swift; sourceTree = "<group>"; };
@@ -250,6 +265,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F8556AF19C71BCF003802F2 /* Build configuration list for PBXNativeTarget "UnitTesting" */;
 			buildPhases = (
+				3F1422971A07FD990090CEE9 /* Copy Framework */,
 				3F8556A019C71BCF003802F2 /* Sources */,
 				3F8556A119C71BCF003802F2 /* Frameworks */,
 				3F8556A219C71BCF003802F2 /* Resources */,

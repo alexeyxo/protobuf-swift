@@ -20,6 +20,20 @@
                ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F8556A319C71BCF003802F2"
+               BuildableName = "ProtocolBuffersTests.xctest"
+               BlueprintName = "UnitTesting"
+               ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

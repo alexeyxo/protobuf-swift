@@ -1,5 +1,5 @@
 #Protocol Buffers for Swift
-
+[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=master)](https://travis-ci.org/alexeyxo/protobuf-swift)
 [![Platform](http://img.shields.io/badge/platform-ios%20%7C%20osx-green.svg)](https://github.com/alexeyxo/protobuf-swift)
 [![Release](http://img.shields.io/github/tag/alexeyxo/protobuf-swift.svg)](https://github.com/alexeyxo/protobuf-swift/releases/tag/v1.0)
 
@@ -24,7 +24,7 @@ This project is based on an implementation of Protocol Buffers from Google.  See
 
 5.`git clone git@github.com:alexeyxo/protobuf-swift.git`
 
-6.`./build.sh`
+6.`./scripts/build.sh`
 
 7.Add `./src/ProtocolBuffers/ProtocolBuffers.xcodeproj` in your project.
 

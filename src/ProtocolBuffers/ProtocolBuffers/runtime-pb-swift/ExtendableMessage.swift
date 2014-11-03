@@ -71,7 +71,7 @@ public class ExtendableMessage : GeneratedMessage
         extensionRegistry[extensions.fieldNumber] = extensions
     }
     
-    public func getExtension(extensions:ConcreateExtensionField) -> ConcreateExtensionField
+    public func getExtension(extensions:ConcreateExtensionField) -> Any
     {
         ensureExtensionIsRegistered(extensions)
         return extensionRegistry[extensions.fieldNumber]!
@@ -280,7 +280,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         }
         return super.parseUnknownField(input, unknownFields: unknownFields, extensionRegistry: extensionRegistry, tag: tag)
     }
-    public func getExtension(extensions:ConcreateExtensionField) -> ConcreateExtensionField
+    public func getExtension(extensions:ConcreateExtensionField) -> Any
     {
         return internalGetResult.getExtension(extensions)
     }
