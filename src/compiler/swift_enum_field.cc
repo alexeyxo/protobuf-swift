@@ -240,7 +240,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "        return builderResult.$name$\n"
                        "    }\n"
                        "    set (value) {\n"
-                       "        builderResult.$name$ += value\n"
+                       "        builderResult.$name$ = value\n"
                        "    }\n"
                        "}\n"
                        "func clear$capitalized_name$() -> $classname$Builder {\n"

@@ -43,6 +43,11 @@
 		3F8556D119C71C05003802F2 /* CodedInputStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */; };
 		3F8556D219C71C05003802F2 /* CodedOuputStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556CF19C71C05003802F2 /* CodedOuputStreamTests.swift */; };
 		3F8556D319C71C05003802F2 /* SmallBlockInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556D019C71C05003802F2 /* SmallBlockInputStream.swift */; };
+		3F9301391A095F2B00F7A20B /* GeneratedMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9301381A095F2B00F7A20B /* GeneratedMessageTests.swift */; };
+		3F93013F1A0964ED00F7A20B /* golden_message in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013B1A0964ED00F7A20B /* golden_message */; };
+		3F9301401A0964ED00F7A20B /* golden_packed_fields_message in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */; };
+		3F9301411A0964ED00F7A20B /* text_format_unittest_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */; };
+		3F9301421A0964ED00F7A20B /* text_format_unittest_extensions_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +113,11 @@
 		3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodedInputStreamTests.swift; sourceTree = "<group>"; };
 		3F8556CF19C71C05003802F2 /* CodedOuputStreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodedOuputStreamTests.swift; sourceTree = "<group>"; };
 		3F8556D019C71C05003802F2 /* SmallBlockInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallBlockInputStream.swift; sourceTree = "<group>"; };
+		3F9301381A095F2B00F7A20B /* GeneratedMessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMessageTests.swift; sourceTree = "<group>"; };
+		3F93013B1A0964ED00F7A20B /* golden_message */ = {isa = PBXFileReference; lastKnownFileType = file; path = golden_message; sourceTree = "<group>"; };
+		3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */ = {isa = PBXFileReference; lastKnownFileType = file; path = golden_packed_fields_message; sourceTree = "<group>"; };
+		3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_data.txt; sourceTree = "<group>"; };
+		3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_extensions_data.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +219,7 @@
 		3F8556A519C71BCF003802F2 /* ProtocolBuffersTests */ = {
 			isa = PBXGroup;
 			children = (
+				3F93013A1A0964ED00F7A20B /* testdata */,
 				3F2B1CD719E2A6EC001A505E /* pbTests */,
 				3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */,
 				3F8556CF19C71C05003802F2 /* CodedOuputStreamTests.swift */,
@@ -217,6 +228,7 @@
 				3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */,
 				3F64475D19F040DE0030E56C /* Perfomance.pb.swift */,
 				3F8556A619C71BCF003802F2 /* Supporting Files */,
+				3F9301381A095F2B00F7A20B /* GeneratedMessageTests.swift */,
 			);
 			path = ProtocolBuffersTests;
 			sourceTree = "<group>";
@@ -227,6 +239,17 @@
 				3F8556A719C71BCF003802F2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F93013A1A0964ED00F7A20B /* testdata */ = {
+			isa = PBXGroup;
+			children = (
+				3F93013B1A0964ED00F7A20B /* golden_message */,
+				3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */,
+				3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */,
+				3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */,
+			);
+			path = testdata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +350,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F9301401A0964ED00F7A20B /* golden_packed_fields_message in Resources */,
+				3F9301411A0964ED00F7A20B /* text_format_unittest_data.txt in Resources */,
+				3F9301421A0964ED00F7A20B /* text_format_unittest_extensions_data.txt in Resources */,
+				3F93013F1A0964ED00F7A20B /* golden_message in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +398,7 @@
 				3F2B1CF219E2A6EC001A505E /* Unittest_no_generic_services.pb.swift in Sources */,
 				3F2B1CE619E2A6EC001A505E /* Unittest.pb.swift in Sources */,
 				3F4375BE19E44ADF007C23B1 /* TestUtilities.swift in Sources */,
+				3F9301391A095F2B00F7A20B /* GeneratedMessageTests.swift in Sources */,
 				3F64475E19F040DE0030E56C /* Perfomance.pb.swift in Sources */,
 				3F2B1CF319E2A6EC001A505E /* Unittest_optimize_for.pb.swift in Sources */,
 				3F8556D219C71C05003802F2 /* CodedOuputStreamTests.swift in Sources */,

@@ -3087,8 +3087,10 @@ final public class TestAllTypesLite : GeneratedMessage {
           if hasOptionalString {
              hashCode = (hashCode &* 31) &+ optionalString.hashValue
           }
-          for value in optionalBytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasOptionalBytes {
+             for value in optionalBytes {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
           }
           if hasOptionalGroup {
             hashCode = (hashCode &* 31) &+ optionalGroup.hashValue
@@ -3242,8 +3244,10 @@ final public class TestAllTypesLite : GeneratedMessage {
           if hasDefaultString {
              hashCode = (hashCode &* 31) &+ defaultString.hashValue
           }
-          for value in defaultBytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasDefaultBytes {
+             for value in defaultBytes {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
           }
           if hasDefaultNestedEnum {
              hashCode = (hashCode &* 31) &+ Int(defaultNestedEnum.rawValue)
@@ -3269,8 +3273,10 @@ final public class TestAllTypesLite : GeneratedMessage {
           if hasOneofString {
              hashCode = (hashCode &* 31) &+ oneofString.hashValue
           }
-          for value in oneofBytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasOneofBytes {
+             for value in oneofBytes {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -4104,7 +4110,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
           return builderResult.repeatedNestedEnum
       }
       set (value) {
-          builderResult.repeatedNestedEnum += value
+          builderResult.repeatedNestedEnum = value
       }
   }
   func clearRepeatedNestedEnum() -> TestAllTypesLiteBuilder {
@@ -4116,7 +4122,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
           return builderResult.repeatedForeignEnum
       }
       set (value) {
-          builderResult.repeatedForeignEnum += value
+          builderResult.repeatedForeignEnum = value
       }
   }
   func clearRepeatedForeignEnum() -> TestAllTypesLiteBuilder {
@@ -4128,7 +4134,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
           return builderResult.repeatedImportEnum
       }
       set (value) {
-          builderResult.repeatedImportEnum += value
+          builderResult.repeatedImportEnum = value
       }
   }
   func clearRepeatedImportEnum() -> TestAllTypesLiteBuilder {
@@ -6017,7 +6023,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
           return builderResult.packedEnum
       }
       set (value) {
-          builderResult.packedEnum += value
+          builderResult.packedEnum = value
       }
   }
   func clearPackedEnum() -> TestPackedTypesLiteBuilder {

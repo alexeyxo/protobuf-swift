@@ -309,8 +309,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void PrimitiveFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
         if (descriptor_->type() == FieldDescriptor::TYPE_BYTES) {
             printer->Print(variables_,
-                           "for value in $name$ {\n"
-                           "   hashCode = (hashCode &* 31) &+ value.hashValue\n"
+                           "if has$capitalized_name$ {\n"
+                           "   for value in $name$ {\n"
+                           "       hashCode = (hashCode &* 31) &+ value.hashValue\n"
+                           "   }\n"
                            "}\n");
         }
         else

@@ -252,5 +252,27 @@ internal class CodedOuputStreamTests: XCTestCase
         XCTAssertTrue(856912304801416 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(856912304801416)), "");
         XCTAssertTrue(-75123905439571256 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(-75123905439571256)), "");
     }
+    
+//    func testWriteWholeMessage()
+//    {
+//        var message = TestUtilities.allSet()
+//        
+//        var rawBytes = message.data()
+//        var goldenData = TestUtilities.goldenData()
+//        XCTAssertTrue(rawBytes == goldenData, "")
+//        
+//        // Try different block sizes.
+//        for (var blockSize:Int = 1; blockSize < 256; blockSize *= 2) {
+//            var rawOutput = openMemoryStream()
+//            var output:CodedOutputStream = CodedOutputStream(output:rawOutput, bufferSize:Int32(blockSize))
+//            message.writeToCodedOutputStream(output)
+//            output.flush()
+//            var actual = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
+//            var bytes = [Byte](count:actual.length, repeatedValue:0)
+//            actual.getBytes(&bytes)
+//            XCTAssertTrue(rawBytes == bytes, "")
+//        }
+//  
+//    }
 
 }

@@ -3918,8 +3918,10 @@ final public class TestAllTypes : GeneratedMessage {
           if hasOptionalString {
              hashCode = (hashCode &* 31) &+ optionalString.hashValue
           }
-          for value in optionalBytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasOptionalBytes {
+             for value in optionalBytes {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
           }
           if hasOptionalGroup {
             hashCode = (hashCode &* 31) &+ optionalGroup.hashValue
@@ -4073,8 +4075,10 @@ final public class TestAllTypes : GeneratedMessage {
           if hasDefaultString {
              hashCode = (hashCode &* 31) &+ defaultString.hashValue
           }
-          for value in defaultBytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasDefaultBytes {
+             for value in defaultBytes {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
           }
           if hasDefaultNestedEnum {
              hashCode = (hashCode &* 31) &+ Int(defaultNestedEnum.rawValue)
@@ -4100,8 +4104,10 @@ final public class TestAllTypes : GeneratedMessage {
           if hasOneofString {
              hashCode = (hashCode &* 31) &+ oneofString.hashValue
           }
-          for value in oneofBytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasOneofBytes {
+             for value in oneofBytes {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -4935,7 +4941,7 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
           return builderResult.repeatedNestedEnum
       }
       set (value) {
-          builderResult.repeatedNestedEnum += value
+          builderResult.repeatedNestedEnum = value
       }
   }
   func clearRepeatedNestedEnum() -> TestAllTypesBuilder {
@@ -4947,7 +4953,7 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
           return builderResult.repeatedForeignEnum
       }
       set (value) {
-          builderResult.repeatedForeignEnum += value
+          builderResult.repeatedForeignEnum = value
       }
   }
   func clearRepeatedForeignEnum() -> TestAllTypesBuilder {
@@ -4959,7 +4965,7 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
           return builderResult.repeatedImportEnum
       }
       set (value) {
-          builderResult.repeatedImportEnum += value
+          builderResult.repeatedImportEnum = value
       }
   }
   func clearRepeatedImportEnum() -> TestAllTypesBuilder {
@@ -12414,7 +12420,7 @@ final class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
           return builderResult.repeatedEnumField
       }
       set (value) {
-          builderResult.repeatedEnumField += value
+          builderResult.repeatedEnumField = value
       }
   }
   func clearRepeatedEnumField() -> TestCamelCaseFieldNamesBuilder {
@@ -13241,8 +13247,10 @@ final public class TestExtremeDefaultValues : GeneratedMessage {
   override public var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for value in escapedBytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasEscapedBytes {
+             for value in escapedBytes {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
           }
           if hasLargeUint32 {
              hashCode = (hashCode &* 31) &+ largeUint32.hashValue
@@ -13310,8 +13318,10 @@ final public class TestExtremeDefaultValues : GeneratedMessage {
           if hasStringWithZero {
              hashCode = (hashCode &* 31) &+ stringWithZero.hashValue
           }
-          for value in bytesWithZero {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasBytesWithZero {
+             for value in bytesWithZero {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
           }
           if hasStringPieceWithZero {
              hashCode = (hashCode &* 31) &+ stringPieceWithZero.hashValue
@@ -14664,8 +14674,10 @@ final public class OneBytes : GeneratedMessage {
   override public var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for value in data {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasData {
+             for value in data {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -18195,8 +18207,10 @@ final public class TestOneof2 : GeneratedMessage {
           if hasFooStringPiece {
              hashCode = (hashCode &* 31) &+ fooStringPiece.hashValue
           }
-          for value in fooBytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasFooBytes {
+             for value in fooBytes {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
           }
           if hasFooEnum {
              hashCode = (hashCode &* 31) &+ Int(fooEnum.rawValue)
@@ -18222,8 +18236,10 @@ final public class TestOneof2 : GeneratedMessage {
           if hasBarStringPiece {
              hashCode = (hashCode &* 31) &+ barStringPiece.hashValue
           }
-          for value in barBytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasBarBytes {
+             for value in barBytes {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
           }
           if hasBarEnum {
              hashCode = (hashCode &* 31) &+ Int(barEnum.rawValue)
@@ -19969,7 +19985,7 @@ final class TestPackedTypesBuilder : GeneratedMessageBuilder {
           return builderResult.packedEnum
       }
       set (value) {
-          builderResult.packedEnum += value
+          builderResult.packedEnum = value
       }
   }
   func clearPackedEnum() -> TestPackedTypesBuilder {
@@ -20694,7 +20710,7 @@ final class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
           return builderResult.unpackedEnum
       }
       set (value) {
-          builderResult.unpackedEnum += value
+          builderResult.unpackedEnum = value
       }
   }
   func clearUnpackedEnum() -> TestUnpackedTypesBuilder {

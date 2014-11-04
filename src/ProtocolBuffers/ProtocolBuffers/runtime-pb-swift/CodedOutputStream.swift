@@ -30,14 +30,14 @@ public class CodedOutputStream
         buffer = RingBuffer(data:data)
     }
   
-    public init(output aOutput:NSOutputStream!, bufferSize:Int32?)
+    public init(output aOutput:NSOutputStream!, bufferSize:Int32)
     {
-        var data = [Byte](count: Int(bufferSize!), repeatedValue: 0)
+        var data = [Byte](count: Int(bufferSize), repeatedValue: 0)
         output = aOutput
         buffer = RingBuffer(data: data)
     }
    
-    public init(output:NSOutputStream?)
+    public init(output:NSOutputStream)
     {
         var data = [Byte](count: Int(DEFAULT_BUFFER_SIZE), repeatedValue: 0)
         self.output = output
