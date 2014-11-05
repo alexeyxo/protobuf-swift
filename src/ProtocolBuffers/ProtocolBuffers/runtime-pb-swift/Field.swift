@@ -65,11 +65,7 @@ public func ==(lhs:Array<Byte>, rhs:Array<Byte>) -> Bool
         {
             var lbytes = lhs[i]
             var rbytes = rhs[i]
-            if lbytes == rbytes
-            {
-                continue
-            }
-            else
+            if lbytes != rbytes
             {
                 return false
             }

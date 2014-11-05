@@ -48,7 +48,7 @@ final public class ConcreateExtensionField:ExtensionField,Equatable
     internal var type:ExtensionType
     public var fieldNumber:Int32
     public var extendedClass:AnyClassType
-    var messageOrGroupClass:Any.Type
+    public var messageOrGroupClass:Any.Type
     var defaultValue:Any
     var isRepeated:Bool = false
     var isPacked:Bool

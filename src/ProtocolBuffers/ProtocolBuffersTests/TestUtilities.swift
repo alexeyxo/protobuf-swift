@@ -34,13 +34,13 @@ class  TestUtilities {
     class func modifyRepeatedExtensions(var message:TestAllExtensionsBuilder)
     {
         message.setExtension(UnittestRoot.repeatedInt32Extension(), index:1, value:Int32(501))
-        message.setExtension(UnittestRoot.repeatedInt64Extension(), index:1, value:Int32(502))
-        message.setExtension(UnittestRoot.repeatedUint32Extension(), index:1, value:Int32(503))
-        message.setExtension(UnittestRoot.repeatedUint64Extension(), index:1, value:Int32(504))
+        message.setExtension(UnittestRoot.repeatedInt64Extension(), index:1, value:Int64(502))
+        message.setExtension(UnittestRoot.repeatedUint32Extension(), index:1, value:UInt32(503))
+        message.setExtension(UnittestRoot.repeatedUint64Extension(), index:1, value:UInt64(504))
         message.setExtension(UnittestRoot.repeatedSint32Extension(), index:1, value:Int32(505))
-        message.setExtension(UnittestRoot.repeatedSint64Extension(), index:1, value:Int32(506))
-        message.setExtension(UnittestRoot.repeatedFixed32Extension(), index:1, value:Int32(507))
-        message.setExtension(UnittestRoot.repeatedFixed64Extension(), index:1, value:Int64(508))
+        message.setExtension(UnittestRoot.repeatedSint64Extension(), index:1, value:Int64(506))
+        message.setExtension(UnittestRoot.repeatedFixed32Extension(), index:1, value:UInt32(507))
+        message.setExtension(UnittestRoot.repeatedFixed64Extension(), index:1, value:UInt64(508))
         message.setExtension(UnittestRoot.repeatedSfixed32Extension(), index:1, value:Int32(509))
         message.setExtension(UnittestRoot.repeatedSfixed64Extension(), index:1, value:Int64(510))
         message.setExtension(UnittestRoot.repeatedFloatExtension(), index:1, value:Float(511.0))
@@ -422,9 +422,7 @@ class  TestUtilities {
         {
             XCTAssertTrue("225" == val[0], "")
         }
-        
-        
-        
+
         if let val = message.getExtension(UnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(301 == val[1],"")
@@ -894,15 +892,15 @@ class  TestUtilities {
         }
         if let val = message.getExtension(UnittestRoot.repeatedBoolExtension()) as? [Bool]
         {
-            XCTAssertTrue(false == val[1], "")
+            XCTAssertTrue(true == val[1], "")
         }
         if let val = message.getExtension(UnittestRoot.repeatedStringExtension()) as? [String]
         {
-            XCTAssertTrue("315" == val[1], "")
+            XCTAssertTrue("515" == val[1], "")
         }
         if let val = message.getExtension(UnittestRoot.repeatedBytesExtension()) as? Array<Array<Byte>>
         {
-            XCTAssertTrue(TestUtilities.getData("316") == val[1], "")
+            XCTAssertTrue(TestUtilities.getData("516") == val[1], "")
         }
         
         if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [RepeatedGroup_extension]
@@ -1000,7 +998,8 @@ class  TestUtilities {
         XCTAssertTrue(Double(112.0) == message.optionalDouble, "")
         XCTAssertTrue(true == message.optionalBool, "")
         XCTAssertTrue("115" == message.optionalString, "")
-        XCTAssertTrue(TestUtilities.getData("116") == message.optionalBytes, "")
+        var data = TestUtilities.getData("116")
+        XCTAssertTrue(data == message.optionalBytes, "")
         
         XCTAssertTrue(117 == message.optionalGroup.a, "")
         XCTAssertTrue(118 == message.optionalNestedMessage.bb, "")
@@ -1323,15 +1322,15 @@ class  TestUtilities {
     
     class func setAllExtensions(message:TestAllExtensionsBuilder)
     {
-        message.setExtension(UnittestRoot.optionalInt32Extension(), value:101)
+        message.setExtension(UnittestRoot.optionalInt32Extension(), value:Int32(101))
         message.setExtension(UnittestRoot.optionalInt64Extension(), value:Int64(102))
-        message.setExtension(UnittestRoot.optionalUint32Extension(), value:103)
+        message.setExtension(UnittestRoot.optionalUint32Extension(), value:UInt32(103))
         message.setExtension(UnittestRoot.optionalUint64Extension(), value:UInt64(104))
-        message.setExtension(UnittestRoot.optionalSint32Extension(), value:105)
+        message.setExtension(UnittestRoot.optionalSint32Extension(), value:Int32(105))
         message.setExtension(UnittestRoot.optionalSint64Extension(), value:Int64(106))
-        message.setExtension(UnittestRoot.optionalFixed32Extension(), value:107)
+        message.setExtension(UnittestRoot.optionalFixed32Extension(), value:UInt32(107))
         message.setExtension(UnittestRoot.optionalFixed64Extension(), value:UInt64(108))
-        message.setExtension(UnittestRoot.optionalSfixed32Extension(), value:109)
+        message.setExtension(UnittestRoot.optionalSfixed32Extension(), value:Int32(109))
         message.setExtension(UnittestRoot.optionalSfixed64Extension(), value:Int64(110))
         message.setExtension(UnittestRoot.optionalFloatExtension(), value:Float(111.0))
         message.setExtension(UnittestRoot.optionalDoubleExtension(), value:Double(112.0))
@@ -1364,15 +1363,15 @@ class  TestUtilities {
         
         // -----------------------------------------------------------------
         
-        message.addExtension(UnittestRoot.repeatedInt32Extension(), value:201)
+        message.addExtension(UnittestRoot.repeatedInt32Extension(), value:Int32(201))
         message.addExtension(UnittestRoot.repeatedInt64Extension(), value:Int64(202))
-        message.addExtension(UnittestRoot.repeatedUint32Extension(), value:203)
+        message.addExtension(UnittestRoot.repeatedUint32Extension(), value:UInt32(203))
         message.addExtension(UnittestRoot.repeatedUint64Extension(), value:UInt64(204))
-        message.addExtension(UnittestRoot.repeatedSint32Extension(), value:205)
+        message.addExtension(UnittestRoot.repeatedSint32Extension(), value:Int32(205))
         message.addExtension(UnittestRoot.repeatedSint64Extension(), value:Int64(206))
-        message.addExtension(UnittestRoot.repeatedFixed32Extension(), value:207)
+        message.addExtension(UnittestRoot.repeatedFixed32Extension(), value:UInt32(207))
         message.addExtension(UnittestRoot.repeatedFixed64Extension(), value:UInt64(208))
-        message.addExtension(UnittestRoot.repeatedSfixed32Extension(), value:209)
+        message.addExtension(UnittestRoot.repeatedSfixed32Extension(), value:Int32(209))
         message.addExtension(UnittestRoot.repeatedSfixed64Extension(), value:Int64(210))
         message.addExtension(UnittestRoot.repeatedFloatExtension(), value:Float(211.0))
         message.addExtension(UnittestRoot.repeatedDoubleExtension(), value:Double(212.0))
@@ -1402,15 +1401,15 @@ class  TestUtilities {
         message.addExtension(UnittestRoot.repeatedCordExtension(), value:"225")
         
         // Add a second one of each field.
-        message.addExtension(UnittestRoot.repeatedInt32Extension(), value:301)
+        message.addExtension(UnittestRoot.repeatedInt32Extension(), value:Int32(301))
         message.addExtension(UnittestRoot.repeatedInt64Extension(), value:Int64(302))
-        message.addExtension(UnittestRoot.repeatedUint32Extension(), value:303)
+        message.addExtension(UnittestRoot.repeatedUint32Extension(), value:UInt32(303))
         message.addExtension(UnittestRoot.repeatedUint64Extension(), value:UInt64(304))
-        message.addExtension(UnittestRoot.repeatedSint32Extension(), value:305)
+        message.addExtension(UnittestRoot.repeatedSint32Extension(), value:Int32(305))
         message.addExtension(UnittestRoot.repeatedSint64Extension(), value:Int64(306))
-        message.addExtension(UnittestRoot.repeatedFixed32Extension(), value:307)
+        message.addExtension(UnittestRoot.repeatedFixed32Extension(), value:UInt32(307))
         message.addExtension(UnittestRoot.repeatedFixed64Extension(), value:UInt64(308))
-        message.addExtension(UnittestRoot.repeatedSfixed32Extension(), value:309)
+        message.addExtension(UnittestRoot.repeatedSfixed32Extension(), value:Int32(309))
         message.addExtension(UnittestRoot.repeatedSfixed64Extension(), value:Int64(310))
         message.addExtension(UnittestRoot.repeatedFloatExtension(), value:Float(311.0))
         message.addExtension(UnittestRoot.repeatedDoubleExtension(), value:Double(312.0))
@@ -1442,19 +1441,19 @@ class  TestUtilities {
         // -----------------------------------------------------------------
         
         
-        message.setExtension(UnittestRoot.defaultInt32Extension(), value:401)
+        message.setExtension(UnittestRoot.defaultInt32Extension(), value:Int32(401))
         message.setExtension(UnittestRoot.defaultInt64Extension(), value:Int64(402))
-        message.setExtension(UnittestRoot.defaultUint32Extension(), value:403)
+        message.setExtension(UnittestRoot.defaultUint32Extension(), value:UInt32(403))
         message.setExtension(UnittestRoot.defaultUint64Extension(), value:UInt64(404))
-        message.setExtension(UnittestRoot.defaultSint32Extension(), value:405)
+        message.setExtension(UnittestRoot.defaultSint32Extension(), value:Int32(405))
         message.setExtension(UnittestRoot.defaultSint64Extension(), value:Int64(406))
-        message.setExtension(UnittestRoot.defaultFixed32Extension(), value:407)
+        message.setExtension(UnittestRoot.defaultFixed32Extension(), value:UInt32(407))
         message.setExtension(UnittestRoot.defaultFixed64Extension(), value:UInt64(408))
-        message.setExtension(UnittestRoot.defaultSfixed32Extension(), value:409)
+        message.setExtension(UnittestRoot.defaultSfixed32Extension(), value:Int32(409))
         message.setExtension(UnittestRoot.defaultSfixed64Extension(), value:Int64(410))
         message.setExtension(UnittestRoot.defaultFloatExtension(), value:Float(411.0))
         message.setExtension(UnittestRoot.defaultDoubleExtension(), value:Double(412.0))
-        message.setExtension(UnittestRoot.defaultBoolExtension(), value:false)
+        message.setExtension(UnittestRoot.defaultBoolExtension(), value:true)
         message.setExtension(UnittestRoot.defaultStringExtension(), value:"415")
         message.setExtension(UnittestRoot.defaultBytesExtension(), value:TestUtilities.getData("416"))
         
@@ -2099,7 +2098,7 @@ class  TestUtilities {
     
     class func setPackedExtensions(message:TestPackedExtensionsBuilder)
     {
-       message.addExtension(UnittestRoot.packedInt32Extension(), value:601)
+       message.addExtension(UnittestRoot.packedInt32Extension(), value:Int32(601))
        message.addExtension(UnittestRoot.packedInt64Extension(), value:Int64(602))
        message.addExtension(UnittestRoot.packedUint32Extension(), value:UInt32(603))
        message.addExtension(UnittestRoot.packedUint64Extension(), value:UInt64(604))
@@ -2114,7 +2113,7 @@ class  TestUtilities {
        message.addExtension(UnittestRoot.packedBoolExtension(), value:true)
        message.addExtension(UnittestRoot.packedEnumExtension(), value:ForeignEnum.ForeignBar.rawValue)
         // Add a second one of each field.
-       message.addExtension(UnittestRoot.packedInt32Extension(), value:701)
+       message.addExtension(UnittestRoot.packedInt32Extension(), value:Int32(701))
        message.addExtension(UnittestRoot.packedInt64Extension(), value:Int64(702))
        message.addExtension(UnittestRoot.packedUint32Extension(), value:UInt32(703))
        message.addExtension(UnittestRoot.packedUint64Extension(), value:UInt64(704))

@@ -118,7 +118,7 @@ public class CodedInputStream
     }
     
     
-    public func readRawData(var size:Int32) -> [Byte] {
+    public func readRawData(size:Int32) -> [Byte] {
         if (size < 0) {
             NSException(name:"InvalidProtocolBuffer", reason:"negativeSize", userInfo: nil).raise()
             
@@ -132,7 +132,6 @@ public class CodedInputStream
         if (size <= bufferSize - bufferPos) {
             
             var data = [Byte](count: buffer.count - Int(bufferPos), repeatedValue: 0)
-//            data[0...data.count-1] = buffer![Int(bufferPos)...Int(buffer!.count-1)]
             memcpy(&data, &buffer + Int(bufferPos), UInt(buffer.count - Int(bufferPos)))
             bufferPos += size;
             return data;
@@ -140,8 +139,7 @@ public class CodedInputStream
         else if (size < BUFFER_SIZE) {
             
             var bytes = [Byte](count:Int(size), repeatedValue: 0)
-            var pos:Int32 = bufferSize - bufferPos;
-//            bytes[0...bytes.count-1] = buffer![Int(bufferPos)...Int(buffer!.count-1)]
+            var pos:Int32 = bufferSize - bufferPos
             memcpy(&bytes, &buffer + Int(bufferPos), UInt(pos))
             bufferPos = bufferSize;
             
@@ -150,13 +148,11 @@ public class CodedInputStream
             while (size - pos > bufferSize)
             {
                 memcpy(&bytes + Int(pos), &buffer, UInt(bufferSize))
-//                bytes[Int(pos)...Int(bufferSize)] = buffer![0...Int(bufferSize)]
                 pos += bufferSize
                 bufferPos = bufferSize
                 refillBuffer(true)
             }
             
-//            bytes[Int(pos)...Int(bufferSize)] = buffer![0...Int(size - pos)]
             memcpy(&bytes + Int(pos), &buffer, UInt(size - pos))
             bufferPos = size - pos;
             return bytes
@@ -183,15 +179,15 @@ public class CodedInputStream
                 while (pos < chunk.count) {
                     
                     var n:Int = 0
-                    if (input != nil) {
+                    if input != nil {
                         
-                        n = input!.read(&chunk, maxLength:chunk.count - Int(pos))
+                        n = input!.read(&chunk + Int(pos), maxLength:chunk.count - Int(pos))
                     }
                     if (n <= 0) {
                         NSException(name:"InvalidProtocolBuffer", reason:"truncatedMessage", userInfo: nil).raise()
                     }
-                    totalBytesRetired += n;
-                    pos += n;
+                    totalBytesRetired += n
+                    pos += n
                 }
                 sizeLeft -= chunk.count
                 chunks.append(chunk)
@@ -199,13 +195,10 @@ public class CodedInputStream
             
             
             var bytes:[Byte] = [Byte](count: Int(size), repeatedValue: 0)
-            var pos:Int = originalBufferSize - originalBufferPos;
-            
-//            bytes[0...bytes.count-1] = buffer[Int(originalBufferSize)...Int(pos)]
+            var pos:Int = originalBufferSize - originalBufferPos
             memcpy(&bytes, &buffer + Int(originalBufferPos), UInt(pos))
             for chunk in chunks
             {
-//                bytes[Int(pos)..<bytes.count] = chunk[0..<chunk.count]
                 memcpy(&bytes + pos, chunk, UInt(chunk.count))
                 pos += chunk.count
             }

@@ -227,8 +227,8 @@
 				3F8556A819C71BCF003802F2 /* ProtocolBuffersTests.swift */,
 				3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */,
 				3F64475D19F040DE0030E56C /* Perfomance.pb.swift */,
-				3F8556A619C71BCF003802F2 /* Supporting Files */,
 				3F9301381A095F2B00F7A20B /* GeneratedMessageTests.swift */,
+				3F8556A619C71BCF003802F2 /* Supporting Files */,
 			);
 			path = ProtocolBuffersTests;
 			sourceTree = "<group>";

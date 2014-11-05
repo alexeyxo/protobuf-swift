@@ -74,7 +74,11 @@ public class ExtendableMessage : GeneratedMessage
     public func getExtension(extensions:ConcreateExtensionField) -> Any
     {
         ensureExtensionIsRegistered(extensions)
-        return extensionRegistry[extensions.fieldNumber]!
+        if var value = extensionMap[extensions.fieldNumber]
+        {
+            return value
+        }
+        return extensions.defaultValue
     }
     public func hasExtension(extensions:ConcreateExtensionField) -> Bool
     {
@@ -222,17 +226,6 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         
     }
     
-//    override public var unknownFields:UnknownFieldSet {
-//        get
-//        {
-//            return internalGetResult.unknownFields
-//        }
-//        set (fields)
-//        {
-//            return internalGetResult.unknownFields = fields
-//        }
-//        
-//    }
     
     override public func checkInitialized()
     {
@@ -298,7 +291,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         return self
     }
     
-    public func addExtension(extensions:ConcreateExtensionField, value:Any) -> ExtendableMessageBuilder {
+    public func addExtension<T>(extensions:ConcreateExtensionField, value:T) -> ExtendableMessageBuilder {
         
         var message = internalGetResult
         message.ensureExtensionIsRegistered(extensions)
@@ -308,29 +301,30 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         }
 
         var fieldNumber = extensions.fieldNumber
-        var list = message.extensionMap[fieldNumber] as Array<Any>!
+    
+        var list:[T]! = message.extensionMap[fieldNumber] as [T]!
         if list == nil {
-            list = [Any]()
-            message.extensionMap[fieldNumber] = list
+            list = [T]()
         }
         list.append(value)
-        return self;
+        message.extensionMap[fieldNumber] = list
+        return self
     }
     
-    public func setExtension(extensions:ConcreateExtensionField, index:Int32, value:Any) -> Self {
+    public func setExtension<T>(extensions:ConcreateExtensionField, index:Int32, value:T) -> Self {
         var message = internalGetResult
         message.ensureExtensionIsRegistered(extensions)
         if (!extensions.isRepeated) {
              NSException(name:"IllegalArgument", reason:"Must call setExtension() for singular types.", userInfo: nil).raise()
         }
         var fieldNumber = extensions.fieldNumber
-        var list = message.extensionMap[fieldNumber] as Array<Any>!
+        var list = message.extensionMap[fieldNumber] as [T]!
         if list == nil
         {
-            list = [Any]()
-            message.extensionMap[fieldNumber] = list
+            list = [T]()
         }
         list[Int(index)] = value
+        message.extensionMap[fieldNumber] = list
         return self
     }
     
@@ -350,18 +344,14 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
             var registry = other.extensionRegistry
             for fieldNumber in other.extensionMap.keys {
                 var thisField = registry[fieldNumber]!
-                var value = other.extensionMap[fieldNumber]
+                var value = other.extensionMap[fieldNumber]!
                 if thisField.isRepeated {
-                    var list = thisMessage.extensionMap[fieldNumber] as Array<Any>!
-                    if list == nil
-                    {
-                        list = [Any]()
-                        thisMessage.extensionMap[fieldNumber] = list
-                    }
-                    list.append(value)
+                    //TODO need tests
+                    addExtension(thisField, value: value)
                 }
-                else {
-                    thisMessage.extensionMap[fieldNumber] = value
+                else
+                {
+                    setExtension(thisField, value: value)
                 }
             }
         }

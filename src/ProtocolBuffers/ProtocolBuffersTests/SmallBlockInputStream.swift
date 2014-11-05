@@ -14,9 +14,9 @@ class SmallBlockInputStream:NSInputStream
     var blockSize:Int32 = 0
     
     
-    func setup(data aData:NSData?, blocksSize:Int32)
+    func setup(data aData:NSData, blocksSize:Int32)
     {
-        underlyingStream = NSInputStream(data: aData!)
+        underlyingStream = NSInputStream(data: aData)
         blockSize = blocksSize
     }
     

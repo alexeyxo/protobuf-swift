@@ -49,58 +49,55 @@ class GeneratedMessageTests: XCTestCase {
         XCTAssertTrue(1 == message.repeatedForeignMessage.count, "")
         XCTAssertTrue(12 == message.repeatedForeignMessage[0].c, "")
     }
-//    func testClearExtension()
-//    {
-//        // clearExtension() is not actually used in TestUtil, so try it manually.
-//        var  builder1 = TestAllExtensions.builder()
-//        builder1.setExtension(UnittestRoot.optionalInt32Extension(), value:1)
-//        
-//        XCTAssertTrue(builder1.hasExtension(UnittestRoot.optionalInt32Extension()), "")
-//        builder1.clearExtension(UnittestRoot.optionalInt32Extension())
-//        XCTAssertFalse(builder1.hasExtension(UnittestRoot.optionalInt32Extension()), "")
-//        
-//        var builder2 = TestAllExtensions.builder()
-//        builder2.addExtension(UnittestRoot.repeatedInt32Extension(), value:1)
-//        
-//        if let val = builder2.getExtension(UnittestRoot.repeatedInt32Extension()) as? [Int32]
-//        {
-//            XCTAssertTrue(1 == val.count, "")
-//        }
-//        else
-//        {
-//            XCTAssertTrue(false, "")
-//        }
-//        builder2.clearExtension(UnittestRoot.repeatedInt32Extension())
-//        
-//        if let val = builder2.getExtension(UnittestRoot.repeatedInt32Extension()) as? [Int32]
-//        {
-//            XCTAssertTrue(0 == val.count, "")
-//        }
-//        else
-//        {
+    func testClearExtension()
+    {
+        var  builder1 = TestAllExtensions.builder()
+        builder1.setExtension(UnittestRoot.optionalInt32Extension(), value:Int32(1))
+        
+        XCTAssertTrue(builder1.hasExtension(UnittestRoot.optionalInt32Extension()), "")
+        builder1.clearExtension(UnittestRoot.optionalInt32Extension())
+        XCTAssertFalse(builder1.hasExtension(UnittestRoot.optionalInt32Extension()), "")
+        
+        var builder2 = TestAllExtensions.builder()
+        builder2.addExtension(UnittestRoot.repeatedInt32Extension(), value:Int32(1))
+        if let val = builder2.getExtension(UnittestRoot.repeatedInt32Extension()) as? [Int32]
+        {
+            XCTAssertTrue(1 == val.count, "")
+        }
+        else
+        {
+            XCTAssertTrue(false, "")
+        }
+        builder2.clearExtension(UnittestRoot.repeatedInt32Extension())
+        
+        if let val = builder2.getExtension(UnittestRoot.repeatedInt32Extension()) as? [Int32]
+        {
+            XCTAssertTrue(0 == val.count, "")
+        }
+        else
+        {
+            XCTAssertTrue(false, "")
+        }
+        
+    }
     
-//            XCTAssertTrue(false, "")
-//        }
-//        
-//    }
-    
-//    func testExtensionAccessors()
-//    {
-//        var builder = TestAllExtensions.builder()
-//        TestUtilities.setAllExtensions(builder)
-//        var message = builder.build()
-//        TestUtilities.assertAllExtensionsSet(message)
-//    }
+    func testExtensionAccessors()
+    {
+        var builder = TestAllExtensions.builder()
+        TestUtilities.setAllExtensions(builder)
+        var message = builder.build()
+        TestUtilities.assertAllExtensionsSet(message)
+    }
     
     
-//    func testExtensionRepeatedSetters()
-//    {
-//        var builder = TestAllExtensions.builder()
-//        TestUtilities.setAllExtensions(builder)
-//        TestUtilities.modifyRepeatedExtensions(builder)
-//        var message = builder.build()
-//        TestUtilities.assertRepeatedExtensionsModified(message)
-//    }
+    func testExtensionRepeatedSetters()
+    {
+        var builder = TestAllExtensions.builder()
+        TestUtilities.setAllExtensions(builder)
+        TestUtilities.modifyRepeatedExtensions(builder)
+        var message = builder.build()
+        TestUtilities.assertRepeatedExtensionsModified(message)
+    }
     
     
     func testExtensionDefaults()

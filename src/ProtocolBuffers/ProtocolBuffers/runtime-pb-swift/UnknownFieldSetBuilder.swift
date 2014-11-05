@@ -202,7 +202,7 @@ public class UnknownFieldSetBuilder
             getFieldBuilder(number)?.groupArray.append(subBuilder.build())
             return true
         }
-        else if (tag == WireFormat.WireFormatEndGroup.rawValue)
+        else if (format == WireFormat.WireFormatEndGroup)
         {
             return false
         }
