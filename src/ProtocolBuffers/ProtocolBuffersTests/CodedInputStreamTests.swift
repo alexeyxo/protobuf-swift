@@ -249,8 +249,8 @@ class CodedInputStreamTests: XCTestCase
     
     func testReadWholeMessage()
     {
+        
         var message = TestUtilities.allSet()
-    
         var rawBytes = message.data()
         XCTAssertTrue(Int32(rawBytes.count) == message.serializedSize(), "")
     
@@ -261,16 +261,35 @@ class CodedInputStreamTests: XCTestCase
         var codedStream  = CodedInputStream(inputStream:stream)
         var message3 = TestAllTypes.parseFromCodedInputStream(codedStream)
         TestUtilities.assertAllFieldsSet(message3)
-//        XCTAssertTrue(message3 == message2, "")
-//    // Try different block sizes.
-//        for (var blockSize:Int32 = 1; blockSize < 256; blockSize *= 2) {
-//            var smallblock:SmallBlockInputStream = SmallBlockInputStream()
-//            smallblock.setup(data: data, blocksSize: blockSize)
-//            message2 = TestAllTypes.parseFromInputStream(smallblock)
-//            TestUtilities.assertAllFieldsSet(message2)
-//        }
+        XCTAssertTrue(message3 == message2, "")
+        
+        for (var blockSize:Int32 = 1; blockSize < 256; blockSize *= 2) {
+            var smallblock:SmallBlockInputStream = SmallBlockInputStream()
+            smallblock.setup(data: data, blocksSize: blockSize)
+            message2 = TestAllTypes.parseFromInputStream(smallblock)
+            TestUtilities.assertAllFieldsSet(message2)
+        }
     }
     
+//    func testSkipWholeMessage()
+//    {
+//        var message = TestUtilities.allSet()
+//        var rawBytes = message.data()
+//        var input1 = CodedInputStream(data:rawBytes)
+//        var input2 = CodedInputStream(data:rawBytes)
+//        var unknownFields = UnknownFieldSetBuilder()
+//    
+//        while (true) {
+//            var tag  = input1.readTag()
+//            var tag2 = input2.readTag()
+//            XCTAssertTrue(tag == tag2, "")
+//            if (tag == 0) {
+//                break
+//            }
+//            unknownFields.mergeFieldFrom(tag, input:input1)
+//            input2.skipField(tag)
+//        }
+//    }
 
     
 }

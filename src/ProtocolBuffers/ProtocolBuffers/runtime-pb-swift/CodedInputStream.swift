@@ -38,7 +38,8 @@ public class CodedInputStream
     private var sizeLimit:Int32 = 0
     public init (data aData:[Byte])
     {
-        buffer = aData
+        buffer = [Byte](count: aData.count, repeatedValue: 0)
+        memcpy(&buffer, aData, UInt(aData.count))
         bufferSize = Int32(buffer.count)
         currentLimit = INT_MAX
         recursionLimit = DEFAULT_RECURSION_LIMIT
@@ -131,17 +132,17 @@ public class CodedInputStream
         
         if (size <= bufferSize - bufferPos) {
             
-            var data = [Byte](count: buffer.count - Int(bufferPos), repeatedValue: 0)
-            memcpy(&data, &buffer + Int(bufferPos), UInt(buffer.count - Int(bufferPos)))
-            bufferPos += size;
-            return data;
+            var data = [Byte](count: Int(size), repeatedValue: 0)
+            memcpy(&data, &buffer + Int(bufferPos), UInt(size))
+            bufferPos += size
+            return data
         }
         else if (size < BUFFER_SIZE) {
             
             var bytes = [Byte](count:Int(size), repeatedValue: 0)
             var pos:Int32 = bufferSize - bufferPos
             memcpy(&bytes, &buffer + Int(bufferPos), UInt(pos))
-            bufferPos = bufferSize;
+            bufferPos = bufferSize
             
             refillBuffer(true)
             
@@ -154,7 +155,7 @@ public class CodedInputStream
             }
             
             memcpy(&bytes + Int(pos), &buffer, UInt(size - pos))
-            bufferPos = size - pos;
+            bufferPos = size - pos
             return bytes
             
         }
@@ -313,9 +314,9 @@ public class CodedInputStream
         }
     }
     
-    private func skipField(tag:Int32) -> Bool
+    public func skipField(tag:Int32) -> Bool
     {
-        var wireFormat = WireFormat.wireFormatGetTagFieldNumber(tag)
+        var wireFormat = WireFormat.wireFormatGetTagWireType(tag)
         if (WireFormat(rawValue:wireFormat) == WireFormat.WireFormatVarint)
         {
             readInt32()
@@ -467,6 +468,7 @@ public class CodedInputStream
                 return result
             }
         }
+        NSException(name:"InvalidProtocolBuffer", reason:"malformedVarint", userInfo: nil).raise()
         return result
     }
     
@@ -482,6 +484,7 @@ public class CodedInputStream
             }
             shift += 7;
         }
+         NSException(name:"InvalidProtocolBuffer", reason:"malformedVarint", userInfo: nil).raise()
         return 0
     }
     

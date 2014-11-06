@@ -87,7 +87,7 @@
 		3F181E1019D1D83900F7FA0D /* UnknownFieldSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnknownFieldSet.swift; sourceTree = "<group>"; };
 		3F181E1119D1D83900F7FA0D /* UnknownFieldSetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnknownFieldSetBuilder.swift; sourceTree = "<group>"; };
 		3F181E1219D1D83900F7FA0D /* WireFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireFormat.swift; sourceTree = "<group>"; };
-		3F2B1CD819E2A6EC001A505E /* Unittest.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest.pb.swift; sourceTree = "<group>"; };
+		3F2B1CD819E2A6EC001A505E /* Unittest.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = Unittest.pb.swift; sourceTree = "<group>"; };
 		3F2B1CDA19E2A6EC001A505E /* Unittest_embed_optimize_for.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_embed_optimize_for.pb.swift; sourceTree = "<group>"; };
 		3F2B1CDB19E2A6EC001A505E /* Unittest_empty.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_empty.pb.swift; sourceTree = "<group>"; };
 		3F2B1CDC19E2A6EC001A505E /* Unittest_enormous_descriptor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_enormous_descriptor.pb.swift; sourceTree = "<group>"; };

@@ -1155,18 +1155,18 @@ class  TestUtilities {
     
     class func setAllFields(message:TestAllTypesBuilder)
     {
-        message.optionalInt32 = 101
-        message.optionalInt64 = 102
-        message.optionalUint32 = 103
-        message.optionalUint64 = 104
-        message.optionalSint32 = 105
-        message.optionalSint64 = 106
-        message.optionalFixed32 = 107
-        message.optionalFixed64 = 108
-        message.optionalSfixed32 = 109
-        message.optionalSfixed64 = 110
-        message.optionalFloat = 111
-        message.optionalDouble = 112
+        message.optionalInt32 = Int32(101)
+        message.optionalInt64 = Int64(102)
+        message.optionalUint32 = UInt32(103)
+        message.optionalUint64 = UInt64(104)
+        message.optionalSint32 = Int32(105)
+        message.optionalSint64 = Int64(106)
+        message.optionalFixed32 = UInt32(107)
+        message.optionalFixed64 = UInt64(108)
+        message.optionalSfixed32 = Int32(109)
+        message.optionalSfixed64 = Int64(110)
+        message.optionalFloat = Float(111.0)
+        message.optionalDouble = Double(112.0)
         message.optionalBool = true
         message.optionalString = "115"
         message.optionalBytes = TestUtilities.getData("116")
@@ -1193,13 +1193,13 @@ class  TestUtilities {
         message.optionalStringPiece = "124"
         message.optionalCord = "125"
         
-        var publicImportBuilder = PublicImportMessageBuilder()
-        publicImportBuilder.e = 126
-        message.optionalPublicImportMessage = publicImportBuilder.build()
-
-        var lazymes = TestAllTypes.NestedMessage.builder()
-        lazymes.bb = 127
-        message.optionalLazyMessage = lazymes.build()
+//        var publicImportBuilder = PublicImportMessageBuilder()
+//        publicImportBuilder.e = 126
+//        message.optionalPublicImportMessage = publicImportBuilder.build()
+//
+//        var lazymes = TestAllTypes.NestedMessage.builder()
+//        lazymes.bb = 127
+//        message.optionalLazyMessage = lazymes.build()
 
         
         // -----------------------------------------------------------------
@@ -1279,12 +1279,12 @@ class  TestUtilities {
         message.repeatedStringPiece += ["324"]
         message.repeatedCord += ["325"]
         
-        var repNested2 = TestAllTypes.NestedMessage.builder()
-        repNested2.bb = 227
-        message.repeatedLazyMessage = [repNested2.build()]
-        var repNested3 = TestAllTypes.NestedMessage.builder()
-        repNested3.bb = 327
-        message.repeatedLazyMessage += [repNested3.build()]
+//        var repNested2 = TestAllTypes.NestedMessage.builder()
+//        repNested2.bb = 227
+//        message.repeatedLazyMessage = [repNested2.build()]
+//        var repNested3 = TestAllTypes.NestedMessage.builder()
+//        repNested3.bb = 327
+//        message.repeatedLazyMessage += [repNested3.build()]
         
         
         // -----------------------------------------------------------------
@@ -1312,12 +1312,12 @@ class  TestUtilities {
         message.defaultStringPiece = "424"
         message.defaultCord = "425"
         
-        message.oneofUint32 = 601
-        var builder = TestAllTypes.NestedMessage.builder()
-        builder.bb = 602
-        message.oneofNestedMessage = builder.build()
-        message.oneofString = "603"
-        message.oneofBytes = [Byte]() + "604".utf8
+//        message.oneofUint32 = 601
+//        var builder = TestAllTypes.NestedMessage.builder()
+//        builder.bb = 602
+//        message.oneofNestedMessage = builder.build()
+//        message.oneofString = "603"
+//        message.oneofBytes = [Byte]() + "604".utf8
     }
     
     class func setAllExtensions(message:TestAllExtensionsBuilder)

@@ -57,20 +57,22 @@ internal class RingBuffer
         return true
     }
     
-    func appendData(var input:[Byte], var offset:Int32, var length:Int32) -> Int32
+    func appendData(var input:[Byte], offset:Int32, length:Int32) -> Int32
     {
         var totalWritten:Int32 = 0
+        var aLength = length
+        var aOffset = offset
         if (position >= tail)
         {
-            totalWritten = min(Int32(buffer.count) - Int32(position), Int32(length))
-            memcpy(&buffer + Int(position), &input + Int(offset), UInt(totalWritten))
+            totalWritten = min(Int32(buffer.count) - Int32(position), Int32(aLength))
+            memcpy(&buffer + Int(position), &input + Int(aOffset), UInt(totalWritten))
             position += totalWritten
-            if totalWritten == length
+            if totalWritten == aLength
             {
-                return length
+                return aLength
             }
-            length -= Int32(totalWritten)
-            offset += Int32(totalWritten)
+            aLength -= Int32(totalWritten)
+            aOffset += Int32(totalWritten)
             
         }
         
@@ -85,8 +87,8 @@ internal class RingBuffer
             position = 0;
         }
         
-        let written:Int32 = min(Int32(freeSpaces), length);
-        memcpy(&buffer + Int(position), &input + Int(offset), UInt(written));
+        let written:Int32 = min(Int32(freeSpaces), aLength);
+        memcpy(&buffer + Int(position), &input + Int(aOffset), UInt(written));
         position += written
         totalWritten += written
         

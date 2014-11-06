@@ -7,3 +7,8 @@ message Perfomance
    optional string str  = 5;
    optional bytes bytes  = 6;
 }
+
+message TestBytes
+{
+   required bytes bytes  = 1;
+}

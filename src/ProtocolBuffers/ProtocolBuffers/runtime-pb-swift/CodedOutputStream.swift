@@ -51,7 +51,12 @@ public class CodedOutputStream
     
     public func flush()
     {
-        buffer.flushToOutputStream(output!)
+        if output == nil
+        {
+            NSException(name:"OutOfSpace", reason:"", userInfo: nil).raise()
+        }
+
+       var size = buffer.flushToOutputStream(output!)
     }
    
     public func writeRawByte(byte aByte:Byte)
@@ -67,14 +72,16 @@ public class CodedOutputStream
         writeRawData(data, offset:0, length: Int32(data.count))
     
     }
-    public func writeRawData(data:[Byte], var offset:Int32, var length:Int32)
+    public func writeRawData(data:[Byte], offset:Int32, length:Int32)
     {
-        while (length > 0)
+        var aLength = length
+        var aOffset = offset
+        while (aLength > 0)
         {
-            var written:Int32 = buffer.appendData(data, offset: offset, length: length)
-            offset += Int32(written)
-            length -= Int32(written)
-            if (written == 0 || length > 0)
+            var written:Int32 = buffer.appendData(data, offset: aOffset, length: aLength)
+            aOffset += Int32(written)
+            aLength -= Int32(written)
+            if (written == 0 || aLength > 0)
             {
                 flush()
             }
@@ -374,7 +381,7 @@ public class CodedOutputStream
         while (true) {
             if ((value & ~0x7F) == 0) {
                 writeRawByte(byte:Byte(value))
-                break;
+                break
             } else {
                 writeRawByte(byte: Byte((value & 0x7F) | 0x80))
                 value = WireFormat.logicalRightShift64(value: value, spaces: 7)

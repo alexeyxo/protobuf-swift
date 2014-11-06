@@ -21,7 +21,7 @@ public class UnknownFieldSetBuilder
     public var fields:Dictionary<Int32,Field>
     public var lastFieldNumber:Int32
     public var lastField:Field?
-    init()
+    public init()
     {
         fields = Dictionary()
         lastFieldNumber = 0
@@ -206,7 +206,6 @@ public class UnknownFieldSetBuilder
         {
             return false
         }
-      
         else
         {
             NSException(name:"InvalidProtocolBuffer", reason:"", userInfo: nil).raise()

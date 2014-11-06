@@ -34,6 +34,15 @@ func == (lhs: Perfomance, rhs: Perfomance) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
+func == (lhs: TestBytes, rhs: TestBytes) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasBytes == rhs.hasBytes) && (!lhs.hasBytes || lhs.bytes == rhs.bytes)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
 final public class Perfomance : GeneratedMessage {
   private(set) var hasInts:Bool = false
   private(set) var ints:Int32 = Int32(0)
@@ -190,8 +199,10 @@ final public class Perfomance : GeneratedMessage {
           if hasStr {
              hashCode = (hashCode &* 31) &+ str.hashValue
           }
-          for value in bytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasBytes {
+             for value in bytes {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -419,6 +430,184 @@ final class PerfomanceBuilder : GeneratedMessageBuilder {
   }
 }
 
+final public class TestBytes : GeneratedMessage {
+  private(set) var hasBytes:Bool = false
+  private(set) var bytes:Array<Byte> = [Byte]()
+
+  required public init() {
+       super.init()
+  }
+  override public func isInitialized() -> Bool {
+    if !hasBytes {
+      return false
+    }
+   return true
+  }
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+    if hasBytes {
+      output.writeData(1, value:bytes)
+    }
+    unknownFields.writeToCodedOutputStream(output)
+  }
+  override public func serializedSize() -> Int32 {
+    var size:Int32 = memoizedSerializedSize
+    if size != -1 {
+     return size
+    }
+
+    size = 0
+    if hasBytes {
+      size += WireFormat.computeDataSize(1, value:bytes)
+    }
+    size += unknownFields.serializedSize()
+    memoizedSerializedSize = size
+    return size
+  }
+  class func parseFromData(data:[Byte]) -> TestBytes {
+    return TestBytes.builder().mergeFromData(data).build()
+  }
+  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestBytes {
+    return TestBytes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  }
+  class func parseFromInputStream(input:NSInputStream) -> TestBytes {
+    return TestBytes.builder().mergeFromInputStream(input).build()
+  }
+  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestBytes {
+    return TestBytes.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  class func parseFromCodedInputStream(input:CodedInputStream) -> TestBytes {
+    return TestBytes.builder().mergeFromCodedInputStream(input).build()
+  }
+  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestBytes {
+    return TestBytes.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  class func builder() -> TestBytesBuilder {
+    return TestBytesBuilder()
+  }
+  class func builderWithPrototype(prototype:TestBytes) -> TestBytesBuilder {
+    return TestBytes.builder().mergeFrom(prototype)
+  }
+  func builder() -> TestBytesBuilder {
+    return TestBytes.builder()
+  }
+  func toBuilder() -> TestBytesBuilder {
+    return TestBytes.builderWithPrototype(self)
+  }
+  override public func writeDescriptionTo(inout output:String, indent:String) {
+    if hasBytes {
+      output += "\(indent) bytes: \(bytes) \n"
+    }
+    unknownFields.writeDescriptionTo(&output, indent:indent)
+  }
+  override public var hashValue:Int {
+      get {
+          var hashCode:Int = 7
+          if hasBytes {
+             for value in bytes {
+                 hashCode = (hashCode &* 31) &+ value.hashValue
+             }
+          }
+          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+          return hashCode
+      }
+  }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "TestBytes"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return TestBytes.self
+  }
+
+
+  //Meta information declaration end
+
+}
+
+final class TestBytesBuilder : GeneratedMessageBuilder {
+  private var builderResult:TestBytes
+
+  required override init () {
+     builderResult = TestBytes()
+     super.init()
+  }
+  var hasBytes:Bool {
+       get {
+            return builderResult.hasBytes
+       }
+  }
+  var bytes:Array<Byte> {
+       get {
+            return builderResult.bytes
+       }
+       set (value) {
+           builderResult.hasBytes = true
+           builderResult.bytes = value
+       }
+  }
+  func clearBytes() -> TestBytesBuilder{
+       builderResult.hasBytes = false
+       builderResult.bytes = [Byte]()
+       return self
+  }
+  override var internalGetResult:GeneratedMessage {
+       get {
+          return builderResult
+       }
+  }
+  override func clear() -> TestBytesBuilder {
+    builderResult = TestBytes()
+    return self
+  }
+  override func clone() -> TestBytesBuilder {
+    return TestBytes.builderWithPrototype(builderResult)
+  }
+  override func build() -> TestBytes {
+       checkInitialized()
+       return buildPartial()
+  }
+  func buildPartial() -> TestBytes {
+    var returnMe:TestBytes = builderResult
+    return returnMe
+  }
+  func mergeFrom(other:TestBytes) -> TestBytesBuilder {
+    if (other == TestBytes()) {
+     return self
+    }
+    if other.hasBytes {
+         bytes = other.bytes
+    }
+    mergeUnknownFields(other.unknownFields)
+    return self
+  }
+  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestBytesBuilder {
+       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+  }
+  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestBytesBuilder {
+    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    while (true) {
+      var tag = input.readTag()
+      switch tag {
+      case 0: 
+        self.unknownFields = unknownFieldsBuilder.build()
+        return self
+
+      case 10 :
+        bytes = input.readData()
+
+      default:
+        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+           unknownFields = unknownFieldsBuilder.build()
+           return self
+        }
+      }
+    }
+  }
+}
+
 //Class extensions: NSData
 
 
@@ -432,6 +621,18 @@ extension Perfomance {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
         return Perfomance.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
+    }
+}
+extension TestBytes {
+    class func parseFromNSData(data:NSData) -> TestBytes {
+        var bytes = [Byte](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes)
+        return TestBytes.builder().mergeFromData(bytes).build()
+    }
+    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestBytes {
+        var bytes = [Byte](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes)
+        return TestBytes.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
 
