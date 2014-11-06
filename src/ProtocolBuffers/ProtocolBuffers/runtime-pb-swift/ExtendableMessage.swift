@@ -339,20 +339,12 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         if (thisMessage !== other) {
             NSException(name:"IllegalArgument", reason:"Cannot merge extensions from a different type", userInfo: nil).raise()
         }
-        
         if other.extensionMap.count > 0 {
             var registry = other.extensionRegistry
             for fieldNumber in other.extensionMap.keys {
                 var thisField = registry[fieldNumber]!
                 var value = other.extensionMap[fieldNumber]!
-                if thisField.isRepeated {
-                    //TODO need tests
-                    addExtension(thisField, value: value)
-                }
-                else
-                {
-                    setExtension(thisField, value: value)
-                }
+                thisMessage.extensionMap[fieldNumber] = value
             }
         }
     }
