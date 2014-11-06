@@ -298,10 +298,11 @@ public class CodedInputStream
             lastTag = 0
             return 0
         }
+        var tag = lastTag
         lastTag = readRawVarint32()
         if lastTag == 0
         {
-            NSException(name:"InvalidProtocolBuffer", reason:"Invalid Tag", userInfo: nil).raise()
+            NSException(name:"InvalidProtocolBuffer", reason:"Invalid Tag: after tag \(tag)", userInfo: nil).raise()
         }
         return lastTag
     }
@@ -310,7 +311,7 @@ public class CodedInputStream
     {
         if lastTag != value
         {
-            NSException(name:"InvalidProtocolBuffer", reason:"Invalid Tag", userInfo: nil).raise()
+            NSException(name:"InvalidProtocolBuffer", reason:"Invalid Tag: last tag \(lastTag)", userInfo: nil).raise()
         }
     }
     
@@ -322,7 +323,7 @@ public class CodedInputStream
             readInt32()
             return true
         }
-        else if (WireFormat(rawValue:wireFormat) == WireFormat.WireFormatFixed32)
+        else if (WireFormat(rawValue:wireFormat) == WireFormat.WireFormatFixed64)
         {
             readRawLittleEndian64()
             return true
@@ -360,7 +361,7 @@ public class CodedInputStream
         while (true)
         {
             var tag:Int32 = readTag()
-            if tag == 0 || skipField(tag)
+            if tag == 0 || !skipField(tag)
             {
                 break
             }
@@ -638,7 +639,7 @@ public class CodedInputStream
         if (recursionDepth >= recursionLimit) {
             NSException(name:"InvalidProtocolBuffer", reason:"Recursion Limit Exceeded", userInfo: nil).raise()
         }
-        ++recursionDepth;
+        ++recursionDepth
         builder.mergeFromCodedInputStream(self, extensionRegistry:extensionRegistry)
         checkLastTagWas(WireFormat.WireFormatEndGroup.wireFormatMakeTag(fieldNumber))
         --recursionDepth
@@ -651,7 +652,7 @@ public class CodedInputStream
         ++recursionDepth
         builder.mergeFromCodedInputStream(self)
         checkLastTagWas(WireFormat.WireFormatEndGroup.wireFormatMakeTag(fieldNumber))
-        --recursionDepth;
+        --recursionDepth
     }
 
     public func readMessage(builder:MessageBuilder, extensionRegistry:ExtensionRegistry) {

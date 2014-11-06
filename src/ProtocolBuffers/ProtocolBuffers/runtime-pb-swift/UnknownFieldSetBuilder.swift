@@ -58,8 +58,8 @@ public class UnknownFieldSetBuilder
             lastField = Field()
             if (existing != nil) {
                 lastField?.mergeFromField(existing!)
-        }
-        return lastField
+            }
+            return lastField
         }
     }
     
@@ -182,12 +182,14 @@ public class UnknownFieldSetBuilder
         }
         else if (format == WireFormat.WireFormatFixed32)
         {
-            getFieldBuilder(number)?.fixed32Array.append(input.readFixed32())
+            var value = input.readFixed32()
+            getFieldBuilder(number)?.fixed32Array.append(value)
             return true
         }
         else if (format == WireFormat.WireFormatFixed64)
         {
-            getFieldBuilder(number)?.fixed64Array.append(input.readFixed64())
+            var value = input.readFixed64()
+            getFieldBuilder(number)?.fixed64Array.append(value)
             return true
         }
         else if (format == WireFormat.WireFormatLengthDelimited)
@@ -218,7 +220,7 @@ public class UnknownFieldSetBuilder
     public func mergeFromCodedInputStream(input:CodedInputStream) -> UnknownFieldSetBuilder {
         while (true) {
             var tag:Int32 = input.readTag()
-            if tag == 0 || mergeFieldFrom(tag, input:input)
+            if tag == 0 || !mergeFieldFrom(tag, input:input)
             {
                 break;
             }
