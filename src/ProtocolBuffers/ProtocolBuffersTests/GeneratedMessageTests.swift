@@ -99,7 +99,17 @@ class GeneratedMessageTests: XCTestCase {
         TestUtilities.assertRepeatedExtensionsModified(message)
     }
     
-    
+    func testExtensionRepeatedSettersMerge()
+    {
+        var builder = TestAllExtensions.builder()
+        TestUtilities.setAllExtensions(builder)
+        TestUtilities.modifyRepeatedExtensions(builder)
+        var message = builder.build()
+        TestUtilities.assertRepeatedExtensionsModified(message)
+        var message2 = TestAllExtensions.builder().mergeFrom(message).build()
+        TestUtilities.assertRepeatedExtensionsModified(message2)
+    }
+
     func testExtensionDefaults()
     {
         TestUtilities.assertExtensionsClear(TestAllExtensions())

@@ -42,14 +42,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         vars["containing_type"] = classname_;
         vars["root_name"] = rootclassname;
         
-        SwiftType java_type = GetSwiftType(descriptor_);
+        SwiftType swift_type = GetSwiftType(descriptor_);
         string singular_type;
-        switch (java_type) {
+        switch (swift_type) {
             case SWIFTTYPE_MESSAGE:
                 vars["type"] = ClassName(descriptor_->message_type());
                 break;
             default:
-                vars["type"] = BoxedPrimitiveTypeName(java_type);
+                vars["type"] = BoxedPrimitiveTypeName(swift_type);
                 break;
         }
         
@@ -67,14 +67,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         vars["name"] = UnderscoresToCamelCase(descriptor_);
         vars["containing_type"] = classname_;
         
-        SwiftType java_type = GetSwiftType(descriptor_);
+        SwiftType swift_type = GetSwiftType(descriptor_);
         string singular_type;
-        switch (java_type) {
+        switch (swift_type) {
             case SWIFTTYPE_MESSAGE:
                 vars["type"] = ClassName(descriptor_->message_type());
                 break;
             default:
-                vars["type"] = BoxedPrimitiveTypeName(java_type);
+                vars["type"] = BoxedPrimitiveTypeName(swift_type);
                 break;
         }
         
@@ -119,14 +119,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         vars["is_packed"] = isPacked ? "true" : "false";
         vars["is_wire_format"] = descriptor_->containing_type()->options().message_set_wire_format() ? "true" : "false";
         
-        SwiftType java_type = GetSwiftType(descriptor_);
+        SwiftType swift_type = GetSwiftType(descriptor_);
         string singular_type;
-        switch (java_type) {
+        switch (swift_type) {
             case SWIFTTYPE_MESSAGE:
                 vars["type"] = ClassName(descriptor_->message_type());
                 break;
             default:
-                vars["type"] = BoxedPrimitiveTypeName(java_type);
+                vars["type"] = BoxedPrimitiveTypeName(swift_type);
                 break;
         }
         
@@ -189,7 +189,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if(descriptor_->is_repeated())
         {
-            vars["default"] = string("Array<") + vars["type"] + string(">()");
+            SwiftType swift_type = GetSwiftType(descriptor_);
+            if (swift_type == SWIFTTYPE_MESSAGE)
+            {
+                vars["default"] = string("Array<GeneratedMessage>()");
+            }
+            else
+            {
+                vars["default"] = string("Array<") + vars["type"] + string(">()");
+            }
+            
         }
         
         else if (descriptor_->type() == FieldDescriptor::TYPE_ENUM)

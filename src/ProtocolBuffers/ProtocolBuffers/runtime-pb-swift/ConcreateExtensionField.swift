@@ -501,7 +501,7 @@ messageOrGroupClass:Any.Type,
         
     }
     
-    func writeRepeatedValuesIncludingTags(values:Array<Any>, output:CodedOutputStream) {
+    func writeRepeatedValuesIncludingTags<T>(values:Array<T>, output:CodedOutputStream) {
         if (isPacked) {
             output.writeTag(fieldNumber, format: WireFormat.WireFormatLengthDelimited)
             var dataSize:Int32 = 0;
@@ -533,7 +533,7 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    func computeRepeatedSerializedSizeIncludingTags(values:Array<Any>) -> Int32
+    func computeRepeatedSerializedSizeIncludingTags<T>(values:Array<T>) -> Int32
     {
         if (isPacked) {
             var size:Int32 = 0
@@ -563,9 +563,33 @@ messageOrGroupClass:Any.Type,
     
     public func computeSerializedSizeIncludingTag(value:Any) -> Int32
     {
-        if let values = value as? Array<Any>
+        if isRepeated
         {
-            return computeRepeatedSerializedSizeIncludingTags(values)
+            switch value
+            {
+            case let values as [Int32]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [Int64]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [UInt64]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [UInt32]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [Float]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [Double]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [Bool]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [String]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as Array<Array<Byte>>:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [GeneratedMessage]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            default:
+                return 0
+            }
         }
         else
         {
@@ -576,9 +600,35 @@ messageOrGroupClass:Any.Type,
     
     public func writeValueIncludingTagToCodedOutputStream(value:Any, output:CodedOutputStream)
     {
-        if let values = value as? Array<Any>
+        
+        if isRepeated
         {
-             writeRepeatedValuesIncludingTags(values, output:output)
+            switch value
+            {
+            case let values as [Int32]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [Int64]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [UInt64]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [UInt32]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [Bool]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [Float]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [Double]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [String]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as Array<Array<Byte>>:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [GeneratedMessage]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            default:
+                break
+            }
+            
         }
         else
         {
@@ -586,20 +636,54 @@ messageOrGroupClass:Any.Type,
         }
     }
     
+    private func iterationRepetedValuesForDescription<T>(values:Array<T>, inout output:String, indent:String)
+    {
+        for singleValue in values
+        {
+            writeDescriptionOfSingleValue(singleValue, output: &output, indent: indent)
+        }
+    }
+    
     public func writeDescriptionOf(value:Any, inout output:String, indent:String)
     {
-        if let values = value as? Array<Any>
+  
+        
+        if isRepeated
         {
-            for singleValue in values
+            switch value
             {
-                writeDescriptionOfSingleValue(singleValue, output: &output, indent: indent)
+            case let values as [Int32]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [Int64]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [UInt64]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [UInt32]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [Bool]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [Float]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [Double]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [String]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as Array<Array<Byte>>:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [GeneratedMessage]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            default:
+                break
             }
+
         }
         else
         {
                 writeDescriptionOfSingleValue(value, output:&output, indent:indent)
         }
     }
+    
+  
     
     func mergeMessageSetExtentionFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSetBuilder)
     {

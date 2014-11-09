@@ -720,16 +720,16 @@ struct UnittestRoot {
     UnittestRootrepeatedBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:TestAllExtensions.self, fieldNumber: 43, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootrepeatedStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 44, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootrepeatedBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 45, defaultValue:Array<[Byte]>(), messageOrGroupClass:[Byte].self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedGroupExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:TestAllExtensions.self, fieldNumber: 46, defaultValue:Array<RepeatedGroup_extension>(), messageOrGroupClass:RepeatedGroup_extension.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 48, defaultValue:Array<TestAllTypes.NestedMessage>(), messageOrGroupClass:TestAllTypes.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedForeignMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 49, defaultValue:Array<ForeignMessage>(), messageOrGroupClass:ForeignMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedImportMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 50, defaultValue:Array<ImportMessage>(), messageOrGroupClass:ImportMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedGroupExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:TestAllExtensions.self, fieldNumber: 46, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:RepeatedGroup_extension.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 48, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypes.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedForeignMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 49, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ForeignMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedImportMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 50, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ImportMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootrepeatedNestedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 51, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootrepeatedForeignEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 52, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootrepeatedImportEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 53, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootrepeatedStringPieceExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 54, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootrepeatedCordExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 55, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedLazyMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 57, defaultValue:Array<TestAllTypes.NestedMessage>(), messageOrGroupClass:TestAllTypes.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedLazyMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 57, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypes.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootdefaultInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestAllExtensions.self, fieldNumber: 61, defaultValue:Int32(41), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootdefaultInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:TestAllExtensions.self, fieldNumber: 62, defaultValue:Int64(42), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootdefaultUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:TestAllExtensions.self, fieldNumber: 63, defaultValue:UInt32(43), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -787,9 +787,9 @@ struct UnittestRoot {
     TestNestedExtensiontestStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 1002, defaultValue:"test", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     TestNestedExtensionnestedStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 1003, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     TestRequiredsingleStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 1000, defaultValue:TestRequired(), messageOrGroupClass:TestRequired.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    TestRequiredmultiStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 1001, defaultValue:Array<TestRequired>(), messageOrGroupClass:TestRequired.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    TestRequiredmultiStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 1001, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestRequired.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     TestParsingMergeoptionalExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestParsingMerge.self, fieldNumber: 1000, defaultValue:TestAllTypes(), messageOrGroupClass:TestAllTypes.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    TestParsingMergerepeatedExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestParsingMerge.self, fieldNumber: 1001, defaultValue:Array<TestAllTypes>(), messageOrGroupClass:TestAllTypes.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    TestParsingMergerepeatedExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestParsingMerge.self, fieldNumber: 1001, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypes.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
     UnittestImportRoot.sharedInstance.registerAllExtensions(extensionRegistry)
@@ -2223,6 +2223,9 @@ final public class TestAllTypes : GeneratedMessage {
       override public class func className() -> String {
           return "TestAllTypes.NestedMessage"
       }
+      override public func className() -> String {
+          return "TestAllTypes.NestedMessage"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestAllTypes.NestedMessage.self
       }
@@ -2404,6 +2407,9 @@ final public class TestAllTypes : GeneratedMessage {
       override public class func className() -> String {
           return "TestAllTypes.OptionalGroup"
       }
+      override public func className() -> String {
+          return "TestAllTypes.OptionalGroup"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestAllTypes.OptionalGroup.self
       }
@@ -2583,6 +2589,9 @@ final public class TestAllTypes : GeneratedMessage {
       //Meta information declaration start
 
       override public class func className() -> String {
+          return "TestAllTypes.RepeatedGroup"
+      }
+      override public func className() -> String {
           return "TestAllTypes.RepeatedGroup"
       }
       override public func classMetaType() -> GeneratedMessage.Type {
@@ -4118,6 +4127,9 @@ final public class TestAllTypes : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestAllTypes"
+  }
+  override public func className() -> String {
       return "TestAllTypes"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -6172,6 +6184,9 @@ final public class NestedTestAllTypes : GeneratedMessage {
   override public class func className() -> String {
       return "NestedTestAllTypes"
   }
+  override public func className() -> String {
+      return "NestedTestAllTypes"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return NestedTestAllTypes.self
   }
@@ -6406,6 +6421,9 @@ final public class TestDeprecatedFields : GeneratedMessage {
   override public class func className() -> String {
       return "TestDeprecatedFields"
   }
+  override public func className() -> String {
+      return "TestDeprecatedFields"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestDeprecatedFields.self
   }
@@ -6579,6 +6597,9 @@ final public class ForeignMessage : GeneratedMessage {
   override public class func className() -> String {
       return "ForeignMessage"
   }
+  override public func className() -> String {
+      return "ForeignMessage"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return ForeignMessage.self
   }
@@ -6744,6 +6765,9 @@ final public class TestAllExtensions : ExtendableMessage {
   override public class func className() -> String {
       return "TestAllExtensions"
   }
+  override public func className() -> String {
+      return "TestAllExtensions"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestAllExtensions.self
   }
@@ -6891,6 +6915,9 @@ final public class OptionalGroup_extension : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "OptionalGroup_extension"
+  }
+  override public func className() -> String {
       return "OptionalGroup_extension"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -7066,6 +7093,9 @@ final public class RepeatedGroup_extension : GeneratedMessage {
   override public class func className() -> String {
       return "RepeatedGroup_extension"
   }
+  override public func className() -> String {
+      return "RepeatedGroup_extension"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return RepeatedGroup_extension.self
   }
@@ -7228,6 +7258,9 @@ final public class TestNestedExtension : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestNestedExtension"
+  }
+  override public func className() -> String {
       return "TestNestedExtension"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -7871,6 +7904,9 @@ final public class TestRequired : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestRequired"
+  }
+  override public func className() -> String {
       return "TestRequired"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -8894,6 +8930,9 @@ final public class TestRequiredForeign : GeneratedMessage {
   override public class func className() -> String {
       return "TestRequiredForeign"
   }
+  override public func className() -> String {
+      return "TestRequiredForeign"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestRequiredForeign.self
   }
@@ -9131,6 +9170,9 @@ final public class TestForeignNested : GeneratedMessage {
   override public class func className() -> String {
       return "TestForeignNested"
   }
+  override public func className() -> String {
+      return "TestForeignNested"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestForeignNested.self
   }
@@ -9307,6 +9349,9 @@ final public class TestEmptyMessage : GeneratedMessage {
   override public class func className() -> String {
       return "TestEmptyMessage"
   }
+  override public func className() -> String {
+      return "TestEmptyMessage"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestEmptyMessage.self
   }
@@ -9445,6 +9490,9 @@ final public class TestEmptyMessageWithExtensions : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestEmptyMessageWithExtensions"
+  }
+  override public func className() -> String {
       return "TestEmptyMessageWithExtensions"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -9592,6 +9640,9 @@ final public class TestMultipleExtensionRanges : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestMultipleExtensionRanges"
+  }
+  override public func className() -> String {
       return "TestMultipleExtensionRanges"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -9756,6 +9807,9 @@ final public class TestReallyLargeTagNumber : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestReallyLargeTagNumber"
+  }
+  override public func className() -> String {
       return "TestReallyLargeTagNumber"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -9970,6 +10024,9 @@ final public class TestRecursiveMessage : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestRecursiveMessage"
+  }
+  override public func className() -> String {
       return "TestRecursiveMessage"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -10189,6 +10246,9 @@ final public class TestMutualRecursionA : GeneratedMessage {
   override public class func className() -> String {
       return "TestMutualRecursionA"
   }
+  override public func className() -> String {
+      return "TestMutualRecursionA"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestMutualRecursionA.self
   }
@@ -10394,6 +10454,9 @@ final public class TestMutualRecursionB : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestMutualRecursionB"
+  }
+  override public func className() -> String {
       return "TestMutualRecursionB"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -10617,6 +10680,9 @@ final public class TestDupFieldNumber : GeneratedMessage {
       override public class func className() -> String {
           return "TestDupFieldNumber.Foo"
       }
+      override public func className() -> String {
+          return "TestDupFieldNumber.Foo"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestDupFieldNumber.Foo.self
       }
@@ -10796,6 +10862,9 @@ final public class TestDupFieldNumber : GeneratedMessage {
       //Meta information declaration start
 
       override public class func className() -> String {
+          return "TestDupFieldNumber.Bar"
+      }
+      override public func className() -> String {
           return "TestDupFieldNumber.Bar"
       }
       override public func classMetaType() -> GeneratedMessage.Type {
@@ -11004,6 +11073,9 @@ final public class TestDupFieldNumber : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestDupFieldNumber"
+  }
+  override public func className() -> String {
       return "TestDupFieldNumber"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -11266,6 +11338,9 @@ final public class TestEagerMessage : GeneratedMessage {
   override public class func className() -> String {
       return "TestEagerMessage"
   }
+  override public func className() -> String {
+      return "TestEagerMessage"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestEagerMessage.self
   }
@@ -11456,6 +11531,9 @@ final public class TestLazyMessage : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestLazyMessage"
+  }
+  override public func className() -> String {
       return "TestLazyMessage"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -11676,6 +11754,9 @@ final public class TestNestedMessageHasBits : GeneratedMessage {
       override public class func className() -> String {
           return "TestNestedMessageHasBits.NestedMessage"
       }
+      override public func className() -> String {
+          return "TestNestedMessageHasBits.NestedMessage"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestNestedMessageHasBits.NestedMessage.self
       }
@@ -11864,6 +11945,9 @@ final public class TestNestedMessageHasBits : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestNestedMessageHasBits"
+  }
+  override public func className() -> String {
       return "TestNestedMessageHasBits"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -12246,6 +12330,9 @@ final public class TestCamelCaseFieldNames : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestCamelCaseFieldNames"
+  }
+  override public func className() -> String {
       return "TestCamelCaseFieldNames"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -12723,6 +12810,9 @@ final public class TestFieldOrderings : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestFieldOrderings"
+  }
+  override public func className() -> String {
       return "TestFieldOrderings"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -13341,6 +13431,9 @@ final public class TestExtremeDefaultValues : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestExtremeDefaultValues"
+  }
+  override public func className() -> String {
       return "TestExtremeDefaultValues"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -14165,6 +14258,9 @@ final public class SparseEnumMessage : GeneratedMessage {
   override public class func className() -> String {
       return "SparseEnumMessage"
   }
+  override public func className() -> String {
+      return "SparseEnumMessage"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return SparseEnumMessage.self
   }
@@ -14342,6 +14438,9 @@ final public class OneString : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "OneString"
+  }
+  override public func className() -> String {
       return "OneString"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -14522,6 +14621,9 @@ final public class MoreString : GeneratedMessage {
   override public class func className() -> String {
       return "MoreString"
   }
+  override public func className() -> String {
+      return "MoreString"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return MoreString.self
   }
@@ -14688,6 +14790,9 @@ final public class OneBytes : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "OneBytes"
+  }
+  override public func className() -> String {
       return "OneBytes"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -14870,6 +14975,9 @@ final public class MoreBytes : GeneratedMessage {
   override public class func className() -> String {
       return "MoreBytes"
   }
+  override public func className() -> String {
+      return "MoreBytes"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return MoreBytes.self
   }
@@ -15034,6 +15142,9 @@ final public class Int32Message : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "Int32Message"
+  }
+  override public func className() -> String {
       return "Int32Message"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -15209,6 +15320,9 @@ final public class Uint32Message : GeneratedMessage {
   override public class func className() -> String {
       return "Uint32Message"
   }
+  override public func className() -> String {
+      return "Uint32Message"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return Uint32Message.self
   }
@@ -15380,6 +15494,9 @@ final public class Int64Message : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "Int64Message"
+  }
+  override public func className() -> String {
       return "Int64Message"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -15555,6 +15672,9 @@ final public class Uint64Message : GeneratedMessage {
   override public class func className() -> String {
       return "Uint64Message"
   }
+  override public func className() -> String {
+      return "Uint64Message"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return Uint64Message.self
   }
@@ -15726,6 +15846,9 @@ final public class BoolMessage : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "BoolMessage"
+  }
+  override public func className() -> String {
       return "BoolMessage"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -15919,6 +16042,9 @@ final public class TestOneof : GeneratedMessage {
       //Meta information declaration start
 
       override public class func className() -> String {
+          return "TestOneof.FooGroup"
+      }
+      override public func className() -> String {
           return "TestOneof.FooGroup"
       }
       override public func classMetaType() -> GeneratedMessage.Type {
@@ -16293,6 +16419,9 @@ final public class TestOneof : GeneratedMessage {
   override public class func className() -> String {
       return "TestOneof"
   }
+  override public func className() -> String {
+      return "TestOneof"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestOneof.self
   }
@@ -16597,6 +16726,9 @@ final public class TestOneofBackwardsCompatible : GeneratedMessage {
       override public class func className() -> String {
           return "TestOneofBackwardsCompatible.FooGroup"
       }
+      override public func className() -> String {
+          return "TestOneofBackwardsCompatible.FooGroup"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestOneofBackwardsCompatible.FooGroup.self
       }
@@ -16843,6 +16975,9 @@ final public class TestOneofBackwardsCompatible : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestOneofBackwardsCompatible"
+  }
+  override public func className() -> String {
       return "TestOneofBackwardsCompatible"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -17149,6 +17284,9 @@ final public class TestOneof2 : GeneratedMessage {
       override public class func className() -> String {
           return "TestOneof2.FooGroup"
       }
+      override public func className() -> String {
+          return "TestOneof2.FooGroup"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestOneof2.FooGroup.self
       }
@@ -17373,6 +17511,9 @@ final public class TestOneof2 : GeneratedMessage {
       //Meta information declaration start
 
       override public class func className() -> String {
+          return "TestOneof2.NestedMessage"
+      }
+      override public func className() -> String {
           return "TestOneof2.NestedMessage"
       }
       override public func classMetaType() -> GeneratedMessage.Type {
@@ -18261,6 +18402,9 @@ final public class TestOneof2 : GeneratedMessage {
   override public class func className() -> String {
       return "TestOneof2"
   }
+  override public func className() -> String {
+      return "TestOneof2"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestOneof2.self
   }
@@ -18908,6 +19052,9 @@ final public class TestRequiredOneof : GeneratedMessage {
       override public class func className() -> String {
           return "TestRequiredOneof.NestedMessage"
       }
+      override public func className() -> String {
+          return "TestRequiredOneof.NestedMessage"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestRequiredOneof.NestedMessage.self
       }
@@ -19216,6 +19363,9 @@ final public class TestRequiredOneof : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestRequiredOneof"
+  }
+  override public func className() -> String {
       return "TestRequiredOneof"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -19806,6 +19956,9 @@ final public class TestPackedTypes : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestPackedTypes"
+  }
+  override public func className() -> String {
       return "TestPackedTypes"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -20533,6 +20686,9 @@ final public class TestUnpackedTypes : GeneratedMessage {
   override public class func className() -> String {
       return "TestUnpackedTypes"
   }
+  override public func className() -> String {
+      return "TestUnpackedTypes"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestUnpackedTypes.self
   }
@@ -20930,6 +21086,9 @@ final public class TestPackedExtensions : ExtendableMessage {
   override public class func className() -> String {
       return "TestPackedExtensions"
   }
+  override public func className() -> String {
+      return "TestPackedExtensions"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestPackedExtensions.self
   }
@@ -21069,6 +21228,9 @@ final public class TestUnpackedExtensions : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestUnpackedExtensions"
+  }
+  override public func className() -> String {
       return "TestUnpackedExtensions"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -21223,6 +21385,9 @@ final public class TestDynamicExtensions : GeneratedMessage {
       //Meta information declaration start
 
       override public class func className() -> String {
+          return "TestDynamicExtensions.DynamicMessageType"
+      }
+      override public func className() -> String {
           return "TestDynamicExtensions.DynamicMessageType"
       }
       override public func classMetaType() -> GeneratedMessage.Type {
@@ -21529,6 +21694,9 @@ final public class TestDynamicExtensions : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestDynamicExtensions"
+  }
+  override public func className() -> String {
       return "TestDynamicExtensions"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -21992,6 +22160,9 @@ final public class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
   override public class func className() -> String {
       return "TestRepeatedScalarDifferentTagSizes"
   }
+  override public func className() -> String {
+      return "TestRepeatedScalarDifferentTagSizes"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestRepeatedScalarDifferentTagSizes.self
   }
@@ -22259,6 +22430,9 @@ final public class TestParsingMerge : ExtendableMessage {
           override public class func className() -> String {
               return "TestParsingMerge.RepeatedFieldsGenerator.Group1"
           }
+          override public func className() -> String {
+              return "TestParsingMerge.RepeatedFieldsGenerator.Group1"
+          }
           override public func classMetaType() -> GeneratedMessage.Type {
               return TestParsingMerge.RepeatedFieldsGenerator.Group1.self
           }
@@ -22457,6 +22631,9 @@ final public class TestParsingMerge : ExtendableMessage {
           //Meta information declaration start
 
           override public class func className() -> String {
+              return "TestParsingMerge.RepeatedFieldsGenerator.Group2"
+          }
+          override public func className() -> String {
               return "TestParsingMerge.RepeatedFieldsGenerator.Group2"
           }
           override public func classMetaType() -> GeneratedMessage.Type {
@@ -22757,6 +22934,9 @@ final public class TestParsingMerge : ExtendableMessage {
       override public class func className() -> String {
           return "TestParsingMerge.RepeatedFieldsGenerator"
       }
+      override public func className() -> String {
+          return "TestParsingMerge.RepeatedFieldsGenerator"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestParsingMerge.RepeatedFieldsGenerator.self
       }
@@ -23054,6 +23234,9 @@ final public class TestParsingMerge : ExtendableMessage {
       override public class func className() -> String {
           return "TestParsingMerge.OptionalGroup"
       }
+      override public func className() -> String {
+          return "TestParsingMerge.OptionalGroup"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestParsingMerge.OptionalGroup.self
       }
@@ -23252,6 +23435,9 @@ final public class TestParsingMerge : ExtendableMessage {
       //Meta information declaration start
 
       override public class func className() -> String {
+          return "TestParsingMerge.RepeatedGroup"
+      }
+      override public func className() -> String {
           return "TestParsingMerge.RepeatedGroup"
       }
       override public func classMetaType() -> GeneratedMessage.Type {
@@ -23529,6 +23715,9 @@ final public class TestParsingMerge : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestParsingMerge"
+  }
+  override public func className() -> String {
       return "TestParsingMerge"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -23849,6 +24038,9 @@ final public class TestCommentInjectionMessage : GeneratedMessage {
   override public class func className() -> String {
       return "TestCommentInjectionMessage"
   }
+  override public func className() -> String {
+      return "TestCommentInjectionMessage"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestCommentInjectionMessage.self
   }
@@ -24007,6 +24199,9 @@ final public class FooRequest : GeneratedMessage {
   override public class func className() -> String {
       return "FooRequest"
   }
+  override public func className() -> String {
+      return "FooRequest"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return FooRequest.self
   }
@@ -24138,6 +24333,9 @@ final public class FooResponse : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "FooResponse"
+  }
+  override public func className() -> String {
       return "FooResponse"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -24273,6 +24471,9 @@ final public class FooClientMessage : GeneratedMessage {
   override public class func className() -> String {
       return "FooClientMessage"
   }
+  override public func className() -> String {
+      return "FooClientMessage"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return FooClientMessage.self
   }
@@ -24404,6 +24605,9 @@ final public class FooServerMessage : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "FooServerMessage"
+  }
+  override public func className() -> String {
       return "FooServerMessage"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -24539,6 +24743,9 @@ final public class BarRequest : GeneratedMessage {
   override public class func className() -> String {
       return "BarRequest"
   }
+  override public func className() -> String {
+      return "BarRequest"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return BarRequest.self
   }
@@ -24670,6 +24877,9 @@ final public class BarResponse : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "BarResponse"
+  }
+  override public func className() -> String {
       return "BarResponse"
   }
   override public func classMetaType() -> GeneratedMessage.Type {

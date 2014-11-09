@@ -606,16 +606,16 @@ struct UnittestLiteRoot {
     UnittestLiteRootrepeatedBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:TestAllExtensionsLite.self, fieldNumber: 43, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensionsLite.self, fieldNumber: 44, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensionsLite.self, fieldNumber: 45, defaultValue:Array<[Byte]>(), messageOrGroupClass:[Byte].self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootrepeatedGroupExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:TestAllExtensionsLite.self, fieldNumber: 46, defaultValue:Array<RepeatedGroup_extension_lite>(), messageOrGroupClass:RepeatedGroup_extension_lite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootrepeatedNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 48, defaultValue:Array<TestAllTypesLite.NestedMessage>(), messageOrGroupClass:TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootrepeatedForeignMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 49, defaultValue:Array<ForeignMessageLite>(), messageOrGroupClass:ForeignMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootrepeatedImportMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 50, defaultValue:Array<ImportMessageLite>(), messageOrGroupClass:ImportMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootrepeatedGroupExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:TestAllExtensionsLite.self, fieldNumber: 46, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:RepeatedGroup_extension_lite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootrepeatedNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 48, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootrepeatedForeignMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 49, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ForeignMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootrepeatedImportMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 50, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ImportMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 51, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 52, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 53, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedStringPieceExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensionsLite.self, fieldNumber: 54, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedCordExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensionsLite.self, fieldNumber: 55, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootrepeatedLazyMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 57, defaultValue:Array<TestAllTypesLite.NestedMessage>(), messageOrGroupClass:TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootrepeatedLazyMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 57, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootdefaultInt32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestAllExtensionsLite.self, fieldNumber: 61, defaultValue:Int32(41), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootdefaultInt64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:TestAllExtensionsLite.self, fieldNumber: 62, defaultValue:Int64(42), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootdefaultUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:TestAllExtensionsLite.self, fieldNumber: 63, defaultValue:UInt32(43), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -656,7 +656,7 @@ struct UnittestLiteRoot {
     UnittestLiteRootpackedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestPackedExtensionsLite.self, fieldNumber: 103, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
     TestNestedExtensionLitenestedExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestAllExtensionsLite.self, fieldNumber: 12345, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     TestParsingMergeLiteoptionalExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestParsingMergeLite.self, fieldNumber: 1000, defaultValue:TestAllTypesLite(), messageOrGroupClass:TestAllTypesLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    TestParsingMergeLiterepeatedExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestParsingMergeLite.self, fieldNumber: 1001, defaultValue:Array<TestAllTypesLite>(), messageOrGroupClass:TestAllTypesLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    TestParsingMergeLiterepeatedExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestParsingMergeLite.self, fieldNumber: 1001, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypesLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
     UnittestImportLiteRoot.sharedInstance.registerAllExtensions(extensionRegistry)
@@ -1393,6 +1393,9 @@ final public class TestAllTypesLite : GeneratedMessage {
       override public class func className() -> String {
           return "TestAllTypesLite.NestedMessage"
       }
+      override public func className() -> String {
+          return "TestAllTypesLite.NestedMessage"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestAllTypesLite.NestedMessage.self
       }
@@ -1574,6 +1577,9 @@ final public class TestAllTypesLite : GeneratedMessage {
       override public class func className() -> String {
           return "TestAllTypesLite.OptionalGroup"
       }
+      override public func className() -> String {
+          return "TestAllTypesLite.OptionalGroup"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestAllTypesLite.OptionalGroup.self
       }
@@ -1753,6 +1759,9 @@ final public class TestAllTypesLite : GeneratedMessage {
       //Meta information declaration start
 
       override public class func className() -> String {
+          return "TestAllTypesLite.RepeatedGroup"
+      }
+      override public func className() -> String {
           return "TestAllTypesLite.RepeatedGroup"
       }
       override public func classMetaType() -> GeneratedMessage.Type {
@@ -3287,6 +3296,9 @@ final public class TestAllTypesLite : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestAllTypesLite"
+  }
+  override public func className() -> String {
       return "TestAllTypesLite"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -5324,6 +5336,9 @@ final public class ForeignMessageLite : GeneratedMessage {
   override public class func className() -> String {
       return "ForeignMessageLite"
   }
+  override public func className() -> String {
+      return "ForeignMessageLite"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return ForeignMessageLite.self
   }
@@ -5846,6 +5861,9 @@ final public class TestPackedTypesLite : GeneratedMessage {
   override public class func className() -> String {
       return "TestPackedTypesLite"
   }
+  override public func className() -> String {
+      return "TestPackedTypesLite"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestPackedTypesLite.self
   }
@@ -6313,6 +6331,9 @@ final public class TestAllExtensionsLite : ExtendableMessage {
   override public class func className() -> String {
       return "TestAllExtensionsLite"
   }
+  override public func className() -> String {
+      return "TestAllExtensionsLite"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestAllExtensionsLite.self
   }
@@ -6460,6 +6481,9 @@ final public class OptionalGroup_extension_lite : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "OptionalGroup_extension_lite"
+  }
+  override public func className() -> String {
       return "OptionalGroup_extension_lite"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -6635,6 +6659,9 @@ final public class RepeatedGroup_extension_lite : GeneratedMessage {
   override public class func className() -> String {
       return "RepeatedGroup_extension_lite"
   }
+  override public func className() -> String {
+      return "RepeatedGroup_extension_lite"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return RepeatedGroup_extension_lite.self
   }
@@ -6800,6 +6827,9 @@ final public class TestPackedExtensionsLite : ExtendableMessage {
   override public class func className() -> String {
       return "TestPackedExtensionsLite"
   }
+  override public func className() -> String {
+      return "TestPackedExtensionsLite"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestPackedExtensionsLite.self
   }
@@ -6935,6 +6965,9 @@ final public class TestNestedExtensionLite : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestNestedExtensionLite"
+  }
+  override public func className() -> String {
       return "TestNestedExtensionLite"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -7083,6 +7116,9 @@ final public class TestDeprecatedLite : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestDeprecatedLite"
+  }
+  override public func className() -> String {
       return "TestDeprecatedLite"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -7267,6 +7303,9 @@ final public class TestParsingMergeLite : ExtendableMessage {
           //Meta information declaration start
 
           override public class func className() -> String {
+              return "TestParsingMergeLite.RepeatedFieldsGenerator.Group1"
+          }
+          override public func className() -> String {
               return "TestParsingMergeLite.RepeatedFieldsGenerator.Group1"
           }
           override public func classMetaType() -> GeneratedMessage.Type {
@@ -7467,6 +7506,9 @@ final public class TestParsingMergeLite : ExtendableMessage {
           //Meta information declaration start
 
           override public class func className() -> String {
+              return "TestParsingMergeLite.RepeatedFieldsGenerator.Group2"
+          }
+          override public func className() -> String {
               return "TestParsingMergeLite.RepeatedFieldsGenerator.Group2"
           }
           override public func classMetaType() -> GeneratedMessage.Type {
@@ -7767,6 +7809,9 @@ final public class TestParsingMergeLite : ExtendableMessage {
       override public class func className() -> String {
           return "TestParsingMergeLite.RepeatedFieldsGenerator"
       }
+      override public func className() -> String {
+          return "TestParsingMergeLite.RepeatedFieldsGenerator"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestParsingMergeLite.RepeatedFieldsGenerator.self
       }
@@ -8064,6 +8109,9 @@ final public class TestParsingMergeLite : ExtendableMessage {
       override public class func className() -> String {
           return "TestParsingMergeLite.OptionalGroup"
       }
+      override public func className() -> String {
+          return "TestParsingMergeLite.OptionalGroup"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return TestParsingMergeLite.OptionalGroup.self
       }
@@ -8262,6 +8310,9 @@ final public class TestParsingMergeLite : ExtendableMessage {
       //Meta information declaration start
 
       override public class func className() -> String {
+          return "TestParsingMergeLite.RepeatedGroup"
+      }
+      override public func className() -> String {
           return "TestParsingMergeLite.RepeatedGroup"
       }
       override public func classMetaType() -> GeneratedMessage.Type {
@@ -8539,6 +8590,9 @@ final public class TestParsingMergeLite : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestParsingMergeLite"
+  }
+  override public func className() -> String {
       return "TestParsingMergeLite"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -8844,6 +8898,9 @@ final public class TestEmptyMessageLite : GeneratedMessage {
   override public class func className() -> String {
       return "TestEmptyMessageLite"
   }
+  override public func className() -> String {
+      return "TestEmptyMessageLite"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestEmptyMessageLite.self
   }
@@ -8982,6 +9039,9 @@ final public class TestEmptyMessageWithExtensionsLite : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestEmptyMessageWithExtensionsLite"
+  }
+  override public func className() -> String {
       return "TestEmptyMessageWithExtensionsLite"
   }
   override public func classMetaType() -> GeneratedMessage.Type {

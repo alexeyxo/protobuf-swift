@@ -166,6 +166,9 @@ final public class TestMessageSet : ExtendableMessage {
   override public class func className() -> String {
       return "TestMessageSet"
   }
+  override public func className() -> String {
+      return "TestMessageSet"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestMessageSet.self
   }
@@ -319,6 +322,9 @@ final public class TestMessageSetContainer : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestMessageSetContainer"
+  }
+  override public func className() -> String {
       return "TestMessageSetContainer"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -515,6 +521,9 @@ final public class TestMessageSetExtension1 : GeneratedMessage {
   override public class func className() -> String {
       return "TestMessageSetExtension1"
   }
+  override public func className() -> String {
+      return "TestMessageSetExtension1"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestMessageSetExtension1.self
   }
@@ -689,6 +698,9 @@ final public class TestMessageSetExtension2 : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestMessageSetExtension2"
+  }
+  override public func className() -> String {
       return "TestMessageSetExtension2"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -890,6 +902,9 @@ final public class RawMessageSet : GeneratedMessage {
       //Meta information declaration start
 
       override public class func className() -> String {
+          return "RawMessageSet.Item"
+      }
+      override public func className() -> String {
           return "RawMessageSet.Item"
       }
       override public func classMetaType() -> GeneratedMessage.Type {
@@ -1103,6 +1118,9 @@ final public class RawMessageSet : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "RawMessageSet"
+  }
+  override public func className() -> String {
       return "RawMessageSet"
   }
   override public func classMetaType() -> GeneratedMessage.Type {

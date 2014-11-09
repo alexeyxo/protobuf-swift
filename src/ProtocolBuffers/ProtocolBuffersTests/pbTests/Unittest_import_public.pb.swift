@@ -112,6 +112,9 @@ final public class PublicImportMessage : GeneratedMessage {
   override public class func className() -> String {
       return "PublicImportMessage"
   }
+  override public func className() -> String {
+      return "PublicImportMessage"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return PublicImportMessage.self
   }

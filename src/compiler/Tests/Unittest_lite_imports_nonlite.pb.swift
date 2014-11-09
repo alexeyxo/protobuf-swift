@@ -114,6 +114,9 @@ final public class TestLiteImportsNonlite : GeneratedMessage {
   override public class func className() -> String {
       return "TestLiteImportsNonlite"
   }
+  override public func className() -> String {
+      return "TestLiteImportsNonlite"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestLiteImportsNonlite.self
   }

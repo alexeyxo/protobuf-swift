@@ -152,6 +152,9 @@ final public class TestMessage : ExtendableMessage {
   override public class func className() -> String {
       return "TestMessage"
   }
+  override public func className() -> String {
+      return "TestMessage"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestMessage.self
   }

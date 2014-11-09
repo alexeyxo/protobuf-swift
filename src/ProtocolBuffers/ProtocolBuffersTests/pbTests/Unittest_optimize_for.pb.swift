@@ -282,6 +282,9 @@ final public class TestOptimizedForSize : ExtendableMessage {
   override public class func className() -> String {
       return "TestOptimizedForSize"
   }
+  override public func className() -> String {
+      return "TestOptimizedForSize"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestOptimizedForSize.self
   }
@@ -552,6 +555,9 @@ final public class TestRequiredOptimizedForSize : GeneratedMessage {
   override public class func className() -> String {
       return "TestRequiredOptimizedForSize"
   }
+  override public func className() -> String {
+      return "TestRequiredOptimizedForSize"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestRequiredOptimizedForSize.self
   }
@@ -729,6 +735,9 @@ final public class TestOptionalOptimizedForSize : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "TestOptionalOptimizedForSize"
+  }
+  override public func className() -> String {
       return "TestOptionalOptimizedForSize"
   }
   override public func classMetaType() -> GeneratedMessage.Type {

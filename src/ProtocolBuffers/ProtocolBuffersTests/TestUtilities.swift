@@ -283,20 +283,20 @@ class  TestUtilities {
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [RepeatedGroup_extension]
+        if let val = message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [TestAllTypes.NestedMessage]
+        if let val = message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [ForeignMessage]
+        if let val = message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
         
-        if let val = message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [ImportMessage]
+        if let val = message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
@@ -383,22 +383,34 @@ class  TestUtilities {
             XCTAssertTrue(TestUtilities.getData("216") == val[0], "")
         }
     
-        if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [RepeatedGroup_extension]
+        if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(217 == val[0].a, "")
+            if let value = val[0] as? RepeatedGroup_extension
+            {
+                XCTAssertTrue(217 == value.a, "")
+            }
         }
         
-        if let val =  message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [TestAllTypes.NestedMessage]
+        if let val =  message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(218 == val[0].bb, "")
+            if let value = val[0] as? TestAllTypes.NestedMessage
+            {
+                XCTAssertTrue(218 == value.bb, "")
+            }
         }
-        if let val =  message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [ForeignMessage]
+        if let val =  message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(219 == val[0].c, "")
+            if let value = val[0] as? ForeignMessage
+            {
+                XCTAssertTrue(219 == value.c, "")
+            }
         }
-        if let val =  message.getExtension(UnittestRoot.repeatedImportMessageExtension()) as? [ImportMessage]
+        if let val =  message.getExtension(UnittestRoot.repeatedImportMessageExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(220 == val[0].d, "")
+            if let value = val[0] as? ImportMessage
+            {
+                XCTAssertTrue(220 == value.d, "")
+            }
         }
         if let val =  message.getExtension(UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
@@ -484,22 +496,36 @@ class  TestUtilities {
             XCTAssertTrue(TestUtilities.getData("316") == val[1], "")
         }
         
-        if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [RepeatedGroup_extension]
+        if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(317 == val[1].a, "")
+            if let value = val[1] as? RepeatedGroup_extension
+            {
+                XCTAssertTrue(317 == value.a, "")
+            }
         }
         
-        if let val =  message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [TestAllTypes.NestedMessage]
+        if let val =  message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(318 == val[1].bb, "")
+            if let value = val[1] as? TestAllTypes.NestedMessage
+            {
+                XCTAssertTrue(318 == value.bb, "")
+            }
         }
-        if let val =  message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [ForeignMessage]
+        if let val =  message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(319 == val[1].c, "")
+            if let value = val[1] as? ForeignMessage
+            {
+                XCTAssertTrue(319 == value.c, "")
+            }
+            
         }
-        if let val =  message.getExtension(UnittestRoot.repeatedImportMessageExtension()) as? [ImportMessage]
+        if let val =  message.getExtension(UnittestRoot.repeatedImportMessageExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(320 == val[1].d, "")
+            if let value = val[1] as? ImportMessage
+            {
+                XCTAssertTrue(320 == value.d, "")
+            }
+            
         }
         if let val =  message.getExtension(UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
@@ -701,20 +727,20 @@ class  TestUtilities {
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [RepeatedGroup_extension]
+        if let val = message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [TestAllTypes.NestedMessage]
+        if let val = message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [ForeignMessage]
+        if let val = message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
         
-        if let val = message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [ImportMessage]
+        if let val = message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
@@ -801,22 +827,35 @@ class  TestUtilities {
             XCTAssertTrue(TestUtilities.getData("216") == val[0], "")
         }
         
-        if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [RepeatedGroup_extension]
+        if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(217 == val[0].a, "")
+            if let values = val[0] as? RepeatedGroup_extension
+            {
+                XCTAssertTrue(217 ==  values.a, "")
+            }
         }
         
-        if let val =  message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [TestAllTypes.NestedMessage]
+        if let val =  message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(218 == val[0].bb, "")
+            if let values = val[0] as? TestAllTypes.NestedMessage
+            {
+                XCTAssertTrue(218 == values.bb, "")
+            }
+            
         }
-        if let val =  message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [ForeignMessage]
+        if let val =  message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(219 == val[0].c, "")
+            if let values = val[0] as? ForeignMessage
+            {
+                XCTAssertTrue(219 == values.c, "")
+            }
         }
-        if let val =  message.getExtension(UnittestRoot.repeatedImportMessageExtension()) as? [ImportMessage]
+        if let val =  message.getExtension(UnittestRoot.repeatedImportMessageExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(220 == val[0].d, "")
+            if let values = val[0] as? ImportMessage
+            {
+                XCTAssertTrue(220 == values.d, "")
+            }
         }
         if let val =  message.getExtension(UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
@@ -903,22 +942,37 @@ class  TestUtilities {
             XCTAssertTrue(TestUtilities.getData("516") == val[1], "")
         }
         
-        if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [RepeatedGroup_extension]
+        if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(517 == val[1].a, "")
+            if let values = val[1] as? RepeatedGroup_extension
+            {
+                XCTAssertTrue(517 == values.a, "")
+            }
         }
         
-        if let val =  message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [TestAllTypes.NestedMessage]
+        if let val =  message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(518 == val[1].bb, "")
+            if let values = val[1] as? TestAllTypes.NestedMessage
+            {
+                XCTAssertTrue(518 == values.bb, "")
+            }
+            
         }
-        if let val =  message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [ForeignMessage]
+        if let val =  message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(519 == val[1].c, "")
+            if let values = val[1] as? ForeignMessage
+            {
+                XCTAssertTrue(519 == values.c, "")
+            }
+            
         }
-        if let val =  message.getExtension(UnittestRoot.repeatedImportMessageExtension()) as? [ImportMessage]
+        if let val =  message.getExtension(UnittestRoot.repeatedImportMessageExtension()) as? [GeneratedMessage]
         {
-            XCTAssertTrue(520 == val[1].d, "")
+            if let values = val[1] as? ImportMessage
+            {
+                XCTAssertTrue(520 == values.d, "")
+            }
+            
         }
         if let val =  message.getExtension(UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
@@ -1860,20 +1914,20 @@ class  TestUtilities {
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [RepeatedGroup_extension]
+        if let val = message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [TestAllTypes.NestedMessage]
+        if let val = message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [ForeignMessage]
+        if let val = message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(0 == val.count, "")
         }
         
-        if let val = message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [ImportMessage]
+        if let val = message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(0 == val.count, "")
         }

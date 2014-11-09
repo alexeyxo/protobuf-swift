@@ -363,6 +363,9 @@ final public class PBFileDescriptorSet : GeneratedMessage {
   override public class func className() -> String {
       return "PBFileDescriptorSet"
   }
+  override public func className() -> String {
+      return "PBFileDescriptorSet"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return PBFileDescriptorSet.self
   }
@@ -749,6 +752,9 @@ final public class PBFileDescriptorProto : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "PBFileDescriptorProto"
+  }
+  override public func className() -> String {
       return "PBFileDescriptorProto"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -1189,6 +1195,9 @@ final public class PBDescriptorProto : GeneratedMessage {
       override public class func className() -> String {
           return "PBDescriptorProto.ExtensionRange"
       }
+      override public func className() -> String {
+          return "PBDescriptorProto.ExtensionRange"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return PBDescriptorProto.ExtensionRange.self
       }
@@ -1534,6 +1543,9 @@ final public class PBDescriptorProto : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "PBDescriptorProto"
+  }
+  override public func className() -> String {
       return "PBDescriptorProto"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -2022,6 +2034,9 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
   override public class func className() -> String {
       return "PBFieldDescriptorProto"
   }
+  override public func className() -> String {
+      return "PBFieldDescriptorProto"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return PBFieldDescriptorProto.self
   }
@@ -2448,6 +2463,9 @@ final public class PBEnumDescriptorProto : GeneratedMessage {
   override public class func className() -> String {
       return "PBEnumDescriptorProto"
   }
+  override public func className() -> String {
+      return "PBEnumDescriptorProto"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return PBEnumDescriptorProto.self
   }
@@ -2718,6 +2736,9 @@ final public class PBEnumValueDescriptorProto : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "PBEnumValueDescriptorProto"
+  }
+  override public func className() -> String {
       return "PBEnumValueDescriptorProto"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -3009,6 +3030,9 @@ final public class PBServiceDescriptorProto : GeneratedMessage {
   override public class func className() -> String {
       return "PBServiceDescriptorProto"
   }
+  override public func className() -> String {
+      return "PBServiceDescriptorProto"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return PBServiceDescriptorProto.self
   }
@@ -3294,6 +3318,9 @@ final public class PBMethodDescriptorProto : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "PBMethodDescriptorProto"
+  }
+  override public func className() -> String {
       return "PBMethodDescriptorProto"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -3736,6 +3763,9 @@ final public class PBFileOptions : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "PBFileOptions"
+  }
+  override public func className() -> String {
       return "PBFileOptions"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -4187,6 +4217,9 @@ final public class PBMessageOptions : ExtendableMessage {
   override public class func className() -> String {
       return "PBMessageOptions"
   }
+  override public func className() -> String {
+      return "PBMessageOptions"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return PBMessageOptions.self
   }
@@ -4535,6 +4568,9 @@ final public class PBFieldOptions : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "PBFieldOptions"
+  }
+  override public func className() -> String {
       return "PBFieldOptions"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -4896,6 +4932,9 @@ final public class PBEnumOptions : ExtendableMessage {
   override public class func className() -> String {
       return "PBEnumOptions"
   }
+  override public func className() -> String {
+      return "PBEnumOptions"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return PBEnumOptions.self
   }
@@ -5109,6 +5148,9 @@ final public class PBEnumValueOptions : ExtendableMessage {
   override public class func className() -> String {
       return "PBEnumValueOptions"
   }
+  override public func className() -> String {
+      return "PBEnumValueOptions"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return PBEnumValueOptions.self
   }
@@ -5297,6 +5339,9 @@ final public class PBServiceOptions : ExtendableMessage {
   override public class func className() -> String {
       return "PBServiceOptions"
   }
+  override public func className() -> String {
+      return "PBServiceOptions"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return PBServiceOptions.self
   }
@@ -5483,6 +5528,9 @@ final public class PBMethodOptions : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "PBMethodOptions"
+  }
+  override public func className() -> String {
       return "PBMethodOptions"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -5678,6 +5726,9 @@ final public class PBUninterpretedOption : GeneratedMessage {
       //Meta information declaration start
 
       override public class func className() -> String {
+          return "PBUninterpretedOption.NamePart"
+      }
+      override public func className() -> String {
           return "PBUninterpretedOption.NamePart"
       }
       override public func classMetaType() -> GeneratedMessage.Type {
@@ -5983,6 +6034,9 @@ final public class PBUninterpretedOption : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "PBUninterpretedOption"
+  }
+  override public func className() -> String {
       return "PBUninterpretedOption"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -6377,6 +6431,9 @@ final public class PBSourceCodeInfo : GeneratedMessage {
       override public class func className() -> String {
           return "PBSourceCodeInfo.Location"
       }
+      override public func className() -> String {
+          return "PBSourceCodeInfo.Location"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return PBSourceCodeInfo.Location.self
       }
@@ -6624,6 +6681,9 @@ final public class PBSourceCodeInfo : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "PBSourceCodeInfo"
+  }
+  override public func className() -> String {
       return "PBSourceCodeInfo"
   }
   override public func classMetaType() -> GeneratedMessage.Type {

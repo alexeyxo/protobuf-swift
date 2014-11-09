@@ -136,6 +136,9 @@ final public class ImportMessageLite : GeneratedMessage {
   override public class func className() -> String {
       return "ImportMessageLite"
   }
+  override public func className() -> String {
+      return "ImportMessageLite"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return ImportMessageLite.self
   }

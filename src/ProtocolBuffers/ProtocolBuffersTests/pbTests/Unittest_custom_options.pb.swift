@@ -866,6 +866,9 @@ final public class TestMessageWithCustomOptions : GeneratedMessage {
   override public class func className() -> String {
       return "TestMessageWithCustomOptions"
   }
+  override public func className() -> String {
+      return "TestMessageWithCustomOptions"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestMessageWithCustomOptions.self
   }
@@ -1024,6 +1027,9 @@ final public class CustomOptionFooRequest : GeneratedMessage {
   override public class func className() -> String {
       return "CustomOptionFooRequest"
   }
+  override public func className() -> String {
+      return "CustomOptionFooRequest"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return CustomOptionFooRequest.self
   }
@@ -1155,6 +1161,9 @@ final public class CustomOptionFooResponse : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "CustomOptionFooResponse"
+  }
+  override public func className() -> String {
       return "CustomOptionFooResponse"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -1290,6 +1299,9 @@ final public class CustomOptionFooClientMessage : GeneratedMessage {
   override public class func className() -> String {
       return "CustomOptionFooClientMessage"
   }
+  override public func className() -> String {
+      return "CustomOptionFooClientMessage"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return CustomOptionFooClientMessage.self
   }
@@ -1421,6 +1433,9 @@ final public class CustomOptionFooServerMessage : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "CustomOptionFooServerMessage"
+  }
+  override public func className() -> String {
       return "CustomOptionFooServerMessage"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -1578,6 +1593,9 @@ final public class DummyMessageContainingEnum : GeneratedMessage {
   override public class func className() -> String {
       return "DummyMessageContainingEnum"
   }
+  override public func className() -> String {
+      return "DummyMessageContainingEnum"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return DummyMessageContainingEnum.self
   }
@@ -1709,6 +1727,9 @@ final public class DummyMessageInvalidAsOptionType : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "DummyMessageInvalidAsOptionType"
+  }
+  override public func className() -> String {
       return "DummyMessageInvalidAsOptionType"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -1844,6 +1865,9 @@ final public class CustomOptionMinIntegerValues : GeneratedMessage {
   override public class func className() -> String {
       return "CustomOptionMinIntegerValues"
   }
+  override public func className() -> String {
+      return "CustomOptionMinIntegerValues"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return CustomOptionMinIntegerValues.self
   }
@@ -1975,6 +1999,9 @@ final public class CustomOptionMaxIntegerValues : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "CustomOptionMaxIntegerValues"
+  }
+  override public func className() -> String {
       return "CustomOptionMaxIntegerValues"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -2110,6 +2137,9 @@ final public class CustomOptionOtherValues : GeneratedMessage {
   override public class func className() -> String {
       return "CustomOptionOtherValues"
   }
+  override public func className() -> String {
+      return "CustomOptionOtherValues"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return CustomOptionOtherValues.self
   }
@@ -2243,6 +2273,9 @@ final public class SettingRealsFromPositiveInts : GeneratedMessage {
   override public class func className() -> String {
       return "SettingRealsFromPositiveInts"
   }
+  override public func className() -> String {
+      return "SettingRealsFromPositiveInts"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return SettingRealsFromPositiveInts.self
   }
@@ -2374,6 +2407,9 @@ final public class SettingRealsFromNegativeInts : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "SettingRealsFromNegativeInts"
+  }
+  override public func className() -> String {
       return "SettingRealsFromNegativeInts"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -2579,6 +2615,9 @@ final public class ComplexOptionType1 : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "ComplexOptionType1"
+  }
+  override public func className() -> String {
       return "ComplexOptionType1"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -2831,6 +2870,9 @@ final public class ComplexOptionType2 : ExtendableMessage {
       override public class func className() -> String {
           return "ComplexOptionType2.ComplexOptionType4"
       }
+      override public func className() -> String {
+          return "ComplexOptionType2.ComplexOptionType4"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return ComplexOptionType2.ComplexOptionType4.self
       }
@@ -3066,6 +3108,9 @@ final public class ComplexOptionType2 : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "ComplexOptionType2"
+  }
+  override public func className() -> String {
       return "ComplexOptionType2"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -3353,6 +3398,9 @@ final public class ComplexOptionType3 : GeneratedMessage {
       override public class func className() -> String {
           return "ComplexOptionType3.ComplexOptionType5"
       }
+      override public func className() -> String {
+          return "ComplexOptionType3.ComplexOptionType5"
+      }
       override public func classMetaType() -> GeneratedMessage.Type {
           return ComplexOptionType3.ComplexOptionType5.self
       }
@@ -3543,6 +3591,9 @@ final public class ComplexOptionType3 : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "ComplexOptionType3"
+  }
+  override public func className() -> String {
       return "ComplexOptionType3"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -3761,6 +3812,9 @@ final public class ComplexOpt6 : GeneratedMessage {
   override public class func className() -> String {
       return "ComplexOpt6"
   }
+  override public func className() -> String {
+      return "ComplexOpt6"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return ComplexOpt6.self
   }
@@ -3919,6 +3973,9 @@ final public class VariousComplexOptions : GeneratedMessage {
   override public class func className() -> String {
       return "VariousComplexOptions"
   }
+  override public func className() -> String {
+      return "VariousComplexOptions"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return VariousComplexOptions.self
   }
@@ -4057,6 +4114,9 @@ final public class AggregateMessageSet : ExtendableMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "AggregateMessageSet"
+  }
+  override public func className() -> String {
       return "AggregateMessageSet"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -4209,6 +4269,9 @@ final public class AggregateMessageSetElement : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "AggregateMessageSetElement"
+  }
+  override public func className() -> String {
       return "AggregateMessageSetElement"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -4463,6 +4526,9 @@ final public class Aggregate : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "Aggregate"
+  }
+  override public func className() -> String {
       return "Aggregate"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
@@ -4792,6 +4858,9 @@ final public class AggregateMessage : GeneratedMessage {
   override public class func className() -> String {
       return "AggregateMessage"
   }
+  override public func className() -> String {
+      return "AggregateMessage"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return AggregateMessage.self
   }
@@ -4968,6 +5037,9 @@ final public class NestedOptionType : GeneratedMessage {
       //Meta information declaration start
 
       override public class func className() -> String {
+          return "NestedOptionType.NestedMessage"
+      }
+      override public func className() -> String {
           return "NestedOptionType.NestedMessage"
       }
       override public func classMetaType() -> GeneratedMessage.Type {
@@ -5153,6 +5225,9 @@ final public class NestedOptionType : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
+      return "NestedOptionType"
+  }
+  override public func className() -> String {
       return "NestedOptionType"
   }
   override public func classMetaType() -> GeneratedMessage.Type {

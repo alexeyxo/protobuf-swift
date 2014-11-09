@@ -341,6 +341,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "classname",
                        ClassName(descriptor_));
         
+        printer->Print("override public func className() -> String {\n"
+                       "    return \"$classname$\"\n"
+                       "}\n",
+                       "classname",
+                       ClassName(descriptor_));
+        
         printer->Print("override public func classMetaType() -> GeneratedMessage.Type {\n"
                        "    return $classname$.self\n"
                        "}\n",

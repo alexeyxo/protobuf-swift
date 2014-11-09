@@ -147,6 +147,9 @@ final public class TestEmbedOptimizedForSize : GeneratedMessage {
   override public class func className() -> String {
       return "TestEmbedOptimizedForSize"
   }
+  override public func className() -> String {
+      return "TestEmbedOptimizedForSize"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestEmbedOptimizedForSize.self
   }

@@ -30,6 +30,10 @@ public class GeneratedMessage:AbstractMessage
     {
         return "GeneratedMessage"
     }
+    public func className() -> String
+    {
+        return "GeneratedMessage"
+    }
     public func classMetaType() -> GeneratedMessage.Type
     {
         return GeneratedMessage.self

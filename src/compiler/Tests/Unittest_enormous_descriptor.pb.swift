@@ -16096,6 +16096,9 @@ final public class TestEnormousDescriptor : GeneratedMessage {
   override public class func className() -> String {
       return "TestEnormousDescriptor"
   }
+  override public func className() -> String {
+      return "TestEnormousDescriptor"
+  }
   override public func classMetaType() -> GeneratedMessage.Type {
       return TestEnormousDescriptor.self
   }
