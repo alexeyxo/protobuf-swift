@@ -1366,12 +1366,16 @@ class  TestUtilities {
         message.defaultStringPiece = "424"
         message.defaultCord = "425"
         
-//        message.oneofUint32 = 601
-//        var builder = TestAllTypes.NestedMessage.builder()
-//        builder.bb = 602
-//        message.oneofNestedMessage = builder.build()
-//        message.oneofString = "603"
-//        message.oneofBytes = [Byte]() + "604".utf8
+    }
+    
+    class func setOneOfFields(message:TestAllTypesBuilder)
+    {
+        message.oneofUint32 = 601
+        var builder = TestAllTypes.NestedMessage.builder()
+        builder.bb = 602
+        message.oneofNestedMessage = builder.build()
+        message.oneofString = "603"
+        message.oneofBytes = [Byte]() + "604".utf8
     }
     
     class func setAllExtensions(message:TestAllExtensionsBuilder)

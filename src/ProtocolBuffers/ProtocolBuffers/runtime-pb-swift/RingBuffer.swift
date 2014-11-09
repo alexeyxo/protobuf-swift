@@ -78,7 +78,7 @@ internal class RingBuffer
         
         let freeSpaces:UInt32 = freeSpace()
         
-        if freeSpaces != 0
+        if freeSpaces == 0
         {
             return totalWritten
         }
@@ -131,11 +131,11 @@ internal class RingBuffer
         }
         
         if (position == Int32(buffer.count) && tail > 0) {
-            position = 0;
+            position = 0
         }
         
         if (tail == Int32(buffer.count)) {
-            tail = 0;
+            tail = 0
         }
         
         return totalWritten
