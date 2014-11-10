@@ -164,7 +164,7 @@ public class ExtendableMessage : GeneratedMessage
             return value == value2
         case (let value as [String], let value2 as [String]):
             return value == value2
-        case (let value as [Byte], let value2 as [Byte]):
+        case (let value as Array<Array<Byte>>, let value2 as Array<Array<Byte>>):
             return value == value2
         case (let value as [UInt32], let value2 as [UInt32]):
             return value == value2
@@ -176,75 +176,63 @@ public class ExtendableMessage : GeneratedMessage
             return false
         }
     }
-    private func getHash(lhs:Any) -> Int!
+    
+    private func getHash<T>(lhs:T) -> Int!
     {
         switch lhs
         {
         case let value as Int32:
-            return value.hashValue
+            return getHashValue(value)
         case let value as Int64:
-            return value.hashValue
-        case let value as Double:
-            return value.hashValue
+            return getHashValue(value)
+        case let value as UInt32:
+            return getHashValue(value)
+        case let value as UInt64:
+            return getHashValue(value)
         case let value as Float:
-            return value.hashValue
+            return getHashValue(value)
+        case let value as Double:
+            return getHashValue(value)
         case let value as Bool:
-            return value.hashValue
+            return getHashValue(value)
         case let value as String:
-            return value.hashValue
+            return getHashValue(value)
+        case let value as [Byte]:
+            return getHashBytesArrays(value)
+        case let value as GeneratedMessage:
+            return getHashValue(value)
+        case let value as [Int32]:
+            return getHashValueRepeated(value)
+        case let value as [Int64]:
+            return getHashValueRepeated(value)
+        case let value as [UInt32]:
+            return getHashValueRepeated(value)
+        case let value as [UInt64]:
+            return getHashValueRepeated(value)
+        case let value as [Float]:
+            return getHashValueRepeated(value)
+        case let value as [Double]:
+            return getHashValueRepeated(value)
+        case let value as [Bool]:
+            return getHashValueRepeated(value)
+        case let value as [String]:
+            return getHashValueRepeated(value)
+        case let value as Array<Array<Byte>>:
+            return getHashBytesArrays(value)
+        case let value as [GeneratedMessage]:
+            return getHashValueRepeated(value)
+        default:
+            return nil
+        }
+    }
+
+    private func getHashBytesArrays(lhs:Any) -> Int!
+    {
+    
+        switch lhs
+        {
         case let value as [Byte]:
             return getHashBytes(value)
-        case let value as UInt32:
-            return value.hashValue
-        case let value as UInt64:
-            return value.hashValue
-        case let value as GeneratedMessage:
-            return value.hashValue
-            
-        case let value as [Int32]:
-            var hashCode:Int = 0
-            for vv in value
-            {
-                hashCode = (hashCode &* 31) &+ vv.hashValue
-            }
-            return hashCode
-        case let value as [Int64]:
-            var hashCode:Int = 0
-            for vv in value
-            {
-                hashCode = (hashCode &* 31) &+ vv.hashValue
-            }
-            return hashCode
-        case let value as [Double]:
-            var hashCode:Int = 0
-            for vv in value
-            {
-                hashCode = (hashCode &* 31) &+ vv.hashValue
-            }
-            return hashCode
-        case let value as [Float]:
-            var hashCode:Int = 0
-            for vv in value
-            {
-                hashCode = (hashCode &* 31) &+ vv.hashValue
-            }
-            return hashCode
-        case let value as [Bool]:
-            var hashCode:Int = 0
-            for vv in value
-            {
-                hashCode = (hashCode &* 31) &+ vv.hashValue
-            }
-            return hashCode
-
-        case let value as [String]:
-            var hashCode:Int = 0
-            for vv in value
-            {
-                hashCode = (hashCode &* 31) &+ vv.hashValue
-            }
-            return hashCode
-
         case let value as Array<Array<Byte>>:
             var hashCode:Int = 0
             for vv in value
@@ -252,33 +240,26 @@ public class ExtendableMessage : GeneratedMessage
                 hashCode = (hashCode &* 31) &+ getHashBytes(vv)
             }
             return hashCode
-        case let value as [UInt32]:
-            var hashCode:Int = 0
-            for vv in value
-            {
-                hashCode = (hashCode &* 31) &+ vv.hashValue
-            }
-            return hashCode
-
-        case let value as [UInt64]:
-            var hashCode:Int = 0
-            for vv in value
-            {
-                hashCode = (hashCode &* 31) &+ vv.hashValue
-            }
-            return hashCode
-
-        case let value as [GeneratedMessage]:
-            var hashCode:Int = 0
-            for vv in value
-            {
-                hashCode = (hashCode &* 31) &+ vv.hashValue
-            }
-            return hashCode
         default:
             return nil
         }
     }
+
+    private func getHashValueRepeated<T where T:SequenceType, T.Generator.Element:protocol<Hashable,Equatable>>(lhs:T) -> Int!
+    {
+        var hashCode:Int = 0
+        for vv in lhs
+        {
+            hashCode = (hashCode &* 31) &+ vv.hashValue
+        }
+        return hashCode
+    }
+    
+    private func getHashValue<T where T:protocol<Hashable,Equatable>>(lhs:T) -> Int!
+    {
+        return lhs.hashValue
+    }
+    
     private func getHashBytes(bytes:[Byte]) -> Int
     {
         var hashCode:Int = 0
@@ -394,31 +375,25 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         
         var message = internalGetResult
         message.ensureExtensionIsRegistered(extensions)
-    
+        
         if (!extensions.isRepeated) {
             NSException(name:"IllegalArgument", reason:"Must call setExtension() for singular types.", userInfo: nil).raise()
         }
-
+        
         var fieldNumber = extensions.fieldNumber
         if let val = value as? GeneratedMessage
         {
-            var list:[GeneratedMessage]! = message.extensionMap[fieldNumber] as [GeneratedMessage]!
-            if list == nil {
-                list = [GeneratedMessage]()
-            }
+            var list:[GeneratedMessage]! = message.extensionMap[fieldNumber] as? [GeneratedMessage] ?? []
             list.append(val)
             message.extensionMap[fieldNumber] = list
         }
         else
         {
-            var list:[T]! = message.extensionMap[fieldNumber] as [T]!
-            if list == nil {
-                list = [T]()
-            }
+            var list:[T]! = message.extensionMap[fieldNumber] as? [T] ?? []
             list.append(value)
             message.extensionMap[fieldNumber] = list
         }
-  
+        
         return self
     }
     
@@ -426,29 +401,24 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         var message = internalGetResult
         message.ensureExtensionIsRegistered(extensions)
         if (!extensions.isRepeated) {
-             NSException(name:"IllegalArgument", reason:"Must call setExtension() for singular types.", userInfo: nil).raise()
+            NSException(name:"IllegalArgument", reason:"Must call setExtension() for singular types.", userInfo: nil).raise()
         }
         var fieldNumber = extensions.fieldNumber
         if let val = value as? GeneratedMessage
         {
-            var list:[GeneratedMessage]! = message.extensionMap[fieldNumber] as [GeneratedMessage]!
-            if list == nil {
-                list = [GeneratedMessage]()
-            }
+            var list:[GeneratedMessage]! = message.extensionMap[fieldNumber] as? [GeneratedMessage] ?? []
             list[Int(index)] = val
             message.extensionMap[fieldNumber] = list
         }
         else
         {
-            var list:[T]! = message.extensionMap[fieldNumber] as [T]!
-            if list == nil {
-                list = [T]()
-            }
+            var list:[T]! = message.extensionMap[fieldNumber] as? [T] ?? []
             list[Int(index)] = value
             message.extensionMap[fieldNumber] = list
         }
         return self
     }
+
     
     public func  clearExtension(extensions:ConcreateExtensionField) -> Self {
         var message = internalGetResult
@@ -456,6 +426,15 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         message.extensionMap.removeValueForKey(extensions.fieldNumber)
         return self
     }
+
+    private func mergeRepeatedExtensionFields<T where T:SequenceType>(var otherList:T, var extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Generator.Element]
+    {
+        var list:[T.Generator.Element]! = extensionMap[fieldNumber] as? [T.Generator.Element] ?? []
+        list! += otherList
+        return list!
+
+    }
+    
     public func mergeExtensionFields(other:ExtendableMessage) {
         var thisMessage = internalGetResult
         if (thisMessage.className() != other.className()) {
@@ -465,95 +444,31 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
             var registry = other.extensionRegistry
             for fieldNumber in other.extensionMap.keys {
                 var thisField = registry[fieldNumber]!
-                var value = other.extensionMap[fieldNumber]!
                 
+                var value = other.extensionMap[fieldNumber]!
                 if thisField.isRepeated {
                     switch value
                     {
                     case let values as [Int32]:
-                        var list:[Int32]! = thisMessage.extensionMap[fieldNumber] as [Int32]!
-                        if list == nil
-                        {
-                            list = [Int32]()
-                        }
-                        list! += values
-                        thisMessage.extensionMap[fieldNumber] = list
-                        
+                        thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as [Int64]:
-                        var list:[Int64]! = thisMessage.extensionMap[fieldNumber] as [Int64]!
-                        if list == nil
-                        {
-                            list = [Int64]()
-                        }
-                        list! += values
-                        thisMessage.extensionMap[fieldNumber] = list
-                        
+                        thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as [UInt64]:
-                        var list:[UInt64]! = thisMessage.extensionMap[fieldNumber] as [UInt64]!
-                        if list == nil
-                        {
-                            list = [UInt64]()
-                        }
-                        list! += values
-                        thisMessage.extensionMap[fieldNumber] = list
-                        
-                        
+                        thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as [UInt32]:
-                        var list:[UInt32]! = thisMessage.extensionMap[fieldNumber] as [UInt32]!
-                        if list == nil
-                        {
-                            list = [UInt32]()
-                        }
-                        list! += values
-                        thisMessage.extensionMap[fieldNumber] = list
+                        thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as [Bool]:
-                        var list:[Bool]! = thisMessage.extensionMap[fieldNumber] as [Bool]!
-                        if list == nil
-                        {
-                            list = [Bool]()
-                        }
-                        list! += values
-                        thisMessage.extensionMap[fieldNumber] = list
+                        thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as [Float]:
-                        var list:[Float]! = thisMessage.extensionMap[fieldNumber] as [Float]!
-                        if list == nil
-                        {
-                            list = [Float]()
-                        }
-                        list! += values
-                        thisMessage.extensionMap[fieldNumber] = list
+                        thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as [Double]:
-                        var list:[Double]! = thisMessage.extensionMap[fieldNumber] as [Double]!
-                        if list == nil
-                        {
-                            list = [Double]()
-                        }
-                        list! += values
-                        thisMessage.extensionMap[fieldNumber] = list
+                        thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as [String]:
-                        var list:[String]! = thisMessage.extensionMap[fieldNumber] as [String]!
-                        if list == nil
-                        {
-                            list = [String]()
-                        }
-                        list! += values
-                        thisMessage.extensionMap[fieldNumber] = list
+                        thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as Array<Array<Byte>>:
-                        var list:[Array<Byte>]! = thisMessage.extensionMap[fieldNumber] as [Array<Byte>]!
-                        if list == nil
-                        {
-                            list = Array<Array<Byte>>()
-                        }
-                        list! += values
-                        thisMessage.extensionMap[fieldNumber] = list
+                        thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as [GeneratedMessage]:
-                        var list:[GeneratedMessage]! = thisMessage.extensionMap[fieldNumber] as [GeneratedMessage]!
-                        if list == nil
-                        {
-                            list = [GeneratedMessage]()
-                        }
-                        list! += values
-                        thisMessage.extensionMap[fieldNumber] = list
+                        thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     default:
                         break
                     }
