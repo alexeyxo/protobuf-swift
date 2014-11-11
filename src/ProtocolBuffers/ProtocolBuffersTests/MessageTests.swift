@@ -100,17 +100,17 @@ class MessageTests: XCTestCase {
         var builder = TestAllExtensions.builder()
         XCTAssertTrue(builder.isInitialized(), "")
         
-//        builder.setExtension(TestRequired.single(), value:testRequiredUninitialized())
-//        XCTAssertFalse(builder.isInitialized(), "")
-//        
-//        builder.setExtension(TestRequired.single(), value:testRequiredInitialized())
-//        XCTAssertTrue(builder.isInitialized(), "")
-//        
-//        builder.addExtension(TestRequired.multi(), value:testRequiredUninitialized())
-//        XCTAssertFalse(builder.isInitialized(), "")
-//        
-//        builder.setExtension(TestRequired.multi(), index:0, value:testRequiredInitialized())
-//        XCTAssertTrue(builder.isInitialized(), "")
+        builder.setExtension(TestRequired.single(), value:testRequiredUninitialized())
+        XCTAssertFalse(builder.isInitialized(), "")
+        
+        builder.setExtension(TestRequired.single(), value:testRequiredInitialized())
+        XCTAssertTrue(builder.isInitialized(), "")
+        
+        builder.addExtension(TestRequired.multi(), value:testRequiredUninitialized())
+        XCTAssertFalse(builder.isInitialized(), "")
+        
+        builder.setExtension(TestRequired.multi(), index:0, value:testRequiredInitialized())
+        XCTAssertTrue(builder.isInitialized(), "")
     }
     
     func testBuildPartial() {

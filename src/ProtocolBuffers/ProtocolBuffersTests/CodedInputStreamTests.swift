@@ -299,22 +299,17 @@ class CodedInputStreamTests: XCTestCase
         for (var i:Int = 0; Int(i) < blob.count; i++) {
             blob[i] = 1
         }
-        // Make a message containing it.
         var builder = TestAllTypes.builder()
         TestUtilities.setAllFields(builder)
     
         builder.optionalBytes = blob
         var message = builder.build()
-        // Serialize and parse it.  Make sure to parse from an InputStream, not
-        // directly from a ByteString, so that CodedInputStream uses buffered
-        // reading.
         var data = NSMutableData()
         var bytesArray = message.data()
         data.appendBytes(&bytesArray, length:message.data().count)
         var message2 = TestAllTypes.parseFromInputStream(NSInputStream(data:data))
         XCTAssertTrue(message.optionalBytes == message2.optionalBytes, "")
-
-        // Make sure all the other fields were parsed correctly.
+        
         var builder3 = TestAllTypes.builderWithPrototype(message2)
         builder3.optionalBytes = TestUtilities.allSet().optionalBytes
         var message3 = builder3.build()

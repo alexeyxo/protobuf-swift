@@ -50,8 +50,9 @@ public class ExtendableMessage : GeneratedMessage
     
     public func isInitialized(object:Any) -> Bool
     {
-        if let array = object as? Array<GeneratedMessage>
+        switch object
         {
+        case let array as Array<Any>:
             for child in array
             {
                 if (!isInitialized(child))
@@ -59,16 +60,26 @@ public class ExtendableMessage : GeneratedMessage
                     return false
                 }
             }
+        case let array as Array<GeneratedMessage>:
+            for child in array
+            {
+                if (!isInitialized(child))
+                {
+                    return false
+                }
+            }
+        case let message as GeneratedMessage:
+            return message.isInitialized()
+        default:
+            return true
         }
-        else if let mes = object as? GeneratedMessage
-        {
-            return mes.isInitialized()
-        }
+        
         return true
     }
     
     public func extensionsAreInitialized() -> Bool {
-        return isInitialized(Array(extensionMap.values))
+        var arr = Array(extensionMap.values)
+        return isInitialized(arr)
     }
     
     internal func ensureExtensionIsRegistered(extensions:ConcreateExtensionField)
