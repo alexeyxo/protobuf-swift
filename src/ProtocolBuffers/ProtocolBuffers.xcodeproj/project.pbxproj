@@ -27,6 +27,7 @@
 		3F62EF9A19C720F80007F248 /* ProtocolBuffers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3F64475E19F040DE0030E56C /* Perfomance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F64475D19F040DE0030E56C /* Perfomance.pb.swift */; };
 		3F813FF41A1030000008F493 /* SizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F813FF31A1030000008F493 /* SizeTest.swift */; };
+		3F813FF61A12C0E90008F493 /* WireFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F813FF51A12C0E90008F493 /* WireFormatTests.swift */; };
 		3F85569F19C71BCF003802F2 /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F85569E19C71BCF003802F2 /* ProtocolBuffers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F8556A919C71BCF003802F2 /* ProtocolBuffersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556A819C71BCF003802F2 /* ProtocolBuffersTests.swift */; };
 		3F8556D119C71C05003802F2 /* CodedInputStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */; };
@@ -83,6 +84,7 @@
 		3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtilities.swift; sourceTree = "<group>"; };
 		3F64475D19F040DE0030E56C /* Perfomance.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Perfomance.pb.swift; sourceTree = "<group>"; };
 		3F813FF31A1030000008F493 /* SizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeTest.swift; sourceTree = "<group>"; };
+		3F813FF51A12C0E90008F493 /* WireFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireFormatTests.swift; sourceTree = "<group>"; };
 		3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F85569D19C71BCF003802F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F85569E19C71BCF003802F2 /* ProtocolBuffers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolBuffers.h; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				3F9301381A095F2B00F7A20B /* GeneratedMessageTests.swift */,
 				3FEFE99E1A12612E005DEAF3 /* MessageTests.swift */,
 				3F813FF31A1030000008F493 /* SizeTest.swift */,
+				3F813FF51A12C0E90008F493 /* WireFormatTests.swift */,
 				3F8556A619C71BCF003802F2 /* Supporting Files */,
 			);
 			path = ProtocolBuffersTests;
@@ -362,6 +365,7 @@
 				3F2B1CE619E2A6EC001A505E /* Unittest.pb.swift in Sources */,
 				3F4375BE19E44ADF007C23B1 /* TestUtilities.swift in Sources */,
 				3F9301391A095F2B00F7A20B /* GeneratedMessageTests.swift in Sources */,
+				3F813FF61A12C0E90008F493 /* WireFormatTests.swift in Sources */,
 				3F64475E19F040DE0030E56C /* Perfomance.pb.swift in Sources */,
 				3F8556D219C71C05003802F2 /* CodedOuputStreamTests.swift in Sources */,
 				3F2B1CED19E2A6EC001A505E /* Unittest_import_public.pb.swift in Sources */,

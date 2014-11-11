@@ -133,7 +133,7 @@ messageOrGroupClass:Any.Type,
         switch (type) {
             case .ExtensionTypeBool,.ExtensionTypeFixed32,.ExtensionTypeSFixed32,.ExtensionTypeFloat,.ExtensionTypeFixed64,.ExtensionTypeSFixed64,.ExtensionTypeDouble: return true
             default:
-                return false;
+                return false
         }
     }
     
@@ -141,11 +141,11 @@ messageOrGroupClass:Any.Type,
     func typeSize(type:ExtensionType) -> Int32
     {
         switch (type) {
-            case .ExtensionTypeBool: return 1;
+            case .ExtensionTypeBool: return 1
             case .ExtensionTypeFixed32, .ExtensionTypeSFixed32, .ExtensionTypeFloat: return 4
             case .ExtensionTypeFixed64,.ExtensionTypeSFixed64, .ExtensionTypeDouble: return 8
             default:
-                return 0;
+                return 0
         }
     }
     
@@ -762,7 +762,9 @@ messageOrGroupClass:Any.Type,
         else if isMessageSetWireFormat
         {
             mergeMessageSetExtentionFromCodedInputStream(input, unknownFields:unknownFields)
-        } else {
+        }
+        else
+        {
             var value = readSingleValueFromCodedInputStream(input, extensionRegistry:extensionRegistry)
             if (isRepeated) {
                 builder.addExtension(self, value:value)
