@@ -914,7 +914,7 @@ final class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptions(value:PBFileOptions) -> PBFileDescriptorProtoBuilder {
-    if (builderResult.hasOptions && builderResult.options != PBFileOptions()) {
+    if (builderResult.hasOptions) {
       builderResult.options = PBFileOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
     } else {
       builderResult.options = value
@@ -946,7 +946,7 @@ final class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeSourceCodeInfo(value:PBSourceCodeInfo) -> PBFileDescriptorProtoBuilder {
-    if (builderResult.hasSourceCodeInfo && builderResult.sourceCodeInfo != PBSourceCodeInfo()) {
+    if (builderResult.hasSourceCodeInfo) {
       builderResult.sourceCodeInfo = PBSourceCodeInfo.builderWithPrototype(builderResult.sourceCodeInfo).mergeFrom(value).buildPartial()
     } else {
       builderResult.sourceCodeInfo = value
@@ -1662,7 +1662,7 @@ final class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptions(value:PBMessageOptions) -> PBDescriptorProtoBuilder {
-    if (builderResult.hasOptions && builderResult.options != PBMessageOptions()) {
+    if (builderResult.hasOptions) {
       builderResult.options = PBMessageOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
     } else {
       builderResult.options = value
@@ -2205,7 +2205,7 @@ final class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptions(value:PBFieldOptions) -> PBFieldDescriptorProtoBuilder {
-    if (builderResult.hasOptions && builderResult.options != PBFieldOptions()) {
+    if (builderResult.hasOptions) {
       builderResult.options = PBFieldOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
     } else {
       builderResult.options = value
@@ -2532,7 +2532,7 @@ final class PBEnumDescriptorProtoBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptions(value:PBEnumOptions) -> PBEnumDescriptorProtoBuilder {
-    if (builderResult.hasOptions && builderResult.options != PBEnumOptions()) {
+    if (builderResult.hasOptions) {
       builderResult.options = PBEnumOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
     } else {
       builderResult.options = value
@@ -2814,7 +2814,7 @@ final class PBEnumValueDescriptorProtoBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptions(value:PBEnumValueOptions) -> PBEnumValueDescriptorProtoBuilder {
-    if (builderResult.hasOptions && builderResult.options != PBEnumValueOptions()) {
+    if (builderResult.hasOptions) {
       builderResult.options = PBEnumValueOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
     } else {
       builderResult.options = value
@@ -3099,7 +3099,7 @@ final class PBServiceDescriptorProtoBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptions(value:PBServiceOptions) -> PBServiceDescriptorProtoBuilder {
-    if (builderResult.hasOptions && builderResult.options != PBServiceOptions()) {
+    if (builderResult.hasOptions) {
       builderResult.options = PBServiceOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
     } else {
       builderResult.options = value
@@ -3415,7 +3415,7 @@ final class PBMethodDescriptorProtoBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptions(value:PBMethodOptions) -> PBMethodDescriptorProtoBuilder {
-    if (builderResult.hasOptions && builderResult.options != PBMethodOptions()) {
+    if (builderResult.hasOptions) {
       builderResult.options = PBMethodOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
     } else {
       builderResult.options = value

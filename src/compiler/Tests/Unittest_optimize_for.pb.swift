@@ -339,7 +339,7 @@ final class TestOptimizedForSizeBuilder : ExtendableMessageBuilder {
     return self
   }
   func mergeMsg(value:ForeignMessage) -> TestOptimizedForSizeBuilder {
-    if (builderResult.hasMsg && builderResult.msg != ForeignMessage()) {
+    if (builderResult.hasMsg) {
       builderResult.msg = ForeignMessage.builderWithPrototype(builderResult.msg).mergeFrom(value).buildPartial()
     } else {
       builderResult.msg = value
@@ -775,7 +775,7 @@ final class TestOptionalOptimizedForSizeBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeO(value:TestRequiredOptimizedForSize) -> TestOptionalOptimizedForSizeBuilder {
-    if (builderResult.hasO && builderResult.o != TestRequiredOptimizedForSize()) {
+    if (builderResult.hasO) {
       builderResult.o = TestRequiredOptimizedForSize.builderWithPrototype(builderResult.o).mergeFrom(value).buildPartial()
     } else {
       builderResult.o = value

@@ -4452,7 +4452,7 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalGroup(value:TestAllTypes.OptionalGroup) -> TestAllTypesBuilder {
-    if (builderResult.hasOptionalGroup && builderResult.optionalGroup != TestAllTypes.OptionalGroup()) {
+    if (builderResult.hasOptionalGroup) {
       builderResult.optionalGroup = TestAllTypes.OptionalGroup.builderWithPrototype(builderResult.optionalGroup).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalGroup = value
@@ -4484,7 +4484,7 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalNestedMessage(value:TestAllTypes.NestedMessage) -> TestAllTypesBuilder {
-    if (builderResult.hasOptionalNestedMessage && builderResult.optionalNestedMessage != TestAllTypes.NestedMessage()) {
+    if (builderResult.hasOptionalNestedMessage) {
       builderResult.optionalNestedMessage = TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalNestedMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalNestedMessage = value
@@ -4516,7 +4516,7 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalForeignMessage(value:ForeignMessage) -> TestAllTypesBuilder {
-    if (builderResult.hasOptionalForeignMessage && builderResult.optionalForeignMessage != ForeignMessage()) {
+    if (builderResult.hasOptionalForeignMessage) {
       builderResult.optionalForeignMessage = ForeignMessage.builderWithPrototype(builderResult.optionalForeignMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalForeignMessage = value
@@ -4548,7 +4548,7 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalImportMessage(value:ImportMessage) -> TestAllTypesBuilder {
-    if (builderResult.hasOptionalImportMessage && builderResult.optionalImportMessage != ImportMessage()) {
+    if (builderResult.hasOptionalImportMessage) {
       builderResult.optionalImportMessage = ImportMessage.builderWithPrototype(builderResult.optionalImportMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalImportMessage = value
@@ -4675,7 +4675,7 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalPublicImportMessage(value:PublicImportMessage) -> TestAllTypesBuilder {
-    if (builderResult.hasOptionalPublicImportMessage && builderResult.optionalPublicImportMessage != PublicImportMessage()) {
+    if (builderResult.hasOptionalPublicImportMessage) {
       builderResult.optionalPublicImportMessage = PublicImportMessage.builderWithPrototype(builderResult.optionalPublicImportMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalPublicImportMessage = value
@@ -4707,7 +4707,7 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalLazyMessage(value:TestAllTypes.NestedMessage) -> TestAllTypesBuilder {
-    if (builderResult.hasOptionalLazyMessage && builderResult.optionalLazyMessage != TestAllTypes.NestedMessage()) {
+    if (builderResult.hasOptionalLazyMessage) {
       builderResult.optionalLazyMessage = TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalLazyMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalLazyMessage = value
@@ -5438,7 +5438,7 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOneofNestedMessage(value:TestAllTypes.NestedMessage) -> TestAllTypesBuilder {
-    if (builderResult.hasOneofNestedMessage && builderResult.oneofNestedMessage != TestAllTypes.NestedMessage()) {
+    if (builderResult.hasOneofNestedMessage) {
       builderResult.oneofNestedMessage = TestAllTypes.NestedMessage.builderWithPrototype(builderResult.oneofNestedMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.oneofNestedMessage = value
@@ -6222,7 +6222,7 @@ final class NestedTestAllTypesBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeChild(value:NestedTestAllTypes) -> NestedTestAllTypesBuilder {
-    if (builderResult.hasChild && builderResult.child != NestedTestAllTypes()) {
+    if (builderResult.hasChild) {
       builderResult.child = NestedTestAllTypes.builderWithPrototype(builderResult.child).mergeFrom(value).buildPartial()
     } else {
       builderResult.child = value
@@ -6254,7 +6254,7 @@ final class NestedTestAllTypesBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergePayload(value:TestAllTypes) -> NestedTestAllTypesBuilder {
-    if (builderResult.hasPayload && builderResult.payload != TestAllTypes()) {
+    if (builderResult.hasPayload) {
       builderResult.payload = TestAllTypes.builderWithPrototype(builderResult.payload).mergeFrom(value).buildPartial()
     } else {
       builderResult.payload = value
@@ -8968,7 +8968,7 @@ final class TestRequiredForeignBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalMessage(value:TestRequired) -> TestRequiredForeignBuilder {
-    if (builderResult.hasOptionalMessage && builderResult.optionalMessage != TestRequired()) {
+    if (builderResult.hasOptionalMessage) {
       builderResult.optionalMessage = TestRequired.builderWithPrototype(builderResult.optionalMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalMessage = value
@@ -9208,7 +9208,7 @@ final class TestForeignNestedBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeForeignNested(value:TestAllTypes.NestedMessage) -> TestForeignNestedBuilder {
-    if (builderResult.hasForeignNested && builderResult.foreignNested != TestAllTypes.NestedMessage()) {
+    if (builderResult.hasForeignNested) {
       builderResult.foreignNested = TestAllTypes.NestedMessage.builderWithPrototype(builderResult.foreignNested).mergeFrom(value).buildPartial()
     } else {
       builderResult.foreignNested = value
@@ -10064,7 +10064,7 @@ final class TestRecursiveMessageBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeA(value:TestRecursiveMessage) -> TestRecursiveMessageBuilder {
-    if (builderResult.hasA && builderResult.a != TestRecursiveMessage()) {
+    if (builderResult.hasA) {
       builderResult.a = TestRecursiveMessage.builderWithPrototype(builderResult.a).mergeFrom(value).buildPartial()
     } else {
       builderResult.a = value
@@ -10284,7 +10284,7 @@ final class TestMutualRecursionABuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeBb(value:TestMutualRecursionB) -> TestMutualRecursionABuilder {
-    if (builderResult.hasBb && builderResult.bb != TestMutualRecursionB()) {
+    if (builderResult.hasBb) {
       builderResult.bb = TestMutualRecursionB.builderWithPrototype(builderResult.bb).mergeFrom(value).buildPartial()
     } else {
       builderResult.bb = value
@@ -10494,7 +10494,7 @@ final class TestMutualRecursionBBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeA(value:TestMutualRecursionA) -> TestMutualRecursionBBuilder {
-    if (builderResult.hasA && builderResult.a != TestMutualRecursionA()) {
+    if (builderResult.hasA) {
       builderResult.a = TestMutualRecursionA.builderWithPrototype(builderResult.a).mergeFrom(value).buildPartial()
     } else {
       builderResult.a = value
@@ -11132,7 +11132,7 @@ final class TestDupFieldNumberBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeFoo(value:TestDupFieldNumber.Foo) -> TestDupFieldNumberBuilder {
-    if (builderResult.hasFoo && builderResult.foo != TestDupFieldNumber.Foo()) {
+    if (builderResult.hasFoo) {
       builderResult.foo = TestDupFieldNumber.Foo.builderWithPrototype(builderResult.foo).mergeFrom(value).buildPartial()
     } else {
       builderResult.foo = value
@@ -11164,7 +11164,7 @@ final class TestDupFieldNumberBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeBar(value:TestDupFieldNumber.Bar) -> TestDupFieldNumberBuilder {
-    if (builderResult.hasBar && builderResult.bar != TestDupFieldNumber.Bar()) {
+    if (builderResult.hasBar) {
       builderResult.bar = TestDupFieldNumber.Bar.builderWithPrototype(builderResult.bar).mergeFrom(value).buildPartial()
     } else {
       builderResult.bar = value
@@ -11376,7 +11376,7 @@ final class TestEagerMessageBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeSubMessage(value:TestAllTypes) -> TestEagerMessageBuilder {
-    if (builderResult.hasSubMessage && builderResult.subMessage != TestAllTypes()) {
+    if (builderResult.hasSubMessage) {
       builderResult.subMessage = TestAllTypes.builderWithPrototype(builderResult.subMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.subMessage = value
@@ -11571,7 +11571,7 @@ final class TestLazyMessageBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeSubMessage(value:TestAllTypes) -> TestLazyMessageBuilder {
-    if (builderResult.hasSubMessage && builderResult.subMessage != TestAllTypes()) {
+    if (builderResult.hasSubMessage) {
       builderResult.subMessage = TestAllTypes.builderWithPrototype(builderResult.subMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.subMessage = value
@@ -11985,7 +11985,7 @@ final class TestNestedMessageHasBitsBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalNestedMessage(value:TestNestedMessageHasBits.NestedMessage) -> TestNestedMessageHasBitsBuilder {
-    if (builderResult.hasOptionalNestedMessage && builderResult.optionalNestedMessage != TestNestedMessageHasBits.NestedMessage()) {
+    if (builderResult.hasOptionalNestedMessage) {
       builderResult.optionalNestedMessage = TestNestedMessageHasBits.NestedMessage.builderWithPrototype(builderResult.optionalNestedMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalNestedMessage = value
@@ -12427,7 +12427,7 @@ final class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeMessageField(value:ForeignMessage) -> TestCamelCaseFieldNamesBuilder {
-    if (builderResult.hasMessageField && builderResult.messageField != ForeignMessage()) {
+    if (builderResult.hasMessageField) {
       builderResult.messageField = ForeignMessage.builderWithPrototype(builderResult.messageField).mergeFrom(value).buildPartial()
     } else {
       builderResult.messageField = value
@@ -16495,7 +16495,7 @@ final class TestOneofBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeFooMessage(value:TestAllTypes) -> TestOneofBuilder {
-    if (builderResult.hasFooMessage && builderResult.fooMessage != TestAllTypes()) {
+    if (builderResult.hasFooMessage) {
       builderResult.fooMessage = TestAllTypes.builderWithPrototype(builderResult.fooMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.fooMessage = value
@@ -16527,7 +16527,7 @@ final class TestOneofBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeFooGroup(value:TestOneof.FooGroup) -> TestOneofBuilder {
-    if (builderResult.hasFooGroup && builderResult.fooGroup != TestOneof.FooGroup()) {
+    if (builderResult.hasFooGroup) {
       builderResult.fooGroup = TestOneof.FooGroup.builderWithPrototype(builderResult.fooGroup).mergeFrom(value).buildPartial()
     } else {
       builderResult.fooGroup = value
@@ -17053,7 +17053,7 @@ final class TestOneofBackwardsCompatibleBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeFooMessage(value:TestAllTypes) -> TestOneofBackwardsCompatibleBuilder {
-    if (builderResult.hasFooMessage && builderResult.fooMessage != TestAllTypes()) {
+    if (builderResult.hasFooMessage) {
       builderResult.fooMessage = TestAllTypes.builderWithPrototype(builderResult.fooMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.fooMessage = value
@@ -17085,7 +17085,7 @@ final class TestOneofBackwardsCompatibleBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeFooGroup(value:TestOneofBackwardsCompatible.FooGroup) -> TestOneofBackwardsCompatibleBuilder {
-    if (builderResult.hasFooGroup && builderResult.fooGroup != TestOneofBackwardsCompatible.FooGroup()) {
+    if (builderResult.hasFooGroup) {
       builderResult.fooGroup = TestOneofBackwardsCompatible.FooGroup.builderWithPrototype(builderResult.fooGroup).mergeFrom(value).buildPartial()
     } else {
       builderResult.fooGroup = value
@@ -18554,7 +18554,7 @@ final class TestOneof2Builder : GeneratedMessageBuilder {
     return self
   }
   func mergeFooMessage(value:TestOneof2.NestedMessage) -> TestOneof2Builder {
-    if (builderResult.hasFooMessage && builderResult.fooMessage != TestOneof2.NestedMessage()) {
+    if (builderResult.hasFooMessage) {
       builderResult.fooMessage = TestOneof2.NestedMessage.builderWithPrototype(builderResult.fooMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.fooMessage = value
@@ -18586,7 +18586,7 @@ final class TestOneof2Builder : GeneratedMessageBuilder {
     return self
   }
   func mergeFooGroup(value:TestOneof2.FooGroup) -> TestOneof2Builder {
-    if (builderResult.hasFooGroup && builderResult.fooGroup != TestOneof2.FooGroup()) {
+    if (builderResult.hasFooGroup) {
       builderResult.fooGroup = TestOneof2.FooGroup.builderWithPrototype(builderResult.fooGroup).mergeFrom(value).buildPartial()
     } else {
       builderResult.fooGroup = value
@@ -18618,7 +18618,7 @@ final class TestOneof2Builder : GeneratedMessageBuilder {
     return self
   }
   func mergeFooLazyMessage(value:TestOneof2.NestedMessage) -> TestOneof2Builder {
-    if (builderResult.hasFooLazyMessage && builderResult.fooLazyMessage != TestOneof2.NestedMessage()) {
+    if (builderResult.hasFooLazyMessage) {
       builderResult.fooLazyMessage = TestOneof2.NestedMessage.builderWithPrototype(builderResult.fooLazyMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.fooLazyMessage = value
@@ -19441,7 +19441,7 @@ final class TestRequiredOneofBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeFooMessage(value:TestRequiredOneof.NestedMessage) -> TestRequiredOneofBuilder {
-    if (builderResult.hasFooMessage && builderResult.fooMessage != TestRequiredOneof.NestedMessage()) {
+    if (builderResult.hasFooMessage) {
       builderResult.fooMessage = TestRequiredOneof.NestedMessage.builderWithPrototype(builderResult.fooMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.fooMessage = value
@@ -21791,7 +21791,7 @@ final class TestDynamicExtensionsBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeMessageExtension(value:ForeignMessage) -> TestDynamicExtensionsBuilder {
-    if (builderResult.hasMessageExtension && builderResult.messageExtension != ForeignMessage()) {
+    if (builderResult.hasMessageExtension) {
       builderResult.messageExtension = ForeignMessage.builderWithPrototype(builderResult.messageExtension).mergeFrom(value).buildPartial()
     } else {
       builderResult.messageExtension = value
@@ -21823,7 +21823,7 @@ final class TestDynamicExtensionsBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeDynamicMessageExtension(value:TestDynamicExtensions.DynamicMessageType) -> TestDynamicExtensionsBuilder {
-    if (builderResult.hasDynamicMessageExtension && builderResult.dynamicMessageExtension != TestDynamicExtensions.DynamicMessageType()) {
+    if (builderResult.hasDynamicMessageExtension) {
       builderResult.dynamicMessageExtension = TestDynamicExtensions.DynamicMessageType.builderWithPrototype(builderResult.dynamicMessageExtension).mergeFrom(value).buildPartial()
     } else {
       builderResult.dynamicMessageExtension = value
@@ -22468,7 +22468,7 @@ final public class TestParsingMerge : ExtendableMessage {
             return self
           }
           func mergeField1(value:TestAllTypes) -> TestParsingMerge.RepeatedFieldsGenerator.Group1Builder {
-            if (builderResult.hasField1 && builderResult.field1 != TestAllTypes()) {
+            if (builderResult.hasField1) {
               builderResult.field1 = TestAllTypes.builderWithPrototype(builderResult.field1).mergeFrom(value).buildPartial()
             } else {
               builderResult.field1 = value
@@ -22671,7 +22671,7 @@ final public class TestParsingMerge : ExtendableMessage {
             return self
           }
           func mergeField1(value:TestAllTypes) -> TestParsingMerge.RepeatedFieldsGenerator.Group2Builder {
-            if (builderResult.hasField1 && builderResult.field1 != TestAllTypes()) {
+            if (builderResult.hasField1) {
               builderResult.field1 = TestAllTypes.builderWithPrototype(builderResult.field1).mergeFrom(value).buildPartial()
             } else {
               builderResult.field1 = value
@@ -23272,7 +23272,7 @@ final public class TestParsingMerge : ExtendableMessage {
         return self
       }
       func mergeOptionalGroupAllTypes(value:TestAllTypes) -> TestParsingMerge.OptionalGroupBuilder {
-        if (builderResult.hasOptionalGroupAllTypes && builderResult.optionalGroupAllTypes != TestAllTypes()) {
+        if (builderResult.hasOptionalGroupAllTypes) {
           builderResult.optionalGroupAllTypes = TestAllTypes.builderWithPrototype(builderResult.optionalGroupAllTypes).mergeFrom(value).buildPartial()
         } else {
           builderResult.optionalGroupAllTypes = value
@@ -23475,7 +23475,7 @@ final public class TestParsingMerge : ExtendableMessage {
         return self
       }
       func mergeRepeatedGroupAllTypes(value:TestAllTypes) -> TestParsingMerge.RepeatedGroupBuilder {
-        if (builderResult.hasRepeatedGroupAllTypes && builderResult.repeatedGroupAllTypes != TestAllTypes()) {
+        if (builderResult.hasRepeatedGroupAllTypes) {
           builderResult.repeatedGroupAllTypes = TestAllTypes.builderWithPrototype(builderResult.repeatedGroupAllTypes).mergeFrom(value).buildPartial()
         } else {
           builderResult.repeatedGroupAllTypes = value
@@ -23755,7 +23755,7 @@ final class TestParsingMergeBuilder : ExtendableMessageBuilder {
     return self
   }
   func mergeRequiredAllTypes(value:TestAllTypes) -> TestParsingMergeBuilder {
-    if (builderResult.hasRequiredAllTypes && builderResult.requiredAllTypes != TestAllTypes()) {
+    if (builderResult.hasRequiredAllTypes) {
       builderResult.requiredAllTypes = TestAllTypes.builderWithPrototype(builderResult.requiredAllTypes).mergeFrom(value).buildPartial()
     } else {
       builderResult.requiredAllTypes = value
@@ -23787,7 +23787,7 @@ final class TestParsingMergeBuilder : ExtendableMessageBuilder {
     return self
   }
   func mergeOptionalAllTypes(value:TestAllTypes) -> TestParsingMergeBuilder {
-    if (builderResult.hasOptionalAllTypes && builderResult.optionalAllTypes != TestAllTypes()) {
+    if (builderResult.hasOptionalAllTypes) {
       builderResult.optionalAllTypes = TestAllTypes.builderWithPrototype(builderResult.optionalAllTypes).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalAllTypes = value
@@ -23831,7 +23831,7 @@ final class TestParsingMergeBuilder : ExtendableMessageBuilder {
     return self
   }
   func mergeOptionalGroup(value:TestParsingMerge.OptionalGroup) -> TestParsingMergeBuilder {
-    if (builderResult.hasOptionalGroup && builderResult.optionalGroup != TestParsingMerge.OptionalGroup()) {
+    if (builderResult.hasOptionalGroup) {
       builderResult.optionalGroup = TestParsingMerge.OptionalGroup.builderWithPrototype(builderResult.optionalGroup).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalGroup = value

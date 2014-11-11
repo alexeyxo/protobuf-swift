@@ -20,6 +20,7 @@ import Foundation
 
 typealias ExtensionsValueType = protocol<Hashable, Equatable>
 
+
 public class ExtendableMessage : GeneratedMessage
 {
 
@@ -29,6 +30,7 @@ public class ExtendableMessage : GeneratedMessage
     required public init()
     {
         super.init()
+        
     }
     
     //Override
@@ -48,7 +50,7 @@ public class ExtendableMessage : GeneratedMessage
     
     public func isInitialized(object:Any) -> Bool
     {
-        if let array = object as? Array<Any>
+        if let array = object as? Array<GeneratedMessage>
         {
             for child in array
             {
@@ -58,7 +60,7 @@ public class ExtendableMessage : GeneratedMessage
                 }
             }
         }
-        else if  let mes = object as? ExtendableMessage
+        else if let mes = object as? GeneratedMessage
         {
             return mes.isInitialized()
         }
@@ -66,7 +68,7 @@ public class ExtendableMessage : GeneratedMessage
     }
     
     public func extensionsAreInitialized() -> Bool {
-        return isInitialized(extensionMap.values)
+        return isInitialized(Array(extensionMap.values))
     }
     
     internal func ensureExtensionIsRegistered(extensions:ConcreateExtensionField)
@@ -197,10 +199,10 @@ public class ExtendableMessage : GeneratedMessage
             return getHashValue(value)
         case let value as String:
             return getHashValue(value)
-        case let value as [Byte]:
-            return getHashBytesArrays(value)
         case let value as GeneratedMessage:
             return getHashValue(value)
+        case let value as [Byte]:
+            return getHashValueRepeated(value)
         case let value as [Int32]:
             return getHashValueRepeated(value)
         case let value as [Int64]:
@@ -231,13 +233,11 @@ public class ExtendableMessage : GeneratedMessage
     
         switch lhs
         {
-        case let value as [Byte]:
-            return getHashBytes(value)
         case let value as Array<Array<Byte>>:
             var hashCode:Int = 0
             for vv in value
             {
-                hashCode = (hashCode &* 31) &+ getHashBytes(vv)
+                hashCode = (hashCode &* 31) &+ getHashValueRepeated(vv)
             }
             return hashCode
         default:
@@ -258,16 +258,6 @@ public class ExtendableMessage : GeneratedMessage
     private func getHashValue<T where T:protocol<Hashable,Equatable>>(lhs:T) -> Int!
     {
         return lhs.hashValue
-    }
-    
-    private func getHashBytes(bytes:[Byte]) -> Int
-    {
-        var hashCode:Int = 0
-        for value in bytes
-        {
-            hashCode = (hashCode &* 31) &+ value.hashValue
-        }
-        return hashCode
     }
     
     public func hashExtensionsFrom(startInclusive:Int32, endExclusive:Int32) -> Int {

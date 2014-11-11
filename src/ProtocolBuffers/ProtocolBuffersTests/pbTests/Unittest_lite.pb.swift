@@ -3621,7 +3621,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalGroup(value:TestAllTypesLite.OptionalGroup) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOptionalGroup && builderResult.optionalGroup != TestAllTypesLite.OptionalGroup()) {
+    if (builderResult.hasOptionalGroup) {
       builderResult.optionalGroup = TestAllTypesLite.OptionalGroup.builderWithPrototype(builderResult.optionalGroup).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalGroup = value
@@ -3653,7 +3653,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalNestedMessage(value:TestAllTypesLite.NestedMessage) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOptionalNestedMessage && builderResult.optionalNestedMessage != TestAllTypesLite.NestedMessage()) {
+    if (builderResult.hasOptionalNestedMessage) {
       builderResult.optionalNestedMessage = TestAllTypesLite.NestedMessage.builderWithPrototype(builderResult.optionalNestedMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalNestedMessage = value
@@ -3685,7 +3685,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalForeignMessage(value:ForeignMessageLite) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOptionalForeignMessage && builderResult.optionalForeignMessage != ForeignMessageLite()) {
+    if (builderResult.hasOptionalForeignMessage) {
       builderResult.optionalForeignMessage = ForeignMessageLite.builderWithPrototype(builderResult.optionalForeignMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalForeignMessage = value
@@ -3717,7 +3717,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalImportMessage(value:ImportMessageLite) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOptionalImportMessage && builderResult.optionalImportMessage != ImportMessageLite()) {
+    if (builderResult.hasOptionalImportMessage) {
       builderResult.optionalImportMessage = ImportMessageLite.builderWithPrototype(builderResult.optionalImportMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalImportMessage = value
@@ -3844,7 +3844,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalPublicImportMessage(value:PublicImportMessageLite) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOptionalPublicImportMessage && builderResult.optionalPublicImportMessage != PublicImportMessageLite()) {
+    if (builderResult.hasOptionalPublicImportMessage) {
       builderResult.optionalPublicImportMessage = PublicImportMessageLite.builderWithPrototype(builderResult.optionalPublicImportMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalPublicImportMessage = value
@@ -3876,7 +3876,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalLazyMessage(value:TestAllTypesLite.NestedMessage) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOptionalLazyMessage && builderResult.optionalLazyMessage != TestAllTypesLite.NestedMessage()) {
+    if (builderResult.hasOptionalLazyMessage) {
       builderResult.optionalLazyMessage = TestAllTypesLite.NestedMessage.builderWithPrototype(builderResult.optionalLazyMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalLazyMessage = value
@@ -4607,7 +4607,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOneofNestedMessage(value:TestAllTypesLite.NestedMessage) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOneofNestedMessage && builderResult.oneofNestedMessage != TestAllTypesLite.NestedMessage()) {
+    if (builderResult.hasOneofNestedMessage) {
       builderResult.oneofNestedMessage = TestAllTypesLite.NestedMessage.builderWithPrototype(builderResult.oneofNestedMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.oneofNestedMessage = value
@@ -7343,7 +7343,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
             return self
           }
           func mergeField1(value:TestAllTypesLite) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
-            if (builderResult.hasField1 && builderResult.field1 != TestAllTypesLite()) {
+            if (builderResult.hasField1) {
               builderResult.field1 = TestAllTypesLite.builderWithPrototype(builderResult.field1).mergeFrom(value).buildPartial()
             } else {
               builderResult.field1 = value
@@ -7546,7 +7546,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
             return self
           }
           func mergeField1(value:TestAllTypesLite) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
-            if (builderResult.hasField1 && builderResult.field1 != TestAllTypesLite()) {
+            if (builderResult.hasField1) {
               builderResult.field1 = TestAllTypesLite.builderWithPrototype(builderResult.field1).mergeFrom(value).buildPartial()
             } else {
               builderResult.field1 = value
@@ -8147,7 +8147,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
         return self
       }
       func mergeOptionalGroupAllTypes(value:TestAllTypesLite) -> TestParsingMergeLite.OptionalGroupBuilder {
-        if (builderResult.hasOptionalGroupAllTypes && builderResult.optionalGroupAllTypes != TestAllTypesLite()) {
+        if (builderResult.hasOptionalGroupAllTypes) {
           builderResult.optionalGroupAllTypes = TestAllTypesLite.builderWithPrototype(builderResult.optionalGroupAllTypes).mergeFrom(value).buildPartial()
         } else {
           builderResult.optionalGroupAllTypes = value
@@ -8350,7 +8350,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
         return self
       }
       func mergeRepeatedGroupAllTypes(value:TestAllTypesLite) -> TestParsingMergeLite.RepeatedGroupBuilder {
-        if (builderResult.hasRepeatedGroupAllTypes && builderResult.repeatedGroupAllTypes != TestAllTypesLite()) {
+        if (builderResult.hasRepeatedGroupAllTypes) {
           builderResult.repeatedGroupAllTypes = TestAllTypesLite.builderWithPrototype(builderResult.repeatedGroupAllTypes).mergeFrom(value).buildPartial()
         } else {
           builderResult.repeatedGroupAllTypes = value
@@ -8630,7 +8630,7 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
     return self
   }
   func mergeRequiredAllTypes(value:TestAllTypesLite) -> TestParsingMergeLiteBuilder {
-    if (builderResult.hasRequiredAllTypes && builderResult.requiredAllTypes != TestAllTypesLite()) {
+    if (builderResult.hasRequiredAllTypes) {
       builderResult.requiredAllTypes = TestAllTypesLite.builderWithPrototype(builderResult.requiredAllTypes).mergeFrom(value).buildPartial()
     } else {
       builderResult.requiredAllTypes = value
@@ -8662,7 +8662,7 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
     return self
   }
   func mergeOptionalAllTypes(value:TestAllTypesLite) -> TestParsingMergeLiteBuilder {
-    if (builderResult.hasOptionalAllTypes && builderResult.optionalAllTypes != TestAllTypesLite()) {
+    if (builderResult.hasOptionalAllTypes) {
       builderResult.optionalAllTypes = TestAllTypesLite.builderWithPrototype(builderResult.optionalAllTypes).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalAllTypes = value
@@ -8706,7 +8706,7 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
     return self
   }
   func mergeOptionalGroup(value:TestParsingMergeLite.OptionalGroup) -> TestParsingMergeLiteBuilder {
-    if (builderResult.hasOptionalGroup && builderResult.optionalGroup != TestParsingMergeLite.OptionalGroup()) {
+    if (builderResult.hasOptionalGroup) {
       builderResult.optionalGroup = TestParsingMergeLite.OptionalGroup.builderWithPrototype(builderResult.optionalGroup).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalGroup = value

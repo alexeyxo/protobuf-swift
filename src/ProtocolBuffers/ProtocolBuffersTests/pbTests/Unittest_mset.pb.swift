@@ -362,7 +362,7 @@ final class TestMessageSetContainerBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeMessageSet(value:TestMessageSet) -> TestMessageSetContainerBuilder {
-    if (builderResult.hasMessageSet && builderResult.messageSet != TestMessageSet()) {
+    if (builderResult.hasMessageSet) {
       builderResult.messageSet = TestMessageSet.builderWithPrototype(builderResult.messageSet).mergeFrom(value).buildPartial()
     } else {
       builderResult.messageSet = value

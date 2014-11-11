@@ -152,7 +152,7 @@ final class TestLiteImportsNonliteBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeMessage(value:TestAllTypes) -> TestLiteImportsNonliteBuilder {
-    if (builderResult.hasMessage && builderResult.message != TestAllTypes()) {
+    if (builderResult.hasMessage) {
       builderResult.message = TestAllTypes.builderWithPrototype(builderResult.message).mergeFrom(value).buildPartial()
     } else {
       builderResult.message = value

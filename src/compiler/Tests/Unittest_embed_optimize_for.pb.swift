@@ -185,7 +185,7 @@ final class TestEmbedOptimizedForSizeBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeOptionalMessage(value:TestOptimizedForSize) -> TestEmbedOptimizedForSizeBuilder {
-    if (builderResult.hasOptionalMessage && builderResult.optionalMessage != TestOptimizedForSize()) {
+    if (builderResult.hasOptionalMessage) {
       builderResult.optionalMessage = TestOptimizedForSize.builderWithPrototype(builderResult.optionalMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalMessage = value

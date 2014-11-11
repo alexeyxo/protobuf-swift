@@ -3148,7 +3148,7 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
     return self
   }
   func mergeBar(value:ComplexOptionType1) -> ComplexOptionType2Builder {
-    if (builderResult.hasBar && builderResult.bar != ComplexOptionType1()) {
+    if (builderResult.hasBar) {
       builderResult.bar = ComplexOptionType1.builderWithPrototype(builderResult.bar).mergeFrom(value).buildPartial()
     } else {
       builderResult.bar = value
@@ -3199,7 +3199,7 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
     return self
   }
   func mergeFred(value:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2Builder {
-    if (builderResult.hasFred && builderResult.fred != ComplexOptionType2.ComplexOptionType4()) {
+    if (builderResult.hasFred) {
       builderResult.fred = ComplexOptionType2.ComplexOptionType4.builderWithPrototype(builderResult.fred).mergeFrom(value).buildPartial()
     } else {
       builderResult.fred = value
@@ -3650,7 +3650,7 @@ final class ComplexOptionType3Builder : GeneratedMessageBuilder {
     return self
   }
   func mergeComplexOptionType5(value:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3Builder {
-    if (builderResult.hasComplexOptionType5 && builderResult.complexOptionType5 != ComplexOptionType3.ComplexOptionType5()) {
+    if (builderResult.hasComplexOptionType5) {
       builderResult.complexOptionType5 = ComplexOptionType3.ComplexOptionType5.builderWithPrototype(builderResult.complexOptionType5).mergeFrom(value).buildPartial()
     } else {
       builderResult.complexOptionType5 = value
@@ -4604,7 +4604,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeSub(value:Aggregate) -> AggregateBuilder {
-    if (builderResult.hasSub && builderResult.sub != Aggregate()) {
+    if (builderResult.hasSub) {
       builderResult.sub = Aggregate.builderWithPrototype(builderResult.sub).mergeFrom(value).buildPartial()
     } else {
       builderResult.sub = value
@@ -4636,7 +4636,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeFile(value:PBFileOptions) -> AggregateBuilder {
-    if (builderResult.hasFile && builderResult.file != PBFileOptions()) {
+    if (builderResult.hasFile) {
       builderResult.file = PBFileOptions.builderWithPrototype(builderResult.file).mergeFrom(value).buildPartial()
     } else {
       builderResult.file = value
@@ -4668,7 +4668,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
     return self
   }
   func mergeMset(value:AggregateMessageSet) -> AggregateBuilder {
-    if (builderResult.hasMset && builderResult.mset != AggregateMessageSet()) {
+    if (builderResult.hasMset) {
       builderResult.mset = AggregateMessageSet.builderWithPrototype(builderResult.mset).mergeFrom(value).buildPartial()
     } else {
       builderResult.mset = value

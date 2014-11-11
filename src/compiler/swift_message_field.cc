@@ -131,7 +131,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  return self\n"
                        "}\n"
                        "func merge$capitalized_name$(value:$storage_type$) -> $classname$Builder {\n"
-                       "  if (builderResult.has$capitalized_name$ && builderResult.$name$ != $type$()) {\n"
+                       "  if (builderResult.has$capitalized_name$) {\n"
                        "    builderResult.$name$ = $type$.builderWithPrototype(builderResult.$name$).mergeFrom(value).buildPartial()\n"
                        "  } else {\n"
                        "    builderResult.$name$ = value\n"
