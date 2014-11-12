@@ -385,7 +385,7 @@ messageOrGroupClass:Any.Type,
             
         case .ExtensionTypeGroup:
             var downCastValue = value as GeneratedMessage
-            return WireFormat.computeGroupSizeNoTag(downCastValue)
+            return WireFormat.computeGroupSize(fieldNumber, value:downCastValue)
             
         case .ExtensionTypeMessage where isMessageSetWireFormat == true:
             var downCastValue = value as GeneratedMessage

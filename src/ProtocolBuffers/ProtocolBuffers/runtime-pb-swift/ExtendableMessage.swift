@@ -290,10 +290,10 @@ public class ExtendableMessage : GeneratedMessage
             let extensions = extensionRegistry[fieldNumber]!
             let value = extensionMap[fieldNumber]!
             size += extensions.computeSerializedSizeIncludingTag(value)
+            println("\(fieldNumber) - \(extensions.computeSerializedSizeIncludingTag(value)) size - \(value)")
         }
         return size
     }
-    
 }
 
 public class ExtendableMessageBuilder:GeneratedMessageBuilder
@@ -341,7 +341,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
     override public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
         
         var message = internalGetResult
-        var wireType = WireFormat.wireFormatGetTagWireType(tag);
+        var wireType = WireFormat.wireFormatGetTagWireType(tag)
         var fieldNumber:Int32 = WireFormat.wireFormatGetTagFieldNumber(tag)
         
         var extensions = extensionRegistry.getExtension(message.classMetaType(), fieldNumber: fieldNumber)

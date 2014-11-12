@@ -58,12 +58,14 @@ public class ExtensionRegistry
     {
         let extendedClass = extensions.extendedClass.className()
         var extensionMap = classMap[extendedClass]?
-        if (extensionMap == nil)
+        if extensionMap == nil
         {
             extensionMap = [Int32 : ConcreateExtensionField]()
-            classMap[extendedClass] = extensionMap
+           
         }
         extensionMap![extensions.fieldNumber] = extensions
+        classMap[extendedClass] = extensionMap
+        
     }
     
 }
