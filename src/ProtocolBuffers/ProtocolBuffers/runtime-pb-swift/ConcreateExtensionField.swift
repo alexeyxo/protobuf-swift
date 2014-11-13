@@ -401,7 +401,7 @@ messageOrGroupClass:Any.Type,
         return 0
     }
     
-    func  computeSingleSerializedPrimitivesSizeNoTag(value:Any) -> Int32
+    func  computeSingleSerializedSizeNoTag(value:Any) -> Int32
     {
         switch type {
 
@@ -504,7 +504,7 @@ messageOrGroupClass:Any.Type,
     func writeRepeatedValuesIncludingTags<T>(values:Array<T>, output:CodedOutputStream) {
         if (isPacked) {
             output.writeTag(fieldNumber, format: WireFormat.WireFormatLengthDelimited)
-            var dataSize:Int32 = 0;
+            var dataSize:Int32 = 0
             
             if (typeIsFixedSize(type))
             {
@@ -514,7 +514,7 @@ messageOrGroupClass:Any.Type,
             {
                 for value in values
                 {
-                    dataSize += computeSingleSerializedPrimitivesSizeNoTag(value)
+                    dataSize += computeSingleSerializedSizeNoTag(value)
                 }
             }
             output.writeRawVarint32(dataSize)
@@ -544,7 +544,7 @@ messageOrGroupClass:Any.Type,
             {
                 for value in values
                 {
-                    size += computeSingleSerializedPrimitivesSizeNoTag(value)
+                    size += computeSingleSerializedSizeNoTag(value)
                 }
             }
             return size + WireFormat.computeTagSize(fieldNumber) + WireFormat.computeRawVarint32Size(size)

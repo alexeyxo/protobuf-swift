@@ -1028,7 +1028,7 @@ func == (lhs: TestEnormousDescriptor, rhs: TestEnormousDescriptor) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class TestEnormousDescriptor : GeneratedMessage {
+final class TestEnormousDescriptor : GeneratedMessage {
   private(set) var hasLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1:Bool = false
   private(set) var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1:String = "long default value is also loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong"
 
@@ -4029,13 +4029,13 @@ final public class TestEnormousDescriptor : GeneratedMessage {
   private(set) var hasLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1000:Bool = false
   private(set) var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1000:String = "long default value is also loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong"
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 {
       output.writeString(1, value:longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1)
     }
@@ -7038,7 +7038,7 @@ final public class TestEnormousDescriptor : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -10049,37 +10049,43 @@ final public class TestEnormousDescriptor : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestEnormousDescriptor {
+  internal class func parseFromData(data:[Byte]) -> TestEnormousDescriptor {
     return TestEnormousDescriptor.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestEnormousDescriptor {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestEnormousDescriptor {
     return TestEnormousDescriptor.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestEnormousDescriptor {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestEnormousDescriptor {
     return TestEnormousDescriptor.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestEnormousDescriptor {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestEnormousDescriptor {
     return TestEnormousDescriptor.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestEnormousDescriptor {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestEnormousDescriptor {
     return TestEnormousDescriptor.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestEnormousDescriptor {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestEnormousDescriptor {
     return TestEnormousDescriptor.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestEnormousDescriptorBuilder {
+  internal class func builder() -> TestEnormousDescriptorBuilder {
     return TestEnormousDescriptorBuilder()
   }
-  class func builderWithPrototype(prototype:TestEnormousDescriptor) -> TestEnormousDescriptorBuilder {
-    return TestEnormousDescriptor.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestEnormousDescriptorBuilder {
+  internal func builder() -> TestEnormousDescriptorBuilder {
     return TestEnormousDescriptor.builder()
   }
-  func toBuilder() -> TestEnormousDescriptorBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return TestEnormousDescriptorBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return TestEnormousDescriptor.builder()
+  }
+  internal func toBuilder() -> TestEnormousDescriptorBuilder {
     return TestEnormousDescriptor.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestEnormousDescriptor) -> TestEnormousDescriptorBuilder {
+    return TestEnormousDescriptor.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 {
       output += "\(indent) longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1: \(longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1) \n"
     }
@@ -13082,7 +13088,7 @@ final public class TestEnormousDescriptor : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 {
@@ -16093,13 +16099,13 @@ final public class TestEnormousDescriptor : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestEnormousDescriptor"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "TestEnormousDescriptor"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestEnormousDescriptor.self
   }
 
@@ -16111,7 +16117,7 @@ final public class TestEnormousDescriptor : GeneratedMessage {
 final class TestEnormousDescriptorBuilder : GeneratedMessageBuilder {
   private var builderResult:TestEnormousDescriptor
 
-  required override init () {
+  required override internal init () {
      builderResult = TestEnormousDescriptor()
      super.init()
   }
@@ -35115,23 +35121,23 @@ final class TestEnormousDescriptorBuilder : GeneratedMessageBuilder {
        builderResult.longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1000 = "long default value is also loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong"
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TestEnormousDescriptorBuilder {
+  internal override func clear() -> TestEnormousDescriptorBuilder {
     builderResult = TestEnormousDescriptor()
     return self
   }
-  override func clone() -> TestEnormousDescriptorBuilder {
+  internal override func clone() -> TestEnormousDescriptorBuilder {
     return TestEnormousDescriptor.builderWithPrototype(builderResult)
   }
-  override func build() -> TestEnormousDescriptor {
+  internal override func build() -> TestEnormousDescriptor {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestEnormousDescriptor {
+  internal func buildPartial() -> TestEnormousDescriptor {
     var returnMe:TestEnormousDescriptor = builderResult
     return returnMe
   }
@@ -38142,10 +38148,10 @@ final class TestEnormousDescriptorBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestEnormousDescriptorBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestEnormousDescriptorBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestEnormousDescriptorBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestEnormousDescriptorBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -41167,7 +41173,7 @@ final class TestEnormousDescriptorBuilder : GeneratedMessageBuilder {
 //Class extensions: NSData
 
 
-extension TestEnormousDescriptor {
+internal extension TestEnormousDescriptor {
     class func parseFromNSData(data:NSData) -> TestEnormousDescriptor {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)

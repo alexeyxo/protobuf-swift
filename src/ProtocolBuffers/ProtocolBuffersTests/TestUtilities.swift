@@ -624,7 +624,7 @@ class  TestUtilities {
         }
         if let val = message.getExtension(UnittestRoot.defaultBoolExtension()) as? Bool
         {
-            XCTAssertTrue(true == val, "")
+            XCTAssertTrue(false == val, "")
         }
         if let val = message.getExtension(UnittestRoot.defaultStringExtension()) as? String
         {
@@ -1511,7 +1511,7 @@ class  TestUtilities {
         message.setExtension(UnittestRoot.defaultSfixed64Extension(), value:Int64(410))
         message.setExtension(UnittestRoot.defaultFloatExtension(), value:Float(411.0))
         message.setExtension(UnittestRoot.defaultDoubleExtension(), value:Double(412.0))
-        message.setExtension(UnittestRoot.defaultBoolExtension(), value:true)
+        message.setExtension(UnittestRoot.defaultBoolExtension(), value:false)
         message.setExtension(UnittestRoot.defaultStringExtension(), value:"415")
         message.setExtension(UnittestRoot.defaultBytesExtension(), value:TestUtilities.getData("416"))
         

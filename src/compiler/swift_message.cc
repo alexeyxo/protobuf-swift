@@ -234,11 +234,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(
-                           "final public class $classname$ : ExtendableMessage {\n",
+                           "final class $classname$ : ExtendableMessage {\n",
                            "classname", ClassNameMessage(descriptor_));
         } else {
             printer->Print(
-                           "final public class $classname$ : GeneratedMessage {\n",
+                           "final class $classname$ : GeneratedMessage {\n",
                            "classname", ClassNameMessage(descriptor_));
         }
         printer->Indent();
@@ -296,7 +296,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             field_generators_.get(descriptor_->field(i)).GenerateMembersSource(printer);
         }
         
-        printer->Print("required public init() {\n");
+        printer->Print("required internal init() {\n");
         
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
@@ -314,17 +314,24 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         GenerateParseFromMethodsSource(printer);
         
         printer->Print(
-                       "class func builder() -> $classname$Builder {\n"
+                       
+                       "internal class func builder() -> $classname$Builder {\n"
                        "  return $classname$Builder()\n"
                        "}\n"
-                       "class func builderWithPrototype(prototype:$classname$) -> $classname$Builder {\n"
-                       "  return $classname$.builder().mergeFrom(prototype)\n"
-                       "}\n"
-                       "func builder() -> $classname$Builder {\n"
+                       "internal func builder() -> $classname$Builder {\n"
                        "  return $classname$.builder()\n"
                        "}\n"
-                       "func toBuilder() -> $classname$Builder {\n"
+                       "internal override class func buider() -> MessageBuilder {\n"
+                       "  return $classname$Builder()\n"
+                       "}\n"
+                       "internal override func buider() -> MessageBuilder {\n"
+                       "  return $classname$.builder()\n"
+                       "}\n"
+                       "internal func toBuilder() -> $classname$Builder {\n"
                        "  return $classname$.builderWithPrototype(self)\n"
+                       "}\n"
+                       "internal class func builderWithPrototype(prototype:$classname$) -> $classname$Builder {\n"
+                       "  return $classname$.builder().mergeFrom(prototype)\n"
                        "}\n",
                        "classname", ClassName(descriptor_));
         
@@ -335,19 +342,19 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         //Meta informations
         printer->Print("\n\n//Meta information declaration start\n\n");
         
-        printer->Print("override public class func className() -> String {\n"
+        printer->Print("override internal class func className() -> String {\n"
                        "    return \"$classname$\"\n"
                        "}\n",
                        "classname",
                        ClassName(descriptor_));
         
-        printer->Print("override public func className() -> String {\n"
+        printer->Print("override internal func className() -> String {\n"
                        "    return \"$classname$\"\n"
                        "}\n",
                        "classname",
                        ClassName(descriptor_));
         
-        printer->Print("override public func classMetaType() -> GeneratedMessage.Type {\n"
+        printer->Print("override internal func classMetaType() -> GeneratedMessage.Type {\n"
                        "    return $classname$.self\n"
                        "}\n",
                        "classname",
@@ -372,7 +379,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
              ExtensionRangeOrdering());
         
         printer->Print(
-                       "override public func writeToCodedOutputStream(output:CodedOutputStream) {\n");
+                       "override internal func writeToCodedOutputStream(output:CodedOutputStream) {\n");
         printer->Indent();
         // Merge the fields and the extension ranges, both sorted by field number.
         for (int i = 0, j = 0;
@@ -399,7 +406,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print("}\n");
         
-        printer->Print("override public func serializedSize() -> Int32 {\n");
+        printer->Print("override internal func serializedSize() -> Int32 {\n");
         printer->Indent();
         printer->Print("var size:Int32 = memoizedSerializedSize\n"
                        "if size != -1 {\n"
@@ -443,7 +450,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
              ExtensionRangeOrdering());
         
         printer->Print(
-                       "override public func writeDescriptionTo(inout output:String, indent:String) {\n");
+                       "override internal func writeDescriptionTo(inout output:String, indent:String) {\n");
         
         printer->Indent();
         
@@ -544,7 +551,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
              ExtensionRangeOrdering());
         
         printer->Print(
-                       "override public var hashValue:Int {\n");
+                       "override internal var hashValue:Int {\n");
         printer->Indent();
         printer->Indent();
         printer->Print("get {\n");
@@ -584,22 +591,22 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateParseFromMethodsSource(io::Printer* printer) {
         printer->Print(
-                       "class func parseFromData(data:[Byte]) -> $classname$ {\n"
+                       "internal class func parseFromData(data:[Byte]) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromData(data).build()\n"
                        "}\n"
-                       "class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
+                       "internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
-                       "class func parseFromInputStream(input:NSInputStream) -> $classname$ {\n"
+                       "internal class func parseFromInputStream(input:NSInputStream) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromInputStream(input).build()\n"
                        "}\n"
-                       "class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->$classname$ {\n"
+                       "internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->$classname$ {\n"
                        "  return $classname$.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
-                       "class func parseFromCodedInputStream(input:CodedInputStream) -> $classname$ {\n"
+                       "internal class func parseFromCodedInputStream(input:CodedInputStream) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromCodedInputStream(input).build()\n"
                        "}\n"
-                       "class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
+                       "internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n",
                        "classname", ClassName(descriptor_));
@@ -607,7 +614,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateParseFromExtensionMethodsSource(io::Printer* printer) {
         printer->Print(
-                       "extension $classname$ {\n"
+                       "internal extension $classname$ {\n"
                        "    class func parseFromNSData(data:NSData) -> $classname$ {\n"
                        "        var bytes = [Byte](count: data.length, repeatedValue: 0)\n"
                        "        data.getBytes(&bytes)\n"
@@ -697,7 +704,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print(
                        "private var builderResult:$classname$\n\n"
-                       "required override init () {\n"
+                       "required override internal init () {\n"
                        "   builderResult = $classname$()\n"
                        "   super.init()\n"
                        "}\n",
@@ -719,14 +726,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageGenerator::GenerateCommonBuilderMethodsSource(io::Printer* printer) {
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(
-                           "override var internalGetResult:ExtendableMessage {\n"
+                           "override internal var internalGetResult:ExtendableMessage {\n"
                            "     get {\n"
                            "         return builderResult\n"
                            "     }\n"
                            "}\n");
         } else {
             printer->Print(
-                           "override var internalGetResult:GeneratedMessage {\n"
+                           "override internal var internalGetResult:GeneratedMessage {\n"
                            "     get {\n"
                            "        return builderResult\n"
                            "     }\n"
@@ -734,21 +741,21 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         printer->Print(
-                       "override func clear() -> $classname$Builder {\n"
+                       "internal override func clear() -> $classname$Builder {\n"
                        "  builderResult = $classname$()\n"
                        "  return self\n"
                        "}\n"
-                       "override func clone() -> $classname$Builder {\n"
+                       "internal override func clone() -> $classname$Builder {\n"
                        "  return $classname$.builderWithPrototype(builderResult)\n"
                        "}\n",
                        "classname", ClassName(descriptor_));
         
         printer->Print(
-                       "override func build() -> $classname$ {\n"
+                       "internal override func build() -> $classname$ {\n"
                        "     checkInitialized()\n"
                        "     return buildPartial()\n"
                        "}\n"
-                       "func buildPartial() -> $classname$ {\n",
+                       "internal func buildPartial() -> $classname$ {\n",
                        "classname", ClassName(descriptor_));
         
         
@@ -799,10 +806,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         printer->Print(
-                       "override func mergeFromCodedInputStream(input:CodedInputStream) ->$classname$Builder {\n"
+                       "internal override func mergeFromCodedInputStream(input:CodedInputStream) ->$classname$Builder {\n"
                        "     return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
-                       "override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classname$Builder {\n",
+                       "internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classname$Builder {\n",
                        "classname", ClassName(descriptor_));
         
         printer->Indent();
@@ -856,7 +863,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateIsInitializedSource(io::Printer* printer) {
         printer->Print(
-                       "override public func isInitialized() -> Bool {\n");
+                       "override internal func isInitialized() -> Bool {\n");
         printer->Indent();
         // Check that all required fields in this message are set.
         // TODO(kenton):  We can optimize this when we switch to putting all the

@@ -268,12 +268,12 @@ func == (lhs: PBSourceCodeInfo, rhs: PBSourceCodeInfo) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class PBFileDescriptorSet : GeneratedMessage {
+final class PBFileDescriptorSet : GeneratedMessage {
   private(set) var file:Array<PBFileDescriptorProto>  = Array<PBFileDescriptorProto>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInitfile:Bool = true
     for element in file {
         if (!element.isInitialized()) {
@@ -286,13 +286,13 @@ final public class PBFileDescriptorSet : GeneratedMessage {
      }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     for element in file {
         output.writeMessage(1, value:element)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -306,37 +306,43 @@ final public class PBFileDescriptorSet : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBFileDescriptorSet {
+  internal class func parseFromData(data:[Byte]) -> PBFileDescriptorSet {
     return PBFileDescriptorSet.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFileDescriptorSet {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFileDescriptorSet {
     return PBFileDescriptorSet.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBFileDescriptorSet {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBFileDescriptorSet {
     return PBFileDescriptorSet.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBFileDescriptorSet {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBFileDescriptorSet {
     return PBFileDescriptorSet.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBFileDescriptorSet {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBFileDescriptorSet {
     return PBFileDescriptorSet.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFileDescriptorSet {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFileDescriptorSet {
     return PBFileDescriptorSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBFileDescriptorSetBuilder {
+  internal class func builder() -> PBFileDescriptorSetBuilder {
     return PBFileDescriptorSetBuilder()
   }
-  class func builderWithPrototype(prototype:PBFileDescriptorSet) -> PBFileDescriptorSetBuilder {
-    return PBFileDescriptorSet.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBFileDescriptorSetBuilder {
+  internal func builder() -> PBFileDescriptorSetBuilder {
     return PBFileDescriptorSet.builder()
   }
-  func toBuilder() -> PBFileDescriptorSetBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBFileDescriptorSetBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBFileDescriptorSet.builder()
+  }
+  internal func toBuilder() -> PBFileDescriptorSetBuilder {
     return PBFileDescriptorSet.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBFileDescriptorSet) -> PBFileDescriptorSetBuilder {
+    return PBFileDescriptorSet.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     var fileElementIndex:Int = 0
     for element in file {
         output += "\(indent) file[\(fileElementIndex)] {\n"
@@ -346,7 +352,7 @@ final public class PBFileDescriptorSet : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           for element in file {
@@ -360,13 +366,13 @@ final public class PBFileDescriptorSet : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBFileDescriptorSet"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBFileDescriptorSet"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBFileDescriptorSet.self
   }
 
@@ -378,7 +384,7 @@ final public class PBFileDescriptorSet : GeneratedMessage {
 final class PBFileDescriptorSetBuilder : GeneratedMessageBuilder {
   private var builderResult:PBFileDescriptorSet
 
-  required override init () {
+  required override internal init () {
      builderResult = PBFileDescriptorSet()
      super.init()
   }
@@ -394,23 +400,23 @@ final class PBFileDescriptorSetBuilder : GeneratedMessageBuilder {
     builderResult.file.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> PBFileDescriptorSetBuilder {
+  internal override func clear() -> PBFileDescriptorSetBuilder {
     builderResult = PBFileDescriptorSet()
     return self
   }
-  override func clone() -> PBFileDescriptorSetBuilder {
+  internal override func clone() -> PBFileDescriptorSetBuilder {
     return PBFileDescriptorSet.builderWithPrototype(builderResult)
   }
-  override func build() -> PBFileDescriptorSet {
+  internal override func build() -> PBFileDescriptorSet {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBFileDescriptorSet {
+  internal func buildPartial() -> PBFileDescriptorSet {
     var returnMe:PBFileDescriptorSet = builderResult
     return returnMe
   }
@@ -424,10 +430,10 @@ final class PBFileDescriptorSetBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBFileDescriptorSetBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBFileDescriptorSetBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFileDescriptorSetBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFileDescriptorSetBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -451,7 +457,7 @@ final class PBFileDescriptorSetBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBFileDescriptorProto : GeneratedMessage {
+final class PBFileDescriptorProto : GeneratedMessage {
   private(set) var hasName:Bool = false
   private(set) var name:String = ""
 
@@ -469,10 +475,10 @@ final public class PBFileDescriptorProto : GeneratedMessage {
   private(set) var enumType:Array<PBEnumDescriptorProto>  = Array<PBEnumDescriptorProto>()
   private(set) var service:Array<PBServiceDescriptorProto>  = Array<PBServiceDescriptorProto>()
   private(set) var extension_:Array<PBFieldDescriptorProto>  = Array<PBFieldDescriptorProto>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInitmessageType:Bool = true
     for element in messageType {
         if (!element.isInitialized()) {
@@ -520,7 +526,7 @@ final public class PBFileDescriptorProto : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasName {
       output.writeString(1, value:name)
     }
@@ -562,7 +568,7 @@ final public class PBFileDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -615,37 +621,43 @@ final public class PBFileDescriptorProto : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBFileDescriptorProto {
+  internal class func parseFromData(data:[Byte]) -> PBFileDescriptorProto {
     return PBFileDescriptorProto.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFileDescriptorProto {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFileDescriptorProto {
     return PBFileDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBFileDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBFileDescriptorProto {
     return PBFileDescriptorProto.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBFileDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBFileDescriptorProto {
     return PBFileDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBFileDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBFileDescriptorProto {
     return PBFileDescriptorProto.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFileDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFileDescriptorProto {
     return PBFileDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBFileDescriptorProtoBuilder {
+  internal class func builder() -> PBFileDescriptorProtoBuilder {
     return PBFileDescriptorProtoBuilder()
   }
-  class func builderWithPrototype(prototype:PBFileDescriptorProto) -> PBFileDescriptorProtoBuilder {
-    return PBFileDescriptorProto.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBFileDescriptorProtoBuilder {
+  internal func builder() -> PBFileDescriptorProtoBuilder {
     return PBFileDescriptorProto.builder()
   }
-  func toBuilder() -> PBFileDescriptorProtoBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBFileDescriptorProtoBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBFileDescriptorProto.builder()
+  }
+  internal func toBuilder() -> PBFileDescriptorProtoBuilder {
     return PBFileDescriptorProto.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBFileDescriptorProto) -> PBFileDescriptorProtoBuilder {
+    return PBFileDescriptorProto.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasName {
       output += "\(indent) name: \(name) \n"
     }
@@ -707,7 +719,7 @@ final public class PBFileDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasName {
@@ -751,13 +763,13 @@ final public class PBFileDescriptorProto : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBFileDescriptorProto"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBFileDescriptorProto"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBFileDescriptorProto.self
   }
 
@@ -769,7 +781,7 @@ final public class PBFileDescriptorProto : GeneratedMessage {
 final class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
   private var builderResult:PBFileDescriptorProto
 
-  required override init () {
+  required override internal init () {
      builderResult = PBFileDescriptorProto()
      super.init()
   }
@@ -959,23 +971,23 @@ final class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
     builderResult.sourceCodeInfo = PBSourceCodeInfo()
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> PBFileDescriptorProtoBuilder {
+  internal override func clear() -> PBFileDescriptorProtoBuilder {
     builderResult = PBFileDescriptorProto()
     return self
   }
-  override func clone() -> PBFileDescriptorProtoBuilder {
+  internal override func clone() -> PBFileDescriptorProtoBuilder {
     return PBFileDescriptorProto.builderWithPrototype(builderResult)
   }
-  override func build() -> PBFileDescriptorProto {
+  internal override func build() -> PBFileDescriptorProto {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBFileDescriptorProto {
+  internal func buildPartial() -> PBFileDescriptorProto {
     var returnMe:PBFileDescriptorProto = builderResult
     return returnMe
   }
@@ -1019,10 +1031,10 @@ final class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBFileDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBFileDescriptorProtoBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFileDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFileDescriptorProtoBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1092,25 +1104,25 @@ final class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBDescriptorProto : GeneratedMessage {
+final class PBDescriptorProto : GeneratedMessage {
 
 
   //Nested type declaration start
 
-    final public class ExtensionRange : GeneratedMessage {
+    final class ExtensionRange : GeneratedMessage {
       private(set) var hasStart:Bool = false
       private(set) var start:Int32 = Int32(0)
 
       private(set) var hasEnd:Bool = false
       private(set) var end:Int32 = Int32(0)
 
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasStart {
           output.writeInt32(1, value:start)
         }
@@ -1119,7 +1131,7 @@ final public class PBDescriptorProto : GeneratedMessage {
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -1136,37 +1148,43 @@ final public class PBDescriptorProto : GeneratedMessage {
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> PBDescriptorProto.ExtensionRange {
+      internal class func parseFromData(data:[Byte]) -> PBDescriptorProto.ExtensionRange {
         return PBDescriptorProto.ExtensionRange.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBDescriptorProto.ExtensionRange {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBDescriptorProto.ExtensionRange {
         return PBDescriptorProto.ExtensionRange.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> PBDescriptorProto.ExtensionRange {
+      internal class func parseFromInputStream(input:NSInputStream) -> PBDescriptorProto.ExtensionRange {
         return PBDescriptorProto.ExtensionRange.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBDescriptorProto.ExtensionRange {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBDescriptorProto.ExtensionRange {
         return PBDescriptorProto.ExtensionRange.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> PBDescriptorProto.ExtensionRange {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBDescriptorProto.ExtensionRange {
         return PBDescriptorProto.ExtensionRange.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBDescriptorProto.ExtensionRange {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBDescriptorProto.ExtensionRange {
         return PBDescriptorProto.ExtensionRange.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> PBDescriptorProto.ExtensionRangeBuilder {
+      internal class func builder() -> PBDescriptorProto.ExtensionRangeBuilder {
         return PBDescriptorProto.ExtensionRangeBuilder()
       }
-      class func builderWithPrototype(prototype:PBDescriptorProto.ExtensionRange) -> PBDescriptorProto.ExtensionRangeBuilder {
-        return PBDescriptorProto.ExtensionRange.builder().mergeFrom(prototype)
-      }
-      func builder() -> PBDescriptorProto.ExtensionRangeBuilder {
+      internal func builder() -> PBDescriptorProto.ExtensionRangeBuilder {
         return PBDescriptorProto.ExtensionRange.builder()
       }
-      func toBuilder() -> PBDescriptorProto.ExtensionRangeBuilder {
+      internal override class func buider() -> MessageBuilder {
+        return PBDescriptorProto.ExtensionRangeBuilder()
+      }
+      internal override func buider() -> MessageBuilder {
+        return PBDescriptorProto.ExtensionRange.builder()
+      }
+      internal func toBuilder() -> PBDescriptorProto.ExtensionRangeBuilder {
         return PBDescriptorProto.ExtensionRange.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:PBDescriptorProto.ExtensionRange) -> PBDescriptorProto.ExtensionRangeBuilder {
+        return PBDescriptorProto.ExtensionRange.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         if hasStart {
           output += "\(indent) start: \(start) \n"
         }
@@ -1175,7 +1193,7 @@ final public class PBDescriptorProto : GeneratedMessage {
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasStart {
@@ -1192,13 +1210,13 @@ final public class PBDescriptorProto : GeneratedMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "PBDescriptorProto.ExtensionRange"
       }
-      override public func className() -> String {
+      override internal func className() -> String {
           return "PBDescriptorProto.ExtensionRange"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return PBDescriptorProto.ExtensionRange.self
       }
 
@@ -1210,7 +1228,7 @@ final public class PBDescriptorProto : GeneratedMessage {
     final class ExtensionRangeBuilder : GeneratedMessageBuilder {
       private var builderResult:PBDescriptorProto.ExtensionRange
 
-      required override init () {
+      required override internal init () {
          builderResult = PBDescriptorProto.ExtensionRange()
          super.init()
       }
@@ -1252,23 +1270,23 @@ final public class PBDescriptorProto : GeneratedMessage {
            builderResult.end = Int32(0)
            return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> PBDescriptorProto.ExtensionRangeBuilder {
+      internal override func clear() -> PBDescriptorProto.ExtensionRangeBuilder {
         builderResult = PBDescriptorProto.ExtensionRange()
         return self
       }
-      override func clone() -> PBDescriptorProto.ExtensionRangeBuilder {
+      internal override func clone() -> PBDescriptorProto.ExtensionRangeBuilder {
         return PBDescriptorProto.ExtensionRange.builderWithPrototype(builderResult)
       }
-      override func build() -> PBDescriptorProto.ExtensionRange {
+      internal override func build() -> PBDescriptorProto.ExtensionRange {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> PBDescriptorProto.ExtensionRange {
+      internal func buildPartial() -> PBDescriptorProto.ExtensionRange {
         var returnMe:PBDescriptorProto.ExtensionRange = builderResult
         return returnMe
       }
@@ -1285,10 +1303,10 @@ final public class PBDescriptorProto : GeneratedMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->PBDescriptorProto.ExtensionRangeBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBDescriptorProto.ExtensionRangeBuilder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBDescriptorProto.ExtensionRangeBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBDescriptorProto.ExtensionRangeBuilder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -1327,10 +1345,10 @@ final public class PBDescriptorProto : GeneratedMessage {
   private(set) var nestedType:Array<PBDescriptorProto>  = Array<PBDescriptorProto>()
   private(set) var enumType:Array<PBEnumDescriptorProto>  = Array<PBEnumDescriptorProto>()
   private(set) var extensionRange:Array<PBDescriptorProto.ExtensionRange>  = Array<PBDescriptorProto.ExtensionRange>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInitfield:Bool = true
     for element in field {
         if (!element.isInitialized()) {
@@ -1378,7 +1396,7 @@ final public class PBDescriptorProto : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasName {
       output.writeString(1, value:name)
     }
@@ -1402,7 +1420,7 @@ final public class PBDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1434,37 +1452,43 @@ final public class PBDescriptorProto : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBDescriptorProto {
+  internal class func parseFromData(data:[Byte]) -> PBDescriptorProto {
     return PBDescriptorProto.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBDescriptorProto {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBDescriptorProto {
     return PBDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBDescriptorProto {
     return PBDescriptorProto.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBDescriptorProto {
     return PBDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBDescriptorProto {
     return PBDescriptorProto.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBDescriptorProto {
     return PBDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBDescriptorProtoBuilder {
+  internal class func builder() -> PBDescriptorProtoBuilder {
     return PBDescriptorProtoBuilder()
   }
-  class func builderWithPrototype(prototype:PBDescriptorProto) -> PBDescriptorProtoBuilder {
-    return PBDescriptorProto.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBDescriptorProtoBuilder {
+  internal func builder() -> PBDescriptorProtoBuilder {
     return PBDescriptorProto.builder()
   }
-  func toBuilder() -> PBDescriptorProtoBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBDescriptorProtoBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBDescriptorProto.builder()
+  }
+  internal func toBuilder() -> PBDescriptorProtoBuilder {
     return PBDescriptorProto.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBDescriptorProto) -> PBDescriptorProtoBuilder {
+    return PBDescriptorProto.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasName {
       output += "\(indent) name: \(name) \n"
     }
@@ -1510,7 +1534,7 @@ final public class PBDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasName {
@@ -1542,13 +1566,13 @@ final public class PBDescriptorProto : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBDescriptorProto"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBDescriptorProto"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBDescriptorProto.self
   }
 
@@ -1560,7 +1584,7 @@ final public class PBDescriptorProto : GeneratedMessage {
 final class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
   private var builderResult:PBDescriptorProto
 
-  required override init () {
+  required override internal init () {
      builderResult = PBDescriptorProto()
      super.init()
   }
@@ -1675,23 +1699,23 @@ final class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
     builderResult.options = PBMessageOptions()
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> PBDescriptorProtoBuilder {
+  internal override func clear() -> PBDescriptorProtoBuilder {
     builderResult = PBDescriptorProto()
     return self
   }
-  override func clone() -> PBDescriptorProtoBuilder {
+  internal override func clone() -> PBDescriptorProtoBuilder {
     return PBDescriptorProto.builderWithPrototype(builderResult)
   }
-  override func build() -> PBDescriptorProto {
+  internal override func build() -> PBDescriptorProto {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBDescriptorProto {
+  internal func buildPartial() -> PBDescriptorProto {
     var returnMe:PBDescriptorProto = builderResult
     return returnMe
   }
@@ -1723,10 +1747,10 @@ final class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBDescriptorProtoBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBDescriptorProtoBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1781,7 +1805,7 @@ final class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBFieldDescriptorProto : GeneratedMessage {
+final class PBFieldDescriptorProto : GeneratedMessage {
 
 
     //Enum type declaration start 
@@ -1864,10 +1888,10 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
 
   private(set) var hasOptions:Bool = false
   private(set) var options:PBFieldOptions = PBFieldOptions()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if hasOptions {
      if !options.isInitialized() {
        return false
@@ -1875,7 +1899,7 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasName {
       output.writeString(1, value:name)
     }
@@ -1902,7 +1926,7 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1937,37 +1961,43 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBFieldDescriptorProto {
+  internal class func parseFromData(data:[Byte]) -> PBFieldDescriptorProto {
     return PBFieldDescriptorProto.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFieldDescriptorProto {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFieldDescriptorProto {
     return PBFieldDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBFieldDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBFieldDescriptorProto {
     return PBFieldDescriptorProto.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBFieldDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBFieldDescriptorProto {
     return PBFieldDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBFieldDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBFieldDescriptorProto {
     return PBFieldDescriptorProto.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFieldDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFieldDescriptorProto {
     return PBFieldDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBFieldDescriptorProtoBuilder {
+  internal class func builder() -> PBFieldDescriptorProtoBuilder {
     return PBFieldDescriptorProtoBuilder()
   }
-  class func builderWithPrototype(prototype:PBFieldDescriptorProto) -> PBFieldDescriptorProtoBuilder {
-    return PBFieldDescriptorProto.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBFieldDescriptorProtoBuilder {
+  internal func builder() -> PBFieldDescriptorProtoBuilder {
     return PBFieldDescriptorProto.builder()
   }
-  func toBuilder() -> PBFieldDescriptorProtoBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBFieldDescriptorProtoBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBFieldDescriptorProto.builder()
+  }
+  internal func toBuilder() -> PBFieldDescriptorProtoBuilder {
     return PBFieldDescriptorProto.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBFieldDescriptorProto) -> PBFieldDescriptorProtoBuilder {
+    return PBFieldDescriptorProto.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasName {
       output += "\(indent) name: \(name) \n"
     }
@@ -1996,7 +2026,7 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasName {
@@ -2031,13 +2061,13 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBFieldDescriptorProto"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBFieldDescriptorProto"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBFieldDescriptorProto.self
   }
 
@@ -2049,7 +2079,7 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
 final class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
   private var builderResult:PBFieldDescriptorProto
 
-  required override init () {
+  required override internal init () {
      builderResult = PBFieldDescriptorProto()
      super.init()
   }
@@ -2218,23 +2248,23 @@ final class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
     builderResult.options = PBFieldOptions()
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> PBFieldDescriptorProtoBuilder {
+  internal override func clear() -> PBFieldDescriptorProtoBuilder {
     builderResult = PBFieldDescriptorProto()
     return self
   }
-  override func clone() -> PBFieldDescriptorProtoBuilder {
+  internal override func clone() -> PBFieldDescriptorProtoBuilder {
     return PBFieldDescriptorProto.builderWithPrototype(builderResult)
   }
-  override func build() -> PBFieldDescriptorProto {
+  internal override func build() -> PBFieldDescriptorProto {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBFieldDescriptorProto {
+  internal func buildPartial() -> PBFieldDescriptorProto {
     var returnMe:PBFieldDescriptorProto = builderResult
     return returnMe
   }
@@ -2269,10 +2299,10 @@ final class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBFieldDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBFieldDescriptorProtoBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFieldDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFieldDescriptorProtoBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -2332,17 +2362,17 @@ final class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBEnumDescriptorProto : GeneratedMessage {
+final class PBEnumDescriptorProto : GeneratedMessage {
   private(set) var hasName:Bool = false
   private(set) var name:String = ""
 
   private(set) var hasOptions:Bool = false
   private(set) var options:PBEnumOptions = PBEnumOptions()
   private(set) var value:Array<PBEnumValueDescriptorProto>  = Array<PBEnumValueDescriptorProto>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInitvalue:Bool = true
     for element in value {
         if (!element.isInitialized()) {
@@ -2360,7 +2390,7 @@ final public class PBEnumDescriptorProto : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasName {
       output.writeString(1, value:name)
     }
@@ -2372,7 +2402,7 @@ final public class PBEnumDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2392,37 +2422,43 @@ final public class PBEnumDescriptorProto : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBEnumDescriptorProto {
+  internal class func parseFromData(data:[Byte]) -> PBEnumDescriptorProto {
     return PBEnumDescriptorProto.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBEnumDescriptorProto {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBEnumDescriptorProto {
     return PBEnumDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBEnumDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBEnumDescriptorProto {
     return PBEnumDescriptorProto.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBEnumDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBEnumDescriptorProto {
     return PBEnumDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBEnumDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBEnumDescriptorProto {
     return PBEnumDescriptorProto.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumDescriptorProto {
     return PBEnumDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBEnumDescriptorProtoBuilder {
+  internal class func builder() -> PBEnumDescriptorProtoBuilder {
     return PBEnumDescriptorProtoBuilder()
   }
-  class func builderWithPrototype(prototype:PBEnumDescriptorProto) -> PBEnumDescriptorProtoBuilder {
-    return PBEnumDescriptorProto.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBEnumDescriptorProtoBuilder {
+  internal func builder() -> PBEnumDescriptorProtoBuilder {
     return PBEnumDescriptorProto.builder()
   }
-  func toBuilder() -> PBEnumDescriptorProtoBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBEnumDescriptorProtoBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBEnumDescriptorProto.builder()
+  }
+  internal func toBuilder() -> PBEnumDescriptorProtoBuilder {
     return PBEnumDescriptorProto.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBEnumDescriptorProto) -> PBEnumDescriptorProtoBuilder {
+    return PBEnumDescriptorProto.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasName {
       output += "\(indent) name: \(name) \n"
     }
@@ -2440,7 +2476,7 @@ final public class PBEnumDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasName {
@@ -2460,13 +2496,13 @@ final public class PBEnumDescriptorProto : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBEnumDescriptorProto"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBEnumDescriptorProto"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBEnumDescriptorProto.self
   }
 
@@ -2478,7 +2514,7 @@ final public class PBEnumDescriptorProto : GeneratedMessage {
 final class PBEnumDescriptorProtoBuilder : GeneratedMessageBuilder {
   private var builderResult:PBEnumDescriptorProto
 
-  required override init () {
+  required override internal init () {
      builderResult = PBEnumDescriptorProto()
      super.init()
   }
@@ -2545,23 +2581,23 @@ final class PBEnumDescriptorProtoBuilder : GeneratedMessageBuilder {
     builderResult.options = PBEnumOptions()
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> PBEnumDescriptorProtoBuilder {
+  internal override func clear() -> PBEnumDescriptorProtoBuilder {
     builderResult = PBEnumDescriptorProto()
     return self
   }
-  override func clone() -> PBEnumDescriptorProtoBuilder {
+  internal override func clone() -> PBEnumDescriptorProtoBuilder {
     return PBEnumDescriptorProto.builderWithPrototype(builderResult)
   }
-  override func build() -> PBEnumDescriptorProto {
+  internal override func build() -> PBEnumDescriptorProto {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBEnumDescriptorProto {
+  internal func buildPartial() -> PBEnumDescriptorProto {
     var returnMe:PBEnumDescriptorProto = builderResult
     return returnMe
   }
@@ -2581,10 +2617,10 @@ final class PBEnumDescriptorProtoBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBEnumDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBEnumDescriptorProtoBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumDescriptorProtoBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -2619,7 +2655,7 @@ final class PBEnumDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBEnumValueDescriptorProto : GeneratedMessage {
+final class PBEnumValueDescriptorProto : GeneratedMessage {
   private(set) var hasName:Bool = false
   private(set) var name:String = ""
 
@@ -2628,10 +2664,10 @@ final public class PBEnumValueDescriptorProto : GeneratedMessage {
 
   private(set) var hasOptions:Bool = false
   private(set) var options:PBEnumValueOptions = PBEnumValueOptions()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if hasOptions {
      if !options.isInitialized() {
        return false
@@ -2639,7 +2675,7 @@ final public class PBEnumValueDescriptorProto : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasName {
       output.writeString(1, value:name)
     }
@@ -2651,7 +2687,7 @@ final public class PBEnumValueDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2671,37 +2707,43 @@ final public class PBEnumValueDescriptorProto : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBEnumValueDescriptorProto {
+  internal class func parseFromData(data:[Byte]) -> PBEnumValueDescriptorProto {
     return PBEnumValueDescriptorProto.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBEnumValueDescriptorProto {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBEnumValueDescriptorProto {
     return PBEnumValueDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBEnumValueDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBEnumValueDescriptorProto {
     return PBEnumValueDescriptorProto.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBEnumValueDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBEnumValueDescriptorProto {
     return PBEnumValueDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBEnumValueDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBEnumValueDescriptorProto {
     return PBEnumValueDescriptorProto.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumValueDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumValueDescriptorProto {
     return PBEnumValueDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBEnumValueDescriptorProtoBuilder {
+  internal class func builder() -> PBEnumValueDescriptorProtoBuilder {
     return PBEnumValueDescriptorProtoBuilder()
   }
-  class func builderWithPrototype(prototype:PBEnumValueDescriptorProto) -> PBEnumValueDescriptorProtoBuilder {
-    return PBEnumValueDescriptorProto.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBEnumValueDescriptorProtoBuilder {
+  internal func builder() -> PBEnumValueDescriptorProtoBuilder {
     return PBEnumValueDescriptorProto.builder()
   }
-  func toBuilder() -> PBEnumValueDescriptorProtoBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBEnumValueDescriptorProtoBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBEnumValueDescriptorProto.builder()
+  }
+  internal func toBuilder() -> PBEnumValueDescriptorProtoBuilder {
     return PBEnumValueDescriptorProto.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBEnumValueDescriptorProto) -> PBEnumValueDescriptorProtoBuilder {
+    return PBEnumValueDescriptorProto.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasName {
       output += "\(indent) name: \(name) \n"
     }
@@ -2715,7 +2757,7 @@ final public class PBEnumValueDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasName {
@@ -2735,13 +2777,13 @@ final public class PBEnumValueDescriptorProto : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBEnumValueDescriptorProto"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBEnumValueDescriptorProto"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBEnumValueDescriptorProto.self
   }
 
@@ -2753,7 +2795,7 @@ final public class PBEnumValueDescriptorProto : GeneratedMessage {
 final class PBEnumValueDescriptorProtoBuilder : GeneratedMessageBuilder {
   private var builderResult:PBEnumValueDescriptorProto
 
-  required override init () {
+  required override internal init () {
      builderResult = PBEnumValueDescriptorProto()
      super.init()
   }
@@ -2827,23 +2869,23 @@ final class PBEnumValueDescriptorProtoBuilder : GeneratedMessageBuilder {
     builderResult.options = PBEnumValueOptions()
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> PBEnumValueDescriptorProtoBuilder {
+  internal override func clear() -> PBEnumValueDescriptorProtoBuilder {
     builderResult = PBEnumValueDescriptorProto()
     return self
   }
-  override func clone() -> PBEnumValueDescriptorProtoBuilder {
+  internal override func clone() -> PBEnumValueDescriptorProtoBuilder {
     return PBEnumValueDescriptorProto.builderWithPrototype(builderResult)
   }
-  override func build() -> PBEnumValueDescriptorProto {
+  internal override func build() -> PBEnumValueDescriptorProto {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBEnumValueDescriptorProto {
+  internal func buildPartial() -> PBEnumValueDescriptorProto {
     var returnMe:PBEnumValueDescriptorProto = builderResult
     return returnMe
   }
@@ -2863,10 +2905,10 @@ final class PBEnumValueDescriptorProtoBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBEnumValueDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBEnumValueDescriptorProtoBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumValueDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumValueDescriptorProtoBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -2899,17 +2941,17 @@ final class PBEnumValueDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBServiceDescriptorProto : GeneratedMessage {
+final class PBServiceDescriptorProto : GeneratedMessage {
   private(set) var hasName:Bool = false
   private(set) var name:String = ""
 
   private(set) var hasOptions:Bool = false
   private(set) var options:PBServiceOptions = PBServiceOptions()
   private(set) var method:Array<PBMethodDescriptorProto>  = Array<PBMethodDescriptorProto>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInitmethod:Bool = true
     for element in method {
         if (!element.isInitialized()) {
@@ -2927,7 +2969,7 @@ final public class PBServiceDescriptorProto : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasName {
       output.writeString(1, value:name)
     }
@@ -2939,7 +2981,7 @@ final public class PBServiceDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2959,37 +3001,43 @@ final public class PBServiceDescriptorProto : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBServiceDescriptorProto {
+  internal class func parseFromData(data:[Byte]) -> PBServiceDescriptorProto {
     return PBServiceDescriptorProto.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBServiceDescriptorProto {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBServiceDescriptorProto {
     return PBServiceDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBServiceDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBServiceDescriptorProto {
     return PBServiceDescriptorProto.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBServiceDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBServiceDescriptorProto {
     return PBServiceDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBServiceDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBServiceDescriptorProto {
     return PBServiceDescriptorProto.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBServiceDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBServiceDescriptorProto {
     return PBServiceDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBServiceDescriptorProtoBuilder {
+  internal class func builder() -> PBServiceDescriptorProtoBuilder {
     return PBServiceDescriptorProtoBuilder()
   }
-  class func builderWithPrototype(prototype:PBServiceDescriptorProto) -> PBServiceDescriptorProtoBuilder {
-    return PBServiceDescriptorProto.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBServiceDescriptorProtoBuilder {
+  internal func builder() -> PBServiceDescriptorProtoBuilder {
     return PBServiceDescriptorProto.builder()
   }
-  func toBuilder() -> PBServiceDescriptorProtoBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBServiceDescriptorProtoBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBServiceDescriptorProto.builder()
+  }
+  internal func toBuilder() -> PBServiceDescriptorProtoBuilder {
     return PBServiceDescriptorProto.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBServiceDescriptorProto) -> PBServiceDescriptorProtoBuilder {
+    return PBServiceDescriptorProto.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasName {
       output += "\(indent) name: \(name) \n"
     }
@@ -3007,7 +3055,7 @@ final public class PBServiceDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasName {
@@ -3027,13 +3075,13 @@ final public class PBServiceDescriptorProto : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBServiceDescriptorProto"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBServiceDescriptorProto"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBServiceDescriptorProto.self
   }
 
@@ -3045,7 +3093,7 @@ final public class PBServiceDescriptorProto : GeneratedMessage {
 final class PBServiceDescriptorProtoBuilder : GeneratedMessageBuilder {
   private var builderResult:PBServiceDescriptorProto
 
-  required override init () {
+  required override internal init () {
      builderResult = PBServiceDescriptorProto()
      super.init()
   }
@@ -3112,23 +3160,23 @@ final class PBServiceDescriptorProtoBuilder : GeneratedMessageBuilder {
     builderResult.options = PBServiceOptions()
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> PBServiceDescriptorProtoBuilder {
+  internal override func clear() -> PBServiceDescriptorProtoBuilder {
     builderResult = PBServiceDescriptorProto()
     return self
   }
-  override func clone() -> PBServiceDescriptorProtoBuilder {
+  internal override func clone() -> PBServiceDescriptorProtoBuilder {
     return PBServiceDescriptorProto.builderWithPrototype(builderResult)
   }
-  override func build() -> PBServiceDescriptorProto {
+  internal override func build() -> PBServiceDescriptorProto {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBServiceDescriptorProto {
+  internal func buildPartial() -> PBServiceDescriptorProto {
     var returnMe:PBServiceDescriptorProto = builderResult
     return returnMe
   }
@@ -3148,10 +3196,10 @@ final class PBServiceDescriptorProtoBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBServiceDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBServiceDescriptorProtoBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBServiceDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBServiceDescriptorProtoBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -3186,7 +3234,7 @@ final class PBServiceDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBMethodDescriptorProto : GeneratedMessage {
+final class PBMethodDescriptorProto : GeneratedMessage {
   private(set) var hasName:Bool = false
   private(set) var name:String = ""
 
@@ -3198,10 +3246,10 @@ final public class PBMethodDescriptorProto : GeneratedMessage {
 
   private(set) var hasOptions:Bool = false
   private(set) var options:PBMethodOptions = PBMethodOptions()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if hasOptions {
      if !options.isInitialized() {
        return false
@@ -3209,7 +3257,7 @@ final public class PBMethodDescriptorProto : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasName {
       output.writeString(1, value:name)
     }
@@ -3224,7 +3272,7 @@ final public class PBMethodDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -3247,37 +3295,43 @@ final public class PBMethodDescriptorProto : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBMethodDescriptorProto {
+  internal class func parseFromData(data:[Byte]) -> PBMethodDescriptorProto {
     return PBMethodDescriptorProto.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBMethodDescriptorProto {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBMethodDescriptorProto {
     return PBMethodDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBMethodDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBMethodDescriptorProto {
     return PBMethodDescriptorProto.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBMethodDescriptorProto {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBMethodDescriptorProto {
     return PBMethodDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBMethodDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBMethodDescriptorProto {
     return PBMethodDescriptorProto.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBMethodDescriptorProto {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBMethodDescriptorProto {
     return PBMethodDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBMethodDescriptorProtoBuilder {
+  internal class func builder() -> PBMethodDescriptorProtoBuilder {
     return PBMethodDescriptorProtoBuilder()
   }
-  class func builderWithPrototype(prototype:PBMethodDescriptorProto) -> PBMethodDescriptorProtoBuilder {
-    return PBMethodDescriptorProto.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBMethodDescriptorProtoBuilder {
+  internal func builder() -> PBMethodDescriptorProtoBuilder {
     return PBMethodDescriptorProto.builder()
   }
-  func toBuilder() -> PBMethodDescriptorProtoBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBMethodDescriptorProtoBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBMethodDescriptorProto.builder()
+  }
+  internal func toBuilder() -> PBMethodDescriptorProtoBuilder {
     return PBMethodDescriptorProto.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBMethodDescriptorProto) -> PBMethodDescriptorProtoBuilder {
+    return PBMethodDescriptorProto.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasName {
       output += "\(indent) name: \(name) \n"
     }
@@ -3294,7 +3348,7 @@ final public class PBMethodDescriptorProto : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasName {
@@ -3317,13 +3371,13 @@ final public class PBMethodDescriptorProto : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBMethodDescriptorProto"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBMethodDescriptorProto"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBMethodDescriptorProto.self
   }
 
@@ -3335,7 +3389,7 @@ final public class PBMethodDescriptorProto : GeneratedMessage {
 final class PBMethodDescriptorProtoBuilder : GeneratedMessageBuilder {
   private var builderResult:PBMethodDescriptorProto
 
-  required override init () {
+  required override internal init () {
      builderResult = PBMethodDescriptorProto()
      super.init()
   }
@@ -3428,23 +3482,23 @@ final class PBMethodDescriptorProtoBuilder : GeneratedMessageBuilder {
     builderResult.options = PBMethodOptions()
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> PBMethodDescriptorProtoBuilder {
+  internal override func clear() -> PBMethodDescriptorProtoBuilder {
     builderResult = PBMethodDescriptorProto()
     return self
   }
-  override func clone() -> PBMethodDescriptorProtoBuilder {
+  internal override func clone() -> PBMethodDescriptorProtoBuilder {
     return PBMethodDescriptorProto.builderWithPrototype(builderResult)
   }
-  override func build() -> PBMethodDescriptorProto {
+  internal override func build() -> PBMethodDescriptorProto {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBMethodDescriptorProto {
+  internal func buildPartial() -> PBMethodDescriptorProto {
     var returnMe:PBMethodDescriptorProto = builderResult
     return returnMe
   }
@@ -3467,10 +3521,10 @@ final class PBMethodDescriptorProtoBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBMethodDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBMethodDescriptorProtoBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBMethodDescriptorProtoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBMethodDescriptorProtoBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -3506,7 +3560,7 @@ final class PBMethodDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBFileOptions : ExtendableMessage {
+final class PBFileOptions : ExtendableMessage {
 
 
     //Enum type declaration start 
@@ -3557,10 +3611,10 @@ final public class PBFileOptions : ExtendableMessage {
   private(set) var pyGenericServices:Bool = false
 
   private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
     for element in uninterpretedOption {
         if (!element.isInitialized()) {
@@ -3576,7 +3630,7 @@ final public class PBFileOptions : ExtendableMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasJavaPackage {
       output.writeString(1, value:javaPackage)
     }
@@ -3610,7 +3664,7 @@ final public class PBFileOptions : ExtendableMessage {
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -3652,37 +3706,43 @@ final public class PBFileOptions : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBFileOptions {
+  internal class func parseFromData(data:[Byte]) -> PBFileOptions {
     return PBFileOptions.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFileOptions {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFileOptions {
     return PBFileOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBFileOptions {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBFileOptions {
     return PBFileOptions.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBFileOptions {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBFileOptions {
     return PBFileOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBFileOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBFileOptions {
     return PBFileOptions.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFileOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFileOptions {
     return PBFileOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBFileOptionsBuilder {
+  internal class func builder() -> PBFileOptionsBuilder {
     return PBFileOptionsBuilder()
   }
-  class func builderWithPrototype(prototype:PBFileOptions) -> PBFileOptionsBuilder {
-    return PBFileOptions.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBFileOptionsBuilder {
+  internal func builder() -> PBFileOptionsBuilder {
     return PBFileOptions.builder()
   }
-  func toBuilder() -> PBFileOptionsBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBFileOptionsBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBFileOptions.builder()
+  }
+  internal func toBuilder() -> PBFileOptionsBuilder {
     return PBFileOptions.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBFileOptions) -> PBFileOptionsBuilder {
+    return PBFileOptions.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasJavaPackage {
       output += "\(indent) javaPackage: \(javaPackage) \n"
     }
@@ -3720,7 +3780,7 @@ final public class PBFileOptions : ExtendableMessage {
     writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasJavaPackage {
@@ -3762,13 +3822,13 @@ final public class PBFileOptions : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBFileOptions"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBFileOptions"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBFileOptions.self
   }
 
@@ -3780,7 +3840,7 @@ final public class PBFileOptions : ExtendableMessage {
 final class PBFileOptionsBuilder : ExtendableMessageBuilder {
   private var builderResult:PBFileOptions
 
-  required override init () {
+  required override internal init () {
      builderResult = PBFileOptions()
      super.init()
   }
@@ -3967,23 +4027,23 @@ final class PBFileOptionsBuilder : ExtendableMessageBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> PBFileOptionsBuilder {
+  internal override func clear() -> PBFileOptionsBuilder {
     builderResult = PBFileOptions()
     return self
   }
-  override func clone() -> PBFileOptionsBuilder {
+  internal override func clone() -> PBFileOptionsBuilder {
     return PBFileOptions.builderWithPrototype(builderResult)
   }
-  override func build() -> PBFileOptions {
+  internal override func build() -> PBFileOptions {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBFileOptions {
+  internal func buildPartial() -> PBFileOptions {
     var returnMe:PBFileOptions = builderResult
     return returnMe
   }
@@ -4025,10 +4085,10 @@ final class PBFileOptionsBuilder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBFileOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBFileOptionsBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFileOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFileOptionsBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -4085,7 +4145,7 @@ final class PBFileOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBMessageOptions : ExtendableMessage {
+final class PBMessageOptions : ExtendableMessage {
   private(set) var hasMessageSetWireFormat:Bool = false
   private(set) var messageSetWireFormat:Bool = false
 
@@ -4093,10 +4153,10 @@ final public class PBMessageOptions : ExtendableMessage {
   private(set) var noStandardDescriptorAccessor:Bool = false
 
   private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
     for element in uninterpretedOption {
         if (!element.isInitialized()) {
@@ -4112,7 +4172,7 @@ final public class PBMessageOptions : ExtendableMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasMessageSetWireFormat {
       output.writeBool(1, value:messageSetWireFormat)
     }
@@ -4125,7 +4185,7 @@ final public class PBMessageOptions : ExtendableMessage {
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -4146,37 +4206,43 @@ final public class PBMessageOptions : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBMessageOptions {
+  internal class func parseFromData(data:[Byte]) -> PBMessageOptions {
     return PBMessageOptions.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBMessageOptions {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBMessageOptions {
     return PBMessageOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBMessageOptions {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBMessageOptions {
     return PBMessageOptions.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBMessageOptions {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBMessageOptions {
     return PBMessageOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBMessageOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBMessageOptions {
     return PBMessageOptions.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBMessageOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBMessageOptions {
     return PBMessageOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBMessageOptionsBuilder {
+  internal class func builder() -> PBMessageOptionsBuilder {
     return PBMessageOptionsBuilder()
   }
-  class func builderWithPrototype(prototype:PBMessageOptions) -> PBMessageOptionsBuilder {
-    return PBMessageOptions.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBMessageOptionsBuilder {
+  internal func builder() -> PBMessageOptionsBuilder {
     return PBMessageOptions.builder()
   }
-  func toBuilder() -> PBMessageOptionsBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBMessageOptionsBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBMessageOptions.builder()
+  }
+  internal func toBuilder() -> PBMessageOptionsBuilder {
     return PBMessageOptions.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBMessageOptions) -> PBMessageOptionsBuilder {
+    return PBMessageOptions.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasMessageSetWireFormat {
       output += "\(indent) messageSetWireFormat: \(messageSetWireFormat) \n"
     }
@@ -4193,7 +4259,7 @@ final public class PBMessageOptions : ExtendableMessage {
     writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasMessageSetWireFormat {
@@ -4214,13 +4280,13 @@ final public class PBMessageOptions : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBMessageOptions"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBMessageOptions"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBMessageOptions.self
   }
 
@@ -4232,7 +4298,7 @@ final public class PBMessageOptions : ExtendableMessage {
 final class PBMessageOptionsBuilder : ExtendableMessageBuilder {
   private var builderResult:PBMessageOptions
 
-  required override init () {
+  required override internal init () {
      builderResult = PBMessageOptions()
      super.init()
   }
@@ -4286,23 +4352,23 @@ final class PBMessageOptionsBuilder : ExtendableMessageBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> PBMessageOptionsBuilder {
+  internal override func clear() -> PBMessageOptionsBuilder {
     builderResult = PBMessageOptions()
     return self
   }
-  override func clone() -> PBMessageOptionsBuilder {
+  internal override func clone() -> PBMessageOptionsBuilder {
     return PBMessageOptions.builderWithPrototype(builderResult)
   }
-  override func build() -> PBMessageOptions {
+  internal override func build() -> PBMessageOptions {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBMessageOptions {
+  internal func buildPartial() -> PBMessageOptions {
     var returnMe:PBMessageOptions = builderResult
     return returnMe
   }
@@ -4323,10 +4389,10 @@ final class PBMessageOptionsBuilder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBMessageOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBMessageOptionsBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBMessageOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBMessageOptionsBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -4356,7 +4422,7 @@ final class PBMessageOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBFieldOptions : ExtendableMessage {
+final class PBFieldOptions : ExtendableMessage {
 
 
     //Enum type declaration start 
@@ -4398,10 +4464,10 @@ final public class PBFieldOptions : ExtendableMessage {
   private(set) var weak:Bool = false
 
   private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
     for element in uninterpretedOption {
         if (!element.isInitialized()) {
@@ -4417,7 +4483,7 @@ final public class PBFieldOptions : ExtendableMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasCtype {
       output.writeEnum(1, value:ctype.rawValue)
     }
@@ -4442,7 +4508,7 @@ final public class PBFieldOptions : ExtendableMessage {
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -4475,37 +4541,43 @@ final public class PBFieldOptions : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBFieldOptions {
+  internal class func parseFromData(data:[Byte]) -> PBFieldOptions {
     return PBFieldOptions.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFieldOptions {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFieldOptions {
     return PBFieldOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBFieldOptions {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBFieldOptions {
     return PBFieldOptions.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBFieldOptions {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBFieldOptions {
     return PBFieldOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBFieldOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBFieldOptions {
     return PBFieldOptions.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFieldOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFieldOptions {
     return PBFieldOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBFieldOptionsBuilder {
+  internal class func builder() -> PBFieldOptionsBuilder {
     return PBFieldOptionsBuilder()
   }
-  class func builderWithPrototype(prototype:PBFieldOptions) -> PBFieldOptionsBuilder {
-    return PBFieldOptions.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBFieldOptionsBuilder {
+  internal func builder() -> PBFieldOptionsBuilder {
     return PBFieldOptions.builder()
   }
-  func toBuilder() -> PBFieldOptionsBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBFieldOptionsBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBFieldOptions.builder()
+  }
+  internal func toBuilder() -> PBFieldOptionsBuilder {
     return PBFieldOptions.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBFieldOptions) -> PBFieldOptionsBuilder {
+    return PBFieldOptions.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if (hasCtype) {
       output += "\(indent) ctype: \(ctype.rawValue)\n"
     }
@@ -4534,7 +4606,7 @@ final public class PBFieldOptions : ExtendableMessage {
     writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasCtype {
@@ -4567,13 +4639,13 @@ final public class PBFieldOptions : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBFieldOptions"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBFieldOptions"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBFieldOptions.self
   }
 
@@ -4585,7 +4657,7 @@ final public class PBFieldOptions : ExtendableMessage {
 final class PBFieldOptionsBuilder : ExtendableMessageBuilder {
   private var builderResult:PBFieldOptions
 
-  required override init () {
+  required override internal init () {
      builderResult = PBFieldOptions()
      super.init()
   }
@@ -4715,23 +4787,23 @@ final class PBFieldOptionsBuilder : ExtendableMessageBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> PBFieldOptionsBuilder {
+  internal override func clear() -> PBFieldOptionsBuilder {
     builderResult = PBFieldOptions()
     return self
   }
-  override func clone() -> PBFieldOptionsBuilder {
+  internal override func clone() -> PBFieldOptionsBuilder {
     return PBFieldOptions.builderWithPrototype(builderResult)
   }
-  override func build() -> PBFieldOptions {
+  internal override func build() -> PBFieldOptions {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBFieldOptions {
+  internal func buildPartial() -> PBFieldOptions {
     var returnMe:PBFieldOptions = builderResult
     return returnMe
   }
@@ -4764,10 +4836,10 @@ final class PBFieldOptionsBuilder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBFieldOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBFieldOptionsBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFieldOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFieldOptionsBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -4815,15 +4887,15 @@ final class PBFieldOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBEnumOptions : ExtendableMessage {
+final class PBEnumOptions : ExtendableMessage {
   private(set) var hasAllowAlias:Bool = false
   private(set) var allowAlias:Bool = true
 
   private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
     for element in uninterpretedOption {
         if (!element.isInitialized()) {
@@ -4839,7 +4911,7 @@ final public class PBEnumOptions : ExtendableMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasAllowAlias {
       output.writeBool(2, value:allowAlias)
     }
@@ -4849,7 +4921,7 @@ final public class PBEnumOptions : ExtendableMessage {
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -4867,37 +4939,43 @@ final public class PBEnumOptions : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBEnumOptions {
+  internal class func parseFromData(data:[Byte]) -> PBEnumOptions {
     return PBEnumOptions.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBEnumOptions {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBEnumOptions {
     return PBEnumOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBEnumOptions {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBEnumOptions {
     return PBEnumOptions.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBEnumOptions {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBEnumOptions {
     return PBEnumOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBEnumOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBEnumOptions {
     return PBEnumOptions.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumOptions {
     return PBEnumOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBEnumOptionsBuilder {
+  internal class func builder() -> PBEnumOptionsBuilder {
     return PBEnumOptionsBuilder()
   }
-  class func builderWithPrototype(prototype:PBEnumOptions) -> PBEnumOptionsBuilder {
-    return PBEnumOptions.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBEnumOptionsBuilder {
+  internal func builder() -> PBEnumOptionsBuilder {
     return PBEnumOptions.builder()
   }
-  func toBuilder() -> PBEnumOptionsBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBEnumOptionsBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBEnumOptions.builder()
+  }
+  internal func toBuilder() -> PBEnumOptionsBuilder {
     return PBEnumOptions.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBEnumOptions) -> PBEnumOptionsBuilder {
+    return PBEnumOptions.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasAllowAlias {
       output += "\(indent) allowAlias: \(allowAlias) \n"
     }
@@ -4911,7 +4989,7 @@ final public class PBEnumOptions : ExtendableMessage {
     writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasAllowAlias {
@@ -4929,13 +5007,13 @@ final public class PBEnumOptions : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBEnumOptions"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBEnumOptions"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBEnumOptions.self
   }
 
@@ -4947,7 +5025,7 @@ final public class PBEnumOptions : ExtendableMessage {
 final class PBEnumOptionsBuilder : ExtendableMessageBuilder {
   private var builderResult:PBEnumOptions
 
-  required override init () {
+  required override internal init () {
      builderResult = PBEnumOptions()
      super.init()
   }
@@ -4982,23 +5060,23 @@ final class PBEnumOptionsBuilder : ExtendableMessageBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> PBEnumOptionsBuilder {
+  internal override func clear() -> PBEnumOptionsBuilder {
     builderResult = PBEnumOptions()
     return self
   }
-  override func clone() -> PBEnumOptionsBuilder {
+  internal override func clone() -> PBEnumOptionsBuilder {
     return PBEnumOptions.builderWithPrototype(builderResult)
   }
-  override func build() -> PBEnumOptions {
+  internal override func build() -> PBEnumOptions {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBEnumOptions {
+  internal func buildPartial() -> PBEnumOptions {
     var returnMe:PBEnumOptions = builderResult
     return returnMe
   }
@@ -5016,10 +5094,10 @@ final class PBEnumOptionsBuilder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBEnumOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBEnumOptionsBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumOptionsBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -5046,12 +5124,12 @@ final class PBEnumOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBEnumValueOptions : ExtendableMessage {
+final class PBEnumValueOptions : ExtendableMessage {
   private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
     for element in uninterpretedOption {
         if (!element.isInitialized()) {
@@ -5067,14 +5145,14 @@ final public class PBEnumValueOptions : ExtendableMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     for element in uninterpretedOption {
         output.writeMessage(999, value:element)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -5089,37 +5167,43 @@ final public class PBEnumValueOptions : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBEnumValueOptions {
+  internal class func parseFromData(data:[Byte]) -> PBEnumValueOptions {
     return PBEnumValueOptions.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBEnumValueOptions {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBEnumValueOptions {
     return PBEnumValueOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBEnumValueOptions {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBEnumValueOptions {
     return PBEnumValueOptions.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBEnumValueOptions {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBEnumValueOptions {
     return PBEnumValueOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBEnumValueOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBEnumValueOptions {
     return PBEnumValueOptions.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumValueOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumValueOptions {
     return PBEnumValueOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBEnumValueOptionsBuilder {
+  internal class func builder() -> PBEnumValueOptionsBuilder {
     return PBEnumValueOptionsBuilder()
   }
-  class func builderWithPrototype(prototype:PBEnumValueOptions) -> PBEnumValueOptionsBuilder {
-    return PBEnumValueOptions.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBEnumValueOptionsBuilder {
+  internal func builder() -> PBEnumValueOptionsBuilder {
     return PBEnumValueOptions.builder()
   }
-  func toBuilder() -> PBEnumValueOptionsBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBEnumValueOptionsBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBEnumValueOptions.builder()
+  }
+  internal func toBuilder() -> PBEnumValueOptionsBuilder {
     return PBEnumValueOptions.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBEnumValueOptions) -> PBEnumValueOptionsBuilder {
+    return PBEnumValueOptions.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     var uninterpretedOptionElementIndex:Int = 0
     for element in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -5130,7 +5214,7 @@ final public class PBEnumValueOptions : ExtendableMessage {
     writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           for element in uninterpretedOption {
@@ -5145,13 +5229,13 @@ final public class PBEnumValueOptions : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBEnumValueOptions"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBEnumValueOptions"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBEnumValueOptions.self
   }
 
@@ -5163,7 +5247,7 @@ final public class PBEnumValueOptions : ExtendableMessage {
 final class PBEnumValueOptionsBuilder : ExtendableMessageBuilder {
   private var builderResult:PBEnumValueOptions
 
-  required override init () {
+  required override internal init () {
      builderResult = PBEnumValueOptions()
      super.init()
   }
@@ -5179,23 +5263,23 @@ final class PBEnumValueOptionsBuilder : ExtendableMessageBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> PBEnumValueOptionsBuilder {
+  internal override func clear() -> PBEnumValueOptionsBuilder {
     builderResult = PBEnumValueOptions()
     return self
   }
-  override func clone() -> PBEnumValueOptionsBuilder {
+  internal override func clone() -> PBEnumValueOptionsBuilder {
     return PBEnumValueOptions.builderWithPrototype(builderResult)
   }
-  override func build() -> PBEnumValueOptions {
+  internal override func build() -> PBEnumValueOptions {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBEnumValueOptions {
+  internal func buildPartial() -> PBEnumValueOptions {
     var returnMe:PBEnumValueOptions = builderResult
     return returnMe
   }
@@ -5210,10 +5294,10 @@ final class PBEnumValueOptionsBuilder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBEnumValueOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBEnumValueOptionsBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumValueOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBEnumValueOptionsBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -5237,12 +5321,12 @@ final class PBEnumValueOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBServiceOptions : ExtendableMessage {
+final class PBServiceOptions : ExtendableMessage {
   private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
     for element in uninterpretedOption {
         if (!element.isInitialized()) {
@@ -5258,14 +5342,14 @@ final public class PBServiceOptions : ExtendableMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     for element in uninterpretedOption {
         output.writeMessage(999, value:element)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -5280,37 +5364,43 @@ final public class PBServiceOptions : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBServiceOptions {
+  internal class func parseFromData(data:[Byte]) -> PBServiceOptions {
     return PBServiceOptions.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBServiceOptions {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBServiceOptions {
     return PBServiceOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBServiceOptions {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBServiceOptions {
     return PBServiceOptions.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBServiceOptions {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBServiceOptions {
     return PBServiceOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBServiceOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBServiceOptions {
     return PBServiceOptions.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBServiceOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBServiceOptions {
     return PBServiceOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBServiceOptionsBuilder {
+  internal class func builder() -> PBServiceOptionsBuilder {
     return PBServiceOptionsBuilder()
   }
-  class func builderWithPrototype(prototype:PBServiceOptions) -> PBServiceOptionsBuilder {
-    return PBServiceOptions.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBServiceOptionsBuilder {
+  internal func builder() -> PBServiceOptionsBuilder {
     return PBServiceOptions.builder()
   }
-  func toBuilder() -> PBServiceOptionsBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBServiceOptionsBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBServiceOptions.builder()
+  }
+  internal func toBuilder() -> PBServiceOptionsBuilder {
     return PBServiceOptions.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBServiceOptions) -> PBServiceOptionsBuilder {
+    return PBServiceOptions.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     var uninterpretedOptionElementIndex:Int = 0
     for element in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -5321,7 +5411,7 @@ final public class PBServiceOptions : ExtendableMessage {
     writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           for element in uninterpretedOption {
@@ -5336,13 +5426,13 @@ final public class PBServiceOptions : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBServiceOptions"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBServiceOptions"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBServiceOptions.self
   }
 
@@ -5354,7 +5444,7 @@ final public class PBServiceOptions : ExtendableMessage {
 final class PBServiceOptionsBuilder : ExtendableMessageBuilder {
   private var builderResult:PBServiceOptions
 
-  required override init () {
+  required override internal init () {
      builderResult = PBServiceOptions()
      super.init()
   }
@@ -5370,23 +5460,23 @@ final class PBServiceOptionsBuilder : ExtendableMessageBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> PBServiceOptionsBuilder {
+  internal override func clear() -> PBServiceOptionsBuilder {
     builderResult = PBServiceOptions()
     return self
   }
-  override func clone() -> PBServiceOptionsBuilder {
+  internal override func clone() -> PBServiceOptionsBuilder {
     return PBServiceOptions.builderWithPrototype(builderResult)
   }
-  override func build() -> PBServiceOptions {
+  internal override func build() -> PBServiceOptions {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBServiceOptions {
+  internal func buildPartial() -> PBServiceOptions {
     var returnMe:PBServiceOptions = builderResult
     return returnMe
   }
@@ -5401,10 +5491,10 @@ final class PBServiceOptionsBuilder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBServiceOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBServiceOptionsBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBServiceOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBServiceOptionsBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -5428,12 +5518,12 @@ final class PBServiceOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBMethodOptions : ExtendableMessage {
+final class PBMethodOptions : ExtendableMessage {
   private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
     for element in uninterpretedOption {
         if (!element.isInitialized()) {
@@ -5449,14 +5539,14 @@ final public class PBMethodOptions : ExtendableMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     for element in uninterpretedOption {
         output.writeMessage(999, value:element)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -5471,37 +5561,43 @@ final public class PBMethodOptions : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBMethodOptions {
+  internal class func parseFromData(data:[Byte]) -> PBMethodOptions {
     return PBMethodOptions.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBMethodOptions {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBMethodOptions {
     return PBMethodOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBMethodOptions {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBMethodOptions {
     return PBMethodOptions.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBMethodOptions {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBMethodOptions {
     return PBMethodOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBMethodOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBMethodOptions {
     return PBMethodOptions.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBMethodOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBMethodOptions {
     return PBMethodOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBMethodOptionsBuilder {
+  internal class func builder() -> PBMethodOptionsBuilder {
     return PBMethodOptionsBuilder()
   }
-  class func builderWithPrototype(prototype:PBMethodOptions) -> PBMethodOptionsBuilder {
-    return PBMethodOptions.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBMethodOptionsBuilder {
+  internal func builder() -> PBMethodOptionsBuilder {
     return PBMethodOptions.builder()
   }
-  func toBuilder() -> PBMethodOptionsBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBMethodOptionsBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBMethodOptions.builder()
+  }
+  internal func toBuilder() -> PBMethodOptionsBuilder {
     return PBMethodOptions.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBMethodOptions) -> PBMethodOptionsBuilder {
+    return PBMethodOptions.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     var uninterpretedOptionElementIndex:Int = 0
     for element in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -5512,7 +5608,7 @@ final public class PBMethodOptions : ExtendableMessage {
     writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           for element in uninterpretedOption {
@@ -5527,13 +5623,13 @@ final public class PBMethodOptions : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBMethodOptions"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBMethodOptions"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBMethodOptions.self
   }
 
@@ -5545,7 +5641,7 @@ final public class PBMethodOptions : ExtendableMessage {
 final class PBMethodOptionsBuilder : ExtendableMessageBuilder {
   private var builderResult:PBMethodOptions
 
-  required override init () {
+  required override internal init () {
      builderResult = PBMethodOptions()
      super.init()
   }
@@ -5561,23 +5657,23 @@ final class PBMethodOptionsBuilder : ExtendableMessageBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> PBMethodOptionsBuilder {
+  internal override func clear() -> PBMethodOptionsBuilder {
     builderResult = PBMethodOptions()
     return self
   }
-  override func clone() -> PBMethodOptionsBuilder {
+  internal override func clone() -> PBMethodOptionsBuilder {
     return PBMethodOptions.builderWithPrototype(builderResult)
   }
-  override func build() -> PBMethodOptions {
+  internal override func build() -> PBMethodOptions {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBMethodOptions {
+  internal func buildPartial() -> PBMethodOptions {
     var returnMe:PBMethodOptions = builderResult
     return returnMe
   }
@@ -5592,10 +5688,10 @@ final class PBMethodOptionsBuilder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBMethodOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBMethodOptionsBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBMethodOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBMethodOptionsBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -5619,22 +5715,22 @@ final class PBMethodOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBUninterpretedOption : GeneratedMessage {
+final class PBUninterpretedOption : GeneratedMessage {
 
 
   //Nested type declaration start
 
-    final public class NamePart : GeneratedMessage {
+    final class NamePart : GeneratedMessage {
       private(set) var hasNamePart:Bool = false
       private(set) var namePart:String = ""
 
       private(set) var hasIsExtension:Bool = false
       private(set) var isExtension:Bool = false
 
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
         if !hasNamePart {
           return false
         }
@@ -5643,7 +5739,7 @@ final public class PBUninterpretedOption : GeneratedMessage {
         }
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasNamePart {
           output.writeString(1, value:namePart)
         }
@@ -5652,7 +5748,7 @@ final public class PBUninterpretedOption : GeneratedMessage {
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -5669,37 +5765,43 @@ final public class PBUninterpretedOption : GeneratedMessage {
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> PBUninterpretedOption.NamePart {
+      internal class func parseFromData(data:[Byte]) -> PBUninterpretedOption.NamePart {
         return PBUninterpretedOption.NamePart.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption.NamePart {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption.NamePart {
         return PBUninterpretedOption.NamePart.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> PBUninterpretedOption.NamePart {
+      internal class func parseFromInputStream(input:NSInputStream) -> PBUninterpretedOption.NamePart {
         return PBUninterpretedOption.NamePart.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBUninterpretedOption.NamePart {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBUninterpretedOption.NamePart {
         return PBUninterpretedOption.NamePart.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> PBUninterpretedOption.NamePart {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBUninterpretedOption.NamePart {
         return PBUninterpretedOption.NamePart.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption.NamePart {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption.NamePart {
         return PBUninterpretedOption.NamePart.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> PBUninterpretedOption.NamePartBuilder {
+      internal class func builder() -> PBUninterpretedOption.NamePartBuilder {
         return PBUninterpretedOption.NamePartBuilder()
       }
-      class func builderWithPrototype(prototype:PBUninterpretedOption.NamePart) -> PBUninterpretedOption.NamePartBuilder {
-        return PBUninterpretedOption.NamePart.builder().mergeFrom(prototype)
-      }
-      func builder() -> PBUninterpretedOption.NamePartBuilder {
+      internal func builder() -> PBUninterpretedOption.NamePartBuilder {
         return PBUninterpretedOption.NamePart.builder()
       }
-      func toBuilder() -> PBUninterpretedOption.NamePartBuilder {
+      internal override class func buider() -> MessageBuilder {
+        return PBUninterpretedOption.NamePartBuilder()
+      }
+      internal override func buider() -> MessageBuilder {
+        return PBUninterpretedOption.NamePart.builder()
+      }
+      internal func toBuilder() -> PBUninterpretedOption.NamePartBuilder {
         return PBUninterpretedOption.NamePart.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:PBUninterpretedOption.NamePart) -> PBUninterpretedOption.NamePartBuilder {
+        return PBUninterpretedOption.NamePart.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         if hasNamePart {
           output += "\(indent) namePart: \(namePart) \n"
         }
@@ -5708,7 +5810,7 @@ final public class PBUninterpretedOption : GeneratedMessage {
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasNamePart {
@@ -5725,13 +5827,13 @@ final public class PBUninterpretedOption : GeneratedMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "PBUninterpretedOption.NamePart"
       }
-      override public func className() -> String {
+      override internal func className() -> String {
           return "PBUninterpretedOption.NamePart"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return PBUninterpretedOption.NamePart.self
       }
 
@@ -5743,7 +5845,7 @@ final public class PBUninterpretedOption : GeneratedMessage {
     final class NamePartBuilder : GeneratedMessageBuilder {
       private var builderResult:PBUninterpretedOption.NamePart
 
-      required override init () {
+      required override internal init () {
          builderResult = PBUninterpretedOption.NamePart()
          super.init()
       }
@@ -5785,23 +5887,23 @@ final public class PBUninterpretedOption : GeneratedMessage {
            builderResult.isExtension = false
            return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> PBUninterpretedOption.NamePartBuilder {
+      internal override func clear() -> PBUninterpretedOption.NamePartBuilder {
         builderResult = PBUninterpretedOption.NamePart()
         return self
       }
-      override func clone() -> PBUninterpretedOption.NamePartBuilder {
+      internal override func clone() -> PBUninterpretedOption.NamePartBuilder {
         return PBUninterpretedOption.NamePart.builderWithPrototype(builderResult)
       }
-      override func build() -> PBUninterpretedOption.NamePart {
+      internal override func build() -> PBUninterpretedOption.NamePart {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> PBUninterpretedOption.NamePart {
+      internal func buildPartial() -> PBUninterpretedOption.NamePart {
         var returnMe:PBUninterpretedOption.NamePart = builderResult
         return returnMe
       }
@@ -5818,10 +5920,10 @@ final public class PBUninterpretedOption : GeneratedMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->PBUninterpretedOption.NamePartBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBUninterpretedOption.NamePartBuilder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption.NamePartBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption.NamePartBuilder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -5869,10 +5971,10 @@ final public class PBUninterpretedOption : GeneratedMessage {
   private(set) var aggregateValue:String = ""
 
   private(set) var name:Array<PBUninterpretedOption.NamePart>  = Array<PBUninterpretedOption.NamePart>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInitname:Bool = true
     for element in name {
         if (!element.isInitialized()) {
@@ -5885,7 +5987,7 @@ final public class PBUninterpretedOption : GeneratedMessage {
      }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     for element in name {
         output.writeMessage(2, value:element)
     }
@@ -5909,7 +6011,7 @@ final public class PBUninterpretedOption : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -5941,37 +6043,43 @@ final public class PBUninterpretedOption : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBUninterpretedOption {
+  internal class func parseFromData(data:[Byte]) -> PBUninterpretedOption {
     return PBUninterpretedOption.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption {
     return PBUninterpretedOption.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBUninterpretedOption {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBUninterpretedOption {
     return PBUninterpretedOption.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBUninterpretedOption {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBUninterpretedOption {
     return PBUninterpretedOption.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBUninterpretedOption {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBUninterpretedOption {
     return PBUninterpretedOption.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption {
     return PBUninterpretedOption.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBUninterpretedOptionBuilder {
+  internal class func builder() -> PBUninterpretedOptionBuilder {
     return PBUninterpretedOptionBuilder()
   }
-  class func builderWithPrototype(prototype:PBUninterpretedOption) -> PBUninterpretedOptionBuilder {
-    return PBUninterpretedOption.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBUninterpretedOptionBuilder {
+  internal func builder() -> PBUninterpretedOptionBuilder {
     return PBUninterpretedOption.builder()
   }
-  func toBuilder() -> PBUninterpretedOptionBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBUninterpretedOptionBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBUninterpretedOption.builder()
+  }
+  internal func toBuilder() -> PBUninterpretedOptionBuilder {
     return PBUninterpretedOption.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBUninterpretedOption) -> PBUninterpretedOptionBuilder {
+    return PBUninterpretedOption.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     var nameElementIndex:Int = 0
     for element in name {
         output += "\(indent) name[\(nameElementIndex)] {\n"
@@ -5999,7 +6107,7 @@ final public class PBUninterpretedOption : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           for element in name {
@@ -6033,13 +6141,13 @@ final public class PBUninterpretedOption : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBUninterpretedOption"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBUninterpretedOption"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBUninterpretedOption.self
   }
 
@@ -6051,7 +6159,7 @@ final public class PBUninterpretedOption : GeneratedMessage {
 final class PBUninterpretedOptionBuilder : GeneratedMessageBuilder {
   private var builderResult:PBUninterpretedOption
 
-  required override init () {
+  required override internal init () {
      builderResult = PBUninterpretedOption()
      super.init()
   }
@@ -6181,23 +6289,23 @@ final class PBUninterpretedOptionBuilder : GeneratedMessageBuilder {
        builderResult.aggregateValue = ""
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> PBUninterpretedOptionBuilder {
+  internal override func clear() -> PBUninterpretedOptionBuilder {
     builderResult = PBUninterpretedOption()
     return self
   }
-  override func clone() -> PBUninterpretedOptionBuilder {
+  internal override func clone() -> PBUninterpretedOptionBuilder {
     return PBUninterpretedOption.builderWithPrototype(builderResult)
   }
-  override func build() -> PBUninterpretedOption {
+  internal override func build() -> PBUninterpretedOption {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBUninterpretedOption {
+  internal func buildPartial() -> PBUninterpretedOption {
     var returnMe:PBUninterpretedOption = builderResult
     return returnMe
   }
@@ -6229,10 +6337,10 @@ final class PBUninterpretedOptionBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBUninterpretedOptionBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBUninterpretedOptionBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBUninterpretedOptionBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBUninterpretedOptionBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -6274,12 +6382,12 @@ final class PBUninterpretedOptionBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBSourceCodeInfo : GeneratedMessage {
+final class PBSourceCodeInfo : GeneratedMessage {
 
 
   //Nested type declaration start
 
-    final public class Location : GeneratedMessage {
+    final class Location : GeneratedMessage {
       private(set) var hasLeadingComments:Bool = false
       private(set) var leadingComments:String = ""
 
@@ -6290,13 +6398,13 @@ final public class PBSourceCodeInfo : GeneratedMessage {
       private var pathMemoizedSerializedSize:Int32 = -1
       private(set) var span:Array<Int32> = Array<Int32>()
       private var spanMemoizedSerializedSize:Int32 = -1
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if !path.isEmpty {
           output.writeRawVarint32(10)
           output.writeRawVarint32(pathMemoizedSerializedSize)
@@ -6319,7 +6427,7 @@ final public class PBSourceCodeInfo : GeneratedMessage {
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -6356,37 +6464,43 @@ final public class PBSourceCodeInfo : GeneratedMessage {
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> PBSourceCodeInfo.Location {
+      internal class func parseFromData(data:[Byte]) -> PBSourceCodeInfo.Location {
         return PBSourceCodeInfo.Location.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo.Location {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo.Location {
         return PBSourceCodeInfo.Location.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> PBSourceCodeInfo.Location {
+      internal class func parseFromInputStream(input:NSInputStream) -> PBSourceCodeInfo.Location {
         return PBSourceCodeInfo.Location.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBSourceCodeInfo.Location {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBSourceCodeInfo.Location {
         return PBSourceCodeInfo.Location.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> PBSourceCodeInfo.Location {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBSourceCodeInfo.Location {
         return PBSourceCodeInfo.Location.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo.Location {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo.Location {
         return PBSourceCodeInfo.Location.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> PBSourceCodeInfo.LocationBuilder {
+      internal class func builder() -> PBSourceCodeInfo.LocationBuilder {
         return PBSourceCodeInfo.LocationBuilder()
       }
-      class func builderWithPrototype(prototype:PBSourceCodeInfo.Location) -> PBSourceCodeInfo.LocationBuilder {
-        return PBSourceCodeInfo.Location.builder().mergeFrom(prototype)
-      }
-      func builder() -> PBSourceCodeInfo.LocationBuilder {
+      internal func builder() -> PBSourceCodeInfo.LocationBuilder {
         return PBSourceCodeInfo.Location.builder()
       }
-      func toBuilder() -> PBSourceCodeInfo.LocationBuilder {
+      internal override class func buider() -> MessageBuilder {
+        return PBSourceCodeInfo.LocationBuilder()
+      }
+      internal override func buider() -> MessageBuilder {
+        return PBSourceCodeInfo.Location.builder()
+      }
+      internal func toBuilder() -> PBSourceCodeInfo.LocationBuilder {
         return PBSourceCodeInfo.Location.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:PBSourceCodeInfo.Location) -> PBSourceCodeInfo.LocationBuilder {
+        return PBSourceCodeInfo.Location.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         var pathElementIndex:Int = 0
         for element in path  {
             output += "\(indent) path[\(pathElementIndex)]: \(element)\n"
@@ -6405,7 +6519,7 @@ final public class PBSourceCodeInfo : GeneratedMessage {
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
               for element in path {
@@ -6428,13 +6542,13 @@ final public class PBSourceCodeInfo : GeneratedMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "PBSourceCodeInfo.Location"
       }
-      override public func className() -> String {
+      override internal func className() -> String {
           return "PBSourceCodeInfo.Location"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return PBSourceCodeInfo.Location.self
       }
 
@@ -6446,7 +6560,7 @@ final public class PBSourceCodeInfo : GeneratedMessage {
     final class LocationBuilder : GeneratedMessageBuilder {
       private var builderResult:PBSourceCodeInfo.Location
 
-      required override init () {
+      required override internal init () {
          builderResult = PBSourceCodeInfo.Location()
          super.init()
       }
@@ -6512,23 +6626,23 @@ final public class PBSourceCodeInfo : GeneratedMessage {
            builderResult.trailingComments = ""
            return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> PBSourceCodeInfo.LocationBuilder {
+      internal override func clear() -> PBSourceCodeInfo.LocationBuilder {
         builderResult = PBSourceCodeInfo.Location()
         return self
       }
-      override func clone() -> PBSourceCodeInfo.LocationBuilder {
+      internal override func clone() -> PBSourceCodeInfo.LocationBuilder {
         return PBSourceCodeInfo.Location.builderWithPrototype(builderResult)
       }
-      override func build() -> PBSourceCodeInfo.Location {
+      internal override func build() -> PBSourceCodeInfo.Location {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> PBSourceCodeInfo.Location {
+      internal func buildPartial() -> PBSourceCodeInfo.Location {
         var returnMe:PBSourceCodeInfo.Location = builderResult
         return returnMe
       }
@@ -6551,10 +6665,10 @@ final public class PBSourceCodeInfo : GeneratedMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->PBSourceCodeInfo.LocationBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBSourceCodeInfo.LocationBuilder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo.LocationBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo.LocationBuilder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -6600,19 +6714,19 @@ final public class PBSourceCodeInfo : GeneratedMessage {
   //Nested type declaration end
 
   private(set) var location:Array<PBSourceCodeInfo.Location>  = Array<PBSourceCodeInfo.Location>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     for element in location {
         output.writeMessage(1, value:element)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -6626,37 +6740,43 @@ final public class PBSourceCodeInfo : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> PBSourceCodeInfo {
+  internal class func parseFromData(data:[Byte]) -> PBSourceCodeInfo {
     return PBSourceCodeInfo.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo {
     return PBSourceCodeInfo.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> PBSourceCodeInfo {
+  internal class func parseFromInputStream(input:NSInputStream) -> PBSourceCodeInfo {
     return PBSourceCodeInfo.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBSourceCodeInfo {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBSourceCodeInfo {
     return PBSourceCodeInfo.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> PBSourceCodeInfo {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> PBSourceCodeInfo {
     return PBSourceCodeInfo.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo {
     return PBSourceCodeInfo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PBSourceCodeInfoBuilder {
+  internal class func builder() -> PBSourceCodeInfoBuilder {
     return PBSourceCodeInfoBuilder()
   }
-  class func builderWithPrototype(prototype:PBSourceCodeInfo) -> PBSourceCodeInfoBuilder {
-    return PBSourceCodeInfo.builder().mergeFrom(prototype)
-  }
-  func builder() -> PBSourceCodeInfoBuilder {
+  internal func builder() -> PBSourceCodeInfoBuilder {
     return PBSourceCodeInfo.builder()
   }
-  func toBuilder() -> PBSourceCodeInfoBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return PBSourceCodeInfoBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return PBSourceCodeInfo.builder()
+  }
+  internal func toBuilder() -> PBSourceCodeInfoBuilder {
     return PBSourceCodeInfo.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:PBSourceCodeInfo) -> PBSourceCodeInfoBuilder {
+    return PBSourceCodeInfo.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     var locationElementIndex:Int = 0
     for element in location {
         output += "\(indent) location[\(locationElementIndex)] {\n"
@@ -6666,7 +6786,7 @@ final public class PBSourceCodeInfo : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           for element in location {
@@ -6680,13 +6800,13 @@ final public class PBSourceCodeInfo : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBSourceCodeInfo"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBSourceCodeInfo"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBSourceCodeInfo.self
   }
 
@@ -6698,7 +6818,7 @@ final public class PBSourceCodeInfo : GeneratedMessage {
 final class PBSourceCodeInfoBuilder : GeneratedMessageBuilder {
   private var builderResult:PBSourceCodeInfo
 
-  required override init () {
+  required override internal init () {
      builderResult = PBSourceCodeInfo()
      super.init()
   }
@@ -6714,23 +6834,23 @@ final class PBSourceCodeInfoBuilder : GeneratedMessageBuilder {
     builderResult.location.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> PBSourceCodeInfoBuilder {
+  internal override func clear() -> PBSourceCodeInfoBuilder {
     builderResult = PBSourceCodeInfo()
     return self
   }
-  override func clone() -> PBSourceCodeInfoBuilder {
+  internal override func clone() -> PBSourceCodeInfoBuilder {
     return PBSourceCodeInfo.builderWithPrototype(builderResult)
   }
-  override func build() -> PBSourceCodeInfo {
+  internal override func build() -> PBSourceCodeInfo {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> PBSourceCodeInfo {
+  internal func buildPartial() -> PBSourceCodeInfo {
     var returnMe:PBSourceCodeInfo = builderResult
     return returnMe
   }
@@ -6744,10 +6864,10 @@ final class PBSourceCodeInfoBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PBSourceCodeInfoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PBSourceCodeInfoBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfoBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfoBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -6774,7 +6894,7 @@ final class PBSourceCodeInfoBuilder : GeneratedMessageBuilder {
 //Class extensions: NSData
 
 
-extension PBFileDescriptorSet {
+internal extension PBFileDescriptorSet {
     class func parseFromNSData(data:NSData) -> PBFileDescriptorSet {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6786,7 +6906,7 @@ extension PBFileDescriptorSet {
         return PBFileDescriptorSet.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBFileDescriptorProto {
+internal extension PBFileDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBFileDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6798,7 +6918,7 @@ extension PBFileDescriptorProto {
         return PBFileDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBDescriptorProto.ExtensionRange {
+internal extension PBDescriptorProto.ExtensionRange {
     class func parseFromNSData(data:NSData) -> PBDescriptorProto.ExtensionRange {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6810,7 +6930,7 @@ extension PBDescriptorProto.ExtensionRange {
         return PBDescriptorProto.ExtensionRange.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBDescriptorProto {
+internal extension PBDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6822,7 +6942,7 @@ extension PBDescriptorProto {
         return PBDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBFieldDescriptorProto {
+internal extension PBFieldDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBFieldDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6834,7 +6954,7 @@ extension PBFieldDescriptorProto {
         return PBFieldDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBEnumDescriptorProto {
+internal extension PBEnumDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBEnumDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6846,7 +6966,7 @@ extension PBEnumDescriptorProto {
         return PBEnumDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBEnumValueDescriptorProto {
+internal extension PBEnumValueDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBEnumValueDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6858,7 +6978,7 @@ extension PBEnumValueDescriptorProto {
         return PBEnumValueDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBServiceDescriptorProto {
+internal extension PBServiceDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBServiceDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6870,7 +6990,7 @@ extension PBServiceDescriptorProto {
         return PBServiceDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBMethodDescriptorProto {
+internal extension PBMethodDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBMethodDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6882,7 +7002,7 @@ extension PBMethodDescriptorProto {
         return PBMethodDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBFileOptions {
+internal extension PBFileOptions {
     class func parseFromNSData(data:NSData) -> PBFileOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6894,7 +7014,7 @@ extension PBFileOptions {
         return PBFileOptions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBMessageOptions {
+internal extension PBMessageOptions {
     class func parseFromNSData(data:NSData) -> PBMessageOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6906,7 +7026,7 @@ extension PBMessageOptions {
         return PBMessageOptions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBFieldOptions {
+internal extension PBFieldOptions {
     class func parseFromNSData(data:NSData) -> PBFieldOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6918,7 +7038,7 @@ extension PBFieldOptions {
         return PBFieldOptions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBEnumOptions {
+internal extension PBEnumOptions {
     class func parseFromNSData(data:NSData) -> PBEnumOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6930,7 +7050,7 @@ extension PBEnumOptions {
         return PBEnumOptions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBEnumValueOptions {
+internal extension PBEnumValueOptions {
     class func parseFromNSData(data:NSData) -> PBEnumValueOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6942,7 +7062,7 @@ extension PBEnumValueOptions {
         return PBEnumValueOptions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBServiceOptions {
+internal extension PBServiceOptions {
     class func parseFromNSData(data:NSData) -> PBServiceOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6954,7 +7074,7 @@ extension PBServiceOptions {
         return PBServiceOptions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBMethodOptions {
+internal extension PBMethodOptions {
     class func parseFromNSData(data:NSData) -> PBMethodOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6966,7 +7086,7 @@ extension PBMethodOptions {
         return PBMethodOptions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBUninterpretedOption.NamePart {
+internal extension PBUninterpretedOption.NamePart {
     class func parseFromNSData(data:NSData) -> PBUninterpretedOption.NamePart {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6978,7 +7098,7 @@ extension PBUninterpretedOption.NamePart {
         return PBUninterpretedOption.NamePart.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBUninterpretedOption {
+internal extension PBUninterpretedOption {
     class func parseFromNSData(data:NSData) -> PBUninterpretedOption {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -6990,7 +7110,7 @@ extension PBUninterpretedOption {
         return PBUninterpretedOption.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBSourceCodeInfo.Location {
+internal extension PBSourceCodeInfo.Location {
     class func parseFromNSData(data:NSData) -> PBSourceCodeInfo.Location {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -7002,7 +7122,7 @@ extension PBSourceCodeInfo.Location {
         return PBSourceCodeInfo.Location.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension PBSourceCodeInfo {
+internal extension PBSourceCodeInfo {
     class func parseFromNSData(data:NSData) -> PBSourceCodeInfo {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)

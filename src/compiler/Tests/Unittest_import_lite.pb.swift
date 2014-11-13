@@ -53,23 +53,23 @@ func == (lhs: ImportMessageLite, rhs: ImportMessageLite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class ImportMessageLite : GeneratedMessage {
+final class ImportMessageLite : GeneratedMessage {
   private(set) var hasD:Bool = false
   private(set) var d:Int32 = Int32(0)
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasD {
       output.writeInt32(1, value:d)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -83,43 +83,49 @@ final public class ImportMessageLite : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> ImportMessageLite {
+  internal class func parseFromData(data:[Byte]) -> ImportMessageLite {
     return ImportMessageLite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ImportMessageLite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ImportMessageLite {
     return ImportMessageLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> ImportMessageLite {
+  internal class func parseFromInputStream(input:NSInputStream) -> ImportMessageLite {
     return ImportMessageLite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ImportMessageLite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ImportMessageLite {
     return ImportMessageLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> ImportMessageLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ImportMessageLite {
     return ImportMessageLite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ImportMessageLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ImportMessageLite {
     return ImportMessageLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> ImportMessageLiteBuilder {
+  internal class func builder() -> ImportMessageLiteBuilder {
     return ImportMessageLiteBuilder()
   }
-  class func builderWithPrototype(prototype:ImportMessageLite) -> ImportMessageLiteBuilder {
-    return ImportMessageLite.builder().mergeFrom(prototype)
-  }
-  func builder() -> ImportMessageLiteBuilder {
+  internal func builder() -> ImportMessageLiteBuilder {
     return ImportMessageLite.builder()
   }
-  func toBuilder() -> ImportMessageLiteBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return ImportMessageLiteBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return ImportMessageLite.builder()
+  }
+  internal func toBuilder() -> ImportMessageLiteBuilder {
     return ImportMessageLite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:ImportMessageLite) -> ImportMessageLiteBuilder {
+    return ImportMessageLite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasD {
       output += "\(indent) d: \(d) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasD {
@@ -133,13 +139,13 @@ final public class ImportMessageLite : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "ImportMessageLite"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "ImportMessageLite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return ImportMessageLite.self
   }
 
@@ -151,7 +157,7 @@ final public class ImportMessageLite : GeneratedMessage {
 final class ImportMessageLiteBuilder : GeneratedMessageBuilder {
   private var builderResult:ImportMessageLite
 
-  required override init () {
+  required override internal init () {
      builderResult = ImportMessageLite()
      super.init()
   }
@@ -174,23 +180,23 @@ final class ImportMessageLiteBuilder : GeneratedMessageBuilder {
        builderResult.d = Int32(0)
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> ImportMessageLiteBuilder {
+  internal override func clear() -> ImportMessageLiteBuilder {
     builderResult = ImportMessageLite()
     return self
   }
-  override func clone() -> ImportMessageLiteBuilder {
+  internal override func clone() -> ImportMessageLiteBuilder {
     return ImportMessageLite.builderWithPrototype(builderResult)
   }
-  override func build() -> ImportMessageLite {
+  internal override func build() -> ImportMessageLite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> ImportMessageLite {
+  internal func buildPartial() -> ImportMessageLite {
     var returnMe:ImportMessageLite = builderResult
     return returnMe
   }
@@ -204,10 +210,10 @@ final class ImportMessageLiteBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->ImportMessageLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ImportMessageLiteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ImportMessageLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ImportMessageLiteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -232,7 +238,7 @@ final class ImportMessageLiteBuilder : GeneratedMessageBuilder {
 //Class extensions: NSData
 
 
-extension ImportMessageLite {
+internal extension ImportMessageLite {
     class func parseFromNSData(data:NSData) -> ImportMessageLite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)

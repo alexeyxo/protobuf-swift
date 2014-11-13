@@ -39,8 +39,9 @@ public protocol Message:class,MessageInit
     
     func data()-> [Byte]
     
-    class func buider()-> AbstractMessageBuilder
-    func toBuider()-> AbstractMessageBuilder
+    class func buider()-> MessageBuilder
+    func buider()-> MessageBuilder
+    func toBuider()-> MessageBuilder
     
 }
 
@@ -111,11 +112,15 @@ public class AbstractMessage:Equatable,Hashable, Printable, Message {
         writeToCodedOutputStream(codedOutput)
         codedOutput.flush()
     }
-    public class func buider() -> AbstractMessageBuilder
+    public class func buider() -> MessageBuilder
     {
         return AbstractMessageBuilder()
     }
-    public func toBuider() -> AbstractMessageBuilder
+    public func buider() -> MessageBuilder
+    {
+        return AbstractMessageBuilder()
+    }
+    public func toBuider() -> MessageBuilder
     {
         return AbstractMessageBuilder()
     }

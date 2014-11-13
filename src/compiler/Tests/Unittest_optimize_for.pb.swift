@@ -68,7 +68,7 @@ func == (lhs: TestOptionalOptimizedForSize, rhs: TestOptionalOptimizedForSize) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class TestOptimizedForSize : ExtendableMessage {
+final class TestOptimizedForSize : ExtendableMessage {
 
 
   //OneOf declaration start
@@ -158,16 +158,16 @@ final public class TestOptimizedForSize : ExtendableMessage {
   class func testExtension2() -> ConcreateExtensionField {
        return TestOptimizedForSizetestExtension2
   }
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !extensionsAreInitialized() {
      return false
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasI {
       output.writeInt32(1, value:i)
     }
@@ -183,7 +183,7 @@ final public class TestOptimizedForSize : ExtendableMessage {
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -207,37 +207,43 @@ final public class TestOptimizedForSize : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestOptimizedForSize {
+  internal class func parseFromData(data:[Byte]) -> TestOptimizedForSize {
     return TestOptimizedForSize.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestOptimizedForSize {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestOptimizedForSize {
     return TestOptimizedForSize.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestOptimizedForSize {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestOptimizedForSize {
     return TestOptimizedForSize.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestOptimizedForSize {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestOptimizedForSize {
     return TestOptimizedForSize.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestOptimizedForSize {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestOptimizedForSize {
     return TestOptimizedForSize.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestOptimizedForSize {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestOptimizedForSize {
     return TestOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestOptimizedForSizeBuilder {
+  internal class func builder() -> TestOptimizedForSizeBuilder {
     return TestOptimizedForSizeBuilder()
   }
-  class func builderWithPrototype(prototype:TestOptimizedForSize) -> TestOptimizedForSizeBuilder {
-    return TestOptimizedForSize.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestOptimizedForSizeBuilder {
+  internal func builder() -> TestOptimizedForSizeBuilder {
     return TestOptimizedForSize.builder()
   }
-  func toBuilder() -> TestOptimizedForSizeBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return TestOptimizedForSizeBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return TestOptimizedForSize.builder()
+  }
+  internal func toBuilder() -> TestOptimizedForSizeBuilder {
     return TestOptimizedForSize.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestOptimizedForSize) -> TestOptimizedForSizeBuilder {
+    return TestOptimizedForSize.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasI {
       output += "\(indent) i: \(i) \n"
     }
@@ -255,7 +261,7 @@ final public class TestOptimizedForSize : ExtendableMessage {
     writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasI {
@@ -279,13 +285,13 @@ final public class TestOptimizedForSize : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestOptimizedForSize"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "TestOptimizedForSize"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestOptimizedForSize.self
   }
 
@@ -297,7 +303,7 @@ final public class TestOptimizedForSize : ExtendableMessage {
 final class TestOptimizedForSizeBuilder : ExtendableMessageBuilder {
   private var builderResult:TestOptimizedForSize
 
-  required override init () {
+  required override internal init () {
      builderResult = TestOptimizedForSize()
      super.init()
   }
@@ -390,23 +396,23 @@ final class TestOptimizedForSizeBuilder : ExtendableMessageBuilder {
        builderResult.stringField = ""
        return self
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> TestOptimizedForSizeBuilder {
+  internal override func clear() -> TestOptimizedForSizeBuilder {
     builderResult = TestOptimizedForSize()
     return self
   }
-  override func clone() -> TestOptimizedForSizeBuilder {
+  internal override func clone() -> TestOptimizedForSizeBuilder {
     return TestOptimizedForSize.builderWithPrototype(builderResult)
   }
-  override func build() -> TestOptimizedForSize {
+  internal override func build() -> TestOptimizedForSize {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestOptimizedForSize {
+  internal func buildPartial() -> TestOptimizedForSize {
     var returnMe:TestOptimizedForSize = builderResult
     return returnMe
   }
@@ -430,10 +436,10 @@ final class TestOptimizedForSizeBuilder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestOptimizedForSizeBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestOptimizedForSizeBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestOptimizedForSizeBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestOptimizedForSizeBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -469,26 +475,26 @@ final class TestOptimizedForSizeBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class TestRequiredOptimizedForSize : GeneratedMessage {
+final class TestRequiredOptimizedForSize : GeneratedMessage {
   private(set) var hasX:Bool = false
   private(set) var x:Int32 = Int32(0)
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !hasX {
       return false
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasX {
       output.writeInt32(1, value:x)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -502,43 +508,49 @@ final public class TestRequiredOptimizedForSize : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestRequiredOptimizedForSize {
+  internal class func parseFromData(data:[Byte]) -> TestRequiredOptimizedForSize {
     return TestRequiredOptimizedForSize.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestRequiredOptimizedForSize {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestRequiredOptimizedForSize {
     return TestRequiredOptimizedForSize.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestRequiredOptimizedForSize {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestRequiredOptimizedForSize {
     return TestRequiredOptimizedForSize.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestRequiredOptimizedForSize {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestRequiredOptimizedForSize {
     return TestRequiredOptimizedForSize.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestRequiredOptimizedForSize {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestRequiredOptimizedForSize {
     return TestRequiredOptimizedForSize.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestRequiredOptimizedForSize {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestRequiredOptimizedForSize {
     return TestRequiredOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestRequiredOptimizedForSizeBuilder {
+  internal class func builder() -> TestRequiredOptimizedForSizeBuilder {
     return TestRequiredOptimizedForSizeBuilder()
   }
-  class func builderWithPrototype(prototype:TestRequiredOptimizedForSize) -> TestRequiredOptimizedForSizeBuilder {
-    return TestRequiredOptimizedForSize.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestRequiredOptimizedForSizeBuilder {
+  internal func builder() -> TestRequiredOptimizedForSizeBuilder {
     return TestRequiredOptimizedForSize.builder()
   }
-  func toBuilder() -> TestRequiredOptimizedForSizeBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return TestRequiredOptimizedForSizeBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return TestRequiredOptimizedForSize.builder()
+  }
+  internal func toBuilder() -> TestRequiredOptimizedForSizeBuilder {
     return TestRequiredOptimizedForSize.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestRequiredOptimizedForSize) -> TestRequiredOptimizedForSizeBuilder {
+    return TestRequiredOptimizedForSize.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasX {
       output += "\(indent) x: \(x) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasX {
@@ -552,13 +564,13 @@ final public class TestRequiredOptimizedForSize : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestRequiredOptimizedForSize"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "TestRequiredOptimizedForSize"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestRequiredOptimizedForSize.self
   }
 
@@ -570,7 +582,7 @@ final public class TestRequiredOptimizedForSize : GeneratedMessage {
 final class TestRequiredOptimizedForSizeBuilder : GeneratedMessageBuilder {
   private var builderResult:TestRequiredOptimizedForSize
 
-  required override init () {
+  required override internal init () {
      builderResult = TestRequiredOptimizedForSize()
      super.init()
   }
@@ -593,23 +605,23 @@ final class TestRequiredOptimizedForSizeBuilder : GeneratedMessageBuilder {
        builderResult.x = Int32(0)
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TestRequiredOptimizedForSizeBuilder {
+  internal override func clear() -> TestRequiredOptimizedForSizeBuilder {
     builderResult = TestRequiredOptimizedForSize()
     return self
   }
-  override func clone() -> TestRequiredOptimizedForSizeBuilder {
+  internal override func clone() -> TestRequiredOptimizedForSizeBuilder {
     return TestRequiredOptimizedForSize.builderWithPrototype(builderResult)
   }
-  override func build() -> TestRequiredOptimizedForSize {
+  internal override func build() -> TestRequiredOptimizedForSize {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestRequiredOptimizedForSize {
+  internal func buildPartial() -> TestRequiredOptimizedForSize {
     var returnMe:TestRequiredOptimizedForSize = builderResult
     return returnMe
   }
@@ -623,10 +635,10 @@ final class TestRequiredOptimizedForSizeBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestRequiredOptimizedForSizeBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestRequiredOptimizedForSizeBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestRequiredOptimizedForSizeBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestRequiredOptimizedForSizeBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -648,13 +660,13 @@ final class TestRequiredOptimizedForSizeBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class TestOptionalOptimizedForSize : GeneratedMessage {
+final class TestOptionalOptimizedForSize : GeneratedMessage {
   private(set) var hasO:Bool = false
   private(set) var o:TestRequiredOptimizedForSize = TestRequiredOptimizedForSize()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if hasO {
      if !o.isInitialized() {
        return false
@@ -662,13 +674,13 @@ final public class TestOptionalOptimizedForSize : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasO {
       output.writeMessage(1, value:o)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -682,37 +694,43 @@ final public class TestOptionalOptimizedForSize : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestOptionalOptimizedForSize {
+  internal class func parseFromData(data:[Byte]) -> TestOptionalOptimizedForSize {
     return TestOptionalOptimizedForSize.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestOptionalOptimizedForSize {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestOptionalOptimizedForSize {
     return TestOptionalOptimizedForSize.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestOptionalOptimizedForSize {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestOptionalOptimizedForSize {
     return TestOptionalOptimizedForSize.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestOptionalOptimizedForSize {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestOptionalOptimizedForSize {
     return TestOptionalOptimizedForSize.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestOptionalOptimizedForSize {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestOptionalOptimizedForSize {
     return TestOptionalOptimizedForSize.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestOptionalOptimizedForSize {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestOptionalOptimizedForSize {
     return TestOptionalOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestOptionalOptimizedForSizeBuilder {
+  internal class func builder() -> TestOptionalOptimizedForSizeBuilder {
     return TestOptionalOptimizedForSizeBuilder()
   }
-  class func builderWithPrototype(prototype:TestOptionalOptimizedForSize) -> TestOptionalOptimizedForSizeBuilder {
-    return TestOptionalOptimizedForSize.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestOptionalOptimizedForSizeBuilder {
+  internal func builder() -> TestOptionalOptimizedForSizeBuilder {
     return TestOptionalOptimizedForSize.builder()
   }
-  func toBuilder() -> TestOptionalOptimizedForSizeBuilder {
+  internal override class func buider() -> MessageBuilder {
+    return TestOptionalOptimizedForSizeBuilder()
+  }
+  internal override func buider() -> MessageBuilder {
+    return TestOptionalOptimizedForSize.builder()
+  }
+  internal func toBuilder() -> TestOptionalOptimizedForSizeBuilder {
     return TestOptionalOptimizedForSize.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestOptionalOptimizedForSize) -> TestOptionalOptimizedForSizeBuilder {
+    return TestOptionalOptimizedForSize.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasO {
       output += "\(indent) o {\n"
       o.writeDescriptionTo(&output, indent:"\(indent)  ")
@@ -720,7 +738,7 @@ final public class TestOptionalOptimizedForSize : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasO {
@@ -734,13 +752,13 @@ final public class TestOptionalOptimizedForSize : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestOptionalOptimizedForSize"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "TestOptionalOptimizedForSize"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestOptionalOptimizedForSize.self
   }
 
@@ -752,7 +770,7 @@ final public class TestOptionalOptimizedForSize : GeneratedMessage {
 final class TestOptionalOptimizedForSizeBuilder : GeneratedMessageBuilder {
   private var builderResult:TestOptionalOptimizedForSize
 
-  required override init () {
+  required override internal init () {
      builderResult = TestOptionalOptimizedForSize()
      super.init()
   }
@@ -788,23 +806,23 @@ final class TestOptionalOptimizedForSizeBuilder : GeneratedMessageBuilder {
     builderResult.o = TestRequiredOptimizedForSize()
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TestOptionalOptimizedForSizeBuilder {
+  internal override func clear() -> TestOptionalOptimizedForSizeBuilder {
     builderResult = TestOptionalOptimizedForSize()
     return self
   }
-  override func clone() -> TestOptionalOptimizedForSizeBuilder {
+  internal override func clone() -> TestOptionalOptimizedForSizeBuilder {
     return TestOptionalOptimizedForSize.builderWithPrototype(builderResult)
   }
-  override func build() -> TestOptionalOptimizedForSize {
+  internal override func build() -> TestOptionalOptimizedForSize {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestOptionalOptimizedForSize {
+  internal func buildPartial() -> TestOptionalOptimizedForSize {
     var returnMe:TestOptionalOptimizedForSize = builderResult
     return returnMe
   }
@@ -818,10 +836,10 @@ final class TestOptionalOptimizedForSizeBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestOptionalOptimizedForSizeBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestOptionalOptimizedForSizeBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestOptionalOptimizedForSizeBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestOptionalOptimizedForSizeBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -851,7 +869,7 @@ final class TestOptionalOptimizedForSizeBuilder : GeneratedMessageBuilder {
 //Class extensions: NSData
 
 
-extension TestOptimizedForSize {
+internal extension TestOptimizedForSize {
     class func parseFromNSData(data:NSData) -> TestOptimizedForSize {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -863,7 +881,7 @@ extension TestOptimizedForSize {
         return TestOptimizedForSize.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestRequiredOptimizedForSize {
+internal extension TestRequiredOptimizedForSize {
     class func parseFromNSData(data:NSData) -> TestRequiredOptimizedForSize {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -875,7 +893,7 @@ extension TestRequiredOptimizedForSize {
         return TestRequiredOptimizedForSize.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestOptionalOptimizedForSize {
+internal extension TestOptionalOptimizedForSize {
     class func parseFromNSData(data:NSData) -> TestOptionalOptimizedForSize {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)

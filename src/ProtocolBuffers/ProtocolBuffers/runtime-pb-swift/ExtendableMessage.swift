@@ -290,7 +290,6 @@ public class ExtendableMessage : GeneratedMessage
             let extensions = extensionRegistry[fieldNumber]!
             let value = extensionMap[fieldNumber]!
             size += extensions.computeSerializedSizeIncludingTag(value)
-            println("\(fieldNumber) - \(extensions.computeSerializedSizeIncludingTag(value)) size - \(value)")
         }
         return size
     }

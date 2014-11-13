@@ -36,14 +36,14 @@ class WireFormatTests: XCTestCase {
     }
     
     
-//    func testSerializeExtensions() {
-//        var message = TestUtilities.allExtensionsSet()
-//        var rawBytes = message.data()
-//        XCTAssertTrue(rawBytes.count == Int(message.serializedSize()), "")
-//        var message2 = TestAllTypes.parseFromData(rawBytes)
-//        TestUtilities.assertAllFieldsSet(message2)
-//    }
-//    
+    func testSerializeExtensions() {
+        var message = TestUtilities.allExtensionsSet()
+        var rawBytes = message.data()
+        XCTAssertTrue(rawBytes.count == Int(message.serializedSize()), "")
+        var message2 = TestAllTypes.parseFromData(rawBytes)
+        TestUtilities.assertAllFieldsSet(message2)
+    }
+//
 //    
 //    func testSerializePackedExtensions() {
 //    // TestPackedTypes and TestPackedExtensions should have compatible wire
@@ -52,37 +52,39 @@ class WireFormatTests: XCTestCase {
 //        var rawBytes = message.data()
 //        var message2 = TestUtilities.packedSet()
 //        var rawBytes2 = message2.data()
+//        var registry = ExtensionRegistry()
+//        TestUtilities.registerAllExtensions(registry)
+////        var mes = TestPackedExtensions.parseFromData(rawBytes)
+////        TestUtilities.assertPackedExtensionsSet(mes)
 //        XCTAssertTrue(rawBytes == rawBytes2, "")
 //    }
     
-//    func testParseExtensions() {
-//    // TestAllTypes and TestAllExtensions should have compatible wire formats,
-//    // so if we serealize a TestAllTypes then parse it as TestAllExtensions
-//    // it should work.
-//    
-//        var message = TestUtilities.allSet()
-//        var rawBytes = message.data()
-//    
-//        var registry = ExtensionRegistry()
-//        TestUtilities.registerAllExtensions(registry)
-//        var message2 = TestAllExtensions.parseFromData(rawBytes, extensionRegistry:registry)
-//        TestUtilities.assertAllExtensionsSet(message2)
-//    }
+    func testParseExtensions() {
+    // TestAllTypes and TestAllExtensions should have compatible wire formats,
+    // so if we serealize a TestAllTypes then parse it as TestAllExtensions
+    // it should work.
+    
+        var message = TestUtilities.allSet()
+        var rawBytes = message.data()
+    
+        var registry = ExtensionRegistry()
+        TestUtilities.registerAllExtensions(registry)
+        var message2 = TestAllExtensions.parseFromData(rawBytes, extensionRegistry:registry)
+        TestUtilities.assertAllExtensionsSet(message2)
+    }
     
     
-//    func testExtensionsSerializedSize() {
-//        var raws1 = TestUtilities.allSet().serializedSize()
-//        var raws2 = TestUtilities.allExtensionsSet().serializedSize()
-//        XCTAssertTrue(TestUtilities.allSet().serializedSize() == TestUtilities.allExtensionsSet().serializedSize(), "")
-//    }
+    func testExtensionsSerializedSize() {
+        XCTAssertTrue(TestUtilities.allSet().serializedSize() == TestUtilities.allExtensionsSet().serializedSize(), "")
+    }
     
     
-//    func testParsePackedExtensions() {
-//        var message = TestUtilities.packedExtensionsSet()
-//        var rawBytes = message.data()
-//    
-//        var registry = TestUtilities.extensionRegistry()
-//        var message2 = TestPackedExtensions.parseFromData(rawBytes, extensionRegistry:registry)
-//        TestUtilities.assertPackedExtensionsSet(message2)
-//    }
+    func testParsePackedExtensions() {
+        var message = TestUtilities.packedExtensionsSet()
+        var rawBytes = message.data()
+    
+        var registry = TestUtilities.extensionRegistry()
+        var message2 = TestPackedExtensions.parseFromData(rawBytes, extensionRegistry:registry)
+        TestUtilities.assertPackedExtensionsSet(message2)
+    }
 }
