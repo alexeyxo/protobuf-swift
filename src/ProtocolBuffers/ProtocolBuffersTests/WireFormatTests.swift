@@ -45,19 +45,15 @@ class WireFormatTests: XCTestCase {
     }
 //
 //    
-//    func testSerializePackedExtensions() {
-//    // TestPackedTypes and TestPackedExtensions should have compatible wire
-//    // formats; check that they serialize to the same string.
-//        var message = TestUtilities.packedExtensionsSet()
-//        var rawBytes = message.data()
-//        var message2 = TestUtilities.packedSet()
-//        var rawBytes2 = message2.data()
-//        var registry = ExtensionRegistry()
-//        TestUtilities.registerAllExtensions(registry)
-////        var mes = TestPackedExtensions.parseFromData(rawBytes)
-////        TestUtilities.assertPackedExtensionsSet(mes)
-//        XCTAssertTrue(rawBytes == rawBytes2, "")
-//    }
+    func testSerializePackedExtensions() {
+    // TestPackedTypes and TestPackedExtensions should have compatible wire
+    // formats; check that they serialize to the same string.
+        var message = TestUtilities.packedExtensionsSet()
+        var rawBytes = message.data()
+        var message2 = TestUtilities.packedSet()
+        var rawBytes2 = message2.data()
+        XCTAssertTrue(rawBytes == rawBytes2, "")
+    }
     
     func testParseExtensions() {
     // TestAllTypes and TestAllExtensions should have compatible wire formats,

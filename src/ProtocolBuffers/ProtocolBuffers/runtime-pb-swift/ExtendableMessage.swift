@@ -107,7 +107,9 @@ public class ExtendableMessage : GeneratedMessage
     }
     public func writeExtensionsToCodedOutputStream(output:CodedOutputStream, startInclusive:Int32, endExclusive:Int32)
     {
-        for fieldNumber in extensionMap.keys {
+        var keys = Array(extensionMap.keys)
+        keys.sort { $0 < $1 }
+        for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let extensions = extensionRegistry[fieldNumber]!
                 let value = extensionMap[fieldNumber]!
@@ -117,8 +119,9 @@ public class ExtendableMessage : GeneratedMessage
     }
     
     public func writeExtensionDescription(inout output:String, startInclusive:Int32 ,endExclusive:Int32, indent:String) {
-        for fieldNumber in extensionMap.keys {
-        
+        var keys = Array(extensionMap.keys)
+        keys.sort { $0 < $1 }
+        for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let extensions = extensionRegistry[fieldNumber]!
                 let value = extensionMap[fieldNumber]!
@@ -131,7 +134,9 @@ public class ExtendableMessage : GeneratedMessage
     
     public func isEqualExtensionsInOther(otherMessage:ExtendableMessage, startInclusive:Int32, endExclusive:Int32) -> Bool {
 
-        for fieldNumber in extensionMap.keys {
+        var keys = Array(extensionMap.keys)
+        keys.sort { $0 < $1 }
+        for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let value = extensionMap[fieldNumber]!
                 let otherValue = otherMessage.extensionMap[fieldNumber]!
@@ -273,7 +278,9 @@ public class ExtendableMessage : GeneratedMessage
     
     public func hashExtensionsFrom(startInclusive:Int32, endExclusive:Int32) -> Int {
         var hashCode:Int = 0
-        for fieldNumber in extensionMap.keys {
+        var keys = Array(extensionMap.keys)
+        keys.sort { $0 < $1 }
+        for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let value = extensionMap[fieldNumber]!
                 hashCode = (hashCode &* 31) &+ getHash(value)!
