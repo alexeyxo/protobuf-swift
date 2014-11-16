@@ -728,7 +728,7 @@ messageOrGroupClass:Any.Type,
         case .ExtensionTypeGroup:
             if let mg = messageOrGroupClass as? GeneratedMessage.Type
             {
-                var buider = mg.buider()
+                var buider = mg.classBuilder()
                 input.readGroup(fieldNumber, builder: buider, extensionRegistry: extensionRegistry)
                 var mes = buider.build()
                 return mes
@@ -736,7 +736,7 @@ messageOrGroupClass:Any.Type,
         case .ExtensionTypeMessage:
             if let mg = messageOrGroupClass as? GeneratedMessage.Type
             {
-                var buider = mg.buider()
+                var buider = mg.classBuilder()
                 input.readMessage(buider, extensionRegistry: extensionRegistry)
                 var mes = buider.build()
                 return mes

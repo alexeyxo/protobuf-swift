@@ -101,15 +101,15 @@ final class TestEmbedOptimizedForSize : GeneratedMessage {
     return TestEmbedOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestEmbedOptimizedForSizeBuilder {
-    return TestEmbedOptimizedForSizeBuilder()
+    return TestEmbedOptimizedForSize.classBuilder() as TestEmbedOptimizedForSizeBuilder
   }
   internal func builder() -> TestEmbedOptimizedForSizeBuilder {
-    return TestEmbedOptimizedForSize.builder()
+    return classBuilder() as TestEmbedOptimizedForSizeBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestEmbedOptimizedForSizeBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestEmbedOptimizedForSize.builder()
   }
   internal func toBuilder() -> TestEmbedOptimizedForSizeBuilder {

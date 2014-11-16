@@ -325,15 +325,15 @@ final class PBFileDescriptorSet : GeneratedMessage {
     return PBFileDescriptorSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBFileDescriptorSetBuilder {
-    return PBFileDescriptorSetBuilder()
+    return PBFileDescriptorSet.classBuilder() as PBFileDescriptorSetBuilder
   }
   internal func builder() -> PBFileDescriptorSetBuilder {
-    return PBFileDescriptorSet.builder()
+    return classBuilder() as PBFileDescriptorSetBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBFileDescriptorSetBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBFileDescriptorSet.builder()
   }
   internal func toBuilder() -> PBFileDescriptorSetBuilder {
@@ -640,15 +640,15 @@ final class PBFileDescriptorProto : GeneratedMessage {
     return PBFileDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBFileDescriptorProtoBuilder {
-    return PBFileDescriptorProtoBuilder()
+    return PBFileDescriptorProto.classBuilder() as PBFileDescriptorProtoBuilder
   }
   internal func builder() -> PBFileDescriptorProtoBuilder {
-    return PBFileDescriptorProto.builder()
+    return classBuilder() as PBFileDescriptorProtoBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBFileDescriptorProtoBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBFileDescriptorProto.builder()
   }
   internal func toBuilder() -> PBFileDescriptorProtoBuilder {
@@ -1167,15 +1167,15 @@ final class PBDescriptorProto : GeneratedMessage {
         return PBDescriptorProto.ExtensionRange.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> PBDescriptorProto.ExtensionRangeBuilder {
-        return PBDescriptorProto.ExtensionRangeBuilder()
+        return PBDescriptorProto.ExtensionRange.classBuilder() as PBDescriptorProto.ExtensionRangeBuilder
       }
       internal func builder() -> PBDescriptorProto.ExtensionRangeBuilder {
-        return PBDescriptorProto.ExtensionRange.builder()
+        return classBuilder() as PBDescriptorProto.ExtensionRangeBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return PBDescriptorProto.ExtensionRangeBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return PBDescriptorProto.ExtensionRange.builder()
       }
       internal func toBuilder() -> PBDescriptorProto.ExtensionRangeBuilder {
@@ -1471,15 +1471,15 @@ final class PBDescriptorProto : GeneratedMessage {
     return PBDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBDescriptorProtoBuilder {
-    return PBDescriptorProtoBuilder()
+    return PBDescriptorProto.classBuilder() as PBDescriptorProtoBuilder
   }
   internal func builder() -> PBDescriptorProtoBuilder {
-    return PBDescriptorProto.builder()
+    return classBuilder() as PBDescriptorProtoBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBDescriptorProtoBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBDescriptorProto.builder()
   }
   internal func toBuilder() -> PBDescriptorProtoBuilder {
@@ -1980,15 +1980,15 @@ final class PBFieldDescriptorProto : GeneratedMessage {
     return PBFieldDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBFieldDescriptorProtoBuilder {
-    return PBFieldDescriptorProtoBuilder()
+    return PBFieldDescriptorProto.classBuilder() as PBFieldDescriptorProtoBuilder
   }
   internal func builder() -> PBFieldDescriptorProtoBuilder {
-    return PBFieldDescriptorProto.builder()
+    return classBuilder() as PBFieldDescriptorProtoBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBFieldDescriptorProtoBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBFieldDescriptorProto.builder()
   }
   internal func toBuilder() -> PBFieldDescriptorProtoBuilder {
@@ -2441,15 +2441,15 @@ final class PBEnumDescriptorProto : GeneratedMessage {
     return PBEnumDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBEnumDescriptorProtoBuilder {
-    return PBEnumDescriptorProtoBuilder()
+    return PBEnumDescriptorProto.classBuilder() as PBEnumDescriptorProtoBuilder
   }
   internal func builder() -> PBEnumDescriptorProtoBuilder {
-    return PBEnumDescriptorProto.builder()
+    return classBuilder() as PBEnumDescriptorProtoBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBEnumDescriptorProtoBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBEnumDescriptorProto.builder()
   }
   internal func toBuilder() -> PBEnumDescriptorProtoBuilder {
@@ -2726,15 +2726,15 @@ final class PBEnumValueDescriptorProto : GeneratedMessage {
     return PBEnumValueDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBEnumValueDescriptorProtoBuilder {
-    return PBEnumValueDescriptorProtoBuilder()
+    return PBEnumValueDescriptorProto.classBuilder() as PBEnumValueDescriptorProtoBuilder
   }
   internal func builder() -> PBEnumValueDescriptorProtoBuilder {
-    return PBEnumValueDescriptorProto.builder()
+    return classBuilder() as PBEnumValueDescriptorProtoBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBEnumValueDescriptorProtoBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBEnumValueDescriptorProto.builder()
   }
   internal func toBuilder() -> PBEnumValueDescriptorProtoBuilder {
@@ -3020,15 +3020,15 @@ final class PBServiceDescriptorProto : GeneratedMessage {
     return PBServiceDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBServiceDescriptorProtoBuilder {
-    return PBServiceDescriptorProtoBuilder()
+    return PBServiceDescriptorProto.classBuilder() as PBServiceDescriptorProtoBuilder
   }
   internal func builder() -> PBServiceDescriptorProtoBuilder {
-    return PBServiceDescriptorProto.builder()
+    return classBuilder() as PBServiceDescriptorProtoBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBServiceDescriptorProtoBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBServiceDescriptorProto.builder()
   }
   internal func toBuilder() -> PBServiceDescriptorProtoBuilder {
@@ -3314,15 +3314,15 @@ final class PBMethodDescriptorProto : GeneratedMessage {
     return PBMethodDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBMethodDescriptorProtoBuilder {
-    return PBMethodDescriptorProtoBuilder()
+    return PBMethodDescriptorProto.classBuilder() as PBMethodDescriptorProtoBuilder
   }
   internal func builder() -> PBMethodDescriptorProtoBuilder {
-    return PBMethodDescriptorProto.builder()
+    return classBuilder() as PBMethodDescriptorProtoBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBMethodDescriptorProtoBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBMethodDescriptorProto.builder()
   }
   internal func toBuilder() -> PBMethodDescriptorProtoBuilder {
@@ -3725,15 +3725,15 @@ final class PBFileOptions : ExtendableMessage {
     return PBFileOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBFileOptionsBuilder {
-    return PBFileOptionsBuilder()
+    return PBFileOptions.classBuilder() as PBFileOptionsBuilder
   }
   internal func builder() -> PBFileOptionsBuilder {
-    return PBFileOptions.builder()
+    return classBuilder() as PBFileOptionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBFileOptionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBFileOptions.builder()
   }
   internal func toBuilder() -> PBFileOptionsBuilder {
@@ -4225,15 +4225,15 @@ final class PBMessageOptions : ExtendableMessage {
     return PBMessageOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBMessageOptionsBuilder {
-    return PBMessageOptionsBuilder()
+    return PBMessageOptions.classBuilder() as PBMessageOptionsBuilder
   }
   internal func builder() -> PBMessageOptionsBuilder {
-    return PBMessageOptions.builder()
+    return classBuilder() as PBMessageOptionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBMessageOptionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBMessageOptions.builder()
   }
   internal func toBuilder() -> PBMessageOptionsBuilder {
@@ -4560,15 +4560,15 @@ final class PBFieldOptions : ExtendableMessage {
     return PBFieldOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBFieldOptionsBuilder {
-    return PBFieldOptionsBuilder()
+    return PBFieldOptions.classBuilder() as PBFieldOptionsBuilder
   }
   internal func builder() -> PBFieldOptionsBuilder {
-    return PBFieldOptions.builder()
+    return classBuilder() as PBFieldOptionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBFieldOptionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBFieldOptions.builder()
   }
   internal func toBuilder() -> PBFieldOptionsBuilder {
@@ -4958,15 +4958,15 @@ final class PBEnumOptions : ExtendableMessage {
     return PBEnumOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBEnumOptionsBuilder {
-    return PBEnumOptionsBuilder()
+    return PBEnumOptions.classBuilder() as PBEnumOptionsBuilder
   }
   internal func builder() -> PBEnumOptionsBuilder {
-    return PBEnumOptions.builder()
+    return classBuilder() as PBEnumOptionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBEnumOptionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBEnumOptions.builder()
   }
   internal func toBuilder() -> PBEnumOptionsBuilder {
@@ -5186,15 +5186,15 @@ final class PBEnumValueOptions : ExtendableMessage {
     return PBEnumValueOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBEnumValueOptionsBuilder {
-    return PBEnumValueOptionsBuilder()
+    return PBEnumValueOptions.classBuilder() as PBEnumValueOptionsBuilder
   }
   internal func builder() -> PBEnumValueOptionsBuilder {
-    return PBEnumValueOptions.builder()
+    return classBuilder() as PBEnumValueOptionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBEnumValueOptionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBEnumValueOptions.builder()
   }
   internal func toBuilder() -> PBEnumValueOptionsBuilder {
@@ -5383,15 +5383,15 @@ final class PBServiceOptions : ExtendableMessage {
     return PBServiceOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBServiceOptionsBuilder {
-    return PBServiceOptionsBuilder()
+    return PBServiceOptions.classBuilder() as PBServiceOptionsBuilder
   }
   internal func builder() -> PBServiceOptionsBuilder {
-    return PBServiceOptions.builder()
+    return classBuilder() as PBServiceOptionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBServiceOptionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBServiceOptions.builder()
   }
   internal func toBuilder() -> PBServiceOptionsBuilder {
@@ -5580,15 +5580,15 @@ final class PBMethodOptions : ExtendableMessage {
     return PBMethodOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBMethodOptionsBuilder {
-    return PBMethodOptionsBuilder()
+    return PBMethodOptions.classBuilder() as PBMethodOptionsBuilder
   }
   internal func builder() -> PBMethodOptionsBuilder {
-    return PBMethodOptions.builder()
+    return classBuilder() as PBMethodOptionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBMethodOptionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBMethodOptions.builder()
   }
   internal func toBuilder() -> PBMethodOptionsBuilder {
@@ -5784,15 +5784,15 @@ final class PBUninterpretedOption : GeneratedMessage {
         return PBUninterpretedOption.NamePart.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> PBUninterpretedOption.NamePartBuilder {
-        return PBUninterpretedOption.NamePartBuilder()
+        return PBUninterpretedOption.NamePart.classBuilder() as PBUninterpretedOption.NamePartBuilder
       }
       internal func builder() -> PBUninterpretedOption.NamePartBuilder {
-        return PBUninterpretedOption.NamePart.builder()
+        return classBuilder() as PBUninterpretedOption.NamePartBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return PBUninterpretedOption.NamePartBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return PBUninterpretedOption.NamePart.builder()
       }
       internal func toBuilder() -> PBUninterpretedOption.NamePartBuilder {
@@ -6062,15 +6062,15 @@ final class PBUninterpretedOption : GeneratedMessage {
     return PBUninterpretedOption.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBUninterpretedOptionBuilder {
-    return PBUninterpretedOptionBuilder()
+    return PBUninterpretedOption.classBuilder() as PBUninterpretedOptionBuilder
   }
   internal func builder() -> PBUninterpretedOptionBuilder {
-    return PBUninterpretedOption.builder()
+    return classBuilder() as PBUninterpretedOptionBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBUninterpretedOptionBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBUninterpretedOption.builder()
   }
   internal func toBuilder() -> PBUninterpretedOptionBuilder {
@@ -6483,15 +6483,15 @@ final class PBSourceCodeInfo : GeneratedMessage {
         return PBSourceCodeInfo.Location.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> PBSourceCodeInfo.LocationBuilder {
-        return PBSourceCodeInfo.LocationBuilder()
+        return PBSourceCodeInfo.Location.classBuilder() as PBSourceCodeInfo.LocationBuilder
       }
       internal func builder() -> PBSourceCodeInfo.LocationBuilder {
-        return PBSourceCodeInfo.Location.builder()
+        return classBuilder() as PBSourceCodeInfo.LocationBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return PBSourceCodeInfo.LocationBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return PBSourceCodeInfo.Location.builder()
       }
       internal func toBuilder() -> PBSourceCodeInfo.LocationBuilder {
@@ -6759,15 +6759,15 @@ final class PBSourceCodeInfo : GeneratedMessage {
     return PBSourceCodeInfo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PBSourceCodeInfoBuilder {
-    return PBSourceCodeInfoBuilder()
+    return PBSourceCodeInfo.classBuilder() as PBSourceCodeInfoBuilder
   }
   internal func builder() -> PBSourceCodeInfoBuilder {
-    return PBSourceCodeInfo.builder()
+    return classBuilder() as PBSourceCodeInfoBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBSourceCodeInfoBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBSourceCodeInfo.builder()
   }
   internal func toBuilder() -> PBSourceCodeInfoBuilder {

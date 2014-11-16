@@ -102,15 +102,15 @@ final class ImportMessage : GeneratedMessage {
     return ImportMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> ImportMessageBuilder {
-    return ImportMessageBuilder()
+    return ImportMessage.classBuilder() as ImportMessageBuilder
   }
   internal func builder() -> ImportMessageBuilder {
-    return ImportMessage.builder()
+    return classBuilder() as ImportMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  override internal class func classBuilder() -> MessageBuilder {
     return ImportMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  override internal  func classBuilder() -> MessageBuilder {
     return ImportMessage.builder()
   }
   internal func toBuilder() -> ImportMessageBuilder {

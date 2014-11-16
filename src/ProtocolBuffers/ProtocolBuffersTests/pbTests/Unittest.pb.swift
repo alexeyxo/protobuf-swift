@@ -2189,15 +2189,15 @@ final class TestAllTypes : GeneratedMessage {
         return TestAllTypes.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestAllTypes.NestedMessageBuilder {
-        return TestAllTypes.NestedMessageBuilder()
+        return TestAllTypes.NestedMessage.classBuilder() as TestAllTypes.NestedMessageBuilder
       }
       internal func builder() -> TestAllTypes.NestedMessageBuilder {
-        return TestAllTypes.NestedMessage.builder()
+        return classBuilder() as TestAllTypes.NestedMessageBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestAllTypes.NestedMessageBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestAllTypes.NestedMessage.builder()
       }
       internal func toBuilder() -> TestAllTypes.NestedMessageBuilder {
@@ -2379,15 +2379,15 @@ final class TestAllTypes : GeneratedMessage {
         return TestAllTypes.OptionalGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestAllTypes.OptionalGroupBuilder {
-        return TestAllTypes.OptionalGroupBuilder()
+        return TestAllTypes.OptionalGroup.classBuilder() as TestAllTypes.OptionalGroupBuilder
       }
       internal func builder() -> TestAllTypes.OptionalGroupBuilder {
-        return TestAllTypes.OptionalGroup.builder()
+        return classBuilder() as TestAllTypes.OptionalGroupBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestAllTypes.OptionalGroupBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestAllTypes.OptionalGroup.builder()
       }
       internal func toBuilder() -> TestAllTypes.OptionalGroupBuilder {
@@ -2569,15 +2569,15 @@ final class TestAllTypes : GeneratedMessage {
         return TestAllTypes.RepeatedGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestAllTypes.RepeatedGroupBuilder {
-        return TestAllTypes.RepeatedGroupBuilder()
+        return TestAllTypes.RepeatedGroup.classBuilder() as TestAllTypes.RepeatedGroupBuilder
       }
       internal func builder() -> TestAllTypes.RepeatedGroupBuilder {
-        return TestAllTypes.RepeatedGroup.builder()
+        return classBuilder() as TestAllTypes.RepeatedGroupBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestAllTypes.RepeatedGroupBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestAllTypes.RepeatedGroup.builder()
       }
       internal func toBuilder() -> TestAllTypes.RepeatedGroupBuilder {
@@ -3587,15 +3587,15 @@ final class TestAllTypes : GeneratedMessage {
     return TestAllTypes.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestAllTypesBuilder {
-    return TestAllTypesBuilder()
+    return TestAllTypes.classBuilder() as TestAllTypesBuilder
   }
   internal func builder() -> TestAllTypesBuilder {
-    return TestAllTypes.builder()
+    return classBuilder() as TestAllTypesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestAllTypesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestAllTypes.builder()
   }
   internal func toBuilder() -> TestAllTypesBuilder {
@@ -6164,15 +6164,15 @@ final class NestedTestAllTypes : GeneratedMessage {
     return NestedTestAllTypes.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> NestedTestAllTypesBuilder {
-    return NestedTestAllTypesBuilder()
+    return NestedTestAllTypes.classBuilder() as NestedTestAllTypesBuilder
   }
   internal func builder() -> NestedTestAllTypesBuilder {
-    return NestedTestAllTypes.builder()
+    return classBuilder() as NestedTestAllTypesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return NestedTestAllTypesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return NestedTestAllTypes.builder()
   }
   internal func toBuilder() -> NestedTestAllTypesBuilder {
@@ -6417,15 +6417,15 @@ final class TestDeprecatedFields : GeneratedMessage {
     return TestDeprecatedFields.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestDeprecatedFieldsBuilder {
-    return TestDeprecatedFieldsBuilder()
+    return TestDeprecatedFields.classBuilder() as TestDeprecatedFieldsBuilder
   }
   internal func builder() -> TestDeprecatedFieldsBuilder {
-    return TestDeprecatedFields.builder()
+    return classBuilder() as TestDeprecatedFieldsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestDeprecatedFieldsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestDeprecatedFields.builder()
   }
   internal func toBuilder() -> TestDeprecatedFieldsBuilder {
@@ -6599,15 +6599,15 @@ final class ForeignMessage : GeneratedMessage {
     return ForeignMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> ForeignMessageBuilder {
-    return ForeignMessageBuilder()
+    return ForeignMessage.classBuilder() as ForeignMessageBuilder
   }
   internal func builder() -> ForeignMessageBuilder {
-    return ForeignMessage.builder()
+    return classBuilder() as ForeignMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return ForeignMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ForeignMessage.builder()
   }
   internal func toBuilder() -> ForeignMessageBuilder {
@@ -6777,15 +6777,15 @@ final class TestAllExtensions : ExtendableMessage {
     return TestAllExtensions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestAllExtensionsBuilder {
-    return TestAllExtensionsBuilder()
+    return TestAllExtensions.classBuilder() as TestAllExtensionsBuilder
   }
   internal func builder() -> TestAllExtensionsBuilder {
-    return TestAllExtensions.builder()
+    return classBuilder() as TestAllExtensionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestAllExtensionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestAllExtensions.builder()
   }
   internal func toBuilder() -> TestAllExtensionsBuilder {
@@ -6931,15 +6931,15 @@ final class OptionalGroup_extension : GeneratedMessage {
     return OptionalGroup_extension.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> OptionalGroup_extensionBuilder {
-    return OptionalGroup_extensionBuilder()
+    return OptionalGroup_extension.classBuilder() as OptionalGroup_extensionBuilder
   }
   internal func builder() -> OptionalGroup_extensionBuilder {
-    return OptionalGroup_extension.builder()
+    return classBuilder() as OptionalGroup_extensionBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return OptionalGroup_extensionBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return OptionalGroup_extension.builder()
   }
   internal func toBuilder() -> OptionalGroup_extensionBuilder {
@@ -7113,15 +7113,15 @@ final class RepeatedGroup_extension : GeneratedMessage {
     return RepeatedGroup_extension.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> RepeatedGroup_extensionBuilder {
-    return RepeatedGroup_extensionBuilder()
+    return RepeatedGroup_extension.classBuilder() as RepeatedGroup_extensionBuilder
   }
   internal func builder() -> RepeatedGroup_extensionBuilder {
-    return RepeatedGroup_extension.builder()
+    return classBuilder() as RepeatedGroup_extensionBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return RepeatedGroup_extensionBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return RepeatedGroup_extension.builder()
   }
   internal func toBuilder() -> RepeatedGroup_extensionBuilder {
@@ -7292,15 +7292,15 @@ final class TestNestedExtension : GeneratedMessage {
     return TestNestedExtension.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestNestedExtensionBuilder {
-    return TestNestedExtensionBuilder()
+    return TestNestedExtension.classBuilder() as TestNestedExtensionBuilder
   }
   internal func builder() -> TestNestedExtensionBuilder {
-    return TestNestedExtension.builder()
+    return classBuilder() as TestNestedExtensionBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestNestedExtensionBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestNestedExtension.builder()
   }
   internal func toBuilder() -> TestNestedExtensionBuilder {
@@ -7746,15 +7746,15 @@ final class TestRequired : GeneratedMessage {
     return TestRequired.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestRequiredBuilder {
-    return TestRequiredBuilder()
+    return TestRequired.classBuilder() as TestRequiredBuilder
   }
   internal func builder() -> TestRequiredBuilder {
-    return TestRequired.builder()
+    return classBuilder() as TestRequiredBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestRequiredBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestRequired.builder()
   }
   internal func toBuilder() -> TestRequiredBuilder {
@@ -8950,15 +8950,15 @@ final class TestRequiredForeign : GeneratedMessage {
     return TestRequiredForeign.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestRequiredForeignBuilder {
-    return TestRequiredForeignBuilder()
+    return TestRequiredForeign.classBuilder() as TestRequiredForeignBuilder
   }
   internal func builder() -> TestRequiredForeignBuilder {
-    return TestRequiredForeign.builder()
+    return classBuilder() as TestRequiredForeignBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestRequiredForeignBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestRequiredForeign.builder()
   }
   internal func toBuilder() -> TestRequiredForeignBuilder {
@@ -9212,15 +9212,15 @@ final class TestForeignNested : GeneratedMessage {
     return TestForeignNested.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestForeignNestedBuilder {
-    return TestForeignNestedBuilder()
+    return TestForeignNested.classBuilder() as TestForeignNestedBuilder
   }
   internal func builder() -> TestForeignNestedBuilder {
-    return TestForeignNested.builder()
+    return classBuilder() as TestForeignNestedBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestForeignNestedBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestForeignNested.builder()
   }
   internal func toBuilder() -> TestForeignNestedBuilder {
@@ -9405,15 +9405,15 @@ final class TestEmptyMessage : GeneratedMessage {
     return TestEmptyMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestEmptyMessageBuilder {
-    return TestEmptyMessageBuilder()
+    return TestEmptyMessage.classBuilder() as TestEmptyMessageBuilder
   }
   internal func builder() -> TestEmptyMessageBuilder {
-    return TestEmptyMessage.builder()
+    return classBuilder() as TestEmptyMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestEmptyMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestEmptyMessage.builder()
   }
   internal func toBuilder() -> TestEmptyMessageBuilder {
@@ -9552,15 +9552,15 @@ final class TestEmptyMessageWithExtensions : ExtendableMessage {
     return TestEmptyMessageWithExtensions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestEmptyMessageWithExtensionsBuilder {
-    return TestEmptyMessageWithExtensionsBuilder()
+    return TestEmptyMessageWithExtensions.classBuilder() as TestEmptyMessageWithExtensionsBuilder
   }
   internal func builder() -> TestEmptyMessageWithExtensionsBuilder {
-    return TestEmptyMessageWithExtensions.builder()
+    return classBuilder() as TestEmptyMessageWithExtensionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestEmptyMessageWithExtensionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestEmptyMessageWithExtensions.builder()
   }
   internal func toBuilder() -> TestEmptyMessageWithExtensionsBuilder {
@@ -9704,15 +9704,15 @@ final class TestMultipleExtensionRanges : ExtendableMessage {
     return TestMultipleExtensionRanges.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestMultipleExtensionRangesBuilder {
-    return TestMultipleExtensionRangesBuilder()
+    return TestMultipleExtensionRanges.classBuilder() as TestMultipleExtensionRangesBuilder
   }
   internal func builder() -> TestMultipleExtensionRangesBuilder {
-    return TestMultipleExtensionRanges.builder()
+    return classBuilder() as TestMultipleExtensionRangesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestMultipleExtensionRangesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestMultipleExtensionRanges.builder()
   }
   internal func toBuilder() -> TestMultipleExtensionRangesBuilder {
@@ -9871,15 +9871,15 @@ final class TestReallyLargeTagNumber : GeneratedMessage {
     return TestReallyLargeTagNumber.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestReallyLargeTagNumberBuilder {
-    return TestReallyLargeTagNumberBuilder()
+    return TestReallyLargeTagNumber.classBuilder() as TestReallyLargeTagNumberBuilder
   }
   internal func builder() -> TestReallyLargeTagNumberBuilder {
-    return TestReallyLargeTagNumber.builder()
+    return classBuilder() as TestReallyLargeTagNumberBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestReallyLargeTagNumberBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestReallyLargeTagNumber.builder()
   }
   internal func toBuilder() -> TestReallyLargeTagNumberBuilder {
@@ -10092,15 +10092,15 @@ final class TestRecursiveMessage : GeneratedMessage {
     return TestRecursiveMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestRecursiveMessageBuilder {
-    return TestRecursiveMessageBuilder()
+    return TestRecursiveMessage.classBuilder() as TestRecursiveMessageBuilder
   }
   internal func builder() -> TestRecursiveMessageBuilder {
-    return TestRecursiveMessage.builder()
+    return classBuilder() as TestRecursiveMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestRecursiveMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestRecursiveMessage.builder()
   }
   internal func toBuilder() -> TestRecursiveMessageBuilder {
@@ -10324,15 +10324,15 @@ final class TestMutualRecursionA : GeneratedMessage {
     return TestMutualRecursionA.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestMutualRecursionABuilder {
-    return TestMutualRecursionABuilder()
+    return TestMutualRecursionA.classBuilder() as TestMutualRecursionABuilder
   }
   internal func builder() -> TestMutualRecursionABuilder {
-    return TestMutualRecursionA.builder()
+    return classBuilder() as TestMutualRecursionABuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestMutualRecursionABuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestMutualRecursionA.builder()
   }
   internal func toBuilder() -> TestMutualRecursionABuilder {
@@ -10534,15 +10534,15 @@ final class TestMutualRecursionB : GeneratedMessage {
     return TestMutualRecursionB.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestMutualRecursionBBuilder {
-    return TestMutualRecursionBBuilder()
+    return TestMutualRecursionB.classBuilder() as TestMutualRecursionBBuilder
   }
   internal func builder() -> TestMutualRecursionBBuilder {
-    return TestMutualRecursionB.builder()
+    return classBuilder() as TestMutualRecursionBBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestMutualRecursionBBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestMutualRecursionB.builder()
   }
   internal func toBuilder() -> TestMutualRecursionBBuilder {
@@ -10772,15 +10772,15 @@ final class TestDupFieldNumber : GeneratedMessage {
         return TestDupFieldNumber.Foo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestDupFieldNumber.FooBuilder {
-        return TestDupFieldNumber.FooBuilder()
+        return TestDupFieldNumber.Foo.classBuilder() as TestDupFieldNumber.FooBuilder
       }
       internal func builder() -> TestDupFieldNumber.FooBuilder {
-        return TestDupFieldNumber.Foo.builder()
+        return classBuilder() as TestDupFieldNumber.FooBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestDupFieldNumber.FooBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestDupFieldNumber.Foo.builder()
       }
       internal func toBuilder() -> TestDupFieldNumber.FooBuilder {
@@ -10962,15 +10962,15 @@ final class TestDupFieldNumber : GeneratedMessage {
         return TestDupFieldNumber.Bar.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestDupFieldNumber.BarBuilder {
-        return TestDupFieldNumber.BarBuilder()
+        return TestDupFieldNumber.Bar.classBuilder() as TestDupFieldNumber.BarBuilder
       }
       internal func builder() -> TestDupFieldNumber.BarBuilder {
-        return TestDupFieldNumber.Bar.builder()
+        return classBuilder() as TestDupFieldNumber.BarBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestDupFieldNumber.BarBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestDupFieldNumber.Bar.builder()
       }
       internal func toBuilder() -> TestDupFieldNumber.BarBuilder {
@@ -11163,15 +11163,15 @@ final class TestDupFieldNumber : GeneratedMessage {
     return TestDupFieldNumber.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestDupFieldNumberBuilder {
-    return TestDupFieldNumberBuilder()
+    return TestDupFieldNumber.classBuilder() as TestDupFieldNumberBuilder
   }
   internal func builder() -> TestDupFieldNumberBuilder {
-    return TestDupFieldNumber.builder()
+    return classBuilder() as TestDupFieldNumberBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestDupFieldNumberBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestDupFieldNumber.builder()
   }
   internal func toBuilder() -> TestDupFieldNumberBuilder {
@@ -11446,15 +11446,15 @@ final class TestEagerMessage : GeneratedMessage {
     return TestEagerMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestEagerMessageBuilder {
-    return TestEagerMessageBuilder()
+    return TestEagerMessage.classBuilder() as TestEagerMessageBuilder
   }
   internal func builder() -> TestEagerMessageBuilder {
-    return TestEagerMessage.builder()
+    return classBuilder() as TestEagerMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestEagerMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestEagerMessage.builder()
   }
   internal func toBuilder() -> TestEagerMessageBuilder {
@@ -11647,15 +11647,15 @@ final class TestLazyMessage : GeneratedMessage {
     return TestLazyMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestLazyMessageBuilder {
-    return TestLazyMessageBuilder()
+    return TestLazyMessage.classBuilder() as TestLazyMessageBuilder
   }
   internal func builder() -> TestLazyMessageBuilder {
-    return TestLazyMessage.builder()
+    return classBuilder() as TestLazyMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestLazyMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestLazyMessage.builder()
   }
   internal func toBuilder() -> TestLazyMessageBuilder {
@@ -11864,15 +11864,15 @@ final class TestNestedMessageHasBits : GeneratedMessage {
         return TestNestedMessageHasBits.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestNestedMessageHasBits.NestedMessageBuilder {
-        return TestNestedMessageHasBits.NestedMessageBuilder()
+        return TestNestedMessageHasBits.NestedMessage.classBuilder() as TestNestedMessageHasBits.NestedMessageBuilder
       }
       internal func builder() -> TestNestedMessageHasBits.NestedMessageBuilder {
-        return TestNestedMessageHasBits.NestedMessage.builder()
+        return classBuilder() as TestNestedMessageHasBits.NestedMessageBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestNestedMessageHasBits.NestedMessageBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestNestedMessageHasBits.NestedMessage.builder()
       }
       internal func toBuilder() -> TestNestedMessageHasBits.NestedMessageBuilder {
@@ -12073,15 +12073,15 @@ final class TestNestedMessageHasBits : GeneratedMessage {
     return TestNestedMessageHasBits.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestNestedMessageHasBitsBuilder {
-    return TestNestedMessageHasBitsBuilder()
+    return TestNestedMessageHasBits.classBuilder() as TestNestedMessageHasBitsBuilder
   }
   internal func builder() -> TestNestedMessageHasBitsBuilder {
-    return TestNestedMessageHasBits.builder()
+    return classBuilder() as TestNestedMessageHasBitsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestNestedMessageHasBitsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestNestedMessageHasBits.builder()
   }
   internal func toBuilder() -> TestNestedMessageHasBitsBuilder {
@@ -12384,15 +12384,15 @@ final class TestCamelCaseFieldNames : GeneratedMessage {
     return TestCamelCaseFieldNames.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestCamelCaseFieldNamesBuilder {
-    return TestCamelCaseFieldNamesBuilder()
+    return TestCamelCaseFieldNames.classBuilder() as TestCamelCaseFieldNamesBuilder
   }
   internal func builder() -> TestCamelCaseFieldNamesBuilder {
-    return TestCamelCaseFieldNames.builder()
+    return classBuilder() as TestCamelCaseFieldNamesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestCamelCaseFieldNamesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestCamelCaseFieldNames.builder()
   }
   internal func toBuilder() -> TestCamelCaseFieldNamesBuilder {
@@ -12936,15 +12936,15 @@ final class TestFieldOrderings : ExtendableMessage {
     return TestFieldOrderings.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestFieldOrderingsBuilder {
-    return TestFieldOrderingsBuilder()
+    return TestFieldOrderings.classBuilder() as TestFieldOrderingsBuilder
   }
   internal func builder() -> TestFieldOrderingsBuilder {
-    return TestFieldOrderings.builder()
+    return classBuilder() as TestFieldOrderingsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestFieldOrderingsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestFieldOrderings.builder()
   }
   internal func toBuilder() -> TestFieldOrderingsBuilder {
@@ -13419,15 +13419,15 @@ final class TestExtremeDefaultValues : GeneratedMessage {
     return TestExtremeDefaultValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestExtremeDefaultValuesBuilder {
-    return TestExtremeDefaultValuesBuilder()
+    return TestExtremeDefaultValues.classBuilder() as TestExtremeDefaultValuesBuilder
   }
   internal func builder() -> TestExtremeDefaultValuesBuilder {
-    return TestExtremeDefaultValues.builder()
+    return classBuilder() as TestExtremeDefaultValuesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestExtremeDefaultValuesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestExtremeDefaultValues.builder()
   }
   internal func toBuilder() -> TestExtremeDefaultValuesBuilder {
@@ -14410,15 +14410,15 @@ final class SparseEnumMessage : GeneratedMessage {
     return SparseEnumMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> SparseEnumMessageBuilder {
-    return SparseEnumMessageBuilder()
+    return SparseEnumMessage.classBuilder() as SparseEnumMessageBuilder
   }
   internal func builder() -> SparseEnumMessageBuilder {
-    return SparseEnumMessage.builder()
+    return classBuilder() as SparseEnumMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return SparseEnumMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return SparseEnumMessage.builder()
   }
   internal func toBuilder() -> SparseEnumMessageBuilder {
@@ -14598,15 +14598,15 @@ final class OneString : GeneratedMessage {
     return OneString.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> OneStringBuilder {
-    return OneStringBuilder()
+    return OneString.classBuilder() as OneStringBuilder
   }
   internal func builder() -> OneStringBuilder {
-    return OneString.builder()
+    return classBuilder() as OneStringBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return OneStringBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return OneString.builder()
   }
   internal func toBuilder() -> OneStringBuilder {
@@ -14783,15 +14783,15 @@ final class MoreString : GeneratedMessage {
     return MoreString.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> MoreStringBuilder {
-    return MoreStringBuilder()
+    return MoreString.classBuilder() as MoreStringBuilder
   }
   internal func builder() -> MoreStringBuilder {
-    return MoreString.builder()
+    return classBuilder() as MoreStringBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return MoreStringBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return MoreString.builder()
   }
   internal func toBuilder() -> MoreStringBuilder {
@@ -14960,15 +14960,15 @@ final class OneBytes : GeneratedMessage {
     return OneBytes.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> OneBytesBuilder {
-    return OneBytesBuilder()
+    return OneBytes.classBuilder() as OneBytesBuilder
   }
   internal func builder() -> OneBytesBuilder {
-    return OneBytes.builder()
+    return classBuilder() as OneBytesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return OneBytesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return OneBytes.builder()
   }
   internal func toBuilder() -> OneBytesBuilder {
@@ -15147,15 +15147,15 @@ final class MoreBytes : GeneratedMessage {
     return MoreBytes.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> MoreBytesBuilder {
-    return MoreBytesBuilder()
+    return MoreBytes.classBuilder() as MoreBytesBuilder
   }
   internal func builder() -> MoreBytesBuilder {
-    return MoreBytes.builder()
+    return classBuilder() as MoreBytesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return MoreBytesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return MoreBytes.builder()
   }
   internal func toBuilder() -> MoreBytesBuilder {
@@ -15326,15 +15326,15 @@ final class Int32Message : GeneratedMessage {
     return Int32Message.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> Int32MessageBuilder {
-    return Int32MessageBuilder()
+    return Int32Message.classBuilder() as Int32MessageBuilder
   }
   internal func builder() -> Int32MessageBuilder {
-    return Int32Message.builder()
+    return classBuilder() as Int32MessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return Int32MessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return Int32Message.builder()
   }
   internal func toBuilder() -> Int32MessageBuilder {
@@ -15508,15 +15508,15 @@ final class Uint32Message : GeneratedMessage {
     return Uint32Message.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> Uint32MessageBuilder {
-    return Uint32MessageBuilder()
+    return Uint32Message.classBuilder() as Uint32MessageBuilder
   }
   internal func builder() -> Uint32MessageBuilder {
-    return Uint32Message.builder()
+    return classBuilder() as Uint32MessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return Uint32MessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return Uint32Message.builder()
   }
   internal func toBuilder() -> Uint32MessageBuilder {
@@ -15690,15 +15690,15 @@ final class Int64Message : GeneratedMessage {
     return Int64Message.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> Int64MessageBuilder {
-    return Int64MessageBuilder()
+    return Int64Message.classBuilder() as Int64MessageBuilder
   }
   internal func builder() -> Int64MessageBuilder {
-    return Int64Message.builder()
+    return classBuilder() as Int64MessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return Int64MessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return Int64Message.builder()
   }
   internal func toBuilder() -> Int64MessageBuilder {
@@ -15872,15 +15872,15 @@ final class Uint64Message : GeneratedMessage {
     return Uint64Message.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> Uint64MessageBuilder {
-    return Uint64MessageBuilder()
+    return Uint64Message.classBuilder() as Uint64MessageBuilder
   }
   internal func builder() -> Uint64MessageBuilder {
-    return Uint64Message.builder()
+    return classBuilder() as Uint64MessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return Uint64MessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return Uint64Message.builder()
   }
   internal func toBuilder() -> Uint64MessageBuilder {
@@ -16054,15 +16054,15 @@ final class BoolMessage : GeneratedMessage {
     return BoolMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> BoolMessageBuilder {
-    return BoolMessageBuilder()
+    return BoolMessage.classBuilder() as BoolMessageBuilder
   }
   internal func builder() -> BoolMessageBuilder {
-    return BoolMessage.builder()
+    return classBuilder() as BoolMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return BoolMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return BoolMessage.builder()
   }
   internal func toBuilder() -> BoolMessageBuilder {
@@ -16250,15 +16250,15 @@ final class TestOneof : GeneratedMessage {
         return TestOneof.FooGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestOneof.FooGroupBuilder {
-        return TestOneof.FooGroupBuilder()
+        return TestOneof.FooGroup.classBuilder() as TestOneof.FooGroupBuilder
       }
       internal func builder() -> TestOneof.FooGroupBuilder {
-        return TestOneof.FooGroup.builder()
+        return classBuilder() as TestOneof.FooGroupBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestOneof.FooGroupBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestOneof.FooGroup.builder()
       }
       internal func toBuilder() -> TestOneof.FooGroupBuilder {
@@ -16615,15 +16615,15 @@ final class TestOneof : GeneratedMessage {
     return TestOneof.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestOneofBuilder {
-    return TestOneofBuilder()
+    return TestOneof.classBuilder() as TestOneofBuilder
   }
   internal func builder() -> TestOneofBuilder {
-    return TestOneof.builder()
+    return classBuilder() as TestOneofBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestOneofBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestOneof.builder()
   }
   internal func toBuilder() -> TestOneofBuilder {
@@ -16944,15 +16944,15 @@ final class TestOneofBackwardsCompatible : GeneratedMessage {
         return TestOneofBackwardsCompatible.FooGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestOneofBackwardsCompatible.FooGroupBuilder {
-        return TestOneofBackwardsCompatible.FooGroupBuilder()
+        return TestOneofBackwardsCompatible.FooGroup.classBuilder() as TestOneofBackwardsCompatible.FooGroupBuilder
       }
       internal func builder() -> TestOneofBackwardsCompatible.FooGroupBuilder {
-        return TestOneofBackwardsCompatible.FooGroup.builder()
+        return classBuilder() as TestOneofBackwardsCompatible.FooGroupBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestOneofBackwardsCompatible.FooGroupBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestOneofBackwardsCompatible.FooGroup.builder()
       }
       internal func toBuilder() -> TestOneofBackwardsCompatible.FooGroupBuilder {
@@ -17185,15 +17185,15 @@ final class TestOneofBackwardsCompatible : GeneratedMessage {
     return TestOneofBackwardsCompatible.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestOneofBackwardsCompatibleBuilder {
-    return TestOneofBackwardsCompatibleBuilder()
+    return TestOneofBackwardsCompatible.classBuilder() as TestOneofBackwardsCompatibleBuilder
   }
   internal func builder() -> TestOneofBackwardsCompatibleBuilder {
-    return TestOneofBackwardsCompatible.builder()
+    return classBuilder() as TestOneofBackwardsCompatibleBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestOneofBackwardsCompatibleBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestOneofBackwardsCompatible.builder()
   }
   internal func toBuilder() -> TestOneofBackwardsCompatibleBuilder {
@@ -17514,15 +17514,15 @@ final class TestOneof2 : GeneratedMessage {
         return TestOneof2.FooGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestOneof2.FooGroupBuilder {
-        return TestOneof2.FooGroupBuilder()
+        return TestOneof2.FooGroup.classBuilder() as TestOneof2.FooGroupBuilder
       }
       internal func builder() -> TestOneof2.FooGroupBuilder {
-        return TestOneof2.FooGroup.builder()
+        return classBuilder() as TestOneof2.FooGroupBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestOneof2.FooGroupBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestOneof2.FooGroup.builder()
       }
       internal func toBuilder() -> TestOneof2.FooGroupBuilder {
@@ -17747,15 +17747,15 @@ final class TestOneof2 : GeneratedMessage {
         return TestOneof2.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestOneof2.NestedMessageBuilder {
-        return TestOneof2.NestedMessageBuilder()
+        return TestOneof2.NestedMessage.classBuilder() as TestOneof2.NestedMessageBuilder
       }
       internal func builder() -> TestOneof2.NestedMessageBuilder {
-        return TestOneof2.NestedMessage.builder()
+        return classBuilder() as TestOneof2.NestedMessageBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestOneof2.NestedMessageBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestOneof2.NestedMessage.builder()
       }
       internal func toBuilder() -> TestOneof2.NestedMessageBuilder {
@@ -18544,15 +18544,15 @@ final class TestOneof2 : GeneratedMessage {
     return TestOneof2.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestOneof2Builder {
-    return TestOneof2Builder()
+    return TestOneof2.classBuilder() as TestOneof2Builder
   }
   internal func builder() -> TestOneof2Builder {
-    return TestOneof2.builder()
+    return classBuilder() as TestOneof2Builder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestOneof2Builder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestOneof2.builder()
   }
   internal func toBuilder() -> TestOneof2Builder {
@@ -19306,15 +19306,15 @@ final class TestRequiredOneof : GeneratedMessage {
         return TestRequiredOneof.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestRequiredOneof.NestedMessageBuilder {
-        return TestRequiredOneof.NestedMessageBuilder()
+        return TestRequiredOneof.NestedMessage.classBuilder() as TestRequiredOneof.NestedMessageBuilder
       }
       internal func builder() -> TestRequiredOneof.NestedMessageBuilder {
-        return TestRequiredOneof.NestedMessage.builder()
+        return classBuilder() as TestRequiredOneof.NestedMessageBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestRequiredOneof.NestedMessageBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestRequiredOneof.NestedMessage.builder()
       }
       internal func toBuilder() -> TestRequiredOneof.NestedMessageBuilder {
@@ -19611,15 +19611,15 @@ final class TestRequiredOneof : GeneratedMessage {
     return TestRequiredOneof.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestRequiredOneofBuilder {
-    return TestRequiredOneofBuilder()
+    return TestRequiredOneof.classBuilder() as TestRequiredOneofBuilder
   }
   internal func builder() -> TestRequiredOneofBuilder {
-    return TestRequiredOneof.builder()
+    return classBuilder() as TestRequiredOneofBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestRequiredOneofBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestRequiredOneof.builder()
   }
   internal func toBuilder() -> TestRequiredOneofBuilder {
@@ -20118,15 +20118,15 @@ final class TestPackedTypes : GeneratedMessage {
     return TestPackedTypes.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestPackedTypesBuilder {
-    return TestPackedTypesBuilder()
+    return TestPackedTypes.classBuilder() as TestPackedTypesBuilder
   }
   internal func builder() -> TestPackedTypesBuilder {
-    return TestPackedTypes.builder()
+    return classBuilder() as TestPackedTypesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestPackedTypesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestPackedTypes.builder()
   }
   internal func toBuilder() -> TestPackedTypesBuilder {
@@ -20852,15 +20852,15 @@ final class TestUnpackedTypes : GeneratedMessage {
     return TestUnpackedTypes.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestUnpackedTypesBuilder {
-    return TestUnpackedTypesBuilder()
+    return TestUnpackedTypes.classBuilder() as TestUnpackedTypesBuilder
   }
   internal func builder() -> TestUnpackedTypesBuilder {
-    return TestUnpackedTypes.builder()
+    return classBuilder() as TestUnpackedTypesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestUnpackedTypesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestUnpackedTypes.builder()
   }
   internal func toBuilder() -> TestUnpackedTypesBuilder {
@@ -21368,15 +21368,15 @@ final class TestPackedExtensions : ExtendableMessage {
     return TestPackedExtensions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestPackedExtensionsBuilder {
-    return TestPackedExtensionsBuilder()
+    return TestPackedExtensions.classBuilder() as TestPackedExtensionsBuilder
   }
   internal func builder() -> TestPackedExtensionsBuilder {
-    return TestPackedExtensions.builder()
+    return classBuilder() as TestPackedExtensionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestPackedExtensionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestPackedExtensions.builder()
   }
   internal func toBuilder() -> TestPackedExtensionsBuilder {
@@ -21518,15 +21518,15 @@ final class TestUnpackedExtensions : ExtendableMessage {
     return TestUnpackedExtensions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestUnpackedExtensionsBuilder {
-    return TestUnpackedExtensionsBuilder()
+    return TestUnpackedExtensions.classBuilder() as TestUnpackedExtensionsBuilder
   }
   internal func builder() -> TestUnpackedExtensionsBuilder {
-    return TestUnpackedExtensions.builder()
+    return classBuilder() as TestUnpackedExtensionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestUnpackedExtensionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestUnpackedExtensions.builder()
   }
   internal func toBuilder() -> TestUnpackedExtensionsBuilder {
@@ -21677,15 +21677,15 @@ final class TestDynamicExtensions : GeneratedMessage {
         return TestDynamicExtensions.DynamicMessageType.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestDynamicExtensions.DynamicMessageTypeBuilder {
-        return TestDynamicExtensions.DynamicMessageTypeBuilder()
+        return TestDynamicExtensions.DynamicMessageType.classBuilder() as TestDynamicExtensions.DynamicMessageTypeBuilder
       }
       internal func builder() -> TestDynamicExtensions.DynamicMessageTypeBuilder {
-        return TestDynamicExtensions.DynamicMessageType.builder()
+        return classBuilder() as TestDynamicExtensions.DynamicMessageTypeBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestDynamicExtensions.DynamicMessageTypeBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestDynamicExtensions.DynamicMessageType.builder()
       }
       internal func toBuilder() -> TestDynamicExtensions.DynamicMessageTypeBuilder {
@@ -21948,15 +21948,15 @@ final class TestDynamicExtensions : GeneratedMessage {
     return TestDynamicExtensions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestDynamicExtensionsBuilder {
-    return TestDynamicExtensionsBuilder()
+    return TestDynamicExtensions.classBuilder() as TestDynamicExtensionsBuilder
   }
   internal func builder() -> TestDynamicExtensionsBuilder {
-    return TestDynamicExtensions.builder()
+    return classBuilder() as TestDynamicExtensionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestDynamicExtensionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestDynamicExtensions.builder()
   }
   internal func toBuilder() -> TestDynamicExtensionsBuilder {
@@ -22420,15 +22420,15 @@ final class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
     return TestRepeatedScalarDifferentTagSizes.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestRepeatedScalarDifferentTagSizesBuilder {
-    return TestRepeatedScalarDifferentTagSizesBuilder()
+    return TestRepeatedScalarDifferentTagSizes.classBuilder() as TestRepeatedScalarDifferentTagSizesBuilder
   }
   internal func builder() -> TestRepeatedScalarDifferentTagSizesBuilder {
-    return TestRepeatedScalarDifferentTagSizes.builder()
+    return classBuilder() as TestRepeatedScalarDifferentTagSizesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestRepeatedScalarDifferentTagSizesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestRepeatedScalarDifferentTagSizes.builder()
   }
   internal func toBuilder() -> TestRepeatedScalarDifferentTagSizesBuilder {
@@ -22736,15 +22736,15 @@ final class TestParsingMerge : ExtendableMessage {
             return TestParsingMerge.RepeatedFieldsGenerator.Group1.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
           }
           internal class func builder() -> TestParsingMerge.RepeatedFieldsGenerator.Group1Builder {
-            return TestParsingMerge.RepeatedFieldsGenerator.Group1Builder()
+            return TestParsingMerge.RepeatedFieldsGenerator.Group1.classBuilder() as TestParsingMerge.RepeatedFieldsGenerator.Group1Builder
           }
           internal func builder() -> TestParsingMerge.RepeatedFieldsGenerator.Group1Builder {
-            return TestParsingMerge.RepeatedFieldsGenerator.Group1.builder()
+            return classBuilder() as TestParsingMerge.RepeatedFieldsGenerator.Group1Builder
           }
-          internal override class func buider() -> MessageBuilder {
+          internal override class func classBuilder() -> MessageBuilder {
             return TestParsingMerge.RepeatedFieldsGenerator.Group1Builder()
           }
-          internal override func buider() -> MessageBuilder {
+          internal override func classBuilder() -> MessageBuilder {
             return TestParsingMerge.RepeatedFieldsGenerator.Group1.builder()
           }
           internal func toBuilder() -> TestParsingMerge.RepeatedFieldsGenerator.Group1Builder {
@@ -22945,15 +22945,15 @@ final class TestParsingMerge : ExtendableMessage {
             return TestParsingMerge.RepeatedFieldsGenerator.Group2.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
           }
           internal class func builder() -> TestParsingMerge.RepeatedFieldsGenerator.Group2Builder {
-            return TestParsingMerge.RepeatedFieldsGenerator.Group2Builder()
+            return TestParsingMerge.RepeatedFieldsGenerator.Group2.classBuilder() as TestParsingMerge.RepeatedFieldsGenerator.Group2Builder
           }
           internal func builder() -> TestParsingMerge.RepeatedFieldsGenerator.Group2Builder {
-            return TestParsingMerge.RepeatedFieldsGenerator.Group2.builder()
+            return classBuilder() as TestParsingMerge.RepeatedFieldsGenerator.Group2Builder
           }
-          internal override class func buider() -> MessageBuilder {
+          internal override class func classBuilder() -> MessageBuilder {
             return TestParsingMerge.RepeatedFieldsGenerator.Group2Builder()
           }
-          internal override func buider() -> MessageBuilder {
+          internal override func classBuilder() -> MessageBuilder {
             return TestParsingMerge.RepeatedFieldsGenerator.Group2.builder()
           }
           internal func toBuilder() -> TestParsingMerge.RepeatedFieldsGenerator.Group2Builder {
@@ -23190,15 +23190,15 @@ final class TestParsingMerge : ExtendableMessage {
         return TestParsingMerge.RepeatedFieldsGenerator.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
-        return TestParsingMerge.RepeatedFieldsGeneratorBuilder()
+        return TestParsingMerge.RepeatedFieldsGenerator.classBuilder() as TestParsingMerge.RepeatedFieldsGeneratorBuilder
       }
       internal func builder() -> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
-        return TestParsingMerge.RepeatedFieldsGenerator.builder()
+        return classBuilder() as TestParsingMerge.RepeatedFieldsGeneratorBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestParsingMerge.RepeatedFieldsGeneratorBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestParsingMerge.RepeatedFieldsGenerator.builder()
       }
       internal func toBuilder() -> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
@@ -23558,15 +23558,15 @@ final class TestParsingMerge : ExtendableMessage {
         return TestParsingMerge.OptionalGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestParsingMerge.OptionalGroupBuilder {
-        return TestParsingMerge.OptionalGroupBuilder()
+        return TestParsingMerge.OptionalGroup.classBuilder() as TestParsingMerge.OptionalGroupBuilder
       }
       internal func builder() -> TestParsingMerge.OptionalGroupBuilder {
-        return TestParsingMerge.OptionalGroup.builder()
+        return classBuilder() as TestParsingMerge.OptionalGroupBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestParsingMerge.OptionalGroupBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestParsingMerge.OptionalGroup.builder()
       }
       internal func toBuilder() -> TestParsingMerge.OptionalGroupBuilder {
@@ -23767,15 +23767,15 @@ final class TestParsingMerge : ExtendableMessage {
         return TestParsingMerge.RepeatedGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestParsingMerge.RepeatedGroupBuilder {
-        return TestParsingMerge.RepeatedGroupBuilder()
+        return TestParsingMerge.RepeatedGroup.classBuilder() as TestParsingMerge.RepeatedGroupBuilder
       }
       internal func builder() -> TestParsingMerge.RepeatedGroupBuilder {
-        return TestParsingMerge.RepeatedGroup.builder()
+        return classBuilder() as TestParsingMerge.RepeatedGroupBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestParsingMerge.RepeatedGroupBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestParsingMerge.RepeatedGroup.builder()
       }
       internal func toBuilder() -> TestParsingMerge.RepeatedGroupBuilder {
@@ -24015,15 +24015,15 @@ final class TestParsingMerge : ExtendableMessage {
     return TestParsingMerge.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestParsingMergeBuilder {
-    return TestParsingMergeBuilder()
+    return TestParsingMerge.classBuilder() as TestParsingMergeBuilder
   }
   internal func builder() -> TestParsingMergeBuilder {
-    return TestParsingMerge.builder()
+    return classBuilder() as TestParsingMergeBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestParsingMergeBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestParsingMerge.builder()
   }
   internal func toBuilder() -> TestParsingMergeBuilder {
@@ -24382,15 +24382,15 @@ final class TestCommentInjectionMessage : GeneratedMessage {
     return TestCommentInjectionMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestCommentInjectionMessageBuilder {
-    return TestCommentInjectionMessageBuilder()
+    return TestCommentInjectionMessage.classBuilder() as TestCommentInjectionMessageBuilder
   }
   internal func builder() -> TestCommentInjectionMessageBuilder {
-    return TestCommentInjectionMessage.builder()
+    return classBuilder() as TestCommentInjectionMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestCommentInjectionMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestCommentInjectionMessage.builder()
   }
   internal func toBuilder() -> TestCommentInjectionMessageBuilder {
@@ -24555,15 +24555,15 @@ final class FooRequest : GeneratedMessage {
     return FooRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> FooRequestBuilder {
-    return FooRequestBuilder()
+    return FooRequest.classBuilder() as FooRequestBuilder
   }
   internal func builder() -> FooRequestBuilder {
-    return FooRequest.builder()
+    return classBuilder() as FooRequestBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return FooRequestBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return FooRequest.builder()
   }
   internal func toBuilder() -> FooRequestBuilder {
@@ -24697,15 +24697,15 @@ final class FooResponse : GeneratedMessage {
     return FooResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> FooResponseBuilder {
-    return FooResponseBuilder()
+    return FooResponse.classBuilder() as FooResponseBuilder
   }
   internal func builder() -> FooResponseBuilder {
-    return FooResponse.builder()
+    return classBuilder() as FooResponseBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return FooResponseBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return FooResponse.builder()
   }
   internal func toBuilder() -> FooResponseBuilder {
@@ -24839,15 +24839,15 @@ final class FooClientMessage : GeneratedMessage {
     return FooClientMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> FooClientMessageBuilder {
-    return FooClientMessageBuilder()
+    return FooClientMessage.classBuilder() as FooClientMessageBuilder
   }
   internal func builder() -> FooClientMessageBuilder {
-    return FooClientMessage.builder()
+    return classBuilder() as FooClientMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return FooClientMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return FooClientMessage.builder()
   }
   internal func toBuilder() -> FooClientMessageBuilder {
@@ -24981,15 +24981,15 @@ final class FooServerMessage : GeneratedMessage {
     return FooServerMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> FooServerMessageBuilder {
-    return FooServerMessageBuilder()
+    return FooServerMessage.classBuilder() as FooServerMessageBuilder
   }
   internal func builder() -> FooServerMessageBuilder {
-    return FooServerMessage.builder()
+    return classBuilder() as FooServerMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return FooServerMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return FooServerMessage.builder()
   }
   internal func toBuilder() -> FooServerMessageBuilder {
@@ -25123,15 +25123,15 @@ final class BarRequest : GeneratedMessage {
     return BarRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> BarRequestBuilder {
-    return BarRequestBuilder()
+    return BarRequest.classBuilder() as BarRequestBuilder
   }
   internal func builder() -> BarRequestBuilder {
-    return BarRequest.builder()
+    return classBuilder() as BarRequestBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return BarRequestBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return BarRequest.builder()
   }
   internal func toBuilder() -> BarRequestBuilder {
@@ -25265,15 +25265,15 @@ final class BarResponse : GeneratedMessage {
     return BarResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> BarResponseBuilder {
-    return BarResponseBuilder()
+    return BarResponse.classBuilder() as BarResponseBuilder
   }
   internal func builder() -> BarResponseBuilder {
-    return BarResponse.builder()
+    return classBuilder() as BarResponseBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return BarResponseBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return BarResponse.builder()
   }
   internal func toBuilder() -> BarResponseBuilder {

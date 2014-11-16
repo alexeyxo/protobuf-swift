@@ -10068,15 +10068,15 @@ final class TestEnormousDescriptor : GeneratedMessage {
     return TestEnormousDescriptor.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestEnormousDescriptorBuilder {
-    return TestEnormousDescriptorBuilder()
+    return TestEnormousDescriptor.classBuilder() as TestEnormousDescriptorBuilder
   }
   internal func builder() -> TestEnormousDescriptorBuilder {
-    return TestEnormousDescriptor.builder()
+    return classBuilder() as TestEnormousDescriptorBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestEnormousDescriptorBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestEnormousDescriptor.builder()
   }
   internal func toBuilder() -> TestEnormousDescriptorBuilder {

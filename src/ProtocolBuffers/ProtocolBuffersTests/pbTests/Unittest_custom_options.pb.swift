@@ -832,15 +832,15 @@ final class TestMessageWithCustomOptions : GeneratedMessage {
     return TestMessageWithCustomOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestMessageWithCustomOptionsBuilder {
-    return TestMessageWithCustomOptionsBuilder()
+    return TestMessageWithCustomOptions.classBuilder() as TestMessageWithCustomOptionsBuilder
   }
   internal func builder() -> TestMessageWithCustomOptionsBuilder {
-    return TestMessageWithCustomOptions.builder()
+    return classBuilder() as TestMessageWithCustomOptionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestMessageWithCustomOptionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestMessageWithCustomOptions.builder()
   }
   internal func toBuilder() -> TestMessageWithCustomOptionsBuilder {
@@ -1005,15 +1005,15 @@ final class CustomOptionFooRequest : GeneratedMessage {
     return CustomOptionFooRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> CustomOptionFooRequestBuilder {
-    return CustomOptionFooRequestBuilder()
+    return CustomOptionFooRequest.classBuilder() as CustomOptionFooRequestBuilder
   }
   internal func builder() -> CustomOptionFooRequestBuilder {
-    return CustomOptionFooRequest.builder()
+    return classBuilder() as CustomOptionFooRequestBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionFooRequestBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionFooRequest.builder()
   }
   internal func toBuilder() -> CustomOptionFooRequestBuilder {
@@ -1147,15 +1147,15 @@ final class CustomOptionFooResponse : GeneratedMessage {
     return CustomOptionFooResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> CustomOptionFooResponseBuilder {
-    return CustomOptionFooResponseBuilder()
+    return CustomOptionFooResponse.classBuilder() as CustomOptionFooResponseBuilder
   }
   internal func builder() -> CustomOptionFooResponseBuilder {
-    return CustomOptionFooResponse.builder()
+    return classBuilder() as CustomOptionFooResponseBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionFooResponseBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionFooResponse.builder()
   }
   internal func toBuilder() -> CustomOptionFooResponseBuilder {
@@ -1289,15 +1289,15 @@ final class CustomOptionFooClientMessage : GeneratedMessage {
     return CustomOptionFooClientMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> CustomOptionFooClientMessageBuilder {
-    return CustomOptionFooClientMessageBuilder()
+    return CustomOptionFooClientMessage.classBuilder() as CustomOptionFooClientMessageBuilder
   }
   internal func builder() -> CustomOptionFooClientMessageBuilder {
-    return CustomOptionFooClientMessage.builder()
+    return classBuilder() as CustomOptionFooClientMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionFooClientMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionFooClientMessage.builder()
   }
   internal func toBuilder() -> CustomOptionFooClientMessageBuilder {
@@ -1431,15 +1431,15 @@ final class CustomOptionFooServerMessage : GeneratedMessage {
     return CustomOptionFooServerMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> CustomOptionFooServerMessageBuilder {
-    return CustomOptionFooServerMessageBuilder()
+    return CustomOptionFooServerMessage.classBuilder() as CustomOptionFooServerMessageBuilder
   }
   internal func builder() -> CustomOptionFooServerMessageBuilder {
-    return CustomOptionFooServerMessage.builder()
+    return classBuilder() as CustomOptionFooServerMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionFooServerMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionFooServerMessage.builder()
   }
   internal func toBuilder() -> CustomOptionFooServerMessageBuilder {
@@ -1595,15 +1595,15 @@ final class DummyMessageContainingEnum : GeneratedMessage {
     return DummyMessageContainingEnum.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> DummyMessageContainingEnumBuilder {
-    return DummyMessageContainingEnumBuilder()
+    return DummyMessageContainingEnum.classBuilder() as DummyMessageContainingEnumBuilder
   }
   internal func builder() -> DummyMessageContainingEnumBuilder {
-    return DummyMessageContainingEnum.builder()
+    return classBuilder() as DummyMessageContainingEnumBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return DummyMessageContainingEnumBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return DummyMessageContainingEnum.builder()
   }
   internal func toBuilder() -> DummyMessageContainingEnumBuilder {
@@ -1737,15 +1737,15 @@ final class DummyMessageInvalidAsOptionType : GeneratedMessage {
     return DummyMessageInvalidAsOptionType.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> DummyMessageInvalidAsOptionTypeBuilder {
-    return DummyMessageInvalidAsOptionTypeBuilder()
+    return DummyMessageInvalidAsOptionType.classBuilder() as DummyMessageInvalidAsOptionTypeBuilder
   }
   internal func builder() -> DummyMessageInvalidAsOptionTypeBuilder {
-    return DummyMessageInvalidAsOptionType.builder()
+    return classBuilder() as DummyMessageInvalidAsOptionTypeBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return DummyMessageInvalidAsOptionTypeBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return DummyMessageInvalidAsOptionType.builder()
   }
   internal func toBuilder() -> DummyMessageInvalidAsOptionTypeBuilder {
@@ -1879,15 +1879,15 @@ final class CustomOptionMinIntegerValues : GeneratedMessage {
     return CustomOptionMinIntegerValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> CustomOptionMinIntegerValuesBuilder {
-    return CustomOptionMinIntegerValuesBuilder()
+    return CustomOptionMinIntegerValues.classBuilder() as CustomOptionMinIntegerValuesBuilder
   }
   internal func builder() -> CustomOptionMinIntegerValuesBuilder {
-    return CustomOptionMinIntegerValues.builder()
+    return classBuilder() as CustomOptionMinIntegerValuesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionMinIntegerValuesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionMinIntegerValues.builder()
   }
   internal func toBuilder() -> CustomOptionMinIntegerValuesBuilder {
@@ -2021,15 +2021,15 @@ final class CustomOptionMaxIntegerValues : GeneratedMessage {
     return CustomOptionMaxIntegerValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> CustomOptionMaxIntegerValuesBuilder {
-    return CustomOptionMaxIntegerValuesBuilder()
+    return CustomOptionMaxIntegerValues.classBuilder() as CustomOptionMaxIntegerValuesBuilder
   }
   internal func builder() -> CustomOptionMaxIntegerValuesBuilder {
-    return CustomOptionMaxIntegerValues.builder()
+    return classBuilder() as CustomOptionMaxIntegerValuesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionMaxIntegerValuesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionMaxIntegerValues.builder()
   }
   internal func toBuilder() -> CustomOptionMaxIntegerValuesBuilder {
@@ -2163,15 +2163,15 @@ final class CustomOptionOtherValues : GeneratedMessage {
     return CustomOptionOtherValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> CustomOptionOtherValuesBuilder {
-    return CustomOptionOtherValuesBuilder()
+    return CustomOptionOtherValues.classBuilder() as CustomOptionOtherValuesBuilder
   }
   internal func builder() -> CustomOptionOtherValuesBuilder {
-    return CustomOptionOtherValues.builder()
+    return classBuilder() as CustomOptionOtherValuesBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionOtherValuesBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionOtherValues.builder()
   }
   internal func toBuilder() -> CustomOptionOtherValuesBuilder {
@@ -2305,15 +2305,15 @@ final class SettingRealsFromPositiveInts : GeneratedMessage {
     return SettingRealsFromPositiveInts.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> SettingRealsFromPositiveIntsBuilder {
-    return SettingRealsFromPositiveIntsBuilder()
+    return SettingRealsFromPositiveInts.classBuilder() as SettingRealsFromPositiveIntsBuilder
   }
   internal func builder() -> SettingRealsFromPositiveIntsBuilder {
-    return SettingRealsFromPositiveInts.builder()
+    return classBuilder() as SettingRealsFromPositiveIntsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return SettingRealsFromPositiveIntsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return SettingRealsFromPositiveInts.builder()
   }
   internal func toBuilder() -> SettingRealsFromPositiveIntsBuilder {
@@ -2447,15 +2447,15 @@ final class SettingRealsFromNegativeInts : GeneratedMessage {
     return SettingRealsFromNegativeInts.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> SettingRealsFromNegativeIntsBuilder {
-    return SettingRealsFromNegativeIntsBuilder()
+    return SettingRealsFromNegativeInts.classBuilder() as SettingRealsFromNegativeIntsBuilder
   }
   internal func builder() -> SettingRealsFromNegativeIntsBuilder {
-    return SettingRealsFromNegativeInts.builder()
+    return classBuilder() as SettingRealsFromNegativeIntsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return SettingRealsFromNegativeIntsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return SettingRealsFromNegativeInts.builder()
   }
   internal func toBuilder() -> SettingRealsFromNegativeIntsBuilder {
@@ -2633,15 +2633,15 @@ final class ComplexOptionType1 : ExtendableMessage {
     return ComplexOptionType1.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> ComplexOptionType1Builder {
-    return ComplexOptionType1Builder()
+    return ComplexOptionType1.classBuilder() as ComplexOptionType1Builder
   }
   internal func builder() -> ComplexOptionType1Builder {
-    return ComplexOptionType1.builder()
+    return classBuilder() as ComplexOptionType1Builder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return ComplexOptionType1Builder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ComplexOptionType1.builder()
   }
   internal func toBuilder() -> ComplexOptionType1Builder {
@@ -2914,15 +2914,15 @@ final class ComplexOptionType2 : ExtendableMessage {
         return ComplexOptionType2.ComplexOptionType4.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> ComplexOptionType2.ComplexOptionType4Builder {
-        return ComplexOptionType2.ComplexOptionType4Builder()
+        return ComplexOptionType2.ComplexOptionType4.classBuilder() as ComplexOptionType2.ComplexOptionType4Builder
       }
       internal func builder() -> ComplexOptionType2.ComplexOptionType4Builder {
-        return ComplexOptionType2.ComplexOptionType4.builder()
+        return classBuilder() as ComplexOptionType2.ComplexOptionType4Builder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return ComplexOptionType2.ComplexOptionType4Builder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return ComplexOptionType2.ComplexOptionType4.builder()
       }
       internal func toBuilder() -> ComplexOptionType2.ComplexOptionType4Builder {
@@ -3132,15 +3132,15 @@ final class ComplexOptionType2 : ExtendableMessage {
     return ComplexOptionType2.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> ComplexOptionType2Builder {
-    return ComplexOptionType2Builder()
+    return ComplexOptionType2.classBuilder() as ComplexOptionType2Builder
   }
   internal func builder() -> ComplexOptionType2Builder {
-    return ComplexOptionType2.builder()
+    return classBuilder() as ComplexOptionType2Builder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return ComplexOptionType2Builder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ComplexOptionType2.builder()
   }
   internal func toBuilder() -> ComplexOptionType2Builder {
@@ -3454,15 +3454,15 @@ final class ComplexOptionType3 : GeneratedMessage {
         return ComplexOptionType3.ComplexOptionType5.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> ComplexOptionType3.ComplexOptionType5Builder {
-        return ComplexOptionType3.ComplexOptionType5Builder()
+        return ComplexOptionType3.ComplexOptionType5.classBuilder() as ComplexOptionType3.ComplexOptionType5Builder
       }
       internal func builder() -> ComplexOptionType3.ComplexOptionType5Builder {
-        return ComplexOptionType3.ComplexOptionType5.builder()
+        return classBuilder() as ComplexOptionType3.ComplexOptionType5Builder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return ComplexOptionType3.ComplexOptionType5Builder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return ComplexOptionType3.ComplexOptionType5.builder()
       }
       internal func toBuilder() -> ComplexOptionType3.ComplexOptionType5Builder {
@@ -3647,15 +3647,15 @@ final class ComplexOptionType3 : GeneratedMessage {
     return ComplexOptionType3.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> ComplexOptionType3Builder {
-    return ComplexOptionType3Builder()
+    return ComplexOptionType3.classBuilder() as ComplexOptionType3Builder
   }
   internal func builder() -> ComplexOptionType3Builder {
-    return ComplexOptionType3.builder()
+    return classBuilder() as ComplexOptionType3Builder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return ComplexOptionType3Builder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ComplexOptionType3.builder()
   }
   internal func toBuilder() -> ComplexOptionType3Builder {
@@ -3880,15 +3880,15 @@ final class ComplexOpt6 : GeneratedMessage {
     return ComplexOpt6.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> ComplexOpt6Builder {
-    return ComplexOpt6Builder()
+    return ComplexOpt6.classBuilder() as ComplexOpt6Builder
   }
   internal func builder() -> ComplexOpt6Builder {
-    return ComplexOpt6.builder()
+    return classBuilder() as ComplexOpt6Builder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return ComplexOpt6Builder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ComplexOpt6.builder()
   }
   internal func toBuilder() -> ComplexOpt6Builder {
@@ -4053,15 +4053,15 @@ final class VariousComplexOptions : GeneratedMessage {
     return VariousComplexOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> VariousComplexOptionsBuilder {
-    return VariousComplexOptionsBuilder()
+    return VariousComplexOptions.classBuilder() as VariousComplexOptionsBuilder
   }
   internal func builder() -> VariousComplexOptionsBuilder {
-    return VariousComplexOptions.builder()
+    return classBuilder() as VariousComplexOptionsBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return VariousComplexOptionsBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return VariousComplexOptions.builder()
   }
   internal func toBuilder() -> VariousComplexOptionsBuilder {
@@ -4200,15 +4200,15 @@ final class AggregateMessageSet : ExtendableMessage {
     return AggregateMessageSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> AggregateMessageSetBuilder {
-    return AggregateMessageSetBuilder()
+    return AggregateMessageSet.classBuilder() as AggregateMessageSetBuilder
   }
   internal func builder() -> AggregateMessageSetBuilder {
-    return AggregateMessageSet.builder()
+    return classBuilder() as AggregateMessageSetBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return AggregateMessageSetBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return AggregateMessageSet.builder()
   }
   internal func toBuilder() -> AggregateMessageSetBuilder {
@@ -4357,15 +4357,15 @@ final class AggregateMessageSetElement : GeneratedMessage {
     return AggregateMessageSetElement.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> AggregateMessageSetElementBuilder {
-    return AggregateMessageSetElementBuilder()
+    return AggregateMessageSetElement.classBuilder() as AggregateMessageSetElementBuilder
   }
   internal func builder() -> AggregateMessageSetElementBuilder {
-    return AggregateMessageSetElement.builder()
+    return classBuilder() as AggregateMessageSetElementBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return AggregateMessageSetElementBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return AggregateMessageSetElement.builder()
   }
   internal func toBuilder() -> AggregateMessageSetElementBuilder {
@@ -4590,15 +4590,15 @@ final class Aggregate : GeneratedMessage {
     return Aggregate.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> AggregateBuilder {
-    return AggregateBuilder()
+    return Aggregate.classBuilder() as AggregateBuilder
   }
   internal func builder() -> AggregateBuilder {
-    return Aggregate.builder()
+    return classBuilder() as AggregateBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return AggregateBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return Aggregate.builder()
   }
   internal func toBuilder() -> AggregateBuilder {
@@ -4956,15 +4956,15 @@ final class AggregateMessage : GeneratedMessage {
     return AggregateMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> AggregateMessageBuilder {
-    return AggregateMessageBuilder()
+    return AggregateMessage.classBuilder() as AggregateMessageBuilder
   }
   internal func builder() -> AggregateMessageBuilder {
-    return AggregateMessage.builder()
+    return classBuilder() as AggregateMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return AggregateMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return AggregateMessage.builder()
   }
   internal func toBuilder() -> AggregateMessageBuilder {
@@ -5143,15 +5143,15 @@ final class NestedOptionType : GeneratedMessage {
         return NestedOptionType.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> NestedOptionType.NestedMessageBuilder {
-        return NestedOptionType.NestedMessageBuilder()
+        return NestedOptionType.NestedMessage.classBuilder() as NestedOptionType.NestedMessageBuilder
       }
       internal func builder() -> NestedOptionType.NestedMessageBuilder {
-        return NestedOptionType.NestedMessage.builder()
+        return classBuilder() as NestedOptionType.NestedMessageBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return NestedOptionType.NestedMessageBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return NestedOptionType.NestedMessage.builder()
       }
       internal func toBuilder() -> NestedOptionType.NestedMessageBuilder {
@@ -5343,15 +5343,15 @@ final class NestedOptionType : GeneratedMessage {
     return NestedOptionType.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> NestedOptionTypeBuilder {
-    return NestedOptionTypeBuilder()
+    return NestedOptionType.classBuilder() as NestedOptionTypeBuilder
   }
   internal func builder() -> NestedOptionTypeBuilder {
-    return NestedOptionType.builder()
+    return classBuilder() as NestedOptionTypeBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return NestedOptionTypeBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return NestedOptionType.builder()
   }
   internal func toBuilder() -> NestedOptionTypeBuilder {

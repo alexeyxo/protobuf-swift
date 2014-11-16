@@ -159,12 +159,12 @@ public enum WireFormat:Int32
         let length:UInt32  = UInt32(value.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
         return computeRawVarint32Size(Int32(length)) + Int32(length)
     }
-    public static func computeGroupSizeNoTag(value:Message) -> Int32
+    public static func computeGroupSizeNoTag<T:Message>(value:T) -> Int32
     {
         return value.serializedSize()
     }
     
-    public static func computeMessageSizeNoTag(value:Message) ->Int32
+    public static func computeMessageSizeNoTag<T:Message>(value:T) ->Int32
     {
         var size:Int32  = value.serializedSize()
         return computeRawVarint32Size(size) + size
@@ -248,7 +248,7 @@ public enum WireFormat:Int32
         return computeTagSize(fieldNumber) + computeStringSizeNoTag(value);
     }
     
-    public static func computeGroupSize(fieldNumber:Int32, value:Message) ->Int32
+    public static func computeGroupSize<T:Message>(fieldNumber:Int32, value:T) ->Int32
     {
         return computeTagSize(fieldNumber) * 2 + computeGroupSizeNoTag(value);
     }
@@ -262,7 +262,7 @@ public enum WireFormat:Int32
         return computeTagSize(fieldNumber) * 2 + computeUnknownGroupSizeNoTag(value);
     }
     
-    public static func computeMessageSize(fieldNumber:Int32, value:Message) ->Int32
+    public static func computeMessageSize<T:Message>(fieldNumber:Int32, value:T) ->Int32
     {
         return computeTagSize(fieldNumber) + computeMessageSizeNoTag(value);
     }
@@ -348,7 +348,7 @@ public enum WireFormat:Int32
         return 10;
     }
     
-    public static func computeMessageSetExtensionSize(fieldNumber:Int32,  value:Message) -> Int32
+    public static func computeMessageSetExtensionSize<T:Message>(fieldNumber:Int32,  value:T) -> Int32
     {
         
         return computeTagSize(WireFormatMessage.WireFormatMessageSetItem.rawValue) * 2 + computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.rawValue, value: UInt32(fieldNumber)) + computeMessageSize(WireFormatMessage.WireFormatMessageSetMessage.rawValue, value: value)

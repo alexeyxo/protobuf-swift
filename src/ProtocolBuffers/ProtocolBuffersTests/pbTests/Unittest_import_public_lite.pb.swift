@@ -78,15 +78,15 @@ final class PublicImportMessageLite : GeneratedMessage {
     return PublicImportMessageLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> PublicImportMessageLiteBuilder {
-    return PublicImportMessageLiteBuilder()
+    return PublicImportMessageLite.classBuilder() as PublicImportMessageLiteBuilder
   }
   internal func builder() -> PublicImportMessageLiteBuilder {
-    return PublicImportMessageLite.builder()
+    return classBuilder() as PublicImportMessageLiteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PublicImportMessageLiteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PublicImportMessageLite.builder()
   }
   internal func toBuilder() -> PublicImportMessageLiteBuilder {

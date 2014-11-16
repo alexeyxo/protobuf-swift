@@ -226,15 +226,15 @@ final class TestOptimizedForSize : ExtendableMessage {
     return TestOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestOptimizedForSizeBuilder {
-    return TestOptimizedForSizeBuilder()
+    return TestOptimizedForSize.classBuilder() as TestOptimizedForSizeBuilder
   }
   internal func builder() -> TestOptimizedForSizeBuilder {
-    return TestOptimizedForSize.builder()
+    return classBuilder() as TestOptimizedForSizeBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestOptimizedForSizeBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestOptimizedForSize.builder()
   }
   internal func toBuilder() -> TestOptimizedForSizeBuilder {
@@ -527,15 +527,15 @@ final class TestRequiredOptimizedForSize : GeneratedMessage {
     return TestRequiredOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestRequiredOptimizedForSizeBuilder {
-    return TestRequiredOptimizedForSizeBuilder()
+    return TestRequiredOptimizedForSize.classBuilder() as TestRequiredOptimizedForSizeBuilder
   }
   internal func builder() -> TestRequiredOptimizedForSizeBuilder {
-    return TestRequiredOptimizedForSize.builder()
+    return classBuilder() as TestRequiredOptimizedForSizeBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestRequiredOptimizedForSizeBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestRequiredOptimizedForSize.builder()
   }
   internal func toBuilder() -> TestRequiredOptimizedForSizeBuilder {
@@ -713,15 +713,15 @@ final class TestOptionalOptimizedForSize : GeneratedMessage {
     return TestOptionalOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestOptionalOptimizedForSizeBuilder {
-    return TestOptionalOptimizedForSizeBuilder()
+    return TestOptionalOptimizedForSize.classBuilder() as TestOptionalOptimizedForSizeBuilder
   }
   internal func builder() -> TestOptionalOptimizedForSizeBuilder {
-    return TestOptionalOptimizedForSize.builder()
+    return classBuilder() as TestOptionalOptimizedForSizeBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestOptionalOptimizedForSizeBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestOptionalOptimizedForSize.builder()
   }
   internal func toBuilder() -> TestOptionalOptimizedForSizeBuilder {

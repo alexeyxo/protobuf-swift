@@ -116,15 +116,15 @@ final class TestMessage : ExtendableMessage {
     return TestMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestMessageBuilder {
-    return TestMessageBuilder()
+    return TestMessage.classBuilder() as TestMessageBuilder
   }
   internal func builder() -> TestMessageBuilder {
-    return TestMessage.builder()
+    return classBuilder() as TestMessageBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestMessageBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestMessage.builder()
   }
   internal func toBuilder() -> TestMessageBuilder {

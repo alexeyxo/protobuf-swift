@@ -78,15 +78,15 @@ final class TestLiteImportsNonlite : GeneratedMessage {
     return TestLiteImportsNonlite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestLiteImportsNonliteBuilder {
-    return TestLiteImportsNonliteBuilder()
+    return TestLiteImportsNonlite.classBuilder() as TestLiteImportsNonliteBuilder
   }
   internal func builder() -> TestLiteImportsNonliteBuilder {
-    return TestLiteImportsNonlite.builder()
+    return classBuilder() as TestLiteImportsNonliteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestLiteImportsNonliteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestLiteImportsNonlite.builder()
   }
   internal func toBuilder() -> TestLiteImportsNonliteBuilder {

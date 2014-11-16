@@ -39,15 +39,15 @@ public protocol Message:class,MessageInit
     
     func data()-> [Byte]
     
-    class func buider()-> MessageBuilder
-    func buider()-> MessageBuilder
-    func toBuider()-> MessageBuilder
+    class func classBuilder()-> MessageBuilder
+    func classBuilder()-> MessageBuilder
+//    func toClassBuider()-> MessageBuilder
     
 }
 
 public protocol MessageBuilder: class
 {
-     var unknownFields:UnknownFieldSet{get}
+     var unknownFields:UnknownFieldSet{get set}
      func clear() -> Self
      func isInitialized()-> Bool
      func build() -> AbstractMessage
@@ -112,18 +112,23 @@ public class AbstractMessage:Equatable,Hashable, Printable, Message {
         writeToCodedOutputStream(codedOutput)
         codedOutput.flush()
     }
-    public class func buider() -> MessageBuilder
+    public class func classBuilder() -> MessageBuilder
     {
         return AbstractMessageBuilder()
     }
-    public func buider() -> MessageBuilder
+    public func classBuilder() -> MessageBuilder
     {
         return AbstractMessageBuilder()
     }
-    public func toBuider() -> MessageBuilder
-    {
-        return AbstractMessageBuilder()
-    }
+//    public func toClassBuider() -> MessageBuilder
+//    {
+//        return AbstractMessageBuilder()
+//    }
+    
+//    public func builder() -> AbstractMessageBuilder
+//    {
+//        return classBuider() as AbstractMessageBuilder
+//    }
     
     public var hashValue: Int {
         get {

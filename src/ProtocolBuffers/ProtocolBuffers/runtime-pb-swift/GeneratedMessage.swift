@@ -38,11 +38,11 @@ public class GeneratedMessage:AbstractMessage
     {
         return GeneratedMessage.self
     }
-    public override class func buider() -> MessageBuilder
+    public override class func classBuilder() -> MessageBuilder
     {
         return GeneratedMessageBuilder()
     }
-    public override func buider() -> MessageBuilder
+    public override func classBuilder() -> MessageBuilder
     {
         return GeneratedMessageBuilder()
     }

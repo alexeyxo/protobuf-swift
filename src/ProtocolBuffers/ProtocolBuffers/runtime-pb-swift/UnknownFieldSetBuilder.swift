@@ -100,7 +100,7 @@ public class UnknownFieldSetBuilder
     public func unknownFields() -> UnknownFieldSet {
         return  build()
     }
-    public func setUnknownFields(unknownFields:UnknownFieldSet) -> MessageBuilder?
+    public func setUnknownFields(unknownFields:UnknownFieldSet) -> UnknownFieldSetBuilder?
     {
         NSException(name:"UnsupportedMethod", reason:"", userInfo: nil).raise()
         return nil

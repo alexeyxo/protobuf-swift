@@ -63,8 +63,9 @@ public class UnknownFieldSet:Hashable,Equatable
     }
     public func writeToCodedOutputStream(output:CodedOutputStream)
     {
-
-        for number in fields.keys
+        var sortedKeys = Array(fields.keys)
+        sortedKeys.sort { $0 < $1 }
+        for number in sortedKeys
         {
             let value:Field = fields[number]!
             value.writeTo(number, output: output)
@@ -80,7 +81,8 @@ public class UnknownFieldSet:Hashable,Equatable
     
     public func writeDescriptionTo(inout output:String, indent:String)
     {
-        var sortedKeys = fields.keys
+        var sortedKeys = Array(fields.keys)
+        sortedKeys.sort { $0 < $1 }
         for number in sortedKeys
         {
             let value:Field = fields[number]!

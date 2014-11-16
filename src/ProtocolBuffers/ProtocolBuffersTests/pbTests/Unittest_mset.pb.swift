@@ -136,15 +136,15 @@ final class TestMessageSet : ExtendableMessage {
     return TestMessageSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestMessageSetBuilder {
-    return TestMessageSetBuilder()
+    return TestMessageSet.classBuilder() as TestMessageSetBuilder
   }
   internal func builder() -> TestMessageSetBuilder {
-    return TestMessageSet.builder()
+    return classBuilder() as TestMessageSetBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestMessageSetBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestMessageSet.builder()
   }
   internal func toBuilder() -> TestMessageSetBuilder {
@@ -294,15 +294,15 @@ final class TestMessageSetContainer : GeneratedMessage {
     return TestMessageSetContainer.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestMessageSetContainerBuilder {
-    return TestMessageSetContainerBuilder()
+    return TestMessageSetContainer.classBuilder() as TestMessageSetContainerBuilder
   }
   internal func builder() -> TestMessageSetContainerBuilder {
-    return TestMessageSetContainer.builder()
+    return classBuilder() as TestMessageSetContainerBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestMessageSetContainerBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestMessageSetContainer.builder()
   }
   internal func toBuilder() -> TestMessageSetContainerBuilder {
@@ -499,15 +499,15 @@ final class TestMessageSetExtension1 : GeneratedMessage {
     return TestMessageSetExtension1.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestMessageSetExtension1Builder {
-    return TestMessageSetExtension1Builder()
+    return TestMessageSetExtension1.classBuilder() as TestMessageSetExtension1Builder
   }
   internal func builder() -> TestMessageSetExtension1Builder {
-    return TestMessageSetExtension1.builder()
+    return classBuilder() as TestMessageSetExtension1Builder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestMessageSetExtension1Builder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestMessageSetExtension1.builder()
   }
   internal func toBuilder() -> TestMessageSetExtension1Builder {
@@ -684,15 +684,15 @@ final class TestMessageSetExtension2 : GeneratedMessage {
     return TestMessageSetExtension2.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestMessageSetExtension2Builder {
-    return TestMessageSetExtension2Builder()
+    return TestMessageSetExtension2.classBuilder() as TestMessageSetExtension2Builder
   }
   internal func builder() -> TestMessageSetExtension2Builder {
-    return TestMessageSetExtension2.builder()
+    return classBuilder() as TestMessageSetExtension2Builder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestMessageSetExtension2Builder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestMessageSetExtension2.builder()
   }
   internal func toBuilder() -> TestMessageSetExtension2Builder {
@@ -886,15 +886,15 @@ final class RawMessageSet : GeneratedMessage {
         return RawMessageSet.Item.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> RawMessageSet.ItemBuilder {
-        return RawMessageSet.ItemBuilder()
+        return RawMessageSet.Item.classBuilder() as RawMessageSet.ItemBuilder
       }
       internal func builder() -> RawMessageSet.ItemBuilder {
-        return RawMessageSet.Item.builder()
+        return classBuilder() as RawMessageSet.ItemBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return RawMessageSet.ItemBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return RawMessageSet.Item.builder()
       }
       internal func toBuilder() -> RawMessageSet.ItemBuilder {
@@ -1112,15 +1112,15 @@ final class RawMessageSet : GeneratedMessage {
     return RawMessageSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> RawMessageSetBuilder {
-    return RawMessageSetBuilder()
+    return RawMessageSet.classBuilder() as RawMessageSetBuilder
   }
   internal func builder() -> RawMessageSetBuilder {
-    return RawMessageSet.builder()
+    return classBuilder() as RawMessageSetBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return RawMessageSetBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return RawMessageSet.builder()
   }
   internal func toBuilder() -> RawMessageSetBuilder {

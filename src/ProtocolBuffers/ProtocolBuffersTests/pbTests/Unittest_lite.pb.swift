@@ -1359,15 +1359,15 @@ final class TestAllTypesLite : GeneratedMessage {
         return TestAllTypesLite.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestAllTypesLite.NestedMessageBuilder {
-        return TestAllTypesLite.NestedMessageBuilder()
+        return TestAllTypesLite.NestedMessage.classBuilder() as TestAllTypesLite.NestedMessageBuilder
       }
       internal func builder() -> TestAllTypesLite.NestedMessageBuilder {
-        return TestAllTypesLite.NestedMessage.builder()
+        return classBuilder() as TestAllTypesLite.NestedMessageBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestAllTypesLite.NestedMessageBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestAllTypesLite.NestedMessage.builder()
       }
       internal func toBuilder() -> TestAllTypesLite.NestedMessageBuilder {
@@ -1549,15 +1549,15 @@ final class TestAllTypesLite : GeneratedMessage {
         return TestAllTypesLite.OptionalGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestAllTypesLite.OptionalGroupBuilder {
-        return TestAllTypesLite.OptionalGroupBuilder()
+        return TestAllTypesLite.OptionalGroup.classBuilder() as TestAllTypesLite.OptionalGroupBuilder
       }
       internal func builder() -> TestAllTypesLite.OptionalGroupBuilder {
-        return TestAllTypesLite.OptionalGroup.builder()
+        return classBuilder() as TestAllTypesLite.OptionalGroupBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestAllTypesLite.OptionalGroupBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestAllTypesLite.OptionalGroup.builder()
       }
       internal func toBuilder() -> TestAllTypesLite.OptionalGroupBuilder {
@@ -1739,15 +1739,15 @@ final class TestAllTypesLite : GeneratedMessage {
         return TestAllTypesLite.RepeatedGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestAllTypesLite.RepeatedGroupBuilder {
-        return TestAllTypesLite.RepeatedGroupBuilder()
+        return TestAllTypesLite.RepeatedGroup.classBuilder() as TestAllTypesLite.RepeatedGroupBuilder
       }
       internal func builder() -> TestAllTypesLite.RepeatedGroupBuilder {
-        return TestAllTypesLite.RepeatedGroup.builder()
+        return classBuilder() as TestAllTypesLite.RepeatedGroupBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestAllTypesLite.RepeatedGroupBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestAllTypesLite.RepeatedGroup.builder()
       }
       internal func toBuilder() -> TestAllTypesLite.RepeatedGroupBuilder {
@@ -2756,15 +2756,15 @@ final class TestAllTypesLite : GeneratedMessage {
     return TestAllTypesLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestAllTypesLiteBuilder {
-    return TestAllTypesLiteBuilder()
+    return TestAllTypesLite.classBuilder() as TestAllTypesLiteBuilder
   }
   internal func builder() -> TestAllTypesLiteBuilder {
-    return TestAllTypesLite.builder()
+    return classBuilder() as TestAllTypesLiteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestAllTypesLiteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestAllTypesLite.builder()
   }
   internal func toBuilder() -> TestAllTypesLiteBuilder {
@@ -5326,15 +5326,15 @@ final class ForeignMessageLite : GeneratedMessage {
     return ForeignMessageLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> ForeignMessageLiteBuilder {
-    return ForeignMessageLiteBuilder()
+    return ForeignMessageLite.classBuilder() as ForeignMessageLiteBuilder
   }
   internal func builder() -> ForeignMessageLiteBuilder {
-    return ForeignMessageLite.builder()
+    return classBuilder() as ForeignMessageLiteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return ForeignMessageLiteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ForeignMessageLite.builder()
   }
   internal func toBuilder() -> ForeignMessageLiteBuilder {
@@ -5751,15 +5751,15 @@ final class TestPackedTypesLite : GeneratedMessage {
     return TestPackedTypesLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestPackedTypesLiteBuilder {
-    return TestPackedTypesLiteBuilder()
+    return TestPackedTypesLite.classBuilder() as TestPackedTypesLiteBuilder
   }
   internal func builder() -> TestPackedTypesLiteBuilder {
-    return TestPackedTypesLite.builder()
+    return classBuilder() as TestPackedTypesLiteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestPackedTypesLiteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestPackedTypesLite.builder()
   }
   internal func toBuilder() -> TestPackedTypesLiteBuilder {
@@ -6337,15 +6337,15 @@ final class TestAllExtensionsLite : ExtendableMessage {
     return TestAllExtensionsLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestAllExtensionsLiteBuilder {
-    return TestAllExtensionsLiteBuilder()
+    return TestAllExtensionsLite.classBuilder() as TestAllExtensionsLiteBuilder
   }
   internal func builder() -> TestAllExtensionsLiteBuilder {
-    return TestAllExtensionsLite.builder()
+    return classBuilder() as TestAllExtensionsLiteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestAllExtensionsLiteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestAllExtensionsLite.builder()
   }
   internal func toBuilder() -> TestAllExtensionsLiteBuilder {
@@ -6491,15 +6491,15 @@ final class OptionalGroup_extension_lite : GeneratedMessage {
     return OptionalGroup_extension_lite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> OptionalGroup_extension_liteBuilder {
-    return OptionalGroup_extension_liteBuilder()
+    return OptionalGroup_extension_lite.classBuilder() as OptionalGroup_extension_liteBuilder
   }
   internal func builder() -> OptionalGroup_extension_liteBuilder {
-    return OptionalGroup_extension_lite.builder()
+    return classBuilder() as OptionalGroup_extension_liteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return OptionalGroup_extension_liteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return OptionalGroup_extension_lite.builder()
   }
   internal func toBuilder() -> OptionalGroup_extension_liteBuilder {
@@ -6673,15 +6673,15 @@ final class RepeatedGroup_extension_lite : GeneratedMessage {
     return RepeatedGroup_extension_lite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> RepeatedGroup_extension_liteBuilder {
-    return RepeatedGroup_extension_liteBuilder()
+    return RepeatedGroup_extension_lite.classBuilder() as RepeatedGroup_extension_liteBuilder
   }
   internal func builder() -> RepeatedGroup_extension_liteBuilder {
-    return RepeatedGroup_extension_lite.builder()
+    return classBuilder() as RepeatedGroup_extension_liteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return RepeatedGroup_extension_liteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return RepeatedGroup_extension_lite.builder()
   }
   internal func toBuilder() -> RepeatedGroup_extension_liteBuilder {
@@ -6851,15 +6851,15 @@ final class TestPackedExtensionsLite : ExtendableMessage {
     return TestPackedExtensionsLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestPackedExtensionsLiteBuilder {
-    return TestPackedExtensionsLiteBuilder()
+    return TestPackedExtensionsLite.classBuilder() as TestPackedExtensionsLiteBuilder
   }
   internal func builder() -> TestPackedExtensionsLiteBuilder {
-    return TestPackedExtensionsLite.builder()
+    return classBuilder() as TestPackedExtensionsLiteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestPackedExtensionsLiteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestPackedExtensionsLite.builder()
   }
   internal func toBuilder() -> TestPackedExtensionsLiteBuilder {
@@ -6999,15 +6999,15 @@ final class TestNestedExtensionLite : GeneratedMessage {
     return TestNestedExtensionLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestNestedExtensionLiteBuilder {
-    return TestNestedExtensionLiteBuilder()
+    return TestNestedExtensionLite.classBuilder() as TestNestedExtensionLiteBuilder
   }
   internal func builder() -> TestNestedExtensionLiteBuilder {
-    return TestNestedExtensionLite.builder()
+    return classBuilder() as TestNestedExtensionLiteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestNestedExtensionLiteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestNestedExtensionLite.builder()
   }
   internal func toBuilder() -> TestNestedExtensionLiteBuilder {
@@ -7150,15 +7150,15 @@ final class TestDeprecatedLite : GeneratedMessage {
     return TestDeprecatedLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestDeprecatedLiteBuilder {
-    return TestDeprecatedLiteBuilder()
+    return TestDeprecatedLite.classBuilder() as TestDeprecatedLiteBuilder
   }
   internal func builder() -> TestDeprecatedLiteBuilder {
-    return TestDeprecatedLite.builder()
+    return classBuilder() as TestDeprecatedLiteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestDeprecatedLiteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestDeprecatedLite.builder()
   }
   internal func toBuilder() -> TestDeprecatedLiteBuilder {
@@ -7341,15 +7341,15 @@ final class TestParsingMergeLite : ExtendableMessage {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
           }
           internal class func builder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
-            return TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder()
+            return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.classBuilder() as TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder
           }
           internal func builder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
-            return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder()
+            return classBuilder() as TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder
           }
-          internal override class func buider() -> MessageBuilder {
+          internal override class func classBuilder() -> MessageBuilder {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder()
           }
-          internal override func buider() -> MessageBuilder {
+          internal override func classBuilder() -> MessageBuilder {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder()
           }
           internal func toBuilder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
@@ -7550,15 +7550,15 @@ final class TestParsingMergeLite : ExtendableMessage {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
           }
           internal class func builder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
-            return TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder()
+            return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.classBuilder() as TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder
           }
           internal func builder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
-            return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder()
+            return classBuilder() as TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder
           }
-          internal override class func buider() -> MessageBuilder {
+          internal override class func classBuilder() -> MessageBuilder {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder()
           }
-          internal override func buider() -> MessageBuilder {
+          internal override func classBuilder() -> MessageBuilder {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder()
           }
           internal func toBuilder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
@@ -7795,15 +7795,15 @@ final class TestParsingMergeLite : ExtendableMessage {
         return TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
-        return TestParsingMergeLite.RepeatedFieldsGeneratorBuilder()
+        return TestParsingMergeLite.RepeatedFieldsGenerator.classBuilder() as TestParsingMergeLite.RepeatedFieldsGeneratorBuilder
       }
       internal func builder() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
-        return TestParsingMergeLite.RepeatedFieldsGenerator.builder()
+        return classBuilder() as TestParsingMergeLite.RepeatedFieldsGeneratorBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestParsingMergeLite.RepeatedFieldsGeneratorBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestParsingMergeLite.RepeatedFieldsGenerator.builder()
       }
       internal func toBuilder() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
@@ -8163,15 +8163,15 @@ final class TestParsingMergeLite : ExtendableMessage {
         return TestParsingMergeLite.OptionalGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestParsingMergeLite.OptionalGroupBuilder {
-        return TestParsingMergeLite.OptionalGroupBuilder()
+        return TestParsingMergeLite.OptionalGroup.classBuilder() as TestParsingMergeLite.OptionalGroupBuilder
       }
       internal func builder() -> TestParsingMergeLite.OptionalGroupBuilder {
-        return TestParsingMergeLite.OptionalGroup.builder()
+        return classBuilder() as TestParsingMergeLite.OptionalGroupBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestParsingMergeLite.OptionalGroupBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestParsingMergeLite.OptionalGroup.builder()
       }
       internal func toBuilder() -> TestParsingMergeLite.OptionalGroupBuilder {
@@ -8372,15 +8372,15 @@ final class TestParsingMergeLite : ExtendableMessage {
         return TestParsingMergeLite.RepeatedGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
       internal class func builder() -> TestParsingMergeLite.RepeatedGroupBuilder {
-        return TestParsingMergeLite.RepeatedGroupBuilder()
+        return TestParsingMergeLite.RepeatedGroup.classBuilder() as TestParsingMergeLite.RepeatedGroupBuilder
       }
       internal func builder() -> TestParsingMergeLite.RepeatedGroupBuilder {
-        return TestParsingMergeLite.RepeatedGroup.builder()
+        return classBuilder() as TestParsingMergeLite.RepeatedGroupBuilder
       }
-      internal override class func buider() -> MessageBuilder {
+      internal override class func classBuilder() -> MessageBuilder {
         return TestParsingMergeLite.RepeatedGroupBuilder()
       }
-      internal override func buider() -> MessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestParsingMergeLite.RepeatedGroup.builder()
       }
       internal func toBuilder() -> TestParsingMergeLite.RepeatedGroupBuilder {
@@ -8620,15 +8620,15 @@ final class TestParsingMergeLite : ExtendableMessage {
     return TestParsingMergeLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestParsingMergeLiteBuilder {
-    return TestParsingMergeLiteBuilder()
+    return TestParsingMergeLite.classBuilder() as TestParsingMergeLiteBuilder
   }
   internal func builder() -> TestParsingMergeLiteBuilder {
-    return TestParsingMergeLite.builder()
+    return classBuilder() as TestParsingMergeLiteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestParsingMergeLiteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestParsingMergeLite.builder()
   }
   internal func toBuilder() -> TestParsingMergeLiteBuilder {
@@ -8978,15 +8978,15 @@ final class TestEmptyMessageLite : GeneratedMessage {
     return TestEmptyMessageLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestEmptyMessageLiteBuilder {
-    return TestEmptyMessageLiteBuilder()
+    return TestEmptyMessageLite.classBuilder() as TestEmptyMessageLiteBuilder
   }
   internal func builder() -> TestEmptyMessageLiteBuilder {
-    return TestEmptyMessageLite.builder()
+    return classBuilder() as TestEmptyMessageLiteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestEmptyMessageLiteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestEmptyMessageLite.builder()
   }
   internal func toBuilder() -> TestEmptyMessageLiteBuilder {
@@ -9125,15 +9125,15 @@ final class TestEmptyMessageWithExtensionsLite : ExtendableMessage {
     return TestEmptyMessageWithExtensionsLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func builder() -> TestEmptyMessageWithExtensionsLiteBuilder {
-    return TestEmptyMessageWithExtensionsLiteBuilder()
+    return TestEmptyMessageWithExtensionsLite.classBuilder() as TestEmptyMessageWithExtensionsLiteBuilder
   }
   internal func builder() -> TestEmptyMessageWithExtensionsLiteBuilder {
-    return TestEmptyMessageWithExtensionsLite.builder()
+    return classBuilder() as TestEmptyMessageWithExtensionsLiteBuilder
   }
-  internal override class func buider() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return TestEmptyMessageWithExtensionsLiteBuilder()
   }
-  internal override func buider() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestEmptyMessageWithExtensionsLite.builder()
   }
   internal func toBuilder() -> TestEmptyMessageWithExtensionsLiteBuilder {

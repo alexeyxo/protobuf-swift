@@ -38,6 +38,7 @@
 		3F9301401A0964ED00F7A20B /* golden_packed_fields_message in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */; };
 		3F9301411A0964ED00F7A20B /* text_format_unittest_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */; };
 		3F9301421A0964ED00F7A20B /* text_format_unittest_extensions_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */; };
+		3FC236AE1A18E3120006EC7D /* UnknowFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */; };
 		3FEFE99F1A12612E005DEAF3 /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEFE99E1A12612E005DEAF3 /* MessageTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */ = {isa = PBXFileReference; lastKnownFileType = file; path = golden_packed_fields_message; sourceTree = "<group>"; };
 		3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_data.txt; sourceTree = "<group>"; };
 		3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_extensions_data.txt; sourceTree = "<group>"; };
+		3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnknowFieldsTests.swift; sourceTree = "<group>"; };
 		3FEFE99E1A12612E005DEAF3 /* MessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,6 +203,7 @@
 				3FEFE99E1A12612E005DEAF3 /* MessageTests.swift */,
 				3F813FF31A1030000008F493 /* SizeTest.swift */,
 				3F813FF51A12C0E90008F493 /* WireFormatTests.swift */,
+				3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */,
 				3F8556A619C71BCF003802F2 /* Supporting Files */,
 			);
 			path = ProtocolBuffersTests;
@@ -356,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC236AE1A18E3120006EC7D /* UnknowFieldsTests.swift in Sources */,
 				3F2B1CEB19E2A6EC001A505E /* Unittest_import.pb.swift in Sources */,
 				3FEFE99F1A12612E005DEAF3 /* MessageTests.swift in Sources */,
 				3F813FF41A1030000008F493 /* SizeTest.swift in Sources */,

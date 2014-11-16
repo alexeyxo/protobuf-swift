@@ -261,7 +261,7 @@ public class ExtendableMessage : GeneratedMessage
         }
     }
 
-    private func getHashValueRepeated<T where T:SequenceType, T.Generator.Element:protocol<Hashable,Equatable>>(lhs:T) -> Int!
+    private func getHashValueRepeated<T where T:CollectionType, T.Generator.Element:protocol<Hashable,Equatable>>(lhs:T) -> Int!
     {
         var hashCode:Int = 0
         for vv in lhs
@@ -434,7 +434,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         return self
     }
 
-    private func mergeRepeatedExtensionFields<T where T:SequenceType>(var otherList:T, var extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Generator.Element]
+    private func mergeRepeatedExtensionFields<T where T:CollectionType>(var otherList:T, var extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Generator.Element]
     {
         var list:[T.Generator.Element]! = extensionMap[fieldNumber] as? [T.Generator.Element] ?? []
         list! += otherList
