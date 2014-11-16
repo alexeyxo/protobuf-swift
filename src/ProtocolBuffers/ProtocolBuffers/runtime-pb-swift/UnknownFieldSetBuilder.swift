@@ -18,9 +18,9 @@
 import Foundation
 public class UnknownFieldSetBuilder
 {
-    public var fields:Dictionary<Int32,Field>
-    public var lastFieldNumber:Int32
-    public var lastField:Field?
+    private var fields:Dictionary<Int32,Field>
+    private var lastFieldNumber:Int32
+    private var lastField:Field?
     public init()
     {
         fields = Dictionary()
@@ -131,7 +131,6 @@ public class UnknownFieldSetBuilder
     
     public func mergeUnknownFields(other:UnknownFieldSet) -> UnknownFieldSetBuilder
     {
-        
         for number in other.fields.keys
         {
             var field:Field = other.fields[number]!

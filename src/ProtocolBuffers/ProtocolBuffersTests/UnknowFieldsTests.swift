@@ -39,9 +39,9 @@ class UnknowFieldsTests: XCTestCase {
         for key in unknownFields.fields.keys {
             var field = unknownFields.fields[key]!
             if (field.variantArray.count == 0) {
-                bizarroFields.fields[key] = varintField
+                bizarroFields.addField(varintField, number: key)
             } else {
-                bizarroFields.fields[key] = fixed32Field
+                bizarroFields.addField(fixed32Field, number: key)
             }
         }
         return bizarroFields.build().data()
@@ -61,38 +61,38 @@ class UnknowFieldsTests: XCTestCase {
         var set1Builder = UnknownFieldSet.builder()
         var field1 = Field()
         field1.variantArray += [2]
-        set1Builder.fields[2] = field1
+        set1Builder.addField(field1, number: 2)
         var field2 = Field()
-        field2.variantArray += [3]
-        set1Builder.fields[3] = field2
+        field2.variantArray += [4]
+        set1Builder.addField(field2, number: 3)
         var set1 = set1Builder.build()
         
         var set2Builder = UnknownFieldSet.builder()
         var field3 = Field()
         field3.variantArray += [1]
-        set1Builder.fields[1] = field3
+        set2Builder.addField(field3, number: 1)
         var field4 = Field()
         field4.variantArray += [3]
-        set2Builder.fields[3] = field4
+        set2Builder.addField(field4, number: 3)
         var set2 = set2Builder.build()
         
         
         var set3Builder = UnknownFieldSet.builder()
         var field5 = Field()
         field5.variantArray += [1]
-        set3Builder.fields[1] = field5
+        set3Builder.addField(field5, number: 1)
         var field6 = Field()
         field6.variantArray += [4]
-        set3Builder.fields[3] = field6
+        set3Builder.addField(field6, number: 3)
         var set3 = set3Builder.build()
         
         var set4Builder = UnknownFieldSet.builder()
         var field7 = Field()
         field7.variantArray += [2]
-        set4Builder.fields[2] = field7
+        set4Builder.addField(field7, number: 2)
         var field8 = Field()
         field8.variantArray += [3]
-        set4Builder.fields[3] = field8
+        set4Builder.addField(field8, number: 3)
         var set4 = set4Builder.build()
     
     
@@ -121,6 +121,56 @@ class UnknowFieldsTests: XCTestCase {
         destination2.mergeFrom(source3)
         destination2.mergeFrom(source4)
         var mes2 = destination2.build()
-        XCTAssertTrue(mes1.data() == mes2.data(), "")
+        let rawData1 = mes1.data()
+        let rawData2 = mes2.data()
+        XCTAssertTrue(rawData1 == rawData2, "")
     }
+    
+    func testClear() {
+        var fields = UnknownFieldSet.builder().mergeUnknownFields(unknownFields).clear().build()
+        XCTAssertTrue(fields.fields.count == 0,"")
+    }
+    
+    
+    func testClearMessage() {
+        var message = TestEmptyMessage.builder().mergeFrom(emptyMessage).clear().build()
+        XCTAssertTrue(0 == message.serializedSize(), "")
+    }
+    
+//    func testParseKnownAndUnknown() {
+//        // Test mixing known and unknown fields when parsing.
+//    
+//        var field = Field()
+//        field.variantArray += [654321]
+//        var fields = UnknownFieldSet.builderWithUnknownFields(unknownFields).addField(field, number:123456).build()
+//        var data = fields.data()
+//        var destination = TestAllTypes.parseFromData(data)
+//        TestUtilities.assertAllFieldsSet(destination)
+//        XCTAssertTrue(1 == destination.unknownFields.fields.count, "")
+//        var uField = destination.unknownFields.getField(123456)
+//        XCTAssertTrue(1 == uField.variantArray.count, "")
+//        XCTAssertTrue(654321 == field.variantArray[0], "")
+//    }
+//    func testWrongTypeTreatedAsUnknown() {
+//        // Test that fields of the wrong wire type are treated like unknown fields
+//        // when parsing.
+//        
+//        var bizarroDatas = getBizarroData()
+//        var allTypesMessage = TestAllTypes.parseFromData(bizarroDatas)
+//        var emptyMessage_ = TestEmptyMessage.parseFromData(bizarroDatas)
+//        
+//        // All fields should have been interpreted as unknown, so the debug strings
+//        // should be the same.
+//        XCTAssertTrue(emptyMessage_.data() == allTypesMessage.data(), "")
+//    }
+//    
+//    func testUnknownExtensions() {
+//    // Make sure fields are properly parsed to the UnknownFieldSet even when
+//    // they are declared as extension numbers.
+//    
+//        var message = TestEmptyMessageWithExtensions.parseFromData(TestUtilities.allSet().data())
+//    
+//        XCTAssertTrue(unknownFields.fields.count ==  message.unknownFields.fields.count, "")
+//        XCTAssertTrue(TestUtilities.allSet().data() == message.data(), "")
+//    }
 }
