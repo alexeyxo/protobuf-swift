@@ -189,6 +189,6 @@ class UnknowFieldsTests: XCTestCase {
         var parsed = UnknownFieldSet.parseFromData(data)
         var fields = parsed.getField(1)
         XCTAssertTrue(1 == fields.variantArray.count, "")
-        XCTAssertTrue(0x7FFFFFFFFFFFFFFF == field.variantArray[0], "")
+        XCTAssertTrue(Int64(0x7FFFFFFFFFFFFFFF) == field.variantArray[0], "")
     }
 }

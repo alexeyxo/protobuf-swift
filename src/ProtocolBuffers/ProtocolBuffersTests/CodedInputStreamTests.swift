@@ -313,7 +313,6 @@ class CodedInputStreamTests: XCTestCase
         var builder3 = TestAllTypes.builderWithPrototype(message2)
         builder3.optionalBytes = TestUtilities.allSet().optionalBytes
         var message3 = builder3.build()
-        println(message3)
         TestUtilities.assertAllFieldsSet(message3)
     }
     
