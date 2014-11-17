@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 alexeyxo. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import XCTest
 
 class MessageTests: XCTestCase {

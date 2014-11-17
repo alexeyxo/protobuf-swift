@@ -23,6 +23,35 @@
 		3F2B1CE619E2A6EC001A505E /* Unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CD819E2A6EC001A505E /* Unittest.pb.swift */; };
 		3F2B1CEB19E2A6EC001A505E /* Unittest_import.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CDD19E2A6EC001A505E /* Unittest_import.pb.swift */; };
 		3F2B1CED19E2A6EC001A505E /* Unittest_import_public.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CDF19E2A6EC001A505E /* Unittest_import_public.pb.swift */; };
+		3F4106271A1A667800742090 /* ProtocolBuffers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F41061C1A1A667700742090 /* ProtocolBuffers.framework */; };
+		3F4106351A1A66BE00742090 /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F85569E19C71BCF003802F2 /* ProtocolBuffers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F4106361A1A66C700742090 /* AbstractMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0619D1D83900F7FA0D /* AbstractMessage.swift */; };
+		3F4106371A1A66C700742090 /* CodedInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0719D1D83900F7FA0D /* CodedInputStream.swift */; };
+		3F4106381A1A66C700742090 /* CodedOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0819D1D83900F7FA0D /* CodedOutputStream.swift */; };
+		3F4106391A1A66C700742090 /* ConcreateExtensionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0919D1D83900F7FA0D /* ConcreateExtensionField.swift */; };
+		3F41063A1A1A66C700742090 /* ExtendableMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0A19D1D83900F7FA0D /* ExtendableMessage.swift */; };
+		3F41063B1A1A66C700742090 /* ExtensionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0C19D1D83900F7FA0D /* ExtensionRegistry.swift */; };
+		3F41063C1A1A66C700742090 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0D19D1D83900F7FA0D /* Field.swift */; };
+		3F41063D1A1A66C700742090 /* GeneratedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0E19D1D83900F7FA0D /* GeneratedMessage.swift */; };
+		3F41063E1A1A66C700742090 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0F19D1D83900F7FA0D /* RingBuffer.swift */; };
+		3F41063F1A1A66C700742090 /* UnknownFieldSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E1019D1D83900F7FA0D /* UnknownFieldSet.swift */; };
+		3F4106401A1A66C700742090 /* UnknownFieldSetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E1119D1D83900F7FA0D /* UnknownFieldSetBuilder.swift */; };
+		3F4106411A1A66C700742090 /* WireFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E1219D1D83900F7FA0D /* WireFormat.swift */; };
+		3F4106441A1A677A00742090 /* Unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CD819E2A6EC001A505E /* Unittest.pb.swift */; };
+		3F4106451A1A677A00742090 /* Unittest_import.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CDD19E2A6EC001A505E /* Unittest_import.pb.swift */; };
+		3F4106461A1A677A00742090 /* Unittest_import_public.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CDF19E2A6EC001A505E /* Unittest_import_public.pb.swift */; };
+		3F4106471A1A677A00742090 /* CodedInputStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */; };
+		3F4106481A1A677A00742090 /* CodedOuputStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556CF19C71C05003802F2 /* CodedOuputStreamTests.swift */; };
+		3F4106491A1A677A00742090 /* SmallBlockInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556D019C71C05003802F2 /* SmallBlockInputStream.swift */; };
+		3F41064A1A1A677A00742090 /* ProtocolBuffersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556A819C71BCF003802F2 /* ProtocolBuffersTests.swift */; };
+		3F41064B1A1A677A00742090 /* TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */; };
+		3F41064C1A1A677A00742090 /* Perfomance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F64475D19F040DE0030E56C /* Perfomance.pb.swift */; };
+		3F41064D1A1A677A00742090 /* GeneratedMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9301381A095F2B00F7A20B /* GeneratedMessageTests.swift */; };
+		3F41064E1A1A677A00742090 /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEFE99E1A12612E005DEAF3 /* MessageTests.swift */; };
+		3F41064F1A1A677A00742090 /* SizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F813FF31A1030000008F493 /* SizeTest.swift */; };
+		3F4106501A1A677A00742090 /* WireFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F813FF51A12C0E90008F493 /* WireFormatTests.swift */; };
+		3F4106511A1A677A00742090 /* UnknowFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */; };
+		3F4106531A1A67C000742090 /* ProtocolBuffers.framework in CopyFramework */ = {isa = PBXBuildFile; fileRef = 3F41061C1A1A667700742090 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3F4375BE19E44ADF007C23B1 /* TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */; };
 		3F62EF9A19C720F80007F248 /* ProtocolBuffers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3F64475E19F040DE0030E56C /* Perfomance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F64475D19F040DE0030E56C /* Perfomance.pb.swift */; };
@@ -40,9 +69,20 @@
 		3F9301421A0964ED00F7A20B /* text_format_unittest_extensions_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */; };
 		3FC236AE1A18E3120006EC7D /* UnknowFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */; };
 		3FEFE99F1A12612E005DEAF3 /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEFE99E1A12612E005DEAF3 /* MessageTests.swift */; };
+		3FF2DCBD1A1A681A00226761 /* golden_message in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013B1A0964ED00F7A20B /* golden_message */; };
+		3FF2DCBE1A1A681A00226761 /* golden_packed_fields_message in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */; };
+		3FF2DCBF1A1A681A00226761 /* text_format_unittest_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */; };
+		3FF2DCC01A1A681A00226761 /* text_format_unittest_extensions_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3F4106421A1A674800742090 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F85569019C71BCF003802F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F41061B1A1A667700742090;
+			remoteInfo = "ProtocolBuffers(OSX)";
+		};
 		3F8556D519C71C3F003802F2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F85569019C71BCF003802F2 /* Project object */;
@@ -64,6 +104,17 @@
 			name = "Copy Framework";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F4106521A1A679600742090 /* CopyFramework */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3F4106531A1A67C000742090 /* ProtocolBuffers.framework in CopyFramework */,
+			);
+			name = CopyFramework;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +133,10 @@
 		3F2B1CD819E2A6EC001A505E /* Unittest.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = Unittest.pb.swift; sourceTree = "<group>"; };
 		3F2B1CDD19E2A6EC001A505E /* Unittest_import.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_import.pb.swift; sourceTree = "<group>"; };
 		3F2B1CDF19E2A6EC001A505E /* Unittest_import_public.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_import_public.pb.swift; sourceTree = "<group>"; };
+		3F41061C1A1A667700742090 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F41061F1A1A667800742090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F4106261A1A667800742090 /* UnitTesting(OSX).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UnitTesting(OSX).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F41062C1A1A667800742090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtilities.swift; sourceTree = "<group>"; };
 		3F64475D19F040DE0030E56C /* Perfomance.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Perfomance.pb.swift; sourceTree = "<group>"; };
 		3F813FF31A1030000008F493 /* SizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeTest.swift; sourceTree = "<group>"; };
@@ -105,6 +160,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3F4106181A1A667700742090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F4106231A1A667800742090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4106271A1A667800742090 /* ProtocolBuffers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F85569519C71BCF003802F2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,11 +222,38 @@
 			path = pbTests;
 			sourceTree = "<group>";
 		};
+		3F41061D1A1A667800742090 /* ProtocolBuffers(OSX) */ = {
+			isa = PBXGroup;
+			children = (
+				3FF2DCC21A1A685D00226761 /* OSX */,
+				3FF2DCC11A1A684E00226761 /* iOS */,
+			);
+			path = "ProtocolBuffers(OSX)";
+			sourceTree = "<group>";
+		};
+		3F41061E1A1A667800742090 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F41061F1A1A667800742090 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F41062B1A1A667800742090 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F41062C1A1A667800742090 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			path = "ProtocolBuffers(OSX)Tests";
+			sourceTree = SOURCE_ROOT;
+		};
 		3F85568F19C71BCF003802F2 = {
 			isa = PBXGroup;
 			children = (
 				3F85569B19C71BCF003802F2 /* ProtocolBuffers */,
 				3F8556A519C71BCF003802F2 /* ProtocolBuffersTests */,
+				3F41061D1A1A667800742090 /* ProtocolBuffers(OSX) */,
 				3F85569A19C71BCF003802F2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,6 +263,8 @@
 			children = (
 				3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */,
 				3F8556A419C71BCF003802F2 /* ProtocolBuffersTests.xctest */,
+				3F41061C1A1A667700742090 /* ProtocolBuffers.framework */,
+				3F4106261A1A667800742090 /* UnitTesting(OSX).xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,9 +327,33 @@
 			path = testdata;
 			sourceTree = "<group>";
 		};
+		3FF2DCC11A1A684E00226761 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3F41061E1A1A667800742090 /* Supporting Files */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		3FF2DCC21A1A685D00226761 /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				3F41062B1A1A667800742090 /* Supporting Files */,
+			);
+			name = OSX;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		3F4106191A1A667700742090 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4106351A1A66BE00742090 /* ProtocolBuffers.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F85569619C71BCF003802F2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,6 +365,43 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3F41061B1A1A667700742090 /* ProtocolBuffers(OSX) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F41062F1A1A667800742090 /* Build configuration list for PBXNativeTarget "ProtocolBuffers(OSX)" */;
+			buildPhases = (
+				3F4106171A1A667700742090 /* Sources */,
+				3F4106181A1A667700742090 /* Frameworks */,
+				3F4106191A1A667700742090 /* Headers */,
+				3F41061A1A1A667700742090 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ProtocolBuffers(OSX)";
+			productName = "ProtocolBuffers(OSX)";
+			productReference = 3F41061C1A1A667700742090 /* ProtocolBuffers.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3F4106251A1A667800742090 /* UnitTesting(OSX) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F4106321A1A667800742090 /* Build configuration list for PBXNativeTarget "UnitTesting(OSX)" */;
+			buildPhases = (
+				3F4106521A1A679600742090 /* CopyFramework */,
+				3F4106221A1A667800742090 /* Sources */,
+				3F4106231A1A667800742090 /* Frameworks */,
+				3F4106241A1A667800742090 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F4106431A1A674800742090 /* PBXTargetDependency */,
+			);
+			name = "UnitTesting(OSX)";
+			productName = "ProtocolBuffers(OSX)Tests";
+			productReference = 3F4106261A1A667800742090 /* UnitTesting(OSX).xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3F85569819C71BCF003802F2 /* ProtocolBuffers */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F8556AC19C71BCF003802F2 /* Build configuration list for PBXNativeTarget "ProtocolBuffers" */;
@@ -288,6 +448,12 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = alexeyxo;
 				TargetAttributes = {
+					3F41061B1A1A667700742090 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					3F4106251A1A667800742090 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
 					3F85569819C71BCF003802F2 = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -310,11 +476,31 @@
 			targets = (
 				3F85569819C71BCF003802F2 /* ProtocolBuffers */,
 				3F8556A319C71BCF003802F2 /* UnitTesting */,
+				3F41061B1A1A667700742090 /* ProtocolBuffers(OSX) */,
+				3F4106251A1A667800742090 /* UnitTesting(OSX) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3F41061A1A1A667700742090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F4106241A1A667800742090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FF2DCBD1A1A681A00226761 /* golden_message in Resources */,
+				3FF2DCBE1A1A681A00226761 /* golden_packed_fields_message in Resources */,
+				3FF2DCBF1A1A681A00226761 /* text_format_unittest_data.txt in Resources */,
+				3FF2DCC01A1A681A00226761 /* text_format_unittest_extensions_data.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F85569719C71BCF003802F2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,6 +522,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3F4106171A1A667700742090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4106361A1A66C700742090 /* AbstractMessage.swift in Sources */,
+				3F4106371A1A66C700742090 /* CodedInputStream.swift in Sources */,
+				3F4106381A1A66C700742090 /* CodedOutputStream.swift in Sources */,
+				3F4106391A1A66C700742090 /* ConcreateExtensionField.swift in Sources */,
+				3F41063A1A1A66C700742090 /* ExtendableMessage.swift in Sources */,
+				3F41063B1A1A66C700742090 /* ExtensionRegistry.swift in Sources */,
+				3F41063C1A1A66C700742090 /* Field.swift in Sources */,
+				3F41063D1A1A66C700742090 /* GeneratedMessage.swift in Sources */,
+				3F41063E1A1A66C700742090 /* RingBuffer.swift in Sources */,
+				3F41063F1A1A66C700742090 /* UnknownFieldSet.swift in Sources */,
+				3F4106401A1A66C700742090 /* UnknownFieldSetBuilder.swift in Sources */,
+				3F4106411A1A66C700742090 /* WireFormat.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F4106221A1A667800742090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4106441A1A677A00742090 /* Unittest.pb.swift in Sources */,
+				3F4106451A1A677A00742090 /* Unittest_import.pb.swift in Sources */,
+				3F4106461A1A677A00742090 /* Unittest_import_public.pb.swift in Sources */,
+				3F4106471A1A677A00742090 /* CodedInputStreamTests.swift in Sources */,
+				3F4106481A1A677A00742090 /* CodedOuputStreamTests.swift in Sources */,
+				3F4106491A1A677A00742090 /* SmallBlockInputStream.swift in Sources */,
+				3F41064A1A1A677A00742090 /* ProtocolBuffersTests.swift in Sources */,
+				3F41064B1A1A677A00742090 /* TestUtilities.swift in Sources */,
+				3F41064C1A1A677A00742090 /* Perfomance.pb.swift in Sources */,
+				3F41064D1A1A677A00742090 /* GeneratedMessageTests.swift in Sources */,
+				3F41064E1A1A677A00742090 /* MessageTests.swift in Sources */,
+				3F41064F1A1A677A00742090 /* SizeTest.swift in Sources */,
+				3F4106501A1A677A00742090 /* WireFormatTests.swift in Sources */,
+				3F4106511A1A677A00742090 /* UnknowFieldsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F85569419C71BCF003802F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,6 +605,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3F4106431A1A674800742090 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F41061B1A1A667700742090 /* ProtocolBuffers(OSX) */;
+			targetProxy = 3F4106421A1A674800742090 /* PBXContainerItemProxy */;
+		};
 		3F8556D619C71C3F003802F2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3F85569819C71BCF003802F2 /* ProtocolBuffers */;
@@ -387,6 +618,86 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3F4106301A1A667800742090 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ProtocolBuffers(OSX)/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = ProtocolBuffers;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3F4106311A1A667800742090 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "ProtocolBuffers(OSX)/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = ProtocolBuffers;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3F4106331A1A667800742090 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ProtocolBuffers(OSX)Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3F4106341A1A667800742090 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ProtocolBuffers(OSX)Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		3F8556AA19C71BCF003802F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -483,6 +794,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = ProtocolBuffers;
 				SKIP_INSTALL = YES;
 			};
@@ -499,6 +811,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = ProtocolBuffers;
 				SKIP_INSTALL = YES;
 			};
@@ -551,6 +864,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3F41062F1A1A667800742090 /* Build configuration list for PBXNativeTarget "ProtocolBuffers(OSX)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4106301A1A667800742090 /* Debug */,
+				3F4106311A1A667800742090 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F4106321A1A667800742090 /* Build configuration list for PBXNativeTarget "UnitTesting(OSX)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4106331A1A667800742090 /* Debug */,
+				3F4106341A1A667800742090 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3F85569319C71BCF003802F2 /* Build configuration list for PBXProject "ProtocolBuffers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

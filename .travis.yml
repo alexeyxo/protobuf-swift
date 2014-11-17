@@ -11,4 +11,6 @@ before_install:
 - brew install protobuf
 - ./scripts/build.sh
 - ./travis/travis.sh
-script: xctool -project ./src/ProtocolBuffers/ProtocolBuffers.xcodeproj -sdk iphonesimulator -scheme ProtocolBuffers build test
+script:
+- xctool -project ./src/ProtocolBuffers/ProtocolBuffers.xcodeproj -sdk iphonesimulator -scheme ProtocolBuffers build test
+- xctool -project ./src/ProtocolBuffers/ProtocolBuffers.xcodeproj -scheme "ProtocolBuffers(OSX)" build test
