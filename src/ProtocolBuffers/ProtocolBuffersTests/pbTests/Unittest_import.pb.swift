@@ -33,9 +33,9 @@ enum ImportEnum:Int32 {
   static func IsValidValue(value:ImportEnum) ->Bool {
     switch value {
       case .ImportFoo, .ImportBar, .ImportBaz:
-        return true;
+        return true
       default:
-        return false;
+        return false
     }
   }
 }
@@ -107,10 +107,10 @@ final class ImportMessage : GeneratedMessage {
   internal func builder() -> ImportMessageBuilder {
     return classBuilder() as ImportMessageBuilder
   }
-  override internal class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return ImportMessageBuilder()
   }
-  override internal  func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ImportMessage.builder()
   }
   internal func toBuilder() -> ImportMessageBuilder {

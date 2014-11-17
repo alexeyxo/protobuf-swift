@@ -54,7 +54,7 @@ class MessageTests: XCTestCase {
     
     func testMergeFrom() {
         var result = TestAllTypes.builderWithPrototype(mergeDestination()).mergeFrom(mergeSource()).build()
-        XCTAssertTrue(result.data() == mergeResult().data(), "");
+        XCTAssertTrue(result.data() == mergeResult().data(), "")
     }
     
     func testRequiredUninitialized() -> TestRequired {

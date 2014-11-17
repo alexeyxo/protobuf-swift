@@ -3,7 +3,7 @@
 // Copyright 2014 Alexey Khohklov(AlexeyXo).
 // Copyright 2008 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -17,9 +17,9 @@
 
 import Foundation
 
-let DEFAULT_RECURSION_LIMIT:Int32 = 64;
-let DEFAULT_SIZE_LIMIT:Int32 = 64 << 20;  // 64MB
-let BUFFER_SIZE:Int32 = 4096;
+let DEFAULT_RECURSION_LIMIT:Int32 = 64
+let DEFAULT_SIZE_LIMIT:Int32 = 64 << 20  // 64MB
+let BUFFER_SIZE:Int32 = 4096
 
 
 
@@ -230,9 +230,9 @@ public class CodedInputStream
         else
         {
             var pos:Int32 = bufferSize - bufferPos
-            totalBytesRetired += pos;
-            bufferPos = 0;
-            bufferSize = 0;
+            totalBytesRetired += pos
+            bufferPos = 0
+            bufferSize = 0
             
             while (pos < size) {
                 var data:[Byte] = [Byte](count: Int(size - pos), repeatedValue: 0)
@@ -250,8 +250,8 @@ public class CodedInputStream
                 if (n <= 0) {
                     NSException(name:"InvalidProtocolBuffer", reason:"truncatedMessage", userInfo: nil).raise()
                 }
-                pos += n;
-                totalBytesRetired += n;
+                pos += n
+                totalBytesRetired += n
             }
         }
     }
@@ -331,7 +331,7 @@ public class CodedInputStream
         else if (WireFormat(rawValue:wireFormat) == WireFormat.WireFormatLengthDelimited)
         {
             skipRawData(readRawVarint32())
-            return true;
+            return true
         }
         else if (WireFormat(rawValue:wireFormat) == WireFormat.WireFormatStartGroup)
         {
@@ -439,7 +439,7 @@ public class CodedInputStream
         if (b & 0x80) == 0 {
             return result
         }
-        result -= 0x80;
+        result -= 0x80
         b = readRawByte()
         result += Int32(b) <<  7
         if (b & 0x80) == 0 {
@@ -483,7 +483,7 @@ public class CodedInputStream
             if ((Int32(b) & 0x80) == 0) {
                 return result
             }
-            shift += 7;
+            shift += 7
         }
          NSException(name:"InvalidProtocolBuffer", reason:"malformedVarint", userInfo: nil).raise()
         return 0
@@ -590,7 +590,7 @@ public class CodedInputStream
         if (bufferEnd > currentLimit)
         {
             bufferSizeAfterLimit = bufferEnd - currentLimit
-            bufferSize -= bufferSizeAfterLimit;
+            bufferSize -= bufferSizeAfterLimit
         }
         else
         {
@@ -626,11 +626,11 @@ public class CodedInputStream
     {
         if (currentLimit == INT_MAX)
         {
-            return -1;
+            return -1
         }
         
         var currentAbsolutePosition:Int32 = totalBytesRetired + bufferPos
-        return currentLimit - currentAbsolutePosition;
+        return currentLimit - currentAbsolutePosition
     }
     
     
@@ -661,10 +661,10 @@ public class CodedInputStream
                 NSException(name:"InvalidProtocolBuffer", reason:"Recursion Limit Exceeded", userInfo: nil).raise()
         }
         var oldLimit =  pushLimit(length)
-        ++recursionDepth;
+        ++recursionDepth
         builder.mergeFromCodedInputStream(self, extensionRegistry:extensionRegistry)
         checkLastTagWas(0)
-        --recursionDepth;
+        --recursionDepth
         popLimit(oldLimit)
     }
     

@@ -3,7 +3,7 @@
 // Copyright 2014 Alexey Khohklov(AlexeyXo).
 // Copyright 2008 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -32,8 +32,8 @@ public class UnknownFieldSetBuilder
             NSException(name:"IllegalArgument", reason:"", userInfo: nil).raise()
         }
         if (lastField != nil && lastFieldNumber == number) {
-            lastField = nil;
-            lastFieldNumber = 0;
+            lastField = nil
+            lastFieldNumber = 0
         }
         fields[number]=field
         return self
@@ -221,7 +221,7 @@ public class UnknownFieldSetBuilder
             var tag:Int32 = input.readTag()
             if tag == 0 || !mergeFieldFrom(tag, input:input)
             {
-                break;
+                break
             }
         }
         return self
@@ -238,7 +238,7 @@ public class UnknownFieldSetBuilder
         var input = CodedInputStream(data: data)
          mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry)
         input.checkLastTagWas(0)
-        return self;
+        return self
     }
     
     public func clear() ->UnknownFieldSetBuilder

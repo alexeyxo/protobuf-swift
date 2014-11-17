@@ -3,7 +3,7 @@
 // Copyright 2014 Alexey Khohklov(AlexeyXo).
 // Copyright 2008 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -84,11 +84,11 @@ internal class RingBuffer
         }
         
         if (position == Int32(buffer.count)) {
-            position = 0;
+            position = 0
         }
         
-        let written:Int32 = min(Int32(freeSpaces), aLength);
-        memcpy(&buffer + Int(position), &input + Int(aOffset), UInt(written));
+        let written:Int32 = min(Int32(freeSpaces), aLength)
+        memcpy(&buffer + Int(position), &input + Int(aOffset), UInt(written))
         position += written
         totalWritten += written
         

@@ -3,7 +3,7 @@
 // Copyright 2014 Alexey Khohklov(AlexeyXo).
 // Copyright 2008 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -41,7 +41,6 @@ public protocol Message:class,MessageInit
     
     class func classBuilder()-> MessageBuilder
     func classBuilder()-> MessageBuilder
-//    func toClassBuider()-> MessageBuilder
     
 }
 
@@ -62,9 +61,9 @@ public protocol MessageBuilder: class
 
 public func == (lhs: AbstractMessage, rhs: AbstractMessage) -> Bool
 {
-    return true;
+    return true
 }
-public class AbstractMessage:Equatable,Hashable, Printable, Message {
+public class AbstractMessage:Equatable, Hashable, Message {
     
     public var unknownFields:UnknownFieldSet
     required public init()
@@ -72,19 +71,7 @@ public class AbstractMessage:Equatable,Hashable, Printable, Message {
         unknownFields = UnknownFieldSet(fields: Dictionary())
     }
     
-    
-    public var description:String {
-        get {
-            var output:String = ""
-            writeDescriptionTo(&output, indent:"")
-            return output
-    
-        }
-    }
-    public func writeDescriptionTo(inout output:String, indent:String)
-    {
-        
-    }
+ 
     
     public func data() -> [Byte]
     {
@@ -102,33 +89,33 @@ public class AbstractMessage:Equatable,Hashable, Printable, Message {
     {
         return 0
     }
+    
+    public func writeDescriptionTo(inout output:String, indent:String)
+    {
+        NSException(name:"Override", reason:"", userInfo: nil).raise()
+    }
+    
     public func writeToCodedOutputStream(output: CodedOutputStream)
     {
          NSException(name:"Override", reason:"", userInfo: nil).raise()
     }
+    
     public func writeToOutputStream(output: NSOutputStream)
     {
         var codedOutput:CodedOutputStream = CodedOutputStream(output:output)
         writeToCodedOutputStream(codedOutput)
         codedOutput.flush()
     }
+    
     public class func classBuilder() -> MessageBuilder
     {
         return AbstractMessageBuilder()
     }
+    
     public func classBuilder() -> MessageBuilder
     {
         return AbstractMessageBuilder()
     }
-//    public func toClassBuider() -> MessageBuilder
-//    {
-//        return AbstractMessageBuilder()
-//    }
-    
-//    public func builder() -> AbstractMessageBuilder
-//    {
-//        return classBuider() as AbstractMessageBuilder
-//    }
     
     public var hashValue: Int {
         get {
@@ -136,6 +123,25 @@ public class AbstractMessage:Equatable,Hashable, Printable, Message {
         }
     }
     
+}
+
+extension AbstractMessage:DebugPrintable
+{
+    public var debugDescription:String
+    {
+        return description
+    }
+}
+extension AbstractMessage:Printable
+{
+    public var description:String {
+        get {
+            var output:String = ""
+            writeDescriptionTo(&output, indent:"")
+            return output
+            
+        }
+    }
 }
 
 public extension AbstractMessage

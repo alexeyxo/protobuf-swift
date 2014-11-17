@@ -3,7 +3,7 @@
 // Copyright 2014 Alexey Khohklov(AlexeyXo).
 // Copyright 2008 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -77,6 +77,36 @@ public func ==(lhs:Array<Byte>, rhs:Array<Byte>) -> Bool
     return false
 }
 
+//public protocol FieldOverload
+//{
+//    func +=(inout left:Field, right:Int64)
+//    func +=(inout left:Field, right:Int32)
+//    func +=(inout left:Field, right:UInt64)
+//    func +=(inout left:Field, right:UInt32)
+//}
+
+public func +=(inout left:Field, right:Int64)
+{
+    left.variantArray += [right]
+}
+
+public func +=(inout left:Field, right:Int32)
+{
+    var result:Int64  = 0
+    WireFormat.convertTypes(convertValue: right, retValue: &result)
+    left.variantArray += [result]
+}
+
+public func +=(inout left:Field, right:UInt32)
+{
+    left.fixed32Array += [UInt32(right)]
+}
+
+public func +=(inout left:Field, right:UInt64)
+{
+    left.fixed64Array += [UInt64(right)]
+}
+
 final public class Field:Equatable,Hashable
 {
     public var variantArray:Array<Int64>
@@ -84,6 +114,8 @@ final public class Field:Equatable,Hashable
     public var fixed64Array:Array<UInt64>
     public var lengthDelimited:Array<Array<Byte>>
     public var groupArray:Array<UnknownFieldSet>
+    
+  
     
     public init()
     {
@@ -234,6 +266,8 @@ final public class Field:Equatable,Hashable
     
 }
 
+
+
 public extension Field
 {
     public func clear()
@@ -268,7 +302,7 @@ public extension Field
             groupArray += other.groupArray
         }
         
-        return self;
+        return self
     }
     
 }

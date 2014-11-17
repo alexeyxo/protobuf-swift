@@ -46,8 +46,8 @@ class CodedInputStreamTests: XCTestCase
         
 //        XCTAssertEqual(0xFFFFFFFFC0000000, WireFormat.decodeZigZag32(0x7FFFFFFF))
         
-        //  XCTAssertEqual((SInt32)0x7FFFFFFF, decodeZigZag32(0xFFFFFFFE));
-        //  XCTAssertEqual((SInt32)0x80000000, decodeZigZag32(0xFFFFFFFF));
+        //  XCTAssertEqual((SInt32)0x7FFFFFFF, decodeZigZag32(0xFFFFFFFE))
+        //  XCTAssertEqual((SInt32)0x80000000, decodeZigZag32(0xFFFFFFFF))
         
         XCTAssertEqual(Int64(0), WireFormat.decodeZigZag64(0))
         XCTAssertEqual(Int64(-1), WireFormat.decodeZigZag64(1))
@@ -87,7 +87,7 @@ class CodedInputStreamTests: XCTestCase
         
         var input4:CodedInputStream = CodedInputStream(inputStream:NSInputStream(data:data))
         var result4 = input4.readRawVarint64()
-        XCTAssertTrue(value == result4, "");
+        XCTAssertTrue(value == result4, "")
     
     // Try different block sizes.
         for (var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2)
@@ -115,8 +115,8 @@ class CodedInputStreamTests: XCTestCase
         data.getBytes(&dataByte)
         
         var input:CodedInputStream = CodedInputStream(data:dataByte)
-        var readRes = input.readRawLittleEndian32();
-        XCTAssertTrue(value == readRes, "");
+        var readRes = input.readRawLittleEndian32()
+        XCTAssertTrue(value == readRes, "")
         for (var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2)
         {
             var smallblock:SmallBlockInputStream = SmallBlockInputStream()
@@ -135,7 +135,7 @@ class CodedInputStreamTests: XCTestCase
         data.getBytes(&dataByte)
         
         var input:CodedInputStream = CodedInputStream(data:dataByte)
-        XCTAssertTrue(value == input.readRawLittleEndian64(), "");
+        XCTAssertTrue(value == input.readRawLittleEndian64(), "")
         for (var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2)
         {
             var smallblock:SmallBlockInputStream = SmallBlockInputStream()
@@ -313,6 +313,7 @@ class CodedInputStreamTests: XCTestCase
         var builder3 = TestAllTypes.builderWithPrototype(message2)
         builder3.optionalBytes = TestUtilities.allSet().optionalBytes
         var message3 = builder3.build()
+        println(message3)
         TestUtilities.assertAllFieldsSet(message3)
     }
     

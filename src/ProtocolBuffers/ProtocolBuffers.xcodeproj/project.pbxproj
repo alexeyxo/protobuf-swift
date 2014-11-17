@@ -67,8 +67,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3F181E0619D1D83900F7FA0D /* AbstractMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractMessage.swift; sourceTree = "<group>"; };
-		3F181E0719D1D83900F7FA0D /* CodedInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodedInputStream.swift; sourceTree = "<group>"; };
+		3F181E0619D1D83900F7FA0D /* AbstractMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AbstractMessage.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3F181E0719D1D83900F7FA0D /* CodedInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedInputStream.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3F181E0819D1D83900F7FA0D /* CodedOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodedOutputStream.swift; sourceTree = "<group>"; };
 		3F181E0919D1D83900F7FA0D /* ConcreateExtensionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcreateExtensionField.swift; sourceTree = "<group>"; };
 		3F181E0A19D1D83900F7FA0D /* ExtendableMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendableMessage.swift; sourceTree = "<group>"; };
@@ -92,8 +92,8 @@
 		3F8556A419C71BCF003802F2 /* ProtocolBuffersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProtocolBuffersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8556A719C71BCF003802F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F8556A819C71BCF003802F2 /* ProtocolBuffersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolBuffersTests.swift; sourceTree = "<group>"; };
-		3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodedInputStreamTests.swift; sourceTree = "<group>"; };
-		3F8556CF19C71C05003802F2 /* CodedOuputStreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodedOuputStreamTests.swift; sourceTree = "<group>"; };
+		3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedInputStreamTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3F8556CF19C71C05003802F2 /* CodedOuputStreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedOuputStreamTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3F8556D019C71C05003802F2 /* SmallBlockInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallBlockInputStream.swift; sourceTree = "<group>"; };
 		3F9301381A095F2B00F7A20B /* GeneratedMessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMessageTests.swift; sourceTree = "<group>"; };
 		3F93013B1A0964ED00F7A20B /* golden_message */ = {isa = PBXFileReference; lastKnownFileType = file; path = golden_message; sourceTree = "<group>"; };

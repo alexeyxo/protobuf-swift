@@ -39,7 +39,7 @@ internal class CodedOuputStreamTests: XCTestCase
     
         var actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
         
-        XCTAssertTrue(data.isEqualToData(actual), "Test32");
+        XCTAssertTrue(data.isEqualToData(actual), "Test32")
     
         for var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2 {
             
@@ -50,7 +50,7 @@ internal class CodedOuputStreamTests: XCTestCase
             output.flush()
     
             let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
-            XCTAssertTrue(data.isEqualToData(actual), "Test32");
+            XCTAssertTrue(data.isEqualToData(actual), "Test32")
         }
     }
     
@@ -62,7 +62,7 @@ internal class CodedOuputStreamTests: XCTestCase
         
         var actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
 
-        XCTAssertTrue(data.isEqualToData(actual), "Test64");
+        XCTAssertTrue(data.isEqualToData(actual), "Test64")
         
         for var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2 {
             
@@ -90,7 +90,7 @@ internal class CodedOuputStreamTests: XCTestCase
             output1.flush()
     
             var actual1:NSData = rawOutput1.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
-            XCTAssertTrue(data.isEqualToData(actual1), "");
+            XCTAssertTrue(data.isEqualToData(actual1), "")
 
             XCTAssertTrue(Int32(data.length) == WireFormat.computeRawVarint32Size(Int32(value)), "")
         }
@@ -104,7 +104,7 @@ internal class CodedOuputStreamTests: XCTestCase
         XCTAssertTrue(data.isEqualToData(actual2), "")
     
     
-        XCTAssertTrue(Int32(data.length) == WireFormat.computeRawVarint64Size(value), "");
+        XCTAssertTrue(Int32(data.length) == WireFormat.computeRawVarint64Size(value), "")
     
         for var blockSize:Int = 1; blockSize <= 16; blockSize *= 2
         {
@@ -118,7 +118,7 @@ internal class CodedOuputStreamTests: XCTestCase
                 output3.flush()
     
                 var actual3:NSData = rawOutput3.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
-                XCTAssertTrue(data.isEqualToData(actual3), "");
+                XCTAssertTrue(data.isEqualToData(actual3), "")
             }
     
 
@@ -128,7 +128,7 @@ internal class CodedOuputStreamTests: XCTestCase
             output4.flush()
     
             var actual4:NSData = rawOutput4.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
-            XCTAssertTrue(data.isEqualToData(actual4), "");
+            XCTAssertTrue(data.isEqualToData(actual4), "")
         }
     }
     
@@ -223,34 +223,34 @@ internal class CodedOuputStreamTests: XCTestCase
     
     func testEncodeZigZag()
     {
-        XCTAssertTrue(0 == WireFormat.encodeZigZag32(0), "");
-        XCTAssertTrue(1 == WireFormat.encodeZigZag32(-1), "");
-        XCTAssertTrue(2 == WireFormat.encodeZigZag32(1), "");
-        XCTAssertTrue(3 == WireFormat.encodeZigZag32(-2), "");
-        XCTAssertTrue(0x7FFFFFFE == WireFormat.encodeZigZag32(0x3FFFFFFF), "");
+        XCTAssertTrue(0 == WireFormat.encodeZigZag32(0), "")
+        XCTAssertTrue(1 == WireFormat.encodeZigZag32(-1), "")
+        XCTAssertTrue(2 == WireFormat.encodeZigZag32(1), "")
+        XCTAssertTrue(3 == WireFormat.encodeZigZag32(-2), "")
+        XCTAssertTrue(0x7FFFFFFE == WireFormat.encodeZigZag32(0x3FFFFFFF), "")
         
         
-        XCTAssertTrue(0 == WireFormat.encodeZigZag64( 0), "");
-        XCTAssertTrue(1 == WireFormat.encodeZigZag64(-1), "");
-        XCTAssertTrue(2 == WireFormat.encodeZigZag64( 1), "");
-        XCTAssertTrue(3 == WireFormat.encodeZigZag64(-2), "");
-        XCTAssertTrue(0x000000007FFFFFFE == WireFormat.encodeZigZag64(0x000000003FFFFFFF), "");
+        XCTAssertTrue(0 == WireFormat.encodeZigZag64( 0), "")
+        XCTAssertTrue(1 == WireFormat.encodeZigZag64(-1), "")
+        XCTAssertTrue(2 == WireFormat.encodeZigZag64( 1), "")
+        XCTAssertTrue(3 == WireFormat.encodeZigZag64(-2), "")
+        XCTAssertTrue(0x000000007FFFFFFE == WireFormat.encodeZigZag64(0x000000003FFFFFFF), "")
 
         
-        XCTAssertTrue(0 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(0)), "");
-        XCTAssertTrue(1 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(1)), "");
-        XCTAssertTrue(-1 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(-1)), "");
-        XCTAssertTrue(14927 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(14927)), "");
-        XCTAssertTrue(-3612 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(-3612)), "");
+        XCTAssertTrue(0 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(0)), "")
+        XCTAssertTrue(1 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(1)), "")
+        XCTAssertTrue(-1 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(-1)), "")
+        XCTAssertTrue(14927 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(14927)), "")
+        XCTAssertTrue(-3612 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(-3612)), "")
         
-        XCTAssertTrue(0 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(0)), "");
-        XCTAssertTrue(1 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(1)), "");
-        XCTAssertTrue(-1 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(-1)), "");
-        XCTAssertTrue(14927 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(14927)), "");
-        XCTAssertTrue(-3612 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(-3612)), "");
+        XCTAssertTrue(0 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(0)), "")
+        XCTAssertTrue(1 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(1)), "")
+        XCTAssertTrue(-1 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(-1)), "")
+        XCTAssertTrue(14927 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(14927)), "")
+        XCTAssertTrue(-3612 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(-3612)), "")
         
-        XCTAssertTrue(856912304801416 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(856912304801416)), "");
-        XCTAssertTrue(-75123905439571256 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(-75123905439571256)), "");
+        XCTAssertTrue(856912304801416 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(856912304801416)), "")
+        XCTAssertTrue(-75123905439571256 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(-75123905439571256)), "")
     }
     
     func testWriteWholeMessage()

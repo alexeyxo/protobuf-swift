@@ -343,7 +343,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "var $name$ElementIndex:Int = 0\n"
                        "for element in $name$ {\n"
-                       "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(element.rawValue)\"\n"
+                       "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(element.rawValue)\\n\"\n"
                        "    $name$ElementIndex++\n"
                        "}\n");
     }

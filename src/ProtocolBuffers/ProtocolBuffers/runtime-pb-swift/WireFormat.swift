@@ -3,7 +3,7 @@
 // Copyright 2014 Alexey Khohklov(AlexeyXo).
 // Copyright 2008 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -148,7 +148,7 @@ public enum WireFormat:Int32
         }
         else
         {
-            return 10;
+            return 10
         }
     }
     public static func computeBoolSizeNoTag(value:Bool) -> Int32 {
@@ -239,18 +239,18 @@ public enum WireFormat:Int32
     
     public static func computeBoolSize(fieldNumber:Int32, value:Bool) ->Int32
     {
-        return computeTagSize(fieldNumber) + computeBoolSizeNoTag(value);
+        return computeTagSize(fieldNumber) + computeBoolSizeNoTag(value)
     }
     
     
     public static func computeStringSize(fieldNumber:Int32, value:String) ->Int32
     {
-        return computeTagSize(fieldNumber) + computeStringSizeNoTag(value);
+        return computeTagSize(fieldNumber) + computeStringSizeNoTag(value)
     }
     
     public static func computeGroupSize<T:Message>(fieldNumber:Int32, value:T) ->Int32
     {
-        return computeTagSize(fieldNumber) * 2 + computeGroupSizeNoTag(value);
+        return computeTagSize(fieldNumber) * 2 + computeGroupSizeNoTag(value)
     }
     
     public static func computeUnknownGroupSizeNoTag(value:UnknownFieldSet) ->Int32
@@ -259,27 +259,27 @@ public enum WireFormat:Int32
     }
     public static func computeUnknownGroupSize(fieldNumber:Int32, value:UnknownFieldSet) ->Int32
     {
-        return computeTagSize(fieldNumber) * 2 + computeUnknownGroupSizeNoTag(value);
+        return computeTagSize(fieldNumber) * 2 + computeUnknownGroupSizeNoTag(value)
     }
     
     public static func computeMessageSize<T:Message>(fieldNumber:Int32, value:T) ->Int32
     {
-        return computeTagSize(fieldNumber) + computeMessageSizeNoTag(value);
+        return computeTagSize(fieldNumber) + computeMessageSizeNoTag(value)
     }
     
     
     public static func computeDataSize(fieldNumber:Int32, value:[Byte]) -> Int32
     {
-        return computeTagSize(fieldNumber) + computeDataSizeNoTag(value);
+        return computeTagSize(fieldNumber) + computeDataSizeNoTag(value)
     }
     
     public static func computeUInt32Size(fieldNumber:Int32, value:UInt32) -> Int32 {
-        return computeTagSize(fieldNumber) + computeUInt32SizeNoTag(value);
+        return computeTagSize(fieldNumber) + computeUInt32SizeNoTag(value)
     }
     
     public static func computeEnumSize(fieldNumber:Int32, value:Int32) ->Int32
     {
-        return computeTagSize(fieldNumber) + computeEnumSizeNoTag(value);
+        return computeTagSize(fieldNumber) + computeEnumSizeNoTag(value)
     }
     
     
@@ -291,13 +291,13 @@ public enum WireFormat:Int32
     
     public static func computeSFixed64Size(fieldNumber:Int32, value:Int64) -> Int32
     {
-        return computeTagSize(fieldNumber) + computeSFixed64SizeNoTag(value);
+        return computeTagSize(fieldNumber) + computeSFixed64SizeNoTag(value)
     }
     
     
     public static func computeSInt32Size(fieldNumber:Int32, value:Int32) ->Int32
     {
-        return computeTagSize(fieldNumber) + computeSInt32SizeNoTag(value);
+        return computeTagSize(fieldNumber) + computeSInt32SizeNoTag(value)
     }
     
     
@@ -308,7 +308,7 @@ public enum WireFormat:Int32
     
     public static func computeSInt64Size(fieldNumber:Int32, value:Int64) ->Int32
     {
-        return computeTagSize(fieldNumber) + computeRawVarint64Size(encodeZigZag64(value));
+        return computeTagSize(fieldNumber) + computeRawVarint64Size(encodeZigZag64(value))
     }
     
     
@@ -330,7 +330,7 @@ public enum WireFormat:Int32
             return 4
         }
         
-        return 5;
+        return 5
     }
     
     
@@ -345,7 +345,7 @@ public enum WireFormat:Int32
         if ((value & (0xfffffffffffffff << 49)) == 0){return 7}
         if ((value & (0xfffffffffffffff << 56)) == 0){return 8}
         if ((value & (0xfffffffffffffff << 63)) == 0){return 9}
-        return 10;
+        return 10
     }
     
     public static func computeMessageSetExtensionSize<T:Message>(fieldNumber:Int32,  value:T) -> Int32

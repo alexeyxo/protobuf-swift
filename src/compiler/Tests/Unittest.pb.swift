@@ -3800,17 +3800,17 @@ final class TestAllTypes : GeneratedMessage {
     }
     var repeatedNestedEnumElementIndex:Int = 0
     for element in repeatedNestedEnum {
-        output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(element.rawValue)\n"
         repeatedNestedEnumElementIndex++
     }
     var repeatedForeignEnumElementIndex:Int = 0
     for element in repeatedForeignEnum {
-        output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(element.rawValue)\n"
         repeatedForeignEnumElementIndex++
     }
     var repeatedImportEnumElementIndex:Int = 0
     for element in repeatedImportEnum {
-        output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(element.rawValue)\n"
         repeatedImportEnumElementIndex++
     }
     var repeatedStringPieceElementIndex:Int = 0
@@ -12434,7 +12434,7 @@ final class TestCamelCaseFieldNames : GeneratedMessage {
     }
     var repeatedEnumFieldElementIndex:Int = 0
     for element in repeatedEnumField {
-        output += "\(indent) repeatedEnumField[\(repeatedEnumFieldElementIndex)]: \(element.rawValue)"
+        output += "\(indent) repeatedEnumField[\(repeatedEnumFieldElementIndex)]: \(element.rawValue)\n"
         repeatedEnumFieldElementIndex++
     }
     var repeatedMessageFieldElementIndex:Int = 0
@@ -20203,7 +20203,7 @@ final class TestPackedTypes : GeneratedMessage {
     }
     var packedEnumElementIndex:Int = 0
     for element in packedEnum {
-        output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(element.rawValue)\n"
         packedEnumElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -20937,7 +20937,7 @@ final class TestUnpackedTypes : GeneratedMessage {
     }
     var unpackedEnumElementIndex:Int = 0
     for element in unpackedEnum {
-        output += "\(indent) unpackedEnum[\(unpackedEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) unpackedEnum[\(unpackedEnumElementIndex)]: \(element.rawValue)\n"
         unpackedEnumElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)

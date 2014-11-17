@@ -2969,17 +2969,17 @@ final class TestAllTypesLite : GeneratedMessage {
     }
     var repeatedNestedEnumElementIndex:Int = 0
     for element in repeatedNestedEnum {
-        output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(element.rawValue)\n"
         repeatedNestedEnumElementIndex++
     }
     var repeatedForeignEnumElementIndex:Int = 0
     for element in repeatedForeignEnum {
-        output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(element.rawValue)\n"
         repeatedForeignEnumElementIndex++
     }
     var repeatedImportEnumElementIndex:Int = 0
     for element in repeatedImportEnum {
-        output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(element.rawValue)\n"
         repeatedImportEnumElementIndex++
     }
     var repeatedStringPieceElementIndex:Int = 0
@@ -5836,7 +5836,7 @@ final class TestPackedTypesLite : GeneratedMessage {
     }
     var packedEnumElementIndex:Int = 0
     for element in packedEnum {
-        output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(element.rawValue)\n"
         packedEnumElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)

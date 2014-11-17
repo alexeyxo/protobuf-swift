@@ -1236,9 +1236,9 @@ enum ForeignEnum:Int32 {
   static func IsValidValue(value:ForeignEnum) ->Bool {
     switch value {
       case .ForeignFoo, .ForeignBar, .ForeignBaz:
-        return true;
+        return true
       default:
-        return false;
+        return false
     }
   }
 }
@@ -1259,9 +1259,9 @@ enum TestEnumWithDupValue:Int32 {
   static func IsValidValue(value:TestEnumWithDupValue) ->Bool {
     switch value {
       case .Foo1, .Bar1, .Baz:
-        return true;
+        return true
       default:
-        return false;
+        return false
     }
   }
 }
@@ -1286,9 +1286,9 @@ enum TestSparseEnum:Int32 {
   static func IsValidValue(value:TestSparseEnum) ->Bool {
     switch value {
       case .SparseA, .SparseB, .SparseC, .SparseD, .SparseE, .SparseF, .SparseG:
-        return true;
+        return true
       default:
-        return false;
+        return false
     }
   }
 }
@@ -2781,9 +2781,9 @@ final class TestAllTypes : GeneratedMessage {
       static func IsValidValue(value:NestedEnum) ->Bool {
         switch value {
           case .Foo, .Bar, .Baz, .Neg:
-            return true;
+            return true
           default:
-            return false;
+            return false
         }
       }
     }
@@ -3800,17 +3800,17 @@ final class TestAllTypes : GeneratedMessage {
     }
     var repeatedNestedEnumElementIndex:Int = 0
     for element in repeatedNestedEnum {
-        output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(element.rawValue)\n"
         repeatedNestedEnumElementIndex++
     }
     var repeatedForeignEnumElementIndex:Int = 0
     for element in repeatedForeignEnum {
-        output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(element.rawValue)\n"
         repeatedForeignEnumElementIndex++
     }
     var repeatedImportEnumElementIndex:Int = 0
     for element in repeatedImportEnum {
-        output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(element.rawValue)\n"
         repeatedImportEnumElementIndex++
     }
     var repeatedStringPieceElementIndex:Int = 0
@@ -12434,7 +12434,7 @@ final class TestCamelCaseFieldNames : GeneratedMessage {
     }
     var repeatedEnumFieldElementIndex:Int = 0
     for element in repeatedEnumField {
-        output += "\(indent) repeatedEnumField[\(repeatedEnumFieldElementIndex)]: \(element.rawValue)"
+        output += "\(indent) repeatedEnumField[\(repeatedEnumFieldElementIndex)]: \(element.rawValue)\n"
         repeatedEnumFieldElementIndex++
     }
     var repeatedMessageFieldElementIndex:Int = 0
@@ -18116,9 +18116,9 @@ final class TestOneof2 : GeneratedMessage {
       static func IsValidValue(value:NestedEnum) ->Bool {
         switch value {
           case .Foo, .Bar, .Baz:
-            return true;
+            return true
           default:
-            return false;
+            return false
         }
       }
     }
@@ -20203,7 +20203,7 @@ final class TestPackedTypes : GeneratedMessage {
     }
     var packedEnumElementIndex:Int = 0
     for element in packedEnum {
-        output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(element.rawValue)\n"
         packedEnumElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -20937,7 +20937,7 @@ final class TestUnpackedTypes : GeneratedMessage {
     }
     var unpackedEnumElementIndex:Int = 0
     for element in unpackedEnum {
-        output += "\(indent) unpackedEnum[\(unpackedEnumElementIndex)]: \(element.rawValue)"
+        output += "\(indent) unpackedEnum[\(unpackedEnumElementIndex)]: \(element.rawValue)\n"
         unpackedEnumElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -21826,9 +21826,9 @@ final class TestDynamicExtensions : GeneratedMessage {
       static func IsValidValue(value:DynamicEnumType) ->Bool {
         switch value {
           case .DynamicFoo, .DynamicBar, .DynamicBaz:
-            return true;
+            return true
           default:
-            return false;
+            return false
         }
       }
     }

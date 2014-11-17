@@ -44,7 +44,7 @@ class WireFormatTests: XCTestCase {
     }
     func testSerializePackedExtensions() {
         // TestPackedTypes and TestPackedExtensions should have compatible wire
-        // formats; check that they serialize to the same string.
+        // formats check that they serialize to the same string.
         var message = TestUtilities.packedExtensionsSet()
         var rawBytes = message.data()
         var message2 = TestUtilities.packedSet()

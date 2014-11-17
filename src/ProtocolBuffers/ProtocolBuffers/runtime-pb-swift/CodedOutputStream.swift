@@ -3,7 +3,7 @@
 // Copyright 2014 Alexey Khohklov(AlexeyXo).
 // Copyright 2008 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -303,7 +303,7 @@ public class CodedOutputStream
     }
     
     public func writeSInt32NoTag(value:Int32) {
-        writeRawVarint32(WireFormat.encodeZigZag32(value));
+        writeRawVarint32(WireFormat.encodeZigZag32(value))
     }
     
     public func writeSInt32(fieldNumber:Int32, value:Int32)
@@ -313,7 +313,7 @@ public class CodedOutputStream
     }
     
     public func writeSInt64NoTag(value:Int64) {
-        writeRawVarint64(WireFormat.encodeZigZag64(value));
+        writeRawVarint64(WireFormat.encodeZigZag64(value))
     }
     
     public func writeSInt64(fieldNumber:Int32, value:Int64)
