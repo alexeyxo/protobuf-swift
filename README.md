@@ -35,7 +35,7 @@ This project is based on an implementation of Protocol Buffers from Google.  See
 
 ## Serializing
 
-```swift
+```protobuf
 message Person {
     required int32 id = 1;
     required string name = 2;
@@ -58,11 +58,11 @@ person.getNSData() //Return NSData
 ## Deserializing
 
 ```swift
-var person = Person.builder().mergeFromData(bytes).build() // from [Byte]
+var person = Person.builder().parseFromData(bytes).build() // from [Byte]
 ```
 
 ## Using Oneof
-```
+```protobuf
 message SubMessage {
     optional string str = 1;
 }
@@ -76,16 +76,16 @@ message SampleMessage {
 }
 ```
 
-```
-    var sm = SampleMessage.builder()
-    sm.name = "Alex"
-    sm.id = 123
-    println(ss.build()) //->  id: 123
+```swift
+var sm = SampleMessage.builder()
+sm.name = "Alex"
+sm.id = 123
+println(ss.build()) //->  id: 123
 ```
 
 ## Nested Types
 
-```
+```protobuf
 message SearchResponse {
     message Result {
         required string url = 1;
@@ -96,13 +96,13 @@ message SearchResponse {
 }
 ```
 
-```
-    var builderResult = SearchResponse.Result.builder()
-    builderResult.url = "http://protobuf.axo.io"
-    builderResult.title = "Protocol Bufers Apple Swift"
-    var searchRespons = SearchResponse.builder()
-    searchRespons.result += [builderResult.build()]
-    println(searchRespons.build())
+```swift
+var builderResult = SearchResponse.Result.builder()
+builderResult.url = "http://protobuf.axo.io"
+builderResult.title = "Protocol Bufers Apple Swift"
+var searchRespons = SearchResponse.builder()
+searchRespons.result += [builderResult.build()]
+println(searchRespons.build())
 ```
 
 ### Credits
