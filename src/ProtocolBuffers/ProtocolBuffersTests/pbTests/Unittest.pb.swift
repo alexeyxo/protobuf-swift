@@ -1233,13 +1233,11 @@ enum ForeignEnum:Int32 {
   case ForeignBar = 5
   case ForeignBaz = 6
 
-  static func IsValidValue(value:ForeignEnum) ->Bool {
-    switch value {
-      case .ForeignFoo, .ForeignBar, .ForeignBaz:
-        return true;
-      default:
-        return false;
-    }
+  static func IsValidValue(value:Int32) ->Bool {
+      if let check = ForeignEnum(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 
@@ -1256,13 +1254,11 @@ enum TestEnumWithDupValue:Int32 {
   case Bar1 = 2
   case Baz = 3
 
-  static func IsValidValue(value:TestEnumWithDupValue) ->Bool {
-    switch value {
-      case .Foo1, .Bar1, .Baz:
-        return true;
-      default:
-        return false;
-    }
+  static func IsValidValue(value:Int32) ->Bool {
+      if let check = TestEnumWithDupValue(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 
@@ -1283,13 +1279,11 @@ enum TestSparseEnum:Int32 {
   case SparseF = 0
   case SparseG = 2
 
-  static func IsValidValue(value:TestSparseEnum) ->Bool {
-    switch value {
-      case .SparseA, .SparseB, .SparseC, .SparseD, .SparseE, .SparseF, .SparseG:
-        return true;
-      default:
-        return false;
-    }
+  static func IsValidValue(value:Int32) ->Bool {
+      if let check = TestSparseEnum(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 
@@ -2778,13 +2772,11 @@ final class TestAllTypes : GeneratedMessage {
       case Baz = 3
       case Neg = -1
 
-      static func IsValidValue(value:NestedEnum) ->Bool {
-        switch value {
-          case .Foo, .Bar, .Baz, .Neg:
-            return true;
-          default:
-            return false;
-        }
+      static func IsValidValue(value:Int32) ->Bool {
+          if let check = NestedEnum(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 
@@ -18105,13 +18097,11 @@ final class TestOneof2 : GeneratedMessage {
       case Bar = 2
       case Baz = 3
 
-      static func IsValidValue(value:NestedEnum) ->Bool {
-        switch value {
-          case .Foo, .Bar, .Baz:
-            return true;
-          default:
-            return false;
-        }
+      static func IsValidValue(value:Int32) ->Bool {
+          if let check = NestedEnum(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 
@@ -21813,13 +21803,11 @@ final class TestDynamicExtensions : GeneratedMessage {
       case DynamicBar = 2201
       case DynamicBaz = 2202
 
-      static func IsValidValue(value:DynamicEnumType) ->Bool {
-        switch value {
-          case .DynamicFoo, .DynamicBar, .DynamicBaz:
-            return true;
-          default:
-            return false;
-        }
+      static func IsValidValue(value:Int32) ->Bool {
+          if let check = DynamicEnumType(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 

@@ -38,13 +38,11 @@ struct UnittestNoGenericServicesRoot {
 enum TestEnum:Int32 {
   case Foo = 1
 
-  static func IsValidValue(value:TestEnum) ->Bool {
-    switch value {
-      case .Foo:
-        return true;
-      default:
-        return false;
-    }
+  static func IsValidValue(value:Int32) ->Bool {
+      if let check = TestEnum(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 

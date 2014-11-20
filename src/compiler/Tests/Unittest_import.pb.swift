@@ -30,13 +30,11 @@ enum ImportEnum:Int32 {
   case ImportBar = 8
   case ImportBaz = 9
 
-  static func IsValidValue(value:ImportEnum) ->Bool {
-    switch value {
-      case .ImportFoo, .ImportBar, .ImportBaz:
-        return true;
-      default:
-        return false;
-    }
+  static func IsValidValue(value:Int32) ->Bool {
+      if let check = ImportEnum(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 

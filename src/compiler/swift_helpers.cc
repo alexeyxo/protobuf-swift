@@ -340,10 +340,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return CheckReservedNames(name);
     }
     
-    
+    //Swift bug: when enumName == enaumFieldName
     string EnumValueName(const EnumValueDescriptor* descriptor) {
-        return
-        UnderscoresToCapitalizedCamelCase(SafeName(descriptor->name()));
+        string name = UnderscoresToCapitalizedCamelCase(SafeName(descriptor->name()));
+        if (name == UnderscoresToCapitalizedCamelCase(descriptor->type()->name())) {
+            name += "Field";
+        }
+        return name;
     }
     
     

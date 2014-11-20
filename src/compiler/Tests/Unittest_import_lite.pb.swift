@@ -30,13 +30,11 @@ enum ImportEnumLite:Int32 {
   case ImportLiteBar = 8
   case ImportLiteBaz = 9
 
-  static func IsValidValue(value:ImportEnumLite) ->Bool {
-    switch value {
-      case .ImportLiteFoo, .ImportLiteBar, .ImportLiteBaz:
-        return true;
-      default:
-        return false;
-    }
+  static func IsValidValue(value:Int32) ->Bool {
+      if let check = ImportEnumLite(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 

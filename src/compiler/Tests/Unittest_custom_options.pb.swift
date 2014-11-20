@@ -501,13 +501,11 @@ enum MethodOpt1:Int32 {
   case Methodopt1Val1 = 1
   case Methodopt1Val2 = 2
 
-  static func IsValidValue(value:MethodOpt1) ->Bool {
-    switch value {
-      case .Methodopt1Val1, .Methodopt1Val2:
-        return true;
-      default:
-        return false;
-    }
+  static func IsValidValue(value:Int32) ->Bool {
+      if let check = MethodOpt1(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 
@@ -522,13 +520,11 @@ enum MethodOpt1:Int32 {
 enum AggregateEnum:Int32 {
   case Value = 1
 
-  static func IsValidValue(value:AggregateEnum) ->Bool {
-    switch value {
-      case .Value:
-        return true;
-      default:
-        return false;
-    }
+  static func IsValidValue(value:Int32) ->Bool {
+      if let check = AggregateEnum(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 
@@ -770,13 +766,11 @@ final class TestMessageWithCustomOptions : GeneratedMessage {
       case AnenumVal1 = 1
       case AnenumVal2 = 2
 
-      static func IsValidValue(value:AnEnum) ->Bool {
-        switch value {
-          case .AnenumVal1, .AnenumVal2:
-            return true;
-          default:
-            return false;
-        }
+      static func IsValidValue(value:Int32) ->Bool {
+          if let check = AnEnum(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 
@@ -1542,13 +1536,11 @@ final class DummyMessageContainingEnum : GeneratedMessage {
       case TestOptionEnumType1 = 22
       case TestOptionEnumType2 = -23
 
-      static func IsValidValue(value:TestEnumType) ->Bool {
-        switch value {
-          case .TestOptionEnumType1, .TestOptionEnumType2:
-            return true;
-          default:
-            return false;
-        }
+      static func IsValidValue(value:Int32) ->Bool {
+          if let check = TestEnumType(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 
@@ -5287,13 +5279,11 @@ final class NestedOptionType : GeneratedMessage {
     enum NestedEnum:Int32 {
       case NestedEnumValue = 1
 
-      static func IsValidValue(value:NestedEnum) ->Bool {
-        switch value {
-          case .NestedEnumValue:
-            return true;
-          default:
-            return false;
-        }
+      static func IsValidValue(value:Int32) ->Bool {
+          if let check = NestedEnum(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 

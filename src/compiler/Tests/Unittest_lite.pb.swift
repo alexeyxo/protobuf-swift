@@ -1033,13 +1033,11 @@ enum ForeignEnumLite:Int32 {
   case ForeignLiteBar = 5
   case ForeignLiteBaz = 6
 
-  static func IsValidValue(value:ForeignEnumLite) ->Bool {
-    switch value {
-      case .ForeignLiteFoo, .ForeignLiteBar, .ForeignLiteBaz:
-        return true;
-      default:
-        return false;
-    }
+  static func IsValidValue(value:Int32) ->Bool {
+      if let check = ForeignEnumLite(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 
@@ -1947,13 +1945,11 @@ final class TestAllTypesLite : GeneratedMessage {
       case Bar = 2
       case Baz = 3
 
-      static func IsValidValue(value:NestedEnum) ->Bool {
-        switch value {
-          case .Foo, .Bar, .Baz:
-            return true;
-          default:
-            return false;
-        }
+      static func IsValidValue(value:Int32) ->Bool {
+          if let check = NestedEnum(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 

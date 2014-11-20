@@ -1830,13 +1830,11 @@ final class PBFieldDescriptorProto : GeneratedMessage {
       case TypeSint32 = 17
       case TypeSint64 = 18
 
-      static func IsValidValue(value:Types) ->Bool {
-        switch value {
-          case .TypeDouble, .TypeFloat, .TypeInt64, .TypeUint64, .TypeInt32, .TypeFixed64, .TypeFixed32, .TypeBool, .TypeString, .TypeGroup, .TypeMessage, .TypeBytes, .TypeUint32, .TypeEnum, .TypeSfixed32, .TypeSfixed64, .TypeSint32, .TypeSint64:
-            return true;
-          default:
-            return false;
-        }
+      static func IsValidValue(value:Int32) ->Bool {
+          if let check = Types(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 
@@ -1853,13 +1851,11 @@ final class PBFieldDescriptorProto : GeneratedMessage {
       case LabelRequired = 2
       case LabelRepeated = 3
 
-      static func IsValidValue(value:Label) ->Bool {
-        switch value {
-          case .LabelOptional, .LabelRequired, .LabelRepeated:
-            return true;
-          default:
-            return false;
-        }
+      static func IsValidValue(value:Int32) ->Bool {
+          if let check = Label(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 
@@ -3568,13 +3564,11 @@ final class PBFileOptions : ExtendableMessage {
       case CodeSize = 2
       case LiteRuntime = 3
 
-      static func IsValidValue(value:OptimizeMode) ->Bool {
-        switch value {
-          case .Speed, .CodeSize, .LiteRuntime:
-            return true;
-          default:
-            return false;
-        }
+      static func IsValidValue(value:Int32) ->Bool {
+          if let check = OptimizeMode(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 
@@ -4429,13 +4423,11 @@ final class PBFieldOptions : ExtendableMessage {
       case Cord = 1
       case StringPiece = 2
 
-      static func IsValidValue(value:Ctype) ->Bool {
-        switch value {
-          case .String, .Cord, .StringPiece:
-            return true;
-          default:
-            return false;
-        }
+      static func IsValidValue(value:Int32) ->Bool {
+          if let check = Ctype(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 
