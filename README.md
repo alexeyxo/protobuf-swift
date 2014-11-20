@@ -33,8 +33,9 @@ This project is based on an implementation of Protocol Buffers from Google.  See
 ## Compile ".proto" files.
 `protoc  person.proto --swift_out="./"`
 
-## Example
-```
+## Serializing
+
+```swift
 message Person {
     required int32 id = 1;
     required string name = 2;
@@ -42,16 +43,22 @@ message Person {
 }
 ```
 
-```
-    let personBuilder = Person.builder()
-    personBuilder.id = 123
-    personBuilder.name = "Bob"
-    personBuilder.email = "bob@example.com"
-    let person = personBuilder.build()
-    println("\(person)")
+```swift
+let personBuilder = Person.builder()
+personBuilder.id = 123
+personBuilder.name = "Bob"
+personBuilder.email = "bob@example.com"
+let person = personBuilder.build()
+println("\(person)")
 
-    person.data() //return [Byte]
-    person.getNSData() //Return NSData
+person.data() //return [Byte]
+person.getNSData() //Return NSData
+```
+
+## Deserializing
+
+```swift
+var person = Person.builder().mergeFromData(bytes).build() // from [Byte]
 ```
 
 ## Using Oneof
