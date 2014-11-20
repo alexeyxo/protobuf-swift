@@ -2322,18 +2322,16 @@ final class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
 
       case 32 :
         var value = input.readEnum()
-        var enumMergResult:PBFieldDescriptorProto.Label = PBFieldDescriptorProto.Label(rawValue:value)!
-        if (PBFieldDescriptorProto.Label.IsValidValue(enumMergResult)) {
-             label = enumMergResult
+        if let enums = PBFieldDescriptorProto.Label(rawValue:value){
+             label = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(4, value:Int64(value))
         }
 
       case 40 :
         var value = input.readEnum()
-        var enumMergResult:PBFieldDescriptorProto.Types = PBFieldDescriptorProto.Types(rawValue:value)!
-        if (PBFieldDescriptorProto.Types.IsValidValue(enumMergResult)) {
-             types = enumMergResult
+        if let enums = PBFieldDescriptorProto.Types(rawValue:value){
+             types = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(5, value:Int64(value))
         }
@@ -4105,9 +4103,8 @@ final class PBFileOptionsBuilder : ExtendableMessageBuilder {
 
       case 72 :
         var value = input.readEnum()
-        var enumMergResult:PBFileOptions.OptimizeMode = PBFileOptions.OptimizeMode(rawValue:value)!
-        if (PBFileOptions.OptimizeMode.IsValidValue(enumMergResult)) {
-             optimizeFor = enumMergResult
+        if let enums = PBFileOptions.OptimizeMode(rawValue:value){
+             optimizeFor = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(9, value:Int64(value))
         }
@@ -4850,9 +4847,8 @@ final class PBFieldOptionsBuilder : ExtendableMessageBuilder {
 
       case 8 :
         var value = input.readEnum()
-        var enumMergResult:PBFieldOptions.Ctype = PBFieldOptions.Ctype(rawValue:value)!
-        if (PBFieldOptions.Ctype.IsValidValue(enumMergResult)) {
-             ctype = enumMergResult
+        if let enums = PBFieldOptions.Ctype(rawValue:value){
+             ctype = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(1, value:Int64(value))
         }

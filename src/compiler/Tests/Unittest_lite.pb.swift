@@ -5025,27 +5025,24 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
 
       case 168 :
         var value = input.readEnum()
-        var enumMergResult:TestAllTypesLite.NestedEnum = TestAllTypesLite.NestedEnum(rawValue:value)!
-        if (TestAllTypesLite.NestedEnum.IsValidValue(enumMergResult)) {
-             optionalNestedEnum = enumMergResult
+        if let enums = TestAllTypesLite.NestedEnum(rawValue:value){
+             optionalNestedEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(21, value:Int64(value))
         }
 
       case 176 :
         var value = input.readEnum()
-        var enumMergResult:ForeignEnumLite = ForeignEnumLite(rawValue:value)!
-        if (ForeignEnumLite.IsValidValue(enumMergResult)) {
-             optionalForeignEnum = enumMergResult
+        if let enums = ForeignEnumLite(rawValue:value){
+             optionalForeignEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(22, value:Int64(value))
         }
 
       case 184 :
         var value = input.readEnum()
-        var enumMergResult:ImportEnumLite = ImportEnumLite(rawValue:value)!
-        if (ImportEnumLite.IsValidValue(enumMergResult)) {
-             optionalImportEnum = enumMergResult
+        if let enums = ImportEnumLite(rawValue:value){
+             optionalImportEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(23, value:Int64(value))
         }
@@ -5138,27 +5135,27 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
         repeatedImportMessage += [subBuilder.buildPartial()]
 
       case 408 :
-        var value:TestAllTypesLite.NestedEnum = TestAllTypesLite.NestedEnum(rawValue:input.readEnum())!
-        if TestAllTypesLite.NestedEnum.IsValidValue(value) {
-             builderResult.repeatedNestedEnum += [value]
+        let value = input.readEnum()
+        if let enums = TestAllTypesLite.NestedEnum(rawValue:value) {
+             builderResult.repeatedNestedEnum += [enums]
         } else {
-             unknownFieldsBuilder.mergeVarintField(51, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(51, value:Int64(value))
         }
 
       case 416 :
-        var value:ForeignEnumLite = ForeignEnumLite(rawValue:input.readEnum())!
-        if ForeignEnumLite.IsValidValue(value) {
-             builderResult.repeatedForeignEnum += [value]
+        let value = input.readEnum()
+        if let enums = ForeignEnumLite(rawValue:value) {
+             builderResult.repeatedForeignEnum += [enums]
         } else {
-             unknownFieldsBuilder.mergeVarintField(52, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(52, value:Int64(value))
         }
 
       case 424 :
-        var value:ImportEnumLite = ImportEnumLite(rawValue:input.readEnum())!
-        if ImportEnumLite.IsValidValue(value) {
-             builderResult.repeatedImportEnum += [value]
+        let value = input.readEnum()
+        if let enums = ImportEnumLite(rawValue:value) {
+             builderResult.repeatedImportEnum += [enums]
         } else {
-             unknownFieldsBuilder.mergeVarintField(53, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(53, value:Int64(value))
         }
 
       case 434 :
@@ -5219,27 +5216,24 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
 
       case 648 :
         var value = input.readEnum()
-        var enumMergResult:TestAllTypesLite.NestedEnum = TestAllTypesLite.NestedEnum(rawValue:value)!
-        if (TestAllTypesLite.NestedEnum.IsValidValue(enumMergResult)) {
-             defaultNestedEnum = enumMergResult
+        if let enums = TestAllTypesLite.NestedEnum(rawValue:value){
+             defaultNestedEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(81, value:Int64(value))
         }
 
       case 656 :
         var value = input.readEnum()
-        var enumMergResult:ForeignEnumLite = ForeignEnumLite(rawValue:value)!
-        if (ForeignEnumLite.IsValidValue(enumMergResult)) {
-             defaultForeignEnum = enumMergResult
+        if let enums = ForeignEnumLite(rawValue:value){
+             defaultForeignEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(82, value:Int64(value))
         }
 
       case 664 :
         var value = input.readEnum()
-        var enumMergResult:ImportEnumLite = ImportEnumLite(rawValue:value)!
-        if (ImportEnumLite.IsValidValue(enumMergResult)) {
-             defaultImportEnum = enumMergResult
+        if let enums = ImportEnumLite(rawValue:value){
+             defaultImportEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(83, value:Int64(value))
         }
@@ -6273,11 +6267,11 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
         var length:Int32 = input.readRawVarint32()
         var oldLimit:Int32 = input.pushLimit(length)
         while input.bytesUntilLimit() > 0 {
-        var value:ForeignEnumLite = ForeignEnumLite(rawValue:input.readEnum())!
-        if ForeignEnumLite.IsValidValue(value) {
-             builderResult.packedEnum += [value]
+        let value = input.readEnum()
+        if let enums = ForeignEnumLite(rawValue:value) {
+             builderResult.packedEnum += [enums]
         } else {
-             unknownFieldsBuilder.mergeVarintField(103, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(103, value:Int64(value))
         }
         }
         input.popLimit(oldLimit)

@@ -33,9 +33,9 @@ enum ImportEnum:Int32 {
   static func IsValidValue(value:ImportEnum) ->Bool {
     switch value {
       case .ImportFoo, .ImportBar, .ImportBaz:
-        return true
+        return true;
       default:
-        return false
+        return false;
     }
   }
 }

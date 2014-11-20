@@ -151,9 +151,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        
                        "var value = input.readEnum()\n"
-                       "var enumMergResult:$type$ = $type$(rawValue:value)!\n"
-                       "if ($type$.IsValidValue(enumMergResult)) {\n"
-                       "     $name$ = enumMergResult\n"
+                       "if let enums = $type$(rawValue:value){\n"
+                       "     $name$ = enums\n"
                        "} else {\n"
                        "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(value))\n"
                        "}\n");
@@ -271,11 +270,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         printer->Print(variables_,
-                       "var value:$type$ = $type$(rawValue:input.readEnum())!\n"
-                       "if $type$.IsValidValue(value) {\n"
-                       "     builderResult.$name$ += [value]\n"
+                       "let value = input.readEnum()\n"
+                       "if let enums = $type$(rawValue:value) {\n"
+                       "     builderResult.$name$ += [enums]\n"
                        "} else {\n"
-                       "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(value.rawValue))\n"
+                       "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(value))\n"
                        "}\n");
         
         if (descriptor_->options().packed()) {

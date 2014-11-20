@@ -1236,9 +1236,9 @@ enum ForeignEnum:Int32 {
   static func IsValidValue(value:ForeignEnum) ->Bool {
     switch value {
       case .ForeignFoo, .ForeignBar, .ForeignBaz:
-        return true
+        return true;
       default:
-        return false
+        return false;
     }
   }
 }
@@ -1259,9 +1259,9 @@ enum TestEnumWithDupValue:Int32 {
   static func IsValidValue(value:TestEnumWithDupValue) ->Bool {
     switch value {
       case .Foo1, .Bar1, .Baz:
-        return true
+        return true;
       default:
-        return false
+        return false;
     }
   }
 }
@@ -1286,9 +1286,9 @@ enum TestSparseEnum:Int32 {
   static func IsValidValue(value:TestSparseEnum) ->Bool {
     switch value {
       case .SparseA, .SparseB, .SparseC, .SparseD, .SparseE, .SparseF, .SparseG:
-        return true
+        return true;
       default:
-        return false
+        return false;
     }
   }
 }
@@ -2781,9 +2781,9 @@ final class TestAllTypes : GeneratedMessage {
       static func IsValidValue(value:NestedEnum) ->Bool {
         switch value {
           case .Foo, .Bar, .Baz, .Neg:
-            return true
+            return true;
           default:
-            return false
+            return false;
         }
       }
     }
@@ -5856,27 +5856,24 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
 
       case 168 :
         var value = input.readEnum()
-        var enumMergResult:TestAllTypes.NestedEnum = TestAllTypes.NestedEnum(rawValue:value)!
-        if (TestAllTypes.NestedEnum.IsValidValue(enumMergResult)) {
-             optionalNestedEnum = enumMergResult
+        if let enums = TestAllTypes.NestedEnum(rawValue:value){
+             optionalNestedEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(21, value:Int64(value))
         }
 
       case 176 :
         var value = input.readEnum()
-        var enumMergResult:ForeignEnum = ForeignEnum(rawValue:value)!
-        if (ForeignEnum.IsValidValue(enumMergResult)) {
-             optionalForeignEnum = enumMergResult
+        if let enums = ForeignEnum(rawValue:value){
+             optionalForeignEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(22, value:Int64(value))
         }
 
       case 184 :
         var value = input.readEnum()
-        var enumMergResult:ImportEnum = ImportEnum(rawValue:value)!
-        if (ImportEnum.IsValidValue(enumMergResult)) {
-             optionalImportEnum = enumMergResult
+        if let enums = ImportEnum(rawValue:value){
+             optionalImportEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(23, value:Int64(value))
         }
@@ -5969,27 +5966,27 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
         repeatedImportMessage += [subBuilder.buildPartial()]
 
       case 408 :
-        var value:TestAllTypes.NestedEnum = TestAllTypes.NestedEnum(rawValue:input.readEnum())!
-        if TestAllTypes.NestedEnum.IsValidValue(value) {
-             builderResult.repeatedNestedEnum += [value]
+        let value = input.readEnum()
+        if let enums = TestAllTypes.NestedEnum(rawValue:value) {
+             builderResult.repeatedNestedEnum += [enums]
         } else {
-             unknownFieldsBuilder.mergeVarintField(51, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(51, value:Int64(value))
         }
 
       case 416 :
-        var value:ForeignEnum = ForeignEnum(rawValue:input.readEnum())!
-        if ForeignEnum.IsValidValue(value) {
-             builderResult.repeatedForeignEnum += [value]
+        let value = input.readEnum()
+        if let enums = ForeignEnum(rawValue:value) {
+             builderResult.repeatedForeignEnum += [enums]
         } else {
-             unknownFieldsBuilder.mergeVarintField(52, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(52, value:Int64(value))
         }
 
       case 424 :
-        var value:ImportEnum = ImportEnum(rawValue:input.readEnum())!
-        if ImportEnum.IsValidValue(value) {
-             builderResult.repeatedImportEnum += [value]
+        let value = input.readEnum()
+        if let enums = ImportEnum(rawValue:value) {
+             builderResult.repeatedImportEnum += [enums]
         } else {
-             unknownFieldsBuilder.mergeVarintField(53, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(53, value:Int64(value))
         }
 
       case 434 :
@@ -6050,27 +6047,24 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
 
       case 648 :
         var value = input.readEnum()
-        var enumMergResult:TestAllTypes.NestedEnum = TestAllTypes.NestedEnum(rawValue:value)!
-        if (TestAllTypes.NestedEnum.IsValidValue(enumMergResult)) {
-             defaultNestedEnum = enumMergResult
+        if let enums = TestAllTypes.NestedEnum(rawValue:value){
+             defaultNestedEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(81, value:Int64(value))
         }
 
       case 656 :
         var value = input.readEnum()
-        var enumMergResult:ForeignEnum = ForeignEnum(rawValue:value)!
-        if (ForeignEnum.IsValidValue(enumMergResult)) {
-             defaultForeignEnum = enumMergResult
+        if let enums = ForeignEnum(rawValue:value){
+             defaultForeignEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(82, value:Int64(value))
         }
 
       case 664 :
         var value = input.readEnum()
-        var enumMergResult:ImportEnum = ImportEnum(rawValue:value)!
-        if (ImportEnum.IsValidValue(enumMergResult)) {
-             defaultImportEnum = enumMergResult
+        if let enums = ImportEnum(rawValue:value){
+             defaultImportEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(83, value:Int64(value))
         }
@@ -12807,9 +12801,8 @@ final class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
 
       case 24 :
         var value = input.readEnum()
-        var enumMergResult:ForeignEnum = ForeignEnum(rawValue:value)!
-        if (ForeignEnum.IsValidValue(enumMergResult)) {
-             enumField = enumMergResult
+        if let enums = ForeignEnum(rawValue:value){
+             enumField = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(3, value:Int64(value))
         }
@@ -12835,11 +12828,11 @@ final class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
         repeatedStringField += [input.readString()]
 
       case 72 :
-        var value:ForeignEnum = ForeignEnum(rawValue:input.readEnum())!
-        if ForeignEnum.IsValidValue(value) {
-             builderResult.repeatedEnumField += [value]
+        let value = input.readEnum()
+        if let enums = ForeignEnum(rawValue:value) {
+             builderResult.repeatedEnumField += [enums]
         } else {
-             unknownFieldsBuilder.mergeVarintField(9, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(9, value:Int64(value))
         }
 
       case 82 :
@@ -14532,9 +14525,8 @@ final class SparseEnumMessageBuilder : GeneratedMessageBuilder {
 
       case 8 :
         var value = input.readEnum()
-        var enumMergResult:TestSparseEnum = TestSparseEnum(rawValue:value)!
-        if (TestSparseEnum.IsValidValue(enumMergResult)) {
-             sparseEnum = enumMergResult
+        if let enums = TestSparseEnum(rawValue:value){
+             sparseEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(1, value:Int64(value))
         }
@@ -18116,9 +18108,9 @@ final class TestOneof2 : GeneratedMessage {
       static func IsValidValue(value:NestedEnum) ->Bool {
         switch value {
           case .Foo, .Bar, .Baz:
-            return true
+            return true;
           default:
-            return false
+            return false;
         }
       }
     }
@@ -19178,9 +19170,8 @@ final class TestOneof2Builder : GeneratedMessageBuilder {
 
       case 48 :
         var value = input.readEnum()
-        var enumMergResult:TestOneof2.NestedEnum = TestOneof2.NestedEnum(rawValue:value)!
-        if (TestOneof2.NestedEnum.IsValidValue(enumMergResult)) {
-             fooEnum = enumMergResult
+        if let enums = TestOneof2.NestedEnum(rawValue:value){
+             fooEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(6, value:Int64(value))
         }
@@ -19226,9 +19217,8 @@ final class TestOneof2Builder : GeneratedMessageBuilder {
 
       case 136 :
         var value = input.readEnum()
-        var enumMergResult:TestOneof2.NestedEnum = TestOneof2.NestedEnum(rawValue:value)!
-        if (TestOneof2.NestedEnum.IsValidValue(enumMergResult)) {
-             barEnum = enumMergResult
+        if let enums = TestOneof2.NestedEnum(rawValue:value){
+             barEnum = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(17, value:Int64(value))
         }
@@ -20640,11 +20630,11 @@ final class TestPackedTypesBuilder : GeneratedMessageBuilder {
         var length:Int32 = input.readRawVarint32()
         var oldLimit:Int32 = input.pushLimit(length)
         while input.bytesUntilLimit() > 0 {
-        var value:ForeignEnum = ForeignEnum(rawValue:input.readEnum())!
-        if ForeignEnum.IsValidValue(value) {
-             builderResult.packedEnum += [value]
+        let value = input.readEnum()
+        if let enums = ForeignEnum(rawValue:value) {
+             builderResult.packedEnum += [enums]
         } else {
-             unknownFieldsBuilder.mergeVarintField(103, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(103, value:Int64(value))
         }
         }
         input.popLimit(oldLimit)
@@ -21306,11 +21296,11 @@ final class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
         unpackedBool += [input.readBool()]
 
       case 824 :
-        var value:ForeignEnum = ForeignEnum(rawValue:input.readEnum())!
-        if ForeignEnum.IsValidValue(value) {
-             builderResult.unpackedEnum += [value]
+        let value = input.readEnum()
+        if let enums = ForeignEnum(rawValue:value) {
+             builderResult.unpackedEnum += [enums]
         } else {
-             unknownFieldsBuilder.mergeVarintField(103, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(103, value:Int64(value))
         }
 
       default:
@@ -21826,9 +21816,9 @@ final class TestDynamicExtensions : GeneratedMessage {
       static func IsValidValue(value:DynamicEnumType) ->Bool {
         switch value {
           case .DynamicFoo, .DynamicBar, .DynamicBaz:
-            return true
+            return true;
           default:
-            return false
+            return false;
         }
       }
     }
@@ -22261,18 +22251,16 @@ final class TestDynamicExtensionsBuilder : GeneratedMessageBuilder {
 
       case 16008 :
         var value = input.readEnum()
-        var enumMergResult:ForeignEnum = ForeignEnum(rawValue:value)!
-        if (ForeignEnum.IsValidValue(enumMergResult)) {
-             enumExtension = enumMergResult
+        if let enums = ForeignEnum(rawValue:value){
+             enumExtension = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(2001, value:Int64(value))
         }
 
       case 16016 :
         var value = input.readEnum()
-        var enumMergResult:TestDynamicExtensions.DynamicEnumType = TestDynamicExtensions.DynamicEnumType(rawValue:value)!
-        if (TestDynamicExtensions.DynamicEnumType.IsValidValue(enumMergResult)) {
-             dynamicEnumExtension = enumMergResult
+        if let enums = TestDynamicExtensions.DynamicEnumType(rawValue:value){
+             dynamicEnumExtension = enums
         } else {
              unknownFieldsBuilder.mergeVarintField(2002, value:Int64(value))
         }
