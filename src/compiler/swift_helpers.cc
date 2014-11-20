@@ -39,7 +39,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string CheckReservedNames(const string& input)
     {
         string result;
-        if (input == "extension") {
+        if (input == "extension" || input == "description") {
             result = input + "_";
         }
         else if (input == "Type") {

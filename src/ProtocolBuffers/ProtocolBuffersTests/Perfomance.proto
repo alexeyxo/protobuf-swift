@@ -6,6 +6,7 @@ message Perfomance
    required float floats  = 4;
    optional string str  = 5;
    optional bytes bytes  = 6;
+   optional string description = 7;
 }
 
 message TestBytes

@@ -134,7 +134,6 @@
 		3F2B1CDD19E2A6EC001A505E /* Unittest_import.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_import.pb.swift; sourceTree = "<group>"; };
 		3F2B1CDF19E2A6EC001A505E /* Unittest_import_public.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_import_public.pb.swift; sourceTree = "<group>"; };
 		3F41061C1A1A667700742090 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F41061F1A1A667800742090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F4106261A1A667800742090 /* UnitTesting(OSX).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UnitTesting(OSX).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41062C1A1A667800742090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtilities.swift; sourceTree = "<group>"; };
@@ -145,7 +144,7 @@
 		3F85569D19C71BCF003802F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F85569E19C71BCF003802F2 /* ProtocolBuffers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolBuffers.h; sourceTree = "<group>"; };
 		3F8556A419C71BCF003802F2 /* ProtocolBuffersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProtocolBuffersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F8556A719C71BCF003802F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F8556A719C71BCF003802F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../ProtocolBuffersTests/Info.plist; sourceTree = "<group>"; };
 		3F8556A819C71BCF003802F2 /* ProtocolBuffersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolBuffersTests.swift; sourceTree = "<group>"; };
 		3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedInputStreamTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3F8556CF19C71C05003802F2 /* CodedOuputStreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedOuputStreamTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -222,19 +221,10 @@
 			path = pbTests;
 			sourceTree = "<group>";
 		};
-		3F41061D1A1A667800742090 /* ProtocolBuffers(OSX) */ = {
-			isa = PBXGroup;
-			children = (
-				3FF2DCC21A1A685D00226761 /* OSX */,
-				3FF2DCC11A1A684E00226761 /* iOS */,
-			);
-			path = "ProtocolBuffers(OSX)";
-			sourceTree = "<group>";
-		};
 		3F41061E1A1A667800742090 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3F41061F1A1A667800742090 /* Info.plist */,
+				3F8556A719C71BCF003802F2 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -253,7 +243,6 @@
 			children = (
 				3F85569B19C71BCF003802F2 /* ProtocolBuffers */,
 				3F8556A519C71BCF003802F2 /* ProtocolBuffersTests */,
-				3F41061D1A1A667800742090 /* ProtocolBuffers(OSX) */,
 				3F85569A19C71BCF003802F2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -290,6 +279,8 @@
 		3F8556A519C71BCF003802F2 /* ProtocolBuffersTests */ = {
 			isa = PBXGroup;
 			children = (
+				3FF2DCC21A1A685D00226761 /* OSX */,
+				3FF2DCC11A1A684E00226761 /* iOS */,
 				3F93013A1A0964ED00F7A20B /* testdata */,
 				3F2B1CD719E2A6EC001A505E /* pbTests */,
 				3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */,
@@ -303,17 +294,8 @@
 				3F813FF31A1030000008F493 /* SizeTest.swift */,
 				3F813FF51A12C0E90008F493 /* WireFormatTests.swift */,
 				3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */,
-				3F8556A619C71BCF003802F2 /* Supporting Files */,
 			);
 			path = ProtocolBuffersTests;
-			sourceTree = "<group>";
-		};
-		3F8556A619C71BCF003802F2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3F8556A719C71BCF003802F2 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		3F93013A1A0964ED00F7A20B /* testdata */ = {
@@ -333,6 +315,7 @@
 				3F41061E1A1A667800742090 /* Supporting Files */,
 			);
 			name = iOS;
+			path = "../ProtocolBuffers(OSX)";
 			sourceTree = "<group>";
 		};
 		3FF2DCC21A1A685D00226761 /* OSX */ = {
@@ -341,6 +324,7 @@
 				3F41062B1A1A667800742090 /* Supporting Files */,
 			);
 			name = OSX;
+			path = "../ProtocolBuffers(OSX)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -631,7 +615,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "ProtocolBuffers(OSX)/Info.plist";
+				INFOPLIST_FILE = ProtocolBuffers/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -651,7 +635,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "ProtocolBuffers(OSX)/Info.plist";
+				INFOPLIST_FILE = ProtocolBuffers/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
