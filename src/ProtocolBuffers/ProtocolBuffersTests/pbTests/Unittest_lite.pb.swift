@@ -3117,8 +3117,8 @@ final class TestAllTypesLite : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ optionalString.hashValue
           }
           if hasOptionalBytes {
-             for value in optionalBytes {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfoptionalBytes in optionalBytes {
+                 hashCode = (hashCode &* 31) &+ oneValueOfoptionalBytes.hashValue
              }
           }
           if hasOptionalGroup {
@@ -3274,8 +3274,8 @@ final class TestAllTypesLite : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ defaultString.hashValue
           }
           if hasDefaultBytes {
-             for value in defaultBytes {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfdefaultBytes in defaultBytes {
+                 hashCode = (hashCode &* 31) &+ oneValueOfdefaultBytes.hashValue
              }
           }
           if hasDefaultNestedEnum {
@@ -3303,8 +3303,8 @@ final class TestAllTypesLite : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ oneofString.hashValue
           }
           if hasOneofBytes {
-             for value in oneofBytes {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfoneofBytes in oneofBytes {
+                 hashCode = (hashCode &* 31) &+ oneValueOfoneofBytes.hashValue
              }
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue

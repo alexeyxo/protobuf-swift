@@ -3944,8 +3944,8 @@ final class TestAllTypes : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ optionalString.hashValue
           }
           if hasOptionalBytes {
-             for value in optionalBytes {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfoptionalBytes in optionalBytes {
+                 hashCode = (hashCode &* 31) &+ oneValueOfoptionalBytes.hashValue
              }
           }
           if hasOptionalGroup {
@@ -4101,8 +4101,8 @@ final class TestAllTypes : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ defaultString.hashValue
           }
           if hasDefaultBytes {
-             for value in defaultBytes {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfdefaultBytes in defaultBytes {
+                 hashCode = (hashCode &* 31) &+ oneValueOfdefaultBytes.hashValue
              }
           }
           if hasDefaultNestedEnum {
@@ -4130,8 +4130,8 @@ final class TestAllTypes : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ oneofString.hashValue
           }
           if hasOneofBytes {
-             for value in oneofBytes {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfoneofBytes in oneofBytes {
+                 hashCode = (hashCode &* 31) &+ oneValueOfoneofBytes.hashValue
              }
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -13509,8 +13509,8 @@ final class TestExtremeDefaultValues : GeneratedMessage {
       get {
           var hashCode:Int = 7
           if hasEscapedBytes {
-             for value in escapedBytes {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfescapedBytes in escapedBytes {
+                 hashCode = (hashCode &* 31) &+ oneValueOfescapedBytes.hashValue
              }
           }
           if hasLargeUint32 {
@@ -13580,8 +13580,8 @@ final class TestExtremeDefaultValues : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ stringWithZero.hashValue
           }
           if hasBytesWithZero {
-             for value in bytesWithZero {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfbytesWithZero in bytesWithZero {
+                 hashCode = (hashCode &* 31) &+ oneValueOfbytesWithZero.hashValue
              }
           }
           if hasStringPieceWithZero {
@@ -14971,8 +14971,8 @@ final class OneBytes : GeneratedMessage {
       get {
           var hashCode:Int = 7
           if hasData {
-             for value in data {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfdata in data {
+                 hashCode = (hashCode &* 31) &+ oneValueOfdata.hashValue
              }
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -18619,8 +18619,8 @@ final class TestOneof2 : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ fooStringPiece.hashValue
           }
           if hasFooBytes {
-             for value in fooBytes {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOffooBytes in fooBytes {
+                 hashCode = (hashCode &* 31) &+ oneValueOffooBytes.hashValue
              }
           }
           if hasFooEnum {
@@ -18648,8 +18648,8 @@ final class TestOneof2 : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ barStringPiece.hashValue
           }
           if hasBarBytes {
-             for value in barBytes {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfbarBytes in barBytes {
+                 hashCode = (hashCode &* 31) &+ oneValueOfbarBytes.hashValue
              }
           }
           if hasBarEnum {

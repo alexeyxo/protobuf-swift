@@ -919,8 +919,8 @@ final class RawMessageSet : GeneratedMessage {
                  hashCode = (hashCode &* 31) &+ typeId.hashValue
               }
               if hasMessage {
-                 for value in message {
-                     hashCode = (hashCode &* 31) &+ value.hashValue
+                 for oneValueOfmessage in message {
+                     hashCode = (hashCode &* 31) &+ oneValueOfmessage.hashValue
                  }
               }
               hashCode = (hashCode &* 31) &+  unknownFields.hashValue

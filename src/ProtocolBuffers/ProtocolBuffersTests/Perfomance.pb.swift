@@ -219,8 +219,8 @@ final class Perfomance : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ str.hashValue
           }
           if hasBytes {
-             for value in bytes {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfbytes in bytes {
+                 hashCode = (hashCode &* 31) &+ oneValueOfbytes.hashValue
              }
           }
           if hasDescription {
@@ -559,8 +559,8 @@ final class TestBytes : GeneratedMessage {
       get {
           var hashCode:Int = 7
           if hasBytes {
-             for value in bytes {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfbytes in bytes {
+                 hashCode = (hashCode &* 31) &+ oneValueOfbytes.hashValue
              }
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue

@@ -6114,8 +6114,8 @@ final class PBUninterpretedOption : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ doubleValue.hashValue
           }
           if hasStringValue {
-             for value in stringValue {
-                 hashCode = (hashCode &* 31) &+ value.hashValue
+             for oneValueOfstringValue in stringValue {
+                 hashCode = (hashCode &* 31) &+ oneValueOfstringValue.hashValue
              }
           }
           if hasAggregateValue {

@@ -310,8 +310,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (descriptor_->type() == FieldDescriptor::TYPE_BYTES) {
             printer->Print(variables_,
                            "if has$capitalized_name$ {\n"
-                           "   for value in $name$ {\n"
-                           "       hashCode = (hashCode &* 31) &+ value.hashValue\n"
+                           "   for oneValue$name$ in $name$ {\n"
+                           "       hashCode = (hashCode &* 31) &+ oneValue$name$.hashValue\n"
                            "   }\n"
                            "}\n");
         }
@@ -335,20 +335,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void RepeatedPrimitiveFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-        //    if(isObjectArray(descriptor_))
-        //    {
-        //      printer->Print(variables_, "@property (strong) NSMutableArray * $list_name$;\n");
-        //    }
-        //    else
-        //    {
-        //      printer->Print(variables_, "@property (strong) PBAppendableArray * $list_name$;\n");
-        //    }
         
     }
     
     
     void RepeatedPrimitiveFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
-        //    printer->Print(variables_, "var $name$:[$storage_type$]\n");
     }
     
     
