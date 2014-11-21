@@ -45,8 +45,8 @@ final class TestEmbedOptimizedForSize : GeneratedMessage {
      }
     }
     var isInitrepeatedMessage:Bool = true
-    for element in repeatedMessage {
-        if (!element.isInitialized()) {
+    for oneElementrepeatedMessage in repeatedMessage {
+        if (!oneElementrepeatedMessage.isInitialized()) {
             isInitrepeatedMessage = false
             break 
         }
@@ -60,8 +60,8 @@ final class TestEmbedOptimizedForSize : GeneratedMessage {
     if hasOptionalMessage {
       output.writeMessage(1, value:optionalMessage)
     }
-    for element in repeatedMessage {
-        output.writeMessage(2, value:element)
+    for oneElementrepeatedMessage in repeatedMessage {
+        output.writeMessage(2, value:oneElementrepeatedMessage)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
@@ -75,8 +75,8 @@ final class TestEmbedOptimizedForSize : GeneratedMessage {
     if hasOptionalMessage {
       size += WireFormat.computeMessageSize(1, value:optionalMessage)
     }
-    for element in repeatedMessage {
-        size += WireFormat.computeMessageSize(2, value:element)
+    for oneElementrepeatedMessage in repeatedMessage {
+        size += WireFormat.computeMessageSize(2, value:oneElementrepeatedMessage)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
@@ -125,9 +125,9 @@ final class TestEmbedOptimizedForSize : GeneratedMessage {
       output += "\(indent) }\n"
     }
     var repeatedMessageElementIndex:Int = 0
-    for element in repeatedMessage {
+    for oneElementrepeatedMessage in repeatedMessage {
         output += "\(indent) repeatedMessage[\(repeatedMessageElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedMessageElementIndex++
     }
@@ -139,8 +139,8 @@ final class TestEmbedOptimizedForSize : GeneratedMessage {
           if hasOptionalMessage {
             hashCode = (hashCode &* 31) &+ optionalMessage.hashValue
           }
-          for element in repeatedMessage {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedMessage in repeatedMessage {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedMessage.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode

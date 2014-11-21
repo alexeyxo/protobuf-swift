@@ -909,8 +909,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                     case FieldDescriptor::LABEL_REPEATED:
                         printer->Print(vars,
                                        "var isInit$name$:Bool = true\n"
-                                       "for element in $name$ {\n"
-                                       "    if (!element.isInitialized()) {\n"
+                                       "for oneElement$name$ in $name$ {\n"
+                                       "    if (!oneElement$name$.isInitialized()) {\n"
                                        "        isInit$name$ = false\n"
                                        "        break \n"
                                        "    }\n"

@@ -275,8 +275,8 @@ final class PBFileDescriptorSet : GeneratedMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInitfile:Bool = true
-    for element in file {
-        if (!element.isInitialized()) {
+    for oneElementfile in file {
+        if (!oneElementfile.isInitialized()) {
             isInitfile = false
             break 
         }
@@ -287,8 +287,8 @@ final class PBFileDescriptorSet : GeneratedMessage {
    return true
   }
   override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    for element in file {
-        output.writeMessage(1, value:element)
+    for oneElementfile in file {
+        output.writeMessage(1, value:oneElementfile)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
@@ -299,8 +299,8 @@ final class PBFileDescriptorSet : GeneratedMessage {
     }
 
     size = 0
-    for element in file {
-        size += WireFormat.computeMessageSize(1, value:element)
+    for oneElementfile in file {
+        size += WireFormat.computeMessageSize(1, value:oneElementfile)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
@@ -344,9 +344,9 @@ final class PBFileDescriptorSet : GeneratedMessage {
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     var fileElementIndex:Int = 0
-    for element in file {
+    for oneElementfile in file {
         output += "\(indent) file[\(fileElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementfile.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         fileElementIndex++
     }
@@ -355,8 +355,8 @@ final class PBFileDescriptorSet : GeneratedMessage {
   override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in file {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementfile in file {
+              hashCode = (hashCode &* 31) &+ oneElementfile.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -480,8 +480,8 @@ final class PBFileDescriptorProto : GeneratedMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInitmessageType:Bool = true
-    for element in messageType {
-        if (!element.isInitialized()) {
+    for oneElementmessageType in messageType {
+        if (!oneElementmessageType.isInitialized()) {
             isInitmessageType = false
             break 
         }
@@ -490,8 +490,8 @@ final class PBFileDescriptorProto : GeneratedMessage {
      return isInitmessageType
      }
     var isInitenumType:Bool = true
-    for element in enumType {
-        if (!element.isInitialized()) {
+    for oneElementenumType in enumType {
+        if (!oneElementenumType.isInitialized()) {
             isInitenumType = false
             break 
         }
@@ -500,8 +500,8 @@ final class PBFileDescriptorProto : GeneratedMessage {
      return isInitenumType
      }
     var isInitservice:Bool = true
-    for element in service {
-        if (!element.isInitialized()) {
+    for oneElementservice in service {
+        if (!oneElementservice.isInitialized()) {
             isInitservice = false
             break 
         }
@@ -510,8 +510,8 @@ final class PBFileDescriptorProto : GeneratedMessage {
      return isInitservice
      }
     var isInitextension_:Bool = true
-    for element in extension_ {
-        if (!element.isInitialized()) {
+    for oneElementextension_ in extension_ {
+        if (!oneElementextension_.isInitialized()) {
             isInitextension_ = false
             break 
         }
@@ -534,21 +534,21 @@ final class PBFileDescriptorProto : GeneratedMessage {
       output.writeString(2, value:package)
     }
     if !dependency.isEmpty {
-      for value in dependency {
-        output.writeString(3, value:value)
+      for oneValuedependency in dependency {
+        output.writeString(3, value:oneValuedependency)
       }
     }
-    for element in messageType {
-        output.writeMessage(4, value:element)
+    for oneElementmessageType in messageType {
+        output.writeMessage(4, value:oneElementmessageType)
     }
-    for element in enumType {
-        output.writeMessage(5, value:element)
+    for oneElementenumType in enumType {
+        output.writeMessage(5, value:oneElementenumType)
     }
-    for element in service {
-        output.writeMessage(6, value:element)
+    for oneElementservice in service {
+        output.writeMessage(6, value:oneElementservice)
     }
-    for element in extension_ {
-        output.writeMessage(7, value:element)
+    for oneElementextension_ in extension_ {
+        output.writeMessage(7, value:oneElementextension_)
     }
     if hasOptions {
       output.writeMessage(8, value:options)
@@ -557,13 +557,13 @@ final class PBFileDescriptorProto : GeneratedMessage {
       output.writeMessage(9, value:sourceCodeInfo)
     }
     if !publicDependency.isEmpty {
-      for value in publicDependency {
-        output.writeInt32(10, value:value)
+      for oneValuepublicDependency in publicDependency {
+        output.writeInt32(10, value:oneValuepublicDependency)
       }
     }
     if !weakDependency.isEmpty {
-      for value in weakDependency {
-        output.writeInt32(11, value:value)
+      for oneValueweakDependency in weakDependency {
+        output.writeInt32(11, value:oneValueweakDependency)
       }
     }
     unknownFields.writeToCodedOutputStream(output)
@@ -582,22 +582,22 @@ final class PBFileDescriptorProto : GeneratedMessage {
       size += WireFormat.computeStringSize(2, value:package)
     }
     var dataSizeDependency:Int32 = 0
-    for element in dependency {
-        dataSizeDependency += WireFormat.computeStringSizeNoTag(element)
+    for oneValuedependency in dependency {
+        dataSizeDependency += WireFormat.computeStringSizeNoTag(oneValuedependency)
     }
     size += dataSizeDependency
     size += 1 * Int32(dependency.count)
-    for element in messageType {
-        size += WireFormat.computeMessageSize(4, value:element)
+    for oneElementmessageType in messageType {
+        size += WireFormat.computeMessageSize(4, value:oneElementmessageType)
     }
-    for element in enumType {
-        size += WireFormat.computeMessageSize(5, value:element)
+    for oneElementenumType in enumType {
+        size += WireFormat.computeMessageSize(5, value:oneElementenumType)
     }
-    for element in service {
-        size += WireFormat.computeMessageSize(6, value:element)
+    for oneElementservice in service {
+        size += WireFormat.computeMessageSize(6, value:oneElementservice)
     }
-    for element in extension_ {
-        size += WireFormat.computeMessageSize(7, value:element)
+    for oneElementextension_ in extension_ {
+        size += WireFormat.computeMessageSize(7, value:oneElementextension_)
     }
     if hasOptions {
       size += WireFormat.computeMessageSize(8, value:options)
@@ -606,14 +606,14 @@ final class PBFileDescriptorProto : GeneratedMessage {
       size += WireFormat.computeMessageSize(9, value:sourceCodeInfo)
     }
     var dataSizePublicDependency:Int32 = 0
-    for element in publicDependency {
-        dataSizePublicDependency += WireFormat.computeInt32SizeNoTag(element)
+    for oneValuepublicDependency in publicDependency {
+        dataSizePublicDependency += WireFormat.computeInt32SizeNoTag(oneValuepublicDependency)
     }
     size += dataSizePublicDependency
     size += 1 * Int32(publicDependency.count)
     var dataSizeWeakDependency:Int32 = 0
-    for element in weakDependency {
-        dataSizeWeakDependency += WireFormat.computeInt32SizeNoTag(element)
+    for oneValueweakDependency in weakDependency {
+        dataSizeWeakDependency += WireFormat.computeInt32SizeNoTag(oneValueweakDependency)
     }
     size += dataSizeWeakDependency
     size += 1 * Int32(weakDependency.count)
@@ -665,35 +665,35 @@ final class PBFileDescriptorProto : GeneratedMessage {
       output += "\(indent) package: \(package) \n"
     }
     var dependencyElementIndex:Int = 0
-    for element in dependency  {
-        output += "\(indent) dependency[\(dependencyElementIndex)]: \(element)\n"
+    for oneValuedependency in dependency  {
+        output += "\(indent) dependency[\(dependencyElementIndex)]: \(oneValuedependency)\n"
         dependencyElementIndex++
     }
     var messageTypeElementIndex:Int = 0
-    for element in messageType {
+    for oneElementmessageType in messageType {
         output += "\(indent) messageType[\(messageTypeElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementmessageType.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         messageTypeElementIndex++
     }
     var enumTypeElementIndex:Int = 0
-    for element in enumType {
+    for oneElementenumType in enumType {
         output += "\(indent) enumType[\(enumTypeElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementenumType.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         enumTypeElementIndex++
     }
     var serviceElementIndex:Int = 0
-    for element in service {
+    for oneElementservice in service {
         output += "\(indent) service[\(serviceElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementservice.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         serviceElementIndex++
     }
     var extension_ElementIndex:Int = 0
-    for element in extension_ {
+    for oneElementextension_ in extension_ {
         output += "\(indent) extension_[\(extension_ElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementextension_.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         extension_ElementIndex++
     }
@@ -708,13 +708,13 @@ final class PBFileDescriptorProto : GeneratedMessage {
       output += "\(indent) }\n"
     }
     var publicDependencyElementIndex:Int = 0
-    for element in publicDependency  {
-        output += "\(indent) publicDependency[\(publicDependencyElementIndex)]: \(element)\n"
+    for oneValuepublicDependency in publicDependency  {
+        output += "\(indent) publicDependency[\(publicDependencyElementIndex)]: \(oneValuepublicDependency)\n"
         publicDependencyElementIndex++
     }
     var weakDependencyElementIndex:Int = 0
-    for element in weakDependency  {
-        output += "\(indent) weakDependency[\(weakDependencyElementIndex)]: \(element)\n"
+    for oneValueweakDependency in weakDependency  {
+        output += "\(indent) weakDependency[\(weakDependencyElementIndex)]: \(oneValueweakDependency)\n"
         weakDependencyElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -728,20 +728,20 @@ final class PBFileDescriptorProto : GeneratedMessage {
           if hasPackage {
              hashCode = (hashCode &* 31) &+ package.hashValue
           }
-          for element in dependency {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuedependency in dependency {
+              hashCode = (hashCode &* 31) &+ oneValuedependency.hashValue
           }
-          for element in messageType {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementmessageType in messageType {
+              hashCode = (hashCode &* 31) &+ oneElementmessageType.hashValue
           }
-          for element in enumType {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementenumType in enumType {
+              hashCode = (hashCode &* 31) &+ oneElementenumType.hashValue
           }
-          for element in service {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementservice in service {
+              hashCode = (hashCode &* 31) &+ oneElementservice.hashValue
           }
-          for element in extension_ {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementextension_ in extension_ {
+              hashCode = (hashCode &* 31) &+ oneElementextension_.hashValue
           }
           if hasOptions {
             hashCode = (hashCode &* 31) &+ options.hashValue
@@ -749,11 +749,11 @@ final class PBFileDescriptorProto : GeneratedMessage {
           if hasSourceCodeInfo {
             hashCode = (hashCode &* 31) &+ sourceCodeInfo.hashValue
           }
-          for element in publicDependency {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepublicDependency in publicDependency {
+              hashCode = (hashCode &* 31) &+ oneValuepublicDependency.hashValue
           }
-          for element in weakDependency {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueweakDependency in weakDependency {
+              hashCode = (hashCode &* 31) &+ oneValueweakDependency.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -1350,8 +1350,8 @@ final class PBDescriptorProto : GeneratedMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInitfield:Bool = true
-    for element in field {
-        if (!element.isInitialized()) {
+    for oneElementfield in field {
+        if (!oneElementfield.isInitialized()) {
             isInitfield = false
             break 
         }
@@ -1360,8 +1360,8 @@ final class PBDescriptorProto : GeneratedMessage {
      return isInitfield
      }
     var isInitextension_:Bool = true
-    for element in extension_ {
-        if (!element.isInitialized()) {
+    for oneElementextension_ in extension_ {
+        if (!oneElementextension_.isInitialized()) {
             isInitextension_ = false
             break 
         }
@@ -1370,8 +1370,8 @@ final class PBDescriptorProto : GeneratedMessage {
      return isInitextension_
      }
     var isInitnestedType:Bool = true
-    for element in nestedType {
-        if (!element.isInitialized()) {
+    for oneElementnestedType in nestedType {
+        if (!oneElementnestedType.isInitialized()) {
             isInitnestedType = false
             break 
         }
@@ -1380,8 +1380,8 @@ final class PBDescriptorProto : GeneratedMessage {
      return isInitnestedType
      }
     var isInitenumType:Bool = true
-    for element in enumType {
-        if (!element.isInitialized()) {
+    for oneElementenumType in enumType {
+        if (!oneElementenumType.isInitialized()) {
             isInitenumType = false
             break 
         }
@@ -1400,20 +1400,20 @@ final class PBDescriptorProto : GeneratedMessage {
     if hasName {
       output.writeString(1, value:name)
     }
-    for element in field {
-        output.writeMessage(2, value:element)
+    for oneElementfield in field {
+        output.writeMessage(2, value:oneElementfield)
     }
-    for element in nestedType {
-        output.writeMessage(3, value:element)
+    for oneElementnestedType in nestedType {
+        output.writeMessage(3, value:oneElementnestedType)
     }
-    for element in enumType {
-        output.writeMessage(4, value:element)
+    for oneElementenumType in enumType {
+        output.writeMessage(4, value:oneElementenumType)
     }
-    for element in extensionRange {
-        output.writeMessage(5, value:element)
+    for oneElementextensionRange in extensionRange {
+        output.writeMessage(5, value:oneElementextensionRange)
     }
-    for element in extension_ {
-        output.writeMessage(6, value:element)
+    for oneElementextension_ in extension_ {
+        output.writeMessage(6, value:oneElementextension_)
     }
     if hasOptions {
       output.writeMessage(7, value:options)
@@ -1430,20 +1430,20 @@ final class PBDescriptorProto : GeneratedMessage {
     if hasName {
       size += WireFormat.computeStringSize(1, value:name)
     }
-    for element in field {
-        size += WireFormat.computeMessageSize(2, value:element)
+    for oneElementfield in field {
+        size += WireFormat.computeMessageSize(2, value:oneElementfield)
     }
-    for element in nestedType {
-        size += WireFormat.computeMessageSize(3, value:element)
+    for oneElementnestedType in nestedType {
+        size += WireFormat.computeMessageSize(3, value:oneElementnestedType)
     }
-    for element in enumType {
-        size += WireFormat.computeMessageSize(4, value:element)
+    for oneElementenumType in enumType {
+        size += WireFormat.computeMessageSize(4, value:oneElementenumType)
     }
-    for element in extensionRange {
-        size += WireFormat.computeMessageSize(5, value:element)
+    for oneElementextensionRange in extensionRange {
+        size += WireFormat.computeMessageSize(5, value:oneElementextensionRange)
     }
-    for element in extension_ {
-        size += WireFormat.computeMessageSize(6, value:element)
+    for oneElementextension_ in extension_ {
+        size += WireFormat.computeMessageSize(6, value:oneElementextension_)
     }
     if hasOptions {
       size += WireFormat.computeMessageSize(7, value:options)
@@ -1493,37 +1493,37 @@ final class PBDescriptorProto : GeneratedMessage {
       output += "\(indent) name: \(name) \n"
     }
     var fieldElementIndex:Int = 0
-    for element in field {
+    for oneElementfield in field {
         output += "\(indent) field[\(fieldElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementfield.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         fieldElementIndex++
     }
     var nestedTypeElementIndex:Int = 0
-    for element in nestedType {
+    for oneElementnestedType in nestedType {
         output += "\(indent) nestedType[\(nestedTypeElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementnestedType.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         nestedTypeElementIndex++
     }
     var enumTypeElementIndex:Int = 0
-    for element in enumType {
+    for oneElementenumType in enumType {
         output += "\(indent) enumType[\(enumTypeElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementenumType.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         enumTypeElementIndex++
     }
     var extensionRangeElementIndex:Int = 0
-    for element in extensionRange {
+    for oneElementextensionRange in extensionRange {
         output += "\(indent) extensionRange[\(extensionRangeElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementextensionRange.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         extensionRangeElementIndex++
     }
     var extension_ElementIndex:Int = 0
-    for element in extension_ {
+    for oneElementextension_ in extension_ {
         output += "\(indent) extension_[\(extension_ElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementextension_.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         extension_ElementIndex++
     }
@@ -1540,20 +1540,20 @@ final class PBDescriptorProto : GeneratedMessage {
           if hasName {
              hashCode = (hashCode &* 31) &+ name.hashValue
           }
-          for element in field {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementfield in field {
+              hashCode = (hashCode &* 31) &+ oneElementfield.hashValue
           }
-          for element in nestedType {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementnestedType in nestedType {
+              hashCode = (hashCode &* 31) &+ oneElementnestedType.hashValue
           }
-          for element in enumType {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementenumType in enumType {
+              hashCode = (hashCode &* 31) &+ oneElementenumType.hashValue
           }
-          for element in extensionRange {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementextensionRange in extensionRange {
+              hashCode = (hashCode &* 31) &+ oneElementextensionRange.hashValue
           }
-          for element in extension_ {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementextension_ in extension_ {
+              hashCode = (hashCode &* 31) &+ oneElementextension_.hashValue
           }
           if hasOptions {
             hashCode = (hashCode &* 31) &+ options.hashValue
@@ -2317,19 +2317,19 @@ final class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
         number = input.readInt32()
 
       case 32 :
-        var value = input.readEnum()
-        if let enums = PBFieldDescriptorProto.Label(rawValue:value){
-             label = enums
+        let valueIntlabel = input.readEnum()
+        if let enumslabel = PBFieldDescriptorProto.Label(rawValue:valueIntlabel){
+             label = enumslabel
         } else {
-             unknownFieldsBuilder.mergeVarintField(4, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(4, value:Int64(valueIntlabel))
         }
 
       case 40 :
-        var value = input.readEnum()
-        if let enums = PBFieldDescriptorProto.Types(rawValue:value){
-             types = enums
+        let valueInttypes = input.readEnum()
+        if let enumstypes = PBFieldDescriptorProto.Types(rawValue:valueInttypes){
+             types = enumstypes
         } else {
-             unknownFieldsBuilder.mergeVarintField(5, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(5, value:Int64(valueInttypes))
         }
 
       case 50 :
@@ -2368,8 +2368,8 @@ final class PBEnumDescriptorProto : GeneratedMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInitvalue:Bool = true
-    for element in value {
-        if (!element.isInitialized()) {
+    for oneElementvalue in value {
+        if (!oneElementvalue.isInitialized()) {
             isInitvalue = false
             break 
         }
@@ -2388,8 +2388,8 @@ final class PBEnumDescriptorProto : GeneratedMessage {
     if hasName {
       output.writeString(1, value:name)
     }
-    for element in value {
-        output.writeMessage(2, value:element)
+    for oneElementvalue in value {
+        output.writeMessage(2, value:oneElementvalue)
     }
     if hasOptions {
       output.writeMessage(3, value:options)
@@ -2406,8 +2406,8 @@ final class PBEnumDescriptorProto : GeneratedMessage {
     if hasName {
       size += WireFormat.computeStringSize(1, value:name)
     }
-    for element in value {
-        size += WireFormat.computeMessageSize(2, value:element)
+    for oneElementvalue in value {
+        size += WireFormat.computeMessageSize(2, value:oneElementvalue)
     }
     if hasOptions {
       size += WireFormat.computeMessageSize(3, value:options)
@@ -2457,9 +2457,9 @@ final class PBEnumDescriptorProto : GeneratedMessage {
       output += "\(indent) name: \(name) \n"
     }
     var valueElementIndex:Int = 0
-    for element in value {
+    for oneElementvalue in value {
         output += "\(indent) value[\(valueElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementvalue.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         valueElementIndex++
     }
@@ -2476,8 +2476,8 @@ final class PBEnumDescriptorProto : GeneratedMessage {
           if hasName {
              hashCode = (hashCode &* 31) &+ name.hashValue
           }
-          for element in value {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementvalue in value {
+              hashCode = (hashCode &* 31) &+ oneElementvalue.hashValue
           }
           if hasOptions {
             hashCode = (hashCode &* 31) &+ options.hashValue
@@ -2947,8 +2947,8 @@ final class PBServiceDescriptorProto : GeneratedMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInitmethod:Bool = true
-    for element in method {
-        if (!element.isInitialized()) {
+    for oneElementmethod in method {
+        if (!oneElementmethod.isInitialized()) {
             isInitmethod = false
             break 
         }
@@ -2967,8 +2967,8 @@ final class PBServiceDescriptorProto : GeneratedMessage {
     if hasName {
       output.writeString(1, value:name)
     }
-    for element in method {
-        output.writeMessage(2, value:element)
+    for oneElementmethod in method {
+        output.writeMessage(2, value:oneElementmethod)
     }
     if hasOptions {
       output.writeMessage(3, value:options)
@@ -2985,8 +2985,8 @@ final class PBServiceDescriptorProto : GeneratedMessage {
     if hasName {
       size += WireFormat.computeStringSize(1, value:name)
     }
-    for element in method {
-        size += WireFormat.computeMessageSize(2, value:element)
+    for oneElementmethod in method {
+        size += WireFormat.computeMessageSize(2, value:oneElementmethod)
     }
     if hasOptions {
       size += WireFormat.computeMessageSize(3, value:options)
@@ -3036,9 +3036,9 @@ final class PBServiceDescriptorProto : GeneratedMessage {
       output += "\(indent) name: \(name) \n"
     }
     var methodElementIndex:Int = 0
-    for element in method {
+    for oneElementmethod in method {
         output += "\(indent) method[\(methodElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementmethod.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         methodElementIndex++
     }
@@ -3055,8 +3055,8 @@ final class PBServiceDescriptorProto : GeneratedMessage {
           if hasName {
              hashCode = (hashCode &* 31) &+ name.hashValue
           }
-          for element in method {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementmethod in method {
+              hashCode = (hashCode &* 31) &+ oneElementmethod.hashValue
           }
           if hasOptions {
             hashCode = (hashCode &* 31) &+ options.hashValue
@@ -3608,8 +3608,8 @@ final class PBFileOptions : ExtendableMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
-    for element in uninterpretedOption {
-        if (!element.isInitialized()) {
+    for oneElementuninterpretedOption in uninterpretedOption {
+        if (!oneElementuninterpretedOption.isInitialized()) {
             isInituninterpretedOption = false
             break 
         }
@@ -3650,8 +3650,8 @@ final class PBFileOptions : ExtendableMessage {
     if hasJavaGenerateEqualsAndHash {
       output.writeBool(20, value:javaGenerateEqualsAndHash)
     }
-    for element in uninterpretedOption {
-        output.writeMessage(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        output.writeMessage(999, value:oneElementuninterpretedOption)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
@@ -3690,8 +3690,8 @@ final class PBFileOptions : ExtendableMessage {
     if hasJavaGenerateEqualsAndHash {
       size += WireFormat.computeBoolSize(20, value:javaGenerateEqualsAndHash)
     }
-    for element in uninterpretedOption {
-        size += WireFormat.computeMessageSize(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        size += WireFormat.computeMessageSize(999, value:oneElementuninterpretedOption)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
@@ -3763,9 +3763,9 @@ final class PBFileOptions : ExtendableMessage {
       output += "\(indent) javaGenerateEqualsAndHash: \(javaGenerateEqualsAndHash) \n"
     }
     var uninterpretedOptionElementIndex:Int = 0
-    for element in uninterpretedOption {
+    for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         uninterpretedOptionElementIndex++
     }
@@ -3802,8 +3802,8 @@ final class PBFileOptions : ExtendableMessage {
           if hasJavaGenerateEqualsAndHash {
              hashCode = (hashCode &* 31) &+ javaGenerateEqualsAndHash.hashValue
           }
-          for element in uninterpretedOption {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementuninterpretedOption in uninterpretedOption {
+              hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1000), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -4096,11 +4096,11 @@ final class PBFileOptionsBuilder : ExtendableMessageBuilder {
         javaOuterClassname = input.readString()
 
       case 72 :
-        var value = input.readEnum()
-        if let enums = PBFileOptions.OptimizeMode(rawValue:value){
-             optimizeFor = enums
+        let valueIntoptimizeFor = input.readEnum()
+        if let enumsoptimizeFor = PBFileOptions.OptimizeMode(rawValue:valueIntoptimizeFor){
+             optimizeFor = enumsoptimizeFor
         } else {
-             unknownFieldsBuilder.mergeVarintField(9, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(9, value:Int64(valueIntoptimizeFor))
         }
 
       case 80 :
@@ -4149,8 +4149,8 @@ final class PBMessageOptions : ExtendableMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
-    for element in uninterpretedOption {
-        if (!element.isInitialized()) {
+    for oneElementuninterpretedOption in uninterpretedOption {
+        if (!oneElementuninterpretedOption.isInitialized()) {
             isInituninterpretedOption = false
             break 
         }
@@ -4170,8 +4170,8 @@ final class PBMessageOptions : ExtendableMessage {
     if hasNoStandardDescriptorAccessor {
       output.writeBool(2, value:noStandardDescriptorAccessor)
     }
-    for element in uninterpretedOption {
-        output.writeMessage(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        output.writeMessage(999, value:oneElementuninterpretedOption)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
@@ -4189,8 +4189,8 @@ final class PBMessageOptions : ExtendableMessage {
     if hasNoStandardDescriptorAccessor {
       size += WireFormat.computeBoolSize(2, value:noStandardDescriptorAccessor)
     }
-    for element in uninterpretedOption {
-        size += WireFormat.computeMessageSize(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        size += WireFormat.computeMessageSize(999, value:oneElementuninterpretedOption)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
@@ -4241,9 +4241,9 @@ final class PBMessageOptions : ExtendableMessage {
       output += "\(indent) noStandardDescriptorAccessor: \(noStandardDescriptorAccessor) \n"
     }
     var uninterpretedOptionElementIndex:Int = 0
-    for element in uninterpretedOption {
+    for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         uninterpretedOptionElementIndex++
     }
@@ -4259,8 +4259,8 @@ final class PBMessageOptions : ExtendableMessage {
           if hasNoStandardDescriptorAccessor {
              hashCode = (hashCode &* 31) &+ noStandardDescriptorAccessor.hashValue
           }
-          for element in uninterpretedOption {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementuninterpretedOption in uninterpretedOption {
+              hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1000), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -4458,8 +4458,8 @@ final class PBFieldOptions : ExtendableMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
-    for element in uninterpretedOption {
-        if (!element.isInitialized()) {
+    for oneElementuninterpretedOption in uninterpretedOption {
+        if (!oneElementuninterpretedOption.isInitialized()) {
             isInituninterpretedOption = false
             break 
         }
@@ -4491,8 +4491,8 @@ final class PBFieldOptions : ExtendableMessage {
     if hasWeak {
       output.writeBool(10, value:weak)
     }
-    for element in uninterpretedOption {
-        output.writeMessage(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        output.writeMessage(999, value:oneElementuninterpretedOption)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
@@ -4522,8 +4522,8 @@ final class PBFieldOptions : ExtendableMessage {
     if hasWeak {
       size += WireFormat.computeBoolSize(10, value:weak)
     }
-    for element in uninterpretedOption {
-        size += WireFormat.computeMessageSize(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        size += WireFormat.computeMessageSize(999, value:oneElementuninterpretedOption)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
@@ -4586,9 +4586,9 @@ final class PBFieldOptions : ExtendableMessage {
       output += "\(indent) weak: \(weak) \n"
     }
     var uninterpretedOptionElementIndex:Int = 0
-    for element in uninterpretedOption {
+    for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         uninterpretedOptionElementIndex++
     }
@@ -4616,8 +4616,8 @@ final class PBFieldOptions : ExtendableMessage {
           if hasWeak {
              hashCode = (hashCode &* 31) &+ weak.hashValue
           }
-          for element in uninterpretedOption {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementuninterpretedOption in uninterpretedOption {
+              hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1000), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -4838,11 +4838,11 @@ final class PBFieldOptionsBuilder : ExtendableMessageBuilder {
         return self
 
       case 8 :
-        var value = input.readEnum()
-        if let enums = PBFieldOptions.Ctype(rawValue:value){
-             ctype = enums
+        let valueIntctype = input.readEnum()
+        if let enumsctype = PBFieldOptions.Ctype(rawValue:valueIntctype){
+             ctype = enumsctype
         } else {
-             unknownFieldsBuilder.mergeVarintField(1, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueIntctype))
         }
 
       case 16 :
@@ -4885,8 +4885,8 @@ final class PBEnumOptions : ExtendableMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
-    for element in uninterpretedOption {
-        if (!element.isInitialized()) {
+    for oneElementuninterpretedOption in uninterpretedOption {
+        if (!oneElementuninterpretedOption.isInitialized()) {
             isInituninterpretedOption = false
             break 
         }
@@ -4903,8 +4903,8 @@ final class PBEnumOptions : ExtendableMessage {
     if hasAllowAlias {
       output.writeBool(2, value:allowAlias)
     }
-    for element in uninterpretedOption {
-        output.writeMessage(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        output.writeMessage(999, value:oneElementuninterpretedOption)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
@@ -4919,8 +4919,8 @@ final class PBEnumOptions : ExtendableMessage {
     if hasAllowAlias {
       size += WireFormat.computeBoolSize(2, value:allowAlias)
     }
-    for element in uninterpretedOption {
-        size += WireFormat.computeMessageSize(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        size += WireFormat.computeMessageSize(999, value:oneElementuninterpretedOption)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
@@ -4968,9 +4968,9 @@ final class PBEnumOptions : ExtendableMessage {
       output += "\(indent) allowAlias: \(allowAlias) \n"
     }
     var uninterpretedOptionElementIndex:Int = 0
-    for element in uninterpretedOption {
+    for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         uninterpretedOptionElementIndex++
     }
@@ -4983,8 +4983,8 @@ final class PBEnumOptions : ExtendableMessage {
           if hasAllowAlias {
              hashCode = (hashCode &* 31) &+ allowAlias.hashValue
           }
-          for element in uninterpretedOption {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementuninterpretedOption in uninterpretedOption {
+              hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1000), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -5119,8 +5119,8 @@ final class PBEnumValueOptions : ExtendableMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
-    for element in uninterpretedOption {
-        if (!element.isInitialized()) {
+    for oneElementuninterpretedOption in uninterpretedOption {
+        if (!oneElementuninterpretedOption.isInitialized()) {
             isInituninterpretedOption = false
             break 
         }
@@ -5134,8 +5134,8 @@ final class PBEnumValueOptions : ExtendableMessage {
    return true
   }
   override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    for element in uninterpretedOption {
-        output.writeMessage(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        output.writeMessage(999, value:oneElementuninterpretedOption)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
@@ -5147,8 +5147,8 @@ final class PBEnumValueOptions : ExtendableMessage {
     }
 
     size = 0
-    for element in uninterpretedOption {
-        size += WireFormat.computeMessageSize(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        size += WireFormat.computeMessageSize(999, value:oneElementuninterpretedOption)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
@@ -5193,9 +5193,9 @@ final class PBEnumValueOptions : ExtendableMessage {
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     var uninterpretedOptionElementIndex:Int = 0
-    for element in uninterpretedOption {
+    for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         uninterpretedOptionElementIndex++
     }
@@ -5205,8 +5205,8 @@ final class PBEnumValueOptions : ExtendableMessage {
   override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in uninterpretedOption {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementuninterpretedOption in uninterpretedOption {
+              hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1000), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -5316,8 +5316,8 @@ final class PBServiceOptions : ExtendableMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
-    for element in uninterpretedOption {
-        if (!element.isInitialized()) {
+    for oneElementuninterpretedOption in uninterpretedOption {
+        if (!oneElementuninterpretedOption.isInitialized()) {
             isInituninterpretedOption = false
             break 
         }
@@ -5331,8 +5331,8 @@ final class PBServiceOptions : ExtendableMessage {
    return true
   }
   override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    for element in uninterpretedOption {
-        output.writeMessage(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        output.writeMessage(999, value:oneElementuninterpretedOption)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
@@ -5344,8 +5344,8 @@ final class PBServiceOptions : ExtendableMessage {
     }
 
     size = 0
-    for element in uninterpretedOption {
-        size += WireFormat.computeMessageSize(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        size += WireFormat.computeMessageSize(999, value:oneElementuninterpretedOption)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
@@ -5390,9 +5390,9 @@ final class PBServiceOptions : ExtendableMessage {
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     var uninterpretedOptionElementIndex:Int = 0
-    for element in uninterpretedOption {
+    for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         uninterpretedOptionElementIndex++
     }
@@ -5402,8 +5402,8 @@ final class PBServiceOptions : ExtendableMessage {
   override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in uninterpretedOption {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementuninterpretedOption in uninterpretedOption {
+              hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1000), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -5513,8 +5513,8 @@ final class PBMethodOptions : ExtendableMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInituninterpretedOption:Bool = true
-    for element in uninterpretedOption {
-        if (!element.isInitialized()) {
+    for oneElementuninterpretedOption in uninterpretedOption {
+        if (!oneElementuninterpretedOption.isInitialized()) {
             isInituninterpretedOption = false
             break 
         }
@@ -5528,8 +5528,8 @@ final class PBMethodOptions : ExtendableMessage {
    return true
   }
   override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    for element in uninterpretedOption {
-        output.writeMessage(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        output.writeMessage(999, value:oneElementuninterpretedOption)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
@@ -5541,8 +5541,8 @@ final class PBMethodOptions : ExtendableMessage {
     }
 
     size = 0
-    for element in uninterpretedOption {
-        size += WireFormat.computeMessageSize(999, value:element)
+    for oneElementuninterpretedOption in uninterpretedOption {
+        size += WireFormat.computeMessageSize(999, value:oneElementuninterpretedOption)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
@@ -5587,9 +5587,9 @@ final class PBMethodOptions : ExtendableMessage {
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     var uninterpretedOptionElementIndex:Int = 0
-    for element in uninterpretedOption {
+    for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         uninterpretedOptionElementIndex++
     }
@@ -5599,8 +5599,8 @@ final class PBMethodOptions : ExtendableMessage {
   override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in uninterpretedOption {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementuninterpretedOption in uninterpretedOption {
+              hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1000), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -5964,8 +5964,8 @@ final class PBUninterpretedOption : GeneratedMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInitname:Bool = true
-    for element in name {
-        if (!element.isInitialized()) {
+    for oneElementname in name {
+        if (!oneElementname.isInitialized()) {
             isInitname = false
             break 
         }
@@ -5976,8 +5976,8 @@ final class PBUninterpretedOption : GeneratedMessage {
    return true
   }
   override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    for element in name {
-        output.writeMessage(2, value:element)
+    for oneElementname in name {
+        output.writeMessage(2, value:oneElementname)
     }
     if hasIdentifierValue {
       output.writeString(3, value:identifierValue)
@@ -6006,8 +6006,8 @@ final class PBUninterpretedOption : GeneratedMessage {
     }
 
     size = 0
-    for element in name {
-        size += WireFormat.computeMessageSize(2, value:element)
+    for oneElementname in name {
+        size += WireFormat.computeMessageSize(2, value:oneElementname)
     }
     if hasIdentifierValue {
       size += WireFormat.computeStringSize(3, value:identifierValue)
@@ -6069,9 +6069,9 @@ final class PBUninterpretedOption : GeneratedMessage {
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     var nameElementIndex:Int = 0
-    for element in name {
+    for oneElementname in name {
         output += "\(indent) name[\(nameElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementname.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         nameElementIndex++
     }
@@ -6098,8 +6098,8 @@ final class PBUninterpretedOption : GeneratedMessage {
   override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in name {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementname in name {
+              hashCode = (hashCode &* 31) &+ oneElementname.hashValue
           }
           if hasIdentifierValue {
              hashCode = (hashCode &* 31) &+ identifierValue.hashValue
@@ -6396,15 +6396,15 @@ final class PBSourceCodeInfo : GeneratedMessage {
         if !path.isEmpty {
           output.writeRawVarint32(10)
           output.writeRawVarint32(pathMemoizedSerializedSize)
-          for value in path {
-            output.writeInt32NoTag(value)
+          for oneValuepath in path {
+            output.writeInt32NoTag(oneValuepath)
           }
         }
         if !span.isEmpty {
           output.writeRawVarint32(18)
           output.writeRawVarint32(spanMemoizedSerializedSize)
-          for value in span {
-            output.writeInt32NoTag(value)
+          for oneValuespan in span {
+            output.writeInt32NoTag(oneValuespan)
           }
         }
         if hasLeadingComments {
@@ -6423,8 +6423,8 @@ final class PBSourceCodeInfo : GeneratedMessage {
 
         size = 0
         var dataSizePath:Int32 = 0
-        for element in path {
-            dataSizePath += WireFormat.computeInt32SizeNoTag(element)
+        for oneValuepath in path {
+            dataSizePath += WireFormat.computeInt32SizeNoTag(oneValuepath)
         }
         size += dataSizePath
         if !path.isEmpty {
@@ -6433,8 +6433,8 @@ final class PBSourceCodeInfo : GeneratedMessage {
         }
         pathMemoizedSerializedSize = dataSizePath
         var dataSizeSpan:Int32 = 0
-        for element in span {
-            dataSizeSpan += WireFormat.computeInt32SizeNoTag(element)
+        for oneValuespan in span {
+            dataSizeSpan += WireFormat.computeInt32SizeNoTag(oneValuespan)
         }
         size += dataSizeSpan
         if !span.isEmpty {
@@ -6490,13 +6490,13 @@ final class PBSourceCodeInfo : GeneratedMessage {
       }
       override internal func writeDescriptionTo(inout output:String, indent:String) {
         var pathElementIndex:Int = 0
-        for element in path  {
-            output += "\(indent) path[\(pathElementIndex)]: \(element)\n"
+        for oneValuepath in path  {
+            output += "\(indent) path[\(pathElementIndex)]: \(oneValuepath)\n"
             pathElementIndex++
         }
         var spanElementIndex:Int = 0
-        for element in span  {
-            output += "\(indent) span[\(spanElementIndex)]: \(element)\n"
+        for oneValuespan in span  {
+            output += "\(indent) span[\(spanElementIndex)]: \(oneValuespan)\n"
             spanElementIndex++
         }
         if hasLeadingComments {
@@ -6510,11 +6510,11 @@ final class PBSourceCodeInfo : GeneratedMessage {
       override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
-              for element in path {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneValuepath in path {
+                  hashCode = (hashCode &* 31) &+ oneValuepath.hashValue
               }
-              for element in span {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneValuespan in span {
+                  hashCode = (hashCode &* 31) &+ oneValuespan.hashValue
               }
               if hasLeadingComments {
                  hashCode = (hashCode &* 31) &+ leadingComments.hashValue
@@ -6709,8 +6709,8 @@ final class PBSourceCodeInfo : GeneratedMessage {
    return true
   }
   override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    for element in location {
-        output.writeMessage(1, value:element)
+    for oneElementlocation in location {
+        output.writeMessage(1, value:oneElementlocation)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
@@ -6721,8 +6721,8 @@ final class PBSourceCodeInfo : GeneratedMessage {
     }
 
     size = 0
-    for element in location {
-        size += WireFormat.computeMessageSize(1, value:element)
+    for oneElementlocation in location {
+        size += WireFormat.computeMessageSize(1, value:oneElementlocation)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
@@ -6766,9 +6766,9 @@ final class PBSourceCodeInfo : GeneratedMessage {
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     var locationElementIndex:Int = 0
-    for element in location {
+    for oneElementlocation in location {
         output += "\(indent) location[\(locationElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementlocation.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         locationElementIndex++
     }
@@ -6777,8 +6777,8 @@ final class PBSourceCodeInfo : GeneratedMessage {
   override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in location {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementlocation in location {
+              hashCode = (hashCode &* 31) &+ oneElementlocation.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode

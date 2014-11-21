@@ -421,13 +421,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print(variables_,
                            "output.writeRawVarint32($tag$)\n"
                            "output.writeRawVarint32($name$MemoizedSerializedSize)\n"
-                           "for value in $name$ {\n"
-                           "  output.write$capitalized_type$NoTag(value)\n"
+                           "for oneValue$name$ in $name$ {\n"
+                           "  output.write$capitalized_type$NoTag(oneValue$name$)\n"
                            "}\n");
         } else {
             printer->Print(variables_,
-                           "for value in $name$ {\n"
-                           "  output.write$capitalized_type$($number$, value:value)\n"
+                           "for oneValue$name$ in $name$ {\n"
+                           "  output.write$capitalized_type$($number$, value:oneValue$name$)\n"
                            "}\n");
         }
         printer->Outdent();
@@ -442,8 +442,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (FixedSize(descriptor_->type()) == -1) {
             printer->Print(variables_,
-                           "for element in $name$ {\n"
-                           "    dataSize$capitalized_name$ += WireFormat.compute$capitalized_type$SizeNoTag(element)\n"
+                           "for oneValue$name$ in $name$ {\n"
+                           "    dataSize$capitalized_name$ += WireFormat.compute$capitalized_type$SizeNoTag(oneValue$name$)\n"
                            "}\n");
         } else {
             printer->Print(variables_,
@@ -472,8 +472,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print(variables_,
                        "var $name$ElementIndex:Int = 0\n"
-                       "for element in $name$  {\n"
-                       "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(element)\\n\"\n"
+                       "for oneValue$name$ in $name$  {\n"
+                       "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(oneValue$name$)\\n\"\n"
                        "    $name$ElementIndex++\n"
                        "}\n");
     }
@@ -489,17 +489,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->type() == FieldDescriptor::TYPE_BYTES) {
             printer->Print(variables_,
-                           "for value in $name$ {\n"
-                           "  for element in value {\n"
-                           "      hashCode = (hashCode &* 31) &+ element.hashValue\n"
+                           "for oneValue$name$ in $name$ {\n"
+                           "  for elementOneValue$name$ in oneValue$name$ {\n"
+                           "      hashCode = (hashCode &* 31) &+ elementOneValue$name$.hashValue\n"
                            "  }\n"
                            "}\n");
         }
         else
         {
             printer->Print(variables_,
-                           "for element in $name$ {\n"
-                           "    hashCode = (hashCode &* 31) &+ element.hashValue\n"
+                           "for oneValue$name$ in $name$ {\n"
+                           "    hashCode = (hashCode &* 31) &+ oneValue$name$.hashValue\n"
                            "}\n");
         }
         

@@ -150,11 +150,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        
-                       "var value = input.readEnum()\n"
-                       "if let enums = $type$(rawValue:value){\n"
-                       "     $name$ = enums\n"
+                       "let valueInt$name$ = input.readEnum()\n"
+                       "if let enums$name$ = $type$(rawValue:valueInt$name$){\n"
+                       "     $name$ = enums$name$\n"
                        "} else {\n"
-                       "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(value))\n"
+                       "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(valueInt$name$))\n"
                        "}\n");
     }
     
@@ -270,11 +270,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         printer->Print(variables_,
-                       "let value = input.readEnum()\n"
-                       "if let enums = $type$(rawValue:value) {\n"
-                       "     builderResult.$name$ += [enums]\n"
+                       "let valueInt$name$ = input.readEnum()\n"
+                       "if let enums$name$ = $type$(rawValue:valueInt$name$) {\n"
+                       "     builderResult.$name$ += [enums$name$]\n"
                        "} else {\n"
-                       "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(value))\n"
+                       "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(valueInt$name$))\n"
                        "}\n");
         
         if (descriptor_->options().packed()) {
@@ -293,13 +293,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "  output.writeRawVarint32($tag$)\n"
                            "  output.writeRawVarint32($name$MemoizedSerializedSize)\n"
                            "}\n"
-                           "for value in $name$ {\n"
-                           "    output.writeEnumNoTag(value.rawValue)\n"
+                           "for oneValueOf$name$ in $name$ {\n"
+                           "    output.writeEnumNoTag(oneValueOf$name$.rawValue)\n"
                            "}\n");
         } else {
             printer->Print(variables_,
-                           "for value in $name$ {\n"
-                           "    output.writeEnum($number$, value:value.rawValue)\n"
+                           "for oneValueOf$name$ in $name$ {\n"
+                           "    output.writeEnum($number$, value:oneValueOf$name$.rawValue)\n"
                            "}\n");
         }
     }
@@ -311,8 +311,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         printer->Print(variables_,
-                       "for value in $name$ {\n"
-                       "    dataSize$name$ += WireFormat.computeEnumSizeNoTag(value.rawValue)\n"
+                       "for oneValueOf$name$ in $name$ {\n"
+                       "    dataSize$name$ += WireFormat.computeEnumSizeNoTag(oneValueOf$name$.rawValue)\n"
                        "}\n");
         
         printer->Print(variables_,"size += dataSize$name$\n");
@@ -341,8 +341,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedEnumFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "var $name$ElementIndex:Int = 0\n"
-                       "for element in $name$ {\n"
-                       "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(element.rawValue)\\n\"\n"
+                       "for oneValueOf$name$ in $name$ {\n"
+                       "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(oneValueOf$name$.rawValue)\\n\"\n"
                        "    $name$ElementIndex++\n"
                        "}\n");
     }
@@ -355,8 +355,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedEnumFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "for element in $name$ {\n"
-                       "    hashCode = (hashCode &* 31) &+ Int(element.rawValue)\n"
+                       "for oneValueOf$name$ in $name$ {\n"
+                       "    hashCode = (hashCode &* 31) &+ Int(oneValueOf$name$.rawValue)\n"
                        "}\n");
     }
 }  // namespace swift

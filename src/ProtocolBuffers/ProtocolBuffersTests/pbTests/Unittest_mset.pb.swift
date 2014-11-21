@@ -1062,8 +1062,8 @@ final class RawMessageSet : GeneratedMessage {
   }
   override internal func isInitialized() -> Bool {
     var isInititem:Bool = true
-    for element in item {
-        if (!element.isInitialized()) {
+    for oneElementitem in item {
+        if (!oneElementitem.isInitialized()) {
             isInititem = false
             break 
         }
@@ -1074,8 +1074,8 @@ final class RawMessageSet : GeneratedMessage {
    return true
   }
   override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    for element in item {
-        output.writeGroup(1, value:element)
+    for oneElementitem in item {
+        output.writeGroup(1, value:oneElementitem)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
@@ -1086,8 +1086,8 @@ final class RawMessageSet : GeneratedMessage {
     }
 
     size = 0
-    for element in item {
-        size += WireFormat.computeGroupSize(1, value:element)
+    for oneElementitem in item {
+        size += WireFormat.computeGroupSize(1, value:oneElementitem)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
@@ -1131,9 +1131,9 @@ final class RawMessageSet : GeneratedMessage {
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     var itemElementIndex:Int = 0
-    for element in item {
+    for oneElementitem in item {
         output += "\(indent) item[\(itemElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementitem.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         itemElementIndex++
     }
@@ -1142,8 +1142,8 @@ final class RawMessageSet : GeneratedMessage {
   override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in item {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementitem in item {
+              hashCode = (hashCode &* 31) &+ oneElementitem.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode

@@ -3096,113 +3096,113 @@ final class TestAllTypes : GeneratedMessage {
       output.writeMessage(27, value:optionalLazyMessage)
     }
     if !repeatedInt32.isEmpty {
-      for value in repeatedInt32 {
-        output.writeInt32(31, value:value)
+      for oneValuerepeatedInt32 in repeatedInt32 {
+        output.writeInt32(31, value:oneValuerepeatedInt32)
       }
     }
     if !repeatedInt64.isEmpty {
-      for value in repeatedInt64 {
-        output.writeInt64(32, value:value)
+      for oneValuerepeatedInt64 in repeatedInt64 {
+        output.writeInt64(32, value:oneValuerepeatedInt64)
       }
     }
     if !repeatedUint32.isEmpty {
-      for value in repeatedUint32 {
-        output.writeUInt32(33, value:value)
+      for oneValuerepeatedUint32 in repeatedUint32 {
+        output.writeUInt32(33, value:oneValuerepeatedUint32)
       }
     }
     if !repeatedUint64.isEmpty {
-      for value in repeatedUint64 {
-        output.writeUInt64(34, value:value)
+      for oneValuerepeatedUint64 in repeatedUint64 {
+        output.writeUInt64(34, value:oneValuerepeatedUint64)
       }
     }
     if !repeatedSint32.isEmpty {
-      for value in repeatedSint32 {
-        output.writeSInt32(35, value:value)
+      for oneValuerepeatedSint32 in repeatedSint32 {
+        output.writeSInt32(35, value:oneValuerepeatedSint32)
       }
     }
     if !repeatedSint64.isEmpty {
-      for value in repeatedSint64 {
-        output.writeSInt64(36, value:value)
+      for oneValuerepeatedSint64 in repeatedSint64 {
+        output.writeSInt64(36, value:oneValuerepeatedSint64)
       }
     }
     if !repeatedFixed32.isEmpty {
-      for value in repeatedFixed32 {
-        output.writeFixed32(37, value:value)
+      for oneValuerepeatedFixed32 in repeatedFixed32 {
+        output.writeFixed32(37, value:oneValuerepeatedFixed32)
       }
     }
     if !repeatedFixed64.isEmpty {
-      for value in repeatedFixed64 {
-        output.writeFixed64(38, value:value)
+      for oneValuerepeatedFixed64 in repeatedFixed64 {
+        output.writeFixed64(38, value:oneValuerepeatedFixed64)
       }
     }
     if !repeatedSfixed32.isEmpty {
-      for value in repeatedSfixed32 {
-        output.writeSFixed32(39, value:value)
+      for oneValuerepeatedSfixed32 in repeatedSfixed32 {
+        output.writeSFixed32(39, value:oneValuerepeatedSfixed32)
       }
     }
     if !repeatedSfixed64.isEmpty {
-      for value in repeatedSfixed64 {
-        output.writeSFixed64(40, value:value)
+      for oneValuerepeatedSfixed64 in repeatedSfixed64 {
+        output.writeSFixed64(40, value:oneValuerepeatedSfixed64)
       }
     }
     if !repeatedFloat.isEmpty {
-      for value in repeatedFloat {
-        output.writeFloat(41, value:value)
+      for oneValuerepeatedFloat in repeatedFloat {
+        output.writeFloat(41, value:oneValuerepeatedFloat)
       }
     }
     if !repeatedDouble.isEmpty {
-      for value in repeatedDouble {
-        output.writeDouble(42, value:value)
+      for oneValuerepeatedDouble in repeatedDouble {
+        output.writeDouble(42, value:oneValuerepeatedDouble)
       }
     }
     if !repeatedBool.isEmpty {
-      for value in repeatedBool {
-        output.writeBool(43, value:value)
+      for oneValuerepeatedBool in repeatedBool {
+        output.writeBool(43, value:oneValuerepeatedBool)
       }
     }
     if !repeatedString.isEmpty {
-      for value in repeatedString {
-        output.writeString(44, value:value)
+      for oneValuerepeatedString in repeatedString {
+        output.writeString(44, value:oneValuerepeatedString)
       }
     }
     if !repeatedBytes.isEmpty {
-      for value in repeatedBytes {
-        output.writeData(45, value:value)
+      for oneValuerepeatedBytes in repeatedBytes {
+        output.writeData(45, value:oneValuerepeatedBytes)
       }
     }
-    for element in repeatedGroup {
-        output.writeGroup(46, value:element)
+    for oneElementrepeatedGroup in repeatedGroup {
+        output.writeGroup(46, value:oneElementrepeatedGroup)
     }
-    for element in repeatedNestedMessage {
-        output.writeMessage(48, value:element)
+    for oneElementrepeatedNestedMessage in repeatedNestedMessage {
+        output.writeMessage(48, value:oneElementrepeatedNestedMessage)
     }
-    for element in repeatedForeignMessage {
-        output.writeMessage(49, value:element)
+    for oneElementrepeatedForeignMessage in repeatedForeignMessage {
+        output.writeMessage(49, value:oneElementrepeatedForeignMessage)
     }
-    for element in repeatedImportMessage {
-        output.writeMessage(50, value:element)
+    for oneElementrepeatedImportMessage in repeatedImportMessage {
+        output.writeMessage(50, value:oneElementrepeatedImportMessage)
     }
-    for value in repeatedNestedEnum {
-        output.writeEnum(51, value:value.rawValue)
+    for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
+        output.writeEnum(51, value:oneValueOfrepeatedNestedEnum.rawValue)
     }
-    for value in repeatedForeignEnum {
-        output.writeEnum(52, value:value.rawValue)
+    for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
+        output.writeEnum(52, value:oneValueOfrepeatedForeignEnum.rawValue)
     }
-    for value in repeatedImportEnum {
-        output.writeEnum(53, value:value.rawValue)
+    for oneValueOfrepeatedImportEnum in repeatedImportEnum {
+        output.writeEnum(53, value:oneValueOfrepeatedImportEnum.rawValue)
     }
     if !repeatedStringPiece.isEmpty {
-      for value in repeatedStringPiece {
-        output.writeString(54, value:value)
+      for oneValuerepeatedStringPiece in repeatedStringPiece {
+        output.writeString(54, value:oneValuerepeatedStringPiece)
       }
     }
     if !repeatedCord.isEmpty {
-      for value in repeatedCord {
-        output.writeString(55, value:value)
+      for oneValuerepeatedCord in repeatedCord {
+        output.writeString(55, value:oneValuerepeatedCord)
       }
     }
-    for element in repeatedLazyMessage {
-        output.writeMessage(57, value:element)
+    for oneElementrepeatedLazyMessage in repeatedLazyMessage {
+        output.writeMessage(57, value:oneElementrepeatedLazyMessage)
     }
     if hasDefaultInt32 {
       output.writeInt32(61, value:defaultInt32)
@@ -3364,38 +3364,38 @@ final class TestAllTypes : GeneratedMessage {
       size += WireFormat.computeMessageSize(27, value:optionalLazyMessage)
     }
     var dataSizeRepeatedInt32:Int32 = 0
-    for element in repeatedInt32 {
-        dataSizeRepeatedInt32 += WireFormat.computeInt32SizeNoTag(element)
+    for oneValuerepeatedInt32 in repeatedInt32 {
+        dataSizeRepeatedInt32 += WireFormat.computeInt32SizeNoTag(oneValuerepeatedInt32)
     }
     size += dataSizeRepeatedInt32
     size += 2 * Int32(repeatedInt32.count)
     var dataSizeRepeatedInt64:Int32 = 0
-    for element in repeatedInt64 {
-        dataSizeRepeatedInt64 += WireFormat.computeInt64SizeNoTag(element)
+    for oneValuerepeatedInt64 in repeatedInt64 {
+        dataSizeRepeatedInt64 += WireFormat.computeInt64SizeNoTag(oneValuerepeatedInt64)
     }
     size += dataSizeRepeatedInt64
     size += 2 * Int32(repeatedInt64.count)
     var dataSizeRepeatedUint32:Int32 = 0
-    for element in repeatedUint32 {
-        dataSizeRepeatedUint32 += WireFormat.computeUInt32SizeNoTag(element)
+    for oneValuerepeatedUint32 in repeatedUint32 {
+        dataSizeRepeatedUint32 += WireFormat.computeUInt32SizeNoTag(oneValuerepeatedUint32)
     }
     size += dataSizeRepeatedUint32
     size += 2 * Int32(repeatedUint32.count)
     var dataSizeRepeatedUint64:Int32 = 0
-    for element in repeatedUint64 {
-        dataSizeRepeatedUint64 += WireFormat.computeUInt64SizeNoTag(element)
+    for oneValuerepeatedUint64 in repeatedUint64 {
+        dataSizeRepeatedUint64 += WireFormat.computeUInt64SizeNoTag(oneValuerepeatedUint64)
     }
     size += dataSizeRepeatedUint64
     size += 2 * Int32(repeatedUint64.count)
     var dataSizeRepeatedSint32:Int32 = 0
-    for element in repeatedSint32 {
-        dataSizeRepeatedSint32 += WireFormat.computeSInt32SizeNoTag(element)
+    for oneValuerepeatedSint32 in repeatedSint32 {
+        dataSizeRepeatedSint32 += WireFormat.computeSInt32SizeNoTag(oneValuerepeatedSint32)
     }
     size += dataSizeRepeatedSint32
     size += 2 * Int32(repeatedSint32.count)
     var dataSizeRepeatedSint64:Int32 = 0
-    for element in repeatedSint64 {
-        dataSizeRepeatedSint64 += WireFormat.computeSInt64SizeNoTag(element)
+    for oneValuerepeatedSint64 in repeatedSint64 {
+        dataSizeRepeatedSint64 += WireFormat.computeSInt64SizeNoTag(oneValuerepeatedSint64)
     }
     size += dataSizeRepeatedSint64
     size += 2 * Int32(repeatedSint64.count)
@@ -3428,61 +3428,61 @@ final class TestAllTypes : GeneratedMessage {
     size += dataSizeRepeatedBool
     size += 2 * Int32(repeatedBool.count)
     var dataSizeRepeatedString:Int32 = 0
-    for element in repeatedString {
-        dataSizeRepeatedString += WireFormat.computeStringSizeNoTag(element)
+    for oneValuerepeatedString in repeatedString {
+        dataSizeRepeatedString += WireFormat.computeStringSizeNoTag(oneValuerepeatedString)
     }
     size += dataSizeRepeatedString
     size += 2 * Int32(repeatedString.count)
     var dataSizeRepeatedBytes:Int32 = 0
-    for element in repeatedBytes {
-        dataSizeRepeatedBytes += WireFormat.computeDataSizeNoTag(element)
+    for oneValuerepeatedBytes in repeatedBytes {
+        dataSizeRepeatedBytes += WireFormat.computeDataSizeNoTag(oneValuerepeatedBytes)
     }
     size += dataSizeRepeatedBytes
     size += 2 * Int32(repeatedBytes.count)
-    for element in repeatedGroup {
-        size += WireFormat.computeGroupSize(46, value:element)
+    for oneElementrepeatedGroup in repeatedGroup {
+        size += WireFormat.computeGroupSize(46, value:oneElementrepeatedGroup)
     }
-    for element in repeatedNestedMessage {
-        size += WireFormat.computeMessageSize(48, value:element)
+    for oneElementrepeatedNestedMessage in repeatedNestedMessage {
+        size += WireFormat.computeMessageSize(48, value:oneElementrepeatedNestedMessage)
     }
-    for element in repeatedForeignMessage {
-        size += WireFormat.computeMessageSize(49, value:element)
+    for oneElementrepeatedForeignMessage in repeatedForeignMessage {
+        size += WireFormat.computeMessageSize(49, value:oneElementrepeatedForeignMessage)
     }
-    for element in repeatedImportMessage {
-        size += WireFormat.computeMessageSize(50, value:element)
+    for oneElementrepeatedImportMessage in repeatedImportMessage {
+        size += WireFormat.computeMessageSize(50, value:oneElementrepeatedImportMessage)
     }
     var dataSizerepeatedNestedEnum:Int32 = 0
-    for value in repeatedNestedEnum {
-        dataSizerepeatedNestedEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
+    for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
+        dataSizerepeatedNestedEnum += WireFormat.computeEnumSizeNoTag(oneValueOfrepeatedNestedEnum.rawValue)
     }
     size += dataSizerepeatedNestedEnum
     size += (2 * Int32(repeatedNestedEnum.count))
     var dataSizerepeatedForeignEnum:Int32 = 0
-    for value in repeatedForeignEnum {
-        dataSizerepeatedForeignEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
+    for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
+        dataSizerepeatedForeignEnum += WireFormat.computeEnumSizeNoTag(oneValueOfrepeatedForeignEnum.rawValue)
     }
     size += dataSizerepeatedForeignEnum
     size += (2 * Int32(repeatedForeignEnum.count))
     var dataSizerepeatedImportEnum:Int32 = 0
-    for value in repeatedImportEnum {
-        dataSizerepeatedImportEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
+    for oneValueOfrepeatedImportEnum in repeatedImportEnum {
+        dataSizerepeatedImportEnum += WireFormat.computeEnumSizeNoTag(oneValueOfrepeatedImportEnum.rawValue)
     }
     size += dataSizerepeatedImportEnum
     size += (2 * Int32(repeatedImportEnum.count))
     var dataSizeRepeatedStringPiece:Int32 = 0
-    for element in repeatedStringPiece {
-        dataSizeRepeatedStringPiece += WireFormat.computeStringSizeNoTag(element)
+    for oneValuerepeatedStringPiece in repeatedStringPiece {
+        dataSizeRepeatedStringPiece += WireFormat.computeStringSizeNoTag(oneValuerepeatedStringPiece)
     }
     size += dataSizeRepeatedStringPiece
     size += 2 * Int32(repeatedStringPiece.count)
     var dataSizeRepeatedCord:Int32 = 0
-    for element in repeatedCord {
-        dataSizeRepeatedCord += WireFormat.computeStringSizeNoTag(element)
+    for oneValuerepeatedCord in repeatedCord {
+        dataSizeRepeatedCord += WireFormat.computeStringSizeNoTag(oneValuerepeatedCord)
     }
     size += dataSizeRepeatedCord
     size += 2 * Int32(repeatedCord.count)
-    for element in repeatedLazyMessage {
-        size += WireFormat.computeMessageSize(57, value:element)
+    for oneElementrepeatedLazyMessage in repeatedLazyMessage {
+        size += WireFormat.computeMessageSize(57, value:oneElementrepeatedLazyMessage)
     }
     if hasDefaultInt32 {
       size += WireFormat.computeInt32Size(61, value:defaultInt32)
@@ -3688,137 +3688,137 @@ final class TestAllTypes : GeneratedMessage {
       output += "\(indent) }\n"
     }
     var repeatedInt32ElementIndex:Int = 0
-    for element in repeatedInt32  {
-        output += "\(indent) repeatedInt32[\(repeatedInt32ElementIndex)]: \(element)\n"
+    for oneValuerepeatedInt32 in repeatedInt32  {
+        output += "\(indent) repeatedInt32[\(repeatedInt32ElementIndex)]: \(oneValuerepeatedInt32)\n"
         repeatedInt32ElementIndex++
     }
     var repeatedInt64ElementIndex:Int = 0
-    for element in repeatedInt64  {
-        output += "\(indent) repeatedInt64[\(repeatedInt64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedInt64 in repeatedInt64  {
+        output += "\(indent) repeatedInt64[\(repeatedInt64ElementIndex)]: \(oneValuerepeatedInt64)\n"
         repeatedInt64ElementIndex++
     }
     var repeatedUint32ElementIndex:Int = 0
-    for element in repeatedUint32  {
-        output += "\(indent) repeatedUint32[\(repeatedUint32ElementIndex)]: \(element)\n"
+    for oneValuerepeatedUint32 in repeatedUint32  {
+        output += "\(indent) repeatedUint32[\(repeatedUint32ElementIndex)]: \(oneValuerepeatedUint32)\n"
         repeatedUint32ElementIndex++
     }
     var repeatedUint64ElementIndex:Int = 0
-    for element in repeatedUint64  {
-        output += "\(indent) repeatedUint64[\(repeatedUint64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedUint64 in repeatedUint64  {
+        output += "\(indent) repeatedUint64[\(repeatedUint64ElementIndex)]: \(oneValuerepeatedUint64)\n"
         repeatedUint64ElementIndex++
     }
     var repeatedSint32ElementIndex:Int = 0
-    for element in repeatedSint32  {
-        output += "\(indent) repeatedSint32[\(repeatedSint32ElementIndex)]: \(element)\n"
+    for oneValuerepeatedSint32 in repeatedSint32  {
+        output += "\(indent) repeatedSint32[\(repeatedSint32ElementIndex)]: \(oneValuerepeatedSint32)\n"
         repeatedSint32ElementIndex++
     }
     var repeatedSint64ElementIndex:Int = 0
-    for element in repeatedSint64  {
-        output += "\(indent) repeatedSint64[\(repeatedSint64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedSint64 in repeatedSint64  {
+        output += "\(indent) repeatedSint64[\(repeatedSint64ElementIndex)]: \(oneValuerepeatedSint64)\n"
         repeatedSint64ElementIndex++
     }
     var repeatedFixed32ElementIndex:Int = 0
-    for element in repeatedFixed32  {
-        output += "\(indent) repeatedFixed32[\(repeatedFixed32ElementIndex)]: \(element)\n"
+    for oneValuerepeatedFixed32 in repeatedFixed32  {
+        output += "\(indent) repeatedFixed32[\(repeatedFixed32ElementIndex)]: \(oneValuerepeatedFixed32)\n"
         repeatedFixed32ElementIndex++
     }
     var repeatedFixed64ElementIndex:Int = 0
-    for element in repeatedFixed64  {
-        output += "\(indent) repeatedFixed64[\(repeatedFixed64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedFixed64 in repeatedFixed64  {
+        output += "\(indent) repeatedFixed64[\(repeatedFixed64ElementIndex)]: \(oneValuerepeatedFixed64)\n"
         repeatedFixed64ElementIndex++
     }
     var repeatedSfixed32ElementIndex:Int = 0
-    for element in repeatedSfixed32  {
-        output += "\(indent) repeatedSfixed32[\(repeatedSfixed32ElementIndex)]: \(element)\n"
+    for oneValuerepeatedSfixed32 in repeatedSfixed32  {
+        output += "\(indent) repeatedSfixed32[\(repeatedSfixed32ElementIndex)]: \(oneValuerepeatedSfixed32)\n"
         repeatedSfixed32ElementIndex++
     }
     var repeatedSfixed64ElementIndex:Int = 0
-    for element in repeatedSfixed64  {
-        output += "\(indent) repeatedSfixed64[\(repeatedSfixed64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedSfixed64 in repeatedSfixed64  {
+        output += "\(indent) repeatedSfixed64[\(repeatedSfixed64ElementIndex)]: \(oneValuerepeatedSfixed64)\n"
         repeatedSfixed64ElementIndex++
     }
     var repeatedFloatElementIndex:Int = 0
-    for element in repeatedFloat  {
-        output += "\(indent) repeatedFloat[\(repeatedFloatElementIndex)]: \(element)\n"
+    for oneValuerepeatedFloat in repeatedFloat  {
+        output += "\(indent) repeatedFloat[\(repeatedFloatElementIndex)]: \(oneValuerepeatedFloat)\n"
         repeatedFloatElementIndex++
     }
     var repeatedDoubleElementIndex:Int = 0
-    for element in repeatedDouble  {
-        output += "\(indent) repeatedDouble[\(repeatedDoubleElementIndex)]: \(element)\n"
+    for oneValuerepeatedDouble in repeatedDouble  {
+        output += "\(indent) repeatedDouble[\(repeatedDoubleElementIndex)]: \(oneValuerepeatedDouble)\n"
         repeatedDoubleElementIndex++
     }
     var repeatedBoolElementIndex:Int = 0
-    for element in repeatedBool  {
-        output += "\(indent) repeatedBool[\(repeatedBoolElementIndex)]: \(element)\n"
+    for oneValuerepeatedBool in repeatedBool  {
+        output += "\(indent) repeatedBool[\(repeatedBoolElementIndex)]: \(oneValuerepeatedBool)\n"
         repeatedBoolElementIndex++
     }
     var repeatedStringElementIndex:Int = 0
-    for element in repeatedString  {
-        output += "\(indent) repeatedString[\(repeatedStringElementIndex)]: \(element)\n"
+    for oneValuerepeatedString in repeatedString  {
+        output += "\(indent) repeatedString[\(repeatedStringElementIndex)]: \(oneValuerepeatedString)\n"
         repeatedStringElementIndex++
     }
     var repeatedBytesElementIndex:Int = 0
-    for element in repeatedBytes  {
-        output += "\(indent) repeatedBytes[\(repeatedBytesElementIndex)]: \(element)\n"
+    for oneValuerepeatedBytes in repeatedBytes  {
+        output += "\(indent) repeatedBytes[\(repeatedBytesElementIndex)]: \(oneValuerepeatedBytes)\n"
         repeatedBytesElementIndex++
     }
     var repeatedGroupElementIndex:Int = 0
-    for element in repeatedGroup {
+    for oneElementrepeatedGroup in repeatedGroup {
         output += "\(indent) repeatedGroup[\(repeatedGroupElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedGroup.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedGroupElementIndex++
     }
     var repeatedNestedMessageElementIndex:Int = 0
-    for element in repeatedNestedMessage {
+    for oneElementrepeatedNestedMessage in repeatedNestedMessage {
         output += "\(indent) repeatedNestedMessage[\(repeatedNestedMessageElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedNestedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedNestedMessageElementIndex++
     }
     var repeatedForeignMessageElementIndex:Int = 0
-    for element in repeatedForeignMessage {
+    for oneElementrepeatedForeignMessage in repeatedForeignMessage {
         output += "\(indent) repeatedForeignMessage[\(repeatedForeignMessageElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedForeignMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedForeignMessageElementIndex++
     }
     var repeatedImportMessageElementIndex:Int = 0
-    for element in repeatedImportMessage {
+    for oneElementrepeatedImportMessage in repeatedImportMessage {
         output += "\(indent) repeatedImportMessage[\(repeatedImportMessageElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedImportMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedImportMessageElementIndex++
     }
     var repeatedNestedEnumElementIndex:Int = 0
-    for element in repeatedNestedEnum {
-        output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(element.rawValue)\n"
+    for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
+        output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(oneValueOfrepeatedNestedEnum.rawValue)\n"
         repeatedNestedEnumElementIndex++
     }
     var repeatedForeignEnumElementIndex:Int = 0
-    for element in repeatedForeignEnum {
-        output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(element.rawValue)\n"
+    for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
+        output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(oneValueOfrepeatedForeignEnum.rawValue)\n"
         repeatedForeignEnumElementIndex++
     }
     var repeatedImportEnumElementIndex:Int = 0
-    for element in repeatedImportEnum {
-        output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(element.rawValue)\n"
+    for oneValueOfrepeatedImportEnum in repeatedImportEnum {
+        output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(oneValueOfrepeatedImportEnum.rawValue)\n"
         repeatedImportEnumElementIndex++
     }
     var repeatedStringPieceElementIndex:Int = 0
-    for element in repeatedStringPiece  {
-        output += "\(indent) repeatedStringPiece[\(repeatedStringPieceElementIndex)]: \(element)\n"
+    for oneValuerepeatedStringPiece in repeatedStringPiece  {
+        output += "\(indent) repeatedStringPiece[\(repeatedStringPieceElementIndex)]: \(oneValuerepeatedStringPiece)\n"
         repeatedStringPieceElementIndex++
     }
     var repeatedCordElementIndex:Int = 0
-    for element in repeatedCord  {
-        output += "\(indent) repeatedCord[\(repeatedCordElementIndex)]: \(element)\n"
+    for oneValuerepeatedCord in repeatedCord  {
+        output += "\(indent) repeatedCord[\(repeatedCordElementIndex)]: \(oneValuerepeatedCord)\n"
         repeatedCordElementIndex++
     }
     var repeatedLazyMessageElementIndex:Int = 0
-    for element in repeatedLazyMessage {
+    for oneElementrepeatedLazyMessage in repeatedLazyMessage {
         output += "\(indent) repeatedLazyMessage[\(repeatedLazyMessageElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedLazyMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedLazyMessageElementIndex++
     }
@@ -3981,82 +3981,82 @@ final class TestAllTypes : GeneratedMessage {
           if hasOptionalLazyMessage {
             hashCode = (hashCode &* 31) &+ optionalLazyMessage.hashValue
           }
-          for element in repeatedInt32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedInt32 in repeatedInt32 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedInt32.hashValue
           }
-          for element in repeatedInt64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedInt64 in repeatedInt64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedInt64.hashValue
           }
-          for element in repeatedUint32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedUint32 in repeatedUint32 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedUint32.hashValue
           }
-          for element in repeatedUint64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedUint64 in repeatedUint64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedUint64.hashValue
           }
-          for element in repeatedSint32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedSint32 in repeatedSint32 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedSint32.hashValue
           }
-          for element in repeatedSint64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedSint64 in repeatedSint64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedSint64.hashValue
           }
-          for element in repeatedFixed32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedFixed32 in repeatedFixed32 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedFixed32.hashValue
           }
-          for element in repeatedFixed64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedFixed64 in repeatedFixed64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedFixed64.hashValue
           }
-          for element in repeatedSfixed32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedSfixed32 in repeatedSfixed32 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedSfixed32.hashValue
           }
-          for element in repeatedSfixed64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedSfixed64 in repeatedSfixed64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedSfixed64.hashValue
           }
-          for element in repeatedFloat {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedFloat in repeatedFloat {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedFloat.hashValue
           }
-          for element in repeatedDouble {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedDouble in repeatedDouble {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedDouble.hashValue
           }
-          for element in repeatedBool {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedBool in repeatedBool {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedBool.hashValue
           }
-          for element in repeatedString {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedString in repeatedString {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedString.hashValue
           }
-          for value in repeatedBytes {
-            for element in value {
-                hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedBytes in repeatedBytes {
+            for elementOneValuerepeatedBytes in oneValuerepeatedBytes {
+                hashCode = (hashCode &* 31) &+ elementOneValuerepeatedBytes.hashValue
             }
           }
-          for element in repeatedGroup {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedGroup in repeatedGroup {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedGroup.hashValue
           }
-          for element in repeatedNestedMessage {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedNestedMessage in repeatedNestedMessage {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedNestedMessage.hashValue
           }
-          for element in repeatedForeignMessage {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedForeignMessage in repeatedForeignMessage {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedForeignMessage.hashValue
           }
-          for element in repeatedImportMessage {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedImportMessage in repeatedImportMessage {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedImportMessage.hashValue
           }
-          for element in repeatedNestedEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
+          for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
+              hashCode = (hashCode &* 31) &+ Int(oneValueOfrepeatedNestedEnum.rawValue)
           }
-          for element in repeatedForeignEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
+          for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
+              hashCode = (hashCode &* 31) &+ Int(oneValueOfrepeatedForeignEnum.rawValue)
           }
-          for element in repeatedImportEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
+          for oneValueOfrepeatedImportEnum in repeatedImportEnum {
+              hashCode = (hashCode &* 31) &+ Int(oneValueOfrepeatedImportEnum.rawValue)
           }
-          for element in repeatedStringPiece {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedStringPiece in repeatedStringPiece {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedStringPiece.hashValue
           }
-          for element in repeatedCord {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedCord in repeatedCord {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedCord.hashValue
           }
-          for element in repeatedLazyMessage {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedLazyMessage in repeatedLazyMessage {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedLazyMessage.hashValue
           }
           if hasDefaultInt32 {
              hashCode = (hashCode &* 31) &+ defaultInt32.hashValue
@@ -5847,27 +5847,27 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
         optionalImportMessage = subBuilder.buildPartial()
 
       case 168 :
-        var value = input.readEnum()
-        if let enums = TestAllTypes.NestedEnum(rawValue:value){
-             optionalNestedEnum = enums
+        let valueIntoptionalNestedEnum = input.readEnum()
+        if let enumsoptionalNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
+             optionalNestedEnum = enumsoptionalNestedEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(21, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
         }
 
       case 176 :
-        var value = input.readEnum()
-        if let enums = ForeignEnum(rawValue:value){
-             optionalForeignEnum = enums
+        let valueIntoptionalForeignEnum = input.readEnum()
+        if let enumsoptionalForeignEnum = ForeignEnum(rawValue:valueIntoptionalForeignEnum){
+             optionalForeignEnum = enumsoptionalForeignEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(22, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(22, value:Int64(valueIntoptionalForeignEnum))
         }
 
       case 184 :
-        var value = input.readEnum()
-        if let enums = ImportEnum(rawValue:value){
-             optionalImportEnum = enums
+        let valueIntoptionalImportEnum = input.readEnum()
+        if let enumsoptionalImportEnum = ImportEnum(rawValue:valueIntoptionalImportEnum){
+             optionalImportEnum = enumsoptionalImportEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(23, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(23, value:Int64(valueIntoptionalImportEnum))
         }
 
       case 194 :
@@ -5958,27 +5958,27 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
         repeatedImportMessage += [subBuilder.buildPartial()]
 
       case 408 :
-        let value = input.readEnum()
-        if let enums = TestAllTypes.NestedEnum(rawValue:value) {
-             builderResult.repeatedNestedEnum += [enums]
+        let valueIntrepeatedNestedEnum = input.readEnum()
+        if let enumsrepeatedNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
+             builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
         } else {
-             unknownFieldsBuilder.mergeVarintField(51, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
         }
 
       case 416 :
-        let value = input.readEnum()
-        if let enums = ForeignEnum(rawValue:value) {
-             builderResult.repeatedForeignEnum += [enums]
+        let valueIntrepeatedForeignEnum = input.readEnum()
+        if let enumsrepeatedForeignEnum = ForeignEnum(rawValue:valueIntrepeatedForeignEnum) {
+             builderResult.repeatedForeignEnum += [enumsrepeatedForeignEnum]
         } else {
-             unknownFieldsBuilder.mergeVarintField(52, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(52, value:Int64(valueIntrepeatedForeignEnum))
         }
 
       case 424 :
-        let value = input.readEnum()
-        if let enums = ImportEnum(rawValue:value) {
-             builderResult.repeatedImportEnum += [enums]
+        let valueIntrepeatedImportEnum = input.readEnum()
+        if let enumsrepeatedImportEnum = ImportEnum(rawValue:valueIntrepeatedImportEnum) {
+             builderResult.repeatedImportEnum += [enumsrepeatedImportEnum]
         } else {
-             unknownFieldsBuilder.mergeVarintField(53, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(53, value:Int64(valueIntrepeatedImportEnum))
         }
 
       case 434 :
@@ -6038,27 +6038,27 @@ final class TestAllTypesBuilder : GeneratedMessageBuilder {
         defaultBytes = input.readData()
 
       case 648 :
-        var value = input.readEnum()
-        if let enums = TestAllTypes.NestedEnum(rawValue:value){
-             defaultNestedEnum = enums
+        let valueIntdefaultNestedEnum = input.readEnum()
+        if let enumsdefaultNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntdefaultNestedEnum){
+             defaultNestedEnum = enumsdefaultNestedEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(81, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(81, value:Int64(valueIntdefaultNestedEnum))
         }
 
       case 656 :
-        var value = input.readEnum()
-        if let enums = ForeignEnum(rawValue:value){
-             defaultForeignEnum = enums
+        let valueIntdefaultForeignEnum = input.readEnum()
+        if let enumsdefaultForeignEnum = ForeignEnum(rawValue:valueIntdefaultForeignEnum){
+             defaultForeignEnum = enumsdefaultForeignEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(82, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(82, value:Int64(valueIntdefaultForeignEnum))
         }
 
       case 664 :
-        var value = input.readEnum()
-        if let enums = ImportEnum(rawValue:value){
-             defaultImportEnum = enums
+        let valueIntdefaultImportEnum = input.readEnum()
+        if let enumsdefaultImportEnum = ImportEnum(rawValue:valueIntdefaultImportEnum){
+             defaultImportEnum = enumsdefaultImportEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(83, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(83, value:Int64(valueIntdefaultImportEnum))
         }
 
       case 674 :
@@ -8874,8 +8874,8 @@ final class TestRequiredForeign : GeneratedMessage {
      }
     }
     var isInitrepeatedMessage:Bool = true
-    for element in repeatedMessage {
-        if (!element.isInitialized()) {
+    for oneElementrepeatedMessage in repeatedMessage {
+        if (!oneElementrepeatedMessage.isInitialized()) {
             isInitrepeatedMessage = false
             break 
         }
@@ -8889,8 +8889,8 @@ final class TestRequiredForeign : GeneratedMessage {
     if hasOptionalMessage {
       output.writeMessage(1, value:optionalMessage)
     }
-    for element in repeatedMessage {
-        output.writeMessage(2, value:element)
+    for oneElementrepeatedMessage in repeatedMessage {
+        output.writeMessage(2, value:oneElementrepeatedMessage)
     }
     if hasDummy {
       output.writeInt32(3, value:dummy)
@@ -8907,8 +8907,8 @@ final class TestRequiredForeign : GeneratedMessage {
     if hasOptionalMessage {
       size += WireFormat.computeMessageSize(1, value:optionalMessage)
     }
-    for element in repeatedMessage {
-        size += WireFormat.computeMessageSize(2, value:element)
+    for oneElementrepeatedMessage in repeatedMessage {
+        size += WireFormat.computeMessageSize(2, value:oneElementrepeatedMessage)
     }
     if hasDummy {
       size += WireFormat.computeInt32Size(3, value:dummy)
@@ -8960,9 +8960,9 @@ final class TestRequiredForeign : GeneratedMessage {
       output += "\(indent) }\n"
     }
     var repeatedMessageElementIndex:Int = 0
-    for element in repeatedMessage {
+    for oneElementrepeatedMessage in repeatedMessage {
         output += "\(indent) repeatedMessage[\(repeatedMessageElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedMessageElementIndex++
     }
@@ -8977,8 +8977,8 @@ final class TestRequiredForeign : GeneratedMessage {
           if hasOptionalMessage {
             hashCode = (hashCode &* 31) &+ optionalMessage.hashValue
           }
-          for element in repeatedMessage {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedMessage in repeatedMessage {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedMessage.hashValue
           }
           if hasDummy {
              hashCode = (hashCode &* 31) &+ dummy.hashValue
@@ -11802,12 +11802,12 @@ final class TestNestedMessageHasBits : GeneratedMessage {
       }
       override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if !nestedmessageRepeatedInt32.isEmpty {
-          for value in nestedmessageRepeatedInt32 {
-            output.writeInt32(1, value:value)
+          for oneValuenestedmessageRepeatedInt32 in nestedmessageRepeatedInt32 {
+            output.writeInt32(1, value:oneValuenestedmessageRepeatedInt32)
           }
         }
-        for element in nestedmessageRepeatedForeignmessage {
-            output.writeMessage(2, value:element)
+        for oneElementnestedmessageRepeatedForeignmessage in nestedmessageRepeatedForeignmessage {
+            output.writeMessage(2, value:oneElementnestedmessageRepeatedForeignmessage)
         }
         unknownFields.writeToCodedOutputStream(output)
       }
@@ -11819,13 +11819,13 @@ final class TestNestedMessageHasBits : GeneratedMessage {
 
         size = 0
         var dataSizeNestedmessageRepeatedInt32:Int32 = 0
-        for element in nestedmessageRepeatedInt32 {
-            dataSizeNestedmessageRepeatedInt32 += WireFormat.computeInt32SizeNoTag(element)
+        for oneValuenestedmessageRepeatedInt32 in nestedmessageRepeatedInt32 {
+            dataSizeNestedmessageRepeatedInt32 += WireFormat.computeInt32SizeNoTag(oneValuenestedmessageRepeatedInt32)
         }
         size += dataSizeNestedmessageRepeatedInt32
         size += 1 * Int32(nestedmessageRepeatedInt32.count)
-        for element in nestedmessageRepeatedForeignmessage {
-            size += WireFormat.computeMessageSize(2, value:element)
+        for oneElementnestedmessageRepeatedForeignmessage in nestedmessageRepeatedForeignmessage {
+            size += WireFormat.computeMessageSize(2, value:oneElementnestedmessageRepeatedForeignmessage)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
@@ -11869,14 +11869,14 @@ final class TestNestedMessageHasBits : GeneratedMessage {
       }
       override internal func writeDescriptionTo(inout output:String, indent:String) {
         var nestedmessageRepeatedInt32ElementIndex:Int = 0
-        for element in nestedmessageRepeatedInt32  {
-            output += "\(indent) nestedmessageRepeatedInt32[\(nestedmessageRepeatedInt32ElementIndex)]: \(element)\n"
+        for oneValuenestedmessageRepeatedInt32 in nestedmessageRepeatedInt32  {
+            output += "\(indent) nestedmessageRepeatedInt32[\(nestedmessageRepeatedInt32ElementIndex)]: \(oneValuenestedmessageRepeatedInt32)\n"
             nestedmessageRepeatedInt32ElementIndex++
         }
         var nestedmessageRepeatedForeignmessageElementIndex:Int = 0
-        for element in nestedmessageRepeatedForeignmessage {
+        for oneElementnestedmessageRepeatedForeignmessage in nestedmessageRepeatedForeignmessage {
             output += "\(indent) nestedmessageRepeatedForeignmessage[\(nestedmessageRepeatedForeignmessageElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementnestedmessageRepeatedForeignmessage.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             nestedmessageRepeatedForeignmessageElementIndex++
         }
@@ -11885,11 +11885,11 @@ final class TestNestedMessageHasBits : GeneratedMessage {
       override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
-              for element in nestedmessageRepeatedInt32 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneValuenestedmessageRepeatedInt32 in nestedmessageRepeatedInt32 {
+                  hashCode = (hashCode &* 31) &+ oneValuenestedmessageRepeatedInt32.hashValue
               }
-              for element in nestedmessageRepeatedForeignmessage {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementnestedmessageRepeatedForeignmessage in nestedmessageRepeatedForeignmessage {
+                  hashCode = (hashCode &* 31) &+ oneElementnestedmessageRepeatedForeignmessage.hashValue
               }
               hashCode = (hashCode &* 31) &+  unknownFields.hashValue
               return hashCode
@@ -12262,29 +12262,29 @@ final class TestCamelCaseFieldNames : GeneratedMessage {
       output.writeString(6, value:cordField)
     }
     if !repeatedPrimitiveField.isEmpty {
-      for value in repeatedPrimitiveField {
-        output.writeInt32(7, value:value)
+      for oneValuerepeatedPrimitiveField in repeatedPrimitiveField {
+        output.writeInt32(7, value:oneValuerepeatedPrimitiveField)
       }
     }
     if !repeatedStringField.isEmpty {
-      for value in repeatedStringField {
-        output.writeString(8, value:value)
+      for oneValuerepeatedStringField in repeatedStringField {
+        output.writeString(8, value:oneValuerepeatedStringField)
       }
     }
-    for value in repeatedEnumField {
-        output.writeEnum(9, value:value.rawValue)
+    for oneValueOfrepeatedEnumField in repeatedEnumField {
+        output.writeEnum(9, value:oneValueOfrepeatedEnumField.rawValue)
     }
-    for element in repeatedMessageField {
-        output.writeMessage(10, value:element)
+    for oneElementrepeatedMessageField in repeatedMessageField {
+        output.writeMessage(10, value:oneElementrepeatedMessageField)
     }
     if !repeatedStringPieceField.isEmpty {
-      for value in repeatedStringPieceField {
-        output.writeString(11, value:value)
+      for oneValuerepeatedStringPieceField in repeatedStringPieceField {
+        output.writeString(11, value:oneValuerepeatedStringPieceField)
       }
     }
     if !repeatedCordField.isEmpty {
-      for value in repeatedCordField {
-        output.writeString(12, value:value)
+      for oneValuerepeatedCordField in repeatedCordField {
+        output.writeString(12, value:oneValuerepeatedCordField)
       }
     }
     unknownFields.writeToCodedOutputStream(output)
@@ -12315,35 +12315,35 @@ final class TestCamelCaseFieldNames : GeneratedMessage {
       size += WireFormat.computeStringSize(6, value:cordField)
     }
     var dataSizeRepeatedPrimitiveField:Int32 = 0
-    for element in repeatedPrimitiveField {
-        dataSizeRepeatedPrimitiveField += WireFormat.computeInt32SizeNoTag(element)
+    for oneValuerepeatedPrimitiveField in repeatedPrimitiveField {
+        dataSizeRepeatedPrimitiveField += WireFormat.computeInt32SizeNoTag(oneValuerepeatedPrimitiveField)
     }
     size += dataSizeRepeatedPrimitiveField
     size += 1 * Int32(repeatedPrimitiveField.count)
     var dataSizeRepeatedStringField:Int32 = 0
-    for element in repeatedStringField {
-        dataSizeRepeatedStringField += WireFormat.computeStringSizeNoTag(element)
+    for oneValuerepeatedStringField in repeatedStringField {
+        dataSizeRepeatedStringField += WireFormat.computeStringSizeNoTag(oneValuerepeatedStringField)
     }
     size += dataSizeRepeatedStringField
     size += 1 * Int32(repeatedStringField.count)
     var dataSizerepeatedEnumField:Int32 = 0
-    for value in repeatedEnumField {
-        dataSizerepeatedEnumField += WireFormat.computeEnumSizeNoTag(value.rawValue)
+    for oneValueOfrepeatedEnumField in repeatedEnumField {
+        dataSizerepeatedEnumField += WireFormat.computeEnumSizeNoTag(oneValueOfrepeatedEnumField.rawValue)
     }
     size += dataSizerepeatedEnumField
     size += (1 * Int32(repeatedEnumField.count))
-    for element in repeatedMessageField {
-        size += WireFormat.computeMessageSize(10, value:element)
+    for oneElementrepeatedMessageField in repeatedMessageField {
+        size += WireFormat.computeMessageSize(10, value:oneElementrepeatedMessageField)
     }
     var dataSizeRepeatedStringPieceField:Int32 = 0
-    for element in repeatedStringPieceField {
-        dataSizeRepeatedStringPieceField += WireFormat.computeStringSizeNoTag(element)
+    for oneValuerepeatedStringPieceField in repeatedStringPieceField {
+        dataSizeRepeatedStringPieceField += WireFormat.computeStringSizeNoTag(oneValuerepeatedStringPieceField)
     }
     size += dataSizeRepeatedStringPieceField
     size += 1 * Int32(repeatedStringPieceField.count)
     var dataSizeRepeatedCordField:Int32 = 0
-    for element in repeatedCordField {
-        dataSizeRepeatedCordField += WireFormat.computeStringSizeNoTag(element)
+    for oneValuerepeatedCordField in repeatedCordField {
+        dataSizeRepeatedCordField += WireFormat.computeStringSizeNoTag(oneValuerepeatedCordField)
     }
     size += dataSizeRepeatedCordField
     size += 1 * Int32(repeatedCordField.count)
@@ -12409,35 +12409,35 @@ final class TestCamelCaseFieldNames : GeneratedMessage {
       output += "\(indent) cordField: \(cordField) \n"
     }
     var repeatedPrimitiveFieldElementIndex:Int = 0
-    for element in repeatedPrimitiveField  {
-        output += "\(indent) repeatedPrimitiveField[\(repeatedPrimitiveFieldElementIndex)]: \(element)\n"
+    for oneValuerepeatedPrimitiveField in repeatedPrimitiveField  {
+        output += "\(indent) repeatedPrimitiveField[\(repeatedPrimitiveFieldElementIndex)]: \(oneValuerepeatedPrimitiveField)\n"
         repeatedPrimitiveFieldElementIndex++
     }
     var repeatedStringFieldElementIndex:Int = 0
-    for element in repeatedStringField  {
-        output += "\(indent) repeatedStringField[\(repeatedStringFieldElementIndex)]: \(element)\n"
+    for oneValuerepeatedStringField in repeatedStringField  {
+        output += "\(indent) repeatedStringField[\(repeatedStringFieldElementIndex)]: \(oneValuerepeatedStringField)\n"
         repeatedStringFieldElementIndex++
     }
     var repeatedEnumFieldElementIndex:Int = 0
-    for element in repeatedEnumField {
-        output += "\(indent) repeatedEnumField[\(repeatedEnumFieldElementIndex)]: \(element.rawValue)\n"
+    for oneValueOfrepeatedEnumField in repeatedEnumField {
+        output += "\(indent) repeatedEnumField[\(repeatedEnumFieldElementIndex)]: \(oneValueOfrepeatedEnumField.rawValue)\n"
         repeatedEnumFieldElementIndex++
     }
     var repeatedMessageFieldElementIndex:Int = 0
-    for element in repeatedMessageField {
+    for oneElementrepeatedMessageField in repeatedMessageField {
         output += "\(indent) repeatedMessageField[\(repeatedMessageFieldElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedMessageField.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedMessageFieldElementIndex++
     }
     var repeatedStringPieceFieldElementIndex:Int = 0
-    for element in repeatedStringPieceField  {
-        output += "\(indent) repeatedStringPieceField[\(repeatedStringPieceFieldElementIndex)]: \(element)\n"
+    for oneValuerepeatedStringPieceField in repeatedStringPieceField  {
+        output += "\(indent) repeatedStringPieceField[\(repeatedStringPieceFieldElementIndex)]: \(oneValuerepeatedStringPieceField)\n"
         repeatedStringPieceFieldElementIndex++
     }
     var repeatedCordFieldElementIndex:Int = 0
-    for element in repeatedCordField  {
-        output += "\(indent) repeatedCordField[\(repeatedCordFieldElementIndex)]: \(element)\n"
+    for oneValuerepeatedCordField in repeatedCordField  {
+        output += "\(indent) repeatedCordField[\(repeatedCordFieldElementIndex)]: \(oneValuerepeatedCordField)\n"
         repeatedCordFieldElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -12463,23 +12463,23 @@ final class TestCamelCaseFieldNames : GeneratedMessage {
           if hasCordField {
              hashCode = (hashCode &* 31) &+ cordField.hashValue
           }
-          for element in repeatedPrimitiveField {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedPrimitiveField in repeatedPrimitiveField {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedPrimitiveField.hashValue
           }
-          for element in repeatedStringField {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedStringField in repeatedStringField {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedStringField.hashValue
           }
-          for element in repeatedEnumField {
-              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
+          for oneValueOfrepeatedEnumField in repeatedEnumField {
+              hashCode = (hashCode &* 31) &+ Int(oneValueOfrepeatedEnumField.rawValue)
           }
-          for element in repeatedMessageField {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedMessageField in repeatedMessageField {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedMessageField.hashValue
           }
-          for element in repeatedStringPieceField {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedStringPieceField in repeatedStringPieceField {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedStringPieceField.hashValue
           }
-          for element in repeatedCordField {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedCordField in repeatedCordField {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedCordField.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -12792,11 +12792,11 @@ final class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
         stringField = input.readString()
 
       case 24 :
-        var value = input.readEnum()
-        if let enums = ForeignEnum(rawValue:value){
-             enumField = enums
+        let valueIntenumField = input.readEnum()
+        if let enumsenumField = ForeignEnum(rawValue:valueIntenumField){
+             enumField = enumsenumField
         } else {
-             unknownFieldsBuilder.mergeVarintField(3, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(3, value:Int64(valueIntenumField))
         }
 
       case 34 :
@@ -12820,11 +12820,11 @@ final class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
         repeatedStringField += [input.readString()]
 
       case 72 :
-        let value = input.readEnum()
-        if let enums = ForeignEnum(rawValue:value) {
-             builderResult.repeatedEnumField += [enums]
+        let valueIntrepeatedEnumField = input.readEnum()
+        if let enumsrepeatedEnumField = ForeignEnum(rawValue:valueIntrepeatedEnumField) {
+             builderResult.repeatedEnumField += [enumsrepeatedEnumField]
         } else {
-             unknownFieldsBuilder.mergeVarintField(9, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(9, value:Int64(valueIntrepeatedEnumField))
         }
 
       case 82 :
@@ -14516,11 +14516,11 @@ final class SparseEnumMessageBuilder : GeneratedMessageBuilder {
         return self
 
       case 8 :
-        var value = input.readEnum()
-        if let enums = TestSparseEnum(rawValue:value){
-             sparseEnum = enums
+        let valueIntsparseEnum = input.readEnum()
+        if let enumssparseEnum = TestSparseEnum(rawValue:valueIntsparseEnum){
+             sparseEnum = enumssparseEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(1, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueIntsparseEnum))
         }
 
       default:
@@ -14725,8 +14725,8 @@ final class MoreString : GeneratedMessage {
   }
   override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if !data.isEmpty {
-      for value in data {
-        output.writeString(1, value:value)
+      for oneValuedata in data {
+        output.writeString(1, value:oneValuedata)
       }
     }
     unknownFields.writeToCodedOutputStream(output)
@@ -14739,8 +14739,8 @@ final class MoreString : GeneratedMessage {
 
     size = 0
     var dataSizeData:Int32 = 0
-    for element in data {
-        dataSizeData += WireFormat.computeStringSizeNoTag(element)
+    for oneValuedata in data {
+        dataSizeData += WireFormat.computeStringSizeNoTag(oneValuedata)
     }
     size += dataSizeData
     size += 1 * Int32(data.count)
@@ -14786,8 +14786,8 @@ final class MoreString : GeneratedMessage {
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     var dataElementIndex:Int = 0
-    for element in data  {
-        output += "\(indent) data[\(dataElementIndex)]: \(element)\n"
+    for oneValuedata in data  {
+        output += "\(indent) data[\(dataElementIndex)]: \(oneValuedata)\n"
         dataElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -14795,8 +14795,8 @@ final class MoreString : GeneratedMessage {
   override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in data {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuedata in data {
+              hashCode = (hashCode &* 31) &+ oneValuedata.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -15089,8 +15089,8 @@ final class MoreBytes : GeneratedMessage {
   }
   override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if !data.isEmpty {
-      for value in data {
-        output.writeData(1, value:value)
+      for oneValuedata in data {
+        output.writeData(1, value:oneValuedata)
       }
     }
     unknownFields.writeToCodedOutputStream(output)
@@ -15103,8 +15103,8 @@ final class MoreBytes : GeneratedMessage {
 
     size = 0
     var dataSizeData:Int32 = 0
-    for element in data {
-        dataSizeData += WireFormat.computeDataSizeNoTag(element)
+    for oneValuedata in data {
+        dataSizeData += WireFormat.computeDataSizeNoTag(oneValuedata)
     }
     size += dataSizeData
     size += 1 * Int32(data.count)
@@ -15150,8 +15150,8 @@ final class MoreBytes : GeneratedMessage {
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     var dataElementIndex:Int = 0
-    for element in data  {
-        output += "\(indent) data[\(dataElementIndex)]: \(element)\n"
+    for oneValuedata in data  {
+        output += "\(indent) data[\(dataElementIndex)]: \(oneValuedata)\n"
         dataElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -15159,9 +15159,9 @@ final class MoreBytes : GeneratedMessage {
   override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for value in data {
-            for element in value {
-                hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuedata in data {
+            for elementOneValuedata in oneValuedata {
+                hashCode = (hashCode &* 31) &+ elementOneValuedata.hashValue
             }
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -17686,8 +17686,8 @@ final class TestOneof2 : GeneratedMessage {
           output.writeInt64(1, value:quxInt)
         }
         if !corgeInt.isEmpty {
-          for value in corgeInt {
-            output.writeInt32(2, value:value)
+          for oneValuecorgeInt in corgeInt {
+            output.writeInt32(2, value:oneValuecorgeInt)
           }
         }
         unknownFields.writeToCodedOutputStream(output)
@@ -17703,8 +17703,8 @@ final class TestOneof2 : GeneratedMessage {
           size += WireFormat.computeInt64Size(1, value:quxInt)
         }
         var dataSizeCorgeInt:Int32 = 0
-        for element in corgeInt {
-            dataSizeCorgeInt += WireFormat.computeInt32SizeNoTag(element)
+        for oneValuecorgeInt in corgeInt {
+            dataSizeCorgeInt += WireFormat.computeInt32SizeNoTag(oneValuecorgeInt)
         }
         size += dataSizeCorgeInt
         size += 1 * Int32(corgeInt.count)
@@ -17753,8 +17753,8 @@ final class TestOneof2 : GeneratedMessage {
           output += "\(indent) quxInt: \(quxInt) \n"
         }
         var corgeIntElementIndex:Int = 0
-        for element in corgeInt  {
-            output += "\(indent) corgeInt[\(corgeIntElementIndex)]: \(element)\n"
+        for oneValuecorgeInt in corgeInt  {
+            output += "\(indent) corgeInt[\(corgeIntElementIndex)]: \(oneValuecorgeInt)\n"
             corgeIntElementIndex++
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -17765,8 +17765,8 @@ final class TestOneof2 : GeneratedMessage {
               if hasQuxInt {
                  hashCode = (hashCode &* 31) &+ quxInt.hashValue
               }
-              for element in corgeInt {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneValuecorgeInt in corgeInt {
+                  hashCode = (hashCode &* 31) &+ oneValuecorgeInt.hashValue
               }
               hashCode = (hashCode &* 31) &+  unknownFields.hashValue
               return hashCode
@@ -19159,11 +19159,11 @@ final class TestOneof2Builder : GeneratedMessageBuilder {
         fooBytes = input.readData()
 
       case 48 :
-        var value = input.readEnum()
-        if let enums = TestOneof2.NestedEnum(rawValue:value){
-             fooEnum = enums
+        let valueIntfooEnum = input.readEnum()
+        if let enumsfooEnum = TestOneof2.NestedEnum(rawValue:valueIntfooEnum){
+             fooEnum = enumsfooEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(6, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(6, value:Int64(valueIntfooEnum))
         }
 
       case 58 :
@@ -19206,11 +19206,11 @@ final class TestOneof2Builder : GeneratedMessageBuilder {
         barBytes = input.readData()
 
       case 136 :
-        var value = input.readEnum()
-        if let enums = TestOneof2.NestedEnum(rawValue:value){
-             barEnum = enums
+        let valueIntbarEnum = input.readEnum()
+        if let enumsbarEnum = TestOneof2.NestedEnum(rawValue:valueIntbarEnum){
+             barEnum = enumsbarEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(17, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(17, value:Int64(valueIntbarEnum))
         }
 
       case 144 :
@@ -19845,100 +19845,100 @@ final class TestPackedTypes : GeneratedMessage {
     if !packedInt32.isEmpty {
       output.writeRawVarint32(722)
       output.writeRawVarint32(packedInt32MemoizedSerializedSize)
-      for value in packedInt32 {
-        output.writeInt32NoTag(value)
+      for oneValuepackedInt32 in packedInt32 {
+        output.writeInt32NoTag(oneValuepackedInt32)
       }
     }
     if !packedInt64.isEmpty {
       output.writeRawVarint32(730)
       output.writeRawVarint32(packedInt64MemoizedSerializedSize)
-      for value in packedInt64 {
-        output.writeInt64NoTag(value)
+      for oneValuepackedInt64 in packedInt64 {
+        output.writeInt64NoTag(oneValuepackedInt64)
       }
     }
     if !packedUint32.isEmpty {
       output.writeRawVarint32(738)
       output.writeRawVarint32(packedUint32MemoizedSerializedSize)
-      for value in packedUint32 {
-        output.writeUInt32NoTag(value)
+      for oneValuepackedUint32 in packedUint32 {
+        output.writeUInt32NoTag(oneValuepackedUint32)
       }
     }
     if !packedUint64.isEmpty {
       output.writeRawVarint32(746)
       output.writeRawVarint32(packedUint64MemoizedSerializedSize)
-      for value in packedUint64 {
-        output.writeUInt64NoTag(value)
+      for oneValuepackedUint64 in packedUint64 {
+        output.writeUInt64NoTag(oneValuepackedUint64)
       }
     }
     if !packedSint32.isEmpty {
       output.writeRawVarint32(754)
       output.writeRawVarint32(packedSint32MemoizedSerializedSize)
-      for value in packedSint32 {
-        output.writeSInt32NoTag(value)
+      for oneValuepackedSint32 in packedSint32 {
+        output.writeSInt32NoTag(oneValuepackedSint32)
       }
     }
     if !packedSint64.isEmpty {
       output.writeRawVarint32(762)
       output.writeRawVarint32(packedSint64MemoizedSerializedSize)
-      for value in packedSint64 {
-        output.writeSInt64NoTag(value)
+      for oneValuepackedSint64 in packedSint64 {
+        output.writeSInt64NoTag(oneValuepackedSint64)
       }
     }
     if !packedFixed32.isEmpty {
       output.writeRawVarint32(770)
       output.writeRawVarint32(packedFixed32MemoizedSerializedSize)
-      for value in packedFixed32 {
-        output.writeFixed32NoTag(value)
+      for oneValuepackedFixed32 in packedFixed32 {
+        output.writeFixed32NoTag(oneValuepackedFixed32)
       }
     }
     if !packedFixed64.isEmpty {
       output.writeRawVarint32(778)
       output.writeRawVarint32(packedFixed64MemoizedSerializedSize)
-      for value in packedFixed64 {
-        output.writeFixed64NoTag(value)
+      for oneValuepackedFixed64 in packedFixed64 {
+        output.writeFixed64NoTag(oneValuepackedFixed64)
       }
     }
     if !packedSfixed32.isEmpty {
       output.writeRawVarint32(786)
       output.writeRawVarint32(packedSfixed32MemoizedSerializedSize)
-      for value in packedSfixed32 {
-        output.writeSFixed32NoTag(value)
+      for oneValuepackedSfixed32 in packedSfixed32 {
+        output.writeSFixed32NoTag(oneValuepackedSfixed32)
       }
     }
     if !packedSfixed64.isEmpty {
       output.writeRawVarint32(794)
       output.writeRawVarint32(packedSfixed64MemoizedSerializedSize)
-      for value in packedSfixed64 {
-        output.writeSFixed64NoTag(value)
+      for oneValuepackedSfixed64 in packedSfixed64 {
+        output.writeSFixed64NoTag(oneValuepackedSfixed64)
       }
     }
     if !packedFloat.isEmpty {
       output.writeRawVarint32(802)
       output.writeRawVarint32(packedFloatMemoizedSerializedSize)
-      for value in packedFloat {
-        output.writeFloatNoTag(value)
+      for oneValuepackedFloat in packedFloat {
+        output.writeFloatNoTag(oneValuepackedFloat)
       }
     }
     if !packedDouble.isEmpty {
       output.writeRawVarint32(810)
       output.writeRawVarint32(packedDoubleMemoizedSerializedSize)
-      for value in packedDouble {
-        output.writeDoubleNoTag(value)
+      for oneValuepackedDouble in packedDouble {
+        output.writeDoubleNoTag(oneValuepackedDouble)
       }
     }
     if !packedBool.isEmpty {
       output.writeRawVarint32(818)
       output.writeRawVarint32(packedBoolMemoizedSerializedSize)
-      for value in packedBool {
-        output.writeBoolNoTag(value)
+      for oneValuepackedBool in packedBool {
+        output.writeBoolNoTag(oneValuepackedBool)
       }
     }
     if !packedEnum.isEmpty {
       output.writeRawVarint32(826)
       output.writeRawVarint32(packedEnumMemoizedSerializedSize)
     }
-    for value in packedEnum {
-        output.writeEnumNoTag(value.rawValue)
+    for oneValueOfpackedEnum in packedEnum {
+        output.writeEnumNoTag(oneValueOfpackedEnum.rawValue)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
@@ -19950,8 +19950,8 @@ final class TestPackedTypes : GeneratedMessage {
 
     size = 0
     var dataSizePackedInt32:Int32 = 0
-    for element in packedInt32 {
-        dataSizePackedInt32 += WireFormat.computeInt32SizeNoTag(element)
+    for oneValuepackedInt32 in packedInt32 {
+        dataSizePackedInt32 += WireFormat.computeInt32SizeNoTag(oneValuepackedInt32)
     }
     size += dataSizePackedInt32
     if !packedInt32.isEmpty {
@@ -19960,8 +19960,8 @@ final class TestPackedTypes : GeneratedMessage {
     }
     packedInt32MemoizedSerializedSize = dataSizePackedInt32
     var dataSizePackedInt64:Int32 = 0
-    for element in packedInt64 {
-        dataSizePackedInt64 += WireFormat.computeInt64SizeNoTag(element)
+    for oneValuepackedInt64 in packedInt64 {
+        dataSizePackedInt64 += WireFormat.computeInt64SizeNoTag(oneValuepackedInt64)
     }
     size += dataSizePackedInt64
     if !packedInt64.isEmpty {
@@ -19970,8 +19970,8 @@ final class TestPackedTypes : GeneratedMessage {
     }
     packedInt64MemoizedSerializedSize = dataSizePackedInt64
     var dataSizePackedUint32:Int32 = 0
-    for element in packedUint32 {
-        dataSizePackedUint32 += WireFormat.computeUInt32SizeNoTag(element)
+    for oneValuepackedUint32 in packedUint32 {
+        dataSizePackedUint32 += WireFormat.computeUInt32SizeNoTag(oneValuepackedUint32)
     }
     size += dataSizePackedUint32
     if !packedUint32.isEmpty {
@@ -19980,8 +19980,8 @@ final class TestPackedTypes : GeneratedMessage {
     }
     packedUint32MemoizedSerializedSize = dataSizePackedUint32
     var dataSizePackedUint64:Int32 = 0
-    for element in packedUint64 {
-        dataSizePackedUint64 += WireFormat.computeUInt64SizeNoTag(element)
+    for oneValuepackedUint64 in packedUint64 {
+        dataSizePackedUint64 += WireFormat.computeUInt64SizeNoTag(oneValuepackedUint64)
     }
     size += dataSizePackedUint64
     if !packedUint64.isEmpty {
@@ -19990,8 +19990,8 @@ final class TestPackedTypes : GeneratedMessage {
     }
     packedUint64MemoizedSerializedSize = dataSizePackedUint64
     var dataSizePackedSint32:Int32 = 0
-    for element in packedSint32 {
-        dataSizePackedSint32 += WireFormat.computeSInt32SizeNoTag(element)
+    for oneValuepackedSint32 in packedSint32 {
+        dataSizePackedSint32 += WireFormat.computeSInt32SizeNoTag(oneValuepackedSint32)
     }
     size += dataSizePackedSint32
     if !packedSint32.isEmpty {
@@ -20000,8 +20000,8 @@ final class TestPackedTypes : GeneratedMessage {
     }
     packedSint32MemoizedSerializedSize = dataSizePackedSint32
     var dataSizePackedSint64:Int32 = 0
-    for element in packedSint64 {
-        dataSizePackedSint64 += WireFormat.computeSInt64SizeNoTag(element)
+    for oneValuepackedSint64 in packedSint64 {
+        dataSizePackedSint64 += WireFormat.computeSInt64SizeNoTag(oneValuepackedSint64)
     }
     size += dataSizePackedSint64
     if !packedSint64.isEmpty {
@@ -20066,8 +20066,8 @@ final class TestPackedTypes : GeneratedMessage {
     }
     packedBoolMemoizedSerializedSize = dataSizePackedBool
     var dataSizepackedEnum:Int32 = 0
-    for value in packedEnum {
-        dataSizepackedEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
+    for oneValueOfpackedEnum in packedEnum {
+        dataSizepackedEnum += WireFormat.computeEnumSizeNoTag(oneValueOfpackedEnum.rawValue)
     }
     size += dataSizepackedEnum
     if !packedEnum.isEmpty {
@@ -20117,73 +20117,73 @@ final class TestPackedTypes : GeneratedMessage {
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     var packedInt32ElementIndex:Int = 0
-    for element in packedInt32  {
-        output += "\(indent) packedInt32[\(packedInt32ElementIndex)]: \(element)\n"
+    for oneValuepackedInt32 in packedInt32  {
+        output += "\(indent) packedInt32[\(packedInt32ElementIndex)]: \(oneValuepackedInt32)\n"
         packedInt32ElementIndex++
     }
     var packedInt64ElementIndex:Int = 0
-    for element in packedInt64  {
-        output += "\(indent) packedInt64[\(packedInt64ElementIndex)]: \(element)\n"
+    for oneValuepackedInt64 in packedInt64  {
+        output += "\(indent) packedInt64[\(packedInt64ElementIndex)]: \(oneValuepackedInt64)\n"
         packedInt64ElementIndex++
     }
     var packedUint32ElementIndex:Int = 0
-    for element in packedUint32  {
-        output += "\(indent) packedUint32[\(packedUint32ElementIndex)]: \(element)\n"
+    for oneValuepackedUint32 in packedUint32  {
+        output += "\(indent) packedUint32[\(packedUint32ElementIndex)]: \(oneValuepackedUint32)\n"
         packedUint32ElementIndex++
     }
     var packedUint64ElementIndex:Int = 0
-    for element in packedUint64  {
-        output += "\(indent) packedUint64[\(packedUint64ElementIndex)]: \(element)\n"
+    for oneValuepackedUint64 in packedUint64  {
+        output += "\(indent) packedUint64[\(packedUint64ElementIndex)]: \(oneValuepackedUint64)\n"
         packedUint64ElementIndex++
     }
     var packedSint32ElementIndex:Int = 0
-    for element in packedSint32  {
-        output += "\(indent) packedSint32[\(packedSint32ElementIndex)]: \(element)\n"
+    for oneValuepackedSint32 in packedSint32  {
+        output += "\(indent) packedSint32[\(packedSint32ElementIndex)]: \(oneValuepackedSint32)\n"
         packedSint32ElementIndex++
     }
     var packedSint64ElementIndex:Int = 0
-    for element in packedSint64  {
-        output += "\(indent) packedSint64[\(packedSint64ElementIndex)]: \(element)\n"
+    for oneValuepackedSint64 in packedSint64  {
+        output += "\(indent) packedSint64[\(packedSint64ElementIndex)]: \(oneValuepackedSint64)\n"
         packedSint64ElementIndex++
     }
     var packedFixed32ElementIndex:Int = 0
-    for element in packedFixed32  {
-        output += "\(indent) packedFixed32[\(packedFixed32ElementIndex)]: \(element)\n"
+    for oneValuepackedFixed32 in packedFixed32  {
+        output += "\(indent) packedFixed32[\(packedFixed32ElementIndex)]: \(oneValuepackedFixed32)\n"
         packedFixed32ElementIndex++
     }
     var packedFixed64ElementIndex:Int = 0
-    for element in packedFixed64  {
-        output += "\(indent) packedFixed64[\(packedFixed64ElementIndex)]: \(element)\n"
+    for oneValuepackedFixed64 in packedFixed64  {
+        output += "\(indent) packedFixed64[\(packedFixed64ElementIndex)]: \(oneValuepackedFixed64)\n"
         packedFixed64ElementIndex++
     }
     var packedSfixed32ElementIndex:Int = 0
-    for element in packedSfixed32  {
-        output += "\(indent) packedSfixed32[\(packedSfixed32ElementIndex)]: \(element)\n"
+    for oneValuepackedSfixed32 in packedSfixed32  {
+        output += "\(indent) packedSfixed32[\(packedSfixed32ElementIndex)]: \(oneValuepackedSfixed32)\n"
         packedSfixed32ElementIndex++
     }
     var packedSfixed64ElementIndex:Int = 0
-    for element in packedSfixed64  {
-        output += "\(indent) packedSfixed64[\(packedSfixed64ElementIndex)]: \(element)\n"
+    for oneValuepackedSfixed64 in packedSfixed64  {
+        output += "\(indent) packedSfixed64[\(packedSfixed64ElementIndex)]: \(oneValuepackedSfixed64)\n"
         packedSfixed64ElementIndex++
     }
     var packedFloatElementIndex:Int = 0
-    for element in packedFloat  {
-        output += "\(indent) packedFloat[\(packedFloatElementIndex)]: \(element)\n"
+    for oneValuepackedFloat in packedFloat  {
+        output += "\(indent) packedFloat[\(packedFloatElementIndex)]: \(oneValuepackedFloat)\n"
         packedFloatElementIndex++
     }
     var packedDoubleElementIndex:Int = 0
-    for element in packedDouble  {
-        output += "\(indent) packedDouble[\(packedDoubleElementIndex)]: \(element)\n"
+    for oneValuepackedDouble in packedDouble  {
+        output += "\(indent) packedDouble[\(packedDoubleElementIndex)]: \(oneValuepackedDouble)\n"
         packedDoubleElementIndex++
     }
     var packedBoolElementIndex:Int = 0
-    for element in packedBool  {
-        output += "\(indent) packedBool[\(packedBoolElementIndex)]: \(element)\n"
+    for oneValuepackedBool in packedBool  {
+        output += "\(indent) packedBool[\(packedBoolElementIndex)]: \(oneValuepackedBool)\n"
         packedBoolElementIndex++
     }
     var packedEnumElementIndex:Int = 0
-    for element in packedEnum {
-        output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(element.rawValue)\n"
+    for oneValueOfpackedEnum in packedEnum {
+        output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(oneValueOfpackedEnum.rawValue)\n"
         packedEnumElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -20191,47 +20191,47 @@ final class TestPackedTypes : GeneratedMessage {
   override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in packedInt32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedInt32 in packedInt32 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedInt32.hashValue
           }
-          for element in packedInt64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedInt64 in packedInt64 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedInt64.hashValue
           }
-          for element in packedUint32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedUint32 in packedUint32 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedUint32.hashValue
           }
-          for element in packedUint64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedUint64 in packedUint64 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedUint64.hashValue
           }
-          for element in packedSint32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedSint32 in packedSint32 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedSint32.hashValue
           }
-          for element in packedSint64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedSint64 in packedSint64 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedSint64.hashValue
           }
-          for element in packedFixed32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedFixed32 in packedFixed32 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedFixed32.hashValue
           }
-          for element in packedFixed64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedFixed64 in packedFixed64 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedFixed64.hashValue
           }
-          for element in packedSfixed32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedSfixed32 in packedSfixed32 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedSfixed32.hashValue
           }
-          for element in packedSfixed64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedSfixed64 in packedSfixed64 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedSfixed64.hashValue
           }
-          for element in packedFloat {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedFloat in packedFloat {
+              hashCode = (hashCode &* 31) &+ oneValuepackedFloat.hashValue
           }
-          for element in packedDouble {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedDouble in packedDouble {
+              hashCode = (hashCode &* 31) &+ oneValuepackedDouble.hashValue
           }
-          for element in packedBool {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedBool in packedBool {
+              hashCode = (hashCode &* 31) &+ oneValuepackedBool.hashValue
           }
-          for element in packedEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
+          for oneValueOfpackedEnum in packedEnum {
+              hashCode = (hashCode &* 31) &+ Int(oneValueOfpackedEnum.rawValue)
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -20620,11 +20620,11 @@ final class TestPackedTypesBuilder : GeneratedMessageBuilder {
         var length:Int32 = input.readRawVarint32()
         var oldLimit:Int32 = input.pushLimit(length)
         while input.bytesUntilLimit() > 0 {
-        let value = input.readEnum()
-        if let enums = ForeignEnum(rawValue:value) {
-             builderResult.packedEnum += [enums]
+        let valueIntpackedEnum = input.readEnum()
+        if let enumspackedEnum = ForeignEnum(rawValue:valueIntpackedEnum) {
+             builderResult.packedEnum += [enumspackedEnum]
         } else {
-             unknownFieldsBuilder.mergeVarintField(103, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(103, value:Int64(valueIntpackedEnum))
         }
         }
         input.popLimit(oldLimit)
@@ -20663,72 +20663,72 @@ final class TestUnpackedTypes : GeneratedMessage {
   }
   override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if !unpackedInt32.isEmpty {
-      for value in unpackedInt32 {
-        output.writeInt32(90, value:value)
+      for oneValueunpackedInt32 in unpackedInt32 {
+        output.writeInt32(90, value:oneValueunpackedInt32)
       }
     }
     if !unpackedInt64.isEmpty {
-      for value in unpackedInt64 {
-        output.writeInt64(91, value:value)
+      for oneValueunpackedInt64 in unpackedInt64 {
+        output.writeInt64(91, value:oneValueunpackedInt64)
       }
     }
     if !unpackedUint32.isEmpty {
-      for value in unpackedUint32 {
-        output.writeUInt32(92, value:value)
+      for oneValueunpackedUint32 in unpackedUint32 {
+        output.writeUInt32(92, value:oneValueunpackedUint32)
       }
     }
     if !unpackedUint64.isEmpty {
-      for value in unpackedUint64 {
-        output.writeUInt64(93, value:value)
+      for oneValueunpackedUint64 in unpackedUint64 {
+        output.writeUInt64(93, value:oneValueunpackedUint64)
       }
     }
     if !unpackedSint32.isEmpty {
-      for value in unpackedSint32 {
-        output.writeSInt32(94, value:value)
+      for oneValueunpackedSint32 in unpackedSint32 {
+        output.writeSInt32(94, value:oneValueunpackedSint32)
       }
     }
     if !unpackedSint64.isEmpty {
-      for value in unpackedSint64 {
-        output.writeSInt64(95, value:value)
+      for oneValueunpackedSint64 in unpackedSint64 {
+        output.writeSInt64(95, value:oneValueunpackedSint64)
       }
     }
     if !unpackedFixed32.isEmpty {
-      for value in unpackedFixed32 {
-        output.writeFixed32(96, value:value)
+      for oneValueunpackedFixed32 in unpackedFixed32 {
+        output.writeFixed32(96, value:oneValueunpackedFixed32)
       }
     }
     if !unpackedFixed64.isEmpty {
-      for value in unpackedFixed64 {
-        output.writeFixed64(97, value:value)
+      for oneValueunpackedFixed64 in unpackedFixed64 {
+        output.writeFixed64(97, value:oneValueunpackedFixed64)
       }
     }
     if !unpackedSfixed32.isEmpty {
-      for value in unpackedSfixed32 {
-        output.writeSFixed32(98, value:value)
+      for oneValueunpackedSfixed32 in unpackedSfixed32 {
+        output.writeSFixed32(98, value:oneValueunpackedSfixed32)
       }
     }
     if !unpackedSfixed64.isEmpty {
-      for value in unpackedSfixed64 {
-        output.writeSFixed64(99, value:value)
+      for oneValueunpackedSfixed64 in unpackedSfixed64 {
+        output.writeSFixed64(99, value:oneValueunpackedSfixed64)
       }
     }
     if !unpackedFloat.isEmpty {
-      for value in unpackedFloat {
-        output.writeFloat(100, value:value)
+      for oneValueunpackedFloat in unpackedFloat {
+        output.writeFloat(100, value:oneValueunpackedFloat)
       }
     }
     if !unpackedDouble.isEmpty {
-      for value in unpackedDouble {
-        output.writeDouble(101, value:value)
+      for oneValueunpackedDouble in unpackedDouble {
+        output.writeDouble(101, value:oneValueunpackedDouble)
       }
     }
     if !unpackedBool.isEmpty {
-      for value in unpackedBool {
-        output.writeBool(102, value:value)
+      for oneValueunpackedBool in unpackedBool {
+        output.writeBool(102, value:oneValueunpackedBool)
       }
     }
-    for value in unpackedEnum {
-        output.writeEnum(103, value:value.rawValue)
+    for oneValueOfunpackedEnum in unpackedEnum {
+        output.writeEnum(103, value:oneValueOfunpackedEnum.rawValue)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
@@ -20740,38 +20740,38 @@ final class TestUnpackedTypes : GeneratedMessage {
 
     size = 0
     var dataSizeUnpackedInt32:Int32 = 0
-    for element in unpackedInt32 {
-        dataSizeUnpackedInt32 += WireFormat.computeInt32SizeNoTag(element)
+    for oneValueunpackedInt32 in unpackedInt32 {
+        dataSizeUnpackedInt32 += WireFormat.computeInt32SizeNoTag(oneValueunpackedInt32)
     }
     size += dataSizeUnpackedInt32
     size += 2 * Int32(unpackedInt32.count)
     var dataSizeUnpackedInt64:Int32 = 0
-    for element in unpackedInt64 {
-        dataSizeUnpackedInt64 += WireFormat.computeInt64SizeNoTag(element)
+    for oneValueunpackedInt64 in unpackedInt64 {
+        dataSizeUnpackedInt64 += WireFormat.computeInt64SizeNoTag(oneValueunpackedInt64)
     }
     size += dataSizeUnpackedInt64
     size += 2 * Int32(unpackedInt64.count)
     var dataSizeUnpackedUint32:Int32 = 0
-    for element in unpackedUint32 {
-        dataSizeUnpackedUint32 += WireFormat.computeUInt32SizeNoTag(element)
+    for oneValueunpackedUint32 in unpackedUint32 {
+        dataSizeUnpackedUint32 += WireFormat.computeUInt32SizeNoTag(oneValueunpackedUint32)
     }
     size += dataSizeUnpackedUint32
     size += 2 * Int32(unpackedUint32.count)
     var dataSizeUnpackedUint64:Int32 = 0
-    for element in unpackedUint64 {
-        dataSizeUnpackedUint64 += WireFormat.computeUInt64SizeNoTag(element)
+    for oneValueunpackedUint64 in unpackedUint64 {
+        dataSizeUnpackedUint64 += WireFormat.computeUInt64SizeNoTag(oneValueunpackedUint64)
     }
     size += dataSizeUnpackedUint64
     size += 2 * Int32(unpackedUint64.count)
     var dataSizeUnpackedSint32:Int32 = 0
-    for element in unpackedSint32 {
-        dataSizeUnpackedSint32 += WireFormat.computeSInt32SizeNoTag(element)
+    for oneValueunpackedSint32 in unpackedSint32 {
+        dataSizeUnpackedSint32 += WireFormat.computeSInt32SizeNoTag(oneValueunpackedSint32)
     }
     size += dataSizeUnpackedSint32
     size += 2 * Int32(unpackedSint32.count)
     var dataSizeUnpackedSint64:Int32 = 0
-    for element in unpackedSint64 {
-        dataSizeUnpackedSint64 += WireFormat.computeSInt64SizeNoTag(element)
+    for oneValueunpackedSint64 in unpackedSint64 {
+        dataSizeUnpackedSint64 += WireFormat.computeSInt64SizeNoTag(oneValueunpackedSint64)
     }
     size += dataSizeUnpackedSint64
     size += 2 * Int32(unpackedSint64.count)
@@ -20804,8 +20804,8 @@ final class TestUnpackedTypes : GeneratedMessage {
     size += dataSizeUnpackedBool
     size += 2 * Int32(unpackedBool.count)
     var dataSizeunpackedEnum:Int32 = 0
-    for value in unpackedEnum {
-        dataSizeunpackedEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
+    for oneValueOfunpackedEnum in unpackedEnum {
+        dataSizeunpackedEnum += WireFormat.computeEnumSizeNoTag(oneValueOfunpackedEnum.rawValue)
     }
     size += dataSizeunpackedEnum
     size += (2 * Int32(unpackedEnum.count))
@@ -20851,73 +20851,73 @@ final class TestUnpackedTypes : GeneratedMessage {
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     var unpackedInt32ElementIndex:Int = 0
-    for element in unpackedInt32  {
-        output += "\(indent) unpackedInt32[\(unpackedInt32ElementIndex)]: \(element)\n"
+    for oneValueunpackedInt32 in unpackedInt32  {
+        output += "\(indent) unpackedInt32[\(unpackedInt32ElementIndex)]: \(oneValueunpackedInt32)\n"
         unpackedInt32ElementIndex++
     }
     var unpackedInt64ElementIndex:Int = 0
-    for element in unpackedInt64  {
-        output += "\(indent) unpackedInt64[\(unpackedInt64ElementIndex)]: \(element)\n"
+    for oneValueunpackedInt64 in unpackedInt64  {
+        output += "\(indent) unpackedInt64[\(unpackedInt64ElementIndex)]: \(oneValueunpackedInt64)\n"
         unpackedInt64ElementIndex++
     }
     var unpackedUint32ElementIndex:Int = 0
-    for element in unpackedUint32  {
-        output += "\(indent) unpackedUint32[\(unpackedUint32ElementIndex)]: \(element)\n"
+    for oneValueunpackedUint32 in unpackedUint32  {
+        output += "\(indent) unpackedUint32[\(unpackedUint32ElementIndex)]: \(oneValueunpackedUint32)\n"
         unpackedUint32ElementIndex++
     }
     var unpackedUint64ElementIndex:Int = 0
-    for element in unpackedUint64  {
-        output += "\(indent) unpackedUint64[\(unpackedUint64ElementIndex)]: \(element)\n"
+    for oneValueunpackedUint64 in unpackedUint64  {
+        output += "\(indent) unpackedUint64[\(unpackedUint64ElementIndex)]: \(oneValueunpackedUint64)\n"
         unpackedUint64ElementIndex++
     }
     var unpackedSint32ElementIndex:Int = 0
-    for element in unpackedSint32  {
-        output += "\(indent) unpackedSint32[\(unpackedSint32ElementIndex)]: \(element)\n"
+    for oneValueunpackedSint32 in unpackedSint32  {
+        output += "\(indent) unpackedSint32[\(unpackedSint32ElementIndex)]: \(oneValueunpackedSint32)\n"
         unpackedSint32ElementIndex++
     }
     var unpackedSint64ElementIndex:Int = 0
-    for element in unpackedSint64  {
-        output += "\(indent) unpackedSint64[\(unpackedSint64ElementIndex)]: \(element)\n"
+    for oneValueunpackedSint64 in unpackedSint64  {
+        output += "\(indent) unpackedSint64[\(unpackedSint64ElementIndex)]: \(oneValueunpackedSint64)\n"
         unpackedSint64ElementIndex++
     }
     var unpackedFixed32ElementIndex:Int = 0
-    for element in unpackedFixed32  {
-        output += "\(indent) unpackedFixed32[\(unpackedFixed32ElementIndex)]: \(element)\n"
+    for oneValueunpackedFixed32 in unpackedFixed32  {
+        output += "\(indent) unpackedFixed32[\(unpackedFixed32ElementIndex)]: \(oneValueunpackedFixed32)\n"
         unpackedFixed32ElementIndex++
     }
     var unpackedFixed64ElementIndex:Int = 0
-    for element in unpackedFixed64  {
-        output += "\(indent) unpackedFixed64[\(unpackedFixed64ElementIndex)]: \(element)\n"
+    for oneValueunpackedFixed64 in unpackedFixed64  {
+        output += "\(indent) unpackedFixed64[\(unpackedFixed64ElementIndex)]: \(oneValueunpackedFixed64)\n"
         unpackedFixed64ElementIndex++
     }
     var unpackedSfixed32ElementIndex:Int = 0
-    for element in unpackedSfixed32  {
-        output += "\(indent) unpackedSfixed32[\(unpackedSfixed32ElementIndex)]: \(element)\n"
+    for oneValueunpackedSfixed32 in unpackedSfixed32  {
+        output += "\(indent) unpackedSfixed32[\(unpackedSfixed32ElementIndex)]: \(oneValueunpackedSfixed32)\n"
         unpackedSfixed32ElementIndex++
     }
     var unpackedSfixed64ElementIndex:Int = 0
-    for element in unpackedSfixed64  {
-        output += "\(indent) unpackedSfixed64[\(unpackedSfixed64ElementIndex)]: \(element)\n"
+    for oneValueunpackedSfixed64 in unpackedSfixed64  {
+        output += "\(indent) unpackedSfixed64[\(unpackedSfixed64ElementIndex)]: \(oneValueunpackedSfixed64)\n"
         unpackedSfixed64ElementIndex++
     }
     var unpackedFloatElementIndex:Int = 0
-    for element in unpackedFloat  {
-        output += "\(indent) unpackedFloat[\(unpackedFloatElementIndex)]: \(element)\n"
+    for oneValueunpackedFloat in unpackedFloat  {
+        output += "\(indent) unpackedFloat[\(unpackedFloatElementIndex)]: \(oneValueunpackedFloat)\n"
         unpackedFloatElementIndex++
     }
     var unpackedDoubleElementIndex:Int = 0
-    for element in unpackedDouble  {
-        output += "\(indent) unpackedDouble[\(unpackedDoubleElementIndex)]: \(element)\n"
+    for oneValueunpackedDouble in unpackedDouble  {
+        output += "\(indent) unpackedDouble[\(unpackedDoubleElementIndex)]: \(oneValueunpackedDouble)\n"
         unpackedDoubleElementIndex++
     }
     var unpackedBoolElementIndex:Int = 0
-    for element in unpackedBool  {
-        output += "\(indent) unpackedBool[\(unpackedBoolElementIndex)]: \(element)\n"
+    for oneValueunpackedBool in unpackedBool  {
+        output += "\(indent) unpackedBool[\(unpackedBoolElementIndex)]: \(oneValueunpackedBool)\n"
         unpackedBoolElementIndex++
     }
     var unpackedEnumElementIndex:Int = 0
-    for element in unpackedEnum {
-        output += "\(indent) unpackedEnum[\(unpackedEnumElementIndex)]: \(element.rawValue)\n"
+    for oneValueOfunpackedEnum in unpackedEnum {
+        output += "\(indent) unpackedEnum[\(unpackedEnumElementIndex)]: \(oneValueOfunpackedEnum.rawValue)\n"
         unpackedEnumElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -20925,47 +20925,47 @@ final class TestUnpackedTypes : GeneratedMessage {
   override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in unpackedInt32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedInt32 in unpackedInt32 {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedInt32.hashValue
           }
-          for element in unpackedInt64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedInt64 in unpackedInt64 {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedInt64.hashValue
           }
-          for element in unpackedUint32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedUint32 in unpackedUint32 {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedUint32.hashValue
           }
-          for element in unpackedUint64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedUint64 in unpackedUint64 {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedUint64.hashValue
           }
-          for element in unpackedSint32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedSint32 in unpackedSint32 {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedSint32.hashValue
           }
-          for element in unpackedSint64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedSint64 in unpackedSint64 {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedSint64.hashValue
           }
-          for element in unpackedFixed32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedFixed32 in unpackedFixed32 {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedFixed32.hashValue
           }
-          for element in unpackedFixed64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedFixed64 in unpackedFixed64 {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedFixed64.hashValue
           }
-          for element in unpackedSfixed32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedSfixed32 in unpackedSfixed32 {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedSfixed32.hashValue
           }
-          for element in unpackedSfixed64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedSfixed64 in unpackedSfixed64 {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedSfixed64.hashValue
           }
-          for element in unpackedFloat {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedFloat in unpackedFloat {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedFloat.hashValue
           }
-          for element in unpackedDouble {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedDouble in unpackedDouble {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedDouble.hashValue
           }
-          for element in unpackedBool {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValueunpackedBool in unpackedBool {
+              hashCode = (hashCode &* 31) &+ oneValueunpackedBool.hashValue
           }
-          for element in unpackedEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
+          for oneValueOfunpackedEnum in unpackedEnum {
+              hashCode = (hashCode &* 31) &+ Int(oneValueOfunpackedEnum.rawValue)
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -21286,11 +21286,11 @@ final class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
         unpackedBool += [input.readBool()]
 
       case 824 :
-        let value = input.readEnum()
-        if let enums = ForeignEnum(rawValue:value) {
-             builderResult.unpackedEnum += [enums]
+        let valueIntunpackedEnum = input.readEnum()
+        if let enumsunpackedEnum = ForeignEnum(rawValue:valueIntunpackedEnum) {
+             builderResult.unpackedEnum += [enumsunpackedEnum]
         } else {
-             unknownFieldsBuilder.mergeVarintField(103, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(103, value:Int64(valueIntunpackedEnum))
         }
 
       default:
@@ -21852,15 +21852,15 @@ final class TestDynamicExtensions : GeneratedMessage {
       output.writeMessage(2004, value:dynamicMessageExtension)
     }
     if !repeatedExtension.isEmpty {
-      for value in repeatedExtension {
-        output.writeString(2005, value:value)
+      for oneValuerepeatedExtension in repeatedExtension {
+        output.writeString(2005, value:oneValuerepeatedExtension)
       }
     }
     if !packedExtension.isEmpty {
       output.writeRawVarint32(16050)
       output.writeRawVarint32(packedExtensionMemoizedSerializedSize)
-      for value in packedExtension {
-        output.writeSInt32NoTag(value)
+      for oneValuepackedExtension in packedExtension {
+        output.writeSInt32NoTag(oneValuepackedExtension)
       }
     }
     unknownFields.writeToCodedOutputStream(output)
@@ -21888,14 +21888,14 @@ final class TestDynamicExtensions : GeneratedMessage {
       size += WireFormat.computeMessageSize(2004, value:dynamicMessageExtension)
     }
     var dataSizeRepeatedExtension:Int32 = 0
-    for element in repeatedExtension {
-        dataSizeRepeatedExtension += WireFormat.computeStringSizeNoTag(element)
+    for oneValuerepeatedExtension in repeatedExtension {
+        dataSizeRepeatedExtension += WireFormat.computeStringSizeNoTag(oneValuerepeatedExtension)
     }
     size += dataSizeRepeatedExtension
     size += 2 * Int32(repeatedExtension.count)
     var dataSizePackedExtension:Int32 = 0
-    for element in packedExtension {
-        dataSizePackedExtension += WireFormat.computeSInt32SizeNoTag(element)
+    for oneValuepackedExtension in packedExtension {
+        dataSizePackedExtension += WireFormat.computeSInt32SizeNoTag(oneValuepackedExtension)
     }
     size += dataSizePackedExtension
     if !packedExtension.isEmpty {
@@ -21964,13 +21964,13 @@ final class TestDynamicExtensions : GeneratedMessage {
       output += "\(indent) }\n"
     }
     var repeatedExtensionElementIndex:Int = 0
-    for element in repeatedExtension  {
-        output += "\(indent) repeatedExtension[\(repeatedExtensionElementIndex)]: \(element)\n"
+    for oneValuerepeatedExtension in repeatedExtension  {
+        output += "\(indent) repeatedExtension[\(repeatedExtensionElementIndex)]: \(oneValuerepeatedExtension)\n"
         repeatedExtensionElementIndex++
     }
     var packedExtensionElementIndex:Int = 0
-    for element in packedExtension  {
-        output += "\(indent) packedExtension[\(packedExtensionElementIndex)]: \(element)\n"
+    for oneValuepackedExtension in packedExtension  {
+        output += "\(indent) packedExtension[\(packedExtensionElementIndex)]: \(oneValuepackedExtension)\n"
         packedExtensionElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -21993,11 +21993,11 @@ final class TestDynamicExtensions : GeneratedMessage {
           if hasDynamicMessageExtension {
             hashCode = (hashCode &* 31) &+ dynamicMessageExtension.hashValue
           }
-          for element in repeatedExtension {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedExtension in repeatedExtension {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedExtension.hashValue
           }
-          for element in packedExtension {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedExtension in packedExtension {
+              hashCode = (hashCode &* 31) &+ oneValuepackedExtension.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -22238,19 +22238,19 @@ final class TestDynamicExtensionsBuilder : GeneratedMessageBuilder {
         scalarExtension = input.readFixed32()
 
       case 16008 :
-        var value = input.readEnum()
-        if let enums = ForeignEnum(rawValue:value){
-             enumExtension = enums
+        let valueIntenumExtension = input.readEnum()
+        if let enumsenumExtension = ForeignEnum(rawValue:valueIntenumExtension){
+             enumExtension = enumsenumExtension
         } else {
-             unknownFieldsBuilder.mergeVarintField(2001, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(2001, value:Int64(valueIntenumExtension))
         }
 
       case 16016 :
-        var value = input.readEnum()
-        if let enums = TestDynamicExtensions.DynamicEnumType(rawValue:value){
-             dynamicEnumExtension = enums
+        let valueIntdynamicEnumExtension = input.readEnum()
+        if let enumsdynamicEnumExtension = TestDynamicExtensions.DynamicEnumType(rawValue:valueIntdynamicEnumExtension){
+             dynamicEnumExtension = enumsdynamicEnumExtension
         } else {
-             unknownFieldsBuilder.mergeVarintField(2002, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(2002, value:Int64(valueIntdynamicEnumExtension))
         }
 
       case 16026 :
@@ -22305,33 +22305,33 @@ final class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
   }
   override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if !repeatedFixed32.isEmpty {
-      for value in repeatedFixed32 {
-        output.writeFixed32(12, value:value)
+      for oneValuerepeatedFixed32 in repeatedFixed32 {
+        output.writeFixed32(12, value:oneValuerepeatedFixed32)
       }
     }
     if !repeatedInt32.isEmpty {
-      for value in repeatedInt32 {
-        output.writeInt32(13, value:value)
+      for oneValuerepeatedInt32 in repeatedInt32 {
+        output.writeInt32(13, value:oneValuerepeatedInt32)
       }
     }
     if !repeatedFixed64.isEmpty {
-      for value in repeatedFixed64 {
-        output.writeFixed64(2046, value:value)
+      for oneValuerepeatedFixed64 in repeatedFixed64 {
+        output.writeFixed64(2046, value:oneValuerepeatedFixed64)
       }
     }
     if !repeatedInt64.isEmpty {
-      for value in repeatedInt64 {
-        output.writeInt64(2047, value:value)
+      for oneValuerepeatedInt64 in repeatedInt64 {
+        output.writeInt64(2047, value:oneValuerepeatedInt64)
       }
     }
     if !repeatedFloat.isEmpty {
-      for value in repeatedFloat {
-        output.writeFloat(262142, value:value)
+      for oneValuerepeatedFloat in repeatedFloat {
+        output.writeFloat(262142, value:oneValuerepeatedFloat)
       }
     }
     if !repeatedUint64.isEmpty {
-      for value in repeatedUint64 {
-        output.writeUInt64(262143, value:value)
+      for oneValuerepeatedUint64 in repeatedUint64 {
+        output.writeUInt64(262143, value:oneValuerepeatedUint64)
       }
     }
     unknownFields.writeToCodedOutputStream(output)
@@ -22348,8 +22348,8 @@ final class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
     size += dataSizeRepeatedFixed32
     size += 1 * Int32(repeatedFixed32.count)
     var dataSizeRepeatedInt32:Int32 = 0
-    for element in repeatedInt32 {
-        dataSizeRepeatedInt32 += WireFormat.computeInt32SizeNoTag(element)
+    for oneValuerepeatedInt32 in repeatedInt32 {
+        dataSizeRepeatedInt32 += WireFormat.computeInt32SizeNoTag(oneValuerepeatedInt32)
     }
     size += dataSizeRepeatedInt32
     size += 1 * Int32(repeatedInt32.count)
@@ -22358,8 +22358,8 @@ final class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
     size += dataSizeRepeatedFixed64
     size += 2 * Int32(repeatedFixed64.count)
     var dataSizeRepeatedInt64:Int32 = 0
-    for element in repeatedInt64 {
-        dataSizeRepeatedInt64 += WireFormat.computeInt64SizeNoTag(element)
+    for oneValuerepeatedInt64 in repeatedInt64 {
+        dataSizeRepeatedInt64 += WireFormat.computeInt64SizeNoTag(oneValuerepeatedInt64)
     }
     size += dataSizeRepeatedInt64
     size += 2 * Int32(repeatedInt64.count)
@@ -22368,8 +22368,8 @@ final class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
     size += dataSizeRepeatedFloat
     size += 3 * Int32(repeatedFloat.count)
     var dataSizeRepeatedUint64:Int32 = 0
-    for element in repeatedUint64 {
-        dataSizeRepeatedUint64 += WireFormat.computeUInt64SizeNoTag(element)
+    for oneValuerepeatedUint64 in repeatedUint64 {
+        dataSizeRepeatedUint64 += WireFormat.computeUInt64SizeNoTag(oneValuerepeatedUint64)
     }
     size += dataSizeRepeatedUint64
     size += 3 * Int32(repeatedUint64.count)
@@ -22415,33 +22415,33 @@ final class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     var repeatedFixed32ElementIndex:Int = 0
-    for element in repeatedFixed32  {
-        output += "\(indent) repeatedFixed32[\(repeatedFixed32ElementIndex)]: \(element)\n"
+    for oneValuerepeatedFixed32 in repeatedFixed32  {
+        output += "\(indent) repeatedFixed32[\(repeatedFixed32ElementIndex)]: \(oneValuerepeatedFixed32)\n"
         repeatedFixed32ElementIndex++
     }
     var repeatedInt32ElementIndex:Int = 0
-    for element in repeatedInt32  {
-        output += "\(indent) repeatedInt32[\(repeatedInt32ElementIndex)]: \(element)\n"
+    for oneValuerepeatedInt32 in repeatedInt32  {
+        output += "\(indent) repeatedInt32[\(repeatedInt32ElementIndex)]: \(oneValuerepeatedInt32)\n"
         repeatedInt32ElementIndex++
     }
     var repeatedFixed64ElementIndex:Int = 0
-    for element in repeatedFixed64  {
-        output += "\(indent) repeatedFixed64[\(repeatedFixed64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedFixed64 in repeatedFixed64  {
+        output += "\(indent) repeatedFixed64[\(repeatedFixed64ElementIndex)]: \(oneValuerepeatedFixed64)\n"
         repeatedFixed64ElementIndex++
     }
     var repeatedInt64ElementIndex:Int = 0
-    for element in repeatedInt64  {
-        output += "\(indent) repeatedInt64[\(repeatedInt64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedInt64 in repeatedInt64  {
+        output += "\(indent) repeatedInt64[\(repeatedInt64ElementIndex)]: \(oneValuerepeatedInt64)\n"
         repeatedInt64ElementIndex++
     }
     var repeatedFloatElementIndex:Int = 0
-    for element in repeatedFloat  {
-        output += "\(indent) repeatedFloat[\(repeatedFloatElementIndex)]: \(element)\n"
+    for oneValuerepeatedFloat in repeatedFloat  {
+        output += "\(indent) repeatedFloat[\(repeatedFloatElementIndex)]: \(oneValuerepeatedFloat)\n"
         repeatedFloatElementIndex++
     }
     var repeatedUint64ElementIndex:Int = 0
-    for element in repeatedUint64  {
-        output += "\(indent) repeatedUint64[\(repeatedUint64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedUint64 in repeatedUint64  {
+        output += "\(indent) repeatedUint64[\(repeatedUint64ElementIndex)]: \(oneValuerepeatedUint64)\n"
         repeatedUint64ElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -22449,23 +22449,23 @@ final class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
   override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in repeatedFixed32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedFixed32 in repeatedFixed32 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedFixed32.hashValue
           }
-          for element in repeatedInt32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedInt32 in repeatedInt32 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedInt32.hashValue
           }
-          for element in repeatedFixed64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedFixed64 in repeatedFixed64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedFixed64.hashValue
           }
-          for element in repeatedInt64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedInt64 in repeatedInt64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedInt64.hashValue
           }
-          for element in repeatedFloat {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedFloat in repeatedFloat {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedFloat.hashValue
           }
-          for element in repeatedUint64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedUint64 in repeatedUint64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedUint64.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -23092,26 +23092,26 @@ final class TestParsingMerge : ExtendableMessage {
        return true
       }
       override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-        for element in field1 {
-            output.writeMessage(1, value:element)
+        for oneElementfield1 in field1 {
+            output.writeMessage(1, value:oneElementfield1)
         }
-        for element in field2 {
-            output.writeMessage(2, value:element)
+        for oneElementfield2 in field2 {
+            output.writeMessage(2, value:oneElementfield2)
         }
-        for element in field3 {
-            output.writeMessage(3, value:element)
+        for oneElementfield3 in field3 {
+            output.writeMessage(3, value:oneElementfield3)
         }
-        for element in group1 {
-            output.writeGroup(10, value:element)
+        for oneElementgroup1 in group1 {
+            output.writeGroup(10, value:oneElementgroup1)
         }
-        for element in group2 {
-            output.writeGroup(20, value:element)
+        for oneElementgroup2 in group2 {
+            output.writeGroup(20, value:oneElementgroup2)
         }
-        for element in ext1 {
-            output.writeMessage(1000, value:element)
+        for oneElementext1 in ext1 {
+            output.writeMessage(1000, value:oneElementext1)
         }
-        for element in ext2 {
-            output.writeMessage(1001, value:element)
+        for oneElementext2 in ext2 {
+            output.writeMessage(1001, value:oneElementext2)
         }
         unknownFields.writeToCodedOutputStream(output)
       }
@@ -23122,26 +23122,26 @@ final class TestParsingMerge : ExtendableMessage {
         }
 
         size = 0
-        for element in field1 {
-            size += WireFormat.computeMessageSize(1, value:element)
+        for oneElementfield1 in field1 {
+            size += WireFormat.computeMessageSize(1, value:oneElementfield1)
         }
-        for element in field2 {
-            size += WireFormat.computeMessageSize(2, value:element)
+        for oneElementfield2 in field2 {
+            size += WireFormat.computeMessageSize(2, value:oneElementfield2)
         }
-        for element in field3 {
-            size += WireFormat.computeMessageSize(3, value:element)
+        for oneElementfield3 in field3 {
+            size += WireFormat.computeMessageSize(3, value:oneElementfield3)
         }
-        for element in group1 {
-            size += WireFormat.computeGroupSize(10, value:element)
+        for oneElementgroup1 in group1 {
+            size += WireFormat.computeGroupSize(10, value:oneElementgroup1)
         }
-        for element in group2 {
-            size += WireFormat.computeGroupSize(20, value:element)
+        for oneElementgroup2 in group2 {
+            size += WireFormat.computeGroupSize(20, value:oneElementgroup2)
         }
-        for element in ext1 {
-            size += WireFormat.computeMessageSize(1000, value:element)
+        for oneElementext1 in ext1 {
+            size += WireFormat.computeMessageSize(1000, value:oneElementext1)
         }
-        for element in ext2 {
-            size += WireFormat.computeMessageSize(1001, value:element)
+        for oneElementext2 in ext2 {
+            size += WireFormat.computeMessageSize(1001, value:oneElementext2)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
@@ -23185,51 +23185,51 @@ final class TestParsingMerge : ExtendableMessage {
       }
       override internal func writeDescriptionTo(inout output:String, indent:String) {
         var field1ElementIndex:Int = 0
-        for element in field1 {
+        for oneElementfield1 in field1 {
             output += "\(indent) field1[\(field1ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementfield1.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             field1ElementIndex++
         }
         var field2ElementIndex:Int = 0
-        for element in field2 {
+        for oneElementfield2 in field2 {
             output += "\(indent) field2[\(field2ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementfield2.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             field2ElementIndex++
         }
         var field3ElementIndex:Int = 0
-        for element in field3 {
+        for oneElementfield3 in field3 {
             output += "\(indent) field3[\(field3ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementfield3.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             field3ElementIndex++
         }
         var group1ElementIndex:Int = 0
-        for element in group1 {
+        for oneElementgroup1 in group1 {
             output += "\(indent) group1[\(group1ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementgroup1.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             group1ElementIndex++
         }
         var group2ElementIndex:Int = 0
-        for element in group2 {
+        for oneElementgroup2 in group2 {
             output += "\(indent) group2[\(group2ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementgroup2.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             group2ElementIndex++
         }
         var ext1ElementIndex:Int = 0
-        for element in ext1 {
+        for oneElementext1 in ext1 {
             output += "\(indent) ext1[\(ext1ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementext1.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             ext1ElementIndex++
         }
         var ext2ElementIndex:Int = 0
-        for element in ext2 {
+        for oneElementext2 in ext2 {
             output += "\(indent) ext2[\(ext2ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementext2.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             ext2ElementIndex++
         }
@@ -23238,26 +23238,26 @@ final class TestParsingMerge : ExtendableMessage {
       override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
-              for element in field1 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementfield1 in field1 {
+                  hashCode = (hashCode &* 31) &+ oneElementfield1.hashValue
               }
-              for element in field2 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementfield2 in field2 {
+                  hashCode = (hashCode &* 31) &+ oneElementfield2.hashValue
               }
-              for element in field3 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementfield3 in field3 {
+                  hashCode = (hashCode &* 31) &+ oneElementfield3.hashValue
               }
-              for element in group1 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementgroup1 in group1 {
+                  hashCode = (hashCode &* 31) &+ oneElementgroup1.hashValue
               }
-              for element in group2 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementgroup2 in group2 {
+                  hashCode = (hashCode &* 31) &+ oneElementgroup2.hashValue
               }
-              for element in ext1 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementext1 in ext1 {
+                  hashCode = (hashCode &* 31) &+ oneElementext1.hashValue
               }
-              for element in ext2 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementext2 in ext2 {
+                  hashCode = (hashCode &* 31) &+ oneElementext2.hashValue
               }
               hashCode = (hashCode &* 31) &+  unknownFields.hashValue
               return hashCode
@@ -23933,14 +23933,14 @@ final class TestParsingMerge : ExtendableMessage {
     if hasOptionalAllTypes {
       output.writeMessage(2, value:optionalAllTypes)
     }
-    for element in repeatedAllTypes {
-        output.writeMessage(3, value:element)
+    for oneElementrepeatedAllTypes in repeatedAllTypes {
+        output.writeMessage(3, value:oneElementrepeatedAllTypes)
     }
     if hasOptionalGroup {
       output.writeGroup(10, value:optionalGroup)
     }
-    for element in repeatedGroup {
-        output.writeGroup(20, value:element)
+    for oneElementrepeatedGroup in repeatedGroup {
+        output.writeGroup(20, value:oneElementrepeatedGroup)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
@@ -23958,14 +23958,14 @@ final class TestParsingMerge : ExtendableMessage {
     if hasOptionalAllTypes {
       size += WireFormat.computeMessageSize(2, value:optionalAllTypes)
     }
-    for element in repeatedAllTypes {
-        size += WireFormat.computeMessageSize(3, value:element)
+    for oneElementrepeatedAllTypes in repeatedAllTypes {
+        size += WireFormat.computeMessageSize(3, value:oneElementrepeatedAllTypes)
     }
     if hasOptionalGroup {
       size += WireFormat.computeGroupSize(10, value:optionalGroup)
     }
-    for element in repeatedGroup {
-        size += WireFormat.computeGroupSize(20, value:element)
+    for oneElementrepeatedGroup in repeatedGroup {
+        size += WireFormat.computeGroupSize(20, value:oneElementrepeatedGroup)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
@@ -24020,9 +24020,9 @@ final class TestParsingMerge : ExtendableMessage {
       output += "\(indent) }\n"
     }
     var repeatedAllTypesElementIndex:Int = 0
-    for element in repeatedAllTypes {
+    for oneElementrepeatedAllTypes in repeatedAllTypes {
         output += "\(indent) repeatedAllTypes[\(repeatedAllTypesElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedAllTypes.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedAllTypesElementIndex++
     }
@@ -24032,9 +24032,9 @@ final class TestParsingMerge : ExtendableMessage {
       output += "\(indent) }\n"
     }
     var repeatedGroupElementIndex:Int = 0
-    for element in repeatedGroup {
+    for oneElementrepeatedGroup in repeatedGroup {
         output += "\(indent) repeatedGroup[\(repeatedGroupElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedGroup.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedGroupElementIndex++
     }
@@ -24050,14 +24050,14 @@ final class TestParsingMerge : ExtendableMessage {
           if hasOptionalAllTypes {
             hashCode = (hashCode &* 31) &+ optionalAllTypes.hashValue
           }
-          for element in repeatedAllTypes {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedAllTypes in repeatedAllTypes {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedAllTypes.hashValue
           }
           if hasOptionalGroup {
             hashCode = (hashCode &* 31) &+ optionalGroup.hashValue
           }
-          for element in repeatedGroup {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedGroup in repeatedGroup {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedGroup.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1000), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue

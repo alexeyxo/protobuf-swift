@@ -318,24 +318,24 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedMessageFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "for element in $name$ {\n"
-                       "    output.write$group_or_message$($number$, value:element)\n"
+                       "for oneElement$name$ in $name$ {\n"
+                       "    output.write$group_or_message$($number$, value:oneElement$name$)\n"
                        "}\n");
     }
     
     void RepeatedMessageFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "for element in $name$ {\n"
-                       "    size += WireFormat.compute$group_or_message$Size($number$, value:element)\n"
+                       "for oneElement$name$ in $name$ {\n"
+                       "    size += WireFormat.compute$group_or_message$Size($number$, value:oneElement$name$)\n"
                        "}\n");
     }
     
     void RepeatedMessageFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "var $name$ElementIndex:Int = 0\n"
-                       "for element in $name$ {\n"
+                       "for oneElement$name$ in $name$ {\n"
                        "    output += \"\\(indent) $name$[\\($name$ElementIndex)] {\\n\"\n"
-                       "    element.writeDescriptionTo(&output, indent:\"\\(indent)  \")\n"
+                       "    oneElement$name$.writeDescriptionTo(&output, indent:\"\\(indent)  \")\n"
                        "    output += \"\\(indent)}\\n\"\n"
                        "    $name$ElementIndex++\n"
                        "}\n");
@@ -347,8 +347,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedMessageFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "for element in $name$ {\n"
-                       "    hashCode = (hashCode &* 31) &+ element.hashValue\n"
+                       "for oneElement$name$ in $name$ {\n"
+                       "    hashCode = (hashCode &* 31) &+ oneElement$name$.hashValue\n"
                        "}\n");
     }
     

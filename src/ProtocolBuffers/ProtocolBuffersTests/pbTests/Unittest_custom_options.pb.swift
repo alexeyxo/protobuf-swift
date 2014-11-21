@@ -2572,8 +2572,8 @@ final class ComplexOptionType1 : ExtendableMessage {
       output.writeInt32(3, value:foo3)
     }
     if !foo4.isEmpty {
-      for value in foo4 {
-        output.writeInt32(4, value:value)
+      for oneValuefoo4 in foo4 {
+        output.writeInt32(4, value:oneValuefoo4)
       }
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(100), endExclusive:Int32(536870912))
@@ -2596,8 +2596,8 @@ final class ComplexOptionType1 : ExtendableMessage {
       size += WireFormat.computeInt32Size(3, value:foo3)
     }
     var dataSizeFoo4:Int32 = 0
-    for element in foo4 {
-        dataSizeFoo4 += WireFormat.computeInt32SizeNoTag(element)
+    for oneValuefoo4 in foo4 {
+        dataSizeFoo4 += WireFormat.computeInt32SizeNoTag(oneValuefoo4)
     }
     size += dataSizeFoo4
     size += 1 * Int32(foo4.count)
@@ -2653,8 +2653,8 @@ final class ComplexOptionType1 : ExtendableMessage {
       output += "\(indent) foo3: \(foo3) \n"
     }
     var foo4ElementIndex:Int = 0
-    for element in foo4  {
-        output += "\(indent) foo4[\(foo4ElementIndex)]: \(element)\n"
+    for oneValuefoo4 in foo4  {
+        output += "\(indent) foo4[\(foo4ElementIndex)]: \(oneValuefoo4)\n"
         foo4ElementIndex++
     }
     writeExtensionDescription(&output, startInclusive:Int32(100), endExclusive:Int32(536870912), indent:indent)
@@ -2672,8 +2672,8 @@ final class ComplexOptionType1 : ExtendableMessage {
           if hasFoo3 {
              hashCode = (hashCode &* 31) &+ foo3.hashValue
           }
-          for element in foo4 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuefoo4 in foo4 {
+              hashCode = (hashCode &* 31) &+ oneValuefoo4.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(100), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -3075,8 +3075,8 @@ final class ComplexOptionType2 : ExtendableMessage {
     if hasFred {
       output.writeMessage(3, value:fred)
     }
-    for element in barney {
-        output.writeMessage(4, value:element)
+    for oneElementbarney in barney {
+        output.writeMessage(4, value:oneElementbarney)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(100), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
@@ -3097,8 +3097,8 @@ final class ComplexOptionType2 : ExtendableMessage {
     if hasFred {
       size += WireFormat.computeMessageSize(3, value:fred)
     }
-    for element in barney {
-        size += WireFormat.computeMessageSize(4, value:element)
+    for oneElementbarney in barney {
+        size += WireFormat.computeMessageSize(4, value:oneElementbarney)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
@@ -3156,9 +3156,9 @@ final class ComplexOptionType2 : ExtendableMessage {
       output += "\(indent) }\n"
     }
     var barneyElementIndex:Int = 0
-    for element in barney {
+    for oneElementbarney in barney {
         output += "\(indent) barney[\(barneyElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementbarney.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         barneyElementIndex++
     }
@@ -3177,8 +3177,8 @@ final class ComplexOptionType2 : ExtendableMessage {
           if hasFred {
             hashCode = (hashCode &* 31) &+ fred.hashValue
           }
-          for element in barney {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementbarney in barney {
+              hashCode = (hashCode &* 31) &+ oneElementbarney.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(100), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
