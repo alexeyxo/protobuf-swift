@@ -310,8 +310,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (descriptor_->type() == FieldDescriptor::TYPE_BYTES) {
             printer->Print(variables_,
                            "if has$capitalized_name$ {\n"
-                           "   for value in $name$ {\n"
-                           "       hashCode = (hashCode &* 31) &+ value.hashValue\n"
+                           "   for oneValue in $name$ {\n"
+                           "       hashCode = (hashCode &* 31) &+ oneValue.hashValue\n"
                            "   }\n"
                            "}\n");
         }
