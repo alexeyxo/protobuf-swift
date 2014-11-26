@@ -20,24 +20,11 @@ import "google/protobuf/descriptor.proto";
 package google.protobuf;
 
 message SwiftFileOptions {
-  // Sets the ObjectiveC package where classes generated from this .proto
-  // will be placed.  This is typically used since Objective C libraries output
-  // all their headers into a single directory.  i.e.  Foundation\*
-  // AddressBook\*   UIKit\*   etc. etc.
   optional string package = 1;
-  
-  // The string to be prefixed in front of all classes in order to make them
-  // 'cocoa-y'.  i.e. 'NS/AB/CF/PB' for the
-  // NextStep/AddressBook/CoreFoundation/ProtocolBuffer libraries respectively.
-  // This will commonly be the capitalized letters from the above defined
-  // 'objectivec_directory'
   optional string class_prefix = 2;
+  optional string class_access_control = 3 [default = "internal"];
 }
 
 extend google.protobuf.FileOptions {
-
-  // The extension #1002 has been reserved for us and is registered with
-
-  // Google as being 'in use'.
-  optional SwiftFileOptions swift_file_options = 1002;
+  optional SwiftFileOptions swift_file_options = 5092104;
 }

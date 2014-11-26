@@ -15,4 +15,4 @@ protoc_gen_swift_SOURCES = 	\
 	swift_helpers.cc			\
 	swift_field.cc			\
 	swift_message.cc	\
-    google/protobuf/swift-descriptor.pb.cc
+  google/protobuf/swift-descriptor.pb.cc

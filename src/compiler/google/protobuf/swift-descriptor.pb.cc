@@ -35,9 +35,10 @@ void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
       "google/protobuf/swift-descriptor.proto");
   GOOGLE_CHECK(file != NULL);
   SwiftFileOptions_descriptor_ = file->message_type(0);
-  static const int SwiftFileOptions_offsets_[2] = {
+  static const int SwiftFileOptions_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, package_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, class_prefix_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, class_access_control_),
   };
   SwiftFileOptions_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -71,6 +72,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
   delete SwiftFileOptions::default_instance_;
   delete SwiftFileOptions_reflection_;
+  delete SwiftFileOptions::_default_class_access_control_;
 }
 
 void protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
@@ -83,17 +85,20 @@ void protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n&google/protobuf/swift-descriptor.proto"
     "\022\017google.protobuf\032 google/protobuf/descr"
-    "iptor.proto\"9\n\020SwiftFileOptions\022\017\n\007packa"
-    "ge\030\001 \001(\t\022\024\n\014class_prefix\030\002 \001(\t:\\\n\022swift_"
+    "iptor.proto\"a\n\020SwiftFileOptions\022\017\n\007packa"
+    "ge\030\001 \001(\t\022\024\n\014class_prefix\030\002 \001(\t\022&\n\024class_"
+    "access_control\030\003 \001(\t:\010internal:^\n\022swift_"
     "file_options\022\034.google.protobuf.FileOptio"
-    "ns\030\352\007 \001(\0132!.google.protobuf.SwiftFileOpt"
-    "ions", 244);
+    "ns\030\210\346\266\002 \001(\0132!.google.protobuf.SwiftFileO"
+    "ptions", 286);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "google/protobuf/swift-descriptor.proto", &protobuf_RegisterTypes);
+  SwiftFileOptions::_default_class_access_control_ =
+      new ::std::string("internal", 8);
   SwiftFileOptions::default_instance_ = new SwiftFileOptions();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     &::google::protobuf::FileOptions::default_instance(),
-    1002, 11, false, false,
+    5092104, 11, false, false,
     &::google::protobuf::SwiftFileOptions::default_instance());
   SwiftFileOptions::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto);
@@ -108,9 +113,11 @@ struct StaticDescriptorInitializer_google_2fprotobuf_2fswift_2ddescriptor_2eprot
 
 // ===================================================================
 
+::std::string* SwiftFileOptions::_default_class_access_control_ = NULL;
 #ifndef _MSC_VER
 const int SwiftFileOptions::kPackageFieldNumber;
 const int SwiftFileOptions::kClassPrefixFieldNumber;
+const int SwiftFileOptions::kClassAccessControlFieldNumber;
 #endif  // !_MSC_VER
 
 SwiftFileOptions::SwiftFileOptions()
@@ -134,6 +141,7 @@ void SwiftFileOptions::SharedCtor() {
   _cached_size_ = 0;
   package_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   class_prefix_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  class_access_control_ = const_cast< ::std::string*>(_default_class_access_control_);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -148,6 +156,9 @@ void SwiftFileOptions::SharedDtor() {
   }
   if (class_prefix_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete class_prefix_;
+  }
+  if (class_access_control_ != _default_class_access_control_) {
+    delete class_access_control_;
   }
   if (this != default_instance_) {
   }
@@ -175,7 +186,7 @@ SwiftFileOptions* SwiftFileOptions::New() const {
 }
 
 void SwiftFileOptions::Clear() {
-  if (_has_bits_[0 / 32] & 3) {
+  if (_has_bits_[0 / 32] & 7) {
     if (has_package()) {
       if (package_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         package_->clear();
@@ -184,6 +195,11 @@ void SwiftFileOptions::Clear() {
     if (has_class_prefix()) {
       if (class_prefix_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         class_prefix_->clear();
+      }
+    }
+    if (has_class_access_control()) {
+      if (class_access_control_ != _default_class_access_control_) {
+        class_access_control_->assign(*_default_class_access_control_);
       }
     }
   }
@@ -227,6 +243,23 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
             this->class_prefix().data(), this->class_prefix().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
             "class_prefix");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_class_access_control;
+        break;
+      }
+
+      // optional string class_access_control = 3 [default = "internal"];
+      case 3: {
+        if (tag == 26) {
+         parse_class_access_control:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_class_access_control()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->class_access_control().data(), this->class_access_control().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "class_access_control");
         } else {
           goto handle_unusual;
         }
@@ -279,6 +312,16 @@ void SwiftFileOptions::SerializeWithCachedSizes(
       2, this->class_prefix(), output);
   }
 
+  // optional string class_access_control = 3 [default = "internal"];
+  if (has_class_access_control()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->class_access_control().data(), this->class_access_control().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "class_access_control");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->class_access_control(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -311,6 +354,17 @@ void SwiftFileOptions::SerializeWithCachedSizes(
         2, this->class_prefix(), target);
   }
 
+  // optional string class_access_control = 3 [default = "internal"];
+  if (has_class_access_control()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->class_access_control().data(), this->class_access_control().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "class_access_control");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->class_access_control(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -335,6 +389,13 @@ int SwiftFileOptions::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->class_prefix());
+    }
+
+    // optional string class_access_control = 3 [default = "internal"];
+    if (has_class_access_control()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->class_access_control());
     }
 
   }
@@ -370,6 +431,9 @@ void SwiftFileOptions::MergeFrom(const SwiftFileOptions& from) {
     if (from.has_class_prefix()) {
       set_class_prefix(from.class_prefix());
     }
+    if (from.has_class_access_control()) {
+      set_class_access_control(from.class_access_control());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -395,6 +459,7 @@ void SwiftFileOptions::Swap(SwiftFileOptions* other) {
   if (other != this) {
     std::swap(package_, other->package_);
     std::swap(class_prefix_, other->class_prefix_);
+    std::swap(class_access_control_, other->class_access_control_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
