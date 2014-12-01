@@ -1,5 +1,4 @@
 language: objective-c
-osx_image: xcode61
 before_install:
 - brew update
 - brew unlink xctool

@@ -1,19 +1,15 @@
 #Protocol Buffers for Swift
-[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=master)](https://travis-ci.org/alexeyxo/protobuf-swift)
-[![Platform](http://img.shields.io/badge/platform-ios%20%7C%20osx-green.svg)](https://github.com/alexeyxo/protobuf-swift)
-[![Release](http://img.shields.io/github/tag/alexeyxo/protobuf-swift.svg)](https://github.com/alexeyxo/protobuf-swift/releases/tag/v1.1)
+[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=master)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Platform](http://img.shields.io/badge/platform-ios%20%7C%20osx-green.svg)](https://github.com/alexeyxo/protobuf-swift) [![Release](http://img.shields.io/github/tag/alexeyxo/protobuf-swift.svg)](https://github.com/alexeyxo/protobuf-swift/releases/tag/v1.1)
 
 An implementation of Protocol Buffers in Swift.
 
-Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.
-This project is based on an implementation of Protocol Buffers from Google.  See the
-[Google protobuf project][g-protobuf] for more information.
-
-[g-protobuf]: https://developers.google.com/protocol-buffers/docs/overview
+Protocol Buffers are a way of encoding structured data in an efficient yet extensible format. This project is based on an implementation of Protocol Buffers from Google. See the[Google protobuf project](https://developers.google.com/protocol-buffers/docs/overview) for more information.
 
 ####Required Protocol Buffers 2.6
 
-## How To Install Protobuf
+How To Install Protobuf
+-----------------------
+
 1.`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
 2.`brew install automake`
@@ -28,12 +24,13 @@ This project is based on an implementation of Protocol Buffers from Google.  See
 
 7.Add `./src/ProtocolBuffers/ProtocolBuffers.xcodeproj` in your project.
 
+Compile ".proto" files.
+-----------------------
 
-
-## Compile ".proto" files.
 `protoc  person.proto --swift_out="./"`
 
-## Serializing
+Serializing
+-----------
 
 ```protobuf
 message Person {
@@ -55,13 +52,16 @@ person.data() //return [Byte]
 person.getNSData() //Return NSData
 ```
 
-## Deserializing
+Deserializing
+-------------
 
 ```swift
-var person = Person.builder().parseFromData(bytes).build() // from [Byte]
+var person = Person.parseFromData(bytes) // from [Byte]
 ```
 
-## Using Oneof
+Using Oneof
+-----------
+
 ```protobuf
 message SubMessage {
     optional string str = 1;
@@ -83,7 +83,8 @@ sm.id = 123
 println(ss.build()) //->  id: 123
 ```
 
-## Nested Types
+Nested Types
+------------
 
 ```protobuf
 message SearchResponse {
@@ -105,10 +106,93 @@ searchRespons.result += [builderResult.build()]
 println(searchRespons.build())
 ```
 
-### Credits
+#Custom Options
 
-Developer
-- Alexey Khokhlov
+```protobuf
+enum AccessControl {
+  InternalEntities = 0;
+  PublicEntities = 1;
+}
+message SwiftFileOptions {
 
-Google Protocol Buffers
-- Cyrus Najmabadi, Sergey Martynov, Kenton Varda, Sanjay Ghemawat, Jeff Dean, and others
+  optional string class_prefix = 1;
+  optional AccessControl entities_access_control = 2 [default = InternalEntities];
+  optional bool compile_for_framework = 3 [default = true];
+}
+```
+
+At now protobuf-swift's compiler is supporting three custom options(file options).
+
+1.	Class Prefix
+2.	Access Control
+3.	Compile for framework
+
+If you have use custom options, you need to add:
+
+```protobuf
+import 'google/protobuf/swift-descriptor.proto';
+```
+in your `.proto` files.
+
+###Class prefix
+
+This option needs to generate class names with prefix.
+
+Example:
+
+```protobuf
+import 'google/protobuf/swift-descriptor.proto';
+
+option (.google.protobuf.swift_file_options).class_prefix = "Proto";
+
+message NameWithPrefix
+{
+  optional string str = 1;
+}
+```
+
+Generated class has a name:
+
+```swift
+final internal class ProtoNameWithPrefix : GeneratedMessage
+```
+
+###Access control
+
+```protobuf
+option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
+```
+
+All generated classes marks as `internal` by default. If you want mark as `public`, you can use `entities_access_control` option.
+
+```protobuf
+option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
+
+message MessageWithCustomOption
+{
+  optional string str = 1;
+}
+```
+
+Generated class and all fields are marked a `public`:
+
+```swift
+final public class MessageWithCustomOption : GeneratedMessage
+```
+
+###Compile for framework
+
+```protobuf
+option (.google.protobuf.swift_file_options).compile_for_framework = false;
+```
+
+This option deletes the string `import ProtocolBuffers` of the generated files.
+
+####If you will need some other options, write me. I will add them.
+
+Credits
+=======
+
+Developer - Alexey Khokhlov
+
+Google Protocol Buffers - Cyrus Najmabadi, Sergey Martynov, Kenton Varda, Sanjay Ghemawat, Jeff Dean, and others
