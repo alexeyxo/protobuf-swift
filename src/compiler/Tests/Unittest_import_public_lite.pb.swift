@@ -3,8 +3,8 @@
 import Foundation
 import ProtocolBuffers
 
-struct UnittestImportPublicLiteRoot {
-  static var sharedInstance : UnittestImportPublicLiteRoot {
+internal struct UnittestImportPublicLiteRoot {
+  internal static var sharedInstance : UnittestImportPublicLiteRoot {
    struct Static {
        static let instance : UnittestImportPublicLiteRoot = UnittestImportPublicLiteRoot()
    }
@@ -16,11 +16,11 @@ struct UnittestImportPublicLiteRoot {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
-func == (lhs: PublicImportMessageLite, rhs: PublicImportMessageLite) -> Bool {
+internal func == (lhs: PublicImportMessageLite, rhs: PublicImportMessageLite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -29,7 +29,7 @@ func == (lhs: PublicImportMessageLite, rhs: PublicImportMessageLite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class PublicImportMessageLite : GeneratedMessage {
+final internal class PublicImportMessageLite : GeneratedMessage {
   private(set) var hasE:Bool = false
   private(set) var e:Int32 = Int32(0)
 
@@ -130,7 +130,7 @@ final class PublicImportMessageLite : GeneratedMessage {
 
 }
 
-final class PublicImportMessageLiteBuilder : GeneratedMessageBuilder {
+final internal class PublicImportMessageLiteBuilder : GeneratedMessageBuilder {
   private var builderResult:PublicImportMessageLite
 
   required override internal init () {
@@ -151,7 +151,7 @@ final class PublicImportMessageLiteBuilder : GeneratedMessageBuilder {
            builderResult.e = value
        }
   }
-  func clearE() -> PublicImportMessageLiteBuilder{
+  internal func clearE() -> PublicImportMessageLiteBuilder{
        builderResult.hasE = false
        builderResult.e = Int32(0)
        return self
@@ -176,7 +176,7 @@ final class PublicImportMessageLiteBuilder : GeneratedMessageBuilder {
     var returnMe:PublicImportMessageLite = builderResult
     return returnMe
   }
-  func mergeFrom(other:PublicImportMessageLite) -> PublicImportMessageLiteBuilder {
+  internal func mergeFrom(other:PublicImportMessageLite) -> PublicImportMessageLiteBuilder {
     if (other == PublicImportMessageLite()) {
      return self
     }

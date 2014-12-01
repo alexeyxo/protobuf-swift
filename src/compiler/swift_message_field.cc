@@ -48,6 +48,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (descriptor->type() == FieldDescriptor::TYPE_GROUP) ?
             "Group" : "Message";
             
+            (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->file());
+            (* variables)["acontrolFunc"] = GetAccessControlType(descriptor->file());
+            
             if (isOneOfField(descriptor)) {
                 const OneofDescriptor* oneof = descriptor->containing_oneof();
                 (*variables)["oneof_name"] = UnderscoresToCapitalizedCamelCase(oneof->name());
@@ -80,7 +83,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
         if (isOneOfField(descriptor_)) {
             
-            printer->Print(variables_,"private(set) var has$capitalized_name$:Bool {\n"
+            printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
                            "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
                            "               return false\n"
@@ -91,7 +94,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "      }\n"
                            "}\n");
             
-            printer->Print(variables_,"private(set) var $name$:$type$!{\n"
+            printer->Print(variables_,"$acontrol$private(set) var $name$:$type$!{\n"
                            "     get {\n"
                            "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "     }\n"
@@ -101,8 +104,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "}\n");
         }
         else {
-            printer->Print(variables_, "private(set) var has$capitalized_name$:Bool = false\n");
-            printer->Print(variables_, "private(set) var $name$:$type$ = $type$()\n");
+            printer->Print(variables_, "$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
+            printer->Print(variables_, "$acontrol$private(set) var $name$:$type$ = $type$()\n");
         }
         
     }
@@ -112,12 +115,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "var has$capitalized_name$:Bool {\n"
+                       "$acontrol$var has$capitalized_name$:Bool {\n"
                        "     get {\n"
                        "         return builderResult.has$capitalized_name$\n"
                        "     }\n"
                        "}\n"
-                       "var $name$:$storage_type$ {\n"
+                       "$acontrol$var $name$:$storage_type$ {\n"
                        "     get {\n"
                        "         return builderResult.$name$\n"
                        "     }\n"
@@ -126,11 +129,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "func set$capitalized_name$Builder(builderForValue:$type$Builder) -> $classname$Builder {\n"
+                       "$acontrolFunc$ func set$capitalized_name$Builder(builderForValue:$type$Builder) -> $classname$Builder {\n"
                        "  $name$ = builderForValue.build()\n"
                        "  return self\n"
                        "}\n"
-                       "func merge$capitalized_name$(value:$storage_type$) -> $classname$Builder {\n"
+                       "$acontrolFunc$ func merge$capitalized_name$(value:$storage_type$) -> $classname$Builder {\n"
                        "  if (builderResult.has$capitalized_name$) {\n"
                        "    builderResult.$name$ = $type$.builderWithPrototype(builderResult.$name$).mergeFrom(value).buildPartial()\n"
                        "  } else {\n"
@@ -139,7 +142,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  builderResult.has$capitalized_name$ = true\n"
                        "  return self\n"
                        "}\n"
-                       "func clear$capitalized_name$() -> $classname$Builder {\n"
+                       "$acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder {\n"
                        "  builderResult.has$capitalized_name$ = false\n"
                        "  builderResult.$name$ = $type$()\n"
                        "  return self\n"
@@ -237,21 +240,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     RepeatedMessageFieldGenerator::~RepeatedMessageFieldGenerator() {
     }
     
+    //TODO
     void RepeatedMessageFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-        //       	if(isObjectArray(descriptor_))
-        //        {
-        //
-        //            printer->Print(variables_,
-        //      			"@property (strong) NSMutableArray * $list_name$;\n");
-        //
-        //        }
-        //        else
-        //        {
-        //			printer->Print(variables_,
-        //		      "@property (strong) PBAppendableArray * $list_name$;\n");
-        //
-        //        }
-        
     }
     
     
@@ -268,13 +258,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedMessageFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
         
-        printer->Print(variables_, "private(set) var $name$:Array<$storage_type$>  = Array<$storage_type$>()\n");
+        printer->Print(variables_, "$acontrol$private(set) var $name$:Array<$storage_type$>  = Array<$storage_type$>()\n");
     }
     
     
     void RepeatedMessageFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "var $name$:Array<$storage_type$> {\n"
+                       "$acontrol$var $name$:Array<$storage_type$> {\n"
                        "     get {\n"
                        "         return builderResult.$name$\n"
                        "     }\n"
@@ -282,7 +272,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "func clear$capitalized_name$() -> $classname$Builder {\n"
+                       "$acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder {\n"
                        "  builderResult.$name$.removeAll(keepCapacity: false)\n"
                        "  return self\n"
                        "}\n");

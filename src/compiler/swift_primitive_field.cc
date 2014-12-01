@@ -170,10 +170,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["tag_size"] = SimpleItoa(
                                                   WireFormat::TagSize(descriptor->number(), descriptor->type()));
             
+            
+            
             int fixed_size = FixedSize(descriptor->type());
             if (fixed_size != -1) {
                 (*variables)["fixed_size"] = SimpleItoa(fixed_size);
             }
+            (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->containing_type()->file());
+            (* variables)["acontrolFunc"] = GetAccessControlType(descriptor->containing_type()->file());
+
         }
     }  // namespace
     
@@ -187,21 +192,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     PrimitiveFieldGenerator::~PrimitiveFieldGenerator() {
     }
+    
+    //TODO
     void PrimitiveFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-        //    if (IsReferenceType(GetSwiftType(descriptor_))) {
-        //        printer->Print(variables_,"@property (strong)$storage_attribute$ $storage_type$ $name$;\n");
-        //
-        //    } else {
-        //      printer->Print(variables_,
-        //        "@property $storage_type$ $name$;\n");
-        //    }
     }
     
     
     void PrimitiveFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
         
         if (isOneOfField(descriptor_)) {
-            printer->Print(variables_,"private(set) var has$capitalized_name$:Bool {\n"
+            printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
                            "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
                            "               return false\n"
@@ -212,7 +212,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "      }\n"
                            "}\n");
             
-            printer->Print(variables_,"private(set) var $name$:$storage_type$!{\n"
+            printer->Print(variables_,"$acontrol$private(set) var $name$:$storage_type$!{\n"
                            "     get {\n"
                            "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "     }\n"
@@ -223,8 +223,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         else
         {
-            printer->Print(variables_,"private(set) var has$capitalized_name$:Bool = false\n");
-            printer->Print(variables_,"private(set) var $name$:$storage_type$ = $default$\n\n");
+            printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
+            printer->Print(variables_,"$acontrol$private(set) var $name$:$storage_type$ = $default$\n\n");
         }
     }
     
@@ -240,12 +240,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void PrimitiveFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         
         printer->Print(variables_,
-                       "var has$capitalized_name$:Bool {\n"
+                       "$acontrol$var has$capitalized_name$:Bool {\n"
                        "     get {\n"
                        "          return builderResult.has$capitalized_name$\n"
                        "     }\n"
                        "}\n"
-                       "var $name$:$storage_type$ {\n"
+                       "$acontrol$var $name$:$storage_type$ {\n"
                        "     get {\n"
                        "          return builderResult.$name$\n"
                        "     }\n"
@@ -254,7 +254,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "func clear$capitalized_name$() -> $classname$Builder{\n"
+                       "$acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder{\n"
                        "     builderResult.has$capitalized_name$ = false\n"
                        "     builderResult.$name$ = $default$\n"
                        "     return self\n"
@@ -334,6 +334,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     RepeatedPrimitiveFieldGenerator::~RepeatedPrimitiveFieldGenerator() {
     }
     
+    
+    //TODO
     void RepeatedPrimitiveFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
         
     }
@@ -348,7 +350,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedPrimitiveFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
         
-        printer->Print(variables_, "private(set) var $name$:Array<$storage_type$> = Array<$storage_type$>()\n");
+        printer->Print(variables_, "$acontrol$private(set) var $name$:Array<$storage_type$> = Array<$storage_type$>()\n");
         if (descriptor_->options().packed()) {
             printer->Print(variables_,"private var $name$MemoizedSerializedSize:Int32 = -1\n");
         }
@@ -358,7 +360,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         printer->Print(variables_,
-                       "var $name$:Array<$storage_type$> {\n"
+                       "$acontrol$var $name$:Array<$storage_type$> {\n"
                        "     get {\n"
                        "         return builderResult.$name$\n"
                        "     }\n"
@@ -366,7 +368,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = array\n"
                        "     }\n"
                        "}\n"
-                       "func clear$capitalized_name$() -> $classname$Builder {\n"
+                       "$acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder {\n"
                        "   builderResult.$name$.removeAll(keepCapacity: false)\n"
                        "   return self\n"
                        "}\n");

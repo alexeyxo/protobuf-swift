@@ -3,13 +3,13 @@
 import Foundation
 import ProtocolBuffers
 
-var UnittestNoGenericServicesRoottestExtension:ConcreateExtensionField {
+internal var UnittestNoGenericServicesRoottestExtension:ConcreateExtensionField {
    get {
        return UnittestNoGenericServicesRoot.sharedInstance.UnittestNoGenericServicesRoottestExtensionStatic
    }
 }
-struct UnittestNoGenericServicesRoot {
-  static var sharedInstance : UnittestNoGenericServicesRoot {
+internal struct UnittestNoGenericServicesRoot {
+  internal static var sharedInstance : UnittestNoGenericServicesRoot {
    struct Static {
        static let instance : UnittestNoGenericServicesRoot = UnittestNoGenericServicesRoot()
    }
@@ -23,10 +23,10 @@ struct UnittestNoGenericServicesRoot {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
     registry.addExtension(UnittestNoGenericServicesRoottestExtensionStatic)
   }
-  static func testExtension() -> ConcreateExtensionField {
+  internal static func testExtension() -> ConcreateExtensionField {
        return UnittestNoGenericServicesRoot.sharedInstance.UnittestNoGenericServicesRoottestExtensionStatic
   }
 }
@@ -35,10 +35,10 @@ struct UnittestNoGenericServicesRoot {
 
 //Enum type declaration start 
 
-enum TestEnum:Int32 {
+internal enum TestEnum:Int32 {
   case Foo = 1
 
-  static func IsValidValue(value:Int32) ->Bool {
+  internal static func IsValidValue(value:Int32) ->Bool {
       if let check = TestEnum(rawValue:value) {
           return true
       }
@@ -50,7 +50,7 @@ enum TestEnum:Int32 {
 
 //Enum type declaration end 
 
-func == (lhs: TestMessage, rhs: TestMessage) -> Bool {
+internal func == (lhs: TestMessage, rhs: TestMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -60,7 +60,7 @@ func == (lhs: TestMessage, rhs: TestMessage) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class TestMessage : ExtendableMessage {
+final internal class TestMessage : ExtendableMessage {
   private(set) var hasA:Bool = false
   private(set) var a:Int32 = Int32(0)
 
@@ -168,7 +168,7 @@ final class TestMessage : ExtendableMessage {
 
 }
 
-final class TestMessageBuilder : ExtendableMessageBuilder {
+final internal class TestMessageBuilder : ExtendableMessageBuilder {
   private var builderResult:TestMessage
 
   required override internal init () {
@@ -189,7 +189,7 @@ final class TestMessageBuilder : ExtendableMessageBuilder {
            builderResult.a = value
        }
   }
-  func clearA() -> TestMessageBuilder{
+  internal func clearA() -> TestMessageBuilder{
        builderResult.hasA = false
        builderResult.a = Int32(0)
        return self
@@ -214,7 +214,7 @@ final class TestMessageBuilder : ExtendableMessageBuilder {
     var returnMe:TestMessage = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestMessage) -> TestMessageBuilder {
+  internal func mergeFrom(other:TestMessage) -> TestMessageBuilder {
     if (other == TestMessage()) {
      return self
     }

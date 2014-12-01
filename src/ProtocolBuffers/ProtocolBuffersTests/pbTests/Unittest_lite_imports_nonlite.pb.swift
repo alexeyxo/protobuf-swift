@@ -3,8 +3,8 @@
 import Foundation
 import ProtocolBuffers
 
-struct UnittestLiteImportsNonliteRoot {
-  static var sharedInstance : UnittestLiteImportsNonliteRoot {
+internal struct UnittestLiteImportsNonliteRoot {
+  internal static var sharedInstance : UnittestLiteImportsNonliteRoot {
    struct Static {
        static let instance : UnittestLiteImportsNonliteRoot = UnittestLiteImportsNonliteRoot()
    }
@@ -17,11 +17,11 @@ struct UnittestLiteImportsNonliteRoot {
     registerAllExtensions(extensionRegistry)
     UnittestRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
-func == (lhs: TestLiteImportsNonlite, rhs: TestLiteImportsNonlite) -> Bool {
+internal func == (lhs: TestLiteImportsNonlite, rhs: TestLiteImportsNonlite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -30,7 +30,7 @@ func == (lhs: TestLiteImportsNonlite, rhs: TestLiteImportsNonlite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class TestLiteImportsNonlite : GeneratedMessage {
+final internal class TestLiteImportsNonlite : GeneratedMessage {
   private(set) var hasMessage:Bool = false
   private(set) var message:TestAllTypes = TestAllTypes()
   required internal init() {
@@ -132,7 +132,7 @@ final class TestLiteImportsNonlite : GeneratedMessage {
 
 }
 
-final class TestLiteImportsNonliteBuilder : GeneratedMessageBuilder {
+final internal class TestLiteImportsNonliteBuilder : GeneratedMessageBuilder {
   private var builderResult:TestLiteImportsNonlite
 
   required override internal init () {
@@ -153,11 +153,11 @@ final class TestLiteImportsNonliteBuilder : GeneratedMessageBuilder {
            builderResult.message = value
        }
   }
-  func setMessageBuilder(builderForValue:TestAllTypesBuilder) -> TestLiteImportsNonliteBuilder {
+  internal func setMessageBuilder(builderForValue:TestAllTypesBuilder) -> TestLiteImportsNonliteBuilder {
     message = builderForValue.build()
     return self
   }
-  func mergeMessage(value:TestAllTypes) -> TestLiteImportsNonliteBuilder {
+  internal func mergeMessage(value:TestAllTypes) -> TestLiteImportsNonliteBuilder {
     if (builderResult.hasMessage) {
       builderResult.message = TestAllTypes.builderWithPrototype(builderResult.message).mergeFrom(value).buildPartial()
     } else {
@@ -166,7 +166,7 @@ final class TestLiteImportsNonliteBuilder : GeneratedMessageBuilder {
     builderResult.hasMessage = true
     return self
   }
-  func clearMessage() -> TestLiteImportsNonliteBuilder {
+  internal func clearMessage() -> TestLiteImportsNonliteBuilder {
     builderResult.hasMessage = false
     builderResult.message = TestAllTypes()
     return self
@@ -191,7 +191,7 @@ final class TestLiteImportsNonliteBuilder : GeneratedMessageBuilder {
     var returnMe:TestLiteImportsNonlite = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestLiteImportsNonlite) -> TestLiteImportsNonliteBuilder {
+  internal func mergeFrom(other:TestLiteImportsNonlite) -> TestLiteImportsNonliteBuilder {
     if (other == TestLiteImportsNonlite()) {
      return self
     }

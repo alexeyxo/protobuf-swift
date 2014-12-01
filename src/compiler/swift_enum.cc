@@ -56,8 +56,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumGenerator::GenerateSource(io::Printer* printer) {
         
         printer->Print("\n\n//Enum type declaration start \n\n");
-        printer->Print("enum $classname$:Int32 {\n",
-                       "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+        printer->Print("$acontrol$ enum $classname$:Int32 {\n",
+                       "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Indent();
         for (int i = 0; i < canonical_values_.size(); i++) {
@@ -67,13 +68,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         printer->Print("\n");
         
-        printer->Print("static func IsValidValue(value:Int32) ->Bool {\n"
+        printer->Print("$acontrol$ static func IsValidValue(value:Int32) ->Bool {\n"
                        "    if let check = $classname$(rawValue:value) {\n"
                        "        return true\n"
                        "    }\n"
                        "    return false\n"
                        "}\n",
-                       "classname", UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+                       "classname", UnderscoresToCapitalizedCamelCase(descriptor_->name()),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         
 //        for (int i = 1; i < canonical_values_.size(); i++) {
 //            printer->Print(

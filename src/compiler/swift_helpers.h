@@ -51,6 +51,11 @@ namespace google {
                 
                 bool IsBootstrapFile(const FileDescriptor* file);
                 
+                bool isCompileForFramework(const FileDescriptor* file);
+                
+                string GetAccessControlType(const FileDescriptor* file);
+                
+                string GetAccessControlTypeForFields(const FileDescriptor* file);
                 
                 // Gets the name of the file we're going to generate (sans the .pb.h
                 // extension).  This does not include the path to that file.
@@ -87,7 +92,6 @@ namespace google {
                     SWIFTTYPE_STRING,
                     SWIFTTYPE_DATA,
                     SWIFTTYPE_ENUM,
-                    //  SWIFTTYPE_ONEOF,
                     SWIFTTYPE_MESSAGE
                 };
                 

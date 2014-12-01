@@ -3,8 +3,8 @@
 import Foundation
 import ProtocolBuffers
 
-struct UnittestImportRoot {
-  static var sharedInstance : UnittestImportRoot {
+internal struct UnittestImportRoot {
+  internal static var sharedInstance : UnittestImportRoot {
    struct Static {
        static let instance : UnittestImportRoot = UnittestImportRoot()
    }
@@ -17,7 +17,7 @@ struct UnittestImportRoot {
     registerAllExtensions(extensionRegistry)
     UnittestImportPublicRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
@@ -25,12 +25,12 @@ struct UnittestImportRoot {
 
 //Enum type declaration start 
 
-enum ImportEnum:Int32 {
+internal enum ImportEnum:Int32 {
   case ImportFoo = 7
   case ImportBar = 8
   case ImportBaz = 9
 
-  static func IsValidValue(value:Int32) ->Bool {
+  internal static func IsValidValue(value:Int32) ->Bool {
       if let check = ImportEnum(rawValue:value) {
           return true
       }
@@ -42,7 +42,7 @@ enum ImportEnum:Int32 {
 
 //Enum type declaration end 
 
-func == (lhs: ImportMessage, rhs: ImportMessage) -> Bool {
+internal func == (lhs: ImportMessage, rhs: ImportMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -51,7 +51,7 @@ func == (lhs: ImportMessage, rhs: ImportMessage) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class ImportMessage : GeneratedMessage {
+final internal class ImportMessage : GeneratedMessage {
   private(set) var hasD:Bool = false
   private(set) var d:Int32 = Int32(0)
 
@@ -152,7 +152,7 @@ final class ImportMessage : GeneratedMessage {
 
 }
 
-final class ImportMessageBuilder : GeneratedMessageBuilder {
+final internal class ImportMessageBuilder : GeneratedMessageBuilder {
   private var builderResult:ImportMessage
 
   required override internal init () {
@@ -173,7 +173,7 @@ final class ImportMessageBuilder : GeneratedMessageBuilder {
            builderResult.d = value
        }
   }
-  func clearD() -> ImportMessageBuilder{
+  internal func clearD() -> ImportMessageBuilder{
        builderResult.hasD = false
        builderResult.d = Int32(0)
        return self
@@ -198,7 +198,7 @@ final class ImportMessageBuilder : GeneratedMessageBuilder {
     var returnMe:ImportMessage = builderResult
     return returnMe
   }
-  func mergeFrom(other:ImportMessage) -> ImportMessageBuilder {
+  internal func mergeFrom(other:ImportMessage) -> ImportMessageBuilder {
     if (other == ImportMessage()) {
      return self
     }

@@ -3,8 +3,8 @@
 import Foundation
 import ProtocolBuffers
 
-struct UnittestImportPublicRoot {
-  static var sharedInstance : UnittestImportPublicRoot {
+internal struct UnittestImportPublicRoot {
+  internal static var sharedInstance : UnittestImportPublicRoot {
    struct Static {
        static let instance : UnittestImportPublicRoot = UnittestImportPublicRoot()
    }
@@ -16,11 +16,11 @@ struct UnittestImportPublicRoot {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
-func == (lhs: PublicImportMessage, rhs: PublicImportMessage) -> Bool {
+internal func == (lhs: PublicImportMessage, rhs: PublicImportMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -29,7 +29,7 @@ func == (lhs: PublicImportMessage, rhs: PublicImportMessage) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class PublicImportMessage : GeneratedMessage {
+final internal class PublicImportMessage : GeneratedMessage {
   private(set) var hasE:Bool = false
   private(set) var e:Int32 = Int32(0)
 
@@ -130,7 +130,7 @@ final class PublicImportMessage : GeneratedMessage {
 
 }
 
-final class PublicImportMessageBuilder : GeneratedMessageBuilder {
+final internal class PublicImportMessageBuilder : GeneratedMessageBuilder {
   private var builderResult:PublicImportMessage
 
   required override internal init () {
@@ -151,7 +151,7 @@ final class PublicImportMessageBuilder : GeneratedMessageBuilder {
            builderResult.e = value
        }
   }
-  func clearE() -> PublicImportMessageBuilder{
+  internal func clearE() -> PublicImportMessageBuilder{
        builderResult.hasE = false
        builderResult.e = Int32(0)
        return self
@@ -176,7 +176,7 @@ final class PublicImportMessageBuilder : GeneratedMessageBuilder {
     var returnMe:PublicImportMessage = builderResult
     return returnMe
   }
-  func mergeFrom(other:PublicImportMessage) -> PublicImportMessageBuilder {
+  internal func mergeFrom(other:PublicImportMessage) -> PublicImportMessageBuilder {
     if (other == PublicImportMessage()) {
      return self
     }

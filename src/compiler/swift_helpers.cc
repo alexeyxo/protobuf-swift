@@ -111,6 +111,45 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return CheckReservedNames(result);
     }
     
+    bool isCompileForFramework(const FileDescriptor* file) {
+        if (IsBootstrapFile(file)) {
+            return false;
+        }
+        else if (file->options().HasExtension(swift_file_options)) {
+            SwiftFileOptions options = file->options().GetExtension(swift_file_options);
+            return options.compile_for_framework();
+        }
+        return true;
+    }
+    
+    string GetAccessControlType(const FileDescriptor* file) {
+        if (IsBootstrapFile(file)) {
+            return "public";
+        }
+        else if (file->options().HasExtension(swift_file_options)) {
+            SwiftFileOptions options = file->options().GetExtension(swift_file_options);
+            if (options.entities_access_control() == PublicEntities)
+            {
+                return "public";
+            }
+        }
+        return "internal";
+    }
+    
+    string GetAccessControlTypeForFields(const FileDescriptor* file) {
+        if (IsBootstrapFile(file)) {
+            return "public ";
+        }
+        else if (file->options().HasExtension(swift_file_options)) {
+            SwiftFileOptions options = file->options().GetExtension(swift_file_options);
+            if (options.entities_access_control() == PublicEntities)
+            {
+                return "public ";
+            }
+        }
+        return "";
+    }
+    
     
     string UnderscoresToCamelCase(const string& input) {
         string result = UnderscoresToCapitalizedCamelCase(input);
@@ -210,10 +249,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (file->options().HasExtension(swift_file_options)) {
             SwiftFileOptions options = file->options().GetExtension(swift_file_options);
-            
-            if (options.package() != "") {
-                path = options.package() + "/" + path;
-            }
         }
         
         return path;
@@ -223,9 +258,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string FileClassPrefix(const FileDescriptor* file) {
         if (IsBootstrapFile(file)) {
             return "PB";
-        } else if (file->options().HasExtension(swift_file_options)) {
+        }
+        else if (file->options().HasExtension(swift_file_options)) {
             SwiftFileOptions options = file->options().GetExtension(swift_file_options);
-            
             return options.class_prefix();
         } else {
             return "";

@@ -24,6 +24,7 @@ namespace {
 const ::google::protobuf::Descriptor* SwiftFileOptions_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SwiftFileOptions_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* AccessControl_descriptor_ = NULL;
 
 }  // namespace
 
@@ -36,9 +37,9 @@ void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
   GOOGLE_CHECK(file != NULL);
   SwiftFileOptions_descriptor_ = file->message_type(0);
   static const int SwiftFileOptions_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, package_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, class_prefix_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, class_access_control_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, entities_access_control_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, compile_for_framework_),
   };
   SwiftFileOptions_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -51,6 +52,7 @@ void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SwiftFileOptions));
+  AccessControl_descriptor_ = file->enum_type(0);
 }
 
 namespace {
@@ -72,7 +74,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
   delete SwiftFileOptions::default_instance_;
   delete SwiftFileOptions_reflection_;
-  delete SwiftFileOptions::_default_class_access_control_;
 }
 
 void protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
@@ -85,20 +86,21 @@ void protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n&google/protobuf/swift-descriptor.proto"
     "\022\017google.protobuf\032 google/protobuf/descr"
-    "iptor.proto\"a\n\020SwiftFileOptions\022\017\n\007packa"
-    "ge\030\001 \001(\t\022\024\n\014class_prefix\030\002 \001(\t\022&\n\024class_"
-    "access_control\030\003 \001(\t:\010internal:^\n\022swift_"
-    "file_options\022\034.google.protobuf.FileOptio"
-    "ns\030\210\346\266\002 \001(\0132!.google.protobuf.SwiftFileO"
-    "ptions", 286);
+    "iptor.proto\"\240\001\n\020SwiftFileOptions\022\024\n\014clas"
+    "s_prefix\030\001 \001(\t\022Q\n\027entities_access_contro"
+    "l\030\002 \001(\0162\036.google.protobuf.AccessControl:"
+    "\020InternalEntities\022#\n\025compile_for_framewo"
+    "rk\030\003 \001(\010:\004true*9\n\rAccessControl\022\024\n\020Inter"
+    "nalEntities\020\000\022\022\n\016PublicEntities\020\001:^\n\022swi"
+    "ft_file_options\022\034.google.protobuf.FileOp"
+    "tions\030\256\345\266\002 \001(\0132!.google.protobuf.SwiftFi"
+    "leOptionsB\016\362\252\266\023\002\030\000\362\252\266\023\002\020\001", 425);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "google/protobuf/swift-descriptor.proto", &protobuf_RegisterTypes);
-  SwiftFileOptions::_default_class_access_control_ =
-      new ::std::string("internal", 8);
   SwiftFileOptions::default_instance_ = new SwiftFileOptions();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     &::google::protobuf::FileOptions::default_instance(),
-    5092104, 11, false, false,
+    5092014, 11, false, false,
     &::google::protobuf::SwiftFileOptions::default_instance());
   SwiftFileOptions::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto);
@@ -110,14 +112,27 @@ struct StaticDescriptorInitializer_google_2fprotobuf_2fswift_2ddescriptor_2eprot
     protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
   }
 } static_descriptor_initializer_google_2fprotobuf_2fswift_2ddescriptor_2eproto_;
+const ::google::protobuf::EnumDescriptor* AccessControl_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return AccessControl_descriptor_;
+}
+bool AccessControl_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
-::std::string* SwiftFileOptions::_default_class_access_control_ = NULL;
 #ifndef _MSC_VER
-const int SwiftFileOptions::kPackageFieldNumber;
 const int SwiftFileOptions::kClassPrefixFieldNumber;
-const int SwiftFileOptions::kClassAccessControlFieldNumber;
+const int SwiftFileOptions::kEntitiesAccessControlFieldNumber;
+const int SwiftFileOptions::kCompileForFrameworkFieldNumber;
 #endif  // !_MSC_VER
 
 SwiftFileOptions::SwiftFileOptions()
@@ -139,9 +154,9 @@ SwiftFileOptions::SwiftFileOptions(const SwiftFileOptions& from)
 void SwiftFileOptions::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  package_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   class_prefix_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  class_access_control_ = const_cast< ::std::string*>(_default_class_access_control_);
+  entities_access_control_ = 0;
+  compile_for_framework_ = true;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -151,14 +166,8 @@ SwiftFileOptions::~SwiftFileOptions() {
 }
 
 void SwiftFileOptions::SharedDtor() {
-  if (package_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete package_;
-  }
   if (class_prefix_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete class_prefix_;
-  }
-  if (class_access_control_ != _default_class_access_control_) {
-    delete class_access_control_;
   }
   if (this != default_instance_) {
   }
@@ -187,21 +196,13 @@ SwiftFileOptions* SwiftFileOptions::New() const {
 
 void SwiftFileOptions::Clear() {
   if (_has_bits_[0 / 32] & 7) {
-    if (has_package()) {
-      if (package_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        package_->clear();
-      }
-    }
     if (has_class_prefix()) {
       if (class_prefix_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         class_prefix_->clear();
       }
     }
-    if (has_class_access_control()) {
-      if (class_access_control_ != _default_class_access_control_) {
-        class_access_control_->assign(*_default_class_access_control_);
-      }
-    }
+    entities_access_control_ = 0;
+    compile_for_framework_ = true;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -217,26 +218,9 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string package = 1;
+      // optional string class_prefix = 1;
       case 1: {
         if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_package()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->package().data(), this->package().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "package");
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_class_prefix;
-        break;
-      }
-
-      // optional string class_prefix = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_class_prefix:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_class_prefix()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -246,20 +230,38 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_class_access_control;
+        if (input->ExpectTag(16)) goto parse_entities_access_control;
         break;
       }
 
-      // optional string class_access_control = 3 [default = "internal"];
+      // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+      case 2: {
+        if (tag == 16) {
+         parse_entities_access_control:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::google::protobuf::AccessControl_IsValid(value)) {
+            set_entities_access_control(static_cast< ::google::protobuf::AccessControl >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(2, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_compile_for_framework;
+        break;
+      }
+
+      // optional bool compile_for_framework = 3 [default = true];
       case 3: {
-        if (tag == 26) {
-         parse_class_access_control:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_class_access_control()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->class_access_control().data(), this->class_access_control().length(),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "class_access_control");
+        if (tag == 24) {
+         parse_compile_for_framework:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &compile_for_framework_)));
+          set_has_compile_for_framework();
         } else {
           goto handle_unusual;
         }
@@ -292,34 +294,25 @@ failure:
 void SwiftFileOptions::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.SwiftFileOptions)
-  // optional string package = 1;
-  if (has_package()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->package().data(), this->package().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "package");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->package(), output);
-  }
-
-  // optional string class_prefix = 2;
+  // optional string class_prefix = 1;
   if (has_class_prefix()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->class_prefix().data(), this->class_prefix().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "class_prefix");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->class_prefix(), output);
+      1, this->class_prefix(), output);
   }
 
-  // optional string class_access_control = 3 [default = "internal"];
-  if (has_class_access_control()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->class_access_control().data(), this->class_access_control().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "class_access_control");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->class_access_control(), output);
+  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+  if (has_entities_access_control()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->entities_access_control(), output);
+  }
+
+  // optional bool compile_for_framework = 3 [default = true];
+  if (has_compile_for_framework()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->compile_for_framework(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -332,18 +325,7 @@ void SwiftFileOptions::SerializeWithCachedSizes(
 ::google::protobuf::uint8* SwiftFileOptions::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.SwiftFileOptions)
-  // optional string package = 1;
-  if (has_package()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->package().data(), this->package().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "package");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->package(), target);
-  }
-
-  // optional string class_prefix = 2;
+  // optional string class_prefix = 1;
   if (has_class_prefix()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->class_prefix().data(), this->class_prefix().length(),
@@ -351,18 +333,18 @@ void SwiftFileOptions::SerializeWithCachedSizes(
       "class_prefix");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->class_prefix(), target);
+        1, this->class_prefix(), target);
   }
 
-  // optional string class_access_control = 3 [default = "internal"];
-  if (has_class_access_control()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->class_access_control().data(), this->class_access_control().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "class_access_control");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->class_access_control(), target);
+  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+  if (has_entities_access_control()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->entities_access_control(), target);
+  }
+
+  // optional bool compile_for_framework = 3 [default = true];
+  if (has_compile_for_framework()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->compile_for_framework(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -377,25 +359,22 @@ int SwiftFileOptions::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional string package = 1;
-    if (has_package()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->package());
-    }
-
-    // optional string class_prefix = 2;
+    // optional string class_prefix = 1;
     if (has_class_prefix()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->class_prefix());
     }
 
-    // optional string class_access_control = 3 [default = "internal"];
-    if (has_class_access_control()) {
+    // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+    if (has_entities_access_control()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->class_access_control());
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->entities_access_control());
+    }
+
+    // optional bool compile_for_framework = 3 [default = true];
+    if (has_compile_for_framework()) {
+      total_size += 1 + 1;
     }
 
   }
@@ -425,14 +404,14 @@ void SwiftFileOptions::MergeFrom(const ::google::protobuf::Message& from) {
 void SwiftFileOptions::MergeFrom(const SwiftFileOptions& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_package()) {
-      set_package(from.package());
-    }
     if (from.has_class_prefix()) {
       set_class_prefix(from.class_prefix());
     }
-    if (from.has_class_access_control()) {
-      set_class_access_control(from.class_access_control());
+    if (from.has_entities_access_control()) {
+      set_entities_access_control(from.entities_access_control());
+    }
+    if (from.has_compile_for_framework()) {
+      set_compile_for_framework(from.compile_for_framework());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -457,9 +436,9 @@ bool SwiftFileOptions::IsInitialized() const {
 
 void SwiftFileOptions::Swap(SwiftFileOptions* other) {
   if (other != this) {
-    std::swap(package_, other->package_);
     std::swap(class_prefix_, other->class_prefix_);
-    std::swap(class_access_control_, other->class_access_control_);
+    std::swap(entities_access_control_, other->entities_access_control_);
+    std::swap(compile_for_framework_, other->compile_for_framework_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

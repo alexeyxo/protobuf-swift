@@ -68,15 +68,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void OneofGenerator::GenerateSource(io::Printer* printer) {
         printer->Print("\n\n//OneOf declaration start\n\n");
         
-        printer->Print("enum $classname$ {\n",
-                       "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+        string acControl = GetAccessControlType(descriptor_->containing_type()->file());
+        printer->Print("$acontrol$ enum $classname$ {\n",
+                       "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
+                       "acontrol", acControl);
         
         
         printer->Indent();
         printer->Print("case $classname$OneOfNotSet\n\n",
                        "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
         
-        printer->Print("func checkOneOfIsSet() -> Bool {\n"
+        printer->Print("$acontrol$ func checkOneOfIsSet() -> Bool {\n"
                        "     switch self {\n"
                        "     case .$name$OneOfNotSet:\n"
                        "          return false\n"
@@ -85,8 +87,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "     }\n"
                        "}\n",
                        "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
-                       "name",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+                       "name",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
+                      "acontrol", acControl);
+        
         printer->Outdent();
+        
+        
         for (int i = 0; i < descriptor_->field_count(); i++) {
             
             const FieldDescriptor* fieldType = descriptor_->field(i);
@@ -97,6 +103,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                "name",UnderscoresToCapitalizedCamelCase(fieldType),
                                "type",ClassName(fieldType->message_type()));
                 
+                printer->Print("$acontrol$ ","acontrol", acControl);
                 printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
                                "     switch value {\n"
                                "     case .$name$(let enumValue):\n"
@@ -116,6 +123,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                "name",UnderscoresToCapitalizedCamelCase(enumDesc->name()),
                                "type",ClassName(enumDesc->enum_type()));
                 
+                printer->Print("$acontrol$ ","acontrol", acControl);
                 printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
                                "     switch value {\n"
                                "     case .$name$(let enumValue):\n"
@@ -134,6 +142,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                "name",UnderscoresToCapitalizedCamelCase(fieldType->name()),
                                "type",PrimitiveTypeName(fieldType));
                 
+                printer->Print("$acontrol$ ","acontrol", acControl);
                 printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
                                "     switch value {\n"
                                "     case .$name$(let enumValue):\n"

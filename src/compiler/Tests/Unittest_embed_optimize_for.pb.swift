@@ -3,8 +3,8 @@
 import Foundation
 import ProtocolBuffers
 
-struct UnittestEmbedOptimizeForRoot {
-  static var sharedInstance : UnittestEmbedOptimizeForRoot {
+internal struct UnittestEmbedOptimizeForRoot {
+  internal static var sharedInstance : UnittestEmbedOptimizeForRoot {
    struct Static {
        static let instance : UnittestEmbedOptimizeForRoot = UnittestEmbedOptimizeForRoot()
    }
@@ -17,11 +17,11 @@ struct UnittestEmbedOptimizeForRoot {
     registerAllExtensions(extensionRegistry)
     UnittestOptimizeForRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
-func == (lhs: TestEmbedOptimizedForSize, rhs: TestEmbedOptimizedForSize) -> Bool {
+internal func == (lhs: TestEmbedOptimizedForSize, rhs: TestEmbedOptimizedForSize) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -31,7 +31,7 @@ func == (lhs: TestEmbedOptimizedForSize, rhs: TestEmbedOptimizedForSize) -> Bool
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class TestEmbedOptimizedForSize : GeneratedMessage {
+final internal class TestEmbedOptimizedForSize : GeneratedMessage {
   private(set) var hasOptionalMessage:Bool = false
   private(set) var optionalMessage:TestOptimizedForSize = TestOptimizedForSize()
   private(set) var repeatedMessage:Array<TestOptimizedForSize>  = Array<TestOptimizedForSize>()
@@ -165,7 +165,7 @@ final class TestEmbedOptimizedForSize : GeneratedMessage {
 
 }
 
-final class TestEmbedOptimizedForSizeBuilder : GeneratedMessageBuilder {
+final internal class TestEmbedOptimizedForSizeBuilder : GeneratedMessageBuilder {
   private var builderResult:TestEmbedOptimizedForSize
 
   required override internal init () {
@@ -186,11 +186,11 @@ final class TestEmbedOptimizedForSizeBuilder : GeneratedMessageBuilder {
            builderResult.optionalMessage = value
        }
   }
-  func setOptionalMessageBuilder(builderForValue:TestOptimizedForSizeBuilder) -> TestEmbedOptimizedForSizeBuilder {
+  internal func setOptionalMessageBuilder(builderForValue:TestOptimizedForSizeBuilder) -> TestEmbedOptimizedForSizeBuilder {
     optionalMessage = builderForValue.build()
     return self
   }
-  func mergeOptionalMessage(value:TestOptimizedForSize) -> TestEmbedOptimizedForSizeBuilder {
+  internal func mergeOptionalMessage(value:TestOptimizedForSize) -> TestEmbedOptimizedForSizeBuilder {
     if (builderResult.hasOptionalMessage) {
       builderResult.optionalMessage = TestOptimizedForSize.builderWithPrototype(builderResult.optionalMessage).mergeFrom(value).buildPartial()
     } else {
@@ -199,7 +199,7 @@ final class TestEmbedOptimizedForSizeBuilder : GeneratedMessageBuilder {
     builderResult.hasOptionalMessage = true
     return self
   }
-  func clearOptionalMessage() -> TestEmbedOptimizedForSizeBuilder {
+  internal func clearOptionalMessage() -> TestEmbedOptimizedForSizeBuilder {
     builderResult.hasOptionalMessage = false
     builderResult.optionalMessage = TestOptimizedForSize()
     return self
@@ -212,7 +212,7 @@ final class TestEmbedOptimizedForSizeBuilder : GeneratedMessageBuilder {
            builderResult.repeatedMessage = value
        }
   }
-  func clearRepeatedMessage() -> TestEmbedOptimizedForSizeBuilder {
+  internal func clearRepeatedMessage() -> TestEmbedOptimizedForSizeBuilder {
     builderResult.repeatedMessage.removeAll(keepCapacity: false)
     return self
   }
@@ -236,7 +236,7 @@ final class TestEmbedOptimizedForSizeBuilder : GeneratedMessageBuilder {
     var returnMe:TestEmbedOptimizedForSize = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestEmbedOptimizedForSize) -> TestEmbedOptimizedForSizeBuilder {
+  internal func mergeFrom(other:TestEmbedOptimizedForSize) -> TestEmbedOptimizedForSizeBuilder {
     if (other == TestEmbedOptimizedForSize()) {
      return self
     }

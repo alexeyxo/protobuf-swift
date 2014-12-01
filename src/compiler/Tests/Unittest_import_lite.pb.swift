@@ -3,8 +3,8 @@
 import Foundation
 import ProtocolBuffers
 
-struct UnittestImportLiteRoot {
-  static var sharedInstance : UnittestImportLiteRoot {
+internal struct UnittestImportLiteRoot {
+  internal static var sharedInstance : UnittestImportLiteRoot {
    struct Static {
        static let instance : UnittestImportLiteRoot = UnittestImportLiteRoot()
    }
@@ -17,7 +17,7 @@ struct UnittestImportLiteRoot {
     registerAllExtensions(extensionRegistry)
     UnittestImportPublicLiteRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
@@ -25,12 +25,12 @@ struct UnittestImportLiteRoot {
 
 //Enum type declaration start 
 
-enum ImportEnumLite:Int32 {
+internal enum ImportEnumLite:Int32 {
   case ImportLiteFoo = 7
   case ImportLiteBar = 8
   case ImportLiteBaz = 9
 
-  static func IsValidValue(value:Int32) ->Bool {
+  internal static func IsValidValue(value:Int32) ->Bool {
       if let check = ImportEnumLite(rawValue:value) {
           return true
       }
@@ -42,7 +42,7 @@ enum ImportEnumLite:Int32 {
 
 //Enum type declaration end 
 
-func == (lhs: ImportMessageLite, rhs: ImportMessageLite) -> Bool {
+internal func == (lhs: ImportMessageLite, rhs: ImportMessageLite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -51,7 +51,7 @@ func == (lhs: ImportMessageLite, rhs: ImportMessageLite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class ImportMessageLite : GeneratedMessage {
+final internal class ImportMessageLite : GeneratedMessage {
   private(set) var hasD:Bool = false
   private(set) var d:Int32 = Int32(0)
 
@@ -152,7 +152,7 @@ final class ImportMessageLite : GeneratedMessage {
 
 }
 
-final class ImportMessageLiteBuilder : GeneratedMessageBuilder {
+final internal class ImportMessageLiteBuilder : GeneratedMessageBuilder {
   private var builderResult:ImportMessageLite
 
   required override internal init () {
@@ -173,7 +173,7 @@ final class ImportMessageLiteBuilder : GeneratedMessageBuilder {
            builderResult.d = value
        }
   }
-  func clearD() -> ImportMessageLiteBuilder{
+  internal func clearD() -> ImportMessageLiteBuilder{
        builderResult.hasD = false
        builderResult.d = Int32(0)
        return self
@@ -198,7 +198,7 @@ final class ImportMessageLiteBuilder : GeneratedMessageBuilder {
     var returnMe:ImportMessageLite = builderResult
     return returnMe
   }
-  func mergeFrom(other:ImportMessageLite) -> ImportMessageLiteBuilder {
+  internal func mergeFrom(other:ImportMessageLite) -> ImportMessageLiteBuilder {
     if (other == ImportMessageLite()) {
      return self
     }

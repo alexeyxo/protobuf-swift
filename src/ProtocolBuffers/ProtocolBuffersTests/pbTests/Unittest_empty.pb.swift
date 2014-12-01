@@ -3,8 +3,8 @@
 import Foundation
 import ProtocolBuffers
 
-struct UnittestEmptyRoot {
-  static var sharedInstance : UnittestEmptyRoot {
+internal struct UnittestEmptyRoot {
+  internal static var sharedInstance : UnittestEmptyRoot {
    struct Static {
        static let instance : UnittestEmptyRoot = UnittestEmptyRoot()
    }
@@ -16,7 +16,7 @@ struct UnittestEmptyRoot {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 

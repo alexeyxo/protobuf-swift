@@ -1,3 +1,8 @@
+import "google/protobuf/swift-descriptor.proto";
+
+option (.google.protobuf.swift_file_options).class_prefix = "Proto";
+option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
+
 message Perfomance
 {
    required int32 ints = 1;
@@ -7,9 +12,4 @@ message Perfomance
    optional string str  = 5;
    optional bytes bytes  = 6;
    optional string description = 7;
-}
-
-message TestBytes
-{
-   required bytes bytes  = 1;
 }

@@ -3,228 +3,228 @@
 import Foundation
 import ProtocolBuffers
 
-var UnittestCustomOptionsRootfileOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfileOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileOpt1Static
    }
 }
-var UnittestCustomOptionsRootmessageOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootmessageOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmessageOpt1Static
    }
 }
-var UnittestCustomOptionsRootfieldOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfieldOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt1Static
    }
 }
-var UnittestCustomOptionsRootfieldOpt2:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfieldOpt2:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt2Static
    }
 }
-var UnittestCustomOptionsRootenumOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootenumOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumOpt1Static
    }
 }
-var UnittestCustomOptionsRootenumValueOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootenumValueOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumValueOpt1Static
    }
 }
-var UnittestCustomOptionsRootserviceOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootserviceOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootserviceOpt1Static
    }
 }
-var UnittestCustomOptionsRootmethodOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootmethodOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodOpt1Static
    }
 }
-var UnittestCustomOptionsRootboolOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootboolOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootboolOptStatic
    }
 }
-var UnittestCustomOptionsRootint32Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootint32Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootint32OptStatic
    }
 }
-var UnittestCustomOptionsRootint64Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootint64Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootint64OptStatic
    }
 }
-var UnittestCustomOptionsRootuint32Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootuint32Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootuint32OptStatic
    }
 }
-var UnittestCustomOptionsRootuint64Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootuint64Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootuint64OptStatic
    }
 }
-var UnittestCustomOptionsRootsint32Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootsint32Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsint32OptStatic
    }
 }
-var UnittestCustomOptionsRootsint64Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootsint64Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsint64OptStatic
    }
 }
-var UnittestCustomOptionsRootfixed32Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfixed32Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfixed32OptStatic
    }
 }
-var UnittestCustomOptionsRootfixed64Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfixed64Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfixed64OptStatic
    }
 }
-var UnittestCustomOptionsRootsfixed32Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootsfixed32Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsfixed32OptStatic
    }
 }
-var UnittestCustomOptionsRootsfixed64Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootsfixed64Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsfixed64OptStatic
    }
 }
-var UnittestCustomOptionsRootfloatOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfloatOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfloatOptStatic
    }
 }
-var UnittestCustomOptionsRootdoubleOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootdoubleOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootdoubleOptStatic
    }
 }
-var UnittestCustomOptionsRootstringOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootstringOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootstringOptStatic
    }
 }
-var UnittestCustomOptionsRootbytesOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootbytesOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootbytesOptStatic
    }
 }
-var UnittestCustomOptionsRootenumOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootenumOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumOptStatic
    }
 }
-var UnittestCustomOptionsRootmessageTypeOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootmessageTypeOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmessageTypeOptStatic
    }
 }
-var UnittestCustomOptionsRootquux:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootquux:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootquuxStatic
    }
 }
-var UnittestCustomOptionsRootcorge:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootcorge:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcorgeStatic
    }
 }
-var UnittestCustomOptionsRootgrault:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootgrault:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootgraultStatic
    }
 }
-var UnittestCustomOptionsRootgarply:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootgarply:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootgarplyStatic
    }
 }
-var UnittestCustomOptionsRootcomplexOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootcomplexOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt1Static
    }
 }
-var UnittestCustomOptionsRootcomplexOpt2:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootcomplexOpt2:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt2Static
    }
 }
-var UnittestCustomOptionsRootcomplexOpt3:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootcomplexOpt3:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt3Static
    }
 }
-var UnittestCustomOptionsRootcomplexOpt6:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootcomplexOpt6:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt6Static
    }
 }
-var UnittestCustomOptionsRootfileopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfileopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileoptStatic
    }
 }
-var UnittestCustomOptionsRootmsgopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootmsgopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmsgoptStatic
    }
 }
-var UnittestCustomOptionsRootfieldopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfieldopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldoptStatic
    }
 }
-var UnittestCustomOptionsRootenumopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootenumopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumoptStatic
    }
 }
-var UnittestCustomOptionsRootenumvalopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootenumvalopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumvaloptStatic
    }
 }
-var UnittestCustomOptionsRootserviceopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootserviceopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootserviceoptStatic
    }
 }
-var UnittestCustomOptionsRootmethodopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootmethodopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodoptStatic
    }
 }
-var ComplexOptionType2ComplexOptionType4complexOpt4:ConcreateExtensionField {
+internal var ComplexOptionType2ComplexOptionType4complexOpt4:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.ComplexOptionType2ComplexOptionType4complexOpt4Static
    }
 }
-var AggregateMessageSetElementmessageSetExtension:ConcreateExtensionField {
+internal var AggregateMessageSetElementmessageSetExtension:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.AggregateMessageSetElementmessageSetExtensionStatic
    }
 }
-var Aggregatenested:ConcreateExtensionField {
+internal var Aggregatenested:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.AggregatenestedStatic
    }
 }
-var NestedOptionTypenestedExtension:ConcreateExtensionField {
+internal var NestedOptionTypenestedExtension:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.NestedOptionTypenestedExtensionStatic
    }
 }
-struct UnittestCustomOptionsRoot {
-  static var sharedInstance : UnittestCustomOptionsRoot {
+internal struct UnittestCustomOptionsRoot {
+  internal static var sharedInstance : UnittestCustomOptionsRoot {
    struct Static {
        static let instance : UnittestCustomOptionsRoot = UnittestCustomOptionsRoot()
    }
@@ -325,7 +325,7 @@ struct UnittestCustomOptionsRoot {
     registerAllExtensions(extensionRegistry)
     PBDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
     registry.addExtension(UnittestCustomOptionsRootfileOpt1Static)
     registry.addExtension(UnittestCustomOptionsRootmessageOpt1Static)
     registry.addExtension(UnittestCustomOptionsRootfieldOpt1Static)
@@ -371,124 +371,124 @@ struct UnittestCustomOptionsRoot {
     registry.addExtension(AggregatenestedStatic)
     registry.addExtension(NestedOptionTypenestedExtensionStatic)
   }
-  static func fileOpt1() -> ConcreateExtensionField {
+  internal static func fileOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileOpt1Static
   }
-  static func messageOpt1() -> ConcreateExtensionField {
+  internal static func messageOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmessageOpt1Static
   }
-  static func fieldOpt1() -> ConcreateExtensionField {
+  internal static func fieldOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt1Static
   }
-  static func fieldOpt2() -> ConcreateExtensionField {
+  internal static func fieldOpt2() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt2Static
   }
-  static func enumOpt1() -> ConcreateExtensionField {
+  internal static func enumOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumOpt1Static
   }
-  static func enumValueOpt1() -> ConcreateExtensionField {
+  internal static func enumValueOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumValueOpt1Static
   }
-  static func serviceOpt1() -> ConcreateExtensionField {
+  internal static func serviceOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootserviceOpt1Static
   }
-  static func methodOpt1() -> ConcreateExtensionField {
+  internal static func methodOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodOpt1Static
   }
-  static func boolOpt() -> ConcreateExtensionField {
+  internal static func boolOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootboolOptStatic
   }
-  static func int32Opt() -> ConcreateExtensionField {
+  internal static func int32Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootint32OptStatic
   }
-  static func int64Opt() -> ConcreateExtensionField {
+  internal static func int64Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootint64OptStatic
   }
-  static func uint32Opt() -> ConcreateExtensionField {
+  internal static func uint32Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootuint32OptStatic
   }
-  static func uint64Opt() -> ConcreateExtensionField {
+  internal static func uint64Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootuint64OptStatic
   }
-  static func sint32Opt() -> ConcreateExtensionField {
+  internal static func sint32Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsint32OptStatic
   }
-  static func sint64Opt() -> ConcreateExtensionField {
+  internal static func sint64Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsint64OptStatic
   }
-  static func fixed32Opt() -> ConcreateExtensionField {
+  internal static func fixed32Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfixed32OptStatic
   }
-  static func fixed64Opt() -> ConcreateExtensionField {
+  internal static func fixed64Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfixed64OptStatic
   }
-  static func sfixed32Opt() -> ConcreateExtensionField {
+  internal static func sfixed32Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsfixed32OptStatic
   }
-  static func sfixed64Opt() -> ConcreateExtensionField {
+  internal static func sfixed64Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsfixed64OptStatic
   }
-  static func floatOpt() -> ConcreateExtensionField {
+  internal static func floatOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfloatOptStatic
   }
-  static func doubleOpt() -> ConcreateExtensionField {
+  internal static func doubleOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootdoubleOptStatic
   }
-  static func stringOpt() -> ConcreateExtensionField {
+  internal static func stringOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootstringOptStatic
   }
-  static func bytesOpt() -> ConcreateExtensionField {
+  internal static func bytesOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootbytesOptStatic
   }
-  static func enumOpt() -> ConcreateExtensionField {
+  internal static func enumOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumOptStatic
   }
-  static func messageTypeOpt() -> ConcreateExtensionField {
+  internal static func messageTypeOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmessageTypeOptStatic
   }
-  static func quux() -> ConcreateExtensionField {
+  internal static func quux() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootquuxStatic
   }
-  static func corge() -> ConcreateExtensionField {
+  internal static func corge() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcorgeStatic
   }
-  static func grault() -> ConcreateExtensionField {
+  internal static func grault() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootgraultStatic
   }
-  static func garply() -> ConcreateExtensionField {
+  internal static func garply() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootgarplyStatic
   }
-  static func complexOpt1() -> ConcreateExtensionField {
+  internal static func complexOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt1Static
   }
-  static func complexOpt2() -> ConcreateExtensionField {
+  internal static func complexOpt2() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt2Static
   }
-  static func complexOpt3() -> ConcreateExtensionField {
+  internal static func complexOpt3() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt3Static
   }
-  static func complexOpt6() -> ConcreateExtensionField {
+  internal static func complexOpt6() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt6Static
   }
-  static func fileopt() -> ConcreateExtensionField {
+  internal static func fileopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileoptStatic
   }
-  static func msgopt() -> ConcreateExtensionField {
+  internal static func msgopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmsgoptStatic
   }
-  static func fieldopt() -> ConcreateExtensionField {
+  internal static func fieldopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldoptStatic
   }
-  static func enumopt() -> ConcreateExtensionField {
+  internal static func enumopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumoptStatic
   }
-  static func enumvalopt() -> ConcreateExtensionField {
+  internal static func enumvalopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumvaloptStatic
   }
-  static func serviceopt() -> ConcreateExtensionField {
+  internal static func serviceopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootserviceoptStatic
   }
-  static func methodopt() -> ConcreateExtensionField {
+  internal static func methodopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodoptStatic
   }
 }
@@ -497,11 +497,11 @@ struct UnittestCustomOptionsRoot {
 
 //Enum type declaration start 
 
-enum MethodOpt1:Int32 {
+internal enum MethodOpt1:Int32 {
   case Methodopt1Val1 = 1
   case Methodopt1Val2 = 2
 
-  static func IsValidValue(value:Int32) ->Bool {
+  internal static func IsValidValue(value:Int32) ->Bool {
       if let check = MethodOpt1(rawValue:value) {
           return true
       }
@@ -517,10 +517,10 @@ enum MethodOpt1:Int32 {
 
 //Enum type declaration start 
 
-enum AggregateEnum:Int32 {
+internal enum AggregateEnum:Int32 {
   case Value = 1
 
-  static func IsValidValue(value:Int32) ->Bool {
+  internal static func IsValidValue(value:Int32) ->Bool {
       if let check = AggregateEnum(rawValue:value) {
           return true
       }
@@ -532,7 +532,7 @@ enum AggregateEnum:Int32 {
 
 //Enum type declaration end 
 
-func == (lhs: TestMessageWithCustomOptions, rhs: TestMessageWithCustomOptions) -> Bool {
+internal func == (lhs: TestMessageWithCustomOptions, rhs: TestMessageWithCustomOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -541,7 +541,7 @@ func == (lhs: TestMessageWithCustomOptions, rhs: TestMessageWithCustomOptions) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionFooRequest, rhs: CustomOptionFooRequest) -> Bool {
+internal func == (lhs: CustomOptionFooRequest, rhs: CustomOptionFooRequest) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -549,7 +549,7 @@ func == (lhs: CustomOptionFooRequest, rhs: CustomOptionFooRequest) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionFooResponse, rhs: CustomOptionFooResponse) -> Bool {
+internal func == (lhs: CustomOptionFooResponse, rhs: CustomOptionFooResponse) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -557,7 +557,7 @@ func == (lhs: CustomOptionFooResponse, rhs: CustomOptionFooResponse) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionFooClientMessage, rhs: CustomOptionFooClientMessage) -> Bool {
+internal func == (lhs: CustomOptionFooClientMessage, rhs: CustomOptionFooClientMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -565,7 +565,7 @@ func == (lhs: CustomOptionFooClientMessage, rhs: CustomOptionFooClientMessage) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionFooServerMessage, rhs: CustomOptionFooServerMessage) -> Bool {
+internal func == (lhs: CustomOptionFooServerMessage, rhs: CustomOptionFooServerMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -573,7 +573,7 @@ func == (lhs: CustomOptionFooServerMessage, rhs: CustomOptionFooServerMessage) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: DummyMessageContainingEnum, rhs: DummyMessageContainingEnum) -> Bool {
+internal func == (lhs: DummyMessageContainingEnum, rhs: DummyMessageContainingEnum) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -581,7 +581,7 @@ func == (lhs: DummyMessageContainingEnum, rhs: DummyMessageContainingEnum) -> Bo
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: DummyMessageInvalidAsOptionType, rhs: DummyMessageInvalidAsOptionType) -> Bool {
+internal func == (lhs: DummyMessageInvalidAsOptionType, rhs: DummyMessageInvalidAsOptionType) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -589,7 +589,7 @@ func == (lhs: DummyMessageInvalidAsOptionType, rhs: DummyMessageInvalidAsOptionT
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionMinIntegerValues, rhs: CustomOptionMinIntegerValues) -> Bool {
+internal func == (lhs: CustomOptionMinIntegerValues, rhs: CustomOptionMinIntegerValues) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -597,7 +597,7 @@ func == (lhs: CustomOptionMinIntegerValues, rhs: CustomOptionMinIntegerValues) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionMaxIntegerValues, rhs: CustomOptionMaxIntegerValues) -> Bool {
+internal func == (lhs: CustomOptionMaxIntegerValues, rhs: CustomOptionMaxIntegerValues) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -605,7 +605,7 @@ func == (lhs: CustomOptionMaxIntegerValues, rhs: CustomOptionMaxIntegerValues) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionOtherValues, rhs: CustomOptionOtherValues) -> Bool {
+internal func == (lhs: CustomOptionOtherValues, rhs: CustomOptionOtherValues) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -613,7 +613,7 @@ func == (lhs: CustomOptionOtherValues, rhs: CustomOptionOtherValues) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: SettingRealsFromPositiveInts, rhs: SettingRealsFromPositiveInts) -> Bool {
+internal func == (lhs: SettingRealsFromPositiveInts, rhs: SettingRealsFromPositiveInts) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -621,7 +621,7 @@ func == (lhs: SettingRealsFromPositiveInts, rhs: SettingRealsFromPositiveInts) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: SettingRealsFromNegativeInts, rhs: SettingRealsFromNegativeInts) -> Bool {
+internal func == (lhs: SettingRealsFromNegativeInts, rhs: SettingRealsFromNegativeInts) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -629,7 +629,7 @@ func == (lhs: SettingRealsFromNegativeInts, rhs: SettingRealsFromNegativeInts) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ComplexOptionType1, rhs: ComplexOptionType1) -> Bool {
+internal func == (lhs: ComplexOptionType1, rhs: ComplexOptionType1) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -642,7 +642,7 @@ func == (lhs: ComplexOptionType1, rhs: ComplexOptionType1) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ComplexOptionType2.ComplexOptionType4, rhs: ComplexOptionType2.ComplexOptionType4) -> Bool {
+internal func == (lhs: ComplexOptionType2.ComplexOptionType4, rhs: ComplexOptionType2.ComplexOptionType4) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -651,7 +651,7 @@ func == (lhs: ComplexOptionType2.ComplexOptionType4, rhs: ComplexOptionType2.Com
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ComplexOptionType2, rhs: ComplexOptionType2) -> Bool {
+internal func == (lhs: ComplexOptionType2, rhs: ComplexOptionType2) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -664,7 +664,7 @@ func == (lhs: ComplexOptionType2, rhs: ComplexOptionType2) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ComplexOptionType3.ComplexOptionType5, rhs: ComplexOptionType3.ComplexOptionType5) -> Bool {
+internal func == (lhs: ComplexOptionType3.ComplexOptionType5, rhs: ComplexOptionType3.ComplexOptionType5) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -673,7 +673,7 @@ func == (lhs: ComplexOptionType3.ComplexOptionType5, rhs: ComplexOptionType3.Com
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ComplexOptionType3, rhs: ComplexOptionType3) -> Bool {
+internal func == (lhs: ComplexOptionType3, rhs: ComplexOptionType3) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -683,7 +683,7 @@ func == (lhs: ComplexOptionType3, rhs: ComplexOptionType3) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ComplexOpt6, rhs: ComplexOpt6) -> Bool {
+internal func == (lhs: ComplexOpt6, rhs: ComplexOpt6) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -692,7 +692,7 @@ func == (lhs: ComplexOpt6, rhs: ComplexOpt6) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: VariousComplexOptions, rhs: VariousComplexOptions) -> Bool {
+internal func == (lhs: VariousComplexOptions, rhs: VariousComplexOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -700,7 +700,7 @@ func == (lhs: VariousComplexOptions, rhs: VariousComplexOptions) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: AggregateMessageSet, rhs: AggregateMessageSet) -> Bool {
+internal func == (lhs: AggregateMessageSet, rhs: AggregateMessageSet) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -709,7 +709,7 @@ func == (lhs: AggregateMessageSet, rhs: AggregateMessageSet) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: AggregateMessageSetElement, rhs: AggregateMessageSetElement) -> Bool {
+internal func == (lhs: AggregateMessageSetElement, rhs: AggregateMessageSetElement) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -718,7 +718,7 @@ func == (lhs: AggregateMessageSetElement, rhs: AggregateMessageSetElement) -> Bo
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: Aggregate, rhs: Aggregate) -> Bool {
+internal func == (lhs: Aggregate, rhs: Aggregate) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -731,7 +731,7 @@ func == (lhs: Aggregate, rhs: Aggregate) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: AggregateMessage, rhs: AggregateMessage) -> Bool {
+internal func == (lhs: AggregateMessage, rhs: AggregateMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -740,7 +740,7 @@ func == (lhs: AggregateMessage, rhs: AggregateMessage) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: NestedOptionType.NestedMessage, rhs: NestedOptionType.NestedMessage) -> Bool {
+internal func == (lhs: NestedOptionType.NestedMessage, rhs: NestedOptionType.NestedMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -749,7 +749,7 @@ func == (lhs: NestedOptionType.NestedMessage, rhs: NestedOptionType.NestedMessag
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: NestedOptionType, rhs: NestedOptionType) -> Bool {
+internal func == (lhs: NestedOptionType, rhs: NestedOptionType) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -757,16 +757,16 @@ func == (lhs: NestedOptionType, rhs: NestedOptionType) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class TestMessageWithCustomOptions : GeneratedMessage {
+final internal class TestMessageWithCustomOptions : GeneratedMessage {
 
 
     //Enum type declaration start 
 
-    enum AnEnum:Int32 {
+    internal enum AnEnum:Int32 {
       case AnenumVal1 = 1
       case AnenumVal2 = 2
 
-      static func IsValidValue(value:Int32) ->Bool {
+      internal static func IsValidValue(value:Int32) ->Bool {
           if let check = AnEnum(rawValue:value) {
               return true
           }
@@ -878,7 +878,7 @@ final class TestMessageWithCustomOptions : GeneratedMessage {
 
 }
 
-final class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
+final internal class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
   private var builderResult:TestMessageWithCustomOptions
 
   required override internal init () {
@@ -899,7 +899,7 @@ final class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
            builderResult.field1 = value
        }
   }
-  func clearField1() -> TestMessageWithCustomOptionsBuilder{
+  internal func clearField1() -> TestMessageWithCustomOptionsBuilder{
        builderResult.hasField1 = false
        builderResult.field1 = ""
        return self
@@ -924,7 +924,7 @@ final class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
     var returnMe:TestMessageWithCustomOptions = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestMessageWithCustomOptions) -> TestMessageWithCustomOptionsBuilder {
+  internal func mergeFrom(other:TestMessageWithCustomOptions) -> TestMessageWithCustomOptionsBuilder {
     if (other == TestMessageWithCustomOptions()) {
      return self
     }
@@ -959,7 +959,7 @@ final class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class CustomOptionFooRequest : GeneratedMessage {
+final internal class CustomOptionFooRequest : GeneratedMessage {
   required internal init() {
        super.init()
   }
@@ -1045,7 +1045,7 @@ final class CustomOptionFooRequest : GeneratedMessage {
 
 }
 
-final class CustomOptionFooRequestBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionFooRequestBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionFooRequest
 
   required override internal init () {
@@ -1072,7 +1072,7 @@ final class CustomOptionFooRequestBuilder : GeneratedMessageBuilder {
     var returnMe:CustomOptionFooRequest = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionFooRequest) -> CustomOptionFooRequestBuilder {
+  internal func mergeFrom(other:CustomOptionFooRequest) -> CustomOptionFooRequestBuilder {
     if (other == CustomOptionFooRequest()) {
      return self
     }
@@ -1101,7 +1101,7 @@ final class CustomOptionFooRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class CustomOptionFooResponse : GeneratedMessage {
+final internal class CustomOptionFooResponse : GeneratedMessage {
   required internal init() {
        super.init()
   }
@@ -1187,7 +1187,7 @@ final class CustomOptionFooResponse : GeneratedMessage {
 
 }
 
-final class CustomOptionFooResponseBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionFooResponseBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionFooResponse
 
   required override internal init () {
@@ -1214,7 +1214,7 @@ final class CustomOptionFooResponseBuilder : GeneratedMessageBuilder {
     var returnMe:CustomOptionFooResponse = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionFooResponse) -> CustomOptionFooResponseBuilder {
+  internal func mergeFrom(other:CustomOptionFooResponse) -> CustomOptionFooResponseBuilder {
     if (other == CustomOptionFooResponse()) {
      return self
     }
@@ -1243,7 +1243,7 @@ final class CustomOptionFooResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class CustomOptionFooClientMessage : GeneratedMessage {
+final internal class CustomOptionFooClientMessage : GeneratedMessage {
   required internal init() {
        super.init()
   }
@@ -1329,7 +1329,7 @@ final class CustomOptionFooClientMessage : GeneratedMessage {
 
 }
 
-final class CustomOptionFooClientMessageBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionFooClientMessageBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionFooClientMessage
 
   required override internal init () {
@@ -1356,7 +1356,7 @@ final class CustomOptionFooClientMessageBuilder : GeneratedMessageBuilder {
     var returnMe:CustomOptionFooClientMessage = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionFooClientMessage) -> CustomOptionFooClientMessageBuilder {
+  internal func mergeFrom(other:CustomOptionFooClientMessage) -> CustomOptionFooClientMessageBuilder {
     if (other == CustomOptionFooClientMessage()) {
      return self
     }
@@ -1385,7 +1385,7 @@ final class CustomOptionFooClientMessageBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class CustomOptionFooServerMessage : GeneratedMessage {
+final internal class CustomOptionFooServerMessage : GeneratedMessage {
   required internal init() {
        super.init()
   }
@@ -1471,7 +1471,7 @@ final class CustomOptionFooServerMessage : GeneratedMessage {
 
 }
 
-final class CustomOptionFooServerMessageBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionFooServerMessageBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionFooServerMessage
 
   required override internal init () {
@@ -1498,7 +1498,7 @@ final class CustomOptionFooServerMessageBuilder : GeneratedMessageBuilder {
     var returnMe:CustomOptionFooServerMessage = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionFooServerMessage) -> CustomOptionFooServerMessageBuilder {
+  internal func mergeFrom(other:CustomOptionFooServerMessage) -> CustomOptionFooServerMessageBuilder {
     if (other == CustomOptionFooServerMessage()) {
      return self
     }
@@ -1527,16 +1527,16 @@ final class CustomOptionFooServerMessageBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class DummyMessageContainingEnum : GeneratedMessage {
+final internal class DummyMessageContainingEnum : GeneratedMessage {
 
 
     //Enum type declaration start 
 
-    enum TestEnumType:Int32 {
+    internal enum TestEnumType:Int32 {
       case TestOptionEnumType1 = 22
       case TestOptionEnumType2 = -23
 
-      static func IsValidValue(value:Int32) ->Bool {
+      internal static func IsValidValue(value:Int32) ->Bool {
           if let check = TestEnumType(rawValue:value) {
               return true
           }
@@ -1633,7 +1633,7 @@ final class DummyMessageContainingEnum : GeneratedMessage {
 
 }
 
-final class DummyMessageContainingEnumBuilder : GeneratedMessageBuilder {
+final internal class DummyMessageContainingEnumBuilder : GeneratedMessageBuilder {
   private var builderResult:DummyMessageContainingEnum
 
   required override internal init () {
@@ -1660,7 +1660,7 @@ final class DummyMessageContainingEnumBuilder : GeneratedMessageBuilder {
     var returnMe:DummyMessageContainingEnum = builderResult
     return returnMe
   }
-  func mergeFrom(other:DummyMessageContainingEnum) -> DummyMessageContainingEnumBuilder {
+  internal func mergeFrom(other:DummyMessageContainingEnum) -> DummyMessageContainingEnumBuilder {
     if (other == DummyMessageContainingEnum()) {
      return self
     }
@@ -1689,7 +1689,7 @@ final class DummyMessageContainingEnumBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class DummyMessageInvalidAsOptionType : GeneratedMessage {
+final internal class DummyMessageInvalidAsOptionType : GeneratedMessage {
   required internal init() {
        super.init()
   }
@@ -1775,7 +1775,7 @@ final class DummyMessageInvalidAsOptionType : GeneratedMessage {
 
 }
 
-final class DummyMessageInvalidAsOptionTypeBuilder : GeneratedMessageBuilder {
+final internal class DummyMessageInvalidAsOptionTypeBuilder : GeneratedMessageBuilder {
   private var builderResult:DummyMessageInvalidAsOptionType
 
   required override internal init () {
@@ -1802,7 +1802,7 @@ final class DummyMessageInvalidAsOptionTypeBuilder : GeneratedMessageBuilder {
     var returnMe:DummyMessageInvalidAsOptionType = builderResult
     return returnMe
   }
-  func mergeFrom(other:DummyMessageInvalidAsOptionType) -> DummyMessageInvalidAsOptionTypeBuilder {
+  internal func mergeFrom(other:DummyMessageInvalidAsOptionType) -> DummyMessageInvalidAsOptionTypeBuilder {
     if (other == DummyMessageInvalidAsOptionType()) {
      return self
     }
@@ -1831,7 +1831,7 @@ final class DummyMessageInvalidAsOptionTypeBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class CustomOptionMinIntegerValues : GeneratedMessage {
+final internal class CustomOptionMinIntegerValues : GeneratedMessage {
   required internal init() {
        super.init()
   }
@@ -1917,7 +1917,7 @@ final class CustomOptionMinIntegerValues : GeneratedMessage {
 
 }
 
-final class CustomOptionMinIntegerValuesBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionMinIntegerValuesBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionMinIntegerValues
 
   required override internal init () {
@@ -1944,7 +1944,7 @@ final class CustomOptionMinIntegerValuesBuilder : GeneratedMessageBuilder {
     var returnMe:CustomOptionMinIntegerValues = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionMinIntegerValues) -> CustomOptionMinIntegerValuesBuilder {
+  internal func mergeFrom(other:CustomOptionMinIntegerValues) -> CustomOptionMinIntegerValuesBuilder {
     if (other == CustomOptionMinIntegerValues()) {
      return self
     }
@@ -1973,7 +1973,7 @@ final class CustomOptionMinIntegerValuesBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class CustomOptionMaxIntegerValues : GeneratedMessage {
+final internal class CustomOptionMaxIntegerValues : GeneratedMessage {
   required internal init() {
        super.init()
   }
@@ -2059,7 +2059,7 @@ final class CustomOptionMaxIntegerValues : GeneratedMessage {
 
 }
 
-final class CustomOptionMaxIntegerValuesBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionMaxIntegerValuesBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionMaxIntegerValues
 
   required override internal init () {
@@ -2086,7 +2086,7 @@ final class CustomOptionMaxIntegerValuesBuilder : GeneratedMessageBuilder {
     var returnMe:CustomOptionMaxIntegerValues = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionMaxIntegerValues) -> CustomOptionMaxIntegerValuesBuilder {
+  internal func mergeFrom(other:CustomOptionMaxIntegerValues) -> CustomOptionMaxIntegerValuesBuilder {
     if (other == CustomOptionMaxIntegerValues()) {
      return self
     }
@@ -2115,7 +2115,7 @@ final class CustomOptionMaxIntegerValuesBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class CustomOptionOtherValues : GeneratedMessage {
+final internal class CustomOptionOtherValues : GeneratedMessage {
   required internal init() {
        super.init()
   }
@@ -2201,7 +2201,7 @@ final class CustomOptionOtherValues : GeneratedMessage {
 
 }
 
-final class CustomOptionOtherValuesBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionOtherValuesBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionOtherValues
 
   required override internal init () {
@@ -2228,7 +2228,7 @@ final class CustomOptionOtherValuesBuilder : GeneratedMessageBuilder {
     var returnMe:CustomOptionOtherValues = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionOtherValues) -> CustomOptionOtherValuesBuilder {
+  internal func mergeFrom(other:CustomOptionOtherValues) -> CustomOptionOtherValuesBuilder {
     if (other == CustomOptionOtherValues()) {
      return self
     }
@@ -2257,7 +2257,7 @@ final class CustomOptionOtherValuesBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class SettingRealsFromPositiveInts : GeneratedMessage {
+final internal class SettingRealsFromPositiveInts : GeneratedMessage {
   required internal init() {
        super.init()
   }
@@ -2343,7 +2343,7 @@ final class SettingRealsFromPositiveInts : GeneratedMessage {
 
 }
 
-final class SettingRealsFromPositiveIntsBuilder : GeneratedMessageBuilder {
+final internal class SettingRealsFromPositiveIntsBuilder : GeneratedMessageBuilder {
   private var builderResult:SettingRealsFromPositiveInts
 
   required override internal init () {
@@ -2370,7 +2370,7 @@ final class SettingRealsFromPositiveIntsBuilder : GeneratedMessageBuilder {
     var returnMe:SettingRealsFromPositiveInts = builderResult
     return returnMe
   }
-  func mergeFrom(other:SettingRealsFromPositiveInts) -> SettingRealsFromPositiveIntsBuilder {
+  internal func mergeFrom(other:SettingRealsFromPositiveInts) -> SettingRealsFromPositiveIntsBuilder {
     if (other == SettingRealsFromPositiveInts()) {
      return self
     }
@@ -2399,7 +2399,7 @@ final class SettingRealsFromPositiveIntsBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class SettingRealsFromNegativeInts : GeneratedMessage {
+final internal class SettingRealsFromNegativeInts : GeneratedMessage {
   required internal init() {
        super.init()
   }
@@ -2485,7 +2485,7 @@ final class SettingRealsFromNegativeInts : GeneratedMessage {
 
 }
 
-final class SettingRealsFromNegativeIntsBuilder : GeneratedMessageBuilder {
+final internal class SettingRealsFromNegativeIntsBuilder : GeneratedMessageBuilder {
   private var builderResult:SettingRealsFromNegativeInts
 
   required override internal init () {
@@ -2512,7 +2512,7 @@ final class SettingRealsFromNegativeIntsBuilder : GeneratedMessageBuilder {
     var returnMe:SettingRealsFromNegativeInts = builderResult
     return returnMe
   }
-  func mergeFrom(other:SettingRealsFromNegativeInts) -> SettingRealsFromNegativeIntsBuilder {
+  internal func mergeFrom(other:SettingRealsFromNegativeInts) -> SettingRealsFromNegativeIntsBuilder {
     if (other == SettingRealsFromNegativeInts()) {
      return self
     }
@@ -2541,7 +2541,7 @@ final class SettingRealsFromNegativeIntsBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class ComplexOptionType1 : ExtendableMessage {
+final internal class ComplexOptionType1 : ExtendableMessage {
   private(set) var hasFoo:Bool = false
   private(set) var foo:Int32 = Int32(0)
 
@@ -2699,7 +2699,7 @@ final class ComplexOptionType1 : ExtendableMessage {
 
 }
 
-final class ComplexOptionType1Builder : ExtendableMessageBuilder {
+final internal class ComplexOptionType1Builder : ExtendableMessageBuilder {
   private var builderResult:ComplexOptionType1
 
   required override internal init () {
@@ -2720,7 +2720,7 @@ final class ComplexOptionType1Builder : ExtendableMessageBuilder {
            builderResult.foo = value
        }
   }
-  func clearFoo() -> ComplexOptionType1Builder{
+  internal func clearFoo() -> ComplexOptionType1Builder{
        builderResult.hasFoo = false
        builderResult.foo = Int32(0)
        return self
@@ -2739,7 +2739,7 @@ final class ComplexOptionType1Builder : ExtendableMessageBuilder {
            builderResult.foo2 = value
        }
   }
-  func clearFoo2() -> ComplexOptionType1Builder{
+  internal func clearFoo2() -> ComplexOptionType1Builder{
        builderResult.hasFoo2 = false
        builderResult.foo2 = Int32(0)
        return self
@@ -2758,7 +2758,7 @@ final class ComplexOptionType1Builder : ExtendableMessageBuilder {
            builderResult.foo3 = value
        }
   }
-  func clearFoo3() -> ComplexOptionType1Builder{
+  internal func clearFoo3() -> ComplexOptionType1Builder{
        builderResult.hasFoo3 = false
        builderResult.foo3 = Int32(0)
        return self
@@ -2771,7 +2771,7 @@ final class ComplexOptionType1Builder : ExtendableMessageBuilder {
            builderResult.foo4 = array
        }
   }
-  func clearFoo4() -> ComplexOptionType1Builder {
+  internal func clearFoo4() -> ComplexOptionType1Builder {
      builderResult.foo4.removeAll(keepCapacity: false)
      return self
   }
@@ -2795,7 +2795,7 @@ final class ComplexOptionType1Builder : ExtendableMessageBuilder {
     var returnMe:ComplexOptionType1 = builderResult
     return returnMe
   }
-  func mergeFrom(other:ComplexOptionType1) -> ComplexOptionType1Builder {
+  internal func mergeFrom(other:ComplexOptionType1) -> ComplexOptionType1Builder {
     if (other == ComplexOptionType1()) {
      return self
     }
@@ -2849,16 +2849,16 @@ final class ComplexOptionType1Builder : ExtendableMessageBuilder {
   }
 }
 
-final class ComplexOptionType2 : ExtendableMessage {
+final internal class ComplexOptionType2 : ExtendableMessage {
 
 
   //Nested type declaration start
 
-    final class ComplexOptionType4 : GeneratedMessage {
+    final internal class ComplexOptionType4 : GeneratedMessage {
       private(set) var hasWaldo:Bool = false
       private(set) var waldo:Int32 = Int32(0)
 
-      class func complexOpt4() -> ConcreateExtensionField {
+      internal class func complexOpt4() -> ConcreateExtensionField {
            return ComplexOptionType2ComplexOptionType4complexOpt4
       }
       required internal init() {
@@ -2958,7 +2958,7 @@ final class ComplexOptionType2 : ExtendableMessage {
 
     }
 
-    final class ComplexOptionType4Builder : GeneratedMessageBuilder {
+    final internal class ComplexOptionType4Builder : GeneratedMessageBuilder {
       private var builderResult:ComplexOptionType2.ComplexOptionType4
 
       required override internal init () {
@@ -2979,7 +2979,7 @@ final class ComplexOptionType2 : ExtendableMessage {
                builderResult.waldo = value
            }
       }
-      func clearWaldo() -> ComplexOptionType2.ComplexOptionType4Builder{
+      internal func clearWaldo() -> ComplexOptionType2.ComplexOptionType4Builder{
            builderResult.hasWaldo = false
            builderResult.waldo = Int32(0)
            return self
@@ -3004,7 +3004,7 @@ final class ComplexOptionType2 : ExtendableMessage {
         var returnMe:ComplexOptionType2.ComplexOptionType4 = builderResult
         return returnMe
       }
-      func mergeFrom(other:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2.ComplexOptionType4Builder {
+      internal func mergeFrom(other:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2.ComplexOptionType4Builder {
         if (other == ComplexOptionType2.ComplexOptionType4()) {
          return self
         }
@@ -3204,7 +3204,7 @@ final class ComplexOptionType2 : ExtendableMessage {
 
 }
 
-final class ComplexOptionType2Builder : ExtendableMessageBuilder {
+final internal class ComplexOptionType2Builder : ExtendableMessageBuilder {
   private var builderResult:ComplexOptionType2
 
   required override internal init () {
@@ -3225,11 +3225,11 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
            builderResult.bar = value
        }
   }
-  func setBarBuilder(builderForValue:ComplexOptionType1Builder) -> ComplexOptionType2Builder {
+  internal func setBarBuilder(builderForValue:ComplexOptionType1Builder) -> ComplexOptionType2Builder {
     bar = builderForValue.build()
     return self
   }
-  func mergeBar(value:ComplexOptionType1) -> ComplexOptionType2Builder {
+  internal func mergeBar(value:ComplexOptionType1) -> ComplexOptionType2Builder {
     if (builderResult.hasBar) {
       builderResult.bar = ComplexOptionType1.builderWithPrototype(builderResult.bar).mergeFrom(value).buildPartial()
     } else {
@@ -3238,7 +3238,7 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
     builderResult.hasBar = true
     return self
   }
-  func clearBar() -> ComplexOptionType2Builder {
+  internal func clearBar() -> ComplexOptionType2Builder {
     builderResult.hasBar = false
     builderResult.bar = ComplexOptionType1()
     return self
@@ -3257,7 +3257,7 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
            builderResult.baz = value
        }
   }
-  func clearBaz() -> ComplexOptionType2Builder{
+  internal func clearBaz() -> ComplexOptionType2Builder{
        builderResult.hasBaz = false
        builderResult.baz = Int32(0)
        return self
@@ -3276,11 +3276,11 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
            builderResult.fred = value
        }
   }
-  func setFredBuilder(builderForValue:ComplexOptionType2.ComplexOptionType4Builder) -> ComplexOptionType2Builder {
+  internal func setFredBuilder(builderForValue:ComplexOptionType2.ComplexOptionType4Builder) -> ComplexOptionType2Builder {
     fred = builderForValue.build()
     return self
   }
-  func mergeFred(value:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2Builder {
+  internal func mergeFred(value:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2Builder {
     if (builderResult.hasFred) {
       builderResult.fred = ComplexOptionType2.ComplexOptionType4.builderWithPrototype(builderResult.fred).mergeFrom(value).buildPartial()
     } else {
@@ -3289,7 +3289,7 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
     builderResult.hasFred = true
     return self
   }
-  func clearFred() -> ComplexOptionType2Builder {
+  internal func clearFred() -> ComplexOptionType2Builder {
     builderResult.hasFred = false
     builderResult.fred = ComplexOptionType2.ComplexOptionType4()
     return self
@@ -3302,7 +3302,7 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
            builderResult.barney = value
        }
   }
-  func clearBarney() -> ComplexOptionType2Builder {
+  internal func clearBarney() -> ComplexOptionType2Builder {
     builderResult.barney.removeAll(keepCapacity: false)
     return self
   }
@@ -3326,7 +3326,7 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
     var returnMe:ComplexOptionType2 = builderResult
     return returnMe
   }
-  func mergeFrom(other:ComplexOptionType2) -> ComplexOptionType2Builder {
+  internal func mergeFrom(other:ComplexOptionType2) -> ComplexOptionType2Builder {
     if (other == ComplexOptionType2()) {
      return self
     }
@@ -3392,12 +3392,12 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
   }
 }
 
-final class ComplexOptionType3 : GeneratedMessage {
+final internal class ComplexOptionType3 : GeneratedMessage {
 
 
   //Nested type declaration start
 
-    final class ComplexOptionType5 : GeneratedMessage {
+    final internal class ComplexOptionType5 : GeneratedMessage {
       private(set) var hasPlugh:Bool = false
       private(set) var plugh:Int32 = Int32(0)
 
@@ -3498,7 +3498,7 @@ final class ComplexOptionType3 : GeneratedMessage {
 
     }
 
-    final class ComplexOptionType5Builder : GeneratedMessageBuilder {
+    final internal class ComplexOptionType5Builder : GeneratedMessageBuilder {
       private var builderResult:ComplexOptionType3.ComplexOptionType5
 
       required override internal init () {
@@ -3519,7 +3519,7 @@ final class ComplexOptionType3 : GeneratedMessage {
                builderResult.plugh = value
            }
       }
-      func clearPlugh() -> ComplexOptionType3.ComplexOptionType5Builder{
+      internal func clearPlugh() -> ComplexOptionType3.ComplexOptionType5Builder{
            builderResult.hasPlugh = false
            builderResult.plugh = Int32(0)
            return self
@@ -3544,7 +3544,7 @@ final class ComplexOptionType3 : GeneratedMessage {
         var returnMe:ComplexOptionType3.ComplexOptionType5 = builderResult
         return returnMe
       }
-      func mergeFrom(other:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3.ComplexOptionType5Builder {
+      internal func mergeFrom(other:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3.ComplexOptionType5Builder {
         if (other == ComplexOptionType3.ComplexOptionType5()) {
          return self
         }
@@ -3699,7 +3699,7 @@ final class ComplexOptionType3 : GeneratedMessage {
 
 }
 
-final class ComplexOptionType3Builder : GeneratedMessageBuilder {
+final internal class ComplexOptionType3Builder : GeneratedMessageBuilder {
   private var builderResult:ComplexOptionType3
 
   required override internal init () {
@@ -3720,7 +3720,7 @@ final class ComplexOptionType3Builder : GeneratedMessageBuilder {
            builderResult.qux = value
        }
   }
-  func clearQux() -> ComplexOptionType3Builder{
+  internal func clearQux() -> ComplexOptionType3Builder{
        builderResult.hasQux = false
        builderResult.qux = Int32(0)
        return self
@@ -3739,11 +3739,11 @@ final class ComplexOptionType3Builder : GeneratedMessageBuilder {
            builderResult.complexOptionType5 = value
        }
   }
-  func setComplexOptionType5Builder(builderForValue:ComplexOptionType3.ComplexOptionType5Builder) -> ComplexOptionType3Builder {
+  internal func setComplexOptionType5Builder(builderForValue:ComplexOptionType3.ComplexOptionType5Builder) -> ComplexOptionType3Builder {
     complexOptionType5 = builderForValue.build()
     return self
   }
-  func mergeComplexOptionType5(value:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3Builder {
+  internal func mergeComplexOptionType5(value:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3Builder {
     if (builderResult.hasComplexOptionType5) {
       builderResult.complexOptionType5 = ComplexOptionType3.ComplexOptionType5.builderWithPrototype(builderResult.complexOptionType5).mergeFrom(value).buildPartial()
     } else {
@@ -3752,7 +3752,7 @@ final class ComplexOptionType3Builder : GeneratedMessageBuilder {
     builderResult.hasComplexOptionType5 = true
     return self
   }
-  func clearComplexOptionType5() -> ComplexOptionType3Builder {
+  internal func clearComplexOptionType5() -> ComplexOptionType3Builder {
     builderResult.hasComplexOptionType5 = false
     builderResult.complexOptionType5 = ComplexOptionType3.ComplexOptionType5()
     return self
@@ -3777,7 +3777,7 @@ final class ComplexOptionType3Builder : GeneratedMessageBuilder {
     var returnMe:ComplexOptionType3 = builderResult
     return returnMe
   }
-  func mergeFrom(other:ComplexOptionType3) -> ComplexOptionType3Builder {
+  internal func mergeFrom(other:ComplexOptionType3) -> ComplexOptionType3Builder {
     if (other == ComplexOptionType3()) {
      return self
     }
@@ -3823,7 +3823,7 @@ final class ComplexOptionType3Builder : GeneratedMessageBuilder {
   }
 }
 
-final class ComplexOpt6 : GeneratedMessage {
+final internal class ComplexOpt6 : GeneratedMessage {
   private(set) var hasXyzzy:Bool = false
   private(set) var xyzzy:Int32 = Int32(0)
 
@@ -3924,7 +3924,7 @@ final class ComplexOpt6 : GeneratedMessage {
 
 }
 
-final class ComplexOpt6Builder : GeneratedMessageBuilder {
+final internal class ComplexOpt6Builder : GeneratedMessageBuilder {
   private var builderResult:ComplexOpt6
 
   required override internal init () {
@@ -3945,7 +3945,7 @@ final class ComplexOpt6Builder : GeneratedMessageBuilder {
            builderResult.xyzzy = value
        }
   }
-  func clearXyzzy() -> ComplexOpt6Builder{
+  internal func clearXyzzy() -> ComplexOpt6Builder{
        builderResult.hasXyzzy = false
        builderResult.xyzzy = Int32(0)
        return self
@@ -3970,7 +3970,7 @@ final class ComplexOpt6Builder : GeneratedMessageBuilder {
     var returnMe:ComplexOpt6 = builderResult
     return returnMe
   }
-  func mergeFrom(other:ComplexOpt6) -> ComplexOpt6Builder {
+  internal func mergeFrom(other:ComplexOpt6) -> ComplexOpt6Builder {
     if (other == ComplexOpt6()) {
      return self
     }
@@ -4005,7 +4005,7 @@ final class ComplexOpt6Builder : GeneratedMessageBuilder {
   }
 }
 
-final class VariousComplexOptions : GeneratedMessage {
+final internal class VariousComplexOptions : GeneratedMessage {
   required internal init() {
        super.init()
   }
@@ -4091,7 +4091,7 @@ final class VariousComplexOptions : GeneratedMessage {
 
 }
 
-final class VariousComplexOptionsBuilder : GeneratedMessageBuilder {
+final internal class VariousComplexOptionsBuilder : GeneratedMessageBuilder {
   private var builderResult:VariousComplexOptions
 
   required override internal init () {
@@ -4118,7 +4118,7 @@ final class VariousComplexOptionsBuilder : GeneratedMessageBuilder {
     var returnMe:VariousComplexOptions = builderResult
     return returnMe
   }
-  func mergeFrom(other:VariousComplexOptions) -> VariousComplexOptionsBuilder {
+  internal func mergeFrom(other:VariousComplexOptions) -> VariousComplexOptionsBuilder {
     if (other == VariousComplexOptions()) {
      return self
     }
@@ -4147,7 +4147,7 @@ final class VariousComplexOptionsBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class AggregateMessageSet : ExtendableMessage {
+final internal class AggregateMessageSet : ExtendableMessage {
   required internal init() {
        super.init()
   }
@@ -4240,7 +4240,7 @@ final class AggregateMessageSet : ExtendableMessage {
 
 }
 
-final class AggregateMessageSetBuilder : ExtendableMessageBuilder {
+final internal class AggregateMessageSetBuilder : ExtendableMessageBuilder {
   private var builderResult:AggregateMessageSet
 
   required override internal init () {
@@ -4267,7 +4267,7 @@ final class AggregateMessageSetBuilder : ExtendableMessageBuilder {
     var returnMe:AggregateMessageSet = builderResult
     return returnMe
   }
-  func mergeFrom(other:AggregateMessageSet) -> AggregateMessageSetBuilder {
+  internal func mergeFrom(other:AggregateMessageSet) -> AggregateMessageSetBuilder {
     if (other == AggregateMessageSet()) {
      return self
     }
@@ -4297,11 +4297,11 @@ final class AggregateMessageSetBuilder : ExtendableMessageBuilder {
   }
 }
 
-final class AggregateMessageSetElement : GeneratedMessage {
+final internal class AggregateMessageSetElement : GeneratedMessage {
   private(set) var hasS:Bool = false
   private(set) var s:String = ""
 
-  class func messageSetExtension() -> ConcreateExtensionField {
+  internal class func messageSetExtension() -> ConcreateExtensionField {
        return AggregateMessageSetElementmessageSetExtension
   }
   required internal init() {
@@ -4401,7 +4401,7 @@ final class AggregateMessageSetElement : GeneratedMessage {
 
 }
 
-final class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
+final internal class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
   private var builderResult:AggregateMessageSetElement
 
   required override internal init () {
@@ -4422,7 +4422,7 @@ final class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
            builderResult.s = value
        }
   }
-  func clearS() -> AggregateMessageSetElementBuilder{
+  internal func clearS() -> AggregateMessageSetElementBuilder{
        builderResult.hasS = false
        builderResult.s = ""
        return self
@@ -4447,7 +4447,7 @@ final class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
     var returnMe:AggregateMessageSetElement = builderResult
     return returnMe
   }
-  func mergeFrom(other:AggregateMessageSetElement) -> AggregateMessageSetElementBuilder {
+  internal func mergeFrom(other:AggregateMessageSetElement) -> AggregateMessageSetElementBuilder {
     if (other == AggregateMessageSetElement()) {
      return self
     }
@@ -4482,7 +4482,7 @@ final class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class Aggregate : GeneratedMessage {
+final internal class Aggregate : GeneratedMessage {
   private(set) var hasI:Bool = false
   private(set) var i:Int32 = Int32(0)
 
@@ -4495,7 +4495,7 @@ final class Aggregate : GeneratedMessage {
   private(set) var file:PBFileOptions = PBFileOptions()
   private(set) var hasMset:Bool = false
   private(set) var mset:AggregateMessageSet = AggregateMessageSet()
-  class func nested() -> ConcreateExtensionField {
+  internal class func nested() -> ConcreateExtensionField {
        return Aggregatenested
   }
   required internal init() {
@@ -4664,7 +4664,7 @@ final class Aggregate : GeneratedMessage {
 
 }
 
-final class AggregateBuilder : GeneratedMessageBuilder {
+final internal class AggregateBuilder : GeneratedMessageBuilder {
   private var builderResult:Aggregate
 
   required override internal init () {
@@ -4685,7 +4685,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.i = value
        }
   }
-  func clearI() -> AggregateBuilder{
+  internal func clearI() -> AggregateBuilder{
        builderResult.hasI = false
        builderResult.i = Int32(0)
        return self
@@ -4704,7 +4704,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.s = value
        }
   }
-  func clearS() -> AggregateBuilder{
+  internal func clearS() -> AggregateBuilder{
        builderResult.hasS = false
        builderResult.s = ""
        return self
@@ -4723,11 +4723,11 @@ final class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.sub = value
        }
   }
-  func setSubBuilder(builderForValue:AggregateBuilder) -> AggregateBuilder {
+  internal func setSubBuilder(builderForValue:AggregateBuilder) -> AggregateBuilder {
     sub = builderForValue.build()
     return self
   }
-  func mergeSub(value:Aggregate) -> AggregateBuilder {
+  internal func mergeSub(value:Aggregate) -> AggregateBuilder {
     if (builderResult.hasSub) {
       builderResult.sub = Aggregate.builderWithPrototype(builderResult.sub).mergeFrom(value).buildPartial()
     } else {
@@ -4736,7 +4736,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
     builderResult.hasSub = true
     return self
   }
-  func clearSub() -> AggregateBuilder {
+  internal func clearSub() -> AggregateBuilder {
     builderResult.hasSub = false
     builderResult.sub = Aggregate()
     return self
@@ -4755,11 +4755,11 @@ final class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.file = value
        }
   }
-  func setFileBuilder(builderForValue:PBFileOptionsBuilder) -> AggregateBuilder {
+  internal func setFileBuilder(builderForValue:PBFileOptionsBuilder) -> AggregateBuilder {
     file = builderForValue.build()
     return self
   }
-  func mergeFile(value:PBFileOptions) -> AggregateBuilder {
+  internal func mergeFile(value:PBFileOptions) -> AggregateBuilder {
     if (builderResult.hasFile) {
       builderResult.file = PBFileOptions.builderWithPrototype(builderResult.file).mergeFrom(value).buildPartial()
     } else {
@@ -4768,7 +4768,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
     builderResult.hasFile = true
     return self
   }
-  func clearFile() -> AggregateBuilder {
+  internal func clearFile() -> AggregateBuilder {
     builderResult.hasFile = false
     builderResult.file = PBFileOptions()
     return self
@@ -4787,11 +4787,11 @@ final class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.mset = value
        }
   }
-  func setMsetBuilder(builderForValue:AggregateMessageSetBuilder) -> AggregateBuilder {
+  internal func setMsetBuilder(builderForValue:AggregateMessageSetBuilder) -> AggregateBuilder {
     mset = builderForValue.build()
     return self
   }
-  func mergeMset(value:AggregateMessageSet) -> AggregateBuilder {
+  internal func mergeMset(value:AggregateMessageSet) -> AggregateBuilder {
     if (builderResult.hasMset) {
       builderResult.mset = AggregateMessageSet.builderWithPrototype(builderResult.mset).mergeFrom(value).buildPartial()
     } else {
@@ -4800,7 +4800,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
     builderResult.hasMset = true
     return self
   }
-  func clearMset() -> AggregateBuilder {
+  internal func clearMset() -> AggregateBuilder {
     builderResult.hasMset = false
     builderResult.mset = AggregateMessageSet()
     return self
@@ -4825,7 +4825,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
     var returnMe:Aggregate = builderResult
     return returnMe
   }
-  func mergeFrom(other:Aggregate) -> AggregateBuilder {
+  internal func mergeFrom(other:Aggregate) -> AggregateBuilder {
     if (other == Aggregate()) {
      return self
     }
@@ -4899,7 +4899,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class AggregateMessage : GeneratedMessage {
+final internal class AggregateMessage : GeneratedMessage {
   private(set) var hasFieldname:Bool = false
   private(set) var fieldname:Int32 = Int32(0)
 
@@ -5000,7 +5000,7 @@ final class AggregateMessage : GeneratedMessage {
 
 }
 
-final class AggregateMessageBuilder : GeneratedMessageBuilder {
+final internal class AggregateMessageBuilder : GeneratedMessageBuilder {
   private var builderResult:AggregateMessage
 
   required override internal init () {
@@ -5021,7 +5021,7 @@ final class AggregateMessageBuilder : GeneratedMessageBuilder {
            builderResult.fieldname = value
        }
   }
-  func clearFieldname() -> AggregateMessageBuilder{
+  internal func clearFieldname() -> AggregateMessageBuilder{
        builderResult.hasFieldname = false
        builderResult.fieldname = Int32(0)
        return self
@@ -5046,7 +5046,7 @@ final class AggregateMessageBuilder : GeneratedMessageBuilder {
     var returnMe:AggregateMessage = builderResult
     return returnMe
   }
-  func mergeFrom(other:AggregateMessage) -> AggregateMessageBuilder {
+  internal func mergeFrom(other:AggregateMessage) -> AggregateMessageBuilder {
     if (other == AggregateMessage()) {
      return self
     }
@@ -5081,12 +5081,12 @@ final class AggregateMessageBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class NestedOptionType : GeneratedMessage {
+final internal class NestedOptionType : GeneratedMessage {
 
 
   //Nested type declaration start
 
-    final class NestedMessage : GeneratedMessage {
+    final internal class NestedMessage : GeneratedMessage {
       private(set) var hasNestedField:Bool = false
       private(set) var nestedField:Int32 = Int32(0)
 
@@ -5187,7 +5187,7 @@ final class NestedOptionType : GeneratedMessage {
 
     }
 
-    final class NestedMessageBuilder : GeneratedMessageBuilder {
+    final internal class NestedMessageBuilder : GeneratedMessageBuilder {
       private var builderResult:NestedOptionType.NestedMessage
 
       required override internal init () {
@@ -5208,7 +5208,7 @@ final class NestedOptionType : GeneratedMessage {
                builderResult.nestedField = value
            }
       }
-      func clearNestedField() -> NestedOptionType.NestedMessageBuilder{
+      internal func clearNestedField() -> NestedOptionType.NestedMessageBuilder{
            builderResult.hasNestedField = false
            builderResult.nestedField = Int32(0)
            return self
@@ -5233,7 +5233,7 @@ final class NestedOptionType : GeneratedMessage {
         var returnMe:NestedOptionType.NestedMessage = builderResult
         return returnMe
       }
-      func mergeFrom(other:NestedOptionType.NestedMessage) -> NestedOptionType.NestedMessageBuilder {
+      internal func mergeFrom(other:NestedOptionType.NestedMessage) -> NestedOptionType.NestedMessageBuilder {
         if (other == NestedOptionType.NestedMessage()) {
          return self
         }
@@ -5276,10 +5276,10 @@ final class NestedOptionType : GeneratedMessage {
 
     //Enum type declaration start 
 
-    enum NestedEnum:Int32 {
+    internal enum NestedEnum:Int32 {
       case NestedEnumValue = 1
 
-      static func IsValidValue(value:Int32) ->Bool {
+      internal static func IsValidValue(value:Int32) ->Bool {
           if let check = NestedEnum(rawValue:value) {
               return true
           }
@@ -5291,7 +5291,7 @@ final class NestedOptionType : GeneratedMessage {
 
     //Enum type declaration end 
 
-  class func nestedExtension() -> ConcreateExtensionField {
+  internal class func nestedExtension() -> ConcreateExtensionField {
        return NestedOptionTypenestedExtension
   }
   required internal init() {
@@ -5379,7 +5379,7 @@ final class NestedOptionType : GeneratedMessage {
 
 }
 
-final class NestedOptionTypeBuilder : GeneratedMessageBuilder {
+final internal class NestedOptionTypeBuilder : GeneratedMessageBuilder {
   private var builderResult:NestedOptionType
 
   required override internal init () {
@@ -5406,7 +5406,7 @@ final class NestedOptionTypeBuilder : GeneratedMessageBuilder {
     var returnMe:NestedOptionType = builderResult
     return returnMe
   }
-  func mergeFrom(other:NestedOptionType) -> NestedOptionTypeBuilder {
+  internal func mergeFrom(other:NestedOptionType) -> NestedOptionTypeBuilder {
     if (other == NestedOptionType()) {
      return self
     }

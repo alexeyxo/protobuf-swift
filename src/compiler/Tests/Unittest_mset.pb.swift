@@ -3,18 +3,18 @@
 import Foundation
 import ProtocolBuffers
 
-var TestMessageSetExtension1messageSetExtension:ConcreateExtensionField {
+internal var TestMessageSetExtension1messageSetExtension:ConcreateExtensionField {
    get {
        return UnittestMsetRoot.sharedInstance.TestMessageSetExtension1messageSetExtensionStatic
    }
 }
-var TestMessageSetExtension2messageSetExtension:ConcreateExtensionField {
+internal var TestMessageSetExtension2messageSetExtension:ConcreateExtensionField {
    get {
        return UnittestMsetRoot.sharedInstance.TestMessageSetExtension2messageSetExtensionStatic
    }
 }
-struct UnittestMsetRoot {
-  static var sharedInstance : UnittestMsetRoot {
+internal struct UnittestMsetRoot {
+  internal static var sharedInstance : UnittestMsetRoot {
    struct Static {
        static let instance : UnittestMsetRoot = UnittestMsetRoot()
    }
@@ -30,13 +30,13 @@ struct UnittestMsetRoot {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
     registry.addExtension(TestMessageSetExtension1messageSetExtensionStatic)
     registry.addExtension(TestMessageSetExtension2messageSetExtensionStatic)
   }
 }
 
-func == (lhs: TestMessageSet, rhs: TestMessageSet) -> Bool {
+internal func == (lhs: TestMessageSet, rhs: TestMessageSet) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -45,7 +45,7 @@ func == (lhs: TestMessageSet, rhs: TestMessageSet) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestMessageSetContainer, rhs: TestMessageSetContainer) -> Bool {
+internal func == (lhs: TestMessageSetContainer, rhs: TestMessageSetContainer) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -54,7 +54,7 @@ func == (lhs: TestMessageSetContainer, rhs: TestMessageSetContainer) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestMessageSetExtension1, rhs: TestMessageSetExtension1) -> Bool {
+internal func == (lhs: TestMessageSetExtension1, rhs: TestMessageSetExtension1) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -63,7 +63,7 @@ func == (lhs: TestMessageSetExtension1, rhs: TestMessageSetExtension1) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestMessageSetExtension2, rhs: TestMessageSetExtension2) -> Bool {
+internal func == (lhs: TestMessageSetExtension2, rhs: TestMessageSetExtension2) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -72,7 +72,7 @@ func == (lhs: TestMessageSetExtension2, rhs: TestMessageSetExtension2) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: RawMessageSet.Item, rhs: RawMessageSet.Item) -> Bool {
+internal func == (lhs: RawMessageSet.Item, rhs: RawMessageSet.Item) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -82,7 +82,7 @@ func == (lhs: RawMessageSet.Item, rhs: RawMessageSet.Item) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: RawMessageSet, rhs: RawMessageSet) -> Bool {
+internal func == (lhs: RawMessageSet, rhs: RawMessageSet) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -91,7 +91,7 @@ func == (lhs: RawMessageSet, rhs: RawMessageSet) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class TestMessageSet : ExtendableMessage {
+final internal class TestMessageSet : ExtendableMessage {
   required internal init() {
        super.init()
   }
@@ -184,7 +184,7 @@ final class TestMessageSet : ExtendableMessage {
 
 }
 
-final class TestMessageSetBuilder : ExtendableMessageBuilder {
+final internal class TestMessageSetBuilder : ExtendableMessageBuilder {
   private var builderResult:TestMessageSet
 
   required override internal init () {
@@ -211,7 +211,7 @@ final class TestMessageSetBuilder : ExtendableMessageBuilder {
     var returnMe:TestMessageSet = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestMessageSet) -> TestMessageSetBuilder {
+  internal func mergeFrom(other:TestMessageSet) -> TestMessageSetBuilder {
     if (other == TestMessageSet()) {
      return self
     }
@@ -241,7 +241,7 @@ final class TestMessageSetBuilder : ExtendableMessageBuilder {
   }
 }
 
-final class TestMessageSetContainer : GeneratedMessage {
+final internal class TestMessageSetContainer : GeneratedMessage {
   private(set) var hasMessageSet:Bool = false
   private(set) var messageSet:TestMessageSet = TestMessageSet()
   required internal init() {
@@ -348,7 +348,7 @@ final class TestMessageSetContainer : GeneratedMessage {
 
 }
 
-final class TestMessageSetContainerBuilder : GeneratedMessageBuilder {
+final internal class TestMessageSetContainerBuilder : GeneratedMessageBuilder {
   private var builderResult:TestMessageSetContainer
 
   required override internal init () {
@@ -369,11 +369,11 @@ final class TestMessageSetContainerBuilder : GeneratedMessageBuilder {
            builderResult.messageSet = value
        }
   }
-  func setMessageSetBuilder(builderForValue:TestMessageSetBuilder) -> TestMessageSetContainerBuilder {
+  internal func setMessageSetBuilder(builderForValue:TestMessageSetBuilder) -> TestMessageSetContainerBuilder {
     messageSet = builderForValue.build()
     return self
   }
-  func mergeMessageSet(value:TestMessageSet) -> TestMessageSetContainerBuilder {
+  internal func mergeMessageSet(value:TestMessageSet) -> TestMessageSetContainerBuilder {
     if (builderResult.hasMessageSet) {
       builderResult.messageSet = TestMessageSet.builderWithPrototype(builderResult.messageSet).mergeFrom(value).buildPartial()
     } else {
@@ -382,7 +382,7 @@ final class TestMessageSetContainerBuilder : GeneratedMessageBuilder {
     builderResult.hasMessageSet = true
     return self
   }
-  func clearMessageSet() -> TestMessageSetContainerBuilder {
+  internal func clearMessageSet() -> TestMessageSetContainerBuilder {
     builderResult.hasMessageSet = false
     builderResult.messageSet = TestMessageSet()
     return self
@@ -407,7 +407,7 @@ final class TestMessageSetContainerBuilder : GeneratedMessageBuilder {
     var returnMe:TestMessageSetContainer = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestMessageSetContainer) -> TestMessageSetContainerBuilder {
+  internal func mergeFrom(other:TestMessageSetContainer) -> TestMessageSetContainerBuilder {
     if (other == TestMessageSetContainer()) {
      return self
     }
@@ -447,11 +447,11 @@ final class TestMessageSetContainerBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class TestMessageSetExtension1 : GeneratedMessage {
+final internal class TestMessageSetExtension1 : GeneratedMessage {
   private(set) var hasI:Bool = false
   private(set) var i:Int32 = Int32(0)
 
-  class func messageSetExtension() -> ConcreateExtensionField {
+  internal class func messageSetExtension() -> ConcreateExtensionField {
        return TestMessageSetExtension1messageSetExtension
   }
   required internal init() {
@@ -551,7 +551,7 @@ final class TestMessageSetExtension1 : GeneratedMessage {
 
 }
 
-final class TestMessageSetExtension1Builder : GeneratedMessageBuilder {
+final internal class TestMessageSetExtension1Builder : GeneratedMessageBuilder {
   private var builderResult:TestMessageSetExtension1
 
   required override internal init () {
@@ -572,7 +572,7 @@ final class TestMessageSetExtension1Builder : GeneratedMessageBuilder {
            builderResult.i = value
        }
   }
-  func clearI() -> TestMessageSetExtension1Builder{
+  internal func clearI() -> TestMessageSetExtension1Builder{
        builderResult.hasI = false
        builderResult.i = Int32(0)
        return self
@@ -597,7 +597,7 @@ final class TestMessageSetExtension1Builder : GeneratedMessageBuilder {
     var returnMe:TestMessageSetExtension1 = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestMessageSetExtension1) -> TestMessageSetExtension1Builder {
+  internal func mergeFrom(other:TestMessageSetExtension1) -> TestMessageSetExtension1Builder {
     if (other == TestMessageSetExtension1()) {
      return self
     }
@@ -632,11 +632,11 @@ final class TestMessageSetExtension1Builder : GeneratedMessageBuilder {
   }
 }
 
-final class TestMessageSetExtension2 : GeneratedMessage {
+final internal class TestMessageSetExtension2 : GeneratedMessage {
   private(set) var hasStr:Bool = false
   private(set) var str:String = ""
 
-  class func messageSetExtension() -> ConcreateExtensionField {
+  internal class func messageSetExtension() -> ConcreateExtensionField {
        return TestMessageSetExtension2messageSetExtension
   }
   required internal init() {
@@ -736,7 +736,7 @@ final class TestMessageSetExtension2 : GeneratedMessage {
 
 }
 
-final class TestMessageSetExtension2Builder : GeneratedMessageBuilder {
+final internal class TestMessageSetExtension2Builder : GeneratedMessageBuilder {
   private var builderResult:TestMessageSetExtension2
 
   required override internal init () {
@@ -757,7 +757,7 @@ final class TestMessageSetExtension2Builder : GeneratedMessageBuilder {
            builderResult.str = value
        }
   }
-  func clearStr() -> TestMessageSetExtension2Builder{
+  internal func clearStr() -> TestMessageSetExtension2Builder{
        builderResult.hasStr = false
        builderResult.str = ""
        return self
@@ -782,7 +782,7 @@ final class TestMessageSetExtension2Builder : GeneratedMessageBuilder {
     var returnMe:TestMessageSetExtension2 = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestMessageSetExtension2) -> TestMessageSetExtension2Builder {
+  internal func mergeFrom(other:TestMessageSetExtension2) -> TestMessageSetExtension2Builder {
     if (other == TestMessageSetExtension2()) {
      return self
     }
@@ -817,12 +817,12 @@ final class TestMessageSetExtension2Builder : GeneratedMessageBuilder {
   }
 }
 
-final class RawMessageSet : GeneratedMessage {
+final internal class RawMessageSet : GeneratedMessage {
 
 
   //Nested type declaration start
 
-    final class Item : GeneratedMessage {
+    final internal class Item : GeneratedMessage {
       private(set) var hasTypeId:Bool = false
       private(set) var typeId:Int32 = Int32(0)
 
@@ -919,8 +919,8 @@ final class RawMessageSet : GeneratedMessage {
                  hashCode = (hashCode &* 31) &+ typeId.hashValue
               }
               if hasMessage {
-                 for oneValueOfmessage in message {
-                     hashCode = (hashCode &* 31) &+ oneValueOfmessage.hashValue
+                 for oneValuemessage in message {
+                     hashCode = (hashCode &* 31) &+ oneValuemessage.hashValue
                  }
               }
               hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -946,7 +946,7 @@ final class RawMessageSet : GeneratedMessage {
 
     }
 
-    final class ItemBuilder : GeneratedMessageBuilder {
+    final internal class ItemBuilder : GeneratedMessageBuilder {
       private var builderResult:RawMessageSet.Item
 
       required override internal init () {
@@ -967,7 +967,7 @@ final class RawMessageSet : GeneratedMessage {
                builderResult.typeId = value
            }
       }
-      func clearTypeId() -> RawMessageSet.ItemBuilder{
+      internal func clearTypeId() -> RawMessageSet.ItemBuilder{
            builderResult.hasTypeId = false
            builderResult.typeId = Int32(0)
            return self
@@ -986,7 +986,7 @@ final class RawMessageSet : GeneratedMessage {
                builderResult.message = value
            }
       }
-      func clearMessage() -> RawMessageSet.ItemBuilder{
+      internal func clearMessage() -> RawMessageSet.ItemBuilder{
            builderResult.hasMessage = false
            builderResult.message = [Byte]()
            return self
@@ -1011,7 +1011,7 @@ final class RawMessageSet : GeneratedMessage {
         var returnMe:RawMessageSet.Item = builderResult
         return returnMe
       }
-      func mergeFrom(other:RawMessageSet.Item) -> RawMessageSet.ItemBuilder {
+      internal func mergeFrom(other:RawMessageSet.Item) -> RawMessageSet.ItemBuilder {
         if (other == RawMessageSet.Item()) {
          return self
         }
@@ -1168,7 +1168,7 @@ final class RawMessageSet : GeneratedMessage {
 
 }
 
-final class RawMessageSetBuilder : GeneratedMessageBuilder {
+final internal class RawMessageSetBuilder : GeneratedMessageBuilder {
   private var builderResult:RawMessageSet
 
   required override internal init () {
@@ -1183,7 +1183,7 @@ final class RawMessageSetBuilder : GeneratedMessageBuilder {
            builderResult.item = value
        }
   }
-  func clearItem() -> RawMessageSetBuilder {
+  internal func clearItem() -> RawMessageSetBuilder {
     builderResult.item.removeAll(keepCapacity: false)
     return self
   }
@@ -1207,7 +1207,7 @@ final class RawMessageSetBuilder : GeneratedMessageBuilder {
     var returnMe:RawMessageSet = builderResult
     return returnMe
   }
-  func mergeFrom(other:RawMessageSet) -> RawMessageSetBuilder {
+  internal func mergeFrom(other:RawMessageSet) -> RawMessageSetBuilder {
     if (other == RawMessageSet()) {
      return self
     }

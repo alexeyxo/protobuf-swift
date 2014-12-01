@@ -54,8 +54,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         vars["extended_type"] = ClassName(descriptor_->containing_type());
+        vars["acontrol"] = GetAccessControlType(descriptor_->file());
         
-        printer->Print(vars,"var $containing_type$$name$:ConcreateExtensionField {\n"
+        printer->Print(vars,"$acontrol$ var $containing_type$$name$:ConcreateExtensionField {\n"
                        "   get {\n"
                        "       return $root_name$.sharedInstance.$containing_type$$name$Static\n"
                        "   }\n"
@@ -79,7 +80,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         vars["extended_type"] = ClassName(descriptor_->containing_type());
-        
+        vars["acontrol"] = GetAccessControlType(descriptor_->file());
         printer->Print(vars,
                        "var $containing_type$$name$Static:ConcreateExtensionField\n");
     }
@@ -89,9 +90,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         vars["name"] = UnderscoresToCamelCase(descriptor_);
         vars["containing_type"] = classname_;
         vars["rootclass_type"] = fileClass;
-        
+        vars["acontrol"] = GetAccessControlType(descriptor_->file());
         printer->Print(vars,
-                       "static func $name$() -> ConcreateExtensionField {\n"
+                       "$acontrol$ static func $name$() -> ConcreateExtensionField {\n"
                        "     return $rootclass_type$.sharedInstance.$containing_type$$name$Static\n"
                        "}\n");
     }
@@ -100,9 +101,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         map<string, string> vars;
         vars["name"] = UnderscoresToCamelCase(descriptor_);
         vars["containing_type"] = classname_;
-        
+        vars["acontrol"] = GetAccessControlType(descriptor_->file());
         printer->Print(vars,
-                       "class func $name$() -> ConcreateExtensionField {\n"
+                       "$acontrol$ class func $name$() -> ConcreateExtensionField {\n"
                        "     return $containing_type$$name$\n"
                        "}\n");
     }

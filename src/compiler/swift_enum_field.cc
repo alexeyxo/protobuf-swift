@@ -46,11 +46,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["tag"] = SimpleItoa(internal::WireFormat::MakeTag(descriptor));
             (*variables)["tag_size"] = SimpleItoa(
                                                   internal::WireFormat::TagSize(descriptor->number(), descriptor->type()));
+            
             if (isOneOfField(descriptor)) {
                 const OneofDescriptor* oneof = descriptor->containing_oneof();
                 (*variables)["oneof_name"] = UnderscoresToCapitalizedCamelCase(oneof->name());
                 (*variables)["oneof_class_name"] = ClassNameOneof(oneof);
             }
+            (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->file());
+            (* variables)["acontrolFunc"] = GetAccessControlType(descriptor->file());
         }
     }  // namespace
     
@@ -65,8 +68,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void EnumFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-        printer->Print(variables_,
-                       "var $name$:$type$\n");
+        printer->Print(variables_,"$acontrol$var $name$:$type$\n");
     }
     
     void EnumFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
@@ -75,7 +77,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void EnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
         if (isOneOfField(descriptor_)) {
-            printer->Print(variables_,"private(set) var has$capitalized_name$:Bool {\n"
+            printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
                            "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
                            "               return false\n"
@@ -86,7 +88,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "      }\n"
                            "}\n");
             
-            printer->Print(variables_,"private(set) var $name$:$type$!{\n"
+            printer->Print(variables_,"$acontrol$private(set) var $name$:$type$!{\n"
                            "     get {\n"
                            "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "     }\n"
@@ -97,8 +99,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         else
         {
-            printer->Print(variables_, "private(set) var $name$:$type$ = $type$.$default$\n");
-            printer->Print(variables_,"private(set) var has$capitalized_name$:Bool = false\n");
+            printer->Print(variables_, "$acontrol$private(set) var $name$:$type$ = $type$.$default$\n");
+            printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
         }
     }
     
@@ -111,12 +113,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void EnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "  var has$capitalized_name$:Bool{\n"
+                       "  $acontrol$var has$capitalized_name$:Bool{\n"
                        "      get {\n"
                        "          return builderResult.has$capitalized_name$\n"
                        "      }\n"
                        "  }\n"
-                       "  var $name$:$type$ {\n"
+                       "  $acontrol$var $name$:$type$ {\n"
                        "      get {\n"
                        "          return builderResult.$name$\n"
                        "      }\n"
@@ -127,7 +129,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  }\n");
         
         printer->Print(variables_,
-                       "  func clear$capitalized_name$() -> $classname$Builder {\n"
+                       "  $acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder {\n"
                        "     builderResult.has$capitalized_name$ = false\n"
                        "     builderResult.$name$ = .$default$\n"
                        "     return self\n"
@@ -213,9 +215,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void RepeatedEnumFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-        printer->Print(variables_,"var $name$:[$type$] = [$type$]()\n");
+        printer->Print(variables_,"$acontrol$var $name$:[$type$] = [$type$]()\n");
     }
     
+    //TODO
     void RepeatedEnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
         //    printer->Print(variables_, "var $name$:$type$\n");
     }
@@ -229,12 +232,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "private var $name$MemoizedSerializedSize:Int32 = 0\n");
         printer->Print(variables_,
-                       "private(set) var $name$:Array<$type$> = Array<$type$>()\n");
+                       "$acontrol$private(set) var $name$:Array<$type$> = Array<$type$>()\n");
     }
     
     void RepeatedEnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "var $name$:Array<$type$> {\n"
+                       "$acontrol$var $name$:Array<$type$> {\n"
                        "    get {\n"
                        "        return builderResult.$name$\n"
                        "    }\n"
@@ -242,7 +245,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "        builderResult.$name$ = value\n"
                        "    }\n"
                        "}\n"
-                       "func clear$capitalized_name$() -> $classname$Builder {\n"
+                       "$acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder {\n"
                        "  builderResult.$name$.removeAll(keepCapacity: false)\n"
                        "  return self\n"
                        "}\n");

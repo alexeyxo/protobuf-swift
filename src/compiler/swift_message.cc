@@ -234,12 +234,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(
-                           "final class $classname$ : ExtendableMessage {\n",
-                           "classname", ClassNameMessage(descriptor_));
+                           "final $acontrol$ class $classname$ : ExtendableMessage {\n",
+                           "classname", ClassNameMessage(descriptor_),
+                           "acontrol", GetAccessControlType(descriptor_->file()));
         } else {
             printer->Print(
-                           "final class $classname$ : GeneratedMessage {\n",
-                           "classname", ClassNameMessage(descriptor_));
+                           "final $acontrol$ class $classname$ : GeneratedMessage {\n",
+                           "classname", ClassNameMessage(descriptor_),
+                           "acontrol", GetAccessControlType(descriptor_->file()));
         }
         printer->Indent();
         
@@ -296,7 +298,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             field_generators_.get(descriptor_->field(i)).GenerateMembersSource(printer);
         }
         
-        printer->Print("required internal init() {\n");
+        printer->Print("required $acontrol$ init() {\n",
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
@@ -315,25 +318,26 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print(
                        
-                       "internal class func builder() -> $classname$Builder {\n"
+                       "$acontrol$ class func builder() -> $classname$Builder {\n"
                        "  return $classname$.classBuilder() as $classname$Builder\n"
                        "}\n"
-                       "internal func builder() -> $classname$Builder {\n"
+                       "$acontrol$ func builder() -> $classname$Builder {\n"
                        "  return classBuilder() as $classname$Builder\n"
                        "}\n"
-                       "internal override class func classBuilder() -> MessageBuilder {\n"
+                       "$acontrol$ override class func classBuilder() -> MessageBuilder {\n"
                        "  return $classname$Builder()\n"
                        "}\n"
-                       "internal override func classBuilder() -> MessageBuilder {\n"
+                       "$acontrol$ override func classBuilder() -> MessageBuilder {\n"
                        "  return $classname$.builder()\n"
                        "}\n"
-                       "internal func toBuilder() -> $classname$Builder {\n"
+                       "$acontrol$ func toBuilder() -> $classname$Builder {\n"
                        "  return $classname$.builderWithPrototype(self)\n"
                        "}\n"
-                       "internal class func builderWithPrototype(prototype:$classname$) -> $classname$Builder {\n"
+                       "$acontrol$ class func builderWithPrototype(prototype:$classname$) -> $classname$Builder {\n"
                        "  return $classname$.builder().mergeFrom(prototype)\n"
                        "}\n",
-                       "classname", ClassName(descriptor_));
+                       "classname", ClassName(descriptor_),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         
         GenerateMessageDescriptionSource(printer);
         
@@ -342,23 +346,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         //Meta informations
         printer->Print("\n\n//Meta information declaration start\n\n");
         
-        printer->Print("override internal class func className() -> String {\n"
+        printer->Print("override $acontrol$ class func className() -> String {\n"
                        "    return \"$classname$\"\n"
                        "}\n",
-                       "classname",
-                       ClassName(descriptor_));
+                       "classname", ClassName(descriptor_),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         
-        printer->Print("override internal func className() -> String {\n"
+        printer->Print("override $acontrol$ func className() -> String {\n"
                        "    return \"$classname$\"\n"
                        "}\n",
-                       "classname",
-                       ClassName(descriptor_));
+                       "classname",ClassName(descriptor_),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         
-        printer->Print("override internal func classMetaType() -> GeneratedMessage.Type {\n"
+        printer->Print("override $acontrol$ func classMetaType() -> GeneratedMessage.Type {\n"
                        "    return $classname$.self\n"
                        "}\n",
-                       "classname",
-                       ClassName(descriptor_));
+                       "classname",ClassName(descriptor_),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Print("\n\n//Meta information declaration end\n\n");
         printer->Outdent();
@@ -379,7 +383,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
              ExtensionRangeOrdering());
         
         printer->Print(
-                       "override internal func writeToCodedOutputStream(output:CodedOutputStream) {\n");
+                       "override $acontrol$ func writeToCodedOutputStream(output:CodedOutputStream) {\n","acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
         // Merge the fields and the extension ranges, both sorted by field number.
         for (int i = 0, j = 0;
@@ -406,7 +410,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print("}\n");
         
-        printer->Print("override internal func serializedSize() -> Int32 {\n");
+        printer->Print("override $acontrol$ func serializedSize() -> Int32 {\n",
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
         printer->Print("var size:Int32 = memoizedSerializedSize\n"
                        "if size != -1 {\n"
@@ -450,7 +455,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
              ExtensionRangeOrdering());
         
         printer->Print(
-                       "override internal func writeDescriptionTo(inout output:String, indent:String) {\n");
+                       "override $acontrol$ func writeDescriptionTo(inout output:String, indent:String) {\n","acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Indent();
         
@@ -491,7 +496,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
              ExtensionRangeOrdering());
         
         printer->Print(
-                       "func == (lhs: $classname$, rhs: $classname$) -> Bool {\n","classname", ClassName(descriptor_));
+                       "$acontrol$ func == (lhs: $classname$, rhs: $classname$) -> Bool {\n","classname", ClassName(descriptor_),
+                        "acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
         
         
@@ -550,8 +556,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         sort(sorted_extensions.begin(), sorted_extensions.end(),
              ExtensionRangeOrdering());
         
-        printer->Print(
-                       "override internal var hashValue:Int {\n");
+        printer->Print("override $acontrol$ var hashValue:Int {\n",
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
         printer->Indent();
         printer->Print("get {\n");
@@ -591,30 +597,31 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateParseFromMethodsSource(io::Printer* printer) {
         printer->Print(
-                       "internal class func parseFromData(data:[Byte]) -> $classname$ {\n"
+                       "$acontrol$ class func parseFromData(data:[Byte]) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromData(data).build()\n"
                        "}\n"
-                       "internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
+                       "$acontrol$ class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
-                       "internal class func parseFromInputStream(input:NSInputStream) -> $classname$ {\n"
+                       "$acontrol$ class func parseFromInputStream(input:NSInputStream) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromInputStream(input).build()\n"
                        "}\n"
-                       "internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->$classname$ {\n"
+                       "$acontrol$ class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->$classname$ {\n"
                        "  return $classname$.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
-                       "internal class func parseFromCodedInputStream(input:CodedInputStream) -> $classname$ {\n"
+                       "$acontrol$ class func parseFromCodedInputStream(input:CodedInputStream) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromCodedInputStream(input).build()\n"
                        "}\n"
-                       "internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
+                       "$acontrol$ class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n",
-                       "classname", ClassName(descriptor_));
+                       "classname", ClassName(descriptor_),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
     }
     
     void MessageGenerator::GenerateParseFromExtensionMethodsSource(io::Printer* printer) {
         printer->Print(
-                       "internal extension $classname$ {\n"
+                       "$acontrol$ extension $classname$ {\n"
                        "    class func parseFromNSData(data:NSData) -> $classname$ {\n"
                        "        var bytes = [Byte](count: data.length, repeatedValue: 0)\n"
                        "        data.getBytes(&bytes)\n"
@@ -626,7 +633,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "        return $classname$.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()\n"
                        "    }\n"
                        "}\n",
-                       "classname", ClassName(descriptor_));
+                       "classname", ClassName(descriptor_),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
     }
     
     
@@ -692,23 +700,26 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(
-                           "final class $classname$Builder : ExtendableMessageBuilder {\n",
-                           "classname", ClassNameMessage(descriptor_));
+                           "final $acontrol$ class $classname$Builder : ExtendableMessageBuilder {\n",
+                           "classname", ClassNameMessage(descriptor_),
+                           "acontrol", GetAccessControlType(descriptor_->file()));
         } else {
             printer->Print(
-                           "final class $classname$Builder : GeneratedMessageBuilder {\n",
-                           "classname", ClassNameMessage(descriptor_));
+                           "final $acontrol$ class $classname$Builder : GeneratedMessageBuilder {\n",
+                           "classname", ClassNameMessage(descriptor_),
+                           "acontrol", GetAccessControlType(descriptor_->file()));
         }
         
         printer->Indent();
         
         printer->Print(
                        "private var builderResult:$classname$\n\n"
-                       "required override internal init () {\n"
+                       "required override $acontrol$ init () {\n"
                        "   builderResult = $classname$()\n"
                        "   super.init()\n"
                        "}\n",
-                       "classname", ClassName(descriptor_));
+                       "classname", ClassName(descriptor_),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         for (int i = 0; i < descriptor_->field_count(); i++) {
             field_generators_.get(descriptor_->field(i)).GenerateBuilderMembersSource(printer);
         }
@@ -726,37 +737,39 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageGenerator::GenerateCommonBuilderMethodsSource(io::Printer* printer) {
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(
-                           "override internal var internalGetResult:ExtendableMessage {\n"
+                           "override $acontrol$ var internalGetResult:ExtendableMessage {\n"
                            "     get {\n"
                            "         return builderResult\n"
                            "     }\n"
-                           "}\n");
+                           "}\n","acontrol", GetAccessControlType(descriptor_->file()));
         } else {
             printer->Print(
-                           "override internal var internalGetResult:GeneratedMessage {\n"
+                           "override $acontrol$ var internalGetResult:GeneratedMessage {\n"
                            "     get {\n"
                            "        return builderResult\n"
                            "     }\n"
-                           "}\n");
+                           "}\n","acontrol", GetAccessControlType(descriptor_->file()));
         }
         
         printer->Print(
-                       "internal override func clear() -> $classname$Builder {\n"
+                       "$acontrol$ override func clear() -> $classname$Builder {\n"
                        "  builderResult = $classname$()\n"
                        "  return self\n"
                        "}\n"
-                       "internal override func clone() -> $classname$Builder {\n"
+                       "$acontrol$ override func clone() -> $classname$Builder {\n"
                        "  return $classname$.builderWithPrototype(builderResult)\n"
                        "}\n",
-                       "classname", ClassName(descriptor_));
+                       "classname", ClassName(descriptor_),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Print(
-                       "internal override func build() -> $classname$ {\n"
+                       "$acontrol$ override func build() -> $classname$ {\n"
                        "     checkInitialized()\n"
                        "     return buildPartial()\n"
                        "}\n"
-                       "internal func buildPartial() -> $classname$ {\n",
-                       "classname", ClassName(descriptor_));
+                       "$acontrol$ func buildPartial() -> $classname$ {\n",
+                       "classname", ClassName(descriptor_),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
@@ -770,7 +783,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n",
                        "classname", ClassName(descriptor_));
         
-        printer->Print("func mergeFrom(other:$classname$) -> $classname$Builder {\n","classname", ClassName(descriptor_));
+        printer->Print("$acontrol$ func mergeFrom(other:$classname$) -> $classname$Builder {\n",
+                       "classname", ClassName(descriptor_),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         // Optimization:  If other is the default instance, we know none of its
         //   fields are set so we can skip the merge.
         printer->Indent();
@@ -806,11 +821,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         printer->Print(
-                       "internal override func mergeFromCodedInputStream(input:CodedInputStream) ->$classname$Builder {\n"
+                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream) ->$classname$Builder {\n"
                        "     return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
-                       "internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classname$Builder {\n",
-                       "classname", ClassName(descriptor_));
+                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classname$Builder {\n",
+                       "classname", ClassName(descriptor_),
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Indent();
         printer->Print(
@@ -863,7 +879,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateIsInitializedSource(io::Printer* printer) {
         printer->Print(
-                       "override internal func isInitialized() -> Bool {\n");
+                       "override $acontrol$ func isInitialized() -> Bool {\n",
+                       "acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
         // Check that all required fields in this message are set.
         // TODO(kenton):  We can optimize this when we switch to putting all the
