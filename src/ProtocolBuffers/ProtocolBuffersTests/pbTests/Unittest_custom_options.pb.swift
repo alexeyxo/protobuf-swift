@@ -274,7 +274,7 @@ internal struct UnittestCustomOptionsRoot {
   var AggregateMessageSetElementmessageSetExtensionStatic:ConcreateExtensionField
   var AggregatenestedStatic:ConcreateExtensionField
   var NestedOptionTypenestedExtensionStatic:ConcreateExtensionField
-  var extensionRegistry:ExtensionRegistry
+  internal var extensionRegistry:ExtensionRegistry
 
   init() {
     UnittestCustomOptionsRootfileOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:PBFileOptions.self, fieldNumber: 7736974, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -299,7 +299,7 @@ internal struct UnittestCustomOptionsRoot {
     UnittestCustomOptionsRootfloatOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:PBMessageOptions.self, fieldNumber: 7675390, defaultValue:Float(0), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestCustomOptionsRootdoubleOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:PBMessageOptions.self, fieldNumber: 7673293, defaultValue:Double(0), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestCustomOptionsRootstringOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:PBMessageOptions.self, fieldNumber: 7673285, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootbytesOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:PBMessageOptions.self, fieldNumber: 7673238, defaultValue:[Byte](), messageOrGroupClass:[Byte].self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootbytesOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:PBMessageOptions.self, fieldNumber: 7673238, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestCustomOptionsRootenumOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:PBMessageOptions.self, fieldNumber: 7673233, defaultValue:DummyMessageContainingEnum.TestEnumType.TestOptionEnumType1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestCustomOptionsRootmessageTypeOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBMessageOptions.self, fieldNumber: 7665967, defaultValue:DummyMessageInvalidAsOptionType(), messageOrGroupClass:DummyMessageInvalidAsOptionType.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestCustomOptionsRootquuxStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ComplexOptionType1.self, fieldNumber: 7663707, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -801,16 +801,16 @@ final internal class TestMessageWithCustomOptions : GeneratedMessage {
 
     size = 0
     if hasField1 {
-      size += WireFormat.computeStringSize(1, value:field1)
+      size += field1.computeStringSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestMessageWithCustomOptions {
-    return TestMessageWithCustomOptions.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> TestMessageWithCustomOptions {
+    return TestMessageWithCustomOptions.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptions {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptions {
     return TestMessageWithCustomOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestMessageWithCustomOptions {
@@ -980,10 +980,10 @@ final internal class CustomOptionFooRequest : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> CustomOptionFooRequest {
-    return CustomOptionFooRequest.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> CustomOptionFooRequest {
+    return CustomOptionFooRequest.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequest {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequest {
     return CustomOptionFooRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooRequest {
@@ -1122,10 +1122,10 @@ final internal class CustomOptionFooResponse : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> CustomOptionFooResponse {
-    return CustomOptionFooResponse.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> CustomOptionFooResponse {
+    return CustomOptionFooResponse.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponse {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponse {
     return CustomOptionFooResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooResponse {
@@ -1264,10 +1264,10 @@ final internal class CustomOptionFooClientMessage : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> CustomOptionFooClientMessage {
-    return CustomOptionFooClientMessage.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> CustomOptionFooClientMessage {
+    return CustomOptionFooClientMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessage {
     return CustomOptionFooClientMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooClientMessage {
@@ -1406,10 +1406,10 @@ final internal class CustomOptionFooServerMessage : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> CustomOptionFooServerMessage {
-    return CustomOptionFooServerMessage.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> CustomOptionFooServerMessage {
+    return CustomOptionFooServerMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessage {
     return CustomOptionFooServerMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooServerMessage {
@@ -1568,10 +1568,10 @@ final internal class DummyMessageContainingEnum : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> DummyMessageContainingEnum {
-    return DummyMessageContainingEnum.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> DummyMessageContainingEnum {
+    return DummyMessageContainingEnum.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnum {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnum {
     return DummyMessageContainingEnum.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> DummyMessageContainingEnum {
@@ -1710,10 +1710,10 @@ final internal class DummyMessageInvalidAsOptionType : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> DummyMessageInvalidAsOptionType {
-    return DummyMessageInvalidAsOptionType.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> DummyMessageInvalidAsOptionType {
+    return DummyMessageInvalidAsOptionType.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionType {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionType {
     return DummyMessageInvalidAsOptionType.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> DummyMessageInvalidAsOptionType {
@@ -1852,10 +1852,10 @@ final internal class CustomOptionMinIntegerValues : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> CustomOptionMinIntegerValues {
-    return CustomOptionMinIntegerValues.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> CustomOptionMinIntegerValues {
+    return CustomOptionMinIntegerValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValues {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValues {
     return CustomOptionMinIntegerValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionMinIntegerValues {
@@ -1994,10 +1994,10 @@ final internal class CustomOptionMaxIntegerValues : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> CustomOptionMaxIntegerValues {
-    return CustomOptionMaxIntegerValues.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> CustomOptionMaxIntegerValues {
+    return CustomOptionMaxIntegerValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValues {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValues {
     return CustomOptionMaxIntegerValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionMaxIntegerValues {
@@ -2136,10 +2136,10 @@ final internal class CustomOptionOtherValues : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> CustomOptionOtherValues {
-    return CustomOptionOtherValues.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> CustomOptionOtherValues {
+    return CustomOptionOtherValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValues {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValues {
     return CustomOptionOtherValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionOtherValues {
@@ -2278,10 +2278,10 @@ final internal class SettingRealsFromPositiveInts : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> SettingRealsFromPositiveInts {
-    return SettingRealsFromPositiveInts.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> SettingRealsFromPositiveInts {
+    return SettingRealsFromPositiveInts.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveInts {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveInts {
     return SettingRealsFromPositiveInts.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> SettingRealsFromPositiveInts {
@@ -2420,10 +2420,10 @@ final internal class SettingRealsFromNegativeInts : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> SettingRealsFromNegativeInts {
-    return SettingRealsFromNegativeInts.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> SettingRealsFromNegativeInts {
+    return SettingRealsFromNegativeInts.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeInts {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeInts {
     return SettingRealsFromNegativeInts.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> SettingRealsFromNegativeInts {
@@ -2587,17 +2587,17 @@ final internal class ComplexOptionType1 : ExtendableMessage {
 
     size = 0
     if hasFoo {
-      size += WireFormat.computeInt32Size(1, value:foo)
+      size += foo.computeInt32Size(1)
     }
     if hasFoo2 {
-      size += WireFormat.computeInt32Size(2, value:foo2)
+      size += foo2.computeInt32Size(2)
     }
     if hasFoo3 {
-      size += WireFormat.computeInt32Size(3, value:foo3)
+      size += foo3.computeInt32Size(3)
     }
     var dataSizeFoo4:Int32 = 0
     for oneValuefoo4 in foo4 {
-        dataSizeFoo4 += WireFormat.computeInt32SizeNoTag(oneValuefoo4)
+        dataSizeFoo4 += oneValuefoo4.computeInt32SizeNoTag()
     }
     size += dataSizeFoo4
     size += 1 * Int32(foo4.count)
@@ -2606,10 +2606,10 @@ final internal class ComplexOptionType1 : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> ComplexOptionType1 {
-    return ComplexOptionType1.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> ComplexOptionType1 {
+    return ComplexOptionType1.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType1 {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType1 {
     return ComplexOptionType1.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType1 {
@@ -2881,16 +2881,16 @@ final internal class ComplexOptionType2 : ExtendableMessage {
 
         size = 0
         if hasWaldo {
-          size += WireFormat.computeInt32Size(1, value:waldo)
+          size += waldo.computeInt32Size(1)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> ComplexOptionType2.ComplexOptionType4 {
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data).build()
+      internal class func parseFromData(data:NSData) -> ComplexOptionType2.ComplexOptionType4 {
+        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4 {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4 {
         return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType2.ComplexOptionType4 {
@@ -3089,26 +3089,26 @@ final internal class ComplexOptionType2 : ExtendableMessage {
 
     size = 0
     if hasBar {
-      size += WireFormat.computeMessageSize(1, value:bar)
+      size += bar.computeMessageSize(1)
     }
     if hasBaz {
-      size += WireFormat.computeInt32Size(2, value:baz)
+      size += baz.computeInt32Size(2)
     }
     if hasFred {
-      size += WireFormat.computeMessageSize(3, value:fred)
+      size += fred.computeMessageSize(3)
     }
     for oneElementbarney in barney {
-        size += WireFormat.computeMessageSize(4, value:oneElementbarney)
+        size += oneElementbarney.computeMessageSize(4)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> ComplexOptionType2 {
-    return ComplexOptionType2.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> ComplexOptionType2 {
+    return ComplexOptionType2.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType2 {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2 {
     return ComplexOptionType2.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType2 {
@@ -3421,16 +3421,16 @@ final internal class ComplexOptionType3 : GeneratedMessage {
 
         size = 0
         if hasPlugh {
-          size += WireFormat.computeInt32Size(3, value:plugh)
+          size += plugh.computeInt32Size(3)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> ComplexOptionType3.ComplexOptionType5 {
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data).build()
+      internal class func parseFromData(data:NSData) -> ComplexOptionType3.ComplexOptionType5 {
+        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5 {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5 {
         return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType3.ComplexOptionType5 {
@@ -3611,19 +3611,19 @@ final internal class ComplexOptionType3 : GeneratedMessage {
 
     size = 0
     if hasQux {
-      size += WireFormat.computeInt32Size(1, value:qux)
+      size += qux.computeInt32Size(1)
     }
     if hasComplexOptionType5 {
-      size += WireFormat.computeGroupSize(2, value:complexOptionType5)
+      size += complexOptionType5.computeGroupSize(2)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> ComplexOptionType3 {
-    return ComplexOptionType3.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> ComplexOptionType3 {
+    return ComplexOptionType3.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType3 {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3 {
     return ComplexOptionType3.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType3 {
@@ -3847,16 +3847,16 @@ final internal class ComplexOpt6 : GeneratedMessage {
 
     size = 0
     if hasXyzzy {
-      size += WireFormat.computeInt32Size(7593951, value:xyzzy)
+      size += xyzzy.computeInt32Size(7593951)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> ComplexOpt6 {
-    return ComplexOpt6.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> ComplexOpt6 {
+    return ComplexOpt6.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOpt6 {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOpt6 {
     return ComplexOpt6.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> ComplexOpt6 {
@@ -4026,10 +4026,10 @@ final internal class VariousComplexOptions : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> VariousComplexOptions {
-    return VariousComplexOptions.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> VariousComplexOptions {
+    return VariousComplexOptions.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> VariousComplexOptions {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> VariousComplexOptions {
     return VariousComplexOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> VariousComplexOptions {
@@ -4173,10 +4173,10 @@ final internal class AggregateMessageSet : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> AggregateMessageSet {
-    return AggregateMessageSet.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> AggregateMessageSet {
+    return AggregateMessageSet.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AggregateMessageSet {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> AggregateMessageSet {
     return AggregateMessageSet.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> AggregateMessageSet {
@@ -4324,16 +4324,16 @@ final internal class AggregateMessageSetElement : GeneratedMessage {
 
     size = 0
     if hasS {
-      size += WireFormat.computeStringSize(1, value:s)
+      size += s.computeStringSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> AggregateMessageSetElement {
-    return AggregateMessageSetElement.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> AggregateMessageSetElement {
+    return AggregateMessageSetElement.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElement {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElement {
     return AggregateMessageSetElement.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> AggregateMessageSetElement {
@@ -4545,28 +4545,28 @@ final internal class Aggregate : GeneratedMessage {
 
     size = 0
     if hasI {
-      size += WireFormat.computeInt32Size(1, value:i)
+      size += i.computeInt32Size(1)
     }
     if hasS {
-      size += WireFormat.computeStringSize(2, value:s)
+      size += s.computeStringSize(2)
     }
     if hasSub {
-      size += WireFormat.computeMessageSize(3, value:sub)
+      size += sub.computeMessageSize(3)
     }
     if hasFile {
-      size += WireFormat.computeMessageSize(4, value:file)
+      size += file.computeMessageSize(4)
     }
     if hasMset {
-      size += WireFormat.computeMessageSize(5, value:mset)
+      size += mset.computeMessageSize(5)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> Aggregate {
-    return Aggregate.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> Aggregate {
+    return Aggregate.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Aggregate {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Aggregate {
     return Aggregate.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> Aggregate {
@@ -4923,16 +4923,16 @@ final internal class AggregateMessage : GeneratedMessage {
 
     size = 0
     if hasFieldname {
-      size += WireFormat.computeInt32Size(1, value:fieldname)
+      size += fieldname.computeInt32Size(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> AggregateMessage {
-    return AggregateMessage.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> AggregateMessage {
+    return AggregateMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AggregateMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> AggregateMessage {
     return AggregateMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> AggregateMessage {
@@ -5110,16 +5110,16 @@ final internal class NestedOptionType : GeneratedMessage {
 
         size = 0
         if hasNestedField {
-          size += WireFormat.computeInt32Size(1, value:nestedField)
+          size += nestedField.computeInt32Size(1)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> NestedOptionType.NestedMessage {
-        return NestedOptionType.NestedMessage.builder().mergeFromData(data).build()
+      internal class func parseFromData(data:NSData) -> NestedOptionType.NestedMessage {
+        return NestedOptionType.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessage {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessage {
         return NestedOptionType.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> NestedOptionType.NestedMessage {
@@ -5314,10 +5314,10 @@ final internal class NestedOptionType : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> NestedOptionType {
-    return NestedOptionType.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> NestedOptionType {
+    return NestedOptionType.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> NestedOptionType {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> NestedOptionType {
     return NestedOptionType.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> NestedOptionType {
@@ -5435,308 +5435,5 @@ final internal class NestedOptionTypeBuilder : GeneratedMessageBuilder {
   }
 }
 
-//Class extensions: NSData
-
-
-internal extension TestMessageWithCustomOptions {
-    class func parseFromNSData(data:NSData) -> TestMessageWithCustomOptions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestMessageWithCustomOptions.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestMessageWithCustomOptions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension CustomOptionFooRequest {
-    class func parseFromNSData(data:NSData) -> CustomOptionFooRequest {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionFooRequest.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequest {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionFooRequest.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension CustomOptionFooResponse {
-    class func parseFromNSData(data:NSData) -> CustomOptionFooResponse {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionFooResponse.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponse {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionFooResponse.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension CustomOptionFooClientMessage {
-    class func parseFromNSData(data:NSData) -> CustomOptionFooClientMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionFooClientMessage.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionFooClientMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension CustomOptionFooServerMessage {
-    class func parseFromNSData(data:NSData) -> CustomOptionFooServerMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionFooServerMessage.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionFooServerMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension DummyMessageContainingEnum {
-    class func parseFromNSData(data:NSData) -> DummyMessageContainingEnum {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return DummyMessageContainingEnum.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnum {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return DummyMessageContainingEnum.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension DummyMessageInvalidAsOptionType {
-    class func parseFromNSData(data:NSData) -> DummyMessageInvalidAsOptionType {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return DummyMessageInvalidAsOptionType.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionType {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return DummyMessageInvalidAsOptionType.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension CustomOptionMinIntegerValues {
-    class func parseFromNSData(data:NSData) -> CustomOptionMinIntegerValues {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionMinIntegerValues.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValues {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionMinIntegerValues.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension CustomOptionMaxIntegerValues {
-    class func parseFromNSData(data:NSData) -> CustomOptionMaxIntegerValues {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionMaxIntegerValues.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValues {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionMaxIntegerValues.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension CustomOptionOtherValues {
-    class func parseFromNSData(data:NSData) -> CustomOptionOtherValues {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionOtherValues.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValues {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return CustomOptionOtherValues.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension SettingRealsFromPositiveInts {
-    class func parseFromNSData(data:NSData) -> SettingRealsFromPositiveInts {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return SettingRealsFromPositiveInts.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveInts {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return SettingRealsFromPositiveInts.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension SettingRealsFromNegativeInts {
-    class func parseFromNSData(data:NSData) -> SettingRealsFromNegativeInts {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return SettingRealsFromNegativeInts.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeInts {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return SettingRealsFromNegativeInts.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension ComplexOptionType1 {
-    class func parseFromNSData(data:NSData) -> ComplexOptionType1 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ComplexOptionType1.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType1 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ComplexOptionType1.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension ComplexOptionType2.ComplexOptionType4 {
-    class func parseFromNSData(data:NSData) -> ComplexOptionType2.ComplexOptionType4 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension ComplexOptionType2 {
-    class func parseFromNSData(data:NSData) -> ComplexOptionType2 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ComplexOptionType2.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ComplexOptionType2.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension ComplexOptionType3.ComplexOptionType5 {
-    class func parseFromNSData(data:NSData) -> ComplexOptionType3.ComplexOptionType5 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension ComplexOptionType3 {
-    class func parseFromNSData(data:NSData) -> ComplexOptionType3 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ComplexOptionType3.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ComplexOptionType3.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension ComplexOpt6 {
-    class func parseFromNSData(data:NSData) -> ComplexOpt6 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ComplexOpt6.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOpt6 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ComplexOpt6.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension VariousComplexOptions {
-    class func parseFromNSData(data:NSData) -> VariousComplexOptions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return VariousComplexOptions.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> VariousComplexOptions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return VariousComplexOptions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension AggregateMessageSet {
-    class func parseFromNSData(data:NSData) -> AggregateMessageSet {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return AggregateMessageSet.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> AggregateMessageSet {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return AggregateMessageSet.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension AggregateMessageSetElement {
-    class func parseFromNSData(data:NSData) -> AggregateMessageSetElement {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return AggregateMessageSetElement.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElement {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return AggregateMessageSetElement.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension Aggregate {
-    class func parseFromNSData(data:NSData) -> Aggregate {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return Aggregate.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> Aggregate {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return Aggregate.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension AggregateMessage {
-    class func parseFromNSData(data:NSData) -> AggregateMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return AggregateMessage.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> AggregateMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return AggregateMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension NestedOptionType.NestedMessage {
-    class func parseFromNSData(data:NSData) -> NestedOptionType.NestedMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return NestedOptionType.NestedMessage.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return NestedOptionType.NestedMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension NestedOptionType {
-    class func parseFromNSData(data:NSData) -> NestedOptionType {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return NestedOptionType.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> NestedOptionType {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return NestedOptionType.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
 
 // @@protoc_insertion_point(global_scope)

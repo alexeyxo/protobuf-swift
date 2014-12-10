@@ -22,7 +22,7 @@ class WireFormatTests: XCTestCase {
     func testSerialization() {
         var message = TestUtilities.allSet()
         var rawBytes = message.data()
-        XCTAssertTrue(rawBytes.count == Int(message.serializedSize()), "")
+        XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
         var message2 = TestAllTypes.parseFromData(rawBytes)
         TestUtilities.assertAllFieldsSet(message2)
     }
@@ -30,7 +30,7 @@ class WireFormatTests: XCTestCase {
     func testSerializationPacked() {
         var message = TestUtilities.packedSet()
         var rawBytes = message.data()
-        XCTAssertTrue(rawBytes.count == Int(message.serializedSize()), "")
+        XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
         var message2 = TestPackedTypes.parseFromData(rawBytes)
         TestUtilities.assertPackedFieldsSet(message2)
     }
@@ -38,7 +38,7 @@ class WireFormatTests: XCTestCase {
     func testSerializeExtensions() {
         var message = TestUtilities.allExtensionsSet()
         var rawBytes = message.data()
-        XCTAssertTrue(rawBytes.count == Int(message.serializedSize()), "")
+        XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
         var message2 = TestAllTypes.parseFromData(rawBytes)
         TestUtilities.assertAllFieldsSet(message2)
     }

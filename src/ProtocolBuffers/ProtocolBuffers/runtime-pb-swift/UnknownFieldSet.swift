@@ -99,7 +99,7 @@ public class UnknownFieldSet:Hashable,Equatable
     }
     
     
-    public class func parseFromData(data:[Byte]) -> UnknownFieldSet {
+    public class func parseFromData(data:NSData) -> UnknownFieldSet {
         return UnknownFieldSet.builder().mergeFromData(data).build()
     }
     
@@ -147,10 +147,10 @@ public class UnknownFieldSet:Hashable,Equatable
         return result
     }
     
-    public func data() ->[Byte]
+    public func data() -> NSData
     {
         var size = serializedSize()
-        let data:[Byte] = [Byte](count: Int(size), repeatedValue: 0)
+        let data = NSMutableData(length: Int(size))!
         var stream:CodedOutputStream = CodedOutputStream(data: data)
         writeToCodedOutputStream(stream)
         return stream.buffer.buffer

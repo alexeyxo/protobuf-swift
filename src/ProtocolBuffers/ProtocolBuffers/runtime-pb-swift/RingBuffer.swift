@@ -18,11 +18,11 @@
 import Foundation
 internal class RingBuffer
 {
-    internal var buffer:[Byte]
+    internal var buffer:NSMutableData
     var position:Int32 = 0
     var tail:Int32 = 0
     
-    init(data:[Byte])
+    init(data:NSMutableData)
     {
         buffer = data
     }
@@ -36,7 +36,7 @@ internal class RingBuffer
         }
         else
         {
-            let dataLength = buffer.count
+            let dataLength = buffer.length
             res = UInt32((Int32(dataLength) - position) + tail)
         }
         
@@ -53,19 +53,21 @@ internal class RingBuffer
         {
             return false
         }
-        buffer[Int(position++)] = aByte
+        var pointer = UnsafeMutablePointer<Byte>(buffer.mutableBytes)
+        var bpointer = UnsafeMutableBufferPointer(start: pointer, count: buffer.length)
+        bpointer[Int(position++)] = aByte
         return true
     }
     
-    func appendData(var input:[Byte], offset:Int32, length:Int32) -> Int32
+    func appendData(var input:NSData, offset:Int32, length:Int32) -> Int32
     {
         var totalWritten:Int32 = 0
         var aLength = length
         var aOffset = offset
         if (position >= tail)
         {
-            totalWritten = min(Int32(buffer.count) - Int32(position), Int32(aLength))
-            memcpy(&buffer + Int(position), &input + Int(aOffset), UInt(totalWritten))
+            totalWritten = min(Int32(buffer.length) - Int32(position), Int32(aLength))
+            memcpy(buffer.mutableBytes + Int(position), input.bytes + Int(aOffset), UInt(totalWritten))
             position += totalWritten
             if totalWritten == aLength
             {
@@ -83,12 +85,12 @@ internal class RingBuffer
             return totalWritten
         }
         
-        if (position == Int32(buffer.count)) {
+        if (position == Int32(buffer.length)) {
             position = 0
         }
         
         let written:Int32 = min(Int32(freeSpaces), aLength)
-        memcpy(&buffer + Int(position), &input + Int(aOffset), UInt(written))
+        memcpy(buffer.mutableBytes + Int(position), input.bytes + Int(aOffset), UInt(written))
         position += written
         totalWritten += written
         
@@ -100,23 +102,25 @@ internal class RingBuffer
         var totalWritten:Int32 = 0
         
         var data = buffer
+        var pointer = UnsafeMutablePointer<Byte>(data.mutableBytes)
         if tail > position
         {
-            var written:Int = stream.write(&data + Int(tail), maxLength:Int(buffer.count - Int(tail)))
+            
+            var written:Int = stream.write(pointer + Int(tail), maxLength:Int(buffer.length - Int(tail)))
             if written <= 0
             {
                 return totalWritten
             }
             totalWritten+=Int32(written)
             tail += Int32(written)
-            if (tail == Int32(buffer.count)) {
+            if (tail == Int32(buffer.length)) {
                 tail = 0
             }
         }
         
         if (tail < position) {
             
-            var written:Int = stream.write(&data + Int(tail), maxLength:Int(position - tail))
+            var written:Int = stream.write(pointer + Int(tail), maxLength:Int(position - tail))
             if (written <= 0)
             {
                 return totalWritten
@@ -130,11 +134,11 @@ internal class RingBuffer
             position = 0
         }
         
-        if (position == Int32(buffer.count) && tail > 0) {
+        if (position == Int32(buffer.length) && tail > 0) {
             position = 0
         }
         
-        if (tail == Int32(buffer.count)) {
+        if (tail == Int32(buffer.length)) {
             tail = 0
         }
         

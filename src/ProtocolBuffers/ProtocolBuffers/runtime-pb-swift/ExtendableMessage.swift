@@ -162,7 +162,7 @@ public class ExtendableMessage : GeneratedMessage
             return value == value2
         case (let value as String, let value2 as String):
             return value == value2
-        case (let value as [Byte], let value2 as [Byte]):
+        case (let value as NSData, let value2 as NSData):
             return value == value2
         case (let value as UInt32, let value2 as UInt32):
             return value == value2
@@ -182,7 +182,7 @@ public class ExtendableMessage : GeneratedMessage
             return value == value2
         case (let value as [String], let value2 as [String]):
             return value == value2
-        case (let value as Array<Array<Byte>>, let value2 as Array<Array<Byte>>):
+        case (let value as Array<NSData>, let value2 as Array<NSData>):
             return value == value2
         case (let value as [UInt32], let value2 as [UInt32]):
             return value == value2
@@ -217,8 +217,8 @@ public class ExtendableMessage : GeneratedMessage
             return getHashValue(value)
         case let value as GeneratedMessage:
             return getHashValue(value)
-        case let value as [Byte]:
-            return getHashValueRepeated(value)
+        case let value as NSData:
+            return value.hashValue
         case let value as [Int32]:
             return getHashValueRepeated(value)
         case let value as [Int64]:
@@ -235,27 +235,10 @@ public class ExtendableMessage : GeneratedMessage
             return getHashValueRepeated(value)
         case let value as [String]:
             return getHashValueRepeated(value)
-        case let value as Array<Array<Byte>>:
-            return getHashBytesArrays(value)
+        case let value as Array<NSData>:
+            return getHashValueRepeated(value)
         case let value as [GeneratedMessage]:
             return getHashValueRepeated(value)
-        default:
-            return nil
-        }
-    }
-
-    private func getHashBytesArrays(lhs:Any) -> Int!
-    {
-    
-        switch lhs
-        {
-        case let value as Array<Array<Byte>>:
-            var hashCode:Int = 0
-            for vv in value
-            {
-                hashCode = (hashCode &* 31) &+ getHashValueRepeated(vv)
-            }
-            return hashCode
         default:
             return nil
         }
@@ -472,7 +455,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
                         thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as [String]:
                         thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
-                    case let values as Array<Array<Byte>>:
+                    case let values as Array<NSData>:
                         thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as [GeneratedMessage]:
                         thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)

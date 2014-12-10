@@ -25,7 +25,7 @@ let BUFFER_SIZE:Int32 = 4096
 
 public class CodedInputStream
 {
-    public var buffer:[Byte]
+    public var buffer:NSMutableData
     private var input:NSInputStream!
     private var bufferSize:Int32 = 0
     private var bufferSizeAfterLimit:Int32 = 0
@@ -36,18 +36,17 @@ public class CodedInputStream
     private var recursionDepth:Int32 = 0
     private var recursionLimit:Int32 = 0
     private var sizeLimit:Int32 = 0
-    public init (data aData:[Byte])
+    public init (data aData:NSData)
     {
-        buffer = [Byte](count: aData.count, repeatedValue: 0)
-        memcpy(&buffer, aData, UInt(aData.count))
-        bufferSize = Int32(buffer.count)
+        buffer = NSMutableData(data: aData)
+        bufferSize = Int32(buffer.length)
         currentLimit = INT_MAX
         recursionLimit = DEFAULT_RECURSION_LIMIT
         sizeLimit = DEFAULT_SIZE_LIMIT
     }
     public init (inputStream aInputStream:NSInputStream)
     {
-        buffer = [Byte](count: Int(BUFFER_SIZE), repeatedValue: 0)
+        buffer = NSMutableData(length: Int(BUFFER_SIZE))!
         bufferSize = 0
         input = aInputStream
         input!.open()
@@ -88,7 +87,8 @@ public class CodedInputStream
         
         if input != nil
         {
-            bufferSize = Int32(input!.read(&buffer, maxLength:buffer.count))
+            var pointer = UnsafeMutablePointer<Byte>(buffer.mutableBytes)
+            bufferSize = Int32(input!.read(pointer, maxLength:buffer.length))
             
         }
         
@@ -119,7 +119,7 @@ public class CodedInputStream
     }
     
     
-    public func readRawData(size:Int32) -> [Byte] {
+    public func readRawData(size:Int32) -> NSData {
         if (size < 0) {
             NSException(name:"InvalidProtocolBuffer", reason:"negativeSize", userInfo: nil).raise()
             
@@ -131,30 +131,29 @@ public class CodedInputStream
         }
         
         if (size <= bufferSize - bufferPos) {
-            
-            var data = [Byte](count: Int(size), repeatedValue: 0)
-            memcpy(&data, &buffer + Int(bufferPos), UInt(size))
+            var pointer = UnsafePointer<Byte>(buffer.bytes)
+            var data = NSData(bytes: pointer + Int(bufferPos), length: Int(size))
             bufferPos += size
             return data
         }
         else if (size < BUFFER_SIZE) {
             
-            var bytes = [Byte](count:Int(size), repeatedValue: 0)
+            var bytes = NSMutableData(length: Int(size))!
             var pos:Int32 = bufferSize - bufferPos
-            memcpy(&bytes, &buffer + Int(bufferPos), UInt(pos))
+            memcpy(bytes.mutableBytes, buffer.mutableBytes + Int(bufferPos), UInt(pos))
             bufferPos = bufferSize
             
             refillBuffer(true)
             
             while (size - pos > bufferSize)
             {
-                memcpy(&bytes + Int(pos), &buffer, UInt(bufferSize))
+                memcpy(bytes.mutableBytes + Int(pos), buffer.mutableBytes, UInt(bufferSize))
                 pos += bufferSize
                 bufferPos = bufferSize
                 refillBuffer(true)
             }
             
-            memcpy(&bytes + Int(pos), &buffer, UInt(size - pos))
+            memcpy(bytes.mutableBytes + Int(pos), buffer.mutableBytes, UInt(size - pos))
             bufferPos = size - pos
             return bytes
             
@@ -170,19 +169,20 @@ public class CodedInputStream
             bufferSize = 0
             
             var sizeLeft:Int32 = size - (originalBufferSize - originalBufferPos)
-            var chunks:Array<Array<Byte>> = Array<Array<Byte>>()
+            var chunks:Array<NSData> = Array<NSData>()
             
             while (sizeLeft > 0) {
-                var chunk:[Byte] = [Byte](count:Int(min(sizeLeft, BUFFER_SIZE)), repeatedValue: 0)
+                var chunk = NSMutableData(length:Int(min(sizeLeft, BUFFER_SIZE)))!
                 
                 
                 var pos:Int = 0
-                while (pos < chunk.count) {
+                while (pos < chunk.length) {
                     
                     var n:Int = 0
                     if input != nil {
                         
-                        n = input!.read(&chunk + Int(pos), maxLength:chunk.count - Int(pos))
+                        var pointer = UnsafeMutablePointer<Byte>(chunk.mutableBytes)
+                        n = input!.read(pointer + Int(pos), maxLength:chunk.length - Int(pos))
                     }
                     if (n <= 0) {
                         NSException(name:"InvalidProtocolBuffer", reason:"truncatedMessage", userInfo: nil).raise()
@@ -190,22 +190,21 @@ public class CodedInputStream
                     totalBytesRetired += n
                     pos += n
                 }
-                sizeLeft -= chunk.count
+                sizeLeft -= chunk.length
                 chunks.append(chunk)
             }
             
             
-            var bytes:[Byte] = [Byte](count: Int(size), repeatedValue: 0)
+            var bytes = NSMutableData(length:Int(size))!
             var pos:Int = originalBufferSize - originalBufferPos
-            memcpy(&bytes, &buffer + Int(originalBufferPos), UInt(pos))
+            memcpy(bytes.mutableBytes, buffer.mutableBytes + Int(originalBufferPos), UInt(pos))
             for chunk in chunks
             {
-                memcpy(&bytes + pos, chunk, UInt(chunk.count))
-                pos += chunk.count
+                memcpy(bytes.mutableBytes + pos, chunk.bytes, UInt(chunk.length))
+                pos += chunk.length
             }
             
             return bytes
-            
         }
     }
 
@@ -235,7 +234,7 @@ public class CodedInputStream
             bufferSize = 0
             
             while (pos < size) {
-                var data:[Byte] = [Byte](count: Int(size - pos), repeatedValue: 0)
+                var data = NSMutableData(length: Int(size - pos))!
                 
                 var n:Int = 0
                 
@@ -245,7 +244,8 @@ public class CodedInputStream
                 }
                 else
                 {
-                    n = input!.read(&data, maxLength:Int(size - pos))
+                    var pointer = UnsafeMutablePointer<Byte>(data.mutableBytes)
+                    n = input!.read(pointer, maxLength:Int(size - pos))
                 }
                 if (n <= 0) {
                     NSException(name:"InvalidProtocolBuffer", reason:"truncatedMessage", userInfo: nil).raise()
@@ -427,7 +427,8 @@ public class CodedInputStream
         {
             refillBuffer(true)
         }
-        var res = buffer[Int(bufferPos++)]
+        var pointer = UnsafeMutablePointer<Byte>(buffer.mutableBytes)
+        var res = pointer[Int(bufferPos++)]
         return res
     }
     
@@ -494,33 +495,28 @@ public class CodedInputStream
     
     
     
-    public func readString() ->String
+    public func readString() -> String
     {
         var size:Int32 = readRawVarint32()
         if (size <= (bufferSize - bufferPos) && size > 0)
         {
-            var data:[Byte] = [Byte](count: Int(size), repeatedValue: 0)
-            memcpy(&data, &buffer+Int(bufferPos), UInt(data.count))
-            var result:String = String(bytes: data, encoding:  NSUTF8StringEncoding)!
+            var result:String = NSString(bytes: (buffer.mutableBytes + Int(bufferPos)), length: Int(size), encoding:  NSUTF8StringEncoding)!
             bufferPos += size
             return result
-            
         }
         else
         {
-            
-            let  data = readRawData(size)
-            return String(bytes: data, encoding:  NSUTF8StringEncoding)!
+            let data = readRawData(size)
+            return NSString(data: data, encoding: NSUTF8StringEncoding)!
         }
     }
     
-    public func readData()->[Byte]
+    public func readData() -> NSData
     {
         let size = readRawVarint32()
         if (size < bufferSize - bufferPos && size > 0)
         {
-            var data:[Byte] = [Byte](count: Int(size), repeatedValue: 0)
-            memcpy(&data, &buffer+Int(bufferPos), UInt(data.count))
+            var data = NSData(bytes: buffer.bytes + Int(bufferPos), length: Int(size))
             bufferPos += size
             return data
         }

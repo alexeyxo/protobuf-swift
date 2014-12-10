@@ -16,7 +16,7 @@ internal struct UnittestNoGenericServicesRoot {
    return Static.instance
   }
   var UnittestNoGenericServicesRoottestExtensionStatic:ConcreateExtensionField
-  var extensionRegistry:ExtensionRegistry
+  internal var extensionRegistry:ExtensionRegistry
 
   init() {
     UnittestNoGenericServicesRoottestExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestMessage.self, fieldNumber: 1000, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -88,17 +88,17 @@ final internal class TestMessage : ExtendableMessage {
 
     size = 0
     if hasA {
-      size += WireFormat.computeInt32Size(1, value:a)
+      size += a.computeInt32Size(1)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestMessage {
-    return TestMessage.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> TestMessage {
+    return TestMessage.builder().mergeFromData(data, extensionRegistry:UnittestNoGenericServicesRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMessage {
     return TestMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestMessage {
@@ -250,20 +250,5 @@ final internal class TestMessageBuilder : ExtendableMessageBuilder {
   }
 }
 
-//Class extensions: NSData
-
-
-internal extension TestMessage {
-    class func parseFromNSData(data:NSData) -> TestMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestMessage.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
 
 // @@protoc_insertion_point(global_scope)

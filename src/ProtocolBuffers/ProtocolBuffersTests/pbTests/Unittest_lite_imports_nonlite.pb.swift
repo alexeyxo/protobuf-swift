@@ -10,7 +10,7 @@ internal struct UnittestLiteImportsNonliteRoot {
    }
    return Static.instance
   }
-  var extensionRegistry:ExtensionRegistry
+  internal var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
@@ -53,16 +53,16 @@ final internal class TestLiteImportsNonlite : GeneratedMessage {
 
     size = 0
     if hasMessage {
-      size += WireFormat.computeMessageSize(1, value:message)
+      size += message.computeMessageSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestLiteImportsNonlite {
-    return TestLiteImportsNonlite.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> TestLiteImportsNonlite {
+    return TestLiteImportsNonlite.builder().mergeFromData(data, extensionRegistry:UnittestLiteImportsNonliteRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestLiteImportsNonlite {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestLiteImportsNonlite {
     return TestLiteImportsNonlite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestLiteImportsNonlite {
@@ -231,20 +231,5 @@ final internal class TestLiteImportsNonliteBuilder : GeneratedMessageBuilder {
   }
 }
 
-//Class extensions: NSData
-
-
-internal extension TestLiteImportsNonlite {
-    class func parseFromNSData(data:NSData) -> TestLiteImportsNonlite {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestLiteImportsNonlite.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestLiteImportsNonlite {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestLiteImportsNonlite.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
 
 // @@protoc_insertion_point(global_scope)

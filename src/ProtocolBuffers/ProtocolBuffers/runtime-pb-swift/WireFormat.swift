@@ -20,6 +20,7 @@ import Foundation
 let LITTLE_ENDIAN_32_SIZE:Int32 = 4
 let LITTLE_ENDIAN_64_SIZE:Int32 = 8
 
+
 public enum WireFormatMessage:Int32
 {
     case WireFormatMessageSetItem = 1
@@ -50,7 +51,7 @@ public enum WireFormat:Int32
     
     public static func wireFormatGetTagFieldNumber(tag:Int32) -> Int32
     {
-        return WireFormat.logicalRightShift32(value: tag, spaces: WireFormatStartGroup.rawValue)
+        return WireFormat.logicalRightShift32(value: tag ,spaces: WireFormatStartGroup.rawValue)
     }
     
     
@@ -60,6 +61,7 @@ public enum WireFormat:Int32
     {
         memcpy(&retValue, &value, ByteCount(sizeof(Type)))
     }
+    
     public static func logicalRightShift32(var value aValue:Int32, spaces aSpaces:Int32) ->Int32
     {
         var result:UInt32 = 0
@@ -79,7 +81,6 @@ public enum WireFormat:Int32
         convertTypes(convertValue: bytes, retValue: &res)
         return res
     }
-    
     public static func  decodeZigZag32(var n:Int32) -> Int32
     {
         return logicalRightShift32(value: n, spaces: 1) ^ -(n & 1)
@@ -97,235 +98,40 @@ public enum WireFormat:Int32
         return (n << 1) ^ (n >> 63)
     }
     
-    public static func computeDoubleSizeNoTag(value:Double) ->Int32
-    {
-        return LITTLE_ENDIAN_64_SIZE
-    }
-    
-    public static func  computeFloatSizeNoTag(value:Float) ->Int32
+}
+public extension Int32
+{
+    func computeSFixed32SizeNoTag() ->Int32
     {
         return LITTLE_ENDIAN_32_SIZE
     }
-    
-    public static func computeSFixed64SizeNoTag(value:Int64) ->Int32
+   
+    func computeInt32SizeNoTag() -> Int32
     {
-        return LITTLE_ENDIAN_64_SIZE
-    }
-    
-    public static func  computeSFixed32SizeNoTag(value:Int32) ->Int32
-    {
-        return LITTLE_ENDIAN_32_SIZE
-    }
-    
-    public static func computeFixed64SizeNoTag(value:UInt64) ->Int32
-    {
-        return LITTLE_ENDIAN_64_SIZE
-    }
-    
-    public static func  computeFixed32SizeNoTag(value:UInt32) ->Int32
-    {
-        return LITTLE_ENDIAN_32_SIZE
-    }
-    
-    
-    public static func computeUInt64SizeNoTag(value:UInt64) -> Int32
-    {
-        var retvalue:Int64 = 0
-        convertTypes(convertValue: value, retValue: &retvalue)
-        return computeRawVarint64Size(retvalue)
-    }
-    
-    public static func computeInt64SizeNoTag(value:Int64) ->Int32
-    {
-        return computeRawVarint64Size(value)
-    }
-    
-    public static func computeInt32SizeNoTag(value:Int32) ->Int32
-    {
-        if (value >= 0)
+        if (self >= 0)
         {
-            return computeRawVarint32Size(value)
+            return computeRawVarint32Size()
         }
         else
         {
             return 10
         }
     }
-    public static func computeBoolSizeNoTag(value:Bool) -> Int32 {
-        return 1
-    }
     
-    public static func computeStringSizeNoTag(value:String) -> Int32 {
-        let length:UInt32  = UInt32(value.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
-        return computeRawVarint32Size(Int32(length)) + Int32(length)
-    }
-    public static func computeGroupSizeNoTag<T:Message>(value:T) -> Int32
-    {
-        return value.serializedSize()
-    }
-    
-    public static func computeMessageSizeNoTag<T:Message>(value:T) ->Int32
-    {
-        var size:Int32  = value.serializedSize()
-        return computeRawVarint32Size(size) + size
-    }
-    public static func computeDataSizeNoTag(value:[Byte]) ->Int32
-    {
-        return computeRawVarint32Size(Int32(value.count)) + Int32(value.count)
-    }
-    
-    public static func computeUInt32SizeNoTag(value:UInt32) -> Int32
-    {
-
-        var retvalue:Int32 = 0
-        convertTypes(convertValue: value, retValue: &retvalue)
-        return computeRawVarint32Size(retvalue)
-    }
-    
-    public static func computeEnumSizeNoTag(value:Int32) -> Int32
-    {
-        return computeRawVarint32Size(value)
-    }
-    
-    public static func computeSInt32SizeNoTag(value:Int32) -> Int32
-    {
-        return computeRawVarint32Size(encodeZigZag32(value))
-    }
-    
-    public static func computeSInt64SizeNoTag(value:Int64) -> Int32
-    {
-        return computeRawVarint64Size(encodeZigZag64(value))
-    }
-    
-    
-    public static func computeDoubleSize(fieldNumber:Int32, value:Double) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeDoubleSizeNoTag(value)
-    }
-    
-    public static func computeFloatSize(fieldNumber:Int32, value:Float) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeFloatSizeNoTag(value)
-    }
-    
-    public static func computeUInt64Size(fieldNumber:Int32, value:UInt64) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeUInt64SizeNoTag(value)
-    }
-    
-    public static func  computeInt64Size(fieldNumber:Int32, value:Int64) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeInt64SizeNoTag(value)
-    }
-    
-    
-    public static func computeInt32Size(fieldNumber:Int32, value:Int32) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeInt32SizeNoTag(value)
-    }
-    
-    
-    public static func computeFixed64Size(fieldNumber:Int32, value:UInt64) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeFixed64SizeNoTag(value)
-    }
-    
-    
-    public static func computeFixed32Size(fieldNumber:Int32, value:UInt32) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeFixed32SizeNoTag(value)
-    }
-    
-    
-    public static func computeBoolSize(fieldNumber:Int32, value:Bool) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeBoolSizeNoTag(value)
-    }
-    
-    
-    public static func computeStringSize(fieldNumber:Int32, value:String) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeStringSizeNoTag(value)
-    }
-    
-    public static func computeGroupSize<T:Message>(fieldNumber:Int32, value:T) ->Int32
-    {
-        return computeTagSize(fieldNumber) * 2 + computeGroupSizeNoTag(value)
-    }
-    
-    public static func computeUnknownGroupSizeNoTag(value:UnknownFieldSet) ->Int32
-    {
-        return value.serializedSize()
-    }
-    public static func computeUnknownGroupSize(fieldNumber:Int32, value:UnknownFieldSet) ->Int32
-    {
-        return computeTagSize(fieldNumber) * 2 + computeUnknownGroupSizeNoTag(value)
-    }
-    
-    public static func computeMessageSize<T:Message>(fieldNumber:Int32, value:T) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeMessageSizeNoTag(value)
-    }
-    
-    
-    public static func computeDataSize(fieldNumber:Int32, value:[Byte]) -> Int32
-    {
-        return computeTagSize(fieldNumber) + computeDataSizeNoTag(value)
-    }
-    
-    public static func computeUInt32Size(fieldNumber:Int32, value:UInt32) -> Int32 {
-        return computeTagSize(fieldNumber) + computeUInt32SizeNoTag(value)
-    }
-    
-    public static func computeEnumSize(fieldNumber:Int32, value:Int32) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeEnumSizeNoTag(value)
-    }
-    
-    
-    public static func computeSFixed32Size(fieldNumber:Int32, value:Int32) -> Int32
-    {
-        return computeTagSize(fieldNumber) + computeSFixed32SizeNoTag(value)
-    }
-    
-    
-    public static func computeSFixed64Size(fieldNumber:Int32, value:Int64) -> Int32
-    {
-        return computeTagSize(fieldNumber) + computeSFixed64SizeNoTag(value)
-    }
-    
-    
-    public static func computeSInt32Size(fieldNumber:Int32, value:Int32) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeSInt32SizeNoTag(value)
-    }
-    
-    
-    public static func computeTagSize(fieldNumber:Int32) ->Int32
-    {
-        return computeRawVarint32Size(WireFormat.WireFormatVarint.wireFormatMakeTag(fieldNumber))
-    }
-    
-    public static func computeSInt64Size(fieldNumber:Int32, value:Int64) ->Int32
-    {
-        return computeTagSize(fieldNumber) + computeRawVarint64Size(encodeZigZag64(value))
-    }
-    
-    
-    public static func computeRawVarint32Size(value:Int32) -> Int32 {
-        if ((value & (0xfffffff <<  7)) == 0)
+    func computeRawVarint32Size() -> Int32 {
+        if ((self & (0xfffffff <<  7)) == 0)
         {
             return 1
         }
-        if ((value & (0xfffffff << 14)) == 0)
+        if ((self & (0xfffffff << 14)) == 0)
         {
             return 2
         }
-        if ((value & (0xfffffff << 21)) == 0)
+        if ((self & (0xfffffff << 21)) == 0)
         {
             return 3
         }
-        if ((value & (0xfffffff << 28)) == 0)
+        if ((self & (0xfffffff << 28)) == 0)
         {
             return 4
         }
@@ -333,32 +139,248 @@ public enum WireFormat:Int32
         return 5
     }
     
-    
-    public static func computeRawVarint64Size(value:Int64) -> Int32
+    func computeTagSize() ->Int32
     {
-        if ((value & (0xfffffffffffffff <<  7)) == 0){return 1}
-        if ((value & (0xfffffffffffffff << 14)) == 0){return 2}
-        if ((value & (0xfffffffffffffff << 21)) == 0){return 3}
-        if ((value & (0xfffffffffffffff << 28)) == 0){return 4}
-        if ((value & (0xfffffffffffffff << 35)) == 0){return 5}
-        if ((value & (0xfffffffffffffff << 42)) == 0){return 6}
-        if ((value & (0xfffffffffffffff << 49)) == 0){return 7}
-        if ((value & (0xfffffffffffffff << 56)) == 0){return 8}
-        if ((value & (0xfffffffffffffff << 63)) == 0){return 9}
+        return WireFormat.WireFormatVarint.wireFormatMakeTag(self).computeRawVarint32Size()
+    }
+    
+    func computeEnumSizeNoTag() -> Int32
+    {
+        return self.computeRawVarint32Size()
+    }
+    
+    func computeSInt32SizeNoTag() -> Int32
+    {
+        return  WireFormat.encodeZigZag32(self).computeRawVarint32Size()
+    }
+    
+    func computeInt32Size(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() + computeInt32SizeNoTag()
+    }
+ 
+    func computeEnumSize(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() + computeEnumSizeNoTag()
+    }
+
+    func computeSFixed32Size(fieldNumber:Int32) -> Int32
+    {
+        return fieldNumber.computeTagSize() + computeSFixed32SizeNoTag()
+    }
+    
+    func computeSInt32Size(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() + computeSInt32SizeNoTag()
+    }
+    
+
+}
+public extension Int64
+{
+    func computeInt64SizeNoTag() -> Int32
+    {
+        return computeRawVarint64Size()
+    }
+    
+    func computeRawVarint64Size() -> Int32
+    {
+        if ((self & (0xfffffffffffffff <<  7)) == 0){return 1}
+        if ((self & (0xfffffffffffffff << 14)) == 0){return 2}
+        if ((self & (0xfffffffffffffff << 21)) == 0){return 3}
+        if ((self & (0xfffffffffffffff << 28)) == 0){return 4}
+        if ((self & (0xfffffffffffffff << 35)) == 0){return 5}
+        if ((self & (0xfffffffffffffff << 42)) == 0){return 6}
+        if ((self & (0xfffffffffffffff << 49)) == 0){return 7}
+        if ((self & (0xfffffffffffffff << 56)) == 0){return 8}
+        if ((self & (0xfffffffffffffff << 63)) == 0){return 9}
         return 10
     }
     
-    public static func computeMessageSetExtensionSize<T:Message>(fieldNumber:Int32,  value:T) -> Int32
+    func computeSInt64SizeNoTag() -> Int32
     {
-        
-        return computeTagSize(WireFormatMessage.WireFormatMessageSetItem.rawValue) * 2 + computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.rawValue, value: UInt32(fieldNumber)) + computeMessageSize(WireFormatMessage.WireFormatMessageSetMessage.rawValue, value: value)
+        return WireFormat.encodeZigZag64(self).computeRawVarint64Size()
     }
     
-    public static func computeRawMessageSetExtensionSize(fieldNumber:Int32, value:[Byte]?) -> Int32
+    func computeInt64Size(fieldNumber:Int32) -> Int32
     {
-        return computeTagSize(WireFormatMessage.WireFormatMessageSetItem.rawValue) * 2 + computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.rawValue, value: UInt32(fieldNumber)) + computeDataSize(WireFormatMessage.WireFormatMessageSetMessage.rawValue, value: value!)
+        return fieldNumber.computeTagSize() + computeInt64SizeNoTag()
     }
     
+    func computeSFixed64SizeNoTag() -> Int32
+    {
+        return LITTLE_ENDIAN_64_SIZE
+    }
+    
+    func computeSFixed64Size(fieldNumber:Int32) -> Int32
+    {
+        return fieldNumber.computeTagSize() + computeSFixed64SizeNoTag()
+    }
+    
+    func computeSInt64Size(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() + WireFormat.encodeZigZag64(self).computeRawVarint64Size()
+    }
+
+
+}
+
+public extension Double
+{
+    func computeDoubleSizeNoTag() ->Int32
+    {
+        return LITTLE_ENDIAN_64_SIZE
+    }
+    
+    func computeDoubleSize(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() + self.computeDoubleSizeNoTag()
+    }
+}
+public extension Float
+{
+    func  computeFloatSizeNoTag() ->Int32
+    {
+        return LITTLE_ENDIAN_32_SIZE
+    }
+    func computeFloatSize(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() + self.computeFloatSizeNoTag()
+    }
+
+}
+
+public extension UInt64
+{
+    func computeFixed64SizeNoTag() ->Int32
+    {
+        return LITTLE_ENDIAN_64_SIZE
+    }
+    
+    func computeUInt64SizeNoTag() -> Int32
+    {
+        var retvalue:Int64 = 0
+        WireFormat.convertTypes(convertValue: self, retValue: &retvalue)
+        return retvalue.computeRawVarint64Size()
+    }
+    
+    func computeUInt64Size(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() + computeUInt64SizeNoTag()
+    }
+    
+    func computeFixed64Size(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() + computeFixed64SizeNoTag()
+    }
+
+}
+
+public extension UInt32
+{
+    func computeFixed32SizeNoTag() ->Int32
+    {
+        return LITTLE_ENDIAN_32_SIZE
+    }
+    
+    func computeUInt32SizeNoTag() -> Int32
+    {
+        var retvalue:Int32 = 0
+        WireFormat.convertTypes(convertValue: self, retValue: &retvalue)
+        return retvalue.computeRawVarint32Size()
+    }
+    
+    func computeFixed32Size(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() + computeFixed32SizeNoTag()
+    }
+    func computeUInt32Size(fieldNumber:Int32) -> Int32 {
+        return fieldNumber.computeTagSize() + computeUInt32SizeNoTag()
+    }
+}
+
+public extension Bool
+{
+    func computeBoolSizeNoTag() -> Int32 {
+        return 1
+    }
+    func computeBoolSize(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() + computeBoolSizeNoTag()
+    }
+}
+
+public extension String
+{
+    func computeStringSizeNoTag() -> Int32 {
+        let length:UInt32  = UInt32(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        return Int32(length).computeRawVarint32Size() + Int32(length)
+    }
+    
+    func computeStringSize(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() + computeStringSizeNoTag()
+    }
+}
+
+public extension AbstractMessage
+{
+    func computeGroupSizeNoTag() -> Int32
+    {
+        return self.serializedSize()
+    }
+    
+    func computeMessageSizeNoTag() ->Int32
+    {
+        var size:Int32  = self.serializedSize()
+        return size.computeRawVarint32Size() + size
+    }
+    
+    func computeGroupSize(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() * 2 + computeGroupSizeNoTag()
+    }
+    
+    func computeMessageSize(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() + computeMessageSizeNoTag()
+    }
+    
+    func computeMessageSetExtensionSize(fieldNumber:Int32) -> Int32
+    {
+        return WireFormatMessage.WireFormatMessageSetItem.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.rawValue) + computeMessageSize(WireFormatMessage.WireFormatMessageSetMessage.rawValue)
+    }
+}
+
+public extension NSData
+{
+    func computeDataSizeNoTag() -> Int32
+    {
+        return Int32(self.length).computeRawVarint32Size() + Int32(self.length)
+    }
+    
+    func computeDataSize(fieldNumber:Int32) -> Int32
+    {
+        return fieldNumber.computeTagSize() + computeDataSizeNoTag()
+    }
+    
+    func computeRawMessageSetExtensionSize(fieldNumber:Int32) -> Int32
+    {
+        return WireFormatMessage.WireFormatMessageSetItem.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(WireFormatMessage.WireFormatMessageSetTypeId.rawValue) + computeDataSize(WireFormatMessage.WireFormatMessageSetMessage.rawValue)
+    }
+
+}
+
+public extension UnknownFieldSet
+{
+    func computeUnknownGroupSizeNoTag() ->Int32
+    {
+        return serializedSize()
+    }
+    func computeUnknownGroupSize(fieldNumber:Int32) ->Int32
+    {
+        return fieldNumber.computeTagSize() * 2 + computeUnknownGroupSizeNoTag()
+    }
 }
 
 

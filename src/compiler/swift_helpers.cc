@@ -440,7 +440,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case SWIFTTYPE_DOUBLE : return "Double";
             case SWIFTTYPE_BOOLEAN: return "Bool";
             case SWIFTTYPE_STRING : return "String";
-            case SWIFTTYPE_DATA   : return "[Byte]";
+            case SWIFTTYPE_DATA   : return "NSData";
             case SWIFTTYPE_ENUM   : return "Int32";
             case SWIFTTYPE_MESSAGE: return NULL;
         }
@@ -557,9 +557,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 if (field->type() == FieldDescriptor::TYPE_BYTES) {
                     if (field->has_default_value()) {
                         return
-                        "([Byte]() + \"" + CEscape(field->default_value_string()) + "\".utf8)";
+                        "NSData(bytes:([Byte]() + \"" + CEscape(field->default_value_string()) + "\".utf8), length:" + SimpleItoa(field->default_value_string().length()) + ")";
                     } else {
-                        return "[Byte]()";
+                        return "NSData()";
                     }
                 } else {
                     if (AllAscii(field->default_value_string())) {

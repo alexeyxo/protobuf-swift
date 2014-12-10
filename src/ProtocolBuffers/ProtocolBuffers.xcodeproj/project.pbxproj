@@ -29,8 +29,9 @@
 		3F2B1CE619E2A6EC001A505E /* Unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CD819E2A6EC001A505E /* Unittest.pb.swift */; };
 		3F2B1CEB19E2A6EC001A505E /* Unittest_import.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CDD19E2A6EC001A505E /* Unittest_import.pb.swift */; };
 		3F2B1CED19E2A6EC001A505E /* Unittest_import_public.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CDF19E2A6EC001A505E /* Unittest_import_public.pb.swift */; };
+		3F3D7FE11A4C807300DA626D /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F3D7FE01A4C807300DA626D /* ProtocolBuffers.h */; };
+		3F3D7FE21A4C807300DA626D /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F3D7FE01A4C807300DA626D /* ProtocolBuffers.h */; };
 		3F4106271A1A667800742090 /* ProtocolBuffers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F41061C1A1A667700742090 /* ProtocolBuffers.framework */; };
-		3F4106351A1A66BE00742090 /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F85569E19C71BCF003802F2 /* ProtocolBuffers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F4106361A1A66C700742090 /* AbstractMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0619D1D83900F7FA0D /* AbstractMessage.swift */; };
 		3F4106371A1A66C700742090 /* CodedInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0719D1D83900F7FA0D /* CodedInputStream.swift */; };
 		3F4106381A1A66C700742090 /* CodedOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0819D1D83900F7FA0D /* CodedOutputStream.swift */; };
@@ -61,7 +62,6 @@
 		3F62EF9A19C720F80007F248 /* ProtocolBuffers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3F813FF41A1030000008F493 /* SizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F813FF31A1030000008F493 /* SizeTest.swift */; };
 		3F813FF61A12C0E90008F493 /* WireFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F813FF51A12C0E90008F493 /* WireFormatTests.swift */; };
-		3F85569F19C71BCF003802F2 /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F85569E19C71BCF003802F2 /* ProtocolBuffers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F8556A919C71BCF003802F2 /* ProtocolBuffersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556A819C71BCF003802F2 /* ProtocolBuffersTests.swift */; };
 		3F8556D119C71C05003802F2 /* CodedInputStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */; };
 		3F8556D219C71C05003802F2 /* CodedOuputStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556CF19C71C05003802F2 /* CodedOuputStreamTests.swift */; };
@@ -131,7 +131,7 @@
 		3F02018A1A2B8CA900EE503C /* Unittest_import_lite.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_import_lite.pb.swift; sourceTree = "<group>"; };
 		3F02018B1A2B8CA900EE503C /* Unittest_import_public_lite.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_import_public_lite.pb.swift; sourceTree = "<group>"; };
 		3F02018C1A2B8CA900EE503C /* Unittest_lite_imports_nonlite.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_lite_imports_nonlite.pb.swift; sourceTree = "<group>"; };
-		3F02018D1A2B8CA900EE503C /* Unittest_lite.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_lite.pb.swift; sourceTree = "<group>"; };
+		3F02018D1A2B8CA900EE503C /* Unittest_lite.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Unittest_lite.pb.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3F02018E1A2B8CA900EE503C /* Unittest_mset.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_mset.pb.swift; sourceTree = "<group>"; };
 		3F02018F1A2B8CA900EE503C /* Unittest_no_generic_services.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_no_generic_services.pb.swift; sourceTree = "<group>"; };
 		3F0201901A2B8CA900EE503C /* Unittest_optimize_for.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_optimize_for.pb.swift; sourceTree = "<group>"; };
@@ -147,19 +147,19 @@
 		3F181E1019D1D83900F7FA0D /* UnknownFieldSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnknownFieldSet.swift; sourceTree = "<group>"; };
 		3F181E1119D1D83900F7FA0D /* UnknownFieldSetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnknownFieldSetBuilder.swift; sourceTree = "<group>"; };
 		3F181E1219D1D83900F7FA0D /* WireFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireFormat.swift; sourceTree = "<group>"; };
-		3F2B1CD819E2A6EC001A505E /* Unittest.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = Unittest.pb.swift; sourceTree = "<group>"; };
+		3F2B1CD819E2A6EC001A505E /* Unittest.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Unittest.pb.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3F2B1CDD19E2A6EC001A505E /* Unittest_import.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_import.pb.swift; sourceTree = "<group>"; };
 		3F2B1CDF19E2A6EC001A505E /* Unittest_import_public.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unittest_import_public.pb.swift; sourceTree = "<group>"; };
+		3F3D7FE01A4C807300DA626D /* ProtocolBuffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolBuffers.h; sourceTree = "<group>"; };
 		3F41061C1A1A667700742090 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4106261A1A667800742090 /* UnitTesting(OSX).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UnitTesting(OSX).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41062C1A1A667800742090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtilities.swift; sourceTree = "<group>"; };
+		3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TestUtilities.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3F64475D19F040DE0030E56C /* Perfomance.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Perfomance.pb.swift; sourceTree = "<group>"; };
 		3F813FF31A1030000008F493 /* SizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeTest.swift; sourceTree = "<group>"; };
 		3F813FF51A12C0E90008F493 /* WireFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireFormatTests.swift; sourceTree = "<group>"; };
 		3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F85569D19C71BCF003802F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F85569E19C71BCF003802F2 /* ProtocolBuffers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolBuffers.h; sourceTree = "<group>"; };
 		3F8556A419C71BCF003802F2 /* ProtocolBuffersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProtocolBuffersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8556A719C71BCF003802F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../ProtocolBuffersTests/Info.plist; sourceTree = "<group>"; };
 		3F8556A819C71BCF003802F2 /* ProtocolBuffersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolBuffersTests.swift; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 		3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */ = {isa = PBXFileReference; lastKnownFileType = file; path = golden_packed_fields_message; sourceTree = "<group>"; };
 		3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_data.txt; sourceTree = "<group>"; };
 		3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_extensions_data.txt; sourceTree = "<group>"; };
-		3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnknowFieldsTests.swift; sourceTree = "<group>"; };
+		3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UnknowFieldsTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3FEFE99E1A12612E005DEAF3 /* MessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,6 +230,7 @@
 		3F181E0519D1D83900F7FA0D /* runtime-pb-swift */ = {
 			isa = PBXGroup;
 			children = (
+				3F3D7FE01A4C807300DA626D /* ProtocolBuffers.h */,
 				3F02017F1A2A6AD400EE503C /* Descriptor.pb.swift */,
 				3F0201801A2A6AD400EE503C /* SwiftDescriptor.pb.swift */,
 				3F181E0619D1D83900F7FA0D /* AbstractMessage.swift */,
@@ -300,7 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				3F181E0519D1D83900F7FA0D /* runtime-pb-swift */,
-				3F85569E19C71BCF003802F2 /* ProtocolBuffers.h */,
 				3F85569C19C71BCF003802F2 /* Supporting Files */,
 			);
 			path = ProtocolBuffers;
@@ -372,7 +372,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F4106351A1A66BE00742090 /* ProtocolBuffers.h in Headers */,
+				3F3D7FE21A4C807300DA626D /* ProtocolBuffers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +380,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F85569F19C71BCF003802F2 /* ProtocolBuffers.h in Headers */,
+				3F3D7FE11A4C807300DA626D /* ProtocolBuffers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,6 +652,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_VERSION = A;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -664,6 +665,7 @@
 				PRODUCT_NAME = ProtocolBuffers;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -676,6 +678,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = ProtocolBuffers/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -684,6 +687,7 @@
 				PRODUCT_NAME = ProtocolBuffers;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -695,6 +699,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -704,6 +709,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};

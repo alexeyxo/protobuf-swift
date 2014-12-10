@@ -10,7 +10,7 @@ public struct ProtoPerfomanceRoot {
    }
    return Static.instance
   }
-  var extensionRegistry:ExtensionRegistry
+  public var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
@@ -19,6 +19,15 @@ public struct ProtoPerfomanceRoot {
   }
   public func registerAllExtensions(registry:ExtensionRegistry) {
   }
+}
+
+public func == (lhs: ProtoPerfomanceBatch, rhs: ProtoPerfomanceBatch) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.batch == rhs.batch)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 public func == (lhs: ProtoPerfomance, rhs: ProtoPerfomance) -> Bool {
@@ -34,6 +43,195 @@ public func == (lhs: ProtoPerfomance, rhs: ProtoPerfomance) -> Bool {
   fieldCheck = fieldCheck && (lhs.hasBytes == rhs.hasBytes) && (!lhs.hasBytes || lhs.bytes == rhs.bytes)
   fieldCheck = fieldCheck && (lhs.hasDescription == rhs.hasDescription) && (!lhs.hasDescription || lhs.description_ == rhs.description_)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+final public class ProtoPerfomanceBatch : GeneratedMessage {
+  public private(set) var batch:Array<ProtoPerfomance>  = Array<ProtoPerfomance>()
+  required public init() {
+       super.init()
+  }
+  override public func isInitialized() -> Bool {
+    var isInitbatch:Bool = true
+    for oneElementbatch in batch {
+        if (!oneElementbatch.isInitialized()) {
+            isInitbatch = false
+            break 
+        }
+    }
+    if !isInitbatch {
+     return isInitbatch
+     }
+   return true
+  }
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+    for oneElementbatch in batch {
+        output.writeMessage(1, value:oneElementbatch)
+    }
+    unknownFields.writeToCodedOutputStream(output)
+  }
+  override public func serializedSize() -> Int32 {
+    var size:Int32 = memoizedSerializedSize
+    if size != -1 {
+     return size
+    }
+
+    size = 0
+    for oneElementbatch in batch {
+        size += oneElementbatch.computeMessageSize(1)
+    }
+    size += unknownFields.serializedSize()
+    memoizedSerializedSize = size
+    return size
+  }
+  public class func parseFromData(data:NSData) -> ProtoPerfomanceBatch {
+    return ProtoPerfomanceBatch.builder().mergeFromData(data, extensionRegistry:ProtoPerfomanceRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtoPerfomanceBatch {
+    return ProtoPerfomanceBatch.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFromInputStream(input:NSInputStream) -> ProtoPerfomanceBatch {
+    return ProtoPerfomanceBatch.builder().mergeFromInputStream(input).build()
+  }
+  public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtoPerfomanceBatch {
+    return ProtoPerfomanceBatch.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFromCodedInputStream(input:CodedInputStream) -> ProtoPerfomanceBatch {
+    return ProtoPerfomanceBatch.builder().mergeFromCodedInputStream(input).build()
+  }
+  public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtoPerfomanceBatch {
+    return ProtoPerfomanceBatch.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  public class func builder() -> ProtoPerfomanceBatchBuilder {
+    return ProtoPerfomanceBatch.classBuilder() as ProtoPerfomanceBatchBuilder
+  }
+  public func builder() -> ProtoPerfomanceBatchBuilder {
+    return classBuilder() as ProtoPerfomanceBatchBuilder
+  }
+  public override class func classBuilder() -> MessageBuilder {
+    return ProtoPerfomanceBatchBuilder()
+  }
+  public override func classBuilder() -> MessageBuilder {
+    return ProtoPerfomanceBatch.builder()
+  }
+  public func toBuilder() -> ProtoPerfomanceBatchBuilder {
+    return ProtoPerfomanceBatch.builderWithPrototype(self)
+  }
+  public class func builderWithPrototype(prototype:ProtoPerfomanceBatch) -> ProtoPerfomanceBatchBuilder {
+    return ProtoPerfomanceBatch.builder().mergeFrom(prototype)
+  }
+  override public func writeDescriptionTo(inout output:String, indent:String) {
+    var batchElementIndex:Int = 0
+    for oneElementbatch in batch {
+        output += "\(indent) batch[\(batchElementIndex)] {\n"
+        oneElementbatch.writeDescriptionTo(&output, indent:"\(indent)  ")
+        output += "\(indent)}\n"
+        batchElementIndex++
+    }
+    unknownFields.writeDescriptionTo(&output, indent:indent)
+  }
+  override public var hashValue:Int {
+      get {
+          var hashCode:Int = 7
+          for oneElementbatch in batch {
+              hashCode = (hashCode &* 31) &+ oneElementbatch.hashValue
+          }
+          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+          return hashCode
+      }
+  }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "ProtoPerfomanceBatch"
+  }
+  override public func className() -> String {
+      return "ProtoPerfomanceBatch"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return ProtoPerfomanceBatch.self
+  }
+
+
+  //Meta information declaration end
+
+}
+
+final public class ProtoPerfomanceBatchBuilder : GeneratedMessageBuilder {
+  private var builderResult:ProtoPerfomanceBatch
+
+  required override public init () {
+     builderResult = ProtoPerfomanceBatch()
+     super.init()
+  }
+  public var batch:Array<ProtoPerfomance> {
+       get {
+           return builderResult.batch
+       }
+       set (value) {
+           builderResult.batch = value
+       }
+  }
+  public func clearBatch() -> ProtoPerfomanceBatchBuilder {
+    builderResult.batch.removeAll(keepCapacity: false)
+    return self
+  }
+  override public var internalGetResult:GeneratedMessage {
+       get {
+          return builderResult
+       }
+  }
+  public override func clear() -> ProtoPerfomanceBatchBuilder {
+    builderResult = ProtoPerfomanceBatch()
+    return self
+  }
+  public override func clone() -> ProtoPerfomanceBatchBuilder {
+    return ProtoPerfomanceBatch.builderWithPrototype(builderResult)
+  }
+  public override func build() -> ProtoPerfomanceBatch {
+       checkInitialized()
+       return buildPartial()
+  }
+  public func buildPartial() -> ProtoPerfomanceBatch {
+    var returnMe:ProtoPerfomanceBatch = builderResult
+    return returnMe
+  }
+  public func mergeFrom(other:ProtoPerfomanceBatch) -> ProtoPerfomanceBatchBuilder {
+    if (other == ProtoPerfomanceBatch()) {
+     return self
+    }
+    if !other.batch.isEmpty  {
+       builderResult.batch += other.batch
+    }
+    mergeUnknownFields(other.unknownFields)
+    return self
+  }
+  public override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtoPerfomanceBatchBuilder {
+       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+  }
+  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtoPerfomanceBatchBuilder {
+    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    while (true) {
+      var tag = input.readTag()
+      switch tag {
+      case 0: 
+        self.unknownFields = unknownFieldsBuilder.build()
+        return self
+
+      case 10 :
+        var subBuilder = ProtoPerfomance.builder()
+        input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+        batch += [subBuilder.buildPartial()]
+
+      default:
+        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+           unknownFields = unknownFieldsBuilder.build()
+           return self
+        }
+      }
+    }
+  }
 }
 
 final public class ProtoPerfomance : GeneratedMessage {
@@ -53,7 +251,7 @@ final public class ProtoPerfomance : GeneratedMessage {
   public private(set) var str:String = ""
 
   public private(set) var hasBytes:Bool = false
-  public private(set) var bytes:Array<Byte> = [Byte]()
+  public private(set) var bytes:NSData = NSData()
 
   public private(set) var hasDescription:Bool = false
   public private(set) var description_:String = ""
@@ -108,34 +306,34 @@ final public class ProtoPerfomance : GeneratedMessage {
 
     size = 0
     if hasInts {
-      size += WireFormat.computeInt32Size(1, value:ints)
+      size += ints.computeInt32Size(1)
     }
     if hasInts64 {
-      size += WireFormat.computeInt64Size(2, value:ints64)
+      size += ints64.computeInt64Size(2)
     }
     if hasDoubles {
-      size += WireFormat.computeDoubleSize(3, value:doubles)
+      size += doubles.computeDoubleSize(3)
     }
     if hasFloats {
-      size += WireFormat.computeFloatSize(4, value:floats)
+      size += floats.computeFloatSize(4)
     }
     if hasStr {
-      size += WireFormat.computeStringSize(5, value:str)
+      size += str.computeStringSize(5)
     }
     if hasBytes {
-      size += WireFormat.computeDataSize(6, value:bytes)
+      size += bytes.computeDataSize(6)
     }
     if hasDescription {
-      size += WireFormat.computeStringSize(7, value:description_)
+      size += description_.computeStringSize(7)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  public class func parseFromData(data:[Byte]) -> ProtoPerfomance {
-    return ProtoPerfomance.builder().mergeFromData(data).build()
+  public class func parseFromData(data:NSData) -> ProtoPerfomance {
+    return ProtoPerfomance.builder().mergeFromData(data, extensionRegistry:ProtoPerfomanceRoot.sharedInstance.extensionRegistry).build()
   }
-  public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ProtoPerfomance {
+  public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtoPerfomance {
     return ProtoPerfomance.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   public class func parseFromInputStream(input:NSInputStream) -> ProtoPerfomance {
@@ -211,9 +409,7 @@ final public class ProtoPerfomance : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ str.hashValue
           }
           if hasBytes {
-             for oneValuebytes in bytes {
-                 hashCode = (hashCode &* 31) &+ oneValuebytes.hashValue
-             }
+             hashCode = (hashCode &* 31) &+ bytes.hashValue
           }
           if hasDescription {
              hashCode = (hashCode &* 31) &+ description_.hashValue
@@ -348,7 +544,7 @@ final public class ProtoPerfomanceBuilder : GeneratedMessageBuilder {
             return builderResult.hasBytes
        }
   }
-  public var bytes:Array<Byte> {
+  public var bytes:NSData {
        get {
             return builderResult.bytes
        }
@@ -359,7 +555,7 @@ final public class ProtoPerfomanceBuilder : GeneratedMessageBuilder {
   }
   public func clearBytes() -> ProtoPerfomanceBuilder{
        builderResult.hasBytes = false
-       builderResult.bytes = [Byte]()
+       builderResult.bytes = NSData()
        return self
   }
   public var hasDescription:Bool {
@@ -472,20 +668,5 @@ final public class ProtoPerfomanceBuilder : GeneratedMessageBuilder {
   }
 }
 
-//Class extensions: NSData
-
-
-public extension ProtoPerfomance {
-    class func parseFromNSData(data:NSData) -> ProtoPerfomance {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ProtoPerfomance.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtoPerfomance {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ProtoPerfomance.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
 
 // @@protoc_insertion_point(global_scope)

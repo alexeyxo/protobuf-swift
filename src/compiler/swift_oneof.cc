@@ -50,7 +50,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_DOUBLE  : return "Double" ;
             case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
             case FieldDescriptor::TYPE_STRING  : return "String";
-            case FieldDescriptor::TYPE_BYTES   : return "[Byte]"  ;
+            case FieldDescriptor::TYPE_BYTES   : return "NSData"  ;
             default                            : return NULL;
         }
         

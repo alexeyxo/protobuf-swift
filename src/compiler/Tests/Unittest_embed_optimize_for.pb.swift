@@ -10,7 +10,7 @@ internal struct UnittestEmbedOptimizeForRoot {
    }
    return Static.instance
   }
-  var extensionRegistry:ExtensionRegistry
+  internal var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
@@ -73,19 +73,19 @@ final internal class TestEmbedOptimizedForSize : GeneratedMessage {
 
     size = 0
     if hasOptionalMessage {
-      size += WireFormat.computeMessageSize(1, value:optionalMessage)
+      size += optionalMessage.computeMessageSize(1)
     }
     for oneElementrepeatedMessage in repeatedMessage {
-        size += WireFormat.computeMessageSize(2, value:oneElementrepeatedMessage)
+        size += oneElementrepeatedMessage.computeMessageSize(2)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestEmbedOptimizedForSize {
-    return TestEmbedOptimizedForSize.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:NSData) -> TestEmbedOptimizedForSize {
+    return TestEmbedOptimizedForSize.builder().mergeFromData(data, extensionRegistry:UnittestEmbedOptimizeForRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestEmbedOptimizedForSize {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestEmbedOptimizedForSize {
     return TestEmbedOptimizedForSize.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestEmbedOptimizedForSize {
@@ -284,20 +284,5 @@ final internal class TestEmbedOptimizedForSizeBuilder : GeneratedMessageBuilder 
   }
 }
 
-//Class extensions: NSData
-
-
-internal extension TestEmbedOptimizedForSize {
-    class func parseFromNSData(data:NSData) -> TestEmbedOptimizedForSize {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestEmbedOptimizedForSize.builder().mergeFromData(bytes).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestEmbedOptimizedForSize {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestEmbedOptimizedForSize.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
 
 // @@protoc_insertion_point(global_scope)
