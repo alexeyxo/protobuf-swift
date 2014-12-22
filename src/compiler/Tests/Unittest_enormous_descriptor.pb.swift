@@ -10,7 +10,7 @@ internal struct UnittestEnormousDescriptorRoot {
    }
    return Static.instance
   }
-  var extensionRegistry:ExtensionRegistry
+  internal var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
@@ -10050,7 +10050,7 @@ final internal class TestEnormousDescriptor : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> TestEnormousDescriptor {
-    return TestEnormousDescriptor.builder().mergeFromData(data).build()
+    return TestEnormousDescriptor.builder().mergeFromData(data, extensionRegistry:UnittestEnormousDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestEnormousDescriptor {
     return TestEnormousDescriptor.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -41177,7 +41177,7 @@ internal extension TestEnormousDescriptor {
     class func parseFromNSData(data:NSData) -> TestEnormousDescriptor {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return TestEnormousDescriptor.builder().mergeFromData(bytes).build()
+        return TestEnormousDescriptor.builder().mergeFromData(bytes, extensionRegistry:UnittestEnormousDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestEnormousDescriptor {
         var bytes = [Byte](count: data.length, repeatedValue: 0)

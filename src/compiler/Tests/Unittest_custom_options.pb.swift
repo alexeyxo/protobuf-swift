@@ -274,7 +274,7 @@ internal struct UnittestCustomOptionsRoot {
   var AggregateMessageSetElementmessageSetExtensionStatic:ConcreateExtensionField
   var AggregatenestedStatic:ConcreateExtensionField
   var NestedOptionTypenestedExtensionStatic:ConcreateExtensionField
-  var extensionRegistry:ExtensionRegistry
+  internal var extensionRegistry:ExtensionRegistry
 
   init() {
     UnittestCustomOptionsRootfileOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:PBFileOptions.self, fieldNumber: 7736974, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -808,7 +808,7 @@ final internal class TestMessageWithCustomOptions : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> TestMessageWithCustomOptions {
-    return TestMessageWithCustomOptions.builder().mergeFromData(data).build()
+    return TestMessageWithCustomOptions.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptions {
     return TestMessageWithCustomOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -981,7 +981,7 @@ final internal class CustomOptionFooRequest : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> CustomOptionFooRequest {
-    return CustomOptionFooRequest.builder().mergeFromData(data).build()
+    return CustomOptionFooRequest.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequest {
     return CustomOptionFooRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1123,7 +1123,7 @@ final internal class CustomOptionFooResponse : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> CustomOptionFooResponse {
-    return CustomOptionFooResponse.builder().mergeFromData(data).build()
+    return CustomOptionFooResponse.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponse {
     return CustomOptionFooResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1265,7 +1265,7 @@ final internal class CustomOptionFooClientMessage : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> CustomOptionFooClientMessage {
-    return CustomOptionFooClientMessage.builder().mergeFromData(data).build()
+    return CustomOptionFooClientMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessage {
     return CustomOptionFooClientMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1407,7 +1407,7 @@ final internal class CustomOptionFooServerMessage : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> CustomOptionFooServerMessage {
-    return CustomOptionFooServerMessage.builder().mergeFromData(data).build()
+    return CustomOptionFooServerMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessage {
     return CustomOptionFooServerMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1569,7 +1569,7 @@ final internal class DummyMessageContainingEnum : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> DummyMessageContainingEnum {
-    return DummyMessageContainingEnum.builder().mergeFromData(data).build()
+    return DummyMessageContainingEnum.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnum {
     return DummyMessageContainingEnum.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1711,7 +1711,7 @@ final internal class DummyMessageInvalidAsOptionType : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> DummyMessageInvalidAsOptionType {
-    return DummyMessageInvalidAsOptionType.builder().mergeFromData(data).build()
+    return DummyMessageInvalidAsOptionType.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionType {
     return DummyMessageInvalidAsOptionType.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1853,7 +1853,7 @@ final internal class CustomOptionMinIntegerValues : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> CustomOptionMinIntegerValues {
-    return CustomOptionMinIntegerValues.builder().mergeFromData(data).build()
+    return CustomOptionMinIntegerValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValues {
     return CustomOptionMinIntegerValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1995,7 +1995,7 @@ final internal class CustomOptionMaxIntegerValues : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> CustomOptionMaxIntegerValues {
-    return CustomOptionMaxIntegerValues.builder().mergeFromData(data).build()
+    return CustomOptionMaxIntegerValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValues {
     return CustomOptionMaxIntegerValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2137,7 +2137,7 @@ final internal class CustomOptionOtherValues : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> CustomOptionOtherValues {
-    return CustomOptionOtherValues.builder().mergeFromData(data).build()
+    return CustomOptionOtherValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValues {
     return CustomOptionOtherValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2279,7 +2279,7 @@ final internal class SettingRealsFromPositiveInts : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> SettingRealsFromPositiveInts {
-    return SettingRealsFromPositiveInts.builder().mergeFromData(data).build()
+    return SettingRealsFromPositiveInts.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveInts {
     return SettingRealsFromPositiveInts.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2421,7 +2421,7 @@ final internal class SettingRealsFromNegativeInts : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> SettingRealsFromNegativeInts {
-    return SettingRealsFromNegativeInts.builder().mergeFromData(data).build()
+    return SettingRealsFromNegativeInts.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeInts {
     return SettingRealsFromNegativeInts.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2607,7 +2607,7 @@ final internal class ComplexOptionType1 : ExtendableMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> ComplexOptionType1 {
-    return ComplexOptionType1.builder().mergeFromData(data).build()
+    return ComplexOptionType1.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType1 {
     return ComplexOptionType1.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2888,7 +2888,7 @@ final internal class ComplexOptionType2 : ExtendableMessage {
         return size
       }
       internal class func parseFromData(data:[Byte]) -> ComplexOptionType2.ComplexOptionType4 {
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data).build()
+        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
       }
       internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4 {
         return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -3106,7 +3106,7 @@ final internal class ComplexOptionType2 : ExtendableMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> ComplexOptionType2 {
-    return ComplexOptionType2.builder().mergeFromData(data).build()
+    return ComplexOptionType2.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType2 {
     return ComplexOptionType2.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -3428,7 +3428,7 @@ final internal class ComplexOptionType3 : GeneratedMessage {
         return size
       }
       internal class func parseFromData(data:[Byte]) -> ComplexOptionType3.ComplexOptionType5 {
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data).build()
+        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
       }
       internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5 {
         return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -3621,7 +3621,7 @@ final internal class ComplexOptionType3 : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> ComplexOptionType3 {
-    return ComplexOptionType3.builder().mergeFromData(data).build()
+    return ComplexOptionType3.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType3 {
     return ComplexOptionType3.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -3854,7 +3854,7 @@ final internal class ComplexOpt6 : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> ComplexOpt6 {
-    return ComplexOpt6.builder().mergeFromData(data).build()
+    return ComplexOpt6.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOpt6 {
     return ComplexOpt6.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4027,7 +4027,7 @@ final internal class VariousComplexOptions : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> VariousComplexOptions {
-    return VariousComplexOptions.builder().mergeFromData(data).build()
+    return VariousComplexOptions.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> VariousComplexOptions {
     return VariousComplexOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4174,7 +4174,7 @@ final internal class AggregateMessageSet : ExtendableMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> AggregateMessageSet {
-    return AggregateMessageSet.builder().mergeFromData(data).build()
+    return AggregateMessageSet.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AggregateMessageSet {
     return AggregateMessageSet.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4331,7 +4331,7 @@ final internal class AggregateMessageSetElement : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> AggregateMessageSetElement {
-    return AggregateMessageSetElement.builder().mergeFromData(data).build()
+    return AggregateMessageSetElement.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElement {
     return AggregateMessageSetElement.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4564,7 +4564,7 @@ final internal class Aggregate : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> Aggregate {
-    return Aggregate.builder().mergeFromData(data).build()
+    return Aggregate.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Aggregate {
     return Aggregate.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4930,7 +4930,7 @@ final internal class AggregateMessage : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> AggregateMessage {
-    return AggregateMessage.builder().mergeFromData(data).build()
+    return AggregateMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AggregateMessage {
     return AggregateMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -5117,7 +5117,7 @@ final internal class NestedOptionType : GeneratedMessage {
         return size
       }
       internal class func parseFromData(data:[Byte]) -> NestedOptionType.NestedMessage {
-        return NestedOptionType.NestedMessage.builder().mergeFromData(data).build()
+        return NestedOptionType.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
       }
       internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessage {
         return NestedOptionType.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -5315,7 +5315,7 @@ final internal class NestedOptionType : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> NestedOptionType {
-    return NestedOptionType.builder().mergeFromData(data).build()
+    return NestedOptionType.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> NestedOptionType {
     return NestedOptionType.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -5442,7 +5442,7 @@ internal extension TestMessageWithCustomOptions {
     class func parseFromNSData(data:NSData) -> TestMessageWithCustomOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return TestMessageWithCustomOptions.builder().mergeFromData(bytes).build()
+        return TestMessageWithCustomOptions.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5454,7 +5454,7 @@ internal extension CustomOptionFooRequest {
     class func parseFromNSData(data:NSData) -> CustomOptionFooRequest {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return CustomOptionFooRequest.builder().mergeFromData(bytes).build()
+        return CustomOptionFooRequest.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequest {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5466,7 +5466,7 @@ internal extension CustomOptionFooResponse {
     class func parseFromNSData(data:NSData) -> CustomOptionFooResponse {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return CustomOptionFooResponse.builder().mergeFromData(bytes).build()
+        return CustomOptionFooResponse.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponse {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5478,7 +5478,7 @@ internal extension CustomOptionFooClientMessage {
     class func parseFromNSData(data:NSData) -> CustomOptionFooClientMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return CustomOptionFooClientMessage.builder().mergeFromData(bytes).build()
+        return CustomOptionFooClientMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5490,7 +5490,7 @@ internal extension CustomOptionFooServerMessage {
     class func parseFromNSData(data:NSData) -> CustomOptionFooServerMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return CustomOptionFooServerMessage.builder().mergeFromData(bytes).build()
+        return CustomOptionFooServerMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5502,7 +5502,7 @@ internal extension DummyMessageContainingEnum {
     class func parseFromNSData(data:NSData) -> DummyMessageContainingEnum {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return DummyMessageContainingEnum.builder().mergeFromData(bytes).build()
+        return DummyMessageContainingEnum.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnum {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5514,7 +5514,7 @@ internal extension DummyMessageInvalidAsOptionType {
     class func parseFromNSData(data:NSData) -> DummyMessageInvalidAsOptionType {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return DummyMessageInvalidAsOptionType.builder().mergeFromData(bytes).build()
+        return DummyMessageInvalidAsOptionType.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionType {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5526,7 +5526,7 @@ internal extension CustomOptionMinIntegerValues {
     class func parseFromNSData(data:NSData) -> CustomOptionMinIntegerValues {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return CustomOptionMinIntegerValues.builder().mergeFromData(bytes).build()
+        return CustomOptionMinIntegerValues.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValues {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5538,7 +5538,7 @@ internal extension CustomOptionMaxIntegerValues {
     class func parseFromNSData(data:NSData) -> CustomOptionMaxIntegerValues {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return CustomOptionMaxIntegerValues.builder().mergeFromData(bytes).build()
+        return CustomOptionMaxIntegerValues.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValues {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5550,7 +5550,7 @@ internal extension CustomOptionOtherValues {
     class func parseFromNSData(data:NSData) -> CustomOptionOtherValues {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return CustomOptionOtherValues.builder().mergeFromData(bytes).build()
+        return CustomOptionOtherValues.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValues {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5562,7 +5562,7 @@ internal extension SettingRealsFromPositiveInts {
     class func parseFromNSData(data:NSData) -> SettingRealsFromPositiveInts {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return SettingRealsFromPositiveInts.builder().mergeFromData(bytes).build()
+        return SettingRealsFromPositiveInts.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveInts {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5574,7 +5574,7 @@ internal extension SettingRealsFromNegativeInts {
     class func parseFromNSData(data:NSData) -> SettingRealsFromNegativeInts {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return SettingRealsFromNegativeInts.builder().mergeFromData(bytes).build()
+        return SettingRealsFromNegativeInts.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeInts {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5586,7 +5586,7 @@ internal extension ComplexOptionType1 {
     class func parseFromNSData(data:NSData) -> ComplexOptionType1 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return ComplexOptionType1.builder().mergeFromData(bytes).build()
+        return ComplexOptionType1.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType1 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5598,7 +5598,7 @@ internal extension ComplexOptionType2.ComplexOptionType4 {
     class func parseFromNSData(data:NSData) -> ComplexOptionType2.ComplexOptionType4 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(bytes).build()
+        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5610,7 +5610,7 @@ internal extension ComplexOptionType2 {
     class func parseFromNSData(data:NSData) -> ComplexOptionType2 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return ComplexOptionType2.builder().mergeFromData(bytes).build()
+        return ComplexOptionType2.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5622,7 +5622,7 @@ internal extension ComplexOptionType3.ComplexOptionType5 {
     class func parseFromNSData(data:NSData) -> ComplexOptionType3.ComplexOptionType5 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(bytes).build()
+        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5634,7 +5634,7 @@ internal extension ComplexOptionType3 {
     class func parseFromNSData(data:NSData) -> ComplexOptionType3 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return ComplexOptionType3.builder().mergeFromData(bytes).build()
+        return ComplexOptionType3.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5646,7 +5646,7 @@ internal extension ComplexOpt6 {
     class func parseFromNSData(data:NSData) -> ComplexOpt6 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return ComplexOpt6.builder().mergeFromData(bytes).build()
+        return ComplexOpt6.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOpt6 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5658,7 +5658,7 @@ internal extension VariousComplexOptions {
     class func parseFromNSData(data:NSData) -> VariousComplexOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return VariousComplexOptions.builder().mergeFromData(bytes).build()
+        return VariousComplexOptions.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> VariousComplexOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5670,7 +5670,7 @@ internal extension AggregateMessageSet {
     class func parseFromNSData(data:NSData) -> AggregateMessageSet {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return AggregateMessageSet.builder().mergeFromData(bytes).build()
+        return AggregateMessageSet.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> AggregateMessageSet {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5682,7 +5682,7 @@ internal extension AggregateMessageSetElement {
     class func parseFromNSData(data:NSData) -> AggregateMessageSetElement {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return AggregateMessageSetElement.builder().mergeFromData(bytes).build()
+        return AggregateMessageSetElement.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElement {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5694,7 +5694,7 @@ internal extension Aggregate {
     class func parseFromNSData(data:NSData) -> Aggregate {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return Aggregate.builder().mergeFromData(bytes).build()
+        return Aggregate.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> Aggregate {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5706,7 +5706,7 @@ internal extension AggregateMessage {
     class func parseFromNSData(data:NSData) -> AggregateMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return AggregateMessage.builder().mergeFromData(bytes).build()
+        return AggregateMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> AggregateMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5718,7 +5718,7 @@ internal extension NestedOptionType.NestedMessage {
     class func parseFromNSData(data:NSData) -> NestedOptionType.NestedMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return NestedOptionType.NestedMessage.builder().mergeFromData(bytes).build()
+        return NestedOptionType.NestedMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -5730,7 +5730,7 @@ internal extension NestedOptionType {
     class func parseFromNSData(data:NSData) -> NestedOptionType {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return NestedOptionType.builder().mergeFromData(bytes).build()
+        return NestedOptionType.builder().mergeFromData(bytes, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> NestedOptionType {
         var bytes = [Byte](count: data.length, repeatedValue: 0)

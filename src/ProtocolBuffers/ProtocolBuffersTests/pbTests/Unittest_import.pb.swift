@@ -10,7 +10,7 @@ internal struct UnittestImportRoot {
    }
    return Static.instance
   }
-  var extensionRegistry:ExtensionRegistry
+  internal var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
@@ -82,7 +82,7 @@ final internal class ImportMessage : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> ImportMessage {
-    return ImportMessage.builder().mergeFromData(data).build()
+    return ImportMessage.builder().mergeFromData(data, extensionRegistry:UnittestImportRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ImportMessage {
     return ImportMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -240,7 +240,7 @@ internal extension ImportMessage {
     class func parseFromNSData(data:NSData) -> ImportMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return ImportMessage.builder().mergeFromData(bytes).build()
+        return ImportMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestImportRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ImportMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)

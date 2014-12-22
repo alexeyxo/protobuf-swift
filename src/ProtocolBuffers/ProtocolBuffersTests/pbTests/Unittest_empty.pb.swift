@@ -10,7 +10,7 @@ internal struct UnittestEmptyRoot {
    }
    return Static.instance
   }
-  var extensionRegistry:ExtensionRegistry
+  internal var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()

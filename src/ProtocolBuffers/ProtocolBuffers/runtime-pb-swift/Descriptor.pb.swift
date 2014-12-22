@@ -8,7 +8,7 @@ public struct PBDescriptorRoot {
    }
    return Static.instance
   }
-  var extensionRegistry:ExtensionRegistry
+  public var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
@@ -305,7 +305,7 @@ final public class PBFileDescriptorSet : GeneratedMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBFileDescriptorSet {
-    return PBFileDescriptorSet.builder().mergeFromData(data).build()
+    return PBFileDescriptorSet.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFileDescriptorSet {
     return PBFileDescriptorSet.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -620,7 +620,7 @@ final public class PBFileDescriptorProto : GeneratedMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBFileDescriptorProto {
-    return PBFileDescriptorProto.builder().mergeFromData(data).build()
+    return PBFileDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFileDescriptorProto {
     return PBFileDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1147,7 +1147,7 @@ final public class PBDescriptorProto : GeneratedMessage {
         return size
       }
       public class func parseFromData(data:[Byte]) -> PBDescriptorProto.ExtensionRange {
-        return PBDescriptorProto.ExtensionRange.builder().mergeFromData(data).build()
+        return PBDescriptorProto.ExtensionRange.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
       }
       public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBDescriptorProto.ExtensionRange {
         return PBDescriptorProto.ExtensionRange.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1451,7 +1451,7 @@ final public class PBDescriptorProto : GeneratedMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBDescriptorProto {
-    return PBDescriptorProto.builder().mergeFromData(data).build()
+    return PBDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBDescriptorProto {
     return PBDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1956,7 +1956,7 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBFieldDescriptorProto {
-    return PBFieldDescriptorProto.builder().mergeFromData(data).build()
+    return PBFieldDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFieldDescriptorProto {
     return PBFieldDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2415,7 +2415,7 @@ final public class PBEnumDescriptorProto : GeneratedMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBEnumDescriptorProto {
-    return PBEnumDescriptorProto.builder().mergeFromData(data).build()
+    return PBEnumDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBEnumDescriptorProto {
     return PBEnumDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2700,7 +2700,7 @@ final public class PBEnumValueDescriptorProto : GeneratedMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBEnumValueDescriptorProto {
-    return PBEnumValueDescriptorProto.builder().mergeFromData(data).build()
+    return PBEnumValueDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBEnumValueDescriptorProto {
     return PBEnumValueDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2994,7 +2994,7 @@ final public class PBServiceDescriptorProto : GeneratedMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBServiceDescriptorProto {
-    return PBServiceDescriptorProto.builder().mergeFromData(data).build()
+    return PBServiceDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBServiceDescriptorProto {
     return PBServiceDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -3288,7 +3288,7 @@ final public class PBMethodDescriptorProto : GeneratedMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBMethodDescriptorProto {
-    return PBMethodDescriptorProto.builder().mergeFromData(data).build()
+    return PBMethodDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBMethodDescriptorProto {
     return PBMethodDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -3697,7 +3697,7 @@ final public class PBFileOptions : ExtendableMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBFileOptions {
-    return PBFileOptions.builder().mergeFromData(data).build()
+    return PBFileOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFileOptions {
     return PBFileOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4196,7 +4196,7 @@ final public class PBMessageOptions : ExtendableMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBMessageOptions {
-    return PBMessageOptions.builder().mergeFromData(data).build()
+    return PBMessageOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBMessageOptions {
     return PBMessageOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4529,7 +4529,7 @@ final public class PBFieldOptions : ExtendableMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBFieldOptions {
-    return PBFieldOptions.builder().mergeFromData(data).build()
+    return PBFieldOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBFieldOptions {
     return PBFieldOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4926,7 +4926,7 @@ final public class PBEnumOptions : ExtendableMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBEnumOptions {
-    return PBEnumOptions.builder().mergeFromData(data).build()
+    return PBEnumOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBEnumOptions {
     return PBEnumOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -5154,7 +5154,7 @@ final public class PBEnumValueOptions : ExtendableMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBEnumValueOptions {
-    return PBEnumValueOptions.builder().mergeFromData(data).build()
+    return PBEnumValueOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBEnumValueOptions {
     return PBEnumValueOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -5351,7 +5351,7 @@ final public class PBServiceOptions : ExtendableMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBServiceOptions {
-    return PBServiceOptions.builder().mergeFromData(data).build()
+    return PBServiceOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBServiceOptions {
     return PBServiceOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -5548,7 +5548,7 @@ final public class PBMethodOptions : ExtendableMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBMethodOptions {
-    return PBMethodOptions.builder().mergeFromData(data).build()
+    return PBMethodOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBMethodOptions {
     return PBMethodOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -5752,7 +5752,7 @@ final public class PBUninterpretedOption : GeneratedMessage {
         return size
       }
       public class func parseFromData(data:[Byte]) -> PBUninterpretedOption.NamePart {
-        return PBUninterpretedOption.NamePart.builder().mergeFromData(data).build()
+        return PBUninterpretedOption.NamePart.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
       }
       public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption.NamePart {
         return PBUninterpretedOption.NamePart.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -6030,7 +6030,7 @@ final public class PBUninterpretedOption : GeneratedMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBUninterpretedOption {
-    return PBUninterpretedOption.builder().mergeFromData(data).build()
+    return PBUninterpretedOption.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption {
     return PBUninterpretedOption.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -6451,7 +6451,7 @@ final public class PBSourceCodeInfo : GeneratedMessage {
         return size
       }
       public class func parseFromData(data:[Byte]) -> PBSourceCodeInfo.Location {
-        return PBSourceCodeInfo.Location.builder().mergeFromData(data).build()
+        return PBSourceCodeInfo.Location.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
       }
       public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo.Location {
         return PBSourceCodeInfo.Location.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -6727,7 +6727,7 @@ final public class PBSourceCodeInfo : GeneratedMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> PBSourceCodeInfo {
-    return PBSourceCodeInfo.builder().mergeFromData(data).build()
+    return PBSourceCodeInfo.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo {
     return PBSourceCodeInfo.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -6884,7 +6884,7 @@ public extension PBFileDescriptorSet {
     class func parseFromNSData(data:NSData) -> PBFileDescriptorSet {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBFileDescriptorSet.builder().mergeFromData(bytes).build()
+        return PBFileDescriptorSet.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBFileDescriptorSet {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -6896,7 +6896,7 @@ public extension PBFileDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBFileDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBFileDescriptorProto.builder().mergeFromData(bytes).build()
+        return PBFileDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBFileDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -6908,7 +6908,7 @@ public extension PBDescriptorProto.ExtensionRange {
     class func parseFromNSData(data:NSData) -> PBDescriptorProto.ExtensionRange {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBDescriptorProto.ExtensionRange.builder().mergeFromData(bytes).build()
+        return PBDescriptorProto.ExtensionRange.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBDescriptorProto.ExtensionRange {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -6920,7 +6920,7 @@ public extension PBDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBDescriptorProto.builder().mergeFromData(bytes).build()
+        return PBDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -6932,7 +6932,7 @@ public extension PBFieldDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBFieldDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBFieldDescriptorProto.builder().mergeFromData(bytes).build()
+        return PBFieldDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBFieldDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -6944,7 +6944,7 @@ public extension PBEnumDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBEnumDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBEnumDescriptorProto.builder().mergeFromData(bytes).build()
+        return PBEnumDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBEnumDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -6956,7 +6956,7 @@ public extension PBEnumValueDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBEnumValueDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBEnumValueDescriptorProto.builder().mergeFromData(bytes).build()
+        return PBEnumValueDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBEnumValueDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -6968,7 +6968,7 @@ public extension PBServiceDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBServiceDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBServiceDescriptorProto.builder().mergeFromData(bytes).build()
+        return PBServiceDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBServiceDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -6980,7 +6980,7 @@ public extension PBMethodDescriptorProto {
     class func parseFromNSData(data:NSData) -> PBMethodDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBMethodDescriptorProto.builder().mergeFromData(bytes).build()
+        return PBMethodDescriptorProto.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBMethodDescriptorProto {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -6992,7 +6992,7 @@ public extension PBFileOptions {
     class func parseFromNSData(data:NSData) -> PBFileOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBFileOptions.builder().mergeFromData(bytes).build()
+        return PBFileOptions.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBFileOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -7004,7 +7004,7 @@ public extension PBMessageOptions {
     class func parseFromNSData(data:NSData) -> PBMessageOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBMessageOptions.builder().mergeFromData(bytes).build()
+        return PBMessageOptions.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBMessageOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -7016,7 +7016,7 @@ public extension PBFieldOptions {
     class func parseFromNSData(data:NSData) -> PBFieldOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBFieldOptions.builder().mergeFromData(bytes).build()
+        return PBFieldOptions.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBFieldOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -7028,7 +7028,7 @@ public extension PBEnumOptions {
     class func parseFromNSData(data:NSData) -> PBEnumOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBEnumOptions.builder().mergeFromData(bytes).build()
+        return PBEnumOptions.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBEnumOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -7040,7 +7040,7 @@ public extension PBEnumValueOptions {
     class func parseFromNSData(data:NSData) -> PBEnumValueOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBEnumValueOptions.builder().mergeFromData(bytes).build()
+        return PBEnumValueOptions.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBEnumValueOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -7052,7 +7052,7 @@ public extension PBServiceOptions {
     class func parseFromNSData(data:NSData) -> PBServiceOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBServiceOptions.builder().mergeFromData(bytes).build()
+        return PBServiceOptions.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBServiceOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -7064,7 +7064,7 @@ public extension PBMethodOptions {
     class func parseFromNSData(data:NSData) -> PBMethodOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBMethodOptions.builder().mergeFromData(bytes).build()
+        return PBMethodOptions.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBMethodOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -7076,7 +7076,7 @@ public extension PBUninterpretedOption.NamePart {
     class func parseFromNSData(data:NSData) -> PBUninterpretedOption.NamePart {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBUninterpretedOption.NamePart.builder().mergeFromData(bytes).build()
+        return PBUninterpretedOption.NamePart.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption.NamePart {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -7088,7 +7088,7 @@ public extension PBUninterpretedOption {
     class func parseFromNSData(data:NSData) -> PBUninterpretedOption {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBUninterpretedOption.builder().mergeFromData(bytes).build()
+        return PBUninterpretedOption.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBUninterpretedOption {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -7100,7 +7100,7 @@ public extension PBSourceCodeInfo.Location {
     class func parseFromNSData(data:NSData) -> PBSourceCodeInfo.Location {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBSourceCodeInfo.Location.builder().mergeFromData(bytes).build()
+        return PBSourceCodeInfo.Location.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo.Location {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
@@ -7112,7 +7112,7 @@ public extension PBSourceCodeInfo {
     class func parseFromNSData(data:NSData) -> PBSourceCodeInfo {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return PBSourceCodeInfo.builder().mergeFromData(bytes).build()
+        return PBSourceCodeInfo.builder().mergeFromData(bytes, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBSourceCodeInfo {
         var bytes = [Byte](count: data.length, repeatedValue: 0)

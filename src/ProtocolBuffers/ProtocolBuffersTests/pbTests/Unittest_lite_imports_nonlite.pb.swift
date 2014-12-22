@@ -10,7 +10,7 @@ internal struct UnittestLiteImportsNonliteRoot {
    }
    return Static.instance
   }
-  var extensionRegistry:ExtensionRegistry
+  internal var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
@@ -60,7 +60,7 @@ final internal class TestLiteImportsNonlite : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> TestLiteImportsNonlite {
-    return TestLiteImportsNonlite.builder().mergeFromData(data).build()
+    return TestLiteImportsNonlite.builder().mergeFromData(data, extensionRegistry:UnittestLiteImportsNonliteRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestLiteImportsNonlite {
     return TestLiteImportsNonlite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -238,7 +238,7 @@ internal extension TestLiteImportsNonlite {
     class func parseFromNSData(data:NSData) -> TestLiteImportsNonlite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return TestLiteImportsNonlite.builder().mergeFromData(bytes).build()
+        return TestLiteImportsNonlite.builder().mergeFromData(bytes, extensionRegistry:UnittestLiteImportsNonliteRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestLiteImportsNonlite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)

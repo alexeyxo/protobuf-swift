@@ -16,7 +16,7 @@ internal struct UnittestNoGenericServicesRoot {
    return Static.instance
   }
   var UnittestNoGenericServicesRoottestExtensionStatic:ConcreateExtensionField
-  var extensionRegistry:ExtensionRegistry
+  internal var extensionRegistry:ExtensionRegistry
 
   init() {
     UnittestNoGenericServicesRoottestExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestMessage.self, fieldNumber: 1000, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -96,7 +96,7 @@ final internal class TestMessage : ExtendableMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> TestMessage {
-    return TestMessage.builder().mergeFromData(data).build()
+    return TestMessage.builder().mergeFromData(data, extensionRegistry:UnittestNoGenericServicesRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestMessage {
     return TestMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -257,7 +257,7 @@ internal extension TestMessage {
     class func parseFromNSData(data:NSData) -> TestMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return TestMessage.builder().mergeFromData(bytes).build()
+        return TestMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestNoGenericServicesRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)

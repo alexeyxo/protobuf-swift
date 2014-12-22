@@ -14,7 +14,7 @@ public struct SwiftDescriptorRoot {
    return Static.instance
   }
   var SwiftDescriptorRootswiftFileOptionsStatic:ConcreateExtensionField
-  var extensionRegistry:ExtensionRegistry
+  public var extensionRegistry:ExtensionRegistry
 
   init() {
     SwiftDescriptorRootswiftFileOptionsStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBFileOptions.self, fieldNumber: 5092014, defaultValue:SwiftFileOptions(), messageOrGroupClass:SwiftFileOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -109,7 +109,7 @@ final public class SwiftFileOptions : GeneratedMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> SwiftFileOptions {
-    return SwiftFileOptions.builder().mergeFromData(data).build()
+    return SwiftFileOptions.builder().mergeFromData(data, extensionRegistry:SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> SwiftFileOptions {
     return SwiftFileOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -334,7 +334,7 @@ public extension SwiftFileOptions {
     class func parseFromNSData(data:NSData) -> SwiftFileOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return SwiftFileOptions.builder().mergeFromData(bytes).build()
+        return SwiftFileOptions.builder().mergeFromData(bytes, extensionRegistry:SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> SwiftFileOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)

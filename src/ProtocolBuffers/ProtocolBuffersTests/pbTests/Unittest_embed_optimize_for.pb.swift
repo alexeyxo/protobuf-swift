@@ -10,7 +10,7 @@ internal struct UnittestEmbedOptimizeForRoot {
    }
    return Static.instance
   }
-  var extensionRegistry:ExtensionRegistry
+  internal var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
@@ -83,7 +83,7 @@ final internal class TestEmbedOptimizedForSize : GeneratedMessage {
     return size
   }
   internal class func parseFromData(data:[Byte]) -> TestEmbedOptimizedForSize {
-    return TestEmbedOptimizedForSize.builder().mergeFromData(data).build()
+    return TestEmbedOptimizedForSize.builder().mergeFromData(data, extensionRegistry:UnittestEmbedOptimizeForRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestEmbedOptimizedForSize {
     return TestEmbedOptimizedForSize.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -291,7 +291,7 @@ internal extension TestEmbedOptimizedForSize {
     class func parseFromNSData(data:NSData) -> TestEmbedOptimizedForSize {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return TestEmbedOptimizedForSize.builder().mergeFromData(bytes).build()
+        return TestEmbedOptimizedForSize.builder().mergeFromData(bytes, extensionRegistry:UnittestEmbedOptimizeForRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestEmbedOptimizedForSize {
         var bytes = [Byte](count: data.length, repeatedValue: 0)

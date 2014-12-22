@@ -10,7 +10,7 @@ public struct ProtoPerfomanceRoot {
    }
    return Static.instance
   }
-  var extensionRegistry:ExtensionRegistry
+  public var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
@@ -133,7 +133,7 @@ final public class ProtoPerfomance : GeneratedMessage {
     return size
   }
   public class func parseFromData(data:[Byte]) -> ProtoPerfomance {
-    return ProtoPerfomance.builder().mergeFromData(data).build()
+    return ProtoPerfomance.builder().mergeFromData(data, extensionRegistry:ProtoPerfomanceRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ProtoPerfomance {
     return ProtoPerfomance.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -479,7 +479,7 @@ public extension ProtoPerfomance {
     class func parseFromNSData(data:NSData) -> ProtoPerfomance {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return ProtoPerfomance.builder().mergeFromData(bytes).build()
+        return ProtoPerfomance.builder().mergeFromData(bytes, extensionRegistry:ProtoPerfomanceRoot.sharedInstance.extensionRegistry).build()
     }
     class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtoPerfomance {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
