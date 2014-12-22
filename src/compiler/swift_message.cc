@@ -598,7 +598,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageGenerator::GenerateParseFromMethodsSource(io::Printer* printer) {
         printer->Print(
                        "$acontrol$ class func parseFromData(data:[Byte]) -> $classname$ {\n"
-                       "  return $classname$.builder().mergeFromData(data).build()\n"
+                       "  return $classname$.builder().mergeFromData(data, extensionRegistry:$fileName$.sharedInstance.extensionRegistry).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()\n"
@@ -615,6 +615,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrol$ class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n",
+                       "fileName",FileClassName(descriptor_->file()),
                        "classname", ClassName(descriptor_),
                        "acontrol", GetAccessControlType(descriptor_->file()));
     }
@@ -625,7 +626,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "    class func parseFromNSData(data:NSData) -> $classname$ {\n"
                        "        var bytes = [Byte](count: data.length, repeatedValue: 0)\n"
                        "        data.getBytes(&bytes)\n"
-                       "        return $classname$.builder().mergeFromData(bytes).build()\n"
+                       "        return $classname$.builder().mergeFromData(bytes, extensionRegistry:$fileName$.sharedInstance.extensionRegistry).build()\n"
                        "    }\n"
                        "    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> $classname$ {\n"
                        "        var bytes = [Byte](count: data.length, repeatedValue: 0)\n"
@@ -633,6 +634,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "        return $classname$.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()\n"
                        "    }\n"
                        "}\n",
+                       "fileName",FileClassName(descriptor_->file()),
                        "classname", ClassName(descriptor_),
                        "acontrol", GetAccessControlType(descriptor_->file()));
     }

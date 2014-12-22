@@ -107,7 +107,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         }
         
         //TODO
-        printer->Print("var extensionRegistry:ExtensionRegistry\n");
+        printer->Print("$acontrol$ var extensionRegistry:ExtensionRegistry\n","acontrol", GetAccessControlType(file_));
         printer->Print(
                        "\n"
                        "init() {\n");
