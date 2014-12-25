@@ -29,7 +29,7 @@ class UnknowFieldsTests: XCTestCase {
         return unknownFields.getField(number)
     }
     
-    func getBizarroData() -> [Byte] {
+    func getBizarroData() -> NSData {
         var bizarroFields = UnknownFieldSet.builder()
         var varintField = Field()
         varintField += Int32(1)

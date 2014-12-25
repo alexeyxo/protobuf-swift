@@ -46,7 +46,6 @@ namespace google {
                     void GenerateMessageIsEqualSource(io::Printer* printer);
                     void GenerateExtensionRegistrationSource(io::Printer* printer);
                     void DetermineDependencies(set<string>* dependencies);
-                    void GenerateParseFromExtensionMethodsSource(io::Printer* printer);
                     void GenerateGlobalStaticVariablesSource(io::Printer* printer, string rootclass);
                 private:
                     

@@ -693,7 +693,7 @@ internal struct UnittestRoot {
     UnittestRootoptionalDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:TestAllExtensions.self, fieldNumber: 12, defaultValue:Double(0), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootoptionalBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:TestAllExtensions.self, fieldNumber: 13, defaultValue:false, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootoptionalStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 14, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 15, defaultValue:[Byte](), messageOrGroupClass:[Byte].self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 15, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootoptionalGroupExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:TestAllExtensions.self, fieldNumber: 16, defaultValue:OptionalGroup_extension(), messageOrGroupClass:OptionalGroup_extension.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootoptionalNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 18, defaultValue:TestAllTypes.NestedMessage(), messageOrGroupClass:TestAllTypes.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootoptionalForeignMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 19, defaultValue:ForeignMessage(), messageOrGroupClass:ForeignMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -719,7 +719,7 @@ internal struct UnittestRoot {
     UnittestRootrepeatedDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:TestAllExtensions.self, fieldNumber: 42, defaultValue:Array<Double>(), messageOrGroupClass:Double.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootrepeatedBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:TestAllExtensions.self, fieldNumber: 43, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootrepeatedStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 44, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 45, defaultValue:Array<[Byte]>(), messageOrGroupClass:[Byte].self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 45, defaultValue:Array<NSData>(), messageOrGroupClass:NSData.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootrepeatedGroupExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:TestAllExtensions.self, fieldNumber: 46, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:RepeatedGroup_extension.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootrepeatedNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 48, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypes.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootrepeatedForeignMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 49, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ForeignMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
@@ -744,7 +744,7 @@ internal struct UnittestRoot {
     UnittestRootdefaultDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:TestAllExtensions.self, fieldNumber: 72, defaultValue:Double(52000), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootdefaultBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:TestAllExtensions.self, fieldNumber: 73, defaultValue:true, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootdefaultStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 74, defaultValue:"hello", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 75, defaultValue:([Byte]() + "world".utf8), messageOrGroupClass:[Byte].self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 75, defaultValue:NSData(bytes:([Byte]() + "world".utf8), length:5), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootdefaultNestedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 81, defaultValue:TestAllTypes.NestedEnum.Bar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootdefaultForeignEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 82, defaultValue:ForeignEnum.ForeignBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootdefaultImportEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 83, defaultValue:ImportEnum.ImportBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -753,7 +753,7 @@ internal struct UnittestRoot {
     UnittestRootoneofUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:TestAllExtensions.self, fieldNumber: 111, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootoneofNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 112, defaultValue:TestAllTypes.NestedMessage(), messageOrGroupClass:TestAllTypes.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootoneofStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 113, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoneofBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 114, defaultValue:[Byte](), messageOrGroupClass:[Byte].self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoneofBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 114, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootmyExtensionStringStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestFieldOrderings.self, fieldNumber: 50, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootmyExtensionIntStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestFieldOrderings.self, fieldNumber: 5, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestRootpackedInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestPackedExtensions.self, fieldNumber: 90, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
@@ -2158,16 +2158,16 @@ final internal class TestAllTypes : GeneratedMessage {
 
         size = 0
         if hasBb {
-          size += WireFormat.computeInt32Size(1, value:bb)
+          size += bb.computeInt32Size(1)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestAllTypes.NestedMessage {
+      internal class func parseFromData(data:NSData) -> TestAllTypes.NestedMessage {
         return TestAllTypes.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllTypes.NestedMessage {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestAllTypes.NestedMessage {
         return TestAllTypes.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestAllTypes.NestedMessage {
@@ -2348,16 +2348,16 @@ final internal class TestAllTypes : GeneratedMessage {
 
         size = 0
         if hasA {
-          size += WireFormat.computeInt32Size(17, value:a)
+          size += a.computeInt32Size(17)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestAllTypes.OptionalGroup {
+      internal class func parseFromData(data:NSData) -> TestAllTypes.OptionalGroup {
         return TestAllTypes.OptionalGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllTypes.OptionalGroup {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestAllTypes.OptionalGroup {
         return TestAllTypes.OptionalGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestAllTypes.OptionalGroup {
@@ -2538,16 +2538,16 @@ final internal class TestAllTypes : GeneratedMessage {
 
         size = 0
         if hasA {
-          size += WireFormat.computeInt32Size(47, value:a)
+          size += a.computeInt32Size(47)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestAllTypes.RepeatedGroup {
+      internal class func parseFromData(data:NSData) -> TestAllTypes.RepeatedGroup {
         return TestAllTypes.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllTypes.RepeatedGroup {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestAllTypes.RepeatedGroup {
         return TestAllTypes.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestAllTypes.RepeatedGroup {
@@ -2745,9 +2745,9 @@ final internal class TestAllTypes : GeneratedMessage {
               return nil
          }
     }
-    case OneofBytes([Byte])
+    case OneofBytes(NSData)
 
-    internal static func getOneofBytes(value:OneofField) ->[Byte]? {
+    internal static func getOneofBytes(value:OneofField) ->NSData? {
          switch value {
          case .OneofBytes(let enumValue):
               return enumValue
@@ -2827,7 +2827,7 @@ final internal class TestAllTypes : GeneratedMessage {
   private(set) var optionalString:String = ""
 
   private(set) var hasOptionalBytes:Bool = false
-  private(set) var optionalBytes:Array<Byte> = [Byte]()
+  private(set) var optionalBytes:NSData = NSData()
 
   private(set) var hasOptionalGroup:Bool = false
   private(set) var optionalGroup:TestAllTypes.OptionalGroup = TestAllTypes.OptionalGroup()
@@ -2896,7 +2896,7 @@ final internal class TestAllTypes : GeneratedMessage {
   private(set) var defaultString:String = "hello"
 
   private(set) var hasDefaultBytes:Bool = false
-  private(set) var defaultBytes:Array<Byte> = ([Byte]() + "world".utf8)
+  private(set) var defaultBytes:NSData = NSData(bytes:([Byte]() + "world".utf8), length:5)
 
   private(set) var defaultNestedEnum:TestAllTypes.NestedEnum = TestAllTypes.NestedEnum.Bar
   private(set) var hasDefaultNestedEnum:Bool = false
@@ -2974,7 +2974,7 @@ final internal class TestAllTypes : GeneratedMessage {
         set(newValue) {
         }
   }
-  private(set) var oneofBytes:Array<Byte>!{
+  private(set) var oneofBytes:NSData!{
        get {
             return TestAllTypes.OneofField.getOneofBytes(storageOneofField)
        }
@@ -2996,7 +2996,7 @@ final internal class TestAllTypes : GeneratedMessage {
   private(set) var repeatedDouble:Array<Double> = Array<Double>()
   private(set) var repeatedBool:Array<Bool> = Array<Bool>()
   private(set) var repeatedString:Array<String> = Array<String>()
-  private(set) var repeatedBytes:Array<Array<Byte>> = Array<Array<Byte>>()
+  private(set) var repeatedBytes:Array<NSData> = Array<NSData>()
   private(set) var repeatedGroup:Array<TestAllTypes.RepeatedGroup>  = Array<TestAllTypes.RepeatedGroup>()
   private(set) var repeatedNestedMessage:Array<TestAllTypes.NestedMessage>  = Array<TestAllTypes.NestedMessage>()
   private(set) var repeatedForeignMessage:Array<ForeignMessage>  = Array<ForeignMessage>()
@@ -3286,116 +3286,116 @@ final internal class TestAllTypes : GeneratedMessage {
 
     size = 0
     if hasOptionalInt32 {
-      size += WireFormat.computeInt32Size(1, value:optionalInt32)
+      size += optionalInt32.computeInt32Size(1)
     }
     if hasOptionalInt64 {
-      size += WireFormat.computeInt64Size(2, value:optionalInt64)
+      size += optionalInt64.computeInt64Size(2)
     }
     if hasOptionalUint32 {
-      size += WireFormat.computeUInt32Size(3, value:optionalUint32)
+      size += optionalUint32.computeUInt32Size(3)
     }
     if hasOptionalUint64 {
-      size += WireFormat.computeUInt64Size(4, value:optionalUint64)
+      size += optionalUint64.computeUInt64Size(4)
     }
     if hasOptionalSint32 {
-      size += WireFormat.computeSInt32Size(5, value:optionalSint32)
+      size += optionalSint32.computeSInt32Size(5)
     }
     if hasOptionalSint64 {
-      size += WireFormat.computeSInt64Size(6, value:optionalSint64)
+      size += optionalSint64.computeSInt64Size(6)
     }
     if hasOptionalFixed32 {
-      size += WireFormat.computeFixed32Size(7, value:optionalFixed32)
+      size += optionalFixed32.computeFixed32Size(7)
     }
     if hasOptionalFixed64 {
-      size += WireFormat.computeFixed64Size(8, value:optionalFixed64)
+      size += optionalFixed64.computeFixed64Size(8)
     }
     if hasOptionalSfixed32 {
-      size += WireFormat.computeSFixed32Size(9, value:optionalSfixed32)
+      size += optionalSfixed32.computeSFixed32Size(9)
     }
     if hasOptionalSfixed64 {
-      size += WireFormat.computeSFixed64Size(10, value:optionalSfixed64)
+      size += optionalSfixed64.computeSFixed64Size(10)
     }
     if hasOptionalFloat {
-      size += WireFormat.computeFloatSize(11, value:optionalFloat)
+      size += optionalFloat.computeFloatSize(11)
     }
     if hasOptionalDouble {
-      size += WireFormat.computeDoubleSize(12, value:optionalDouble)
+      size += optionalDouble.computeDoubleSize(12)
     }
     if hasOptionalBool {
-      size += WireFormat.computeBoolSize(13, value:optionalBool)
+      size += optionalBool.computeBoolSize(13)
     }
     if hasOptionalString {
-      size += WireFormat.computeStringSize(14, value:optionalString)
+      size += optionalString.computeStringSize(14)
     }
     if hasOptionalBytes {
-      size += WireFormat.computeDataSize(15, value:optionalBytes)
+      size += optionalBytes.computeDataSize(15)
     }
     if hasOptionalGroup {
-      size += WireFormat.computeGroupSize(16, value:optionalGroup)
+      size += optionalGroup.computeGroupSize(16)
     }
     if hasOptionalNestedMessage {
-      size += WireFormat.computeMessageSize(18, value:optionalNestedMessage)
+      size += optionalNestedMessage.computeMessageSize(18)
     }
     if hasOptionalForeignMessage {
-      size += WireFormat.computeMessageSize(19, value:optionalForeignMessage)
+      size += optionalForeignMessage.computeMessageSize(19)
     }
     if hasOptionalImportMessage {
-      size += WireFormat.computeMessageSize(20, value:optionalImportMessage)
+      size += optionalImportMessage.computeMessageSize(20)
     }
     if (hasOptionalNestedEnum) {
-      size += WireFormat.computeEnumSize(21, value:optionalNestedEnum.rawValue)
+      size += optionalNestedEnum.rawValue.computeEnumSize(21)
     }
     if (hasOptionalForeignEnum) {
-      size += WireFormat.computeEnumSize(22, value:optionalForeignEnum.rawValue)
+      size += optionalForeignEnum.rawValue.computeEnumSize(22)
     }
     if (hasOptionalImportEnum) {
-      size += WireFormat.computeEnumSize(23, value:optionalImportEnum.rawValue)
+      size += optionalImportEnum.rawValue.computeEnumSize(23)
     }
     if hasOptionalStringPiece {
-      size += WireFormat.computeStringSize(24, value:optionalStringPiece)
+      size += optionalStringPiece.computeStringSize(24)
     }
     if hasOptionalCord {
-      size += WireFormat.computeStringSize(25, value:optionalCord)
+      size += optionalCord.computeStringSize(25)
     }
     if hasOptionalPublicImportMessage {
-      size += WireFormat.computeMessageSize(26, value:optionalPublicImportMessage)
+      size += optionalPublicImportMessage.computeMessageSize(26)
     }
     if hasOptionalLazyMessage {
-      size += WireFormat.computeMessageSize(27, value:optionalLazyMessage)
+      size += optionalLazyMessage.computeMessageSize(27)
     }
     var dataSizeRepeatedInt32:Int32 = 0
     for oneValuerepeatedInt32 in repeatedInt32 {
-        dataSizeRepeatedInt32 += WireFormat.computeInt32SizeNoTag(oneValuerepeatedInt32)
+        dataSizeRepeatedInt32 += oneValuerepeatedInt32.computeInt32SizeNoTag()
     }
     size += dataSizeRepeatedInt32
     size += 2 * Int32(repeatedInt32.count)
     var dataSizeRepeatedInt64:Int32 = 0
     for oneValuerepeatedInt64 in repeatedInt64 {
-        dataSizeRepeatedInt64 += WireFormat.computeInt64SizeNoTag(oneValuerepeatedInt64)
+        dataSizeRepeatedInt64 += oneValuerepeatedInt64.computeInt64SizeNoTag()
     }
     size += dataSizeRepeatedInt64
     size += 2 * Int32(repeatedInt64.count)
     var dataSizeRepeatedUint32:Int32 = 0
     for oneValuerepeatedUint32 in repeatedUint32 {
-        dataSizeRepeatedUint32 += WireFormat.computeUInt32SizeNoTag(oneValuerepeatedUint32)
+        dataSizeRepeatedUint32 += oneValuerepeatedUint32.computeUInt32SizeNoTag()
     }
     size += dataSizeRepeatedUint32
     size += 2 * Int32(repeatedUint32.count)
     var dataSizeRepeatedUint64:Int32 = 0
     for oneValuerepeatedUint64 in repeatedUint64 {
-        dataSizeRepeatedUint64 += WireFormat.computeUInt64SizeNoTag(oneValuerepeatedUint64)
+        dataSizeRepeatedUint64 += oneValuerepeatedUint64.computeUInt64SizeNoTag()
     }
     size += dataSizeRepeatedUint64
     size += 2 * Int32(repeatedUint64.count)
     var dataSizeRepeatedSint32:Int32 = 0
     for oneValuerepeatedSint32 in repeatedSint32 {
-        dataSizeRepeatedSint32 += WireFormat.computeSInt32SizeNoTag(oneValuerepeatedSint32)
+        dataSizeRepeatedSint32 += oneValuerepeatedSint32.computeSInt32SizeNoTag()
     }
     size += dataSizeRepeatedSint32
     size += 2 * Int32(repeatedSint32.count)
     var dataSizeRepeatedSint64:Int32 = 0
     for oneValuerepeatedSint64 in repeatedSint64 {
-        dataSizeRepeatedSint64 += WireFormat.computeSInt64SizeNoTag(oneValuerepeatedSint64)
+        dataSizeRepeatedSint64 += oneValuerepeatedSint64.computeSInt64SizeNoTag()
     }
     size += dataSizeRepeatedSint64
     size += 2 * Int32(repeatedSint64.count)
@@ -3429,141 +3429,141 @@ final internal class TestAllTypes : GeneratedMessage {
     size += 2 * Int32(repeatedBool.count)
     var dataSizeRepeatedString:Int32 = 0
     for oneValuerepeatedString in repeatedString {
-        dataSizeRepeatedString += WireFormat.computeStringSizeNoTag(oneValuerepeatedString)
+        dataSizeRepeatedString += oneValuerepeatedString.computeStringSizeNoTag()
     }
     size += dataSizeRepeatedString
     size += 2 * Int32(repeatedString.count)
     var dataSizeRepeatedBytes:Int32 = 0
     for oneValuerepeatedBytes in repeatedBytes {
-        dataSizeRepeatedBytes += WireFormat.computeDataSizeNoTag(oneValuerepeatedBytes)
+        dataSizeRepeatedBytes += oneValuerepeatedBytes.computeDataSizeNoTag()
     }
     size += dataSizeRepeatedBytes
     size += 2 * Int32(repeatedBytes.count)
     for oneElementrepeatedGroup in repeatedGroup {
-        size += WireFormat.computeGroupSize(46, value:oneElementrepeatedGroup)
+        size += oneElementrepeatedGroup.computeGroupSize(46)
     }
     for oneElementrepeatedNestedMessage in repeatedNestedMessage {
-        size += WireFormat.computeMessageSize(48, value:oneElementrepeatedNestedMessage)
+        size += oneElementrepeatedNestedMessage.computeMessageSize(48)
     }
     for oneElementrepeatedForeignMessage in repeatedForeignMessage {
-        size += WireFormat.computeMessageSize(49, value:oneElementrepeatedForeignMessage)
+        size += oneElementrepeatedForeignMessage.computeMessageSize(49)
     }
     for oneElementrepeatedImportMessage in repeatedImportMessage {
-        size += WireFormat.computeMessageSize(50, value:oneElementrepeatedImportMessage)
+        size += oneElementrepeatedImportMessage.computeMessageSize(50)
     }
     var dataSizerepeatedNestedEnum:Int32 = 0
     for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
-        dataSizerepeatedNestedEnum += WireFormat.computeEnumSizeNoTag(oneValueOfrepeatedNestedEnum.rawValue)
+        dataSizerepeatedNestedEnum += oneValueOfrepeatedNestedEnum.rawValue.computeEnumSizeNoTag()
     }
     size += dataSizerepeatedNestedEnum
     size += (2 * Int32(repeatedNestedEnum.count))
     var dataSizerepeatedForeignEnum:Int32 = 0
     for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
-        dataSizerepeatedForeignEnum += WireFormat.computeEnumSizeNoTag(oneValueOfrepeatedForeignEnum.rawValue)
+        dataSizerepeatedForeignEnum += oneValueOfrepeatedForeignEnum.rawValue.computeEnumSizeNoTag()
     }
     size += dataSizerepeatedForeignEnum
     size += (2 * Int32(repeatedForeignEnum.count))
     var dataSizerepeatedImportEnum:Int32 = 0
     for oneValueOfrepeatedImportEnum in repeatedImportEnum {
-        dataSizerepeatedImportEnum += WireFormat.computeEnumSizeNoTag(oneValueOfrepeatedImportEnum.rawValue)
+        dataSizerepeatedImportEnum += oneValueOfrepeatedImportEnum.rawValue.computeEnumSizeNoTag()
     }
     size += dataSizerepeatedImportEnum
     size += (2 * Int32(repeatedImportEnum.count))
     var dataSizeRepeatedStringPiece:Int32 = 0
     for oneValuerepeatedStringPiece in repeatedStringPiece {
-        dataSizeRepeatedStringPiece += WireFormat.computeStringSizeNoTag(oneValuerepeatedStringPiece)
+        dataSizeRepeatedStringPiece += oneValuerepeatedStringPiece.computeStringSizeNoTag()
     }
     size += dataSizeRepeatedStringPiece
     size += 2 * Int32(repeatedStringPiece.count)
     var dataSizeRepeatedCord:Int32 = 0
     for oneValuerepeatedCord in repeatedCord {
-        dataSizeRepeatedCord += WireFormat.computeStringSizeNoTag(oneValuerepeatedCord)
+        dataSizeRepeatedCord += oneValuerepeatedCord.computeStringSizeNoTag()
     }
     size += dataSizeRepeatedCord
     size += 2 * Int32(repeatedCord.count)
     for oneElementrepeatedLazyMessage in repeatedLazyMessage {
-        size += WireFormat.computeMessageSize(57, value:oneElementrepeatedLazyMessage)
+        size += oneElementrepeatedLazyMessage.computeMessageSize(57)
     }
     if hasDefaultInt32 {
-      size += WireFormat.computeInt32Size(61, value:defaultInt32)
+      size += defaultInt32.computeInt32Size(61)
     }
     if hasDefaultInt64 {
-      size += WireFormat.computeInt64Size(62, value:defaultInt64)
+      size += defaultInt64.computeInt64Size(62)
     }
     if hasDefaultUint32 {
-      size += WireFormat.computeUInt32Size(63, value:defaultUint32)
+      size += defaultUint32.computeUInt32Size(63)
     }
     if hasDefaultUint64 {
-      size += WireFormat.computeUInt64Size(64, value:defaultUint64)
+      size += defaultUint64.computeUInt64Size(64)
     }
     if hasDefaultSint32 {
-      size += WireFormat.computeSInt32Size(65, value:defaultSint32)
+      size += defaultSint32.computeSInt32Size(65)
     }
     if hasDefaultSint64 {
-      size += WireFormat.computeSInt64Size(66, value:defaultSint64)
+      size += defaultSint64.computeSInt64Size(66)
     }
     if hasDefaultFixed32 {
-      size += WireFormat.computeFixed32Size(67, value:defaultFixed32)
+      size += defaultFixed32.computeFixed32Size(67)
     }
     if hasDefaultFixed64 {
-      size += WireFormat.computeFixed64Size(68, value:defaultFixed64)
+      size += defaultFixed64.computeFixed64Size(68)
     }
     if hasDefaultSfixed32 {
-      size += WireFormat.computeSFixed32Size(69, value:defaultSfixed32)
+      size += defaultSfixed32.computeSFixed32Size(69)
     }
     if hasDefaultSfixed64 {
-      size += WireFormat.computeSFixed64Size(70, value:defaultSfixed64)
+      size += defaultSfixed64.computeSFixed64Size(70)
     }
     if hasDefaultFloat {
-      size += WireFormat.computeFloatSize(71, value:defaultFloat)
+      size += defaultFloat.computeFloatSize(71)
     }
     if hasDefaultDouble {
-      size += WireFormat.computeDoubleSize(72, value:defaultDouble)
+      size += defaultDouble.computeDoubleSize(72)
     }
     if hasDefaultBool {
-      size += WireFormat.computeBoolSize(73, value:defaultBool)
+      size += defaultBool.computeBoolSize(73)
     }
     if hasDefaultString {
-      size += WireFormat.computeStringSize(74, value:defaultString)
+      size += defaultString.computeStringSize(74)
     }
     if hasDefaultBytes {
-      size += WireFormat.computeDataSize(75, value:defaultBytes)
+      size += defaultBytes.computeDataSize(75)
     }
     if (hasDefaultNestedEnum) {
-      size += WireFormat.computeEnumSize(81, value:defaultNestedEnum.rawValue)
+      size += defaultNestedEnum.rawValue.computeEnumSize(81)
     }
     if (hasDefaultForeignEnum) {
-      size += WireFormat.computeEnumSize(82, value:defaultForeignEnum.rawValue)
+      size += defaultForeignEnum.rawValue.computeEnumSize(82)
     }
     if (hasDefaultImportEnum) {
-      size += WireFormat.computeEnumSize(83, value:defaultImportEnum.rawValue)
+      size += defaultImportEnum.rawValue.computeEnumSize(83)
     }
     if hasDefaultStringPiece {
-      size += WireFormat.computeStringSize(84, value:defaultStringPiece)
+      size += defaultStringPiece.computeStringSize(84)
     }
     if hasDefaultCord {
-      size += WireFormat.computeStringSize(85, value:defaultCord)
+      size += defaultCord.computeStringSize(85)
     }
     if hasOneofUint32 {
-      size += WireFormat.computeUInt32Size(111, value:oneofUint32)
+      size += oneofUint32.computeUInt32Size(111)
     }
     if hasOneofNestedMessage {
-      size += WireFormat.computeMessageSize(112, value:oneofNestedMessage)
+      size += oneofNestedMessage.computeMessageSize(112)
     }
     if hasOneofString {
-      size += WireFormat.computeStringSize(113, value:oneofString)
+      size += oneofString.computeStringSize(113)
     }
     if hasOneofBytes {
-      size += WireFormat.computeDataSize(114, value:oneofBytes)
+      size += oneofBytes.computeDataSize(114)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestAllTypes {
+  internal class func parseFromData(data:NSData) -> TestAllTypes {
     return TestAllTypes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllTypes {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestAllTypes {
     return TestAllTypes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestAllTypes {
@@ -3944,9 +3944,7 @@ final internal class TestAllTypes : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ optionalString.hashValue
           }
           if hasOptionalBytes {
-             for oneValueoptionalBytes in optionalBytes {
-                 hashCode = (hashCode &* 31) &+ oneValueoptionalBytes.hashValue
-             }
+             hashCode = (hashCode &* 31) &+ optionalBytes.hashValue
           }
           if hasOptionalGroup {
             hashCode = (hashCode &* 31) &+ optionalGroup.hashValue
@@ -4024,9 +4022,7 @@ final internal class TestAllTypes : GeneratedMessage {
               hashCode = (hashCode &* 31) &+ oneValuerepeatedString.hashValue
           }
           for oneValuerepeatedBytes in repeatedBytes {
-            for elementOneValuerepeatedBytes in oneValuerepeatedBytes {
-                hashCode = (hashCode &* 31) &+ elementOneValuerepeatedBytes.hashValue
-            }
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedBytes.hashValue
           }
           for oneElementrepeatedGroup in repeatedGroup {
               hashCode = (hashCode &* 31) &+ oneElementrepeatedGroup.hashValue
@@ -4101,9 +4097,7 @@ final internal class TestAllTypes : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ defaultString.hashValue
           }
           if hasDefaultBytes {
-             for oneValuedefaultBytes in defaultBytes {
-                 hashCode = (hashCode &* 31) &+ oneValuedefaultBytes.hashValue
-             }
+             hashCode = (hashCode &* 31) &+ defaultBytes.hashValue
           }
           if hasDefaultNestedEnum {
              hashCode = (hashCode &* 31) &+ Int(defaultNestedEnum.rawValue)
@@ -4130,9 +4124,7 @@ final internal class TestAllTypes : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ oneofString.hashValue
           }
           if hasOneofBytes {
-             for oneValueoneofBytes in oneofBytes {
-                 hashCode = (hashCode &* 31) &+ oneValueoneofBytes.hashValue
-             }
+             hashCode = (hashCode &* 31) &+ oneofBytes.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -4435,7 +4427,7 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
             return builderResult.hasOptionalBytes
        }
   }
-  var optionalBytes:Array<Byte> {
+  var optionalBytes:NSData {
        get {
             return builderResult.optionalBytes
        }
@@ -4446,7 +4438,7 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
   }
   internal func clearOptionalBytes() -> TestAllTypesBuilder{
        builderResult.hasOptionalBytes = false
-       builderResult.optionalBytes = [Byte]()
+       builderResult.optionalBytes = NSData()
        return self
   }
   var hasOptionalGroup:Bool {
@@ -4904,7 +4896,7 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
      builderResult.repeatedString.removeAll(keepCapacity: false)
      return self
   }
-  var repeatedBytes:Array<Array<Byte>> {
+  var repeatedBytes:Array<NSData> {
        get {
            return builderResult.repeatedBytes
        }
@@ -5307,7 +5299,7 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
             return builderResult.hasDefaultBytes
        }
   }
-  var defaultBytes:Array<Byte> {
+  var defaultBytes:NSData {
        get {
             return builderResult.defaultBytes
        }
@@ -5318,7 +5310,7 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
   }
   internal func clearDefaultBytes() -> TestAllTypesBuilder{
        builderResult.hasDefaultBytes = false
-       builderResult.defaultBytes = ([Byte]() + "world".utf8)
+       builderResult.defaultBytes = NSData(bytes:([Byte]() + "world".utf8), length:5)
        return self
   }
     var hasDefaultNestedEnum:Bool{
@@ -5491,7 +5483,7 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
             return builderResult.hasOneofBytes
        }
   }
-  var oneofBytes:Array<Byte> {
+  var oneofBytes:NSData {
        get {
             return builderResult.oneofBytes
        }
@@ -5502,7 +5494,7 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
   }
   internal func clearOneofBytes() -> TestAllTypesBuilder{
        builderResult.hasOneofBytes = false
-       builderResult.oneofBytes = [Byte]()
+       builderResult.oneofBytes = NSData()
        return self
   }
   override internal var internalGetResult:GeneratedMessage {
@@ -6122,19 +6114,19 @@ final internal class NestedTestAllTypes : GeneratedMessage {
 
     size = 0
     if hasChild {
-      size += WireFormat.computeMessageSize(1, value:child)
+      size += child.computeMessageSize(1)
     }
     if hasPayload {
-      size += WireFormat.computeMessageSize(2, value:payload)
+      size += payload.computeMessageSize(2)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> NestedTestAllTypes {
+  internal class func parseFromData(data:NSData) -> NestedTestAllTypes {
     return NestedTestAllTypes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> NestedTestAllTypes {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> NestedTestAllTypes {
     return NestedTestAllTypes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> NestedTestAllTypes {
@@ -6378,16 +6370,16 @@ final internal class TestDeprecatedFields : GeneratedMessage {
 
     size = 0
     if hasDeprecatedInt32 {
-      size += WireFormat.computeInt32Size(1, value:deprecatedInt32)
+      size += deprecatedInt32.computeInt32Size(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestDeprecatedFields {
+  internal class func parseFromData(data:NSData) -> TestDeprecatedFields {
     return TestDeprecatedFields.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestDeprecatedFields {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestDeprecatedFields {
     return TestDeprecatedFields.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestDeprecatedFields {
@@ -6560,16 +6552,16 @@ final internal class ForeignMessage : GeneratedMessage {
 
     size = 0
     if hasC {
-      size += WireFormat.computeInt32Size(1, value:c)
+      size += c.computeInt32Size(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> ForeignMessage {
+  internal class func parseFromData(data:NSData) -> ForeignMessage {
     return ForeignMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ForeignMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ForeignMessage {
     return ForeignMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> ForeignMessage {
@@ -6744,10 +6736,10 @@ final internal class TestAllExtensions : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestAllExtensions {
+  internal class func parseFromData(data:NSData) -> TestAllExtensions {
     return TestAllExtensions.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllExtensions {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestAllExtensions {
     return TestAllExtensions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestAllExtensions {
@@ -6892,16 +6884,16 @@ final internal class OptionalGroup_extension : GeneratedMessage {
 
     size = 0
     if hasA {
-      size += WireFormat.computeInt32Size(17, value:a)
+      size += a.computeInt32Size(17)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> OptionalGroup_extension {
+  internal class func parseFromData(data:NSData) -> OptionalGroup_extension {
     return OptionalGroup_extension.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> OptionalGroup_extension {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> OptionalGroup_extension {
     return OptionalGroup_extension.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> OptionalGroup_extension {
@@ -7074,16 +7066,16 @@ final internal class RepeatedGroup_extension : GeneratedMessage {
 
     size = 0
     if hasA {
-      size += WireFormat.computeInt32Size(47, value:a)
+      size += a.computeInt32Size(47)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> RepeatedGroup_extension {
+  internal class func parseFromData(data:NSData) -> RepeatedGroup_extension {
     return RepeatedGroup_extension.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> RepeatedGroup_extension {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> RepeatedGroup_extension {
     return RepeatedGroup_extension.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> RepeatedGroup_extension {
@@ -7259,10 +7251,10 @@ final internal class TestNestedExtension : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestNestedExtension {
+  internal class func parseFromData(data:NSData) -> TestNestedExtension {
     return TestNestedExtension.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestNestedExtension {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestNestedExtension {
     return TestNestedExtension.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestNestedExtension {
@@ -7611,112 +7603,112 @@ final internal class TestRequired : GeneratedMessage {
 
     size = 0
     if hasA {
-      size += WireFormat.computeInt32Size(1, value:a)
+      size += a.computeInt32Size(1)
     }
     if hasDummy2 {
-      size += WireFormat.computeInt32Size(2, value:dummy2)
+      size += dummy2.computeInt32Size(2)
     }
     if hasB {
-      size += WireFormat.computeInt32Size(3, value:b)
+      size += b.computeInt32Size(3)
     }
     if hasDummy4 {
-      size += WireFormat.computeInt32Size(4, value:dummy4)
+      size += dummy4.computeInt32Size(4)
     }
     if hasDummy5 {
-      size += WireFormat.computeInt32Size(5, value:dummy5)
+      size += dummy5.computeInt32Size(5)
     }
     if hasDummy6 {
-      size += WireFormat.computeInt32Size(6, value:dummy6)
+      size += dummy6.computeInt32Size(6)
     }
     if hasDummy7 {
-      size += WireFormat.computeInt32Size(7, value:dummy7)
+      size += dummy7.computeInt32Size(7)
     }
     if hasDummy8 {
-      size += WireFormat.computeInt32Size(8, value:dummy8)
+      size += dummy8.computeInt32Size(8)
     }
     if hasDummy9 {
-      size += WireFormat.computeInt32Size(9, value:dummy9)
+      size += dummy9.computeInt32Size(9)
     }
     if hasDummy10 {
-      size += WireFormat.computeInt32Size(10, value:dummy10)
+      size += dummy10.computeInt32Size(10)
     }
     if hasDummy11 {
-      size += WireFormat.computeInt32Size(11, value:dummy11)
+      size += dummy11.computeInt32Size(11)
     }
     if hasDummy12 {
-      size += WireFormat.computeInt32Size(12, value:dummy12)
+      size += dummy12.computeInt32Size(12)
     }
     if hasDummy13 {
-      size += WireFormat.computeInt32Size(13, value:dummy13)
+      size += dummy13.computeInt32Size(13)
     }
     if hasDummy14 {
-      size += WireFormat.computeInt32Size(14, value:dummy14)
+      size += dummy14.computeInt32Size(14)
     }
     if hasDummy15 {
-      size += WireFormat.computeInt32Size(15, value:dummy15)
+      size += dummy15.computeInt32Size(15)
     }
     if hasDummy16 {
-      size += WireFormat.computeInt32Size(16, value:dummy16)
+      size += dummy16.computeInt32Size(16)
     }
     if hasDummy17 {
-      size += WireFormat.computeInt32Size(17, value:dummy17)
+      size += dummy17.computeInt32Size(17)
     }
     if hasDummy18 {
-      size += WireFormat.computeInt32Size(18, value:dummy18)
+      size += dummy18.computeInt32Size(18)
     }
     if hasDummy19 {
-      size += WireFormat.computeInt32Size(19, value:dummy19)
+      size += dummy19.computeInt32Size(19)
     }
     if hasDummy20 {
-      size += WireFormat.computeInt32Size(20, value:dummy20)
+      size += dummy20.computeInt32Size(20)
     }
     if hasDummy21 {
-      size += WireFormat.computeInt32Size(21, value:dummy21)
+      size += dummy21.computeInt32Size(21)
     }
     if hasDummy22 {
-      size += WireFormat.computeInt32Size(22, value:dummy22)
+      size += dummy22.computeInt32Size(22)
     }
     if hasDummy23 {
-      size += WireFormat.computeInt32Size(23, value:dummy23)
+      size += dummy23.computeInt32Size(23)
     }
     if hasDummy24 {
-      size += WireFormat.computeInt32Size(24, value:dummy24)
+      size += dummy24.computeInt32Size(24)
     }
     if hasDummy25 {
-      size += WireFormat.computeInt32Size(25, value:dummy25)
+      size += dummy25.computeInt32Size(25)
     }
     if hasDummy26 {
-      size += WireFormat.computeInt32Size(26, value:dummy26)
+      size += dummy26.computeInt32Size(26)
     }
     if hasDummy27 {
-      size += WireFormat.computeInt32Size(27, value:dummy27)
+      size += dummy27.computeInt32Size(27)
     }
     if hasDummy28 {
-      size += WireFormat.computeInt32Size(28, value:dummy28)
+      size += dummy28.computeInt32Size(28)
     }
     if hasDummy29 {
-      size += WireFormat.computeInt32Size(29, value:dummy29)
+      size += dummy29.computeInt32Size(29)
     }
     if hasDummy30 {
-      size += WireFormat.computeInt32Size(30, value:dummy30)
+      size += dummy30.computeInt32Size(30)
     }
     if hasDummy31 {
-      size += WireFormat.computeInt32Size(31, value:dummy31)
+      size += dummy31.computeInt32Size(31)
     }
     if hasDummy32 {
-      size += WireFormat.computeInt32Size(32, value:dummy32)
+      size += dummy32.computeInt32Size(32)
     }
     if hasC {
-      size += WireFormat.computeInt32Size(33, value:c)
+      size += c.computeInt32Size(33)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestRequired {
+  internal class func parseFromData(data:NSData) -> TestRequired {
     return TestRequired.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestRequired {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestRequired {
     return TestRequired.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestRequired {
@@ -8905,22 +8897,22 @@ final internal class TestRequiredForeign : GeneratedMessage {
 
     size = 0
     if hasOptionalMessage {
-      size += WireFormat.computeMessageSize(1, value:optionalMessage)
+      size += optionalMessage.computeMessageSize(1)
     }
     for oneElementrepeatedMessage in repeatedMessage {
-        size += WireFormat.computeMessageSize(2, value:oneElementrepeatedMessage)
+        size += oneElementrepeatedMessage.computeMessageSize(2)
     }
     if hasDummy {
-      size += WireFormat.computeInt32Size(3, value:dummy)
+      size += dummy.computeInt32Size(3)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestRequiredForeign {
+  internal class func parseFromData(data:NSData) -> TestRequiredForeign {
     return TestRequiredForeign.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestRequiredForeign {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestRequiredForeign {
     return TestRequiredForeign.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestRequiredForeign {
@@ -9173,16 +9165,16 @@ final internal class TestForeignNested : GeneratedMessage {
 
     size = 0
     if hasForeignNested {
-      size += WireFormat.computeMessageSize(1, value:foreignNested)
+      size += foreignNested.computeMessageSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestForeignNested {
+  internal class func parseFromData(data:NSData) -> TestForeignNested {
     return TestForeignNested.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestForeignNested {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestForeignNested {
     return TestForeignNested.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestForeignNested {
@@ -9372,10 +9364,10 @@ final internal class TestEmptyMessage : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestEmptyMessage {
+  internal class func parseFromData(data:NSData) -> TestEmptyMessage {
     return TestEmptyMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestEmptyMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestEmptyMessage {
     return TestEmptyMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestEmptyMessage {
@@ -9519,10 +9511,10 @@ final internal class TestEmptyMessageWithExtensions : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestEmptyMessageWithExtensions {
+  internal class func parseFromData(data:NSData) -> TestEmptyMessageWithExtensions {
     return TestEmptyMessageWithExtensions.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestEmptyMessageWithExtensions {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestEmptyMessageWithExtensions {
     return TestEmptyMessageWithExtensions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestEmptyMessageWithExtensions {
@@ -9671,10 +9663,10 @@ final internal class TestMultipleExtensionRanges : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestMultipleExtensionRanges {
+  internal class func parseFromData(data:NSData) -> TestMultipleExtensionRanges {
     return TestMultipleExtensionRanges.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestMultipleExtensionRanges {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMultipleExtensionRanges {
     return TestMultipleExtensionRanges.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestMultipleExtensionRanges {
@@ -9829,19 +9821,19 @@ final internal class TestReallyLargeTagNumber : GeneratedMessage {
 
     size = 0
     if hasA {
-      size += WireFormat.computeInt32Size(1, value:a)
+      size += a.computeInt32Size(1)
     }
     if hasBb {
-      size += WireFormat.computeInt32Size(268435455, value:bb)
+      size += bb.computeInt32Size(268435455)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestReallyLargeTagNumber {
+  internal class func parseFromData(data:NSData) -> TestReallyLargeTagNumber {
     return TestReallyLargeTagNumber.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestReallyLargeTagNumber {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestReallyLargeTagNumber {
     return TestReallyLargeTagNumber.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestReallyLargeTagNumber {
@@ -10050,19 +10042,19 @@ final internal class TestRecursiveMessage : GeneratedMessage {
 
     size = 0
     if hasA {
-      size += WireFormat.computeMessageSize(1, value:a)
+      size += a.computeMessageSize(1)
     }
     if hasI {
-      size += WireFormat.computeInt32Size(2, value:i)
+      size += i.computeInt32Size(2)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestRecursiveMessage {
+  internal class func parseFromData(data:NSData) -> TestRecursiveMessage {
     return TestRecursiveMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestRecursiveMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestRecursiveMessage {
     return TestRecursiveMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestRecursiveMessage {
@@ -10285,16 +10277,16 @@ final internal class TestMutualRecursionA : GeneratedMessage {
 
     size = 0
     if hasBb {
-      size += WireFormat.computeMessageSize(1, value:bb)
+      size += bb.computeMessageSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestMutualRecursionA {
+  internal class func parseFromData(data:NSData) -> TestMutualRecursionA {
     return TestMutualRecursionA.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestMutualRecursionA {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMutualRecursionA {
     return TestMutualRecursionA.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestMutualRecursionA {
@@ -10492,19 +10484,19 @@ final internal class TestMutualRecursionB : GeneratedMessage {
 
     size = 0
     if hasA {
-      size += WireFormat.computeMessageSize(1, value:a)
+      size += a.computeMessageSize(1)
     }
     if hasOptionalInt32 {
-      size += WireFormat.computeInt32Size(2, value:optionalInt32)
+      size += optionalInt32.computeInt32Size(2)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestMutualRecursionB {
+  internal class func parseFromData(data:NSData) -> TestMutualRecursionB {
     return TestMutualRecursionB.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestMutualRecursionB {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMutualRecursionB {
     return TestMutualRecursionB.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestMutualRecursionB {
@@ -10733,16 +10725,16 @@ final internal class TestDupFieldNumber : GeneratedMessage {
 
         size = 0
         if hasA {
-          size += WireFormat.computeInt32Size(1, value:a)
+          size += a.computeInt32Size(1)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestDupFieldNumber.Foo {
+      internal class func parseFromData(data:NSData) -> TestDupFieldNumber.Foo {
         return TestDupFieldNumber.Foo.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestDupFieldNumber.Foo {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestDupFieldNumber.Foo {
         return TestDupFieldNumber.Foo.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestDupFieldNumber.Foo {
@@ -10923,16 +10915,16 @@ final internal class TestDupFieldNumber : GeneratedMessage {
 
         size = 0
         if hasA {
-          size += WireFormat.computeInt32Size(1, value:a)
+          size += a.computeInt32Size(1)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestDupFieldNumber.Bar {
+      internal class func parseFromData(data:NSData) -> TestDupFieldNumber.Bar {
         return TestDupFieldNumber.Bar.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestDupFieldNumber.Bar {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestDupFieldNumber.Bar {
         return TestDupFieldNumber.Bar.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestDupFieldNumber.Bar {
@@ -11118,22 +11110,22 @@ final internal class TestDupFieldNumber : GeneratedMessage {
 
     size = 0
     if hasA {
-      size += WireFormat.computeInt32Size(1, value:a)
+      size += a.computeInt32Size(1)
     }
     if hasFoo {
-      size += WireFormat.computeGroupSize(2, value:foo)
+      size += foo.computeGroupSize(2)
     }
     if hasBar {
-      size += WireFormat.computeGroupSize(3, value:bar)
+      size += bar.computeGroupSize(3)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestDupFieldNumber {
+  internal class func parseFromData(data:NSData) -> TestDupFieldNumber {
     return TestDupFieldNumber.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestDupFieldNumber {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestDupFieldNumber {
     return TestDupFieldNumber.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestDupFieldNumber {
@@ -11407,16 +11399,16 @@ final internal class TestEagerMessage : GeneratedMessage {
 
     size = 0
     if hasSubMessage {
-      size += WireFormat.computeMessageSize(1, value:subMessage)
+      size += subMessage.computeMessageSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestEagerMessage {
+  internal class func parseFromData(data:NSData) -> TestEagerMessage {
     return TestEagerMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestEagerMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestEagerMessage {
     return TestEagerMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestEagerMessage {
@@ -11608,16 +11600,16 @@ final internal class TestLazyMessage : GeneratedMessage {
 
     size = 0
     if hasSubMessage {
-      size += WireFormat.computeMessageSize(1, value:subMessage)
+      size += subMessage.computeMessageSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestLazyMessage {
+  internal class func parseFromData(data:NSData) -> TestLazyMessage {
     return TestLazyMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestLazyMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestLazyMessage {
     return TestLazyMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestLazyMessage {
@@ -11820,21 +11812,21 @@ final internal class TestNestedMessageHasBits : GeneratedMessage {
         size = 0
         var dataSizeNestedmessageRepeatedInt32:Int32 = 0
         for oneValuenestedmessageRepeatedInt32 in nestedmessageRepeatedInt32 {
-            dataSizeNestedmessageRepeatedInt32 += WireFormat.computeInt32SizeNoTag(oneValuenestedmessageRepeatedInt32)
+            dataSizeNestedmessageRepeatedInt32 += oneValuenestedmessageRepeatedInt32.computeInt32SizeNoTag()
         }
         size += dataSizeNestedmessageRepeatedInt32
         size += 1 * Int32(nestedmessageRepeatedInt32.count)
         for oneElementnestedmessageRepeatedForeignmessage in nestedmessageRepeatedForeignmessage {
-            size += WireFormat.computeMessageSize(2, value:oneElementnestedmessageRepeatedForeignmessage)
+            size += oneElementnestedmessageRepeatedForeignmessage.computeMessageSize(2)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestNestedMessageHasBits.NestedMessage {
+      internal class func parseFromData(data:NSData) -> TestNestedMessageHasBits.NestedMessage {
         return TestNestedMessageHasBits.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestNestedMessageHasBits.NestedMessage {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestNestedMessageHasBits.NestedMessage {
         return TestNestedMessageHasBits.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestNestedMessageHasBits.NestedMessage {
@@ -12034,16 +12026,16 @@ final internal class TestNestedMessageHasBits : GeneratedMessage {
 
     size = 0
     if hasOptionalNestedMessage {
-      size += WireFormat.computeMessageSize(1, value:optionalNestedMessage)
+      size += optionalNestedMessage.computeMessageSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestNestedMessageHasBits {
+  internal class func parseFromData(data:NSData) -> TestNestedMessageHasBits {
     return TestNestedMessageHasBits.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestNestedMessageHasBits {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestNestedMessageHasBits {
     return TestNestedMessageHasBits.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestNestedMessageHasBits {
@@ -12297,53 +12289,53 @@ final internal class TestCamelCaseFieldNames : GeneratedMessage {
 
     size = 0
     if hasPrimitiveField {
-      size += WireFormat.computeInt32Size(1, value:primitiveField)
+      size += primitiveField.computeInt32Size(1)
     }
     if hasStringField {
-      size += WireFormat.computeStringSize(2, value:stringField)
+      size += stringField.computeStringSize(2)
     }
     if (hasEnumField) {
-      size += WireFormat.computeEnumSize(3, value:enumField.rawValue)
+      size += enumField.rawValue.computeEnumSize(3)
     }
     if hasMessageField {
-      size += WireFormat.computeMessageSize(4, value:messageField)
+      size += messageField.computeMessageSize(4)
     }
     if hasStringPieceField {
-      size += WireFormat.computeStringSize(5, value:stringPieceField)
+      size += stringPieceField.computeStringSize(5)
     }
     if hasCordField {
-      size += WireFormat.computeStringSize(6, value:cordField)
+      size += cordField.computeStringSize(6)
     }
     var dataSizeRepeatedPrimitiveField:Int32 = 0
     for oneValuerepeatedPrimitiveField in repeatedPrimitiveField {
-        dataSizeRepeatedPrimitiveField += WireFormat.computeInt32SizeNoTag(oneValuerepeatedPrimitiveField)
+        dataSizeRepeatedPrimitiveField += oneValuerepeatedPrimitiveField.computeInt32SizeNoTag()
     }
     size += dataSizeRepeatedPrimitiveField
     size += 1 * Int32(repeatedPrimitiveField.count)
     var dataSizeRepeatedStringField:Int32 = 0
     for oneValuerepeatedStringField in repeatedStringField {
-        dataSizeRepeatedStringField += WireFormat.computeStringSizeNoTag(oneValuerepeatedStringField)
+        dataSizeRepeatedStringField += oneValuerepeatedStringField.computeStringSizeNoTag()
     }
     size += dataSizeRepeatedStringField
     size += 1 * Int32(repeatedStringField.count)
     var dataSizerepeatedEnumField:Int32 = 0
     for oneValueOfrepeatedEnumField in repeatedEnumField {
-        dataSizerepeatedEnumField += WireFormat.computeEnumSizeNoTag(oneValueOfrepeatedEnumField.rawValue)
+        dataSizerepeatedEnumField += oneValueOfrepeatedEnumField.rawValue.computeEnumSizeNoTag()
     }
     size += dataSizerepeatedEnumField
     size += (1 * Int32(repeatedEnumField.count))
     for oneElementrepeatedMessageField in repeatedMessageField {
-        size += WireFormat.computeMessageSize(10, value:oneElementrepeatedMessageField)
+        size += oneElementrepeatedMessageField.computeMessageSize(10)
     }
     var dataSizeRepeatedStringPieceField:Int32 = 0
     for oneValuerepeatedStringPieceField in repeatedStringPieceField {
-        dataSizeRepeatedStringPieceField += WireFormat.computeStringSizeNoTag(oneValuerepeatedStringPieceField)
+        dataSizeRepeatedStringPieceField += oneValuerepeatedStringPieceField.computeStringSizeNoTag()
     }
     size += dataSizeRepeatedStringPieceField
     size += 1 * Int32(repeatedStringPieceField.count)
     var dataSizeRepeatedCordField:Int32 = 0
     for oneValuerepeatedCordField in repeatedCordField {
-        dataSizeRepeatedCordField += WireFormat.computeStringSizeNoTag(oneValuerepeatedCordField)
+        dataSizeRepeatedCordField += oneValuerepeatedCordField.computeStringSizeNoTag()
     }
     size += dataSizeRepeatedCordField
     size += 1 * Int32(repeatedCordField.count)
@@ -12351,10 +12343,10 @@ final internal class TestCamelCaseFieldNames : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestCamelCaseFieldNames {
+  internal class func parseFromData(data:NSData) -> TestCamelCaseFieldNames {
     return TestCamelCaseFieldNames.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestCamelCaseFieldNames {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestCamelCaseFieldNames {
     return TestCamelCaseFieldNames.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestCamelCaseFieldNames {
@@ -12889,23 +12881,23 @@ final internal class TestFieldOrderings : ExtendableMessage {
 
     size = 0
     if hasMyInt {
-      size += WireFormat.computeInt64Size(1, value:myInt)
+      size += myInt.computeInt64Size(1)
     }
     if hasMyString {
-      size += WireFormat.computeStringSize(11, value:myString)
+      size += myString.computeStringSize(11)
     }
     if hasMyFloat {
-      size += WireFormat.computeFloatSize(101, value:myFloat)
+      size += myFloat.computeFloatSize(101)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestFieldOrderings {
+  internal class func parseFromData(data:NSData) -> TestFieldOrderings {
     return TestFieldOrderings.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestFieldOrderings {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestFieldOrderings {
     return TestFieldOrderings.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestFieldOrderings {
@@ -13123,7 +13115,7 @@ final internal class TestFieldOrderingsBuilder : ExtendableMessageBuilder {
 
 final internal class TestExtremeDefaultValues : GeneratedMessage {
   private(set) var hasEscapedBytes:Bool = false
-  private(set) var escapedBytes:Array<Byte> = ([Byte]() + "testsr".utf8)
+  private(set) var escapedBytes:NSData = NSData(bytes:([Byte]() + "testsr".utf8), length:6)
 
   private(set) var hasLargeUint32:Bool = false
   private(set) var largeUint32:UInt32 = UInt32(65535)
@@ -13192,7 +13184,7 @@ final internal class TestExtremeDefaultValues : GeneratedMessage {
   private(set) var stringWithZero:String = "hel\000lo"
 
   private(set) var hasBytesWithZero:Bool = false
-  private(set) var bytesWithZero:Array<Byte> = ([Byte]() + "wor\000ld".utf8)
+  private(set) var bytesWithZero:NSData = NSData(bytes:([Byte]() + "wor\000ld".utf8), length:6)
 
   private(set) var hasStringPieceWithZero:Bool = false
   private(set) var stringPieceWithZero:String = "ab\000c"
@@ -13301,94 +13293,94 @@ final internal class TestExtremeDefaultValues : GeneratedMessage {
 
     size = 0
     if hasEscapedBytes {
-      size += WireFormat.computeDataSize(1, value:escapedBytes)
+      size += escapedBytes.computeDataSize(1)
     }
     if hasLargeUint32 {
-      size += WireFormat.computeUInt32Size(2, value:largeUint32)
+      size += largeUint32.computeUInt32Size(2)
     }
     if hasLargeUint64 {
-      size += WireFormat.computeUInt64Size(3, value:largeUint64)
+      size += largeUint64.computeUInt64Size(3)
     }
     if hasSmallInt32 {
-      size += WireFormat.computeInt32Size(4, value:smallInt32)
+      size += smallInt32.computeInt32Size(4)
     }
     if hasSmallInt64 {
-      size += WireFormat.computeInt64Size(5, value:smallInt64)
+      size += smallInt64.computeInt64Size(5)
     }
     if hasUtf8String {
-      size += WireFormat.computeStringSize(6, value:utf8String)
+      size += utf8String.computeStringSize(6)
     }
     if hasZeroFloat {
-      size += WireFormat.computeFloatSize(7, value:zeroFloat)
+      size += zeroFloat.computeFloatSize(7)
     }
     if hasOneFloat {
-      size += WireFormat.computeFloatSize(8, value:oneFloat)
+      size += oneFloat.computeFloatSize(8)
     }
     if hasSmallFloat {
-      size += WireFormat.computeFloatSize(9, value:smallFloat)
+      size += smallFloat.computeFloatSize(9)
     }
     if hasNegativeOneFloat {
-      size += WireFormat.computeFloatSize(10, value:negativeOneFloat)
+      size += negativeOneFloat.computeFloatSize(10)
     }
     if hasNegativeFloat {
-      size += WireFormat.computeFloatSize(11, value:negativeFloat)
+      size += negativeFloat.computeFloatSize(11)
     }
     if hasLargeFloat {
-      size += WireFormat.computeFloatSize(12, value:largeFloat)
+      size += largeFloat.computeFloatSize(12)
     }
     if hasSmallNegativeFloat {
-      size += WireFormat.computeFloatSize(13, value:smallNegativeFloat)
+      size += smallNegativeFloat.computeFloatSize(13)
     }
     if hasInfDouble {
-      size += WireFormat.computeDoubleSize(14, value:infDouble)
+      size += infDouble.computeDoubleSize(14)
     }
     if hasNegInfDouble {
-      size += WireFormat.computeDoubleSize(15, value:negInfDouble)
+      size += negInfDouble.computeDoubleSize(15)
     }
     if hasNanDouble {
-      size += WireFormat.computeDoubleSize(16, value:nanDouble)
+      size += nanDouble.computeDoubleSize(16)
     }
     if hasInfFloat {
-      size += WireFormat.computeFloatSize(17, value:infFloat)
+      size += infFloat.computeFloatSize(17)
     }
     if hasNegInfFloat {
-      size += WireFormat.computeFloatSize(18, value:negInfFloat)
+      size += negInfFloat.computeFloatSize(18)
     }
     if hasNanFloat {
-      size += WireFormat.computeFloatSize(19, value:nanFloat)
+      size += nanFloat.computeFloatSize(19)
     }
     if hasCppTrigraph {
-      size += WireFormat.computeStringSize(20, value:cppTrigraph)
+      size += cppTrigraph.computeStringSize(20)
     }
     if hasReallySmallInt32 {
-      size += WireFormat.computeInt32Size(21, value:reallySmallInt32)
+      size += reallySmallInt32.computeInt32Size(21)
     }
     if hasReallySmallInt64 {
-      size += WireFormat.computeInt64Size(22, value:reallySmallInt64)
+      size += reallySmallInt64.computeInt64Size(22)
     }
     if hasStringWithZero {
-      size += WireFormat.computeStringSize(23, value:stringWithZero)
+      size += stringWithZero.computeStringSize(23)
     }
     if hasBytesWithZero {
-      size += WireFormat.computeDataSize(24, value:bytesWithZero)
+      size += bytesWithZero.computeDataSize(24)
     }
     if hasStringPieceWithZero {
-      size += WireFormat.computeStringSize(25, value:stringPieceWithZero)
+      size += stringPieceWithZero.computeStringSize(25)
     }
     if hasCordWithZero {
-      size += WireFormat.computeStringSize(26, value:cordWithZero)
+      size += cordWithZero.computeStringSize(26)
     }
     if hasReplacementString {
-      size += WireFormat.computeStringSize(27, value:replacementString)
+      size += replacementString.computeStringSize(27)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestExtremeDefaultValues {
+  internal class func parseFromData(data:NSData) -> TestExtremeDefaultValues {
     return TestExtremeDefaultValues.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestExtremeDefaultValues {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestExtremeDefaultValues {
     return TestExtremeDefaultValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestExtremeDefaultValues {
@@ -13509,9 +13501,7 @@ final internal class TestExtremeDefaultValues : GeneratedMessage {
       get {
           var hashCode:Int = 7
           if hasEscapedBytes {
-             for oneValueescapedBytes in escapedBytes {
-                 hashCode = (hashCode &* 31) &+ oneValueescapedBytes.hashValue
-             }
+             hashCode = (hashCode &* 31) &+ escapedBytes.hashValue
           }
           if hasLargeUint32 {
              hashCode = (hashCode &* 31) &+ largeUint32.hashValue
@@ -13580,9 +13570,7 @@ final internal class TestExtremeDefaultValues : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ stringWithZero.hashValue
           }
           if hasBytesWithZero {
-             for oneValuebytesWithZero in bytesWithZero {
-                 hashCode = (hashCode &* 31) &+ oneValuebytesWithZero.hashValue
-             }
+             hashCode = (hashCode &* 31) &+ bytesWithZero.hashValue
           }
           if hasStringPieceWithZero {
              hashCode = (hashCode &* 31) &+ stringPieceWithZero.hashValue
@@ -13628,7 +13616,7 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
             return builderResult.hasEscapedBytes
        }
   }
-  var escapedBytes:Array<Byte> {
+  var escapedBytes:NSData {
        get {
             return builderResult.escapedBytes
        }
@@ -13639,7 +13627,7 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
   }
   internal func clearEscapedBytes() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasEscapedBytes = false
-       builderResult.escapedBytes = ([Byte]() + "testsr".utf8)
+       builderResult.escapedBytes = NSData(bytes:([Byte]() + "testsr".utf8), length:6)
        return self
   }
   var hasLargeUint32:Bool {
@@ -14065,7 +14053,7 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
             return builderResult.hasBytesWithZero
        }
   }
-  var bytesWithZero:Array<Byte> {
+  var bytesWithZero:NSData {
        get {
             return builderResult.bytesWithZero
        }
@@ -14076,7 +14064,7 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
   }
   internal func clearBytesWithZero() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasBytesWithZero = false
-       builderResult.bytesWithZero = ([Byte]() + "wor\000ld".utf8)
+       builderResult.bytesWithZero = NSData(bytes:([Byte]() + "wor\000ld".utf8), length:6)
        return self
   }
   var hasStringPieceWithZero:Bool {
@@ -14370,16 +14358,16 @@ final internal class SparseEnumMessage : GeneratedMessage {
 
     size = 0
     if (hasSparseEnum) {
-      size += WireFormat.computeEnumSize(1, value:sparseEnum.rawValue)
+      size += sparseEnum.rawValue.computeEnumSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> SparseEnumMessage {
+  internal class func parseFromData(data:NSData) -> SparseEnumMessage {
     return SparseEnumMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> SparseEnumMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> SparseEnumMessage {
     return SparseEnumMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> SparseEnumMessage {
@@ -14557,16 +14545,16 @@ final internal class OneString : GeneratedMessage {
 
     size = 0
     if hasData {
-      size += WireFormat.computeStringSize(1, value:data)
+      size += data.computeStringSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> OneString {
+  internal class func parseFromData(data:NSData) -> OneString {
     return OneString.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> OneString {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> OneString {
     return OneString.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> OneString {
@@ -14740,7 +14728,7 @@ final internal class MoreString : GeneratedMessage {
     size = 0
     var dataSizeData:Int32 = 0
     for oneValuedata in data {
-        dataSizeData += WireFormat.computeStringSizeNoTag(oneValuedata)
+        dataSizeData += oneValuedata.computeStringSizeNoTag()
     }
     size += dataSizeData
     size += 1 * Int32(data.count)
@@ -14748,10 +14736,10 @@ final internal class MoreString : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> MoreString {
+  internal class func parseFromData(data:NSData) -> MoreString {
     return MoreString.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> MoreString {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> MoreString {
     return MoreString.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> MoreString {
@@ -14897,7 +14885,7 @@ final internal class MoreStringBuilder : GeneratedMessageBuilder {
 
 final internal class OneBytes : GeneratedMessage {
   private(set) var hasData:Bool = false
-  private(set) var data:Array<Byte> = [Byte]()
+  private(set) var data:NSData = NSData()
 
   required internal init() {
        super.init()
@@ -14919,16 +14907,16 @@ final internal class OneBytes : GeneratedMessage {
 
     size = 0
     if hasData {
-      size += WireFormat.computeDataSize(1, value:data)
+      size += data.computeDataSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> OneBytes {
+  internal class func parseFromData(data:NSData) -> OneBytes {
     return OneBytes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> OneBytes {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> OneBytes {
     return OneBytes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> OneBytes {
@@ -14971,9 +14959,7 @@ final internal class OneBytes : GeneratedMessage {
       get {
           var hashCode:Int = 7
           if hasData {
-             for oneValuedata in data {
-                 hashCode = (hashCode &* 31) &+ oneValuedata.hashValue
-             }
+             hashCode = (hashCode &* 31) &+ data.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -15010,7 +14996,7 @@ final internal class OneBytesBuilder : GeneratedMessageBuilder {
             return builderResult.hasData
        }
   }
-  var data:Array<Byte> {
+  var data:NSData {
        get {
             return builderResult.data
        }
@@ -15021,7 +15007,7 @@ final internal class OneBytesBuilder : GeneratedMessageBuilder {
   }
   internal func clearData() -> OneBytesBuilder{
        builderResult.hasData = false
-       builderResult.data = [Byte]()
+       builderResult.data = NSData()
        return self
   }
   override internal var internalGetResult:GeneratedMessage {
@@ -15080,7 +15066,7 @@ final internal class OneBytesBuilder : GeneratedMessageBuilder {
 }
 
 final internal class MoreBytes : GeneratedMessage {
-  private(set) var data:Array<Array<Byte>> = Array<Array<Byte>>()
+  private(set) var data:Array<NSData> = Array<NSData>()
   required internal init() {
        super.init()
   }
@@ -15104,7 +15090,7 @@ final internal class MoreBytes : GeneratedMessage {
     size = 0
     var dataSizeData:Int32 = 0
     for oneValuedata in data {
-        dataSizeData += WireFormat.computeDataSizeNoTag(oneValuedata)
+        dataSizeData += oneValuedata.computeDataSizeNoTag()
     }
     size += dataSizeData
     size += 1 * Int32(data.count)
@@ -15112,10 +15098,10 @@ final internal class MoreBytes : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> MoreBytes {
+  internal class func parseFromData(data:NSData) -> MoreBytes {
     return MoreBytes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> MoreBytes {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> MoreBytes {
     return MoreBytes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> MoreBytes {
@@ -15160,9 +15146,7 @@ final internal class MoreBytes : GeneratedMessage {
       get {
           var hashCode:Int = 7
           for oneValuedata in data {
-            for elementOneValuedata in oneValuedata {
-                hashCode = (hashCode &* 31) &+ elementOneValuedata.hashValue
-            }
+              hashCode = (hashCode &* 31) &+ oneValuedata.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -15194,7 +15178,7 @@ final internal class MoreBytesBuilder : GeneratedMessageBuilder {
      builderResult = MoreBytes()
      super.init()
   }
-  var data:Array<Array<Byte>> {
+  var data:Array<NSData> {
        get {
            return builderResult.data
        }
@@ -15285,16 +15269,16 @@ final internal class Int32Message : GeneratedMessage {
 
     size = 0
     if hasData {
-      size += WireFormat.computeInt32Size(1, value:data)
+      size += data.computeInt32Size(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> Int32Message {
+  internal class func parseFromData(data:NSData) -> Int32Message {
     return Int32Message.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Int32Message {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Int32Message {
     return Int32Message.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> Int32Message {
@@ -15467,16 +15451,16 @@ final internal class Uint32Message : GeneratedMessage {
 
     size = 0
     if hasData {
-      size += WireFormat.computeUInt32Size(1, value:data)
+      size += data.computeUInt32Size(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> Uint32Message {
+  internal class func parseFromData(data:NSData) -> Uint32Message {
     return Uint32Message.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Uint32Message {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Uint32Message {
     return Uint32Message.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> Uint32Message {
@@ -15649,16 +15633,16 @@ final internal class Int64Message : GeneratedMessage {
 
     size = 0
     if hasData {
-      size += WireFormat.computeInt64Size(1, value:data)
+      size += data.computeInt64Size(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> Int64Message {
+  internal class func parseFromData(data:NSData) -> Int64Message {
     return Int64Message.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Int64Message {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Int64Message {
     return Int64Message.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> Int64Message {
@@ -15831,16 +15815,16 @@ final internal class Uint64Message : GeneratedMessage {
 
     size = 0
     if hasData {
-      size += WireFormat.computeUInt64Size(1, value:data)
+      size += data.computeUInt64Size(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> Uint64Message {
+  internal class func parseFromData(data:NSData) -> Uint64Message {
     return Uint64Message.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Uint64Message {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Uint64Message {
     return Uint64Message.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> Uint64Message {
@@ -16013,16 +15997,16 @@ final internal class BoolMessage : GeneratedMessage {
 
     size = 0
     if hasData {
-      size += WireFormat.computeBoolSize(1, value:data)
+      size += data.computeBoolSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> BoolMessage {
+  internal class func parseFromData(data:NSData) -> BoolMessage {
     return BoolMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> BoolMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> BoolMessage {
     return BoolMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> BoolMessage {
@@ -16206,19 +16190,19 @@ final internal class TestOneof : GeneratedMessage {
 
         size = 0
         if hasA {
-          size += WireFormat.computeInt32Size(5, value:a)
+          size += a.computeInt32Size(5)
         }
         if hasB {
-          size += WireFormat.computeStringSize(6, value:b)
+          size += b.computeStringSize(6)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestOneof.FooGroup {
+      internal class func parseFromData(data:NSData) -> TestOneof.FooGroup {
         return TestOneof.FooGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestOneof.FooGroup {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneof.FooGroup {
         return TestOneof.FooGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestOneof.FooGroup {
@@ -16565,25 +16549,25 @@ final internal class TestOneof : GeneratedMessage {
 
     size = 0
     if hasFooInt {
-      size += WireFormat.computeInt32Size(1, value:fooInt)
+      size += fooInt.computeInt32Size(1)
     }
     if hasFooString {
-      size += WireFormat.computeStringSize(2, value:fooString)
+      size += fooString.computeStringSize(2)
     }
     if hasFooMessage {
-      size += WireFormat.computeMessageSize(3, value:fooMessage)
+      size += fooMessage.computeMessageSize(3)
     }
     if hasFooGroup {
-      size += WireFormat.computeGroupSize(4, value:fooGroup)
+      size += fooGroup.computeGroupSize(4)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestOneof {
+  internal class func parseFromData(data:NSData) -> TestOneof {
     return TestOneof.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestOneof {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneof {
     return TestOneof.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestOneof {
@@ -16900,19 +16884,19 @@ final internal class TestOneofBackwardsCompatible : GeneratedMessage {
 
         size = 0
         if hasA {
-          size += WireFormat.computeInt32Size(5, value:a)
+          size += a.computeInt32Size(5)
         }
         if hasB {
-          size += WireFormat.computeStringSize(6, value:b)
+          size += b.computeStringSize(6)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestOneofBackwardsCompatible.FooGroup {
+      internal class func parseFromData(data:NSData) -> TestOneofBackwardsCompatible.FooGroup {
         return TestOneofBackwardsCompatible.FooGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestOneofBackwardsCompatible.FooGroup {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneofBackwardsCompatible.FooGroup {
         return TestOneofBackwardsCompatible.FooGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestOneofBackwardsCompatible.FooGroup {
@@ -17135,25 +17119,25 @@ final internal class TestOneofBackwardsCompatible : GeneratedMessage {
 
     size = 0
     if hasFooInt {
-      size += WireFormat.computeInt32Size(1, value:fooInt)
+      size += fooInt.computeInt32Size(1)
     }
     if hasFooString {
-      size += WireFormat.computeStringSize(2, value:fooString)
+      size += fooString.computeStringSize(2)
     }
     if hasFooMessage {
-      size += WireFormat.computeMessageSize(3, value:fooMessage)
+      size += fooMessage.computeMessageSize(3)
     }
     if hasFooGroup {
-      size += WireFormat.computeGroupSize(4, value:fooGroup)
+      size += fooGroup.computeGroupSize(4)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestOneofBackwardsCompatible {
+  internal class func parseFromData(data:NSData) -> TestOneofBackwardsCompatible {
     return TestOneofBackwardsCompatible.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestOneofBackwardsCompatible {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneofBackwardsCompatible {
     return TestOneofBackwardsCompatible.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestOneofBackwardsCompatible {
@@ -17470,19 +17454,19 @@ final internal class TestOneof2 : GeneratedMessage {
 
         size = 0
         if hasA {
-          size += WireFormat.computeInt32Size(9, value:a)
+          size += a.computeInt32Size(9)
         }
         if hasB {
-          size += WireFormat.computeStringSize(10, value:b)
+          size += b.computeStringSize(10)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestOneof2.FooGroup {
+      internal class func parseFromData(data:NSData) -> TestOneof2.FooGroup {
         return TestOneof2.FooGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestOneof2.FooGroup {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneof2.FooGroup {
         return TestOneof2.FooGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestOneof2.FooGroup {
@@ -17700,11 +17684,11 @@ final internal class TestOneof2 : GeneratedMessage {
 
         size = 0
         if hasQuxInt {
-          size += WireFormat.computeInt64Size(1, value:quxInt)
+          size += quxInt.computeInt64Size(1)
         }
         var dataSizeCorgeInt:Int32 = 0
         for oneValuecorgeInt in corgeInt {
-            dataSizeCorgeInt += WireFormat.computeInt32SizeNoTag(oneValuecorgeInt)
+            dataSizeCorgeInt += oneValuecorgeInt.computeInt32SizeNoTag()
         }
         size += dataSizeCorgeInt
         size += 1 * Int32(corgeInt.count)
@@ -17712,10 +17696,10 @@ final internal class TestOneof2 : GeneratedMessage {
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestOneof2.NestedMessage {
+      internal class func parseFromData(data:NSData) -> TestOneof2.NestedMessage {
         return TestOneof2.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestOneof2.NestedMessage {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneof2.NestedMessage {
         return TestOneof2.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestOneof2.NestedMessage {
@@ -17949,9 +17933,9 @@ final internal class TestOneof2 : GeneratedMessage {
               return nil
          }
     }
-    case FooBytes([Byte])
+    case FooBytes(NSData)
 
-    internal static func getFooBytes(value:Foo) ->[Byte]? {
+    internal static func getFooBytes(value:Foo) ->NSData? {
          switch value {
          case .FooBytes(let enumValue):
               return enumValue
@@ -18061,9 +18045,9 @@ final internal class TestOneof2 : GeneratedMessage {
               return nil
          }
     }
-    case BarBytes([Byte])
+    case BarBytes(NSData)
 
-    internal static func getBarBytes(value:Bar) ->[Byte]? {
+    internal static func getBarBytes(value:Bar) ->NSData? {
          switch value {
          case .BarBytes(let enumValue):
               return enumValue
@@ -18191,7 +18175,7 @@ final internal class TestOneof2 : GeneratedMessage {
         set(newValue) {
         }
   }
-  private(set) var fooBytes:Array<Byte>!{
+  private(set) var fooBytes:NSData!{
        get {
             return TestOneof2.Foo.getFooBytes(storageFoo)
        }
@@ -18353,7 +18337,7 @@ final internal class TestOneof2 : GeneratedMessage {
         set(newValue) {
         }
   }
-  private(set) var barBytes:Array<Byte>!{
+  private(set) var barBytes:NSData!{
        get {
             return TestOneof2.Bar.getBarBytes(storageBar)
        }
@@ -18453,64 +18437,64 @@ final internal class TestOneof2 : GeneratedMessage {
 
     size = 0
     if hasFooInt {
-      size += WireFormat.computeInt32Size(1, value:fooInt)
+      size += fooInt.computeInt32Size(1)
     }
     if hasFooString {
-      size += WireFormat.computeStringSize(2, value:fooString)
+      size += fooString.computeStringSize(2)
     }
     if hasFooCord {
-      size += WireFormat.computeStringSize(3, value:fooCord)
+      size += fooCord.computeStringSize(3)
     }
     if hasFooStringPiece {
-      size += WireFormat.computeStringSize(4, value:fooStringPiece)
+      size += fooStringPiece.computeStringSize(4)
     }
     if hasFooBytes {
-      size += WireFormat.computeDataSize(5, value:fooBytes)
+      size += fooBytes.computeDataSize(5)
     }
     if (hasFooEnum) {
-      size += WireFormat.computeEnumSize(6, value:fooEnum.rawValue)
+      size += fooEnum.rawValue.computeEnumSize(6)
     }
     if hasFooMessage {
-      size += WireFormat.computeMessageSize(7, value:fooMessage)
+      size += fooMessage.computeMessageSize(7)
     }
     if hasFooGroup {
-      size += WireFormat.computeGroupSize(8, value:fooGroup)
+      size += fooGroup.computeGroupSize(8)
     }
     if hasFooLazyMessage {
-      size += WireFormat.computeMessageSize(11, value:fooLazyMessage)
+      size += fooLazyMessage.computeMessageSize(11)
     }
     if hasBarInt {
-      size += WireFormat.computeInt32Size(12, value:barInt)
+      size += barInt.computeInt32Size(12)
     }
     if hasBarString {
-      size += WireFormat.computeStringSize(13, value:barString)
+      size += barString.computeStringSize(13)
     }
     if hasBarCord {
-      size += WireFormat.computeStringSize(14, value:barCord)
+      size += barCord.computeStringSize(14)
     }
     if hasBarStringPiece {
-      size += WireFormat.computeStringSize(15, value:barStringPiece)
+      size += barStringPiece.computeStringSize(15)
     }
     if hasBarBytes {
-      size += WireFormat.computeDataSize(16, value:barBytes)
+      size += barBytes.computeDataSize(16)
     }
     if (hasBarEnum) {
-      size += WireFormat.computeEnumSize(17, value:barEnum.rawValue)
+      size += barEnum.rawValue.computeEnumSize(17)
     }
     if hasBazInt {
-      size += WireFormat.computeInt32Size(18, value:bazInt)
+      size += bazInt.computeInt32Size(18)
     }
     if hasBazString {
-      size += WireFormat.computeStringSize(19, value:bazString)
+      size += bazString.computeStringSize(19)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestOneof2 {
+  internal class func parseFromData(data:NSData) -> TestOneof2 {
     return TestOneof2.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestOneof2 {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneof2 {
     return TestOneof2.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestOneof2 {
@@ -18619,9 +18603,7 @@ final internal class TestOneof2 : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ fooStringPiece.hashValue
           }
           if hasFooBytes {
-             for oneValuefooBytes in fooBytes {
-                 hashCode = (hashCode &* 31) &+ oneValuefooBytes.hashValue
-             }
+             hashCode = (hashCode &* 31) &+ fooBytes.hashValue
           }
           if hasFooEnum {
              hashCode = (hashCode &* 31) &+ Int(fooEnum.rawValue)
@@ -18648,9 +18630,7 @@ final internal class TestOneof2 : GeneratedMessage {
              hashCode = (hashCode &* 31) &+ barStringPiece.hashValue
           }
           if hasBarBytes {
-             for oneValuebarBytes in barBytes {
-                 hashCode = (hashCode &* 31) &+ oneValuebarBytes.hashValue
-             }
+             hashCode = (hashCode &* 31) &+ barBytes.hashValue
           }
           if hasBarEnum {
              hashCode = (hashCode &* 31) &+ Int(barEnum.rawValue)
@@ -18772,7 +18752,7 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
             return builderResult.hasFooBytes
        }
   }
-  var fooBytes:Array<Byte> {
+  var fooBytes:NSData {
        get {
             return builderResult.fooBytes
        }
@@ -18783,7 +18763,7 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
   }
   internal func clearFooBytes() -> TestOneof2Builder{
        builderResult.hasFooBytes = false
-       builderResult.fooBytes = [Byte]()
+       builderResult.fooBytes = NSData()
        return self
   }
     var hasFooEnum:Bool{
@@ -18982,7 +18962,7 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
             return builderResult.hasBarBytes
        }
   }
-  var barBytes:Array<Byte> {
+  var barBytes:NSData {
        get {
             return builderResult.barBytes
        }
@@ -18993,7 +18973,7 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
   }
   internal func clearBarBytes() -> TestOneof2Builder{
        builderResult.hasBarBytes = false
-       builderResult.barBytes = ([Byte]() + "BYTES".utf8)
+       builderResult.barBytes = NSData(bytes:([Byte]() + "BYTES".utf8), length:5)
        return self
   }
     var hasBarEnum:Bool{
@@ -19261,16 +19241,16 @@ final internal class TestRequiredOneof : GeneratedMessage {
 
         size = 0
         if hasRequiredDouble {
-          size += WireFormat.computeDoubleSize(1, value:requiredDouble)
+          size += requiredDouble.computeDoubleSize(1)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestRequiredOneof.NestedMessage {
+      internal class func parseFromData(data:NSData) -> TestRequiredOneof.NestedMessage {
         return TestRequiredOneof.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestRequiredOneof.NestedMessage {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestRequiredOneof.NestedMessage {
         return TestRequiredOneof.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestRequiredOneof.NestedMessage {
@@ -19560,22 +19540,22 @@ final internal class TestRequiredOneof : GeneratedMessage {
 
     size = 0
     if hasFooInt {
-      size += WireFormat.computeInt32Size(1, value:fooInt)
+      size += fooInt.computeInt32Size(1)
     }
     if hasFooString {
-      size += WireFormat.computeStringSize(2, value:fooString)
+      size += fooString.computeStringSize(2)
     }
     if hasFooMessage {
-      size += WireFormat.computeMessageSize(3, value:fooMessage)
+      size += fooMessage.computeMessageSize(3)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestRequiredOneof {
+  internal class func parseFromData(data:NSData) -> TestRequiredOneof {
     return TestRequiredOneof.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestRequiredOneof {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestRequiredOneof {
     return TestRequiredOneof.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestRequiredOneof {
@@ -19951,62 +19931,62 @@ final internal class TestPackedTypes : GeneratedMessage {
     size = 0
     var dataSizePackedInt32:Int32 = 0
     for oneValuepackedInt32 in packedInt32 {
-        dataSizePackedInt32 += WireFormat.computeInt32SizeNoTag(oneValuepackedInt32)
+        dataSizePackedInt32 += oneValuepackedInt32.computeInt32SizeNoTag()
     }
     size += dataSizePackedInt32
     if !packedInt32.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedInt32)
+      size += dataSizePackedInt32.computeInt32SizeNoTag()
     }
     packedInt32MemoizedSerializedSize = dataSizePackedInt32
     var dataSizePackedInt64:Int32 = 0
     for oneValuepackedInt64 in packedInt64 {
-        dataSizePackedInt64 += WireFormat.computeInt64SizeNoTag(oneValuepackedInt64)
+        dataSizePackedInt64 += oneValuepackedInt64.computeInt64SizeNoTag()
     }
     size += dataSizePackedInt64
     if !packedInt64.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedInt64)
+      size += dataSizePackedInt64.computeInt32SizeNoTag()
     }
     packedInt64MemoizedSerializedSize = dataSizePackedInt64
     var dataSizePackedUint32:Int32 = 0
     for oneValuepackedUint32 in packedUint32 {
-        dataSizePackedUint32 += WireFormat.computeUInt32SizeNoTag(oneValuepackedUint32)
+        dataSizePackedUint32 += oneValuepackedUint32.computeUInt32SizeNoTag()
     }
     size += dataSizePackedUint32
     if !packedUint32.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedUint32)
+      size += dataSizePackedUint32.computeInt32SizeNoTag()
     }
     packedUint32MemoizedSerializedSize = dataSizePackedUint32
     var dataSizePackedUint64:Int32 = 0
     for oneValuepackedUint64 in packedUint64 {
-        dataSizePackedUint64 += WireFormat.computeUInt64SizeNoTag(oneValuepackedUint64)
+        dataSizePackedUint64 += oneValuepackedUint64.computeUInt64SizeNoTag()
     }
     size += dataSizePackedUint64
     if !packedUint64.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedUint64)
+      size += dataSizePackedUint64.computeInt32SizeNoTag()
     }
     packedUint64MemoizedSerializedSize = dataSizePackedUint64
     var dataSizePackedSint32:Int32 = 0
     for oneValuepackedSint32 in packedSint32 {
-        dataSizePackedSint32 += WireFormat.computeSInt32SizeNoTag(oneValuepackedSint32)
+        dataSizePackedSint32 += oneValuepackedSint32.computeSInt32SizeNoTag()
     }
     size += dataSizePackedSint32
     if !packedSint32.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedSint32)
+      size += dataSizePackedSint32.computeInt32SizeNoTag()
     }
     packedSint32MemoizedSerializedSize = dataSizePackedSint32
     var dataSizePackedSint64:Int32 = 0
     for oneValuepackedSint64 in packedSint64 {
-        dataSizePackedSint64 += WireFormat.computeSInt64SizeNoTag(oneValuepackedSint64)
+        dataSizePackedSint64 += oneValuepackedSint64.computeSInt64SizeNoTag()
     }
     size += dataSizePackedSint64
     if !packedSint64.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedSint64)
+      size += dataSizePackedSint64.computeInt32SizeNoTag()
     }
     packedSint64MemoizedSerializedSize = dataSizePackedSint64
     var dataSizePackedFixed32:Int32 = 0
@@ -20014,7 +19994,7 @@ final internal class TestPackedTypes : GeneratedMessage {
     size += dataSizePackedFixed32
     if !packedFixed32.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedFixed32)
+      size += dataSizePackedFixed32.computeInt32SizeNoTag()
     }
     packedFixed32MemoizedSerializedSize = dataSizePackedFixed32
     var dataSizePackedFixed64:Int32 = 0
@@ -20022,7 +20002,7 @@ final internal class TestPackedTypes : GeneratedMessage {
     size += dataSizePackedFixed64
     if !packedFixed64.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedFixed64)
+      size += dataSizePackedFixed64.computeInt32SizeNoTag()
     }
     packedFixed64MemoizedSerializedSize = dataSizePackedFixed64
     var dataSizePackedSfixed32:Int32 = 0
@@ -20030,7 +20010,7 @@ final internal class TestPackedTypes : GeneratedMessage {
     size += dataSizePackedSfixed32
     if !packedSfixed32.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedSfixed32)
+      size += dataSizePackedSfixed32.computeInt32SizeNoTag()
     }
     packedSfixed32MemoizedSerializedSize = dataSizePackedSfixed32
     var dataSizePackedSfixed64:Int32 = 0
@@ -20038,7 +20018,7 @@ final internal class TestPackedTypes : GeneratedMessage {
     size += dataSizePackedSfixed64
     if !packedSfixed64.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedSfixed64)
+      size += dataSizePackedSfixed64.computeInt32SizeNoTag()
     }
     packedSfixed64MemoizedSerializedSize = dataSizePackedSfixed64
     var dataSizePackedFloat:Int32 = 0
@@ -20046,7 +20026,7 @@ final internal class TestPackedTypes : GeneratedMessage {
     size += dataSizePackedFloat
     if !packedFloat.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedFloat)
+      size += dataSizePackedFloat.computeInt32SizeNoTag()
     }
     packedFloatMemoizedSerializedSize = dataSizePackedFloat
     var dataSizePackedDouble:Int32 = 0
@@ -20054,7 +20034,7 @@ final internal class TestPackedTypes : GeneratedMessage {
     size += dataSizePackedDouble
     if !packedDouble.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedDouble)
+      size += dataSizePackedDouble.computeInt32SizeNoTag()
     }
     packedDoubleMemoizedSerializedSize = dataSizePackedDouble
     var dataSizePackedBool:Int32 = 0
@@ -20062,27 +20042,27 @@ final internal class TestPackedTypes : GeneratedMessage {
     size += dataSizePackedBool
     if !packedBool.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedBool)
+      size += dataSizePackedBool.computeInt32SizeNoTag()
     }
     packedBoolMemoizedSerializedSize = dataSizePackedBool
     var dataSizepackedEnum:Int32 = 0
     for oneValueOfpackedEnum in packedEnum {
-        dataSizepackedEnum += WireFormat.computeEnumSizeNoTag(oneValueOfpackedEnum.rawValue)
+        dataSizepackedEnum += oneValueOfpackedEnum.rawValue.computeEnumSizeNoTag()
     }
     size += dataSizepackedEnum
     if !packedEnum.isEmpty {
       size += 2
-      size += WireFormat.computeRawVarint32Size(dataSizepackedEnum)
+      size += dataSizepackedEnum.computeRawVarint32Size()
     }
     packedEnumMemoizedSerializedSize = dataSizepackedEnum
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestPackedTypes {
+  internal class func parseFromData(data:NSData) -> TestPackedTypes {
     return TestPackedTypes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestPackedTypes {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestPackedTypes {
     return TestPackedTypes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestPackedTypes {
@@ -20741,37 +20721,37 @@ final internal class TestUnpackedTypes : GeneratedMessage {
     size = 0
     var dataSizeUnpackedInt32:Int32 = 0
     for oneValueunpackedInt32 in unpackedInt32 {
-        dataSizeUnpackedInt32 += WireFormat.computeInt32SizeNoTag(oneValueunpackedInt32)
+        dataSizeUnpackedInt32 += oneValueunpackedInt32.computeInt32SizeNoTag()
     }
     size += dataSizeUnpackedInt32
     size += 2 * Int32(unpackedInt32.count)
     var dataSizeUnpackedInt64:Int32 = 0
     for oneValueunpackedInt64 in unpackedInt64 {
-        dataSizeUnpackedInt64 += WireFormat.computeInt64SizeNoTag(oneValueunpackedInt64)
+        dataSizeUnpackedInt64 += oneValueunpackedInt64.computeInt64SizeNoTag()
     }
     size += dataSizeUnpackedInt64
     size += 2 * Int32(unpackedInt64.count)
     var dataSizeUnpackedUint32:Int32 = 0
     for oneValueunpackedUint32 in unpackedUint32 {
-        dataSizeUnpackedUint32 += WireFormat.computeUInt32SizeNoTag(oneValueunpackedUint32)
+        dataSizeUnpackedUint32 += oneValueunpackedUint32.computeUInt32SizeNoTag()
     }
     size += dataSizeUnpackedUint32
     size += 2 * Int32(unpackedUint32.count)
     var dataSizeUnpackedUint64:Int32 = 0
     for oneValueunpackedUint64 in unpackedUint64 {
-        dataSizeUnpackedUint64 += WireFormat.computeUInt64SizeNoTag(oneValueunpackedUint64)
+        dataSizeUnpackedUint64 += oneValueunpackedUint64.computeUInt64SizeNoTag()
     }
     size += dataSizeUnpackedUint64
     size += 2 * Int32(unpackedUint64.count)
     var dataSizeUnpackedSint32:Int32 = 0
     for oneValueunpackedSint32 in unpackedSint32 {
-        dataSizeUnpackedSint32 += WireFormat.computeSInt32SizeNoTag(oneValueunpackedSint32)
+        dataSizeUnpackedSint32 += oneValueunpackedSint32.computeSInt32SizeNoTag()
     }
     size += dataSizeUnpackedSint32
     size += 2 * Int32(unpackedSint32.count)
     var dataSizeUnpackedSint64:Int32 = 0
     for oneValueunpackedSint64 in unpackedSint64 {
-        dataSizeUnpackedSint64 += WireFormat.computeSInt64SizeNoTag(oneValueunpackedSint64)
+        dataSizeUnpackedSint64 += oneValueunpackedSint64.computeSInt64SizeNoTag()
     }
     size += dataSizeUnpackedSint64
     size += 2 * Int32(unpackedSint64.count)
@@ -20805,7 +20785,7 @@ final internal class TestUnpackedTypes : GeneratedMessage {
     size += 2 * Int32(unpackedBool.count)
     var dataSizeunpackedEnum:Int32 = 0
     for oneValueOfunpackedEnum in unpackedEnum {
-        dataSizeunpackedEnum += WireFormat.computeEnumSizeNoTag(oneValueOfunpackedEnum.rawValue)
+        dataSizeunpackedEnum += oneValueOfunpackedEnum.rawValue.computeEnumSizeNoTag()
     }
     size += dataSizeunpackedEnum
     size += (2 * Int32(unpackedEnum.count))
@@ -20813,10 +20793,10 @@ final internal class TestUnpackedTypes : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestUnpackedTypes {
+  internal class func parseFromData(data:NSData) -> TestUnpackedTypes {
     return TestUnpackedTypes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestUnpackedTypes {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestUnpackedTypes {
     return TestUnpackedTypes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestUnpackedTypes {
@@ -21329,10 +21309,10 @@ final internal class TestPackedExtensions : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestPackedExtensions {
+  internal class func parseFromData(data:NSData) -> TestPackedExtensions {
     return TestPackedExtensions.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestPackedExtensions {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestPackedExtensions {
     return TestPackedExtensions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestPackedExtensions {
@@ -21479,10 +21459,10 @@ final internal class TestUnpackedExtensions : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestUnpackedExtensions {
+  internal class func parseFromData(data:NSData) -> TestUnpackedExtensions {
     return TestUnpackedExtensions.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestUnpackedExtensions {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestUnpackedExtensions {
     return TestUnpackedExtensions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestUnpackedExtensions {
@@ -21632,16 +21612,16 @@ final internal class TestDynamicExtensions : GeneratedMessage {
 
         size = 0
         if hasDynamicField {
-          size += WireFormat.computeInt32Size(2100, value:dynamicField)
+          size += dynamicField.computeInt32Size(2100)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestDynamicExtensions.DynamicMessageType {
+      internal class func parseFromData(data:NSData) -> TestDynamicExtensions.DynamicMessageType {
         return TestDynamicExtensions.DynamicMessageType.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestDynamicExtensions.DynamicMessageType {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestDynamicExtensions.DynamicMessageType {
         return TestDynamicExtensions.DynamicMessageType.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestDynamicExtensions.DynamicMessageType {
@@ -21873,44 +21853,44 @@ final internal class TestDynamicExtensions : GeneratedMessage {
 
     size = 0
     if hasScalarExtension {
-      size += WireFormat.computeFixed32Size(2000, value:scalarExtension)
+      size += scalarExtension.computeFixed32Size(2000)
     }
     if (hasEnumExtension) {
-      size += WireFormat.computeEnumSize(2001, value:enumExtension.rawValue)
+      size += enumExtension.rawValue.computeEnumSize(2001)
     }
     if (hasDynamicEnumExtension) {
-      size += WireFormat.computeEnumSize(2002, value:dynamicEnumExtension.rawValue)
+      size += dynamicEnumExtension.rawValue.computeEnumSize(2002)
     }
     if hasMessageExtension {
-      size += WireFormat.computeMessageSize(2003, value:messageExtension)
+      size += messageExtension.computeMessageSize(2003)
     }
     if hasDynamicMessageExtension {
-      size += WireFormat.computeMessageSize(2004, value:dynamicMessageExtension)
+      size += dynamicMessageExtension.computeMessageSize(2004)
     }
     var dataSizeRepeatedExtension:Int32 = 0
     for oneValuerepeatedExtension in repeatedExtension {
-        dataSizeRepeatedExtension += WireFormat.computeStringSizeNoTag(oneValuerepeatedExtension)
+        dataSizeRepeatedExtension += oneValuerepeatedExtension.computeStringSizeNoTag()
     }
     size += dataSizeRepeatedExtension
     size += 2 * Int32(repeatedExtension.count)
     var dataSizePackedExtension:Int32 = 0
     for oneValuepackedExtension in packedExtension {
-        dataSizePackedExtension += WireFormat.computeSInt32SizeNoTag(oneValuepackedExtension)
+        dataSizePackedExtension += oneValuepackedExtension.computeSInt32SizeNoTag()
     }
     size += dataSizePackedExtension
     if !packedExtension.isEmpty {
       size += 2
-      size += WireFormat.computeInt32SizeNoTag(dataSizePackedExtension)
+      size += dataSizePackedExtension.computeInt32SizeNoTag()
     }
     packedExtensionMemoizedSerializedSize = dataSizePackedExtension
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestDynamicExtensions {
+  internal class func parseFromData(data:NSData) -> TestDynamicExtensions {
     return TestDynamicExtensions.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestDynamicExtensions {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestDynamicExtensions {
     return TestDynamicExtensions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestDynamicExtensions {
@@ -22349,7 +22329,7 @@ final internal class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
     size += 1 * Int32(repeatedFixed32.count)
     var dataSizeRepeatedInt32:Int32 = 0
     for oneValuerepeatedInt32 in repeatedInt32 {
-        dataSizeRepeatedInt32 += WireFormat.computeInt32SizeNoTag(oneValuerepeatedInt32)
+        dataSizeRepeatedInt32 += oneValuerepeatedInt32.computeInt32SizeNoTag()
     }
     size += dataSizeRepeatedInt32
     size += 1 * Int32(repeatedInt32.count)
@@ -22359,7 +22339,7 @@ final internal class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
     size += 2 * Int32(repeatedFixed64.count)
     var dataSizeRepeatedInt64:Int32 = 0
     for oneValuerepeatedInt64 in repeatedInt64 {
-        dataSizeRepeatedInt64 += WireFormat.computeInt64SizeNoTag(oneValuerepeatedInt64)
+        dataSizeRepeatedInt64 += oneValuerepeatedInt64.computeInt64SizeNoTag()
     }
     size += dataSizeRepeatedInt64
     size += 2 * Int32(repeatedInt64.count)
@@ -22369,7 +22349,7 @@ final internal class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
     size += 3 * Int32(repeatedFloat.count)
     var dataSizeRepeatedUint64:Int32 = 0
     for oneValuerepeatedUint64 in repeatedUint64 {
-        dataSizeRepeatedUint64 += WireFormat.computeUInt64SizeNoTag(oneValuerepeatedUint64)
+        dataSizeRepeatedUint64 += oneValuerepeatedUint64.computeUInt64SizeNoTag()
     }
     size += dataSizeRepeatedUint64
     size += 3 * Int32(repeatedUint64.count)
@@ -22377,10 +22357,10 @@ final internal class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestRepeatedScalarDifferentTagSizes {
+  internal class func parseFromData(data:NSData) -> TestRepeatedScalarDifferentTagSizes {
     return TestRepeatedScalarDifferentTagSizes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestRepeatedScalarDifferentTagSizes {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestRepeatedScalarDifferentTagSizes {
     return TestRepeatedScalarDifferentTagSizes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestRepeatedScalarDifferentTagSizes {
@@ -22687,16 +22667,16 @@ final internal class TestParsingMerge : ExtendableMessage {
 
             size = 0
             if hasField1 {
-              size += WireFormat.computeMessageSize(11, value:field1)
+              size += field1.computeMessageSize(11)
             }
             size += unknownFields.serializedSize()
             memoizedSerializedSize = size
             return size
           }
-          internal class func parseFromData(data:[Byte]) -> TestParsingMerge.RepeatedFieldsGenerator.Group1 {
+          internal class func parseFromData(data:NSData) -> TestParsingMerge.RepeatedFieldsGenerator.Group1 {
             return TestParsingMerge.RepeatedFieldsGenerator.Group1.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
           }
-          internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMerge.RepeatedFieldsGenerator.Group1 {
+          internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestParsingMerge.RepeatedFieldsGenerator.Group1 {
             return TestParsingMerge.RepeatedFieldsGenerator.Group1.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
           }
           internal class func parseFromInputStream(input:NSInputStream) -> TestParsingMerge.RepeatedFieldsGenerator.Group1 {
@@ -22896,16 +22876,16 @@ final internal class TestParsingMerge : ExtendableMessage {
 
             size = 0
             if hasField1 {
-              size += WireFormat.computeMessageSize(21, value:field1)
+              size += field1.computeMessageSize(21)
             }
             size += unknownFields.serializedSize()
             memoizedSerializedSize = size
             return size
           }
-          internal class func parseFromData(data:[Byte]) -> TestParsingMerge.RepeatedFieldsGenerator.Group2 {
+          internal class func parseFromData(data:NSData) -> TestParsingMerge.RepeatedFieldsGenerator.Group2 {
             return TestParsingMerge.RepeatedFieldsGenerator.Group2.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
           }
-          internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMerge.RepeatedFieldsGenerator.Group2 {
+          internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestParsingMerge.RepeatedFieldsGenerator.Group2 {
             return TestParsingMerge.RepeatedFieldsGenerator.Group2.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
           }
           internal class func parseFromInputStream(input:NSInputStream) -> TestParsingMerge.RepeatedFieldsGenerator.Group2 {
@@ -23123,34 +23103,34 @@ final internal class TestParsingMerge : ExtendableMessage {
 
         size = 0
         for oneElementfield1 in field1 {
-            size += WireFormat.computeMessageSize(1, value:oneElementfield1)
+            size += oneElementfield1.computeMessageSize(1)
         }
         for oneElementfield2 in field2 {
-            size += WireFormat.computeMessageSize(2, value:oneElementfield2)
+            size += oneElementfield2.computeMessageSize(2)
         }
         for oneElementfield3 in field3 {
-            size += WireFormat.computeMessageSize(3, value:oneElementfield3)
+            size += oneElementfield3.computeMessageSize(3)
         }
         for oneElementgroup1 in group1 {
-            size += WireFormat.computeGroupSize(10, value:oneElementgroup1)
+            size += oneElementgroup1.computeGroupSize(10)
         }
         for oneElementgroup2 in group2 {
-            size += WireFormat.computeGroupSize(20, value:oneElementgroup2)
+            size += oneElementgroup2.computeGroupSize(20)
         }
         for oneElementext1 in ext1 {
-            size += WireFormat.computeMessageSize(1000, value:oneElementext1)
+            size += oneElementext1.computeMessageSize(1000)
         }
         for oneElementext2 in ext2 {
-            size += WireFormat.computeMessageSize(1001, value:oneElementext2)
+            size += oneElementext2.computeMessageSize(1001)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestParsingMerge.RepeatedFieldsGenerator {
+      internal class func parseFromData(data:NSData) -> TestParsingMerge.RepeatedFieldsGenerator {
         return TestParsingMerge.RepeatedFieldsGenerator.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMerge.RepeatedFieldsGenerator {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestParsingMerge.RepeatedFieldsGenerator {
         return TestParsingMerge.RepeatedFieldsGenerator.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestParsingMerge.RepeatedFieldsGenerator {
@@ -23509,16 +23489,16 @@ final internal class TestParsingMerge : ExtendableMessage {
 
         size = 0
         if hasOptionalGroupAllTypes {
-          size += WireFormat.computeMessageSize(11, value:optionalGroupAllTypes)
+          size += optionalGroupAllTypes.computeMessageSize(11)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestParsingMerge.OptionalGroup {
+      internal class func parseFromData(data:NSData) -> TestParsingMerge.OptionalGroup {
         return TestParsingMerge.OptionalGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMerge.OptionalGroup {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestParsingMerge.OptionalGroup {
         return TestParsingMerge.OptionalGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestParsingMerge.OptionalGroup {
@@ -23718,16 +23698,16 @@ final internal class TestParsingMerge : ExtendableMessage {
 
         size = 0
         if hasRepeatedGroupAllTypes {
-          size += WireFormat.computeMessageSize(21, value:repeatedGroupAllTypes)
+          size += repeatedGroupAllTypes.computeMessageSize(21)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      internal class func parseFromData(data:[Byte]) -> TestParsingMerge.RepeatedGroup {
+      internal class func parseFromData(data:NSData) -> TestParsingMerge.RepeatedGroup {
         return TestParsingMerge.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
       }
-      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMerge.RepeatedGroup {
+      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestParsingMerge.RepeatedGroup {
         return TestParsingMerge.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
       internal class func parseFromInputStream(input:NSInputStream) -> TestParsingMerge.RepeatedGroup {
@@ -23953,29 +23933,29 @@ final internal class TestParsingMerge : ExtendableMessage {
 
     size = 0
     if hasRequiredAllTypes {
-      size += WireFormat.computeMessageSize(1, value:requiredAllTypes)
+      size += requiredAllTypes.computeMessageSize(1)
     }
     if hasOptionalAllTypes {
-      size += WireFormat.computeMessageSize(2, value:optionalAllTypes)
+      size += optionalAllTypes.computeMessageSize(2)
     }
     for oneElementrepeatedAllTypes in repeatedAllTypes {
-        size += WireFormat.computeMessageSize(3, value:oneElementrepeatedAllTypes)
+        size += oneElementrepeatedAllTypes.computeMessageSize(3)
     }
     if hasOptionalGroup {
-      size += WireFormat.computeGroupSize(10, value:optionalGroup)
+      size += optionalGroup.computeGroupSize(10)
     }
     for oneElementrepeatedGroup in repeatedGroup {
-        size += WireFormat.computeGroupSize(20, value:oneElementrepeatedGroup)
+        size += oneElementrepeatedGroup.computeGroupSize(20)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestParsingMerge {
+  internal class func parseFromData(data:NSData) -> TestParsingMerge {
     return TestParsingMerge.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMerge {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestParsingMerge {
     return TestParsingMerge.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestParsingMerge {
@@ -24333,16 +24313,16 @@ final internal class TestCommentInjectionMessage : GeneratedMessage {
 
     size = 0
     if hasA {
-      size += WireFormat.computeStringSize(1, value:a)
+      size += a.computeStringSize(1)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> TestCommentInjectionMessage {
+  internal class func parseFromData(data:NSData) -> TestCommentInjectionMessage {
     return TestCommentInjectionMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestCommentInjectionMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestCommentInjectionMessage {
     return TestCommentInjectionMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> TestCommentInjectionMessage {
@@ -24512,10 +24492,10 @@ final internal class FooRequest : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> FooRequest {
+  internal class func parseFromData(data:NSData) -> FooRequest {
     return FooRequest.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> FooRequest {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> FooRequest {
     return FooRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> FooRequest {
@@ -24654,10 +24634,10 @@ final internal class FooResponse : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> FooResponse {
+  internal class func parseFromData(data:NSData) -> FooResponse {
     return FooResponse.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> FooResponse {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> FooResponse {
     return FooResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> FooResponse {
@@ -24796,10 +24776,10 @@ final internal class FooClientMessage : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> FooClientMessage {
+  internal class func parseFromData(data:NSData) -> FooClientMessage {
     return FooClientMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> FooClientMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> FooClientMessage {
     return FooClientMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> FooClientMessage {
@@ -24938,10 +24918,10 @@ final internal class FooServerMessage : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> FooServerMessage {
+  internal class func parseFromData(data:NSData) -> FooServerMessage {
     return FooServerMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> FooServerMessage {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> FooServerMessage {
     return FooServerMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> FooServerMessage {
@@ -25080,10 +25060,10 @@ final internal class BarRequest : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> BarRequest {
+  internal class func parseFromData(data:NSData) -> BarRequest {
     return BarRequest.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> BarRequest {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> BarRequest {
     return BarRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> BarRequest {
@@ -25222,10 +25202,10 @@ final internal class BarResponse : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  internal class func parseFromData(data:[Byte]) -> BarResponse {
+  internal class func parseFromData(data:NSData) -> BarResponse {
     return BarResponse.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> BarResponse {
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> BarResponse {
     return BarResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> BarResponse {
@@ -25343,824 +25323,5 @@ final internal class BarResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-//Class extensions: NSData
-
-
-internal extension TestAllTypes.NestedMessage {
-    class func parseFromNSData(data:NSData) -> TestAllTypes.NestedMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestAllTypes.NestedMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestAllTypes.NestedMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestAllTypes.NestedMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestAllTypes.OptionalGroup {
-    class func parseFromNSData(data:NSData) -> TestAllTypes.OptionalGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestAllTypes.OptionalGroup.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestAllTypes.OptionalGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestAllTypes.OptionalGroup.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestAllTypes.RepeatedGroup {
-    class func parseFromNSData(data:NSData) -> TestAllTypes.RepeatedGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestAllTypes.RepeatedGroup.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestAllTypes.RepeatedGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestAllTypes.RepeatedGroup.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestAllTypes {
-    class func parseFromNSData(data:NSData) -> TestAllTypes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestAllTypes.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestAllTypes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestAllTypes.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension NestedTestAllTypes {
-    class func parseFromNSData(data:NSData) -> NestedTestAllTypes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return NestedTestAllTypes.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> NestedTestAllTypes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return NestedTestAllTypes.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestDeprecatedFields {
-    class func parseFromNSData(data:NSData) -> TestDeprecatedFields {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestDeprecatedFields.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestDeprecatedFields {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestDeprecatedFields.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension ForeignMessage {
-    class func parseFromNSData(data:NSData) -> ForeignMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ForeignMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ForeignMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return ForeignMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestAllExtensions {
-    class func parseFromNSData(data:NSData) -> TestAllExtensions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestAllExtensions.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestAllExtensions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestAllExtensions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension OptionalGroup_extension {
-    class func parseFromNSData(data:NSData) -> OptionalGroup_extension {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return OptionalGroup_extension.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> OptionalGroup_extension {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return OptionalGroup_extension.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension RepeatedGroup_extension {
-    class func parseFromNSData(data:NSData) -> RepeatedGroup_extension {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return RepeatedGroup_extension.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> RepeatedGroup_extension {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return RepeatedGroup_extension.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestNestedExtension {
-    class func parseFromNSData(data:NSData) -> TestNestedExtension {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestNestedExtension.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestNestedExtension {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestNestedExtension.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestRequired {
-    class func parseFromNSData(data:NSData) -> TestRequired {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestRequired.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestRequired {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestRequired.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestRequiredForeign {
-    class func parseFromNSData(data:NSData) -> TestRequiredForeign {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestRequiredForeign.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestRequiredForeign {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestRequiredForeign.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestForeignNested {
-    class func parseFromNSData(data:NSData) -> TestForeignNested {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestForeignNested.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestForeignNested {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestForeignNested.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestEmptyMessage {
-    class func parseFromNSData(data:NSData) -> TestEmptyMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestEmptyMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestEmptyMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestEmptyMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestEmptyMessageWithExtensions {
-    class func parseFromNSData(data:NSData) -> TestEmptyMessageWithExtensions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestEmptyMessageWithExtensions.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestEmptyMessageWithExtensions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestEmptyMessageWithExtensions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestMultipleExtensionRanges {
-    class func parseFromNSData(data:NSData) -> TestMultipleExtensionRanges {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestMultipleExtensionRanges.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMultipleExtensionRanges {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestMultipleExtensionRanges.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestReallyLargeTagNumber {
-    class func parseFromNSData(data:NSData) -> TestReallyLargeTagNumber {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestReallyLargeTagNumber.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestReallyLargeTagNumber {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestReallyLargeTagNumber.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestRecursiveMessage {
-    class func parseFromNSData(data:NSData) -> TestRecursiveMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestRecursiveMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestRecursiveMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestRecursiveMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestMutualRecursionA {
-    class func parseFromNSData(data:NSData) -> TestMutualRecursionA {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestMutualRecursionA.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMutualRecursionA {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestMutualRecursionA.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestMutualRecursionB {
-    class func parseFromNSData(data:NSData) -> TestMutualRecursionB {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestMutualRecursionB.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMutualRecursionB {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestMutualRecursionB.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestDupFieldNumber.Foo {
-    class func parseFromNSData(data:NSData) -> TestDupFieldNumber.Foo {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestDupFieldNumber.Foo.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestDupFieldNumber.Foo {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestDupFieldNumber.Foo.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestDupFieldNumber.Bar {
-    class func parseFromNSData(data:NSData) -> TestDupFieldNumber.Bar {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestDupFieldNumber.Bar.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestDupFieldNumber.Bar {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestDupFieldNumber.Bar.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestDupFieldNumber {
-    class func parseFromNSData(data:NSData) -> TestDupFieldNumber {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestDupFieldNumber.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestDupFieldNumber {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestDupFieldNumber.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestEagerMessage {
-    class func parseFromNSData(data:NSData) -> TestEagerMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestEagerMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestEagerMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestEagerMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestLazyMessage {
-    class func parseFromNSData(data:NSData) -> TestLazyMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestLazyMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestLazyMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestLazyMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestNestedMessageHasBits.NestedMessage {
-    class func parseFromNSData(data:NSData) -> TestNestedMessageHasBits.NestedMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestNestedMessageHasBits.NestedMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestNestedMessageHasBits.NestedMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestNestedMessageHasBits.NestedMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestNestedMessageHasBits {
-    class func parseFromNSData(data:NSData) -> TestNestedMessageHasBits {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestNestedMessageHasBits.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestNestedMessageHasBits {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestNestedMessageHasBits.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestCamelCaseFieldNames {
-    class func parseFromNSData(data:NSData) -> TestCamelCaseFieldNames {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestCamelCaseFieldNames.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestCamelCaseFieldNames {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestCamelCaseFieldNames.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestFieldOrderings {
-    class func parseFromNSData(data:NSData) -> TestFieldOrderings {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestFieldOrderings.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestFieldOrderings {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestFieldOrderings.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestExtremeDefaultValues {
-    class func parseFromNSData(data:NSData) -> TestExtremeDefaultValues {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestExtremeDefaultValues.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestExtremeDefaultValues {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestExtremeDefaultValues.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension SparseEnumMessage {
-    class func parseFromNSData(data:NSData) -> SparseEnumMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return SparseEnumMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> SparseEnumMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return SparseEnumMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension OneString {
-    class func parseFromNSData(data:NSData) -> OneString {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return OneString.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> OneString {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return OneString.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension MoreString {
-    class func parseFromNSData(data:NSData) -> MoreString {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return MoreString.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> MoreString {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return MoreString.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension OneBytes {
-    class func parseFromNSData(data:NSData) -> OneBytes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return OneBytes.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> OneBytes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return OneBytes.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension MoreBytes {
-    class func parseFromNSData(data:NSData) -> MoreBytes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return MoreBytes.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> MoreBytes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return MoreBytes.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension Int32Message {
-    class func parseFromNSData(data:NSData) -> Int32Message {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return Int32Message.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> Int32Message {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return Int32Message.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension Uint32Message {
-    class func parseFromNSData(data:NSData) -> Uint32Message {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return Uint32Message.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> Uint32Message {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return Uint32Message.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension Int64Message {
-    class func parseFromNSData(data:NSData) -> Int64Message {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return Int64Message.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> Int64Message {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return Int64Message.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension Uint64Message {
-    class func parseFromNSData(data:NSData) -> Uint64Message {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return Uint64Message.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> Uint64Message {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return Uint64Message.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension BoolMessage {
-    class func parseFromNSData(data:NSData) -> BoolMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return BoolMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> BoolMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return BoolMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestOneof.FooGroup {
-    class func parseFromNSData(data:NSData) -> TestOneof.FooGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneof.FooGroup.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneof.FooGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneof.FooGroup.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestOneof {
-    class func parseFromNSData(data:NSData) -> TestOneof {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneof.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneof {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneof.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestOneofBackwardsCompatible.FooGroup {
-    class func parseFromNSData(data:NSData) -> TestOneofBackwardsCompatible.FooGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneofBackwardsCompatible.FooGroup.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneofBackwardsCompatible.FooGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneofBackwardsCompatible.FooGroup.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestOneofBackwardsCompatible {
-    class func parseFromNSData(data:NSData) -> TestOneofBackwardsCompatible {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneofBackwardsCompatible.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneofBackwardsCompatible {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneofBackwardsCompatible.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestOneof2.FooGroup {
-    class func parseFromNSData(data:NSData) -> TestOneof2.FooGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneof2.FooGroup.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneof2.FooGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneof2.FooGroup.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestOneof2.NestedMessage {
-    class func parseFromNSData(data:NSData) -> TestOneof2.NestedMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneof2.NestedMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneof2.NestedMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneof2.NestedMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestOneof2 {
-    class func parseFromNSData(data:NSData) -> TestOneof2 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneof2.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestOneof2 {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestOneof2.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestRequiredOneof.NestedMessage {
-    class func parseFromNSData(data:NSData) -> TestRequiredOneof.NestedMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestRequiredOneof.NestedMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestRequiredOneof.NestedMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestRequiredOneof.NestedMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestRequiredOneof {
-    class func parseFromNSData(data:NSData) -> TestRequiredOneof {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestRequiredOneof.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestRequiredOneof {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestRequiredOneof.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestPackedTypes {
-    class func parseFromNSData(data:NSData) -> TestPackedTypes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestPackedTypes.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestPackedTypes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestPackedTypes.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestUnpackedTypes {
-    class func parseFromNSData(data:NSData) -> TestUnpackedTypes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestUnpackedTypes.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestUnpackedTypes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestUnpackedTypes.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestPackedExtensions {
-    class func parseFromNSData(data:NSData) -> TestPackedExtensions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestPackedExtensions.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestPackedExtensions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestPackedExtensions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestUnpackedExtensions {
-    class func parseFromNSData(data:NSData) -> TestUnpackedExtensions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestUnpackedExtensions.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestUnpackedExtensions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestUnpackedExtensions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestDynamicExtensions.DynamicMessageType {
-    class func parseFromNSData(data:NSData) -> TestDynamicExtensions.DynamicMessageType {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestDynamicExtensions.DynamicMessageType.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestDynamicExtensions.DynamicMessageType {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestDynamicExtensions.DynamicMessageType.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestDynamicExtensions {
-    class func parseFromNSData(data:NSData) -> TestDynamicExtensions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestDynamicExtensions.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestDynamicExtensions {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestDynamicExtensions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestRepeatedScalarDifferentTagSizes {
-    class func parseFromNSData(data:NSData) -> TestRepeatedScalarDifferentTagSizes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestRepeatedScalarDifferentTagSizes.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestRepeatedScalarDifferentTagSizes {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestRepeatedScalarDifferentTagSizes.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestParsingMerge.RepeatedFieldsGenerator {
-    class func parseFromNSData(data:NSData) -> TestParsingMerge.RepeatedFieldsGenerator {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestParsingMerge.RepeatedFieldsGenerator.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestParsingMerge.RepeatedFieldsGenerator {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestParsingMerge.RepeatedFieldsGenerator.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestParsingMerge.OptionalGroup {
-    class func parseFromNSData(data:NSData) -> TestParsingMerge.OptionalGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestParsingMerge.OptionalGroup.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestParsingMerge.OptionalGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestParsingMerge.OptionalGroup.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestParsingMerge.RepeatedGroup {
-    class func parseFromNSData(data:NSData) -> TestParsingMerge.RepeatedGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestParsingMerge.RepeatedGroup.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestParsingMerge.RepeatedGroup {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestParsingMerge.RepeatedGroup.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestParsingMerge {
-    class func parseFromNSData(data:NSData) -> TestParsingMerge {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestParsingMerge.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestParsingMerge {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestParsingMerge.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension TestCommentInjectionMessage {
-    class func parseFromNSData(data:NSData) -> TestCommentInjectionMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestCommentInjectionMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestCommentInjectionMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return TestCommentInjectionMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension FooRequest {
-    class func parseFromNSData(data:NSData) -> FooRequest {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return FooRequest.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> FooRequest {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return FooRequest.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension FooResponse {
-    class func parseFromNSData(data:NSData) -> FooResponse {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return FooResponse.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> FooResponse {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return FooResponse.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension FooClientMessage {
-    class func parseFromNSData(data:NSData) -> FooClientMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return FooClientMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> FooClientMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return FooClientMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension FooServerMessage {
-    class func parseFromNSData(data:NSData) -> FooServerMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return FooServerMessage.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> FooServerMessage {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return FooServerMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension BarRequest {
-    class func parseFromNSData(data:NSData) -> BarRequest {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return BarRequest.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> BarRequest {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return BarRequest.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
-internal extension BarResponse {
-    class func parseFromNSData(data:NSData) -> BarResponse {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return BarResponse.builder().mergeFromData(bytes, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
-    }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> BarResponse {
-        var bytes = [Byte](count: data.length, repeatedValue: 0)
-        data.getBytes(&bytes)
-        return BarResponse.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
-    }
-}
 
 // @@protoc_insertion_point(global_scope)

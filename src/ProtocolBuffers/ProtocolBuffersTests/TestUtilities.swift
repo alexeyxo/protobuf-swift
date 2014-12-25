@@ -17,18 +17,16 @@ class  TestUtilities {
         
     }
     
-    class func getData(str:String) -> [Byte] {
+    class func getData(str:String) -> NSData {
         var bytes = [Byte]()
         bytes += str.utf8
-        return bytes
+        return NSData(bytes:&bytes, length:countElements(str))
     }
-    class func goldenData() -> [Byte] {
+    class func goldenData() -> NSData {
         
         var str =  NSBundle(forClass:TestUtilities.self).resourcePath!.stringByAppendingPathComponent("golden_message")
-        let goldenData = NSData(contentsOfFile:str)
-        var data = [Byte](count:goldenData!.length, repeatedValue:0)
-        goldenData!.getBytes(&data)
-        return data
+        let goldenData = NSData(contentsOfFile:str)!
+        return goldenData
     }
     
     class func modifyRepeatedExtensions(var message:TestAllExtensionsBuilder)
@@ -179,7 +177,7 @@ class  TestUtilities {
         {
             XCTAssertTrue("115" == val, "")
         }
-        if let val = message.getExtension(UnittestRoot.optionalBytesExtension()) as? [Byte]
+        if let val = message.getExtension(UnittestRoot.optionalBytesExtension()) as? NSData
         {
             XCTAssertTrue(TestUtilities.getData("116") == val, "")
         }
@@ -378,7 +376,7 @@ class  TestUtilities {
         {
             XCTAssertTrue("215" == val[0], "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedBytesExtension()) as? Array<Array<Byte>>
+        if let val = message.getExtension(UnittestRoot.repeatedBytesExtension()) as? Array<NSData>
         {
             XCTAssertTrue(TestUtilities.getData("216") == val[0], "")
         }
@@ -491,7 +489,7 @@ class  TestUtilities {
         {
             XCTAssertTrue("315" == val[1], "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedBytesExtension()) as? Array<Array<Byte>>
+        if let val = message.getExtension(UnittestRoot.repeatedBytesExtension()) as? Array<NSData>
         {
             XCTAssertTrue(TestUtilities.getData("316") == val[1], "")
         }
@@ -630,7 +628,7 @@ class  TestUtilities {
         {
             XCTAssertTrue("415" == val, "")
         }
-        if let val = message.getExtension(UnittestRoot.defaultBytesExtension()) as? [Byte]
+        if let val = message.getExtension(UnittestRoot.defaultBytesExtension()) as? NSData
         {
             XCTAssertTrue(TestUtilities.getData("416") == val, "")
         }
@@ -822,7 +820,7 @@ class  TestUtilities {
         {
             XCTAssertTrue("215" == val[0], "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedBytesExtension()) as? Array<Array<Byte>>
+        if let val = message.getExtension(UnittestRoot.repeatedBytesExtension()) as? Array<NSData>
         {
             XCTAssertTrue(TestUtilities.getData("216") == val[0], "")
         }
@@ -937,7 +935,7 @@ class  TestUtilities {
         {
             XCTAssertTrue("515" == val[1], "")
         }
-        if let val = message.getExtension(UnittestRoot.repeatedBytesExtension()) as? Array<Array<Byte>>
+        if let val = message.getExtension(UnittestRoot.repeatedBytesExtension()) as? Array<NSData>
         {
             XCTAssertTrue(TestUtilities.getData("516") == val[1], "")
         }
@@ -1375,7 +1373,7 @@ class  TestUtilities {
         builder.bb = 602
         message.oneofNestedMessage = builder.build()
         message.oneofString = "603"
-        message.oneofBytes = [Byte]() + "604".utf8
+        message.oneofBytes = NSData(bytes: ([Byte]() + "604".utf8), length: 3)
     }
     
     class func setAllExtensions(message:TestAllExtensionsBuilder)
@@ -1606,7 +1604,7 @@ class  TestUtilities {
         XCTAssertTrue(0 == message.optionalDouble, "")
         XCTAssertTrue(false == message.optionalBool, "")
         XCTAssertTrue("" == message.optionalString, "")
-        XCTAssertTrue([Byte]() == message.optionalBytes, "")
+        XCTAssertTrue(NSData() == message.optionalBytes, "")
         
         // Embedded messages should also be clear.
         XCTAssertFalse(message.optionalGroup.hasA, "")
@@ -1795,9 +1793,9 @@ class  TestUtilities {
         {
             XCTAssertTrue("" == val, "")
         }
-        if let val = message.getExtension(UnittestRoot.optionalBytesExtension()) as? [Byte]
+        if let val = message.getExtension(UnittestRoot.optionalBytesExtension()) as? NSData
         {
-            XCTAssertTrue([Byte]() == val, "")
+            XCTAssertTrue(NSData() == val, "")
         }
         
         // Embedded messages should also be clear.
@@ -2037,7 +2035,7 @@ class  TestUtilities {
         {
             XCTAssertTrue("hello" == val, "")
         }
-        if let val = message.getExtension(UnittestRoot.defaultBytesExtension()) as? [Byte]
+        if let val = message.getExtension(UnittestRoot.defaultBytesExtension()) as? NSData
         {
             XCTAssertTrue(TestUtilities.getData("world") == val, "")
         }

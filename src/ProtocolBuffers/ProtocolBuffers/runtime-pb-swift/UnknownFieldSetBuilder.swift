@@ -140,7 +140,7 @@ public class UnknownFieldSetBuilder
     }
     
     
-    public func mergeFromData(data:[Byte]) -> UnknownFieldSetBuilder
+    public func mergeFromData(data:NSData) -> UnknownFieldSetBuilder
     {
         var input:CodedInputStream = CodedInputStream(data: data)
         mergeFromCodedInputStream(input)
@@ -233,7 +233,7 @@ public class UnknownFieldSetBuilder
         return UnknownFieldSetBuilder()
     }
     
-    public func mergeFromData(data:[Byte], extensionRegistry:ExtensionRegistry) ->UnknownFieldSetBuilder
+    public func mergeFromData(data:NSData, extensionRegistry:ExtensionRegistry) ->UnknownFieldSetBuilder
     {
         var input = CodedInputStream(data: data)
          mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry)

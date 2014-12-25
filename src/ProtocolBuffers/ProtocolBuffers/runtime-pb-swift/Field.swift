@@ -27,55 +27,55 @@ public func ==(lhs:Field, rhs:Field) -> Bool
     return check
 }
 
-public func ==(lhs:Array<Array<Byte>>, rhs:Array<Array<Byte>>) -> Bool
-{
-    if lhs.count == rhs.count
-    {
-        for (var i = 0; i < lhs.count; i++)
-        {
-            var lbytes = lhs[i]
-            var rbytes = rhs[i]
-            
-            if lbytes.count == rbytes.count
-            {
-                if lbytes == rbytes
-                {
-                    continue
-                }
-                else
-                {
-                    return false
-                }
-            }
-            else
-            {
-                return false
-            }
-        }
-        return true
-    }
-    return false
-}
-
-
-
-public func ==(lhs:Array<Byte>, rhs:Array<Byte>) -> Bool
-{
-    if lhs.count == rhs.count
-    {
-        for (var i = 0; i < lhs.count; i++)
-        {
-            var lbytes = lhs[i]
-            var rbytes = rhs[i]
-            if lbytes != rbytes
-            {
-                return false
-            }
-        }
-        return true
-    }
-    return false
-}
+//public func ==(lhs:Array<Array<Byte>>, rhs:Array<Array<Byte>>) -> Bool
+//{
+//    if lhs.count == rhs.count
+//    {
+//        for (var i = 0; i < lhs.count; i++)
+//        {
+//            var lbytes = lhs[i]
+//            var rbytes = rhs[i]
+//            
+//            if lbytes.count == rbytes.count
+//            {
+//                if lbytes == rbytes
+//                {
+//                    continue
+//                }
+//                else
+//                {
+//                    return false
+//                }
+//            }
+//            else
+//            {
+//                return false
+//            }
+//        }
+//        return true
+//    }
+//    return false
+//}
+//
+//
+//
+//public func ==(lhs:Array<Byte>, rhs:Array<Byte>) -> Bool
+//{
+//    if lhs.count == rhs.count
+//    {
+//        for (var i = 0; i < lhs.count; i++)
+//        {
+//            var lbytes = lhs[i]
+//            var rbytes = rhs[i]
+//            if lbytes != rbytes
+//            {
+//                return false
+//            }
+//        }
+//        return true
+//    }
+//    return false
+//}
 
 //public protocol FieldOverload
 //{
@@ -112,7 +112,7 @@ final public class Field:Equatable,Hashable
     public var variantArray:Array<Int64>
     public var fixed32Array:Array<UInt32>
     public var fixed64Array:Array<UInt64>
-    public var lengthDelimited:Array<Array<Byte>>
+    public var lengthDelimited:Array<NSData>
     public var groupArray:Array<UnknownFieldSet>
     
   
@@ -123,7 +123,7 @@ final public class Field:Equatable,Hashable
         variantArray = [Int64](count: 0, repeatedValue: 0)
         fixed32Array = [UInt32](count: 0, repeatedValue: 0)
         fixed64Array = [UInt64](count: 0, repeatedValue: 0)
-        lengthDelimited = Array<Array<Byte>>()
+        lengthDelimited = Array<NSData>()
         groupArray = Array<UnknownFieldSet>()
     }
     
@@ -133,27 +133,27 @@ final public class Field:Equatable,Hashable
     
         for value in variantArray
         {
-            result += WireFormat.computeInt64Size(fieldNumber, value: value)
+            result +=  value.computeInt64Size(fieldNumber)
         }
         
         for value in fixed32Array
         {
-            result += WireFormat.computeFixed32Size(fieldNumber, value: value)
+            result +=  value.computeFixed32Size(fieldNumber)
         }
         
         for value in fixed64Array
         {
-            result += WireFormat.computeFixed64Size(fieldNumber, value: value)
+            result +=  value.computeFixed64Size(fieldNumber)
         }
 
         for value in lengthDelimited
         {
-            result += WireFormat.computeDataSize(fieldNumber, value: value)
+            result += value.computeDataSize(fieldNumber)
         }
 
         for  value in groupArray
         {
-            result += WireFormat.computeUnknownGroupSize(fieldNumber, value: value)
+            result += value.computeUnknownGroupSize(fieldNumber)
         }
         
         return result
@@ -162,7 +162,7 @@ final public class Field:Equatable,Hashable
     public func getSerializedSizeAsMessageSetExtension(fieldNumber:Int32) -> Int32 {
         var result:Int32 = 0
         for value in lengthDelimited {
-            result += WireFormat.computeRawMessageSetExtensionSize(fieldNumber, value:value)
+            result += value.computeRawMessageSetExtensionSize(fieldNumber)
         }
         return result
     }
@@ -251,10 +251,7 @@ final public class Field:Equatable,Hashable
             }
             for value in lengthDelimited
             {
-                for byteVal in value
-                {
-                    hashCode = (hashCode &* 31) &+ byteVal.hashValue
-                }
+                    hashCode = (hashCode &* 31) &+ value.hashValue
             }
             for value in groupArray
             {

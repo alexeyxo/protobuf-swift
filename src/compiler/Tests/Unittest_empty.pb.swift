@@ -20,8 +20,5 @@ internal struct UnittestEmptyRoot {
   }
 }
 
-//Class extensions: NSData
-
-
 
 // @@protoc_insertion_point(global_scope)

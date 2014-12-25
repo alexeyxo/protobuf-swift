@@ -206,7 +206,7 @@ messageOrGroupClass:Any.Type,
             output.writeUInt64(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeBytes:
-            var downCastValue = value as [Byte]
+            var downCastValue = value as NSData
             output.writeData(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeString:
@@ -295,7 +295,7 @@ messageOrGroupClass:Any.Type,
             output.writeUInt64NoTag(downCastValue)
         
         case .ExtensionTypeBytes:
-            var downCastValue = value as [Byte]
+            var downCastValue = value as NSData
             output.writeDataNoTag(downCastValue)
 
         case .ExtensionTypeString:
@@ -321,79 +321,79 @@ messageOrGroupClass:Any.Type,
         
         case .ExtensionTypeBool:
             var downCastValue = value as Bool
-            return WireFormat.computeBoolSize(fieldNumber, value:downCastValue)
+            return downCastValue.computeBoolSize(fieldNumber)
 
         case .ExtensionTypeFixed32:
             var downCastValue = value as UInt32
-            return WireFormat.computeFixed32Size(fieldNumber, value: downCastValue)
+            return downCastValue.computeFixed32Size(fieldNumber)
             
         case .ExtensionTypeSFixed32:
             var downCastValue = value as Int32
-            return WireFormat.computeSFixed32Size(fieldNumber, value:downCastValue)
+            return downCastValue.computeSFixed32Size(fieldNumber)
             
         case .ExtensionTypeSInt32:
             var downCastValue = value as Int32
-            return WireFormat.computeSInt32Size(fieldNumber, value: downCastValue)
+            return downCastValue.computeSInt32Size(fieldNumber)
             
         case .ExtensionTypeInt32:
             var downCastValue = value as Int32
-            return WireFormat.computeInt32Size(fieldNumber, value:downCastValue)
+            return downCastValue.computeInt32Size(fieldNumber)
             
         case .ExtensionTypeEnum:
             var downCastValue = value as Int32
-            return WireFormat.computeEnumSize(fieldNumber, value:downCastValue)
+            return downCastValue.computeEnumSize(fieldNumber)
             
         case .ExtensionTypeFixed64:
             var downCastValue = value as UInt64
-            return WireFormat.computeFixed64Size(fieldNumber, value: downCastValue)
+            return downCastValue.computeFixed64Size(fieldNumber)
             
         case .ExtensionTypeSFixed64:
             var downCastValue = value as Int64
-            return WireFormat.computeSFixed64Size(fieldNumber, value:downCastValue)
+            return downCastValue.computeSFixed64Size(fieldNumber)
 
         case .ExtensionTypeInt64:
             var downCastValue = value as Int64
-            return WireFormat.computeInt64Size(fieldNumber, value:downCastValue)
+            return downCastValue.computeInt64Size(fieldNumber)
             
         case .ExtensionTypeSInt64:
             var downCastValue = value as Int64
-            return WireFormat.computeSInt64Size(fieldNumber, value:downCastValue)
+            return downCastValue.computeSInt64Size(fieldNumber)
             
         case .ExtensionTypeFloat:
             var downCastValue = value as Float
-            return WireFormat.computeFloatSize(fieldNumber, value:downCastValue)
+            return downCastValue.computeFloatSize(fieldNumber)
             
         case .ExtensionTypeDouble:
             var downCastValue = value as Double
-             return WireFormat.computeDoubleSize(fieldNumber, value:downCastValue)
+             return downCastValue.computeDoubleSize(fieldNumber)
             
         case .ExtensionTypeUInt32:
             var downCastValue = value as UInt32
-            return WireFormat.computeUInt32Size(fieldNumber, value:downCastValue)
+            return downCastValue.computeUInt32Size(fieldNumber)
             
         case .ExtensionTypeUInt64:
             var downCastValue = value as UInt64
-           return WireFormat.computeUInt64Size(fieldNumber, value:downCastValue)
+           return downCastValue.computeUInt64Size(fieldNumber)
             
         case .ExtensionTypeBytes:
-            var downCastValue = value as [Byte]
-            return WireFormat.computeDataSize(fieldNumber, value:downCastValue)
+            var downCastValue = value as NSData
+            return downCastValue.computeDataSize(fieldNumber)
             
         case .ExtensionTypeString:
             var downCastValue = value as String
-            return WireFormat.computeStringSize(fieldNumber, value:downCastValue)
+            return downCastValue.computeStringSize(fieldNumber)
             
         case .ExtensionTypeGroup:
             var downCastValue = value as GeneratedMessage
-            return WireFormat.computeGroupSize(fieldNumber, value:downCastValue)
+            return downCastValue.computeGroupSize(fieldNumber)
             
         case .ExtensionTypeMessage where isMessageSetWireFormat == true:
             var downCastValue = value as GeneratedMessage
-            return WireFormat.computeMessageSetExtensionSize(fieldNumber, value:downCastValue)
+            return downCastValue.computeMessageSetExtensionSize(fieldNumber)
             
         case .ExtensionTypeMessage where isMessageSetWireFormat == false:
             var downCastValue = value as GeneratedMessage
-            return WireFormat.computeMessageSize(fieldNumber, value:downCastValue)
+            return downCastValue.computeMessageSize(fieldNumber)
             
         default:
             NSException(name:"InternalError", reason:"", userInfo: nil).raise()
@@ -407,75 +407,75 @@ messageOrGroupClass:Any.Type,
 
         case .ExtensionTypeBool:
             var downCastValue = value as Bool
-            return WireFormat.computeBoolSizeNoTag(downCastValue)
+            return downCastValue.computeBoolSizeNoTag()
             
         case .ExtensionTypeFixed32:
             var downCastValue = value as UInt32
-            return WireFormat.computeFixed32SizeNoTag(downCastValue)
+            return downCastValue.computeFixed32SizeNoTag()
             
         case .ExtensionTypeSFixed32:
             var downCastValue = value as Int32
-            return WireFormat.computeSFixed32SizeNoTag(downCastValue)
+            return downCastValue.computeSFixed32SizeNoTag()
         
         case .ExtensionTypeInt32:
             var downCastValue = value as Int32
-            return WireFormat.computeInt32SizeNoTag(downCastValue)
+            return downCastValue.computeInt32SizeNoTag()
         
         case .ExtensionTypeSInt32:
             var downCastValue = value as Int32
-            return WireFormat.computeSInt32SizeNoTag(downCastValue)
+            return downCastValue.computeSInt32SizeNoTag()
             
         case .ExtensionTypeEnum:
             var downCastValue = value as Int32
-            return WireFormat.computeEnumSizeNoTag(downCastValue)
+            return downCastValue.computeEnumSizeNoTag()
             
         case .ExtensionTypeFixed64:
             var downCastValue = value as UInt64
-            return WireFormat.computeFixed64SizeNoTag(downCastValue)
+            return downCastValue.computeFixed64SizeNoTag()
             
         case .ExtensionTypeSFixed64:
             var downCastValue = value as Int64
-            return WireFormat.computeSFixed64SizeNoTag(downCastValue)
+            return downCastValue.computeSFixed64SizeNoTag()
         
         case .ExtensionTypeInt64:
             var downCastValue = value as Int64
-            return WireFormat.computeInt64SizeNoTag(downCastValue)
+            return downCastValue.computeInt64SizeNoTag()
             
         case .ExtensionTypeSInt64:
             var downCastValue = value as Int64
-            return WireFormat.computeSInt64SizeNoTag(downCastValue)
+            return downCastValue.computeSInt64SizeNoTag()
             
         case .ExtensionTypeFloat:
             var downCastValue = value as Float
-            return WireFormat.computeFloatSizeNoTag(downCastValue)
+            return downCastValue.computeFloatSizeNoTag()
             
         case .ExtensionTypeDouble:
             var downCastValue = value as Double
-            return WireFormat.computeDoubleSizeNoTag(downCastValue)
+            return downCastValue.computeDoubleSizeNoTag()
             
         case .ExtensionTypeUInt32:
             var downCastValue = value as UInt32
-            return WireFormat.computeUInt32SizeNoTag(downCastValue)
+            return downCastValue.computeUInt32SizeNoTag()
             
         case .ExtensionTypeUInt64:
             var downCastValue = value as UInt64
-            return WireFormat.computeUInt64SizeNoTag(downCastValue)
+            return downCastValue.computeUInt64SizeNoTag()
             
         case .ExtensionTypeBytes:
-            var downCastValue = value as [Byte]
-            return WireFormat.computeDataSizeNoTag(downCastValue)
+            var downCastValue = value as NSData
+            return downCastValue.computeDataSizeNoTag()
             
         case .ExtensionTypeString:
             var downCastValue = value as String
-            return WireFormat.computeStringSizeNoTag(downCastValue)
+            return downCastValue.computeStringSizeNoTag()
             
         case .ExtensionTypeGroup:
             var downCastValue = value as GeneratedMessage
-            return WireFormat.computeGroupSizeNoTag(downCastValue)
+            return downCastValue.computeGroupSizeNoTag()
             
         case .ExtensionTypeMessage:
             var downCastValue = value as GeneratedMessage
-            return WireFormat.computeMessageSizeNoTag(downCastValue)
+            return downCastValue.computeMessageSizeNoTag()
             
         default:
             NSException(name:"InternalError", reason:"", userInfo: nil).raise()
@@ -547,7 +547,7 @@ messageOrGroupClass:Any.Type,
                     size += computeSingleSerializedSizeNoTag(value)
                 }
             }
-            return size + WireFormat.computeTagSize(fieldNumber) + WireFormat.computeRawVarint32Size(size)
+            return size + fieldNumber.computeTagSize() + size.computeRawVarint32Size()
 
         }
         else
@@ -583,7 +583,7 @@ messageOrGroupClass:Any.Type,
                 return computeRepeatedSerializedSizeIncludingTags(values)
             case let values as [String]:
                 return computeRepeatedSerializedSizeIncludingTags(values)
-            case let values as Array<Array<Byte>>:
+            case let values as Array<NSData>:
                 return computeRepeatedSerializedSizeIncludingTags(values)
             case let values as [GeneratedMessage]:
                 return computeRepeatedSerializedSizeIncludingTags(values)
@@ -621,7 +621,7 @@ messageOrGroupClass:Any.Type,
                 writeRepeatedValuesIncludingTags(values, output:output)
             case let values as [String]:
                 writeRepeatedValuesIncludingTags(values, output:output)
-            case let values as Array<Array<Byte>>:
+            case let values as Array<NSData>:
                 writeRepeatedValuesIncludingTags(values, output:output)
             case let values as [GeneratedMessage]:
                 writeRepeatedValuesIncludingTags(values, output:output)
@@ -668,7 +668,7 @@ messageOrGroupClass:Any.Type,
                 iterationRepetedValuesForDescription(values, output: &output, indent: indent)
             case let values as [String]:
                 iterationRepetedValuesForDescription(values, output: &output, indent: indent)
-            case let values as Array<Array<Byte>>:
+            case let values as Array<NSData>:
                 iterationRepetedValuesForDescription(values, output: &output, indent: indent)
             case let values as [GeneratedMessage]:
                 iterationRepetedValuesForDescription(values, output: &output, indent: indent)

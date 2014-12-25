@@ -27,18 +27,13 @@ public protocol MessageInit:class
 
 public protocol Message:class,MessageInit
 {
-    
     var unknownFields:UnknownFieldSet{get}
     var description:String {get}
-    
     func serializedSize() -> Int32
     func isInitialized() -> Bool
-    
     func writeToCodedOutputStream(output:CodedOutputStream)
     func writeToOutputStream(output:NSOutputStream)
-    
-    func data()-> [Byte]
-    
+    func data()-> NSData
     class func classBuilder()-> MessageBuilder
     func classBuilder()-> MessageBuilder
     
@@ -53,8 +48,8 @@ public protocol MessageBuilder: class
      func mergeUnknownFields(unknownField:UnknownFieldSet) ->Self
      func mergeFromCodedInputStream(input:CodedInputStream) -> Self
      func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Self
-     func mergeFromData(data:[Byte]) -> Self
-     func mergeFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Self
+     func mergeFromData(data:NSData) -> Self
+     func mergeFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Self
      func mergeFromInputStream(input:NSInputStream) -> Self
      func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Self
 }
@@ -73,10 +68,10 @@ public class AbstractMessage:Equatable, Hashable, Message {
     
  
     
-    public func data() -> [Byte]
+    public func data() -> NSData
     {
         var size = serializedSize()
-        let data:[Byte] = [Byte](count: Int(size), repeatedValue: 0)
+        let data = NSMutableData(length: Int(size))!
         var stream:CodedOutputStream = CodedOutputStream(data: data)
         writeToCodedOutputStream(stream)
         return stream.buffer.buffer
@@ -144,15 +139,6 @@ extension AbstractMessage:Printable
     }
 }
 
-public extension AbstractMessage
-{
-    public func getNSData() -> NSData
-    {
-        var nsdata:NSData = NSData(bytes: data(), length: data().count)
-        return nsdata
-    }
-}
-
 public class AbstractMessageBuilder:MessageBuilder
 {
     public var unknownFields:UnknownFieldSet
@@ -200,7 +186,7 @@ public class AbstractMessageBuilder:MessageBuilder
         return self
     }
     
-    public func mergeFromData(data:[Byte]) -> Self
+    public func mergeFromData(data:NSData) -> Self
     {
         var input:CodedInputStream = CodedInputStream(data:data)
         mergeFromCodedInputStream(input)
@@ -209,7 +195,7 @@ public class AbstractMessageBuilder:MessageBuilder
     }
     
     
-    public func mergeFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Self
+    public func mergeFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Self
     {
         var input:CodedInputStream = CodedInputStream(data:data)
         mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry)

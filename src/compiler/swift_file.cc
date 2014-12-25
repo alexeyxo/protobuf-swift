@@ -107,7 +107,8 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         }
         
         //TODO
-        printer->Print("$acontrol$ var extensionRegistry:ExtensionRegistry\n","acontrol", GetAccessControlType(file_));
+        printer->Print("$acontrol$ var extensionRegistry:ExtensionRegistry\n",
+                       "acontrol", GetAccessControlType(file_));
         printer->Print(
                        "\n"
                        "init() {\n");
@@ -177,16 +178,6 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
             MessageGenerator(file_->message_type(i)).GenerateSource(printer);
         }
         
-        //Extensions NSData
-        printer->Print("//Class extensions: NSData\n\n\n");
-        
-        for (int i = 0; i < file_->message_type_count(); i++) {
-            
-            for (int j = 0; j < file_->message_type(i)->nested_type_count(); j++) {
-                MessageGenerator(file_->message_type(i)->nested_type(j)).GenerateParseFromExtensionMethodsSource(printer);
-            }
-            MessageGenerator(file_->message_type(i)).GenerateParseFromExtensionMethodsSource(printer);
-        }
         
         printer->Print(
                        "\n"
