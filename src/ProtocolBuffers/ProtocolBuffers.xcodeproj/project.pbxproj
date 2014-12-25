@@ -29,8 +29,8 @@
 		3F2B1CE619E2A6EC001A505E /* Unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CD819E2A6EC001A505E /* Unittest.pb.swift */; };
 		3F2B1CEB19E2A6EC001A505E /* Unittest_import.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CDD19E2A6EC001A505E /* Unittest_import.pb.swift */; };
 		3F2B1CED19E2A6EC001A505E /* Unittest_import_public.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CDF19E2A6EC001A505E /* Unittest_import_public.pb.swift */; };
-		3F3D7FE11A4C807300DA626D /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F3D7FE01A4C807300DA626D /* ProtocolBuffers.h */; };
-		3F3D7FE21A4C807300DA626D /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F3D7FE01A4C807300DA626D /* ProtocolBuffers.h */; };
+		3F3D7FE11A4C807300DA626D /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F3D7FE01A4C807300DA626D /* ProtocolBuffers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F3D7FE21A4C807300DA626D /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F3D7FE01A4C807300DA626D /* ProtocolBuffers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F4106271A1A667800742090 /* ProtocolBuffers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F41061C1A1A667700742090 /* ProtocolBuffers.framework */; };
 		3F4106361A1A66C700742090 /* AbstractMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0619D1D83900F7FA0D /* AbstractMessage.swift */; };
 		3F4106371A1A66C700742090 /* CodedInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F181E0719D1D83900F7FA0D /* CodedInputStream.swift */; };

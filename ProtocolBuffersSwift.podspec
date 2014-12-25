@@ -28,9 +28,9 @@ Pod::Spec.new do |s|
   s.authors      = { "Alexey Khokhlov" => "alexeyxo@gmail.com" }
 
   s.source       = {
-    :git => "https://github.com/alexeyxo/protobuf-swift.git", :tag => "1.2"
+    :git => "https://github.com/alexeyxo/protobuf-swift.git", :tag => "v1.2"
   }
-  s.source       = { :git => "https://github.com/alexeyxo/protobuf-swift.git", :tag => "1.2" }
+  s.source       = { :git => "https://github.com/alexeyxo/protobuf-swift.git", :tag => "v1.2" }
   s.source_files = 'src/ProtocolBuffers/ProtocolBuffers/runtime-pb-swift/*.{h,swift}'
   s.frameworks   = 'Foundation'
   s.requires_arc = true
