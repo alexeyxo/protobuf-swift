@@ -4,6 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "Protocol Buffers for Swift"
   s.homepage     = "http://protobuf.io#swift"
   s.license      = "Apache 2.0"
+  s.documentation_url = "https://github.com/alexeyxo/protobuf-swift"
   s.license      = { :type => 'Apache License, Version 2.0', :text =>
     <<-LICENSE
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,15 +24,17 @@ Pod::Spec.new do |s|
     LICENSE
   }
 
+  # s.xcconfig = { 'PRODUCT_NAME' => 'ProtocolBuffers', 'PRODUCT_MODULE_NAME' => 'ProtocolBuffers' }
+
   s.author       = { "Alexey Khokhlov" => "alexeyxo@gmail.com" }
 
   s.authors      = { "Alexey Khokhlov" => "alexeyxo@gmail.com" }
 
-  s.source       = {
-    :git => "https://github.com/alexeyxo/protobuf-swift.git", :tag => "v1.2"
-  }
-  s.source       = { :git => "https://github.com/alexeyxo/protobuf-swift.git", :tag => "v1.2" }
-  s.source_files = 'src/ProtocolBuffers/ProtocolBuffers/runtime-pb-swift/*.{h,swift}'
-  s.frameworks   = 'Foundation'
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.10'
+
+  s.source       = { :git => "https://github.com/alexeyxo/protobuf-swift.git", :tag => "v1.2" :branch => 'pods' }
+  s.source_files = 'src/ProtocolBuffers/runtime-pb-swift/*.{h,swift}'
   s.requires_arc = true
+  s.frameworks   = 'Foundation'
 end

@@ -4,7 +4,7 @@
 
 An implementation of Protocol Buffers in Swift.
 
-Protocol Buffers are a way of encoding structured data in an efficient yet extensible format. This project is based on an implementation of Protocol Buffers from Google. See the[Google protobuf project](https://developers.google.com/protocol-buffers/docs/overview) for more information.
+Protocol Buffers are a way of encoding structured data in an efficient yet extensible format. This project is based on an implementation of Protocol Buffers from Google. See the [Google protobuf project](https://developers.google.com/protocol-buffers/docs/overview) for more information.
 
 ####Required Protocol Buffers 2.6
 
