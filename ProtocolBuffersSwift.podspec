@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
 
-  s.source       = { :git => "https://github.com/alexeyxo/protobuf-swift.git", :tag => "v1.2" :branch => 'pods' }
+  s.source       = { :git => "https://github.com/alexeyxo/protobuf-swift.git", :tag => "v1.2", :branch => 'pods' }
   s.source_files = 'src/ProtocolBuffers/runtime-pb-swift/*.{h,swift}'
   s.requires_arc = true
   s.frameworks   = 'Foundation'
