@@ -197,7 +197,7 @@ public class CodedOutputStream
     
     public func writeStringNoTag(value:String)
     {        
-        let data = NSData(bytes: [Byte]() + value.utf8, length: countElements(value))//(value as NSString).dataUsingEncoding(NSUTF8StringEncoding)!
+        let data = value.utf8ToNSData()
         writeRawVarint32(Int32(data.length))
         writeRawData(data)
     }

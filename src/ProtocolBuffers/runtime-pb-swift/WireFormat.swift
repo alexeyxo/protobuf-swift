@@ -321,6 +321,12 @@ public extension String
     {
         return fieldNumber.computeTagSize() + computeStringSizeNoTag()
     }
+    func utf8ToNSData()-> NSData
+    {
+        var bytes = [Byte]() + self.utf8
+        let data = NSData(bytes: bytes, length:bytes.count)
+        return data
+    }
 }
 
 public extension AbstractMessage

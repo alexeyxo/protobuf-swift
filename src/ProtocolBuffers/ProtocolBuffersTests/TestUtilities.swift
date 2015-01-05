@@ -20,7 +20,7 @@ class  TestUtilities {
     class func getData(str:String) -> NSData {
         var bytes = [Byte]()
         bytes += str.utf8
-        return NSData(bytes:&bytes, length:countElements(str))
+        return NSData(bytes:&bytes, length:bytes.count)
     }
     class func goldenData() -> NSData {
         
