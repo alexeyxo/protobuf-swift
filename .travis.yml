@@ -4,9 +4,6 @@ before_install:
 - brew unlink xctool
 - brew install xctool --HEAD
 - xctool -v
-- brew install automake
-- brew unlink libtool
-- brew install libtool
 - brew install protobuf
 - ./scripts/build.sh
 - ./travis/travis.sh
