@@ -173,6 +173,10 @@ final public class ProtoPerfomanceBatchBuilder : GeneratedMessageBuilder {
            builderResult.batch = value
        }
   }
+  func setBatch(value:Array<ProtoPerfomance>)-> ProtoPerfomanceBatchBuilder {
+    self.batch = value
+    return self
+  }
   public func clearBatch() -> ProtoPerfomanceBatchBuilder {
     builderResult.batch.removeAll(keepCapacity: false)
     return self
@@ -458,6 +462,10 @@ final public class ProtoPerfomanceBuilder : GeneratedMessageBuilder {
            builderResult.ints = value
        }
   }
+  func setInts(value:Int32)-> ProtoPerfomanceBuilder {
+    self.ints = value
+    return self
+  }
   public func clearInts() -> ProtoPerfomanceBuilder{
        builderResult.hasInts = false
        builderResult.ints = Int32(0)
@@ -476,6 +484,10 @@ final public class ProtoPerfomanceBuilder : GeneratedMessageBuilder {
            builderResult.hasInts64 = true
            builderResult.ints64 = value
        }
+  }
+  func setInts64(value:Int64)-> ProtoPerfomanceBuilder {
+    self.ints64 = value
+    return self
   }
   public func clearInts64() -> ProtoPerfomanceBuilder{
        builderResult.hasInts64 = false
@@ -496,6 +508,10 @@ final public class ProtoPerfomanceBuilder : GeneratedMessageBuilder {
            builderResult.doubles = value
        }
   }
+  func setDoubles(value:Double)-> ProtoPerfomanceBuilder {
+    self.doubles = value
+    return self
+  }
   public func clearDoubles() -> ProtoPerfomanceBuilder{
        builderResult.hasDoubles = false
        builderResult.doubles = Double(0)
@@ -514,6 +530,10 @@ final public class ProtoPerfomanceBuilder : GeneratedMessageBuilder {
            builderResult.hasFloats = true
            builderResult.floats = value
        }
+  }
+  func setFloats(value:Float)-> ProtoPerfomanceBuilder {
+    self.floats = value
+    return self
   }
   public func clearFloats() -> ProtoPerfomanceBuilder{
        builderResult.hasFloats = false
@@ -534,6 +554,10 @@ final public class ProtoPerfomanceBuilder : GeneratedMessageBuilder {
            builderResult.str = value
        }
   }
+  func setStr(value:String)-> ProtoPerfomanceBuilder {
+    self.str = value
+    return self
+  }
   public func clearStr() -> ProtoPerfomanceBuilder{
        builderResult.hasStr = false
        builderResult.str = ""
@@ -553,6 +577,10 @@ final public class ProtoPerfomanceBuilder : GeneratedMessageBuilder {
            builderResult.bytes = value
        }
   }
+  func setBytes(value:NSData)-> ProtoPerfomanceBuilder {
+    self.bytes = value
+    return self
+  }
   public func clearBytes() -> ProtoPerfomanceBuilder{
        builderResult.hasBytes = false
        builderResult.bytes = NSData()
@@ -571,6 +599,10 @@ final public class ProtoPerfomanceBuilder : GeneratedMessageBuilder {
            builderResult.hasDescription = true
            builderResult.description_ = value
        }
+  }
+  func setDescription(value:String)-> ProtoPerfomanceBuilder {
+    self.description_ = value
+    return self
   }
   public func clearDescription() -> ProtoPerfomanceBuilder{
        builderResult.hasDescription = false

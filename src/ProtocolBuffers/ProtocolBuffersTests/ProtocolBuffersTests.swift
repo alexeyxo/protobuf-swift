@@ -19,32 +19,31 @@ class ProtocolBuffersTests: XCTestCase {
         super.tearDown()
     }
     
-//    func testPerformance() {
-//        var originalBuilder = ProtoPerfomance.builder()
-//        originalBuilder.ints = Int32(32)
-//        originalBuilder.ints64 = Int64(64)
-//        originalBuilder.doubles = Double(12.12)
-//        originalBuilder.floats = Float(123.123)
-//        originalBuilder.str = "string"
-//        let original = originalBuilder.build()
-//        
-//        var builder:ProtoPerfomanceBatchBuilder = ProtoPerfomanceBatchBuilder()
-//        
-//        for _ in 0...10000 {
-//            builder.batch += [original]
-//        }
-//        
-//        
-//        let build = builder.build()
-//        
-//        self.measureBlock() {
-//            for _ in 0...1 {
-//                let clone = ProtoPerfomanceBatch.parseFromData(build.data())
+    func testPerformance() {
+        var originalBuilder = ProtoPerfomance.builder()
+        originalBuilder.setInts(Int32(32))
+                       .setInts64(Int64(64))
+                       .setDoubles(Double(12.12))
+                       .setFloats(Float(123.123))
+                       .setStr("string")
+        let original = originalBuilder.build()
+        var builder:ProtoPerfomanceBatchBuilder = ProtoPerfomanceBatchBuilder()
+        
+        for _ in 0...2 {
+            builder.batch += [original]
+        }
+        
+        
+        let build = builder.build()
+        
+        self.measureBlock() {
+            for _ in 0...1 {
+                let clone = ProtoPerfomanceBatch.parseFromData(build.data())
+
+            }
+        }
+    }
 //
-//            }
-//        }
-//    }
-//    
 //    func testPerformanceJson()
 //    {
 //        

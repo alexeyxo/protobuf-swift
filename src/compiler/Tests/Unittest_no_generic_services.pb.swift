@@ -189,6 +189,10 @@ final internal class TestMessageBuilder : ExtendableMessageBuilder {
            builderResult.a = value
        }
   }
+  func setA(value:Int32)-> TestMessageBuilder {
+    self.a = value
+    return self
+  }
   internal func clearA() -> TestMessageBuilder{
        builderResult.hasA = false
        builderResult.a = Int32(0)

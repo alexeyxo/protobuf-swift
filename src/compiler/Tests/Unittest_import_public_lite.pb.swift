@@ -151,6 +151,10 @@ final internal class PublicImportMessageLiteBuilder : GeneratedMessageBuilder {
            builderResult.e = value
        }
   }
+  func setE(value:Int32)-> PublicImportMessageLiteBuilder {
+    self.e = value
+    return self
+  }
   internal func clearE() -> PublicImportMessageLiteBuilder{
        builderResult.hasE = false
        builderResult.e = Int32(0)

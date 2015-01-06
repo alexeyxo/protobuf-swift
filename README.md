@@ -52,6 +52,32 @@ println("\(person)")
 person.data() //return NSData
 ```
 
+Chains
+------
+
+```protobuf
+message Perfomance
+{
+  required int32 ints = 1;
+  required int64 ints64 = 2;
+  required double doubles = 3;
+  required float floats  = 4;
+  optional string str  = 5;
+  optional bytes bytes  = 6;
+  optional string description = 7;
+}
+```
+
+```swift
+var originalBuilder = ProtoPerfomance.builder()
+originalBuilder.setInts(Int32(32))
+               .setInts64(Int64(64))
+               .setDoubles(Double(12.12))
+               .setFloats(Float(123.123))
+               .setStr("string")
+let original = originalBuilder.build()
+```
+
 Deserializing
 -------------
 

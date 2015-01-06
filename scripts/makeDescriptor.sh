@@ -6,5 +6,5 @@ cd $pwds;
 cd $pwds/src/compiler/ && protoc google/protobuf/swift-descriptor.proto --swift_out="./Descriptors";
 cd $pwds/src/compiler/ && protoc google/protobuf/descriptor.proto --swift_out="./Descriptors";
 
-cp -f ./Descriptors/Descriptor.pb.swift ../ProtocolBuffers/ProtocolBuffers/runtime-pb-swift/
-cp -f ./Descriptors/SwiftDescriptor.pb.swift ../ProtocolBuffers/ProtocolBuffers/runtime-pb-swift/
+cp -f ./Descriptors/Descriptor.pb.swift ../ProtocolBuffers/runtime-pb-swift/
+cp -f ./Descriptors/SwiftDescriptor.pb.swift ../ProtocolBuffers/runtime-pb-swift/

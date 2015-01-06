@@ -369,8 +369,8 @@ final internal class TestMessageSetContainerBuilder : GeneratedMessageBuilder {
            builderResult.messageSet = value
        }
   }
-  internal func setMessageSetBuilder(builderForValue:TestMessageSetBuilder) -> TestMessageSetContainerBuilder {
-    messageSet = builderForValue.build()
+  func setMessageSet(value:TestMessageSet)-> TestMessageSetContainerBuilder {
+    self.messageSet = value
     return self
   }
   internal func mergeMessageSet(value:TestMessageSet) -> TestMessageSetContainerBuilder {
@@ -572,6 +572,10 @@ final internal class TestMessageSetExtension1Builder : GeneratedMessageBuilder {
            builderResult.i = value
        }
   }
+  func setI(value:Int32)-> TestMessageSetExtension1Builder {
+    self.i = value
+    return self
+  }
   internal func clearI() -> TestMessageSetExtension1Builder{
        builderResult.hasI = false
        builderResult.i = Int32(0)
@@ -756,6 +760,10 @@ final internal class TestMessageSetExtension2Builder : GeneratedMessageBuilder {
            builderResult.hasStr = true
            builderResult.str = value
        }
+  }
+  func setStr(value:String)-> TestMessageSetExtension2Builder {
+    self.str = value
+    return self
   }
   internal func clearStr() -> TestMessageSetExtension2Builder{
        builderResult.hasStr = false
@@ -965,6 +973,10 @@ final internal class RawMessageSet : GeneratedMessage {
                builderResult.typeId = value
            }
       }
+      func setTypeId(value:Int32)-> RawMessageSet.ItemBuilder {
+        self.typeId = value
+        return self
+      }
       internal func clearTypeId() -> RawMessageSet.ItemBuilder{
            builderResult.hasTypeId = false
            builderResult.typeId = Int32(0)
@@ -983,6 +995,10 @@ final internal class RawMessageSet : GeneratedMessage {
                builderResult.hasMessage = true
                builderResult.message = value
            }
+      }
+      func setMessage(value:NSData)-> RawMessageSet.ItemBuilder {
+        self.message = value
+        return self
       }
       internal func clearMessage() -> RawMessageSet.ItemBuilder{
            builderResult.hasMessage = false
@@ -1180,6 +1196,10 @@ final internal class RawMessageSetBuilder : GeneratedMessageBuilder {
        set (value) {
            builderResult.item = value
        }
+  }
+  func setItem(value:Array<RawMessageSet.Item>)-> RawMessageSetBuilder {
+    self.item = value
+    return self
   }
   internal func clearItem() -> RawMessageSetBuilder {
     builderResult.item.removeAll(keepCapacity: false)

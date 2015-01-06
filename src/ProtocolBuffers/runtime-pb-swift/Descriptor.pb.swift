@@ -394,6 +394,10 @@ final public class PBFileDescriptorSetBuilder : GeneratedMessageBuilder {
            builderResult.file = value
        }
   }
+  func setFile(value:Array<PBFileDescriptorProto>)-> PBFileDescriptorSetBuilder {
+    self.file = value
+    return self
+  }
   public func clearFile() -> PBFileDescriptorSetBuilder {
     builderResult.file.removeAll(keepCapacity: false)
     return self
@@ -797,6 +801,10 @@ final public class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.name = value
        }
   }
+  func setName(value:String)-> PBFileDescriptorProtoBuilder {
+    self.name = value
+    return self
+  }
   public func clearName() -> PBFileDescriptorProtoBuilder{
        builderResult.hasName = false
        builderResult.name = ""
@@ -816,6 +824,10 @@ final public class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.package = value
        }
   }
+  func setPackage(value:String)-> PBFileDescriptorProtoBuilder {
+    self.package = value
+    return self
+  }
   public func clearPackage() -> PBFileDescriptorProtoBuilder{
        builderResult.hasPackage = false
        builderResult.package = ""
@@ -829,6 +841,10 @@ final public class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.dependency = array
        }
   }
+  func setDependency(value:Array<String>)-> PBFileDescriptorProtoBuilder {
+    self.dependency = value
+    return self
+  }
   public func clearDependency() -> PBFileDescriptorProtoBuilder {
      builderResult.dependency.removeAll(keepCapacity: false)
      return self
@@ -840,6 +856,10 @@ final public class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.publicDependency = array
        }
+  }
+  func setPublicDependency(value:Array<Int32>)-> PBFileDescriptorProtoBuilder {
+    self.publicDependency = value
+    return self
   }
   public func clearPublicDependency() -> PBFileDescriptorProtoBuilder {
      builderResult.publicDependency.removeAll(keepCapacity: false)
@@ -853,6 +873,10 @@ final public class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.weakDependency = array
        }
   }
+  func setWeakDependency(value:Array<Int32>)-> PBFileDescriptorProtoBuilder {
+    self.weakDependency = value
+    return self
+  }
   public func clearWeakDependency() -> PBFileDescriptorProtoBuilder {
      builderResult.weakDependency.removeAll(keepCapacity: false)
      return self
@@ -864,6 +888,10 @@ final public class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
        set (value) {
            builderResult.messageType = value
        }
+  }
+  func setMessageType(value:Array<PBDescriptorProto>)-> PBFileDescriptorProtoBuilder {
+    self.messageType = value
+    return self
   }
   public func clearMessageType() -> PBFileDescriptorProtoBuilder {
     builderResult.messageType.removeAll(keepCapacity: false)
@@ -877,6 +905,10 @@ final public class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.enumType = value
        }
   }
+  func setEnumType(value:Array<PBEnumDescriptorProto>)-> PBFileDescriptorProtoBuilder {
+    self.enumType = value
+    return self
+  }
   public func clearEnumType() -> PBFileDescriptorProtoBuilder {
     builderResult.enumType.removeAll(keepCapacity: false)
     return self
@@ -889,6 +921,10 @@ final public class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.service = value
        }
   }
+  func setService(value:Array<PBServiceDescriptorProto>)-> PBFileDescriptorProtoBuilder {
+    self.service = value
+    return self
+  }
   public func clearService() -> PBFileDescriptorProtoBuilder {
     builderResult.service.removeAll(keepCapacity: false)
     return self
@@ -900,6 +936,10 @@ final public class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
        set (value) {
            builderResult.extension_ = value
        }
+  }
+  func setExtension(value:Array<PBFieldDescriptorProto>)-> PBFileDescriptorProtoBuilder {
+    self.extension_ = value
+    return self
   }
   public func clearExtension() -> PBFileDescriptorProtoBuilder {
     builderResult.extension_.removeAll(keepCapacity: false)
@@ -919,8 +959,8 @@ final public class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.options = value
        }
   }
-  public func setOptionsBuilder(builderForValue:PBFileOptionsBuilder) -> PBFileDescriptorProtoBuilder {
-    options = builderForValue.build()
+  func setOptions(value:PBFileOptions)-> PBFileDescriptorProtoBuilder {
+    self.options = value
     return self
   }
   public func mergeOptions(value:PBFileOptions) -> PBFileDescriptorProtoBuilder {
@@ -951,8 +991,8 @@ final public class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.sourceCodeInfo = value
        }
   }
-  public func setSourceCodeInfoBuilder(builderForValue:PBSourceCodeInfoBuilder) -> PBFileDescriptorProtoBuilder {
-    sourceCodeInfo = builderForValue.build()
+  func setSourceCodeInfo(value:PBSourceCodeInfo)-> PBFileDescriptorProtoBuilder {
+    self.sourceCodeInfo = value
     return self
   }
   public func mergeSourceCodeInfo(value:PBSourceCodeInfo) -> PBFileDescriptorProtoBuilder {
@@ -1244,6 +1284,10 @@ final public class PBDescriptorProto : GeneratedMessage {
                builderResult.start = value
            }
       }
+      func setStart(value:Int32)-> PBDescriptorProto.ExtensionRangeBuilder {
+        self.start = value
+        return self
+      }
       public func clearStart() -> PBDescriptorProto.ExtensionRangeBuilder{
            builderResult.hasStart = false
            builderResult.start = Int32(0)
@@ -1262,6 +1306,10 @@ final public class PBDescriptorProto : GeneratedMessage {
                builderResult.hasEnd = true
                builderResult.end = value
            }
+      }
+      func setEnd(value:Int32)-> PBDescriptorProto.ExtensionRangeBuilder {
+        self.end = value
+        return self
       }
       public func clearEnd() -> PBDescriptorProto.ExtensionRangeBuilder{
            builderResult.hasEnd = false
@@ -1600,6 +1648,10 @@ final public class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.name = value
        }
   }
+  func setName(value:String)-> PBDescriptorProtoBuilder {
+    self.name = value
+    return self
+  }
   public func clearName() -> PBDescriptorProtoBuilder{
        builderResult.hasName = false
        builderResult.name = ""
@@ -1613,6 +1665,10 @@ final public class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.field = value
        }
   }
+  func setField(value:Array<PBFieldDescriptorProto>)-> PBDescriptorProtoBuilder {
+    self.field = value
+    return self
+  }
   public func clearField() -> PBDescriptorProtoBuilder {
     builderResult.field.removeAll(keepCapacity: false)
     return self
@@ -1624,6 +1680,10 @@ final public class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
        set (value) {
            builderResult.extension_ = value
        }
+  }
+  func setExtension(value:Array<PBFieldDescriptorProto>)-> PBDescriptorProtoBuilder {
+    self.extension_ = value
+    return self
   }
   public func clearExtension() -> PBDescriptorProtoBuilder {
     builderResult.extension_.removeAll(keepCapacity: false)
@@ -1637,6 +1697,10 @@ final public class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.nestedType = value
        }
   }
+  func setNestedType(value:Array<PBDescriptorProto>)-> PBDescriptorProtoBuilder {
+    self.nestedType = value
+    return self
+  }
   public func clearNestedType() -> PBDescriptorProtoBuilder {
     builderResult.nestedType.removeAll(keepCapacity: false)
     return self
@@ -1649,6 +1713,10 @@ final public class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.enumType = value
        }
   }
+  func setEnumType(value:Array<PBEnumDescriptorProto>)-> PBDescriptorProtoBuilder {
+    self.enumType = value
+    return self
+  }
   public func clearEnumType() -> PBDescriptorProtoBuilder {
     builderResult.enumType.removeAll(keepCapacity: false)
     return self
@@ -1660,6 +1728,10 @@ final public class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
        set (value) {
            builderResult.extensionRange = value
        }
+  }
+  func setExtensionRange(value:Array<PBDescriptorProto.ExtensionRange>)-> PBDescriptorProtoBuilder {
+    self.extensionRange = value
+    return self
   }
   public func clearExtensionRange() -> PBDescriptorProtoBuilder {
     builderResult.extensionRange.removeAll(keepCapacity: false)
@@ -1679,8 +1751,8 @@ final public class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.options = value
        }
   }
-  public func setOptionsBuilder(builderForValue:PBMessageOptionsBuilder) -> PBDescriptorProtoBuilder {
-    options = builderForValue.build()
+  func setOptions(value:PBMessageOptions)-> PBDescriptorProtoBuilder {
+    self.options = value
     return self
   }
   public func mergeOptions(value:PBMessageOptions) -> PBDescriptorProtoBuilder {
@@ -2091,6 +2163,10 @@ final public class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.name = value
        }
   }
+  func setName(value:String)-> PBFieldDescriptorProtoBuilder {
+    self.name = value
+    return self
+  }
   public func clearName() -> PBFieldDescriptorProtoBuilder{
        builderResult.hasName = false
        builderResult.name = ""
@@ -2109,6 +2185,10 @@ final public class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.hasNumber = true
            builderResult.number = value
        }
+  }
+  func setNumber(value:Int32)-> PBFieldDescriptorProtoBuilder {
+    self.number = value
+    return self
   }
   public func clearNumber() -> PBFieldDescriptorProtoBuilder{
        builderResult.hasNumber = false
@@ -2129,6 +2209,10 @@ final public class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
             builderResult.label = value
         }
     }
+    func setLabel(value:PBFieldDescriptorProto.Label)-> PBFieldDescriptorProtoBuilder {
+      self.label = value
+      return self
+    }
     public func clearLabel() -> PBFieldDescriptorProtoBuilder {
        builderResult.hasLabel = false
        builderResult.label = .LabelOptional
@@ -2147,6 +2231,10 @@ final public class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
             builderResult.hasTypes = true
             builderResult.types = value
         }
+    }
+    func setTypes(value:PBFieldDescriptorProto.Types)-> PBFieldDescriptorProtoBuilder {
+      self.types = value
+      return self
     }
     public func clearTypes() -> PBFieldDescriptorProtoBuilder {
        builderResult.hasTypes = false
@@ -2167,6 +2255,10 @@ final public class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.typeName = value
        }
   }
+  func setTypeName(value:String)-> PBFieldDescriptorProtoBuilder {
+    self.typeName = value
+    return self
+  }
   public func clearTypeName() -> PBFieldDescriptorProtoBuilder{
        builderResult.hasTypeName = false
        builderResult.typeName = ""
@@ -2185,6 +2277,10 @@ final public class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.hasExtendee = true
            builderResult.extendee = value
        }
+  }
+  func setExtendee(value:String)-> PBFieldDescriptorProtoBuilder {
+    self.extendee = value
+    return self
   }
   public func clearExtendee() -> PBFieldDescriptorProtoBuilder{
        builderResult.hasExtendee = false
@@ -2205,6 +2301,10 @@ final public class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.defaultValue = value
        }
   }
+  func setDefaultValue(value:String)-> PBFieldDescriptorProtoBuilder {
+    self.defaultValue = value
+    return self
+  }
   public func clearDefaultValue() -> PBFieldDescriptorProtoBuilder{
        builderResult.hasDefaultValue = false
        builderResult.defaultValue = ""
@@ -2224,8 +2324,8 @@ final public class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.options = value
        }
   }
-  public func setOptionsBuilder(builderForValue:PBFieldOptionsBuilder) -> PBFieldDescriptorProtoBuilder {
-    options = builderForValue.build()
+  func setOptions(value:PBFieldOptions)-> PBFieldDescriptorProtoBuilder {
+    self.options = value
     return self
   }
   public func mergeOptions(value:PBFieldOptions) -> PBFieldDescriptorProtoBuilder {
@@ -2524,6 +2624,10 @@ final public class PBEnumDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.name = value
        }
   }
+  func setName(value:String)-> PBEnumDescriptorProtoBuilder {
+    self.name = value
+    return self
+  }
   public func clearName() -> PBEnumDescriptorProtoBuilder{
        builderResult.hasName = false
        builderResult.name = ""
@@ -2536,6 +2640,10 @@ final public class PBEnumDescriptorProtoBuilder : GeneratedMessageBuilder {
        set (value) {
            builderResult.value = value
        }
+  }
+  func setValue(value:Array<PBEnumValueDescriptorProto>)-> PBEnumDescriptorProtoBuilder {
+    self.value = value
+    return self
   }
   public func clearValue() -> PBEnumDescriptorProtoBuilder {
     builderResult.value.removeAll(keepCapacity: false)
@@ -2555,8 +2663,8 @@ final public class PBEnumDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.options = value
        }
   }
-  public func setOptionsBuilder(builderForValue:PBEnumOptionsBuilder) -> PBEnumDescriptorProtoBuilder {
-    options = builderForValue.build()
+  func setOptions(value:PBEnumOptions)-> PBEnumDescriptorProtoBuilder {
+    self.options = value
     return self
   }
   public func mergeOptions(value:PBEnumOptions) -> PBEnumDescriptorProtoBuilder {
@@ -2805,6 +2913,10 @@ final public class PBEnumValueDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.name = value
        }
   }
+  func setName(value:String)-> PBEnumValueDescriptorProtoBuilder {
+    self.name = value
+    return self
+  }
   public func clearName() -> PBEnumValueDescriptorProtoBuilder{
        builderResult.hasName = false
        builderResult.name = ""
@@ -2823,6 +2935,10 @@ final public class PBEnumValueDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.hasNumber = true
            builderResult.number = value
        }
+  }
+  func setNumber(value:Int32)-> PBEnumValueDescriptorProtoBuilder {
+    self.number = value
+    return self
   }
   public func clearNumber() -> PBEnumValueDescriptorProtoBuilder{
        builderResult.hasNumber = false
@@ -2843,8 +2959,8 @@ final public class PBEnumValueDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.options = value
        }
   }
-  public func setOptionsBuilder(builderForValue:PBEnumValueOptionsBuilder) -> PBEnumValueDescriptorProtoBuilder {
-    options = builderForValue.build()
+  func setOptions(value:PBEnumValueOptions)-> PBEnumValueDescriptorProtoBuilder {
+    self.options = value
     return self
   }
   public func mergeOptions(value:PBEnumValueOptions) -> PBEnumValueDescriptorProtoBuilder {
@@ -3103,6 +3219,10 @@ final public class PBServiceDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.name = value
        }
   }
+  func setName(value:String)-> PBServiceDescriptorProtoBuilder {
+    self.name = value
+    return self
+  }
   public func clearName() -> PBServiceDescriptorProtoBuilder{
        builderResult.hasName = false
        builderResult.name = ""
@@ -3115,6 +3235,10 @@ final public class PBServiceDescriptorProtoBuilder : GeneratedMessageBuilder {
        set (value) {
            builderResult.method = value
        }
+  }
+  func setMethod(value:Array<PBMethodDescriptorProto>)-> PBServiceDescriptorProtoBuilder {
+    self.method = value
+    return self
   }
   public func clearMethod() -> PBServiceDescriptorProtoBuilder {
     builderResult.method.removeAll(keepCapacity: false)
@@ -3134,8 +3258,8 @@ final public class PBServiceDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.options = value
        }
   }
-  public func setOptionsBuilder(builderForValue:PBServiceOptionsBuilder) -> PBServiceDescriptorProtoBuilder {
-    options = builderForValue.build()
+  func setOptions(value:PBServiceOptions)-> PBServiceDescriptorProtoBuilder {
+    self.options = value
     return self
   }
   public func mergeOptions(value:PBServiceOptions) -> PBServiceDescriptorProtoBuilder {
@@ -3399,6 +3523,10 @@ final public class PBMethodDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.name = value
        }
   }
+  func setName(value:String)-> PBMethodDescriptorProtoBuilder {
+    self.name = value
+    return self
+  }
   public func clearName() -> PBMethodDescriptorProtoBuilder{
        builderResult.hasName = false
        builderResult.name = ""
@@ -3417,6 +3545,10 @@ final public class PBMethodDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.hasInputType = true
            builderResult.inputType = value
        }
+  }
+  func setInputType(value:String)-> PBMethodDescriptorProtoBuilder {
+    self.inputType = value
+    return self
   }
   public func clearInputType() -> PBMethodDescriptorProtoBuilder{
        builderResult.hasInputType = false
@@ -3437,6 +3569,10 @@ final public class PBMethodDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.outputType = value
        }
   }
+  func setOutputType(value:String)-> PBMethodDescriptorProtoBuilder {
+    self.outputType = value
+    return self
+  }
   public func clearOutputType() -> PBMethodDescriptorProtoBuilder{
        builderResult.hasOutputType = false
        builderResult.outputType = ""
@@ -3456,8 +3592,8 @@ final public class PBMethodDescriptorProtoBuilder : GeneratedMessageBuilder {
            builderResult.options = value
        }
   }
-  public func setOptionsBuilder(builderForValue:PBMethodOptionsBuilder) -> PBMethodDescriptorProtoBuilder {
-    options = builderForValue.build()
+  func setOptions(value:PBMethodOptions)-> PBMethodDescriptorProtoBuilder {
+    self.options = value
     return self
   }
   public func mergeOptions(value:PBMethodOptions) -> PBMethodDescriptorProtoBuilder {
@@ -3848,6 +3984,10 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
            builderResult.javaPackage = value
        }
   }
+  func setJavaPackage(value:String)-> PBFileOptionsBuilder {
+    self.javaPackage = value
+    return self
+  }
   public func clearJavaPackage() -> PBFileOptionsBuilder{
        builderResult.hasJavaPackage = false
        builderResult.javaPackage = ""
@@ -3866,6 +4006,10 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
            builderResult.hasJavaOuterClassname = true
            builderResult.javaOuterClassname = value
        }
+  }
+  func setJavaOuterClassname(value:String)-> PBFileOptionsBuilder {
+    self.javaOuterClassname = value
+    return self
   }
   public func clearJavaOuterClassname() -> PBFileOptionsBuilder{
        builderResult.hasJavaOuterClassname = false
@@ -3886,6 +4030,10 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
            builderResult.javaMultipleFiles = value
        }
   }
+  func setJavaMultipleFiles(value:Bool)-> PBFileOptionsBuilder {
+    self.javaMultipleFiles = value
+    return self
+  }
   public func clearJavaMultipleFiles() -> PBFileOptionsBuilder{
        builderResult.hasJavaMultipleFiles = false
        builderResult.javaMultipleFiles = false
@@ -3904,6 +4052,10 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
            builderResult.hasJavaGenerateEqualsAndHash = true
            builderResult.javaGenerateEqualsAndHash = value
        }
+  }
+  func setJavaGenerateEqualsAndHash(value:Bool)-> PBFileOptionsBuilder {
+    self.javaGenerateEqualsAndHash = value
+    return self
   }
   public func clearJavaGenerateEqualsAndHash() -> PBFileOptionsBuilder{
        builderResult.hasJavaGenerateEqualsAndHash = false
@@ -3924,6 +4076,10 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
             builderResult.optimizeFor = value
         }
     }
+    func setOptimizeFor(value:PBFileOptions.OptimizeMode)-> PBFileOptionsBuilder {
+      self.optimizeFor = value
+      return self
+    }
     public func clearOptimizeFor() -> PBFileOptionsBuilder {
        builderResult.hasOptimizeFor = false
        builderResult.optimizeFor = .Speed
@@ -3942,6 +4098,10 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
            builderResult.hasGoPackage = true
            builderResult.goPackage = value
        }
+  }
+  func setGoPackage(value:String)-> PBFileOptionsBuilder {
+    self.goPackage = value
+    return self
   }
   public func clearGoPackage() -> PBFileOptionsBuilder{
        builderResult.hasGoPackage = false
@@ -3962,6 +4122,10 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
            builderResult.ccGenericServices = value
        }
   }
+  func setCcGenericServices(value:Bool)-> PBFileOptionsBuilder {
+    self.ccGenericServices = value
+    return self
+  }
   public func clearCcGenericServices() -> PBFileOptionsBuilder{
        builderResult.hasCcGenericServices = false
        builderResult.ccGenericServices = false
@@ -3980,6 +4144,10 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
            builderResult.hasJavaGenericServices = true
            builderResult.javaGenericServices = value
        }
+  }
+  func setJavaGenericServices(value:Bool)-> PBFileOptionsBuilder {
+    self.javaGenericServices = value
+    return self
   }
   public func clearJavaGenericServices() -> PBFileOptionsBuilder{
        builderResult.hasJavaGenericServices = false
@@ -4000,6 +4168,10 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
            builderResult.pyGenericServices = value
        }
   }
+  func setPyGenericServices(value:Bool)-> PBFileOptionsBuilder {
+    self.pyGenericServices = value
+    return self
+  }
   public func clearPyGenericServices() -> PBFileOptionsBuilder{
        builderResult.hasPyGenericServices = false
        builderResult.pyGenericServices = false
@@ -4012,6 +4184,10 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
        set (value) {
            builderResult.uninterpretedOption = value
        }
+  }
+  func setUninterpretedOption(value:Array<PBUninterpretedOption>)-> PBFileOptionsBuilder {
+    self.uninterpretedOption = value
+    return self
   }
   public func clearUninterpretedOption() -> PBFileOptionsBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
@@ -4305,6 +4481,10 @@ final public class PBMessageOptionsBuilder : ExtendableMessageBuilder {
            builderResult.messageSetWireFormat = value
        }
   }
+  func setMessageSetWireFormat(value:Bool)-> PBMessageOptionsBuilder {
+    self.messageSetWireFormat = value
+    return self
+  }
   public func clearMessageSetWireFormat() -> PBMessageOptionsBuilder{
        builderResult.hasMessageSetWireFormat = false
        builderResult.messageSetWireFormat = false
@@ -4324,6 +4504,10 @@ final public class PBMessageOptionsBuilder : ExtendableMessageBuilder {
            builderResult.noStandardDescriptorAccessor = value
        }
   }
+  func setNoStandardDescriptorAccessor(value:Bool)-> PBMessageOptionsBuilder {
+    self.noStandardDescriptorAccessor = value
+    return self
+  }
   public func clearNoStandardDescriptorAccessor() -> PBMessageOptionsBuilder{
        builderResult.hasNoStandardDescriptorAccessor = false
        builderResult.noStandardDescriptorAccessor = false
@@ -4336,6 +4520,10 @@ final public class PBMessageOptionsBuilder : ExtendableMessageBuilder {
        set (value) {
            builderResult.uninterpretedOption = value
        }
+  }
+  func setUninterpretedOption(value:Array<PBUninterpretedOption>)-> PBMessageOptionsBuilder {
+    self.uninterpretedOption = value
+    return self
   }
   public func clearUninterpretedOption() -> PBMessageOptionsBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
@@ -4662,6 +4850,10 @@ final public class PBFieldOptionsBuilder : ExtendableMessageBuilder {
             builderResult.ctype = value
         }
     }
+    func setCtype(value:PBFieldOptions.Ctype)-> PBFieldOptionsBuilder {
+      self.ctype = value
+      return self
+    }
     public func clearCtype() -> PBFieldOptionsBuilder {
        builderResult.hasCtype = false
        builderResult.ctype = .String
@@ -4680,6 +4872,10 @@ final public class PBFieldOptionsBuilder : ExtendableMessageBuilder {
            builderResult.hasPacked = true
            builderResult.packed = value
        }
+  }
+  func setPacked(value:Bool)-> PBFieldOptionsBuilder {
+    self.packed = value
+    return self
   }
   public func clearPacked() -> PBFieldOptionsBuilder{
        builderResult.hasPacked = false
@@ -4700,6 +4896,10 @@ final public class PBFieldOptionsBuilder : ExtendableMessageBuilder {
            builderResult.lazy = value
        }
   }
+  func setLazy(value:Bool)-> PBFieldOptionsBuilder {
+    self.lazy = value
+    return self
+  }
   public func clearLazy() -> PBFieldOptionsBuilder{
        builderResult.hasLazy = false
        builderResult.lazy = false
@@ -4718,6 +4918,10 @@ final public class PBFieldOptionsBuilder : ExtendableMessageBuilder {
            builderResult.hasDeprecated = true
            builderResult.deprecated = value
        }
+  }
+  func setDeprecated(value:Bool)-> PBFieldOptionsBuilder {
+    self.deprecated = value
+    return self
   }
   public func clearDeprecated() -> PBFieldOptionsBuilder{
        builderResult.hasDeprecated = false
@@ -4738,6 +4942,10 @@ final public class PBFieldOptionsBuilder : ExtendableMessageBuilder {
            builderResult.experimentalMapKey = value
        }
   }
+  func setExperimentalMapKey(value:String)-> PBFieldOptionsBuilder {
+    self.experimentalMapKey = value
+    return self
+  }
   public func clearExperimentalMapKey() -> PBFieldOptionsBuilder{
        builderResult.hasExperimentalMapKey = false
        builderResult.experimentalMapKey = ""
@@ -4757,6 +4965,10 @@ final public class PBFieldOptionsBuilder : ExtendableMessageBuilder {
            builderResult.weak = value
        }
   }
+  func setWeak(value:Bool)-> PBFieldOptionsBuilder {
+    self.weak = value
+    return self
+  }
   public func clearWeak() -> PBFieldOptionsBuilder{
        builderResult.hasWeak = false
        builderResult.weak = false
@@ -4769,6 +4981,10 @@ final public class PBFieldOptionsBuilder : ExtendableMessageBuilder {
        set (value) {
            builderResult.uninterpretedOption = value
        }
+  }
+  func setUninterpretedOption(value:Array<PBUninterpretedOption>)-> PBFieldOptionsBuilder {
+    self.uninterpretedOption = value
+    return self
   }
   public func clearUninterpretedOption() -> PBFieldOptionsBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
@@ -5029,6 +5245,10 @@ final public class PBEnumOptionsBuilder : ExtendableMessageBuilder {
            builderResult.allowAlias = value
        }
   }
+  func setAllowAlias(value:Bool)-> PBEnumOptionsBuilder {
+    self.allowAlias = value
+    return self
+  }
   public func clearAllowAlias() -> PBEnumOptionsBuilder{
        builderResult.hasAllowAlias = false
        builderResult.allowAlias = true
@@ -5041,6 +5261,10 @@ final public class PBEnumOptionsBuilder : ExtendableMessageBuilder {
        set (value) {
            builderResult.uninterpretedOption = value
        }
+  }
+  func setUninterpretedOption(value:Array<PBUninterpretedOption>)-> PBEnumOptionsBuilder {
+    self.uninterpretedOption = value
+    return self
   }
   public func clearUninterpretedOption() -> PBEnumOptionsBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
@@ -5245,6 +5469,10 @@ final public class PBEnumValueOptionsBuilder : ExtendableMessageBuilder {
            builderResult.uninterpretedOption = value
        }
   }
+  func setUninterpretedOption(value:Array<PBUninterpretedOption>)-> PBEnumValueOptionsBuilder {
+    self.uninterpretedOption = value
+    return self
+  }
   public func clearUninterpretedOption() -> PBEnumValueOptionsBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
     return self
@@ -5442,6 +5670,10 @@ final public class PBServiceOptionsBuilder : ExtendableMessageBuilder {
            builderResult.uninterpretedOption = value
        }
   }
+  func setUninterpretedOption(value:Array<PBUninterpretedOption>)-> PBServiceOptionsBuilder {
+    self.uninterpretedOption = value
+    return self
+  }
   public func clearUninterpretedOption() -> PBServiceOptionsBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
     return self
@@ -5638,6 +5870,10 @@ final public class PBMethodOptionsBuilder : ExtendableMessageBuilder {
        set (value) {
            builderResult.uninterpretedOption = value
        }
+  }
+  func setUninterpretedOption(value:Array<PBUninterpretedOption>)-> PBMethodOptionsBuilder {
+    self.uninterpretedOption = value
+    return self
   }
   public func clearUninterpretedOption() -> PBMethodOptionsBuilder {
     builderResult.uninterpretedOption.removeAll(keepCapacity: false)
@@ -5849,6 +6085,10 @@ final public class PBUninterpretedOption : GeneratedMessage {
                builderResult.namePart = value
            }
       }
+      func setNamePart(value:String)-> PBUninterpretedOption.NamePartBuilder {
+        self.namePart = value
+        return self
+      }
       public func clearNamePart() -> PBUninterpretedOption.NamePartBuilder{
            builderResult.hasNamePart = false
            builderResult.namePart = ""
@@ -5867,6 +6107,10 @@ final public class PBUninterpretedOption : GeneratedMessage {
                builderResult.hasIsExtension = true
                builderResult.isExtension = value
            }
+      }
+      func setIsExtension(value:Bool)-> PBUninterpretedOption.NamePartBuilder {
+        self.isExtension = value
+        return self
       }
       public func clearIsExtension() -> PBUninterpretedOption.NamePartBuilder{
            builderResult.hasIsExtension = false
@@ -6155,6 +6399,10 @@ final public class PBUninterpretedOptionBuilder : GeneratedMessageBuilder {
            builderResult.name = value
        }
   }
+  func setName(value:Array<PBUninterpretedOption.NamePart>)-> PBUninterpretedOptionBuilder {
+    self.name = value
+    return self
+  }
   public func clearName() -> PBUninterpretedOptionBuilder {
     builderResult.name.removeAll(keepCapacity: false)
     return self
@@ -6172,6 +6420,10 @@ final public class PBUninterpretedOptionBuilder : GeneratedMessageBuilder {
            builderResult.hasIdentifierValue = true
            builderResult.identifierValue = value
        }
+  }
+  func setIdentifierValue(value:String)-> PBUninterpretedOptionBuilder {
+    self.identifierValue = value
+    return self
   }
   public func clearIdentifierValue() -> PBUninterpretedOptionBuilder{
        builderResult.hasIdentifierValue = false
@@ -6192,6 +6444,10 @@ final public class PBUninterpretedOptionBuilder : GeneratedMessageBuilder {
            builderResult.positiveIntValue = value
        }
   }
+  func setPositiveIntValue(value:UInt64)-> PBUninterpretedOptionBuilder {
+    self.positiveIntValue = value
+    return self
+  }
   public func clearPositiveIntValue() -> PBUninterpretedOptionBuilder{
        builderResult.hasPositiveIntValue = false
        builderResult.positiveIntValue = UInt64(0)
@@ -6210,6 +6466,10 @@ final public class PBUninterpretedOptionBuilder : GeneratedMessageBuilder {
            builderResult.hasNegativeIntValue = true
            builderResult.negativeIntValue = value
        }
+  }
+  func setNegativeIntValue(value:Int64)-> PBUninterpretedOptionBuilder {
+    self.negativeIntValue = value
+    return self
   }
   public func clearNegativeIntValue() -> PBUninterpretedOptionBuilder{
        builderResult.hasNegativeIntValue = false
@@ -6230,6 +6490,10 @@ final public class PBUninterpretedOptionBuilder : GeneratedMessageBuilder {
            builderResult.doubleValue = value
        }
   }
+  func setDoubleValue(value:Double)-> PBUninterpretedOptionBuilder {
+    self.doubleValue = value
+    return self
+  }
   public func clearDoubleValue() -> PBUninterpretedOptionBuilder{
        builderResult.hasDoubleValue = false
        builderResult.doubleValue = Double(0)
@@ -6249,6 +6513,10 @@ final public class PBUninterpretedOptionBuilder : GeneratedMessageBuilder {
            builderResult.stringValue = value
        }
   }
+  func setStringValue(value:NSData)-> PBUninterpretedOptionBuilder {
+    self.stringValue = value
+    return self
+  }
   public func clearStringValue() -> PBUninterpretedOptionBuilder{
        builderResult.hasStringValue = false
        builderResult.stringValue = NSData()
@@ -6267,6 +6535,10 @@ final public class PBUninterpretedOptionBuilder : GeneratedMessageBuilder {
            builderResult.hasAggregateValue = true
            builderResult.aggregateValue = value
        }
+  }
+  func setAggregateValue(value:String)-> PBUninterpretedOptionBuilder {
+    self.aggregateValue = value
+    return self
   }
   public func clearAggregateValue() -> PBUninterpretedOptionBuilder{
        builderResult.hasAggregateValue = false
@@ -6556,6 +6828,10 @@ final public class PBSourceCodeInfo : GeneratedMessage {
                builderResult.path = array
            }
       }
+      func setPath(value:Array<Int32>)-> PBSourceCodeInfo.LocationBuilder {
+        self.path = value
+        return self
+      }
       public func clearPath() -> PBSourceCodeInfo.LocationBuilder {
          builderResult.path.removeAll(keepCapacity: false)
          return self
@@ -6567,6 +6843,10 @@ final public class PBSourceCodeInfo : GeneratedMessage {
            set (array) {
                builderResult.span = array
            }
+      }
+      func setSpan(value:Array<Int32>)-> PBSourceCodeInfo.LocationBuilder {
+        self.span = value
+        return self
       }
       public func clearSpan() -> PBSourceCodeInfo.LocationBuilder {
          builderResult.span.removeAll(keepCapacity: false)
@@ -6586,6 +6866,10 @@ final public class PBSourceCodeInfo : GeneratedMessage {
                builderResult.leadingComments = value
            }
       }
+      func setLeadingComments(value:String)-> PBSourceCodeInfo.LocationBuilder {
+        self.leadingComments = value
+        return self
+      }
       public func clearLeadingComments() -> PBSourceCodeInfo.LocationBuilder{
            builderResult.hasLeadingComments = false
            builderResult.leadingComments = ""
@@ -6604,6 +6888,10 @@ final public class PBSourceCodeInfo : GeneratedMessage {
                builderResult.hasTrailingComments = true
                builderResult.trailingComments = value
            }
+      }
+      func setTrailingComments(value:String)-> PBSourceCodeInfo.LocationBuilder {
+        self.trailingComments = value
+        return self
       }
       public func clearTrailingComments() -> PBSourceCodeInfo.LocationBuilder{
            builderResult.hasTrailingComments = false
@@ -6813,6 +7101,10 @@ final public class PBSourceCodeInfoBuilder : GeneratedMessageBuilder {
        set (value) {
            builderResult.location = value
        }
+  }
+  func setLocation(value:Array<PBSourceCodeInfo.Location>)-> PBSourceCodeInfoBuilder {
+    self.location = value
+    return self
   }
   public func clearLocation() -> PBSourceCodeInfoBuilder {
     builderResult.location.removeAll(keepCapacity: false)

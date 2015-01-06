@@ -212,6 +212,10 @@ final public class SwiftFileOptionsBuilder : GeneratedMessageBuilder {
            builderResult.classPrefix = value
        }
   }
+  func setClassPrefix(value:String)-> SwiftFileOptionsBuilder {
+    self.classPrefix = value
+    return self
+  }
   public func clearClassPrefix() -> SwiftFileOptionsBuilder{
        builderResult.hasClassPrefix = false
        builderResult.classPrefix = ""
@@ -231,6 +235,10 @@ final public class SwiftFileOptionsBuilder : GeneratedMessageBuilder {
             builderResult.entitiesAccessControl = value
         }
     }
+    func setEntitiesAccessControl(value:AccessControl)-> SwiftFileOptionsBuilder {
+      self.entitiesAccessControl = value
+      return self
+    }
     public func clearEntitiesAccessControl() -> SwiftFileOptionsBuilder {
        builderResult.hasEntitiesAccessControl = false
        builderResult.entitiesAccessControl = .InternalEntities
@@ -249,6 +257,10 @@ final public class SwiftFileOptionsBuilder : GeneratedMessageBuilder {
            builderResult.hasCompileForFramework = true
            builderResult.compileForFramework = value
        }
+  }
+  func setCompileForFramework(value:Bool)-> SwiftFileOptionsBuilder {
+    self.compileForFramework = value
+    return self
   }
   public func clearCompileForFramework() -> SwiftFileOptionsBuilder{
        builderResult.hasCompileForFramework = false

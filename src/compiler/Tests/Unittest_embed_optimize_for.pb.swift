@@ -186,8 +186,8 @@ final internal class TestEmbedOptimizedForSizeBuilder : GeneratedMessageBuilder 
            builderResult.optionalMessage = value
        }
   }
-  internal func setOptionalMessageBuilder(builderForValue:TestOptimizedForSizeBuilder) -> TestEmbedOptimizedForSizeBuilder {
-    optionalMessage = builderForValue.build()
+  func setOptionalMessage(value:TestOptimizedForSize)-> TestEmbedOptimizedForSizeBuilder {
+    self.optionalMessage = value
     return self
   }
   internal func mergeOptionalMessage(value:TestOptimizedForSize) -> TestEmbedOptimizedForSizeBuilder {
@@ -211,6 +211,10 @@ final internal class TestEmbedOptimizedForSizeBuilder : GeneratedMessageBuilder 
        set (value) {
            builderResult.repeatedMessage = value
        }
+  }
+  func setRepeatedMessage(value:Array<TestOptimizedForSize>)-> TestEmbedOptimizedForSizeBuilder {
+    self.repeatedMessage = value
+    return self
   }
   internal func clearRepeatedMessage() -> TestEmbedOptimizedForSizeBuilder {
     builderResult.repeatedMessage.removeAll(keepCapacity: false)

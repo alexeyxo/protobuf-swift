@@ -321,6 +321,10 @@ final internal class TestOptimizedForSizeBuilder : ExtendableMessageBuilder {
            builderResult.i = value
        }
   }
+  func setI(value:Int32)-> TestOptimizedForSizeBuilder {
+    self.i = value
+    return self
+  }
   internal func clearI() -> TestOptimizedForSizeBuilder{
        builderResult.hasI = false
        builderResult.i = Int32(0)
@@ -340,8 +344,8 @@ final internal class TestOptimizedForSizeBuilder : ExtendableMessageBuilder {
            builderResult.msg = value
        }
   }
-  internal func setMsgBuilder(builderForValue:ForeignMessageBuilder) -> TestOptimizedForSizeBuilder {
-    msg = builderForValue.build()
+  func setMsg(value:ForeignMessage)-> TestOptimizedForSizeBuilder {
+    self.msg = value
     return self
   }
   internal func mergeMsg(value:ForeignMessage) -> TestOptimizedForSizeBuilder {
@@ -372,6 +376,10 @@ final internal class TestOptimizedForSizeBuilder : ExtendableMessageBuilder {
            builderResult.integerField = value
        }
   }
+  func setIntegerField(value:Int32)-> TestOptimizedForSizeBuilder {
+    self.integerField = value
+    return self
+  }
   internal func clearIntegerField() -> TestOptimizedForSizeBuilder{
        builderResult.hasIntegerField = false
        builderResult.integerField = Int32(0)
@@ -390,6 +398,10 @@ final internal class TestOptimizedForSizeBuilder : ExtendableMessageBuilder {
            builderResult.hasStringField = true
            builderResult.stringField = value
        }
+  }
+  func setStringField(value:String)-> TestOptimizedForSizeBuilder {
+    self.stringField = value
+    return self
   }
   internal func clearStringField() -> TestOptimizedForSizeBuilder{
        builderResult.hasStringField = false
@@ -600,6 +612,10 @@ final internal class TestRequiredOptimizedForSizeBuilder : GeneratedMessageBuild
            builderResult.x = value
        }
   }
+  func setX(value:Int32)-> TestRequiredOptimizedForSizeBuilder {
+    self.x = value
+    return self
+  }
   internal func clearX() -> TestRequiredOptimizedForSizeBuilder{
        builderResult.hasX = false
        builderResult.x = Int32(0)
@@ -788,8 +804,8 @@ final internal class TestOptionalOptimizedForSizeBuilder : GeneratedMessageBuild
            builderResult.o = value
        }
   }
-  internal func setOBuilder(builderForValue:TestRequiredOptimizedForSizeBuilder) -> TestOptionalOptimizedForSizeBuilder {
-    o = builderForValue.build()
+  func setO(value:TestRequiredOptimizedForSize)-> TestOptionalOptimizedForSizeBuilder {
+    self.o = value
     return self
   }
   internal func mergeO(value:TestRequiredOptimizedForSize) -> TestOptionalOptimizedForSizeBuilder {

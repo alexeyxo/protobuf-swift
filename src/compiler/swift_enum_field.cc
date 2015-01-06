@@ -77,7 +77,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void EnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
         if (isOneOfField(descriptor_)) {
-            printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool {\n"
+            printer->Print(variables_,
+                           "$acontrol$private(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
                            "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
                            "               return false\n"
@@ -88,7 +89,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "      }\n"
                            "}\n");
             
-            printer->Print(variables_,"$acontrol$private(set) var $name$:$type$!{\n"
+            printer->Print(variables_,
+                           "$acontrol$private(set) var $name$:$type$!{\n"
                            "     get {\n"
                            "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "     }\n"
@@ -129,6 +131,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  }\n");
         
         printer->Print(variables_,
+                       "  func set$capitalized_name$(value:$type$)-> $classname$Builder {\n"
+                       "    self.$name$ = value\n"
+                       "    return self\n"
+                       "  }\n"
                        "  $acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder {\n"
                        "     builderResult.has$capitalized_name$ = false\n"
                        "     builderResult.$name$ = .$default$\n"
@@ -244,6 +250,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "    set (value) {\n"
                        "        builderResult.$name$ = value\n"
                        "    }\n"
+                       "}\n"
+                       "func set$capitalized_name$(value:Array<$type$>)-> $classname$Builder {\n"
+                       "  self.$name$ = value\n"
+                       "  return self\n"
                        "}\n"
                        "$acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder {\n"
                        "  builderResult.$name$.removeAll(keepCapacity: false)\n"

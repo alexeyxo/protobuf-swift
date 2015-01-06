@@ -153,8 +153,8 @@ final internal class TestLiteImportsNonliteBuilder : GeneratedMessageBuilder {
            builderResult.message = value
        }
   }
-  internal func setMessageBuilder(builderForValue:TestAllTypesBuilder) -> TestLiteImportsNonliteBuilder {
-    message = builderForValue.build()
+  func setMessage(value:TestAllTypes)-> TestLiteImportsNonliteBuilder {
+    self.message = value
     return self
   }
   internal func mergeMessage(value:TestAllTypes) -> TestLiteImportsNonliteBuilder {

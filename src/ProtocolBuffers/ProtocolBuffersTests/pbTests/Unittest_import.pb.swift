@@ -173,6 +173,10 @@ final internal class ImportMessageBuilder : GeneratedMessageBuilder {
            builderResult.d = value
        }
   }
+  func setD(value:Int32)-> ImportMessageBuilder {
+    self.d = value
+    return self
+  }
   internal func clearD() -> ImportMessageBuilder{
        builderResult.hasD = false
        builderResult.d = Int32(0)

@@ -2256,6 +2256,10 @@ final internal class TestAllTypes : GeneratedMessage {
                builderResult.bb = value
            }
       }
+      func setBb(value:Int32)-> TestAllTypes.NestedMessageBuilder {
+        self.bb = value
+        return self
+      }
       internal func clearBb() -> TestAllTypes.NestedMessageBuilder{
            builderResult.hasBb = false
            builderResult.bb = Int32(0)
@@ -2446,6 +2450,10 @@ final internal class TestAllTypes : GeneratedMessage {
                builderResult.a = value
            }
       }
+      func setA(value:Int32)-> TestAllTypes.OptionalGroupBuilder {
+        self.a = value
+        return self
+      }
       internal func clearA() -> TestAllTypes.OptionalGroupBuilder{
            builderResult.hasA = false
            builderResult.a = Int32(0)
@@ -2635,6 +2643,10 @@ final internal class TestAllTypes : GeneratedMessage {
                builderResult.hasA = true
                builderResult.a = value
            }
+      }
+      func setA(value:Int32)-> TestAllTypes.RepeatedGroupBuilder {
+        self.a = value
+        return self
       }
       internal func clearA() -> TestAllTypes.RepeatedGroupBuilder{
            builderResult.hasA = false
@@ -4170,6 +4182,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalInt32 = value
        }
   }
+  func setOptionalInt32(value:Int32)-> TestAllTypesBuilder {
+    self.optionalInt32 = value
+    return self
+  }
   internal func clearOptionalInt32() -> TestAllTypesBuilder{
        builderResult.hasOptionalInt32 = false
        builderResult.optionalInt32 = Int32(0)
@@ -4188,6 +4204,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasOptionalInt64 = true
            builderResult.optionalInt64 = value
        }
+  }
+  func setOptionalInt64(value:Int64)-> TestAllTypesBuilder {
+    self.optionalInt64 = value
+    return self
   }
   internal func clearOptionalInt64() -> TestAllTypesBuilder{
        builderResult.hasOptionalInt64 = false
@@ -4208,6 +4228,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalUint32 = value
        }
   }
+  func setOptionalUint32(value:UInt32)-> TestAllTypesBuilder {
+    self.optionalUint32 = value
+    return self
+  }
   internal func clearOptionalUint32() -> TestAllTypesBuilder{
        builderResult.hasOptionalUint32 = false
        builderResult.optionalUint32 = UInt32(0)
@@ -4226,6 +4250,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasOptionalUint64 = true
            builderResult.optionalUint64 = value
        }
+  }
+  func setOptionalUint64(value:UInt64)-> TestAllTypesBuilder {
+    self.optionalUint64 = value
+    return self
   }
   internal func clearOptionalUint64() -> TestAllTypesBuilder{
        builderResult.hasOptionalUint64 = false
@@ -4246,6 +4274,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalSint32 = value
        }
   }
+  func setOptionalSint32(value:Int32)-> TestAllTypesBuilder {
+    self.optionalSint32 = value
+    return self
+  }
   internal func clearOptionalSint32() -> TestAllTypesBuilder{
        builderResult.hasOptionalSint32 = false
        builderResult.optionalSint32 = Int32(0)
@@ -4264,6 +4296,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasOptionalSint64 = true
            builderResult.optionalSint64 = value
        }
+  }
+  func setOptionalSint64(value:Int64)-> TestAllTypesBuilder {
+    self.optionalSint64 = value
+    return self
   }
   internal func clearOptionalSint64() -> TestAllTypesBuilder{
        builderResult.hasOptionalSint64 = false
@@ -4284,6 +4320,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalFixed32 = value
        }
   }
+  func setOptionalFixed32(value:UInt32)-> TestAllTypesBuilder {
+    self.optionalFixed32 = value
+    return self
+  }
   internal func clearOptionalFixed32() -> TestAllTypesBuilder{
        builderResult.hasOptionalFixed32 = false
        builderResult.optionalFixed32 = UInt32(0)
@@ -4302,6 +4342,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasOptionalFixed64 = true
            builderResult.optionalFixed64 = value
        }
+  }
+  func setOptionalFixed64(value:UInt64)-> TestAllTypesBuilder {
+    self.optionalFixed64 = value
+    return self
   }
   internal func clearOptionalFixed64() -> TestAllTypesBuilder{
        builderResult.hasOptionalFixed64 = false
@@ -4322,6 +4366,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalSfixed32 = value
        }
   }
+  func setOptionalSfixed32(value:Int32)-> TestAllTypesBuilder {
+    self.optionalSfixed32 = value
+    return self
+  }
   internal func clearOptionalSfixed32() -> TestAllTypesBuilder{
        builderResult.hasOptionalSfixed32 = false
        builderResult.optionalSfixed32 = Int32(0)
@@ -4340,6 +4388,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasOptionalSfixed64 = true
            builderResult.optionalSfixed64 = value
        }
+  }
+  func setOptionalSfixed64(value:Int64)-> TestAllTypesBuilder {
+    self.optionalSfixed64 = value
+    return self
   }
   internal func clearOptionalSfixed64() -> TestAllTypesBuilder{
        builderResult.hasOptionalSfixed64 = false
@@ -4360,6 +4412,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalFloat = value
        }
   }
+  func setOptionalFloat(value:Float)-> TestAllTypesBuilder {
+    self.optionalFloat = value
+    return self
+  }
   internal func clearOptionalFloat() -> TestAllTypesBuilder{
        builderResult.hasOptionalFloat = false
        builderResult.optionalFloat = Float(0)
@@ -4378,6 +4434,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasOptionalDouble = true
            builderResult.optionalDouble = value
        }
+  }
+  func setOptionalDouble(value:Double)-> TestAllTypesBuilder {
+    self.optionalDouble = value
+    return self
   }
   internal func clearOptionalDouble() -> TestAllTypesBuilder{
        builderResult.hasOptionalDouble = false
@@ -4398,6 +4458,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalBool = value
        }
   }
+  func setOptionalBool(value:Bool)-> TestAllTypesBuilder {
+    self.optionalBool = value
+    return self
+  }
   internal func clearOptionalBool() -> TestAllTypesBuilder{
        builderResult.hasOptionalBool = false
        builderResult.optionalBool = false
@@ -4416,6 +4480,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasOptionalString = true
            builderResult.optionalString = value
        }
+  }
+  func setOptionalString(value:String)-> TestAllTypesBuilder {
+    self.optionalString = value
+    return self
   }
   internal func clearOptionalString() -> TestAllTypesBuilder{
        builderResult.hasOptionalString = false
@@ -4436,6 +4504,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalBytes = value
        }
   }
+  func setOptionalBytes(value:NSData)-> TestAllTypesBuilder {
+    self.optionalBytes = value
+    return self
+  }
   internal func clearOptionalBytes() -> TestAllTypesBuilder{
        builderResult.hasOptionalBytes = false
        builderResult.optionalBytes = NSData()
@@ -4455,8 +4527,8 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalGroup = value
        }
   }
-  internal func setOptionalGroupBuilder(builderForValue:TestAllTypes.OptionalGroupBuilder) -> TestAllTypesBuilder {
-    optionalGroup = builderForValue.build()
+  func setOptionalGroup(value:TestAllTypes.OptionalGroup)-> TestAllTypesBuilder {
+    self.optionalGroup = value
     return self
   }
   internal func mergeOptionalGroup(value:TestAllTypes.OptionalGroup) -> TestAllTypesBuilder {
@@ -4487,8 +4559,8 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalNestedMessage = value
        }
   }
-  internal func setOptionalNestedMessageBuilder(builderForValue:TestAllTypes.NestedMessageBuilder) -> TestAllTypesBuilder {
-    optionalNestedMessage = builderForValue.build()
+  func setOptionalNestedMessage(value:TestAllTypes.NestedMessage)-> TestAllTypesBuilder {
+    self.optionalNestedMessage = value
     return self
   }
   internal func mergeOptionalNestedMessage(value:TestAllTypes.NestedMessage) -> TestAllTypesBuilder {
@@ -4519,8 +4591,8 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalForeignMessage = value
        }
   }
-  internal func setOptionalForeignMessageBuilder(builderForValue:ForeignMessageBuilder) -> TestAllTypesBuilder {
-    optionalForeignMessage = builderForValue.build()
+  func setOptionalForeignMessage(value:ForeignMessage)-> TestAllTypesBuilder {
+    self.optionalForeignMessage = value
     return self
   }
   internal func mergeOptionalForeignMessage(value:ForeignMessage) -> TestAllTypesBuilder {
@@ -4551,8 +4623,8 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalImportMessage = value
        }
   }
-  internal func setOptionalImportMessageBuilder(builderForValue:ImportMessageBuilder) -> TestAllTypesBuilder {
-    optionalImportMessage = builderForValue.build()
+  func setOptionalImportMessage(value:ImportMessage)-> TestAllTypesBuilder {
+    self.optionalImportMessage = value
     return self
   }
   internal func mergeOptionalImportMessage(value:ImportMessage) -> TestAllTypesBuilder {
@@ -4583,6 +4655,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
             builderResult.optionalNestedEnum = value
         }
     }
+    func setOptionalNestedEnum(value:TestAllTypes.NestedEnum)-> TestAllTypesBuilder {
+      self.optionalNestedEnum = value
+      return self
+    }
     internal func clearOptionalNestedEnum() -> TestAllTypesBuilder {
        builderResult.hasOptionalNestedEnum = false
        builderResult.optionalNestedEnum = .Foo
@@ -4601,6 +4677,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
             builderResult.hasOptionalForeignEnum = true
             builderResult.optionalForeignEnum = value
         }
+    }
+    func setOptionalForeignEnum(value:ForeignEnum)-> TestAllTypesBuilder {
+      self.optionalForeignEnum = value
+      return self
     }
     internal func clearOptionalForeignEnum() -> TestAllTypesBuilder {
        builderResult.hasOptionalForeignEnum = false
@@ -4621,6 +4701,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
             builderResult.optionalImportEnum = value
         }
     }
+    func setOptionalImportEnum(value:ImportEnum)-> TestAllTypesBuilder {
+      self.optionalImportEnum = value
+      return self
+    }
     internal func clearOptionalImportEnum() -> TestAllTypesBuilder {
        builderResult.hasOptionalImportEnum = false
        builderResult.optionalImportEnum = .ImportFoo
@@ -4639,6 +4723,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasOptionalStringPiece = true
            builderResult.optionalStringPiece = value
        }
+  }
+  func setOptionalStringPiece(value:String)-> TestAllTypesBuilder {
+    self.optionalStringPiece = value
+    return self
   }
   internal func clearOptionalStringPiece() -> TestAllTypesBuilder{
        builderResult.hasOptionalStringPiece = false
@@ -4659,6 +4747,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalCord = value
        }
   }
+  func setOptionalCord(value:String)-> TestAllTypesBuilder {
+    self.optionalCord = value
+    return self
+  }
   internal func clearOptionalCord() -> TestAllTypesBuilder{
        builderResult.hasOptionalCord = false
        builderResult.optionalCord = ""
@@ -4678,8 +4770,8 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalPublicImportMessage = value
        }
   }
-  internal func setOptionalPublicImportMessageBuilder(builderForValue:PublicImportMessageBuilder) -> TestAllTypesBuilder {
-    optionalPublicImportMessage = builderForValue.build()
+  func setOptionalPublicImportMessage(value:PublicImportMessage)-> TestAllTypesBuilder {
+    self.optionalPublicImportMessage = value
     return self
   }
   internal func mergeOptionalPublicImportMessage(value:PublicImportMessage) -> TestAllTypesBuilder {
@@ -4710,8 +4802,8 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.optionalLazyMessage = value
        }
   }
-  internal func setOptionalLazyMessageBuilder(builderForValue:TestAllTypes.NestedMessageBuilder) -> TestAllTypesBuilder {
-    optionalLazyMessage = builderForValue.build()
+  func setOptionalLazyMessage(value:TestAllTypes.NestedMessage)-> TestAllTypesBuilder {
+    self.optionalLazyMessage = value
     return self
   }
   internal func mergeOptionalLazyMessage(value:TestAllTypes.NestedMessage) -> TestAllTypesBuilder {
@@ -4736,6 +4828,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedInt32 = array
        }
   }
+  func setRepeatedInt32(value:Array<Int32>)-> TestAllTypesBuilder {
+    self.repeatedInt32 = value
+    return self
+  }
   internal func clearRepeatedInt32() -> TestAllTypesBuilder {
      builderResult.repeatedInt32.removeAll(keepCapacity: false)
      return self
@@ -4747,6 +4843,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.repeatedInt64 = array
        }
+  }
+  func setRepeatedInt64(value:Array<Int64>)-> TestAllTypesBuilder {
+    self.repeatedInt64 = value
+    return self
   }
   internal func clearRepeatedInt64() -> TestAllTypesBuilder {
      builderResult.repeatedInt64.removeAll(keepCapacity: false)
@@ -4760,6 +4860,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedUint32 = array
        }
   }
+  func setRepeatedUint32(value:Array<UInt32>)-> TestAllTypesBuilder {
+    self.repeatedUint32 = value
+    return self
+  }
   internal func clearRepeatedUint32() -> TestAllTypesBuilder {
      builderResult.repeatedUint32.removeAll(keepCapacity: false)
      return self
@@ -4771,6 +4875,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.repeatedUint64 = array
        }
+  }
+  func setRepeatedUint64(value:Array<UInt64>)-> TestAllTypesBuilder {
+    self.repeatedUint64 = value
+    return self
   }
   internal func clearRepeatedUint64() -> TestAllTypesBuilder {
      builderResult.repeatedUint64.removeAll(keepCapacity: false)
@@ -4784,6 +4892,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedSint32 = array
        }
   }
+  func setRepeatedSint32(value:Array<Int32>)-> TestAllTypesBuilder {
+    self.repeatedSint32 = value
+    return self
+  }
   internal func clearRepeatedSint32() -> TestAllTypesBuilder {
      builderResult.repeatedSint32.removeAll(keepCapacity: false)
      return self
@@ -4795,6 +4907,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.repeatedSint64 = array
        }
+  }
+  func setRepeatedSint64(value:Array<Int64>)-> TestAllTypesBuilder {
+    self.repeatedSint64 = value
+    return self
   }
   internal func clearRepeatedSint64() -> TestAllTypesBuilder {
      builderResult.repeatedSint64.removeAll(keepCapacity: false)
@@ -4808,6 +4924,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedFixed32 = array
        }
   }
+  func setRepeatedFixed32(value:Array<UInt32>)-> TestAllTypesBuilder {
+    self.repeatedFixed32 = value
+    return self
+  }
   internal func clearRepeatedFixed32() -> TestAllTypesBuilder {
      builderResult.repeatedFixed32.removeAll(keepCapacity: false)
      return self
@@ -4819,6 +4939,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.repeatedFixed64 = array
        }
+  }
+  func setRepeatedFixed64(value:Array<UInt64>)-> TestAllTypesBuilder {
+    self.repeatedFixed64 = value
+    return self
   }
   internal func clearRepeatedFixed64() -> TestAllTypesBuilder {
      builderResult.repeatedFixed64.removeAll(keepCapacity: false)
@@ -4832,6 +4956,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedSfixed32 = array
        }
   }
+  func setRepeatedSfixed32(value:Array<Int32>)-> TestAllTypesBuilder {
+    self.repeatedSfixed32 = value
+    return self
+  }
   internal func clearRepeatedSfixed32() -> TestAllTypesBuilder {
      builderResult.repeatedSfixed32.removeAll(keepCapacity: false)
      return self
@@ -4843,6 +4971,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.repeatedSfixed64 = array
        }
+  }
+  func setRepeatedSfixed64(value:Array<Int64>)-> TestAllTypesBuilder {
+    self.repeatedSfixed64 = value
+    return self
   }
   internal func clearRepeatedSfixed64() -> TestAllTypesBuilder {
      builderResult.repeatedSfixed64.removeAll(keepCapacity: false)
@@ -4856,6 +4988,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedFloat = array
        }
   }
+  func setRepeatedFloat(value:Array<Float>)-> TestAllTypesBuilder {
+    self.repeatedFloat = value
+    return self
+  }
   internal func clearRepeatedFloat() -> TestAllTypesBuilder {
      builderResult.repeatedFloat.removeAll(keepCapacity: false)
      return self
@@ -4867,6 +5003,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.repeatedDouble = array
        }
+  }
+  func setRepeatedDouble(value:Array<Double>)-> TestAllTypesBuilder {
+    self.repeatedDouble = value
+    return self
   }
   internal func clearRepeatedDouble() -> TestAllTypesBuilder {
      builderResult.repeatedDouble.removeAll(keepCapacity: false)
@@ -4880,6 +5020,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedBool = array
        }
   }
+  func setRepeatedBool(value:Array<Bool>)-> TestAllTypesBuilder {
+    self.repeatedBool = value
+    return self
+  }
   internal func clearRepeatedBool() -> TestAllTypesBuilder {
      builderResult.repeatedBool.removeAll(keepCapacity: false)
      return self
@@ -4891,6 +5035,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.repeatedString = array
        }
+  }
+  func setRepeatedString(value:Array<String>)-> TestAllTypesBuilder {
+    self.repeatedString = value
+    return self
   }
   internal func clearRepeatedString() -> TestAllTypesBuilder {
      builderResult.repeatedString.removeAll(keepCapacity: false)
@@ -4904,6 +5052,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedBytes = array
        }
   }
+  func setRepeatedBytes(value:Array<NSData>)-> TestAllTypesBuilder {
+    self.repeatedBytes = value
+    return self
+  }
   internal func clearRepeatedBytes() -> TestAllTypesBuilder {
      builderResult.repeatedBytes.removeAll(keepCapacity: false)
      return self
@@ -4915,6 +5067,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
        set (value) {
            builderResult.repeatedGroup = value
        }
+  }
+  func setRepeatedGroup(value:Array<TestAllTypes.RepeatedGroup>)-> TestAllTypesBuilder {
+    self.repeatedGroup = value
+    return self
   }
   internal func clearRepeatedGroup() -> TestAllTypesBuilder {
     builderResult.repeatedGroup.removeAll(keepCapacity: false)
@@ -4928,6 +5084,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedNestedMessage = value
        }
   }
+  func setRepeatedNestedMessage(value:Array<TestAllTypes.NestedMessage>)-> TestAllTypesBuilder {
+    self.repeatedNestedMessage = value
+    return self
+  }
   internal func clearRepeatedNestedMessage() -> TestAllTypesBuilder {
     builderResult.repeatedNestedMessage.removeAll(keepCapacity: false)
     return self
@@ -4939,6 +5099,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
        set (value) {
            builderResult.repeatedForeignMessage = value
        }
+  }
+  func setRepeatedForeignMessage(value:Array<ForeignMessage>)-> TestAllTypesBuilder {
+    self.repeatedForeignMessage = value
+    return self
   }
   internal func clearRepeatedForeignMessage() -> TestAllTypesBuilder {
     builderResult.repeatedForeignMessage.removeAll(keepCapacity: false)
@@ -4952,6 +5116,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedImportMessage = value
        }
   }
+  func setRepeatedImportMessage(value:Array<ImportMessage>)-> TestAllTypesBuilder {
+    self.repeatedImportMessage = value
+    return self
+  }
   internal func clearRepeatedImportMessage() -> TestAllTypesBuilder {
     builderResult.repeatedImportMessage.removeAll(keepCapacity: false)
     return self
@@ -4963,6 +5131,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
       set (value) {
           builderResult.repeatedNestedEnum = value
       }
+  }
+  func setRepeatedNestedEnum(value:Array<TestAllTypes.NestedEnum>)-> TestAllTypesBuilder {
+    self.repeatedNestedEnum = value
+    return self
   }
   internal func clearRepeatedNestedEnum() -> TestAllTypesBuilder {
     builderResult.repeatedNestedEnum.removeAll(keepCapacity: false)
@@ -4976,6 +5148,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
           builderResult.repeatedForeignEnum = value
       }
   }
+  func setRepeatedForeignEnum(value:Array<ForeignEnum>)-> TestAllTypesBuilder {
+    self.repeatedForeignEnum = value
+    return self
+  }
   internal func clearRepeatedForeignEnum() -> TestAllTypesBuilder {
     builderResult.repeatedForeignEnum.removeAll(keepCapacity: false)
     return self
@@ -4987,6 +5163,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
       set (value) {
           builderResult.repeatedImportEnum = value
       }
+  }
+  func setRepeatedImportEnum(value:Array<ImportEnum>)-> TestAllTypesBuilder {
+    self.repeatedImportEnum = value
+    return self
   }
   internal func clearRepeatedImportEnum() -> TestAllTypesBuilder {
     builderResult.repeatedImportEnum.removeAll(keepCapacity: false)
@@ -5000,6 +5180,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedStringPiece = array
        }
   }
+  func setRepeatedStringPiece(value:Array<String>)-> TestAllTypesBuilder {
+    self.repeatedStringPiece = value
+    return self
+  }
   internal func clearRepeatedStringPiece() -> TestAllTypesBuilder {
      builderResult.repeatedStringPiece.removeAll(keepCapacity: false)
      return self
@@ -5012,6 +5196,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedCord = array
        }
   }
+  func setRepeatedCord(value:Array<String>)-> TestAllTypesBuilder {
+    self.repeatedCord = value
+    return self
+  }
   internal func clearRepeatedCord() -> TestAllTypesBuilder {
      builderResult.repeatedCord.removeAll(keepCapacity: false)
      return self
@@ -5023,6 +5211,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
        set (value) {
            builderResult.repeatedLazyMessage = value
        }
+  }
+  func setRepeatedLazyMessage(value:Array<TestAllTypes.NestedMessage>)-> TestAllTypesBuilder {
+    self.repeatedLazyMessage = value
+    return self
   }
   internal func clearRepeatedLazyMessage() -> TestAllTypesBuilder {
     builderResult.repeatedLazyMessage.removeAll(keepCapacity: false)
@@ -5041,6 +5233,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasDefaultInt32 = true
            builderResult.defaultInt32 = value
        }
+  }
+  func setDefaultInt32(value:Int32)-> TestAllTypesBuilder {
+    self.defaultInt32 = value
+    return self
   }
   internal func clearDefaultInt32() -> TestAllTypesBuilder{
        builderResult.hasDefaultInt32 = false
@@ -5061,6 +5257,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.defaultInt64 = value
        }
   }
+  func setDefaultInt64(value:Int64)-> TestAllTypesBuilder {
+    self.defaultInt64 = value
+    return self
+  }
   internal func clearDefaultInt64() -> TestAllTypesBuilder{
        builderResult.hasDefaultInt64 = false
        builderResult.defaultInt64 = Int64(42)
@@ -5079,6 +5279,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasDefaultUint32 = true
            builderResult.defaultUint32 = value
        }
+  }
+  func setDefaultUint32(value:UInt32)-> TestAllTypesBuilder {
+    self.defaultUint32 = value
+    return self
   }
   internal func clearDefaultUint32() -> TestAllTypesBuilder{
        builderResult.hasDefaultUint32 = false
@@ -5099,6 +5303,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.defaultUint64 = value
        }
   }
+  func setDefaultUint64(value:UInt64)-> TestAllTypesBuilder {
+    self.defaultUint64 = value
+    return self
+  }
   internal func clearDefaultUint64() -> TestAllTypesBuilder{
        builderResult.hasDefaultUint64 = false
        builderResult.defaultUint64 = UInt64(44)
@@ -5117,6 +5325,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasDefaultSint32 = true
            builderResult.defaultSint32 = value
        }
+  }
+  func setDefaultSint32(value:Int32)-> TestAllTypesBuilder {
+    self.defaultSint32 = value
+    return self
   }
   internal func clearDefaultSint32() -> TestAllTypesBuilder{
        builderResult.hasDefaultSint32 = false
@@ -5137,6 +5349,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.defaultSint64 = value
        }
   }
+  func setDefaultSint64(value:Int64)-> TestAllTypesBuilder {
+    self.defaultSint64 = value
+    return self
+  }
   internal func clearDefaultSint64() -> TestAllTypesBuilder{
        builderResult.hasDefaultSint64 = false
        builderResult.defaultSint64 = Int64(46)
@@ -5155,6 +5371,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasDefaultFixed32 = true
            builderResult.defaultFixed32 = value
        }
+  }
+  func setDefaultFixed32(value:UInt32)-> TestAllTypesBuilder {
+    self.defaultFixed32 = value
+    return self
   }
   internal func clearDefaultFixed32() -> TestAllTypesBuilder{
        builderResult.hasDefaultFixed32 = false
@@ -5175,6 +5395,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.defaultFixed64 = value
        }
   }
+  func setDefaultFixed64(value:UInt64)-> TestAllTypesBuilder {
+    self.defaultFixed64 = value
+    return self
+  }
   internal func clearDefaultFixed64() -> TestAllTypesBuilder{
        builderResult.hasDefaultFixed64 = false
        builderResult.defaultFixed64 = UInt64(48)
@@ -5193,6 +5417,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasDefaultSfixed32 = true
            builderResult.defaultSfixed32 = value
        }
+  }
+  func setDefaultSfixed32(value:Int32)-> TestAllTypesBuilder {
+    self.defaultSfixed32 = value
+    return self
   }
   internal func clearDefaultSfixed32() -> TestAllTypesBuilder{
        builderResult.hasDefaultSfixed32 = false
@@ -5213,6 +5441,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.defaultSfixed64 = value
        }
   }
+  func setDefaultSfixed64(value:Int64)-> TestAllTypesBuilder {
+    self.defaultSfixed64 = value
+    return self
+  }
   internal func clearDefaultSfixed64() -> TestAllTypesBuilder{
        builderResult.hasDefaultSfixed64 = false
        builderResult.defaultSfixed64 = Int64(-50)
@@ -5231,6 +5463,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasDefaultFloat = true
            builderResult.defaultFloat = value
        }
+  }
+  func setDefaultFloat(value:Float)-> TestAllTypesBuilder {
+    self.defaultFloat = value
+    return self
   }
   internal func clearDefaultFloat() -> TestAllTypesBuilder{
        builderResult.hasDefaultFloat = false
@@ -5251,6 +5487,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.defaultDouble = value
        }
   }
+  func setDefaultDouble(value:Double)-> TestAllTypesBuilder {
+    self.defaultDouble = value
+    return self
+  }
   internal func clearDefaultDouble() -> TestAllTypesBuilder{
        builderResult.hasDefaultDouble = false
        builderResult.defaultDouble = Double(52000)
@@ -5269,6 +5509,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasDefaultBool = true
            builderResult.defaultBool = value
        }
+  }
+  func setDefaultBool(value:Bool)-> TestAllTypesBuilder {
+    self.defaultBool = value
+    return self
   }
   internal func clearDefaultBool() -> TestAllTypesBuilder{
        builderResult.hasDefaultBool = false
@@ -5289,6 +5533,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.defaultString = value
        }
   }
+  func setDefaultString(value:String)-> TestAllTypesBuilder {
+    self.defaultString = value
+    return self
+  }
   internal func clearDefaultString() -> TestAllTypesBuilder{
        builderResult.hasDefaultString = false
        builderResult.defaultString = "hello"
@@ -5307,6 +5555,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasDefaultBytes = true
            builderResult.defaultBytes = value
        }
+  }
+  func setDefaultBytes(value:NSData)-> TestAllTypesBuilder {
+    self.defaultBytes = value
+    return self
   }
   internal func clearDefaultBytes() -> TestAllTypesBuilder{
        builderResult.hasDefaultBytes = false
@@ -5327,6 +5579,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
             builderResult.defaultNestedEnum = value
         }
     }
+    func setDefaultNestedEnum(value:TestAllTypes.NestedEnum)-> TestAllTypesBuilder {
+      self.defaultNestedEnum = value
+      return self
+    }
     internal func clearDefaultNestedEnum() -> TestAllTypesBuilder {
        builderResult.hasDefaultNestedEnum = false
        builderResult.defaultNestedEnum = .Bar
@@ -5345,6 +5601,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
             builderResult.hasDefaultForeignEnum = true
             builderResult.defaultForeignEnum = value
         }
+    }
+    func setDefaultForeignEnum(value:ForeignEnum)-> TestAllTypesBuilder {
+      self.defaultForeignEnum = value
+      return self
     }
     internal func clearDefaultForeignEnum() -> TestAllTypesBuilder {
        builderResult.hasDefaultForeignEnum = false
@@ -5365,6 +5625,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
             builderResult.defaultImportEnum = value
         }
     }
+    func setDefaultImportEnum(value:ImportEnum)-> TestAllTypesBuilder {
+      self.defaultImportEnum = value
+      return self
+    }
     internal func clearDefaultImportEnum() -> TestAllTypesBuilder {
        builderResult.hasDefaultImportEnum = false
        builderResult.defaultImportEnum = .ImportBar
@@ -5383,6 +5647,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasDefaultStringPiece = true
            builderResult.defaultStringPiece = value
        }
+  }
+  func setDefaultStringPiece(value:String)-> TestAllTypesBuilder {
+    self.defaultStringPiece = value
+    return self
   }
   internal func clearDefaultStringPiece() -> TestAllTypesBuilder{
        builderResult.hasDefaultStringPiece = false
@@ -5403,6 +5671,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.defaultCord = value
        }
   }
+  func setDefaultCord(value:String)-> TestAllTypesBuilder {
+    self.defaultCord = value
+    return self
+  }
   internal func clearDefaultCord() -> TestAllTypesBuilder{
        builderResult.hasDefaultCord = false
        builderResult.defaultCord = "123"
@@ -5421,6 +5693,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasOneofUint32 = true
            builderResult.oneofUint32 = value
        }
+  }
+  func setOneofUint32(value:UInt32)-> TestAllTypesBuilder {
+    self.oneofUint32 = value
+    return self
   }
   internal func clearOneofUint32() -> TestAllTypesBuilder{
        builderResult.hasOneofUint32 = false
@@ -5441,8 +5717,8 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.oneofNestedMessage = value
        }
   }
-  internal func setOneofNestedMessageBuilder(builderForValue:TestAllTypes.NestedMessageBuilder) -> TestAllTypesBuilder {
-    oneofNestedMessage = builderForValue.build()
+  func setOneofNestedMessage(value:TestAllTypes.NestedMessage)-> TestAllTypesBuilder {
+    self.oneofNestedMessage = value
     return self
   }
   internal func mergeOneofNestedMessage(value:TestAllTypes.NestedMessage) -> TestAllTypesBuilder {
@@ -5473,6 +5749,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.oneofString = value
        }
   }
+  func setOneofString(value:String)-> TestAllTypesBuilder {
+    self.oneofString = value
+    return self
+  }
   internal func clearOneofString() -> TestAllTypesBuilder{
        builderResult.hasOneofString = false
        builderResult.oneofString = ""
@@ -5491,6 +5771,10 @@ final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.hasOneofBytes = true
            builderResult.oneofBytes = value
        }
+  }
+  func setOneofBytes(value:NSData)-> TestAllTypesBuilder {
+    self.oneofBytes = value
+    return self
   }
   internal func clearOneofBytes() -> TestAllTypesBuilder{
        builderResult.hasOneofBytes = false
@@ -6225,8 +6509,8 @@ final internal class NestedTestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.child = value
        }
   }
-  internal func setChildBuilder(builderForValue:NestedTestAllTypesBuilder) -> NestedTestAllTypesBuilder {
-    child = builderForValue.build()
+  func setChild(value:NestedTestAllTypes)-> NestedTestAllTypesBuilder {
+    self.child = value
     return self
   }
   internal func mergeChild(value:NestedTestAllTypes) -> NestedTestAllTypesBuilder {
@@ -6257,8 +6541,8 @@ final internal class NestedTestAllTypesBuilder : GeneratedMessageBuilder {
            builderResult.payload = value
        }
   }
-  internal func setPayloadBuilder(builderForValue:TestAllTypesBuilder) -> NestedTestAllTypesBuilder {
-    payload = builderForValue.build()
+  func setPayload(value:TestAllTypes)-> NestedTestAllTypesBuilder {
+    self.payload = value
     return self
   }
   internal func mergePayload(value:TestAllTypes) -> NestedTestAllTypesBuilder {
@@ -6468,6 +6752,10 @@ final internal class TestDeprecatedFieldsBuilder : GeneratedMessageBuilder {
            builderResult.deprecatedInt32 = value
        }
   }
+  func setDeprecatedInt32(value:Int32)-> TestDeprecatedFieldsBuilder {
+    self.deprecatedInt32 = value
+    return self
+  }
   internal func clearDeprecatedInt32() -> TestDeprecatedFieldsBuilder{
        builderResult.hasDeprecatedInt32 = false
        builderResult.deprecatedInt32 = Int32(0)
@@ -6649,6 +6937,10 @@ final internal class ForeignMessageBuilder : GeneratedMessageBuilder {
            builderResult.hasC = true
            builderResult.c = value
        }
+  }
+  func setC(value:Int32)-> ForeignMessageBuilder {
+    self.c = value
+    return self
   }
   internal func clearC() -> ForeignMessageBuilder{
        builderResult.hasC = false
@@ -6982,6 +7274,10 @@ final internal class OptionalGroup_extensionBuilder : GeneratedMessageBuilder {
            builderResult.a = value
        }
   }
+  func setA(value:Int32)-> OptionalGroup_extensionBuilder {
+    self.a = value
+    return self
+  }
   internal func clearA() -> OptionalGroup_extensionBuilder{
        builderResult.hasA = false
        builderResult.a = Int32(0)
@@ -7163,6 +7459,10 @@ final internal class RepeatedGroup_extensionBuilder : GeneratedMessageBuilder {
            builderResult.hasA = true
            builderResult.a = value
        }
+  }
+  func setA(value:Int32)-> RepeatedGroup_extensionBuilder {
+    self.a = value
+    return self
   }
   internal func clearA() -> RepeatedGroup_extensionBuilder{
        builderResult.hasA = false
@@ -7989,6 +8289,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.a = value
        }
   }
+  func setA(value:Int32)-> TestRequiredBuilder {
+    self.a = value
+    return self
+  }
   internal func clearA() -> TestRequiredBuilder{
        builderResult.hasA = false
        builderResult.a = Int32(0)
@@ -8007,6 +8311,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy2 = true
            builderResult.dummy2 = value
        }
+  }
+  func setDummy2(value:Int32)-> TestRequiredBuilder {
+    self.dummy2 = value
+    return self
   }
   internal func clearDummy2() -> TestRequiredBuilder{
        builderResult.hasDummy2 = false
@@ -8027,6 +8335,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.b = value
        }
   }
+  func setB(value:Int32)-> TestRequiredBuilder {
+    self.b = value
+    return self
+  }
   internal func clearB() -> TestRequiredBuilder{
        builderResult.hasB = false
        builderResult.b = Int32(0)
@@ -8045,6 +8357,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy4 = true
            builderResult.dummy4 = value
        }
+  }
+  func setDummy4(value:Int32)-> TestRequiredBuilder {
+    self.dummy4 = value
+    return self
   }
   internal func clearDummy4() -> TestRequiredBuilder{
        builderResult.hasDummy4 = false
@@ -8065,6 +8381,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy5 = value
        }
   }
+  func setDummy5(value:Int32)-> TestRequiredBuilder {
+    self.dummy5 = value
+    return self
+  }
   internal func clearDummy5() -> TestRequiredBuilder{
        builderResult.hasDummy5 = false
        builderResult.dummy5 = Int32(0)
@@ -8083,6 +8403,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy6 = true
            builderResult.dummy6 = value
        }
+  }
+  func setDummy6(value:Int32)-> TestRequiredBuilder {
+    self.dummy6 = value
+    return self
   }
   internal func clearDummy6() -> TestRequiredBuilder{
        builderResult.hasDummy6 = false
@@ -8103,6 +8427,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy7 = value
        }
   }
+  func setDummy7(value:Int32)-> TestRequiredBuilder {
+    self.dummy7 = value
+    return self
+  }
   internal func clearDummy7() -> TestRequiredBuilder{
        builderResult.hasDummy7 = false
        builderResult.dummy7 = Int32(0)
@@ -8121,6 +8449,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy8 = true
            builderResult.dummy8 = value
        }
+  }
+  func setDummy8(value:Int32)-> TestRequiredBuilder {
+    self.dummy8 = value
+    return self
   }
   internal func clearDummy8() -> TestRequiredBuilder{
        builderResult.hasDummy8 = false
@@ -8141,6 +8473,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy9 = value
        }
   }
+  func setDummy9(value:Int32)-> TestRequiredBuilder {
+    self.dummy9 = value
+    return self
+  }
   internal func clearDummy9() -> TestRequiredBuilder{
        builderResult.hasDummy9 = false
        builderResult.dummy9 = Int32(0)
@@ -8159,6 +8495,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy10 = true
            builderResult.dummy10 = value
        }
+  }
+  func setDummy10(value:Int32)-> TestRequiredBuilder {
+    self.dummy10 = value
+    return self
   }
   internal func clearDummy10() -> TestRequiredBuilder{
        builderResult.hasDummy10 = false
@@ -8179,6 +8519,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy11 = value
        }
   }
+  func setDummy11(value:Int32)-> TestRequiredBuilder {
+    self.dummy11 = value
+    return self
+  }
   internal func clearDummy11() -> TestRequiredBuilder{
        builderResult.hasDummy11 = false
        builderResult.dummy11 = Int32(0)
@@ -8197,6 +8541,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy12 = true
            builderResult.dummy12 = value
        }
+  }
+  func setDummy12(value:Int32)-> TestRequiredBuilder {
+    self.dummy12 = value
+    return self
   }
   internal func clearDummy12() -> TestRequiredBuilder{
        builderResult.hasDummy12 = false
@@ -8217,6 +8565,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy13 = value
        }
   }
+  func setDummy13(value:Int32)-> TestRequiredBuilder {
+    self.dummy13 = value
+    return self
+  }
   internal func clearDummy13() -> TestRequiredBuilder{
        builderResult.hasDummy13 = false
        builderResult.dummy13 = Int32(0)
@@ -8235,6 +8587,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy14 = true
            builderResult.dummy14 = value
        }
+  }
+  func setDummy14(value:Int32)-> TestRequiredBuilder {
+    self.dummy14 = value
+    return self
   }
   internal func clearDummy14() -> TestRequiredBuilder{
        builderResult.hasDummy14 = false
@@ -8255,6 +8611,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy15 = value
        }
   }
+  func setDummy15(value:Int32)-> TestRequiredBuilder {
+    self.dummy15 = value
+    return self
+  }
   internal func clearDummy15() -> TestRequiredBuilder{
        builderResult.hasDummy15 = false
        builderResult.dummy15 = Int32(0)
@@ -8273,6 +8633,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy16 = true
            builderResult.dummy16 = value
        }
+  }
+  func setDummy16(value:Int32)-> TestRequiredBuilder {
+    self.dummy16 = value
+    return self
   }
   internal func clearDummy16() -> TestRequiredBuilder{
        builderResult.hasDummy16 = false
@@ -8293,6 +8657,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy17 = value
        }
   }
+  func setDummy17(value:Int32)-> TestRequiredBuilder {
+    self.dummy17 = value
+    return self
+  }
   internal func clearDummy17() -> TestRequiredBuilder{
        builderResult.hasDummy17 = false
        builderResult.dummy17 = Int32(0)
@@ -8311,6 +8679,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy18 = true
            builderResult.dummy18 = value
        }
+  }
+  func setDummy18(value:Int32)-> TestRequiredBuilder {
+    self.dummy18 = value
+    return self
   }
   internal func clearDummy18() -> TestRequiredBuilder{
        builderResult.hasDummy18 = false
@@ -8331,6 +8703,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy19 = value
        }
   }
+  func setDummy19(value:Int32)-> TestRequiredBuilder {
+    self.dummy19 = value
+    return self
+  }
   internal func clearDummy19() -> TestRequiredBuilder{
        builderResult.hasDummy19 = false
        builderResult.dummy19 = Int32(0)
@@ -8349,6 +8725,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy20 = true
            builderResult.dummy20 = value
        }
+  }
+  func setDummy20(value:Int32)-> TestRequiredBuilder {
+    self.dummy20 = value
+    return self
   }
   internal func clearDummy20() -> TestRequiredBuilder{
        builderResult.hasDummy20 = false
@@ -8369,6 +8749,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy21 = value
        }
   }
+  func setDummy21(value:Int32)-> TestRequiredBuilder {
+    self.dummy21 = value
+    return self
+  }
   internal func clearDummy21() -> TestRequiredBuilder{
        builderResult.hasDummy21 = false
        builderResult.dummy21 = Int32(0)
@@ -8387,6 +8771,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy22 = true
            builderResult.dummy22 = value
        }
+  }
+  func setDummy22(value:Int32)-> TestRequiredBuilder {
+    self.dummy22 = value
+    return self
   }
   internal func clearDummy22() -> TestRequiredBuilder{
        builderResult.hasDummy22 = false
@@ -8407,6 +8795,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy23 = value
        }
   }
+  func setDummy23(value:Int32)-> TestRequiredBuilder {
+    self.dummy23 = value
+    return self
+  }
   internal func clearDummy23() -> TestRequiredBuilder{
        builderResult.hasDummy23 = false
        builderResult.dummy23 = Int32(0)
@@ -8425,6 +8817,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy24 = true
            builderResult.dummy24 = value
        }
+  }
+  func setDummy24(value:Int32)-> TestRequiredBuilder {
+    self.dummy24 = value
+    return self
   }
   internal func clearDummy24() -> TestRequiredBuilder{
        builderResult.hasDummy24 = false
@@ -8445,6 +8841,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy25 = value
        }
   }
+  func setDummy25(value:Int32)-> TestRequiredBuilder {
+    self.dummy25 = value
+    return self
+  }
   internal func clearDummy25() -> TestRequiredBuilder{
        builderResult.hasDummy25 = false
        builderResult.dummy25 = Int32(0)
@@ -8463,6 +8863,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy26 = true
            builderResult.dummy26 = value
        }
+  }
+  func setDummy26(value:Int32)-> TestRequiredBuilder {
+    self.dummy26 = value
+    return self
   }
   internal func clearDummy26() -> TestRequiredBuilder{
        builderResult.hasDummy26 = false
@@ -8483,6 +8887,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy27 = value
        }
   }
+  func setDummy27(value:Int32)-> TestRequiredBuilder {
+    self.dummy27 = value
+    return self
+  }
   internal func clearDummy27() -> TestRequiredBuilder{
        builderResult.hasDummy27 = false
        builderResult.dummy27 = Int32(0)
@@ -8501,6 +8909,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy28 = true
            builderResult.dummy28 = value
        }
+  }
+  func setDummy28(value:Int32)-> TestRequiredBuilder {
+    self.dummy28 = value
+    return self
   }
   internal func clearDummy28() -> TestRequiredBuilder{
        builderResult.hasDummy28 = false
@@ -8521,6 +8933,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy29 = value
        }
   }
+  func setDummy29(value:Int32)-> TestRequiredBuilder {
+    self.dummy29 = value
+    return self
+  }
   internal func clearDummy29() -> TestRequiredBuilder{
        builderResult.hasDummy29 = false
        builderResult.dummy29 = Int32(0)
@@ -8539,6 +8955,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy30 = true
            builderResult.dummy30 = value
        }
+  }
+  func setDummy30(value:Int32)-> TestRequiredBuilder {
+    self.dummy30 = value
+    return self
   }
   internal func clearDummy30() -> TestRequiredBuilder{
        builderResult.hasDummy30 = false
@@ -8559,6 +8979,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy31 = value
        }
   }
+  func setDummy31(value:Int32)-> TestRequiredBuilder {
+    self.dummy31 = value
+    return self
+  }
   internal func clearDummy31() -> TestRequiredBuilder{
        builderResult.hasDummy31 = false
        builderResult.dummy31 = Int32(0)
@@ -8578,6 +9002,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.dummy32 = value
        }
   }
+  func setDummy32(value:Int32)-> TestRequiredBuilder {
+    self.dummy32 = value
+    return self
+  }
   internal func clearDummy32() -> TestRequiredBuilder{
        builderResult.hasDummy32 = false
        builderResult.dummy32 = Int32(0)
@@ -8596,6 +9024,10 @@ final internal class TestRequiredBuilder : GeneratedMessageBuilder {
            builderResult.hasC = true
            builderResult.c = value
        }
+  }
+  func setC(value:Int32)-> TestRequiredBuilder {
+    self.c = value
+    return self
   }
   internal func clearC() -> TestRequiredBuilder{
        builderResult.hasC = false
@@ -9019,8 +9451,8 @@ final internal class TestRequiredForeignBuilder : GeneratedMessageBuilder {
            builderResult.optionalMessage = value
        }
   }
-  internal func setOptionalMessageBuilder(builderForValue:TestRequiredBuilder) -> TestRequiredForeignBuilder {
-    optionalMessage = builderForValue.build()
+  func setOptionalMessage(value:TestRequired)-> TestRequiredForeignBuilder {
+    self.optionalMessage = value
     return self
   }
   internal func mergeOptionalMessage(value:TestRequired) -> TestRequiredForeignBuilder {
@@ -9045,6 +9477,10 @@ final internal class TestRequiredForeignBuilder : GeneratedMessageBuilder {
            builderResult.repeatedMessage = value
        }
   }
+  func setRepeatedMessage(value:Array<TestRequired>)-> TestRequiredForeignBuilder {
+    self.repeatedMessage = value
+    return self
+  }
   internal func clearRepeatedMessage() -> TestRequiredForeignBuilder {
     builderResult.repeatedMessage.removeAll(keepCapacity: false)
     return self
@@ -9062,6 +9498,10 @@ final internal class TestRequiredForeignBuilder : GeneratedMessageBuilder {
            builderResult.hasDummy = true
            builderResult.dummy = value
        }
+  }
+  func setDummy(value:Int32)-> TestRequiredForeignBuilder {
+    self.dummy = value
+    return self
   }
   internal func clearDummy() -> TestRequiredForeignBuilder{
        builderResult.hasDummy = false
@@ -9265,8 +9705,8 @@ final internal class TestForeignNestedBuilder : GeneratedMessageBuilder {
            builderResult.foreignNested = value
        }
   }
-  internal func setForeignNestedBuilder(builderForValue:TestAllTypes.NestedMessageBuilder) -> TestForeignNestedBuilder {
-    foreignNested = builderForValue.build()
+  func setForeignNested(value:TestAllTypes.NestedMessage)-> TestForeignNestedBuilder {
+    self.foreignNested = value
     return self
   }
   internal func mergeForeignNested(value:TestAllTypes.NestedMessage) -> TestForeignNestedBuilder {
@@ -9928,6 +10368,10 @@ final internal class TestReallyLargeTagNumberBuilder : GeneratedMessageBuilder {
            builderResult.a = value
        }
   }
+  func setA(value:Int32)-> TestReallyLargeTagNumberBuilder {
+    self.a = value
+    return self
+  }
   internal func clearA() -> TestReallyLargeTagNumberBuilder{
        builderResult.hasA = false
        builderResult.a = Int32(0)
@@ -9946,6 +10390,10 @@ final internal class TestReallyLargeTagNumberBuilder : GeneratedMessageBuilder {
            builderResult.hasBb = true
            builderResult.bb = value
        }
+  }
+  func setBb(value:Int32)-> TestReallyLargeTagNumberBuilder {
+    self.bb = value
+    return self
   }
   internal func clearBb() -> TestReallyLargeTagNumberBuilder{
        builderResult.hasBb = false
@@ -10151,8 +10599,8 @@ final internal class TestRecursiveMessageBuilder : GeneratedMessageBuilder {
            builderResult.a = value
        }
   }
-  internal func setABuilder(builderForValue:TestRecursiveMessageBuilder) -> TestRecursiveMessageBuilder {
-    a = builderForValue.build()
+  func setA(value:TestRecursiveMessage)-> TestRecursiveMessageBuilder {
+    self.a = value
     return self
   }
   internal func mergeA(value:TestRecursiveMessage) -> TestRecursiveMessageBuilder {
@@ -10182,6 +10630,10 @@ final internal class TestRecursiveMessageBuilder : GeneratedMessageBuilder {
            builderResult.hasI = true
            builderResult.i = value
        }
+  }
+  func setI(value:Int32)-> TestRecursiveMessageBuilder {
+    self.i = value
+    return self
   }
   internal func clearI() -> TestRecursiveMessageBuilder{
        builderResult.hasI = false
@@ -10377,8 +10829,8 @@ final internal class TestMutualRecursionABuilder : GeneratedMessageBuilder {
            builderResult.bb = value
        }
   }
-  internal func setBbBuilder(builderForValue:TestMutualRecursionBBuilder) -> TestMutualRecursionABuilder {
-    bb = builderForValue.build()
+  func setBb(value:TestMutualRecursionB)-> TestMutualRecursionABuilder {
+    self.bb = value
     return self
   }
   internal func mergeBb(value:TestMutualRecursionB) -> TestMutualRecursionABuilder {
@@ -10593,8 +11045,8 @@ final internal class TestMutualRecursionBBuilder : GeneratedMessageBuilder {
            builderResult.a = value
        }
   }
-  internal func setABuilder(builderForValue:TestMutualRecursionABuilder) -> TestMutualRecursionBBuilder {
-    a = builderForValue.build()
+  func setA(value:TestMutualRecursionA)-> TestMutualRecursionBBuilder {
+    self.a = value
     return self
   }
   internal func mergeA(value:TestMutualRecursionA) -> TestMutualRecursionBBuilder {
@@ -10624,6 +11076,10 @@ final internal class TestMutualRecursionBBuilder : GeneratedMessageBuilder {
            builderResult.hasOptionalInt32 = true
            builderResult.optionalInt32 = value
        }
+  }
+  func setOptionalInt32(value:Int32)-> TestMutualRecursionBBuilder {
+    self.optionalInt32 = value
+    return self
   }
   internal func clearOptionalInt32() -> TestMutualRecursionBBuilder{
        builderResult.hasOptionalInt32 = false
@@ -10823,6 +11279,10 @@ final internal class TestDupFieldNumber : GeneratedMessage {
                builderResult.a = value
            }
       }
+      func setA(value:Int32)-> TestDupFieldNumber.FooBuilder {
+        self.a = value
+        return self
+      }
       internal func clearA() -> TestDupFieldNumber.FooBuilder{
            builderResult.hasA = false
            builderResult.a = Int32(0)
@@ -11012,6 +11472,10 @@ final internal class TestDupFieldNumber : GeneratedMessage {
                builderResult.hasA = true
                builderResult.a = value
            }
+      }
+      func setA(value:Int32)-> TestDupFieldNumber.BarBuilder {
+        self.a = value
+        return self
       }
       internal func clearA() -> TestDupFieldNumber.BarBuilder{
            builderResult.hasA = false
@@ -11230,6 +11694,10 @@ final internal class TestDupFieldNumberBuilder : GeneratedMessageBuilder {
            builderResult.a = value
        }
   }
+  func setA(value:Int32)-> TestDupFieldNumberBuilder {
+    self.a = value
+    return self
+  }
   internal func clearA() -> TestDupFieldNumberBuilder{
        builderResult.hasA = false
        builderResult.a = Int32(0)
@@ -11249,8 +11717,8 @@ final internal class TestDupFieldNumberBuilder : GeneratedMessageBuilder {
            builderResult.foo = value
        }
   }
-  internal func setFooBuilder(builderForValue:TestDupFieldNumber.FooBuilder) -> TestDupFieldNumberBuilder {
-    foo = builderForValue.build()
+  func setFoo(value:TestDupFieldNumber.Foo)-> TestDupFieldNumberBuilder {
+    self.foo = value
     return self
   }
   internal func mergeFoo(value:TestDupFieldNumber.Foo) -> TestDupFieldNumberBuilder {
@@ -11281,8 +11749,8 @@ final internal class TestDupFieldNumberBuilder : GeneratedMessageBuilder {
            builderResult.bar = value
        }
   }
-  internal func setBarBuilder(builderForValue:TestDupFieldNumber.BarBuilder) -> TestDupFieldNumberBuilder {
-    bar = builderForValue.build()
+  func setBar(value:TestDupFieldNumber.Bar)-> TestDupFieldNumberBuilder {
+    self.bar = value
     return self
   }
   internal func mergeBar(value:TestDupFieldNumber.Bar) -> TestDupFieldNumberBuilder {
@@ -11499,8 +11967,8 @@ final internal class TestEagerMessageBuilder : GeneratedMessageBuilder {
            builderResult.subMessage = value
        }
   }
-  internal func setSubMessageBuilder(builderForValue:TestAllTypesBuilder) -> TestEagerMessageBuilder {
-    subMessage = builderForValue.build()
+  func setSubMessage(value:TestAllTypes)-> TestEagerMessageBuilder {
+    self.subMessage = value
     return self
   }
   internal func mergeSubMessage(value:TestAllTypes) -> TestEagerMessageBuilder {
@@ -11700,8 +12168,8 @@ final internal class TestLazyMessageBuilder : GeneratedMessageBuilder {
            builderResult.subMessage = value
        }
   }
-  internal func setSubMessageBuilder(builderForValue:TestAllTypesBuilder) -> TestLazyMessageBuilder {
-    subMessage = builderForValue.build()
+  func setSubMessage(value:TestAllTypes)-> TestLazyMessageBuilder {
+    self.subMessage = value
     return self
   }
   internal func mergeSubMessage(value:TestAllTypes) -> TestLazyMessageBuilder {
@@ -11921,6 +12389,10 @@ final internal class TestNestedMessageHasBits : GeneratedMessage {
                builderResult.nestedmessageRepeatedInt32 = array
            }
       }
+      func setNestedmessageRepeatedInt32(value:Array<Int32>)-> TestNestedMessageHasBits.NestedMessageBuilder {
+        self.nestedmessageRepeatedInt32 = value
+        return self
+      }
       internal func clearNestedmessageRepeatedInt32() -> TestNestedMessageHasBits.NestedMessageBuilder {
          builderResult.nestedmessageRepeatedInt32.removeAll(keepCapacity: false)
          return self
@@ -11932,6 +12404,10 @@ final internal class TestNestedMessageHasBits : GeneratedMessage {
            set (value) {
                builderResult.nestedmessageRepeatedForeignmessage = value
            }
+      }
+      func setNestedmessageRepeatedForeignmessage(value:Array<ForeignMessage>)-> TestNestedMessageHasBits.NestedMessageBuilder {
+        self.nestedmessageRepeatedForeignmessage = value
+        return self
       }
       internal func clearNestedmessageRepeatedForeignmessage() -> TestNestedMessageHasBits.NestedMessageBuilder {
         builderResult.nestedmessageRepeatedForeignmessage.removeAll(keepCapacity: false)
@@ -12126,8 +12602,8 @@ final internal class TestNestedMessageHasBitsBuilder : GeneratedMessageBuilder {
            builderResult.optionalNestedMessage = value
        }
   }
-  internal func setOptionalNestedMessageBuilder(builderForValue:TestNestedMessageHasBits.NestedMessageBuilder) -> TestNestedMessageHasBitsBuilder {
-    optionalNestedMessage = builderForValue.build()
+  func setOptionalNestedMessage(value:TestNestedMessageHasBits.NestedMessage)-> TestNestedMessageHasBitsBuilder {
+    self.optionalNestedMessage = value
     return self
   }
   internal func mergeOptionalNestedMessage(value:TestNestedMessageHasBits.NestedMessage) -> TestNestedMessageHasBitsBuilder {
@@ -12517,6 +12993,10 @@ final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
            builderResult.primitiveField = value
        }
   }
+  func setPrimitiveField(value:Int32)-> TestCamelCaseFieldNamesBuilder {
+    self.primitiveField = value
+    return self
+  }
   internal func clearPrimitiveField() -> TestCamelCaseFieldNamesBuilder{
        builderResult.hasPrimitiveField = false
        builderResult.primitiveField = Int32(0)
@@ -12535,6 +13015,10 @@ final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
            builderResult.hasStringField = true
            builderResult.stringField = value
        }
+  }
+  func setStringField(value:String)-> TestCamelCaseFieldNamesBuilder {
+    self.stringField = value
+    return self
   }
   internal func clearStringField() -> TestCamelCaseFieldNamesBuilder{
        builderResult.hasStringField = false
@@ -12555,6 +13039,10 @@ final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
             builderResult.enumField = value
         }
     }
+    func setEnumField(value:ForeignEnum)-> TestCamelCaseFieldNamesBuilder {
+      self.enumField = value
+      return self
+    }
     internal func clearEnumField() -> TestCamelCaseFieldNamesBuilder {
        builderResult.hasEnumField = false
        builderResult.enumField = .ForeignFoo
@@ -12574,8 +13062,8 @@ final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
            builderResult.messageField = value
        }
   }
-  internal func setMessageFieldBuilder(builderForValue:ForeignMessageBuilder) -> TestCamelCaseFieldNamesBuilder {
-    messageField = builderForValue.build()
+  func setMessageField(value:ForeignMessage)-> TestCamelCaseFieldNamesBuilder {
+    self.messageField = value
     return self
   }
   internal func mergeMessageField(value:ForeignMessage) -> TestCamelCaseFieldNamesBuilder {
@@ -12606,6 +13094,10 @@ final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
            builderResult.stringPieceField = value
        }
   }
+  func setStringPieceField(value:String)-> TestCamelCaseFieldNamesBuilder {
+    self.stringPieceField = value
+    return self
+  }
   internal func clearStringPieceField() -> TestCamelCaseFieldNamesBuilder{
        builderResult.hasStringPieceField = false
        builderResult.stringPieceField = ""
@@ -12625,6 +13117,10 @@ final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
            builderResult.cordField = value
        }
   }
+  func setCordField(value:String)-> TestCamelCaseFieldNamesBuilder {
+    self.cordField = value
+    return self
+  }
   internal func clearCordField() -> TestCamelCaseFieldNamesBuilder{
        builderResult.hasCordField = false
        builderResult.cordField = ""
@@ -12638,6 +13134,10 @@ final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedPrimitiveField = array
        }
   }
+  func setRepeatedPrimitiveField(value:Array<Int32>)-> TestCamelCaseFieldNamesBuilder {
+    self.repeatedPrimitiveField = value
+    return self
+  }
   internal func clearRepeatedPrimitiveField() -> TestCamelCaseFieldNamesBuilder {
      builderResult.repeatedPrimitiveField.removeAll(keepCapacity: false)
      return self
@@ -12649,6 +13149,10 @@ final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.repeatedStringField = array
        }
+  }
+  func setRepeatedStringField(value:Array<String>)-> TestCamelCaseFieldNamesBuilder {
+    self.repeatedStringField = value
+    return self
   }
   internal func clearRepeatedStringField() -> TestCamelCaseFieldNamesBuilder {
      builderResult.repeatedStringField.removeAll(keepCapacity: false)
@@ -12662,6 +13166,10 @@ final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
           builderResult.repeatedEnumField = value
       }
   }
+  func setRepeatedEnumField(value:Array<ForeignEnum>)-> TestCamelCaseFieldNamesBuilder {
+    self.repeatedEnumField = value
+    return self
+  }
   internal func clearRepeatedEnumField() -> TestCamelCaseFieldNamesBuilder {
     builderResult.repeatedEnumField.removeAll(keepCapacity: false)
     return self
@@ -12673,6 +13181,10 @@ final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
        set (value) {
            builderResult.repeatedMessageField = value
        }
+  }
+  func setRepeatedMessageField(value:Array<ForeignMessage>)-> TestCamelCaseFieldNamesBuilder {
+    self.repeatedMessageField = value
+    return self
   }
   internal func clearRepeatedMessageField() -> TestCamelCaseFieldNamesBuilder {
     builderResult.repeatedMessageField.removeAll(keepCapacity: false)
@@ -12686,6 +13198,10 @@ final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
            builderResult.repeatedStringPieceField = array
        }
   }
+  func setRepeatedStringPieceField(value:Array<String>)-> TestCamelCaseFieldNamesBuilder {
+    self.repeatedStringPieceField = value
+    return self
+  }
   internal func clearRepeatedStringPieceField() -> TestCamelCaseFieldNamesBuilder {
      builderResult.repeatedStringPieceField.removeAll(keepCapacity: false)
      return self
@@ -12697,6 +13213,10 @@ final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.repeatedCordField = array
        }
+  }
+  func setRepeatedCordField(value:Array<String>)-> TestCamelCaseFieldNamesBuilder {
+    self.repeatedCordField = value
+    return self
   }
   internal func clearRepeatedCordField() -> TestCamelCaseFieldNamesBuilder {
      builderResult.repeatedCordField.removeAll(keepCapacity: false)
@@ -13002,6 +13522,10 @@ final internal class TestFieldOrderingsBuilder : ExtendableMessageBuilder {
            builderResult.myString = value
        }
   }
+  func setMyString(value:String)-> TestFieldOrderingsBuilder {
+    self.myString = value
+    return self
+  }
   internal func clearMyString() -> TestFieldOrderingsBuilder{
        builderResult.hasMyString = false
        builderResult.myString = ""
@@ -13021,6 +13545,10 @@ final internal class TestFieldOrderingsBuilder : ExtendableMessageBuilder {
            builderResult.myInt = value
        }
   }
+  func setMyInt(value:Int64)-> TestFieldOrderingsBuilder {
+    self.myInt = value
+    return self
+  }
   internal func clearMyInt() -> TestFieldOrderingsBuilder{
        builderResult.hasMyInt = false
        builderResult.myInt = Int64(0)
@@ -13039,6 +13567,10 @@ final internal class TestFieldOrderingsBuilder : ExtendableMessageBuilder {
            builderResult.hasMyFloat = true
            builderResult.myFloat = value
        }
+  }
+  func setMyFloat(value:Float)-> TestFieldOrderingsBuilder {
+    self.myFloat = value
+    return self
   }
   internal func clearMyFloat() -> TestFieldOrderingsBuilder{
        builderResult.hasMyFloat = false
@@ -13625,6 +14157,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.escapedBytes = value
        }
   }
+  func setEscapedBytes(value:NSData)-> TestExtremeDefaultValuesBuilder {
+    self.escapedBytes = value
+    return self
+  }
   internal func clearEscapedBytes() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasEscapedBytes = false
        builderResult.escapedBytes = NSData(bytes:([Byte]() + "testsr".utf8), length:6)
@@ -13643,6 +14179,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasLargeUint32 = true
            builderResult.largeUint32 = value
        }
+  }
+  func setLargeUint32(value:UInt32)-> TestExtremeDefaultValuesBuilder {
+    self.largeUint32 = value
+    return self
   }
   internal func clearLargeUint32() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasLargeUint32 = false
@@ -13663,6 +14203,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.largeUint64 = value
        }
   }
+  func setLargeUint64(value:UInt64)-> TestExtremeDefaultValuesBuilder {
+    self.largeUint64 = value
+    return self
+  }
   internal func clearLargeUint64() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasLargeUint64 = false
        builderResult.largeUint64 = UInt64(16777215)
@@ -13681,6 +14225,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasSmallInt32 = true
            builderResult.smallInt32 = value
        }
+  }
+  func setSmallInt32(value:Int32)-> TestExtremeDefaultValuesBuilder {
+    self.smallInt32 = value
+    return self
   }
   internal func clearSmallInt32() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasSmallInt32 = false
@@ -13701,6 +14249,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.smallInt64 = value
        }
   }
+  func setSmallInt64(value:Int64)-> TestExtremeDefaultValuesBuilder {
+    self.smallInt64 = value
+    return self
+  }
   internal func clearSmallInt64() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasSmallInt64 = false
        builderResult.smallInt64 = Int64(-9223372036854775807)
@@ -13719,6 +14271,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasReallySmallInt32 = true
            builderResult.reallySmallInt32 = value
        }
+  }
+  func setReallySmallInt32(value:Int32)-> TestExtremeDefaultValuesBuilder {
+    self.reallySmallInt32 = value
+    return self
   }
   internal func clearReallySmallInt32() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasReallySmallInt32 = false
@@ -13739,6 +14295,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.reallySmallInt64 = value
        }
   }
+  func setReallySmallInt64(value:Int64)-> TestExtremeDefaultValuesBuilder {
+    self.reallySmallInt64 = value
+    return self
+  }
   internal func clearReallySmallInt64() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasReallySmallInt64 = false
        builderResult.reallySmallInt64 = Int64(-576460752303423488)
@@ -13757,6 +14317,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasUtf8String = true
            builderResult.utf8String = value
        }
+  }
+  func setUtf8String(value:String)-> TestExtremeDefaultValuesBuilder {
+    self.utf8String = value
+    return self
   }
   internal func clearUtf8String() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasUtf8String = false
@@ -13777,6 +14341,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.zeroFloat = value
        }
   }
+  func setZeroFloat(value:Float)-> TestExtremeDefaultValuesBuilder {
+    self.zeroFloat = value
+    return self
+  }
   internal func clearZeroFloat() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasZeroFloat = false
        builderResult.zeroFloat = Float(0)
@@ -13795,6 +14363,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasOneFloat = true
            builderResult.oneFloat = value
        }
+  }
+  func setOneFloat(value:Float)-> TestExtremeDefaultValuesBuilder {
+    self.oneFloat = value
+    return self
   }
   internal func clearOneFloat() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasOneFloat = false
@@ -13815,6 +14387,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.smallFloat = value
        }
   }
+  func setSmallFloat(value:Float)-> TestExtremeDefaultValuesBuilder {
+    self.smallFloat = value
+    return self
+  }
   internal func clearSmallFloat() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasSmallFloat = false
        builderResult.smallFloat = Float(1.5)
@@ -13833,6 +14409,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasNegativeOneFloat = true
            builderResult.negativeOneFloat = value
        }
+  }
+  func setNegativeOneFloat(value:Float)-> TestExtremeDefaultValuesBuilder {
+    self.negativeOneFloat = value
+    return self
   }
   internal func clearNegativeOneFloat() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasNegativeOneFloat = false
@@ -13853,6 +14433,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.negativeFloat = value
        }
   }
+  func setNegativeFloat(value:Float)-> TestExtremeDefaultValuesBuilder {
+    self.negativeFloat = value
+    return self
+  }
   internal func clearNegativeFloat() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasNegativeFloat = false
        builderResult.negativeFloat = Float(-1.5)
@@ -13871,6 +14455,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasLargeFloat = true
            builderResult.largeFloat = value
        }
+  }
+  func setLargeFloat(value:Float)-> TestExtremeDefaultValuesBuilder {
+    self.largeFloat = value
+    return self
   }
   internal func clearLargeFloat() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasLargeFloat = false
@@ -13891,6 +14479,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.smallNegativeFloat = value
        }
   }
+  func setSmallNegativeFloat(value:Float)-> TestExtremeDefaultValuesBuilder {
+    self.smallNegativeFloat = value
+    return self
+  }
   internal func clearSmallNegativeFloat() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasSmallNegativeFloat = false
        builderResult.smallNegativeFloat = Float(-8e-28)
@@ -13909,6 +14501,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasInfDouble = true
            builderResult.infDouble = value
        }
+  }
+  func setInfDouble(value:Double)-> TestExtremeDefaultValuesBuilder {
+    self.infDouble = value
+    return self
   }
   internal func clearInfDouble() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasInfDouble = false
@@ -13929,6 +14525,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.negInfDouble = value
        }
   }
+  func setNegInfDouble(value:Double)-> TestExtremeDefaultValuesBuilder {
+    self.negInfDouble = value
+    return self
+  }
   internal func clearNegInfDouble() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasNegInfDouble = false
        builderResult.negInfDouble = Double(-HUGE)
@@ -13947,6 +14547,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasNanDouble = true
            builderResult.nanDouble = value
        }
+  }
+  func setNanDouble(value:Double)-> TestExtremeDefaultValuesBuilder {
+    self.nanDouble = value
+    return self
   }
   internal func clearNanDouble() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasNanDouble = false
@@ -13967,6 +14571,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.infFloat = value
        }
   }
+  func setInfFloat(value:Float)-> TestExtremeDefaultValuesBuilder {
+    self.infFloat = value
+    return self
+  }
   internal func clearInfFloat() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasInfFloat = false
        builderResult.infFloat = HUGE
@@ -13985,6 +14593,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasNegInfFloat = true
            builderResult.negInfFloat = value
        }
+  }
+  func setNegInfFloat(value:Float)-> TestExtremeDefaultValuesBuilder {
+    self.negInfFloat = value
+    return self
   }
   internal func clearNegInfFloat() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasNegInfFloat = false
@@ -14005,6 +14617,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.nanFloat = value
        }
   }
+  func setNanFloat(value:Float)-> TestExtremeDefaultValuesBuilder {
+    self.nanFloat = value
+    return self
+  }
   internal func clearNanFloat() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasNanFloat = false
        builderResult.nanFloat = 0.0
@@ -14023,6 +14639,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasCppTrigraph = true
            builderResult.cppTrigraph = value
        }
+  }
+  func setCppTrigraph(value:String)-> TestExtremeDefaultValuesBuilder {
+    self.cppTrigraph = value
+    return self
   }
   internal func clearCppTrigraph() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasCppTrigraph = false
@@ -14043,6 +14663,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.stringWithZero = value
        }
   }
+  func setStringWithZero(value:String)-> TestExtremeDefaultValuesBuilder {
+    self.stringWithZero = value
+    return self
+  }
   internal func clearStringWithZero() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasStringWithZero = false
        builderResult.stringWithZero = "hel\000lo"
@@ -14061,6 +14685,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasBytesWithZero = true
            builderResult.bytesWithZero = value
        }
+  }
+  func setBytesWithZero(value:NSData)-> TestExtremeDefaultValuesBuilder {
+    self.bytesWithZero = value
+    return self
   }
   internal func clearBytesWithZero() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasBytesWithZero = false
@@ -14081,6 +14709,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.stringPieceWithZero = value
        }
   }
+  func setStringPieceWithZero(value:String)-> TestExtremeDefaultValuesBuilder {
+    self.stringPieceWithZero = value
+    return self
+  }
   internal func clearStringPieceWithZero() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasStringPieceWithZero = false
        builderResult.stringPieceWithZero = "ab\000c"
@@ -14100,6 +14732,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.cordWithZero = value
        }
   }
+  func setCordWithZero(value:String)-> TestExtremeDefaultValuesBuilder {
+    self.cordWithZero = value
+    return self
+  }
   internal func clearCordWithZero() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasCordWithZero = false
        builderResult.cordWithZero = "12\0003"
@@ -14118,6 +14754,10 @@ final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
            builderResult.hasReplacementString = true
            builderResult.replacementString = value
        }
+  }
+  func setReplacementString(value:String)-> TestExtremeDefaultValuesBuilder {
+    self.replacementString = value
+    return self
   }
   internal func clearReplacementString() -> TestExtremeDefaultValuesBuilder{
        builderResult.hasReplacementString = false
@@ -14456,6 +15096,10 @@ final internal class SparseEnumMessageBuilder : GeneratedMessageBuilder {
             builderResult.sparseEnum = value
         }
     }
+    func setSparseEnum(value:TestSparseEnum)-> SparseEnumMessageBuilder {
+      self.sparseEnum = value
+      return self
+    }
     internal func clearSparseEnum() -> SparseEnumMessageBuilder {
        builderResult.hasSparseEnum = false
        builderResult.sparseEnum = .SparseA
@@ -14643,6 +15287,10 @@ final internal class OneStringBuilder : GeneratedMessageBuilder {
            builderResult.data = value
        }
   }
+  func setData(value:String)-> OneStringBuilder {
+    self.data = value
+    return self
+  }
   internal func clearData() -> OneStringBuilder{
        builderResult.hasData = false
        builderResult.data = ""
@@ -14823,6 +15471,10 @@ final internal class MoreStringBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.data = array
        }
+  }
+  func setData(value:Array<String>)-> MoreStringBuilder {
+    self.data = value
+    return self
   }
   internal func clearData() -> MoreStringBuilder {
      builderResult.data.removeAll(keepCapacity: false)
@@ -15005,6 +15657,10 @@ final internal class OneBytesBuilder : GeneratedMessageBuilder {
            builderResult.data = value
        }
   }
+  func setData(value:NSData)-> OneBytesBuilder {
+    self.data = value
+    return self
+  }
   internal func clearData() -> OneBytesBuilder{
        builderResult.hasData = false
        builderResult.data = NSData()
@@ -15186,6 +15842,10 @@ final internal class MoreBytesBuilder : GeneratedMessageBuilder {
            builderResult.data = array
        }
   }
+  func setData(value:Array<NSData>)-> MoreBytesBuilder {
+    self.data = value
+    return self
+  }
   internal func clearData() -> MoreBytesBuilder {
      builderResult.data.removeAll(keepCapacity: false)
      return self
@@ -15366,6 +16026,10 @@ final internal class Int32MessageBuilder : GeneratedMessageBuilder {
            builderResult.hasData = true
            builderResult.data = value
        }
+  }
+  func setData(value:Int32)-> Int32MessageBuilder {
+    self.data = value
+    return self
   }
   internal func clearData() -> Int32MessageBuilder{
        builderResult.hasData = false
@@ -15549,6 +16213,10 @@ final internal class Uint32MessageBuilder : GeneratedMessageBuilder {
            builderResult.data = value
        }
   }
+  func setData(value:UInt32)-> Uint32MessageBuilder {
+    self.data = value
+    return self
+  }
   internal func clearData() -> Uint32MessageBuilder{
        builderResult.hasData = false
        builderResult.data = UInt32(0)
@@ -15730,6 +16398,10 @@ final internal class Int64MessageBuilder : GeneratedMessageBuilder {
            builderResult.hasData = true
            builderResult.data = value
        }
+  }
+  func setData(value:Int64)-> Int64MessageBuilder {
+    self.data = value
+    return self
   }
   internal func clearData() -> Int64MessageBuilder{
        builderResult.hasData = false
@@ -15913,6 +16585,10 @@ final internal class Uint64MessageBuilder : GeneratedMessageBuilder {
            builderResult.data = value
        }
   }
+  func setData(value:UInt64)-> Uint64MessageBuilder {
+    self.data = value
+    return self
+  }
   internal func clearData() -> Uint64MessageBuilder{
        builderResult.hasData = false
        builderResult.data = UInt64(0)
@@ -16094,6 +16770,10 @@ final internal class BoolMessageBuilder : GeneratedMessageBuilder {
            builderResult.hasData = true
            builderResult.data = value
        }
+  }
+  func setData(value:Bool)-> BoolMessageBuilder {
+    self.data = value
+    return self
   }
   internal func clearData() -> BoolMessageBuilder{
        builderResult.hasData = false
@@ -16297,6 +16977,10 @@ final internal class TestOneof : GeneratedMessage {
                builderResult.a = value
            }
       }
+      func setA(value:Int32)-> TestOneof.FooGroupBuilder {
+        self.a = value
+        return self
+      }
       internal func clearA() -> TestOneof.FooGroupBuilder{
            builderResult.hasA = false
            builderResult.a = Int32(0)
@@ -16315,6 +16999,10 @@ final internal class TestOneof : GeneratedMessage {
                builderResult.hasB = true
                builderResult.b = value
            }
+      }
+      func setB(value:String)-> TestOneof.FooGroupBuilder {
+        self.b = value
+        return self
       }
       internal func clearB() -> TestOneof.FooGroupBuilder{
            builderResult.hasB = false
@@ -16678,6 +17366,10 @@ final internal class TestOneofBuilder : GeneratedMessageBuilder {
            builderResult.fooInt = value
        }
   }
+  func setFooInt(value:Int32)-> TestOneofBuilder {
+    self.fooInt = value
+    return self
+  }
   internal func clearFooInt() -> TestOneofBuilder{
        builderResult.hasFooInt = false
        builderResult.fooInt = Int32(0)
@@ -16696,6 +17388,10 @@ final internal class TestOneofBuilder : GeneratedMessageBuilder {
            builderResult.hasFooString = true
            builderResult.fooString = value
        }
+  }
+  func setFooString(value:String)-> TestOneofBuilder {
+    self.fooString = value
+    return self
   }
   internal func clearFooString() -> TestOneofBuilder{
        builderResult.hasFooString = false
@@ -16716,8 +17412,8 @@ final internal class TestOneofBuilder : GeneratedMessageBuilder {
            builderResult.fooMessage = value
        }
   }
-  internal func setFooMessageBuilder(builderForValue:TestAllTypesBuilder) -> TestOneofBuilder {
-    fooMessage = builderForValue.build()
+  func setFooMessage(value:TestAllTypes)-> TestOneofBuilder {
+    self.fooMessage = value
     return self
   }
   internal func mergeFooMessage(value:TestAllTypes) -> TestOneofBuilder {
@@ -16748,8 +17444,8 @@ final internal class TestOneofBuilder : GeneratedMessageBuilder {
            builderResult.fooGroup = value
        }
   }
-  internal func setFooGroupBuilder(builderForValue:TestOneof.FooGroupBuilder) -> TestOneofBuilder {
-    fooGroup = builderForValue.build()
+  func setFooGroup(value:TestOneof.FooGroup)-> TestOneofBuilder {
+    self.fooGroup = value
     return self
   }
   internal func mergeFooGroup(value:TestOneof.FooGroup) -> TestOneofBuilder {
@@ -16991,6 +17687,10 @@ final internal class TestOneofBackwardsCompatible : GeneratedMessage {
                builderResult.a = value
            }
       }
+      func setA(value:Int32)-> TestOneofBackwardsCompatible.FooGroupBuilder {
+        self.a = value
+        return self
+      }
       internal func clearA() -> TestOneofBackwardsCompatible.FooGroupBuilder{
            builderResult.hasA = false
            builderResult.a = Int32(0)
@@ -17009,6 +17709,10 @@ final internal class TestOneofBackwardsCompatible : GeneratedMessage {
                builderResult.hasB = true
                builderResult.b = value
            }
+      }
+      func setB(value:String)-> TestOneofBackwardsCompatible.FooGroupBuilder {
+        self.b = value
+        return self
       }
       internal func clearB() -> TestOneofBackwardsCompatible.FooGroupBuilder{
            builderResult.hasB = false
@@ -17248,6 +17952,10 @@ final internal class TestOneofBackwardsCompatibleBuilder : GeneratedMessageBuild
            builderResult.fooInt = value
        }
   }
+  func setFooInt(value:Int32)-> TestOneofBackwardsCompatibleBuilder {
+    self.fooInt = value
+    return self
+  }
   internal func clearFooInt() -> TestOneofBackwardsCompatibleBuilder{
        builderResult.hasFooInt = false
        builderResult.fooInt = Int32(0)
@@ -17266,6 +17974,10 @@ final internal class TestOneofBackwardsCompatibleBuilder : GeneratedMessageBuild
            builderResult.hasFooString = true
            builderResult.fooString = value
        }
+  }
+  func setFooString(value:String)-> TestOneofBackwardsCompatibleBuilder {
+    self.fooString = value
+    return self
   }
   internal func clearFooString() -> TestOneofBackwardsCompatibleBuilder{
        builderResult.hasFooString = false
@@ -17286,8 +17998,8 @@ final internal class TestOneofBackwardsCompatibleBuilder : GeneratedMessageBuild
            builderResult.fooMessage = value
        }
   }
-  internal func setFooMessageBuilder(builderForValue:TestAllTypesBuilder) -> TestOneofBackwardsCompatibleBuilder {
-    fooMessage = builderForValue.build()
+  func setFooMessage(value:TestAllTypes)-> TestOneofBackwardsCompatibleBuilder {
+    self.fooMessage = value
     return self
   }
   internal func mergeFooMessage(value:TestAllTypes) -> TestOneofBackwardsCompatibleBuilder {
@@ -17318,8 +18030,8 @@ final internal class TestOneofBackwardsCompatibleBuilder : GeneratedMessageBuild
            builderResult.fooGroup = value
        }
   }
-  internal func setFooGroupBuilder(builderForValue:TestOneofBackwardsCompatible.FooGroupBuilder) -> TestOneofBackwardsCompatibleBuilder {
-    fooGroup = builderForValue.build()
+  func setFooGroup(value:TestOneofBackwardsCompatible.FooGroup)-> TestOneofBackwardsCompatibleBuilder {
+    self.fooGroup = value
     return self
   }
   internal func mergeFooGroup(value:TestOneofBackwardsCompatible.FooGroup) -> TestOneofBackwardsCompatibleBuilder {
@@ -17561,6 +18273,10 @@ final internal class TestOneof2 : GeneratedMessage {
                builderResult.a = value
            }
       }
+      func setA(value:Int32)-> TestOneof2.FooGroupBuilder {
+        self.a = value
+        return self
+      }
       internal func clearA() -> TestOneof2.FooGroupBuilder{
            builderResult.hasA = false
            builderResult.a = Int32(0)
@@ -17579,6 +18295,10 @@ final internal class TestOneof2 : GeneratedMessage {
                builderResult.hasB = true
                builderResult.b = value
            }
+      }
+      func setB(value:String)-> TestOneof2.FooGroupBuilder {
+        self.b = value
+        return self
       }
       internal func clearB() -> TestOneof2.FooGroupBuilder{
            builderResult.hasB = false
@@ -17796,6 +18516,10 @@ final internal class TestOneof2 : GeneratedMessage {
                builderResult.quxInt = value
            }
       }
+      func setQuxInt(value:Int64)-> TestOneof2.NestedMessageBuilder {
+        self.quxInt = value
+        return self
+      }
       internal func clearQuxInt() -> TestOneof2.NestedMessageBuilder{
            builderResult.hasQuxInt = false
            builderResult.quxInt = Int64(0)
@@ -17808,6 +18532,10 @@ final internal class TestOneof2 : GeneratedMessage {
            set (array) {
                builderResult.corgeInt = array
            }
+      }
+      func setCorgeInt(value:Array<Int32>)-> TestOneof2.NestedMessageBuilder {
+        self.corgeInt = value
+        return self
       }
       internal func clearCorgeInt() -> TestOneof2.NestedMessageBuilder {
          builderResult.corgeInt.removeAll(keepCapacity: false)
@@ -18685,6 +19413,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.fooInt = value
        }
   }
+  func setFooInt(value:Int32)-> TestOneof2Builder {
+    self.fooInt = value
+    return self
+  }
   internal func clearFooInt() -> TestOneof2Builder{
        builderResult.hasFooInt = false
        builderResult.fooInt = Int32(0)
@@ -18703,6 +19435,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.hasFooString = true
            builderResult.fooString = value
        }
+  }
+  func setFooString(value:String)-> TestOneof2Builder {
+    self.fooString = value
+    return self
   }
   internal func clearFooString() -> TestOneof2Builder{
        builderResult.hasFooString = false
@@ -18723,6 +19459,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.fooCord = value
        }
   }
+  func setFooCord(value:String)-> TestOneof2Builder {
+    self.fooCord = value
+    return self
+  }
   internal func clearFooCord() -> TestOneof2Builder{
        builderResult.hasFooCord = false
        builderResult.fooCord = ""
@@ -18741,6 +19481,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.hasFooStringPiece = true
            builderResult.fooStringPiece = value
        }
+  }
+  func setFooStringPiece(value:String)-> TestOneof2Builder {
+    self.fooStringPiece = value
+    return self
   }
   internal func clearFooStringPiece() -> TestOneof2Builder{
        builderResult.hasFooStringPiece = false
@@ -18761,6 +19505,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.fooBytes = value
        }
   }
+  func setFooBytes(value:NSData)-> TestOneof2Builder {
+    self.fooBytes = value
+    return self
+  }
   internal func clearFooBytes() -> TestOneof2Builder{
        builderResult.hasFooBytes = false
        builderResult.fooBytes = NSData()
@@ -18779,6 +19527,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
             builderResult.hasFooEnum = true
             builderResult.fooEnum = value
         }
+    }
+    func setFooEnum(value:TestOneof2.NestedEnum)-> TestOneof2Builder {
+      self.fooEnum = value
+      return self
     }
     internal func clearFooEnum() -> TestOneof2Builder {
        builderResult.hasFooEnum = false
@@ -18799,8 +19551,8 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.fooMessage = value
        }
   }
-  internal func setFooMessageBuilder(builderForValue:TestOneof2.NestedMessageBuilder) -> TestOneof2Builder {
-    fooMessage = builderForValue.build()
+  func setFooMessage(value:TestOneof2.NestedMessage)-> TestOneof2Builder {
+    self.fooMessage = value
     return self
   }
   internal func mergeFooMessage(value:TestOneof2.NestedMessage) -> TestOneof2Builder {
@@ -18831,8 +19583,8 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.fooGroup = value
        }
   }
-  internal func setFooGroupBuilder(builderForValue:TestOneof2.FooGroupBuilder) -> TestOneof2Builder {
-    fooGroup = builderForValue.build()
+  func setFooGroup(value:TestOneof2.FooGroup)-> TestOneof2Builder {
+    self.fooGroup = value
     return self
   }
   internal func mergeFooGroup(value:TestOneof2.FooGroup) -> TestOneof2Builder {
@@ -18863,8 +19615,8 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.fooLazyMessage = value
        }
   }
-  internal func setFooLazyMessageBuilder(builderForValue:TestOneof2.NestedMessageBuilder) -> TestOneof2Builder {
-    fooLazyMessage = builderForValue.build()
+  func setFooLazyMessage(value:TestOneof2.NestedMessage)-> TestOneof2Builder {
+    self.fooLazyMessage = value
     return self
   }
   internal func mergeFooLazyMessage(value:TestOneof2.NestedMessage) -> TestOneof2Builder {
@@ -18895,6 +19647,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.barInt = value
        }
   }
+  func setBarInt(value:Int32)-> TestOneof2Builder {
+    self.barInt = value
+    return self
+  }
   internal func clearBarInt() -> TestOneof2Builder{
        builderResult.hasBarInt = false
        builderResult.barInt = Int32(5)
@@ -18913,6 +19669,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.hasBarString = true
            builderResult.barString = value
        }
+  }
+  func setBarString(value:String)-> TestOneof2Builder {
+    self.barString = value
+    return self
   }
   internal func clearBarString() -> TestOneof2Builder{
        builderResult.hasBarString = false
@@ -18933,6 +19693,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.barCord = value
        }
   }
+  func setBarCord(value:String)-> TestOneof2Builder {
+    self.barCord = value
+    return self
+  }
   internal func clearBarCord() -> TestOneof2Builder{
        builderResult.hasBarCord = false
        builderResult.barCord = "CORD"
@@ -18951,6 +19715,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.hasBarStringPiece = true
            builderResult.barStringPiece = value
        }
+  }
+  func setBarStringPiece(value:String)-> TestOneof2Builder {
+    self.barStringPiece = value
+    return self
   }
   internal func clearBarStringPiece() -> TestOneof2Builder{
        builderResult.hasBarStringPiece = false
@@ -18971,6 +19739,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.barBytes = value
        }
   }
+  func setBarBytes(value:NSData)-> TestOneof2Builder {
+    self.barBytes = value
+    return self
+  }
   internal func clearBarBytes() -> TestOneof2Builder{
        builderResult.hasBarBytes = false
        builderResult.barBytes = NSData(bytes:([Byte]() + "BYTES".utf8), length:5)
@@ -18989,6 +19761,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
             builderResult.hasBarEnum = true
             builderResult.barEnum = value
         }
+    }
+    func setBarEnum(value:TestOneof2.NestedEnum)-> TestOneof2Builder {
+      self.barEnum = value
+      return self
     }
     internal func clearBarEnum() -> TestOneof2Builder {
        builderResult.hasBarEnum = false
@@ -19009,6 +19785,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.bazInt = value
        }
   }
+  func setBazInt(value:Int32)-> TestOneof2Builder {
+    self.bazInt = value
+    return self
+  }
   internal func clearBazInt() -> TestOneof2Builder{
        builderResult.hasBazInt = false
        builderResult.bazInt = Int32(0)
@@ -19027,6 +19807,10 @@ final internal class TestOneof2Builder : GeneratedMessageBuilder {
            builderResult.hasBazString = true
            builderResult.bazString = value
        }
+  }
+  func setBazString(value:String)-> TestOneof2Builder {
+    self.bazString = value
+    return self
   }
   internal func clearBazString() -> TestOneof2Builder{
        builderResult.hasBazString = false
@@ -19338,6 +20122,10 @@ final internal class TestRequiredOneof : GeneratedMessage {
                builderResult.hasRequiredDouble = true
                builderResult.requiredDouble = value
            }
+      }
+      func setRequiredDouble(value:Double)-> TestRequiredOneof.NestedMessageBuilder {
+        self.requiredDouble = value
+        return self
       }
       internal func clearRequiredDouble() -> TestRequiredOneof.NestedMessageBuilder{
            builderResult.hasRequiredDouble = false
@@ -19658,6 +20446,10 @@ final internal class TestRequiredOneofBuilder : GeneratedMessageBuilder {
            builderResult.fooInt = value
        }
   }
+  func setFooInt(value:Int32)-> TestRequiredOneofBuilder {
+    self.fooInt = value
+    return self
+  }
   internal func clearFooInt() -> TestRequiredOneofBuilder{
        builderResult.hasFooInt = false
        builderResult.fooInt = Int32(0)
@@ -19676,6 +20468,10 @@ final internal class TestRequiredOneofBuilder : GeneratedMessageBuilder {
            builderResult.hasFooString = true
            builderResult.fooString = value
        }
+  }
+  func setFooString(value:String)-> TestRequiredOneofBuilder {
+    self.fooString = value
+    return self
   }
   internal func clearFooString() -> TestRequiredOneofBuilder{
        builderResult.hasFooString = false
@@ -19696,8 +20492,8 @@ final internal class TestRequiredOneofBuilder : GeneratedMessageBuilder {
            builderResult.fooMessage = value
        }
   }
-  internal func setFooMessageBuilder(builderForValue:TestRequiredOneof.NestedMessageBuilder) -> TestRequiredOneofBuilder {
-    fooMessage = builderForValue.build()
+  func setFooMessage(value:TestRequiredOneof.NestedMessage)-> TestRequiredOneofBuilder {
+    self.fooMessage = value
     return self
   }
   internal func mergeFooMessage(value:TestRequiredOneof.NestedMessage) -> TestRequiredOneofBuilder {
@@ -20251,6 +21047,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.packedInt32 = array
        }
   }
+  func setPackedInt32(value:Array<Int32>)-> TestPackedTypesBuilder {
+    self.packedInt32 = value
+    return self
+  }
   internal func clearPackedInt32() -> TestPackedTypesBuilder {
      builderResult.packedInt32.removeAll(keepCapacity: false)
      return self
@@ -20262,6 +21062,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.packedInt64 = array
        }
+  }
+  func setPackedInt64(value:Array<Int64>)-> TestPackedTypesBuilder {
+    self.packedInt64 = value
+    return self
   }
   internal func clearPackedInt64() -> TestPackedTypesBuilder {
      builderResult.packedInt64.removeAll(keepCapacity: false)
@@ -20275,6 +21079,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.packedUint32 = array
        }
   }
+  func setPackedUint32(value:Array<UInt32>)-> TestPackedTypesBuilder {
+    self.packedUint32 = value
+    return self
+  }
   internal func clearPackedUint32() -> TestPackedTypesBuilder {
      builderResult.packedUint32.removeAll(keepCapacity: false)
      return self
@@ -20286,6 +21094,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.packedUint64 = array
        }
+  }
+  func setPackedUint64(value:Array<UInt64>)-> TestPackedTypesBuilder {
+    self.packedUint64 = value
+    return self
   }
   internal func clearPackedUint64() -> TestPackedTypesBuilder {
      builderResult.packedUint64.removeAll(keepCapacity: false)
@@ -20299,6 +21111,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.packedSint32 = array
        }
   }
+  func setPackedSint32(value:Array<Int32>)-> TestPackedTypesBuilder {
+    self.packedSint32 = value
+    return self
+  }
   internal func clearPackedSint32() -> TestPackedTypesBuilder {
      builderResult.packedSint32.removeAll(keepCapacity: false)
      return self
@@ -20310,6 +21126,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.packedSint64 = array
        }
+  }
+  func setPackedSint64(value:Array<Int64>)-> TestPackedTypesBuilder {
+    self.packedSint64 = value
+    return self
   }
   internal func clearPackedSint64() -> TestPackedTypesBuilder {
      builderResult.packedSint64.removeAll(keepCapacity: false)
@@ -20323,6 +21143,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.packedFixed32 = array
        }
   }
+  func setPackedFixed32(value:Array<UInt32>)-> TestPackedTypesBuilder {
+    self.packedFixed32 = value
+    return self
+  }
   internal func clearPackedFixed32() -> TestPackedTypesBuilder {
      builderResult.packedFixed32.removeAll(keepCapacity: false)
      return self
@@ -20334,6 +21158,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.packedFixed64 = array
        }
+  }
+  func setPackedFixed64(value:Array<UInt64>)-> TestPackedTypesBuilder {
+    self.packedFixed64 = value
+    return self
   }
   internal func clearPackedFixed64() -> TestPackedTypesBuilder {
      builderResult.packedFixed64.removeAll(keepCapacity: false)
@@ -20347,6 +21175,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.packedSfixed32 = array
        }
   }
+  func setPackedSfixed32(value:Array<Int32>)-> TestPackedTypesBuilder {
+    self.packedSfixed32 = value
+    return self
+  }
   internal func clearPackedSfixed32() -> TestPackedTypesBuilder {
      builderResult.packedSfixed32.removeAll(keepCapacity: false)
      return self
@@ -20358,6 +21190,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.packedSfixed64 = array
        }
+  }
+  func setPackedSfixed64(value:Array<Int64>)-> TestPackedTypesBuilder {
+    self.packedSfixed64 = value
+    return self
   }
   internal func clearPackedSfixed64() -> TestPackedTypesBuilder {
      builderResult.packedSfixed64.removeAll(keepCapacity: false)
@@ -20371,6 +21207,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.packedFloat = array
        }
   }
+  func setPackedFloat(value:Array<Float>)-> TestPackedTypesBuilder {
+    self.packedFloat = value
+    return self
+  }
   internal func clearPackedFloat() -> TestPackedTypesBuilder {
      builderResult.packedFloat.removeAll(keepCapacity: false)
      return self
@@ -20382,6 +21222,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.packedDouble = array
        }
+  }
+  func setPackedDouble(value:Array<Double>)-> TestPackedTypesBuilder {
+    self.packedDouble = value
+    return self
   }
   internal func clearPackedDouble() -> TestPackedTypesBuilder {
      builderResult.packedDouble.removeAll(keepCapacity: false)
@@ -20395,6 +21239,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.packedBool = array
        }
   }
+  func setPackedBool(value:Array<Bool>)-> TestPackedTypesBuilder {
+    self.packedBool = value
+    return self
+  }
   internal func clearPackedBool() -> TestPackedTypesBuilder {
      builderResult.packedBool.removeAll(keepCapacity: false)
      return self
@@ -20406,6 +21254,10 @@ final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
       set (value) {
           builderResult.packedEnum = value
       }
+  }
+  func setPackedEnum(value:Array<ForeignEnum>)-> TestPackedTypesBuilder {
+    self.packedEnum = value
+    return self
   }
   internal func clearPackedEnum() -> TestPackedTypesBuilder {
     builderResult.packedEnum.removeAll(keepCapacity: false)
@@ -20985,6 +21837,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.unpackedInt32 = array
        }
   }
+  func setUnpackedInt32(value:Array<Int32>)-> TestUnpackedTypesBuilder {
+    self.unpackedInt32 = value
+    return self
+  }
   internal func clearUnpackedInt32() -> TestUnpackedTypesBuilder {
      builderResult.unpackedInt32.removeAll(keepCapacity: false)
      return self
@@ -20996,6 +21852,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.unpackedInt64 = array
        }
+  }
+  func setUnpackedInt64(value:Array<Int64>)-> TestUnpackedTypesBuilder {
+    self.unpackedInt64 = value
+    return self
   }
   internal func clearUnpackedInt64() -> TestUnpackedTypesBuilder {
      builderResult.unpackedInt64.removeAll(keepCapacity: false)
@@ -21009,6 +21869,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.unpackedUint32 = array
        }
   }
+  func setUnpackedUint32(value:Array<UInt32>)-> TestUnpackedTypesBuilder {
+    self.unpackedUint32 = value
+    return self
+  }
   internal func clearUnpackedUint32() -> TestUnpackedTypesBuilder {
      builderResult.unpackedUint32.removeAll(keepCapacity: false)
      return self
@@ -21020,6 +21884,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.unpackedUint64 = array
        }
+  }
+  func setUnpackedUint64(value:Array<UInt64>)-> TestUnpackedTypesBuilder {
+    self.unpackedUint64 = value
+    return self
   }
   internal func clearUnpackedUint64() -> TestUnpackedTypesBuilder {
      builderResult.unpackedUint64.removeAll(keepCapacity: false)
@@ -21033,6 +21901,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.unpackedSint32 = array
        }
   }
+  func setUnpackedSint32(value:Array<Int32>)-> TestUnpackedTypesBuilder {
+    self.unpackedSint32 = value
+    return self
+  }
   internal func clearUnpackedSint32() -> TestUnpackedTypesBuilder {
      builderResult.unpackedSint32.removeAll(keepCapacity: false)
      return self
@@ -21044,6 +21916,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.unpackedSint64 = array
        }
+  }
+  func setUnpackedSint64(value:Array<Int64>)-> TestUnpackedTypesBuilder {
+    self.unpackedSint64 = value
+    return self
   }
   internal func clearUnpackedSint64() -> TestUnpackedTypesBuilder {
      builderResult.unpackedSint64.removeAll(keepCapacity: false)
@@ -21057,6 +21933,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.unpackedFixed32 = array
        }
   }
+  func setUnpackedFixed32(value:Array<UInt32>)-> TestUnpackedTypesBuilder {
+    self.unpackedFixed32 = value
+    return self
+  }
   internal func clearUnpackedFixed32() -> TestUnpackedTypesBuilder {
      builderResult.unpackedFixed32.removeAll(keepCapacity: false)
      return self
@@ -21068,6 +21948,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.unpackedFixed64 = array
        }
+  }
+  func setUnpackedFixed64(value:Array<UInt64>)-> TestUnpackedTypesBuilder {
+    self.unpackedFixed64 = value
+    return self
   }
   internal func clearUnpackedFixed64() -> TestUnpackedTypesBuilder {
      builderResult.unpackedFixed64.removeAll(keepCapacity: false)
@@ -21081,6 +21965,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.unpackedSfixed32 = array
        }
   }
+  func setUnpackedSfixed32(value:Array<Int32>)-> TestUnpackedTypesBuilder {
+    self.unpackedSfixed32 = value
+    return self
+  }
   internal func clearUnpackedSfixed32() -> TestUnpackedTypesBuilder {
      builderResult.unpackedSfixed32.removeAll(keepCapacity: false)
      return self
@@ -21092,6 +21980,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.unpackedSfixed64 = array
        }
+  }
+  func setUnpackedSfixed64(value:Array<Int64>)-> TestUnpackedTypesBuilder {
+    self.unpackedSfixed64 = value
+    return self
   }
   internal func clearUnpackedSfixed64() -> TestUnpackedTypesBuilder {
      builderResult.unpackedSfixed64.removeAll(keepCapacity: false)
@@ -21105,6 +21997,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.unpackedFloat = array
        }
   }
+  func setUnpackedFloat(value:Array<Float>)-> TestUnpackedTypesBuilder {
+    self.unpackedFloat = value
+    return self
+  }
   internal func clearUnpackedFloat() -> TestUnpackedTypesBuilder {
      builderResult.unpackedFloat.removeAll(keepCapacity: false)
      return self
@@ -21116,6 +22012,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.unpackedDouble = array
        }
+  }
+  func setUnpackedDouble(value:Array<Double>)-> TestUnpackedTypesBuilder {
+    self.unpackedDouble = value
+    return self
   }
   internal func clearUnpackedDouble() -> TestUnpackedTypesBuilder {
      builderResult.unpackedDouble.removeAll(keepCapacity: false)
@@ -21129,6 +22029,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
            builderResult.unpackedBool = array
        }
   }
+  func setUnpackedBool(value:Array<Bool>)-> TestUnpackedTypesBuilder {
+    self.unpackedBool = value
+    return self
+  }
   internal func clearUnpackedBool() -> TestUnpackedTypesBuilder {
      builderResult.unpackedBool.removeAll(keepCapacity: false)
      return self
@@ -21140,6 +22044,10 @@ final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
       set (value) {
           builderResult.unpackedEnum = value
       }
+  }
+  func setUnpackedEnum(value:Array<ForeignEnum>)-> TestUnpackedTypesBuilder {
+    self.unpackedEnum = value
+    return self
   }
   internal func clearUnpackedEnum() -> TestUnpackedTypesBuilder {
     builderResult.unpackedEnum.removeAll(keepCapacity: false)
@@ -21710,6 +22618,10 @@ final internal class TestDynamicExtensions : GeneratedMessage {
                builderResult.dynamicField = value
            }
       }
+      func setDynamicField(value:Int32)-> TestDynamicExtensions.DynamicMessageTypeBuilder {
+        self.dynamicField = value
+        return self
+      }
       internal func clearDynamicField() -> TestDynamicExtensions.DynamicMessageTypeBuilder{
            builderResult.hasDynamicField = false
            builderResult.dynamicField = Int32(0)
@@ -22023,6 +22935,10 @@ final internal class TestDynamicExtensionsBuilder : GeneratedMessageBuilder {
            builderResult.scalarExtension = value
        }
   }
+  func setScalarExtension(value:UInt32)-> TestDynamicExtensionsBuilder {
+    self.scalarExtension = value
+    return self
+  }
   internal func clearScalarExtension() -> TestDynamicExtensionsBuilder{
        builderResult.hasScalarExtension = false
        builderResult.scalarExtension = UInt32(0)
@@ -22041,6 +22957,10 @@ final internal class TestDynamicExtensionsBuilder : GeneratedMessageBuilder {
             builderResult.hasEnumExtension = true
             builderResult.enumExtension = value
         }
+    }
+    func setEnumExtension(value:ForeignEnum)-> TestDynamicExtensionsBuilder {
+      self.enumExtension = value
+      return self
     }
     internal func clearEnumExtension() -> TestDynamicExtensionsBuilder {
        builderResult.hasEnumExtension = false
@@ -22061,6 +22981,10 @@ final internal class TestDynamicExtensionsBuilder : GeneratedMessageBuilder {
             builderResult.dynamicEnumExtension = value
         }
     }
+    func setDynamicEnumExtension(value:TestDynamicExtensions.DynamicEnumType)-> TestDynamicExtensionsBuilder {
+      self.dynamicEnumExtension = value
+      return self
+    }
     internal func clearDynamicEnumExtension() -> TestDynamicExtensionsBuilder {
        builderResult.hasDynamicEnumExtension = false
        builderResult.dynamicEnumExtension = .DynamicFoo
@@ -22080,8 +23004,8 @@ final internal class TestDynamicExtensionsBuilder : GeneratedMessageBuilder {
            builderResult.messageExtension = value
        }
   }
-  internal func setMessageExtensionBuilder(builderForValue:ForeignMessageBuilder) -> TestDynamicExtensionsBuilder {
-    messageExtension = builderForValue.build()
+  func setMessageExtension(value:ForeignMessage)-> TestDynamicExtensionsBuilder {
+    self.messageExtension = value
     return self
   }
   internal func mergeMessageExtension(value:ForeignMessage) -> TestDynamicExtensionsBuilder {
@@ -22112,8 +23036,8 @@ final internal class TestDynamicExtensionsBuilder : GeneratedMessageBuilder {
            builderResult.dynamicMessageExtension = value
        }
   }
-  internal func setDynamicMessageExtensionBuilder(builderForValue:TestDynamicExtensions.DynamicMessageTypeBuilder) -> TestDynamicExtensionsBuilder {
-    dynamicMessageExtension = builderForValue.build()
+  func setDynamicMessageExtension(value:TestDynamicExtensions.DynamicMessageType)-> TestDynamicExtensionsBuilder {
+    self.dynamicMessageExtension = value
     return self
   }
   internal func mergeDynamicMessageExtension(value:TestDynamicExtensions.DynamicMessageType) -> TestDynamicExtensionsBuilder {
@@ -22138,6 +23062,10 @@ final internal class TestDynamicExtensionsBuilder : GeneratedMessageBuilder {
            builderResult.repeatedExtension = array
        }
   }
+  func setRepeatedExtension(value:Array<String>)-> TestDynamicExtensionsBuilder {
+    self.repeatedExtension = value
+    return self
+  }
   internal func clearRepeatedExtension() -> TestDynamicExtensionsBuilder {
      builderResult.repeatedExtension.removeAll(keepCapacity: false)
      return self
@@ -22149,6 +23077,10 @@ final internal class TestDynamicExtensionsBuilder : GeneratedMessageBuilder {
        set (array) {
            builderResult.packedExtension = array
        }
+  }
+  func setPackedExtension(value:Array<Int32>)-> TestDynamicExtensionsBuilder {
+    self.packedExtension = value
+    return self
   }
   internal func clearPackedExtension() -> TestDynamicExtensionsBuilder {
      builderResult.packedExtension.removeAll(keepCapacity: false)
@@ -22485,6 +23417,10 @@ final internal class TestRepeatedScalarDifferentTagSizesBuilder : GeneratedMessa
            builderResult.repeatedFixed32 = array
        }
   }
+  func setRepeatedFixed32(value:Array<UInt32>)-> TestRepeatedScalarDifferentTagSizesBuilder {
+    self.repeatedFixed32 = value
+    return self
+  }
   internal func clearRepeatedFixed32() -> TestRepeatedScalarDifferentTagSizesBuilder {
      builderResult.repeatedFixed32.removeAll(keepCapacity: false)
      return self
@@ -22496,6 +23432,10 @@ final internal class TestRepeatedScalarDifferentTagSizesBuilder : GeneratedMessa
        set (array) {
            builderResult.repeatedInt32 = array
        }
+  }
+  func setRepeatedInt32(value:Array<Int32>)-> TestRepeatedScalarDifferentTagSizesBuilder {
+    self.repeatedInt32 = value
+    return self
   }
   internal func clearRepeatedInt32() -> TestRepeatedScalarDifferentTagSizesBuilder {
      builderResult.repeatedInt32.removeAll(keepCapacity: false)
@@ -22509,6 +23449,10 @@ final internal class TestRepeatedScalarDifferentTagSizesBuilder : GeneratedMessa
            builderResult.repeatedFixed64 = array
        }
   }
+  func setRepeatedFixed64(value:Array<UInt64>)-> TestRepeatedScalarDifferentTagSizesBuilder {
+    self.repeatedFixed64 = value
+    return self
+  }
   internal func clearRepeatedFixed64() -> TestRepeatedScalarDifferentTagSizesBuilder {
      builderResult.repeatedFixed64.removeAll(keepCapacity: false)
      return self
@@ -22520,6 +23464,10 @@ final internal class TestRepeatedScalarDifferentTagSizesBuilder : GeneratedMessa
        set (array) {
            builderResult.repeatedInt64 = array
        }
+  }
+  func setRepeatedInt64(value:Array<Int64>)-> TestRepeatedScalarDifferentTagSizesBuilder {
+    self.repeatedInt64 = value
+    return self
   }
   internal func clearRepeatedInt64() -> TestRepeatedScalarDifferentTagSizesBuilder {
      builderResult.repeatedInt64.removeAll(keepCapacity: false)
@@ -22533,6 +23481,10 @@ final internal class TestRepeatedScalarDifferentTagSizesBuilder : GeneratedMessa
            builderResult.repeatedFloat = array
        }
   }
+  func setRepeatedFloat(value:Array<Float>)-> TestRepeatedScalarDifferentTagSizesBuilder {
+    self.repeatedFloat = value
+    return self
+  }
   internal func clearRepeatedFloat() -> TestRepeatedScalarDifferentTagSizesBuilder {
      builderResult.repeatedFloat.removeAll(keepCapacity: false)
      return self
@@ -22544,6 +23496,10 @@ final internal class TestRepeatedScalarDifferentTagSizesBuilder : GeneratedMessa
        set (array) {
            builderResult.repeatedUint64 = array
        }
+  }
+  func setRepeatedUint64(value:Array<UInt64>)-> TestRepeatedScalarDifferentTagSizesBuilder {
+    self.repeatedUint64 = value
+    return self
   }
   internal func clearRepeatedUint64() -> TestRepeatedScalarDifferentTagSizesBuilder {
      builderResult.repeatedUint64.removeAll(keepCapacity: false)
@@ -22767,8 +23723,8 @@ final internal class TestParsingMerge : ExtendableMessage {
                    builderResult.field1 = value
                }
           }
-          internal func setField1Builder(builderForValue:TestAllTypesBuilder) -> TestParsingMerge.RepeatedFieldsGenerator.Group1Builder {
-            field1 = builderForValue.build()
+          func setField1(value:TestAllTypes)-> TestParsingMerge.RepeatedFieldsGenerator.Group1Builder {
+            self.field1 = value
             return self
           }
           internal func mergeField1(value:TestAllTypes) -> TestParsingMerge.RepeatedFieldsGenerator.Group1Builder {
@@ -22976,8 +23932,8 @@ final internal class TestParsingMerge : ExtendableMessage {
                    builderResult.field1 = value
                }
           }
-          internal func setField1Builder(builderForValue:TestAllTypesBuilder) -> TestParsingMerge.RepeatedFieldsGenerator.Group2Builder {
-            field1 = builderForValue.build()
+          func setField1(value:TestAllTypes)-> TestParsingMerge.RepeatedFieldsGenerator.Group2Builder {
+            self.field1 = value
             return self
           }
           internal func mergeField1(value:TestAllTypes) -> TestParsingMerge.RepeatedFieldsGenerator.Group2Builder {
@@ -23277,6 +24233,10 @@ final internal class TestParsingMerge : ExtendableMessage {
                builderResult.field1 = value
            }
       }
+      func setField1(value:Array<TestAllTypes>)-> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
+        self.field1 = value
+        return self
+      }
       internal func clearField1() -> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
         builderResult.field1.removeAll(keepCapacity: false)
         return self
@@ -23288,6 +24248,10 @@ final internal class TestParsingMerge : ExtendableMessage {
            set (value) {
                builderResult.field2 = value
            }
+      }
+      func setField2(value:Array<TestAllTypes>)-> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
+        self.field2 = value
+        return self
       }
       internal func clearField2() -> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
         builderResult.field2.removeAll(keepCapacity: false)
@@ -23301,6 +24265,10 @@ final internal class TestParsingMerge : ExtendableMessage {
                builderResult.field3 = value
            }
       }
+      func setField3(value:Array<TestAllTypes>)-> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
+        self.field3 = value
+        return self
+      }
       internal func clearField3() -> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
         builderResult.field3.removeAll(keepCapacity: false)
         return self
@@ -23312,6 +24280,10 @@ final internal class TestParsingMerge : ExtendableMessage {
            set (value) {
                builderResult.group1 = value
            }
+      }
+      func setGroup1(value:Array<TestParsingMerge.RepeatedFieldsGenerator.Group1>)-> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
+        self.group1 = value
+        return self
       }
       internal func clearGroup1() -> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
         builderResult.group1.removeAll(keepCapacity: false)
@@ -23325,6 +24297,10 @@ final internal class TestParsingMerge : ExtendableMessage {
                builderResult.group2 = value
            }
       }
+      func setGroup2(value:Array<TestParsingMerge.RepeatedFieldsGenerator.Group2>)-> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
+        self.group2 = value
+        return self
+      }
       internal func clearGroup2() -> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
         builderResult.group2.removeAll(keepCapacity: false)
         return self
@@ -23337,6 +24313,10 @@ final internal class TestParsingMerge : ExtendableMessage {
                builderResult.ext1 = value
            }
       }
+      func setExt1(value:Array<TestAllTypes>)-> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
+        self.ext1 = value
+        return self
+      }
       internal func clearExt1() -> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
         builderResult.ext1.removeAll(keepCapacity: false)
         return self
@@ -23348,6 +24328,10 @@ final internal class TestParsingMerge : ExtendableMessage {
            set (value) {
                builderResult.ext2 = value
            }
+      }
+      func setExt2(value:Array<TestAllTypes>)-> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
+        self.ext2 = value
+        return self
       }
       internal func clearExt2() -> TestParsingMerge.RepeatedFieldsGeneratorBuilder {
         builderResult.ext2.removeAll(keepCapacity: false)
@@ -23589,8 +24573,8 @@ final internal class TestParsingMerge : ExtendableMessage {
                builderResult.optionalGroupAllTypes = value
            }
       }
-      internal func setOptionalGroupAllTypesBuilder(builderForValue:TestAllTypesBuilder) -> TestParsingMerge.OptionalGroupBuilder {
-        optionalGroupAllTypes = builderForValue.build()
+      func setOptionalGroupAllTypes(value:TestAllTypes)-> TestParsingMerge.OptionalGroupBuilder {
+        self.optionalGroupAllTypes = value
         return self
       }
       internal func mergeOptionalGroupAllTypes(value:TestAllTypes) -> TestParsingMerge.OptionalGroupBuilder {
@@ -23798,8 +24782,8 @@ final internal class TestParsingMerge : ExtendableMessage {
                builderResult.repeatedGroupAllTypes = value
            }
       }
-      internal func setRepeatedGroupAllTypesBuilder(builderForValue:TestAllTypesBuilder) -> TestParsingMerge.RepeatedGroupBuilder {
-        repeatedGroupAllTypes = builderForValue.build()
+      func setRepeatedGroupAllTypes(value:TestAllTypes)-> TestParsingMerge.RepeatedGroupBuilder {
+        self.repeatedGroupAllTypes = value
         return self
       }
       internal func mergeRepeatedGroupAllTypes(value:TestAllTypes) -> TestParsingMerge.RepeatedGroupBuilder {
@@ -24084,8 +25068,8 @@ final internal class TestParsingMergeBuilder : ExtendableMessageBuilder {
            builderResult.requiredAllTypes = value
        }
   }
-  internal func setRequiredAllTypesBuilder(builderForValue:TestAllTypesBuilder) -> TestParsingMergeBuilder {
-    requiredAllTypes = builderForValue.build()
+  func setRequiredAllTypes(value:TestAllTypes)-> TestParsingMergeBuilder {
+    self.requiredAllTypes = value
     return self
   }
   internal func mergeRequiredAllTypes(value:TestAllTypes) -> TestParsingMergeBuilder {
@@ -24116,8 +25100,8 @@ final internal class TestParsingMergeBuilder : ExtendableMessageBuilder {
            builderResult.optionalAllTypes = value
        }
   }
-  internal func setOptionalAllTypesBuilder(builderForValue:TestAllTypesBuilder) -> TestParsingMergeBuilder {
-    optionalAllTypes = builderForValue.build()
+  func setOptionalAllTypes(value:TestAllTypes)-> TestParsingMergeBuilder {
+    self.optionalAllTypes = value
     return self
   }
   internal func mergeOptionalAllTypes(value:TestAllTypes) -> TestParsingMergeBuilder {
@@ -24142,6 +25126,10 @@ final internal class TestParsingMergeBuilder : ExtendableMessageBuilder {
            builderResult.repeatedAllTypes = value
        }
   }
+  func setRepeatedAllTypes(value:Array<TestAllTypes>)-> TestParsingMergeBuilder {
+    self.repeatedAllTypes = value
+    return self
+  }
   internal func clearRepeatedAllTypes() -> TestParsingMergeBuilder {
     builderResult.repeatedAllTypes.removeAll(keepCapacity: false)
     return self
@@ -24160,8 +25148,8 @@ final internal class TestParsingMergeBuilder : ExtendableMessageBuilder {
            builderResult.optionalGroup = value
        }
   }
-  internal func setOptionalGroupBuilder(builderForValue:TestParsingMerge.OptionalGroupBuilder) -> TestParsingMergeBuilder {
-    optionalGroup = builderForValue.build()
+  func setOptionalGroup(value:TestParsingMerge.OptionalGroup)-> TestParsingMergeBuilder {
+    self.optionalGroup = value
     return self
   }
   internal func mergeOptionalGroup(value:TestParsingMerge.OptionalGroup) -> TestParsingMergeBuilder {
@@ -24185,6 +25173,10 @@ final internal class TestParsingMergeBuilder : ExtendableMessageBuilder {
        set (value) {
            builderResult.repeatedGroup = value
        }
+  }
+  func setRepeatedGroup(value:Array<TestParsingMerge.RepeatedGroup>)-> TestParsingMergeBuilder {
+    self.repeatedGroup = value
+    return self
   }
   internal func clearRepeatedGroup() -> TestParsingMergeBuilder {
     builderResult.repeatedGroup.removeAll(keepCapacity: false)
@@ -24410,6 +25402,10 @@ final internal class TestCommentInjectionMessageBuilder : GeneratedMessageBuilde
            builderResult.hasA = true
            builderResult.a = value
        }
+  }
+  func setA(value:String)-> TestCommentInjectionMessageBuilder {
+    self.a = value
+    return self
   }
   internal func clearA() -> TestCommentInjectionMessageBuilder{
        builderResult.hasA = false

@@ -899,6 +899,10 @@ final internal class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuild
            builderResult.field1 = value
        }
   }
+  func setField1(value:String)-> TestMessageWithCustomOptionsBuilder {
+    self.field1 = value
+    return self
+  }
   internal func clearField1() -> TestMessageWithCustomOptionsBuilder{
        builderResult.hasField1 = false
        builderResult.field1 = ""
@@ -2720,6 +2724,10 @@ final internal class ComplexOptionType1Builder : ExtendableMessageBuilder {
            builderResult.foo = value
        }
   }
+  func setFoo(value:Int32)-> ComplexOptionType1Builder {
+    self.foo = value
+    return self
+  }
   internal func clearFoo() -> ComplexOptionType1Builder{
        builderResult.hasFoo = false
        builderResult.foo = Int32(0)
@@ -2738,6 +2746,10 @@ final internal class ComplexOptionType1Builder : ExtendableMessageBuilder {
            builderResult.hasFoo2 = true
            builderResult.foo2 = value
        }
+  }
+  func setFoo2(value:Int32)-> ComplexOptionType1Builder {
+    self.foo2 = value
+    return self
   }
   internal func clearFoo2() -> ComplexOptionType1Builder{
        builderResult.hasFoo2 = false
@@ -2758,6 +2770,10 @@ final internal class ComplexOptionType1Builder : ExtendableMessageBuilder {
            builderResult.foo3 = value
        }
   }
+  func setFoo3(value:Int32)-> ComplexOptionType1Builder {
+    self.foo3 = value
+    return self
+  }
   internal func clearFoo3() -> ComplexOptionType1Builder{
        builderResult.hasFoo3 = false
        builderResult.foo3 = Int32(0)
@@ -2770,6 +2786,10 @@ final internal class ComplexOptionType1Builder : ExtendableMessageBuilder {
        set (array) {
            builderResult.foo4 = array
        }
+  }
+  func setFoo4(value:Array<Int32>)-> ComplexOptionType1Builder {
+    self.foo4 = value
+    return self
   }
   internal func clearFoo4() -> ComplexOptionType1Builder {
      builderResult.foo4.removeAll(keepCapacity: false)
@@ -2978,6 +2998,10 @@ final internal class ComplexOptionType2 : ExtendableMessage {
                builderResult.hasWaldo = true
                builderResult.waldo = value
            }
+      }
+      func setWaldo(value:Int32)-> ComplexOptionType2.ComplexOptionType4Builder {
+        self.waldo = value
+        return self
       }
       internal func clearWaldo() -> ComplexOptionType2.ComplexOptionType4Builder{
            builderResult.hasWaldo = false
@@ -3225,8 +3249,8 @@ final internal class ComplexOptionType2Builder : ExtendableMessageBuilder {
            builderResult.bar = value
        }
   }
-  internal func setBarBuilder(builderForValue:ComplexOptionType1Builder) -> ComplexOptionType2Builder {
-    bar = builderForValue.build()
+  func setBar(value:ComplexOptionType1)-> ComplexOptionType2Builder {
+    self.bar = value
     return self
   }
   internal func mergeBar(value:ComplexOptionType1) -> ComplexOptionType2Builder {
@@ -3257,6 +3281,10 @@ final internal class ComplexOptionType2Builder : ExtendableMessageBuilder {
            builderResult.baz = value
        }
   }
+  func setBaz(value:Int32)-> ComplexOptionType2Builder {
+    self.baz = value
+    return self
+  }
   internal func clearBaz() -> ComplexOptionType2Builder{
        builderResult.hasBaz = false
        builderResult.baz = Int32(0)
@@ -3276,8 +3304,8 @@ final internal class ComplexOptionType2Builder : ExtendableMessageBuilder {
            builderResult.fred = value
        }
   }
-  internal func setFredBuilder(builderForValue:ComplexOptionType2.ComplexOptionType4Builder) -> ComplexOptionType2Builder {
-    fred = builderForValue.build()
+  func setFred(value:ComplexOptionType2.ComplexOptionType4)-> ComplexOptionType2Builder {
+    self.fred = value
     return self
   }
   internal func mergeFred(value:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2Builder {
@@ -3301,6 +3329,10 @@ final internal class ComplexOptionType2Builder : ExtendableMessageBuilder {
        set (value) {
            builderResult.barney = value
        }
+  }
+  func setBarney(value:Array<ComplexOptionType2.ComplexOptionType4>)-> ComplexOptionType2Builder {
+    self.barney = value
+    return self
   }
   internal func clearBarney() -> ComplexOptionType2Builder {
     builderResult.barney.removeAll(keepCapacity: false)
@@ -3519,6 +3551,10 @@ final internal class ComplexOptionType3 : GeneratedMessage {
                builderResult.plugh = value
            }
       }
+      func setPlugh(value:Int32)-> ComplexOptionType3.ComplexOptionType5Builder {
+        self.plugh = value
+        return self
+      }
       internal func clearPlugh() -> ComplexOptionType3.ComplexOptionType5Builder{
            builderResult.hasPlugh = false
            builderResult.plugh = Int32(0)
@@ -3720,6 +3756,10 @@ final internal class ComplexOptionType3Builder : GeneratedMessageBuilder {
            builderResult.qux = value
        }
   }
+  func setQux(value:Int32)-> ComplexOptionType3Builder {
+    self.qux = value
+    return self
+  }
   internal func clearQux() -> ComplexOptionType3Builder{
        builderResult.hasQux = false
        builderResult.qux = Int32(0)
@@ -3739,8 +3779,8 @@ final internal class ComplexOptionType3Builder : GeneratedMessageBuilder {
            builderResult.complexOptionType5 = value
        }
   }
-  internal func setComplexOptionType5Builder(builderForValue:ComplexOptionType3.ComplexOptionType5Builder) -> ComplexOptionType3Builder {
-    complexOptionType5 = builderForValue.build()
+  func setComplexOptionType5(value:ComplexOptionType3.ComplexOptionType5)-> ComplexOptionType3Builder {
+    self.complexOptionType5 = value
     return self
   }
   internal func mergeComplexOptionType5(value:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3Builder {
@@ -3944,6 +3984,10 @@ final internal class ComplexOpt6Builder : GeneratedMessageBuilder {
            builderResult.hasXyzzy = true
            builderResult.xyzzy = value
        }
+  }
+  func setXyzzy(value:Int32)-> ComplexOpt6Builder {
+    self.xyzzy = value
+    return self
   }
   internal func clearXyzzy() -> ComplexOpt6Builder{
        builderResult.hasXyzzy = false
@@ -4422,6 +4466,10 @@ final internal class AggregateMessageSetElementBuilder : GeneratedMessageBuilder
            builderResult.s = value
        }
   }
+  func setS(value:String)-> AggregateMessageSetElementBuilder {
+    self.s = value
+    return self
+  }
   internal func clearS() -> AggregateMessageSetElementBuilder{
        builderResult.hasS = false
        builderResult.s = ""
@@ -4685,6 +4733,10 @@ final internal class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.i = value
        }
   }
+  func setI(value:Int32)-> AggregateBuilder {
+    self.i = value
+    return self
+  }
   internal func clearI() -> AggregateBuilder{
        builderResult.hasI = false
        builderResult.i = Int32(0)
@@ -4703,6 +4755,10 @@ final internal class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.hasS = true
            builderResult.s = value
        }
+  }
+  func setS(value:String)-> AggregateBuilder {
+    self.s = value
+    return self
   }
   internal func clearS() -> AggregateBuilder{
        builderResult.hasS = false
@@ -4723,8 +4779,8 @@ final internal class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.sub = value
        }
   }
-  internal func setSubBuilder(builderForValue:AggregateBuilder) -> AggregateBuilder {
-    sub = builderForValue.build()
+  func setSub(value:Aggregate)-> AggregateBuilder {
+    self.sub = value
     return self
   }
   internal func mergeSub(value:Aggregate) -> AggregateBuilder {
@@ -4755,8 +4811,8 @@ final internal class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.file = value
        }
   }
-  internal func setFileBuilder(builderForValue:PBFileOptionsBuilder) -> AggregateBuilder {
-    file = builderForValue.build()
+  func setFile(value:PBFileOptions)-> AggregateBuilder {
+    self.file = value
     return self
   }
   internal func mergeFile(value:PBFileOptions) -> AggregateBuilder {
@@ -4787,8 +4843,8 @@ final internal class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.mset = value
        }
   }
-  internal func setMsetBuilder(builderForValue:AggregateMessageSetBuilder) -> AggregateBuilder {
-    mset = builderForValue.build()
+  func setMset(value:AggregateMessageSet)-> AggregateBuilder {
+    self.mset = value
     return self
   }
   internal func mergeMset(value:AggregateMessageSet) -> AggregateBuilder {
@@ -5021,6 +5077,10 @@ final internal class AggregateMessageBuilder : GeneratedMessageBuilder {
            builderResult.fieldname = value
        }
   }
+  func setFieldname(value:Int32)-> AggregateMessageBuilder {
+    self.fieldname = value
+    return self
+  }
   internal func clearFieldname() -> AggregateMessageBuilder{
        builderResult.hasFieldname = false
        builderResult.fieldname = Int32(0)
@@ -5207,6 +5267,10 @@ final internal class NestedOptionType : GeneratedMessage {
                builderResult.hasNestedField = true
                builderResult.nestedField = value
            }
+      }
+      func setNestedField(value:Int32)-> NestedOptionType.NestedMessageBuilder {
+        self.nestedField = value
+        return self
       }
       internal func clearNestedField() -> NestedOptionType.NestedMessageBuilder{
            builderResult.hasNestedField = false
