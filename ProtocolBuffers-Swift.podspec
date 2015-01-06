@@ -24,10 +24,7 @@ Pod::Spec.new do |s|
     LICENSE
   }
 
-  # s.xcconfig = { 'PRODUCT_NAME' => 'ProtocolBuffers', 'PRODUCT_MODULE_NAME' => 'ProtocolBuffers' }
-
   s.author       = { "Alexey Khokhlov" => "alexeyxo@gmail.com" }
-
   s.authors      = { "Alexey Khokhlov" => "alexeyxo@gmail.com" }
 
   s.ios.deployment_target = '8.0'
@@ -37,6 +34,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/alexeyxo/protobuf-swift.git", :tag => "v1.3" }
   s.source_files = 'src/ProtocolBuffers/runtime-pb-swift/*.{swift}'
   s.requires_arc = true
-  # s.public_header_files = ["src/ProtocolBuffers/runtime-pb-swift/*.h"]
   s.frameworks   = 'Foundation'
 end
