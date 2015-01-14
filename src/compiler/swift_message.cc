@@ -413,33 +413,33 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print("override $acontrol$ func serializedSize() -> Int32 {\n",
                        "acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
-        printer->Print("var size:Int32 = memoizedSerializedSize\n"
-                       "if size != -1 {\n"
-                       " return size\n"
+        printer->Print("var serialize_size:Int32 = memoizedSerializedSize\n"
+                       "if serialize_size != -1 {\n"
+                       " return serialize_size\n"
                        "}\n"
                        "\n"
-                       "size = 0\n");
+                       "serialize_size = 0\n");
         for (int i = 0; i < descriptor_->field_count(); i++) {
             field_generators_.get(sorted_fields[i]).GenerateSerializedSizeCodeSource(printer);
         }
         
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(
-                           "size += extensionsSerializedSize()\n");
+                           "serialize_size += extensionsSerializedSize()\n");
         }
         
         if (descriptor_->options().message_set_wire_format()) {
             printer->Print(
-                           "size += unknownFields.serializedSizeAsMessageSet()\n");
+                           "serialize_size += unknownFields.serializedSizeAsMessageSet()\n");
         } else {
             printer->Print(
-                           "size += unknownFields.serializedSize()\n");
+                           "serialize_size += unknownFields.serializedSize()\n");
         }
         
         
         printer->Print(
-                       "memoizedSerializedSize = size\n"
-                       "return size\n");
+                       "memoizedSerializedSize = serialize_size\n"
+                       "return serialize_size\n");
         printer->Outdent();
         printer->Print("}\n");
     }

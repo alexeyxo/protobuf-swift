@@ -291,18 +291,18 @@ final public class PBFileDescriptorSet : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     for oneElementfile in file {
-        size += oneElementfile.computeMessageSize(1)
+        serialize_size += oneElementfile.computeMessageSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBFileDescriptorSet {
     return PBFileDescriptorSet.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -571,57 +571,57 @@ final public class PBFileDescriptorProto : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasName {
-      size += name.computeStringSize(1)
+      serialize_size += name.computeStringSize(1)
     }
     if hasPackage {
-      size += package.computeStringSize(2)
+      serialize_size += package.computeStringSize(2)
     }
     var dataSizeDependency:Int32 = 0
     for oneValuedependency in dependency {
         dataSizeDependency += oneValuedependency.computeStringSizeNoTag()
     }
-    size += dataSizeDependency
-    size += 1 * Int32(dependency.count)
+    serialize_size += dataSizeDependency
+    serialize_size += 1 * Int32(dependency.count)
     for oneElementmessageType in messageType {
-        size += oneElementmessageType.computeMessageSize(4)
+        serialize_size += oneElementmessageType.computeMessageSize(4)
     }
     for oneElementenumType in enumType {
-        size += oneElementenumType.computeMessageSize(5)
+        serialize_size += oneElementenumType.computeMessageSize(5)
     }
     for oneElementservice in service {
-        size += oneElementservice.computeMessageSize(6)
+        serialize_size += oneElementservice.computeMessageSize(6)
     }
     for oneElementextension_ in extension_ {
-        size += oneElementextension_.computeMessageSize(7)
+        serialize_size += oneElementextension_.computeMessageSize(7)
     }
     if hasOptions {
-      size += options.computeMessageSize(8)
+      serialize_size += options.computeMessageSize(8)
     }
     if hasSourceCodeInfo {
-      size += sourceCodeInfo.computeMessageSize(9)
+      serialize_size += sourceCodeInfo.computeMessageSize(9)
     }
     var dataSizePublicDependency:Int32 = 0
     for oneValuepublicDependency in publicDependency {
         dataSizePublicDependency += oneValuepublicDependency.computeInt32SizeNoTag()
     }
-    size += dataSizePublicDependency
-    size += 1 * Int32(publicDependency.count)
+    serialize_size += dataSizePublicDependency
+    serialize_size += 1 * Int32(publicDependency.count)
     var dataSizeWeakDependency:Int32 = 0
     for oneValueweakDependency in weakDependency {
         dataSizeWeakDependency += oneValueweakDependency.computeInt32SizeNoTag()
     }
-    size += dataSizeWeakDependency
-    size += 1 * Int32(weakDependency.count)
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += dataSizeWeakDependency
+    serialize_size += 1 * Int32(weakDependency.count)
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBFileDescriptorProto {
     return PBFileDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -1170,21 +1170,21 @@ final public class PBDescriptorProto : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override public func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasStart {
-          size += start.computeInt32Size(1)
+          serialize_size += start.computeInt32Size(1)
         }
         if hasEnd {
-          size += end.computeInt32Size(2)
+          serialize_size += end.computeInt32Size(2)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       public class func parseFromData(data:NSData) -> PBDescriptorProto.ExtensionRange {
         return PBDescriptorProto.ExtensionRange.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -1467,36 +1467,36 @@ final public class PBDescriptorProto : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasName {
-      size += name.computeStringSize(1)
+      serialize_size += name.computeStringSize(1)
     }
     for oneElementfield in field {
-        size += oneElementfield.computeMessageSize(2)
+        serialize_size += oneElementfield.computeMessageSize(2)
     }
     for oneElementnestedType in nestedType {
-        size += oneElementnestedType.computeMessageSize(3)
+        serialize_size += oneElementnestedType.computeMessageSize(3)
     }
     for oneElementenumType in enumType {
-        size += oneElementenumType.computeMessageSize(4)
+        serialize_size += oneElementenumType.computeMessageSize(4)
     }
     for oneElementextensionRange in extensionRange {
-        size += oneElementextensionRange.computeMessageSize(5)
+        serialize_size += oneElementextensionRange.computeMessageSize(5)
     }
     for oneElementextension_ in extension_ {
-        size += oneElementextension_.computeMessageSize(6)
+        serialize_size += oneElementextension_.computeMessageSize(6)
     }
     if hasOptions {
-      size += options.computeMessageSize(7)
+      serialize_size += options.computeMessageSize(7)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBDescriptorProto {
     return PBDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -1993,39 +1993,39 @@ final public class PBFieldDescriptorProto : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasName {
-      size += name.computeStringSize(1)
+      serialize_size += name.computeStringSize(1)
     }
     if hasExtendee {
-      size += extendee.computeStringSize(2)
+      serialize_size += extendee.computeStringSize(2)
     }
     if hasNumber {
-      size += number.computeInt32Size(3)
+      serialize_size += number.computeInt32Size(3)
     }
     if (hasLabel) {
-      size += label.rawValue.computeEnumSize(4)
+      serialize_size += label.rawValue.computeEnumSize(4)
     }
     if (hasTypes) {
-      size += types.rawValue.computeEnumSize(5)
+      serialize_size += types.rawValue.computeEnumSize(5)
     }
     if hasTypeName {
-      size += typeName.computeStringSize(6)
+      serialize_size += typeName.computeStringSize(6)
     }
     if hasDefaultValue {
-      size += defaultValue.computeStringSize(7)
+      serialize_size += defaultValue.computeStringSize(7)
     }
     if hasOptions {
-      size += options.computeMessageSize(8)
+      serialize_size += options.computeMessageSize(8)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBFieldDescriptorProto {
     return PBFieldDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -2495,24 +2495,24 @@ final public class PBEnumDescriptorProto : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasName {
-      size += name.computeStringSize(1)
+      serialize_size += name.computeStringSize(1)
     }
     for oneElementvalue in value {
-        size += oneElementvalue.computeMessageSize(2)
+        serialize_size += oneElementvalue.computeMessageSize(2)
     }
     if hasOptions {
-      size += options.computeMessageSize(3)
+      serialize_size += options.computeMessageSize(3)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBEnumDescriptorProto {
     return PBEnumDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -2788,24 +2788,24 @@ final public class PBEnumValueDescriptorProto : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasName {
-      size += name.computeStringSize(1)
+      serialize_size += name.computeStringSize(1)
     }
     if hasNumber {
-      size += number.computeInt32Size(2)
+      serialize_size += number.computeInt32Size(2)
     }
     if hasOptions {
-      size += options.computeMessageSize(3)
+      serialize_size += options.computeMessageSize(3)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBEnumValueDescriptorProto {
     return PBEnumValueDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -3090,24 +3090,24 @@ final public class PBServiceDescriptorProto : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasName {
-      size += name.computeStringSize(1)
+      serialize_size += name.computeStringSize(1)
     }
     for oneElementmethod in method {
-        size += oneElementmethod.computeMessageSize(2)
+        serialize_size += oneElementmethod.computeMessageSize(2)
     }
     if hasOptions {
-      size += options.computeMessageSize(3)
+      serialize_size += options.computeMessageSize(3)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBServiceDescriptorProto {
     return PBServiceDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -3389,27 +3389,27 @@ final public class PBMethodDescriptorProto : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasName {
-      size += name.computeStringSize(1)
+      serialize_size += name.computeStringSize(1)
     }
     if hasInputType {
-      size += inputType.computeStringSize(2)
+      serialize_size += inputType.computeStringSize(2)
     }
     if hasOutputType {
-      size += outputType.computeStringSize(3)
+      serialize_size += outputType.computeStringSize(3)
     }
     if hasOptions {
-      size += options.computeMessageSize(4)
+      serialize_size += options.computeMessageSize(4)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBMethodDescriptorProto {
     return PBMethodDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -3791,46 +3791,46 @@ final public class PBFileOptions : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasJavaPackage {
-      size += javaPackage.computeStringSize(1)
+      serialize_size += javaPackage.computeStringSize(1)
     }
     if hasJavaOuterClassname {
-      size += javaOuterClassname.computeStringSize(8)
+      serialize_size += javaOuterClassname.computeStringSize(8)
     }
     if (hasOptimizeFor) {
-      size += optimizeFor.rawValue.computeEnumSize(9)
+      serialize_size += optimizeFor.rawValue.computeEnumSize(9)
     }
     if hasJavaMultipleFiles {
-      size += javaMultipleFiles.computeBoolSize(10)
+      serialize_size += javaMultipleFiles.computeBoolSize(10)
     }
     if hasGoPackage {
-      size += goPackage.computeStringSize(11)
+      serialize_size += goPackage.computeStringSize(11)
     }
     if hasCcGenericServices {
-      size += ccGenericServices.computeBoolSize(16)
+      serialize_size += ccGenericServices.computeBoolSize(16)
     }
     if hasJavaGenericServices {
-      size += javaGenericServices.computeBoolSize(17)
+      serialize_size += javaGenericServices.computeBoolSize(17)
     }
     if hasPyGenericServices {
-      size += pyGenericServices.computeBoolSize(18)
+      serialize_size += pyGenericServices.computeBoolSize(18)
     }
     if hasJavaGenerateEqualsAndHash {
-      size += javaGenerateEqualsAndHash.computeBoolSize(20)
+      serialize_size += javaGenerateEqualsAndHash.computeBoolSize(20)
     }
     for oneElementuninterpretedOption in uninterpretedOption {
-        size += oneElementuninterpretedOption.computeMessageSize(999)
+        serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
     }
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBFileOptions {
     return PBFileOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -4351,25 +4351,25 @@ final public class PBMessageOptions : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasMessageSetWireFormat {
-      size += messageSetWireFormat.computeBoolSize(1)
+      serialize_size += messageSetWireFormat.computeBoolSize(1)
     }
     if hasNoStandardDescriptorAccessor {
-      size += noStandardDescriptorAccessor.computeBoolSize(2)
+      serialize_size += noStandardDescriptorAccessor.computeBoolSize(2)
     }
     for oneElementuninterpretedOption in uninterpretedOption {
-        size += oneElementuninterpretedOption.computeMessageSize(999)
+        serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
     }
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBMessageOptions {
     return PBMessageOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -4684,37 +4684,37 @@ final public class PBFieldOptions : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if (hasCtype) {
-      size += ctype.rawValue.computeEnumSize(1)
+      serialize_size += ctype.rawValue.computeEnumSize(1)
     }
     if hasPacked {
-      size += packed.computeBoolSize(2)
+      serialize_size += packed.computeBoolSize(2)
     }
     if hasDeprecated {
-      size += deprecated.computeBoolSize(3)
+      serialize_size += deprecated.computeBoolSize(3)
     }
     if hasLazy {
-      size += lazy.computeBoolSize(5)
+      serialize_size += lazy.computeBoolSize(5)
     }
     if hasExperimentalMapKey {
-      size += experimentalMapKey.computeStringSize(9)
+      serialize_size += experimentalMapKey.computeStringSize(9)
     }
     if hasWeak {
-      size += weak.computeBoolSize(10)
+      serialize_size += weak.computeBoolSize(10)
     }
     for oneElementuninterpretedOption in uninterpretedOption {
-        size += oneElementuninterpretedOption.computeMessageSize(999)
+        serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
     }
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBFieldOptions {
     return PBFieldOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -5124,22 +5124,22 @@ final public class PBEnumOptions : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasAllowAlias {
-      size += allowAlias.computeBoolSize(2)
+      serialize_size += allowAlias.computeBoolSize(2)
     }
     for oneElementuninterpretedOption in uninterpretedOption {
-        size += oneElementuninterpretedOption.computeMessageSize(999)
+        serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
     }
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBEnumOptions {
     return PBEnumOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -5363,19 +5363,19 @@ final public class PBEnumValueOptions : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     for oneElementuninterpretedOption in uninterpretedOption {
-        size += oneElementuninterpretedOption.computeMessageSize(999)
+        serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
     }
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBEnumValueOptions {
     return PBEnumValueOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -5564,19 +5564,19 @@ final public class PBServiceOptions : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     for oneElementuninterpretedOption in uninterpretedOption {
-        size += oneElementuninterpretedOption.computeMessageSize(999)
+        serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
     }
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBServiceOptions {
     return PBServiceOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -5765,19 +5765,19 @@ final public class PBMethodOptions : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     for oneElementuninterpretedOption in uninterpretedOption {
-        size += oneElementuninterpretedOption.computeMessageSize(999)
+        serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
     }
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBMethodOptions {
     return PBMethodOptions.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -5971,21 +5971,21 @@ final public class PBUninterpretedOption : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override public func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasNamePart {
-          size += namePart.computeStringSize(1)
+          serialize_size += namePart.computeStringSize(1)
         }
         if hasIsExtension {
-          size += isExtension.computeBoolSize(2)
+          serialize_size += isExtension.computeBoolSize(2)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       public class func parseFromData(data:NSData) -> PBUninterpretedOption.NamePart {
         return PBUninterpretedOption.NamePart.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -6242,36 +6242,36 @@ final public class PBUninterpretedOption : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     for oneElementname in name {
-        size += oneElementname.computeMessageSize(2)
+        serialize_size += oneElementname.computeMessageSize(2)
     }
     if hasIdentifierValue {
-      size += identifierValue.computeStringSize(3)
+      serialize_size += identifierValue.computeStringSize(3)
     }
     if hasPositiveIntValue {
-      size += positiveIntValue.computeUInt64Size(4)
+      serialize_size += positiveIntValue.computeUInt64Size(4)
     }
     if hasNegativeIntValue {
-      size += negativeIntValue.computeInt64Size(5)
+      serialize_size += negativeIntValue.computeInt64Size(5)
     }
     if hasDoubleValue {
-      size += doubleValue.computeDoubleSize(6)
+      serialize_size += doubleValue.computeDoubleSize(6)
     }
     if hasStringValue {
-      size += stringValue.computeDataSize(7)
+      serialize_size += stringValue.computeDataSize(7)
     }
     if hasAggregateValue {
-      size += aggregateValue.computeStringSize(8)
+      serialize_size += aggregateValue.computeStringSize(8)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBUninterpretedOption {
     return PBUninterpretedOption.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -6684,41 +6684,41 @@ final public class PBSourceCodeInfo : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override public func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         var dataSizePath:Int32 = 0
         for oneValuepath in path {
             dataSizePath += oneValuepath.computeInt32SizeNoTag()
         }
-        size += dataSizePath
+        serialize_size += dataSizePath
         if !path.isEmpty {
-          size += 1
-          size += dataSizePath.computeInt32SizeNoTag()
+          serialize_size += 1
+          serialize_size += dataSizePath.computeInt32SizeNoTag()
         }
         pathMemoizedSerializedSize = dataSizePath
         var dataSizeSpan:Int32 = 0
         for oneValuespan in span {
             dataSizeSpan += oneValuespan.computeInt32SizeNoTag()
         }
-        size += dataSizeSpan
+        serialize_size += dataSizeSpan
         if !span.isEmpty {
-          size += 1
-          size += dataSizeSpan.computeInt32SizeNoTag()
+          serialize_size += 1
+          serialize_size += dataSizeSpan.computeInt32SizeNoTag()
         }
         spanMemoizedSerializedSize = dataSizeSpan
         if hasLeadingComments {
-          size += leadingComments.computeStringSize(3)
+          serialize_size += leadingComments.computeStringSize(3)
         }
         if hasTrailingComments {
-          size += trailingComments.computeStringSize(4)
+          serialize_size += trailingComments.computeStringSize(4)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       public class func parseFromData(data:NSData) -> PBSourceCodeInfo.Location {
         return PBSourceCodeInfo.Location.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
@@ -6999,18 +6999,18 @@ final public class PBSourceCodeInfo : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     for oneElementlocation in location {
-        size += oneElementlocation.computeMessageSize(1)
+        serialize_size += oneElementlocation.computeMessageSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBSourceCodeInfo {
     return PBSourceCodeInfo.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()

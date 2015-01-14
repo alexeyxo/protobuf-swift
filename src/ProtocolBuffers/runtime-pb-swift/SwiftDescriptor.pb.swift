@@ -89,24 +89,24 @@ final public class SwiftFileOptions : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasClassPrefix {
-      size += classPrefix.computeStringSize(1)
+      serialize_size += classPrefix.computeStringSize(1)
     }
     if (hasEntitiesAccessControl) {
-      size += entitiesAccessControl.rawValue.computeEnumSize(2)
+      serialize_size += entitiesAccessControl.rawValue.computeEnumSize(2)
     }
     if hasCompileForFramework {
-      size += compileForFramework.computeBoolSize(3)
+      serialize_size += compileForFramework.computeBoolSize(3)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> SwiftFileOptions {
     return SwiftFileOptions.builder().mergeFromData(data, extensionRegistry:SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()

@@ -70,8 +70,8 @@ public class AbstractMessage:Equatable, Hashable, Message {
     
     public func data() -> NSData
     {
-        var size = serializedSize()
-        let data = NSMutableData(length: Int(size))!
+        var ser_size = serializedSize()
+        let data = NSMutableData(length: Int(ser_size))!
         var stream:CodedOutputStream = CodedOutputStream(data: data)
         writeToCodedOutputStream(stream)
         return stream.buffer.buffer

@@ -292,7 +292,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void PrimitiveFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  size += $name$.compute$capitalized_type$Size($number$)\n"
+                       "  serialize_size += $name$.compute$capitalized_type$Size($number$)\n"
                        "}\n");
     }
     
@@ -439,18 +439,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "dataSize$capitalized_name$ = $fixed_size$ * Int32($name$.count)\n");
         }
         
-        printer->Print(variables_,"size += dataSize$capitalized_name$\n");
+        printer->Print(variables_,"serialize_size += dataSize$capitalized_name$\n");
         
         if (descriptor_->options().packed()) {
             printer->Print(variables_,
                            "if !$name$.isEmpty {\n"
-                           "  size += $tag_size$\n"
-                           "  size += dataSize$capitalized_name$.computeInt32SizeNoTag()\n"
+                           "  serialize_size += $tag_size$\n"
+                           "  serialize_size += dataSize$capitalized_name$.computeInt32SizeNoTag()\n"
                            "}\n"
                            "$name$MemoizedSerializedSize = dataSize$capitalized_name$\n");
         } else {
             printer->Print(variables_,
-                           "size += $tag_size$ * Int32($name$.count)\n");
+                           "serialize_size += $tag_size$ * Int32($name$.count)\n");
         }
         
         

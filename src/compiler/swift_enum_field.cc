@@ -177,7 +177,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if (has$capitalized_name$) {\n"
-                       "  size += $name$.rawValue.computeEnumSize($number$)\n"
+                       "  serialize_size += $name$.rawValue.computeEnumSize($number$)\n"
                        "}\n");
     }
     
@@ -328,19 +328,19 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "    dataSize$name$ += oneValueOf$name$.rawValue.computeEnumSizeNoTag()\n"
                        "}\n");
         
-        printer->Print(variables_,"size += dataSize$name$\n");
+        printer->Print(variables_,"serialize_size += dataSize$name$\n");
         
         if (descriptor_->options().packed()) {
             
             printer->Print(variables_,
                            "if !$name$.isEmpty {\n"
-                           "  size += $tag_size$\n"
-                           "  size += dataSize$name$.computeRawVarint32Size()\n"
+                           "  serialize_size += $tag_size$\n"
+                           "  serialize_size += dataSize$name$.computeRawVarint32Size()\n"
                            "}\n");
             
         } else {
             printer->Print(variables_,
-                           "size += ($tag_size$ * Int32($name$.count))\n");
+                           "serialize_size += ($tag_size$ * Int32($name$.count))\n");
         }
         
         if (descriptor_->options().packed()) {
