@@ -106,16 +106,16 @@ final internal class TestMessageSet : ExtendableMessage {
     unknownFields.writeAsMessageSetTo(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSizeAsMessageSet()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSizeAsMessageSet()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestMessageSet {
     return TestMessageSet.builder().mergeFromData(data, extensionRegistry:UnittestMsetRoot.sharedInstance.extensionRegistry).build()
@@ -262,18 +262,18 @@ final internal class TestMessageSetContainer : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasMessageSet {
-      size += messageSet.computeMessageSize(1)
+      serialize_size += messageSet.computeMessageSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestMessageSetContainer {
     return TestMessageSetContainer.builder().mergeFromData(data, extensionRegistry:UnittestMsetRoot.sharedInstance.extensionRegistry).build()
@@ -467,18 +467,18 @@ final internal class TestMessageSetExtension1 : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasI {
-      size += i.computeInt32Size(15)
+      serialize_size += i.computeInt32Size(15)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestMessageSetExtension1 {
     return TestMessageSetExtension1.builder().mergeFromData(data, extensionRegistry:UnittestMsetRoot.sharedInstance.extensionRegistry).build()
@@ -656,18 +656,18 @@ final internal class TestMessageSetExtension2 : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasStr {
-      size += str.computeStringSize(25)
+      serialize_size += str.computeStringSize(25)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestMessageSetExtension2 {
     return TestMessageSetExtension2.builder().mergeFromData(data, extensionRegistry:UnittestMsetRoot.sharedInstance.extensionRegistry).build()
@@ -859,21 +859,21 @@ final internal class RawMessageSet : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasTypeId {
-          size += typeId.computeInt32Size(2)
+          serialize_size += typeId.computeInt32Size(2)
         }
         if hasMessage {
-          size += message.computeDataSize(3)
+          serialize_size += message.computeDataSize(3)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> RawMessageSet.Item {
         return RawMessageSet.Item.builder().mergeFromData(data, extensionRegistry:UnittestMsetRoot.sharedInstance.extensionRegistry).build()
@@ -1094,18 +1094,18 @@ final internal class RawMessageSet : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     for oneElementitem in item {
-        size += oneElementitem.computeGroupSize(1)
+        serialize_size += oneElementitem.computeGroupSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> RawMessageSet {
     return RawMessageSet.builder().mergeFromData(data, extensionRegistry:UnittestMsetRoot.sharedInstance.extensionRegistry).build()

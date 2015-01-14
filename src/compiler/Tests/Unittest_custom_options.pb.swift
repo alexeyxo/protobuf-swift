@@ -794,18 +794,18 @@ final internal class TestMessageWithCustomOptions : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasField1 {
-      size += field1.computeStringSize(1)
+      serialize_size += field1.computeStringSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestMessageWithCustomOptions {
     return TestMessageWithCustomOptions.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -974,15 +974,15 @@ final internal class CustomOptionFooRequest : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> CustomOptionFooRequest {
     return CustomOptionFooRequest.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -1116,15 +1116,15 @@ final internal class CustomOptionFooResponse : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> CustomOptionFooResponse {
     return CustomOptionFooResponse.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -1258,15 +1258,15 @@ final internal class CustomOptionFooClientMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> CustomOptionFooClientMessage {
     return CustomOptionFooClientMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -1400,15 +1400,15 @@ final internal class CustomOptionFooServerMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> CustomOptionFooServerMessage {
     return CustomOptionFooServerMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -1562,15 +1562,15 @@ final internal class DummyMessageContainingEnum : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> DummyMessageContainingEnum {
     return DummyMessageContainingEnum.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -1704,15 +1704,15 @@ final internal class DummyMessageInvalidAsOptionType : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> DummyMessageInvalidAsOptionType {
     return DummyMessageInvalidAsOptionType.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -1846,15 +1846,15 @@ final internal class CustomOptionMinIntegerValues : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> CustomOptionMinIntegerValues {
     return CustomOptionMinIntegerValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -1988,15 +1988,15 @@ final internal class CustomOptionMaxIntegerValues : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> CustomOptionMaxIntegerValues {
     return CustomOptionMaxIntegerValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -2130,15 +2130,15 @@ final internal class CustomOptionOtherValues : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> CustomOptionOtherValues {
     return CustomOptionOtherValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -2272,15 +2272,15 @@ final internal class SettingRealsFromPositiveInts : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> SettingRealsFromPositiveInts {
     return SettingRealsFromPositiveInts.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -2414,15 +2414,15 @@ final internal class SettingRealsFromNegativeInts : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> SettingRealsFromNegativeInts {
     return SettingRealsFromNegativeInts.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -2584,31 +2584,31 @@ final internal class ComplexOptionType1 : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasFoo {
-      size += foo.computeInt32Size(1)
+      serialize_size += foo.computeInt32Size(1)
     }
     if hasFoo2 {
-      size += foo2.computeInt32Size(2)
+      serialize_size += foo2.computeInt32Size(2)
     }
     if hasFoo3 {
-      size += foo3.computeInt32Size(3)
+      serialize_size += foo3.computeInt32Size(3)
     }
     var dataSizeFoo4:Int32 = 0
     for oneValuefoo4 in foo4 {
         dataSizeFoo4 += oneValuefoo4.computeInt32SizeNoTag()
     }
-    size += dataSizeFoo4
-    size += 1 * Int32(foo4.count)
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += dataSizeFoo4
+    serialize_size += 1 * Int32(foo4.count)
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> ComplexOptionType1 {
     return ComplexOptionType1.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -2894,18 +2894,18 @@ final internal class ComplexOptionType2 : ExtendableMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasWaldo {
-          size += waldo.computeInt32Size(1)
+          serialize_size += waldo.computeInt32Size(1)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> ComplexOptionType2.ComplexOptionType4 {
         return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -3106,28 +3106,28 @@ final internal class ComplexOptionType2 : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasBar {
-      size += bar.computeMessageSize(1)
+      serialize_size += bar.computeMessageSize(1)
     }
     if hasBaz {
-      size += baz.computeInt32Size(2)
+      serialize_size += baz.computeInt32Size(2)
     }
     if hasFred {
-      size += fred.computeMessageSize(3)
+      serialize_size += fred.computeMessageSize(3)
     }
     for oneElementbarney in barney {
-        size += oneElementbarney.computeMessageSize(4)
+        serialize_size += oneElementbarney.computeMessageSize(4)
     }
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> ComplexOptionType2 {
     return ComplexOptionType2.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -3446,18 +3446,18 @@ final internal class ComplexOptionType3 : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasPlugh {
-          size += plugh.computeInt32Size(3)
+          serialize_size += plugh.computeInt32Size(3)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> ComplexOptionType3.ComplexOptionType5 {
         return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -3640,21 +3640,21 @@ final internal class ComplexOptionType3 : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasQux {
-      size += qux.computeInt32Size(1)
+      serialize_size += qux.computeInt32Size(1)
     }
     if hasComplexOptionType5 {
-      size += complexOptionType5.computeGroupSize(2)
+      serialize_size += complexOptionType5.computeGroupSize(2)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> ComplexOptionType3 {
     return ComplexOptionType3.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -3880,18 +3880,18 @@ final internal class ComplexOpt6 : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasXyzzy {
-      size += xyzzy.computeInt32Size(7593951)
+      serialize_size += xyzzy.computeInt32Size(7593951)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> ComplexOpt6 {
     return ComplexOpt6.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -4060,15 +4060,15 @@ final internal class VariousComplexOptions : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> VariousComplexOptions {
     return VariousComplexOptions.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -4206,16 +4206,16 @@ final internal class AggregateMessageSet : ExtendableMessage {
     unknownFields.writeAsMessageSetTo(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSizeAsMessageSet()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSizeAsMessageSet()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> AggregateMessageSet {
     return AggregateMessageSet.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -4361,18 +4361,18 @@ final internal class AggregateMessageSetElement : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasS {
-      size += s.computeStringSize(1)
+      serialize_size += s.computeStringSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> AggregateMessageSetElement {
     return AggregateMessageSetElement.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -4586,30 +4586,30 @@ final internal class Aggregate : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasI {
-      size += i.computeInt32Size(1)
+      serialize_size += i.computeInt32Size(1)
     }
     if hasS {
-      size += s.computeStringSize(2)
+      serialize_size += s.computeStringSize(2)
     }
     if hasSub {
-      size += sub.computeMessageSize(3)
+      serialize_size += sub.computeMessageSize(3)
     }
     if hasFile {
-      size += file.computeMessageSize(4)
+      serialize_size += file.computeMessageSize(4)
     }
     if hasMset {
-      size += mset.computeMessageSize(5)
+      serialize_size += mset.computeMessageSize(5)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> Aggregate {
     return Aggregate.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -4972,18 +4972,18 @@ final internal class AggregateMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasFieldname {
-      size += fieldname.computeInt32Size(1)
+      serialize_size += fieldname.computeInt32Size(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> AggregateMessage {
     return AggregateMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -5163,18 +5163,18 @@ final internal class NestedOptionType : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasNestedField {
-          size += nestedField.computeInt32Size(1)
+          serialize_size += nestedField.computeInt32Size(1)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> NestedOptionType.NestedMessage {
         return NestedOptionType.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
@@ -5368,15 +5368,15 @@ final internal class NestedOptionType : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> NestedOptionType {
     return NestedOptionType.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()

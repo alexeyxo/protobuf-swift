@@ -70,18 +70,18 @@ final public class ProtoPerfomanceBatch : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     for oneElementbatch in batch {
-        size += oneElementbatch.computeMessageSize(1)
+        serialize_size += oneElementbatch.computeMessageSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> ProtoPerfomanceBatch {
     return ProtoPerfomanceBatch.builder().mergeFromData(data, extensionRegistry:ProtoPerfomanceRoot.sharedInstance.extensionRegistry).build()
@@ -303,36 +303,36 @@ final public class ProtoPerfomance : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasInts {
-      size += ints.computeInt32Size(1)
+      serialize_size += ints.computeInt32Size(1)
     }
     if hasInts64 {
-      size += ints64.computeInt64Size(2)
+      serialize_size += ints64.computeInt64Size(2)
     }
     if hasDoubles {
-      size += doubles.computeDoubleSize(3)
+      serialize_size += doubles.computeDoubleSize(3)
     }
     if hasFloats {
-      size += floats.computeFloatSize(4)
+      serialize_size += floats.computeFloatSize(4)
     }
     if hasStr {
-      size += str.computeStringSize(5)
+      serialize_size += str.computeStringSize(5)
     }
     if hasBytes {
-      size += bytes.computeDataSize(6)
+      serialize_size += bytes.computeDataSize(6)
     }
     if hasDescription {
-      size += description_.computeStringSize(7)
+      serialize_size += description_.computeStringSize(7)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   public class func parseFromData(data:NSData) -> ProtoPerfomance {
     return ProtoPerfomance.builder().mergeFromData(data, extensionRegistry:ProtoPerfomanceRoot.sharedInstance.extensionRegistry).build()

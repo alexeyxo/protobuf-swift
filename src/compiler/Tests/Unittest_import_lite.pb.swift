@@ -68,18 +68,18 @@ final internal class ImportMessageLite : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasD {
-      size += d.computeInt32Size(1)
+      serialize_size += d.computeInt32Size(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> ImportMessageLite {
     return ImportMessageLite.builder().mergeFromData(data, extensionRegistry:UnittestImportLiteRoot.sharedInstance.extensionRegistry).build()

@@ -81,19 +81,19 @@ final internal class TestMessage : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasA {
-      size += a.computeInt32Size(1)
+      serialize_size += a.computeInt32Size(1)
     }
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestMessage {
     return TestMessage.builder().mergeFromData(data, extensionRegistry:UnittestNoGenericServicesRoot.sharedInstance.extensionRegistry).build()

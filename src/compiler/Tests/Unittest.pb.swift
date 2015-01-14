@@ -2151,18 +2151,18 @@ final internal class TestAllTypes : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasBb {
-          size += bb.computeInt32Size(1)
+          serialize_size += bb.computeInt32Size(1)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestAllTypes.NestedMessage {
         return TestAllTypes.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -2345,18 +2345,18 @@ final internal class TestAllTypes : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasA {
-          size += a.computeInt32Size(17)
+          serialize_size += a.computeInt32Size(17)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestAllTypes.OptionalGroup {
         return TestAllTypes.OptionalGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -2539,18 +2539,18 @@ final internal class TestAllTypes : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasA {
-          size += a.computeInt32Size(47)
+          serialize_size += a.computeInt32Size(47)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestAllTypes.RepeatedGroup {
         return TestAllTypes.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -3291,286 +3291,286 @@ final internal class TestAllTypes : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasOptionalInt32 {
-      size += optionalInt32.computeInt32Size(1)
+      serialize_size += optionalInt32.computeInt32Size(1)
     }
     if hasOptionalInt64 {
-      size += optionalInt64.computeInt64Size(2)
+      serialize_size += optionalInt64.computeInt64Size(2)
     }
     if hasOptionalUint32 {
-      size += optionalUint32.computeUInt32Size(3)
+      serialize_size += optionalUint32.computeUInt32Size(3)
     }
     if hasOptionalUint64 {
-      size += optionalUint64.computeUInt64Size(4)
+      serialize_size += optionalUint64.computeUInt64Size(4)
     }
     if hasOptionalSint32 {
-      size += optionalSint32.computeSInt32Size(5)
+      serialize_size += optionalSint32.computeSInt32Size(5)
     }
     if hasOptionalSint64 {
-      size += optionalSint64.computeSInt64Size(6)
+      serialize_size += optionalSint64.computeSInt64Size(6)
     }
     if hasOptionalFixed32 {
-      size += optionalFixed32.computeFixed32Size(7)
+      serialize_size += optionalFixed32.computeFixed32Size(7)
     }
     if hasOptionalFixed64 {
-      size += optionalFixed64.computeFixed64Size(8)
+      serialize_size += optionalFixed64.computeFixed64Size(8)
     }
     if hasOptionalSfixed32 {
-      size += optionalSfixed32.computeSFixed32Size(9)
+      serialize_size += optionalSfixed32.computeSFixed32Size(9)
     }
     if hasOptionalSfixed64 {
-      size += optionalSfixed64.computeSFixed64Size(10)
+      serialize_size += optionalSfixed64.computeSFixed64Size(10)
     }
     if hasOptionalFloat {
-      size += optionalFloat.computeFloatSize(11)
+      serialize_size += optionalFloat.computeFloatSize(11)
     }
     if hasOptionalDouble {
-      size += optionalDouble.computeDoubleSize(12)
+      serialize_size += optionalDouble.computeDoubleSize(12)
     }
     if hasOptionalBool {
-      size += optionalBool.computeBoolSize(13)
+      serialize_size += optionalBool.computeBoolSize(13)
     }
     if hasOptionalString {
-      size += optionalString.computeStringSize(14)
+      serialize_size += optionalString.computeStringSize(14)
     }
     if hasOptionalBytes {
-      size += optionalBytes.computeDataSize(15)
+      serialize_size += optionalBytes.computeDataSize(15)
     }
     if hasOptionalGroup {
-      size += optionalGroup.computeGroupSize(16)
+      serialize_size += optionalGroup.computeGroupSize(16)
     }
     if hasOptionalNestedMessage {
-      size += optionalNestedMessage.computeMessageSize(18)
+      serialize_size += optionalNestedMessage.computeMessageSize(18)
     }
     if hasOptionalForeignMessage {
-      size += optionalForeignMessage.computeMessageSize(19)
+      serialize_size += optionalForeignMessage.computeMessageSize(19)
     }
     if hasOptionalImportMessage {
-      size += optionalImportMessage.computeMessageSize(20)
+      serialize_size += optionalImportMessage.computeMessageSize(20)
     }
     if (hasOptionalNestedEnum) {
-      size += optionalNestedEnum.rawValue.computeEnumSize(21)
+      serialize_size += optionalNestedEnum.rawValue.computeEnumSize(21)
     }
     if (hasOptionalForeignEnum) {
-      size += optionalForeignEnum.rawValue.computeEnumSize(22)
+      serialize_size += optionalForeignEnum.rawValue.computeEnumSize(22)
     }
     if (hasOptionalImportEnum) {
-      size += optionalImportEnum.rawValue.computeEnumSize(23)
+      serialize_size += optionalImportEnum.rawValue.computeEnumSize(23)
     }
     if hasOptionalStringPiece {
-      size += optionalStringPiece.computeStringSize(24)
+      serialize_size += optionalStringPiece.computeStringSize(24)
     }
     if hasOptionalCord {
-      size += optionalCord.computeStringSize(25)
+      serialize_size += optionalCord.computeStringSize(25)
     }
     if hasOptionalPublicImportMessage {
-      size += optionalPublicImportMessage.computeMessageSize(26)
+      serialize_size += optionalPublicImportMessage.computeMessageSize(26)
     }
     if hasOptionalLazyMessage {
-      size += optionalLazyMessage.computeMessageSize(27)
+      serialize_size += optionalLazyMessage.computeMessageSize(27)
     }
     var dataSizeRepeatedInt32:Int32 = 0
     for oneValuerepeatedInt32 in repeatedInt32 {
         dataSizeRepeatedInt32 += oneValuerepeatedInt32.computeInt32SizeNoTag()
     }
-    size += dataSizeRepeatedInt32
-    size += 2 * Int32(repeatedInt32.count)
+    serialize_size += dataSizeRepeatedInt32
+    serialize_size += 2 * Int32(repeatedInt32.count)
     var dataSizeRepeatedInt64:Int32 = 0
     for oneValuerepeatedInt64 in repeatedInt64 {
         dataSizeRepeatedInt64 += oneValuerepeatedInt64.computeInt64SizeNoTag()
     }
-    size += dataSizeRepeatedInt64
-    size += 2 * Int32(repeatedInt64.count)
+    serialize_size += dataSizeRepeatedInt64
+    serialize_size += 2 * Int32(repeatedInt64.count)
     var dataSizeRepeatedUint32:Int32 = 0
     for oneValuerepeatedUint32 in repeatedUint32 {
         dataSizeRepeatedUint32 += oneValuerepeatedUint32.computeUInt32SizeNoTag()
     }
-    size += dataSizeRepeatedUint32
-    size += 2 * Int32(repeatedUint32.count)
+    serialize_size += dataSizeRepeatedUint32
+    serialize_size += 2 * Int32(repeatedUint32.count)
     var dataSizeRepeatedUint64:Int32 = 0
     for oneValuerepeatedUint64 in repeatedUint64 {
         dataSizeRepeatedUint64 += oneValuerepeatedUint64.computeUInt64SizeNoTag()
     }
-    size += dataSizeRepeatedUint64
-    size += 2 * Int32(repeatedUint64.count)
+    serialize_size += dataSizeRepeatedUint64
+    serialize_size += 2 * Int32(repeatedUint64.count)
     var dataSizeRepeatedSint32:Int32 = 0
     for oneValuerepeatedSint32 in repeatedSint32 {
         dataSizeRepeatedSint32 += oneValuerepeatedSint32.computeSInt32SizeNoTag()
     }
-    size += dataSizeRepeatedSint32
-    size += 2 * Int32(repeatedSint32.count)
+    serialize_size += dataSizeRepeatedSint32
+    serialize_size += 2 * Int32(repeatedSint32.count)
     var dataSizeRepeatedSint64:Int32 = 0
     for oneValuerepeatedSint64 in repeatedSint64 {
         dataSizeRepeatedSint64 += oneValuerepeatedSint64.computeSInt64SizeNoTag()
     }
-    size += dataSizeRepeatedSint64
-    size += 2 * Int32(repeatedSint64.count)
+    serialize_size += dataSizeRepeatedSint64
+    serialize_size += 2 * Int32(repeatedSint64.count)
     var dataSizeRepeatedFixed32:Int32 = 0
     dataSizeRepeatedFixed32 = 4 * Int32(repeatedFixed32.count)
-    size += dataSizeRepeatedFixed32
-    size += 2 * Int32(repeatedFixed32.count)
+    serialize_size += dataSizeRepeatedFixed32
+    serialize_size += 2 * Int32(repeatedFixed32.count)
     var dataSizeRepeatedFixed64:Int32 = 0
     dataSizeRepeatedFixed64 = 8 * Int32(repeatedFixed64.count)
-    size += dataSizeRepeatedFixed64
-    size += 2 * Int32(repeatedFixed64.count)
+    serialize_size += dataSizeRepeatedFixed64
+    serialize_size += 2 * Int32(repeatedFixed64.count)
     var dataSizeRepeatedSfixed32:Int32 = 0
     dataSizeRepeatedSfixed32 = 4 * Int32(repeatedSfixed32.count)
-    size += dataSizeRepeatedSfixed32
-    size += 2 * Int32(repeatedSfixed32.count)
+    serialize_size += dataSizeRepeatedSfixed32
+    serialize_size += 2 * Int32(repeatedSfixed32.count)
     var dataSizeRepeatedSfixed64:Int32 = 0
     dataSizeRepeatedSfixed64 = 8 * Int32(repeatedSfixed64.count)
-    size += dataSizeRepeatedSfixed64
-    size += 2 * Int32(repeatedSfixed64.count)
+    serialize_size += dataSizeRepeatedSfixed64
+    serialize_size += 2 * Int32(repeatedSfixed64.count)
     var dataSizeRepeatedFloat:Int32 = 0
     dataSizeRepeatedFloat = 4 * Int32(repeatedFloat.count)
-    size += dataSizeRepeatedFloat
-    size += 2 * Int32(repeatedFloat.count)
+    serialize_size += dataSizeRepeatedFloat
+    serialize_size += 2 * Int32(repeatedFloat.count)
     var dataSizeRepeatedDouble:Int32 = 0
     dataSizeRepeatedDouble = 8 * Int32(repeatedDouble.count)
-    size += dataSizeRepeatedDouble
-    size += 2 * Int32(repeatedDouble.count)
+    serialize_size += dataSizeRepeatedDouble
+    serialize_size += 2 * Int32(repeatedDouble.count)
     var dataSizeRepeatedBool:Int32 = 0
     dataSizeRepeatedBool = 1 * Int32(repeatedBool.count)
-    size += dataSizeRepeatedBool
-    size += 2 * Int32(repeatedBool.count)
+    serialize_size += dataSizeRepeatedBool
+    serialize_size += 2 * Int32(repeatedBool.count)
     var dataSizeRepeatedString:Int32 = 0
     for oneValuerepeatedString in repeatedString {
         dataSizeRepeatedString += oneValuerepeatedString.computeStringSizeNoTag()
     }
-    size += dataSizeRepeatedString
-    size += 2 * Int32(repeatedString.count)
+    serialize_size += dataSizeRepeatedString
+    serialize_size += 2 * Int32(repeatedString.count)
     var dataSizeRepeatedBytes:Int32 = 0
     for oneValuerepeatedBytes in repeatedBytes {
         dataSizeRepeatedBytes += oneValuerepeatedBytes.computeDataSizeNoTag()
     }
-    size += dataSizeRepeatedBytes
-    size += 2 * Int32(repeatedBytes.count)
+    serialize_size += dataSizeRepeatedBytes
+    serialize_size += 2 * Int32(repeatedBytes.count)
     for oneElementrepeatedGroup in repeatedGroup {
-        size += oneElementrepeatedGroup.computeGroupSize(46)
+        serialize_size += oneElementrepeatedGroup.computeGroupSize(46)
     }
     for oneElementrepeatedNestedMessage in repeatedNestedMessage {
-        size += oneElementrepeatedNestedMessage.computeMessageSize(48)
+        serialize_size += oneElementrepeatedNestedMessage.computeMessageSize(48)
     }
     for oneElementrepeatedForeignMessage in repeatedForeignMessage {
-        size += oneElementrepeatedForeignMessage.computeMessageSize(49)
+        serialize_size += oneElementrepeatedForeignMessage.computeMessageSize(49)
     }
     for oneElementrepeatedImportMessage in repeatedImportMessage {
-        size += oneElementrepeatedImportMessage.computeMessageSize(50)
+        serialize_size += oneElementrepeatedImportMessage.computeMessageSize(50)
     }
     var dataSizerepeatedNestedEnum:Int32 = 0
     for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
         dataSizerepeatedNestedEnum += oneValueOfrepeatedNestedEnum.rawValue.computeEnumSizeNoTag()
     }
-    size += dataSizerepeatedNestedEnum
-    size += (2 * Int32(repeatedNestedEnum.count))
+    serialize_size += dataSizerepeatedNestedEnum
+    serialize_size += (2 * Int32(repeatedNestedEnum.count))
     var dataSizerepeatedForeignEnum:Int32 = 0
     for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
         dataSizerepeatedForeignEnum += oneValueOfrepeatedForeignEnum.rawValue.computeEnumSizeNoTag()
     }
-    size += dataSizerepeatedForeignEnum
-    size += (2 * Int32(repeatedForeignEnum.count))
+    serialize_size += dataSizerepeatedForeignEnum
+    serialize_size += (2 * Int32(repeatedForeignEnum.count))
     var dataSizerepeatedImportEnum:Int32 = 0
     for oneValueOfrepeatedImportEnum in repeatedImportEnum {
         dataSizerepeatedImportEnum += oneValueOfrepeatedImportEnum.rawValue.computeEnumSizeNoTag()
     }
-    size += dataSizerepeatedImportEnum
-    size += (2 * Int32(repeatedImportEnum.count))
+    serialize_size += dataSizerepeatedImportEnum
+    serialize_size += (2 * Int32(repeatedImportEnum.count))
     var dataSizeRepeatedStringPiece:Int32 = 0
     for oneValuerepeatedStringPiece in repeatedStringPiece {
         dataSizeRepeatedStringPiece += oneValuerepeatedStringPiece.computeStringSizeNoTag()
     }
-    size += dataSizeRepeatedStringPiece
-    size += 2 * Int32(repeatedStringPiece.count)
+    serialize_size += dataSizeRepeatedStringPiece
+    serialize_size += 2 * Int32(repeatedStringPiece.count)
     var dataSizeRepeatedCord:Int32 = 0
     for oneValuerepeatedCord in repeatedCord {
         dataSizeRepeatedCord += oneValuerepeatedCord.computeStringSizeNoTag()
     }
-    size += dataSizeRepeatedCord
-    size += 2 * Int32(repeatedCord.count)
+    serialize_size += dataSizeRepeatedCord
+    serialize_size += 2 * Int32(repeatedCord.count)
     for oneElementrepeatedLazyMessage in repeatedLazyMessage {
-        size += oneElementrepeatedLazyMessage.computeMessageSize(57)
+        serialize_size += oneElementrepeatedLazyMessage.computeMessageSize(57)
     }
     if hasDefaultInt32 {
-      size += defaultInt32.computeInt32Size(61)
+      serialize_size += defaultInt32.computeInt32Size(61)
     }
     if hasDefaultInt64 {
-      size += defaultInt64.computeInt64Size(62)
+      serialize_size += defaultInt64.computeInt64Size(62)
     }
     if hasDefaultUint32 {
-      size += defaultUint32.computeUInt32Size(63)
+      serialize_size += defaultUint32.computeUInt32Size(63)
     }
     if hasDefaultUint64 {
-      size += defaultUint64.computeUInt64Size(64)
+      serialize_size += defaultUint64.computeUInt64Size(64)
     }
     if hasDefaultSint32 {
-      size += defaultSint32.computeSInt32Size(65)
+      serialize_size += defaultSint32.computeSInt32Size(65)
     }
     if hasDefaultSint64 {
-      size += defaultSint64.computeSInt64Size(66)
+      serialize_size += defaultSint64.computeSInt64Size(66)
     }
     if hasDefaultFixed32 {
-      size += defaultFixed32.computeFixed32Size(67)
+      serialize_size += defaultFixed32.computeFixed32Size(67)
     }
     if hasDefaultFixed64 {
-      size += defaultFixed64.computeFixed64Size(68)
+      serialize_size += defaultFixed64.computeFixed64Size(68)
     }
     if hasDefaultSfixed32 {
-      size += defaultSfixed32.computeSFixed32Size(69)
+      serialize_size += defaultSfixed32.computeSFixed32Size(69)
     }
     if hasDefaultSfixed64 {
-      size += defaultSfixed64.computeSFixed64Size(70)
+      serialize_size += defaultSfixed64.computeSFixed64Size(70)
     }
     if hasDefaultFloat {
-      size += defaultFloat.computeFloatSize(71)
+      serialize_size += defaultFloat.computeFloatSize(71)
     }
     if hasDefaultDouble {
-      size += defaultDouble.computeDoubleSize(72)
+      serialize_size += defaultDouble.computeDoubleSize(72)
     }
     if hasDefaultBool {
-      size += defaultBool.computeBoolSize(73)
+      serialize_size += defaultBool.computeBoolSize(73)
     }
     if hasDefaultString {
-      size += defaultString.computeStringSize(74)
+      serialize_size += defaultString.computeStringSize(74)
     }
     if hasDefaultBytes {
-      size += defaultBytes.computeDataSize(75)
+      serialize_size += defaultBytes.computeDataSize(75)
     }
     if (hasDefaultNestedEnum) {
-      size += defaultNestedEnum.rawValue.computeEnumSize(81)
+      serialize_size += defaultNestedEnum.rawValue.computeEnumSize(81)
     }
     if (hasDefaultForeignEnum) {
-      size += defaultForeignEnum.rawValue.computeEnumSize(82)
+      serialize_size += defaultForeignEnum.rawValue.computeEnumSize(82)
     }
     if (hasDefaultImportEnum) {
-      size += defaultImportEnum.rawValue.computeEnumSize(83)
+      serialize_size += defaultImportEnum.rawValue.computeEnumSize(83)
     }
     if hasDefaultStringPiece {
-      size += defaultStringPiece.computeStringSize(84)
+      serialize_size += defaultStringPiece.computeStringSize(84)
     }
     if hasDefaultCord {
-      size += defaultCord.computeStringSize(85)
+      serialize_size += defaultCord.computeStringSize(85)
     }
     if hasOneofUint32 {
-      size += oneofUint32.computeUInt32Size(111)
+      serialize_size += oneofUint32.computeUInt32Size(111)
     }
     if hasOneofNestedMessage {
-      size += oneofNestedMessage.computeMessageSize(112)
+      serialize_size += oneofNestedMessage.computeMessageSize(112)
     }
     if hasOneofString {
-      size += oneofString.computeStringSize(113)
+      serialize_size += oneofString.computeStringSize(113)
     }
     if hasOneofBytes {
-      size += oneofBytes.computeDataSize(114)
+      serialize_size += oneofBytes.computeDataSize(114)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestAllTypes {
     return TestAllTypes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -6391,21 +6391,21 @@ final internal class NestedTestAllTypes : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasChild {
-      size += child.computeMessageSize(1)
+      serialize_size += child.computeMessageSize(1)
     }
     if hasPayload {
-      size += payload.computeMessageSize(2)
+      serialize_size += payload.computeMessageSize(2)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> NestedTestAllTypes {
     return NestedTestAllTypes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -6647,18 +6647,18 @@ final internal class TestDeprecatedFields : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasDeprecatedInt32 {
-      size += deprecatedInt32.computeInt32Size(1)
+      serialize_size += deprecatedInt32.computeInt32Size(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestDeprecatedFields {
     return TestDeprecatedFields.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -6833,18 +6833,18 @@ final internal class ForeignMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasC {
-      size += c.computeInt32Size(1)
+      serialize_size += c.computeInt32Size(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> ForeignMessage {
     return ForeignMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -7017,16 +7017,16 @@ final internal class TestAllExtensions : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestAllExtensions {
     return TestAllExtensions.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -7169,18 +7169,18 @@ final internal class OptionalGroup_extension : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasA {
-      size += a.computeInt32Size(17)
+      serialize_size += a.computeInt32Size(17)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> OptionalGroup_extension {
     return OptionalGroup_extension.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -7355,18 +7355,18 @@ final internal class RepeatedGroup_extension : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasA {
-      size += a.computeInt32Size(47)
+      serialize_size += a.computeInt32Size(47)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> RepeatedGroup_extension {
     return RepeatedGroup_extension.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -7541,15 +7541,15 @@ final internal class TestNestedExtension : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestNestedExtension {
     return TestNestedExtension.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -7896,114 +7896,114 @@ final internal class TestRequired : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasA {
-      size += a.computeInt32Size(1)
+      serialize_size += a.computeInt32Size(1)
     }
     if hasDummy2 {
-      size += dummy2.computeInt32Size(2)
+      serialize_size += dummy2.computeInt32Size(2)
     }
     if hasB {
-      size += b.computeInt32Size(3)
+      serialize_size += b.computeInt32Size(3)
     }
     if hasDummy4 {
-      size += dummy4.computeInt32Size(4)
+      serialize_size += dummy4.computeInt32Size(4)
     }
     if hasDummy5 {
-      size += dummy5.computeInt32Size(5)
+      serialize_size += dummy5.computeInt32Size(5)
     }
     if hasDummy6 {
-      size += dummy6.computeInt32Size(6)
+      serialize_size += dummy6.computeInt32Size(6)
     }
     if hasDummy7 {
-      size += dummy7.computeInt32Size(7)
+      serialize_size += dummy7.computeInt32Size(7)
     }
     if hasDummy8 {
-      size += dummy8.computeInt32Size(8)
+      serialize_size += dummy8.computeInt32Size(8)
     }
     if hasDummy9 {
-      size += dummy9.computeInt32Size(9)
+      serialize_size += dummy9.computeInt32Size(9)
     }
     if hasDummy10 {
-      size += dummy10.computeInt32Size(10)
+      serialize_size += dummy10.computeInt32Size(10)
     }
     if hasDummy11 {
-      size += dummy11.computeInt32Size(11)
+      serialize_size += dummy11.computeInt32Size(11)
     }
     if hasDummy12 {
-      size += dummy12.computeInt32Size(12)
+      serialize_size += dummy12.computeInt32Size(12)
     }
     if hasDummy13 {
-      size += dummy13.computeInt32Size(13)
+      serialize_size += dummy13.computeInt32Size(13)
     }
     if hasDummy14 {
-      size += dummy14.computeInt32Size(14)
+      serialize_size += dummy14.computeInt32Size(14)
     }
     if hasDummy15 {
-      size += dummy15.computeInt32Size(15)
+      serialize_size += dummy15.computeInt32Size(15)
     }
     if hasDummy16 {
-      size += dummy16.computeInt32Size(16)
+      serialize_size += dummy16.computeInt32Size(16)
     }
     if hasDummy17 {
-      size += dummy17.computeInt32Size(17)
+      serialize_size += dummy17.computeInt32Size(17)
     }
     if hasDummy18 {
-      size += dummy18.computeInt32Size(18)
+      serialize_size += dummy18.computeInt32Size(18)
     }
     if hasDummy19 {
-      size += dummy19.computeInt32Size(19)
+      serialize_size += dummy19.computeInt32Size(19)
     }
     if hasDummy20 {
-      size += dummy20.computeInt32Size(20)
+      serialize_size += dummy20.computeInt32Size(20)
     }
     if hasDummy21 {
-      size += dummy21.computeInt32Size(21)
+      serialize_size += dummy21.computeInt32Size(21)
     }
     if hasDummy22 {
-      size += dummy22.computeInt32Size(22)
+      serialize_size += dummy22.computeInt32Size(22)
     }
     if hasDummy23 {
-      size += dummy23.computeInt32Size(23)
+      serialize_size += dummy23.computeInt32Size(23)
     }
     if hasDummy24 {
-      size += dummy24.computeInt32Size(24)
+      serialize_size += dummy24.computeInt32Size(24)
     }
     if hasDummy25 {
-      size += dummy25.computeInt32Size(25)
+      serialize_size += dummy25.computeInt32Size(25)
     }
     if hasDummy26 {
-      size += dummy26.computeInt32Size(26)
+      serialize_size += dummy26.computeInt32Size(26)
     }
     if hasDummy27 {
-      size += dummy27.computeInt32Size(27)
+      serialize_size += dummy27.computeInt32Size(27)
     }
     if hasDummy28 {
-      size += dummy28.computeInt32Size(28)
+      serialize_size += dummy28.computeInt32Size(28)
     }
     if hasDummy29 {
-      size += dummy29.computeInt32Size(29)
+      serialize_size += dummy29.computeInt32Size(29)
     }
     if hasDummy30 {
-      size += dummy30.computeInt32Size(30)
+      serialize_size += dummy30.computeInt32Size(30)
     }
     if hasDummy31 {
-      size += dummy31.computeInt32Size(31)
+      serialize_size += dummy31.computeInt32Size(31)
     }
     if hasDummy32 {
-      size += dummy32.computeInt32Size(32)
+      serialize_size += dummy32.computeInt32Size(32)
     }
     if hasC {
-      size += c.computeInt32Size(33)
+      serialize_size += c.computeInt32Size(33)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestRequired {
     return TestRequired.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -9322,24 +9322,24 @@ final internal class TestRequiredForeign : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasOptionalMessage {
-      size += optionalMessage.computeMessageSize(1)
+      serialize_size += optionalMessage.computeMessageSize(1)
     }
     for oneElementrepeatedMessage in repeatedMessage {
-        size += oneElementrepeatedMessage.computeMessageSize(2)
+        serialize_size += oneElementrepeatedMessage.computeMessageSize(2)
     }
     if hasDummy {
-      size += dummy.computeInt32Size(3)
+      serialize_size += dummy.computeInt32Size(3)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestRequiredForeign {
     return TestRequiredForeign.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -9598,18 +9598,18 @@ final internal class TestForeignNested : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasForeignNested {
-      size += foreignNested.computeMessageSize(1)
+      serialize_size += foreignNested.computeMessageSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestForeignNested {
     return TestForeignNested.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -9794,15 +9794,15 @@ final internal class TestEmptyMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestEmptyMessage {
     return TestEmptyMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -9940,16 +9940,16 @@ final internal class TestEmptyMessageWithExtensions : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestEmptyMessageWithExtensions {
     return TestEmptyMessageWithExtensions.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -10092,16 +10092,16 @@ final internal class TestMultipleExtensionRanges : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestMultipleExtensionRanges {
     return TestMultipleExtensionRanges.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -10254,21 +10254,21 @@ final internal class TestReallyLargeTagNumber : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasA {
-      size += a.computeInt32Size(1)
+      serialize_size += a.computeInt32Size(1)
     }
     if hasBb {
-      size += bb.computeInt32Size(268435455)
+      serialize_size += bb.computeInt32Size(268435455)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestReallyLargeTagNumber {
     return TestReallyLargeTagNumber.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -10483,21 +10483,21 @@ final internal class TestRecursiveMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasA {
-      size += a.computeMessageSize(1)
+      serialize_size += a.computeMessageSize(1)
     }
     if hasI {
-      size += i.computeInt32Size(2)
+      serialize_size += i.computeInt32Size(2)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestRecursiveMessage {
     return TestRecursiveMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -10722,18 +10722,18 @@ final internal class TestMutualRecursionA : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasBb {
-      size += bb.computeMessageSize(1)
+      serialize_size += bb.computeMessageSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestMutualRecursionA {
     return TestMutualRecursionA.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -10929,21 +10929,21 @@ final internal class TestMutualRecursionB : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasA {
-      size += a.computeMessageSize(1)
+      serialize_size += a.computeMessageSize(1)
     }
     if hasOptionalInt32 {
-      size += optionalInt32.computeInt32Size(2)
+      serialize_size += optionalInt32.computeInt32Size(2)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestMutualRecursionB {
     return TestMutualRecursionB.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -11174,18 +11174,18 @@ final internal class TestDupFieldNumber : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasA {
-          size += a.computeInt32Size(1)
+          serialize_size += a.computeInt32Size(1)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestDupFieldNumber.Foo {
         return TestDupFieldNumber.Foo.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -11368,18 +11368,18 @@ final internal class TestDupFieldNumber : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasA {
-          size += a.computeInt32Size(1)
+          serialize_size += a.computeInt32Size(1)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestDupFieldNumber.Bar {
         return TestDupFieldNumber.Bar.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -11567,24 +11567,24 @@ final internal class TestDupFieldNumber : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasA {
-      size += a.computeInt32Size(1)
+      serialize_size += a.computeInt32Size(1)
     }
     if hasFoo {
-      size += foo.computeGroupSize(2)
+      serialize_size += foo.computeGroupSize(2)
     }
     if hasBar {
-      size += bar.computeGroupSize(3)
+      serialize_size += bar.computeGroupSize(3)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestDupFieldNumber {
     return TestDupFieldNumber.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -11860,18 +11860,18 @@ final internal class TestEagerMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasSubMessage {
-      size += subMessage.computeMessageSize(1)
+      serialize_size += subMessage.computeMessageSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestEagerMessage {
     return TestEagerMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -12061,18 +12061,18 @@ final internal class TestLazyMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasSubMessage {
-      size += subMessage.computeMessageSize(1)
+      serialize_size += subMessage.computeMessageSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestLazyMessage {
     return TestLazyMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -12272,24 +12272,24 @@ final internal class TestNestedMessageHasBits : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         var dataSizeNestedmessageRepeatedInt32:Int32 = 0
         for oneValuenestedmessageRepeatedInt32 in nestedmessageRepeatedInt32 {
             dataSizeNestedmessageRepeatedInt32 += oneValuenestedmessageRepeatedInt32.computeInt32SizeNoTag()
         }
-        size += dataSizeNestedmessageRepeatedInt32
-        size += 1 * Int32(nestedmessageRepeatedInt32.count)
+        serialize_size += dataSizeNestedmessageRepeatedInt32
+        serialize_size += 1 * Int32(nestedmessageRepeatedInt32.count)
         for oneElementnestedmessageRepeatedForeignmessage in nestedmessageRepeatedForeignmessage {
-            size += oneElementnestedmessageRepeatedForeignmessage.computeMessageSize(2)
+            serialize_size += oneElementnestedmessageRepeatedForeignmessage.computeMessageSize(2)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestNestedMessageHasBits.NestedMessage {
         return TestNestedMessageHasBits.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -12495,18 +12495,18 @@ final internal class TestNestedMessageHasBits : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasOptionalNestedMessage {
-      size += optionalNestedMessage.computeMessageSize(1)
+      serialize_size += optionalNestedMessage.computeMessageSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestNestedMessageHasBits {
     return TestNestedMessageHasBits.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -12758,66 +12758,66 @@ final internal class TestCamelCaseFieldNames : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasPrimitiveField {
-      size += primitiveField.computeInt32Size(1)
+      serialize_size += primitiveField.computeInt32Size(1)
     }
     if hasStringField {
-      size += stringField.computeStringSize(2)
+      serialize_size += stringField.computeStringSize(2)
     }
     if (hasEnumField) {
-      size += enumField.rawValue.computeEnumSize(3)
+      serialize_size += enumField.rawValue.computeEnumSize(3)
     }
     if hasMessageField {
-      size += messageField.computeMessageSize(4)
+      serialize_size += messageField.computeMessageSize(4)
     }
     if hasStringPieceField {
-      size += stringPieceField.computeStringSize(5)
+      serialize_size += stringPieceField.computeStringSize(5)
     }
     if hasCordField {
-      size += cordField.computeStringSize(6)
+      serialize_size += cordField.computeStringSize(6)
     }
     var dataSizeRepeatedPrimitiveField:Int32 = 0
     for oneValuerepeatedPrimitiveField in repeatedPrimitiveField {
         dataSizeRepeatedPrimitiveField += oneValuerepeatedPrimitiveField.computeInt32SizeNoTag()
     }
-    size += dataSizeRepeatedPrimitiveField
-    size += 1 * Int32(repeatedPrimitiveField.count)
+    serialize_size += dataSizeRepeatedPrimitiveField
+    serialize_size += 1 * Int32(repeatedPrimitiveField.count)
     var dataSizeRepeatedStringField:Int32 = 0
     for oneValuerepeatedStringField in repeatedStringField {
         dataSizeRepeatedStringField += oneValuerepeatedStringField.computeStringSizeNoTag()
     }
-    size += dataSizeRepeatedStringField
-    size += 1 * Int32(repeatedStringField.count)
+    serialize_size += dataSizeRepeatedStringField
+    serialize_size += 1 * Int32(repeatedStringField.count)
     var dataSizerepeatedEnumField:Int32 = 0
     for oneValueOfrepeatedEnumField in repeatedEnumField {
         dataSizerepeatedEnumField += oneValueOfrepeatedEnumField.rawValue.computeEnumSizeNoTag()
     }
-    size += dataSizerepeatedEnumField
-    size += (1 * Int32(repeatedEnumField.count))
+    serialize_size += dataSizerepeatedEnumField
+    serialize_size += (1 * Int32(repeatedEnumField.count))
     for oneElementrepeatedMessageField in repeatedMessageField {
-        size += oneElementrepeatedMessageField.computeMessageSize(10)
+        serialize_size += oneElementrepeatedMessageField.computeMessageSize(10)
     }
     var dataSizeRepeatedStringPieceField:Int32 = 0
     for oneValuerepeatedStringPieceField in repeatedStringPieceField {
         dataSizeRepeatedStringPieceField += oneValuerepeatedStringPieceField.computeStringSizeNoTag()
     }
-    size += dataSizeRepeatedStringPieceField
-    size += 1 * Int32(repeatedStringPieceField.count)
+    serialize_size += dataSizeRepeatedStringPieceField
+    serialize_size += 1 * Int32(repeatedStringPieceField.count)
     var dataSizeRepeatedCordField:Int32 = 0
     for oneValuerepeatedCordField in repeatedCordField {
         dataSizeRepeatedCordField += oneValuerepeatedCordField.computeStringSizeNoTag()
     }
-    size += dataSizeRepeatedCordField
-    size += 1 * Int32(repeatedCordField.count)
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += dataSizeRepeatedCordField
+    serialize_size += 1 * Int32(repeatedCordField.count)
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestCamelCaseFieldNames {
     return TestCamelCaseFieldNames.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -13394,25 +13394,25 @@ final internal class TestFieldOrderings : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasMyInt {
-      size += myInt.computeInt64Size(1)
+      serialize_size += myInt.computeInt64Size(1)
     }
     if hasMyString {
-      size += myString.computeStringSize(11)
+      serialize_size += myString.computeStringSize(11)
     }
     if hasMyFloat {
-      size += myFloat.computeFloatSize(101)
+      serialize_size += myFloat.computeFloatSize(101)
     }
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestFieldOrderings {
     return TestFieldOrderings.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -13818,96 +13818,96 @@ final internal class TestExtremeDefaultValues : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasEscapedBytes {
-      size += escapedBytes.computeDataSize(1)
+      serialize_size += escapedBytes.computeDataSize(1)
     }
     if hasLargeUint32 {
-      size += largeUint32.computeUInt32Size(2)
+      serialize_size += largeUint32.computeUInt32Size(2)
     }
     if hasLargeUint64 {
-      size += largeUint64.computeUInt64Size(3)
+      serialize_size += largeUint64.computeUInt64Size(3)
     }
     if hasSmallInt32 {
-      size += smallInt32.computeInt32Size(4)
+      serialize_size += smallInt32.computeInt32Size(4)
     }
     if hasSmallInt64 {
-      size += smallInt64.computeInt64Size(5)
+      serialize_size += smallInt64.computeInt64Size(5)
     }
     if hasUtf8String {
-      size += utf8String.computeStringSize(6)
+      serialize_size += utf8String.computeStringSize(6)
     }
     if hasZeroFloat {
-      size += zeroFloat.computeFloatSize(7)
+      serialize_size += zeroFloat.computeFloatSize(7)
     }
     if hasOneFloat {
-      size += oneFloat.computeFloatSize(8)
+      serialize_size += oneFloat.computeFloatSize(8)
     }
     if hasSmallFloat {
-      size += smallFloat.computeFloatSize(9)
+      serialize_size += smallFloat.computeFloatSize(9)
     }
     if hasNegativeOneFloat {
-      size += negativeOneFloat.computeFloatSize(10)
+      serialize_size += negativeOneFloat.computeFloatSize(10)
     }
     if hasNegativeFloat {
-      size += negativeFloat.computeFloatSize(11)
+      serialize_size += negativeFloat.computeFloatSize(11)
     }
     if hasLargeFloat {
-      size += largeFloat.computeFloatSize(12)
+      serialize_size += largeFloat.computeFloatSize(12)
     }
     if hasSmallNegativeFloat {
-      size += smallNegativeFloat.computeFloatSize(13)
+      serialize_size += smallNegativeFloat.computeFloatSize(13)
     }
     if hasInfDouble {
-      size += infDouble.computeDoubleSize(14)
+      serialize_size += infDouble.computeDoubleSize(14)
     }
     if hasNegInfDouble {
-      size += negInfDouble.computeDoubleSize(15)
+      serialize_size += negInfDouble.computeDoubleSize(15)
     }
     if hasNanDouble {
-      size += nanDouble.computeDoubleSize(16)
+      serialize_size += nanDouble.computeDoubleSize(16)
     }
     if hasInfFloat {
-      size += infFloat.computeFloatSize(17)
+      serialize_size += infFloat.computeFloatSize(17)
     }
     if hasNegInfFloat {
-      size += negInfFloat.computeFloatSize(18)
+      serialize_size += negInfFloat.computeFloatSize(18)
     }
     if hasNanFloat {
-      size += nanFloat.computeFloatSize(19)
+      serialize_size += nanFloat.computeFloatSize(19)
     }
     if hasCppTrigraph {
-      size += cppTrigraph.computeStringSize(20)
+      serialize_size += cppTrigraph.computeStringSize(20)
     }
     if hasReallySmallInt32 {
-      size += reallySmallInt32.computeInt32Size(21)
+      serialize_size += reallySmallInt32.computeInt32Size(21)
     }
     if hasReallySmallInt64 {
-      size += reallySmallInt64.computeInt64Size(22)
+      serialize_size += reallySmallInt64.computeInt64Size(22)
     }
     if hasStringWithZero {
-      size += stringWithZero.computeStringSize(23)
+      serialize_size += stringWithZero.computeStringSize(23)
     }
     if hasBytesWithZero {
-      size += bytesWithZero.computeDataSize(24)
+      serialize_size += bytesWithZero.computeDataSize(24)
     }
     if hasStringPieceWithZero {
-      size += stringPieceWithZero.computeStringSize(25)
+      serialize_size += stringPieceWithZero.computeStringSize(25)
     }
     if hasCordWithZero {
-      size += cordWithZero.computeStringSize(26)
+      serialize_size += cordWithZero.computeStringSize(26)
     }
     if hasReplacementString {
-      size += replacementString.computeStringSize(27)
+      serialize_size += replacementString.computeStringSize(27)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestExtremeDefaultValues {
     return TestExtremeDefaultValues.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -14991,18 +14991,18 @@ final internal class SparseEnumMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if (hasSparseEnum) {
-      size += sparseEnum.rawValue.computeEnumSize(1)
+      serialize_size += sparseEnum.rawValue.computeEnumSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> SparseEnumMessage {
     return SparseEnumMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -15182,18 +15182,18 @@ final internal class OneString : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasData {
-      size += data.computeStringSize(1)
+      serialize_size += data.computeStringSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> OneString {
     return OneString.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -15368,21 +15368,21 @@ final internal class MoreString : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     var dataSizeData:Int32 = 0
     for oneValuedata in data {
         dataSizeData += oneValuedata.computeStringSizeNoTag()
     }
-    size += dataSizeData
-    size += 1 * Int32(data.count)
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += dataSizeData
+    serialize_size += 1 * Int32(data.count)
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> MoreString {
     return MoreString.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -15552,18 +15552,18 @@ final internal class OneBytes : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasData {
-      size += data.computeDataSize(1)
+      serialize_size += data.computeDataSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> OneBytes {
     return OneBytes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -15738,21 +15738,21 @@ final internal class MoreBytes : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     var dataSizeData:Int32 = 0
     for oneValuedata in data {
         dataSizeData += oneValuedata.computeDataSizeNoTag()
     }
-    size += dataSizeData
-    size += 1 * Int32(data.count)
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += dataSizeData
+    serialize_size += 1 * Int32(data.count)
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> MoreBytes {
     return MoreBytes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -15922,18 +15922,18 @@ final internal class Int32Message : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasData {
-      size += data.computeInt32Size(1)
+      serialize_size += data.computeInt32Size(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> Int32Message {
     return Int32Message.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -16108,18 +16108,18 @@ final internal class Uint32Message : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasData {
-      size += data.computeUInt32Size(1)
+      serialize_size += data.computeUInt32Size(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> Uint32Message {
     return Uint32Message.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -16294,18 +16294,18 @@ final internal class Int64Message : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasData {
-      size += data.computeInt64Size(1)
+      serialize_size += data.computeInt64Size(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> Int64Message {
     return Int64Message.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -16480,18 +16480,18 @@ final internal class Uint64Message : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasData {
-      size += data.computeUInt64Size(1)
+      serialize_size += data.computeUInt64Size(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> Uint64Message {
     return Uint64Message.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -16666,18 +16666,18 @@ final internal class BoolMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasData {
-      size += data.computeBoolSize(1)
+      serialize_size += data.computeBoolSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> BoolMessage {
     return BoolMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -16863,21 +16863,21 @@ final internal class TestOneof : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasA {
-          size += a.computeInt32Size(5)
+          serialize_size += a.computeInt32Size(5)
         }
         if hasB {
-          size += b.computeStringSize(6)
+          serialize_size += b.computeStringSize(6)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestOneof.FooGroup {
         return TestOneof.FooGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -17230,27 +17230,27 @@ final internal class TestOneof : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasFooInt {
-      size += fooInt.computeInt32Size(1)
+      serialize_size += fooInt.computeInt32Size(1)
     }
     if hasFooString {
-      size += fooString.computeStringSize(2)
+      serialize_size += fooString.computeStringSize(2)
     }
     if hasFooMessage {
-      size += fooMessage.computeMessageSize(3)
+      serialize_size += fooMessage.computeMessageSize(3)
     }
     if hasFooGroup {
-      size += fooGroup.computeGroupSize(4)
+      serialize_size += fooGroup.computeGroupSize(4)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestOneof {
     return TestOneof.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -17573,21 +17573,21 @@ final internal class TestOneofBackwardsCompatible : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasA {
-          size += a.computeInt32Size(5)
+          serialize_size += a.computeInt32Size(5)
         }
         if hasB {
-          size += b.computeStringSize(6)
+          serialize_size += b.computeStringSize(6)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestOneofBackwardsCompatible.FooGroup {
         return TestOneofBackwardsCompatible.FooGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -17816,27 +17816,27 @@ final internal class TestOneofBackwardsCompatible : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasFooInt {
-      size += fooInt.computeInt32Size(1)
+      serialize_size += fooInt.computeInt32Size(1)
     }
     if hasFooString {
-      size += fooString.computeStringSize(2)
+      serialize_size += fooString.computeStringSize(2)
     }
     if hasFooMessage {
-      size += fooMessage.computeMessageSize(3)
+      serialize_size += fooMessage.computeMessageSize(3)
     }
     if hasFooGroup {
-      size += fooGroup.computeGroupSize(4)
+      serialize_size += fooGroup.computeGroupSize(4)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestOneofBackwardsCompatible {
     return TestOneofBackwardsCompatible.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -18159,21 +18159,21 @@ final internal class TestOneof2 : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasA {
-          size += a.computeInt32Size(9)
+          serialize_size += a.computeInt32Size(9)
         }
         if hasB {
-          size += b.computeStringSize(10)
+          serialize_size += b.computeStringSize(10)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestOneof2.FooGroup {
         return TestOneof2.FooGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -18397,24 +18397,24 @@ final internal class TestOneof2 : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasQuxInt {
-          size += quxInt.computeInt64Size(1)
+          serialize_size += quxInt.computeInt64Size(1)
         }
         var dataSizeCorgeInt:Int32 = 0
         for oneValuecorgeInt in corgeInt {
             dataSizeCorgeInt += oneValuecorgeInt.computeInt32SizeNoTag()
         }
-        size += dataSizeCorgeInt
-        size += 1 * Int32(corgeInt.count)
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += dataSizeCorgeInt
+        serialize_size += 1 * Int32(corgeInt.count)
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestOneof2.NestedMessage {
         return TestOneof2.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -19158,66 +19158,66 @@ final internal class TestOneof2 : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasFooInt {
-      size += fooInt.computeInt32Size(1)
+      serialize_size += fooInt.computeInt32Size(1)
     }
     if hasFooString {
-      size += fooString.computeStringSize(2)
+      serialize_size += fooString.computeStringSize(2)
     }
     if hasFooCord {
-      size += fooCord.computeStringSize(3)
+      serialize_size += fooCord.computeStringSize(3)
     }
     if hasFooStringPiece {
-      size += fooStringPiece.computeStringSize(4)
+      serialize_size += fooStringPiece.computeStringSize(4)
     }
     if hasFooBytes {
-      size += fooBytes.computeDataSize(5)
+      serialize_size += fooBytes.computeDataSize(5)
     }
     if (hasFooEnum) {
-      size += fooEnum.rawValue.computeEnumSize(6)
+      serialize_size += fooEnum.rawValue.computeEnumSize(6)
     }
     if hasFooMessage {
-      size += fooMessage.computeMessageSize(7)
+      serialize_size += fooMessage.computeMessageSize(7)
     }
     if hasFooGroup {
-      size += fooGroup.computeGroupSize(8)
+      serialize_size += fooGroup.computeGroupSize(8)
     }
     if hasFooLazyMessage {
-      size += fooLazyMessage.computeMessageSize(11)
+      serialize_size += fooLazyMessage.computeMessageSize(11)
     }
     if hasBarInt {
-      size += barInt.computeInt32Size(12)
+      serialize_size += barInt.computeInt32Size(12)
     }
     if hasBarString {
-      size += barString.computeStringSize(13)
+      serialize_size += barString.computeStringSize(13)
     }
     if hasBarCord {
-      size += barCord.computeStringSize(14)
+      serialize_size += barCord.computeStringSize(14)
     }
     if hasBarStringPiece {
-      size += barStringPiece.computeStringSize(15)
+      serialize_size += barStringPiece.computeStringSize(15)
     }
     if hasBarBytes {
-      size += barBytes.computeDataSize(16)
+      serialize_size += barBytes.computeDataSize(16)
     }
     if (hasBarEnum) {
-      size += barEnum.rawValue.computeEnumSize(17)
+      serialize_size += barEnum.rawValue.computeEnumSize(17)
     }
     if hasBazInt {
-      size += bazInt.computeInt32Size(18)
+      serialize_size += bazInt.computeInt32Size(18)
     }
     if hasBazString {
-      size += bazString.computeStringSize(19)
+      serialize_size += bazString.computeStringSize(19)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestOneof2 {
     return TestOneof2.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -20018,18 +20018,18 @@ final internal class TestRequiredOneof : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasRequiredDouble {
-          size += requiredDouble.computeDoubleSize(1)
+          serialize_size += requiredDouble.computeDoubleSize(1)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestRequiredOneof.NestedMessage {
         return TestRequiredOneof.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -20321,24 +20321,24 @@ final internal class TestRequiredOneof : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasFooInt {
-      size += fooInt.computeInt32Size(1)
+      serialize_size += fooInt.computeInt32Size(1)
     }
     if hasFooString {
-      size += fooString.computeStringSize(2)
+      serialize_size += fooString.computeStringSize(2)
     }
     if hasFooMessage {
-      size += fooMessage.computeMessageSize(3)
+      serialize_size += fooMessage.computeMessageSize(3)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestRequiredOneof {
     return TestRequiredOneof.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -20719,141 +20719,141 @@ final internal class TestPackedTypes : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     var dataSizePackedInt32:Int32 = 0
     for oneValuepackedInt32 in packedInt32 {
         dataSizePackedInt32 += oneValuepackedInt32.computeInt32SizeNoTag()
     }
-    size += dataSizePackedInt32
+    serialize_size += dataSizePackedInt32
     if !packedInt32.isEmpty {
-      size += 2
-      size += dataSizePackedInt32.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedInt32.computeInt32SizeNoTag()
     }
     packedInt32MemoizedSerializedSize = dataSizePackedInt32
     var dataSizePackedInt64:Int32 = 0
     for oneValuepackedInt64 in packedInt64 {
         dataSizePackedInt64 += oneValuepackedInt64.computeInt64SizeNoTag()
     }
-    size += dataSizePackedInt64
+    serialize_size += dataSizePackedInt64
     if !packedInt64.isEmpty {
-      size += 2
-      size += dataSizePackedInt64.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedInt64.computeInt32SizeNoTag()
     }
     packedInt64MemoizedSerializedSize = dataSizePackedInt64
     var dataSizePackedUint32:Int32 = 0
     for oneValuepackedUint32 in packedUint32 {
         dataSizePackedUint32 += oneValuepackedUint32.computeUInt32SizeNoTag()
     }
-    size += dataSizePackedUint32
+    serialize_size += dataSizePackedUint32
     if !packedUint32.isEmpty {
-      size += 2
-      size += dataSizePackedUint32.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedUint32.computeInt32SizeNoTag()
     }
     packedUint32MemoizedSerializedSize = dataSizePackedUint32
     var dataSizePackedUint64:Int32 = 0
     for oneValuepackedUint64 in packedUint64 {
         dataSizePackedUint64 += oneValuepackedUint64.computeUInt64SizeNoTag()
     }
-    size += dataSizePackedUint64
+    serialize_size += dataSizePackedUint64
     if !packedUint64.isEmpty {
-      size += 2
-      size += dataSizePackedUint64.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedUint64.computeInt32SizeNoTag()
     }
     packedUint64MemoizedSerializedSize = dataSizePackedUint64
     var dataSizePackedSint32:Int32 = 0
     for oneValuepackedSint32 in packedSint32 {
         dataSizePackedSint32 += oneValuepackedSint32.computeSInt32SizeNoTag()
     }
-    size += dataSizePackedSint32
+    serialize_size += dataSizePackedSint32
     if !packedSint32.isEmpty {
-      size += 2
-      size += dataSizePackedSint32.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedSint32.computeInt32SizeNoTag()
     }
     packedSint32MemoizedSerializedSize = dataSizePackedSint32
     var dataSizePackedSint64:Int32 = 0
     for oneValuepackedSint64 in packedSint64 {
         dataSizePackedSint64 += oneValuepackedSint64.computeSInt64SizeNoTag()
     }
-    size += dataSizePackedSint64
+    serialize_size += dataSizePackedSint64
     if !packedSint64.isEmpty {
-      size += 2
-      size += dataSizePackedSint64.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedSint64.computeInt32SizeNoTag()
     }
     packedSint64MemoizedSerializedSize = dataSizePackedSint64
     var dataSizePackedFixed32:Int32 = 0
     dataSizePackedFixed32 = 4 * Int32(packedFixed32.count)
-    size += dataSizePackedFixed32
+    serialize_size += dataSizePackedFixed32
     if !packedFixed32.isEmpty {
-      size += 2
-      size += dataSizePackedFixed32.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedFixed32.computeInt32SizeNoTag()
     }
     packedFixed32MemoizedSerializedSize = dataSizePackedFixed32
     var dataSizePackedFixed64:Int32 = 0
     dataSizePackedFixed64 = 8 * Int32(packedFixed64.count)
-    size += dataSizePackedFixed64
+    serialize_size += dataSizePackedFixed64
     if !packedFixed64.isEmpty {
-      size += 2
-      size += dataSizePackedFixed64.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedFixed64.computeInt32SizeNoTag()
     }
     packedFixed64MemoizedSerializedSize = dataSizePackedFixed64
     var dataSizePackedSfixed32:Int32 = 0
     dataSizePackedSfixed32 = 4 * Int32(packedSfixed32.count)
-    size += dataSizePackedSfixed32
+    serialize_size += dataSizePackedSfixed32
     if !packedSfixed32.isEmpty {
-      size += 2
-      size += dataSizePackedSfixed32.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedSfixed32.computeInt32SizeNoTag()
     }
     packedSfixed32MemoizedSerializedSize = dataSizePackedSfixed32
     var dataSizePackedSfixed64:Int32 = 0
     dataSizePackedSfixed64 = 8 * Int32(packedSfixed64.count)
-    size += dataSizePackedSfixed64
+    serialize_size += dataSizePackedSfixed64
     if !packedSfixed64.isEmpty {
-      size += 2
-      size += dataSizePackedSfixed64.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedSfixed64.computeInt32SizeNoTag()
     }
     packedSfixed64MemoizedSerializedSize = dataSizePackedSfixed64
     var dataSizePackedFloat:Int32 = 0
     dataSizePackedFloat = 4 * Int32(packedFloat.count)
-    size += dataSizePackedFloat
+    serialize_size += dataSizePackedFloat
     if !packedFloat.isEmpty {
-      size += 2
-      size += dataSizePackedFloat.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedFloat.computeInt32SizeNoTag()
     }
     packedFloatMemoizedSerializedSize = dataSizePackedFloat
     var dataSizePackedDouble:Int32 = 0
     dataSizePackedDouble = 8 * Int32(packedDouble.count)
-    size += dataSizePackedDouble
+    serialize_size += dataSizePackedDouble
     if !packedDouble.isEmpty {
-      size += 2
-      size += dataSizePackedDouble.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedDouble.computeInt32SizeNoTag()
     }
     packedDoubleMemoizedSerializedSize = dataSizePackedDouble
     var dataSizePackedBool:Int32 = 0
     dataSizePackedBool = 1 * Int32(packedBool.count)
-    size += dataSizePackedBool
+    serialize_size += dataSizePackedBool
     if !packedBool.isEmpty {
-      size += 2
-      size += dataSizePackedBool.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedBool.computeInt32SizeNoTag()
     }
     packedBoolMemoizedSerializedSize = dataSizePackedBool
     var dataSizepackedEnum:Int32 = 0
     for oneValueOfpackedEnum in packedEnum {
         dataSizepackedEnum += oneValueOfpackedEnum.rawValue.computeEnumSizeNoTag()
     }
-    size += dataSizepackedEnum
+    serialize_size += dataSizepackedEnum
     if !packedEnum.isEmpty {
-      size += 2
-      size += dataSizepackedEnum.computeRawVarint32Size()
+      serialize_size += 2
+      serialize_size += dataSizepackedEnum.computeRawVarint32Size()
     }
     packedEnumMemoizedSerializedSize = dataSizepackedEnum
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestPackedTypes {
     return TestPackedTypes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -21565,85 +21565,85 @@ final internal class TestUnpackedTypes : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     var dataSizeUnpackedInt32:Int32 = 0
     for oneValueunpackedInt32 in unpackedInt32 {
         dataSizeUnpackedInt32 += oneValueunpackedInt32.computeInt32SizeNoTag()
     }
-    size += dataSizeUnpackedInt32
-    size += 2 * Int32(unpackedInt32.count)
+    serialize_size += dataSizeUnpackedInt32
+    serialize_size += 2 * Int32(unpackedInt32.count)
     var dataSizeUnpackedInt64:Int32 = 0
     for oneValueunpackedInt64 in unpackedInt64 {
         dataSizeUnpackedInt64 += oneValueunpackedInt64.computeInt64SizeNoTag()
     }
-    size += dataSizeUnpackedInt64
-    size += 2 * Int32(unpackedInt64.count)
+    serialize_size += dataSizeUnpackedInt64
+    serialize_size += 2 * Int32(unpackedInt64.count)
     var dataSizeUnpackedUint32:Int32 = 0
     for oneValueunpackedUint32 in unpackedUint32 {
         dataSizeUnpackedUint32 += oneValueunpackedUint32.computeUInt32SizeNoTag()
     }
-    size += dataSizeUnpackedUint32
-    size += 2 * Int32(unpackedUint32.count)
+    serialize_size += dataSizeUnpackedUint32
+    serialize_size += 2 * Int32(unpackedUint32.count)
     var dataSizeUnpackedUint64:Int32 = 0
     for oneValueunpackedUint64 in unpackedUint64 {
         dataSizeUnpackedUint64 += oneValueunpackedUint64.computeUInt64SizeNoTag()
     }
-    size += dataSizeUnpackedUint64
-    size += 2 * Int32(unpackedUint64.count)
+    serialize_size += dataSizeUnpackedUint64
+    serialize_size += 2 * Int32(unpackedUint64.count)
     var dataSizeUnpackedSint32:Int32 = 0
     for oneValueunpackedSint32 in unpackedSint32 {
         dataSizeUnpackedSint32 += oneValueunpackedSint32.computeSInt32SizeNoTag()
     }
-    size += dataSizeUnpackedSint32
-    size += 2 * Int32(unpackedSint32.count)
+    serialize_size += dataSizeUnpackedSint32
+    serialize_size += 2 * Int32(unpackedSint32.count)
     var dataSizeUnpackedSint64:Int32 = 0
     for oneValueunpackedSint64 in unpackedSint64 {
         dataSizeUnpackedSint64 += oneValueunpackedSint64.computeSInt64SizeNoTag()
     }
-    size += dataSizeUnpackedSint64
-    size += 2 * Int32(unpackedSint64.count)
+    serialize_size += dataSizeUnpackedSint64
+    serialize_size += 2 * Int32(unpackedSint64.count)
     var dataSizeUnpackedFixed32:Int32 = 0
     dataSizeUnpackedFixed32 = 4 * Int32(unpackedFixed32.count)
-    size += dataSizeUnpackedFixed32
-    size += 2 * Int32(unpackedFixed32.count)
+    serialize_size += dataSizeUnpackedFixed32
+    serialize_size += 2 * Int32(unpackedFixed32.count)
     var dataSizeUnpackedFixed64:Int32 = 0
     dataSizeUnpackedFixed64 = 8 * Int32(unpackedFixed64.count)
-    size += dataSizeUnpackedFixed64
-    size += 2 * Int32(unpackedFixed64.count)
+    serialize_size += dataSizeUnpackedFixed64
+    serialize_size += 2 * Int32(unpackedFixed64.count)
     var dataSizeUnpackedSfixed32:Int32 = 0
     dataSizeUnpackedSfixed32 = 4 * Int32(unpackedSfixed32.count)
-    size += dataSizeUnpackedSfixed32
-    size += 2 * Int32(unpackedSfixed32.count)
+    serialize_size += dataSizeUnpackedSfixed32
+    serialize_size += 2 * Int32(unpackedSfixed32.count)
     var dataSizeUnpackedSfixed64:Int32 = 0
     dataSizeUnpackedSfixed64 = 8 * Int32(unpackedSfixed64.count)
-    size += dataSizeUnpackedSfixed64
-    size += 2 * Int32(unpackedSfixed64.count)
+    serialize_size += dataSizeUnpackedSfixed64
+    serialize_size += 2 * Int32(unpackedSfixed64.count)
     var dataSizeUnpackedFloat:Int32 = 0
     dataSizeUnpackedFloat = 4 * Int32(unpackedFloat.count)
-    size += dataSizeUnpackedFloat
-    size += 2 * Int32(unpackedFloat.count)
+    serialize_size += dataSizeUnpackedFloat
+    serialize_size += 2 * Int32(unpackedFloat.count)
     var dataSizeUnpackedDouble:Int32 = 0
     dataSizeUnpackedDouble = 8 * Int32(unpackedDouble.count)
-    size += dataSizeUnpackedDouble
-    size += 2 * Int32(unpackedDouble.count)
+    serialize_size += dataSizeUnpackedDouble
+    serialize_size += 2 * Int32(unpackedDouble.count)
     var dataSizeUnpackedBool:Int32 = 0
     dataSizeUnpackedBool = 1 * Int32(unpackedBool.count)
-    size += dataSizeUnpackedBool
-    size += 2 * Int32(unpackedBool.count)
+    serialize_size += dataSizeUnpackedBool
+    serialize_size += 2 * Int32(unpackedBool.count)
     var dataSizeunpackedEnum:Int32 = 0
     for oneValueOfunpackedEnum in unpackedEnum {
         dataSizeunpackedEnum += oneValueOfunpackedEnum.rawValue.computeEnumSizeNoTag()
     }
-    size += dataSizeunpackedEnum
-    size += (2 * Int32(unpackedEnum.count))
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += dataSizeunpackedEnum
+    serialize_size += (2 * Int32(unpackedEnum.count))
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestUnpackedTypes {
     return TestUnpackedTypes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -22206,16 +22206,16 @@ final internal class TestPackedExtensions : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestPackedExtensions {
     return TestPackedExtensions.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -22356,16 +22356,16 @@ final internal class TestUnpackedExtensions : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestUnpackedExtensions {
     return TestUnpackedExtensions.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -22513,18 +22513,18 @@ final internal class TestDynamicExtensions : GeneratedMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasDynamicField {
-          size += dynamicField.computeInt32Size(2100)
+          serialize_size += dynamicField.computeInt32Size(2100)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestDynamicExtensions.DynamicMessageType {
         return TestDynamicExtensions.DynamicMessageType.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -22758,46 +22758,46 @@ final internal class TestDynamicExtensions : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasScalarExtension {
-      size += scalarExtension.computeFixed32Size(2000)
+      serialize_size += scalarExtension.computeFixed32Size(2000)
     }
     if (hasEnumExtension) {
-      size += enumExtension.rawValue.computeEnumSize(2001)
+      serialize_size += enumExtension.rawValue.computeEnumSize(2001)
     }
     if (hasDynamicEnumExtension) {
-      size += dynamicEnumExtension.rawValue.computeEnumSize(2002)
+      serialize_size += dynamicEnumExtension.rawValue.computeEnumSize(2002)
     }
     if hasMessageExtension {
-      size += messageExtension.computeMessageSize(2003)
+      serialize_size += messageExtension.computeMessageSize(2003)
     }
     if hasDynamicMessageExtension {
-      size += dynamicMessageExtension.computeMessageSize(2004)
+      serialize_size += dynamicMessageExtension.computeMessageSize(2004)
     }
     var dataSizeRepeatedExtension:Int32 = 0
     for oneValuerepeatedExtension in repeatedExtension {
         dataSizeRepeatedExtension += oneValuerepeatedExtension.computeStringSizeNoTag()
     }
-    size += dataSizeRepeatedExtension
-    size += 2 * Int32(repeatedExtension.count)
+    serialize_size += dataSizeRepeatedExtension
+    serialize_size += 2 * Int32(repeatedExtension.count)
     var dataSizePackedExtension:Int32 = 0
     for oneValuepackedExtension in packedExtension {
         dataSizePackedExtension += oneValuepackedExtension.computeSInt32SizeNoTag()
     }
-    size += dataSizePackedExtension
+    serialize_size += dataSizePackedExtension
     if !packedExtension.isEmpty {
-      size += 2
-      size += dataSizePackedExtension.computeInt32SizeNoTag()
+      serialize_size += 2
+      serialize_size += dataSizePackedExtension.computeInt32SizeNoTag()
     }
     packedExtensionMemoizedSerializedSize = dataSizePackedExtension
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestDynamicExtensions {
     return TestDynamicExtensions.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -23249,45 +23249,45 @@ final internal class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     var dataSizeRepeatedFixed32:Int32 = 0
     dataSizeRepeatedFixed32 = 4 * Int32(repeatedFixed32.count)
-    size += dataSizeRepeatedFixed32
-    size += 1 * Int32(repeatedFixed32.count)
+    serialize_size += dataSizeRepeatedFixed32
+    serialize_size += 1 * Int32(repeatedFixed32.count)
     var dataSizeRepeatedInt32:Int32 = 0
     for oneValuerepeatedInt32 in repeatedInt32 {
         dataSizeRepeatedInt32 += oneValuerepeatedInt32.computeInt32SizeNoTag()
     }
-    size += dataSizeRepeatedInt32
-    size += 1 * Int32(repeatedInt32.count)
+    serialize_size += dataSizeRepeatedInt32
+    serialize_size += 1 * Int32(repeatedInt32.count)
     var dataSizeRepeatedFixed64:Int32 = 0
     dataSizeRepeatedFixed64 = 8 * Int32(repeatedFixed64.count)
-    size += dataSizeRepeatedFixed64
-    size += 2 * Int32(repeatedFixed64.count)
+    serialize_size += dataSizeRepeatedFixed64
+    serialize_size += 2 * Int32(repeatedFixed64.count)
     var dataSizeRepeatedInt64:Int32 = 0
     for oneValuerepeatedInt64 in repeatedInt64 {
         dataSizeRepeatedInt64 += oneValuerepeatedInt64.computeInt64SizeNoTag()
     }
-    size += dataSizeRepeatedInt64
-    size += 2 * Int32(repeatedInt64.count)
+    serialize_size += dataSizeRepeatedInt64
+    serialize_size += 2 * Int32(repeatedInt64.count)
     var dataSizeRepeatedFloat:Int32 = 0
     dataSizeRepeatedFloat = 4 * Int32(repeatedFloat.count)
-    size += dataSizeRepeatedFloat
-    size += 3 * Int32(repeatedFloat.count)
+    serialize_size += dataSizeRepeatedFloat
+    serialize_size += 3 * Int32(repeatedFloat.count)
     var dataSizeRepeatedUint64:Int32 = 0
     for oneValuerepeatedUint64 in repeatedUint64 {
         dataSizeRepeatedUint64 += oneValuerepeatedUint64.computeUInt64SizeNoTag()
     }
-    size += dataSizeRepeatedUint64
-    size += 3 * Int32(repeatedUint64.count)
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += dataSizeRepeatedUint64
+    serialize_size += 3 * Int32(repeatedUint64.count)
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestRepeatedScalarDifferentTagSizes {
     return TestRepeatedScalarDifferentTagSizes.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -23616,18 +23616,18 @@ final internal class TestParsingMerge : ExtendableMessage {
             unknownFields.writeToCodedOutputStream(output)
           }
           override internal func serializedSize() -> Int32 {
-            var size:Int32 = memoizedSerializedSize
-            if size != -1 {
-             return size
+            var serialize_size:Int32 = memoizedSerializedSize
+            if serialize_size != -1 {
+             return serialize_size
             }
 
-            size = 0
+            serialize_size = 0
             if hasField1 {
-              size += field1.computeMessageSize(11)
+              serialize_size += field1.computeMessageSize(11)
             }
-            size += unknownFields.serializedSize()
-            memoizedSerializedSize = size
-            return size
+            serialize_size += unknownFields.serializedSize()
+            memoizedSerializedSize = serialize_size
+            return serialize_size
           }
           internal class func parseFromData(data:NSData) -> TestParsingMerge.RepeatedFieldsGenerator.Group1 {
             return TestParsingMerge.RepeatedFieldsGenerator.Group1.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -23825,18 +23825,18 @@ final internal class TestParsingMerge : ExtendableMessage {
             unknownFields.writeToCodedOutputStream(output)
           }
           override internal func serializedSize() -> Int32 {
-            var size:Int32 = memoizedSerializedSize
-            if size != -1 {
-             return size
+            var serialize_size:Int32 = memoizedSerializedSize
+            if serialize_size != -1 {
+             return serialize_size
             }
 
-            size = 0
+            serialize_size = 0
             if hasField1 {
-              size += field1.computeMessageSize(21)
+              serialize_size += field1.computeMessageSize(21)
             }
-            size += unknownFields.serializedSize()
-            memoizedSerializedSize = size
-            return size
+            serialize_size += unknownFields.serializedSize()
+            memoizedSerializedSize = serialize_size
+            return serialize_size
           }
           internal class func parseFromData(data:NSData) -> TestParsingMerge.RepeatedFieldsGenerator.Group2 {
             return TestParsingMerge.RepeatedFieldsGenerator.Group2.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -24052,36 +24052,36 @@ final internal class TestParsingMerge : ExtendableMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         for oneElementfield1 in field1 {
-            size += oneElementfield1.computeMessageSize(1)
+            serialize_size += oneElementfield1.computeMessageSize(1)
         }
         for oneElementfield2 in field2 {
-            size += oneElementfield2.computeMessageSize(2)
+            serialize_size += oneElementfield2.computeMessageSize(2)
         }
         for oneElementfield3 in field3 {
-            size += oneElementfield3.computeMessageSize(3)
+            serialize_size += oneElementfield3.computeMessageSize(3)
         }
         for oneElementgroup1 in group1 {
-            size += oneElementgroup1.computeGroupSize(10)
+            serialize_size += oneElementgroup1.computeGroupSize(10)
         }
         for oneElementgroup2 in group2 {
-            size += oneElementgroup2.computeGroupSize(20)
+            serialize_size += oneElementgroup2.computeGroupSize(20)
         }
         for oneElementext1 in ext1 {
-            size += oneElementext1.computeMessageSize(1000)
+            serialize_size += oneElementext1.computeMessageSize(1000)
         }
         for oneElementext2 in ext2 {
-            size += oneElementext2.computeMessageSize(1001)
+            serialize_size += oneElementext2.computeMessageSize(1001)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestParsingMerge.RepeatedFieldsGenerator {
         return TestParsingMerge.RepeatedFieldsGenerator.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -24466,18 +24466,18 @@ final internal class TestParsingMerge : ExtendableMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasOptionalGroupAllTypes {
-          size += optionalGroupAllTypes.computeMessageSize(11)
+          serialize_size += optionalGroupAllTypes.computeMessageSize(11)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestParsingMerge.OptionalGroup {
         return TestParsingMerge.OptionalGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -24675,18 +24675,18 @@ final internal class TestParsingMerge : ExtendableMessage {
         unknownFields.writeToCodedOutputStream(output)
       }
       override internal func serializedSize() -> Int32 {
-        var size:Int32 = memoizedSerializedSize
-        if size != -1 {
-         return size
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
         }
 
-        size = 0
+        serialize_size = 0
         if hasRepeatedGroupAllTypes {
-          size += repeatedGroupAllTypes.computeMessageSize(21)
+          serialize_size += repeatedGroupAllTypes.computeMessageSize(21)
         }
-        size += unknownFields.serializedSize()
-        memoizedSerializedSize = size
-        return size
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
       }
       internal class func parseFromData(data:NSData) -> TestParsingMerge.RepeatedGroup {
         return TestParsingMerge.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -24910,31 +24910,31 @@ final internal class TestParsingMerge : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasRequiredAllTypes {
-      size += requiredAllTypes.computeMessageSize(1)
+      serialize_size += requiredAllTypes.computeMessageSize(1)
     }
     if hasOptionalAllTypes {
-      size += optionalAllTypes.computeMessageSize(2)
+      serialize_size += optionalAllTypes.computeMessageSize(2)
     }
     for oneElementrepeatedAllTypes in repeatedAllTypes {
-        size += oneElementrepeatedAllTypes.computeMessageSize(3)
+        serialize_size += oneElementrepeatedAllTypes.computeMessageSize(3)
     }
     if hasOptionalGroup {
-      size += optionalGroup.computeGroupSize(10)
+      serialize_size += optionalGroup.computeGroupSize(10)
     }
     for oneElementrepeatedGroup in repeatedGroup {
-        size += oneElementrepeatedGroup.computeGroupSize(20)
+        serialize_size += oneElementrepeatedGroup.computeGroupSize(20)
     }
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestParsingMerge {
     return TestParsingMerge.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -25298,18 +25298,18 @@ final internal class TestCommentInjectionMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasA {
-      size += a.computeStringSize(1)
+      serialize_size += a.computeStringSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestCommentInjectionMessage {
     return TestCommentInjectionMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -25478,15 +25478,15 @@ final internal class FooRequest : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> FooRequest {
     return FooRequest.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -25620,15 +25620,15 @@ final internal class FooResponse : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> FooResponse {
     return FooResponse.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -25762,15 +25762,15 @@ final internal class FooClientMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> FooClientMessage {
     return FooClientMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -25904,15 +25904,15 @@ final internal class FooServerMessage : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> FooServerMessage {
     return FooServerMessage.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -26046,15 +26046,15 @@ final internal class BarRequest : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> BarRequest {
     return BarRequest.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()
@@ -26188,15 +26188,15 @@ final internal class BarResponse : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size = 0
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> BarResponse {
     return BarResponse.builder().mergeFromData(data, extensionRegistry:UnittestRoot.sharedInstance.extensionRegistry).build()

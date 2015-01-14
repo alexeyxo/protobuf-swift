@@ -184,28 +184,28 @@ final internal class TestOptimizedForSize : ExtendableMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasI {
-      size += i.computeInt32Size(1)
+      serialize_size += i.computeInt32Size(1)
     }
     if hasIntegerField {
-      size += integerField.computeInt32Size(2)
+      serialize_size += integerField.computeInt32Size(2)
     }
     if hasStringField {
-      size += stringField.computeStringSize(3)
+      serialize_size += stringField.computeStringSize(3)
     }
     if hasMsg {
-      size += msg.computeMessageSize(19)
+      serialize_size += msg.computeMessageSize(19)
     }
-    size += extensionsSerializedSize()
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += extensionsSerializedSize()
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestOptimizedForSize {
     return TestOptimizedForSize.builder().mergeFromData(data, extensionRegistry:UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
@@ -507,18 +507,18 @@ final internal class TestRequiredOptimizedForSize : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasX {
-      size += x.computeInt32Size(1)
+      serialize_size += x.computeInt32Size(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestRequiredOptimizedForSize {
     return TestRequiredOptimizedForSize.builder().mergeFromData(data, extensionRegistry:UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
@@ -697,18 +697,18 @@ final internal class TestOptionalOptimizedForSize : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasO {
-      size += o.computeMessageSize(1)
+      serialize_size += o.computeMessageSize(1)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestOptionalOptimizedForSize {
     return TestOptionalOptimizedForSize.builder().mergeFromData(data, extensionRegistry:UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()

@@ -66,21 +66,21 @@ final internal class TestEmbedOptimizedForSize : GeneratedMessage {
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
-    var size:Int32 = memoizedSerializedSize
-    if size != -1 {
-     return size
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
     }
 
-    size = 0
+    serialize_size = 0
     if hasOptionalMessage {
-      size += optionalMessage.computeMessageSize(1)
+      serialize_size += optionalMessage.computeMessageSize(1)
     }
     for oneElementrepeatedMessage in repeatedMessage {
-        size += oneElementrepeatedMessage.computeMessageSize(2)
+        serialize_size += oneElementrepeatedMessage.computeMessageSize(2)
     }
-    size += unknownFields.serializedSize()
-    memoizedSerializedSize = size
-    return size
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
   }
   internal class func parseFromData(data:NSData) -> TestEmbedOptimizedForSize {
     return TestEmbedOptimizedForSize.builder().mergeFromData(data, extensionRegistry:UnittestEmbedOptimizeForRoot.sharedInstance.extensionRegistry).build()
