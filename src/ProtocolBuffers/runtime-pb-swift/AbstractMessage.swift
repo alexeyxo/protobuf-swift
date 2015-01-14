@@ -28,7 +28,6 @@ public protocol MessageInit:class
 public protocol Message:class,MessageInit
 {
     var unknownFields:UnknownFieldSet{get}
-    var description:String {get}
     func serializedSize() -> Int32
     func isInitialized() -> Bool
     func writeToCodedOutputStream(output:CodedOutputStream)
@@ -120,24 +119,7 @@ public class AbstractMessage:Equatable, Hashable, Message {
     
 }
 
-extension AbstractMessage:DebugPrintable
-{
-    public var debugDescription:String
-    {
-        return description
-    }
-}
-extension AbstractMessage:Printable
-{
-    public var description:String {
-        get {
-            var output:String = ""
-            writeDescriptionTo(&output, indent:"")
-            return output
-            
-        }
-    }
-}
+
 
 public class AbstractMessageBuilder:MessageBuilder
 {

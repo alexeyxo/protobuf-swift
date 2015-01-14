@@ -51,6 +51,7 @@ public class GeneratedMessage:AbstractMessage
 
 
 
+
 public class GeneratedMessageBuilder:AbstractMessageBuilder
 {
     public var internalGetResult:GeneratedMessage
@@ -107,6 +108,33 @@ public class GeneratedMessageBuilder:AbstractMessageBuilder
     }
     public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
         return unknownFields.mergeFieldFrom(tag, input:input)
+    }
+}
+
+extension GeneratedMessage:DebugPrintable
+{
+    public var debugDescription:String
+        {
+            return description
+    }
+}
+
+extension GeneratedMessage:Printable
+{
+    public var description:String {
+        get {
+            var output:String = ""
+            writeDescriptionTo(&output, indent:"")
+            return output
+        }
+    }
+}
+
+extension GeneratedMessageBuilder:DebugPrintable
+{
+    public var debugDescription:String
+    {
+            return internalGetResult.description
     }
 }
 
