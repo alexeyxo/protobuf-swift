@@ -29,7 +29,7 @@ internal func == (lhs: PublicImportMessage, rhs: PublicImportMessage) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final internal class PublicImportMessage : GeneratedMessage {
+final internal class PublicImportMessage : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasE:Bool = false
   private(set) var e:Int32 = Int32(0)
 

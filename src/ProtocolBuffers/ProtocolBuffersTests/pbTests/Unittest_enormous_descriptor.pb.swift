@@ -1028,7 +1028,7 @@ internal func == (lhs: TestEnormousDescriptor, rhs: TestEnormousDescriptor) -> B
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final internal class TestEnormousDescriptor : GeneratedMessage {
+final internal class TestEnormousDescriptor : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1:Bool = false
   private(set) var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1:String = "long default value is also loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong"
 

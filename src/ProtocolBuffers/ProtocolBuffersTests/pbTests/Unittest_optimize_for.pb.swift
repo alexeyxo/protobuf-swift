@@ -68,7 +68,7 @@ internal func == (lhs: TestOptionalOptimizedForSize, rhs: TestOptionalOptimizedF
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final internal class TestOptimizedForSize : ExtendableMessage {
+final internal class TestOptimizedForSize : ExtendableMessage, GeneratedMessageProtocol {
 
 
   //OneOf declaration start
@@ -487,7 +487,7 @@ final internal class TestOptimizedForSizeBuilder : ExtendableMessageBuilder {
   }
 }
 
-final internal class TestRequiredOptimizedForSize : GeneratedMessage {
+final internal class TestRequiredOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasX:Bool = false
   private(set) var x:Int32 = Int32(0)
 
@@ -676,7 +676,7 @@ final internal class TestRequiredOptimizedForSizeBuilder : GeneratedMessageBuild
   }
 }
 
-final internal class TestOptionalOptimizedForSize : GeneratedMessage {
+final internal class TestOptionalOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasO:Bool = false
   private(set) var o:TestRequiredOptimizedForSize = TestRequiredOptimizedForSize()
   required internal init() {

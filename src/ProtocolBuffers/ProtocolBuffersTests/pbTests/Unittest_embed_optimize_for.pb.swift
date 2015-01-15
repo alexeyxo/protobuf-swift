@@ -31,7 +31,7 @@ internal func == (lhs: TestEmbedOptimizedForSize, rhs: TestEmbedOptimizedForSize
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final internal class TestEmbedOptimizedForSize : GeneratedMessage {
+final internal class TestEmbedOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasOptionalMessage:Bool = false
   private(set) var optionalMessage:TestOptimizedForSize = TestOptimizedForSize()
   private(set) var repeatedMessage:Array<TestOptimizedForSize>  = Array<TestOptimizedForSize>()

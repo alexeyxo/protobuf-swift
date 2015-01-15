@@ -91,7 +91,7 @@ internal func == (lhs: RawMessageSet, rhs: RawMessageSet) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final internal class TestMessageSet : ExtendableMessage {
+final internal class TestMessageSet : ExtendableMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -241,7 +241,7 @@ final internal class TestMessageSetBuilder : ExtendableMessageBuilder {
   }
 }
 
-final internal class TestMessageSetContainer : GeneratedMessage {
+final internal class TestMessageSetContainer : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasMessageSet:Bool = false
   private(set) var messageSet:TestMessageSet = TestMessageSet()
   required internal init() {
@@ -447,7 +447,7 @@ final internal class TestMessageSetContainerBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class TestMessageSetExtension1 : GeneratedMessage {
+final internal class TestMessageSetExtension1 : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasI:Bool = false
   private(set) var i:Int32 = Int32(0)
 
@@ -636,7 +636,7 @@ final internal class TestMessageSetExtension1Builder : GeneratedMessageBuilder {
   }
 }
 
-final internal class TestMessageSetExtension2 : GeneratedMessage {
+final internal class TestMessageSetExtension2 : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasStr:Bool = false
   private(set) var str:String = ""
 
@@ -825,12 +825,12 @@ final internal class TestMessageSetExtension2Builder : GeneratedMessageBuilder {
   }
 }
 
-final internal class RawMessageSet : GeneratedMessage {
+final internal class RawMessageSet : GeneratedMessage, GeneratedMessageProtocol {
 
 
   //Nested type declaration start
 
-    final internal class Item : GeneratedMessage {
+    final internal class Item : GeneratedMessage, GeneratedMessageProtocol {
       private(set) var hasTypeId:Bool = false
       private(set) var typeId:Int32 = Int32(0)
 

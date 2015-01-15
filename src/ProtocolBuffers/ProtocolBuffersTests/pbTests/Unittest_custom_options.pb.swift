@@ -757,7 +757,7 @@ internal func == (lhs: NestedOptionType, rhs: NestedOptionType) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final internal class TestMessageWithCustomOptions : GeneratedMessage {
+final internal class TestMessageWithCustomOptions : GeneratedMessage, GeneratedMessageProtocol {
 
 
     //Enum type declaration start 
@@ -963,7 +963,7 @@ final internal class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuild
   }
 }
 
-final internal class CustomOptionFooRequest : GeneratedMessage {
+final internal class CustomOptionFooRequest : GeneratedMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -1105,7 +1105,7 @@ final internal class CustomOptionFooRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class CustomOptionFooResponse : GeneratedMessage {
+final internal class CustomOptionFooResponse : GeneratedMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -1247,7 +1247,7 @@ final internal class CustomOptionFooResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class CustomOptionFooClientMessage : GeneratedMessage {
+final internal class CustomOptionFooClientMessage : GeneratedMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -1389,7 +1389,7 @@ final internal class CustomOptionFooClientMessageBuilder : GeneratedMessageBuild
   }
 }
 
-final internal class CustomOptionFooServerMessage : GeneratedMessage {
+final internal class CustomOptionFooServerMessage : GeneratedMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -1531,7 +1531,7 @@ final internal class CustomOptionFooServerMessageBuilder : GeneratedMessageBuild
   }
 }
 
-final internal class DummyMessageContainingEnum : GeneratedMessage {
+final internal class DummyMessageContainingEnum : GeneratedMessage, GeneratedMessageProtocol {
 
 
     //Enum type declaration start 
@@ -1693,7 +1693,7 @@ final internal class DummyMessageContainingEnumBuilder : GeneratedMessageBuilder
   }
 }
 
-final internal class DummyMessageInvalidAsOptionType : GeneratedMessage {
+final internal class DummyMessageInvalidAsOptionType : GeneratedMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -1835,7 +1835,7 @@ final internal class DummyMessageInvalidAsOptionTypeBuilder : GeneratedMessageBu
   }
 }
 
-final internal class CustomOptionMinIntegerValues : GeneratedMessage {
+final internal class CustomOptionMinIntegerValues : GeneratedMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -1977,7 +1977,7 @@ final internal class CustomOptionMinIntegerValuesBuilder : GeneratedMessageBuild
   }
 }
 
-final internal class CustomOptionMaxIntegerValues : GeneratedMessage {
+final internal class CustomOptionMaxIntegerValues : GeneratedMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -2119,7 +2119,7 @@ final internal class CustomOptionMaxIntegerValuesBuilder : GeneratedMessageBuild
   }
 }
 
-final internal class CustomOptionOtherValues : GeneratedMessage {
+final internal class CustomOptionOtherValues : GeneratedMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -2261,7 +2261,7 @@ final internal class CustomOptionOtherValuesBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class SettingRealsFromPositiveInts : GeneratedMessage {
+final internal class SettingRealsFromPositiveInts : GeneratedMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -2403,7 +2403,7 @@ final internal class SettingRealsFromPositiveIntsBuilder : GeneratedMessageBuild
   }
 }
 
-final internal class SettingRealsFromNegativeInts : GeneratedMessage {
+final internal class SettingRealsFromNegativeInts : GeneratedMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -2545,7 +2545,7 @@ final internal class SettingRealsFromNegativeIntsBuilder : GeneratedMessageBuild
   }
 }
 
-final internal class ComplexOptionType1 : ExtendableMessage {
+final internal class ComplexOptionType1 : ExtendableMessage, GeneratedMessageProtocol {
   private(set) var hasFoo:Bool = false
   private(set) var foo:Int32 = Int32(0)
 
@@ -2869,12 +2869,12 @@ final internal class ComplexOptionType1Builder : ExtendableMessageBuilder {
   }
 }
 
-final internal class ComplexOptionType2 : ExtendableMessage {
+final internal class ComplexOptionType2 : ExtendableMessage, GeneratedMessageProtocol {
 
 
   //Nested type declaration start
 
-    final internal class ComplexOptionType4 : GeneratedMessage {
+    final internal class ComplexOptionType4 : GeneratedMessage, GeneratedMessageProtocol {
       private(set) var hasWaldo:Bool = false
       private(set) var waldo:Int32 = Int32(0)
 
@@ -3424,12 +3424,12 @@ final internal class ComplexOptionType2Builder : ExtendableMessageBuilder {
   }
 }
 
-final internal class ComplexOptionType3 : GeneratedMessage {
+final internal class ComplexOptionType3 : GeneratedMessage, GeneratedMessageProtocol {
 
 
   //Nested type declaration start
 
-    final internal class ComplexOptionType5 : GeneratedMessage {
+    final internal class ComplexOptionType5 : GeneratedMessage, GeneratedMessageProtocol {
       private(set) var hasPlugh:Bool = false
       private(set) var plugh:Int32 = Int32(0)
 
@@ -3863,7 +3863,7 @@ final internal class ComplexOptionType3Builder : GeneratedMessageBuilder {
   }
 }
 
-final internal class ComplexOpt6 : GeneratedMessage {
+final internal class ComplexOpt6 : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasXyzzy:Bool = false
   private(set) var xyzzy:Int32 = Int32(0)
 
@@ -4049,7 +4049,7 @@ final internal class ComplexOpt6Builder : GeneratedMessageBuilder {
   }
 }
 
-final internal class VariousComplexOptions : GeneratedMessage {
+final internal class VariousComplexOptions : GeneratedMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -4191,7 +4191,7 @@ final internal class VariousComplexOptionsBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class AggregateMessageSet : ExtendableMessage {
+final internal class AggregateMessageSet : ExtendableMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -4341,7 +4341,7 @@ final internal class AggregateMessageSetBuilder : ExtendableMessageBuilder {
   }
 }
 
-final internal class AggregateMessageSetElement : GeneratedMessage {
+final internal class AggregateMessageSetElement : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasS:Bool = false
   private(set) var s:String = ""
 
@@ -4530,7 +4530,7 @@ final internal class AggregateMessageSetElementBuilder : GeneratedMessageBuilder
   }
 }
 
-final internal class Aggregate : GeneratedMessage {
+final internal class Aggregate : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasI:Bool = false
   private(set) var i:Int32 = Int32(0)
 
@@ -4955,7 +4955,7 @@ final internal class AggregateBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class AggregateMessage : GeneratedMessage {
+final internal class AggregateMessage : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasFieldname:Bool = false
   private(set) var fieldname:Int32 = Int32(0)
 
@@ -5141,12 +5141,12 @@ final internal class AggregateMessageBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class NestedOptionType : GeneratedMessage {
+final internal class NestedOptionType : GeneratedMessage, GeneratedMessageProtocol {
 
 
   //Nested type declaration start
 
-    final internal class NestedMessage : GeneratedMessage {
+    final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
       private(set) var hasNestedField:Bool = false
       private(set) var nestedField:Int32 = Int32(0)
 

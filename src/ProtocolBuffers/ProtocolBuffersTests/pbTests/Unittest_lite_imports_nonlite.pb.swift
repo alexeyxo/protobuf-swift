@@ -30,7 +30,7 @@ internal func == (lhs: TestLiteImportsNonlite, rhs: TestLiteImportsNonlite) -> B
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final internal class TestLiteImportsNonlite : GeneratedMessage {
+final internal class TestLiteImportsNonlite : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasMessage:Bool = false
   private(set) var message:TestAllTypes = TestAllTypes()
   required internal init() {

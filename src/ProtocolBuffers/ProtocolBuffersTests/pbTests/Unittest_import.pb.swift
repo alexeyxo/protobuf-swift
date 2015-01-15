@@ -51,7 +51,7 @@ internal func == (lhs: ImportMessage, rhs: ImportMessage) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final internal class ImportMessage : GeneratedMessage {
+final internal class ImportMessage : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasD:Bool = false
   private(set) var d:Int32 = Int32(0)
 

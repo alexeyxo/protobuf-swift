@@ -60,7 +60,7 @@ internal func == (lhs: TestMessage, rhs: TestMessage) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final internal class TestMessage : ExtendableMessage {
+final internal class TestMessage : ExtendableMessage, GeneratedMessageProtocol {
   private(set) var hasA:Bool = false
   private(set) var a:Int32 = Int32(0)
 

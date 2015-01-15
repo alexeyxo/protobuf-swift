@@ -45,7 +45,7 @@ public func == (lhs: ProtoPerfomance, rhs: ProtoPerfomance) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class ProtoPerfomanceBatch : GeneratedMessage {
+final public class ProtoPerfomanceBatch : GeneratedMessage, GeneratedMessageProtocol {
   public private(set) var batch:Array<ProtoPerfomance>  = Array<ProtoPerfomance>()
   required public init() {
        super.init()
@@ -238,7 +238,7 @@ final public class ProtoPerfomanceBatchBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class ProtoPerfomance : GeneratedMessage {
+final public class ProtoPerfomance : GeneratedMessage, GeneratedMessageProtocol {
   public private(set) var hasInts:Bool = false
   public private(set) var ints:Int32 = Int32(0)
 

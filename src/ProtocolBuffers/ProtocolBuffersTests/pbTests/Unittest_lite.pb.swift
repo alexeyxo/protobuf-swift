@@ -1303,12 +1303,12 @@ internal func == (lhs: TestEmptyMessageWithExtensionsLite, rhs: TestEmptyMessage
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final internal class TestAllTypesLite : GeneratedMessage {
+final internal class TestAllTypesLite : GeneratedMessage, GeneratedMessageProtocol {
 
 
   //Nested type declaration start
 
-    final internal class NestedMessage : GeneratedMessage {
+    final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
       private(set) var hasBb:Bool = false
       private(set) var bb:Int32 = Int32(0)
 
@@ -1502,7 +1502,7 @@ final internal class TestAllTypesLite : GeneratedMessage {
 
   //Nested type declaration start
 
-    final internal class OptionalGroup : GeneratedMessage {
+    final internal class OptionalGroup : GeneratedMessage, GeneratedMessageProtocol {
       private(set) var hasA:Bool = false
       private(set) var a:Int32 = Int32(0)
 
@@ -1696,7 +1696,7 @@ final internal class TestAllTypesLite : GeneratedMessage {
 
   //Nested type declaration start
 
-    final internal class RepeatedGroup : GeneratedMessage {
+    final internal class RepeatedGroup : GeneratedMessage, GeneratedMessageProtocol {
       private(set) var hasA:Bool = false
       private(set) var a:Int32 = Int32(0)
 
@@ -5543,7 +5543,7 @@ final internal class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class ForeignMessageLite : GeneratedMessage {
+final internal class ForeignMessageLite : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasC:Bool = false
   private(set) var c:Int32 = Int32(0)
 
@@ -5729,7 +5729,7 @@ final internal class ForeignMessageLiteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class TestPackedTypesLite : GeneratedMessage {
+final internal class TestPackedTypesLite : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var packedInt32:Array<Int32> = Array<Int32>()
   private var packedInt32MemoizedSerializedSize:Int32 = -1
   private(set) var packedInt64:Array<Int64> = Array<Int64>()
@@ -6618,7 +6618,7 @@ final internal class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class TestAllExtensionsLite : ExtendableMessage {
+final internal class TestAllExtensionsLite : ExtendableMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -6768,7 +6768,7 @@ final internal class TestAllExtensionsLiteBuilder : ExtendableMessageBuilder {
   }
 }
 
-final internal class OptionalGroup_extension_lite : GeneratedMessage {
+final internal class OptionalGroup_extension_lite : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasA:Bool = false
   private(set) var a:Int32 = Int32(0)
 
@@ -6954,7 +6954,7 @@ final internal class OptionalGroup_extension_liteBuilder : GeneratedMessageBuild
   }
 }
 
-final internal class RepeatedGroup_extension_lite : GeneratedMessage {
+final internal class RepeatedGroup_extension_lite : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasA:Bool = false
   private(set) var a:Int32 = Int32(0)
 
@@ -7140,7 +7140,7 @@ final internal class RepeatedGroup_extension_liteBuilder : GeneratedMessageBuild
   }
 }
 
-final internal class TestPackedExtensionsLite : ExtendableMessage {
+final internal class TestPackedExtensionsLite : ExtendableMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -7290,7 +7290,7 @@ final internal class TestPackedExtensionsLiteBuilder : ExtendableMessageBuilder 
   }
 }
 
-final internal class TestNestedExtensionLite : GeneratedMessage {
+final internal class TestNestedExtensionLite : GeneratedMessage, GeneratedMessageProtocol {
   internal class func nestedExtension() -> ConcreateExtensionField {
        return TestNestedExtensionLitenestedExtension
   }
@@ -7435,7 +7435,7 @@ final internal class TestNestedExtensionLiteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class TestDeprecatedLite : GeneratedMessage {
+final internal class TestDeprecatedLite : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasDeprecatedField:Bool = false
   private(set) var deprecatedField:Int32 = Int32(0)
 
@@ -7621,17 +7621,17 @@ final internal class TestDeprecatedLiteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class TestParsingMergeLite : ExtendableMessage {
+final internal class TestParsingMergeLite : ExtendableMessage, GeneratedMessageProtocol {
 
 
   //Nested type declaration start
 
-    final internal class RepeatedFieldsGenerator : GeneratedMessage {
+    final internal class RepeatedFieldsGenerator : GeneratedMessage, GeneratedMessageProtocol {
 
 
       //Nested type declaration start
 
-        final internal class Group1 : GeneratedMessage {
+        final internal class Group1 : GeneratedMessage, GeneratedMessageProtocol {
           private(set) var hasField1:Bool = false
           private(set) var field1:TestAllTypesLite = TestAllTypesLite()
           required internal init() {
@@ -7840,7 +7840,7 @@ final internal class TestParsingMergeLite : ExtendableMessage {
 
       //Nested type declaration start
 
-        final internal class Group2 : GeneratedMessage {
+        final internal class Group2 : GeneratedMessage, GeneratedMessageProtocol {
           private(set) var hasField1:Bool = false
           private(set) var field1:TestAllTypesLite = TestAllTypesLite()
           required internal init() {
@@ -8481,7 +8481,7 @@ final internal class TestParsingMergeLite : ExtendableMessage {
 
   //Nested type declaration start
 
-    final internal class OptionalGroup : GeneratedMessage {
+    final internal class OptionalGroup : GeneratedMessage, GeneratedMessageProtocol {
       private(set) var hasOptionalGroupAllTypes:Bool = false
       private(set) var optionalGroupAllTypes:TestAllTypesLite = TestAllTypesLite()
       required internal init() {
@@ -8690,7 +8690,7 @@ final internal class TestParsingMergeLite : ExtendableMessage {
 
   //Nested type declaration start
 
-    final internal class RepeatedGroup : GeneratedMessage {
+    final internal class RepeatedGroup : GeneratedMessage, GeneratedMessageProtocol {
       private(set) var hasRepeatedGroupAllTypes:Bool = false
       private(set) var repeatedGroupAllTypes:TestAllTypesLite = TestAllTypesLite()
       required internal init() {
@@ -9312,7 +9312,7 @@ final internal class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
   }
 }
 
-final internal class TestEmptyMessageLite : GeneratedMessage {
+final internal class TestEmptyMessageLite : GeneratedMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
@@ -9454,7 +9454,7 @@ final internal class TestEmptyMessageLiteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final internal class TestEmptyMessageWithExtensionsLite : ExtendableMessage {
+final internal class TestEmptyMessageWithExtensionsLite : ExtendableMessage, GeneratedMessageProtocol {
   required internal init() {
        super.init()
   }
