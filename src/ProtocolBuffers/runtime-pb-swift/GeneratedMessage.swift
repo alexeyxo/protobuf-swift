@@ -17,9 +17,14 @@
 
 import Foundation
 
-public protocol GeneratedMessageProtocol: class
+public protocol GeneratedMessageProtocol: class, Message
 {
     class func parseFromData(data:NSData) -> Self
+    class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Self
+    class func parseFromInputStream(input:NSInputStream) -> Self
+    class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Self
+    class func parseFromCodedInputStream(input:CodedInputStream) -> Self
+    class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Self
 }
 
 public class GeneratedMessage:AbstractMessage
