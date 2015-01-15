@@ -8,3 +8,6 @@ cd ../ProtocolBuffers/ProtocolBuffersTests
 protoc google/protobuf/Perfomance.proto  --swift_out="./"
 #cp -f ./Tests/Unittest* ../runtime/Tests/;
 #cp -f ./Tests/Descriptor* ../runtime/Classes/;
+cd ../../;
+cd compiler;
+rm -f ./Tests/*;

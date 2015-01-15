@@ -16,6 +16,12 @@
 // limitations under the License.
 
 import Foundation
+
+public protocol GeneratedMessageProtocol: class
+{
+    class func parseFromData(data:NSData) -> Self
+}
+
 public class GeneratedMessage:AbstractMessage
 {
     public var memoizedSerializedSize:Int32 = -1

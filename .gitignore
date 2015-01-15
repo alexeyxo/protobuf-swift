@@ -20,8 +20,12 @@ missing
 m4
 stamp-h1
 
+
 # Targets
 *protoc-gen-swift
+
+#Tests
+src/compiler/Tests/*
 
 # Mac stuff
 .DS_Store

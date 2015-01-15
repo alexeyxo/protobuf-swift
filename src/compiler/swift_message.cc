@@ -234,12 +234,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(
-                           "final $acontrol$ class $classname$ : ExtendableMessage {\n",
+                           "final $acontrol$ class $classname$ : ExtendableMessage, GeneratedMessageProtocol {\n",
                            "classname", ClassNameMessage(descriptor_),
                            "acontrol", GetAccessControlType(descriptor_->file()));
         } else {
             printer->Print(
-                           "final $acontrol$ class $classname$ : GeneratedMessage {\n",
+                           "final $acontrol$ class $classname$ : GeneratedMessage, GeneratedMessageProtocol {\n",
                            "classname", ClassNameMessage(descriptor_),
                            "acontrol", GetAccessControlType(descriptor_->file()));
         }

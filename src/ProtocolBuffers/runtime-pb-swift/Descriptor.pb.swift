@@ -266,7 +266,7 @@ public func == (lhs: PBSourceCodeInfo, rhs: PBSourceCodeInfo) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class PBFileDescriptorSet : GeneratedMessage {
+final public class PBFileDescriptorSet : GeneratedMessage, GeneratedMessageProtocol {
   public private(set) var file:Array<PBFileDescriptorProto>  = Array<PBFileDescriptorProto>()
   required public init() {
        super.init()
@@ -459,7 +459,7 @@ final public class PBFileDescriptorSetBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBFileDescriptorProto : GeneratedMessage {
+final public class PBFileDescriptorProto : GeneratedMessage, GeneratedMessageProtocol {
   public private(set) var hasName:Bool = false
   public private(set) var name:String = ""
 
@@ -1142,12 +1142,12 @@ final public class PBFileDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBDescriptorProto : GeneratedMessage {
+final public class PBDescriptorProto : GeneratedMessage, GeneratedMessageProtocol {
 
 
   //Nested type declaration start
 
-    final public class ExtensionRange : GeneratedMessage {
+    final public class ExtensionRange : GeneratedMessage, GeneratedMessageProtocol {
       public private(set) var hasStart:Bool = false
       public private(set) var start:Int32 = Int32(0)
 
@@ -1875,7 +1875,7 @@ final public class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBFieldDescriptorProto : GeneratedMessage {
+final public class PBFieldDescriptorProto : GeneratedMessage, GeneratedMessageProtocol {
 
 
     //Enum type declaration start 
@@ -2454,7 +2454,7 @@ final public class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBEnumDescriptorProto : GeneratedMessage {
+final public class PBEnumDescriptorProto : GeneratedMessage, GeneratedMessageProtocol {
   public private(set) var hasName:Bool = false
   public private(set) var name:String = ""
 
@@ -2755,7 +2755,7 @@ final public class PBEnumDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBEnumValueDescriptorProto : GeneratedMessage {
+final public class PBEnumValueDescriptorProto : GeneratedMessage, GeneratedMessageProtocol {
   public private(set) var hasName:Bool = false
   public private(set) var name:String = ""
 
@@ -3049,7 +3049,7 @@ final public class PBEnumValueDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBServiceDescriptorProto : GeneratedMessage {
+final public class PBServiceDescriptorProto : GeneratedMessage, GeneratedMessageProtocol {
   public private(set) var hasName:Bool = false
   public private(set) var name:String = ""
 
@@ -3350,7 +3350,7 @@ final public class PBServiceDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBMethodDescriptorProto : GeneratedMessage {
+final public class PBMethodDescriptorProto : GeneratedMessage, GeneratedMessageProtocol {
   public private(set) var hasName:Bool = false
   public private(set) var name:String = ""
 
@@ -3688,7 +3688,7 @@ final public class PBMethodDescriptorProtoBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBFileOptions : ExtendableMessage {
+final public class PBFileOptions : ExtendableMessage, GeneratedMessageProtocol {
 
 
     //Enum type declaration start 
@@ -4310,7 +4310,7 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBMessageOptions : ExtendableMessage {
+final public class PBMessageOptions : ExtendableMessage, GeneratedMessageProtocol {
   public private(set) var hasMessageSetWireFormat:Bool = false
   public private(set) var messageSetWireFormat:Bool = false
 
@@ -4599,7 +4599,7 @@ final public class PBMessageOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBFieldOptions : ExtendableMessage {
+final public class PBFieldOptions : ExtendableMessage, GeneratedMessageProtocol {
 
 
     //Enum type declaration start 
@@ -5089,7 +5089,7 @@ final public class PBFieldOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBEnumOptions : ExtendableMessage {
+final public class PBEnumOptions : ExtendableMessage, GeneratedMessageProtocol {
   public private(set) var hasAllowAlias:Bool = false
   public private(set) var allowAlias:Bool = true
 
@@ -5334,7 +5334,7 @@ final public class PBEnumOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBEnumValueOptions : ExtendableMessage {
+final public class PBEnumValueOptions : ExtendableMessage, GeneratedMessageProtocol {
   public private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
   required public init() {
        super.init()
@@ -5535,7 +5535,7 @@ final public class PBEnumValueOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBServiceOptions : ExtendableMessage {
+final public class PBServiceOptions : ExtendableMessage, GeneratedMessageProtocol {
   public private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
   required public init() {
        super.init()
@@ -5736,7 +5736,7 @@ final public class PBServiceOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBMethodOptions : ExtendableMessage {
+final public class PBMethodOptions : ExtendableMessage, GeneratedMessageProtocol {
   public private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
   required public init() {
        super.init()
@@ -5937,12 +5937,12 @@ final public class PBMethodOptionsBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class PBUninterpretedOption : GeneratedMessage {
+final public class PBUninterpretedOption : GeneratedMessage, GeneratedMessageProtocol {
 
 
   //Nested type declaration start
 
-    final public class NamePart : GeneratedMessage {
+    final public class NamePart : GeneratedMessage, GeneratedMessageProtocol {
       public private(set) var hasNamePart:Bool = false
       public private(set) var namePart:String = ""
 
@@ -6638,12 +6638,12 @@ final public class PBUninterpretedOptionBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBSourceCodeInfo : GeneratedMessage {
+final public class PBSourceCodeInfo : GeneratedMessage, GeneratedMessageProtocol {
 
 
   //Nested type declaration start
 
-    final public class Location : GeneratedMessage {
+    final public class Location : GeneratedMessage, GeneratedMessageProtocol {
       public private(set) var hasLeadingComments:Bool = false
       public private(set) var leadingComments:String = ""
 

@@ -61,7 +61,7 @@ public func == (lhs: SwiftFileOptions, rhs: SwiftFileOptions) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class SwiftFileOptions : GeneratedMessage {
+final public class SwiftFileOptions : GeneratedMessage, GeneratedMessageProtocol {
   public private(set) var hasClassPrefix:Bool = false
   public private(set) var classPrefix:String = ""
 
