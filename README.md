@@ -17,7 +17,7 @@ How To Install Protobuf
 
 3.`brew install libtool`
 
-4.`brew instal protobuf`
+4.`brew install protobuf`
 
 5.`git clone git@github.com:alexeyxo/protobuf-swift.git`
 
