@@ -30,6 +30,12 @@ Compile ".proto" files.
 
 `protoc  person.proto --swift_out="./"`
 
+Installation via [Carthage](https://github.com/Carthage/Carthage)
+------------------------------------------------------------------
+```
+github "alexeyxo/protobuf-swift"
+```
+
 Serializing
 -----------
 
