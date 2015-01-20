@@ -32,7 +32,7 @@ src/compiler/Tests/*
 
 # Xcode
 .DS_Store
-build/
+#build/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
