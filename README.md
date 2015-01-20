@@ -32,6 +32,7 @@ Compile ".proto" files.
 
 Installation via [Carthage](https://github.com/Carthage/Carthage)
 ------------------------------------------------------------------
+Cartfile:
 ```
 github "alexeyxo/protobuf-swift"
 ```
