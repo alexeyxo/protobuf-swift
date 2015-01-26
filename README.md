@@ -30,7 +30,7 @@ Compile ".proto" files.
 
 `protoc  person.proto --swift_out="./"`
 
-Installation via [Carthage](https://github.com/Carthage/Carthage)
+<img src="https://cloud.githubusercontent.com/assets/432536/5252404/443d64f4-7952-11e4-9d26-fc5cc664cb61.png" width="22" height="22"> Installation via [Carthage](https://github.com/Carthage/Carthage)
 ------------------------------------------------------------------
 Cartfile:
 ```
@@ -59,8 +59,8 @@ println("\(person)")
 person.data() //return NSData
 ```
 
-Chains
-------
+Chaining
+--------
 
 ```protobuf
 message Perfomance
