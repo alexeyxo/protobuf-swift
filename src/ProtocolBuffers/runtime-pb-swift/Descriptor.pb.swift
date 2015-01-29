@@ -68,6 +68,7 @@ public func == (lhs: PBDescriptorProto, rhs: PBDescriptorProto) -> Bool {
   fieldCheck = fieldCheck && (lhs.extensionRange == rhs.extensionRange)
   fieldCheck = fieldCheck && (lhs.extension_ == rhs.extension_)
   fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
+  fieldCheck = fieldCheck && (lhs.oneofDecl == rhs.oneofDecl)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
@@ -84,6 +85,16 @@ public func == (lhs: PBFieldDescriptorProto, rhs: PBFieldDescriptorProto) -> Boo
   fieldCheck = fieldCheck && (lhs.hasTypeName == rhs.hasTypeName) && (!lhs.hasTypeName || lhs.typeName == rhs.typeName)
   fieldCheck = fieldCheck && (lhs.hasDefaultValue == rhs.hasDefaultValue) && (!lhs.hasDefaultValue || lhs.defaultValue == rhs.defaultValue)
   fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
+  fieldCheck = fieldCheck && (lhs.hasOneofIndex == rhs.hasOneofIndex) && (!lhs.hasOneofIndex || lhs.oneofIndex == rhs.oneofIndex)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+public func == (lhs: PBOneofDescriptorProto, rhs: PBOneofDescriptorProto) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
@@ -146,6 +157,8 @@ public func == (lhs: PBFileOptions, rhs: PBFileOptions) -> Bool {
   fieldCheck = fieldCheck && (lhs.hasJavaGenericServices == rhs.hasJavaGenericServices) && (!lhs.hasJavaGenericServices || lhs.javaGenericServices == rhs.javaGenericServices)
   fieldCheck = fieldCheck && (lhs.hasPyGenericServices == rhs.hasPyGenericServices) && (!lhs.hasPyGenericServices || lhs.pyGenericServices == rhs.pyGenericServices)
   fieldCheck = fieldCheck && (lhs.hasJavaGenerateEqualsAndHash == rhs.hasJavaGenerateEqualsAndHash) && (!lhs.hasJavaGenerateEqualsAndHash || lhs.javaGenerateEqualsAndHash == rhs.javaGenerateEqualsAndHash)
+  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
+  fieldCheck = fieldCheck && (lhs.hasJavaStringCheckUtf8 == rhs.hasJavaStringCheckUtf8) && (!lhs.hasJavaStringCheckUtf8 || lhs.javaStringCheckUtf8 == rhs.javaStringCheckUtf8)
   fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1000), endExclusive:Int32(536870912))
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
@@ -158,6 +171,7 @@ public func == (lhs: PBMessageOptions, rhs: PBMessageOptions) -> Bool {
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasMessageSetWireFormat == rhs.hasMessageSetWireFormat) && (!lhs.hasMessageSetWireFormat || lhs.messageSetWireFormat == rhs.messageSetWireFormat)
   fieldCheck = fieldCheck && (lhs.hasNoStandardDescriptorAccessor == rhs.hasNoStandardDescriptorAccessor) && (!lhs.hasNoStandardDescriptorAccessor || lhs.noStandardDescriptorAccessor == rhs.noStandardDescriptorAccessor)
+  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
   fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1000), endExclusive:Int32(536870912))
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
@@ -185,6 +199,7 @@ public func == (lhs: PBEnumOptions, rhs: PBEnumOptions) -> Bool {
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasAllowAlias == rhs.hasAllowAlias) && (!lhs.hasAllowAlias || lhs.allowAlias == rhs.allowAlias)
+  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
   fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1000), endExclusive:Int32(536870912))
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
@@ -195,6 +210,7 @@ public func == (lhs: PBEnumValueOptions, rhs: PBEnumValueOptions) -> Bool {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
   fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1000), endExclusive:Int32(536870912))
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
@@ -205,6 +221,7 @@ public func == (lhs: PBServiceOptions, rhs: PBServiceOptions) -> Bool {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
   fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1000), endExclusive:Int32(536870912))
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
@@ -215,6 +232,7 @@ public func == (lhs: PBMethodOptions, rhs: PBMethodOptions) -> Bool {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
   fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1000), endExclusive:Int32(536870912))
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
@@ -1391,6 +1409,7 @@ final public class PBDescriptorProto : GeneratedMessage, GeneratedMessageProtoco
   public private(set) var nestedType:Array<PBDescriptorProto>  = Array<PBDescriptorProto>()
   public private(set) var enumType:Array<PBEnumDescriptorProto>  = Array<PBEnumDescriptorProto>()
   public private(set) var extensionRange:Array<PBDescriptorProto.ExtensionRange>  = Array<PBDescriptorProto.ExtensionRange>()
+  public private(set) var oneofDecl:Array<PBOneofDescriptorProto>  = Array<PBOneofDescriptorProto>()
   required public init() {
        super.init()
   }
@@ -1464,6 +1483,9 @@ final public class PBDescriptorProto : GeneratedMessage, GeneratedMessageProtoco
     if hasOptions {
       output.writeMessage(7, value:options)
     }
+    for oneElementoneofDecl in oneofDecl {
+        output.writeMessage(8, value:oneElementoneofDecl)
+    }
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
@@ -1493,6 +1515,9 @@ final public class PBDescriptorProto : GeneratedMessage, GeneratedMessageProtoco
     }
     if hasOptions {
       serialize_size += options.computeMessageSize(7)
+    }
+    for oneElementoneofDecl in oneofDecl {
+        serialize_size += oneElementoneofDecl.computeMessageSize(8)
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
@@ -1578,6 +1603,13 @@ final public class PBDescriptorProto : GeneratedMessage, GeneratedMessageProtoco
       options.writeDescriptionTo(&output, indent:"\(indent)  ")
       output += "\(indent) }\n"
     }
+    var oneofDeclElementIndex:Int = 0
+    for oneElementoneofDecl in oneofDecl {
+        output += "\(indent) oneofDecl[\(oneofDeclElementIndex)] {\n"
+        oneElementoneofDecl.writeDescriptionTo(&output, indent:"\(indent)  ")
+        output += "\(indent)}\n"
+        oneofDeclElementIndex++
+    }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
   override public var hashValue:Int {
@@ -1603,6 +1635,9 @@ final public class PBDescriptorProto : GeneratedMessage, GeneratedMessageProtoco
           }
           if hasOptions {
             hashCode = (hashCode &* 31) &+ options.hashValue
+          }
+          for oneElementoneofDecl in oneofDecl {
+              hashCode = (hashCode &* 31) &+ oneElementoneofDecl.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -1737,6 +1772,22 @@ final public class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
     builderResult.extensionRange.removeAll(keepCapacity: false)
     return self
   }
+  public var oneofDecl:Array<PBOneofDescriptorProto> {
+       get {
+           return builderResult.oneofDecl
+       }
+       set (value) {
+           builderResult.oneofDecl = value
+       }
+  }
+  func setOneofDecl(value:Array<PBOneofDescriptorProto>)-> PBDescriptorProtoBuilder {
+    self.oneofDecl = value
+    return self
+  }
+  public func clearOneofDecl() -> PBDescriptorProtoBuilder {
+    builderResult.oneofDecl.removeAll(keepCapacity: false)
+    return self
+  }
   public var hasOptions:Bool {
        get {
            return builderResult.hasOptions
@@ -1811,6 +1862,9 @@ final public class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
     if !other.extensionRange.isEmpty  {
        builderResult.extensionRange += other.extensionRange
     }
+    if !other.oneofDecl.isEmpty  {
+       builderResult.oneofDecl += other.oneofDecl
+    }
     if (other.hasOptions) {
         mergeOptions(other.options)
     }
@@ -1864,6 +1918,11 @@ final public class PBDescriptorProtoBuilder : GeneratedMessageBuilder {
         }
         input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
         options = subBuilder.buildPartial()
+
+      case 66 :
+        var subBuilder = PBOneofDescriptorProto.builder()
+        input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+        oneofDecl += [subBuilder.buildPartial()]
 
       default:
         if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
@@ -1952,6 +2011,9 @@ final public class PBFieldDescriptorProto : GeneratedMessage, GeneratedMessagePr
   public private(set) var hasDefaultValue:Bool = false
   public private(set) var defaultValue:String = ""
 
+  public private(set) var hasOneofIndex:Bool = false
+  public private(set) var oneofIndex:Int32 = Int32(0)
+
   public private(set) var hasOptions:Bool = false
   public private(set) var options:PBFieldOptions = PBFieldOptions()
   required public init() {
@@ -1990,6 +2052,9 @@ final public class PBFieldDescriptorProto : GeneratedMessage, GeneratedMessagePr
     if hasOptions {
       output.writeMessage(8, value:options)
     }
+    if hasOneofIndex {
+      output.writeInt32(9, value:oneofIndex)
+    }
     unknownFields.writeToCodedOutputStream(output)
   }
   override public func serializedSize() -> Int32 {
@@ -2022,6 +2087,9 @@ final public class PBFieldDescriptorProto : GeneratedMessage, GeneratedMessagePr
     }
     if hasOptions {
       serialize_size += options.computeMessageSize(8)
+    }
+    if hasOneofIndex {
+      serialize_size += oneofIndex.computeInt32Size(9)
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
@@ -2090,6 +2158,9 @@ final public class PBFieldDescriptorProto : GeneratedMessage, GeneratedMessagePr
       options.writeDescriptionTo(&output, indent:"\(indent)  ")
       output += "\(indent) }\n"
     }
+    if hasOneofIndex {
+      output += "\(indent) oneofIndex: \(oneofIndex) \n"
+    }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
   override public var hashValue:Int {
@@ -2118,6 +2189,9 @@ final public class PBFieldDescriptorProto : GeneratedMessage, GeneratedMessagePr
           }
           if hasOptions {
             hashCode = (hashCode &* 31) &+ options.hashValue
+          }
+          if hasOneofIndex {
+             hashCode = (hashCode &* 31) &+ oneofIndex.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -2310,6 +2384,29 @@ final public class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
        builderResult.defaultValue = ""
        return self
   }
+  public var hasOneofIndex:Bool {
+       get {
+            return builderResult.hasOneofIndex
+       }
+  }
+  public var oneofIndex:Int32 {
+       get {
+            return builderResult.oneofIndex
+       }
+       set (value) {
+           builderResult.hasOneofIndex = true
+           builderResult.oneofIndex = value
+       }
+  }
+  func setOneofIndex(value:Int32)-> PBFieldDescriptorProtoBuilder {
+    self.oneofIndex = value
+    return self
+  }
+  public func clearOneofIndex() -> PBFieldDescriptorProtoBuilder{
+       builderResult.hasOneofIndex = false
+       builderResult.oneofIndex = Int32(0)
+       return self
+  }
   public var hasOptions:Bool {
        get {
            return builderResult.hasOptions
@@ -2387,6 +2484,9 @@ final public class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
     if other.hasDefaultValue {
          defaultValue = other.defaultValue
     }
+    if other.hasOneofIndex {
+         oneofIndex = other.oneofIndex
+    }
     if (other.hasOptions) {
         mergeOptions(other.options)
     }
@@ -2443,6 +2543,195 @@ final public class PBFieldDescriptorProtoBuilder : GeneratedMessageBuilder {
         }
         input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
         options = subBuilder.buildPartial()
+
+      case 72 :
+        oneofIndex = input.readInt32()
+
+      default:
+        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+           unknownFields = unknownFieldsBuilder.build()
+           return self
+        }
+      }
+    }
+  }
+}
+
+final public class PBOneofDescriptorProto : GeneratedMessage, GeneratedMessageProtocol {
+  public private(set) var hasName:Bool = false
+  public private(set) var name:String = ""
+
+  required public init() {
+       super.init()
+  }
+  override public func isInitialized() -> Bool {
+   return true
+  }
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+    if hasName {
+      output.writeString(1, value:name)
+    }
+    unknownFields.writeToCodedOutputStream(output)
+  }
+  override public func serializedSize() -> Int32 {
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
+    }
+
+    serialize_size = 0
+    if hasName {
+      serialize_size += name.computeStringSize(1)
+    }
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
+  }
+  public class func parseFromData(data:NSData) -> PBOneofDescriptorProto {
+    return PBOneofDescriptorProto.builder().mergeFromData(data, extensionRegistry:PBDescriptorRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBOneofDescriptorProto {
+    return PBOneofDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFromInputStream(input:NSInputStream) -> PBOneofDescriptorProto {
+    return PBOneofDescriptorProto.builder().mergeFromInputStream(input).build()
+  }
+  public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBOneofDescriptorProto {
+    return PBOneofDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFromCodedInputStream(input:CodedInputStream) -> PBOneofDescriptorProto {
+    return PBOneofDescriptorProto.builder().mergeFromCodedInputStream(input).build()
+  }
+  public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBOneofDescriptorProto {
+    return PBOneofDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  public class func builder() -> PBOneofDescriptorProtoBuilder {
+    return PBOneofDescriptorProto.classBuilder() as PBOneofDescriptorProtoBuilder
+  }
+  public func builder() -> PBOneofDescriptorProtoBuilder {
+    return classBuilder() as PBOneofDescriptorProtoBuilder
+  }
+  public override class func classBuilder() -> MessageBuilder {
+    return PBOneofDescriptorProtoBuilder()
+  }
+  public override func classBuilder() -> MessageBuilder {
+    return PBOneofDescriptorProto.builder()
+  }
+  public func toBuilder() -> PBOneofDescriptorProtoBuilder {
+    return PBOneofDescriptorProto.builderWithPrototype(self)
+  }
+  public class func builderWithPrototype(prototype:PBOneofDescriptorProto) -> PBOneofDescriptorProtoBuilder {
+    return PBOneofDescriptorProto.builder().mergeFrom(prototype)
+  }
+  override public func writeDescriptionTo(inout output:String, indent:String) {
+    if hasName {
+      output += "\(indent) name: \(name) \n"
+    }
+    unknownFields.writeDescriptionTo(&output, indent:indent)
+  }
+  override public var hashValue:Int {
+      get {
+          var hashCode:Int = 7
+          if hasName {
+             hashCode = (hashCode &* 31) &+ name.hashValue
+          }
+          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+          return hashCode
+      }
+  }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "PBOneofDescriptorProto"
+  }
+  override public func className() -> String {
+      return "PBOneofDescriptorProto"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return PBOneofDescriptorProto.self
+  }
+
+
+  //Meta information declaration end
+
+}
+
+final public class PBOneofDescriptorProtoBuilder : GeneratedMessageBuilder {
+  private var builderResult:PBOneofDescriptorProto
+
+  required override public init () {
+     builderResult = PBOneofDescriptorProto()
+     super.init()
+  }
+  public var hasName:Bool {
+       get {
+            return builderResult.hasName
+       }
+  }
+  public var name:String {
+       get {
+            return builderResult.name
+       }
+       set (value) {
+           builderResult.hasName = true
+           builderResult.name = value
+       }
+  }
+  func setName(value:String)-> PBOneofDescriptorProtoBuilder {
+    self.name = value
+    return self
+  }
+  public func clearName() -> PBOneofDescriptorProtoBuilder{
+       builderResult.hasName = false
+       builderResult.name = ""
+       return self
+  }
+  override public var internalGetResult:GeneratedMessage {
+       get {
+          return builderResult
+       }
+  }
+  public override func clear() -> PBOneofDescriptorProtoBuilder {
+    builderResult = PBOneofDescriptorProto()
+    return self
+  }
+  public override func clone() -> PBOneofDescriptorProtoBuilder {
+    return PBOneofDescriptorProto.builderWithPrototype(builderResult)
+  }
+  public override func build() -> PBOneofDescriptorProto {
+       checkInitialized()
+       return buildPartial()
+  }
+  public func buildPartial() -> PBOneofDescriptorProto {
+    var returnMe:PBOneofDescriptorProto = builderResult
+    return returnMe
+  }
+  public func mergeFrom(other:PBOneofDescriptorProto) -> PBOneofDescriptorProtoBuilder {
+    if (other == PBOneofDescriptorProto()) {
+     return self
+    }
+    if other.hasName {
+         name = other.name
+    }
+    mergeUnknownFields(other.unknownFields)
+    return self
+  }
+  public override func mergeFromCodedInputStream(input:CodedInputStream) ->PBOneofDescriptorProtoBuilder {
+       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+  }
+  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBOneofDescriptorProtoBuilder {
+    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    while (true) {
+      var tag = input.readTag()
+      switch tag {
+      case 0: 
+        self.unknownFields = unknownFieldsBuilder.build()
+        return self
+
+      case 10 :
+        name = input.readString()
 
       default:
         if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
@@ -3722,6 +4011,9 @@ final public class PBFileOptions : ExtendableMessage, GeneratedMessageProtocol {
   public private(set) var hasJavaGenerateEqualsAndHash:Bool = false
   public private(set) var javaGenerateEqualsAndHash:Bool = false
 
+  public private(set) var hasJavaStringCheckUtf8:Bool = false
+  public private(set) var javaStringCheckUtf8:Bool = false
+
   public private(set) var optimizeFor:PBFileOptions.OptimizeMode = PBFileOptions.OptimizeMode.Speed
   public private(set) var hasOptimizeFor:Bool = false
   public private(set) var hasGoPackage:Bool = false
@@ -3735,6 +4027,9 @@ final public class PBFileOptions : ExtendableMessage, GeneratedMessageProtocol {
 
   public private(set) var hasPyGenericServices:Bool = false
   public private(set) var pyGenericServices:Bool = false
+
+  public private(set) var hasDeprecated:Bool = false
+  public private(set) var deprecated:Bool = false
 
   public private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
   required public init() {
@@ -3784,6 +4079,12 @@ final public class PBFileOptions : ExtendableMessage, GeneratedMessageProtocol {
     if hasJavaGenerateEqualsAndHash {
       output.writeBool(20, value:javaGenerateEqualsAndHash)
     }
+    if hasDeprecated {
+      output.writeBool(23, value:deprecated)
+    }
+    if hasJavaStringCheckUtf8 {
+      output.writeBool(27, value:javaStringCheckUtf8)
+    }
     for oneElementuninterpretedOption in uninterpretedOption {
         output.writeMessage(999, value:oneElementuninterpretedOption)
     }
@@ -3823,6 +4124,12 @@ final public class PBFileOptions : ExtendableMessage, GeneratedMessageProtocol {
     }
     if hasJavaGenerateEqualsAndHash {
       serialize_size += javaGenerateEqualsAndHash.computeBoolSize(20)
+    }
+    if hasDeprecated {
+      serialize_size += deprecated.computeBoolSize(23)
+    }
+    if hasJavaStringCheckUtf8 {
+      serialize_size += javaStringCheckUtf8.computeBoolSize(27)
     }
     for oneElementuninterpretedOption in uninterpretedOption {
         serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
@@ -3896,6 +4203,12 @@ final public class PBFileOptions : ExtendableMessage, GeneratedMessageProtocol {
     if hasJavaGenerateEqualsAndHash {
       output += "\(indent) javaGenerateEqualsAndHash: \(javaGenerateEqualsAndHash) \n"
     }
+    if hasDeprecated {
+      output += "\(indent) deprecated: \(deprecated) \n"
+    }
+    if hasJavaStringCheckUtf8 {
+      output += "\(indent) javaStringCheckUtf8: \(javaStringCheckUtf8) \n"
+    }
     var uninterpretedOptionElementIndex:Int = 0
     for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -3935,6 +4248,12 @@ final public class PBFileOptions : ExtendableMessage, GeneratedMessageProtocol {
           }
           if hasJavaGenerateEqualsAndHash {
              hashCode = (hashCode &* 31) &+ javaGenerateEqualsAndHash.hashValue
+          }
+          if hasDeprecated {
+             hashCode = (hashCode &* 31) &+ deprecated.hashValue
+          }
+          if hasJavaStringCheckUtf8 {
+             hashCode = (hashCode &* 31) &+ javaStringCheckUtf8.hashValue
           }
           for oneElementuninterpretedOption in uninterpretedOption {
               hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
@@ -4062,6 +4381,29 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
        builderResult.javaGenerateEqualsAndHash = false
        return self
   }
+  public var hasJavaStringCheckUtf8:Bool {
+       get {
+            return builderResult.hasJavaStringCheckUtf8
+       }
+  }
+  public var javaStringCheckUtf8:Bool {
+       get {
+            return builderResult.javaStringCheckUtf8
+       }
+       set (value) {
+           builderResult.hasJavaStringCheckUtf8 = true
+           builderResult.javaStringCheckUtf8 = value
+       }
+  }
+  func setJavaStringCheckUtf8(value:Bool)-> PBFileOptionsBuilder {
+    self.javaStringCheckUtf8 = value
+    return self
+  }
+  public func clearJavaStringCheckUtf8() -> PBFileOptionsBuilder{
+       builderResult.hasJavaStringCheckUtf8 = false
+       builderResult.javaStringCheckUtf8 = false
+       return self
+  }
     public var hasOptimizeFor:Bool{
         get {
             return builderResult.hasOptimizeFor
@@ -4177,6 +4519,29 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
        builderResult.pyGenericServices = false
        return self
   }
+  public var hasDeprecated:Bool {
+       get {
+            return builderResult.hasDeprecated
+       }
+  }
+  public var deprecated:Bool {
+       get {
+            return builderResult.deprecated
+       }
+       set (value) {
+           builderResult.hasDeprecated = true
+           builderResult.deprecated = value
+       }
+  }
+  func setDeprecated(value:Bool)-> PBFileOptionsBuilder {
+    self.deprecated = value
+    return self
+  }
+  public func clearDeprecated() -> PBFileOptionsBuilder{
+       builderResult.hasDeprecated = false
+       builderResult.deprecated = false
+       return self
+  }
   public var uninterpretedOption:Array<PBUninterpretedOption> {
        get {
            return builderResult.uninterpretedOption
@@ -4229,6 +4594,9 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
     if other.hasJavaGenerateEqualsAndHash {
          javaGenerateEqualsAndHash = other.javaGenerateEqualsAndHash
     }
+    if other.hasJavaStringCheckUtf8 {
+         javaStringCheckUtf8 = other.javaStringCheckUtf8
+    }
     if other.hasOptimizeFor {
          optimizeFor = other.optimizeFor
     }
@@ -4243,6 +4611,9 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
     }
     if other.hasPyGenericServices {
          pyGenericServices = other.pyGenericServices
+    }
+    if other.hasDeprecated {
+         deprecated = other.deprecated
     }
     if !other.uninterpretedOption.isEmpty  {
        builderResult.uninterpretedOption += other.uninterpretedOption
@@ -4295,6 +4666,12 @@ final public class PBFileOptionsBuilder : ExtendableMessageBuilder {
       case 160 :
         javaGenerateEqualsAndHash = input.readBool()
 
+      case 184 :
+        deprecated = input.readBool()
+
+      case 216 :
+        javaStringCheckUtf8 = input.readBool()
+
       case 7994 :
         var subBuilder = PBUninterpretedOption.builder()
         input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
@@ -4316,6 +4693,9 @@ final public class PBMessageOptions : ExtendableMessage, GeneratedMessageProtoco
 
   public private(set) var hasNoStandardDescriptorAccessor:Bool = false
   public private(set) var noStandardDescriptorAccessor:Bool = false
+
+  public private(set) var hasDeprecated:Bool = false
+  public private(set) var deprecated:Bool = false
 
   public private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
   required public init() {
@@ -4344,6 +4724,9 @@ final public class PBMessageOptions : ExtendableMessage, GeneratedMessageProtoco
     if hasNoStandardDescriptorAccessor {
       output.writeBool(2, value:noStandardDescriptorAccessor)
     }
+    if hasDeprecated {
+      output.writeBool(3, value:deprecated)
+    }
     for oneElementuninterpretedOption in uninterpretedOption {
         output.writeMessage(999, value:oneElementuninterpretedOption)
     }
@@ -4362,6 +4745,9 @@ final public class PBMessageOptions : ExtendableMessage, GeneratedMessageProtoco
     }
     if hasNoStandardDescriptorAccessor {
       serialize_size += noStandardDescriptorAccessor.computeBoolSize(2)
+    }
+    if hasDeprecated {
+      serialize_size += deprecated.computeBoolSize(3)
     }
     for oneElementuninterpretedOption in uninterpretedOption {
         serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
@@ -4414,6 +4800,9 @@ final public class PBMessageOptions : ExtendableMessage, GeneratedMessageProtoco
     if hasNoStandardDescriptorAccessor {
       output += "\(indent) noStandardDescriptorAccessor: \(noStandardDescriptorAccessor) \n"
     }
+    if hasDeprecated {
+      output += "\(indent) deprecated: \(deprecated) \n"
+    }
     var uninterpretedOptionElementIndex:Int = 0
     for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -4432,6 +4821,9 @@ final public class PBMessageOptions : ExtendableMessage, GeneratedMessageProtoco
           }
           if hasNoStandardDescriptorAccessor {
              hashCode = (hashCode &* 31) &+ noStandardDescriptorAccessor.hashValue
+          }
+          if hasDeprecated {
+             hashCode = (hashCode &* 31) &+ deprecated.hashValue
           }
           for oneElementuninterpretedOption in uninterpretedOption {
               hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
@@ -4513,6 +4905,29 @@ final public class PBMessageOptionsBuilder : ExtendableMessageBuilder {
        builderResult.noStandardDescriptorAccessor = false
        return self
   }
+  public var hasDeprecated:Bool {
+       get {
+            return builderResult.hasDeprecated
+       }
+  }
+  public var deprecated:Bool {
+       get {
+            return builderResult.deprecated
+       }
+       set (value) {
+           builderResult.hasDeprecated = true
+           builderResult.deprecated = value
+       }
+  }
+  func setDeprecated(value:Bool)-> PBMessageOptionsBuilder {
+    self.deprecated = value
+    return self
+  }
+  public func clearDeprecated() -> PBMessageOptionsBuilder{
+       builderResult.hasDeprecated = false
+       builderResult.deprecated = false
+       return self
+  }
   public var uninterpretedOption:Array<PBUninterpretedOption> {
        get {
            return builderResult.uninterpretedOption
@@ -4559,6 +4974,9 @@ final public class PBMessageOptionsBuilder : ExtendableMessageBuilder {
     if other.hasNoStandardDescriptorAccessor {
          noStandardDescriptorAccessor = other.noStandardDescriptorAccessor
     }
+    if other.hasDeprecated {
+         deprecated = other.deprecated
+    }
     if !other.uninterpretedOption.isEmpty  {
        builderResult.uninterpretedOption += other.uninterpretedOption
     }
@@ -4583,6 +5001,9 @@ final public class PBMessageOptionsBuilder : ExtendableMessageBuilder {
 
       case 16 :
         noStandardDescriptorAccessor = input.readBool()
+
+      case 24 :
+        deprecated = input.readBool()
 
       case 7994 :
         var subBuilder = PBUninterpretedOption.builder()
@@ -5091,7 +5512,10 @@ final public class PBFieldOptionsBuilder : ExtendableMessageBuilder {
 
 final public class PBEnumOptions : ExtendableMessage, GeneratedMessageProtocol {
   public private(set) var hasAllowAlias:Bool = false
-  public private(set) var allowAlias:Bool = true
+  public private(set) var allowAlias:Bool = false
+
+  public private(set) var hasDeprecated:Bool = false
+  public private(set) var deprecated:Bool = false
 
   public private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
   required public init() {
@@ -5117,6 +5541,9 @@ final public class PBEnumOptions : ExtendableMessage, GeneratedMessageProtocol {
     if hasAllowAlias {
       output.writeBool(2, value:allowAlias)
     }
+    if hasDeprecated {
+      output.writeBool(3, value:deprecated)
+    }
     for oneElementuninterpretedOption in uninterpretedOption {
         output.writeMessage(999, value:oneElementuninterpretedOption)
     }
@@ -5132,6 +5559,9 @@ final public class PBEnumOptions : ExtendableMessage, GeneratedMessageProtocol {
     serialize_size = 0
     if hasAllowAlias {
       serialize_size += allowAlias.computeBoolSize(2)
+    }
+    if hasDeprecated {
+      serialize_size += deprecated.computeBoolSize(3)
     }
     for oneElementuninterpretedOption in uninterpretedOption {
         serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
@@ -5181,6 +5611,9 @@ final public class PBEnumOptions : ExtendableMessage, GeneratedMessageProtocol {
     if hasAllowAlias {
       output += "\(indent) allowAlias: \(allowAlias) \n"
     }
+    if hasDeprecated {
+      output += "\(indent) deprecated: \(deprecated) \n"
+    }
     var uninterpretedOptionElementIndex:Int = 0
     for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -5196,6 +5629,9 @@ final public class PBEnumOptions : ExtendableMessage, GeneratedMessageProtocol {
           var hashCode:Int = 7
           if hasAllowAlias {
              hashCode = (hashCode &* 31) &+ allowAlias.hashValue
+          }
+          if hasDeprecated {
+             hashCode = (hashCode &* 31) &+ deprecated.hashValue
           }
           for oneElementuninterpretedOption in uninterpretedOption {
               hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
@@ -5251,7 +5687,30 @@ final public class PBEnumOptionsBuilder : ExtendableMessageBuilder {
   }
   public func clearAllowAlias() -> PBEnumOptionsBuilder{
        builderResult.hasAllowAlias = false
-       builderResult.allowAlias = true
+       builderResult.allowAlias = false
+       return self
+  }
+  public var hasDeprecated:Bool {
+       get {
+            return builderResult.hasDeprecated
+       }
+  }
+  public var deprecated:Bool {
+       get {
+            return builderResult.deprecated
+       }
+       set (value) {
+           builderResult.hasDeprecated = true
+           builderResult.deprecated = value
+       }
+  }
+  func setDeprecated(value:Bool)-> PBEnumOptionsBuilder {
+    self.deprecated = value
+    return self
+  }
+  public func clearDeprecated() -> PBEnumOptionsBuilder{
+       builderResult.hasDeprecated = false
+       builderResult.deprecated = false
        return self
   }
   public var uninterpretedOption:Array<PBUninterpretedOption> {
@@ -5297,6 +5756,9 @@ final public class PBEnumOptionsBuilder : ExtendableMessageBuilder {
     if other.hasAllowAlias {
          allowAlias = other.allowAlias
     }
+    if other.hasDeprecated {
+         deprecated = other.deprecated
+    }
     if !other.uninterpretedOption.isEmpty  {
        builderResult.uninterpretedOption += other.uninterpretedOption
     }
@@ -5319,6 +5781,9 @@ final public class PBEnumOptionsBuilder : ExtendableMessageBuilder {
       case 16 :
         allowAlias = input.readBool()
 
+      case 24 :
+        deprecated = input.readBool()
+
       case 7994 :
         var subBuilder = PBUninterpretedOption.builder()
         input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
@@ -5335,6 +5800,9 @@ final public class PBEnumOptionsBuilder : ExtendableMessageBuilder {
 }
 
 final public class PBEnumValueOptions : ExtendableMessage, GeneratedMessageProtocol {
+  public private(set) var hasDeprecated:Bool = false
+  public private(set) var deprecated:Bool = false
+
   public private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
   required public init() {
        super.init()
@@ -5356,6 +5824,9 @@ final public class PBEnumValueOptions : ExtendableMessage, GeneratedMessageProto
    return true
   }
   override public func writeToCodedOutputStream(output:CodedOutputStream) {
+    if hasDeprecated {
+      output.writeBool(1, value:deprecated)
+    }
     for oneElementuninterpretedOption in uninterpretedOption {
         output.writeMessage(999, value:oneElementuninterpretedOption)
     }
@@ -5369,6 +5840,9 @@ final public class PBEnumValueOptions : ExtendableMessage, GeneratedMessageProto
     }
 
     serialize_size = 0
+    if hasDeprecated {
+      serialize_size += deprecated.computeBoolSize(1)
+    }
     for oneElementuninterpretedOption in uninterpretedOption {
         serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
     }
@@ -5414,6 +5888,9 @@ final public class PBEnumValueOptions : ExtendableMessage, GeneratedMessageProto
     return PBEnumValueOptions.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
+    if hasDeprecated {
+      output += "\(indent) deprecated: \(deprecated) \n"
+    }
     var uninterpretedOptionElementIndex:Int = 0
     for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -5427,6 +5904,9 @@ final public class PBEnumValueOptions : ExtendableMessage, GeneratedMessageProto
   override public var hashValue:Int {
       get {
           var hashCode:Int = 7
+          if hasDeprecated {
+             hashCode = (hashCode &* 31) &+ deprecated.hashValue
+          }
           for oneElementuninterpretedOption in uninterpretedOption {
               hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
           }
@@ -5460,6 +5940,29 @@ final public class PBEnumValueOptionsBuilder : ExtendableMessageBuilder {
   required override public init () {
      builderResult = PBEnumValueOptions()
      super.init()
+  }
+  public var hasDeprecated:Bool {
+       get {
+            return builderResult.hasDeprecated
+       }
+  }
+  public var deprecated:Bool {
+       get {
+            return builderResult.deprecated
+       }
+       set (value) {
+           builderResult.hasDeprecated = true
+           builderResult.deprecated = value
+       }
+  }
+  func setDeprecated(value:Bool)-> PBEnumValueOptionsBuilder {
+    self.deprecated = value
+    return self
+  }
+  public func clearDeprecated() -> PBEnumValueOptionsBuilder{
+       builderResult.hasDeprecated = false
+       builderResult.deprecated = false
+       return self
   }
   public var uninterpretedOption:Array<PBUninterpretedOption> {
        get {
@@ -5501,6 +6004,9 @@ final public class PBEnumValueOptionsBuilder : ExtendableMessageBuilder {
     if (other == PBEnumValueOptions()) {
      return self
     }
+    if other.hasDeprecated {
+         deprecated = other.deprecated
+    }
     if !other.uninterpretedOption.isEmpty  {
        builderResult.uninterpretedOption += other.uninterpretedOption
     }
@@ -5520,6 +6026,9 @@ final public class PBEnumValueOptionsBuilder : ExtendableMessageBuilder {
         self.unknownFields = unknownFieldsBuilder.build()
         return self
 
+      case 8 :
+        deprecated = input.readBool()
+
       case 7994 :
         var subBuilder = PBUninterpretedOption.builder()
         input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
@@ -5536,6 +6045,9 @@ final public class PBEnumValueOptionsBuilder : ExtendableMessageBuilder {
 }
 
 final public class PBServiceOptions : ExtendableMessage, GeneratedMessageProtocol {
+  public private(set) var hasDeprecated:Bool = false
+  public private(set) var deprecated:Bool = false
+
   public private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
   required public init() {
        super.init()
@@ -5557,6 +6069,9 @@ final public class PBServiceOptions : ExtendableMessage, GeneratedMessageProtoco
    return true
   }
   override public func writeToCodedOutputStream(output:CodedOutputStream) {
+    if hasDeprecated {
+      output.writeBool(33, value:deprecated)
+    }
     for oneElementuninterpretedOption in uninterpretedOption {
         output.writeMessage(999, value:oneElementuninterpretedOption)
     }
@@ -5570,6 +6085,9 @@ final public class PBServiceOptions : ExtendableMessage, GeneratedMessageProtoco
     }
 
     serialize_size = 0
+    if hasDeprecated {
+      serialize_size += deprecated.computeBoolSize(33)
+    }
     for oneElementuninterpretedOption in uninterpretedOption {
         serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
     }
@@ -5615,6 +6133,9 @@ final public class PBServiceOptions : ExtendableMessage, GeneratedMessageProtoco
     return PBServiceOptions.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
+    if hasDeprecated {
+      output += "\(indent) deprecated: \(deprecated) \n"
+    }
     var uninterpretedOptionElementIndex:Int = 0
     for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -5628,6 +6149,9 @@ final public class PBServiceOptions : ExtendableMessage, GeneratedMessageProtoco
   override public var hashValue:Int {
       get {
           var hashCode:Int = 7
+          if hasDeprecated {
+             hashCode = (hashCode &* 31) &+ deprecated.hashValue
+          }
           for oneElementuninterpretedOption in uninterpretedOption {
               hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
           }
@@ -5661,6 +6185,29 @@ final public class PBServiceOptionsBuilder : ExtendableMessageBuilder {
   required override public init () {
      builderResult = PBServiceOptions()
      super.init()
+  }
+  public var hasDeprecated:Bool {
+       get {
+            return builderResult.hasDeprecated
+       }
+  }
+  public var deprecated:Bool {
+       get {
+            return builderResult.deprecated
+       }
+       set (value) {
+           builderResult.hasDeprecated = true
+           builderResult.deprecated = value
+       }
+  }
+  func setDeprecated(value:Bool)-> PBServiceOptionsBuilder {
+    self.deprecated = value
+    return self
+  }
+  public func clearDeprecated() -> PBServiceOptionsBuilder{
+       builderResult.hasDeprecated = false
+       builderResult.deprecated = false
+       return self
   }
   public var uninterpretedOption:Array<PBUninterpretedOption> {
        get {
@@ -5702,6 +6249,9 @@ final public class PBServiceOptionsBuilder : ExtendableMessageBuilder {
     if (other == PBServiceOptions()) {
      return self
     }
+    if other.hasDeprecated {
+         deprecated = other.deprecated
+    }
     if !other.uninterpretedOption.isEmpty  {
        builderResult.uninterpretedOption += other.uninterpretedOption
     }
@@ -5721,6 +6271,9 @@ final public class PBServiceOptionsBuilder : ExtendableMessageBuilder {
         self.unknownFields = unknownFieldsBuilder.build()
         return self
 
+      case 264 :
+        deprecated = input.readBool()
+
       case 7994 :
         var subBuilder = PBUninterpretedOption.builder()
         input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
@@ -5737,6 +6290,9 @@ final public class PBServiceOptionsBuilder : ExtendableMessageBuilder {
 }
 
 final public class PBMethodOptions : ExtendableMessage, GeneratedMessageProtocol {
+  public private(set) var hasDeprecated:Bool = false
+  public private(set) var deprecated:Bool = false
+
   public private(set) var uninterpretedOption:Array<PBUninterpretedOption>  = Array<PBUninterpretedOption>()
   required public init() {
        super.init()
@@ -5758,6 +6314,9 @@ final public class PBMethodOptions : ExtendableMessage, GeneratedMessageProtocol
    return true
   }
   override public func writeToCodedOutputStream(output:CodedOutputStream) {
+    if hasDeprecated {
+      output.writeBool(33, value:deprecated)
+    }
     for oneElementuninterpretedOption in uninterpretedOption {
         output.writeMessage(999, value:oneElementuninterpretedOption)
     }
@@ -5771,6 +6330,9 @@ final public class PBMethodOptions : ExtendableMessage, GeneratedMessageProtocol
     }
 
     serialize_size = 0
+    if hasDeprecated {
+      serialize_size += deprecated.computeBoolSize(33)
+    }
     for oneElementuninterpretedOption in uninterpretedOption {
         serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
     }
@@ -5816,6 +6378,9 @@ final public class PBMethodOptions : ExtendableMessage, GeneratedMessageProtocol
     return PBMethodOptions.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
+    if hasDeprecated {
+      output += "\(indent) deprecated: \(deprecated) \n"
+    }
     var uninterpretedOptionElementIndex:Int = 0
     for oneElementuninterpretedOption in uninterpretedOption {
         output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -5829,6 +6394,9 @@ final public class PBMethodOptions : ExtendableMessage, GeneratedMessageProtocol
   override public var hashValue:Int {
       get {
           var hashCode:Int = 7
+          if hasDeprecated {
+             hashCode = (hashCode &* 31) &+ deprecated.hashValue
+          }
           for oneElementuninterpretedOption in uninterpretedOption {
               hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
           }
@@ -5862,6 +6430,29 @@ final public class PBMethodOptionsBuilder : ExtendableMessageBuilder {
   required override public init () {
      builderResult = PBMethodOptions()
      super.init()
+  }
+  public var hasDeprecated:Bool {
+       get {
+            return builderResult.hasDeprecated
+       }
+  }
+  public var deprecated:Bool {
+       get {
+            return builderResult.deprecated
+       }
+       set (value) {
+           builderResult.hasDeprecated = true
+           builderResult.deprecated = value
+       }
+  }
+  func setDeprecated(value:Bool)-> PBMethodOptionsBuilder {
+    self.deprecated = value
+    return self
+  }
+  public func clearDeprecated() -> PBMethodOptionsBuilder{
+       builderResult.hasDeprecated = false
+       builderResult.deprecated = false
+       return self
   }
   public var uninterpretedOption:Array<PBUninterpretedOption> {
        get {
@@ -5903,6 +6494,9 @@ final public class PBMethodOptionsBuilder : ExtendableMessageBuilder {
     if (other == PBMethodOptions()) {
      return self
     }
+    if other.hasDeprecated {
+         deprecated = other.deprecated
+    }
     if !other.uninterpretedOption.isEmpty  {
        builderResult.uninterpretedOption += other.uninterpretedOption
     }
@@ -5921,6 +6515,9 @@ final public class PBMethodOptionsBuilder : ExtendableMessageBuilder {
       case 0: 
         self.unknownFields = unknownFieldsBuilder.build()
         return self
+
+      case 264 :
+        deprecated = input.readBool()
 
       case 7994 :
         var subBuilder = PBUninterpretedOption.builder()

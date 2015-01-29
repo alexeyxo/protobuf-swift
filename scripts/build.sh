@@ -1,5 +1,8 @@
-#!/bin/sh
-make clean;
-./autogen.sh && \
-./configure CXXFLAGS=-I/usr/local/include LDFLAGS=-L/usr/local/lib && \
-make -j8 && make install;
+#!/usr/bin/env sh
+
+set -ex
+
+./autogen.sh
+./configure CXXFLAGS=-I/usr/local/include LDFLAGS=-L/usr/local/lib
+make clean
+make -j8
