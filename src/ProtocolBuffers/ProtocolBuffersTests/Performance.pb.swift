@@ -3,10 +3,10 @@
 import Foundation
 import ProtocolBuffers
 
-public struct ProtoPerfomanceRoot {
-  public static var sharedInstance : ProtoPerfomanceRoot {
+public struct ProtoPerformanceRoot {
+  public static var sharedInstance : ProtoPerformanceRoot {
    struct Static {
-       static let instance : ProtoPerfomanceRoot = ProtoPerfomanceRoot()
+       static let instance : ProtoPerformanceRoot = ProtoPerformanceRoot()
    }
    return Static.instance
   }
@@ -84,7 +84,7 @@ final public class ProtoPerfomanceBatch : GeneratedMessage, GeneratedMessageProt
     return serialize_size
   }
   public class func parseFromData(data:NSData) -> ProtoPerfomanceBatch {
-    return ProtoPerfomanceBatch.builder().mergeFromData(data, extensionRegistry:ProtoPerfomanceRoot.sharedInstance.extensionRegistry).build()
+    return ProtoPerfomanceBatch.builder().mergeFromData(data, extensionRegistry:ProtoPerformanceRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtoPerfomanceBatch {
     return ProtoPerfomanceBatch.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -335,7 +335,7 @@ final public class ProtoPerfomance : GeneratedMessage, GeneratedMessageProtocol 
     return serialize_size
   }
   public class func parseFromData(data:NSData) -> ProtoPerfomance {
-    return ProtoPerfomance.builder().mergeFromData(data, extensionRegistry:ProtoPerfomanceRoot.sharedInstance.extensionRegistry).build()
+    return ProtoPerfomance.builder().mergeFromData(data, extensionRegistry:ProtoPerformanceRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtoPerfomance {
     return ProtoPerfomance.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

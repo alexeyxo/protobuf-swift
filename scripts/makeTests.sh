@@ -1,13 +1,13 @@
-#!/bin/sh
-cd src/compiler;
-rm -f ./Tests/*;
-protoc  google/protobuf/unittest*.proto --swift_out="./Tests";
-# protoc  google/protobuf/descriptor*.proto --swift_out="./Tests";
-cp -f ./Tests/* ../ProtocolBuffers/ProtocolBuffersTests/pbTests/;
-cd ../ProtocolBuffers/ProtocolBuffersTests
-protoc google/protobuf/Perfomance.proto  --swift_out="./"
-#cp -f ./Tests/Unittest* ../runtime/Tests/;
-#cp -f ./Tests/Descriptor* ../runtime/Classes/;
-cd ../../;
-cd compiler;
-rm -f ./Tests/*;
+#!/usr/bin/env sh
+
+set -ex
+
+compiler_root=src/compiler
+
+PATH=$PATH:$compiler_root
+
+# compile the unit tests into the runtime library's fixture directory
+protoc -I$compiler_root $compiler_root/google/protobuf/unittest*.proto --swift_out=src/ProtocolBuffers/ProtocolBuffersTests/pbTests/
+
+# compile the performance proto into the runtime
+protoc -I$compiler_root $compiler_root/google/protobuf/performance.proto  --swift_out=src/ProtocolBuffers/ProtocolBuffersTests
