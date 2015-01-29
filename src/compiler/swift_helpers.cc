@@ -301,6 +301,21 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return tokens;
     }
     
+    string PackageName(const FileDescriptor* file)
+    {
+
+        return PackageName(PackageSplit(file->package()));
+    }
+    
+    string PackageName(const vector<string> splitVector)
+    {
+        string result;
+        for (int i = 0; i < splitVector.size(); i++) {
+            result += splitVector[i];
+            result += ".";
+        }
+        return result;
+    }
     
     string ClassNameWorker(const Descriptor* descriptor) {
         string name;

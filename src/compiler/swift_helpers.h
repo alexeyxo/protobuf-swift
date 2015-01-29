@@ -49,7 +49,12 @@ namespace google {
                 // Returns true if the name requires a ns_returns_not_retained attribute applied
                 // to it.
                 
+                
+                //Packages
                 vector<string> PackageSplit(const string& str);
+                string PackageName(const FileDescriptor* file);
+                string PackageName(const vector<string> splitVector);
+                ///
                 
                 bool IsBootstrapFile(const FileDescriptor* file);
                 
