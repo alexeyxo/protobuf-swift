@@ -166,6 +166,8 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
             EnumGenerator(file_->enum_type(i)).GenerateSource(printer);
         }
         
+ 
+        
         for (int i = 0; i < file_->message_type_count(); i++) {
             
             for (int j = 0; j < file_->message_type(i)->nested_type_count(); j++) {
@@ -173,11 +175,27 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
             }
             MessageGenerator(file_->message_type(i)).GenerateMessageIsEqualSource(printer);
         }
+        vector<string> tokens = PackageSplit(file_->package());
+        
+        
+        
+        //Generate Messages with packages
+        for (int i = 0; i < tokens.size(); i++) {
+            printer->Print("$acontrol$ struct $package$ {\n",
+                           "acontrol", GetAccessControlType(file_),
+                           "package", tokens[i]);
+            printer->Indent();
+        }
         
         for (int i = 0; i < file_->message_type_count(); i++) {
             MessageGenerator(file_->message_type(i)).GenerateSource(printer);
         }
         
+        for (int i = 0; i < tokens.size(); i++) {
+            printer->Outdent();
+            printer->Print("}\n");
+        }
+
         
         printer->Print(
                        "\n"
