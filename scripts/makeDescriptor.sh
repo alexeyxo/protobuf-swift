@@ -1,10 +1,16 @@
-#!/bin/sh
-pwds=`pwd`
-cd src/compiler/ && protoc google/protobuf/swift-descriptor.proto --cpp_out="./" && cd ..;
-cd $pwds;
-./scripts/build.sh && \
-cd $pwds/src/compiler/ && protoc google/protobuf/swift-descriptor.proto --swift_out="./Descriptors";
-cd $pwds/src/compiler/ && protoc google/protobuf/descriptor.proto --swift_out="./Descriptors";
+#!/usr/bin/env sh
 
-cp -f ./Descriptors/Descriptor.pb.swift ../ProtocolBuffers/runtime-pb-swift/
-cp -f ./Descriptors/SwiftDescriptor.pb.swift ../ProtocolBuffers/runtime-pb-swift/
+set -ex
+
+compiler_root=src/compiler
+
+PATH=$PATH:$compiler_root
+
+# we need this for bootstrapping
+protoc -I$compiler_root $compiler_root/google/protobuf/swift-descriptor.proto --cpp_out=$compiler_root
+
+# build the swift generator
+scripts/build.sh
+
+# compile the swift descriptors into the runtime library
+protoc -I$compiler_root $compiler_root/google/protobuf/{swift-,}descriptor.proto --swift_out=src/ProtocolBuffers/runtime-pb-swift/

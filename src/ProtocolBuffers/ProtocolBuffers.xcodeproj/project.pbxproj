@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F0201C31A2C800700EE503C /* Perfomance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F64475D19F040DE0030E56C /* Perfomance.pb.swift */; };
-		3F0201C41A2C800800EE503C /* Perfomance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F64475D19F040DE0030E56C /* Perfomance.pb.swift */; };
+		3F0201C31A2C800700EE503C /* Performance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F64475D19F040DE0030E56C /* Performance.pb.swift */; };
+		3F0201C41A2C800800EE503C /* Performance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F64475D19F040DE0030E56C /* Performance.pb.swift */; };
 		3F1422981A07FDBF0090CEE9 /* ProtocolBuffers.framework in Copy Framework */ = {isa = PBXBuildFile; fileRef = 3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3F2B1CE619E2A6EC001A505E /* Unittest.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CD819E2A6EC001A505E /* Unittest.pb.swift */; };
 		3F2B1CEB19E2A6EC001A505E /* Unittest_import.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B1CDD19E2A6EC001A505E /* Unittest_import.pb.swift */; };
@@ -140,7 +140,7 @@
 		3F4106261A1A667800742090 /* UnitTesting(OSX).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UnitTesting(OSX).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41062C1A1A667800742090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TestUtilities.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		3F64475D19F040DE0030E56C /* Perfomance.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Perfomance.pb.swift; sourceTree = "<group>"; };
+		3F64475D19F040DE0030E56C /* Performance.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Performance.pb.swift; sourceTree = "<group>"; };
 		3F813FF31A1030000008F493 /* SizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeTest.swift; sourceTree = "<group>"; };
 		3F813FF51A12C0E90008F493 /* WireFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireFormatTests.swift; sourceTree = "<group>"; };
 		3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,7 +304,7 @@
 				3F8556D019C71C05003802F2 /* SmallBlockInputStream.swift */,
 				3F8556A819C71BCF003802F2 /* ProtocolBuffersTests.swift */,
 				3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */,
-				3F64475D19F040DE0030E56C /* Perfomance.pb.swift */,
+				3F64475D19F040DE0030E56C /* Performance.pb.swift */,
 				3F9301381A095F2B00F7A20B /* GeneratedMessageTests.swift */,
 				3FEFE99E1A12612E005DEAF3 /* MessageTests.swift */,
 				3F813FF31A1030000008F493 /* SizeTest.swift */,
@@ -570,7 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F0201C41A2C800800EE503C /* Perfomance.pb.swift in Sources */,
+				3F0201C41A2C800800EE503C /* Performance.pb.swift in Sources */,
 				3F4106441A1A677A00742090 /* Unittest.pb.swift in Sources */,
 				3F4106451A1A677A00742090 /* Unittest_import.pb.swift in Sources */,
 				3F4106461A1A677A00742090 /* Unittest_import_public.pb.swift in Sources */,
@@ -612,7 +612,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F0201C31A2C800700EE503C /* Perfomance.pb.swift in Sources */,
+				3F0201C31A2C800700EE503C /* Performance.pb.swift in Sources */,
 				3FC236AE1A18E3120006EC7D /* UnknowFieldsTests.swift in Sources */,
 				3F2B1CEB19E2A6EC001A505E /* Unittest_import.pb.swift in Sources */,
 				3FEFE99F1A12612E005DEAF3 /* MessageTests.swift in Sources */,
