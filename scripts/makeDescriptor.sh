@@ -7,7 +7,7 @@ compiler_root=src/compiler
 PATH=$PATH:$compiler_root
 
 # we need this for bootstrapping
-protoc -I$compiler_root $compiler_root/google/protobuf/swift-descriptor.proto --cpp_out=$compiler_root
+protoc -I$compiler_root $compiler_root/google/protobuf/{swift-,}descriptor.proto --cpp_out=$compiler_root
 
 # build the swift generator
 scripts/build.sh

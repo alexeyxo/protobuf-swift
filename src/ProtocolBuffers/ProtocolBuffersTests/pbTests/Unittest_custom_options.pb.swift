@@ -493,46 +493,7 @@ internal struct UnittestCustomOptionsRoot {
   }
 }
 
-
-
-//Enum type declaration start 
-
-internal enum MethodOpt1:Int32 {
-  case Methodopt1Val1 = 1
-  case Methodopt1Val2 = 2
-
-  internal static func IsValidValue(value:Int32) ->Bool {
-      if let check = MethodOpt1(rawValue:value) {
-          return true
-      }
-      return false
-  }
-}
-
-
-
-//Enum type declaration end 
-
-
-
-//Enum type declaration start 
-
-internal enum AggregateEnum:Int32 {
-  case Value = 1
-
-  internal static func IsValidValue(value:Int32) ->Bool {
-      if let check = AggregateEnum(rawValue:value) {
-          return true
-      }
-      return false
-  }
-}
-
-
-
-//Enum type declaration end 
-
-internal func == (lhs: TestMessageWithCustomOptions, rhs: TestMessageWithCustomOptions) -> Bool {
+internal func == (lhs: ProtobufUnittest.TestMessageWithCustomOptions, rhs: ProtobufUnittest.TestMessageWithCustomOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -541,7 +502,7 @@ internal func == (lhs: TestMessageWithCustomOptions, rhs: TestMessageWithCustomO
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: CustomOptionFooRequest, rhs: CustomOptionFooRequest) -> Bool {
+internal func == (lhs: ProtobufUnittest.CustomOptionFooRequest, rhs: ProtobufUnittest.CustomOptionFooRequest) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -549,7 +510,7 @@ internal func == (lhs: CustomOptionFooRequest, rhs: CustomOptionFooRequest) -> B
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: CustomOptionFooResponse, rhs: CustomOptionFooResponse) -> Bool {
+internal func == (lhs: ProtobufUnittest.CustomOptionFooResponse, rhs: ProtobufUnittest.CustomOptionFooResponse) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -557,7 +518,7 @@ internal func == (lhs: CustomOptionFooResponse, rhs: CustomOptionFooResponse) ->
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: CustomOptionFooClientMessage, rhs: CustomOptionFooClientMessage) -> Bool {
+internal func == (lhs: ProtobufUnittest.CustomOptionFooClientMessage, rhs: ProtobufUnittest.CustomOptionFooClientMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -565,7 +526,7 @@ internal func == (lhs: CustomOptionFooClientMessage, rhs: CustomOptionFooClientM
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: CustomOptionFooServerMessage, rhs: CustomOptionFooServerMessage) -> Bool {
+internal func == (lhs: ProtobufUnittest.CustomOptionFooServerMessage, rhs: ProtobufUnittest.CustomOptionFooServerMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -573,7 +534,7 @@ internal func == (lhs: CustomOptionFooServerMessage, rhs: CustomOptionFooServerM
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: DummyMessageContainingEnum, rhs: DummyMessageContainingEnum) -> Bool {
+internal func == (lhs: ProtobufUnittest.DummyMessageContainingEnum, rhs: ProtobufUnittest.DummyMessageContainingEnum) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -581,7 +542,7 @@ internal func == (lhs: DummyMessageContainingEnum, rhs: DummyMessageContainingEn
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: DummyMessageInvalidAsOptionType, rhs: DummyMessageInvalidAsOptionType) -> Bool {
+internal func == (lhs: ProtobufUnittest.DummyMessageInvalidAsOptionType, rhs: ProtobufUnittest.DummyMessageInvalidAsOptionType) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -589,7 +550,7 @@ internal func == (lhs: DummyMessageInvalidAsOptionType, rhs: DummyMessageInvalid
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: CustomOptionMinIntegerValues, rhs: CustomOptionMinIntegerValues) -> Bool {
+internal func == (lhs: ProtobufUnittest.CustomOptionMinIntegerValues, rhs: ProtobufUnittest.CustomOptionMinIntegerValues) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -597,7 +558,7 @@ internal func == (lhs: CustomOptionMinIntegerValues, rhs: CustomOptionMinInteger
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: CustomOptionMaxIntegerValues, rhs: CustomOptionMaxIntegerValues) -> Bool {
+internal func == (lhs: ProtobufUnittest.CustomOptionMaxIntegerValues, rhs: ProtobufUnittest.CustomOptionMaxIntegerValues) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -605,7 +566,7 @@ internal func == (lhs: CustomOptionMaxIntegerValues, rhs: CustomOptionMaxInteger
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: CustomOptionOtherValues, rhs: CustomOptionOtherValues) -> Bool {
+internal func == (lhs: ProtobufUnittest.CustomOptionOtherValues, rhs: ProtobufUnittest.CustomOptionOtherValues) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -613,7 +574,7 @@ internal func == (lhs: CustomOptionOtherValues, rhs: CustomOptionOtherValues) ->
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: SettingRealsFromPositiveInts, rhs: SettingRealsFromPositiveInts) -> Bool {
+internal func == (lhs: ProtobufUnittest.SettingRealsFromPositiveInts, rhs: ProtobufUnittest.SettingRealsFromPositiveInts) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -621,7 +582,7 @@ internal func == (lhs: SettingRealsFromPositiveInts, rhs: SettingRealsFromPositi
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: SettingRealsFromNegativeInts, rhs: SettingRealsFromNegativeInts) -> Bool {
+internal func == (lhs: ProtobufUnittest.SettingRealsFromNegativeInts, rhs: ProtobufUnittest.SettingRealsFromNegativeInts) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -629,7 +590,7 @@ internal func == (lhs: SettingRealsFromNegativeInts, rhs: SettingRealsFromNegati
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: ComplexOptionType1, rhs: ComplexOptionType1) -> Bool {
+internal func == (lhs: ProtobufUnittest.ComplexOptionType1, rhs: ProtobufUnittest.ComplexOptionType1) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -642,7 +603,7 @@ internal func == (lhs: ComplexOptionType1, rhs: ComplexOptionType1) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: ComplexOptionType2.ComplexOptionType4, rhs: ComplexOptionType2.ComplexOptionType4) -> Bool {
+internal func == (lhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4, rhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -651,7 +612,7 @@ internal func == (lhs: ComplexOptionType2.ComplexOptionType4, rhs: ComplexOption
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: ComplexOptionType2, rhs: ComplexOptionType2) -> Bool {
+internal func == (lhs: ProtobufUnittest.ComplexOptionType2, rhs: ProtobufUnittest.ComplexOptionType2) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -664,7 +625,7 @@ internal func == (lhs: ComplexOptionType2, rhs: ComplexOptionType2) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: ComplexOptionType3.ComplexOptionType5, rhs: ComplexOptionType3.ComplexOptionType5) -> Bool {
+internal func == (lhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5, rhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -673,7 +634,7 @@ internal func == (lhs: ComplexOptionType3.ComplexOptionType5, rhs: ComplexOption
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: ComplexOptionType3, rhs: ComplexOptionType3) -> Bool {
+internal func == (lhs: ProtobufUnittest.ComplexOptionType3, rhs: ProtobufUnittest.ComplexOptionType3) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -683,7 +644,7 @@ internal func == (lhs: ComplexOptionType3, rhs: ComplexOptionType3) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: ComplexOpt6, rhs: ComplexOpt6) -> Bool {
+internal func == (lhs: ProtobufUnittest.ComplexOpt6, rhs: ProtobufUnittest.ComplexOpt6) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -692,7 +653,7 @@ internal func == (lhs: ComplexOpt6, rhs: ComplexOpt6) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: VariousComplexOptions, rhs: VariousComplexOptions) -> Bool {
+internal func == (lhs: ProtobufUnittest.VariousComplexOptions, rhs: ProtobufUnittest.VariousComplexOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -700,7 +661,7 @@ internal func == (lhs: VariousComplexOptions, rhs: VariousComplexOptions) -> Boo
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: AggregateMessageSet, rhs: AggregateMessageSet) -> Bool {
+internal func == (lhs: ProtobufUnittest.AggregateMessageSet, rhs: ProtobufUnittest.AggregateMessageSet) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -709,7 +670,7 @@ internal func == (lhs: AggregateMessageSet, rhs: AggregateMessageSet) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: AggregateMessageSetElement, rhs: AggregateMessageSetElement) -> Bool {
+internal func == (lhs: ProtobufUnittest.AggregateMessageSetElement, rhs: ProtobufUnittest.AggregateMessageSetElement) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -718,7 +679,7 @@ internal func == (lhs: AggregateMessageSetElement, rhs: AggregateMessageSetEleme
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: Aggregate, rhs: Aggregate) -> Bool {
+internal func == (lhs: ProtobufUnittest.Aggregate, rhs: ProtobufUnittest.Aggregate) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -731,7 +692,7 @@ internal func == (lhs: Aggregate, rhs: Aggregate) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: AggregateMessage, rhs: AggregateMessage) -> Bool {
+internal func == (lhs: ProtobufUnittest.AggregateMessage, rhs: ProtobufUnittest.AggregateMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -740,7 +701,7 @@ internal func == (lhs: AggregateMessage, rhs: AggregateMessage) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: NestedOptionType.NestedMessage, rhs: NestedOptionType.NestedMessage) -> Bool {
+internal func == (lhs: ProtobufUnittest.NestedOptionType.NestedMessage, rhs: ProtobufUnittest.NestedOptionType.NestedMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -749,7 +710,7 @@ internal func == (lhs: NestedOptionType.NestedMessage, rhs: NestedOptionType.Nes
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func == (lhs: NestedOptionType, rhs: NestedOptionType) -> Bool {
+internal func == (lhs: ProtobufUnittest.NestedOptionType, rhs: ProtobufUnittest.NestedOptionType) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -757,4747 +718,4788 @@ internal func == (lhs: NestedOptionType, rhs: NestedOptionType) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final internal class TestMessageWithCustomOptions : GeneratedMessage, GeneratedMessageProtocol {
+internal struct ProtobufUnittest {
 
 
-    //Enum type declaration start 
+  //Enum type declaration start 
 
-    internal enum AnEnum:Int32 {
-      case AnenumVal1 = 1
-      case AnenumVal2 = 2
+  internal enum MethodOpt1:Int32 {
+    case Methodopt1Val1 = 1
+    case Methodopt1Val2 = 2
 
-      internal static func IsValidValue(value:Int32) ->Bool {
-          if let check = AnEnum(rawValue:value) {
-              return true
-          }
-          return false
+    internal static func IsValidValue(value:Int32) ->Bool {
+        if let check = ProtobufUnittest.MethodOpt1(rawValue:value) {
+            return true
+        }
+        return false
+    }
+  }
+
+
+
+  //Enum type declaration end 
+
+
+
+  //Enum type declaration start 
+
+  internal enum AggregateEnum:Int32 {
+    case Value = 1
+
+    internal static func IsValidValue(value:Int32) ->Bool {
+        if let check = ProtobufUnittest.AggregateEnum(rawValue:value) {
+            return true
+        }
+        return false
+    }
+  }
+
+
+
+  //Enum type declaration end 
+
+  final internal class TestMessageWithCustomOptions : GeneratedMessage, GeneratedMessageProtocol {
+
+
+      //Enum type declaration start 
+
+      internal enum AnEnum:Int32 {
+        case AnenumVal1 = 1
+        case AnenumVal2 = 2
+
+        internal static func IsValidValue(value:Int32) ->Bool {
+            if let check = ProtobufUnittest.AnEnum(rawValue:value) {
+                return true
+            }
+            return false
+        }
       }
+
+
+
+      //Enum type declaration end 
+
+    private(set) var hasField1:Bool = false
+    private(set) var field1:String = ""
+
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      if hasField1 {
+        output.writeString(1, value:field1)
+      }
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      if hasField1 {
+        serialize_size += field1.computeStringSize(1)
+      }
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestMessageWithCustomOptions {
+      return ProtobufUnittest.TestMessageWithCustomOptions.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageWithCustomOptions {
+      return ProtobufUnittest.TestMessageWithCustomOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.TestMessageWithCustomOptions {
+      return ProtobufUnittest.TestMessageWithCustomOptions.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.TestMessageWithCustomOptions {
+      return ProtobufUnittest.TestMessageWithCustomOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestMessageWithCustomOptions {
+      return ProtobufUnittest.TestMessageWithCustomOptions.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageWithCustomOptions {
+      return ProtobufUnittest.TestMessageWithCustomOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.TestMessageWithCustomOptionsBuilder {
+      return ProtobufUnittest.TestMessageWithCustomOptions.classBuilder() as ProtobufUnittest.TestMessageWithCustomOptionsBuilder
+    }
+    internal func builder() -> ProtobufUnittest.TestMessageWithCustomOptionsBuilder {
+      return classBuilder() as ProtobufUnittest.TestMessageWithCustomOptionsBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.TestMessageWithCustomOptionsBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.TestMessageWithCustomOptions.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.TestMessageWithCustomOptionsBuilder {
+      return ProtobufUnittest.TestMessageWithCustomOptions.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestMessageWithCustomOptions) -> ProtobufUnittest.TestMessageWithCustomOptionsBuilder {
+      return ProtobufUnittest.TestMessageWithCustomOptions.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      if hasField1 {
+        output += "\(indent) field1: \(field1) \n"
+      }
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            if hasField1 {
+               hashCode = (hashCode &* 31) &+ field1.hashValue
+            }
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
     }
 
 
+    //Meta information declaration start
 
-    //Enum type declaration end 
+    override internal class func className() -> String {
+        return "ProtobufUnittest.TestMessageWithCustomOptions"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.TestMessageWithCustomOptions"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.TestMessageWithCustomOptions.self
+    }
 
-  private(set) var hasField1:Bool = false
-  private(set) var field1:String = ""
 
-  required internal init() {
+    //Meta information declaration end
+
+  }
+
+  final internal class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.TestMessageWithCustomOptions
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.TestMessageWithCustomOptions()
        super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    if hasField1 {
-      output.writeString(1, value:field1)
     }
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
+    var hasField1:Bool {
+         get {
+              return builderResult.hasField1
+         }
     }
-
-    serialize_size = 0
-    if hasField1 {
-      serialize_size += field1.computeStringSize(1)
+    var field1:String {
+         get {
+              return builderResult.field1
+         }
+         set (value) {
+             builderResult.hasField1 = true
+             builderResult.field1 = value
+         }
     }
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> TestMessageWithCustomOptions {
-    return TestMessageWithCustomOptions.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptions {
-    return TestMessageWithCustomOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> TestMessageWithCustomOptions {
-    return TestMessageWithCustomOptions.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestMessageWithCustomOptions {
-    return TestMessageWithCustomOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestMessageWithCustomOptions {
-    return TestMessageWithCustomOptions.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptions {
-    return TestMessageWithCustomOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> TestMessageWithCustomOptionsBuilder {
-    return TestMessageWithCustomOptions.classBuilder() as TestMessageWithCustomOptionsBuilder
-  }
-  internal func builder() -> TestMessageWithCustomOptionsBuilder {
-    return classBuilder() as TestMessageWithCustomOptionsBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return TestMessageWithCustomOptionsBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return TestMessageWithCustomOptions.builder()
-  }
-  internal func toBuilder() -> TestMessageWithCustomOptionsBuilder {
-    return TestMessageWithCustomOptions.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:TestMessageWithCustomOptions) -> TestMessageWithCustomOptionsBuilder {
-    return TestMessageWithCustomOptions.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    if hasField1 {
-      output += "\(indent) field1: \(field1) \n"
+    func setField1(value:String)-> ProtobufUnittest.TestMessageWithCustomOptionsBuilder {
+      self.field1 = value
+      return self
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          if hasField1 {
-             hashCode = (hashCode &* 31) &+ field1.hashValue
-          }
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "TestMessageWithCustomOptions"
-  }
-  override internal func className() -> String {
-      return "TestMessageWithCustomOptions"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return TestMessageWithCustomOptions.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
-  private var builderResult:TestMessageWithCustomOptions
-
-  required override internal init () {
-     builderResult = TestMessageWithCustomOptions()
-     super.init()
-  }
-  var hasField1:Bool {
-       get {
-            return builderResult.hasField1
-       }
-  }
-  var field1:String {
-       get {
-            return builderResult.field1
-       }
-       set (value) {
-           builderResult.hasField1 = true
-           builderResult.field1 = value
-       }
-  }
-  func setField1(value:String)-> TestMessageWithCustomOptionsBuilder {
-    self.field1 = value
-    return self
-  }
-  internal func clearField1() -> TestMessageWithCustomOptionsBuilder{
-       builderResult.hasField1 = false
-       builderResult.field1 = ""
+    internal func clearField1() -> ProtobufUnittest.TestMessageWithCustomOptionsBuilder{
+         builderResult.hasField1 = false
+         builderResult.field1 = ""
+         return self
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.TestMessageWithCustomOptionsBuilder {
+      builderResult = ProtobufUnittest.TestMessageWithCustomOptions()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.TestMessageWithCustomOptionsBuilder {
+      return ProtobufUnittest.TestMessageWithCustomOptions.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.TestMessageWithCustomOptions {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.TestMessageWithCustomOptions {
+      var returnMe:ProtobufUnittest.TestMessageWithCustomOptions = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:TestMessageWithCustomOptions) -> TestMessageWithCustomOptionsBuilder {
+      if (other == ProtobufUnittest.TestMessageWithCustomOptions()) {
        return self
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> TestMessageWithCustomOptionsBuilder {
-    builderResult = TestMessageWithCustomOptions()
-    return self
-  }
-  internal override func clone() -> TestMessageWithCustomOptionsBuilder {
-    return TestMessageWithCustomOptions.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> TestMessageWithCustomOptions {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> TestMessageWithCustomOptions {
-    var returnMe:TestMessageWithCustomOptions = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:TestMessageWithCustomOptions) -> TestMessageWithCustomOptionsBuilder {
-    if (other == TestMessageWithCustomOptions()) {
-     return self
-    }
-    if other.hasField1 {
-         field1 = other.field1
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestMessageWithCustomOptionsBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptionsBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      case 10 :
-        field1 = input.readString()
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
-        }
       }
-    }
-  }
-}
-
-final internal class CustomOptionFooRequest : GeneratedMessage, GeneratedMessageProtocol {
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
-    }
-
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> CustomOptionFooRequest {
-    return CustomOptionFooRequest.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequest {
-    return CustomOptionFooRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooRequest {
-    return CustomOptionFooRequest.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionFooRequest {
-    return CustomOptionFooRequest.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionFooRequest {
-    return CustomOptionFooRequest.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequest {
-    return CustomOptionFooRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> CustomOptionFooRequestBuilder {
-    return CustomOptionFooRequest.classBuilder() as CustomOptionFooRequestBuilder
-  }
-  internal func builder() -> CustomOptionFooRequestBuilder {
-    return classBuilder() as CustomOptionFooRequestBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return CustomOptionFooRequestBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return CustomOptionFooRequest.builder()
-  }
-  internal func toBuilder() -> CustomOptionFooRequestBuilder {
-    return CustomOptionFooRequest.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:CustomOptionFooRequest) -> CustomOptionFooRequestBuilder {
-    return CustomOptionFooRequest.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
+      if other.hasField1 {
+           field1 = other.field1
       }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "CustomOptionFooRequest"
-  }
-  override internal func className() -> String {
-      return "CustomOptionFooRequest"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return CustomOptionFooRequest.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class CustomOptionFooRequestBuilder : GeneratedMessageBuilder {
-  private var builderResult:CustomOptionFooRequest
-
-  required override internal init () {
-     builderResult = CustomOptionFooRequest()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> CustomOptionFooRequestBuilder {
-    builderResult = CustomOptionFooRequest()
-    return self
-  }
-  internal override func clone() -> CustomOptionFooRequestBuilder {
-    return CustomOptionFooRequest.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> CustomOptionFooRequest {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> CustomOptionFooRequest {
-    var returnMe:CustomOptionFooRequest = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:CustomOptionFooRequest) -> CustomOptionFooRequestBuilder {
-    if (other == CustomOptionFooRequest()) {
-     return self
+      mergeUnknownFields(other.unknownFields)
+      return self
     }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionFooRequestBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequestBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
-        }
-      }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.TestMessageWithCustomOptionsBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-  }
-}
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageWithCustomOptionsBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-final internal class CustomOptionFooResponse : GeneratedMessage, GeneratedMessageProtocol {
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
-    }
+        case 10 :
+          field1 = input.readString()
 
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> CustomOptionFooResponse {
-    return CustomOptionFooResponse.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponse {
-    return CustomOptionFooResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooResponse {
-    return CustomOptionFooResponse.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionFooResponse {
-    return CustomOptionFooResponse.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionFooResponse {
-    return CustomOptionFooResponse.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponse {
-    return CustomOptionFooResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> CustomOptionFooResponseBuilder {
-    return CustomOptionFooResponse.classBuilder() as CustomOptionFooResponseBuilder
-  }
-  internal func builder() -> CustomOptionFooResponseBuilder {
-    return classBuilder() as CustomOptionFooResponseBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return CustomOptionFooResponseBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return CustomOptionFooResponse.builder()
-  }
-  internal func toBuilder() -> CustomOptionFooResponseBuilder {
-    return CustomOptionFooResponse.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:CustomOptionFooResponse) -> CustomOptionFooResponseBuilder {
-    return CustomOptionFooResponse.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "CustomOptionFooResponse"
-  }
-  override internal func className() -> String {
-      return "CustomOptionFooResponse"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return CustomOptionFooResponse.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class CustomOptionFooResponseBuilder : GeneratedMessageBuilder {
-  private var builderResult:CustomOptionFooResponse
-
-  required override internal init () {
-     builderResult = CustomOptionFooResponse()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> CustomOptionFooResponseBuilder {
-    builderResult = CustomOptionFooResponse()
-    return self
-  }
-  internal override func clone() -> CustomOptionFooResponseBuilder {
-    return CustomOptionFooResponse.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> CustomOptionFooResponse {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> CustomOptionFooResponse {
-    var returnMe:CustomOptionFooResponse = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:CustomOptionFooResponse) -> CustomOptionFooResponseBuilder {
-    if (other == CustomOptionFooResponse()) {
-     return self
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionFooResponseBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponseBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
-        }
-      }
-    }
-  }
-}
-
-final internal class CustomOptionFooClientMessage : GeneratedMessage, GeneratedMessageProtocol {
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
-    }
-
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> CustomOptionFooClientMessage {
-    return CustomOptionFooClientMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessage {
-    return CustomOptionFooClientMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooClientMessage {
-    return CustomOptionFooClientMessage.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionFooClientMessage {
-    return CustomOptionFooClientMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionFooClientMessage {
-    return CustomOptionFooClientMessage.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessage {
-    return CustomOptionFooClientMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> CustomOptionFooClientMessageBuilder {
-    return CustomOptionFooClientMessage.classBuilder() as CustomOptionFooClientMessageBuilder
-  }
-  internal func builder() -> CustomOptionFooClientMessageBuilder {
-    return classBuilder() as CustomOptionFooClientMessageBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return CustomOptionFooClientMessageBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return CustomOptionFooClientMessage.builder()
-  }
-  internal func toBuilder() -> CustomOptionFooClientMessageBuilder {
-    return CustomOptionFooClientMessage.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:CustomOptionFooClientMessage) -> CustomOptionFooClientMessageBuilder {
-    return CustomOptionFooClientMessage.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "CustomOptionFooClientMessage"
-  }
-  override internal func className() -> String {
-      return "CustomOptionFooClientMessage"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return CustomOptionFooClientMessage.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class CustomOptionFooClientMessageBuilder : GeneratedMessageBuilder {
-  private var builderResult:CustomOptionFooClientMessage
-
-  required override internal init () {
-     builderResult = CustomOptionFooClientMessage()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> CustomOptionFooClientMessageBuilder {
-    builderResult = CustomOptionFooClientMessage()
-    return self
-  }
-  internal override func clone() -> CustomOptionFooClientMessageBuilder {
-    return CustomOptionFooClientMessage.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> CustomOptionFooClientMessage {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> CustomOptionFooClientMessage {
-    var returnMe:CustomOptionFooClientMessage = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:CustomOptionFooClientMessage) -> CustomOptionFooClientMessageBuilder {
-    if (other == CustomOptionFooClientMessage()) {
-     return self
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionFooClientMessageBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessageBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
-        }
-      }
-    }
-  }
-}
-
-final internal class CustomOptionFooServerMessage : GeneratedMessage, GeneratedMessageProtocol {
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
-    }
-
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> CustomOptionFooServerMessage {
-    return CustomOptionFooServerMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessage {
-    return CustomOptionFooServerMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooServerMessage {
-    return CustomOptionFooServerMessage.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionFooServerMessage {
-    return CustomOptionFooServerMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionFooServerMessage {
-    return CustomOptionFooServerMessage.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessage {
-    return CustomOptionFooServerMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> CustomOptionFooServerMessageBuilder {
-    return CustomOptionFooServerMessage.classBuilder() as CustomOptionFooServerMessageBuilder
-  }
-  internal func builder() -> CustomOptionFooServerMessageBuilder {
-    return classBuilder() as CustomOptionFooServerMessageBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return CustomOptionFooServerMessageBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return CustomOptionFooServerMessage.builder()
-  }
-  internal func toBuilder() -> CustomOptionFooServerMessageBuilder {
-    return CustomOptionFooServerMessage.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:CustomOptionFooServerMessage) -> CustomOptionFooServerMessageBuilder {
-    return CustomOptionFooServerMessage.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "CustomOptionFooServerMessage"
-  }
-  override internal func className() -> String {
-      return "CustomOptionFooServerMessage"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return CustomOptionFooServerMessage.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class CustomOptionFooServerMessageBuilder : GeneratedMessageBuilder {
-  private var builderResult:CustomOptionFooServerMessage
-
-  required override internal init () {
-     builderResult = CustomOptionFooServerMessage()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> CustomOptionFooServerMessageBuilder {
-    builderResult = CustomOptionFooServerMessage()
-    return self
-  }
-  internal override func clone() -> CustomOptionFooServerMessageBuilder {
-    return CustomOptionFooServerMessage.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> CustomOptionFooServerMessage {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> CustomOptionFooServerMessage {
-    var returnMe:CustomOptionFooServerMessage = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:CustomOptionFooServerMessage) -> CustomOptionFooServerMessageBuilder {
-    if (other == CustomOptionFooServerMessage()) {
-     return self
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionFooServerMessageBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessageBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
-        }
-      }
-    }
-  }
-}
-
-final internal class DummyMessageContainingEnum : GeneratedMessage, GeneratedMessageProtocol {
-
-
-    //Enum type declaration start 
-
-    internal enum TestEnumType:Int32 {
-      case TestOptionEnumType1 = 22
-      case TestOptionEnumType2 = -23
-
-      internal static func IsValidValue(value:Int32) ->Bool {
-          if let check = TestEnumType(rawValue:value) {
-              return true
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
           }
-          return false
-      }
-    }
-
-
-
-    //Enum type declaration end 
-
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
-    }
-
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> DummyMessageContainingEnum {
-    return DummyMessageContainingEnum.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnum {
-    return DummyMessageContainingEnum.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> DummyMessageContainingEnum {
-    return DummyMessageContainingEnum.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->DummyMessageContainingEnum {
-    return DummyMessageContainingEnum.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> DummyMessageContainingEnum {
-    return DummyMessageContainingEnum.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnum {
-    return DummyMessageContainingEnum.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> DummyMessageContainingEnumBuilder {
-    return DummyMessageContainingEnum.classBuilder() as DummyMessageContainingEnumBuilder
-  }
-  internal func builder() -> DummyMessageContainingEnumBuilder {
-    return classBuilder() as DummyMessageContainingEnumBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return DummyMessageContainingEnumBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return DummyMessageContainingEnum.builder()
-  }
-  internal func toBuilder() -> DummyMessageContainingEnumBuilder {
-    return DummyMessageContainingEnum.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:DummyMessageContainingEnum) -> DummyMessageContainingEnumBuilder {
-    return DummyMessageContainingEnum.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "DummyMessageContainingEnum"
-  }
-  override internal func className() -> String {
-      return "DummyMessageContainingEnum"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return DummyMessageContainingEnum.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class DummyMessageContainingEnumBuilder : GeneratedMessageBuilder {
-  private var builderResult:DummyMessageContainingEnum
-
-  required override internal init () {
-     builderResult = DummyMessageContainingEnum()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> DummyMessageContainingEnumBuilder {
-    builderResult = DummyMessageContainingEnum()
-    return self
-  }
-  internal override func clone() -> DummyMessageContainingEnumBuilder {
-    return DummyMessageContainingEnum.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> DummyMessageContainingEnum {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> DummyMessageContainingEnum {
-    var returnMe:DummyMessageContainingEnum = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:DummyMessageContainingEnum) -> DummyMessageContainingEnumBuilder {
-    if (other == DummyMessageContainingEnum()) {
-     return self
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->DummyMessageContainingEnumBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnumBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
         }
       }
     }
   }
-}
 
-final internal class DummyMessageInvalidAsOptionType : GeneratedMessage, GeneratedMessageProtocol {
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
+  final internal class CustomOptionFooRequest : GeneratedMessage, GeneratedMessageProtocol {
+    required internal init() {
+         super.init()
     }
-
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> DummyMessageInvalidAsOptionType {
-    return DummyMessageInvalidAsOptionType.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionType {
-    return DummyMessageInvalidAsOptionType.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> DummyMessageInvalidAsOptionType {
-    return DummyMessageInvalidAsOptionType.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->DummyMessageInvalidAsOptionType {
-    return DummyMessageInvalidAsOptionType.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> DummyMessageInvalidAsOptionType {
-    return DummyMessageInvalidAsOptionType.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionType {
-    return DummyMessageInvalidAsOptionType.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> DummyMessageInvalidAsOptionTypeBuilder {
-    return DummyMessageInvalidAsOptionType.classBuilder() as DummyMessageInvalidAsOptionTypeBuilder
-  }
-  internal func builder() -> DummyMessageInvalidAsOptionTypeBuilder {
-    return classBuilder() as DummyMessageInvalidAsOptionTypeBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return DummyMessageInvalidAsOptionTypeBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return DummyMessageInvalidAsOptionType.builder()
-  }
-  internal func toBuilder() -> DummyMessageInvalidAsOptionTypeBuilder {
-    return DummyMessageInvalidAsOptionType.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:DummyMessageInvalidAsOptionType) -> DummyMessageInvalidAsOptionTypeBuilder {
-    return DummyMessageInvalidAsOptionType.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
       }
-  }
 
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "DummyMessageInvalidAsOptionType"
-  }
-  override internal func className() -> String {
-      return "DummyMessageInvalidAsOptionType"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return DummyMessageInvalidAsOptionType.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class DummyMessageInvalidAsOptionTypeBuilder : GeneratedMessageBuilder {
-  private var builderResult:DummyMessageInvalidAsOptionType
-
-  required override internal init () {
-     builderResult = DummyMessageInvalidAsOptionType()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> DummyMessageInvalidAsOptionTypeBuilder {
-    builderResult = DummyMessageInvalidAsOptionType()
-    return self
-  }
-  internal override func clone() -> DummyMessageInvalidAsOptionTypeBuilder {
-    return DummyMessageInvalidAsOptionType.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> DummyMessageInvalidAsOptionType {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> DummyMessageInvalidAsOptionType {
-    var returnMe:DummyMessageInvalidAsOptionType = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:DummyMessageInvalidAsOptionType) -> DummyMessageInvalidAsOptionTypeBuilder {
-    if (other == DummyMessageInvalidAsOptionType()) {
-     return self
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
     }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->DummyMessageInvalidAsOptionTypeBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionTypeBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.CustomOptionFooRequest {
+      return ProtobufUnittest.CustomOptionFooRequest.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionFooRequest {
+      return ProtobufUnittest.CustomOptionFooRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.CustomOptionFooRequest {
+      return ProtobufUnittest.CustomOptionFooRequest.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.CustomOptionFooRequest {
+      return ProtobufUnittest.CustomOptionFooRequest.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.CustomOptionFooRequest {
+      return ProtobufUnittest.CustomOptionFooRequest.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionFooRequest {
+      return ProtobufUnittest.CustomOptionFooRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.CustomOptionFooRequestBuilder {
+      return ProtobufUnittest.CustomOptionFooRequest.classBuilder() as ProtobufUnittest.CustomOptionFooRequestBuilder
+    }
+    internal func builder() -> ProtobufUnittest.CustomOptionFooRequestBuilder {
+      return classBuilder() as ProtobufUnittest.CustomOptionFooRequestBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionFooRequestBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionFooRequest.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.CustomOptionFooRequestBuilder {
+      return ProtobufUnittest.CustomOptionFooRequest.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionFooRequest) -> ProtobufUnittest.CustomOptionFooRequestBuilder {
+      return ProtobufUnittest.CustomOptionFooRequest.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.CustomOptionFooRequest"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.CustomOptionFooRequest"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.CustomOptionFooRequest.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class CustomOptionFooRequestBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.CustomOptionFooRequest
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.CustomOptionFooRequest()
+       super.init()
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.CustomOptionFooRequestBuilder {
+      builderResult = ProtobufUnittest.CustomOptionFooRequest()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.CustomOptionFooRequestBuilder {
+      return ProtobufUnittest.CustomOptionFooRequest.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.CustomOptionFooRequest {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.CustomOptionFooRequest {
+      var returnMe:ProtobufUnittest.CustomOptionFooRequest = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:CustomOptionFooRequest) -> CustomOptionFooRequestBuilder {
+      if (other == ProtobufUnittest.CustomOptionFooRequest()) {
+       return self
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.CustomOptionFooRequestBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionFooRequestBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
-}
 
-final internal class CustomOptionMinIntegerValues : GeneratedMessage, GeneratedMessageProtocol {
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
+  final internal class CustomOptionFooResponse : GeneratedMessage, GeneratedMessageProtocol {
+    required internal init() {
+         super.init()
     }
-
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> CustomOptionMinIntegerValues {
-    return CustomOptionMinIntegerValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValues {
-    return CustomOptionMinIntegerValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionMinIntegerValues {
-    return CustomOptionMinIntegerValues.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionMinIntegerValues {
-    return CustomOptionMinIntegerValues.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionMinIntegerValues {
-    return CustomOptionMinIntegerValues.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValues {
-    return CustomOptionMinIntegerValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> CustomOptionMinIntegerValuesBuilder {
-    return CustomOptionMinIntegerValues.classBuilder() as CustomOptionMinIntegerValuesBuilder
-  }
-  internal func builder() -> CustomOptionMinIntegerValuesBuilder {
-    return classBuilder() as CustomOptionMinIntegerValuesBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return CustomOptionMinIntegerValuesBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return CustomOptionMinIntegerValues.builder()
-  }
-  internal func toBuilder() -> CustomOptionMinIntegerValuesBuilder {
-    return CustomOptionMinIntegerValues.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:CustomOptionMinIntegerValues) -> CustomOptionMinIntegerValuesBuilder {
-    return CustomOptionMinIntegerValues.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
       }
-  }
 
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "CustomOptionMinIntegerValues"
-  }
-  override internal func className() -> String {
-      return "CustomOptionMinIntegerValues"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return CustomOptionMinIntegerValues.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class CustomOptionMinIntegerValuesBuilder : GeneratedMessageBuilder {
-  private var builderResult:CustomOptionMinIntegerValues
-
-  required override internal init () {
-     builderResult = CustomOptionMinIntegerValues()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> CustomOptionMinIntegerValuesBuilder {
-    builderResult = CustomOptionMinIntegerValues()
-    return self
-  }
-  internal override func clone() -> CustomOptionMinIntegerValuesBuilder {
-    return CustomOptionMinIntegerValues.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> CustomOptionMinIntegerValues {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> CustomOptionMinIntegerValues {
-    var returnMe:CustomOptionMinIntegerValues = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:CustomOptionMinIntegerValues) -> CustomOptionMinIntegerValuesBuilder {
-    if (other == CustomOptionMinIntegerValues()) {
-     return self
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
     }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionMinIntegerValuesBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValuesBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.CustomOptionFooResponse {
+      return ProtobufUnittest.CustomOptionFooResponse.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionFooResponse {
+      return ProtobufUnittest.CustomOptionFooResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.CustomOptionFooResponse {
+      return ProtobufUnittest.CustomOptionFooResponse.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.CustomOptionFooResponse {
+      return ProtobufUnittest.CustomOptionFooResponse.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.CustomOptionFooResponse {
+      return ProtobufUnittest.CustomOptionFooResponse.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionFooResponse {
+      return ProtobufUnittest.CustomOptionFooResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.CustomOptionFooResponseBuilder {
+      return ProtobufUnittest.CustomOptionFooResponse.classBuilder() as ProtobufUnittest.CustomOptionFooResponseBuilder
+    }
+    internal func builder() -> ProtobufUnittest.CustomOptionFooResponseBuilder {
+      return classBuilder() as ProtobufUnittest.CustomOptionFooResponseBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionFooResponseBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionFooResponse.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.CustomOptionFooResponseBuilder {
+      return ProtobufUnittest.CustomOptionFooResponse.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionFooResponse) -> ProtobufUnittest.CustomOptionFooResponseBuilder {
+      return ProtobufUnittest.CustomOptionFooResponse.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.CustomOptionFooResponse"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.CustomOptionFooResponse"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.CustomOptionFooResponse.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class CustomOptionFooResponseBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.CustomOptionFooResponse
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.CustomOptionFooResponse()
+       super.init()
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.CustomOptionFooResponseBuilder {
+      builderResult = ProtobufUnittest.CustomOptionFooResponse()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.CustomOptionFooResponseBuilder {
+      return ProtobufUnittest.CustomOptionFooResponse.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.CustomOptionFooResponse {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.CustomOptionFooResponse {
+      var returnMe:ProtobufUnittest.CustomOptionFooResponse = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:CustomOptionFooResponse) -> CustomOptionFooResponseBuilder {
+      if (other == ProtobufUnittest.CustomOptionFooResponse()) {
+       return self
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.CustomOptionFooResponseBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionFooResponseBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
-}
 
-final internal class CustomOptionMaxIntegerValues : GeneratedMessage, GeneratedMessageProtocol {
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
+  final internal class CustomOptionFooClientMessage : GeneratedMessage, GeneratedMessageProtocol {
+    required internal init() {
+         super.init()
     }
-
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> CustomOptionMaxIntegerValues {
-    return CustomOptionMaxIntegerValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValues {
-    return CustomOptionMaxIntegerValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionMaxIntegerValues {
-    return CustomOptionMaxIntegerValues.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionMaxIntegerValues {
-    return CustomOptionMaxIntegerValues.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionMaxIntegerValues {
-    return CustomOptionMaxIntegerValues.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValues {
-    return CustomOptionMaxIntegerValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> CustomOptionMaxIntegerValuesBuilder {
-    return CustomOptionMaxIntegerValues.classBuilder() as CustomOptionMaxIntegerValuesBuilder
-  }
-  internal func builder() -> CustomOptionMaxIntegerValuesBuilder {
-    return classBuilder() as CustomOptionMaxIntegerValuesBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return CustomOptionMaxIntegerValuesBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return CustomOptionMaxIntegerValues.builder()
-  }
-  internal func toBuilder() -> CustomOptionMaxIntegerValuesBuilder {
-    return CustomOptionMaxIntegerValues.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:CustomOptionMaxIntegerValues) -> CustomOptionMaxIntegerValuesBuilder {
-    return CustomOptionMaxIntegerValues.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
       }
-  }
 
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "CustomOptionMaxIntegerValues"
-  }
-  override internal func className() -> String {
-      return "CustomOptionMaxIntegerValues"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return CustomOptionMaxIntegerValues.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class CustomOptionMaxIntegerValuesBuilder : GeneratedMessageBuilder {
-  private var builderResult:CustomOptionMaxIntegerValues
-
-  required override internal init () {
-     builderResult = CustomOptionMaxIntegerValues()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> CustomOptionMaxIntegerValuesBuilder {
-    builderResult = CustomOptionMaxIntegerValues()
-    return self
-  }
-  internal override func clone() -> CustomOptionMaxIntegerValuesBuilder {
-    return CustomOptionMaxIntegerValues.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> CustomOptionMaxIntegerValues {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> CustomOptionMaxIntegerValues {
-    var returnMe:CustomOptionMaxIntegerValues = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:CustomOptionMaxIntegerValues) -> CustomOptionMaxIntegerValuesBuilder {
-    if (other == CustomOptionMaxIntegerValues()) {
-     return self
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
     }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionMaxIntegerValuesBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValuesBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.CustomOptionFooClientMessage {
+      return ProtobufUnittest.CustomOptionFooClientMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionFooClientMessage {
+      return ProtobufUnittest.CustomOptionFooClientMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.CustomOptionFooClientMessage {
+      return ProtobufUnittest.CustomOptionFooClientMessage.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.CustomOptionFooClientMessage {
+      return ProtobufUnittest.CustomOptionFooClientMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.CustomOptionFooClientMessage {
+      return ProtobufUnittest.CustomOptionFooClientMessage.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionFooClientMessage {
+      return ProtobufUnittest.CustomOptionFooClientMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.CustomOptionFooClientMessageBuilder {
+      return ProtobufUnittest.CustomOptionFooClientMessage.classBuilder() as ProtobufUnittest.CustomOptionFooClientMessageBuilder
+    }
+    internal func builder() -> ProtobufUnittest.CustomOptionFooClientMessageBuilder {
+      return classBuilder() as ProtobufUnittest.CustomOptionFooClientMessageBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionFooClientMessageBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionFooClientMessage.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.CustomOptionFooClientMessageBuilder {
+      return ProtobufUnittest.CustomOptionFooClientMessage.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionFooClientMessage) -> ProtobufUnittest.CustomOptionFooClientMessageBuilder {
+      return ProtobufUnittest.CustomOptionFooClientMessage.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.CustomOptionFooClientMessage"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.CustomOptionFooClientMessage"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.CustomOptionFooClientMessage.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class CustomOptionFooClientMessageBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.CustomOptionFooClientMessage
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.CustomOptionFooClientMessage()
+       super.init()
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.CustomOptionFooClientMessageBuilder {
+      builderResult = ProtobufUnittest.CustomOptionFooClientMessage()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.CustomOptionFooClientMessageBuilder {
+      return ProtobufUnittest.CustomOptionFooClientMessage.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.CustomOptionFooClientMessage {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.CustomOptionFooClientMessage {
+      var returnMe:ProtobufUnittest.CustomOptionFooClientMessage = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:CustomOptionFooClientMessage) -> CustomOptionFooClientMessageBuilder {
+      if (other == ProtobufUnittest.CustomOptionFooClientMessage()) {
+       return self
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.CustomOptionFooClientMessageBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionFooClientMessageBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
-}
 
-final internal class CustomOptionOtherValues : GeneratedMessage, GeneratedMessageProtocol {
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
+  final internal class CustomOptionFooServerMessage : GeneratedMessage, GeneratedMessageProtocol {
+    required internal init() {
+         super.init()
     }
-
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> CustomOptionOtherValues {
-    return CustomOptionOtherValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValues {
-    return CustomOptionOtherValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionOtherValues {
-    return CustomOptionOtherValues.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionOtherValues {
-    return CustomOptionOtherValues.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionOtherValues {
-    return CustomOptionOtherValues.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValues {
-    return CustomOptionOtherValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> CustomOptionOtherValuesBuilder {
-    return CustomOptionOtherValues.classBuilder() as CustomOptionOtherValuesBuilder
-  }
-  internal func builder() -> CustomOptionOtherValuesBuilder {
-    return classBuilder() as CustomOptionOtherValuesBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return CustomOptionOtherValuesBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return CustomOptionOtherValues.builder()
-  }
-  internal func toBuilder() -> CustomOptionOtherValuesBuilder {
-    return CustomOptionOtherValues.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:CustomOptionOtherValues) -> CustomOptionOtherValuesBuilder {
-    return CustomOptionOtherValues.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
       }
-  }
 
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "CustomOptionOtherValues"
-  }
-  override internal func className() -> String {
-      return "CustomOptionOtherValues"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return CustomOptionOtherValues.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class CustomOptionOtherValuesBuilder : GeneratedMessageBuilder {
-  private var builderResult:CustomOptionOtherValues
-
-  required override internal init () {
-     builderResult = CustomOptionOtherValues()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> CustomOptionOtherValuesBuilder {
-    builderResult = CustomOptionOtherValues()
-    return self
-  }
-  internal override func clone() -> CustomOptionOtherValuesBuilder {
-    return CustomOptionOtherValues.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> CustomOptionOtherValues {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> CustomOptionOtherValues {
-    var returnMe:CustomOptionOtherValues = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:CustomOptionOtherValues) -> CustomOptionOtherValuesBuilder {
-    if (other == CustomOptionOtherValues()) {
-     return self
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
     }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionOtherValuesBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValuesBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.CustomOptionFooServerMessage {
+      return ProtobufUnittest.CustomOptionFooServerMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionFooServerMessage {
+      return ProtobufUnittest.CustomOptionFooServerMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.CustomOptionFooServerMessage {
+      return ProtobufUnittest.CustomOptionFooServerMessage.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.CustomOptionFooServerMessage {
+      return ProtobufUnittest.CustomOptionFooServerMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.CustomOptionFooServerMessage {
+      return ProtobufUnittest.CustomOptionFooServerMessage.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionFooServerMessage {
+      return ProtobufUnittest.CustomOptionFooServerMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.CustomOptionFooServerMessageBuilder {
+      return ProtobufUnittest.CustomOptionFooServerMessage.classBuilder() as ProtobufUnittest.CustomOptionFooServerMessageBuilder
+    }
+    internal func builder() -> ProtobufUnittest.CustomOptionFooServerMessageBuilder {
+      return classBuilder() as ProtobufUnittest.CustomOptionFooServerMessageBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionFooServerMessageBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionFooServerMessage.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.CustomOptionFooServerMessageBuilder {
+      return ProtobufUnittest.CustomOptionFooServerMessage.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionFooServerMessage) -> ProtobufUnittest.CustomOptionFooServerMessageBuilder {
+      return ProtobufUnittest.CustomOptionFooServerMessage.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.CustomOptionFooServerMessage"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.CustomOptionFooServerMessage"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.CustomOptionFooServerMessage.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class CustomOptionFooServerMessageBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.CustomOptionFooServerMessage
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.CustomOptionFooServerMessage()
+       super.init()
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.CustomOptionFooServerMessageBuilder {
+      builderResult = ProtobufUnittest.CustomOptionFooServerMessage()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.CustomOptionFooServerMessageBuilder {
+      return ProtobufUnittest.CustomOptionFooServerMessage.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.CustomOptionFooServerMessage {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.CustomOptionFooServerMessage {
+      var returnMe:ProtobufUnittest.CustomOptionFooServerMessage = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:CustomOptionFooServerMessage) -> CustomOptionFooServerMessageBuilder {
+      if (other == ProtobufUnittest.CustomOptionFooServerMessage()) {
+       return self
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.CustomOptionFooServerMessageBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionFooServerMessageBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
-}
 
-final internal class SettingRealsFromPositiveInts : GeneratedMessage, GeneratedMessageProtocol {
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
-    }
+  final internal class DummyMessageContainingEnum : GeneratedMessage, GeneratedMessageProtocol {
 
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> SettingRealsFromPositiveInts {
-    return SettingRealsFromPositiveInts.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveInts {
-    return SettingRealsFromPositiveInts.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> SettingRealsFromPositiveInts {
-    return SettingRealsFromPositiveInts.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->SettingRealsFromPositiveInts {
-    return SettingRealsFromPositiveInts.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> SettingRealsFromPositiveInts {
-    return SettingRealsFromPositiveInts.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveInts {
-    return SettingRealsFromPositiveInts.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> SettingRealsFromPositiveIntsBuilder {
-    return SettingRealsFromPositiveInts.classBuilder() as SettingRealsFromPositiveIntsBuilder
-  }
-  internal func builder() -> SettingRealsFromPositiveIntsBuilder {
-    return classBuilder() as SettingRealsFromPositiveIntsBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return SettingRealsFromPositiveIntsBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return SettingRealsFromPositiveInts.builder()
-  }
-  internal func toBuilder() -> SettingRealsFromPositiveIntsBuilder {
-    return SettingRealsFromPositiveInts.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:SettingRealsFromPositiveInts) -> SettingRealsFromPositiveIntsBuilder {
-    return SettingRealsFromPositiveInts.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
+
+      //Enum type declaration start 
+
+      internal enum TestEnumType:Int32 {
+        case TestOptionEnumType1 = 22
+        case TestOptionEnumType2 = -23
+
+        internal static func IsValidValue(value:Int32) ->Bool {
+            if let check = ProtobufUnittest.TestEnumType(rawValue:value) {
+                return true
+            }
+            return false
+        }
       }
-  }
 
 
-  //Meta information declaration start
 
-  override internal class func className() -> String {
-      return "SettingRealsFromPositiveInts"
-  }
-  override internal func className() -> String {
-      return "SettingRealsFromPositiveInts"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return SettingRealsFromPositiveInts.self
-  }
+      //Enum type declaration end 
 
-
-  //Meta information declaration end
-
-}
-
-final internal class SettingRealsFromPositiveIntsBuilder : GeneratedMessageBuilder {
-  private var builderResult:SettingRealsFromPositiveInts
-
-  required override internal init () {
-     builderResult = SettingRealsFromPositiveInts()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> SettingRealsFromPositiveIntsBuilder {
-    builderResult = SettingRealsFromPositiveInts()
-    return self
-  }
-  internal override func clone() -> SettingRealsFromPositiveIntsBuilder {
-    return SettingRealsFromPositiveInts.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> SettingRealsFromPositiveInts {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> SettingRealsFromPositiveInts {
-    var returnMe:SettingRealsFromPositiveInts = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:SettingRealsFromPositiveInts) -> SettingRealsFromPositiveIntsBuilder {
-    if (other == SettingRealsFromPositiveInts()) {
-     return self
+    required internal init() {
+         super.init()
     }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->SettingRealsFromPositiveIntsBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveIntsBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.DummyMessageContainingEnum {
+      return ProtobufUnittest.DummyMessageContainingEnum.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.DummyMessageContainingEnum {
+      return ProtobufUnittest.DummyMessageContainingEnum.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.DummyMessageContainingEnum {
+      return ProtobufUnittest.DummyMessageContainingEnum.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.DummyMessageContainingEnum {
+      return ProtobufUnittest.DummyMessageContainingEnum.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.DummyMessageContainingEnum {
+      return ProtobufUnittest.DummyMessageContainingEnum.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.DummyMessageContainingEnum {
+      return ProtobufUnittest.DummyMessageContainingEnum.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.DummyMessageContainingEnumBuilder {
+      return ProtobufUnittest.DummyMessageContainingEnum.classBuilder() as ProtobufUnittest.DummyMessageContainingEnumBuilder
+    }
+    internal func builder() -> ProtobufUnittest.DummyMessageContainingEnumBuilder {
+      return classBuilder() as ProtobufUnittest.DummyMessageContainingEnumBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.DummyMessageContainingEnumBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.DummyMessageContainingEnum.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.DummyMessageContainingEnumBuilder {
+      return ProtobufUnittest.DummyMessageContainingEnum.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.DummyMessageContainingEnum) -> ProtobufUnittest.DummyMessageContainingEnumBuilder {
+      return ProtobufUnittest.DummyMessageContainingEnum.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.DummyMessageContainingEnum"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.DummyMessageContainingEnum"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.DummyMessageContainingEnum.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class DummyMessageContainingEnumBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.DummyMessageContainingEnum
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.DummyMessageContainingEnum()
+       super.init()
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.DummyMessageContainingEnumBuilder {
+      builderResult = ProtobufUnittest.DummyMessageContainingEnum()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.DummyMessageContainingEnumBuilder {
+      return ProtobufUnittest.DummyMessageContainingEnum.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.DummyMessageContainingEnum {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.DummyMessageContainingEnum {
+      var returnMe:ProtobufUnittest.DummyMessageContainingEnum = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:DummyMessageContainingEnum) -> DummyMessageContainingEnumBuilder {
+      if (other == ProtobufUnittest.DummyMessageContainingEnum()) {
+       return self
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.DummyMessageContainingEnumBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.DummyMessageContainingEnumBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
-}
 
-final internal class SettingRealsFromNegativeInts : GeneratedMessage, GeneratedMessageProtocol {
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
+  final internal class DummyMessageInvalidAsOptionType : GeneratedMessage, GeneratedMessageProtocol {
+    required internal init() {
+         super.init()
     }
-
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> SettingRealsFromNegativeInts {
-    return SettingRealsFromNegativeInts.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeInts {
-    return SettingRealsFromNegativeInts.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> SettingRealsFromNegativeInts {
-    return SettingRealsFromNegativeInts.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->SettingRealsFromNegativeInts {
-    return SettingRealsFromNegativeInts.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> SettingRealsFromNegativeInts {
-    return SettingRealsFromNegativeInts.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeInts {
-    return SettingRealsFromNegativeInts.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> SettingRealsFromNegativeIntsBuilder {
-    return SettingRealsFromNegativeInts.classBuilder() as SettingRealsFromNegativeIntsBuilder
-  }
-  internal func builder() -> SettingRealsFromNegativeIntsBuilder {
-    return classBuilder() as SettingRealsFromNegativeIntsBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return SettingRealsFromNegativeIntsBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return SettingRealsFromNegativeInts.builder()
-  }
-  internal func toBuilder() -> SettingRealsFromNegativeIntsBuilder {
-    return SettingRealsFromNegativeInts.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:SettingRealsFromNegativeInts) -> SettingRealsFromNegativeIntsBuilder {
-    return SettingRealsFromNegativeInts.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
       }
-  }
 
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "SettingRealsFromNegativeInts"
-  }
-  override internal func className() -> String {
-      return "SettingRealsFromNegativeInts"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return SettingRealsFromNegativeInts.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class SettingRealsFromNegativeIntsBuilder : GeneratedMessageBuilder {
-  private var builderResult:SettingRealsFromNegativeInts
-
-  required override internal init () {
-     builderResult = SettingRealsFromNegativeInts()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> SettingRealsFromNegativeIntsBuilder {
-    builderResult = SettingRealsFromNegativeInts()
-    return self
-  }
-  internal override func clone() -> SettingRealsFromNegativeIntsBuilder {
-    return SettingRealsFromNegativeInts.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> SettingRealsFromNegativeInts {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> SettingRealsFromNegativeInts {
-    var returnMe:SettingRealsFromNegativeInts = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:SettingRealsFromNegativeInts) -> SettingRealsFromNegativeIntsBuilder {
-    if (other == SettingRealsFromNegativeInts()) {
-     return self
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
     }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->SettingRealsFromNegativeIntsBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeIntsBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+      return ProtobufUnittest.DummyMessageInvalidAsOptionType.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+      return ProtobufUnittest.DummyMessageInvalidAsOptionType.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+      return ProtobufUnittest.DummyMessageInvalidAsOptionType.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.DummyMessageInvalidAsOptionType {
+      return ProtobufUnittest.DummyMessageInvalidAsOptionType.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+      return ProtobufUnittest.DummyMessageInvalidAsOptionType.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+      return ProtobufUnittest.DummyMessageInvalidAsOptionType.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder {
+      return ProtobufUnittest.DummyMessageInvalidAsOptionType.classBuilder() as ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder
+    }
+    internal func builder() -> ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder {
+      return classBuilder() as ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.DummyMessageInvalidAsOptionType.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder {
+      return ProtobufUnittest.DummyMessageInvalidAsOptionType.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.DummyMessageInvalidAsOptionType) -> ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder {
+      return ProtobufUnittest.DummyMessageInvalidAsOptionType.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.DummyMessageInvalidAsOptionType"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.DummyMessageInvalidAsOptionType"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.DummyMessageInvalidAsOptionType.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class DummyMessageInvalidAsOptionTypeBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.DummyMessageInvalidAsOptionType
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.DummyMessageInvalidAsOptionType()
+       super.init()
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder {
+      builderResult = ProtobufUnittest.DummyMessageInvalidAsOptionType()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder {
+      return ProtobufUnittest.DummyMessageInvalidAsOptionType.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+      var returnMe:ProtobufUnittest.DummyMessageInvalidAsOptionType = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:DummyMessageInvalidAsOptionType) -> DummyMessageInvalidAsOptionTypeBuilder {
+      if (other == ProtobufUnittest.DummyMessageInvalidAsOptionType()) {
+       return self
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
-}
 
-final internal class ComplexOptionType1 : ExtendableMessage, GeneratedMessageProtocol {
-  private(set) var hasFoo:Bool = false
-  private(set) var foo:Int32 = Int32(0)
+  final internal class CustomOptionMinIntegerValues : GeneratedMessage, GeneratedMessageProtocol {
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
 
-  private(set) var hasFoo2:Bool = false
-  private(set) var foo2:Int32 = Int32(0)
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.CustomOptionMinIntegerValues {
+      return ProtobufUnittest.CustomOptionMinIntegerValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionMinIntegerValues {
+      return ProtobufUnittest.CustomOptionMinIntegerValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.CustomOptionMinIntegerValues {
+      return ProtobufUnittest.CustomOptionMinIntegerValues.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.CustomOptionMinIntegerValues {
+      return ProtobufUnittest.CustomOptionMinIntegerValues.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.CustomOptionMinIntegerValues {
+      return ProtobufUnittest.CustomOptionMinIntegerValues.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionMinIntegerValues {
+      return ProtobufUnittest.CustomOptionMinIntegerValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.CustomOptionMinIntegerValuesBuilder {
+      return ProtobufUnittest.CustomOptionMinIntegerValues.classBuilder() as ProtobufUnittest.CustomOptionMinIntegerValuesBuilder
+    }
+    internal func builder() -> ProtobufUnittest.CustomOptionMinIntegerValuesBuilder {
+      return classBuilder() as ProtobufUnittest.CustomOptionMinIntegerValuesBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionMinIntegerValuesBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionMinIntegerValues.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.CustomOptionMinIntegerValuesBuilder {
+      return ProtobufUnittest.CustomOptionMinIntegerValues.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionMinIntegerValues) -> ProtobufUnittest.CustomOptionMinIntegerValuesBuilder {
+      return ProtobufUnittest.CustomOptionMinIntegerValues.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
 
-  private(set) var hasFoo3:Bool = false
-  private(set) var foo3:Int32 = Int32(0)
 
-  private(set) var foo4:Array<Int32> = Array<Int32>()
-  required internal init() {
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.CustomOptionMinIntegerValues"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.CustomOptionMinIntegerValues"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.CustomOptionMinIntegerValues.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class CustomOptionMinIntegerValuesBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.CustomOptionMinIntegerValues
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.CustomOptionMinIntegerValues()
        super.init()
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.CustomOptionMinIntegerValuesBuilder {
+      builderResult = ProtobufUnittest.CustomOptionMinIntegerValues()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.CustomOptionMinIntegerValuesBuilder {
+      return ProtobufUnittest.CustomOptionMinIntegerValues.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.CustomOptionMinIntegerValues {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.CustomOptionMinIntegerValues {
+      var returnMe:ProtobufUnittest.CustomOptionMinIntegerValues = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:CustomOptionMinIntegerValues) -> CustomOptionMinIntegerValuesBuilder {
+      if (other == ProtobufUnittest.CustomOptionMinIntegerValues()) {
+       return self
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.CustomOptionMinIntegerValuesBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionMinIntegerValuesBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
+        }
+      }
+    }
   }
-  override internal func isInitialized() -> Bool {
-    if !extensionsAreInitialized() {
-     return false
+
+  final internal class CustomOptionMaxIntegerValues : GeneratedMessage, GeneratedMessageProtocol {
+    required internal init() {
+         super.init()
     }
-   return true
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+      return ProtobufUnittest.CustomOptionMaxIntegerValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+      return ProtobufUnittest.CustomOptionMaxIntegerValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+      return ProtobufUnittest.CustomOptionMaxIntegerValues.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.CustomOptionMaxIntegerValues {
+      return ProtobufUnittest.CustomOptionMaxIntegerValues.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+      return ProtobufUnittest.CustomOptionMaxIntegerValues.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+      return ProtobufUnittest.CustomOptionMaxIntegerValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder {
+      return ProtobufUnittest.CustomOptionMaxIntegerValues.classBuilder() as ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder
+    }
+    internal func builder() -> ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder {
+      return classBuilder() as ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionMaxIntegerValues.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder {
+      return ProtobufUnittest.CustomOptionMaxIntegerValues.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionMaxIntegerValues) -> ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder {
+      return ProtobufUnittest.CustomOptionMaxIntegerValues.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.CustomOptionMaxIntegerValues"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.CustomOptionMaxIntegerValues"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.CustomOptionMaxIntegerValues.self
+    }
+
+
+    //Meta information declaration end
+
   }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    if hasFoo {
-      output.writeInt32(1, value:foo)
+
+  final internal class CustomOptionMaxIntegerValuesBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.CustomOptionMaxIntegerValues
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.CustomOptionMaxIntegerValues()
+       super.init()
     }
-    if hasFoo2 {
-      output.writeInt32(2, value:foo2)
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
     }
-    if hasFoo3 {
-      output.writeInt32(3, value:foo3)
+    internal override func clear() -> ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder {
+      builderResult = ProtobufUnittest.CustomOptionMaxIntegerValues()
+      return self
     }
-    if !foo4.isEmpty {
+    internal override func clone() -> ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder {
+      return ProtobufUnittest.CustomOptionMaxIntegerValues.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+      var returnMe:ProtobufUnittest.CustomOptionMaxIntegerValues = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:CustomOptionMaxIntegerValues) -> CustomOptionMaxIntegerValuesBuilder {
+      if (other == ProtobufUnittest.CustomOptionMaxIntegerValues()) {
+       return self
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
+        }
+      }
+    }
+  }
+
+  final internal class CustomOptionOtherValues : GeneratedMessage, GeneratedMessageProtocol {
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.CustomOptionOtherValues {
+      return ProtobufUnittest.CustomOptionOtherValues.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionOtherValues {
+      return ProtobufUnittest.CustomOptionOtherValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.CustomOptionOtherValues {
+      return ProtobufUnittest.CustomOptionOtherValues.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.CustomOptionOtherValues {
+      return ProtobufUnittest.CustomOptionOtherValues.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.CustomOptionOtherValues {
+      return ProtobufUnittest.CustomOptionOtherValues.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionOtherValues {
+      return ProtobufUnittest.CustomOptionOtherValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.CustomOptionOtherValuesBuilder {
+      return ProtobufUnittest.CustomOptionOtherValues.classBuilder() as ProtobufUnittest.CustomOptionOtherValuesBuilder
+    }
+    internal func builder() -> ProtobufUnittest.CustomOptionOtherValuesBuilder {
+      return classBuilder() as ProtobufUnittest.CustomOptionOtherValuesBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionOtherValuesBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.CustomOptionOtherValues.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.CustomOptionOtherValuesBuilder {
+      return ProtobufUnittest.CustomOptionOtherValues.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionOtherValues) -> ProtobufUnittest.CustomOptionOtherValuesBuilder {
+      return ProtobufUnittest.CustomOptionOtherValues.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.CustomOptionOtherValues"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.CustomOptionOtherValues"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.CustomOptionOtherValues.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class CustomOptionOtherValuesBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.CustomOptionOtherValues
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.CustomOptionOtherValues()
+       super.init()
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.CustomOptionOtherValuesBuilder {
+      builderResult = ProtobufUnittest.CustomOptionOtherValues()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.CustomOptionOtherValuesBuilder {
+      return ProtobufUnittest.CustomOptionOtherValues.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.CustomOptionOtherValues {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.CustomOptionOtherValues {
+      var returnMe:ProtobufUnittest.CustomOptionOtherValues = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:CustomOptionOtherValues) -> CustomOptionOtherValuesBuilder {
+      if (other == ProtobufUnittest.CustomOptionOtherValues()) {
+       return self
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.CustomOptionOtherValuesBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.CustomOptionOtherValuesBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
+        }
+      }
+    }
+  }
+
+  final internal class SettingRealsFromPositiveInts : GeneratedMessage, GeneratedMessageProtocol {
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.SettingRealsFromPositiveInts {
+      return ProtobufUnittest.SettingRealsFromPositiveInts.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.SettingRealsFromPositiveInts {
+      return ProtobufUnittest.SettingRealsFromPositiveInts.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.SettingRealsFromPositiveInts {
+      return ProtobufUnittest.SettingRealsFromPositiveInts.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.SettingRealsFromPositiveInts {
+      return ProtobufUnittest.SettingRealsFromPositiveInts.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.SettingRealsFromPositiveInts {
+      return ProtobufUnittest.SettingRealsFromPositiveInts.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.SettingRealsFromPositiveInts {
+      return ProtobufUnittest.SettingRealsFromPositiveInts.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.SettingRealsFromPositiveIntsBuilder {
+      return ProtobufUnittest.SettingRealsFromPositiveInts.classBuilder() as ProtobufUnittest.SettingRealsFromPositiveIntsBuilder
+    }
+    internal func builder() -> ProtobufUnittest.SettingRealsFromPositiveIntsBuilder {
+      return classBuilder() as ProtobufUnittest.SettingRealsFromPositiveIntsBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.SettingRealsFromPositiveIntsBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.SettingRealsFromPositiveInts.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.SettingRealsFromPositiveIntsBuilder {
+      return ProtobufUnittest.SettingRealsFromPositiveInts.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.SettingRealsFromPositiveInts) -> ProtobufUnittest.SettingRealsFromPositiveIntsBuilder {
+      return ProtobufUnittest.SettingRealsFromPositiveInts.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.SettingRealsFromPositiveInts"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.SettingRealsFromPositiveInts"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.SettingRealsFromPositiveInts.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class SettingRealsFromPositiveIntsBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.SettingRealsFromPositiveInts
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.SettingRealsFromPositiveInts()
+       super.init()
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.SettingRealsFromPositiveIntsBuilder {
+      builderResult = ProtobufUnittest.SettingRealsFromPositiveInts()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.SettingRealsFromPositiveIntsBuilder {
+      return ProtobufUnittest.SettingRealsFromPositiveInts.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.SettingRealsFromPositiveInts {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.SettingRealsFromPositiveInts {
+      var returnMe:ProtobufUnittest.SettingRealsFromPositiveInts = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:SettingRealsFromPositiveInts) -> SettingRealsFromPositiveIntsBuilder {
+      if (other == ProtobufUnittest.SettingRealsFromPositiveInts()) {
+       return self
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.SettingRealsFromPositiveIntsBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.SettingRealsFromPositiveIntsBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
+        }
+      }
+    }
+  }
+
+  final internal class SettingRealsFromNegativeInts : GeneratedMessage, GeneratedMessageProtocol {
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.SettingRealsFromNegativeInts {
+      return ProtobufUnittest.SettingRealsFromNegativeInts.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.SettingRealsFromNegativeInts {
+      return ProtobufUnittest.SettingRealsFromNegativeInts.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.SettingRealsFromNegativeInts {
+      return ProtobufUnittest.SettingRealsFromNegativeInts.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.SettingRealsFromNegativeInts {
+      return ProtobufUnittest.SettingRealsFromNegativeInts.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.SettingRealsFromNegativeInts {
+      return ProtobufUnittest.SettingRealsFromNegativeInts.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.SettingRealsFromNegativeInts {
+      return ProtobufUnittest.SettingRealsFromNegativeInts.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.SettingRealsFromNegativeIntsBuilder {
+      return ProtobufUnittest.SettingRealsFromNegativeInts.classBuilder() as ProtobufUnittest.SettingRealsFromNegativeIntsBuilder
+    }
+    internal func builder() -> ProtobufUnittest.SettingRealsFromNegativeIntsBuilder {
+      return classBuilder() as ProtobufUnittest.SettingRealsFromNegativeIntsBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.SettingRealsFromNegativeIntsBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.SettingRealsFromNegativeInts.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.SettingRealsFromNegativeIntsBuilder {
+      return ProtobufUnittest.SettingRealsFromNegativeInts.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.SettingRealsFromNegativeInts) -> ProtobufUnittest.SettingRealsFromNegativeIntsBuilder {
+      return ProtobufUnittest.SettingRealsFromNegativeInts.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.SettingRealsFromNegativeInts"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.SettingRealsFromNegativeInts"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.SettingRealsFromNegativeInts.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class SettingRealsFromNegativeIntsBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.SettingRealsFromNegativeInts
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.SettingRealsFromNegativeInts()
+       super.init()
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.SettingRealsFromNegativeIntsBuilder {
+      builderResult = ProtobufUnittest.SettingRealsFromNegativeInts()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.SettingRealsFromNegativeIntsBuilder {
+      return ProtobufUnittest.SettingRealsFromNegativeInts.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.SettingRealsFromNegativeInts {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.SettingRealsFromNegativeInts {
+      var returnMe:ProtobufUnittest.SettingRealsFromNegativeInts = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:SettingRealsFromNegativeInts) -> SettingRealsFromNegativeIntsBuilder {
+      if (other == ProtobufUnittest.SettingRealsFromNegativeInts()) {
+       return self
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.SettingRealsFromNegativeIntsBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.SettingRealsFromNegativeIntsBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
+        }
+      }
+    }
+  }
+
+  final internal class ComplexOptionType1 : ExtendableMessage, GeneratedMessageProtocol {
+    private(set) var hasFoo:Bool = false
+    private(set) var foo:Int32 = Int32(0)
+
+    private(set) var hasFoo2:Bool = false
+    private(set) var foo2:Int32 = Int32(0)
+
+    private(set) var hasFoo3:Bool = false
+    private(set) var foo3:Int32 = Int32(0)
+
+    private(set) var foo4:Array<Int32> = Array<Int32>()
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+      if !extensionsAreInitialized() {
+       return false
+      }
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      if hasFoo {
+        output.writeInt32(1, value:foo)
+      }
+      if hasFoo2 {
+        output.writeInt32(2, value:foo2)
+      }
+      if hasFoo3 {
+        output.writeInt32(3, value:foo3)
+      }
+      if !foo4.isEmpty {
+        for oneValuefoo4 in foo4 {
+          output.writeInt32(4, value:oneValuefoo4)
+        }
+      }
+      writeExtensionsToCodedOutputStream(output, startInclusive:Int32(100), endExclusive:Int32(536870912))
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      if hasFoo {
+        serialize_size += foo.computeInt32Size(1)
+      }
+      if hasFoo2 {
+        serialize_size += foo2.computeInt32Size(2)
+      }
+      if hasFoo3 {
+        serialize_size += foo3.computeInt32Size(3)
+      }
+      var dataSizeFoo4:Int32 = 0
       for oneValuefoo4 in foo4 {
-        output.writeInt32(4, value:oneValuefoo4)
+          dataSizeFoo4 += oneValuefoo4.computeInt32SizeNoTag()
       }
+      serialize_size += dataSizeFoo4
+      serialize_size += 1 * Int32(foo4.count)
+      serialize_size += extensionsSerializedSize()
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
     }
-    writeExtensionsToCodedOutputStream(output, startInclusive:Int32(100), endExclusive:Int32(536870912))
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.ComplexOptionType1 {
+      return ProtobufUnittest.ComplexOptionType1.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-
-    serialize_size = 0
-    if hasFoo {
-      serialize_size += foo.computeInt32Size(1)
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType1 {
+      return ProtobufUnittest.ComplexOptionType1.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    if hasFoo2 {
-      serialize_size += foo2.computeInt32Size(2)
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.ComplexOptionType1 {
+      return ProtobufUnittest.ComplexOptionType1.builder().mergeFromInputStream(input).build()
     }
-    if hasFoo3 {
-      serialize_size += foo3.computeInt32Size(3)
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.ComplexOptionType1 {
+      return ProtobufUnittest.ComplexOptionType1.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    var dataSizeFoo4:Int32 = 0
-    for oneValuefoo4 in foo4 {
-        dataSizeFoo4 += oneValuefoo4.computeInt32SizeNoTag()
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.ComplexOptionType1 {
+      return ProtobufUnittest.ComplexOptionType1.builder().mergeFromCodedInputStream(input).build()
     }
-    serialize_size += dataSizeFoo4
-    serialize_size += 1 * Int32(foo4.count)
-    serialize_size += extensionsSerializedSize()
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> ComplexOptionType1 {
-    return ComplexOptionType1.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType1 {
-    return ComplexOptionType1.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType1 {
-    return ComplexOptionType1.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType1 {
-    return ComplexOptionType1.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType1 {
-    return ComplexOptionType1.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType1 {
-    return ComplexOptionType1.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> ComplexOptionType1Builder {
-    return ComplexOptionType1.classBuilder() as ComplexOptionType1Builder
-  }
-  internal func builder() -> ComplexOptionType1Builder {
-    return classBuilder() as ComplexOptionType1Builder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return ComplexOptionType1Builder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return ComplexOptionType1.builder()
-  }
-  internal func toBuilder() -> ComplexOptionType1Builder {
-    return ComplexOptionType1.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:ComplexOptionType1) -> ComplexOptionType1Builder {
-    return ComplexOptionType1.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    if hasFoo {
-      output += "\(indent) foo: \(foo) \n"
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType1 {
+      return ProtobufUnittest.ComplexOptionType1.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    if hasFoo2 {
-      output += "\(indent) foo2: \(foo2) \n"
+    internal class func builder() -> ProtobufUnittest.ComplexOptionType1Builder {
+      return ProtobufUnittest.ComplexOptionType1.classBuilder() as ProtobufUnittest.ComplexOptionType1Builder
     }
-    if hasFoo3 {
-      output += "\(indent) foo3: \(foo3) \n"
+    internal func builder() -> ProtobufUnittest.ComplexOptionType1Builder {
+      return classBuilder() as ProtobufUnittest.ComplexOptionType1Builder
     }
-    var foo4ElementIndex:Int = 0
-    for oneValuefoo4 in foo4  {
-        output += "\(indent) foo4[\(foo4ElementIndex)]: \(oneValuefoo4)\n"
-        foo4ElementIndex++
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.ComplexOptionType1Builder()
     }
-    writeExtensionDescription(&output, startInclusive:Int32(100), endExclusive:Int32(536870912), indent:indent)
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          if hasFoo {
-             hashCode = (hashCode &* 31) &+ foo.hashValue
-          }
-          if hasFoo2 {
-             hashCode = (hashCode &* 31) &+ foo2.hashValue
-          }
-          if hasFoo3 {
-             hashCode = (hashCode &* 31) &+ foo3.hashValue
-          }
-          for oneValuefoo4 in foo4 {
-              hashCode = (hashCode &* 31) &+ oneValuefoo4.hashValue
-          }
-          hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(100), endExclusive:Int32(536870912)))
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.ComplexOptionType1.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.ComplexOptionType1Builder {
+      return ProtobufUnittest.ComplexOptionType1.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType1) -> ProtobufUnittest.ComplexOptionType1Builder {
+      return ProtobufUnittest.ComplexOptionType1.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      if hasFoo {
+        output += "\(indent) foo: \(foo) \n"
       }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "ComplexOptionType1"
-  }
-  override internal func className() -> String {
-      return "ComplexOptionType1"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return ComplexOptionType1.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class ComplexOptionType1Builder : ExtendableMessageBuilder {
-  private var builderResult:ComplexOptionType1
-
-  required override internal init () {
-     builderResult = ComplexOptionType1()
-     super.init()
-  }
-  var hasFoo:Bool {
-       get {
-            return builderResult.hasFoo
-       }
-  }
-  var foo:Int32 {
-       get {
-            return builderResult.foo
-       }
-       set (value) {
-           builderResult.hasFoo = true
-           builderResult.foo = value
-       }
-  }
-  func setFoo(value:Int32)-> ComplexOptionType1Builder {
-    self.foo = value
-    return self
-  }
-  internal func clearFoo() -> ComplexOptionType1Builder{
-       builderResult.hasFoo = false
-       builderResult.foo = Int32(0)
-       return self
-  }
-  var hasFoo2:Bool {
-       get {
-            return builderResult.hasFoo2
-       }
-  }
-  var foo2:Int32 {
-       get {
-            return builderResult.foo2
-       }
-       set (value) {
-           builderResult.hasFoo2 = true
-           builderResult.foo2 = value
-       }
-  }
-  func setFoo2(value:Int32)-> ComplexOptionType1Builder {
-    self.foo2 = value
-    return self
-  }
-  internal func clearFoo2() -> ComplexOptionType1Builder{
-       builderResult.hasFoo2 = false
-       builderResult.foo2 = Int32(0)
-       return self
-  }
-  var hasFoo3:Bool {
-       get {
-            return builderResult.hasFoo3
-       }
-  }
-  var foo3:Int32 {
-       get {
-            return builderResult.foo3
-       }
-       set (value) {
-           builderResult.hasFoo3 = true
-           builderResult.foo3 = value
-       }
-  }
-  func setFoo3(value:Int32)-> ComplexOptionType1Builder {
-    self.foo3 = value
-    return self
-  }
-  internal func clearFoo3() -> ComplexOptionType1Builder{
-       builderResult.hasFoo3 = false
-       builderResult.foo3 = Int32(0)
-       return self
-  }
-  var foo4:Array<Int32> {
-       get {
-           return builderResult.foo4
-       }
-       set (array) {
-           builderResult.foo4 = array
-       }
-  }
-  func setFoo4(value:Array<Int32>)-> ComplexOptionType1Builder {
-    self.foo4 = value
-    return self
-  }
-  internal func clearFoo4() -> ComplexOptionType1Builder {
-     builderResult.foo4.removeAll(keepCapacity: false)
-     return self
-  }
-  override internal var internalGetResult:ExtendableMessage {
-       get {
-           return builderResult
-       }
-  }
-  internal override func clear() -> ComplexOptionType1Builder {
-    builderResult = ComplexOptionType1()
-    return self
-  }
-  internal override func clone() -> ComplexOptionType1Builder {
-    return ComplexOptionType1.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> ComplexOptionType1 {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> ComplexOptionType1 {
-    var returnMe:ComplexOptionType1 = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:ComplexOptionType1) -> ComplexOptionType1Builder {
-    if (other == ComplexOptionType1()) {
-     return self
+      if hasFoo2 {
+        output += "\(indent) foo2: \(foo2) \n"
+      }
+      if hasFoo3 {
+        output += "\(indent) foo3: \(foo3) \n"
+      }
+      var foo4ElementIndex:Int = 0
+      for oneValuefoo4 in foo4  {
+          output += "\(indent) foo4[\(foo4ElementIndex)]: \(oneValuefoo4)\n"
+          foo4ElementIndex++
+      }
+      writeExtensionDescription(&output, startInclusive:Int32(100), endExclusive:Int32(536870912), indent:indent)
+      unknownFields.writeDescriptionTo(&output, indent:indent)
     }
-    if other.hasFoo {
-         foo = other.foo
-    }
-    if other.hasFoo2 {
-         foo2 = other.foo2
-    }
-    if other.hasFoo3 {
-         foo3 = other.foo3
-    }
-    if !other.foo4.isEmpty {
-        builderResult.foo4 += other.foo4
-    }
-    mergeExtensionFields(other)
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType1Builder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType1Builder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      case 8 :
-        foo = input.readInt32()
-
-      case 16 :
-        foo2 = input.readInt32()
-
-      case 24 :
-        foo3 = input.readInt32()
-
-      case 32 :
-        foo4 += [input.readInt32()]
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            if hasFoo {
+               hashCode = (hashCode &* 31) &+ foo.hashValue
+            }
+            if hasFoo2 {
+               hashCode = (hashCode &* 31) &+ foo2.hashValue
+            }
+            if hasFoo3 {
+               hashCode = (hashCode &* 31) &+ foo3.hashValue
+            }
+            for oneValuefoo4 in foo4 {
+                hashCode = (hashCode &* 31) &+ oneValuefoo4.hashValue
+            }
+            hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(100), endExclusive:Int32(536870912)))
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
         }
-      }
     }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.ComplexOptionType1"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.ComplexOptionType1"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.ComplexOptionType1.self
+    }
+
+
+    //Meta information declaration end
+
   }
-}
 
-final internal class ComplexOptionType2 : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class ComplexOptionType1Builder : ExtendableMessageBuilder {
+    private var builderResult:ProtobufUnittest.ComplexOptionType1
 
-
-  //Nested type declaration start
-
-    final internal class ComplexOptionType4 : GeneratedMessage, GeneratedMessageProtocol {
-      private(set) var hasWaldo:Bool = false
-      private(set) var waldo:Int32 = Int32(0)
-
-      internal class func complexOpt4() -> ConcreateExtensionField {
-           return ComplexOptionType2ComplexOptionType4complexOpt4
-      }
-      required internal init() {
-           super.init()
-      }
-      override internal func isInitialized() -> Bool {
-       return true
-      }
-      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-        if hasWaldo {
-          output.writeInt32(1, value:waldo)
-        }
-        unknownFields.writeToCodedOutputStream(output)
-      }
-      override internal func serializedSize() -> Int32 {
-        var serialize_size:Int32 = memoizedSerializedSize
-        if serialize_size != -1 {
-         return serialize_size
-        }
-
-        serialize_size = 0
-        if hasWaldo {
-          serialize_size += waldo.computeInt32Size(1)
-        }
-        serialize_size += unknownFields.serializedSize()
-        memoizedSerializedSize = serialize_size
-        return serialize_size
-      }
-      internal class func parseFromData(data:NSData) -> ComplexOptionType2.ComplexOptionType4 {
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-      }
-      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4 {
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-      }
-      internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType2.ComplexOptionType4 {
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromInputStream(input).build()
-      }
-      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType2.ComplexOptionType4 {
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-      }
-      internal class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType2.ComplexOptionType4 {
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromCodedInputStream(input).build()
-      }
-      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4 {
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-      }
-      internal class func builder() -> ComplexOptionType2.ComplexOptionType4Builder {
-        return ComplexOptionType2.ComplexOptionType4.classBuilder() as ComplexOptionType2.ComplexOptionType4Builder
-      }
-      internal func builder() -> ComplexOptionType2.ComplexOptionType4Builder {
-        return classBuilder() as ComplexOptionType2.ComplexOptionType4Builder
-      }
-      internal override class func classBuilder() -> MessageBuilder {
-        return ComplexOptionType2.ComplexOptionType4Builder()
-      }
-      internal override func classBuilder() -> MessageBuilder {
-        return ComplexOptionType2.ComplexOptionType4.builder()
-      }
-      internal func toBuilder() -> ComplexOptionType2.ComplexOptionType4Builder {
-        return ComplexOptionType2.ComplexOptionType4.builderWithPrototype(self)
-      }
-      internal class func builderWithPrototype(prototype:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2.ComplexOptionType4Builder {
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFrom(prototype)
-      }
-      override internal func writeDescriptionTo(inout output:String, indent:String) {
-        if hasWaldo {
-          output += "\(indent) waldo: \(waldo) \n"
-        }
-        unknownFields.writeDescriptionTo(&output, indent:indent)
-      }
-      override internal var hashValue:Int {
-          get {
-              var hashCode:Int = 7
-              if hasWaldo {
-                 hashCode = (hashCode &* 31) &+ waldo.hashValue
-              }
-              hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-              return hashCode
-          }
-      }
-
-
-      //Meta information declaration start
-
-      override internal class func className() -> String {
-          return "ComplexOptionType2.ComplexOptionType4"
-      }
-      override internal func className() -> String {
-          return "ComplexOptionType2.ComplexOptionType4"
-      }
-      override internal func classMetaType() -> GeneratedMessage.Type {
-          return ComplexOptionType2.ComplexOptionType4.self
-      }
-
-
-      //Meta information declaration end
-
+    required override internal init () {
+       builderResult = ProtobufUnittest.ComplexOptionType1()
+       super.init()
     }
-
-    final internal class ComplexOptionType4Builder : GeneratedMessageBuilder {
-      private var builderResult:ComplexOptionType2.ComplexOptionType4
-
-      required override internal init () {
-         builderResult = ComplexOptionType2.ComplexOptionType4()
-         super.init()
-      }
-      var hasWaldo:Bool {
-           get {
-                return builderResult.hasWaldo
-           }
-      }
-      var waldo:Int32 {
-           get {
-                return builderResult.waldo
-           }
-           set (value) {
-               builderResult.hasWaldo = true
-               builderResult.waldo = value
-           }
-      }
-      func setWaldo(value:Int32)-> ComplexOptionType2.ComplexOptionType4Builder {
-        self.waldo = value
-        return self
-      }
-      internal func clearWaldo() -> ComplexOptionType2.ComplexOptionType4Builder{
-           builderResult.hasWaldo = false
-           builderResult.waldo = Int32(0)
-           return self
-      }
-      override internal var internalGetResult:GeneratedMessage {
-           get {
-              return builderResult
-           }
-      }
-      internal override func clear() -> ComplexOptionType2.ComplexOptionType4Builder {
-        builderResult = ComplexOptionType2.ComplexOptionType4()
-        return self
-      }
-      internal override func clone() -> ComplexOptionType2.ComplexOptionType4Builder {
-        return ComplexOptionType2.ComplexOptionType4.builderWithPrototype(builderResult)
-      }
-      internal override func build() -> ComplexOptionType2.ComplexOptionType4 {
-           checkInitialized()
-           return buildPartial()
-      }
-      internal func buildPartial() -> ComplexOptionType2.ComplexOptionType4 {
-        var returnMe:ComplexOptionType2.ComplexOptionType4 = builderResult
-        return returnMe
-      }
-      internal func mergeFrom(other:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2.ComplexOptionType4Builder {
-        if (other == ComplexOptionType2.ComplexOptionType4()) {
+    var hasFoo:Bool {
+         get {
+              return builderResult.hasFoo
+         }
+    }
+    var foo:Int32 {
+         get {
+              return builderResult.foo
+         }
+         set (value) {
+             builderResult.hasFoo = true
+             builderResult.foo = value
+         }
+    }
+    func setFoo(value:Int32)-> ProtobufUnittest.ComplexOptionType1Builder {
+      self.foo = value
+      return self
+    }
+    internal func clearFoo() -> ProtobufUnittest.ComplexOptionType1Builder{
+         builderResult.hasFoo = false
+         builderResult.foo = Int32(0)
          return self
-        }
-        if other.hasWaldo {
-             waldo = other.waldo
-        }
-        mergeUnknownFields(other.unknownFields)
-        return self
+    }
+    var hasFoo2:Bool {
+         get {
+              return builderResult.hasFoo2
+         }
+    }
+    var foo2:Int32 {
+         get {
+              return builderResult.foo2
+         }
+         set (value) {
+             builderResult.hasFoo2 = true
+             builderResult.foo2 = value
+         }
+    }
+    func setFoo2(value:Int32)-> ProtobufUnittest.ComplexOptionType1Builder {
+      self.foo2 = value
+      return self
+    }
+    internal func clearFoo2() -> ProtobufUnittest.ComplexOptionType1Builder{
+         builderResult.hasFoo2 = false
+         builderResult.foo2 = Int32(0)
+         return self
+    }
+    var hasFoo3:Bool {
+         get {
+              return builderResult.hasFoo3
+         }
+    }
+    var foo3:Int32 {
+         get {
+              return builderResult.foo3
+         }
+         set (value) {
+             builderResult.hasFoo3 = true
+             builderResult.foo3 = value
+         }
+    }
+    func setFoo3(value:Int32)-> ProtobufUnittest.ComplexOptionType1Builder {
+      self.foo3 = value
+      return self
+    }
+    internal func clearFoo3() -> ProtobufUnittest.ComplexOptionType1Builder{
+         builderResult.hasFoo3 = false
+         builderResult.foo3 = Int32(0)
+         return self
+    }
+    var foo4:Array<Int32> {
+         get {
+             return builderResult.foo4
+         }
+         set (array) {
+             builderResult.foo4 = array
+         }
+    }
+    func setFoo4(value:Array<Int32>)-> ProtobufUnittest.ComplexOptionType1Builder {
+      self.foo4 = value
+      return self
+    }
+    internal func clearFoo4() -> ProtobufUnittest.ComplexOptionType1Builder {
+       builderResult.foo4.removeAll(keepCapacity: false)
+       return self
+    }
+    override internal var internalGetResult:ExtendableMessage {
+         get {
+             return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.ComplexOptionType1Builder {
+      builderResult = ProtobufUnittest.ComplexOptionType1()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.ComplexOptionType1Builder {
+      return ProtobufUnittest.ComplexOptionType1.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.ComplexOptionType1 {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.ComplexOptionType1 {
+      var returnMe:ProtobufUnittest.ComplexOptionType1 = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:ComplexOptionType1) -> ComplexOptionType1Builder {
+      if (other == ProtobufUnittest.ComplexOptionType1()) {
+       return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType2.ComplexOptionType4Builder {
-           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      if other.hasFoo {
+           foo = other.foo
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-        while (true) {
-          var tag = input.readTag()
-          switch tag {
-          case 0: 
-            self.unknownFields = unknownFieldsBuilder.build()
-            return self
+      if other.hasFoo2 {
+           foo2 = other.foo2
+      }
+      if other.hasFoo3 {
+           foo3 = other.foo3
+      }
+      if !other.foo4.isEmpty {
+          builderResult.foo4 += other.foo4
+      }
+      mergeExtensionFields(other)
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.ComplexOptionType1Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType1Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-          case 8 :
-            waldo = input.readInt32()
+        case 8 :
+          foo = input.readInt32()
 
-          default:
-            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-               unknownFields = unknownFieldsBuilder.build()
-               return self
+        case 16 :
+          foo2 = input.readInt32()
+
+        case 24 :
+          foo3 = input.readInt32()
+
+        case 32 :
+          foo4 += [input.readInt32()]
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
+        }
+      }
+    }
+  }
+
+  final internal class ComplexOptionType2 : ExtendableMessage, GeneratedMessageProtocol {
+
+
+    //Nested type declaration start
+
+      final internal class ComplexOptionType4 : GeneratedMessage, GeneratedMessageProtocol {
+        private(set) var hasWaldo:Bool = false
+        private(set) var waldo:Int32 = Int32(0)
+
+        internal class func complexOpt4() -> ConcreateExtensionField {
+             return ComplexOptionType2ComplexOptionType4complexOpt4
+        }
+        required internal init() {
+             super.init()
+        }
+        override internal func isInitialized() -> Bool {
+         return true
+        }
+        override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+          if hasWaldo {
+            output.writeInt32(1, value:waldo)
+          }
+          unknownFields.writeToCodedOutputStream(output)
+        }
+        override internal func serializedSize() -> Int32 {
+          var serialize_size:Int32 = memoizedSerializedSize
+          if serialize_size != -1 {
+           return serialize_size
+          }
+
+          serialize_size = 0
+          if hasWaldo {
+            serialize_size += waldo.computeInt32Size(1)
+          }
+          serialize_size += unknownFields.serializedSize()
+          memoizedSerializedSize = serialize_size
+          return serialize_size
+        }
+        internal class func parseFromData(data:NSData) -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+        }
+        internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        }
+        internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builder().mergeFromInputStream(input).build()
+        }
+        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        }
+        internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builder().mergeFromCodedInputStream(input).build()
+        }
+        internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        }
+        internal class func builder() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.classBuilder() as ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder
+        }
+        internal func builder() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
+          return classBuilder() as ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder
+        }
+        internal override class func classBuilder() -> MessageBuilder {
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder()
+        }
+        internal override func classBuilder() -> MessageBuilder {
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builder()
+        }
+        internal func toBuilder() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builderWithPrototype(self)
+        }
+        internal class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builder().mergeFrom(prototype)
+        }
+        override internal func writeDescriptionTo(inout output:String, indent:String) {
+          if hasWaldo {
+            output += "\(indent) waldo: \(waldo) \n"
+          }
+          unknownFields.writeDescriptionTo(&output, indent:indent)
+        }
+        override internal var hashValue:Int {
+            get {
+                var hashCode:Int = 7
+                if hasWaldo {
+                   hashCode = (hashCode &* 31) &+ waldo.hashValue
+                }
+                hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+                return hashCode
+            }
+        }
+
+
+        //Meta information declaration start
+
+        override internal class func className() -> String {
+            return "ProtobufUnittest.ComplexOptionType2.ComplexOptionType4"
+        }
+        override internal func className() -> String {
+            return "ProtobufUnittest.ComplexOptionType2.ComplexOptionType4"
+        }
+        override internal func classMetaType() -> GeneratedMessage.Type {
+            return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.self
+        }
+
+
+        //Meta information declaration end
+
+      }
+
+      final internal class ComplexOptionType4Builder : GeneratedMessageBuilder {
+        private var builderResult:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4
+
+        required override internal init () {
+           builderResult = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4()
+           super.init()
+        }
+        var hasWaldo:Bool {
+             get {
+                  return builderResult.hasWaldo
+             }
+        }
+        var waldo:Int32 {
+             get {
+                  return builderResult.waldo
+             }
+             set (value) {
+                 builderResult.hasWaldo = true
+                 builderResult.waldo = value
+             }
+        }
+        func setWaldo(value:Int32)-> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
+          self.waldo = value
+          return self
+        }
+        internal func clearWaldo() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder{
+             builderResult.hasWaldo = false
+             builderResult.waldo = Int32(0)
+             return self
+        }
+        override internal var internalGetResult:GeneratedMessage {
+             get {
+                return builderResult
+             }
+        }
+        internal override func clear() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
+          builderResult = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4()
+          return self
+        }
+        internal override func clone() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builderWithPrototype(builderResult)
+        }
+        internal override func build() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+             checkInitialized()
+             return buildPartial()
+        }
+        internal func buildPartial() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+          var returnMe:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 = builderResult
+          return returnMe
+        }
+        internal func mergeFrom(other:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2.ComplexOptionType4Builder {
+          if (other == ProtobufUnittest.ComplexOptionType2.ComplexOptionType4()) {
+           return self
+          }
+          if other.hasWaldo {
+               waldo = other.waldo
+          }
+          mergeUnknownFields(other.unknownFields)
+          return self
+        }
+        internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
+             return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+        }
+        internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
+          var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          while (true) {
+            var tag = input.readTag()
+            switch tag {
+            case 0: 
+              self.unknownFields = unknownFieldsBuilder.build()
+              return self
+
+            case 8 :
+              waldo = input.readInt32()
+
+            default:
+              if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+                 unknownFields = unknownFieldsBuilder.build()
+                 return self
+              }
             }
           }
         }
       }
+
+
+
+    //Nested type declaration end
+
+    private(set) var hasBar:Bool = false
+    private(set) var bar:ProtobufUnittest.ComplexOptionType1 = ProtobufUnittest.ComplexOptionType1()
+    private(set) var hasBaz:Bool = false
+    private(set) var baz:Int32 = Int32(0)
+
+    private(set) var hasFred:Bool = false
+    private(set) var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4()
+    private(set) var barney:Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4>  = Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4>()
+    required internal init() {
+         super.init()
     }
-
-
-
-  //Nested type declaration end
-
-  private(set) var hasBar:Bool = false
-  private(set) var bar:ComplexOptionType1 = ComplexOptionType1()
-  private(set) var hasBaz:Bool = false
-  private(set) var baz:Int32 = Int32(0)
-
-  private(set) var hasFred:Bool = false
-  private(set) var fred:ComplexOptionType2.ComplexOptionType4 = ComplexOptionType2.ComplexOptionType4()
-  private(set) var barney:Array<ComplexOptionType2.ComplexOptionType4>  = Array<ComplexOptionType2.ComplexOptionType4>()
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-    if hasBar {
-     if !bar.isInitialized() {
+    override internal func isInitialized() -> Bool {
+      if hasBar {
+       if !bar.isInitialized() {
+         return false
+       }
+      }
+      if !extensionsAreInitialized() {
        return false
-     }
+      }
+     return true
     }
-    if !extensionsAreInitialized() {
-     return false
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      if hasBar {
+        output.writeMessage(1, value:bar)
+      }
+      if hasBaz {
+        output.writeInt32(2, value:baz)
+      }
+      if hasFred {
+        output.writeMessage(3, value:fred)
+      }
+      for oneElementbarney in barney {
+          output.writeMessage(4, value:oneElementbarney)
+      }
+      writeExtensionsToCodedOutputStream(output, startInclusive:Int32(100), endExclusive:Int32(536870912))
+      unknownFields.writeToCodedOutputStream(output)
     }
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    if hasBar {
-      output.writeMessage(1, value:bar)
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      if hasBar {
+        serialize_size += bar.computeMessageSize(1)
+      }
+      if hasBaz {
+        serialize_size += baz.computeInt32Size(2)
+      }
+      if hasFred {
+        serialize_size += fred.computeMessageSize(3)
+      }
+      for oneElementbarney in barney {
+          serialize_size += oneElementbarney.computeMessageSize(4)
+      }
+      serialize_size += extensionsSerializedSize()
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
     }
-    if hasBaz {
-      output.writeInt32(2, value:baz)
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.ComplexOptionType2 {
+      return ProtobufUnittest.ComplexOptionType2.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    if hasFred {
-      output.writeMessage(3, value:fred)
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType2 {
+      return ProtobufUnittest.ComplexOptionType2.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    for oneElementbarney in barney {
-        output.writeMessage(4, value:oneElementbarney)
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.ComplexOptionType2 {
+      return ProtobufUnittest.ComplexOptionType2.builder().mergeFromInputStream(input).build()
     }
-    writeExtensionsToCodedOutputStream(output, startInclusive:Int32(100), endExclusive:Int32(536870912))
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.ComplexOptionType2 {
+      return ProtobufUnittest.ComplexOptionType2.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.ComplexOptionType2 {
+      return ProtobufUnittest.ComplexOptionType2.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType2 {
+      return ProtobufUnittest.ComplexOptionType2.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.ComplexOptionType2Builder {
+      return ProtobufUnittest.ComplexOptionType2.classBuilder() as ProtobufUnittest.ComplexOptionType2Builder
+    }
+    internal func builder() -> ProtobufUnittest.ComplexOptionType2Builder {
+      return classBuilder() as ProtobufUnittest.ComplexOptionType2Builder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.ComplexOptionType2Builder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.ComplexOptionType2.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.ComplexOptionType2Builder {
+      return ProtobufUnittest.ComplexOptionType2.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType2) -> ProtobufUnittest.ComplexOptionType2Builder {
+      return ProtobufUnittest.ComplexOptionType2.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      if hasBar {
+        output += "\(indent) bar {\n"
+        bar.writeDescriptionTo(&output, indent:"\(indent)  ")
+        output += "\(indent) }\n"
+      }
+      if hasBaz {
+        output += "\(indent) baz: \(baz) \n"
+      }
+      if hasFred {
+        output += "\(indent) fred {\n"
+        fred.writeDescriptionTo(&output, indent:"\(indent)  ")
+        output += "\(indent) }\n"
+      }
+      var barneyElementIndex:Int = 0
+      for oneElementbarney in barney {
+          output += "\(indent) barney[\(barneyElementIndex)] {\n"
+          oneElementbarney.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += "\(indent)}\n"
+          barneyElementIndex++
+      }
+      writeExtensionDescription(&output, startInclusive:Int32(100), endExclusive:Int32(536870912), indent:indent)
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            if hasBar {
+              hashCode = (hashCode &* 31) &+ bar.hashValue
+            }
+            if hasBaz {
+               hashCode = (hashCode &* 31) &+ baz.hashValue
+            }
+            if hasFred {
+              hashCode = (hashCode &* 31) &+ fred.hashValue
+            }
+            for oneElementbarney in barney {
+                hashCode = (hashCode &* 31) &+ oneElementbarney.hashValue
+            }
+            hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(100), endExclusive:Int32(536870912)))
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
     }
 
-    serialize_size = 0
-    if hasBar {
-      serialize_size += bar.computeMessageSize(1)
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.ComplexOptionType2"
     }
-    if hasBaz {
-      serialize_size += baz.computeInt32Size(2)
+    override internal func className() -> String {
+        return "ProtobufUnittest.ComplexOptionType2"
     }
-    if hasFred {
-      serialize_size += fred.computeMessageSize(3)
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.ComplexOptionType2.self
     }
-    for oneElementbarney in barney {
-        serialize_size += oneElementbarney.computeMessageSize(4)
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class ComplexOptionType2Builder : ExtendableMessageBuilder {
+    private var builderResult:ProtobufUnittest.ComplexOptionType2
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.ComplexOptionType2()
+       super.init()
     }
-    serialize_size += extensionsSerializedSize()
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> ComplexOptionType2 {
-    return ComplexOptionType2.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2 {
-    return ComplexOptionType2.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType2 {
-    return ComplexOptionType2.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType2 {
-    return ComplexOptionType2.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType2 {
-    return ComplexOptionType2.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2 {
-    return ComplexOptionType2.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> ComplexOptionType2Builder {
-    return ComplexOptionType2.classBuilder() as ComplexOptionType2Builder
-  }
-  internal func builder() -> ComplexOptionType2Builder {
-    return classBuilder() as ComplexOptionType2Builder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return ComplexOptionType2Builder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return ComplexOptionType2.builder()
-  }
-  internal func toBuilder() -> ComplexOptionType2Builder {
-    return ComplexOptionType2.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:ComplexOptionType2) -> ComplexOptionType2Builder {
-    return ComplexOptionType2.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    if hasBar {
-      output += "\(indent) bar {\n"
-      bar.writeDescriptionTo(&output, indent:"\(indent)  ")
-      output += "\(indent) }\n"
+    var hasBar:Bool {
+         get {
+             return builderResult.hasBar
+         }
     }
-    if hasBaz {
-      output += "\(indent) baz: \(baz) \n"
+    var bar:ProtobufUnittest.ComplexOptionType1 {
+         get {
+             return builderResult.bar
+         }
+         set (value) {
+             builderResult.hasBar = true
+             builderResult.bar = value
+         }
     }
-    if hasFred {
-      output += "\(indent) fred {\n"
-      fred.writeDescriptionTo(&output, indent:"\(indent)  ")
-      output += "\(indent) }\n"
+    func setBar(value:ProtobufUnittest.ComplexOptionType1)-> ProtobufUnittest.ComplexOptionType2Builder {
+      self.bar = value
+      return self
     }
-    var barneyElementIndex:Int = 0
-    for oneElementbarney in barney {
-        output += "\(indent) barney[\(barneyElementIndex)] {\n"
-        oneElementbarney.writeDescriptionTo(&output, indent:"\(indent)  ")
-        output += "\(indent)}\n"
-        barneyElementIndex++
+    internal func mergeBar(value:ProtobufUnittest.ComplexOptionType1) -> ProtobufUnittest.ComplexOptionType2Builder {
+      if (builderResult.hasBar) {
+        builderResult.bar = ProtobufUnittest.ComplexOptionType1.builderWithPrototype(builderResult.bar).mergeFrom(value).buildPartial()
+      } else {
+        builderResult.bar = value
+      }
+      builderResult.hasBar = true
+      return self
     }
-    writeExtensionDescription(&output, startInclusive:Int32(100), endExclusive:Int32(536870912), indent:indent)
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
+    internal func clearBar() -> ProtobufUnittest.ComplexOptionType2Builder {
+      builderResult.hasBar = false
+      builderResult.bar = ProtobufUnittest.ComplexOptionType1()
+      return self
+    }
+    var hasBaz:Bool {
+         get {
+              return builderResult.hasBaz
+         }
+    }
+    var baz:Int32 {
+         get {
+              return builderResult.baz
+         }
+         set (value) {
+             builderResult.hasBaz = true
+             builderResult.baz = value
+         }
+    }
+    func setBaz(value:Int32)-> ProtobufUnittest.ComplexOptionType2Builder {
+      self.baz = value
+      return self
+    }
+    internal func clearBaz() -> ProtobufUnittest.ComplexOptionType2Builder{
+         builderResult.hasBaz = false
+         builderResult.baz = Int32(0)
+         return self
+    }
+    var hasFred:Bool {
+         get {
+             return builderResult.hasFred
+         }
+    }
+    var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+         get {
+             return builderResult.fred
+         }
+         set (value) {
+             builderResult.hasFred = true
+             builderResult.fred = value
+         }
+    }
+    func setFred(value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4)-> ProtobufUnittest.ComplexOptionType2Builder {
+      self.fred = value
+      return self
+    }
+    internal func mergeFred(value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) -> ProtobufUnittest.ComplexOptionType2Builder {
+      if (builderResult.hasFred) {
+        builderResult.fred = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builderWithPrototype(builderResult.fred).mergeFrom(value).buildPartial()
+      } else {
+        builderResult.fred = value
+      }
+      builderResult.hasFred = true
+      return self
+    }
+    internal func clearFred() -> ProtobufUnittest.ComplexOptionType2Builder {
+      builderResult.hasFred = false
+      builderResult.fred = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4()
+      return self
+    }
+    var barney:Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4> {
+         get {
+             return builderResult.barney
+         }
+         set (value) {
+             builderResult.barney = value
+         }
+    }
+    func setBarney(value:Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4>)-> ProtobufUnittest.ComplexOptionType2Builder {
+      self.barney = value
+      return self
+    }
+    internal func clearBarney() -> ProtobufUnittest.ComplexOptionType2Builder {
+      builderResult.barney.removeAll(keepCapacity: false)
+      return self
+    }
+    override internal var internalGetResult:ExtendableMessage {
+         get {
+             return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.ComplexOptionType2Builder {
+      builderResult = ProtobufUnittest.ComplexOptionType2()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.ComplexOptionType2Builder {
+      return ProtobufUnittest.ComplexOptionType2.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.ComplexOptionType2 {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.ComplexOptionType2 {
+      var returnMe:ProtobufUnittest.ComplexOptionType2 = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:ComplexOptionType2) -> ComplexOptionType2Builder {
+      if (other == ProtobufUnittest.ComplexOptionType2()) {
+       return self
+      }
+      if (other.hasBar) {
+          mergeBar(other.bar)
+      }
+      if other.hasBaz {
+           baz = other.baz
+      }
+      if (other.hasFred) {
+          mergeFred(other.fred)
+      }
+      if !other.barney.isEmpty  {
+         builderResult.barney += other.barney
+      }
+      mergeExtensionFields(other)
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.ComplexOptionType2Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType2Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        case 10 :
+          var subBuilder:ProtobufUnittest.ComplexOptionType1Builder = ProtobufUnittest.ComplexOptionType1.builder()
           if hasBar {
-            hashCode = (hashCode &* 31) &+ bar.hashValue
+            subBuilder.mergeFrom(bar)
           }
-          if hasBaz {
-             hashCode = (hashCode &* 31) &+ baz.hashValue
-          }
+          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+          bar = subBuilder.buildPartial()
+
+        case 16 :
+          baz = input.readInt32()
+
+        case 26 :
+          var subBuilder:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builder()
           if hasFred {
-            hashCode = (hashCode &* 31) &+ fred.hashValue
+            subBuilder.mergeFrom(fred)
           }
-          for oneElementbarney in barney {
-              hashCode = (hashCode &* 31) &+ oneElementbarney.hashValue
+          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+          fred = subBuilder.buildPartial()
+
+        case 34 :
+          var subBuilder = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builder()
+          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+          barney += [subBuilder.buildPartial()]
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
           }
-          hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(100), endExclusive:Int32(536870912)))
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "ComplexOptionType2"
-  }
-  override internal func className() -> String {
-      return "ComplexOptionType2"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return ComplexOptionType2.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class ComplexOptionType2Builder : ExtendableMessageBuilder {
-  private var builderResult:ComplexOptionType2
-
-  required override internal init () {
-     builderResult = ComplexOptionType2()
-     super.init()
-  }
-  var hasBar:Bool {
-       get {
-           return builderResult.hasBar
-       }
-  }
-  var bar:ComplexOptionType1 {
-       get {
-           return builderResult.bar
-       }
-       set (value) {
-           builderResult.hasBar = true
-           builderResult.bar = value
-       }
-  }
-  func setBar(value:ComplexOptionType1)-> ComplexOptionType2Builder {
-    self.bar = value
-    return self
-  }
-  internal func mergeBar(value:ComplexOptionType1) -> ComplexOptionType2Builder {
-    if (builderResult.hasBar) {
-      builderResult.bar = ComplexOptionType1.builderWithPrototype(builderResult.bar).mergeFrom(value).buildPartial()
-    } else {
-      builderResult.bar = value
-    }
-    builderResult.hasBar = true
-    return self
-  }
-  internal func clearBar() -> ComplexOptionType2Builder {
-    builderResult.hasBar = false
-    builderResult.bar = ComplexOptionType1()
-    return self
-  }
-  var hasBaz:Bool {
-       get {
-            return builderResult.hasBaz
-       }
-  }
-  var baz:Int32 {
-       get {
-            return builderResult.baz
-       }
-       set (value) {
-           builderResult.hasBaz = true
-           builderResult.baz = value
-       }
-  }
-  func setBaz(value:Int32)-> ComplexOptionType2Builder {
-    self.baz = value
-    return self
-  }
-  internal func clearBaz() -> ComplexOptionType2Builder{
-       builderResult.hasBaz = false
-       builderResult.baz = Int32(0)
-       return self
-  }
-  var hasFred:Bool {
-       get {
-           return builderResult.hasFred
-       }
-  }
-  var fred:ComplexOptionType2.ComplexOptionType4 {
-       get {
-           return builderResult.fred
-       }
-       set (value) {
-           builderResult.hasFred = true
-           builderResult.fred = value
-       }
-  }
-  func setFred(value:ComplexOptionType2.ComplexOptionType4)-> ComplexOptionType2Builder {
-    self.fred = value
-    return self
-  }
-  internal func mergeFred(value:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2Builder {
-    if (builderResult.hasFred) {
-      builderResult.fred = ComplexOptionType2.ComplexOptionType4.builderWithPrototype(builderResult.fred).mergeFrom(value).buildPartial()
-    } else {
-      builderResult.fred = value
-    }
-    builderResult.hasFred = true
-    return self
-  }
-  internal func clearFred() -> ComplexOptionType2Builder {
-    builderResult.hasFred = false
-    builderResult.fred = ComplexOptionType2.ComplexOptionType4()
-    return self
-  }
-  var barney:Array<ComplexOptionType2.ComplexOptionType4> {
-       get {
-           return builderResult.barney
-       }
-       set (value) {
-           builderResult.barney = value
-       }
-  }
-  func setBarney(value:Array<ComplexOptionType2.ComplexOptionType4>)-> ComplexOptionType2Builder {
-    self.barney = value
-    return self
-  }
-  internal func clearBarney() -> ComplexOptionType2Builder {
-    builderResult.barney.removeAll(keepCapacity: false)
-    return self
-  }
-  override internal var internalGetResult:ExtendableMessage {
-       get {
-           return builderResult
-       }
-  }
-  internal override func clear() -> ComplexOptionType2Builder {
-    builderResult = ComplexOptionType2()
-    return self
-  }
-  internal override func clone() -> ComplexOptionType2Builder {
-    return ComplexOptionType2.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> ComplexOptionType2 {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> ComplexOptionType2 {
-    var returnMe:ComplexOptionType2 = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:ComplexOptionType2) -> ComplexOptionType2Builder {
-    if (other == ComplexOptionType2()) {
-     return self
-    }
-    if (other.hasBar) {
-        mergeBar(other.bar)
-    }
-    if other.hasBaz {
-         baz = other.baz
-    }
-    if (other.hasFred) {
-        mergeFred(other.fred)
-    }
-    if !other.barney.isEmpty  {
-       builderResult.barney += other.barney
-    }
-    mergeExtensionFields(other)
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType2Builder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2Builder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      case 10 :
-        var subBuilder:ComplexOptionType1Builder = ComplexOptionType1.builder()
-        if hasBar {
-          subBuilder.mergeFrom(bar)
-        }
-        input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-        bar = subBuilder.buildPartial()
-
-      case 16 :
-        baz = input.readInt32()
-
-      case 26 :
-        var subBuilder:ComplexOptionType2.ComplexOptionType4Builder = ComplexOptionType2.ComplexOptionType4.builder()
-        if hasFred {
-          subBuilder.mergeFrom(fred)
-        }
-        input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-        fred = subBuilder.buildPartial()
-
-      case 34 :
-        var subBuilder = ComplexOptionType2.ComplexOptionType4.builder()
-        input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-        barney += [subBuilder.buildPartial()]
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
         }
       }
     }
   }
-}
 
-final internal class ComplexOptionType3 : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class ComplexOptionType3 : GeneratedMessage, GeneratedMessageProtocol {
 
 
-  //Nested type declaration start
+    //Nested type declaration start
 
-    final internal class ComplexOptionType5 : GeneratedMessage, GeneratedMessageProtocol {
-      private(set) var hasPlugh:Bool = false
-      private(set) var plugh:Int32 = Int32(0)
+      final internal class ComplexOptionType5 : GeneratedMessage, GeneratedMessageProtocol {
+        private(set) var hasPlugh:Bool = false
+        private(set) var plugh:Int32 = Int32(0)
 
-      required internal init() {
+        required internal init() {
+             super.init()
+        }
+        override internal func isInitialized() -> Bool {
+         return true
+        }
+        override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+          if hasPlugh {
+            output.writeInt32(3, value:plugh)
+          }
+          unknownFields.writeToCodedOutputStream(output)
+        }
+        override internal func serializedSize() -> Int32 {
+          var serialize_size:Int32 = memoizedSerializedSize
+          if serialize_size != -1 {
+           return serialize_size
+          }
+
+          serialize_size = 0
+          if hasPlugh {
+            serialize_size += plugh.computeInt32Size(3)
+          }
+          serialize_size += unknownFields.serializedSize()
+          memoizedSerializedSize = serialize_size
+          return serialize_size
+        }
+        internal class func parseFromData(data:NSData) -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+        }
+        internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        }
+        internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builder().mergeFromInputStream(input).build()
+        }
+        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        }
+        internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builder().mergeFromCodedInputStream(input).build()
+        }
+        internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        }
+        internal class func builder() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.classBuilder() as ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder
+        }
+        internal func builder() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
+          return classBuilder() as ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder
+        }
+        internal override class func classBuilder() -> MessageBuilder {
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder()
+        }
+        internal override func classBuilder() -> MessageBuilder {
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builder()
+        }
+        internal func toBuilder() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builderWithPrototype(self)
+        }
+        internal class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builder().mergeFrom(prototype)
+        }
+        override internal func writeDescriptionTo(inout output:String, indent:String) {
+          if hasPlugh {
+            output += "\(indent) plugh: \(plugh) \n"
+          }
+          unknownFields.writeDescriptionTo(&output, indent:indent)
+        }
+        override internal var hashValue:Int {
+            get {
+                var hashCode:Int = 7
+                if hasPlugh {
+                   hashCode = (hashCode &* 31) &+ plugh.hashValue
+                }
+                hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+                return hashCode
+            }
+        }
+
+
+        //Meta information declaration start
+
+        override internal class func className() -> String {
+            return "ProtobufUnittest.ComplexOptionType3.ComplexOptionType5"
+        }
+        override internal func className() -> String {
+            return "ProtobufUnittest.ComplexOptionType3.ComplexOptionType5"
+        }
+        override internal func classMetaType() -> GeneratedMessage.Type {
+            return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.self
+        }
+
+
+        //Meta information declaration end
+
+      }
+
+      final internal class ComplexOptionType5Builder : GeneratedMessageBuilder {
+        private var builderResult:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5
+
+        required override internal init () {
+           builderResult = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5()
            super.init()
-      }
-      override internal func isInitialized() -> Bool {
-       return true
-      }
-      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-        if hasPlugh {
-          output.writeInt32(3, value:plugh)
         }
-        unknownFields.writeToCodedOutputStream(output)
-      }
-      override internal func serializedSize() -> Int32 {
-        var serialize_size:Int32 = memoizedSerializedSize
-        if serialize_size != -1 {
-         return serialize_size
+        var hasPlugh:Bool {
+             get {
+                  return builderResult.hasPlugh
+             }
         }
-
-        serialize_size = 0
-        if hasPlugh {
-          serialize_size += plugh.computeInt32Size(3)
+        var plugh:Int32 {
+             get {
+                  return builderResult.plugh
+             }
+             set (value) {
+                 builderResult.hasPlugh = true
+                 builderResult.plugh = value
+             }
         }
-        serialize_size += unknownFields.serializedSize()
-        memoizedSerializedSize = serialize_size
-        return serialize_size
-      }
-      internal class func parseFromData(data:NSData) -> ComplexOptionType3.ComplexOptionType5 {
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-      }
-      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5 {
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-      }
-      internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType3.ComplexOptionType5 {
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromInputStream(input).build()
-      }
-      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType3.ComplexOptionType5 {
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-      }
-      internal class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType3.ComplexOptionType5 {
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromCodedInputStream(input).build()
-      }
-      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5 {
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-      }
-      internal class func builder() -> ComplexOptionType3.ComplexOptionType5Builder {
-        return ComplexOptionType3.ComplexOptionType5.classBuilder() as ComplexOptionType3.ComplexOptionType5Builder
-      }
-      internal func builder() -> ComplexOptionType3.ComplexOptionType5Builder {
-        return classBuilder() as ComplexOptionType3.ComplexOptionType5Builder
-      }
-      internal override class func classBuilder() -> MessageBuilder {
-        return ComplexOptionType3.ComplexOptionType5Builder()
-      }
-      internal override func classBuilder() -> MessageBuilder {
-        return ComplexOptionType3.ComplexOptionType5.builder()
-      }
-      internal func toBuilder() -> ComplexOptionType3.ComplexOptionType5Builder {
-        return ComplexOptionType3.ComplexOptionType5.builderWithPrototype(self)
-      }
-      internal class func builderWithPrototype(prototype:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3.ComplexOptionType5Builder {
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFrom(prototype)
-      }
-      override internal func writeDescriptionTo(inout output:String, indent:String) {
-        if hasPlugh {
-          output += "\(indent) plugh: \(plugh) \n"
+        func setPlugh(value:Int32)-> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
+          self.plugh = value
+          return self
         }
-        unknownFields.writeDescriptionTo(&output, indent:indent)
-      }
-      override internal var hashValue:Int {
-          get {
-              var hashCode:Int = 7
-              if hasPlugh {
-                 hashCode = (hashCode &* 31) &+ plugh.hashValue
-              }
-              hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-              return hashCode
-          }
-      }
-
-
-      //Meta information declaration start
-
-      override internal class func className() -> String {
-          return "ComplexOptionType3.ComplexOptionType5"
-      }
-      override internal func className() -> String {
-          return "ComplexOptionType3.ComplexOptionType5"
-      }
-      override internal func classMetaType() -> GeneratedMessage.Type {
-          return ComplexOptionType3.ComplexOptionType5.self
-      }
-
-
-      //Meta information declaration end
-
-    }
-
-    final internal class ComplexOptionType5Builder : GeneratedMessageBuilder {
-      private var builderResult:ComplexOptionType3.ComplexOptionType5
-
-      required override internal init () {
-         builderResult = ComplexOptionType3.ComplexOptionType5()
-         super.init()
-      }
-      var hasPlugh:Bool {
-           get {
-                return builderResult.hasPlugh
-           }
-      }
-      var plugh:Int32 {
-           get {
-                return builderResult.plugh
-           }
-           set (value) {
-               builderResult.hasPlugh = true
-               builderResult.plugh = value
-           }
-      }
-      func setPlugh(value:Int32)-> ComplexOptionType3.ComplexOptionType5Builder {
-        self.plugh = value
-        return self
-      }
-      internal func clearPlugh() -> ComplexOptionType3.ComplexOptionType5Builder{
-           builderResult.hasPlugh = false
-           builderResult.plugh = Int32(0)
+        internal func clearPlugh() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder{
+             builderResult.hasPlugh = false
+             builderResult.plugh = Int32(0)
+             return self
+        }
+        override internal var internalGetResult:GeneratedMessage {
+             get {
+                return builderResult
+             }
+        }
+        internal override func clear() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
+          builderResult = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5()
+          return self
+        }
+        internal override func clone() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builderWithPrototype(builderResult)
+        }
+        internal override func build() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+             checkInitialized()
+             return buildPartial()
+        }
+        internal func buildPartial() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+          var returnMe:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 = builderResult
+          return returnMe
+        }
+        internal func mergeFrom(other:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3.ComplexOptionType5Builder {
+          if (other == ProtobufUnittest.ComplexOptionType3.ComplexOptionType5()) {
            return self
-      }
-      override internal var internalGetResult:GeneratedMessage {
-           get {
-              return builderResult
-           }
-      }
-      internal override func clear() -> ComplexOptionType3.ComplexOptionType5Builder {
-        builderResult = ComplexOptionType3.ComplexOptionType5()
-        return self
-      }
-      internal override func clone() -> ComplexOptionType3.ComplexOptionType5Builder {
-        return ComplexOptionType3.ComplexOptionType5.builderWithPrototype(builderResult)
-      }
-      internal override func build() -> ComplexOptionType3.ComplexOptionType5 {
-           checkInitialized()
-           return buildPartial()
-      }
-      internal func buildPartial() -> ComplexOptionType3.ComplexOptionType5 {
-        var returnMe:ComplexOptionType3.ComplexOptionType5 = builderResult
-        return returnMe
-      }
-      internal func mergeFrom(other:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3.ComplexOptionType5Builder {
-        if (other == ComplexOptionType3.ComplexOptionType5()) {
-         return self
+          }
+          if other.hasPlugh {
+               plugh = other.plugh
+          }
+          mergeUnknownFields(other.unknownFields)
+          return self
         }
-        if other.hasPlugh {
-             plugh = other.plugh
+        internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
+             return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
         }
-        mergeUnknownFields(other.unknownFields)
-        return self
-      }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType3.ComplexOptionType5Builder {
-           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-      }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-        while (true) {
-          var tag = input.readTag()
-          switch tag {
-          case 0: 
-            self.unknownFields = unknownFieldsBuilder.build()
-            return self
+        internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
+          var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          while (true) {
+            var tag = input.readTag()
+            switch tag {
+            case 0: 
+              self.unknownFields = unknownFieldsBuilder.build()
+              return self
 
-          case 24 :
-            plugh = input.readInt32()
+            case 24 :
+              plugh = input.readInt32()
 
-          default:
-            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-               unknownFields = unknownFieldsBuilder.build()
-               return self
+            default:
+              if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+                 unknownFields = unknownFieldsBuilder.build()
+                 return self
+              }
             }
           }
         }
       }
+
+
+
+    //Nested type declaration end
+
+    private(set) var hasQux:Bool = false
+    private(set) var qux:Int32 = Int32(0)
+
+    private(set) var hasComplexOptionType5:Bool = false
+    private(set) var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5()
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      if hasQux {
+        output.writeInt32(1, value:qux)
+      }
+      if hasComplexOptionType5 {
+        output.writeGroup(2, value:complexOptionType5)
+      }
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      if hasQux {
+        serialize_size += qux.computeInt32Size(1)
+      }
+      if hasComplexOptionType5 {
+        serialize_size += complexOptionType5.computeGroupSize(2)
+      }
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.ComplexOptionType3 {
+      return ProtobufUnittest.ComplexOptionType3.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType3 {
+      return ProtobufUnittest.ComplexOptionType3.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.ComplexOptionType3 {
+      return ProtobufUnittest.ComplexOptionType3.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.ComplexOptionType3 {
+      return ProtobufUnittest.ComplexOptionType3.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.ComplexOptionType3 {
+      return ProtobufUnittest.ComplexOptionType3.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType3 {
+      return ProtobufUnittest.ComplexOptionType3.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.ComplexOptionType3Builder {
+      return ProtobufUnittest.ComplexOptionType3.classBuilder() as ProtobufUnittest.ComplexOptionType3Builder
+    }
+    internal func builder() -> ProtobufUnittest.ComplexOptionType3Builder {
+      return classBuilder() as ProtobufUnittest.ComplexOptionType3Builder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.ComplexOptionType3Builder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.ComplexOptionType3.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.ComplexOptionType3Builder {
+      return ProtobufUnittest.ComplexOptionType3.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType3) -> ProtobufUnittest.ComplexOptionType3Builder {
+      return ProtobufUnittest.ComplexOptionType3.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      if hasQux {
+        output += "\(indent) qux: \(qux) \n"
+      }
+      if hasComplexOptionType5 {
+        output += "\(indent) complexOptionType5 {\n"
+        complexOptionType5.writeDescriptionTo(&output, indent:"\(indent)  ")
+        output += "\(indent) }\n"
+      }
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            if hasQux {
+               hashCode = (hashCode &* 31) &+ qux.hashValue
+            }
+            if hasComplexOptionType5 {
+              hashCode = (hashCode &* 31) &+ complexOptionType5.hashValue
+            }
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
     }
 
 
+    //Meta information declaration start
 
-  //Nested type declaration end
+    override internal class func className() -> String {
+        return "ProtobufUnittest.ComplexOptionType3"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.ComplexOptionType3"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.ComplexOptionType3.self
+    }
 
-  private(set) var hasQux:Bool = false
-  private(set) var qux:Int32 = Int32(0)
 
-  private(set) var hasComplexOptionType5:Bool = false
-  private(set) var complexOptionType5:ComplexOptionType3.ComplexOptionType5 = ComplexOptionType3.ComplexOptionType5()
-  required internal init() {
+    //Meta information declaration end
+
+  }
+
+  final internal class ComplexOptionType3Builder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.ComplexOptionType3
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.ComplexOptionType3()
        super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    if hasQux {
-      output.writeInt32(1, value:qux)
     }
-    if hasComplexOptionType5 {
-      output.writeGroup(2, value:complexOptionType5)
+    var hasQux:Bool {
+         get {
+              return builderResult.hasQux
+         }
     }
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
+    var qux:Int32 {
+         get {
+              return builderResult.qux
+         }
+         set (value) {
+             builderResult.hasQux = true
+             builderResult.qux = value
+         }
     }
+    func setQux(value:Int32)-> ProtobufUnittest.ComplexOptionType3Builder {
+      self.qux = value
+      return self
+    }
+    internal func clearQux() -> ProtobufUnittest.ComplexOptionType3Builder{
+         builderResult.hasQux = false
+         builderResult.qux = Int32(0)
+         return self
+    }
+    var hasComplexOptionType5:Bool {
+         get {
+             return builderResult.hasComplexOptionType5
+         }
+    }
+    var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+         get {
+             return builderResult.complexOptionType5
+         }
+         set (value) {
+             builderResult.hasComplexOptionType5 = true
+             builderResult.complexOptionType5 = value
+         }
+    }
+    func setComplexOptionType5(value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5)-> ProtobufUnittest.ComplexOptionType3Builder {
+      self.complexOptionType5 = value
+      return self
+    }
+    internal func mergeComplexOptionType5(value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) -> ProtobufUnittest.ComplexOptionType3Builder {
+      if (builderResult.hasComplexOptionType5) {
+        builderResult.complexOptionType5 = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builderWithPrototype(builderResult.complexOptionType5).mergeFrom(value).buildPartial()
+      } else {
+        builderResult.complexOptionType5 = value
+      }
+      builderResult.hasComplexOptionType5 = true
+      return self
+    }
+    internal func clearComplexOptionType5() -> ProtobufUnittest.ComplexOptionType3Builder {
+      builderResult.hasComplexOptionType5 = false
+      builderResult.complexOptionType5 = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5()
+      return self
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.ComplexOptionType3Builder {
+      builderResult = ProtobufUnittest.ComplexOptionType3()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.ComplexOptionType3Builder {
+      return ProtobufUnittest.ComplexOptionType3.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.ComplexOptionType3 {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.ComplexOptionType3 {
+      var returnMe:ProtobufUnittest.ComplexOptionType3 = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:ComplexOptionType3) -> ComplexOptionType3Builder {
+      if (other == ProtobufUnittest.ComplexOptionType3()) {
+       return self
+      }
+      if other.hasQux {
+           qux = other.qux
+      }
+      if (other.hasComplexOptionType5) {
+          mergeComplexOptionType5(other.complexOptionType5)
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.ComplexOptionType3Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOptionType3Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-    serialize_size = 0
-    if hasQux {
-      serialize_size += qux.computeInt32Size(1)
-    }
-    if hasComplexOptionType5 {
-      serialize_size += complexOptionType5.computeGroupSize(2)
-    }
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> ComplexOptionType3 {
-    return ComplexOptionType3.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3 {
-    return ComplexOptionType3.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType3 {
-    return ComplexOptionType3.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType3 {
-    return ComplexOptionType3.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType3 {
-    return ComplexOptionType3.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3 {
-    return ComplexOptionType3.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> ComplexOptionType3Builder {
-    return ComplexOptionType3.classBuilder() as ComplexOptionType3Builder
-  }
-  internal func builder() -> ComplexOptionType3Builder {
-    return classBuilder() as ComplexOptionType3Builder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return ComplexOptionType3Builder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return ComplexOptionType3.builder()
-  }
-  internal func toBuilder() -> ComplexOptionType3Builder {
-    return ComplexOptionType3.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:ComplexOptionType3) -> ComplexOptionType3Builder {
-    return ComplexOptionType3.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    if hasQux {
-      output += "\(indent) qux: \(qux) \n"
-    }
-    if hasComplexOptionType5 {
-      output += "\(indent) complexOptionType5 {\n"
-      complexOptionType5.writeDescriptionTo(&output, indent:"\(indent)  ")
-      output += "\(indent) }\n"
-    }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          if hasQux {
-             hashCode = (hashCode &* 31) &+ qux.hashValue
-          }
+        case 8 :
+          qux = input.readInt32()
+
+        case 19 :
+          var subBuilder:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builder()
           if hasComplexOptionType5 {
-            hashCode = (hashCode &* 31) &+ complexOptionType5.hashValue
+            subBuilder.mergeFrom(complexOptionType5)
           }
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
+          input.readGroup(2, builder:subBuilder, extensionRegistry:extensionRegistry)
+          complexOptionType5 = subBuilder.buildPartial()
 
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "ComplexOptionType3"
-  }
-  override internal func className() -> String {
-      return "ComplexOptionType3"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return ComplexOptionType3.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class ComplexOptionType3Builder : GeneratedMessageBuilder {
-  private var builderResult:ComplexOptionType3
-
-  required override internal init () {
-     builderResult = ComplexOptionType3()
-     super.init()
-  }
-  var hasQux:Bool {
-       get {
-            return builderResult.hasQux
-       }
-  }
-  var qux:Int32 {
-       get {
-            return builderResult.qux
-       }
-       set (value) {
-           builderResult.hasQux = true
-           builderResult.qux = value
-       }
-  }
-  func setQux(value:Int32)-> ComplexOptionType3Builder {
-    self.qux = value
-    return self
-  }
-  internal func clearQux() -> ComplexOptionType3Builder{
-       builderResult.hasQux = false
-       builderResult.qux = Int32(0)
-       return self
-  }
-  var hasComplexOptionType5:Bool {
-       get {
-           return builderResult.hasComplexOptionType5
-       }
-  }
-  var complexOptionType5:ComplexOptionType3.ComplexOptionType5 {
-       get {
-           return builderResult.complexOptionType5
-       }
-       set (value) {
-           builderResult.hasComplexOptionType5 = true
-           builderResult.complexOptionType5 = value
-       }
-  }
-  func setComplexOptionType5(value:ComplexOptionType3.ComplexOptionType5)-> ComplexOptionType3Builder {
-    self.complexOptionType5 = value
-    return self
-  }
-  internal func mergeComplexOptionType5(value:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3Builder {
-    if (builderResult.hasComplexOptionType5) {
-      builderResult.complexOptionType5 = ComplexOptionType3.ComplexOptionType5.builderWithPrototype(builderResult.complexOptionType5).mergeFrom(value).buildPartial()
-    } else {
-      builderResult.complexOptionType5 = value
-    }
-    builderResult.hasComplexOptionType5 = true
-    return self
-  }
-  internal func clearComplexOptionType5() -> ComplexOptionType3Builder {
-    builderResult.hasComplexOptionType5 = false
-    builderResult.complexOptionType5 = ComplexOptionType3.ComplexOptionType5()
-    return self
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> ComplexOptionType3Builder {
-    builderResult = ComplexOptionType3()
-    return self
-  }
-  internal override func clone() -> ComplexOptionType3Builder {
-    return ComplexOptionType3.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> ComplexOptionType3 {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> ComplexOptionType3 {
-    var returnMe:ComplexOptionType3 = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:ComplexOptionType3) -> ComplexOptionType3Builder {
-    if (other == ComplexOptionType3()) {
-     return self
-    }
-    if other.hasQux {
-         qux = other.qux
-    }
-    if (other.hasComplexOptionType5) {
-        mergeComplexOptionType5(other.complexOptionType5)
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType3Builder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3Builder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      case 8 :
-        qux = input.readInt32()
-
-      case 19 :
-        var subBuilder:ComplexOptionType3.ComplexOptionType5Builder = ComplexOptionType3.ComplexOptionType5.builder()
-        if hasComplexOptionType5 {
-          subBuilder.mergeFrom(complexOptionType5)
-        }
-        input.readGroup(2, builder:subBuilder, extensionRegistry:extensionRegistry)
-        complexOptionType5 = subBuilder.buildPartial()
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
-        }
-      }
-    }
-  }
-}
-
-final internal class ComplexOpt6 : GeneratedMessage, GeneratedMessageProtocol {
-  private(set) var hasXyzzy:Bool = false
-  private(set) var xyzzy:Int32 = Int32(0)
-
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    if hasXyzzy {
-      output.writeInt32(7593951, value:xyzzy)
-    }
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
-    }
-
-    serialize_size = 0
-    if hasXyzzy {
-      serialize_size += xyzzy.computeInt32Size(7593951)
-    }
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> ComplexOpt6 {
-    return ComplexOpt6.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ComplexOpt6 {
-    return ComplexOpt6.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> ComplexOpt6 {
-    return ComplexOpt6.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOpt6 {
-    return ComplexOpt6.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOpt6 {
-    return ComplexOpt6.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOpt6 {
-    return ComplexOpt6.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> ComplexOpt6Builder {
-    return ComplexOpt6.classBuilder() as ComplexOpt6Builder
-  }
-  internal func builder() -> ComplexOpt6Builder {
-    return classBuilder() as ComplexOpt6Builder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return ComplexOpt6Builder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return ComplexOpt6.builder()
-  }
-  internal func toBuilder() -> ComplexOpt6Builder {
-    return ComplexOpt6.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:ComplexOpt6) -> ComplexOpt6Builder {
-    return ComplexOpt6.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    if hasXyzzy {
-      output += "\(indent) xyzzy: \(xyzzy) \n"
-    }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          if hasXyzzy {
-             hashCode = (hashCode &* 31) &+ xyzzy.hashValue
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
           }
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "ComplexOpt6"
-  }
-  override internal func className() -> String {
-      return "ComplexOpt6"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return ComplexOpt6.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class ComplexOpt6Builder : GeneratedMessageBuilder {
-  private var builderResult:ComplexOpt6
-
-  required override internal init () {
-     builderResult = ComplexOpt6()
-     super.init()
-  }
-  var hasXyzzy:Bool {
-       get {
-            return builderResult.hasXyzzy
-       }
-  }
-  var xyzzy:Int32 {
-       get {
-            return builderResult.xyzzy
-       }
-       set (value) {
-           builderResult.hasXyzzy = true
-           builderResult.xyzzy = value
-       }
-  }
-  func setXyzzy(value:Int32)-> ComplexOpt6Builder {
-    self.xyzzy = value
-    return self
-  }
-  internal func clearXyzzy() -> ComplexOpt6Builder{
-       builderResult.hasXyzzy = false
-       builderResult.xyzzy = Int32(0)
-       return self
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> ComplexOpt6Builder {
-    builderResult = ComplexOpt6()
-    return self
-  }
-  internal override func clone() -> ComplexOpt6Builder {
-    return ComplexOpt6.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> ComplexOpt6 {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> ComplexOpt6 {
-    var returnMe:ComplexOpt6 = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:ComplexOpt6) -> ComplexOpt6Builder {
-    if (other == ComplexOpt6()) {
-     return self
-    }
-    if other.hasXyzzy {
-         xyzzy = other.xyzzy
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOpt6Builder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOpt6Builder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      case 60751608 :
-        xyzzy = input.readInt32()
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
         }
       }
     }
   }
-}
 
-final internal class VariousComplexOptions : GeneratedMessage, GeneratedMessageProtocol {
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
-    }
+  final internal class ComplexOpt6 : GeneratedMessage, GeneratedMessageProtocol {
+    private(set) var hasXyzzy:Bool = false
+    private(set) var xyzzy:Int32 = Int32(0)
 
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> VariousComplexOptions {
-    return VariousComplexOptions.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> VariousComplexOptions {
-    return VariousComplexOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> VariousComplexOptions {
-    return VariousComplexOptions.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->VariousComplexOptions {
-    return VariousComplexOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> VariousComplexOptions {
-    return VariousComplexOptions.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> VariousComplexOptions {
-    return VariousComplexOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> VariousComplexOptionsBuilder {
-    return VariousComplexOptions.classBuilder() as VariousComplexOptionsBuilder
-  }
-  internal func builder() -> VariousComplexOptionsBuilder {
-    return classBuilder() as VariousComplexOptionsBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return VariousComplexOptionsBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return VariousComplexOptions.builder()
-  }
-  internal func toBuilder() -> VariousComplexOptionsBuilder {
-    return VariousComplexOptions.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:VariousComplexOptions) -> VariousComplexOptionsBuilder {
-    return VariousComplexOptions.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "VariousComplexOptions"
-  }
-  override internal func className() -> String {
-      return "VariousComplexOptions"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return VariousComplexOptions.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class VariousComplexOptionsBuilder : GeneratedMessageBuilder {
-  private var builderResult:VariousComplexOptions
-
-  required override internal init () {
-     builderResult = VariousComplexOptions()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> VariousComplexOptionsBuilder {
-    builderResult = VariousComplexOptions()
-    return self
-  }
-  internal override func clone() -> VariousComplexOptionsBuilder {
-    return VariousComplexOptions.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> VariousComplexOptions {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> VariousComplexOptions {
-    var returnMe:VariousComplexOptions = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:VariousComplexOptions) -> VariousComplexOptionsBuilder {
-    if (other == VariousComplexOptions()) {
-     return self
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->VariousComplexOptionsBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> VariousComplexOptionsBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
-        }
-      }
-    }
-  }
-}
-
-final internal class AggregateMessageSet : ExtendableMessage, GeneratedMessageProtocol {
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-    if !extensionsAreInitialized() {
-     return false
-    }
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    writeExtensionsToCodedOutputStream(output, startInclusive:Int32(4), endExclusive:Int32(2147483647))
-    unknownFields.writeAsMessageSetTo(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
-    }
-
-    serialize_size = 0
-    serialize_size += extensionsSerializedSize()
-    serialize_size += unknownFields.serializedSizeAsMessageSet()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> AggregateMessageSet {
-    return AggregateMessageSet.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> AggregateMessageSet {
-    return AggregateMessageSet.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> AggregateMessageSet {
-    return AggregateMessageSet.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AggregateMessageSet {
-    return AggregateMessageSet.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> AggregateMessageSet {
-    return AggregateMessageSet.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageSet {
-    return AggregateMessageSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> AggregateMessageSetBuilder {
-    return AggregateMessageSet.classBuilder() as AggregateMessageSetBuilder
-  }
-  internal func builder() -> AggregateMessageSetBuilder {
-    return classBuilder() as AggregateMessageSetBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return AggregateMessageSetBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return AggregateMessageSet.builder()
-  }
-  internal func toBuilder() -> AggregateMessageSetBuilder {
-    return AggregateMessageSet.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:AggregateMessageSet) -> AggregateMessageSetBuilder {
-    return AggregateMessageSet.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    writeExtensionDescription(&output, startInclusive:Int32(4), endExclusive:Int32(2147483647), indent:indent)
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(4), endExclusive:Int32(2147483647)))
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "AggregateMessageSet"
-  }
-  override internal func className() -> String {
-      return "AggregateMessageSet"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return AggregateMessageSet.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class AggregateMessageSetBuilder : ExtendableMessageBuilder {
-  private var builderResult:AggregateMessageSet
-
-  required override internal init () {
-     builderResult = AggregateMessageSet()
-     super.init()
-  }
-  override internal var internalGetResult:ExtendableMessage {
-       get {
-           return builderResult
-       }
-  }
-  internal override func clear() -> AggregateMessageSetBuilder {
-    builderResult = AggregateMessageSet()
-    return self
-  }
-  internal override func clone() -> AggregateMessageSetBuilder {
-    return AggregateMessageSet.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> AggregateMessageSet {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> AggregateMessageSet {
-    var returnMe:AggregateMessageSet = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:AggregateMessageSet) -> AggregateMessageSetBuilder {
-    if (other == AggregateMessageSet()) {
-     return self
-    }
-    mergeExtensionFields(other)
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->AggregateMessageSetBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
-        }
-      }
-    }
-  }
-}
-
-final internal class AggregateMessageSetElement : GeneratedMessage, GeneratedMessageProtocol {
-  private(set) var hasS:Bool = false
-  private(set) var s:String = ""
-
-  internal class func messageSetExtension() -> ConcreateExtensionField {
-       return AggregateMessageSetElementmessageSetExtension
-  }
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    if hasS {
-      output.writeString(1, value:s)
-    }
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
-    }
-
-    serialize_size = 0
-    if hasS {
-      serialize_size += s.computeStringSize(1)
-    }
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> AggregateMessageSetElement {
-    return AggregateMessageSetElement.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElement {
-    return AggregateMessageSetElement.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> AggregateMessageSetElement {
-    return AggregateMessageSetElement.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AggregateMessageSetElement {
-    return AggregateMessageSetElement.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> AggregateMessageSetElement {
-    return AggregateMessageSetElement.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElement {
-    return AggregateMessageSetElement.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> AggregateMessageSetElementBuilder {
-    return AggregateMessageSetElement.classBuilder() as AggregateMessageSetElementBuilder
-  }
-  internal func builder() -> AggregateMessageSetElementBuilder {
-    return classBuilder() as AggregateMessageSetElementBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return AggregateMessageSetElementBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return AggregateMessageSetElement.builder()
-  }
-  internal func toBuilder() -> AggregateMessageSetElementBuilder {
-    return AggregateMessageSetElement.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:AggregateMessageSetElement) -> AggregateMessageSetElementBuilder {
-    return AggregateMessageSetElement.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    if hasS {
-      output += "\(indent) s: \(s) \n"
-    }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          if hasS {
-             hashCode = (hashCode &* 31) &+ s.hashValue
-          }
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "AggregateMessageSetElement"
-  }
-  override internal func className() -> String {
-      return "AggregateMessageSetElement"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return AggregateMessageSetElement.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
-  private var builderResult:AggregateMessageSetElement
-
-  required override internal init () {
-     builderResult = AggregateMessageSetElement()
-     super.init()
-  }
-  var hasS:Bool {
-       get {
-            return builderResult.hasS
-       }
-  }
-  var s:String {
-       get {
-            return builderResult.s
-       }
-       set (value) {
-           builderResult.hasS = true
-           builderResult.s = value
-       }
-  }
-  func setS(value:String)-> AggregateMessageSetElementBuilder {
-    self.s = value
-    return self
-  }
-  internal func clearS() -> AggregateMessageSetElementBuilder{
-       builderResult.hasS = false
-       builderResult.s = ""
-       return self
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> AggregateMessageSetElementBuilder {
-    builderResult = AggregateMessageSetElement()
-    return self
-  }
-  internal override func clone() -> AggregateMessageSetElementBuilder {
-    return AggregateMessageSetElement.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> AggregateMessageSetElement {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> AggregateMessageSetElement {
-    var returnMe:AggregateMessageSetElement = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:AggregateMessageSetElement) -> AggregateMessageSetElementBuilder {
-    if (other == AggregateMessageSetElement()) {
-     return self
-    }
-    if other.hasS {
-         s = other.s
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->AggregateMessageSetElementBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElementBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      case 10 :
-        s = input.readString()
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
-        }
-      }
-    }
-  }
-}
-
-final internal class Aggregate : GeneratedMessage, GeneratedMessageProtocol {
-  private(set) var hasI:Bool = false
-  private(set) var i:Int32 = Int32(0)
-
-  private(set) var hasS:Bool = false
-  private(set) var s:String = ""
-
-  private(set) var hasSub:Bool = false
-  private(set) var sub:Aggregate = Aggregate()
-  private(set) var hasFile:Bool = false
-  private(set) var file:PBFileOptions = PBFileOptions()
-  private(set) var hasMset:Bool = false
-  private(set) var mset:AggregateMessageSet = AggregateMessageSet()
-  internal class func nested() -> ConcreateExtensionField {
-       return Aggregatenested
-  }
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-    if hasSub {
-     if !sub.isInitialized() {
-       return false
-     }
-    }
-    if hasFile {
-     if !file.isInitialized() {
-       return false
-     }
-    }
-    if hasMset {
-     if !mset.isInitialized() {
-       return false
-     }
-    }
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    if hasI {
-      output.writeInt32(1, value:i)
-    }
-    if hasS {
-      output.writeString(2, value:s)
-    }
-    if hasSub {
-      output.writeMessage(3, value:sub)
-    }
-    if hasFile {
-      output.writeMessage(4, value:file)
-    }
-    if hasMset {
-      output.writeMessage(5, value:mset)
-    }
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
-    }
-
-    serialize_size = 0
-    if hasI {
-      serialize_size += i.computeInt32Size(1)
-    }
-    if hasS {
-      serialize_size += s.computeStringSize(2)
-    }
-    if hasSub {
-      serialize_size += sub.computeMessageSize(3)
-    }
-    if hasFile {
-      serialize_size += file.computeMessageSize(4)
-    }
-    if hasMset {
-      serialize_size += mset.computeMessageSize(5)
-    }
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> Aggregate {
-    return Aggregate.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Aggregate {
-    return Aggregate.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> Aggregate {
-    return Aggregate.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Aggregate {
-    return Aggregate.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> Aggregate {
-    return Aggregate.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Aggregate {
-    return Aggregate.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> AggregateBuilder {
-    return Aggregate.classBuilder() as AggregateBuilder
-  }
-  internal func builder() -> AggregateBuilder {
-    return classBuilder() as AggregateBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return AggregateBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return Aggregate.builder()
-  }
-  internal func toBuilder() -> AggregateBuilder {
-    return Aggregate.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:Aggregate) -> AggregateBuilder {
-    return Aggregate.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    if hasI {
-      output += "\(indent) i: \(i) \n"
-    }
-    if hasS {
-      output += "\(indent) s: \(s) \n"
-    }
-    if hasSub {
-      output += "\(indent) sub {\n"
-      sub.writeDescriptionTo(&output, indent:"\(indent)  ")
-      output += "\(indent) }\n"
-    }
-    if hasFile {
-      output += "\(indent) file {\n"
-      file.writeDescriptionTo(&output, indent:"\(indent)  ")
-      output += "\(indent) }\n"
-    }
-    if hasMset {
-      output += "\(indent) mset {\n"
-      mset.writeDescriptionTo(&output, indent:"\(indent)  ")
-      output += "\(indent) }\n"
-    }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          if hasI {
-             hashCode = (hashCode &* 31) &+ i.hashValue
-          }
-          if hasS {
-             hashCode = (hashCode &* 31) &+ s.hashValue
-          }
-          if hasSub {
-            hashCode = (hashCode &* 31) &+ sub.hashValue
-          }
-          if hasFile {
-            hashCode = (hashCode &* 31) &+ file.hashValue
-          }
-          if hasMset {
-            hashCode = (hashCode &* 31) &+ mset.hashValue
-          }
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "Aggregate"
-  }
-  override internal func className() -> String {
-      return "Aggregate"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return Aggregate.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class AggregateBuilder : GeneratedMessageBuilder {
-  private var builderResult:Aggregate
-
-  required override internal init () {
-     builderResult = Aggregate()
-     super.init()
-  }
-  var hasI:Bool {
-       get {
-            return builderResult.hasI
-       }
-  }
-  var i:Int32 {
-       get {
-            return builderResult.i
-       }
-       set (value) {
-           builderResult.hasI = true
-           builderResult.i = value
-       }
-  }
-  func setI(value:Int32)-> AggregateBuilder {
-    self.i = value
-    return self
-  }
-  internal func clearI() -> AggregateBuilder{
-       builderResult.hasI = false
-       builderResult.i = Int32(0)
-       return self
-  }
-  var hasS:Bool {
-       get {
-            return builderResult.hasS
-       }
-  }
-  var s:String {
-       get {
-            return builderResult.s
-       }
-       set (value) {
-           builderResult.hasS = true
-           builderResult.s = value
-       }
-  }
-  func setS(value:String)-> AggregateBuilder {
-    self.s = value
-    return self
-  }
-  internal func clearS() -> AggregateBuilder{
-       builderResult.hasS = false
-       builderResult.s = ""
-       return self
-  }
-  var hasSub:Bool {
-       get {
-           return builderResult.hasSub
-       }
-  }
-  var sub:Aggregate {
-       get {
-           return builderResult.sub
-       }
-       set (value) {
-           builderResult.hasSub = true
-           builderResult.sub = value
-       }
-  }
-  func setSub(value:Aggregate)-> AggregateBuilder {
-    self.sub = value
-    return self
-  }
-  internal func mergeSub(value:Aggregate) -> AggregateBuilder {
-    if (builderResult.hasSub) {
-      builderResult.sub = Aggregate.builderWithPrototype(builderResult.sub).mergeFrom(value).buildPartial()
-    } else {
-      builderResult.sub = value
-    }
-    builderResult.hasSub = true
-    return self
-  }
-  internal func clearSub() -> AggregateBuilder {
-    builderResult.hasSub = false
-    builderResult.sub = Aggregate()
-    return self
-  }
-  var hasFile:Bool {
-       get {
-           return builderResult.hasFile
-       }
-  }
-  var file:PBFileOptions {
-       get {
-           return builderResult.file
-       }
-       set (value) {
-           builderResult.hasFile = true
-           builderResult.file = value
-       }
-  }
-  func setFile(value:PBFileOptions)-> AggregateBuilder {
-    self.file = value
-    return self
-  }
-  internal func mergeFile(value:PBFileOptions) -> AggregateBuilder {
-    if (builderResult.hasFile) {
-      builderResult.file = PBFileOptions.builderWithPrototype(builderResult.file).mergeFrom(value).buildPartial()
-    } else {
-      builderResult.file = value
-    }
-    builderResult.hasFile = true
-    return self
-  }
-  internal func clearFile() -> AggregateBuilder {
-    builderResult.hasFile = false
-    builderResult.file = PBFileOptions()
-    return self
-  }
-  var hasMset:Bool {
-       get {
-           return builderResult.hasMset
-       }
-  }
-  var mset:AggregateMessageSet {
-       get {
-           return builderResult.mset
-       }
-       set (value) {
-           builderResult.hasMset = true
-           builderResult.mset = value
-       }
-  }
-  func setMset(value:AggregateMessageSet)-> AggregateBuilder {
-    self.mset = value
-    return self
-  }
-  internal func mergeMset(value:AggregateMessageSet) -> AggregateBuilder {
-    if (builderResult.hasMset) {
-      builderResult.mset = AggregateMessageSet.builderWithPrototype(builderResult.mset).mergeFrom(value).buildPartial()
-    } else {
-      builderResult.mset = value
-    }
-    builderResult.hasMset = true
-    return self
-  }
-  internal func clearMset() -> AggregateBuilder {
-    builderResult.hasMset = false
-    builderResult.mset = AggregateMessageSet()
-    return self
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> AggregateBuilder {
-    builderResult = Aggregate()
-    return self
-  }
-  internal override func clone() -> AggregateBuilder {
-    return Aggregate.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> Aggregate {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> Aggregate {
-    var returnMe:Aggregate = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:Aggregate) -> AggregateBuilder {
-    if (other == Aggregate()) {
-     return self
-    }
-    if other.hasI {
-         i = other.i
-    }
-    if other.hasS {
-         s = other.s
-    }
-    if (other.hasSub) {
-        mergeSub(other.sub)
-    }
-    if (other.hasFile) {
-        mergeFile(other.file)
-    }
-    if (other.hasMset) {
-        mergeMset(other.mset)
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->AggregateBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      case 8 :
-        i = input.readInt32()
-
-      case 18 :
-        s = input.readString()
-
-      case 26 :
-        var subBuilder:AggregateBuilder = Aggregate.builder()
-        if hasSub {
-          subBuilder.mergeFrom(sub)
-        }
-        input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-        sub = subBuilder.buildPartial()
-
-      case 34 :
-        var subBuilder:PBFileOptionsBuilder = PBFileOptions.builder()
-        if hasFile {
-          subBuilder.mergeFrom(file)
-        }
-        input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-        file = subBuilder.buildPartial()
-
-      case 42 :
-        var subBuilder:AggregateMessageSetBuilder = AggregateMessageSet.builder()
-        if hasMset {
-          subBuilder.mergeFrom(mset)
-        }
-        input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-        mset = subBuilder.buildPartial()
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
-        }
-      }
-    }
-  }
-}
-
-final internal class AggregateMessage : GeneratedMessage, GeneratedMessageProtocol {
-  private(set) var hasFieldname:Bool = false
-  private(set) var fieldname:Int32 = Int32(0)
-
-  required internal init() {
-       super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    if hasFieldname {
-      output.writeInt32(1, value:fieldname)
-    }
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
-    }
-
-    serialize_size = 0
-    if hasFieldname {
-      serialize_size += fieldname.computeInt32Size(1)
-    }
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> AggregateMessage {
-    return AggregateMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> AggregateMessage {
-    return AggregateMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> AggregateMessage {
-    return AggregateMessage.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AggregateMessage {
-    return AggregateMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> AggregateMessage {
-    return AggregateMessage.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessage {
-    return AggregateMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> AggregateMessageBuilder {
-    return AggregateMessage.classBuilder() as AggregateMessageBuilder
-  }
-  internal func builder() -> AggregateMessageBuilder {
-    return classBuilder() as AggregateMessageBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return AggregateMessageBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return AggregateMessage.builder()
-  }
-  internal func toBuilder() -> AggregateMessageBuilder {
-    return AggregateMessage.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:AggregateMessage) -> AggregateMessageBuilder {
-    return AggregateMessage.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    if hasFieldname {
-      output += "\(indent) fieldname: \(fieldname) \n"
-    }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          if hasFieldname {
-             hashCode = (hashCode &* 31) &+ fieldname.hashValue
-          }
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "AggregateMessage"
-  }
-  override internal func className() -> String {
-      return "AggregateMessage"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return AggregateMessage.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class AggregateMessageBuilder : GeneratedMessageBuilder {
-  private var builderResult:AggregateMessage
-
-  required override internal init () {
-     builderResult = AggregateMessage()
-     super.init()
-  }
-  var hasFieldname:Bool {
-       get {
-            return builderResult.hasFieldname
-       }
-  }
-  var fieldname:Int32 {
-       get {
-            return builderResult.fieldname
-       }
-       set (value) {
-           builderResult.hasFieldname = true
-           builderResult.fieldname = value
-       }
-  }
-  func setFieldname(value:Int32)-> AggregateMessageBuilder {
-    self.fieldname = value
-    return self
-  }
-  internal func clearFieldname() -> AggregateMessageBuilder{
-       builderResult.hasFieldname = false
-       builderResult.fieldname = Int32(0)
-       return self
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> AggregateMessageBuilder {
-    builderResult = AggregateMessage()
-    return self
-  }
-  internal override func clone() -> AggregateMessageBuilder {
-    return AggregateMessage.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> AggregateMessage {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> AggregateMessage {
-    var returnMe:AggregateMessage = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:AggregateMessage) -> AggregateMessageBuilder {
-    if (other == AggregateMessage()) {
-     return self
-    }
-    if other.hasFieldname {
-         fieldname = other.fieldname
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->AggregateMessageBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      case 8 :
-        fieldname = input.readInt32()
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
-        }
-      }
-    }
-  }
-}
-
-final internal class NestedOptionType : GeneratedMessage, GeneratedMessageProtocol {
-
-
-  //Nested type declaration start
-
-    final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
-      private(set) var hasNestedField:Bool = false
-      private(set) var nestedField:Int32 = Int32(0)
-
-      required internal init() {
-           super.init()
-      }
-      override internal func isInitialized() -> Bool {
-       return true
-      }
-      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-        if hasNestedField {
-          output.writeInt32(1, value:nestedField)
-        }
-        unknownFields.writeToCodedOutputStream(output)
-      }
-      override internal func serializedSize() -> Int32 {
-        var serialize_size:Int32 = memoizedSerializedSize
-        if serialize_size != -1 {
-         return serialize_size
-        }
-
-        serialize_size = 0
-        if hasNestedField {
-          serialize_size += nestedField.computeInt32Size(1)
-        }
-        serialize_size += unknownFields.serializedSize()
-        memoizedSerializedSize = serialize_size
-        return serialize_size
-      }
-      internal class func parseFromData(data:NSData) -> NestedOptionType.NestedMessage {
-        return NestedOptionType.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-      }
-      internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessage {
-        return NestedOptionType.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-      }
-      internal class func parseFromInputStream(input:NSInputStream) -> NestedOptionType.NestedMessage {
-        return NestedOptionType.NestedMessage.builder().mergeFromInputStream(input).build()
-      }
-      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->NestedOptionType.NestedMessage {
-        return NestedOptionType.NestedMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-      }
-      internal class func parseFromCodedInputStream(input:CodedInputStream) -> NestedOptionType.NestedMessage {
-        return NestedOptionType.NestedMessage.builder().mergeFromCodedInputStream(input).build()
-      }
-      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessage {
-        return NestedOptionType.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-      }
-      internal class func builder() -> NestedOptionType.NestedMessageBuilder {
-        return NestedOptionType.NestedMessage.classBuilder() as NestedOptionType.NestedMessageBuilder
-      }
-      internal func builder() -> NestedOptionType.NestedMessageBuilder {
-        return classBuilder() as NestedOptionType.NestedMessageBuilder
-      }
-      internal override class func classBuilder() -> MessageBuilder {
-        return NestedOptionType.NestedMessageBuilder()
-      }
-      internal override func classBuilder() -> MessageBuilder {
-        return NestedOptionType.NestedMessage.builder()
-      }
-      internal func toBuilder() -> NestedOptionType.NestedMessageBuilder {
-        return NestedOptionType.NestedMessage.builderWithPrototype(self)
-      }
-      internal class func builderWithPrototype(prototype:NestedOptionType.NestedMessage) -> NestedOptionType.NestedMessageBuilder {
-        return NestedOptionType.NestedMessage.builder().mergeFrom(prototype)
-      }
-      override internal func writeDescriptionTo(inout output:String, indent:String) {
-        if hasNestedField {
-          output += "\(indent) nestedField: \(nestedField) \n"
-        }
-        unknownFields.writeDescriptionTo(&output, indent:indent)
-      }
-      override internal var hashValue:Int {
-          get {
-              var hashCode:Int = 7
-              if hasNestedField {
-                 hashCode = (hashCode &* 31) &+ nestedField.hashValue
-              }
-              hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-              return hashCode
-          }
-      }
-
-
-      //Meta information declaration start
-
-      override internal class func className() -> String {
-          return "NestedOptionType.NestedMessage"
-      }
-      override internal func className() -> String {
-          return "NestedOptionType.NestedMessage"
-      }
-      override internal func classMetaType() -> GeneratedMessage.Type {
-          return NestedOptionType.NestedMessage.self
-      }
-
-
-      //Meta information declaration end
-
-    }
-
-    final internal class NestedMessageBuilder : GeneratedMessageBuilder {
-      private var builderResult:NestedOptionType.NestedMessage
-
-      required override internal init () {
-         builderResult = NestedOptionType.NestedMessage()
+    required internal init() {
          super.init()
+    }
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      if hasXyzzy {
+        output.writeInt32(7593951, value:xyzzy)
       }
-      var hasNestedField:Bool {
-           get {
-                return builderResult.hasNestedField
-           }
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
       }
-      var nestedField:Int32 {
-           get {
-                return builderResult.nestedField
-           }
-           set (value) {
-               builderResult.hasNestedField = true
-               builderResult.nestedField = value
-           }
+
+      serialize_size = 0
+      if hasXyzzy {
+        serialize_size += xyzzy.computeInt32Size(7593951)
       }
-      func setNestedField(value:Int32)-> NestedOptionType.NestedMessageBuilder {
-        self.nestedField = value
-        return self
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.ComplexOpt6 {
+      return ProtobufUnittest.ComplexOpt6.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOpt6 {
+      return ProtobufUnittest.ComplexOpt6.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.ComplexOpt6 {
+      return ProtobufUnittest.ComplexOpt6.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.ComplexOpt6 {
+      return ProtobufUnittest.ComplexOpt6.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.ComplexOpt6 {
+      return ProtobufUnittest.ComplexOpt6.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOpt6 {
+      return ProtobufUnittest.ComplexOpt6.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.ComplexOpt6Builder {
+      return ProtobufUnittest.ComplexOpt6.classBuilder() as ProtobufUnittest.ComplexOpt6Builder
+    }
+    internal func builder() -> ProtobufUnittest.ComplexOpt6Builder {
+      return classBuilder() as ProtobufUnittest.ComplexOpt6Builder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.ComplexOpt6Builder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.ComplexOpt6.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.ComplexOpt6Builder {
+      return ProtobufUnittest.ComplexOpt6.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOpt6) -> ProtobufUnittest.ComplexOpt6Builder {
+      return ProtobufUnittest.ComplexOpt6.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      if hasXyzzy {
+        output += "\(indent) xyzzy: \(xyzzy) \n"
       }
-      internal func clearNestedField() -> NestedOptionType.NestedMessageBuilder{
-           builderResult.hasNestedField = false
-           builderResult.nestedField = Int32(0)
-           return self
-      }
-      override internal var internalGetResult:GeneratedMessage {
-           get {
-              return builderResult
-           }
-      }
-      internal override func clear() -> NestedOptionType.NestedMessageBuilder {
-        builderResult = NestedOptionType.NestedMessage()
-        return self
-      }
-      internal override func clone() -> NestedOptionType.NestedMessageBuilder {
-        return NestedOptionType.NestedMessage.builderWithPrototype(builderResult)
-      }
-      internal override func build() -> NestedOptionType.NestedMessage {
-           checkInitialized()
-           return buildPartial()
-      }
-      internal func buildPartial() -> NestedOptionType.NestedMessage {
-        var returnMe:NestedOptionType.NestedMessage = builderResult
-        return returnMe
-      }
-      internal func mergeFrom(other:NestedOptionType.NestedMessage) -> NestedOptionType.NestedMessageBuilder {
-        if (other == NestedOptionType.NestedMessage()) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            if hasXyzzy {
+               hashCode = (hashCode &* 31) &+ xyzzy.hashValue
+            }
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.ComplexOpt6"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.ComplexOpt6"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.ComplexOpt6.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class ComplexOpt6Builder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.ComplexOpt6
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.ComplexOpt6()
+       super.init()
+    }
+    var hasXyzzy:Bool {
+         get {
+              return builderResult.hasXyzzy
+         }
+    }
+    var xyzzy:Int32 {
+         get {
+              return builderResult.xyzzy
+         }
+         set (value) {
+             builderResult.hasXyzzy = true
+             builderResult.xyzzy = value
+         }
+    }
+    func setXyzzy(value:Int32)-> ProtobufUnittest.ComplexOpt6Builder {
+      self.xyzzy = value
+      return self
+    }
+    internal func clearXyzzy() -> ProtobufUnittest.ComplexOpt6Builder{
+         builderResult.hasXyzzy = false
+         builderResult.xyzzy = Int32(0)
          return self
-        }
-        if other.hasNestedField {
-             nestedField = other.nestedField
-        }
-        mergeUnknownFields(other.unknownFields)
-        return self
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.ComplexOpt6Builder {
+      builderResult = ProtobufUnittest.ComplexOpt6()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.ComplexOpt6Builder {
+      return ProtobufUnittest.ComplexOpt6.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.ComplexOpt6 {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.ComplexOpt6 {
+      var returnMe:ProtobufUnittest.ComplexOpt6 = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:ComplexOpt6) -> ComplexOpt6Builder {
+      if (other == ProtobufUnittest.ComplexOpt6()) {
+       return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->NestedOptionType.NestedMessageBuilder {
-           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      if other.hasXyzzy {
+           xyzzy = other.xyzzy
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessageBuilder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-        while (true) {
-          var tag = input.readTag()
-          switch tag {
-          case 0: 
-            self.unknownFields = unknownFieldsBuilder.build()
-            return self
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.ComplexOpt6Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ComplexOpt6Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-          case 8 :
-            nestedField = input.readInt32()
+        case 60751608 :
+          xyzzy = input.readInt32()
 
-          default:
-            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-               unknownFields = unknownFieldsBuilder.build()
-               return self
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
+        }
+      }
+    }
+  }
+
+  final internal class VariousComplexOptions : GeneratedMessage, GeneratedMessageProtocol {
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.VariousComplexOptions {
+      return ProtobufUnittest.VariousComplexOptions.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.VariousComplexOptions {
+      return ProtobufUnittest.VariousComplexOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.VariousComplexOptions {
+      return ProtobufUnittest.VariousComplexOptions.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.VariousComplexOptions {
+      return ProtobufUnittest.VariousComplexOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.VariousComplexOptions {
+      return ProtobufUnittest.VariousComplexOptions.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.VariousComplexOptions {
+      return ProtobufUnittest.VariousComplexOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.VariousComplexOptionsBuilder {
+      return ProtobufUnittest.VariousComplexOptions.classBuilder() as ProtobufUnittest.VariousComplexOptionsBuilder
+    }
+    internal func builder() -> ProtobufUnittest.VariousComplexOptionsBuilder {
+      return classBuilder() as ProtobufUnittest.VariousComplexOptionsBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.VariousComplexOptionsBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.VariousComplexOptions.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.VariousComplexOptionsBuilder {
+      return ProtobufUnittest.VariousComplexOptions.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.VariousComplexOptions) -> ProtobufUnittest.VariousComplexOptionsBuilder {
+      return ProtobufUnittest.VariousComplexOptions.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.VariousComplexOptions"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.VariousComplexOptions"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.VariousComplexOptions.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class VariousComplexOptionsBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.VariousComplexOptions
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.VariousComplexOptions()
+       super.init()
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.VariousComplexOptionsBuilder {
+      builderResult = ProtobufUnittest.VariousComplexOptions()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.VariousComplexOptionsBuilder {
+      return ProtobufUnittest.VariousComplexOptions.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.VariousComplexOptions {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.VariousComplexOptions {
+      var returnMe:ProtobufUnittest.VariousComplexOptions = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:VariousComplexOptions) -> VariousComplexOptionsBuilder {
+      if (other == ProtobufUnittest.VariousComplexOptions()) {
+       return self
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.VariousComplexOptionsBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.VariousComplexOptionsBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
+        }
+      }
+    }
+  }
+
+  final internal class AggregateMessageSet : ExtendableMessage, GeneratedMessageProtocol {
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+      if !extensionsAreInitialized() {
+       return false
+      }
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      writeExtensionsToCodedOutputStream(output, startInclusive:Int32(4), endExclusive:Int32(2147483647))
+      unknownFields.writeAsMessageSetTo(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      serialize_size += extensionsSerializedSize()
+      serialize_size += unknownFields.serializedSizeAsMessageSet()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.AggregateMessageSet {
+      return ProtobufUnittest.AggregateMessageSet.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.AggregateMessageSet {
+      return ProtobufUnittest.AggregateMessageSet.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.AggregateMessageSet {
+      return ProtobufUnittest.AggregateMessageSet.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.AggregateMessageSet {
+      return ProtobufUnittest.AggregateMessageSet.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.AggregateMessageSet {
+      return ProtobufUnittest.AggregateMessageSet.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.AggregateMessageSet {
+      return ProtobufUnittest.AggregateMessageSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.AggregateMessageSetBuilder {
+      return ProtobufUnittest.AggregateMessageSet.classBuilder() as ProtobufUnittest.AggregateMessageSetBuilder
+    }
+    internal func builder() -> ProtobufUnittest.AggregateMessageSetBuilder {
+      return classBuilder() as ProtobufUnittest.AggregateMessageSetBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.AggregateMessageSetBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.AggregateMessageSet.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.AggregateMessageSetBuilder {
+      return ProtobufUnittest.AggregateMessageSet.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.AggregateMessageSet) -> ProtobufUnittest.AggregateMessageSetBuilder {
+      return ProtobufUnittest.AggregateMessageSet.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      writeExtensionDescription(&output, startInclusive:Int32(4), endExclusive:Int32(2147483647), indent:indent)
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(4), endExclusive:Int32(2147483647)))
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.AggregateMessageSet"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.AggregateMessageSet"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.AggregateMessageSet.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class AggregateMessageSetBuilder : ExtendableMessageBuilder {
+    private var builderResult:ProtobufUnittest.AggregateMessageSet
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.AggregateMessageSet()
+       super.init()
+    }
+    override internal var internalGetResult:ExtendableMessage {
+         get {
+             return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.AggregateMessageSetBuilder {
+      builderResult = ProtobufUnittest.AggregateMessageSet()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.AggregateMessageSetBuilder {
+      return ProtobufUnittest.AggregateMessageSet.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.AggregateMessageSet {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.AggregateMessageSet {
+      var returnMe:ProtobufUnittest.AggregateMessageSet = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:AggregateMessageSet) -> AggregateMessageSetBuilder {
+      if (other == ProtobufUnittest.AggregateMessageSet()) {
+       return self
+      }
+      mergeExtensionFields(other)
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.AggregateMessageSetBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.AggregateMessageSetBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
+        }
+      }
+    }
+  }
+
+  final internal class AggregateMessageSetElement : GeneratedMessage, GeneratedMessageProtocol {
+    private(set) var hasS:Bool = false
+    private(set) var s:String = ""
+
+    internal class func messageSetExtension() -> ConcreateExtensionField {
+         return AggregateMessageSetElementmessageSetExtension
+    }
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      if hasS {
+        output.writeString(1, value:s)
+      }
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      if hasS {
+        serialize_size += s.computeStringSize(1)
+      }
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.AggregateMessageSetElement {
+      return ProtobufUnittest.AggregateMessageSetElement.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.AggregateMessageSetElement {
+      return ProtobufUnittest.AggregateMessageSetElement.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.AggregateMessageSetElement {
+      return ProtobufUnittest.AggregateMessageSetElement.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.AggregateMessageSetElement {
+      return ProtobufUnittest.AggregateMessageSetElement.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.AggregateMessageSetElement {
+      return ProtobufUnittest.AggregateMessageSetElement.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.AggregateMessageSetElement {
+      return ProtobufUnittest.AggregateMessageSetElement.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.AggregateMessageSetElementBuilder {
+      return ProtobufUnittest.AggregateMessageSetElement.classBuilder() as ProtobufUnittest.AggregateMessageSetElementBuilder
+    }
+    internal func builder() -> ProtobufUnittest.AggregateMessageSetElementBuilder {
+      return classBuilder() as ProtobufUnittest.AggregateMessageSetElementBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.AggregateMessageSetElementBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.AggregateMessageSetElement.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.AggregateMessageSetElementBuilder {
+      return ProtobufUnittest.AggregateMessageSetElement.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.AggregateMessageSetElement) -> ProtobufUnittest.AggregateMessageSetElementBuilder {
+      return ProtobufUnittest.AggregateMessageSetElement.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      if hasS {
+        output += "\(indent) s: \(s) \n"
+      }
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            if hasS {
+               hashCode = (hashCode &* 31) &+ s.hashValue
+            }
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.AggregateMessageSetElement"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.AggregateMessageSetElement"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.AggregateMessageSetElement.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.AggregateMessageSetElement
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.AggregateMessageSetElement()
+       super.init()
+    }
+    var hasS:Bool {
+         get {
+              return builderResult.hasS
+         }
+    }
+    var s:String {
+         get {
+              return builderResult.s
+         }
+         set (value) {
+             builderResult.hasS = true
+             builderResult.s = value
+         }
+    }
+    func setS(value:String)-> ProtobufUnittest.AggregateMessageSetElementBuilder {
+      self.s = value
+      return self
+    }
+    internal func clearS() -> ProtobufUnittest.AggregateMessageSetElementBuilder{
+         builderResult.hasS = false
+         builderResult.s = ""
+         return self
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.AggregateMessageSetElementBuilder {
+      builderResult = ProtobufUnittest.AggregateMessageSetElement()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.AggregateMessageSetElementBuilder {
+      return ProtobufUnittest.AggregateMessageSetElement.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.AggregateMessageSetElement {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.AggregateMessageSetElement {
+      var returnMe:ProtobufUnittest.AggregateMessageSetElement = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:AggregateMessageSetElement) -> AggregateMessageSetElementBuilder {
+      if (other == ProtobufUnittest.AggregateMessageSetElement()) {
+       return self
+      }
+      if other.hasS {
+           s = other.s
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.AggregateMessageSetElementBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.AggregateMessageSetElementBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        case 10 :
+          s = input.readString()
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
+        }
+      }
+    }
+  }
+
+  final internal class Aggregate : GeneratedMessage, GeneratedMessageProtocol {
+    private(set) var hasI:Bool = false
+    private(set) var i:Int32 = Int32(0)
+
+    private(set) var hasS:Bool = false
+    private(set) var s:String = ""
+
+    private(set) var hasSub:Bool = false
+    private(set) var sub:ProtobufUnittest.Aggregate = ProtobufUnittest.Aggregate()
+    private(set) var hasFile:Bool = false
+    private(set) var file:ProtobufUnittest.PBFileOptions = ProtobufUnittest.PBFileOptions()
+    private(set) var hasMset:Bool = false
+    private(set) var mset:ProtobufUnittest.AggregateMessageSet = ProtobufUnittest.AggregateMessageSet()
+    internal class func nested() -> ConcreateExtensionField {
+         return Aggregatenested
+    }
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+      if hasSub {
+       if !sub.isInitialized() {
+         return false
+       }
+      }
+      if hasFile {
+       if !file.isInitialized() {
+         return false
+       }
+      }
+      if hasMset {
+       if !mset.isInitialized() {
+         return false
+       }
+      }
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      if hasI {
+        output.writeInt32(1, value:i)
+      }
+      if hasS {
+        output.writeString(2, value:s)
+      }
+      if hasSub {
+        output.writeMessage(3, value:sub)
+      }
+      if hasFile {
+        output.writeMessage(4, value:file)
+      }
+      if hasMset {
+        output.writeMessage(5, value:mset)
+      }
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      if hasI {
+        serialize_size += i.computeInt32Size(1)
+      }
+      if hasS {
+        serialize_size += s.computeStringSize(2)
+      }
+      if hasSub {
+        serialize_size += sub.computeMessageSize(3)
+      }
+      if hasFile {
+        serialize_size += file.computeMessageSize(4)
+      }
+      if hasMset {
+        serialize_size += mset.computeMessageSize(5)
+      }
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.Aggregate {
+      return ProtobufUnittest.Aggregate.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.Aggregate {
+      return ProtobufUnittest.Aggregate.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.Aggregate {
+      return ProtobufUnittest.Aggregate.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.Aggregate {
+      return ProtobufUnittest.Aggregate.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.Aggregate {
+      return ProtobufUnittest.Aggregate.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.Aggregate {
+      return ProtobufUnittest.Aggregate.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.AggregateBuilder {
+      return ProtobufUnittest.Aggregate.classBuilder() as ProtobufUnittest.AggregateBuilder
+    }
+    internal func builder() -> ProtobufUnittest.AggregateBuilder {
+      return classBuilder() as ProtobufUnittest.AggregateBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.AggregateBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.Aggregate.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.AggregateBuilder {
+      return ProtobufUnittest.Aggregate.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.Aggregate) -> ProtobufUnittest.AggregateBuilder {
+      return ProtobufUnittest.Aggregate.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      if hasI {
+        output += "\(indent) i: \(i) \n"
+      }
+      if hasS {
+        output += "\(indent) s: \(s) \n"
+      }
+      if hasSub {
+        output += "\(indent) sub {\n"
+        sub.writeDescriptionTo(&output, indent:"\(indent)  ")
+        output += "\(indent) }\n"
+      }
+      if hasFile {
+        output += "\(indent) file {\n"
+        file.writeDescriptionTo(&output, indent:"\(indent)  ")
+        output += "\(indent) }\n"
+      }
+      if hasMset {
+        output += "\(indent) mset {\n"
+        mset.writeDescriptionTo(&output, indent:"\(indent)  ")
+        output += "\(indent) }\n"
+      }
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            if hasI {
+               hashCode = (hashCode &* 31) &+ i.hashValue
+            }
+            if hasS {
+               hashCode = (hashCode &* 31) &+ s.hashValue
+            }
+            if hasSub {
+              hashCode = (hashCode &* 31) &+ sub.hashValue
+            }
+            if hasFile {
+              hashCode = (hashCode &* 31) &+ file.hashValue
+            }
+            if hasMset {
+              hashCode = (hashCode &* 31) &+ mset.hashValue
+            }
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.Aggregate"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.Aggregate"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.Aggregate.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class AggregateBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.Aggregate
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.Aggregate()
+       super.init()
+    }
+    var hasI:Bool {
+         get {
+              return builderResult.hasI
+         }
+    }
+    var i:Int32 {
+         get {
+              return builderResult.i
+         }
+         set (value) {
+             builderResult.hasI = true
+             builderResult.i = value
+         }
+    }
+    func setI(value:Int32)-> ProtobufUnittest.AggregateBuilder {
+      self.i = value
+      return self
+    }
+    internal func clearI() -> ProtobufUnittest.AggregateBuilder{
+         builderResult.hasI = false
+         builderResult.i = Int32(0)
+         return self
+    }
+    var hasS:Bool {
+         get {
+              return builderResult.hasS
+         }
+    }
+    var s:String {
+         get {
+              return builderResult.s
+         }
+         set (value) {
+             builderResult.hasS = true
+             builderResult.s = value
+         }
+    }
+    func setS(value:String)-> ProtobufUnittest.AggregateBuilder {
+      self.s = value
+      return self
+    }
+    internal func clearS() -> ProtobufUnittest.AggregateBuilder{
+         builderResult.hasS = false
+         builderResult.s = ""
+         return self
+    }
+    var hasSub:Bool {
+         get {
+             return builderResult.hasSub
+         }
+    }
+    var sub:ProtobufUnittest.Aggregate {
+         get {
+             return builderResult.sub
+         }
+         set (value) {
+             builderResult.hasSub = true
+             builderResult.sub = value
+         }
+    }
+    func setSub(value:ProtobufUnittest.Aggregate)-> ProtobufUnittest.AggregateBuilder {
+      self.sub = value
+      return self
+    }
+    internal func mergeSub(value:ProtobufUnittest.Aggregate) -> ProtobufUnittest.AggregateBuilder {
+      if (builderResult.hasSub) {
+        builderResult.sub = ProtobufUnittest.Aggregate.builderWithPrototype(builderResult.sub).mergeFrom(value).buildPartial()
+      } else {
+        builderResult.sub = value
+      }
+      builderResult.hasSub = true
+      return self
+    }
+    internal func clearSub() -> ProtobufUnittest.AggregateBuilder {
+      builderResult.hasSub = false
+      builderResult.sub = ProtobufUnittest.Aggregate()
+      return self
+    }
+    var hasFile:Bool {
+         get {
+             return builderResult.hasFile
+         }
+    }
+    var file:ProtobufUnittest.PBFileOptions {
+         get {
+             return builderResult.file
+         }
+         set (value) {
+             builderResult.hasFile = true
+             builderResult.file = value
+         }
+    }
+    func setFile(value:ProtobufUnittest.PBFileOptions)-> ProtobufUnittest.AggregateBuilder {
+      self.file = value
+      return self
+    }
+    internal func mergeFile(value:ProtobufUnittest.PBFileOptions) -> ProtobufUnittest.AggregateBuilder {
+      if (builderResult.hasFile) {
+        builderResult.file = ProtobufUnittest.PBFileOptions.builderWithPrototype(builderResult.file).mergeFrom(value).buildPartial()
+      } else {
+        builderResult.file = value
+      }
+      builderResult.hasFile = true
+      return self
+    }
+    internal func clearFile() -> ProtobufUnittest.AggregateBuilder {
+      builderResult.hasFile = false
+      builderResult.file = ProtobufUnittest.PBFileOptions()
+      return self
+    }
+    var hasMset:Bool {
+         get {
+             return builderResult.hasMset
+         }
+    }
+    var mset:ProtobufUnittest.AggregateMessageSet {
+         get {
+             return builderResult.mset
+         }
+         set (value) {
+             builderResult.hasMset = true
+             builderResult.mset = value
+         }
+    }
+    func setMset(value:ProtobufUnittest.AggregateMessageSet)-> ProtobufUnittest.AggregateBuilder {
+      self.mset = value
+      return self
+    }
+    internal func mergeMset(value:ProtobufUnittest.AggregateMessageSet) -> ProtobufUnittest.AggregateBuilder {
+      if (builderResult.hasMset) {
+        builderResult.mset = ProtobufUnittest.AggregateMessageSet.builderWithPrototype(builderResult.mset).mergeFrom(value).buildPartial()
+      } else {
+        builderResult.mset = value
+      }
+      builderResult.hasMset = true
+      return self
+    }
+    internal func clearMset() -> ProtobufUnittest.AggregateBuilder {
+      builderResult.hasMset = false
+      builderResult.mset = ProtobufUnittest.AggregateMessageSet()
+      return self
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.AggregateBuilder {
+      builderResult = ProtobufUnittest.Aggregate()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.AggregateBuilder {
+      return ProtobufUnittest.Aggregate.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.Aggregate {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.Aggregate {
+      var returnMe:ProtobufUnittest.Aggregate = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:Aggregate) -> AggregateBuilder {
+      if (other == ProtobufUnittest.Aggregate()) {
+       return self
+      }
+      if other.hasI {
+           i = other.i
+      }
+      if other.hasS {
+           s = other.s
+      }
+      if (other.hasSub) {
+          mergeSub(other.sub)
+      }
+      if (other.hasFile) {
+          mergeFile(other.file)
+      }
+      if (other.hasMset) {
+          mergeMset(other.mset)
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.AggregateBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.AggregateBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        case 8 :
+          i = input.readInt32()
+
+        case 18 :
+          s = input.readString()
+
+        case 26 :
+          var subBuilder:ProtobufUnittest.AggregateBuilder = ProtobufUnittest.Aggregate.builder()
+          if hasSub {
+            subBuilder.mergeFrom(sub)
+          }
+          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+          sub = subBuilder.buildPartial()
+
+        case 34 :
+          var subBuilder:ProtobufUnittest.PBFileOptionsBuilder = ProtobufUnittest.PBFileOptions.builder()
+          if hasFile {
+            subBuilder.mergeFrom(file)
+          }
+          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+          file = subBuilder.buildPartial()
+
+        case 42 :
+          var subBuilder:ProtobufUnittest.AggregateMessageSetBuilder = ProtobufUnittest.AggregateMessageSet.builder()
+          if hasMset {
+            subBuilder.mergeFrom(mset)
+          }
+          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+          mset = subBuilder.buildPartial()
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
+        }
+      }
+    }
+  }
+
+  final internal class AggregateMessage : GeneratedMessage, GeneratedMessageProtocol {
+    private(set) var hasFieldname:Bool = false
+    private(set) var fieldname:Int32 = Int32(0)
+
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      if hasFieldname {
+        output.writeInt32(1, value:fieldname)
+      }
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      if hasFieldname {
+        serialize_size += fieldname.computeInt32Size(1)
+      }
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.AggregateMessage {
+      return ProtobufUnittest.AggregateMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.AggregateMessage {
+      return ProtobufUnittest.AggregateMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.AggregateMessage {
+      return ProtobufUnittest.AggregateMessage.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.AggregateMessage {
+      return ProtobufUnittest.AggregateMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.AggregateMessage {
+      return ProtobufUnittest.AggregateMessage.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.AggregateMessage {
+      return ProtobufUnittest.AggregateMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.AggregateMessageBuilder {
+      return ProtobufUnittest.AggregateMessage.classBuilder() as ProtobufUnittest.AggregateMessageBuilder
+    }
+    internal func builder() -> ProtobufUnittest.AggregateMessageBuilder {
+      return classBuilder() as ProtobufUnittest.AggregateMessageBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.AggregateMessageBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.AggregateMessage.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.AggregateMessageBuilder {
+      return ProtobufUnittest.AggregateMessage.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.AggregateMessage) -> ProtobufUnittest.AggregateMessageBuilder {
+      return ProtobufUnittest.AggregateMessage.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      if hasFieldname {
+        output += "\(indent) fieldname: \(fieldname) \n"
+      }
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            if hasFieldname {
+               hashCode = (hashCode &* 31) &+ fieldname.hashValue
+            }
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.AggregateMessage"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.AggregateMessage"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.AggregateMessage.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class AggregateMessageBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.AggregateMessage
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.AggregateMessage()
+       super.init()
+    }
+    var hasFieldname:Bool {
+         get {
+              return builderResult.hasFieldname
+         }
+    }
+    var fieldname:Int32 {
+         get {
+              return builderResult.fieldname
+         }
+         set (value) {
+             builderResult.hasFieldname = true
+             builderResult.fieldname = value
+         }
+    }
+    func setFieldname(value:Int32)-> ProtobufUnittest.AggregateMessageBuilder {
+      self.fieldname = value
+      return self
+    }
+    internal func clearFieldname() -> ProtobufUnittest.AggregateMessageBuilder{
+         builderResult.hasFieldname = false
+         builderResult.fieldname = Int32(0)
+         return self
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.AggregateMessageBuilder {
+      builderResult = ProtobufUnittest.AggregateMessage()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.AggregateMessageBuilder {
+      return ProtobufUnittest.AggregateMessage.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.AggregateMessage {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.AggregateMessage {
+      var returnMe:ProtobufUnittest.AggregateMessage = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:AggregateMessage) -> AggregateMessageBuilder {
+      if (other == ProtobufUnittest.AggregateMessage()) {
+       return self
+      }
+      if other.hasFieldname {
+           fieldname = other.fieldname
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.AggregateMessageBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.AggregateMessageBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
+
+        case 8 :
+          fieldname = input.readInt32()
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
+        }
+      }
+    }
+  }
+
+  final internal class NestedOptionType : GeneratedMessage, GeneratedMessageProtocol {
+
+
+    //Nested type declaration start
+
+      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
+        private(set) var hasNestedField:Bool = false
+        private(set) var nestedField:Int32 = Int32(0)
+
+        required internal init() {
+             super.init()
+        }
+        override internal func isInitialized() -> Bool {
+         return true
+        }
+        override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+          if hasNestedField {
+            output.writeInt32(1, value:nestedField)
+          }
+          unknownFields.writeToCodedOutputStream(output)
+        }
+        override internal func serializedSize() -> Int32 {
+          var serialize_size:Int32 = memoizedSerializedSize
+          if serialize_size != -1 {
+           return serialize_size
+          }
+
+          serialize_size = 0
+          if hasNestedField {
+            serialize_size += nestedField.computeInt32Size(1)
+          }
+          serialize_size += unknownFields.serializedSize()
+          memoizedSerializedSize = serialize_size
+          return serialize_size
+        }
+        internal class func parseFromData(data:NSData) -> ProtobufUnittest.NestedOptionType.NestedMessage {
+          return ProtobufUnittest.NestedOptionType.NestedMessage.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+        }
+        internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.NestedOptionType.NestedMessage {
+          return ProtobufUnittest.NestedOptionType.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        }
+        internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.NestedOptionType.NestedMessage {
+          return ProtobufUnittest.NestedOptionType.NestedMessage.builder().mergeFromInputStream(input).build()
+        }
+        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.NestedOptionType.NestedMessage {
+          return ProtobufUnittest.NestedOptionType.NestedMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        }
+        internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.NestedOptionType.NestedMessage {
+          return ProtobufUnittest.NestedOptionType.NestedMessage.builder().mergeFromCodedInputStream(input).build()
+        }
+        internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.NestedOptionType.NestedMessage {
+          return ProtobufUnittest.NestedOptionType.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        }
+        internal class func builder() -> ProtobufUnittest.NestedOptionType.NestedMessageBuilder {
+          return ProtobufUnittest.NestedOptionType.NestedMessage.classBuilder() as ProtobufUnittest.NestedOptionType.NestedMessageBuilder
+        }
+        internal func builder() -> ProtobufUnittest.NestedOptionType.NestedMessageBuilder {
+          return classBuilder() as ProtobufUnittest.NestedOptionType.NestedMessageBuilder
+        }
+        internal override class func classBuilder() -> MessageBuilder {
+          return ProtobufUnittest.NestedOptionType.NestedMessageBuilder()
+        }
+        internal override func classBuilder() -> MessageBuilder {
+          return ProtobufUnittest.NestedOptionType.NestedMessage.builder()
+        }
+        internal func toBuilder() -> ProtobufUnittest.NestedOptionType.NestedMessageBuilder {
+          return ProtobufUnittest.NestedOptionType.NestedMessage.builderWithPrototype(self)
+        }
+        internal class func builderWithPrototype(prototype:ProtobufUnittest.NestedOptionType.NestedMessage) -> ProtobufUnittest.NestedOptionType.NestedMessageBuilder {
+          return ProtobufUnittest.NestedOptionType.NestedMessage.builder().mergeFrom(prototype)
+        }
+        override internal func writeDescriptionTo(inout output:String, indent:String) {
+          if hasNestedField {
+            output += "\(indent) nestedField: \(nestedField) \n"
+          }
+          unknownFields.writeDescriptionTo(&output, indent:indent)
+        }
+        override internal var hashValue:Int {
+            get {
+                var hashCode:Int = 7
+                if hasNestedField {
+                   hashCode = (hashCode &* 31) &+ nestedField.hashValue
+                }
+                hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+                return hashCode
+            }
+        }
+
+
+        //Meta information declaration start
+
+        override internal class func className() -> String {
+            return "ProtobufUnittest.NestedOptionType.NestedMessage"
+        }
+        override internal func className() -> String {
+            return "ProtobufUnittest.NestedOptionType.NestedMessage"
+        }
+        override internal func classMetaType() -> GeneratedMessage.Type {
+            return ProtobufUnittest.NestedOptionType.NestedMessage.self
+        }
+
+
+        //Meta information declaration end
+
+      }
+
+      final internal class NestedMessageBuilder : GeneratedMessageBuilder {
+        private var builderResult:ProtobufUnittest.NestedOptionType.NestedMessage
+
+        required override internal init () {
+           builderResult = ProtobufUnittest.NestedOptionType.NestedMessage()
+           super.init()
+        }
+        var hasNestedField:Bool {
+             get {
+                  return builderResult.hasNestedField
+             }
+        }
+        var nestedField:Int32 {
+             get {
+                  return builderResult.nestedField
+             }
+             set (value) {
+                 builderResult.hasNestedField = true
+                 builderResult.nestedField = value
+             }
+        }
+        func setNestedField(value:Int32)-> ProtobufUnittest.NestedOptionType.NestedMessageBuilder {
+          self.nestedField = value
+          return self
+        }
+        internal func clearNestedField() -> ProtobufUnittest.NestedOptionType.NestedMessageBuilder{
+             builderResult.hasNestedField = false
+             builderResult.nestedField = Int32(0)
+             return self
+        }
+        override internal var internalGetResult:GeneratedMessage {
+             get {
+                return builderResult
+             }
+        }
+        internal override func clear() -> ProtobufUnittest.NestedOptionType.NestedMessageBuilder {
+          builderResult = ProtobufUnittest.NestedOptionType.NestedMessage()
+          return self
+        }
+        internal override func clone() -> ProtobufUnittest.NestedOptionType.NestedMessageBuilder {
+          return ProtobufUnittest.NestedOptionType.NestedMessage.builderWithPrototype(builderResult)
+        }
+        internal override func build() -> ProtobufUnittest.NestedOptionType.NestedMessage {
+             checkInitialized()
+             return buildPartial()
+        }
+        internal func buildPartial() -> ProtobufUnittest.NestedOptionType.NestedMessage {
+          var returnMe:ProtobufUnittest.NestedOptionType.NestedMessage = builderResult
+          return returnMe
+        }
+        internal func mergeFrom(other:NestedOptionType.NestedMessage) -> NestedOptionType.NestedMessageBuilder {
+          if (other == ProtobufUnittest.NestedOptionType.NestedMessage()) {
+           return self
+          }
+          if other.hasNestedField {
+               nestedField = other.nestedField
+          }
+          mergeUnknownFields(other.unknownFields)
+          return self
+        }
+        internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.NestedOptionType.NestedMessageBuilder {
+             return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+        }
+        internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.NestedOptionType.NestedMessageBuilder {
+          var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          while (true) {
+            var tag = input.readTag()
+            switch tag {
+            case 0: 
+              self.unknownFields = unknownFieldsBuilder.build()
+              return self
+
+            case 8 :
+              nestedField = input.readInt32()
+
+            default:
+              if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+                 unknownFields = unknownFieldsBuilder.build()
+                 return self
+              }
             }
           }
         }
       }
-    }
 
 
 
-  //Nested type declaration end
+    //Nested type declaration end
 
 
 
-    //Enum type declaration start 
+      //Enum type declaration start 
 
-    internal enum NestedEnum:Int32 {
-      case NestedEnumValue = 1
+      internal enum NestedEnum:Int32 {
+        case NestedEnumValue = 1
 
-      internal static func IsValidValue(value:Int32) ->Bool {
-          if let check = NestedEnum(rawValue:value) {
-              return true
-          }
-          return false
+        internal static func IsValidValue(value:Int32) ->Bool {
+            if let check = ProtobufUnittest.NestedEnum(rawValue:value) {
+                return true
+            }
+            return false
+        }
       }
+
+
+
+      //Enum type declaration end 
+
+    internal class func nestedExtension() -> ConcreateExtensionField {
+         return NestedOptionTypenestedExtension
+    }
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.NestedOptionType {
+      return ProtobufUnittest.NestedOptionType.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.NestedOptionType {
+      return ProtobufUnittest.NestedOptionType.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.NestedOptionType {
+      return ProtobufUnittest.NestedOptionType.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.NestedOptionType {
+      return ProtobufUnittest.NestedOptionType.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.NestedOptionType {
+      return ProtobufUnittest.NestedOptionType.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.NestedOptionType {
+      return ProtobufUnittest.NestedOptionType.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.NestedOptionTypeBuilder {
+      return ProtobufUnittest.NestedOptionType.classBuilder() as ProtobufUnittest.NestedOptionTypeBuilder
+    }
+    internal func builder() -> ProtobufUnittest.NestedOptionTypeBuilder {
+      return classBuilder() as ProtobufUnittest.NestedOptionTypeBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.NestedOptionTypeBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.NestedOptionType.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.NestedOptionTypeBuilder {
+      return ProtobufUnittest.NestedOptionType.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.NestedOptionType) -> ProtobufUnittest.NestedOptionTypeBuilder {
+      return ProtobufUnittest.NestedOptionType.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
     }
 
 
+    //Meta information declaration start
 
-    //Enum type declaration end 
+    override internal class func className() -> String {
+        return "ProtobufUnittest.NestedOptionType"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.NestedOptionType"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.NestedOptionType.self
+    }
 
-  internal class func nestedExtension() -> ConcreateExtensionField {
-       return NestedOptionTypenestedExtension
+
+    //Meta information declaration end
+
   }
-  required internal init() {
+
+  final internal class NestedOptionTypeBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.NestedOptionType
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.NestedOptionType()
        super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
     }
-
-    serialize_size = 0
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> NestedOptionType {
-    return NestedOptionType.builder().mergeFromData(data, extensionRegistry:UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> NestedOptionType {
-    return NestedOptionType.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> NestedOptionType {
-    return NestedOptionType.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->NestedOptionType {
-    return NestedOptionType.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> NestedOptionType {
-    return NestedOptionType.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> NestedOptionType {
-    return NestedOptionType.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> NestedOptionTypeBuilder {
-    return NestedOptionType.classBuilder() as NestedOptionTypeBuilder
-  }
-  internal func builder() -> NestedOptionTypeBuilder {
-    return classBuilder() as NestedOptionTypeBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return NestedOptionTypeBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return NestedOptionType.builder()
-  }
-  internal func toBuilder() -> NestedOptionTypeBuilder {
-    return NestedOptionType.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:NestedOptionType) -> NestedOptionTypeBuilder {
-    return NestedOptionType.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.NestedOptionTypeBuilder {
+      builderResult = ProtobufUnittest.NestedOptionType()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.NestedOptionTypeBuilder {
+      return ProtobufUnittest.NestedOptionType.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.NestedOptionType {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.NestedOptionType {
+      var returnMe:ProtobufUnittest.NestedOptionType = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:NestedOptionType) -> NestedOptionTypeBuilder {
+      if (other == ProtobufUnittest.NestedOptionType()) {
+       return self
       }
-  }
-
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "NestedOptionType"
-  }
-  override internal func className() -> String {
-      return "NestedOptionType"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return NestedOptionType.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class NestedOptionTypeBuilder : GeneratedMessageBuilder {
-  private var builderResult:NestedOptionType
-
-  required override internal init () {
-     builderResult = NestedOptionType()
-     super.init()
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> NestedOptionTypeBuilder {
-    builderResult = NestedOptionType()
-    return self
-  }
-  internal override func clone() -> NestedOptionTypeBuilder {
-    return NestedOptionType.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> NestedOptionType {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> NestedOptionType {
-    var returnMe:NestedOptionType = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:NestedOptionType) -> NestedOptionTypeBuilder {
-    if (other == NestedOptionType()) {
-     return self
+      mergeUnknownFields(other.unknownFields)
+      return self
     }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->NestedOptionTypeBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> NestedOptionTypeBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.NestedOptionTypeBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.NestedOptionTypeBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
-}
 
+}
 
 // @@protoc_insertion_point(global_scope)

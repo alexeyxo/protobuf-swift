@@ -1,9 +1,8 @@
 import "google/protobuf/swift-descriptor.proto";
 
-option (.google.protobuf.swift_file_options).class_prefix = "Proto";
 option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
 
-//package google.protobuf;
+package google.protobuf;
 
 message PerfomanceBatch
 {

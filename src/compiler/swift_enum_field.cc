@@ -35,12 +35,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             const EnumValueDescriptor* default_value;
             default_value = descriptor->default_value_enum();
             
-            string type = ClassName(descriptor->enum_type());
+            string type = PackageName(descriptor->file()) + ClassName(descriptor->enum_type());
             
-            (*variables)["classname"]             = ClassName(descriptor->containing_type());
+            (*variables)["classname"]             = PackageName(descriptor->file()) + ClassName(descriptor->containing_type());
             (*variables)["name"]                  = UnderscoresToCamelCase(descriptor);
             (*variables)["capitalized_name"]      = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());
+            
+
             (*variables)["type"] = type;
             (*variables)["default"] = EnumValueName(default_value);
             (*variables)["tag"] = SimpleItoa(internal::WireFormat::MakeTag(descriptor));
@@ -131,7 +133,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  }\n");
         
         printer->Print(variables_,
-                       "  func set$capitalized_name$(value:$type$)-> $classname$Builder {\n"
+                       "  $acontrolFunc$ func set$capitalized_name$(value:$type$)-> $classname$Builder {\n"
                        "    self.$name$ = value\n"
                        "    return self\n"
                        "  }\n"
@@ -242,6 +244,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void RepeatedEnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
+        
         printer->Print(variables_,
                        "$acontrol$var $name$:Array<$type$> {\n"
                        "    get {\n"
@@ -251,7 +254,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "        builderResult.$name$ = value\n"
                        "    }\n"
                        "}\n"
-                       "func set$capitalized_name$(value:Array<$type$>)-> $classname$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:Array<$type$>)-> $classname$Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"

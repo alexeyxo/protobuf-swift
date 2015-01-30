@@ -21,7 +21,7 @@ internal struct UnittestLiteImportsNonliteRoot {
   }
 }
 
-internal func == (lhs: TestLiteImportsNonlite, rhs: TestLiteImportsNonlite) -> Bool {
+internal func == (lhs: ProtobufUnittest.TestLiteImportsNonlite, rhs: ProtobufUnittest.TestLiteImportsNonlite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -30,206 +30,208 @@ internal func == (lhs: TestLiteImportsNonlite, rhs: TestLiteImportsNonlite) -> B
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final internal class TestLiteImportsNonlite : GeneratedMessage, GeneratedMessageProtocol {
-  private(set) var hasMessage:Bool = false
-  private(set) var message:TestAllTypes = TestAllTypes()
-  required internal init() {
+internal struct ProtobufUnittest {
+  final internal class TestLiteImportsNonlite : GeneratedMessage, GeneratedMessageProtocol {
+    private(set) var hasMessage:Bool = false
+    private(set) var message:ProtobufUnittest.TestAllTypes = ProtobufUnittest.TestAllTypes()
+    required internal init() {
+         super.init()
+    }
+    override internal func isInitialized() -> Bool {
+     return true
+    }
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+      if hasMessage {
+        output.writeMessage(1, value:message)
+      }
+      unknownFields.writeToCodedOutputStream(output)
+    }
+    override internal func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      if hasMessage {
+        serialize_size += message.computeMessageSize(1)
+      }
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestLiteImportsNonlite {
+      return ProtobufUnittest.TestLiteImportsNonlite.builder().mergeFromData(data, extensionRegistry:UnittestLiteImportsNonliteRoot.sharedInstance.extensionRegistry).build()
+    }
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestLiteImportsNonlite {
+      return ProtobufUnittest.TestLiteImportsNonlite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.TestLiteImportsNonlite {
+      return ProtobufUnittest.TestLiteImportsNonlite.builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.TestLiteImportsNonlite {
+      return ProtobufUnittest.TestLiteImportsNonlite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestLiteImportsNonlite {
+      return ProtobufUnittest.TestLiteImportsNonlite.builder().mergeFromCodedInputStream(input).build()
+    }
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestLiteImportsNonlite {
+      return ProtobufUnittest.TestLiteImportsNonlite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    }
+    internal class func builder() -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+      return ProtobufUnittest.TestLiteImportsNonlite.classBuilder() as ProtobufUnittest.TestLiteImportsNonliteBuilder
+    }
+    internal func builder() -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+      return classBuilder() as ProtobufUnittest.TestLiteImportsNonliteBuilder
+    }
+    internal override class func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.TestLiteImportsNonliteBuilder()
+    }
+    internal override func classBuilder() -> MessageBuilder {
+      return ProtobufUnittest.TestLiteImportsNonlite.builder()
+    }
+    internal func toBuilder() -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+      return ProtobufUnittest.TestLiteImportsNonlite.builderWithPrototype(self)
+    }
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestLiteImportsNonlite) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+      return ProtobufUnittest.TestLiteImportsNonlite.builder().mergeFrom(prototype)
+    }
+    override internal func writeDescriptionTo(inout output:String, indent:String) {
+      if hasMessage {
+        output += "\(indent) message {\n"
+        message.writeDescriptionTo(&output, indent:"\(indent)  ")
+        output += "\(indent) }\n"
+      }
+      unknownFields.writeDescriptionTo(&output, indent:indent)
+    }
+    override internal var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            if hasMessage {
+              hashCode = (hashCode &* 31) &+ message.hashValue
+            }
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override internal class func className() -> String {
+        return "ProtobufUnittest.TestLiteImportsNonlite"
+    }
+    override internal func className() -> String {
+        return "ProtobufUnittest.TestLiteImportsNonlite"
+    }
+    override internal func classMetaType() -> GeneratedMessage.Type {
+        return ProtobufUnittest.TestLiteImportsNonlite.self
+    }
+
+
+    //Meta information declaration end
+
+  }
+
+  final internal class TestLiteImportsNonliteBuilder : GeneratedMessageBuilder {
+    private var builderResult:ProtobufUnittest.TestLiteImportsNonlite
+
+    required override internal init () {
+       builderResult = ProtobufUnittest.TestLiteImportsNonlite()
        super.init()
-  }
-  override internal func isInitialized() -> Bool {
-   return true
-  }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-    if hasMessage {
-      output.writeMessage(1, value:message)
     }
-    unknownFields.writeToCodedOutputStream(output)
-  }
-  override internal func serializedSize() -> Int32 {
-    var serialize_size:Int32 = memoizedSerializedSize
-    if serialize_size != -1 {
-     return serialize_size
+    var hasMessage:Bool {
+         get {
+             return builderResult.hasMessage
+         }
     }
+    var message:ProtobufUnittest.TestAllTypes {
+         get {
+             return builderResult.message
+         }
+         set (value) {
+             builderResult.hasMessage = true
+             builderResult.message = value
+         }
+    }
+    func setMessage(value:ProtobufUnittest.TestAllTypes)-> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+      self.message = value
+      return self
+    }
+    internal func mergeMessage(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+      if (builderResult.hasMessage) {
+        builderResult.message = ProtobufUnittest.TestAllTypes.builderWithPrototype(builderResult.message).mergeFrom(value).buildPartial()
+      } else {
+        builderResult.message = value
+      }
+      builderResult.hasMessage = true
+      return self
+    }
+    internal func clearMessage() -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+      builderResult.hasMessage = false
+      builderResult.message = ProtobufUnittest.TestAllTypes()
+      return self
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+      builderResult = ProtobufUnittest.TestLiteImportsNonlite()
+      return self
+    }
+    internal override func clone() -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+      return ProtobufUnittest.TestLiteImportsNonlite.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ProtobufUnittest.TestLiteImportsNonlite {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ProtobufUnittest.TestLiteImportsNonlite {
+      var returnMe:ProtobufUnittest.TestLiteImportsNonlite = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:TestLiteImportsNonlite) -> TestLiteImportsNonliteBuilder {
+      if (other == ProtobufUnittest.TestLiteImportsNonlite()) {
+       return self
+      }
+      if (other.hasMessage) {
+          mergeMessage(other.message)
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.TestLiteImportsNonliteBuilder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-    serialize_size = 0
-    if hasMessage {
-      serialize_size += message.computeMessageSize(1)
-    }
-    serialize_size += unknownFields.serializedSize()
-    memoizedSerializedSize = serialize_size
-    return serialize_size
-  }
-  internal class func parseFromData(data:NSData) -> TestLiteImportsNonlite {
-    return TestLiteImportsNonlite.builder().mergeFromData(data, extensionRegistry:UnittestLiteImportsNonliteRoot.sharedInstance.extensionRegistry).build()
-  }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> TestLiteImportsNonlite {
-    return TestLiteImportsNonlite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream) -> TestLiteImportsNonlite {
-    return TestLiteImportsNonlite.builder().mergeFromInputStream(input).build()
-  }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestLiteImportsNonlite {
-    return TestLiteImportsNonlite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestLiteImportsNonlite {
-    return TestLiteImportsNonlite.builder().mergeFromCodedInputStream(input).build()
-  }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestLiteImportsNonlite {
-    return TestLiteImportsNonlite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-  }
-  internal class func builder() -> TestLiteImportsNonliteBuilder {
-    return TestLiteImportsNonlite.classBuilder() as TestLiteImportsNonliteBuilder
-  }
-  internal func builder() -> TestLiteImportsNonliteBuilder {
-    return classBuilder() as TestLiteImportsNonliteBuilder
-  }
-  internal override class func classBuilder() -> MessageBuilder {
-    return TestLiteImportsNonliteBuilder()
-  }
-  internal override func classBuilder() -> MessageBuilder {
-    return TestLiteImportsNonlite.builder()
-  }
-  internal func toBuilder() -> TestLiteImportsNonliteBuilder {
-    return TestLiteImportsNonlite.builderWithPrototype(self)
-  }
-  internal class func builderWithPrototype(prototype:TestLiteImportsNonlite) -> TestLiteImportsNonliteBuilder {
-    return TestLiteImportsNonlite.builder().mergeFrom(prototype)
-  }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
-    if hasMessage {
-      output += "\(indent) message {\n"
-      message.writeDescriptionTo(&output, indent:"\(indent)  ")
-      output += "\(indent) }\n"
-    }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
-  }
-  override internal var hashValue:Int {
-      get {
-          var hashCode:Int = 7
+        case 10 :
+          var subBuilder:ProtobufUnittest.TestAllTypesBuilder = ProtobufUnittest.TestAllTypes.builder()
           if hasMessage {
-            hashCode = (hashCode &* 31) &+ message.hashValue
+            subBuilder.mergeFrom(message)
           }
-          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-          return hashCode
-      }
-  }
+          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+          message = subBuilder.buildPartial()
 
-
-  //Meta information declaration start
-
-  override internal class func className() -> String {
-      return "TestLiteImportsNonlite"
-  }
-  override internal func className() -> String {
-      return "TestLiteImportsNonlite"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return TestLiteImportsNonlite.self
-  }
-
-
-  //Meta information declaration end
-
-}
-
-final internal class TestLiteImportsNonliteBuilder : GeneratedMessageBuilder {
-  private var builderResult:TestLiteImportsNonlite
-
-  required override internal init () {
-     builderResult = TestLiteImportsNonlite()
-     super.init()
-  }
-  var hasMessage:Bool {
-       get {
-           return builderResult.hasMessage
-       }
-  }
-  var message:TestAllTypes {
-       get {
-           return builderResult.message
-       }
-       set (value) {
-           builderResult.hasMessage = true
-           builderResult.message = value
-       }
-  }
-  func setMessage(value:TestAllTypes)-> TestLiteImportsNonliteBuilder {
-    self.message = value
-    return self
-  }
-  internal func mergeMessage(value:TestAllTypes) -> TestLiteImportsNonliteBuilder {
-    if (builderResult.hasMessage) {
-      builderResult.message = TestAllTypes.builderWithPrototype(builderResult.message).mergeFrom(value).buildPartial()
-    } else {
-      builderResult.message = value
-    }
-    builderResult.hasMessage = true
-    return self
-  }
-  internal func clearMessage() -> TestLiteImportsNonliteBuilder {
-    builderResult.hasMessage = false
-    builderResult.message = TestAllTypes()
-    return self
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> TestLiteImportsNonliteBuilder {
-    builderResult = TestLiteImportsNonlite()
-    return self
-  }
-  internal override func clone() -> TestLiteImportsNonliteBuilder {
-    return TestLiteImportsNonlite.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> TestLiteImportsNonlite {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> TestLiteImportsNonlite {
-    var returnMe:TestLiteImportsNonlite = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:TestLiteImportsNonlite) -> TestLiteImportsNonliteBuilder {
-    if (other == TestLiteImportsNonlite()) {
-     return self
-    }
-    if (other.hasMessage) {
-        mergeMessage(other.message)
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestLiteImportsNonliteBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestLiteImportsNonliteBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
-
-      case 10 :
-        var subBuilder:TestAllTypesBuilder = TestAllTypes.builder()
-        if hasMessage {
-          subBuilder.mergeFrom(message)
-        }
-        input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-        message = subBuilder.buildPartial()
-
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
-}
 
+}
 
 // @@protoc_insertion_point(global_scope)

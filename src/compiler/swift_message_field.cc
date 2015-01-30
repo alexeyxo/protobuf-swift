@@ -32,21 +32,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         void SetMessageVariables(const FieldDescriptor* descriptor,
                                  map<string, string>* variables) {
             std::string name = UnderscoresToCamelCase(descriptor);
-            (*variables)["classname"] = ClassName(descriptor->containing_type());
+            (*variables)["classname"] = PackageName(descriptor->file()) + ClassName(descriptor->containing_type());
             (*variables)["name"] = name;
             (*variables)["capitalized_name"] = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());
-            (*variables)["type"] = ClassName(descriptor->message_type());
-            if (IsPrimitiveType(GetSwiftType(descriptor))) {
-                (*variables)["storage_type"] = ClassName(descriptor->message_type());
-                (*variables)["storage_attribute"] = "";
-            } else {
-                (*variables)["storage_type"] = string(ClassName(descriptor->message_type()));
-                (*variables)["storage_attribute"] = "";
-            }
+            
+            string type = PackageName(descriptor->file()) + ClassName(descriptor->message_type());
+            (*variables)["type"] = type;
+            (*variables)["storage_type"] = type;
+            (*variables)["storage_attribute"] = "";
+            
             (*variables)["group_or_message"] =
-            (descriptor->type() == FieldDescriptor::TYPE_GROUP) ?
-            "Group" : "Message";
+            (descriptor->type() == FieldDescriptor::TYPE_GROUP) ? "Group" : "Message";
             
             (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->file());
             (* variables)["acontrolFunc"] = GetAccessControlType(descriptor->file());
@@ -129,7 +126,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "func set$capitalized_name$(value:$storage_type$)-> $classname$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:$storage_type$)-> $classname$Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
@@ -272,7 +269,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "func set$capitalized_name$(value:Array<$storage_type$>)-> $classname$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:Array<$storage_type$>)-> $classname$Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"

@@ -162,11 +162,6 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         printer->Print("}\n\n");
         
         
-        for (int i = 0; i < file_->enum_type_count(); i++) {
-            EnumGenerator(file_->enum_type(i)).GenerateSource(printer);
-        }
-        
- 
         
         for (int i = 0; i < file_->message_type_count(); i++) {
             
@@ -175,9 +170,8 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
             }
             MessageGenerator(file_->message_type(i)).GenerateMessageIsEqualSource(printer);
         }
+        
         vector<string> tokens = PackageSplit(file_->package());
-        
-        
         
         //Generate Messages with packages
         for (int i = 0; i < tokens.size(); i++) {
@@ -186,6 +180,11 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
                            "package", tokens[i]);
             printer->Indent();
         }
+        
+        for (int i = 0; i < file_->enum_type_count(); i++) {
+            EnumGenerator(file_->enum_type(i)).GenerateSource(printer);
+        }
+        
         
         for (int i = 0; i < file_->message_type_count(); i++) {
             MessageGenerator(file_->message_type(i)).GenerateSource(printer);
