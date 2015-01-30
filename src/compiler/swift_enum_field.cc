@@ -35,19 +35,27 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             const EnumValueDescriptor* default_value;
             default_value = descriptor->default_value_enum();
             
-            string type = PackageName(descriptor->file()) + ClassName(descriptor->enum_type());
+            if (descriptor->containing_type() == NULL)
+            {
+                (*variables)["type"] = PackageName(descriptor->file()) + ClassName(descriptor->enum_type());
+                (*variables)["classname"] = descriptor->full_name();//PackageName(descriptor->file()) + ClassName(descriptor->containing_type());
+            }
+            else
+            {
+                (*variables)["type"] = PackageName(descriptor->containing_type()->file()) + ClassName(descriptor->enum_type());
+                (*variables)["classname"] = descriptor->full_name();//PackageName(descriptor->containing_type()->file()) + ClassName(descriptor->containing_type());
+            }
             
-            (*variables)["classname"]             = PackageName(descriptor->file()) + ClassName(descriptor->containing_type());
+           
             (*variables)["name"]                  = UnderscoresToCamelCase(descriptor);
             (*variables)["capitalized_name"]      = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());
             
 
-            (*variables)["type"] = type;
+            
             (*variables)["default"] = EnumValueName(default_value);
             (*variables)["tag"] = SimpleItoa(internal::WireFormat::MakeTag(descriptor));
-            (*variables)["tag_size"] = SimpleItoa(
-                                                  internal::WireFormat::TagSize(descriptor->number(), descriptor->type()));
+            (*variables)["tag_size"] = SimpleItoa(internal::WireFormat::TagSize(descriptor->number(), descriptor->type()));
             
             if (isOneOfField(descriptor)) {
                 const OneofDescriptor* oneof = descriptor->containing_oneof();
@@ -103,7 +111,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         else
         {
-            printer->Print(variables_, "$acontrol$private(set) var $name$:$type$ = $type$.$default$\n");
+            printer->Print(variables_,"$acontrol$private(set) var $name$:$type$ = $type$.$default$\n");
             printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
         }
     }

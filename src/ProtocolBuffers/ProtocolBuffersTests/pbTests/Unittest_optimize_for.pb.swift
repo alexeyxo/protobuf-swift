@@ -25,8 +25,8 @@ internal struct UnittestOptimizeForRoot {
   internal var extensionRegistry:ExtensionRegistry
 
   init() {
-    TestOptimizedForSizetestExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestOptimizedForSize.self, fieldNumber: 1234, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    TestOptimizedForSizetestExtension2Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestOptimizedForSize.self, fieldNumber: 1235, defaultValue:TestRequiredOptimizedForSize(), messageOrGroupClass:TestRequiredOptimizedForSize.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    TestOptimizedForSizetestExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestOptimizedForSize.self, fieldNumber: 1234, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    TestOptimizedForSizetestExtension2Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestOptimizedForSize.self, fieldNumber: 1235, defaultValue:ProtobufUnittest.TestRequiredOptimizedForSize(), messageOrGroupClass:ProtobufUnittest.TestRequiredOptimizedForSize.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
     UnittestRoot.sharedInstance.registerAllExtensions(extensionRegistry)
@@ -68,7 +68,7 @@ internal func == (lhs: ProtobufUnittest.TestOptionalOptimizedForSize, rhs: Proto
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal struct ProtobufUnittest {
+internal extension ProtobufUnittest {
   final internal class TestOptimizedForSize : ExtendableMessage, GeneratedMessageProtocol {
 
 

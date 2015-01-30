@@ -256,10 +256,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     string FileClassPrefix(const FileDescriptor* file) {
-        if (IsBootstrapFile(file)) {
-            return "PB";
-        }
-        else if (file->options().HasExtension(swift_file_options)) {
+//        if (IsBootstrapFile(file)) {
+//            return "PB";
+//        }
+//        else
+        if (file->options().HasExtension(swift_file_options)) {
             SwiftFileOptions options = file->options().GetExtension(swift_file_options);
             return options.class_prefix();
         } else {
@@ -313,6 +314,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         for (int i = 0; i < splitVector.size(); i++) {
             result += splitVector[i];
             result += ".";
+        }
+        return result;
+    }
+    
+    string PackageExtensionName(const vector<string> splitVector)
+    {
+        string result;
+        for (int i = 0; i < splitVector.size(); i++) {
+            result += splitVector[i];
+            if (i  != (splitVector.size() - 1)) {
+                result += ".";
+            }
         }
         return result;
     }
@@ -600,7 +613,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::CPPTYPE_ENUM:
                 return EnumValueName(field->default_value_enum());
             case FieldDescriptor::CPPTYPE_MESSAGE:
-                return ClassName(field->message_type()) + "()";
+                return PackageName(field->file()) + ClassName(field->message_type()) + "()";
         }
         
         GOOGLE_LOG(FATAL) << "Can't get here.";

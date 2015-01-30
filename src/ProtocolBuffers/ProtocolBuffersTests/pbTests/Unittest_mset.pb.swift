@@ -25,8 +25,8 @@ internal struct UnittestMsetRoot {
   internal var extensionRegistry:ExtensionRegistry
 
   init() {
-    TestMessageSetExtension1messageSetExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestMessageSet.self, fieldNumber: 1545008, defaultValue:TestMessageSetExtension1(), messageOrGroupClass:TestMessageSetExtension1.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:true)
-    TestMessageSetExtension2messageSetExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestMessageSet.self, fieldNumber: 1547769, defaultValue:TestMessageSetExtension2(), messageOrGroupClass:TestMessageSetExtension2.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:true)
+    TestMessageSetExtension1messageSetExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestMessageSet.self, fieldNumber: 1545008, defaultValue:ProtobufUnittest.TestMessageSetExtension1(), messageOrGroupClass:ProtobufUnittest.TestMessageSetExtension1.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:true)
+    TestMessageSetExtension2messageSetExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestMessageSet.self, fieldNumber: 1547769, defaultValue:ProtobufUnittest.TestMessageSetExtension2(), messageOrGroupClass:ProtobufUnittest.TestMessageSetExtension2.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:true)
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
   }
@@ -91,7 +91,7 @@ internal func == (lhs: ProtobufUnittest.RawMessageSet, rhs: ProtobufUnittest.Raw
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal struct ProtobufUnittest {
+internal extension ProtobufUnittest {
   final internal class TestMessageSet : ExtendableMessage, GeneratedMessageProtocol {
     required internal init() {
          super.init()

@@ -21,4 +21,5 @@ internal struct UnittestEmptyRoot {
 }
 
 
+
 // @@protoc_insertion_point(global_scope)

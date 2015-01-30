@@ -30,7 +30,7 @@ internal func == (lhs: ProtobufUnittest.TestLiteImportsNonlite, rhs: ProtobufUni
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal struct ProtobufUnittest {
+internal extension ProtobufUnittest {
   final internal class TestLiteImportsNonlite : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasMessage:Bool = false
     private(set) var message:ProtobufUnittest.TestAllTypes = ProtobufUnittest.TestAllTypes()

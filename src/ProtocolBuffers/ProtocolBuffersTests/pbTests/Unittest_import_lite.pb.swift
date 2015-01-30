@@ -30,7 +30,7 @@ internal func == (lhs: ProtobufUnittestImport.ImportMessageLite, rhs: ProtobufUn
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal struct ProtobufUnittestImport {
+internal extension ProtobufUnittestImport {
 
 
   //Enum type declaration start 
@@ -40,12 +40,6 @@ internal struct ProtobufUnittestImport {
     case ImportLiteBar = 8
     case ImportLiteBaz = 9
 
-    internal static func IsValidValue(value:Int32) ->Bool {
-        if let check = ProtobufUnittestImport.ImportEnumLite(rawValue:value) {
-            return true
-        }
-        return false
-    }
   }
 
 

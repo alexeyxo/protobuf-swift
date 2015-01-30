@@ -68,17 +68,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         printer->Print("\n");
         
-        
-        string classNames = PackageName(descriptor_->file()) + UnderscoresToCapitalizedCamelCase(descriptor_->name());
-        
-        printer->Print("$acontrol$ static func IsValidValue(value:Int32) ->Bool {\n"
-                       "    if let check = $classname$(rawValue:value) {\n"
-                       "        return true\n"
-                       "    }\n"
-                       "    return false\n"
-                       "}\n",
-                       "classname", classNames,
-                       "acontrol", GetAccessControlType(descriptor_->file()));
+//        
+//        string classNames = PackageName(descriptor_->file()) + ClassName(descriptor_->enum_type());
+//        
+//        printer->Print("$acontrol$ static func IsValidValue(value:Int32) ->Bool {\n"
+//                       "    if let check = $classname$(rawValue:value) {\n"
+//                       "        return true\n"
+//                       "    }\n"
+//                       "    return false\n"
+//                       "}\n",
+//                       "classname", classNames,
+//                       "acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Outdent();
         printer->Print(

@@ -31,7 +31,7 @@ internal func == (lhs: ProtobufUnittest.TestEmbedOptimizedForSize, rhs: Protobuf
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal struct ProtobufUnittest {
+internal extension ProtobufUnittest {
   final internal class TestEmbedOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasOptionalMessage:Bool = false
     private(set) var optionalMessage:ProtobufUnittest.TestOptimizedForSize = ProtobufUnittest.TestOptimizedForSize()

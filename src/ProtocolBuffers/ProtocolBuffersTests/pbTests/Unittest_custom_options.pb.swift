@@ -277,50 +277,50 @@ internal struct UnittestCustomOptionsRoot {
   internal var extensionRegistry:ExtensionRegistry
 
   init() {
-    UnittestCustomOptionsRootfileOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:PBFileOptions.self, fieldNumber: 7736974, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootmessageOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:PBMessageOptions.self, fieldNumber: 7739036, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootfieldOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:PBFieldOptions.self, fieldNumber: 7740936, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootfieldOpt2Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:PBFieldOptions.self, fieldNumber: 7753913, defaultValue:Int32(42), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootenumOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:PBEnumOptions.self, fieldNumber: 7753576, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootenumValueOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:PBEnumValueOptions.self, fieldNumber: 1560678, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootserviceOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:PBServiceOptions.self, fieldNumber: 7887650, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootmethodOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:PBMethodOptions.self, fieldNumber: 7890860, defaultValue:MethodOpt1.Methodopt1Val1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootboolOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:PBMessageOptions.self, fieldNumber: 7706090, defaultValue:false, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootint32OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:PBMessageOptions.self, fieldNumber: 7705709, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootint64OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:PBMessageOptions.self, fieldNumber: 7705542, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootuint32OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:PBMessageOptions.self, fieldNumber: 7704880, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootuint64OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:PBMessageOptions.self, fieldNumber: 7702367, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootsint32OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:PBMessageOptions.self, fieldNumber: 7701568, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootsint64OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:PBMessageOptions.self, fieldNumber: 7700863, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootfixed32OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:PBMessageOptions.self, fieldNumber: 7700307, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootfixed64OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:PBMessageOptions.self, fieldNumber: 7700194, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootsfixed32OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:PBMessageOptions.self, fieldNumber: 7698645, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootsfixed64OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:PBMessageOptions.self, fieldNumber: 7685475, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootfloatOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:PBMessageOptions.self, fieldNumber: 7675390, defaultValue:Float(0), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootdoubleOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:PBMessageOptions.self, fieldNumber: 7673293, defaultValue:Double(0), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootstringOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:PBMessageOptions.self, fieldNumber: 7673285, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootbytesOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:PBMessageOptions.self, fieldNumber: 7673238, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootenumOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:PBMessageOptions.self, fieldNumber: 7673233, defaultValue:DummyMessageContainingEnum.TestEnumType.TestOptionEnumType1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootmessageTypeOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBMessageOptions.self, fieldNumber: 7665967, defaultValue:DummyMessageInvalidAsOptionType(), messageOrGroupClass:DummyMessageInvalidAsOptionType.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootquuxStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ComplexOptionType1.self, fieldNumber: 7663707, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootcorgeStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ComplexOptionType1.self, fieldNumber: 7663442, defaultValue:ComplexOptionType3(), messageOrGroupClass:ComplexOptionType3.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootgraultStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ComplexOptionType2.self, fieldNumber: 7650927, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootgarplyStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ComplexOptionType2.self, fieldNumber: 7649992, defaultValue:ComplexOptionType1(), messageOrGroupClass:ComplexOptionType1.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootcomplexOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBMessageOptions.self, fieldNumber: 7646756, defaultValue:ComplexOptionType1(), messageOrGroupClass:ComplexOptionType1.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootcomplexOpt2Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBMessageOptions.self, fieldNumber: 7636949, defaultValue:ComplexOptionType2(), messageOrGroupClass:ComplexOptionType2.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootcomplexOpt3Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBMessageOptions.self, fieldNumber: 7636463, defaultValue:ComplexOptionType3(), messageOrGroupClass:ComplexOptionType3.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootcomplexOpt6Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:PBMessageOptions.self, fieldNumber: 7595468, defaultValue:ComplexOpt6(), messageOrGroupClass:ComplexOpt6.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootfileoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBFileOptions.self, fieldNumber: 15478479, defaultValue:Aggregate(), messageOrGroupClass:Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootmsgoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBMessageOptions.self, fieldNumber: 15480088, defaultValue:Aggregate(), messageOrGroupClass:Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootfieldoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBFieldOptions.self, fieldNumber: 15481374, defaultValue:Aggregate(), messageOrGroupClass:Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootenumoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBEnumOptions.self, fieldNumber: 15483218, defaultValue:Aggregate(), messageOrGroupClass:Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootenumvaloptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBEnumValueOptions.self, fieldNumber: 15486921, defaultValue:Aggregate(), messageOrGroupClass:Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootserviceoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBServiceOptions.self, fieldNumber: 15497145, defaultValue:Aggregate(), messageOrGroupClass:Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestCustomOptionsRootmethodoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBMethodOptions.self, fieldNumber: 15512713, defaultValue:Aggregate(), messageOrGroupClass:Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    ComplexOptionType2ComplexOptionType4complexOpt4Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBMessageOptions.self, fieldNumber: 7633546, defaultValue:ComplexOptionType2.ComplexOptionType4(), messageOrGroupClass:ComplexOptionType2.ComplexOptionType4.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    AggregateMessageSetElementmessageSetExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:AggregateMessageSet.self, fieldNumber: 15447542, defaultValue:AggregateMessageSetElement(), messageOrGroupClass:AggregateMessageSetElement.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:true)
-    AggregatenestedStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:PBFileOptions.self, fieldNumber: 15476903, defaultValue:Aggregate(), messageOrGroupClass:Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    NestedOptionTypenestedExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:PBFileOptions.self, fieldNumber: 7912573, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootfileOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.PBFileOptions.self, fieldNumber: 7736974, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootmessageOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7739036, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootfieldOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.PBFieldOptions.self, fieldNumber: 7740936, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootfieldOpt2Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.PBFieldOptions.self, fieldNumber: 7753913, defaultValue:Int32(42), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootenumOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.PBEnumOptions.self, fieldNumber: 7753576, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootenumValueOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.PBEnumValueOptions.self, fieldNumber: 1560678, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootserviceOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.PBServiceOptions.self, fieldNumber: 7887650, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootmethodOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.PBMethodOptions.self, fieldNumber: 7890860, defaultValue:MethodOpt1.Methodopt1Val1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootboolOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7706090, defaultValue:false, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootint32OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7705709, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootint64OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7705542, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootuint32OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7704880, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootuint64OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7702367, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootsint32OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7701568, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootsint64OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7700863, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootfixed32OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7700307, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootfixed64OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7700194, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootsfixed32OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7698645, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootsfixed64OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7685475, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootfloatOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7675390, defaultValue:Float(0), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootdoubleOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7673293, defaultValue:Double(0), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootstringOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7673285, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootbytesOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7673238, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootenumOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7673233, defaultValue:DummyMessageContainingEnum.TestEnumType.TestOptionEnumType1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootmessageTypeOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7665967, defaultValue:ProtobufUnittest.DummyMessageInvalidAsOptionType(), messageOrGroupClass:ProtobufUnittest.DummyMessageInvalidAsOptionType.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootquuxStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.ComplexOptionType1.self, fieldNumber: 7663707, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootcorgeStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.ComplexOptionType1.self, fieldNumber: 7663442, defaultValue:ProtobufUnittest.ComplexOptionType3(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType3.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootgraultStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.ComplexOptionType2.self, fieldNumber: 7650927, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootgarplyStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.ComplexOptionType2.self, fieldNumber: 7649992, defaultValue:ProtobufUnittest.ComplexOptionType1(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType1.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootcomplexOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7646756, defaultValue:ProtobufUnittest.ComplexOptionType1(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType1.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootcomplexOpt2Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7636949, defaultValue:ProtobufUnittest.ComplexOptionType2(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType2.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootcomplexOpt3Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7636463, defaultValue:ProtobufUnittest.ComplexOptionType3(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType3.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootcomplexOpt6Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7595468, defaultValue:ProtobufUnittest.ComplexOpt6(), messageOrGroupClass:ProtobufUnittest.ComplexOpt6.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootfileoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBFileOptions.self, fieldNumber: 15478479, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootmsgoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 15480088, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootfieldoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBFieldOptions.self, fieldNumber: 15481374, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootenumoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBEnumOptions.self, fieldNumber: 15483218, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootenumvaloptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBEnumValueOptions.self, fieldNumber: 15486921, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootserviceoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBServiceOptions.self, fieldNumber: 15497145, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestCustomOptionsRootmethodoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBMethodOptions.self, fieldNumber: 15512713, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    ComplexOptionType2ComplexOptionType4complexOpt4Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBMessageOptions.self, fieldNumber: 7633546, defaultValue:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    AggregateMessageSetElementmessageSetExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.AggregateMessageSet.self, fieldNumber: 15447542, defaultValue:ProtobufUnittest.AggregateMessageSetElement(), messageOrGroupClass:ProtobufUnittest.AggregateMessageSetElement.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:true)
+    AggregatenestedStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.PBFileOptions.self, fieldNumber: 15476903, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    NestedOptionTypenestedExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.PBFileOptions.self, fieldNumber: 7912573, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
     PBDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
@@ -718,7 +718,7 @@ internal func == (lhs: ProtobufUnittest.NestedOptionType, rhs: ProtobufUnittest.
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal struct ProtobufUnittest {
+internal extension ProtobufUnittest {
 
 
   //Enum type declaration start 
@@ -727,12 +727,6 @@ internal struct ProtobufUnittest {
     case Methodopt1Val1 = 1
     case Methodopt1Val2 = 2
 
-    internal static func IsValidValue(value:Int32) ->Bool {
-        if let check = ProtobufUnittest.MethodOpt1(rawValue:value) {
-            return true
-        }
-        return false
-    }
   }
 
 
@@ -746,12 +740,6 @@ internal struct ProtobufUnittest {
   internal enum AggregateEnum:Int32 {
     case Value = 1
 
-    internal static func IsValidValue(value:Int32) ->Bool {
-        if let check = ProtobufUnittest.AggregateEnum(rawValue:value) {
-            return true
-        }
-        return false
-    }
   }
 
 
@@ -767,12 +755,6 @@ internal struct ProtobufUnittest {
         case AnenumVal1 = 1
         case AnenumVal2 = 2
 
-        internal static func IsValidValue(value:Int32) ->Bool {
-            if let check = ProtobufUnittest.AnEnum(rawValue:value) {
-                return true
-            }
-            return false
-        }
       }
 
 
@@ -1541,12 +1523,6 @@ internal struct ProtobufUnittest {
         case TestOptionEnumType1 = 22
         case TestOptionEnumType2 = -23
 
-        internal static func IsValidValue(value:Int32) ->Bool {
-            if let check = ProtobufUnittest.TestEnumType(rawValue:value) {
-                return true
-            }
-            return false
-        }
       }
 
 
@@ -5344,12 +5320,6 @@ internal struct ProtobufUnittest {
       internal enum NestedEnum:Int32 {
         case NestedEnumValue = 1
 
-        internal static func IsValidValue(value:Int32) ->Bool {
-            if let check = ProtobufUnittest.NestedEnum(rawValue:value) {
-                return true
-            }
-            return false
-        }
       }
 
 

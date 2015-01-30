@@ -29,7 +29,7 @@ internal func == (lhs: ProtobufUnittestImport.PublicImportMessage, rhs: Protobuf
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal struct ProtobufUnittestImport {
+internal extension ProtobufUnittestImport {
   final internal class PublicImportMessage : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasE:Bool = false
     private(set) var e:Int32 = Int32(0)

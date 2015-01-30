@@ -679,117 +679,117 @@ internal struct UnittestRoot {
   internal var extensionRegistry:ExtensionRegistry
 
   init() {
-    UnittestRootoptionalInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestAllExtensions.self, fieldNumber: 1, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:TestAllExtensions.self, fieldNumber: 2, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:TestAllExtensions.self, fieldNumber: 3, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalUint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:TestAllExtensions.self, fieldNumber: 4, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalSint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:TestAllExtensions.self, fieldNumber: 5, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalSint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:TestAllExtensions.self, fieldNumber: 6, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalFixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:TestAllExtensions.self, fieldNumber: 7, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalFixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:TestAllExtensions.self, fieldNumber: 8, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalSfixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:TestAllExtensions.self, fieldNumber: 9, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalSfixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:TestAllExtensions.self, fieldNumber: 10, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalFloatExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:TestAllExtensions.self, fieldNumber: 11, defaultValue:Float(0), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:TestAllExtensions.self, fieldNumber: 12, defaultValue:Double(0), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:TestAllExtensions.self, fieldNumber: 13, defaultValue:false, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 14, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 15, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalGroupExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:TestAllExtensions.self, fieldNumber: 16, defaultValue:OptionalGroup_extension(), messageOrGroupClass:OptionalGroup_extension.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 18, defaultValue:TestAllTypes.NestedMessage(), messageOrGroupClass:TestAllTypes.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalForeignMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 19, defaultValue:ForeignMessage(), messageOrGroupClass:ForeignMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalImportMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 20, defaultValue:ImportMessage(), messageOrGroupClass:ImportMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalNestedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 21, defaultValue:TestAllTypes.NestedEnum.Foo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalForeignEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 22, defaultValue:ForeignEnum.ForeignFoo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalImportEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 23, defaultValue:ImportEnum.ImportFoo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalStringPieceExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 24, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalCordExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 25, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalPublicImportMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 26, defaultValue:PublicImportMessage(), messageOrGroupClass:PublicImportMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoptionalLazyMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 27, defaultValue:TestAllTypes.NestedMessage(), messageOrGroupClass:TestAllTypes.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestAllExtensions.self, fieldNumber: 31, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:TestAllExtensions.self, fieldNumber: 32, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:TestAllExtensions.self, fieldNumber: 33, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedUint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:TestAllExtensions.self, fieldNumber: 34, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedSint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:TestAllExtensions.self, fieldNumber: 35, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedSint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:TestAllExtensions.self, fieldNumber: 36, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedFixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:TestAllExtensions.self, fieldNumber: 37, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedFixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:TestAllExtensions.self, fieldNumber: 38, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedSfixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:TestAllExtensions.self, fieldNumber: 39, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedSfixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:TestAllExtensions.self, fieldNumber: 40, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedFloatExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:TestAllExtensions.self, fieldNumber: 41, defaultValue:Array<Float>(), messageOrGroupClass:Float.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:TestAllExtensions.self, fieldNumber: 42, defaultValue:Array<Double>(), messageOrGroupClass:Double.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:TestAllExtensions.self, fieldNumber: 43, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 44, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 45, defaultValue:Array<NSData>(), messageOrGroupClass:NSData.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedGroupExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:TestAllExtensions.self, fieldNumber: 46, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:RepeatedGroup_extension.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 48, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypes.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedForeignMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 49, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ForeignMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedImportMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 50, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ImportMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedNestedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 51, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedForeignEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 52, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedImportEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 53, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedStringPieceExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 54, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedCordExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 55, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootrepeatedLazyMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 57, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypes.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestAllExtensions.self, fieldNumber: 61, defaultValue:Int32(41), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:TestAllExtensions.self, fieldNumber: 62, defaultValue:Int64(42), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:TestAllExtensions.self, fieldNumber: 63, defaultValue:UInt32(43), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultUint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:TestAllExtensions.self, fieldNumber: 64, defaultValue:UInt64(44), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultSint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:TestAllExtensions.self, fieldNumber: 65, defaultValue:Int32(-45), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultSint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:TestAllExtensions.self, fieldNumber: 66, defaultValue:Int64(46), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultFixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:TestAllExtensions.self, fieldNumber: 67, defaultValue:UInt32(47), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultFixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:TestAllExtensions.self, fieldNumber: 68, defaultValue:UInt64(48), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultSfixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:TestAllExtensions.self, fieldNumber: 69, defaultValue:Int32(49), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultSfixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:TestAllExtensions.self, fieldNumber: 70, defaultValue:Int64(-50), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultFloatExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:TestAllExtensions.self, fieldNumber: 71, defaultValue:Float(51.5), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:TestAllExtensions.self, fieldNumber: 72, defaultValue:Double(52000), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:TestAllExtensions.self, fieldNumber: 73, defaultValue:true, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 74, defaultValue:"hello", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 75, defaultValue:NSData(bytes:([Byte]() + "world".utf8), length:5), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultNestedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 81, defaultValue:TestAllTypes.NestedEnum.Bar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultForeignEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 82, defaultValue:ForeignEnum.ForeignBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultImportEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensions.self, fieldNumber: 83, defaultValue:ImportEnum.ImportBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultStringPieceExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 84, defaultValue:"abc", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootdefaultCordExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 85, defaultValue:"123", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoneofUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:TestAllExtensions.self, fieldNumber: 111, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoneofNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 112, defaultValue:TestAllTypes.NestedMessage(), messageOrGroupClass:TestAllTypes.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoneofStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 113, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootoneofBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensions.self, fieldNumber: 114, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootmyExtensionStringStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestFieldOrderings.self, fieldNumber: 50, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootmyExtensionIntStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestFieldOrderings.self, fieldNumber: 5, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootpackedInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestPackedExtensions.self, fieldNumber: 90, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:TestPackedExtensions.self, fieldNumber: 91, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:TestPackedExtensions.self, fieldNumber: 92, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedUint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:TestPackedExtensions.self, fieldNumber: 93, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedSint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:TestPackedExtensions.self, fieldNumber: 94, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedSint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:TestPackedExtensions.self, fieldNumber: 95, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedFixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:TestPackedExtensions.self, fieldNumber: 96, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedFixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:TestPackedExtensions.self, fieldNumber: 97, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedSfixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:TestPackedExtensions.self, fieldNumber: 98, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedSfixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:TestPackedExtensions.self, fieldNumber: 99, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedFloatExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:TestPackedExtensions.self, fieldNumber: 100, defaultValue:Array<Float>(), messageOrGroupClass:Float.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:TestPackedExtensions.self, fieldNumber: 101, defaultValue:Array<Double>(), messageOrGroupClass:Double.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:TestPackedExtensions.self, fieldNumber: 102, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootpackedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestPackedExtensions.self, fieldNumber: 103, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-    UnittestRootunpackedInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestUnpackedExtensions.self, fieldNumber: 90, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:TestUnpackedExtensions.self, fieldNumber: 91, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:TestUnpackedExtensions.self, fieldNumber: 92, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedUint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:TestUnpackedExtensions.self, fieldNumber: 93, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedSint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:TestUnpackedExtensions.self, fieldNumber: 94, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedSint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:TestUnpackedExtensions.self, fieldNumber: 95, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedFixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:TestUnpackedExtensions.self, fieldNumber: 96, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedFixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:TestUnpackedExtensions.self, fieldNumber: 97, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedSfixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:TestUnpackedExtensions.self, fieldNumber: 98, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedSfixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:TestUnpackedExtensions.self, fieldNumber: 99, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedFloatExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:TestUnpackedExtensions.self, fieldNumber: 100, defaultValue:Array<Float>(), messageOrGroupClass:Float.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:TestUnpackedExtensions.self, fieldNumber: 101, defaultValue:Array<Double>(), messageOrGroupClass:Double.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:TestUnpackedExtensions.self, fieldNumber: 102, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestRootunpackedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestUnpackedExtensions.self, fieldNumber: 103, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    TestNestedExtensiontestStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 1002, defaultValue:"test", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    TestNestedExtensionnestedStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensions.self, fieldNumber: 1003, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    TestRequiredsingleStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 1000, defaultValue:TestRequired(), messageOrGroupClass:TestRequired.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    TestRequiredmultiStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensions.self, fieldNumber: 1001, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestRequired.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    TestParsingMergeoptionalExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestParsingMerge.self, fieldNumber: 1000, defaultValue:TestAllTypes(), messageOrGroupClass:TestAllTypes.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    TestParsingMergerepeatedExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestParsingMerge.self, fieldNumber: 1001, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypes.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 1, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 2, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 3, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalUint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 4, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalSint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 5, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalSint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 6, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalFixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 7, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalFixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 8, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalSfixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 9, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalSfixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 10, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalFloatExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 11, defaultValue:Float(0), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 12, defaultValue:Double(0), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 13, defaultValue:false, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 14, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 15, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalGroupExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 16, defaultValue:ProtobufUnittest.OptionalGroup_extension(), messageOrGroupClass:ProtobufUnittest.OptionalGroup_extension.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 18, defaultValue:ProtobufUnittest.TestAllTypes.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypes.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalForeignMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 19, defaultValue:ProtobufUnittest.ForeignMessage(), messageOrGroupClass:ProtobufUnittest.ForeignMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalImportMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 20, defaultValue:ProtobufUnittest.ImportMessage(), messageOrGroupClass:ProtobufUnittest.ImportMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalNestedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 21, defaultValue:TestAllTypes.NestedEnum.Foo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalForeignEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 22, defaultValue:ForeignEnum.ForeignFoo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalImportEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 23, defaultValue:ImportEnum.ImportFoo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalStringPieceExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 24, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalCordExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 25, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalPublicImportMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 26, defaultValue:ProtobufUnittest.PublicImportMessage(), messageOrGroupClass:ProtobufUnittest.PublicImportMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoptionalLazyMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 27, defaultValue:ProtobufUnittest.TestAllTypes.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypes.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 31, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 32, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 33, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedUint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 34, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedSint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 35, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedSint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 36, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedFixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 37, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedFixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 38, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedSfixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 39, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedSfixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 40, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedFloatExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 41, defaultValue:Array<Float>(), messageOrGroupClass:Float.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 42, defaultValue:Array<Double>(), messageOrGroupClass:Double.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 43, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 44, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 45, defaultValue:Array<NSData>(), messageOrGroupClass:NSData.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedGroupExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 46, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.RepeatedGroup_extension.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 48, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestAllTypes.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedForeignMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 49, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.ForeignMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedImportMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 50, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.ImportMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedNestedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 51, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedForeignEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 52, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedImportEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 53, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedStringPieceExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 54, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedCordExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 55, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootrepeatedLazyMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 57, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestAllTypes.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 61, defaultValue:Int32(41), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 62, defaultValue:Int64(42), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 63, defaultValue:UInt32(43), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultUint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 64, defaultValue:UInt64(44), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultSint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 65, defaultValue:Int32(-45), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultSint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 66, defaultValue:Int64(46), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultFixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 67, defaultValue:UInt32(47), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultFixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 68, defaultValue:UInt64(48), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultSfixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 69, defaultValue:Int32(49), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultSfixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 70, defaultValue:Int64(-50), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultFloatExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 71, defaultValue:Float(51.5), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 72, defaultValue:Double(52000), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 73, defaultValue:true, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 74, defaultValue:"hello", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 75, defaultValue:NSData(bytes:([Byte]() + "world".utf8), length:5), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultNestedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 81, defaultValue:TestAllTypes.NestedEnum.Bar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultForeignEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 82, defaultValue:ForeignEnum.ForeignBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultImportEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 83, defaultValue:ImportEnum.ImportBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultStringPieceExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 84, defaultValue:"abc", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootdefaultCordExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 85, defaultValue:"123", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoneofUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 111, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoneofNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 112, defaultValue:ProtobufUnittest.TestAllTypes.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypes.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoneofStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 113, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootoneofBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 114, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootmyExtensionStringStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestFieldOrderings.self, fieldNumber: 50, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootmyExtensionIntStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestFieldOrderings.self, fieldNumber: 5, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootpackedInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 90, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 91, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 92, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedUint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 93, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedSint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 94, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedSint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 95, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedFixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 96, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedFixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 97, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedSfixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 98, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedSfixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 99, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedFloatExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 100, defaultValue:Array<Float>(), messageOrGroupClass:Float.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 101, defaultValue:Array<Double>(), messageOrGroupClass:Double.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 102, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootpackedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 103, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+    UnittestRootunpackedInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 90, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 91, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 92, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedUint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 93, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedSint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 94, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedSint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 95, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedFixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 96, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedFixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 97, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedSfixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 98, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedSfixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 99, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedFloatExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 100, defaultValue:Array<Float>(), messageOrGroupClass:Float.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 101, defaultValue:Array<Double>(), messageOrGroupClass:Double.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 102, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestRootunpackedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 103, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    TestNestedExtensiontestStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 1002, defaultValue:"test", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    TestNestedExtensionnestedStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 1003, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    TestRequiredsingleStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 1000, defaultValue:ProtobufUnittest.TestRequired(), messageOrGroupClass:ProtobufUnittest.TestRequired.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    TestRequiredmultiStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 1001, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestRequired.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    TestParsingMergeoptionalExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestParsingMerge.self, fieldNumber: 1000, defaultValue:ProtobufUnittest.TestAllTypes(), messageOrGroupClass:ProtobufUnittest.TestAllTypes.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    TestParsingMergerepeatedExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestParsingMerge.self, fieldNumber: 1001, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestAllTypes.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
     UnittestImportRoot.sharedInstance.registerAllExtensions(extensionRegistry)
@@ -2062,7 +2062,8 @@ internal func == (lhs: ProtobufUnittest.BarResponse, rhs: ProtobufUnittest.BarRe
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal struct ProtobufUnittest {
+internal struct ProtobufUnittest {}
+internal extension ProtobufUnittest {
 
 
   //Enum type declaration start 
@@ -2072,12 +2073,6 @@ internal struct ProtobufUnittest {
     case ForeignBar = 5
     case ForeignBaz = 6
 
-    internal static func IsValidValue(value:Int32) ->Bool {
-        if let check = ProtobufUnittest.ForeignEnum(rawValue:value) {
-            return true
-        }
-        return false
-    }
   }
 
 
@@ -2093,12 +2088,6 @@ internal struct ProtobufUnittest {
     case Bar1 = 2
     case Baz = 3
 
-    internal static func IsValidValue(value:Int32) ->Bool {
-        if let check = ProtobufUnittest.TestEnumWithDupValue(rawValue:value) {
-            return true
-        }
-        return false
-    }
   }
 
 
@@ -2118,12 +2107,6 @@ internal struct ProtobufUnittest {
     case SparseF = 0
     case SparseG = 2
 
-    internal static func IsValidValue(value:Int32) ->Bool {
-        if let check = ProtobufUnittest.TestSparseEnum(rawValue:value) {
-            return true
-        }
-        return false
-    }
   }
 
 
@@ -2785,12 +2768,6 @@ internal struct ProtobufUnittest {
         case Baz = 3
         case Neg = -1
 
-        internal static func IsValidValue(value:Int32) ->Bool {
-            if let check = ProtobufUnittest.NestedEnum(rawValue:value) {
-                return true
-            }
-            return false
-        }
       }
 
 
@@ -4656,11 +4633,11 @@ internal struct ProtobufUnittest {
               builderResult.optionalNestedEnum = value
           }
       }
-      internal func setOptionalNestedEnum(value:ProtobufUnittest.TestAllTypes.NestedEnum)-> ProtobufUnittest.TestAllTypesBuilder {
+      internal func setOptionalNestedEnum(value:ProtobufUnittest.TestAllTypes.NestedEnum)-> protobuf_unittest.TestAllTypes.optional_nested_enumBuilder {
         self.optionalNestedEnum = value
         return self
       }
-      internal func clearOptionalNestedEnum() -> ProtobufUnittest.TestAllTypesBuilder {
+      internal func clearOptionalNestedEnum() -> protobuf_unittest.TestAllTypes.optional_nested_enumBuilder {
          builderResult.hasOptionalNestedEnum = false
          builderResult.optionalNestedEnum = .Foo
          return self
@@ -4679,11 +4656,11 @@ internal struct ProtobufUnittest {
               builderResult.optionalForeignEnum = value
           }
       }
-      internal func setOptionalForeignEnum(value:ProtobufUnittest.ForeignEnum)-> ProtobufUnittest.TestAllTypesBuilder {
+      internal func setOptionalForeignEnum(value:ProtobufUnittest.ForeignEnum)-> protobuf_unittest.TestAllTypes.optional_foreign_enumBuilder {
         self.optionalForeignEnum = value
         return self
       }
-      internal func clearOptionalForeignEnum() -> ProtobufUnittest.TestAllTypesBuilder {
+      internal func clearOptionalForeignEnum() -> protobuf_unittest.TestAllTypes.optional_foreign_enumBuilder {
          builderResult.hasOptionalForeignEnum = false
          builderResult.optionalForeignEnum = .ForeignFoo
          return self
@@ -4702,11 +4679,11 @@ internal struct ProtobufUnittest {
               builderResult.optionalImportEnum = value
           }
       }
-      internal func setOptionalImportEnum(value:ProtobufUnittest.ImportEnum)-> ProtobufUnittest.TestAllTypesBuilder {
+      internal func setOptionalImportEnum(value:ProtobufUnittest.ImportEnum)-> protobuf_unittest.TestAllTypes.optional_import_enumBuilder {
         self.optionalImportEnum = value
         return self
       }
-      internal func clearOptionalImportEnum() -> ProtobufUnittest.TestAllTypesBuilder {
+      internal func clearOptionalImportEnum() -> protobuf_unittest.TestAllTypes.optional_import_enumBuilder {
          builderResult.hasOptionalImportEnum = false
          builderResult.optionalImportEnum = .ImportFoo
          return self
@@ -5133,11 +5110,11 @@ internal struct ProtobufUnittest {
             builderResult.repeatedNestedEnum = value
         }
     }
-    func setRepeatedNestedEnum(value:Array<ProtobufUnittest.TestAllTypes.NestedEnum>)-> ProtobufUnittest.TestAllTypesBuilder {
+    func setRepeatedNestedEnum(value:Array<ProtobufUnittest.TestAllTypes.NestedEnum>)-> protobuf_unittest.TestAllTypes.repeated_nested_enumBuilder {
       self.repeatedNestedEnum = value
       return self
     }
-    internal func clearRepeatedNestedEnum() -> ProtobufUnittest.TestAllTypesBuilder {
+    internal func clearRepeatedNestedEnum() -> protobuf_unittest.TestAllTypes.repeated_nested_enumBuilder {
       builderResult.repeatedNestedEnum.removeAll(keepCapacity: false)
       return self
     }
@@ -5149,11 +5126,11 @@ internal struct ProtobufUnittest {
             builderResult.repeatedForeignEnum = value
         }
     }
-    func setRepeatedForeignEnum(value:Array<ProtobufUnittest.ForeignEnum>)-> ProtobufUnittest.TestAllTypesBuilder {
+    func setRepeatedForeignEnum(value:Array<ProtobufUnittest.ForeignEnum>)-> protobuf_unittest.TestAllTypes.repeated_foreign_enumBuilder {
       self.repeatedForeignEnum = value
       return self
     }
-    internal func clearRepeatedForeignEnum() -> ProtobufUnittest.TestAllTypesBuilder {
+    internal func clearRepeatedForeignEnum() -> protobuf_unittest.TestAllTypes.repeated_foreign_enumBuilder {
       builderResult.repeatedForeignEnum.removeAll(keepCapacity: false)
       return self
     }
@@ -5165,11 +5142,11 @@ internal struct ProtobufUnittest {
             builderResult.repeatedImportEnum = value
         }
     }
-    func setRepeatedImportEnum(value:Array<ProtobufUnittest.ImportEnum>)-> ProtobufUnittest.TestAllTypesBuilder {
+    func setRepeatedImportEnum(value:Array<ProtobufUnittest.ImportEnum>)-> protobuf_unittest.TestAllTypes.repeated_import_enumBuilder {
       self.repeatedImportEnum = value
       return self
     }
-    internal func clearRepeatedImportEnum() -> ProtobufUnittest.TestAllTypesBuilder {
+    internal func clearRepeatedImportEnum() -> protobuf_unittest.TestAllTypes.repeated_import_enumBuilder {
       builderResult.repeatedImportEnum.removeAll(keepCapacity: false)
       return self
     }
@@ -5580,11 +5557,11 @@ internal struct ProtobufUnittest {
               builderResult.defaultNestedEnum = value
           }
       }
-      internal func setDefaultNestedEnum(value:ProtobufUnittest.TestAllTypes.NestedEnum)-> ProtobufUnittest.TestAllTypesBuilder {
+      internal func setDefaultNestedEnum(value:ProtobufUnittest.TestAllTypes.NestedEnum)-> protobuf_unittest.TestAllTypes.default_nested_enumBuilder {
         self.defaultNestedEnum = value
         return self
       }
-      internal func clearDefaultNestedEnum() -> ProtobufUnittest.TestAllTypesBuilder {
+      internal func clearDefaultNestedEnum() -> protobuf_unittest.TestAllTypes.default_nested_enumBuilder {
          builderResult.hasDefaultNestedEnum = false
          builderResult.defaultNestedEnum = .Bar
          return self
@@ -5603,11 +5580,11 @@ internal struct ProtobufUnittest {
               builderResult.defaultForeignEnum = value
           }
       }
-      internal func setDefaultForeignEnum(value:ProtobufUnittest.ForeignEnum)-> ProtobufUnittest.TestAllTypesBuilder {
+      internal func setDefaultForeignEnum(value:ProtobufUnittest.ForeignEnum)-> protobuf_unittest.TestAllTypes.default_foreign_enumBuilder {
         self.defaultForeignEnum = value
         return self
       }
-      internal func clearDefaultForeignEnum() -> ProtobufUnittest.TestAllTypesBuilder {
+      internal func clearDefaultForeignEnum() -> protobuf_unittest.TestAllTypes.default_foreign_enumBuilder {
          builderResult.hasDefaultForeignEnum = false
          builderResult.defaultForeignEnum = .ForeignBar
          return self
@@ -5626,11 +5603,11 @@ internal struct ProtobufUnittest {
               builderResult.defaultImportEnum = value
           }
       }
-      internal func setDefaultImportEnum(value:ProtobufUnittest.ImportEnum)-> ProtobufUnittest.TestAllTypesBuilder {
+      internal func setDefaultImportEnum(value:ProtobufUnittest.ImportEnum)-> protobuf_unittest.TestAllTypes.default_import_enumBuilder {
         self.defaultImportEnum = value
         return self
       }
-      internal func clearDefaultImportEnum() -> ProtobufUnittest.TestAllTypesBuilder {
+      internal func clearDefaultImportEnum() -> protobuf_unittest.TestAllTypes.default_import_enumBuilder {
          builderResult.hasDefaultImportEnum = false
          builderResult.defaultImportEnum = .ImportBar
          return self
@@ -13040,11 +13017,11 @@ internal struct ProtobufUnittest {
               builderResult.enumField = value
           }
       }
-      internal func setEnumField(value:ProtobufUnittest.ForeignEnum)-> ProtobufUnittest.TestCamelCaseFieldNamesBuilder {
+      internal func setEnumField(value:ProtobufUnittest.ForeignEnum)-> protobuf_unittest.TestCamelCaseFieldNames.EnumFieldBuilder {
         self.enumField = value
         return self
       }
-      internal func clearEnumField() -> ProtobufUnittest.TestCamelCaseFieldNamesBuilder {
+      internal func clearEnumField() -> protobuf_unittest.TestCamelCaseFieldNames.EnumFieldBuilder {
          builderResult.hasEnumField = false
          builderResult.enumField = .ForeignFoo
          return self
@@ -13167,11 +13144,11 @@ internal struct ProtobufUnittest {
             builderResult.repeatedEnumField = value
         }
     }
-    func setRepeatedEnumField(value:Array<ProtobufUnittest.ForeignEnum>)-> ProtobufUnittest.TestCamelCaseFieldNamesBuilder {
+    func setRepeatedEnumField(value:Array<ProtobufUnittest.ForeignEnum>)-> protobuf_unittest.TestCamelCaseFieldNames.RepeatedEnumFieldBuilder {
       self.repeatedEnumField = value
       return self
     }
-    internal func clearRepeatedEnumField() -> ProtobufUnittest.TestCamelCaseFieldNamesBuilder {
+    internal func clearRepeatedEnumField() -> protobuf_unittest.TestCamelCaseFieldNames.RepeatedEnumFieldBuilder {
       builderResult.repeatedEnumField.removeAll(keepCapacity: false)
       return self
     }
@@ -15097,11 +15074,11 @@ internal struct ProtobufUnittest {
               builderResult.sparseEnum = value
           }
       }
-      internal func setSparseEnum(value:ProtobufUnittest.TestSparseEnum)-> ProtobufUnittest.SparseEnumMessageBuilder {
+      internal func setSparseEnum(value:ProtobufUnittest.TestSparseEnum)-> protobuf_unittest.SparseEnumMessage.sparse_enumBuilder {
         self.sparseEnum = value
         return self
       }
-      internal func clearSparseEnum() -> ProtobufUnittest.SparseEnumMessageBuilder {
+      internal func clearSparseEnum() -> protobuf_unittest.SparseEnumMessage.sparse_enumBuilder {
          builderResult.hasSparseEnum = false
          builderResult.sparseEnum = .SparseA
          return self
@@ -18810,12 +18787,6 @@ internal struct ProtobufUnittest {
         case Bar = 2
         case Baz = 3
 
-        internal static func IsValidValue(value:Int32) ->Bool {
-            if let check = ProtobufUnittest.NestedEnum(rawValue:value) {
-                return true
-            }
-            return false
-        }
       }
 
 
@@ -19529,11 +19500,11 @@ internal struct ProtobufUnittest {
               builderResult.fooEnum = value
           }
       }
-      internal func setFooEnum(value:ProtobufUnittest.TestOneof2.NestedEnum)-> ProtobufUnittest.TestOneof2Builder {
+      internal func setFooEnum(value:ProtobufUnittest.TestOneof2.NestedEnum)-> protobuf_unittest.TestOneof2.foo_enumBuilder {
         self.fooEnum = value
         return self
       }
-      internal func clearFooEnum() -> ProtobufUnittest.TestOneof2Builder {
+      internal func clearFooEnum() -> protobuf_unittest.TestOneof2.foo_enumBuilder {
          builderResult.hasFooEnum = false
          builderResult.fooEnum = .Foo
          return self
@@ -19763,11 +19734,11 @@ internal struct ProtobufUnittest {
               builderResult.barEnum = value
           }
       }
-      internal func setBarEnum(value:ProtobufUnittest.TestOneof2.NestedEnum)-> ProtobufUnittest.TestOneof2Builder {
+      internal func setBarEnum(value:ProtobufUnittest.TestOneof2.NestedEnum)-> protobuf_unittest.TestOneof2.bar_enumBuilder {
         self.barEnum = value
         return self
       }
-      internal func clearBarEnum() -> ProtobufUnittest.TestOneof2Builder {
+      internal func clearBarEnum() -> protobuf_unittest.TestOneof2.bar_enumBuilder {
          builderResult.hasBarEnum = false
          builderResult.barEnum = .Bar
          return self
@@ -21256,11 +21227,11 @@ internal struct ProtobufUnittest {
             builderResult.packedEnum = value
         }
     }
-    func setPackedEnum(value:Array<ProtobufUnittest.ForeignEnum>)-> ProtobufUnittest.TestPackedTypesBuilder {
+    func setPackedEnum(value:Array<ProtobufUnittest.ForeignEnum>)-> protobuf_unittest.TestPackedTypes.packed_enumBuilder {
       self.packedEnum = value
       return self
     }
-    internal func clearPackedEnum() -> ProtobufUnittest.TestPackedTypesBuilder {
+    internal func clearPackedEnum() -> protobuf_unittest.TestPackedTypes.packed_enumBuilder {
       builderResult.packedEnum.removeAll(keepCapacity: false)
       return self
     }
@@ -22046,11 +22017,11 @@ internal struct ProtobufUnittest {
             builderResult.unpackedEnum = value
         }
     }
-    func setUnpackedEnum(value:Array<ProtobufUnittest.ForeignEnum>)-> ProtobufUnittest.TestUnpackedTypesBuilder {
+    func setUnpackedEnum(value:Array<ProtobufUnittest.ForeignEnum>)-> protobuf_unittest.TestUnpackedTypes.unpacked_enumBuilder {
       self.unpackedEnum = value
       return self
     }
-    internal func clearUnpackedEnum() -> ProtobufUnittest.TestUnpackedTypesBuilder {
+    internal func clearUnpackedEnum() -> protobuf_unittest.TestUnpackedTypes.unpacked_enumBuilder {
       builderResult.unpackedEnum.removeAll(keepCapacity: false)
       return self
     }
@@ -22696,12 +22667,6 @@ internal struct ProtobufUnittest {
         case DynamicBar = 2201
         case DynamicBaz = 2202
 
-        internal static func IsValidValue(value:Int32) ->Bool {
-            if let check = ProtobufUnittest.DynamicEnumType(rawValue:value) {
-                return true
-            }
-            return false
-        }
       }
 
 
@@ -22959,11 +22924,11 @@ internal struct ProtobufUnittest {
               builderResult.enumExtension = value
           }
       }
-      internal func setEnumExtension(value:ProtobufUnittest.ForeignEnum)-> ProtobufUnittest.TestDynamicExtensionsBuilder {
+      internal func setEnumExtension(value:ProtobufUnittest.ForeignEnum)-> protobuf_unittest.TestDynamicExtensions.enum_extensionBuilder {
         self.enumExtension = value
         return self
       }
-      internal func clearEnumExtension() -> ProtobufUnittest.TestDynamicExtensionsBuilder {
+      internal func clearEnumExtension() -> protobuf_unittest.TestDynamicExtensions.enum_extensionBuilder {
          builderResult.hasEnumExtension = false
          builderResult.enumExtension = .ForeignFoo
          return self
@@ -22982,11 +22947,11 @@ internal struct ProtobufUnittest {
               builderResult.dynamicEnumExtension = value
           }
       }
-      internal func setDynamicEnumExtension(value:ProtobufUnittest.TestDynamicExtensions.DynamicEnumType)-> ProtobufUnittest.TestDynamicExtensionsBuilder {
+      internal func setDynamicEnumExtension(value:ProtobufUnittest.TestDynamicExtensions.DynamicEnumType)-> protobuf_unittest.TestDynamicExtensions.dynamic_enum_extensionBuilder {
         self.dynamicEnumExtension = value
         return self
       }
-      internal func clearDynamicEnumExtension() -> ProtobufUnittest.TestDynamicExtensionsBuilder {
+      internal func clearDynamicEnumExtension() -> protobuf_unittest.TestDynamicExtensions.dynamic_enum_extensionBuilder {
          builderResult.hasDynamicEnumExtension = false
          builderResult.dynamicEnumExtension = .DynamicFoo
          return self
