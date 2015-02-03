@@ -29,7 +29,7 @@ class  TestUtilities {
         return goldenData
     }
     
-    class func modifyRepeatedExtensions(var message:TestAllExtensionsBuilder)
+    class func modifyRepeatedExtensions(var message:ProtobufUnittest.TestAllExtensionsBuilder)
     {
         message.setExtension(UnittestRoot.repeatedInt32Extension(), index:1, value:Int32(501))
         message.setExtension(UnittestRoot.repeatedInt64Extension(), index:1, value:Int64(502))
@@ -47,32 +47,32 @@ class  TestUtilities {
         message.setExtension(UnittestRoot.repeatedStringExtension(),index:1, value:"515")
         message.setExtension(UnittestRoot.repeatedBytesExtension(), index:1, value:TestUtilities.getData("516"))
 
-        var a = RepeatedGroup_extension.builder()
+        var a = ProtobufUnittest.RepeatedGroup_extension.builder()
         a.a = 517
         message.setExtension(UnittestRoot.repeatedGroupExtension(), index:1, value:a.build())
         
-        var b = TestAllTypes.NestedMessage.builder()
+        var b = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
         b.bb = 518
         message.setExtension(UnittestRoot.repeatedNestedMessageExtension(), index:1, value:b.build())
-        var foreign = ForeignMessage.builder()
+        var foreign = ProtobufUnittest.ForeignMessage.builder()
         foreign.c = 519
         message.setExtension(UnittestRoot.repeatedForeignMessageExtension(), index:1, value:foreign.build())
         
-        var importMessage = ImportMessage.builder()
+        var importMessage = ProtobufUnittestImport.ImportMessage.builder()
         importMessage.d = 520
         message.setExtension(UnittestRoot.repeatedImportMessageExtension(), index:1, value:importMessage.build())
         
-        message.setExtension(UnittestRoot.repeatedNestedEnumExtension(), index:1, value:TestAllTypes.NestedEnum.Foo.rawValue)
+        message.setExtension(UnittestRoot.repeatedNestedEnumExtension(), index:1, value:ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue)
         
-        message.setExtension(UnittestRoot.repeatedForeignEnumExtension(), index:1, value:ForeignEnum.ForeignFoo.rawValue)
-        message.setExtension(UnittestRoot.repeatedImportEnumExtension(), index:1, value:ImportEnum.ImportFoo.rawValue)
+        message.setExtension(UnittestRoot.repeatedForeignEnumExtension(), index:1, value:ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue)
+        message.setExtension(UnittestRoot.repeatedImportEnumExtension(), index:1, value:ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue)
         
         message.setExtension(UnittestRoot.repeatedStringPieceExtension(),index:1, value:"524")
         message.setExtension(UnittestRoot.repeatedCordExtension(), index:1, value:"525")
 
     }
     
-    func assertAllExtensionsSet(var message:TestAllExtensions)
+    func assertAllExtensionsSet(var message:ProtobufUnittest.TestAllExtensions)
     {
         
         XCTAssertTrue(message.hasExtension(UnittestRoot.optionalInt32Extension()), "")
@@ -96,21 +96,21 @@ class  TestUtilities {
         XCTAssertTrue(message.hasExtension(UnittestRoot.optionalForeignMessageExtension()), "")
         XCTAssertTrue(message.hasExtension(UnittestRoot.optionalImportMessageExtension()), "")
         
-        if let extensions = message.getExtension(UnittestRoot.optionalGroupExtension()) as? OptionalGroup_extension
+        if let extensions = message.getExtension(UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroup_extension
         {
             XCTAssertTrue(extensions.hasA, "")
         }
-        if let ext = message.getExtension(UnittestRoot.optionalNestedMessageExtension()) as? TestAllTypes.NestedMessage
+        if let ext = message.getExtension(UnittestRoot.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
         {
             XCTAssertTrue(ext.hasBb, "")
         }
         
-        if let ext = message.getExtension(UnittestRoot.optionalForeignMessageExtension()) as? ForeignMessage
+        if let ext = message.getExtension(UnittestRoot.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
         {
             XCTAssertTrue(ext.hasC, "")
         }
         
-        if let ext = message.getExtension(UnittestRoot.optionalImportMessageExtension()) as? ImportMessage
+        if let ext = message.getExtension(UnittestRoot.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
         {
             XCTAssertTrue(ext.hasD, "")
         }
@@ -182,34 +182,34 @@ class  TestUtilities {
             XCTAssertTrue(TestUtilities.getData("116") == val, "")
         }
         
-        if let mes = message.getExtension(UnittestRoot.optionalGroupExtension()) as? OptionalGroup_extension
+        if let mes = message.getExtension(UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroup_extension
         {
             XCTAssertTrue(117 == mes.a, "")
         }
         
-        if let mes = message.getExtension(UnittestRoot.optionalNestedMessageExtension()) as? TestAllTypes.NestedMessage
+        if let mes = message.getExtension(UnittestRoot.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
         {
             XCTAssertTrue(118 == mes.bb, "")
         }
-        if let mes = message.getExtension(UnittestRoot.optionalForeignMessageExtension()) as? ForeignMessage
+        if let mes = message.getExtension(UnittestRoot.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
         {
             XCTAssertTrue(119 == mes.c, "")
         }
-        if let mes = message.getExtension(UnittestRoot.optionalImportMessageExtension()) as? ImportMessage
+        if let mes = message.getExtension(UnittestRoot.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
         {
             XCTAssertTrue(120 == mes.d, "")
         }
         if let val = message.getExtension(UnittestRoot.optionalNestedEnumExtension()) as? Int32
         {
-            XCTAssertTrue(TestAllTypes.NestedEnum.Baz.rawValue == val, "")
+            XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue == val, "")
         }
         if let val = message.getExtension(UnittestRoot.optionalForeignEnumExtension()) as? Int32
         {
-            XCTAssertTrue(ForeignEnum.ForeignBaz.rawValue == val, "")
+            XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue == val, "")
         }
         if let val = message.getExtension(UnittestRoot.optionalImportEnumExtension()) as? Int32
         {
-            XCTAssertTrue(ImportEnum.ImportBaz.rawValue == val, "")
+            XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue == val, "")
         }
         if let val = message.getExtension(UnittestRoot.optionalStringPieceExtension()) as? String
         {
@@ -383,7 +383,7 @@ class  TestUtilities {
     
         if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
-            if let value = val[0] as? RepeatedGroup_extension
+            if let value = val[0] as? ProtobufUnittest.RepeatedGroup_extension
             {
                 XCTAssertTrue(217 == value.a, "")
             }
@@ -391,36 +391,36 @@ class  TestUtilities {
         
         if let val =  message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
-            if let value = val[0] as? TestAllTypes.NestedMessage
+            if let value = val[0] as? ProtobufUnittest.TestAllTypes.NestedMessage
             {
                 XCTAssertTrue(218 == value.bb, "")
             }
         }
         if let val =  message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
-            if let value = val[0] as? ForeignMessage
+            if let value = val[0] as? ProtobufUnittest.ForeignMessage
             {
                 XCTAssertTrue(219 == value.c, "")
             }
         }
         if let val =  message.getExtension(UnittestRoot.repeatedImportMessageExtension()) as? [GeneratedMessage]
         {
-            if let value = val[0] as? ImportMessage
+            if let value = val[0] as? ProtobufUnittestImport.ImportMessage
             {
                 XCTAssertTrue(220 == value.d, "")
             }
         }
         if let val =  message.getExtension(UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(TestAllTypes.NestedEnum.Bar.rawValue == val[0], "")
+            XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Bar.rawValue == val[0], "")
         }
         if let val =  message.getExtension(UnittestRoot.repeatedForeignEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(ForeignEnum.ForeignBar.rawValue == val[0], "")
+            XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBar.rawValue == val[0], "")
         }
         if let val =  message.getExtension(UnittestRoot.repeatedImportEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(ImportEnum.ImportBar.rawValue == val[0], "")
+            XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBar.rawValue == val[0], "")
         }
         
         if let val = message.getExtension(UnittestRoot.repeatedStringPieceExtension()) as? [String]
@@ -496,7 +496,7 @@ class  TestUtilities {
         
         if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
-            if let value = val[1] as? RepeatedGroup_extension
+            if let value = val[1] as? ProtobufUnittest.RepeatedGroup_extension
             {
                 XCTAssertTrue(317 == value.a, "")
             }
@@ -504,14 +504,14 @@ class  TestUtilities {
         
         if let val =  message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
-            if let value = val[1] as? TestAllTypes.NestedMessage
+            if let value = val[1] as? ProtobufUnittest.TestAllTypes.NestedMessage
             {
                 XCTAssertTrue(318 == value.bb, "")
             }
         }
         if let val =  message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
-            if let value = val[1] as? ForeignMessage
+            if let value = val[1] as? ProtobufUnittest.ForeignMessage
             {
                 XCTAssertTrue(319 == value.c, "")
             }
@@ -519,7 +519,7 @@ class  TestUtilities {
         }
         if let val =  message.getExtension(UnittestRoot.repeatedImportMessageExtension()) as? [GeneratedMessage]
         {
-            if let value = val[1] as? ImportMessage
+            if let value = val[1] as? ProtobufUnittestImport.ImportMessage
             {
                 XCTAssertTrue(320 == value.d, "")
             }
@@ -527,15 +527,15 @@ class  TestUtilities {
         }
         if let val =  message.getExtension(UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(TestAllTypes.NestedEnum.Baz.rawValue == val[1], "")
+            XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue == val[1], "")
         }
         if let val =  message.getExtension(UnittestRoot.repeatedForeignEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(ForeignEnum.ForeignBaz.rawValue == val[1], "")
+            XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue == val[1], "")
         }
         if let val =  message.getExtension(UnittestRoot.repeatedImportEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(ImportEnum.ImportBaz.rawValue == val[1], "")
+            XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue == val[1], "")
         }
         
         if let val = message.getExtension(UnittestRoot.repeatedStringPieceExtension()) as? [String]
@@ -635,15 +635,15 @@ class  TestUtilities {
     
         if let val = message.getExtension(UnittestRoot.defaultNestedEnumExtension()) as? Int32
         {
-            XCTAssertTrue(TestAllTypes.NestedEnum.Foo.rawValue == val, "")
+            XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue == val, "")
         }
         if let val = message.getExtension(UnittestRoot.defaultForeignEnumExtension()) as? Int32
         {
-            XCTAssertTrue(ForeignEnum.ForeignFoo.rawValue == val, "")
+            XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue == val, "")
         }
         if let val = message.getExtension(UnittestRoot.defaultImportEnumExtension()) as? Int32
         {
-            XCTAssertTrue(ImportEnum.ImportFoo.rawValue == val, "")
+            XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue == val, "")
         }
         if let val = message.getExtension(UnittestRoot.defaultStringPieceExtension()) as? String
         {
@@ -656,12 +656,12 @@ class  TestUtilities {
         
     }
     
-    class func assertAllExtensionsSet(message:TestAllExtensions)
+    class func assertAllExtensionsSet(message:ProtobufUnittest.TestAllExtensions)
     {
         return TestUtilities().assertAllExtensionsSet(message)
     }
     
-    func assertRepeatedExtensionsModified(message:TestAllExtensions)
+    func assertRepeatedExtensionsModified(message:ProtobufUnittest.TestAllExtensions)
     {
         
         if let val = message.getExtension(UnittestRoot.repeatedInt32Extension()) as? [Int32]
@@ -827,7 +827,7 @@ class  TestUtilities {
         
         if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
-            if let values = val[0] as? RepeatedGroup_extension
+            if let values = val[0] as? ProtobufUnittest.RepeatedGroup_extension
             {
                 XCTAssertTrue(217 ==  values.a, "")
             }
@@ -835,7 +835,7 @@ class  TestUtilities {
         
         if let val =  message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
-            if let values = val[0] as? TestAllTypes.NestedMessage
+            if let values = val[0] as? ProtobufUnittest.TestAllTypes.NestedMessage
             {
                 XCTAssertTrue(218 == values.bb, "")
             }
@@ -843,29 +843,29 @@ class  TestUtilities {
         }
         if let val =  message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
-            if let values = val[0] as? ForeignMessage
+            if let values = val[0] as? ProtobufUnittest.ForeignMessage
             {
                 XCTAssertTrue(219 == values.c, "")
             }
         }
         if let val =  message.getExtension(UnittestRoot.repeatedImportMessageExtension()) as? [GeneratedMessage]
         {
-            if let values = val[0] as? ImportMessage
+            if let values = val[0] as? ProtobufUnittestImport.ImportMessage
             {
                 XCTAssertTrue(220 == values.d, "")
             }
         }
         if let val =  message.getExtension(UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(TestAllTypes.NestedEnum.Bar.rawValue == val[0], "")
+            XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Bar.rawValue == val[0], "")
         }
         if let val =  message.getExtension(UnittestRoot.repeatedForeignEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(ForeignEnum.ForeignBar.rawValue == val[0], "")
+            XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBar.rawValue == val[0], "")
         }
         if let val =  message.getExtension(UnittestRoot.repeatedImportEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(ImportEnum.ImportBar.rawValue == val[0], "")
+            XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBar.rawValue == val[0], "")
         }
         
         if let val = message.getExtension(UnittestRoot.repeatedStringPieceExtension()) as? [String]
@@ -942,7 +942,7 @@ class  TestUtilities {
         
         if let val =  message.getExtension(UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
-            if let values = val[1] as? RepeatedGroup_extension
+            if let values = val[1] as? ProtobufUnittest.RepeatedGroup_extension
             {
                 XCTAssertTrue(517 == values.a, "")
             }
@@ -950,7 +950,7 @@ class  TestUtilities {
         
         if let val =  message.getExtension(UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
-            if let values = val[1] as? TestAllTypes.NestedMessage
+            if let values = val[1] as? ProtobufUnittest.TestAllTypes.NestedMessage
             {
                 XCTAssertTrue(518 == values.bb, "")
             }
@@ -958,7 +958,7 @@ class  TestUtilities {
         }
         if let val =  message.getExtension(UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
-            if let values = val[1] as? ForeignMessage
+            if let values = val[1] as? ProtobufUnittest.ForeignMessage
             {
                 XCTAssertTrue(519 == values.c, "")
             }
@@ -966,7 +966,7 @@ class  TestUtilities {
         }
         if let val =  message.getExtension(UnittestRoot.repeatedImportMessageExtension()) as? [GeneratedMessage]
         {
-            if let values = val[1] as? ImportMessage
+            if let values = val[1] as? ProtobufUnittestImport.ImportMessage
             {
                 XCTAssertTrue(520 == values.d, "")
             }
@@ -974,15 +974,15 @@ class  TestUtilities {
         }
         if let val =  message.getExtension(UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(TestAllTypes.NestedEnum.Foo.rawValue == val[1], "")
+            XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue == val[1], "")
         }
         if let val =  message.getExtension(UnittestRoot.repeatedForeignEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(ForeignEnum.ForeignFoo.rawValue == val[1], "")
+            XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue == val[1], "")
         }
         if let val =  message.getExtension(UnittestRoot.repeatedImportEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(ImportEnum.ImportFoo.rawValue == val[1], "")
+            XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue == val[1], "")
         }
         
         if let val = message.getExtension(UnittestRoot.repeatedStringPieceExtension()) as? [String]
@@ -996,12 +996,12 @@ class  TestUtilities {
         }
     }
     
-    class func assertRepeatedExtensionsModified(message:TestAllExtensions)
+    class func assertRepeatedExtensionsModified(message:ProtobufUnittest.TestAllExtensions)
     {
         TestUtilities().assertRepeatedExtensionsModified(message)
     }
     
-    func assertAllFieldsSet(message:TestAllTypes)
+    func assertAllFieldsSet(message:ProtobufUnittest.TestAllTypes)
     {
         XCTAssertTrue(message.hasOptionalInt32, "")
         XCTAssertTrue(message.hasOptionalInt64, "")
@@ -1058,9 +1058,9 @@ class  TestUtilities {
         XCTAssertTrue(119 == message.optionalForeignMessage.c, "")
         XCTAssertTrue(120 == message.optionalImportMessage.d, "")
         
-        XCTAssertTrue(TestAllTypes.NestedEnum.Baz == message.optionalNestedEnum, "")
-        XCTAssertTrue(ForeignEnum.ForeignBaz == message.optionalForeignEnum, "")
-        XCTAssertTrue(ImportEnum.ImportBaz == message.optionalImportEnum, "")
+        XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Baz == message.optionalNestedEnum, "")
+        XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBaz == message.optionalForeignEnum, "")
+        XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBaz == message.optionalImportEnum, "")
         
         XCTAssertTrue("124" == message.optionalStringPiece, "")
         XCTAssertTrue("125" == message.optionalCord, "")
@@ -1115,9 +1115,9 @@ class  TestUtilities {
         XCTAssertTrue(219 == message.repeatedForeignMessage[0].c, "")
         XCTAssertTrue(220 == message.repeatedImportMessage[0].d, "")
         
-        XCTAssertTrue(TestAllTypes.NestedEnum.Bar == message.repeatedNestedEnum[0], "")
-        XCTAssertTrue(ForeignEnum.ForeignBar == message.repeatedForeignEnum[0], "")
-        XCTAssertTrue(ImportEnum.ImportBar == message.repeatedImportEnum[0], "")
+        XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Bar == message.repeatedNestedEnum[0], "")
+        XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBar == message.repeatedForeignEnum[0], "")
+        XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBar == message.repeatedImportEnum[0], "")
         
         XCTAssertTrue("224" == message.repeatedStringPiece[0], "")
         XCTAssertTrue("225" == message.repeatedCord[0], "")
@@ -1143,9 +1143,9 @@ class  TestUtilities {
         XCTAssertTrue(319 == message.repeatedForeignMessage[1].c, "")
         XCTAssertTrue(320 == message.repeatedImportMessage[1].d, "")
         
-        XCTAssertTrue(TestAllTypes.NestedEnum.Baz == message.repeatedNestedEnum[1], "")
-        XCTAssertTrue(ForeignEnum.ForeignBaz == message.repeatedForeignEnum[1], "")
-        XCTAssertTrue(ImportEnum.ImportBaz == message.repeatedImportEnum[1], "")
+        XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Baz == message.repeatedNestedEnum[1], "")
+        XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBaz == message.repeatedForeignEnum[1], "")
+        XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBaz == message.repeatedImportEnum[1], "")
         
         XCTAssertTrue("324" == message.repeatedStringPiece[1], "")
         XCTAssertTrue("325" == message.repeatedCord[1], "")
@@ -1191,21 +1191,21 @@ class  TestUtilities {
         XCTAssertTrue("415" == message.defaultString, "")
         XCTAssertTrue(TestUtilities.getData("416") == message.defaultBytes, "")
         
-        XCTAssertTrue(TestAllTypes.NestedEnum.Foo == message.defaultNestedEnum, "")
-        XCTAssertTrue(ForeignEnum.ForeignFoo == message.defaultForeignEnum, "")
-        XCTAssertTrue(ImportEnum.ImportFoo == message.defaultImportEnum, "")
+        XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Foo == message.defaultNestedEnum, "")
+        XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignFoo == message.defaultForeignEnum, "")
+        XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportFoo == message.defaultImportEnum, "")
         
         XCTAssertTrue("424" == message.defaultStringPiece, "")
         XCTAssertTrue("425" == message.defaultCord, "")
     
     }
     
-    class func assertAllFieldsSet(message:TestAllTypes)
+    class func assertAllFieldsSet(message:ProtobufUnittest.TestAllTypes)
     {
         TestUtilities().assertAllFieldsSet(message)
     }
     
-    class func setAllFields(message:TestAllTypesBuilder)
+    class func setAllFields(message:ProtobufUnittest.TestAllTypesBuilder)
     {
         message.optionalInt32 = Int32(101)
         message.optionalInt64 = Int64(102)
@@ -1223,24 +1223,24 @@ class  TestUtilities {
         message.optionalString = "115"
         message.optionalBytes = TestUtilities.getData("116")
         
-        var gr = TestAllTypes.OptionalGroup.builder()
+        var gr = ProtobufUnittest.TestAllTypes.OptionalGroup.builder()
         gr.a = 117
         message.optionalGroup = gr.build()
-        var nest = TestAllTypes.NestedMessage.builder()
+        var nest = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
         nest.bb = 118
         message.optionalNestedMessage = nest.build()
         
-        var foreign = ForeignMessage.builder()
+        var foreign = ProtobufUnittest.ForeignMessage.builder()
         foreign.c = 119
         message.optionalForeignMessage = foreign.build()
         
-        var importMes = ImportMessage.builder()
+        var importMes = ProtobufUnittestImport.ImportMessage.builder()
         importMes.d = 120
         message.optionalImportMessage = importMes.build()
         
-        message.optionalNestedEnum = TestAllTypes.NestedEnum.Baz
-        message.optionalForeignEnum = ForeignEnum.ForeignBaz
-        message.optionalImportEnum = ImportEnum.ImportBaz
+        message.optionalNestedEnum = ProtobufUnittest.TestAllTypes.NestedEnum.Baz
+        message.optionalForeignEnum = ProtobufUnittest.ForeignEnum.ForeignBaz
+        message.optionalImportEnum = ProtobufUnittestImport.ImportEnum.ImportBaz
         
         message.optionalStringPiece = "124"
         message.optionalCord = "125"
@@ -1249,7 +1249,7 @@ class  TestUtilities {
 //        publicImportBuilder.e = 126
 //        message.optionalPublicImportMessage = publicImportBuilder.build()
 //
-//        var lazymes = TestAllTypes.NestedMessage.builder()
+//        var lazymes = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
 //        lazymes.bb = 127
 //        message.optionalLazyMessage = lazymes.build()
 
@@ -1272,22 +1272,22 @@ class  TestUtilities {
         message.repeatedString += ["215"]
         message.repeatedBytes += [TestUtilities.getData("216")]
         
-        var testRep = TestAllTypes.RepeatedGroup.builder()
+        var testRep = ProtobufUnittest.TestAllTypes.RepeatedGroup.builder()
         testRep.a = 217
         message.repeatedGroup += [testRep.build()]
-        var testNest = TestAllTypes.NestedMessage.builder()
+        var testNest = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
         testNest.bb = 218
         message.repeatedNestedMessage += [testNest.build()]
-        var foreign2 = ForeignMessage.builder()
+        var foreign2 = ProtobufUnittest.ForeignMessage.builder()
         foreign2.c = 219
         message.repeatedForeignMessage += [foreign2.build()]
-        var importmes = ImportMessage.builder()
+        var importmes = ProtobufUnittestImport.ImportMessage.builder()
         importmes.d = 220
         message.repeatedImportMessage += [importmes.build()]
         
-        message.repeatedNestedEnum += [TestAllTypes.NestedEnum.Bar]
-        message.repeatedForeignEnum += [ForeignEnum.ForeignBar]
-        message.repeatedImportEnum += [ImportEnum.ImportBar]
+        message.repeatedNestedEnum += [ProtobufUnittest.TestAllTypes.NestedEnum.Bar]
+        message.repeatedForeignEnum += [ProtobufUnittest.ForeignEnum.ForeignBar]
+        message.repeatedImportEnum += [ProtobufUnittestImport.ImportEnum.ImportBar]
         
         message.repeatedStringPiece += ["224"]
         message.repeatedCord += ["225"]
@@ -1308,33 +1308,33 @@ class  TestUtilities {
         message.repeatedString += ["315"]
         message.repeatedBytes += [TestUtilities.getData("316")]
         
-        var repgroups = TestAllTypes.RepeatedGroup.builder()
+        var repgroups = ProtobufUnittest.TestAllTypes.RepeatedGroup.builder()
         repgroups.a = 317
         message.repeatedGroup += [repgroups.build()]
         
-        var repNested = TestAllTypes.NestedMessage.builder()
+        var repNested = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
         repNested.bb = 318
         message.repeatedNestedMessage += [repNested.build()]
         
-        var fBuilder = ForeignMessage.builder()
+        var fBuilder = ProtobufUnittest.ForeignMessage.builder()
         fBuilder.c = 319
         message.repeatedForeignMessage += [fBuilder.build()]
         
-        var impBuilder = ImportMessage.builder()
+        var impBuilder = ProtobufUnittestImport.ImportMessage.builder()
         impBuilder.d = 320
         message.repeatedImportMessage += [impBuilder.build()]
         
-        message.repeatedNestedEnum += [TestAllTypes.NestedEnum.Baz]
-        message.repeatedForeignEnum += [ForeignEnum.ForeignBaz]
-        message.repeatedImportEnum += [ImportEnum.ImportBaz]
+        message.repeatedNestedEnum += [ProtobufUnittest.TestAllTypes.NestedEnum.Baz]
+        message.repeatedForeignEnum += [ProtobufUnittest.ForeignEnum.ForeignBaz]
+        message.repeatedImportEnum += [ProtobufUnittestImport.ImportEnum.ImportBaz]
         
         message.repeatedStringPiece += ["324"]
         message.repeatedCord += ["325"]
         
-//        var repNested2 = TestAllTypes.NestedMessage.builder()
+//        var repNested2 = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
 //        repNested2.bb = 227
 //        message.repeatedLazyMessage = [repNested2.build()]
-//        var repNested3 = TestAllTypes.NestedMessage.builder()
+//        var repNested3 = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
 //        repNested3.bb = 327
 //        message.repeatedLazyMessage += [repNested3.build()]
         
@@ -1357,26 +1357,26 @@ class  TestUtilities {
         message.defaultString = "415"
         message.defaultBytes = TestUtilities.getData("416")
         
-        message.defaultNestedEnum  = TestAllTypes.NestedEnum.Foo
-        message.defaultForeignEnum = ForeignEnum.ForeignFoo
-        message.defaultImportEnum = ImportEnum.ImportFoo
+        message.defaultNestedEnum  = ProtobufUnittest.TestAllTypes.NestedEnum.Foo
+        message.defaultForeignEnum = ProtobufUnittest.ForeignEnum.ForeignFoo
+        message.defaultImportEnum = ProtobufUnittestImport.ImportEnum.ImportFoo
         
         message.defaultStringPiece = "424"
         message.defaultCord = "425"
         
     }
     
-    class func setOneOfFields(message:TestAllTypesBuilder)
+    class func setOneOfFields(message:ProtobufUnittest.TestAllTypesBuilder)
     {
         message.oneofUint32 = 601
-        var builder = TestAllTypes.NestedMessage.builder()
+        var builder = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
         builder.bb = 602
         message.oneofNestedMessage = builder.build()
         message.oneofString = "603"
         message.oneofBytes = NSData(bytes: ([Byte]() + "604".utf8), length: 3)
     }
     
-    class func setAllExtensions(message:TestAllExtensionsBuilder)
+    class func setAllExtensions(message:ProtobufUnittest.TestAllExtensionsBuilder)
     {
         message.setExtension(UnittestRoot.optionalInt32Extension(), value:Int32(101))
         message.setExtension(UnittestRoot.optionalInt64Extension(), value:Int64(102))
@@ -1394,25 +1394,25 @@ class  TestUtilities {
         message.setExtension(UnittestRoot.optionalStringExtension(), value:"115")
         message.setExtension(UnittestRoot.optionalBytesExtension(), value:TestUtilities.getData("116"))
         
-        var optgr = OptionalGroup_extension.builder()
+        var optgr = ProtobufUnittest.OptionalGroup_extension.builder()
         optgr.a = 117
         message.setExtension(UnittestRoot.optionalGroupExtension(), value:optgr.build())
         
-        var netmesb = TestAllTypes.NestedMessage.builder()
+        var netmesb = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
         netmesb.bb = 118
         message.setExtension(UnittestRoot.optionalNestedMessageExtension(), value:netmesb.build())
         
-        var forMes = ForeignMessage.builder()
+        var forMes = ProtobufUnittest.ForeignMessage.builder()
         forMes.c = 119
         message.setExtension(UnittestRoot.optionalForeignMessageExtension(), value:forMes.build())
         
-        var impMes = ImportMessage.builder()
+        var impMes = ProtobufUnittestImport.ImportMessage.builder()
         impMes.d = 120
         message.setExtension(UnittestRoot.optionalImportMessageExtension(), value:impMes.build())
         
-        message.setExtension(UnittestRoot.optionalNestedEnumExtension(), value:TestAllTypes.NestedEnum.Baz.rawValue)
-        message.setExtension(UnittestRoot.optionalForeignEnumExtension(), value:ForeignEnum.ForeignBaz.rawValue)
-        message.setExtension(UnittestRoot.optionalImportEnumExtension(), value:ImportEnum.ImportBaz.rawValue)
+        message.setExtension(UnittestRoot.optionalNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue)
+        message.setExtension(UnittestRoot.optionalForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
+        message.setExtension(UnittestRoot.optionalImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue)
         
         message.setExtension(UnittestRoot.optionalStringPieceExtension(),  value:"124")
         message.setExtension(UnittestRoot.optionalCordExtension(), value:"125")
@@ -1436,23 +1436,23 @@ class  TestUtilities {
         message.addExtension(UnittestRoot.repeatedBytesExtension(), value:TestUtilities.getData("216"))
         
         
-        var repGr = RepeatedGroup_extension.builder()
+        var repGr = ProtobufUnittest.RepeatedGroup_extension.builder()
         repGr.a = 217
         message.addExtension(UnittestRoot.repeatedGroupExtension(), value:repGr.build())
-        var netmesrep = TestAllTypes.NestedMessage.builder()
+        var netmesrep = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
         netmesrep.bb = 218
         message.addExtension(UnittestRoot.repeatedNestedMessageExtension(), value:netmesrep.build())
         
-        var msgFore = ForeignMessage.builder()
+        var msgFore = ProtobufUnittest.ForeignMessage.builder()
         msgFore.c = 219
         message.addExtension(UnittestRoot.repeatedForeignMessageExtension(), value:msgFore.build())
-        var impMes220 = ImportMessage.builder()
+        var impMes220 = ProtobufUnittestImport.ImportMessage.builder()
         impMes220.d = 220
         message.addExtension(UnittestRoot.repeatedImportMessageExtension(), value:impMes220.build())
         
-        message.addExtension(UnittestRoot.repeatedNestedEnumExtension(), value:TestAllTypes.NestedEnum.Bar.rawValue)
-        message.addExtension(UnittestRoot.repeatedForeignEnumExtension(), value:ForeignEnum.ForeignBar.rawValue)
-        message.addExtension(UnittestRoot.repeatedImportEnumExtension(), value:ImportEnum.ImportBar.rawValue)
+        message.addExtension(UnittestRoot.repeatedNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Bar.rawValue)
+        message.addExtension(UnittestRoot.repeatedForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBar.rawValue)
+        message.addExtension(UnittestRoot.repeatedImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBar.rawValue)
         message.addExtension(UnittestRoot.repeatedStringPieceExtension(), value:"224")
         message.addExtension(UnittestRoot.repeatedCordExtension(), value:"225")
         
@@ -1474,23 +1474,23 @@ class  TestUtilities {
         message.addExtension(UnittestRoot.repeatedBytesExtension(), value:TestUtilities.getData("316"))
         
         
-        var repGr2 = RepeatedGroup_extension.builder()
+        var repGr2 = ProtobufUnittest.RepeatedGroup_extension.builder()
         repGr2.a = 317
         message.addExtension(UnittestRoot.repeatedGroupExtension(), value:repGr2.build())
-        var netmesrep2 = TestAllTypes.NestedMessage.builder()
+        var netmesrep2 = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
         netmesrep2.bb = 318
         message.addExtension(UnittestRoot.repeatedNestedMessageExtension(), value:netmesrep2.build())
         
-        var msgFore2 = ForeignMessage.builder()
+        var msgFore2 = ProtobufUnittest.ForeignMessage.builder()
         msgFore2.c = 319
         message.addExtension(UnittestRoot.repeatedForeignMessageExtension(), value:msgFore2.build())
-        var impMes2 = ImportMessage.builder()
+        var impMes2 = ProtobufUnittestImport.ImportMessage.builder()
         impMes2.d = 320
         message.addExtension(UnittestRoot.repeatedImportMessageExtension(), value:impMes2.build())
         
-        message.addExtension(UnittestRoot.repeatedNestedEnumExtension(), value:TestAllTypes.NestedEnum.Baz.rawValue)
-        message.addExtension(UnittestRoot.repeatedForeignEnumExtension(), value:ForeignEnum.ForeignBaz.rawValue)
-        message.addExtension(UnittestRoot.repeatedImportEnumExtension(), value:ImportEnum.ImportBaz.rawValue)
+        message.addExtension(UnittestRoot.repeatedNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue)
+        message.addExtension(UnittestRoot.repeatedForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
+        message.addExtension(UnittestRoot.repeatedImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue)
         message.addExtension(UnittestRoot.repeatedStringPieceExtension(), value:"324")
         message.addExtension(UnittestRoot.repeatedCordExtension(), value:"325")
         
@@ -1513,9 +1513,9 @@ class  TestUtilities {
         message.setExtension(UnittestRoot.defaultStringExtension(), value:"415")
         message.setExtension(UnittestRoot.defaultBytesExtension(), value:TestUtilities.getData("416"))
         
-        message.setExtension(UnittestRoot.defaultNestedEnumExtension(), value:TestAllTypes.NestedEnum.Foo.rawValue)
-        message.setExtension(UnittestRoot.defaultForeignEnumExtension(), value:ForeignEnum.ForeignFoo.rawValue)
-        message.setExtension(UnittestRoot.defaultImportEnumExtension(), value:ImportEnum.ImportFoo.rawValue)
+        message.setExtension(UnittestRoot.defaultNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue)
+        message.setExtension(UnittestRoot.defaultForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue)
+        message.setExtension(UnittestRoot.defaultImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue)
         message.setExtension(UnittestRoot.defaultStringPieceExtension(), value:"424")
         message.setExtension(UnittestRoot.defaultCordExtension(), value:"425")
         
@@ -1532,34 +1532,34 @@ class  TestUtilities {
     }
     
     
-    class func allSet() -> TestAllTypes {
-        var builder = TestAllTypes.builder()
+    class func allSet() -> ProtobufUnittest.TestAllTypes {
+        var builder = ProtobufUnittest.TestAllTypes.builder()
         TestUtilities.setAllFields(builder)
         return builder.build()
     }
     
     
-    class func allExtensionsSet() -> TestAllExtensions {
-        var builder = TestAllExtensions.builder()
+    class func allExtensionsSet() -> ProtobufUnittest.TestAllExtensions {
+        var builder = ProtobufUnittest.TestAllExtensions.builder()
         TestUtilities.setAllExtensions(builder)
         return builder.build()
     }
     
     
-    class func packedSet() -> TestPackedTypes{
-        var builder = TestPackedTypes.builder()
+    class func packedSet() -> ProtobufUnittest.TestPackedTypes{
+        var builder = ProtobufUnittest.TestPackedTypes.builder()
         TestUtilities.setPackedFields(builder)
         return builder.build()
     }
     
     
-    class func packedExtensionsSet() -> TestPackedExtensions {
-        var builder = TestPackedExtensions.builder()
+    class func packedExtensionsSet() -> ProtobufUnittest.TestPackedExtensions {
+        var builder = ProtobufUnittest.TestPackedExtensions.builder()
         TestUtilities.setPackedExtensions(builder)
         return builder.build()
     }
     
-    func assertClear(message:TestAllTypes)
+    func assertClear(message:ProtobufUnittest.TestAllTypes)
     {
         XCTAssertFalse(message.hasOptionalInt32, "")
         XCTAssertFalse(message.hasOptionalInt64, "")
@@ -1618,9 +1618,9 @@ class  TestUtilities {
         XCTAssertTrue(0 == message.optionalImportMessage.d, "")
         
         // Enums without defaults are set to the first value in the enum.
-        XCTAssertTrue(TestAllTypes.NestedEnum.Foo == message.optionalNestedEnum, "")
-        XCTAssertTrue(ForeignEnum.ForeignFoo == message.optionalForeignEnum, "")
-        XCTAssertTrue(ImportEnum.ImportFoo == message.optionalImportEnum, "")
+        XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Foo == message.optionalNestedEnum, "")
+        XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignFoo == message.optionalForeignEnum, "")
+        XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportFoo == message.optionalImportEnum, "")
         
         XCTAssertTrue("" == message.optionalStringPiece, "")
         XCTAssertTrue("" == message.optionalCord, "")
@@ -1694,20 +1694,20 @@ class  TestUtilities {
         XCTAssertTrue("hello" == message.defaultString, "")
         XCTAssertTrue(TestUtilities.getData("world") == message.defaultBytes, "")
         
-        XCTAssertTrue(TestAllTypes.NestedEnum.Bar == message.defaultNestedEnum, "")
-        XCTAssertTrue(ForeignEnum.ForeignBar == message.defaultForeignEnum, "")
-        XCTAssertTrue(ImportEnum.ImportBar == message.defaultImportEnum, "")
+        XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Bar == message.defaultNestedEnum, "")
+        XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBar == message.defaultForeignEnum, "")
+        XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBar == message.defaultImportEnum, "")
         
         XCTAssertTrue("abc" == message.defaultStringPiece, "")
         XCTAssertTrue("123" == message.defaultCord, "")
     }
     
-    class func assertClear(message:TestAllTypes)
+    class func assertClear(message:ProtobufUnittest.TestAllTypes)
     {
         TestUtilities().assertClear(message)
     }
     
-    func assertExtensionsClear(message:TestAllExtensions)
+    func assertExtensionsClear(message:ProtobufUnittest.TestAllExtensions)
     {
         XCTAssertFalse(message.hasExtension(UnittestRoot.optionalInt32Extension()), "")
         XCTAssertFalse(message.hasExtension(UnittestRoot.optionalInt64Extension()), "")
@@ -1799,36 +1799,36 @@ class  TestUtilities {
         }
         
         // Embedded messages should also be clear.
-        if let val = message.getExtension(UnittestRoot.optionalGroupExtension()) as? OptionalGroup_extension
+        if let val = message.getExtension(UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroup_extension
         {
             XCTAssertFalse(val.hasA, "")
         }
-        if let val = message.getExtension(UnittestRoot.optionalNestedMessageExtension()) as? TestAllTypes.NestedMessage
+        if let val = message.getExtension(UnittestRoot.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
         {
             XCTAssertFalse(val.hasBb, "")
         }
-        if let val = message.getExtension(UnittestRoot.optionalForeignMessageExtension()) as? ForeignMessage
+        if let val = message.getExtension(UnittestRoot.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
         {
             XCTAssertFalse(val.hasC, "")
         }
-        if let val = message.getExtension(UnittestRoot.optionalImportMessageExtension()) as? ImportMessage
+        if let val = message.getExtension(UnittestRoot.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
         {
             XCTAssertFalse(val.hasD, "")
         }
         
-        if let val = message.getExtension(UnittestRoot.optionalGroupExtension()) as? OptionalGroup_extension
+        if let val = message.getExtension(UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroup_extension
         {
             XCTAssertTrue(val.a == 0, "")
         }
-        if let val = message.getExtension(UnittestRoot.optionalNestedMessageExtension()) as? TestAllTypes.NestedMessage
+        if let val = message.getExtension(UnittestRoot.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
         {
             XCTAssertTrue(val.bb == 0, "")
         }
-        if let val = message.getExtension(UnittestRoot.optionalForeignMessageExtension()) as? ForeignMessage
+        if let val = message.getExtension(UnittestRoot.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
         {
             XCTAssertTrue(val.c == 0, "")
         }
-        if let val = message.getExtension(UnittestRoot.optionalImportMessageExtension()) as? ImportMessage
+        if let val = message.getExtension(UnittestRoot.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
         {
             XCTAssertTrue(val.d == 0, "")
         }
@@ -1836,15 +1836,15 @@ class  TestUtilities {
         // Enums without defaults are set to the first value in the enum.
         if let val = message.getExtension(UnittestRoot.optionalNestedEnumExtension()) as? Int32
         {
-            XCTAssertTrue(TestAllTypes.NestedEnum.Foo.rawValue == val,"")
+            XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue == val,"")
         }
         if let val = message.getExtension(UnittestRoot.optionalForeignEnumExtension()) as? Int32
         {
-            XCTAssertTrue(ForeignEnum.ForeignFoo.rawValue == val,"")
+            XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue == val,"")
         }
         if let val = message.getExtension(UnittestRoot.optionalImportEnumExtension()) as? Int32
         {
-            XCTAssertTrue(ImportEnum.ImportFoo.rawValue == val,"")
+            XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue == val,"")
         }
         if let val = message.getExtension(UnittestRoot.optionalStringPieceExtension()) as? String
         {
@@ -2042,15 +2042,15 @@ class  TestUtilities {
         
         if let val = message.getExtension(UnittestRoot.defaultNestedEnumExtension()) as? Int32
         {
-            XCTAssertTrue(TestAllTypes.NestedEnum.Bar.rawValue == val, "")
+            XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Bar.rawValue == val, "")
         }
         if let val = message.getExtension(UnittestRoot.defaultForeignEnumExtension()) as? Int32
         {
-            XCTAssertTrue(ForeignEnum.ForeignBar.rawValue == val, "")
+            XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBar.rawValue == val, "")
         }
         if let val = message.getExtension(UnittestRoot.defaultImportEnumExtension()) as? Int32
         {
-            XCTAssertTrue(ImportEnum.ImportBar.rawValue == val, "")
+            XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBar.rawValue == val, "")
         }
         if let val = message.getExtension(UnittestRoot.defaultStringPieceExtension()) as? String
         {
@@ -2063,12 +2063,12 @@ class  TestUtilities {
         
     }
     
-    class func assertExtensionsClear(message:TestAllExtensions)
+    class func assertExtensionsClear(message:ProtobufUnittest.TestAllExtensions)
     {
         TestUtilities().assertExtensionsClear(message)
     }
     
-    class func setPackedFields(message:TestPackedTypesBuilder)
+    class func setPackedFields(message:ProtobufUnittest.TestPackedTypesBuilder)
     {
         message.packedInt32 += [601]
         message.packedInt64 += [602]
@@ -2083,7 +2083,7 @@ class  TestUtilities {
         message.packedFloat += [611]
         message.packedDouble += [612]
         message.packedBool += [true]
-        message.packedEnum += [ForeignEnum.ForeignBar]
+        message.packedEnum += [ProtobufUnittest.ForeignEnum.ForeignBar]
         // Add a second one of each field.
         message.packedInt32 += [701]
         message.packedInt64 += [702]
@@ -2098,10 +2098,10 @@ class  TestUtilities {
         message.packedFloat += [711]
         message.packedDouble += [712]
         message.packedBool += [false]
-        message.packedEnum += [ForeignEnum.ForeignBaz]
+        message.packedEnum += [ProtobufUnittest.ForeignEnum.ForeignBaz]
     }
     
-    func assertPackedFieldsSet(message:TestPackedTypes)
+    func assertPackedFieldsSet(message:ProtobufUnittest.TestPackedTypes)
     {
         XCTAssertTrue(2 ==  message.packedInt32.count, "")
         XCTAssertTrue(2 ==  message.packedInt64.count, "")
@@ -2130,7 +2130,7 @@ class  TestUtilities {
         XCTAssertTrue(611   ==  message.packedFloat[0], "")
         XCTAssertTrue(612   ==  message.packedDouble[0], "")
         XCTAssertTrue(true  ==  message.packedBool[0], "")
-        XCTAssertTrue(ForeignEnum.ForeignBar ==  message.packedEnum[0], "")
+        XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBar ==  message.packedEnum[0], "")
         XCTAssertTrue(701   ==  message.packedInt32[1], "")
         XCTAssertTrue(702   ==  message.packedInt64[1], "")
         XCTAssertTrue(703   ==  message.packedUint32[1], "")
@@ -2144,15 +2144,15 @@ class  TestUtilities {
         XCTAssertTrue(711   ==  message.packedFloat[1], "")
         XCTAssertTrue(712   ==  message.packedDouble[1], "")
         XCTAssertTrue(false ==  message.packedBool[1], "")
-        XCTAssertTrue(ForeignEnum.ForeignBaz ==  message.packedEnum[1], "")
+        XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBaz ==  message.packedEnum[1], "")
     }
     
-    class func assertPackedFieldsSet(message:TestPackedTypes)
+    class func assertPackedFieldsSet(message:ProtobufUnittest.TestPackedTypes)
     {
         TestUtilities().assertPackedFieldsSet(message)
     }
     
-    class func setPackedExtensions(message:TestPackedExtensionsBuilder)
+    class func setPackedExtensions(message:ProtobufUnittest.TestPackedExtensionsBuilder)
     {
        message.addExtension(UnittestRoot.packedInt32Extension(), value:Int32(601))
        message.addExtension(UnittestRoot.packedInt64Extension(), value:Int64(602))
@@ -2167,7 +2167,7 @@ class  TestUtilities {
        message.addExtension(UnittestRoot.packedFloatExtension(), value:Float(611.0))
        message.addExtension(UnittestRoot.packedDoubleExtension(),  value:Double(612.0))
        message.addExtension(UnittestRoot.packedBoolExtension(), value:true)
-       message.addExtension(UnittestRoot.packedEnumExtension(), value:ForeignEnum.ForeignBar.rawValue)
+       message.addExtension(UnittestRoot.packedEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBar.rawValue)
         // Add a second one of each field.
        message.addExtension(UnittestRoot.packedInt32Extension(), value:Int32(701))
        message.addExtension(UnittestRoot.packedInt64Extension(), value:Int64(702))
@@ -2182,11 +2182,11 @@ class  TestUtilities {
        message.addExtension(UnittestRoot.packedFloatExtension(), value:Float(711.0))
        message.addExtension(UnittestRoot.packedDoubleExtension(), value:Double(712.0))
        message.addExtension(UnittestRoot.packedBoolExtension(), value:false)
-       message.addExtension(UnittestRoot.packedEnumExtension(), value:ForeignEnum.ForeignBaz.rawValue)
+       message.addExtension(UnittestRoot.packedEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
     }
     
     
-    func assertPackedExtensionsSet(message:TestPackedExtensions)
+    func assertPackedExtensionsSet(message:ProtobufUnittest.TestPackedExtensions)
     {
         if let val = message.getExtension(UnittestRoot.packedInt32Extension()) as? [Int32]
         {
@@ -2302,7 +2302,7 @@ class  TestUtilities {
         }
         if let val = message.getExtension(UnittestRoot.packedEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(ForeignEnum.ForeignBar.rawValue == val[0], "")
+            XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBar.rawValue == val[0], "")
         }
         ///
         
@@ -2361,12 +2361,12 @@ class  TestUtilities {
         }
         if let val = message.getExtension(UnittestRoot.packedEnumExtension()) as? [Int32]
         {
-            XCTAssertTrue(ForeignEnum.ForeignBaz.rawValue == val[1], "")
+            XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue == val[1], "")
         }
         ///
     }
     
-    class func assertPackedExtensionsSet(message:TestPackedExtensions) {
+    class func assertPackedExtensionsSet(message:ProtobufUnittest.TestPackedExtensions) {
         TestUtilities().assertPackedExtensionsSet(message)
     }
     

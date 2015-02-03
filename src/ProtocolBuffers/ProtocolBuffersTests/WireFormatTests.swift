@@ -23,7 +23,7 @@ class WireFormatTests: XCTestCase {
         var message = TestUtilities.allSet()
         var rawBytes = message.data()
         XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
-        var message2 = TestAllTypes.parseFromData(rawBytes)
+        var message2 = ProtobufUnittest.TestAllTypes.parseFromData(rawBytes)
         TestUtilities.assertAllFieldsSet(message2)
     }
     
@@ -31,7 +31,7 @@ class WireFormatTests: XCTestCase {
         var message = TestUtilities.packedSet()
         var rawBytes = message.data()
         XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
-        var message2 = TestPackedTypes.parseFromData(rawBytes)
+        var message2 = ProtobufUnittest.TestPackedTypes.parseFromData(rawBytes)
         TestUtilities.assertPackedFieldsSet(message2)
     }
     
@@ -39,7 +39,7 @@ class WireFormatTests: XCTestCase {
         var message = TestUtilities.allExtensionsSet()
         var rawBytes = message.data()
         XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
-        var message2 = TestAllTypes.parseFromData(rawBytes)
+        var message2 = ProtobufUnittest.TestAllTypes.parseFromData(rawBytes)
         TestUtilities.assertAllFieldsSet(message2)
     }
     func testSerializePackedExtensions() {
@@ -60,7 +60,7 @@ class WireFormatTests: XCTestCase {
         var rawBytes = message.data()
         var registry = ExtensionRegistry()
         TestUtilities.registerAllExtensions(registry)
-        var message2 = TestAllExtensions.parseFromData(rawBytes, extensionRegistry:registry)
+        var message2 = ProtobufUnittest.TestAllExtensions.parseFromData(rawBytes, extensionRegistry:registry)
         TestUtilities.assertAllExtensionsSet(message2)
     }
     
@@ -72,7 +72,7 @@ class WireFormatTests: XCTestCase {
         var message = TestUtilities.packedExtensionsSet()
         var rawBytes = message.data()
         var registry = TestUtilities.extensionRegistry()
-        var message2 = TestPackedExtensions.parseFromData(rawBytes, extensionRegistry:registry)
+        var message2 = ProtobufUnittest.TestPackedExtensions.parseFromData(rawBytes, extensionRegistry:registry)
         TestUtilities.assertPackedExtensionsSet(message2)
     }
 }
