@@ -119,7 +119,7 @@ internal extension ProtobufUnittest {
     private(set) var msg:ProtobufUnittest.ForeignMessage = ProtobufUnittest.ForeignMessage()
     private(set) var hasIntegerField:Bool {
           get {
-               if TestOptimizedForSize.Foo.getIntegerField(storageFoo) == nil {
+               if ProtobufUnittest.TestOptimizedForSize.Foo.getIntegerField(storageFoo) == nil {
                    return false
                }
                return true
@@ -129,15 +129,15 @@ internal extension ProtobufUnittest {
     }
     private(set) var integerField:Int32!{
          get {
-              return TestOptimizedForSize.Foo.getIntegerField(storageFoo)
+              return ProtobufUnittest.TestOptimizedForSize.Foo.getIntegerField(storageFoo)
          }
          set (newvalue) {
-              storageFoo = TestOptimizedForSize.Foo.IntegerField(newvalue)
+              storageFoo = ProtobufUnittest.TestOptimizedForSize.Foo.IntegerField(newvalue)
          }
     }
     private(set) var hasStringField:Bool {
           get {
-               if TestOptimizedForSize.Foo.getStringField(storageFoo) == nil {
+               if ProtobufUnittest.TestOptimizedForSize.Foo.getStringField(storageFoo) == nil {
                    return false
                }
                return true
@@ -147,10 +147,10 @@ internal extension ProtobufUnittest {
     }
     private(set) var stringField:String!{
          get {
-              return TestOptimizedForSize.Foo.getStringField(storageFoo)
+              return ProtobufUnittest.TestOptimizedForSize.Foo.getStringField(storageFoo)
          }
          set (newvalue) {
-              storageFoo = TestOptimizedForSize.Foo.StringField(newvalue)
+              storageFoo = ProtobufUnittest.TestOptimizedForSize.Foo.StringField(newvalue)
          }
     }
     internal class func testExtension() -> ConcreateExtensionField {
@@ -429,7 +429,7 @@ internal extension ProtobufUnittest {
       var returnMe:ProtobufUnittest.TestOptimizedForSize = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:TestOptimizedForSize) -> TestOptimizedForSizeBuilder {
+    internal func mergeFrom(other:ProtobufUnittest.TestOptimizedForSize) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
       if (other == ProtobufUnittest.TestOptimizedForSize()) {
        return self
       }
@@ -642,7 +642,7 @@ internal extension ProtobufUnittest {
       var returnMe:ProtobufUnittest.TestRequiredOptimizedForSize = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:TestRequiredOptimizedForSize) -> TestRequiredOptimizedForSizeBuilder {
+    internal func mergeFrom(other:ProtobufUnittest.TestRequiredOptimizedForSize) -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
       if (other == ProtobufUnittest.TestRequiredOptimizedForSize()) {
        return self
       }
@@ -843,7 +843,7 @@ internal extension ProtobufUnittest {
       var returnMe:ProtobufUnittest.TestOptionalOptimizedForSize = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:TestOptionalOptimizedForSize) -> TestOptionalOptimizedForSizeBuilder {
+    internal func mergeFrom(other:ProtobufUnittest.TestOptionalOptimizedForSize) -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
       if (other == ProtobufUnittest.TestOptionalOptimizedForSize()) {
        return self
       }

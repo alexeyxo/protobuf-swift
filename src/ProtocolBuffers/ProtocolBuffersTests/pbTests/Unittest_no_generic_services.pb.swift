@@ -214,7 +214,7 @@ internal extension Google.Protobuf.NoGenericServicesTest {
       var returnMe:Google.Protobuf.NoGenericServicesTest.TestMessage = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:TestMessage) -> TestMessageBuilder {
+    internal func mergeFrom(other:Google.Protobuf.NoGenericServicesTest.TestMessage) -> Google.Protobuf.NoGenericServicesTest.TestMessageBuilder {
       if (other == Google.Protobuf.NoGenericServicesTest.TestMessage()) {
        return self
       }

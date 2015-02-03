@@ -241,7 +241,7 @@ internal extension ProtobufUnittest {
       var returnMe:ProtobufUnittest.TestEmbedOptimizedForSize = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:TestEmbedOptimizedForSize) -> TestEmbedOptimizedForSizeBuilder {
+    internal func mergeFrom(other:ProtobufUnittest.TestEmbedOptimizedForSize) -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
       if (other == ProtobufUnittest.TestEmbedOptimizedForSize()) {
        return self
       }

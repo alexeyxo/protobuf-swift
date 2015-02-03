@@ -17,10 +17,10 @@ public struct SwiftDescriptorRoot {
   public var extensionRegistry:ExtensionRegistry
 
   init() {
-    SwiftDescriptorRootswiftFileOptionsStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.PBFileOptions.self, fieldNumber: 5092014, defaultValue:Google.Protobuf.SwiftFileOptions(), messageOrGroupClass:Google.Protobuf.SwiftFileOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+    SwiftDescriptorRootswiftFileOptionsStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 5092014, defaultValue:Google.Protobuf.SwiftFileOptions(), messageOrGroupClass:Google.Protobuf.SwiftFileOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
-    PBDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
+    DescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
   public func registerAllExtensions(registry:ExtensionRegistry) {
     registry.addExtension(SwiftDescriptorRootswiftFileOptionsStatic)
@@ -230,11 +230,11 @@ public extension Google.Protobuf {
               builderResult.entitiesAccessControl = value
           }
       }
-      public func setEntitiesAccessControl(value:Google.Protobuf.AccessControl)-> google.protobuf.SwiftFileOptions.entities_access_controlBuilder {
+      public func setEntitiesAccessControl(value:Google.Protobuf.AccessControl)-> Google.Protobuf.SwiftFileOptionsBuilder {
         self.entitiesAccessControl = value
         return self
       }
-      public func clearEntitiesAccessControl() -> google.protobuf.SwiftFileOptions.entities_access_controlBuilder {
+      public func clearEntitiesAccessControl() -> Google.Protobuf.SwiftFileOptionsBuilder {
          builderResult.hasEntitiesAccessControl = false
          builderResult.entitiesAccessControl = .InternalEntities
          return self
@@ -282,7 +282,7 @@ public extension Google.Protobuf {
       var returnMe:Google.Protobuf.SwiftFileOptions = builderResult
       return returnMe
     }
-    public func mergeFrom(other:SwiftFileOptions) -> SwiftFileOptionsBuilder {
+    public func mergeFrom(other:Google.Protobuf.SwiftFileOptions) -> Google.Protobuf.SwiftFileOptionsBuilder {
       if (other == Google.Protobuf.SwiftFileOptions()) {
        return self
       }

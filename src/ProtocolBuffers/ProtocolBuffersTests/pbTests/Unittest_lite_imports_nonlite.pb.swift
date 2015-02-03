@@ -192,7 +192,7 @@ internal extension ProtobufUnittest {
       var returnMe:ProtobufUnittest.TestLiteImportsNonlite = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:TestLiteImportsNonlite) -> TestLiteImportsNonliteBuilder {
+    internal func mergeFrom(other:ProtobufUnittest.TestLiteImportsNonlite) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
       if (other == ProtobufUnittest.TestLiteImportsNonlite()) {
        return self
       }

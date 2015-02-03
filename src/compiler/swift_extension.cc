@@ -46,7 +46,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string singular_type;
         switch (swift_type) {
             case SWIFTTYPE_MESSAGE:
-                vars["type"] = PackageName(descriptor_->file()) + ClassName(descriptor_->message_type());
+                vars["type"] = ClassName(descriptor_->message_type());
                 break;
             default:
                 vars["type"] = BoxedPrimitiveTypeName(swift_type);
@@ -112,7 +112,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         map<string, string> vars;
         vars["name"] = UnderscoresToCamelCase(descriptor_);
         vars["containing_type"] = classname_;
-        vars["extended_type"] = PackageName(descriptor_->file()) + ClassName(descriptor_->containing_type());
+        vars["extended_type"] = ClassName(descriptor_->containing_type());
         vars["number"] = SimpleItoa(descriptor_->number());
         
         const bool isPacked = descriptor_->options().packed();
@@ -124,7 +124,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string singular_type;
         switch (swift_type) {
             case SWIFTTYPE_MESSAGE:
-                vars["type"] = PackageName(descriptor_->file()) + ClassName(descriptor_->message_type());
+                vars["type"] = ClassName(descriptor_->message_type());
                 break;
             default:
                 vars["type"] = BoxedPrimitiveTypeName(swift_type);

@@ -32,12 +32,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         void SetMessageVariables(const FieldDescriptor* descriptor,
                                  map<string, string>* variables) {
             std::string name = UnderscoresToCamelCase(descriptor);
-            (*variables)["classname"] = PackageName(descriptor->file()) + ClassName(descriptor->containing_type());
+            (*variables)["classname"] = ClassName(descriptor->containing_type());
             (*variables)["name"] = name;
             (*variables)["capitalized_name"] = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());
             
-            string type = PackageName(descriptor->file()) + ClassName(descriptor->message_type());
+            string type = ClassName(descriptor->message_type());
             (*variables)["type"] = type;
             (*variables)["storage_type"] = type;
             (*variables)["storage_attribute"] = "";

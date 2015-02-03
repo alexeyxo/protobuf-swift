@@ -269,6 +269,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     
+
+    
     string FileClassName(const FileDescriptor* file) {
         // Ensure the FileClassName is camelcased irrespective of whether the
         // camelcase_output_filename option is set.
@@ -284,7 +286,37 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return result;
     }
     
-    vector<string> PackageSplit(const string& str)
+    string ReturnedType(const string& full_name)
+    {
+        string result;
+        vector<string> splitVector = FullNameSplit(full_name);
+        
+        for (int i = 0; i < splitVector.size(); i++) {
+            if (i < splitVector.size() - 1)
+            {
+                result += splitVector[i];
+                result += ".";
+            }
+        }
+        return result;
+    }
+    
+    string FullName(const vector<string> splitVector)
+    {
+        string result;
+        for (int i = 0; i < splitVector.size(); i++) {
+            result += splitVector[i];
+            result += ".";
+        }
+        return result;
+    }
+    
+    string FullName(const FileDescriptor* file)
+    {
+        return FullName(FullNameSplit(file->package()));
+    }
+    
+    vector<string> FullNameSplit(const string& str)
     {
         const string& delimiters = ".";
         
@@ -302,22 +334,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return tokens;
     }
     
-    string PackageName(const FileDescriptor* file)
-    {
-
-        return PackageName(PackageSplit(file->package()));
-    }
-    
-    string PackageName(const vector<string> splitVector)
-    {
-        string result;
-        for (int i = 0; i < splitVector.size(); i++) {
-            result += splitVector[i];
-            result += ".";
-        }
-        return result;
-    }
-    
+ 
     string PackageExtensionName(const vector<string> splitVector)
     {
         string result;
@@ -336,6 +353,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             name = ClassNameWorker(descriptor->containing_type());
             name += ".";
         }
+        else
+        {
+            name += CheckReservedNames(FullName(descriptor->file()));
+        }
         return CheckReservedNames(name + descriptor->name());
     }
     
@@ -345,6 +366,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             name = ClassNameWorker(descriptor->containing_type());
             name += "";
         }
+//        else
+//        {
+//            name += CheckReservedNames(FullName(descriptor->file()));
+//        }
         return CheckReservedNames(name + descriptor->name());
     }
     
@@ -354,6 +379,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (descriptor->containing_type() != NULL) {
             name = ClassNameWorker(descriptor->containing_type());
             name += ".";
+        }
+        else
+        {
+            name += CheckReservedNames(FullName(descriptor->file()));
         }
         return CheckReservedNames(name + UnderscoresToCapitalizedCamelCase(descriptor->name()));
     }
@@ -613,7 +642,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::CPPTYPE_ENUM:
                 return EnumValueName(field->default_value_enum());
             case FieldDescriptor::CPPTYPE_MESSAGE:
-                return PackageName(field->file()) + ClassName(field->message_type()) + "()";
+                return ClassName(field->message_type()) + "()";
         }
         
         GOOGLE_LOG(FATAL) << "Can't get here.";

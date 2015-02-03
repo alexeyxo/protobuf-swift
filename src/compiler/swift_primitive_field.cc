@@ -149,7 +149,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         void SetPrimitiveVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
             std::string name = UnderscoresToCamelCase(descriptor);
-            (*variables)["classname"] = PackageName(descriptor->file()) + ClassName(descriptor->containing_type());
+            (*variables)["classname"] = ClassName(descriptor->containing_type());
             (*variables)["name"] = name;
             (*variables)["capitalized_name"] = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());

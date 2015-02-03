@@ -203,7 +203,7 @@ public extension Google.Protobuf {
       var returnMe:Google.Protobuf.PerfomanceBatch = builderResult
       return returnMe
     }
-    public func mergeFrom(other:PerfomanceBatch) -> PerfomanceBatchBuilder {
+    public func mergeFrom(other:Google.Protobuf.PerfomanceBatch) -> Google.Protobuf.PerfomanceBatchBuilder {
       if (other == Google.Protobuf.PerfomanceBatch()) {
        return self
       }
@@ -631,7 +631,7 @@ public extension Google.Protobuf {
       var returnMe:Google.Protobuf.Perfomance = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Perfomance) -> PerfomanceBuilder {
+    public func mergeFrom(other:Google.Protobuf.Perfomance) -> Google.Protobuf.PerfomanceBuilder {
       if (other == Google.Protobuf.Perfomance()) {
        return self
       }

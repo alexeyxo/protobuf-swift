@@ -149,7 +149,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
             MessageGenerator(file_->message_type(i)).GenerateMessageIsEqualSource(printer);
         }
         
-        vector<string> tokens = PackageSplit(file_->package());
+        vector<string> tokens = FullNameSplit(file_->package());
         
         //Generate Messages with packages
         

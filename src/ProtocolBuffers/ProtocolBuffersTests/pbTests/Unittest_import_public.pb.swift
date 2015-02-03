@@ -181,7 +181,7 @@ internal extension ProtobufUnittestImport {
       var returnMe:ProtobufUnittestImport.PublicImportMessage = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:PublicImportMessage) -> PublicImportMessageBuilder {
+    internal func mergeFrom(other:ProtobufUnittestImport.PublicImportMessage) -> ProtobufUnittestImport.PublicImportMessageBuilder {
       if (other == ProtobufUnittestImport.PublicImportMessage()) {
        return self
       }

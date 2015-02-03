@@ -69,7 +69,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print("\n");
         
 //        
-//        string classNames = PackageName(descriptor_->file()) + ClassName(descriptor_->enum_type());
+//        string classNames = FullName(descriptor_->file()) + ClassName(descriptor_->enum_type());
 //        
 //        printer->Print("$acontrol$ static func IsValidValue(value:Int32) ->Bool {\n"
 //                       "    if let check = $classname$(rawValue:value) {\n"

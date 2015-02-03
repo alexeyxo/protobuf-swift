@@ -212,7 +212,7 @@ internal extension ProtobufUnittest {
       var returnMe:ProtobufUnittest.TestMessageSet = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:TestMessageSet) -> TestMessageSetBuilder {
+    internal func mergeFrom(other:ProtobufUnittest.TestMessageSet) -> ProtobufUnittest.TestMessageSetBuilder {
       if (other == ProtobufUnittest.TestMessageSet()) {
        return self
       }
@@ -408,7 +408,7 @@ internal extension ProtobufUnittest {
       var returnMe:ProtobufUnittest.TestMessageSetContainer = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:TestMessageSetContainer) -> TestMessageSetContainerBuilder {
+    internal func mergeFrom(other:ProtobufUnittest.TestMessageSetContainer) -> ProtobufUnittest.TestMessageSetContainerBuilder {
       if (other == ProtobufUnittest.TestMessageSetContainer()) {
        return self
       }
@@ -602,7 +602,7 @@ internal extension ProtobufUnittest {
       var returnMe:ProtobufUnittest.TestMessageSetExtension1 = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:TestMessageSetExtension1) -> TestMessageSetExtension1Builder {
+    internal func mergeFrom(other:ProtobufUnittest.TestMessageSetExtension1) -> ProtobufUnittest.TestMessageSetExtension1Builder {
       if (other == ProtobufUnittest.TestMessageSetExtension1()) {
        return self
       }
@@ -791,7 +791,7 @@ internal extension ProtobufUnittest {
       var returnMe:ProtobufUnittest.TestMessageSetExtension2 = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:TestMessageSetExtension2) -> TestMessageSetExtension2Builder {
+    internal func mergeFrom(other:ProtobufUnittest.TestMessageSetExtension2) -> ProtobufUnittest.TestMessageSetExtension2Builder {
       if (other == ProtobufUnittest.TestMessageSetExtension2()) {
        return self
       }
@@ -1026,7 +1026,7 @@ internal extension ProtobufUnittest {
           var returnMe:ProtobufUnittest.RawMessageSet.Item = builderResult
           return returnMe
         }
-        internal func mergeFrom(other:RawMessageSet.Item) -> RawMessageSet.ItemBuilder {
+        internal func mergeFrom(other:ProtobufUnittest.RawMessageSet.Item) -> ProtobufUnittest.RawMessageSet.ItemBuilder {
           if (other == ProtobufUnittest.RawMessageSet.Item()) {
            return self
           }
@@ -1226,7 +1226,7 @@ internal extension ProtobufUnittest {
       var returnMe:ProtobufUnittest.RawMessageSet = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:RawMessageSet) -> RawMessageSetBuilder {
+    internal func mergeFrom(other:ProtobufUnittest.RawMessageSet) -> ProtobufUnittest.RawMessageSetBuilder {
       if (other == ProtobufUnittest.RawMessageSet()) {
        return self
       }

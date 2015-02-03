@@ -264,7 +264,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
-            string classNames = PackageName(descriptor_->file()) + ClassNameOneof(descriptor_->oneof_decl(i));
+            string classNames = ClassNameOneof(descriptor_->oneof_decl(i));
             OneofGenerator(descriptor_->oneof_decl(i)).GenerateSource(printer);
             printer->Print("private var storage$storageName$:$classname$ =  $classname$.$storageName$OneOfNotSet\n",
                            "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
@@ -320,7 +320,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         GenerateParseFromMethodsSource(printer);
         
-        string classNames = PackageName(descriptor_->file()) + ClassName(descriptor_);
+        string classNames = ClassName(descriptor_);
         
         printer->Print(
                        
@@ -500,7 +500,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         sort(sorted_extensions.begin(), sorted_extensions.end(),
              ExtensionRangeOrdering());
         
-        string classNames = PackageName(descriptor_->file()) + ClassName(descriptor_);
+        string classNames = ClassName(descriptor_);
         
         printer->Print(
                        "$acontrol$ func == (lhs: $classname$, rhs: $classname$) -> Bool {\n",
@@ -605,7 +605,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateParseFromMethodsSource(io::Printer* printer) {
         
-        string classNames = PackageName(descriptor_->file()) + ClassName(descriptor_);
+        string classNames = ClassName(descriptor_);
         printer->Print(
                        "$acontrol$ class func parseFromData(data:NSData) -> $classname$ {\n"
                        "  return $classname$.builder().mergeFromData(data, extensionRegistry:$fileName$.sharedInstance.extensionRegistry).build()\n"
@@ -704,7 +704,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Indent();
         
-        string builderClassNames = PackageName(descriptor_->file()) + ClassName(descriptor_);
+        string builderClassNames = ClassName(descriptor_);
         
         printer->Print(
                        "private var builderResult:$classname$\n\n"
@@ -730,7 +730,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateCommonBuilderMethodsSource(io::Printer* printer) {
         
-        string classNames = PackageName(descriptor_->file()) + ClassName(descriptor_);
+        string classNames = ClassName(descriptor_);
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(
                            "override $acontrol$ var internalGetResult:ExtendableMessage {\n"
@@ -814,7 +814,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageGenerator::GenerateBuilderParsingMethodsSource(io::Printer* printer) {
         scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
         
-        string classNames = PackageName(descriptor_->file()) + ClassName(descriptor_);
+        string classNames = ClassName(descriptor_);
         
         printer->Print(
                        "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream) ->$classname$Builder {\n"
