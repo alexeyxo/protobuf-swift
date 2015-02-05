@@ -241,18 +241,18 @@ class CodedInputStreamTests: XCTestCase
         let lengthSize = message.serializedSize()
         XCTAssertTrue(lengthRaw == lengthSize, "")
     
-        var message2 = TestAllTypes.parseFromData(rawBytes)
+        var message2 = ProtobufUnittest.TestAllTypes.parseFromData(rawBytes)
         TestUtilities.assertAllFieldsSet(message2)
         var stream:NSInputStream = NSInputStream(data: rawBytes)
         var codedStream  = CodedInputStream(inputStream:stream)
-        var message3 = TestAllTypes.parseFromCodedInputStream(codedStream)
+        var message3 = ProtobufUnittest.TestAllTypes.parseFromCodedInputStream(codedStream)
         TestUtilities.assertAllFieldsSet(message3)
         XCTAssertTrue(message3 == message2, "")
         
         for (var blockSize:Int32 = 1; blockSize < 256; blockSize *= 2) {
             var smallblock:SmallBlockInputStream = SmallBlockInputStream()
             smallblock.setup(data: rawBytes, blocksSize: blockSize)
-            message2 = TestAllTypes.parseFromInputStream(smallblock)
+            message2 = ProtobufUnittest.TestAllTypes.parseFromInputStream(smallblock)
             TestUtilities.assertAllFieldsSet(message2)
         }
     }
@@ -287,16 +287,16 @@ class CodedInputStreamTests: XCTestCase
             var bpointer = UnsafeMutableBufferPointer(start: pointer, count: blob.length)
             bpointer[i] = Byte(1)
         }
-        var builder = TestAllTypes.builder()
+        var builder = ProtobufUnittest.TestAllTypes.builder()
         TestUtilities.setAllFields(builder)
     
         builder.optionalBytes = blob
         var message = builder.build()
         var data = message.data()
-        var message2 = TestAllTypes.parseFromInputStream(NSInputStream(data:data))
+        var message2 = ProtobufUnittest.TestAllTypes.parseFromInputStream(NSInputStream(data:data))
         XCTAssertTrue(message.optionalBytes == message2.optionalBytes, "")
         
-        var builder3 = TestAllTypes.builderWithPrototype(message2)
+        var builder3 = ProtobufUnittest.TestAllTypes.builderWithPrototype(message2)
         builder3.optionalBytes = TestUtilities.allSet().optionalBytes
         var message3 = builder3.build()
         TestUtilities.assertAllFieldsSet(message3)
