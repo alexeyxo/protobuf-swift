@@ -15,7 +15,7 @@ class GeneratedMessageTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
@@ -25,8 +25,8 @@ class GeneratedMessageTests: XCTestCase {
     {
         XCTAssertTrue(ProtobufUnittest.TestAllTypes() == ProtobufUnittest.TestAllTypes(), "")
     }
-    
-    
+
+
     func testAccessors()
     {
         var builder = ProtobufUnittest.TestAllTypes.builder()
@@ -34,7 +34,7 @@ class GeneratedMessageTests: XCTestCase {
         var message = builder.build()
         TestUtilities.assertAllFieldsSet(message)
     }
-    
+
     func testRepeatedAppend()
     {
         var builder = ProtobufUnittest.TestAllTypes.builder()
@@ -44,7 +44,7 @@ class GeneratedMessageTests: XCTestCase {
         foreignMessageBuilder.c = 12
         var foreignMessage =  foreignMessageBuilder.build()
         builder.repeatedForeignMessage = [foreignMessage]
-    
+
         var message = builder.build()
         XCTAssertTrue(1 == message.repeatedForeignMessage.count, "")
         XCTAssertTrue(12 == message.repeatedForeignMessage[0].c, "")
@@ -52,15 +52,15 @@ class GeneratedMessageTests: XCTestCase {
     func testClearExtension()
     {
         var  builder1 = ProtobufUnittest.TestAllExtensions.builder()
-        builder1.setExtension(UnittestRoot.optionalInt32Extension(), value:Int32(1))
-        
-        XCTAssertTrue(builder1.hasExtension(UnittestRoot.optionalInt32Extension()), "")
-        builder1.clearExtension(UnittestRoot.optionalInt32Extension())
-        XCTAssertFalse(builder1.hasExtension(UnittestRoot.optionalInt32Extension()), "")
-        
+        builder1.setExtension(GoogleProtobufUnittestRoot.optionalInt32Extension(), value:Int32(1))
+
+        XCTAssertTrue(builder1.hasExtension(GoogleProtobufUnittestRoot.optionalInt32Extension()), "")
+        builder1.clearExtension(GoogleProtobufUnittestRoot.optionalInt32Extension())
+        XCTAssertFalse(builder1.hasExtension(GoogleProtobufUnittestRoot.optionalInt32Extension()), "")
+
         var builder2 = ProtobufUnittest.TestAllExtensions.builder()
-        builder2.addExtension(UnittestRoot.repeatedInt32Extension(), value:Int32(1))
-        if let val = builder2.getExtension(UnittestRoot.repeatedInt32Extension()) as? [Int32]
+        builder2.addExtension(GoogleProtobufUnittestRoot.repeatedInt32Extension(), value:Int32(1))
+        if let val = builder2.getExtension(GoogleProtobufUnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(1 == val.count, "")
         }
@@ -68,9 +68,9 @@ class GeneratedMessageTests: XCTestCase {
         {
             XCTAssertTrue(false, "")
         }
-        builder2.clearExtension(UnittestRoot.repeatedInt32Extension())
-        
-        if let val = builder2.getExtension(UnittestRoot.repeatedInt32Extension()) as? [Int32]
+        builder2.clearExtension(GoogleProtobufUnittestRoot.repeatedInt32Extension())
+
+        if let val = builder2.getExtension(GoogleProtobufUnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(0 == val.count, "")
         }
@@ -78,9 +78,9 @@ class GeneratedMessageTests: XCTestCase {
         {
             XCTAssertTrue(false, "")
         }
-        
+
     }
-    
+
     func testExtensionAccessors()
     {
         var builder = ProtobufUnittest.TestAllExtensions.builder()
@@ -88,8 +88,8 @@ class GeneratedMessageTests: XCTestCase {
         var message = builder.build()
         TestUtilities.assertAllExtensionsSet(message)
     }
-    
-    
+
+
     func testExtensionRepeatedSetters()
     {
         var builder = ProtobufUnittest.TestAllExtensions.builder()
@@ -98,7 +98,7 @@ class GeneratedMessageTests: XCTestCase {
         var message = builder.build()
         TestUtilities.assertRepeatedExtensionsModified(message)
     }
-    
+
     func testExtensionRepeatedSettersMerge()
     {
         var builder = ProtobufUnittest.TestAllExtensions.builder()
