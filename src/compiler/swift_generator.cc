@@ -38,7 +38,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                   const string& parameter,
                                   GeneratorContext* generator_context,
                                   string* error) const {
-        vector<pair<string, string> > options;
+        
+        
+//        static int ints = 0;
+//        printf("\n\n\n\n %d fasdfasdgdasdgasdgasdg \n\n\n\n",ints);
+//        ints++;
+        
+        static map<string, string> packages;
+        
+        vector< pair<string, string> > options;
         ParseGeneratorParameter(parameter, &options);
 
         for (int i = 0; i < options.size(); i++) {
@@ -50,10 +58,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
         string filepath = FilePath(file);
         {
-            scoped_ptr<io::ZeroCopyOutputStream> output(
-                generator_context->Open(filepath + ".pb.swift"));
+            bool needToGeneratePackageStructs = false;
+            string package_name;
+            if (packages.find(file->package()) == packages.end()) {
+                (packages[file->package()] = "generate");
+                needToGeneratePackageStructs = true;
+                
+            }
+            if (file->package() != "") {
+                package_name = "_" + UnderscoresToCapitalizedCamelCase(file->package());
+            }
+            
+            scoped_ptr<io::ZeroCopyOutputStream> output(generator_context->Open(filepath + package_name + ".pb.swift"));
             io::Printer printer(output.get(), '$');
-            file_generator.GenerateSource(&printer);
+            file_generator.GenerateSource(&printer, needToGeneratePackageStructs);
         }
 
         return true;

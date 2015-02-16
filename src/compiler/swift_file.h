@@ -40,8 +40,7 @@ namespace google {
                     explicit FileGenerator(const FileDescriptor* file);
                     ~FileGenerator();
                     
-                    void GenerateSource(io::Printer* printer);
-                    void DetermineDependencies(set<string>* dependencies);
+                    void GenerateSource(io::Printer* printer, bool needToGeneratePackageSource);
                     
                     const string& classname()    { return classname_;    }
                     
