@@ -39,7 +39,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string CheckReservedNames(const string& input)
     {
         string result;
-        if (input == "extension" || input == "description") {
+        if (input == "extension" ||
+            input == "description"||
+            input == "Message" ||
+            input == "message")
+        {
             result = input + "_";
         }
         else if (input == "Type") {
@@ -256,10 +260,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     string FileClassPrefix(const FileDescriptor* file) {
-//        if (IsBootstrapFile(file)) {
-//            return "PB";
-//        }
-//        else
         if (file->options().HasExtension(swift_file_options)) {
             SwiftFileOptions options = file->options().GetExtension(swift_file_options);
             return options.class_prefix();
