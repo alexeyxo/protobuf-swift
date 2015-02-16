@@ -3,24 +3,6 @@
 import Foundation
 import ProtocolBuffers
 
-public struct PerformanceRoot {
-  public static var sharedInstance : PerformanceRoot {
-   struct Static {
-       static let instance : PerformanceRoot = PerformanceRoot()
-   }
-   return Static.instance
-  }
-  public var extensionRegistry:ExtensionRegistry
-
-  init() {
-    extensionRegistry = ExtensionRegistry()
-    registerAllExtensions(extensionRegistry)
-    SwiftDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
-  }
-  public func registerAllExtensions(registry:ExtensionRegistry) {
-  }
-}
-
 public func == (lhs: PerfomanceBatch, rhs: PerfomanceBatch) -> Bool {
   if (lhs === rhs) {
     return true
@@ -45,6 +27,23 @@ public func == (lhs: Perfomance, rhs: Perfomance) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
+public struct PerformanceRoot {
+  public static var sharedInstance : PerformanceRoot {
+   struct Static {
+       static let instance : PerformanceRoot = PerformanceRoot()
+   }
+   return Static.instance
+  }
+  public var extensionRegistry:ExtensionRegistry
+
+  init() {
+    extensionRegistry = ExtensionRegistry()
+    registerAllExtensions(extensionRegistry)
+    SwiftDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
+  }
+  public func registerAllExtensions(registry:ExtensionRegistry) {
+  }
+}
 
 final public class PerfomanceBatch : GeneratedMessage, GeneratedMessageProtocol {
   public private(set) var batch:Array<Perfomance>  = Array<Perfomance>()
@@ -153,8 +152,6 @@ final public class PerfomanceBatch : GeneratedMessage, GeneratedMessageProtocol 
   override public func classMetaType() -> GeneratedMessage.Type {
       return PerfomanceBatch.self
   }
-
-
   //Meta information declaration end
 
 }
@@ -436,8 +433,6 @@ final public class Perfomance : GeneratedMessage, GeneratedMessageProtocol {
   override public func classMetaType() -> GeneratedMessage.Type {
       return Perfomance.self
   }
-
-
   //Meta information declaration end
 
 }

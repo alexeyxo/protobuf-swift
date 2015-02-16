@@ -3,6 +3,8 @@
 import Foundation
 import ProtocolBuffers
 
+
+
 internal struct UnittestEmptyRoot {
   internal static var sharedInstance : UnittestEmptyRoot {
    struct Static {
@@ -19,7 +21,6 @@ internal struct UnittestEmptyRoot {
   internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
-
 
 
 // @@protoc_insertion_point(global_scope)

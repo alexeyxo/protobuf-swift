@@ -42,8 +42,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (input == "extension" ||
             input == "description"||
             input == "Message" ||
-            input == "message")
-        {
+            input == "message") {
             result = input + "_";
         }
         else if (input == "Type") {

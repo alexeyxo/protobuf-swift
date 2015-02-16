@@ -253,7 +253,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Indent();
             MessageGenerator(descriptor_->nested_type(i)).GenerateSource(printer);
             printer->Outdent();
-            printer->Print("\n\n//Nested type declaration end\n\n");
+            printer->Print("//Nested type declaration end\n\n");
             
         }
         
@@ -370,7 +370,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "classname",classNames,
                        "acontrol", GetAccessControlType(descriptor_->file()));
         
-        printer->Print("\n\n//Meta information declaration end\n\n");
+        printer->Print("//Meta information declaration end\n\n");
         printer->Outdent();
         printer->Print("}\n\n");
         

@@ -59,11 +59,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string filepath = FilePath(file);
         {
             bool needToGeneratePackageStructs = false;
+            string package_name;
             if (packages.find(file->package()) == packages.end()) {
                 (packages[file->package()] = "generate");
                 needToGeneratePackageStructs = true;
+                
             }
-            scoped_ptr<io::ZeroCopyOutputStream> output(generator_context->Open(filepath + ".pb.swift"));
+            if (file->package() != "") {
+                package_name = "_" + UnderscoresToCapitalizedCamelCase(file->package());
+            }
+            
+            scoped_ptr<io::ZeroCopyOutputStream> output(generator_context->Open(filepath + package_name + ".pb.swift"));
             io::Printer printer(output.get(), '$');
             file_generator.GenerateSource(&printer, needToGeneratePackageStructs);
         }

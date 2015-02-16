@@ -166,9 +166,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         printer->Print("}\n");
-        
-        printer->Print("\n");
-        printer->Print("\n\n//OneOf declaration end\n\n");
+        printer->Print("//OneOf declaration end\n\n");
         
     }
 }  // namespace swift
