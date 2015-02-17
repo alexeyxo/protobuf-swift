@@ -4,8 +4,6 @@ import Foundation
 import ProtocolBuffers
 
 
-internal struct Google {internal struct Protobuf {}internal struct NoGenericServicesTest {}}
-
 internal func == (lhs: Google.Protobuf.NoGenericServicesTest.TestMessage, rhs: Google.Protobuf.NoGenericServicesTest.TestMessage) -> Bool {
   if (lhs === rhs) {
     return true
@@ -21,7 +19,9 @@ internal var UnittestNoGenericServicesRoottestExtension:ConcreateExtensionField 
        return Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServicesRoot.sharedInstance.UnittestNoGenericServicesRoottestExtensionStatic
    }
 }
-internal extension Google.Protobuf.NoGenericServicesTest {
+
+internal extension Google.Protobuf {
+internal struct NoGenericServicesTest {
   internal struct UnittestNoGenericServicesRoot {
     internal static var sharedInstance : UnittestNoGenericServicesRoot {
      struct Static {
