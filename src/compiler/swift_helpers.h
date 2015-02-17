@@ -79,7 +79,7 @@ namespace google {
                 // is not meant for external consumption, but instead contains helpers that
                 // the rest of the the classes need
                 string FileClassName(const FileDescriptor* file);
-                
+                string PackageFileName(const FileDescriptor* file);
                 // These return the fully-qualified class name corresponding to the given
                 // descriptor.
                 string ClassName(const Descriptor* descriptor);

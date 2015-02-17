@@ -3,6 +3,7 @@
 import Foundation
 import ProtocolBuffers
 
+
 public func == (lhs: PerfomanceBatch, rhs: PerfomanceBatch) -> Bool {
   if (lhs === rhs) {
     return true
@@ -39,7 +40,7 @@ public struct PerformanceRoot {
   init() {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
-    SwiftDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
+    Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
   public func registerAllExtensions(registry:ExtensionRegistry) {
   }

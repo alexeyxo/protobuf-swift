@@ -66,10 +66,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 
             }
             if (file->package() != "") {
-                package_name = "_" + UnderscoresToCapitalizedCamelCase(file->package());
+                package_name = UnderscoresToCapitalizedCamelCase(file->package()) + "_";
             }
             
-            scoped_ptr<io::ZeroCopyOutputStream> output(generator_context->Open(filepath + package_name + ".pb.swift"));
+            scoped_ptr<io::ZeroCopyOutputStream> output(generator_context->Open(package_name + filepath + ".pb.swift"));
             io::Printer printer(output.get(), '$');
             file_generator.GenerateSource(&printer, needToGeneratePackageStructs);
         }
