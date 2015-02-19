@@ -4,6 +4,7 @@ import Foundation
 import ProtocolBuffers
 
 
+
 public func == (lhs: PerfomanceBatch, rhs: PerfomanceBatch) -> Bool {
   if (lhs === rhs) {
     return true

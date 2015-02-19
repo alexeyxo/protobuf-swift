@@ -4,6 +4,7 @@ import Foundation
 import ProtocolBuffers
 
 
+internal extension ProtobufUnittest{}
 internal func == (lhs: ProtobufUnittest.TestOptimizedForSize, rhs: ProtobufUnittest.TestOptimizedForSize) -> Bool {
   if (lhs === rhs) {
     return true

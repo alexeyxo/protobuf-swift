@@ -231,6 +231,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     bool IsBootstrapFile(const FileDescriptor* file) {
         return file->name() == "google/protobuf/descriptor.proto";
     }
+   
+    bool IsBootstrapPackage(const string& package) {
+        if (package == "Google" || package == "Protobuf" || package == "Google.Protobuf")
+        {
+            return true;
+        }
+        return false;
+    }
     
     
     string FileName(const FileDescriptor* file) {

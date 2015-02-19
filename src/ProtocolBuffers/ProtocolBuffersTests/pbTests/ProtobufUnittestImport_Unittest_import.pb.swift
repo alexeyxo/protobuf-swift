@@ -5,7 +5,6 @@ import ProtocolBuffers
 
 
 internal struct ProtobufUnittestImport {}
-
 internal func == (lhs: ProtobufUnittestImport.ImportMessage, rhs: ProtobufUnittestImport.ImportMessage) -> Bool {
   if (lhs === rhs) {
     return true

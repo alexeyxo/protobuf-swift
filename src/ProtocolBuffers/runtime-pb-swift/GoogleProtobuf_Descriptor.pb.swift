@@ -3,7 +3,6 @@
 import Foundation
 
 public struct Google {public struct Protobuf {}}
-
 public func == (lhs: Google.Protobuf.FileDescriptorSet, rhs: Google.Protobuf.FileDescriptorSet) -> Bool {
   if (lhs === rhs) {
     return true

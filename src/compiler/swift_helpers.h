@@ -59,6 +59,7 @@ namespace google {
                 ///
                 
                 bool IsBootstrapFile(const FileDescriptor* file);
+                bool IsBootstrapPackage(const string& package);
                 
                 bool isCompileForFramework(const FileDescriptor* file);
                 

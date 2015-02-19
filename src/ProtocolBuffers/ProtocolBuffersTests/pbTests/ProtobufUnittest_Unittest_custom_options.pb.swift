@@ -4,6 +4,7 @@ import Foundation
 import ProtocolBuffers
 
 
+internal extension ProtobufUnittest{}
 internal func == (lhs: ProtobufUnittest.TestMessageWithCustomOptions, rhs: ProtobufUnittest.TestMessageWithCustomOptions) -> Bool {
   if (lhs === rhs) {
     return true
@@ -429,9 +430,9 @@ internal var UnittestCustomOptionsRootmethodopt:ConcreateExtensionField {
        return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodoptStatic
    }
 }
-internal var ProtobufUnittest.ComplexOptionType2ComplexOptionType4complexOpt4:ConcreateExtensionField {
+internal var ComplexOptionType2ComplexOptionType4complexOpt4:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.ProtobufUnittest.ComplexOptionType2ComplexOptionType4complexOpt4Static
+       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.ComplexOptionType2ComplexOptionType4complexOpt4Static
    }
 }
 internal var AggregateMessageSetElementmessageSetExtension:ConcreateExtensionField {
@@ -497,7 +498,7 @@ internal extension ProtobufUnittest {
     var UnittestCustomOptionsRootenumvaloptStatic:ConcreateExtensionField
     var UnittestCustomOptionsRootserviceoptStatic:ConcreateExtensionField
     var UnittestCustomOptionsRootmethodoptStatic:ConcreateExtensionField
-    var ProtobufUnittest.ComplexOptionType2ComplexOptionType4complexOpt4Static:ConcreateExtensionField
+    var ComplexOptionType2ComplexOptionType4complexOpt4Static:ConcreateExtensionField
     var AggregateMessageSetElementmessageSetExtensionStatic:ConcreateExtensionField
     var AggregatenestedStatic:ConcreateExtensionField
     var NestedOptionTypenestedExtensionStatic:ConcreateExtensionField
@@ -511,7 +512,7 @@ internal extension ProtobufUnittest {
       UnittestCustomOptionsRootenumOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:Google.Protobuf.EnumOptions.self, fieldNumber: 7753576, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootenumValueOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:Google.Protobuf.EnumValueOptions.self, fieldNumber: 1560678, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootserviceOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:Google.Protobuf.ServiceOptions.self, fieldNumber: 7887650, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestCustomOptionsRootmethodOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:Google.Protobuf.MethodOptions.self, fieldNumber: 7890860, defaultValue:ProtobufUnittest.MethodOpt1.Methodopt1Val1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestCustomOptionsRootmethodOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:Google.Protobuf.MethodOptions.self, fieldNumber: 7890860, defaultValue:MethodOpt1.Methodopt1Val1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootboolOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7706090, defaultValue:false, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootint32OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7705709, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootint64OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7705542, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -544,7 +545,7 @@ internal extension ProtobufUnittest {
       UnittestCustomOptionsRootenumvaloptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.EnumValueOptions.self, fieldNumber: 15486921, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootserviceoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.ServiceOptions.self, fieldNumber: 15497145, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootmethodoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.MethodOptions.self, fieldNumber: 15512713, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      ProtobufUnittest.ComplexOptionType2ComplexOptionType4complexOpt4Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7633546, defaultValue:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      ComplexOptionType2ComplexOptionType4complexOpt4Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7633546, defaultValue:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       AggregateMessageSetElementmessageSetExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.AggregateMessageSet.self, fieldNumber: 15447542, defaultValue:ProtobufUnittest.AggregateMessageSetElement(), messageOrGroupClass:ProtobufUnittest.AggregateMessageSetElement.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:true)
       AggregatenestedStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 15476903, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       NestedOptionTypenestedExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 7912573, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -593,7 +594,7 @@ internal extension ProtobufUnittest {
       registry.addExtension(UnittestCustomOptionsRootenumvaloptStatic)
       registry.addExtension(UnittestCustomOptionsRootserviceoptStatic)
       registry.addExtension(UnittestCustomOptionsRootmethodoptStatic)
-      registry.addExtension(ProtobufUnittest.ComplexOptionType2ComplexOptionType4complexOpt4Static)
+      registry.addExtension(ComplexOptionType2ComplexOptionType4complexOpt4Static)
       registry.addExtension(AggregateMessageSetElementmessageSetExtensionStatic)
       registry.addExtension(AggregatenestedStatic)
       registry.addExtension(NestedOptionTypenestedExtensionStatic)
@@ -2823,7 +2824,7 @@ internal extension ProtobufUnittest {
         private(set) var waldo:Int32 = Int32(0)
 
         internal class func complexOpt4() -> ConcreateExtensionField {
-             return ProtobufUnittest.ComplexOptionType2ComplexOptionType4complexOpt4
+             return ComplexOptionType2ComplexOptionType4complexOpt4
         }
         required internal init() {
              super.init()
