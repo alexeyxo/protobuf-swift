@@ -4,7 +4,7 @@ import Foundation
 import ProtocolBuffers
 
 
-internal extension ProtobufUnittest{}
+internal extension ProtobufUnittest {}
 internal func == (lhs: ProtobufUnittest.TestMessageSet, rhs: ProtobufUnittest.TestMessageSet) -> Bool {
   if (lhs === rhs) {
     return true
@@ -62,12 +62,12 @@ internal func == (lhs: ProtobufUnittest.RawMessageSet, rhs: ProtobufUnittest.Raw
 
 internal var TestMessageSetExtension1messageSetExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestMsetRoot.sharedInstance.TestMessageSetExtension1messageSetExtensionStatic
+       return UnittestMsetRoot.sharedInstance.TestMessageSetExtension1messageSetExtensionStatic
    }
 }
 internal var TestMessageSetExtension2messageSetExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestMsetRoot.sharedInstance.TestMessageSetExtension2messageSetExtensionStatic
+       return UnittestMsetRoot.sharedInstance.TestMessageSetExtension2messageSetExtensionStatic
    }
 }
 internal extension ProtobufUnittest {

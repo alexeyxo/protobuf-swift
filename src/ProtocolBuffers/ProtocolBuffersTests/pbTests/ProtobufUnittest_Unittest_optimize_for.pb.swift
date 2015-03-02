@@ -4,7 +4,7 @@ import Foundation
 import ProtocolBuffers
 
 
-internal extension ProtobufUnittest{}
+internal extension ProtobufUnittest {}
 internal func == (lhs: ProtobufUnittest.TestOptimizedForSize, rhs: ProtobufUnittest.TestOptimizedForSize) -> Bool {
   if (lhs === rhs) {
     return true
@@ -38,12 +38,12 @@ internal func == (lhs: ProtobufUnittest.TestOptionalOptimizedForSize, rhs: Proto
 
 internal var TestOptimizedForSizetestExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtensionStatic
+       return UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtensionStatic
    }
 }
 internal var TestOptimizedForSizetestExtension2:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtension2Static
+       return UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtension2Static
    }
 }
 internal extension ProtobufUnittest {

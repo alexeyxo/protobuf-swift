@@ -56,8 +56,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string filepath = FilePath(file);
         {
            
-            
-            bool needToGeneratePackageStructs = false;
             string package_name;
            
             if (file->package() != "") {
@@ -166,7 +164,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
             }
             
-            file_generator.GenerateSource(&printer, needToGeneratePackageStructs);
+            file_generator.GenerateSource(&printer);
         }
 
         return true;

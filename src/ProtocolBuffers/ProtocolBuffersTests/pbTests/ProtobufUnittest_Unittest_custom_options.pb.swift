@@ -4,7 +4,7 @@ import Foundation
 import ProtocolBuffers
 
 
-internal extension ProtobufUnittest{}
+internal extension ProtobufUnittest {}
 internal func == (lhs: ProtobufUnittest.TestMessageWithCustomOptions, rhs: ProtobufUnittest.TestMessageWithCustomOptions) -> Bool {
   if (lhs === rhs) {
     return true
@@ -232,222 +232,222 @@ internal func == (lhs: ProtobufUnittest.NestedOptionType, rhs: ProtobufUnittest.
 
 internal var UnittestCustomOptionsRootfileOpt1:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileOpt1Static
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileOpt1Static
    }
 }
 internal var UnittestCustomOptionsRootmessageOpt1:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmessageOpt1Static
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmessageOpt1Static
    }
 }
 internal var UnittestCustomOptionsRootfieldOpt1:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt1Static
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt1Static
    }
 }
 internal var UnittestCustomOptionsRootfieldOpt2:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt2Static
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt2Static
    }
 }
 internal var UnittestCustomOptionsRootenumOpt1:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumOpt1Static
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumOpt1Static
    }
 }
 internal var UnittestCustomOptionsRootenumValueOpt1:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumValueOpt1Static
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumValueOpt1Static
    }
 }
 internal var UnittestCustomOptionsRootserviceOpt1:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootserviceOpt1Static
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootserviceOpt1Static
    }
 }
 internal var UnittestCustomOptionsRootmethodOpt1:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodOpt1Static
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodOpt1Static
    }
 }
 internal var UnittestCustomOptionsRootboolOpt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootboolOptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootboolOptStatic
    }
 }
 internal var UnittestCustomOptionsRootint32Opt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootint32OptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootint32OptStatic
    }
 }
 internal var UnittestCustomOptionsRootint64Opt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootint64OptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootint64OptStatic
    }
 }
 internal var UnittestCustomOptionsRootuint32Opt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootuint32OptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootuint32OptStatic
    }
 }
 internal var UnittestCustomOptionsRootuint64Opt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootuint64OptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootuint64OptStatic
    }
 }
 internal var UnittestCustomOptionsRootsint32Opt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsint32OptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsint32OptStatic
    }
 }
 internal var UnittestCustomOptionsRootsint64Opt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsint64OptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsint64OptStatic
    }
 }
 internal var UnittestCustomOptionsRootfixed32Opt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfixed32OptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfixed32OptStatic
    }
 }
 internal var UnittestCustomOptionsRootfixed64Opt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfixed64OptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfixed64OptStatic
    }
 }
 internal var UnittestCustomOptionsRootsfixed32Opt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsfixed32OptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsfixed32OptStatic
    }
 }
 internal var UnittestCustomOptionsRootsfixed64Opt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsfixed64OptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsfixed64OptStatic
    }
 }
 internal var UnittestCustomOptionsRootfloatOpt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfloatOptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfloatOptStatic
    }
 }
 internal var UnittestCustomOptionsRootdoubleOpt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootdoubleOptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootdoubleOptStatic
    }
 }
 internal var UnittestCustomOptionsRootstringOpt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootstringOptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootstringOptStatic
    }
 }
 internal var UnittestCustomOptionsRootbytesOpt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootbytesOptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootbytesOptStatic
    }
 }
 internal var UnittestCustomOptionsRootenumOpt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumOptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumOptStatic
    }
 }
 internal var UnittestCustomOptionsRootmessageTypeOpt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmessageTypeOptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmessageTypeOptStatic
    }
 }
 internal var UnittestCustomOptionsRootquux:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootquuxStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootquuxStatic
    }
 }
 internal var UnittestCustomOptionsRootcorge:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcorgeStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcorgeStatic
    }
 }
 internal var UnittestCustomOptionsRootgrault:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootgraultStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootgraultStatic
    }
 }
 internal var UnittestCustomOptionsRootgarply:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootgarplyStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootgarplyStatic
    }
 }
 internal var UnittestCustomOptionsRootcomplexOpt1:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt1Static
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt1Static
    }
 }
 internal var UnittestCustomOptionsRootcomplexOpt2:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt2Static
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt2Static
    }
 }
 internal var UnittestCustomOptionsRootcomplexOpt3:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt3Static
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt3Static
    }
 }
 internal var UnittestCustomOptionsRootcomplexOpt6:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt6Static
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt6Static
    }
 }
 internal var UnittestCustomOptionsRootfileopt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileoptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileoptStatic
    }
 }
 internal var UnittestCustomOptionsRootmsgopt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmsgoptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmsgoptStatic
    }
 }
 internal var UnittestCustomOptionsRootfieldopt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldoptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldoptStatic
    }
 }
 internal var UnittestCustomOptionsRootenumopt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumoptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumoptStatic
    }
 }
 internal var UnittestCustomOptionsRootenumvalopt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumvaloptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumvaloptStatic
    }
 }
 internal var UnittestCustomOptionsRootserviceopt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootserviceoptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootserviceoptStatic
    }
 }
 internal var UnittestCustomOptionsRootmethodopt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodoptStatic
+       return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodoptStatic
    }
 }
-internal var ComplexOptionType2ComplexOptionType4complexOpt4:ConcreateExtensionField {
+internal var ProtobufUnittest.ComplexOptionType2ComplexOptionType4complexOpt4:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.ComplexOptionType2ComplexOptionType4complexOpt4Static
+       return UnittestCustomOptionsRoot.sharedInstance.ProtobufUnittest.ComplexOptionType2ComplexOptionType4complexOpt4Static
    }
 }
 internal var AggregateMessageSetElementmessageSetExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.AggregateMessageSetElementmessageSetExtensionStatic
+       return UnittestCustomOptionsRoot.sharedInstance.AggregateMessageSetElementmessageSetExtensionStatic
    }
 }
 internal var Aggregatenested:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.AggregatenestedStatic
+       return UnittestCustomOptionsRoot.sharedInstance.AggregatenestedStatic
    }
 }
 internal var NestedOptionTypenestedExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.NestedOptionTypenestedExtensionStatic
+       return UnittestCustomOptionsRoot.sharedInstance.NestedOptionTypenestedExtensionStatic
    }
 }
 internal extension ProtobufUnittest {
@@ -498,7 +498,7 @@ internal extension ProtobufUnittest {
     var UnittestCustomOptionsRootenumvaloptStatic:ConcreateExtensionField
     var UnittestCustomOptionsRootserviceoptStatic:ConcreateExtensionField
     var UnittestCustomOptionsRootmethodoptStatic:ConcreateExtensionField
-    var ComplexOptionType2ComplexOptionType4complexOpt4Static:ConcreateExtensionField
+    var ProtobufUnittest.ComplexOptionType2ComplexOptionType4complexOpt4Static:ConcreateExtensionField
     var AggregateMessageSetElementmessageSetExtensionStatic:ConcreateExtensionField
     var AggregatenestedStatic:ConcreateExtensionField
     var NestedOptionTypenestedExtensionStatic:ConcreateExtensionField
@@ -512,7 +512,7 @@ internal extension ProtobufUnittest {
       UnittestCustomOptionsRootenumOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:Google.Protobuf.EnumOptions.self, fieldNumber: 7753576, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootenumValueOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:Google.Protobuf.EnumValueOptions.self, fieldNumber: 1560678, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootserviceOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:Google.Protobuf.ServiceOptions.self, fieldNumber: 7887650, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestCustomOptionsRootmethodOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:Google.Protobuf.MethodOptions.self, fieldNumber: 7890860, defaultValue:MethodOpt1.Methodopt1Val1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestCustomOptionsRootmethodOpt1Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:Google.Protobuf.MethodOptions.self, fieldNumber: 7890860, defaultValue:ProtobufUnittest.MethodOpt1.Methodopt1Val1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootboolOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7706090, defaultValue:false, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootint32OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7705709, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootint64OptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7705542, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -545,7 +545,7 @@ internal extension ProtobufUnittest {
       UnittestCustomOptionsRootenumvaloptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.EnumValueOptions.self, fieldNumber: 15486921, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootserviceoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.ServiceOptions.self, fieldNumber: 15497145, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootmethodoptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.MethodOptions.self, fieldNumber: 15512713, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      ComplexOptionType2ComplexOptionType4complexOpt4Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7633546, defaultValue:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      ProtobufUnittest.ComplexOptionType2ComplexOptionType4complexOpt4Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7633546, defaultValue:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       AggregateMessageSetElementmessageSetExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.AggregateMessageSet.self, fieldNumber: 15447542, defaultValue:ProtobufUnittest.AggregateMessageSetElement(), messageOrGroupClass:ProtobufUnittest.AggregateMessageSetElement.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:true)
       AggregatenestedStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 15476903, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       NestedOptionTypenestedExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 7912573, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -594,7 +594,7 @@ internal extension ProtobufUnittest {
       registry.addExtension(UnittestCustomOptionsRootenumvaloptStatic)
       registry.addExtension(UnittestCustomOptionsRootserviceoptStatic)
       registry.addExtension(UnittestCustomOptionsRootmethodoptStatic)
-      registry.addExtension(ComplexOptionType2ComplexOptionType4complexOpt4Static)
+      registry.addExtension(ProtobufUnittest.ComplexOptionType2ComplexOptionType4complexOpt4Static)
       registry.addExtension(AggregateMessageSetElementmessageSetExtensionStatic)
       registry.addExtension(AggregatenestedStatic)
       registry.addExtension(NestedOptionTypenestedExtensionStatic)
@@ -2824,7 +2824,7 @@ internal extension ProtobufUnittest {
         private(set) var waldo:Int32 = Int32(0)
 
         internal class func complexOpt4() -> ConcreateExtensionField {
-             return ComplexOptionType2ComplexOptionType4complexOpt4
+             return ProtobufUnittest.ComplexOptionType2ComplexOptionType4complexOpt4
         }
         required internal init() {
              super.init()

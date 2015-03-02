@@ -845,557 +845,557 @@ internal func == (lhs: ProtobufUnittest.BarResponse, rhs: ProtobufUnittest.BarRe
 
 internal var UnittestRootoptionalInt32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalInt32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalInt32ExtensionStatic
    }
 }
 internal var UnittestRootoptionalInt64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalInt64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalInt64ExtensionStatic
    }
 }
 internal var UnittestRootoptionalUint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalUint32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalUint32ExtensionStatic
    }
 }
 internal var UnittestRootoptionalUint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalUint64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalUint64ExtensionStatic
    }
 }
 internal var UnittestRootoptionalSint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalSint32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalSint32ExtensionStatic
    }
 }
 internal var UnittestRootoptionalSint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalSint64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalSint64ExtensionStatic
    }
 }
 internal var UnittestRootoptionalFixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalFixed32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalFixed32ExtensionStatic
    }
 }
 internal var UnittestRootoptionalFixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalFixed64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalFixed64ExtensionStatic
    }
 }
 internal var UnittestRootoptionalSfixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalSfixed32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalSfixed32ExtensionStatic
    }
 }
 internal var UnittestRootoptionalSfixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalSfixed64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalSfixed64ExtensionStatic
    }
 }
 internal var UnittestRootoptionalFloatExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalFloatExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalFloatExtensionStatic
    }
 }
 internal var UnittestRootoptionalDoubleExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalDoubleExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalDoubleExtensionStatic
    }
 }
 internal var UnittestRootoptionalBoolExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalBoolExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalBoolExtensionStatic
    }
 }
 internal var UnittestRootoptionalStringExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalStringExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalStringExtensionStatic
    }
 }
 internal var UnittestRootoptionalBytesExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalBytesExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalBytesExtensionStatic
    }
 }
 internal var UnittestRootoptionalGroupExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalGroupExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalGroupExtensionStatic
    }
 }
 internal var UnittestRootoptionalNestedMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalNestedMessageExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalNestedMessageExtensionStatic
    }
 }
 internal var UnittestRootoptionalForeignMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalForeignMessageExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalForeignMessageExtensionStatic
    }
 }
 internal var UnittestRootoptionalImportMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalImportMessageExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalImportMessageExtensionStatic
    }
 }
 internal var UnittestRootoptionalNestedEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalNestedEnumExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalNestedEnumExtensionStatic
    }
 }
 internal var UnittestRootoptionalForeignEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalForeignEnumExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalForeignEnumExtensionStatic
    }
 }
 internal var UnittestRootoptionalImportEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalImportEnumExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalImportEnumExtensionStatic
    }
 }
 internal var UnittestRootoptionalStringPieceExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalStringPieceExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalStringPieceExtensionStatic
    }
 }
 internal var UnittestRootoptionalCordExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalCordExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalCordExtensionStatic
    }
 }
 internal var UnittestRootoptionalPublicImportMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalPublicImportMessageExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalPublicImportMessageExtensionStatic
    }
 }
 internal var UnittestRootoptionalLazyMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalLazyMessageExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoptionalLazyMessageExtensionStatic
    }
 }
 internal var UnittestRootrepeatedInt32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedInt32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedInt32ExtensionStatic
    }
 }
 internal var UnittestRootrepeatedInt64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedInt64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedInt64ExtensionStatic
    }
 }
 internal var UnittestRootrepeatedUint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedUint32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedUint32ExtensionStatic
    }
 }
 internal var UnittestRootrepeatedUint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedUint64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedUint64ExtensionStatic
    }
 }
 internal var UnittestRootrepeatedSint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedSint32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedSint32ExtensionStatic
    }
 }
 internal var UnittestRootrepeatedSint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedSint64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedSint64ExtensionStatic
    }
 }
 internal var UnittestRootrepeatedFixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedFixed32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedFixed32ExtensionStatic
    }
 }
 internal var UnittestRootrepeatedFixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedFixed64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedFixed64ExtensionStatic
    }
 }
 internal var UnittestRootrepeatedSfixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedSfixed32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedSfixed32ExtensionStatic
    }
 }
 internal var UnittestRootrepeatedSfixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedSfixed64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedSfixed64ExtensionStatic
    }
 }
 internal var UnittestRootrepeatedFloatExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedFloatExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedFloatExtensionStatic
    }
 }
 internal var UnittestRootrepeatedDoubleExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedDoubleExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedDoubleExtensionStatic
    }
 }
 internal var UnittestRootrepeatedBoolExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedBoolExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedBoolExtensionStatic
    }
 }
 internal var UnittestRootrepeatedStringExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedStringExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedStringExtensionStatic
    }
 }
 internal var UnittestRootrepeatedBytesExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedBytesExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedBytesExtensionStatic
    }
 }
 internal var UnittestRootrepeatedGroupExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedGroupExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedGroupExtensionStatic
    }
 }
 internal var UnittestRootrepeatedNestedMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedNestedMessageExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedNestedMessageExtensionStatic
    }
 }
 internal var UnittestRootrepeatedForeignMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedForeignMessageExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedForeignMessageExtensionStatic
    }
 }
 internal var UnittestRootrepeatedImportMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedImportMessageExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedImportMessageExtensionStatic
    }
 }
 internal var UnittestRootrepeatedNestedEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedNestedEnumExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedNestedEnumExtensionStatic
    }
 }
 internal var UnittestRootrepeatedForeignEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedForeignEnumExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedForeignEnumExtensionStatic
    }
 }
 internal var UnittestRootrepeatedImportEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedImportEnumExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedImportEnumExtensionStatic
    }
 }
 internal var UnittestRootrepeatedStringPieceExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedStringPieceExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedStringPieceExtensionStatic
    }
 }
 internal var UnittestRootrepeatedCordExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedCordExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedCordExtensionStatic
    }
 }
 internal var UnittestRootrepeatedLazyMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedLazyMessageExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootrepeatedLazyMessageExtensionStatic
    }
 }
 internal var UnittestRootdefaultInt32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultInt32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultInt32ExtensionStatic
    }
 }
 internal var UnittestRootdefaultInt64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultInt64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultInt64ExtensionStatic
    }
 }
 internal var UnittestRootdefaultUint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultUint32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultUint32ExtensionStatic
    }
 }
 internal var UnittestRootdefaultUint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultUint64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultUint64ExtensionStatic
    }
 }
 internal var UnittestRootdefaultSint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultSint32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultSint32ExtensionStatic
    }
 }
 internal var UnittestRootdefaultSint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultSint64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultSint64ExtensionStatic
    }
 }
 internal var UnittestRootdefaultFixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultFixed32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultFixed32ExtensionStatic
    }
 }
 internal var UnittestRootdefaultFixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultFixed64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultFixed64ExtensionStatic
    }
 }
 internal var UnittestRootdefaultSfixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultSfixed32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultSfixed32ExtensionStatic
    }
 }
 internal var UnittestRootdefaultSfixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultSfixed64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultSfixed64ExtensionStatic
    }
 }
 internal var UnittestRootdefaultFloatExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultFloatExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultFloatExtensionStatic
    }
 }
 internal var UnittestRootdefaultDoubleExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultDoubleExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultDoubleExtensionStatic
    }
 }
 internal var UnittestRootdefaultBoolExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultBoolExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultBoolExtensionStatic
    }
 }
 internal var UnittestRootdefaultStringExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultStringExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultStringExtensionStatic
    }
 }
 internal var UnittestRootdefaultBytesExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultBytesExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultBytesExtensionStatic
    }
 }
 internal var UnittestRootdefaultNestedEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultNestedEnumExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultNestedEnumExtensionStatic
    }
 }
 internal var UnittestRootdefaultForeignEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultForeignEnumExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultForeignEnumExtensionStatic
    }
 }
 internal var UnittestRootdefaultImportEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultImportEnumExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultImportEnumExtensionStatic
    }
 }
 internal var UnittestRootdefaultStringPieceExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultStringPieceExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultStringPieceExtensionStatic
    }
 }
 internal var UnittestRootdefaultCordExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultCordExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootdefaultCordExtensionStatic
    }
 }
 internal var UnittestRootoneofUint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoneofUint32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoneofUint32ExtensionStatic
    }
 }
 internal var UnittestRootoneofNestedMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoneofNestedMessageExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoneofNestedMessageExtensionStatic
    }
 }
 internal var UnittestRootoneofStringExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoneofStringExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoneofStringExtensionStatic
    }
 }
 internal var UnittestRootoneofBytesExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoneofBytesExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootoneofBytesExtensionStatic
    }
 }
 internal var UnittestRootmyExtensionString:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootmyExtensionStringStatic
+       return UnittestRoot.sharedInstance.UnittestRootmyExtensionStringStatic
    }
 }
 internal var UnittestRootmyExtensionInt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootmyExtensionIntStatic
+       return UnittestRoot.sharedInstance.UnittestRootmyExtensionIntStatic
    }
 }
 internal var UnittestRootpackedInt32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedInt32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedInt32ExtensionStatic
    }
 }
 internal var UnittestRootpackedInt64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedInt64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedInt64ExtensionStatic
    }
 }
 internal var UnittestRootpackedUint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedUint32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedUint32ExtensionStatic
    }
 }
 internal var UnittestRootpackedUint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedUint64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedUint64ExtensionStatic
    }
 }
 internal var UnittestRootpackedSint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedSint32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedSint32ExtensionStatic
    }
 }
 internal var UnittestRootpackedSint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedSint64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedSint64ExtensionStatic
    }
 }
 internal var UnittestRootpackedFixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedFixed32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedFixed32ExtensionStatic
    }
 }
 internal var UnittestRootpackedFixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedFixed64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedFixed64ExtensionStatic
    }
 }
 internal var UnittestRootpackedSfixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedSfixed32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedSfixed32ExtensionStatic
    }
 }
 internal var UnittestRootpackedSfixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedSfixed64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedSfixed64ExtensionStatic
    }
 }
 internal var UnittestRootpackedFloatExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedFloatExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedFloatExtensionStatic
    }
 }
 internal var UnittestRootpackedDoubleExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedDoubleExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedDoubleExtensionStatic
    }
 }
 internal var UnittestRootpackedBoolExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedBoolExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedBoolExtensionStatic
    }
 }
 internal var UnittestRootpackedEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedEnumExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootpackedEnumExtensionStatic
    }
 }
 internal var UnittestRootunpackedInt32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedInt32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedInt32ExtensionStatic
    }
 }
 internal var UnittestRootunpackedInt64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedInt64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedInt64ExtensionStatic
    }
 }
 internal var UnittestRootunpackedUint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedUint32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedUint32ExtensionStatic
    }
 }
 internal var UnittestRootunpackedUint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedUint64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedUint64ExtensionStatic
    }
 }
 internal var UnittestRootunpackedSint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedSint32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedSint32ExtensionStatic
    }
 }
 internal var UnittestRootunpackedSint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedSint64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedSint64ExtensionStatic
    }
 }
 internal var UnittestRootunpackedFixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedFixed32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedFixed32ExtensionStatic
    }
 }
 internal var UnittestRootunpackedFixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedFixed64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedFixed64ExtensionStatic
    }
 }
 internal var UnittestRootunpackedSfixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedSfixed32ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedSfixed32ExtensionStatic
    }
 }
 internal var UnittestRootunpackedSfixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedSfixed64ExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedSfixed64ExtensionStatic
    }
 }
 internal var UnittestRootunpackedFloatExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedFloatExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedFloatExtensionStatic
    }
 }
 internal var UnittestRootunpackedDoubleExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedDoubleExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedDoubleExtensionStatic
    }
 }
 internal var UnittestRootunpackedBoolExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedBoolExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedBoolExtensionStatic
    }
 }
 internal var UnittestRootunpackedEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedEnumExtensionStatic
+       return UnittestRoot.sharedInstance.UnittestRootunpackedEnumExtensionStatic
    }
 }
 internal var TestNestedExtensiontest:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.TestNestedExtensiontestStatic
+       return UnittestRoot.sharedInstance.TestNestedExtensiontestStatic
    }
 }
 internal var TestNestedExtensionnestedStringExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.TestNestedExtensionnestedStringExtensionStatic
+       return UnittestRoot.sharedInstance.TestNestedExtensionnestedStringExtensionStatic
    }
 }
 internal var TestRequiredsingle:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.TestRequiredsingleStatic
+       return UnittestRoot.sharedInstance.TestRequiredsingleStatic
    }
 }
 internal var TestRequiredmulti:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.TestRequiredmultiStatic
+       return UnittestRoot.sharedInstance.TestRequiredmultiStatic
    }
 }
 internal var TestParsingMergeoptionalExt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.TestParsingMergeoptionalExtStatic
+       return UnittestRoot.sharedInstance.TestParsingMergeoptionalExtStatic
    }
 }
 internal var TestParsingMergerepeatedExt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.TestParsingMergerepeatedExtStatic
+       return UnittestRoot.sharedInstance.TestParsingMergerepeatedExtStatic
    }
 }
 internal extension ProtobufUnittest {

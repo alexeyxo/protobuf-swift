@@ -2,7 +2,7 @@
 
 import Foundation
 
-public extension Google.Protobuf{}
+public extension Google.Protobuf {}
 public func == (lhs: Google.Protobuf.SwiftFileOptions, rhs: Google.Protobuf.SwiftFileOptions) -> Bool {
   if (lhs === rhs) {
     return true
