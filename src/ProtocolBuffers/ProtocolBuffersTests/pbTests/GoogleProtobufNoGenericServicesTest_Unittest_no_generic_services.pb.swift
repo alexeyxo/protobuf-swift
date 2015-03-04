@@ -17,7 +17,7 @@ internal func == (lhs: Google.Protobuf.NoGenericServicesTest.TestMessage, rhs: G
 
 internal var UnittestNoGenericServicesRoottestExtension:ConcreateExtensionField {
    get {
-       return UnittestNoGenericServicesRoot.sharedInstance.UnittestNoGenericServicesRoottestExtensionStatic
+       return Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServicesRoot.sharedInstance.UnittestNoGenericServicesRoottestExtensionStatic
    }
 }
 internal extension Google.Protobuf.NoGenericServicesTest {

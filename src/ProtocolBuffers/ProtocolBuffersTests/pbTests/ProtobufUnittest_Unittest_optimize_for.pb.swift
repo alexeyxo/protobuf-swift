@@ -38,12 +38,12 @@ internal func == (lhs: ProtobufUnittest.TestOptionalOptimizedForSize, rhs: Proto
 
 internal var TestOptimizedForSizetestExtension:ConcreateExtensionField {
    get {
-       return UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtensionStatic
+       return ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtensionStatic
    }
 }
 internal var TestOptimizedForSizetestExtension2:ConcreateExtensionField {
    get {
-       return UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtension2Static
+       return ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtension2Static
    }
 }
 internal extension ProtobufUnittest {

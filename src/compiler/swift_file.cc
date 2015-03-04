@@ -59,7 +59,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         
         //fields
         for (int i = 0; i < file_->extension_count(); i++) {
-            ExtensionGenerator(classname_, file_->extension(i)).GenerateFieldsGetterSource(printer, FileClassName(file_));
+            ExtensionGenerator(ExtensionFileClassName(file_), file_->extension(i)).GenerateFieldsGetterSource(printer, FileClassName(file_));
         }
         
         for (int i = 0; i < file_->message_type_count(); i++) {

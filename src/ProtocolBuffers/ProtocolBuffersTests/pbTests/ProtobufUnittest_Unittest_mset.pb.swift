@@ -62,12 +62,12 @@ internal func == (lhs: ProtobufUnittest.RawMessageSet, rhs: ProtobufUnittest.Raw
 
 internal var TestMessageSetExtension1messageSetExtension:ConcreateExtensionField {
    get {
-       return UnittestMsetRoot.sharedInstance.TestMessageSetExtension1messageSetExtensionStatic
+       return ProtobufUnittest.UnittestMsetRoot.sharedInstance.TestMessageSetExtension1messageSetExtensionStatic
    }
 }
 internal var TestMessageSetExtension2messageSetExtension:ConcreateExtensionField {
    get {
-       return UnittestMsetRoot.sharedInstance.TestMessageSetExtension2messageSetExtensionStatic
+       return ProtobufUnittest.UnittestMsetRoot.sharedInstance.TestMessageSetExtension2messageSetExtensionStatic
    }
 }
 internal extension ProtobufUnittest {

@@ -290,6 +290,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     
+    string ExtensionFileClassName(const FileDescriptor* file) {
+        // Ensure the FileClassName is camelcased irrespective of whether the
+        // camelcase_output_filename option is set.
+        return FileClassPrefix(file) +
+        UnderscoresToCapitalizedCamelCase(FileName(file)) + "Root";
+    }
+    
     string ToSwiftName(const string& full_name, const FileDescriptor* file) {
         string result;
         result += FileClassPrefix(file);
