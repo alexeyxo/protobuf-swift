@@ -478,7 +478,6 @@
 					};
 					3F85569819C71BCF003802F2 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = E2CF282YV9;
 					};
 					3F8556A319C71BCF003802F2 = {
 						CreatedOnToolsVersion = 6.0;
