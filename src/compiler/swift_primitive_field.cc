@@ -254,7 +254,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "func set$capitalized_name$(value:$storage_type$)-> $classname$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:$storage_type$)-> $classname$Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
@@ -351,6 +351,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedPrimitiveFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         
         
+        
         printer->Print(variables_,
                        "$acontrol$var $name$:Array<$storage_type$> {\n"
                        "     get {\n"
@@ -360,7 +361,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = array\n"
                        "     }\n"
                        "}\n"
-                       "func set$capitalized_name$(value:Array<$storage_type$>)-> $classname$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:Array<$storage_type$>)-> $classname$Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"

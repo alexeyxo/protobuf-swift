@@ -39,7 +39,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string CheckReservedNames(const string& input)
     {
         string result;
-        if (input == "extension" || input == "description") {
+        if (input == "extension" ||
+            input == "description"||
+            input == "Message" ||
+            input == "message") {
             result = input + "_";
         }
         else if (input == "Type") {
@@ -228,6 +231,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     bool IsBootstrapFile(const FileDescriptor* file) {
         return file->name() == "google/protobuf/descriptor.proto";
     }
+   
+    bool IsBootstrapPackage(const string& package) {
+        if (package == "Google" || package == "Protobuf" || package == "Google.Protobuf")
+        {
+            return true;
+        }
+        return false;
+    }
     
     
     string FileName(const FileDescriptor* file) {
@@ -243,7 +254,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return FilenameToCamelCase(StripProto(basename));
     }
     
-    
     string FilePath(const FileDescriptor* file) {
         string path = FileName(file);
         
@@ -256,10 +266,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     string FileClassPrefix(const FileDescriptor* file) {
-        if (IsBootstrapFile(file)) {
-            return "PB";
-        }
-        else if (file->options().HasExtension(swift_file_options)) {
+        if (file->options().HasExtension(swift_file_options)) {
             SwiftFileOptions options = file->options().GetExtension(swift_file_options);
             return options.class_prefix();
         } else {
@@ -271,10 +278,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string FileClassName(const FileDescriptor* file) {
         // Ensure the FileClassName is camelcased irrespective of whether the
         // camelcase_output_filename option is set.
-        return FileClassPrefix(file) +
-        UnderscoresToCapitalizedCamelCase(FileName(file)) + "Root";
+        
+        return FullName(file) + UnderscoresToCapitalizedCamelCase(FileName(file)) + "Root";
     }
     
+    string PackageFileName(const FileDescriptor* file) {
+        // Ensure the FileClassName is camelcased irrespective of whether the
+//         camelcase_output_filename option is set.
+        
+        return UnderscoresToCapitalizedCamelCase(FileName(file)) + "Root";
+    }
+    
+    
+    string ExtensionFileClassName(const FileDescriptor* file) {
+        // Ensure the FileClassName is camelcased irrespective of whether the
+        // camelcase_output_filename option is set.
+        return FileClassPrefix(file) + UnderscoresToCapitalizedCamelCase(FileName(file)) + "Root";
+    }
     
     string ToSwiftName(const string& full_name, const FileDescriptor* file) {
         string result;
@@ -283,6 +303,66 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return result;
     }
     
+    string ReturnedType(const string& full_name)
+    {
+        string result;
+        vector<string> splitVector = FullNameSplit(full_name);
+        
+        for (int i = 0; i < splitVector.size(); i++) {
+            if (i < splitVector.size() - 1)
+            {
+                result += splitVector[i];
+                result += ".";
+            }
+        }
+        return result;
+    }
+    
+    string FullName(const vector<string> splitVector)
+    {
+        string result;
+        for (int i = 0; i < splitVector.size(); i++) {
+            result += splitVector[i];
+            result += ".";
+        }
+        return result;
+    }
+    
+    string FullName(const FileDescriptor* file)
+    {
+        return FullName(FullNameSplit(file->package()));
+    }
+    
+    vector<string> FullNameSplit(const string& str)
+    {
+        const string& delimiters = ".";
+        
+        vector<string> tokens;
+        
+        string::size_type lastPos = str.find_first_not_of(delimiters, 0);
+        string::size_type pos     = str.find_first_of(delimiters, lastPos);
+        
+        while (string::npos != pos || string::npos != lastPos)
+        {
+            tokens.push_back(UnderscoresToCapitalizedCamelCase(str.substr(lastPos, pos - lastPos)));
+            lastPos = str.find_first_not_of(delimiters, pos);
+            pos = str.find_first_of(delimiters, lastPos);
+        }
+        return tokens;
+    }
+    
+ 
+    string PackageExtensionName(const vector<string> splitVector)
+    {
+        string result;
+        for (int i = 0; i < splitVector.size(); i++) {
+            result += splitVector[i];
+            if (i  != (splitVector.size() - 1)) {
+                result += ".";
+            }
+        }
+        return result;
+    }
     
     string ClassNameWorker(const Descriptor* descriptor) {
         string name;
@@ -290,15 +370,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             name = ClassNameWorker(descriptor->containing_type());
             name += ".";
         }
+        else
+        {
+            name += CheckReservedNames(FullName(descriptor->file()));
+        }
         return CheckReservedNames(name + descriptor->name());
     }
     
     string ClassNameWorkerExtensions(const Descriptor* descriptor) {
         string name;
         if (descriptor->containing_type() != NULL) {
-            name = ClassNameWorker(descriptor->containing_type());
+            name = ClassNameWorkerExtensions(descriptor->containing_type());
             name += "";
         }
+//        else
+//        {
+//            name += CheckReservedNames(name + descriptor->name());
+//        }
         return CheckReservedNames(name + descriptor->name());
     }
     
@@ -308,6 +396,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (descriptor->containing_type() != NULL) {
             name = ClassNameWorker(descriptor->containing_type());
             name += ".";
+        }
+        else
+        {
+            name += CheckReservedNames(FullName(descriptor->file()));
         }
         return CheckReservedNames(name + UnderscoresToCapitalizedCamelCase(descriptor->name()));
     }
@@ -418,10 +510,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 
             case FieldDescriptor::TYPE_ENUM:
                 return SWIFTTYPE_ENUM;
-                //
-                //    case FieldDescriptor::TYPE_ONEOF:
-                //        return SWIFTTYPE_ONEOF;
-                
             case FieldDescriptor::TYPE_GROUP:
             case FieldDescriptor::TYPE_MESSAGE:
                 return SWIFTTYPE_MESSAGE;

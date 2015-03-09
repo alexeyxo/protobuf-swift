@@ -19,33 +19,33 @@ class MessageTests: XCTestCase {
         super.tearDown()
     }
     
-    func mergeSource() -> TestAllTypes
+    func mergeSource() -> ProtobufUnittest.TestAllTypes
     {
-        var builder = TestAllTypes.builder()
+        var builder = ProtobufUnittest.TestAllTypes.builder()
         builder.optionalInt32 = 1
         builder.optionalString = "foo"
-        builder.optionalForeignMessage = ForeignMessage.builder().build()
+        builder.optionalForeignMessage = ProtobufUnittest.ForeignMessage.builder().build()
         builder.repeatedString += ["bar"]
         return builder.build()
     }
-    func mergeDestination() -> TestAllTypes
+    func mergeDestination() -> ProtobufUnittest.TestAllTypes
     {
-        var builder = TestAllTypes.builder()
+        var builder = ProtobufUnittest.TestAllTypes.builder()
         builder.optionalInt64 = 2
         builder.optionalString = "baz"
-        var foreign = ForeignMessage.builder()
+        var foreign = ProtobufUnittest.ForeignMessage.builder()
         foreign.c = 3
         builder.optionalForeignMessage = foreign.build()
         builder.repeatedString += ["qux"]
         return builder.build()
     }
-    func mergeResult() -> TestAllTypes
+    func mergeResult() -> ProtobufUnittest.TestAllTypes
     {
-        var builder = TestAllTypes.builder()
+        var builder = ProtobufUnittest.TestAllTypes.builder()
         builder.optionalInt32 = 1
             builder.optionalInt64 = 2
         builder.optionalString = "foo"
-        var foreign = ForeignMessage.builder()
+        var foreign = ProtobufUnittest.ForeignMessage.builder()
         foreign.c = 3
         builder.optionalForeignMessage = foreign.build()
         builder.repeatedString += ["qux","bar"]
@@ -53,16 +53,16 @@ class MessageTests: XCTestCase {
     }
     
     func testMergeFrom() {
-        var result = TestAllTypes.builderWithPrototype(mergeDestination()).mergeFrom(mergeSource()).build()
+        var result = ProtobufUnittest.TestAllTypes.builderWithPrototype(mergeDestination()).mergeFrom(mergeSource()).build()
         XCTAssertTrue(result.data() == mergeResult().data(), "")
     }
     
-    func testRequiredUninitialized() -> TestRequired {
-        return TestRequired()
+    func testRequiredUninitialized() -> ProtobufUnittest.TestRequired {
+        return ProtobufUnittest.TestRequired()
     }
     
-    func testRequiredInitialized() -> TestRequired {
-        var mes = TestRequired.builder()
+    func testRequiredInitialized() -> ProtobufUnittest.TestRequired {
+        var mes = ProtobufUnittest.TestRequired.builder()
         mes.a = 1
         mes.b = 2
         mes.c = 3
@@ -71,7 +71,7 @@ class MessageTests: XCTestCase {
     
     func testRequired()
     {
-        var builder = TestRequired.builder()
+        var builder = ProtobufUnittest.TestRequired.builder()
         XCTAssertFalse(builder.isInitialized(), "")
         builder.a = 1
         XCTAssertFalse(builder.isInitialized(), "")
@@ -82,7 +82,7 @@ class MessageTests: XCTestCase {
     }
     
     func testRequiredForeign() {
-        var builder = TestRequiredForeign.builder()
+        var builder = ProtobufUnittest.TestRequiredForeign.builder()
         
         XCTAssertTrue(builder.isInitialized(), "")
         
@@ -97,30 +97,30 @@ class MessageTests: XCTestCase {
     }
     
     func testRequiredExtension() {
-        var builder = TestAllExtensions.builder()
+        var builder = ProtobufUnittest.TestAllExtensions.builder()
         XCTAssertTrue(builder.isInitialized(), "")
         
-        builder.setExtension(TestRequired.single(), value:testRequiredUninitialized())
+        builder.setExtension(ProtobufUnittest.TestRequired.single(), value:testRequiredUninitialized())
         XCTAssertFalse(builder.isInitialized(), "")
         
-        builder.setExtension(TestRequired.single(), value:testRequiredInitialized())
+        builder.setExtension(ProtobufUnittest.TestRequired.single(), value:testRequiredInitialized())
         XCTAssertTrue(builder.isInitialized(), "")
         
-        builder.addExtension(TestRequired.multi(), value:testRequiredUninitialized())
+        builder.addExtension(ProtobufUnittest.TestRequired.multi(), value:testRequiredUninitialized())
         XCTAssertFalse(builder.isInitialized(), "")
         
-        builder.setExtension(TestRequired.multi(), index:0, value:testRequiredInitialized())
+        builder.setExtension(ProtobufUnittest.TestRequired.multi(), index:0, value:testRequiredInitialized())
         XCTAssertTrue(builder.isInitialized(), "")
     }
     
     func testBuildPartial() {
-        var message = TestRequired.builder().buildPartial()
+        var message = ProtobufUnittest.TestRequired.builder().buildPartial()
         XCTAssertFalse(message.isInitialized(), "")
     }
     
     func testBuildNestedPartial() {
     
-        var message = TestRequiredForeign.builder()
+        var message = ProtobufUnittest.TestRequiredForeign.builder()
         message.optionalMessage = testRequiredUninitialized()
         message.repeatedMessage += [testRequiredUninitialized()]
         message.repeatedMessage += [testRequiredUninitialized()]

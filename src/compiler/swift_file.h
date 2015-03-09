@@ -41,7 +41,6 @@ namespace google {
                     ~FileGenerator();
                     
                     void GenerateSource(io::Printer* printer);
-                    void DetermineDependencies(set<string>* dependencies);
                     
                     const string& classname()    { return classname_;    }
                     

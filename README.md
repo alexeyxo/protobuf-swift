@@ -1,6 +1,6 @@
 #Protocol Buffers for Swift
 
-[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=master)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Platform](http://img.shields.io/cocoapods/p/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers)
+[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=master)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Platform](http://img.shields.io/cocoapods/p/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers)
 
 An implementation of Protocol Buffers in Swift.
 
@@ -34,8 +34,9 @@ github "alexeyxo/protobuf-swift"
 
 Compile ".proto" files.
 -----------------------
-
-`protoc  person.proto --swift_out="./"`
+```sh
+protoc  person.proto --swift_out="./"
+```
 
 Serializing
 -----------
@@ -137,6 +138,33 @@ builderResult.title = "Protocol Bufers Apple Swift"
 var searchRespons = SearchResponse.builder()
 searchRespons.result += [builderResult.build()]
 println(searchRespons.build())
+```
+
+#Packages
+
+```protobuf
+package FooBar;
+message Perfomance
+{
+  required int32 ints = 1;
+  required int64 ints64 = 2;
+  required double doubles = 3;
+  required float floats  = 4;
+  optional string str  = 5;
+  optional bytes bytes  = 6;
+  optional string description = 7;
+}
+```
+
+```swift
+public extension FooBar {
+  ...
+  final public class Perfomance : GeneratedMessage, GeneratedMessageProtocol {
+    ...
+  }
+
+}
+
 ```
 
 #Custom Options

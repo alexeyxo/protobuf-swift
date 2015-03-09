@@ -20,14 +20,14 @@ class ProtocolBuffersTests: XCTestCase {
     }
     
     func testPerformance() {
-        var originalBuilder = ProtoPerfomance.builder()
+        var originalBuilder = Perfomance.builder()
         originalBuilder.setInts(Int32(32))
                        .setInts64(Int64(64))
                        .setDoubles(Double(12.12))
                        .setFloats(Float(123.123))
                        .setStr("string")
         let original = originalBuilder.build()
-        var builder:ProtoPerfomanceBatchBuilder = ProtoPerfomanceBatchBuilder()
+        var builder = PerfomanceBatchBuilder()
         
         for _ in 0...2 {
             builder.batch += [original]
@@ -38,7 +38,7 @@ class ProtocolBuffersTests: XCTestCase {
         
         self.measureBlock() {
             for _ in 0...1 {
-                let clone = ProtoPerfomanceBatch.parseFromData(build.data())
+                let clone = PerfomanceBatch.parseFromData(build.data())
 
             }
         }

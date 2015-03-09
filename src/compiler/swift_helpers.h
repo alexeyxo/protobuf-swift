@@ -49,7 +49,17 @@ namespace google {
                 // Returns true if the name requires a ns_returns_not_retained attribute applied
                 // to it.
                 
+                
+                //Packages
+                string ReturnedType(const string& full_name);
+                vector<string> FullNameSplit(const string& str);
+                string FullName(const FileDescriptor* file);
+                string FullName(const vector<string> splitVector);
+                string PackageExtensionName(const vector<string> splitVector);
+                ///
+                
                 bool IsBootstrapFile(const FileDescriptor* file);
+                bool IsBootstrapPackage(const string& package);
                 
                 bool isCompileForFramework(const FileDescriptor* file);
                 
@@ -70,7 +80,8 @@ namespace google {
                 // is not meant for external consumption, but instead contains helpers that
                 // the rest of the the classes need
                 string FileClassName(const FileDescriptor* file);
-                
+                string PackageFileName(const FileDescriptor* file);
+                string ExtensionFileClassName(const FileDescriptor* file);
                 // These return the fully-qualified class name corresponding to the given
                 // descriptor.
                 string ClassName(const Descriptor* descriptor);

@@ -23,13 +23,13 @@ class GeneratedMessageTests: XCTestCase {
 
     func testDefaultInstance()
     {
-        XCTAssertTrue(TestAllTypes() == TestAllTypes(), "")
+        XCTAssertTrue(ProtobufUnittest.TestAllTypes() == ProtobufUnittest.TestAllTypes(), "")
     }
     
     
     func testAccessors()
     {
-        var builder = TestAllTypes.builder()
+        var builder = ProtobufUnittest.TestAllTypes.builder()
         TestUtilities.setAllFields(builder)
         var message = builder.build()
         TestUtilities.assertAllFieldsSet(message)
@@ -37,10 +37,10 @@ class GeneratedMessageTests: XCTestCase {
     
     func testRepeatedAppend()
     {
-        var builder = TestAllTypes.builder()
+        var builder = ProtobufUnittest.TestAllTypes.builder()
         builder.repeatedInt32 = [1,2,3,4]
-        builder.repeatedForeignEnum = [ForeignEnum.ForeignBaz]
-        var foreignMessageBuilder = ForeignMessage.builder()
+        builder.repeatedForeignEnum = [ProtobufUnittest.ForeignEnum.ForeignBaz]
+        var foreignMessageBuilder = ProtobufUnittest.ForeignMessage.builder()
         foreignMessageBuilder.c = 12
         var foreignMessage =  foreignMessageBuilder.build()
         builder.repeatedForeignMessage = [foreignMessage]
@@ -51,16 +51,16 @@ class GeneratedMessageTests: XCTestCase {
     }
     func testClearExtension()
     {
-        var  builder1 = TestAllExtensions.builder()
-        builder1.setExtension(UnittestRoot.optionalInt32Extension(), value:Int32(1))
+        var  builder1 = ProtobufUnittest.TestAllExtensions.builder()
+        builder1.setExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension(), value:Int32(1))
         
-        XCTAssertTrue(builder1.hasExtension(UnittestRoot.optionalInt32Extension()), "")
-        builder1.clearExtension(UnittestRoot.optionalInt32Extension())
-        XCTAssertFalse(builder1.hasExtension(UnittestRoot.optionalInt32Extension()), "")
+        XCTAssertTrue(builder1.hasExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension()), "")
+        builder1.clearExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension())
+        XCTAssertFalse(builder1.hasExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension()), "")
         
-        var builder2 = TestAllExtensions.builder()
-        builder2.addExtension(UnittestRoot.repeatedInt32Extension(), value:Int32(1))
-        if let val = builder2.getExtension(UnittestRoot.repeatedInt32Extension()) as? [Int32]
+        var builder2 = ProtobufUnittest.TestAllExtensions.builder()
+        builder2.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), value:Int32(1))
+        if let val = builder2.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(1 == val.count, "")
         }
@@ -68,9 +68,9 @@ class GeneratedMessageTests: XCTestCase {
         {
             XCTAssertTrue(false, "")
         }
-        builder2.clearExtension(UnittestRoot.repeatedInt32Extension())
+        builder2.clearExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension())
         
-        if let val = builder2.getExtension(UnittestRoot.repeatedInt32Extension()) as? [Int32]
+        if let val = builder2.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(0 == val.count, "")
         }
@@ -83,7 +83,7 @@ class GeneratedMessageTests: XCTestCase {
     
     func testExtensionAccessors()
     {
-        var builder = TestAllExtensions.builder()
+        var builder = ProtobufUnittest.TestAllExtensions.builder()
         TestUtilities.setAllExtensions(builder)
         var message = builder.build()
         TestUtilities.assertAllExtensionsSet(message)
@@ -92,7 +92,7 @@ class GeneratedMessageTests: XCTestCase {
     
     func testExtensionRepeatedSetters()
     {
-        var builder = TestAllExtensions.builder()
+        var builder = ProtobufUnittest.TestAllExtensions.builder()
         TestUtilities.setAllExtensions(builder)
         TestUtilities.modifyRepeatedExtensions(builder)
         var message = builder.build()
@@ -101,18 +101,18 @@ class GeneratedMessageTests: XCTestCase {
     
     func testExtensionRepeatedSettersMerge()
     {
-        var builder = TestAllExtensions.builder()
+        var builder = ProtobufUnittest.TestAllExtensions.builder()
         TestUtilities.setAllExtensions(builder)
         TestUtilities.modifyRepeatedExtensions(builder)
         var message = builder.build()
         TestUtilities.assertRepeatedExtensionsModified(message)
-        var message2 = TestAllExtensions.builder().mergeFrom(message).build()
+        var message2 = ProtobufUnittest.TestAllExtensions.builder().mergeFrom(message).build()
         TestUtilities.assertRepeatedExtensionsModified(message2)
     }
 
     func testExtensionDefaults()
     {
-        TestUtilities.assertExtensionsClear(TestAllExtensions())
-        TestUtilities.assertExtensionsClear(TestAllExtensions.builder().build())
+        TestUtilities.assertExtensionsClear(ProtobufUnittest.TestAllExtensions())
+        TestUtilities.assertExtensionsClear(ProtobufUnittest.TestAllExtensions.builder().build())
     }
 }
