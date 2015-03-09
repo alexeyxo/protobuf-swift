@@ -39,7 +39,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void ExtensionGenerator::GenerateFieldsGetterSource(io::Printer* printer, string rootclassname) {
         map<string, string> vars;
         vars["name"] = UnderscoresToCamelCase(descriptor_);
+        ////
         vars["containing_type"] = classname_;
+        
+        ////
         vars["root_name"] = rootclassname;
         
         SwiftType swift_type = GetSwiftType(descriptor_);
