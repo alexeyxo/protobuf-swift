@@ -1,6 +1,6 @@
 #Protocol Buffers for Swift
 
-[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=master)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Platform](http://img.shields.io/cocoapods/p/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers)
+[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=master)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Platform](http://img.shields.io/cocoapods/p/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers)
 
 An implementation of Protocol Buffers in Swift.
 
@@ -8,8 +8,8 @@ Protocol Buffers are a way of encoding structured data in an efficient yet exten
 
 ####Required Protocol Buffers 2.6
 
-How To Install Protobuf
------------------------
+##How To Install Protobuf
+
 
 1.`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
@@ -25,21 +25,20 @@ How To Install Protobuf
 
 7.Add `./src/ProtocolBuffers/ProtocolBuffers.xcodeproj` in your project.
 
-<img src="https://cloud.githubusercontent.com/assets/432536/5252404/443d64f4-7952-11e4-9d26-fc5cc664cb61.png" width="22" height="22"> Installation via [Carthage](https://github.com/Carthage/Carthage)
-------------------------------------------------------------------
+##<img src="https://cloud.githubusercontent.com/assets/432536/5252404/443d64f4-7952-11e4-9d26-fc5cc664cb61.png" width="22" height="22"> Installation via [Carthage](https://github.com/Carthage/Carthage)
+
 Cartfile:
 ```
 github "alexeyxo/protobuf-swift"
 ```
 
-Compile ".proto" files.
------------------------
+##Compile ".proto" files.
+
 ```sh
 protoc  person.proto --swift_out="./"
 ```
 
-Serializing
------------
+##Serializing
 
 ```protobuf
 message Person {
@@ -60,8 +59,8 @@ println("\(person)")
 person.data() //return NSData
 ```
 
-Chaining
---------
+##Chaining
+
 
 ```protobuf
 message Perfomance
@@ -86,15 +85,14 @@ originalBuilder.setInts(Int32(32))
 let original = originalBuilder.build()
 ```
 
-Deserializing
--------------
+##Deserializing
 
 ```swift
 var person = Person.parseFromData(bytes) // from NSData
 ```
 
-Using Oneof
------------
+##Using Oneof
+
 
 ```protobuf
 message SubMessage {
@@ -117,8 +115,8 @@ sm.id = 123
 println(ss.build()) //->  id: 123
 ```
 
-Nested Types
-------------
+##Nested Types
+
 
 ```protobuf
 message SearchResponse {
@@ -140,7 +138,7 @@ searchRespons.result += [builderResult.build()]
 println(searchRespons.build())
 ```
 
-#Packages
+##Packages
 
 ```protobuf
 package FooBar;
@@ -167,7 +165,7 @@ public extension FooBar {
 
 ```
 
-#Custom Options
+##Custom Options
 
 ```protobuf
 enum AccessControl {
