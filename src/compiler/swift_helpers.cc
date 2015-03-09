@@ -242,16 +242,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
     string FileName(const FileDescriptor* file) {
-        string basename;
+        string name = file->name();
 
-        string::size_type last_slash = file->name().find_last_of('/');
-        if (last_slash == string::npos) {
-            basename += file->name();
-        } else {
-            basename += file->name().substr(last_slash + 1);
-        }
+        std::replace(name.begin(), name.end(), '/', '_');
 
-        return FilenameToCamelCase(StripProto(basename));
+        return FilenameToCamelCase(StripProto(name));
     }
 
     string FilePath(const FileDescriptor* file) {
