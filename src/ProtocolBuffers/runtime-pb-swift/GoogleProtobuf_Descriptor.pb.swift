@@ -486,9 +486,9 @@ public extension Google.Protobuf {
     public private(set) var package:String = ""
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.FileOptions = Google.Protobuf.FileOptions()
+    public private(set) var options:Google.Protobuf.FileOptions!
     public private(set) var hasSourceCodeInfo:Bool = false
-    public private(set) var sourceCodeInfo:Google.Protobuf.SourceCodeInfo = Google.Protobuf.SourceCodeInfo()
+    public private(set) var sourceCodeInfo:Google.Protobuf.SourceCodeInfo!
     public private(set) var dependency:Array<String> = Array<String>()
     public private(set) var publicDependency:Array<Int32> = Array<Int32>()
     public private(set) var weakDependency:Array<Int32> = Array<Int32>()
@@ -967,7 +967,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.FileOptions {
+    public var options:Google.Protobuf.FileOptions! {
          get {
              return builderResult.options
          }
@@ -976,7 +976,7 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.FileOptions)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setOptions(value:Google.Protobuf.FileOptions!)-> Google.Protobuf.FileDescriptorProtoBuilder {
       self.options = value
       return self
     }
@@ -991,7 +991,7 @@ public extension Google.Protobuf {
     }
     public func clearOptions() -> Google.Protobuf.FileDescriptorProtoBuilder {
       builderResult.hasOptions = false
-      builderResult.options = Google.Protobuf.FileOptions()
+      builderResult.options = nil
       return self
     }
     public var hasSourceCodeInfo:Bool {
@@ -999,7 +999,7 @@ public extension Google.Protobuf {
              return builderResult.hasSourceCodeInfo
          }
     }
-    public var sourceCodeInfo:Google.Protobuf.SourceCodeInfo {
+    public var sourceCodeInfo:Google.Protobuf.SourceCodeInfo! {
          get {
              return builderResult.sourceCodeInfo
          }
@@ -1008,7 +1008,7 @@ public extension Google.Protobuf {
              builderResult.sourceCodeInfo = value
          }
     }
-    public func setSourceCodeInfo(value:Google.Protobuf.SourceCodeInfo)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setSourceCodeInfo(value:Google.Protobuf.SourceCodeInfo!)-> Google.Protobuf.FileDescriptorProtoBuilder {
       self.sourceCodeInfo = value
       return self
     }
@@ -1023,7 +1023,7 @@ public extension Google.Protobuf {
     }
     public func clearSourceCodeInfo() -> Google.Protobuf.FileDescriptorProtoBuilder {
       builderResult.hasSourceCodeInfo = false
-      builderResult.sourceCodeInfo = Google.Protobuf.SourceCodeInfo()
+      builderResult.sourceCodeInfo = nil
       return self
     }
     override public var internalGetResult:GeneratedMessage {
@@ -1398,7 +1398,7 @@ public extension Google.Protobuf {
     public private(set) var name:String = ""
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.MessageOptions = Google.Protobuf.MessageOptions()
+    public private(set) var options:Google.Protobuf.MessageOptions!
     public private(set) var field:Array<Google.Protobuf.FieldDescriptorProto>  = Array<Google.Protobuf.FieldDescriptorProto>()
     public private(set) var extension_:Array<Google.Protobuf.FieldDescriptorProto>  = Array<Google.Protobuf.FieldDescriptorProto>()
     public private(set) var nestedType:Array<Google.Protobuf.DescriptorProto>  = Array<Google.Protobuf.DescriptorProto>()
@@ -1786,7 +1786,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.MessageOptions {
+    public var options:Google.Protobuf.MessageOptions! {
          get {
              return builderResult.options
          }
@@ -1795,7 +1795,7 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.MessageOptions)-> Google.Protobuf.DescriptorProtoBuilder {
+    public func setOptions(value:Google.Protobuf.MessageOptions!)-> Google.Protobuf.DescriptorProtoBuilder {
       self.options = value
       return self
     }
@@ -1810,7 +1810,7 @@ public extension Google.Protobuf {
     }
     public func clearOptions() -> Google.Protobuf.DescriptorProtoBuilder {
       builderResult.hasOptions = false
-      builderResult.options = Google.Protobuf.MessageOptions()
+      builderResult.options = nil
       return self
     }
     override public var internalGetResult:GeneratedMessage {
@@ -1992,7 +1992,7 @@ public extension Google.Protobuf {
     public private(set) var oneofIndex:Int32 = Int32(0)
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.FieldOptions = Google.Protobuf.FieldOptions()
+    public private(set) var options:Google.Protobuf.FieldOptions!
     required public init() {
          super.init()
     }
@@ -2387,7 +2387,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.FieldOptions {
+    public var options:Google.Protobuf.FieldOptions! {
          get {
              return builderResult.options
          }
@@ -2396,7 +2396,7 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.FieldOptions)-> Google.Protobuf.FieldDescriptorProtoBuilder {
+    public func setOptions(value:Google.Protobuf.FieldOptions!)-> Google.Protobuf.FieldDescriptorProtoBuilder {
       self.options = value
       return self
     }
@@ -2411,7 +2411,7 @@ public extension Google.Protobuf {
     }
     public func clearOptions() -> Google.Protobuf.FieldDescriptorProtoBuilder {
       builderResult.hasOptions = false
-      builderResult.options = Google.Protobuf.FieldOptions()
+      builderResult.options = nil
       return self
     }
     override public var internalGetResult:GeneratedMessage {
@@ -2721,7 +2721,7 @@ public extension Google.Protobuf {
     public private(set) var name:String = ""
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.EnumOptions = Google.Protobuf.EnumOptions()
+    public private(set) var options:Google.Protobuf.EnumOptions!
     public private(set) var value:Array<Google.Protobuf.EnumValueDescriptorProto>  = Array<Google.Protobuf.EnumValueDescriptorProto>()
     required public init() {
          super.init()
@@ -2914,7 +2914,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.EnumOptions {
+    public var options:Google.Protobuf.EnumOptions! {
          get {
              return builderResult.options
          }
@@ -2923,7 +2923,7 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.EnumOptions)-> Google.Protobuf.EnumDescriptorProtoBuilder {
+    public func setOptions(value:Google.Protobuf.EnumOptions!)-> Google.Protobuf.EnumDescriptorProtoBuilder {
       self.options = value
       return self
     }
@@ -2938,7 +2938,7 @@ public extension Google.Protobuf {
     }
     public func clearOptions() -> Google.Protobuf.EnumDescriptorProtoBuilder {
       builderResult.hasOptions = false
-      builderResult.options = Google.Protobuf.EnumOptions()
+      builderResult.options = nil
       return self
     }
     override public var internalGetResult:GeneratedMessage {
@@ -3023,7 +3023,7 @@ public extension Google.Protobuf {
     public private(set) var number:Int32 = Int32(0)
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.EnumValueOptions = Google.Protobuf.EnumValueOptions()
+    public private(set) var options:Google.Protobuf.EnumValueOptions!
     required public init() {
          super.init()
     }
@@ -3208,7 +3208,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.EnumValueOptions {
+    public var options:Google.Protobuf.EnumValueOptions! {
          get {
              return builderResult.options
          }
@@ -3217,7 +3217,7 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.EnumValueOptions)-> Google.Protobuf.EnumValueDescriptorProtoBuilder {
+    public func setOptions(value:Google.Protobuf.EnumValueOptions!)-> Google.Protobuf.EnumValueDescriptorProtoBuilder {
       self.options = value
       return self
     }
@@ -3232,7 +3232,7 @@ public extension Google.Protobuf {
     }
     public func clearOptions() -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
       builderResult.hasOptions = false
-      builderResult.options = Google.Protobuf.EnumValueOptions()
+      builderResult.options = nil
       return self
     }
     override public var internalGetResult:GeneratedMessage {
@@ -3312,7 +3312,7 @@ public extension Google.Protobuf {
     public private(set) var name:String = ""
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.ServiceOptions = Google.Protobuf.ServiceOptions()
+    public private(set) var options:Google.Protobuf.ServiceOptions!
     public private(set) var method:Array<Google.Protobuf.MethodDescriptorProto>  = Array<Google.Protobuf.MethodDescriptorProto>()
     required public init() {
          super.init()
@@ -3505,7 +3505,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.ServiceOptions {
+    public var options:Google.Protobuf.ServiceOptions! {
          get {
              return builderResult.options
          }
@@ -3514,7 +3514,7 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.ServiceOptions)-> Google.Protobuf.ServiceDescriptorProtoBuilder {
+    public func setOptions(value:Google.Protobuf.ServiceOptions!)-> Google.Protobuf.ServiceDescriptorProtoBuilder {
       self.options = value
       return self
     }
@@ -3529,7 +3529,7 @@ public extension Google.Protobuf {
     }
     public func clearOptions() -> Google.Protobuf.ServiceDescriptorProtoBuilder {
       builderResult.hasOptions = false
-      builderResult.options = Google.Protobuf.ServiceOptions()
+      builderResult.options = nil
       return self
     }
     override public var internalGetResult:GeneratedMessage {
@@ -3617,7 +3617,7 @@ public extension Google.Protobuf {
     public private(set) var outputType:String = ""
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.MethodOptions = Google.Protobuf.MethodOptions()
+    public private(set) var options:Google.Protobuf.MethodOptions!
     required public init() {
          super.init()
     }
@@ -3837,7 +3837,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.MethodOptions {
+    public var options:Google.Protobuf.MethodOptions! {
          get {
              return builderResult.options
          }
@@ -3846,7 +3846,7 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.MethodOptions)-> Google.Protobuf.MethodDescriptorProtoBuilder {
+    public func setOptions(value:Google.Protobuf.MethodOptions!)-> Google.Protobuf.MethodDescriptorProtoBuilder {
       self.options = value
       return self
     }
@@ -3861,7 +3861,7 @@ public extension Google.Protobuf {
     }
     public func clearOptions() -> Google.Protobuf.MethodDescriptorProtoBuilder {
       builderResult.hasOptions = false
-      builderResult.options = Google.Protobuf.MethodOptions()
+      builderResult.options = nil
       return self
     }
     override public var internalGetResult:GeneratedMessage {

@@ -1987,13 +1987,13 @@ internal extension ProtobufUnittest {
     private(set) var optionalBytes:NSData = NSData()
 
     private(set) var hasOptionalGroup:Bool = false
-    private(set) var optionalGroup:ProtobufUnittest.TestAllTypesLite.OptionalGroup = ProtobufUnittest.TestAllTypesLite.OptionalGroup()
+    private(set) var optionalGroup:ProtobufUnittest.TestAllTypesLite.OptionalGroup!
     private(set) var hasOptionalNestedMessage:Bool = false
-    private(set) var optionalNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage = ProtobufUnittest.TestAllTypesLite.NestedMessage()
+    private(set) var optionalNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage!
     private(set) var hasOptionalForeignMessage:Bool = false
-    private(set) var optionalForeignMessage:ProtobufUnittest.ForeignMessageLite = ProtobufUnittest.ForeignMessageLite()
+    private(set) var optionalForeignMessage:ProtobufUnittest.ForeignMessageLite!
     private(set) var hasOptionalImportMessage:Bool = false
-    private(set) var optionalImportMessage:ProtobufUnittestImport.ImportMessageLite = ProtobufUnittestImport.ImportMessageLite()
+    private(set) var optionalImportMessage:ProtobufUnittestImport.ImportMessageLite!
     private(set) var optionalNestedEnum:ProtobufUnittest.TestAllTypesLite.NestedEnum = ProtobufUnittest.TestAllTypesLite.NestedEnum.Foo
     private(set) var hasOptionalNestedEnum:Bool = false
     private(set) var optionalForeignEnum:ProtobufUnittest.ForeignEnumLite = ProtobufUnittest.ForeignEnumLite.ForeignLiteFoo
@@ -2007,9 +2007,9 @@ internal extension ProtobufUnittest {
     private(set) var optionalCord:String = ""
 
     private(set) var hasOptionalPublicImportMessage:Bool = false
-    private(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessageLite = ProtobufUnittestImport.PublicImportMessageLite()
+    private(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessageLite!
     private(set) var hasOptionalLazyMessage:Bool = false
-    private(set) var optionalLazyMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage = ProtobufUnittest.TestAllTypesLite.NestedMessage()
+    private(set) var optionalLazyMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage!
     private(set) var hasDefaultInt32:Bool = false
     private(set) var defaultInt32:Int32 = Int32(41)
 
@@ -3661,7 +3661,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasOptionalGroup
          }
     }
-    var optionalGroup:ProtobufUnittest.TestAllTypesLite.OptionalGroup {
+    var optionalGroup:ProtobufUnittest.TestAllTypesLite.OptionalGroup! {
          get {
              return builderResult.optionalGroup
          }
@@ -3670,7 +3670,7 @@ internal extension ProtobufUnittest {
              builderResult.optionalGroup = value
          }
     }
-    func setOptionalGroup(value:ProtobufUnittest.TestAllTypesLite.OptionalGroup)-> ProtobufUnittest.TestAllTypesLiteBuilder {
+    func setOptionalGroup(value:ProtobufUnittest.TestAllTypesLite.OptionalGroup!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.optionalGroup = value
       return self
     }
@@ -3685,7 +3685,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearOptionalGroup() -> ProtobufUnittest.TestAllTypesLiteBuilder {
       builderResult.hasOptionalGroup = false
-      builderResult.optionalGroup = ProtobufUnittest.TestAllTypesLite.OptionalGroup()
+      builderResult.optionalGroup = nil
       return self
     }
     var hasOptionalNestedMessage:Bool {
@@ -3693,7 +3693,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasOptionalNestedMessage
          }
     }
-    var optionalNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage {
+    var optionalNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage! {
          get {
              return builderResult.optionalNestedMessage
          }
@@ -3702,7 +3702,7 @@ internal extension ProtobufUnittest {
              builderResult.optionalNestedMessage = value
          }
     }
-    func setOptionalNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage)-> ProtobufUnittest.TestAllTypesLiteBuilder {
+    func setOptionalNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.optionalNestedMessage = value
       return self
     }
@@ -3717,7 +3717,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearOptionalNestedMessage() -> ProtobufUnittest.TestAllTypesLiteBuilder {
       builderResult.hasOptionalNestedMessage = false
-      builderResult.optionalNestedMessage = ProtobufUnittest.TestAllTypesLite.NestedMessage()
+      builderResult.optionalNestedMessage = nil
       return self
     }
     var hasOptionalForeignMessage:Bool {
@@ -3725,7 +3725,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasOptionalForeignMessage
          }
     }
-    var optionalForeignMessage:ProtobufUnittest.ForeignMessageLite {
+    var optionalForeignMessage:ProtobufUnittest.ForeignMessageLite! {
          get {
              return builderResult.optionalForeignMessage
          }
@@ -3734,7 +3734,7 @@ internal extension ProtobufUnittest {
              builderResult.optionalForeignMessage = value
          }
     }
-    func setOptionalForeignMessage(value:ProtobufUnittest.ForeignMessageLite)-> ProtobufUnittest.TestAllTypesLiteBuilder {
+    func setOptionalForeignMessage(value:ProtobufUnittest.ForeignMessageLite!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.optionalForeignMessage = value
       return self
     }
@@ -3749,7 +3749,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearOptionalForeignMessage() -> ProtobufUnittest.TestAllTypesLiteBuilder {
       builderResult.hasOptionalForeignMessage = false
-      builderResult.optionalForeignMessage = ProtobufUnittest.ForeignMessageLite()
+      builderResult.optionalForeignMessage = nil
       return self
     }
     var hasOptionalImportMessage:Bool {
@@ -3757,7 +3757,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasOptionalImportMessage
          }
     }
-    var optionalImportMessage:ProtobufUnittestImport.ImportMessageLite {
+    var optionalImportMessage:ProtobufUnittestImport.ImportMessageLite! {
          get {
              return builderResult.optionalImportMessage
          }
@@ -3766,7 +3766,7 @@ internal extension ProtobufUnittest {
              builderResult.optionalImportMessage = value
          }
     }
-    func setOptionalImportMessage(value:ProtobufUnittestImport.ImportMessageLite)-> ProtobufUnittest.TestAllTypesLiteBuilder {
+    func setOptionalImportMessage(value:ProtobufUnittestImport.ImportMessageLite!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.optionalImportMessage = value
       return self
     }
@@ -3781,7 +3781,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearOptionalImportMessage() -> ProtobufUnittest.TestAllTypesLiteBuilder {
       builderResult.hasOptionalImportMessage = false
-      builderResult.optionalImportMessage = ProtobufUnittestImport.ImportMessageLite()
+      builderResult.optionalImportMessage = nil
       return self
     }
       var hasOptionalNestedEnum:Bool{
@@ -3904,7 +3904,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasOptionalPublicImportMessage
          }
     }
-    var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessageLite {
+    var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessageLite! {
          get {
              return builderResult.optionalPublicImportMessage
          }
@@ -3913,7 +3913,7 @@ internal extension ProtobufUnittest {
              builderResult.optionalPublicImportMessage = value
          }
     }
-    func setOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessageLite)-> ProtobufUnittest.TestAllTypesLiteBuilder {
+    func setOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessageLite!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.optionalPublicImportMessage = value
       return self
     }
@@ -3928,7 +3928,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearOptionalPublicImportMessage() -> ProtobufUnittest.TestAllTypesLiteBuilder {
       builderResult.hasOptionalPublicImportMessage = false
-      builderResult.optionalPublicImportMessage = ProtobufUnittestImport.PublicImportMessageLite()
+      builderResult.optionalPublicImportMessage = nil
       return self
     }
     var hasOptionalLazyMessage:Bool {
@@ -3936,7 +3936,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasOptionalLazyMessage
          }
     }
-    var optionalLazyMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage {
+    var optionalLazyMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage! {
          get {
              return builderResult.optionalLazyMessage
          }
@@ -3945,7 +3945,7 @@ internal extension ProtobufUnittest {
              builderResult.optionalLazyMessage = value
          }
     }
-    func setOptionalLazyMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage)-> ProtobufUnittest.TestAllTypesLiteBuilder {
+    func setOptionalLazyMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.optionalLazyMessage = value
       return self
     }
@@ -3960,7 +3960,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearOptionalLazyMessage() -> ProtobufUnittest.TestAllTypesLiteBuilder {
       builderResult.hasOptionalLazyMessage = false
-      builderResult.optionalLazyMessage = ProtobufUnittest.TestAllTypesLite.NestedMessage()
+      builderResult.optionalLazyMessage = nil
       return self
     }
     var repeatedInt32:Array<Int32> {
@@ -4851,7 +4851,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasOneofNestedMessage
          }
     }
-    var oneofNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage {
+    var oneofNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage! {
          get {
              return builderResult.oneofNestedMessage
          }
@@ -4860,7 +4860,7 @@ internal extension ProtobufUnittest {
              builderResult.oneofNestedMessage = value
          }
     }
-    func setOneofNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage)-> ProtobufUnittest.TestAllTypesLiteBuilder {
+    func setOneofNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.oneofNestedMessage = value
       return self
     }
@@ -4875,7 +4875,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearOneofNestedMessage() -> ProtobufUnittest.TestAllTypesLiteBuilder {
       builderResult.hasOneofNestedMessage = false
-      builderResult.oneofNestedMessage = ProtobufUnittest.TestAllTypesLite.NestedMessage()
+      builderResult.oneofNestedMessage = nil
       return self
     }
     var hasOneofString:Bool {
@@ -7587,7 +7587,7 @@ internal extension ProtobufUnittest {
 
           final internal class Group1 : GeneratedMessage, GeneratedMessageProtocol {
             private(set) var hasField1:Bool = false
-            private(set) var field1:ProtobufUnittest.TestAllTypesLite = ProtobufUnittest.TestAllTypesLite()
+            private(set) var field1:ProtobufUnittest.TestAllTypesLite!
             required internal init() {
                  super.init()
             }
@@ -7697,7 +7697,7 @@ internal extension ProtobufUnittest {
                      return builderResult.hasField1
                  }
             }
-            var field1:ProtobufUnittest.TestAllTypesLite {
+            var field1:ProtobufUnittest.TestAllTypesLite! {
                  get {
                      return builderResult.field1
                  }
@@ -7706,7 +7706,7 @@ internal extension ProtobufUnittest {
                      builderResult.field1 = value
                  }
             }
-            func setField1(value:ProtobufUnittest.TestAllTypesLite)-> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+            func setField1(value:ProtobufUnittest.TestAllTypesLite!)-> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
               self.field1 = value
               return self
             }
@@ -7721,7 +7721,7 @@ internal extension ProtobufUnittest {
             }
             internal func clearField1() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
               builderResult.hasField1 = false
-              builderResult.field1 = ProtobufUnittest.TestAllTypesLite()
+              builderResult.field1 = nil
               return self
             }
             override internal var internalGetResult:GeneratedMessage {
@@ -7792,7 +7792,7 @@ internal extension ProtobufUnittest {
 
           final internal class Group2 : GeneratedMessage, GeneratedMessageProtocol {
             private(set) var hasField1:Bool = false
-            private(set) var field1:ProtobufUnittest.TestAllTypesLite = ProtobufUnittest.TestAllTypesLite()
+            private(set) var field1:ProtobufUnittest.TestAllTypesLite!
             required internal init() {
                  super.init()
             }
@@ -7902,7 +7902,7 @@ internal extension ProtobufUnittest {
                      return builderResult.hasField1
                  }
             }
-            var field1:ProtobufUnittest.TestAllTypesLite {
+            var field1:ProtobufUnittest.TestAllTypesLite! {
                  get {
                      return builderResult.field1
                  }
@@ -7911,7 +7911,7 @@ internal extension ProtobufUnittest {
                      builderResult.field1 = value
                  }
             }
-            func setField1(value:ProtobufUnittest.TestAllTypesLite)-> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+            func setField1(value:ProtobufUnittest.TestAllTypesLite!)-> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
               self.field1 = value
               return self
             }
@@ -7926,7 +7926,7 @@ internal extension ProtobufUnittest {
             }
             internal func clearField1() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
               builderResult.hasField1 = false
-              builderResult.field1 = ProtobufUnittest.TestAllTypesLite()
+              builderResult.field1 = nil
               return self
             }
             override internal var internalGetResult:GeneratedMessage {
@@ -8425,7 +8425,7 @@ internal extension ProtobufUnittest {
 
       final internal class OptionalGroup : GeneratedMessage, GeneratedMessageProtocol {
         private(set) var hasOptionalGroupAllTypes:Bool = false
-        private(set) var optionalGroupAllTypes:ProtobufUnittest.TestAllTypesLite = ProtobufUnittest.TestAllTypesLite()
+        private(set) var optionalGroupAllTypes:ProtobufUnittest.TestAllTypesLite!
         required internal init() {
              super.init()
         }
@@ -8535,7 +8535,7 @@ internal extension ProtobufUnittest {
                  return builderResult.hasOptionalGroupAllTypes
              }
         }
-        var optionalGroupAllTypes:ProtobufUnittest.TestAllTypesLite {
+        var optionalGroupAllTypes:ProtobufUnittest.TestAllTypesLite! {
              get {
                  return builderResult.optionalGroupAllTypes
              }
@@ -8544,7 +8544,7 @@ internal extension ProtobufUnittest {
                  builderResult.optionalGroupAllTypes = value
              }
         }
-        func setOptionalGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite)-> ProtobufUnittest.TestParsingMergeLite.OptionalGroupBuilder {
+        func setOptionalGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite!)-> ProtobufUnittest.TestParsingMergeLite.OptionalGroupBuilder {
           self.optionalGroupAllTypes = value
           return self
         }
@@ -8559,7 +8559,7 @@ internal extension ProtobufUnittest {
         }
         internal func clearOptionalGroupAllTypes() -> ProtobufUnittest.TestParsingMergeLite.OptionalGroupBuilder {
           builderResult.hasOptionalGroupAllTypes = false
-          builderResult.optionalGroupAllTypes = ProtobufUnittest.TestAllTypesLite()
+          builderResult.optionalGroupAllTypes = nil
           return self
         }
         override internal var internalGetResult:GeneratedMessage {
@@ -8630,7 +8630,7 @@ internal extension ProtobufUnittest {
 
       final internal class RepeatedGroup : GeneratedMessage, GeneratedMessageProtocol {
         private(set) var hasRepeatedGroupAllTypes:Bool = false
-        private(set) var repeatedGroupAllTypes:ProtobufUnittest.TestAllTypesLite = ProtobufUnittest.TestAllTypesLite()
+        private(set) var repeatedGroupAllTypes:ProtobufUnittest.TestAllTypesLite!
         required internal init() {
              super.init()
         }
@@ -8740,7 +8740,7 @@ internal extension ProtobufUnittest {
                  return builderResult.hasRepeatedGroupAllTypes
              }
         }
-        var repeatedGroupAllTypes:ProtobufUnittest.TestAllTypesLite {
+        var repeatedGroupAllTypes:ProtobufUnittest.TestAllTypesLite! {
              get {
                  return builderResult.repeatedGroupAllTypes
              }
@@ -8749,7 +8749,7 @@ internal extension ProtobufUnittest {
                  builderResult.repeatedGroupAllTypes = value
              }
         }
-        func setRepeatedGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite)-> ProtobufUnittest.TestParsingMergeLite.RepeatedGroupBuilder {
+        func setRepeatedGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite!)-> ProtobufUnittest.TestParsingMergeLite.RepeatedGroupBuilder {
           self.repeatedGroupAllTypes = value
           return self
         }
@@ -8764,7 +8764,7 @@ internal extension ProtobufUnittest {
         }
         internal func clearRepeatedGroupAllTypes() -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroupBuilder {
           builderResult.hasRepeatedGroupAllTypes = false
-          builderResult.repeatedGroupAllTypes = ProtobufUnittest.TestAllTypesLite()
+          builderResult.repeatedGroupAllTypes = nil
           return self
         }
         override internal var internalGetResult:GeneratedMessage {
@@ -8830,11 +8830,11 @@ internal extension ProtobufUnittest {
     //Nested type declaration end
 
     private(set) var hasRequiredAllTypes:Bool = false
-    private(set) var requiredAllTypes:ProtobufUnittest.TestAllTypesLite = ProtobufUnittest.TestAllTypesLite()
+    private(set) var requiredAllTypes:ProtobufUnittest.TestAllTypesLite!
     private(set) var hasOptionalAllTypes:Bool = false
-    private(set) var optionalAllTypes:ProtobufUnittest.TestAllTypesLite = ProtobufUnittest.TestAllTypesLite()
+    private(set) var optionalAllTypes:ProtobufUnittest.TestAllTypesLite!
     private(set) var hasOptionalGroup:Bool = false
-    private(set) var optionalGroup:ProtobufUnittest.TestParsingMergeLite.OptionalGroup = ProtobufUnittest.TestParsingMergeLite.OptionalGroup()
+    private(set) var optionalGroup:ProtobufUnittest.TestParsingMergeLite.OptionalGroup!
     internal class func optionalExt() -> ConcreateExtensionField {
          return TestParsingMergeLiteoptionalExt
     }
@@ -9022,7 +9022,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasRequiredAllTypes
          }
     }
-    var requiredAllTypes:ProtobufUnittest.TestAllTypesLite {
+    var requiredAllTypes:ProtobufUnittest.TestAllTypesLite! {
          get {
              return builderResult.requiredAllTypes
          }
@@ -9031,7 +9031,7 @@ internal extension ProtobufUnittest {
              builderResult.requiredAllTypes = value
          }
     }
-    func setRequiredAllTypes(value:ProtobufUnittest.TestAllTypesLite)-> ProtobufUnittest.TestParsingMergeLiteBuilder {
+    func setRequiredAllTypes(value:ProtobufUnittest.TestAllTypesLite!)-> ProtobufUnittest.TestParsingMergeLiteBuilder {
       self.requiredAllTypes = value
       return self
     }
@@ -9046,7 +9046,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearRequiredAllTypes() -> ProtobufUnittest.TestParsingMergeLiteBuilder {
       builderResult.hasRequiredAllTypes = false
-      builderResult.requiredAllTypes = ProtobufUnittest.TestAllTypesLite()
+      builderResult.requiredAllTypes = nil
       return self
     }
     var hasOptionalAllTypes:Bool {
@@ -9054,7 +9054,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasOptionalAllTypes
          }
     }
-    var optionalAllTypes:ProtobufUnittest.TestAllTypesLite {
+    var optionalAllTypes:ProtobufUnittest.TestAllTypesLite! {
          get {
              return builderResult.optionalAllTypes
          }
@@ -9063,7 +9063,7 @@ internal extension ProtobufUnittest {
              builderResult.optionalAllTypes = value
          }
     }
-    func setOptionalAllTypes(value:ProtobufUnittest.TestAllTypesLite)-> ProtobufUnittest.TestParsingMergeLiteBuilder {
+    func setOptionalAllTypes(value:ProtobufUnittest.TestAllTypesLite!)-> ProtobufUnittest.TestParsingMergeLiteBuilder {
       self.optionalAllTypes = value
       return self
     }
@@ -9078,7 +9078,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearOptionalAllTypes() -> ProtobufUnittest.TestParsingMergeLiteBuilder {
       builderResult.hasOptionalAllTypes = false
-      builderResult.optionalAllTypes = ProtobufUnittest.TestAllTypesLite()
+      builderResult.optionalAllTypes = nil
       return self
     }
     var repeatedAllTypes:Array<ProtobufUnittest.TestAllTypesLite> {
@@ -9102,7 +9102,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasOptionalGroup
          }
     }
-    var optionalGroup:ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
+    var optionalGroup:ProtobufUnittest.TestParsingMergeLite.OptionalGroup! {
          get {
              return builderResult.optionalGroup
          }
@@ -9111,7 +9111,7 @@ internal extension ProtobufUnittest {
              builderResult.optionalGroup = value
          }
     }
-    func setOptionalGroup(value:ProtobufUnittest.TestParsingMergeLite.OptionalGroup)-> ProtobufUnittest.TestParsingMergeLiteBuilder {
+    func setOptionalGroup(value:ProtobufUnittest.TestParsingMergeLite.OptionalGroup!)-> ProtobufUnittest.TestParsingMergeLiteBuilder {
       self.optionalGroup = value
       return self
     }
@@ -9126,7 +9126,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearOptionalGroup() -> ProtobufUnittest.TestParsingMergeLiteBuilder {
       builderResult.hasOptionalGroup = false
-      builderResult.optionalGroup = ProtobufUnittest.TestParsingMergeLite.OptionalGroup()
+      builderResult.optionalGroup = nil
       return self
     }
     var repeatedGroup:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup> {

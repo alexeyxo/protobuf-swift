@@ -244,7 +244,7 @@ internal extension ProtobufUnittest {
 
   final internal class TestMessageSetContainer : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasMessageSet:Bool = false
-    private(set) var messageSet:ProtobufUnittest.TestMessageSet = ProtobufUnittest.TestMessageSet()
+    private(set) var messageSet:ProtobufUnittest.TestMessageSet!
     required internal init() {
          super.init()
     }
@@ -359,7 +359,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasMessageSet
          }
     }
-    var messageSet:ProtobufUnittest.TestMessageSet {
+    var messageSet:ProtobufUnittest.TestMessageSet! {
          get {
              return builderResult.messageSet
          }
@@ -368,7 +368,7 @@ internal extension ProtobufUnittest {
              builderResult.messageSet = value
          }
     }
-    func setMessageSet(value:ProtobufUnittest.TestMessageSet)-> ProtobufUnittest.TestMessageSetContainerBuilder {
+    func setMessageSet(value:ProtobufUnittest.TestMessageSet!)-> ProtobufUnittest.TestMessageSetContainerBuilder {
       self.messageSet = value
       return self
     }
@@ -383,7 +383,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearMessageSet() -> ProtobufUnittest.TestMessageSetContainerBuilder {
       builderResult.hasMessageSet = false
-      builderResult.messageSet = ProtobufUnittest.TestMessageSet()
+      builderResult.messageSet = nil
       return self
     }
     override internal var internalGetResult:GeneratedMessage {

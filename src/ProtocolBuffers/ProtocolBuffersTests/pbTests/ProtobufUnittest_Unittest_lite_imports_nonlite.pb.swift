@@ -35,7 +35,7 @@ internal extension ProtobufUnittest {
 
   final internal class TestLiteImportsNonlite : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasMessage_:Bool = false
-    private(set) var message_:ProtobufUnittest.TestAllTypes = ProtobufUnittest.TestAllTypes()
+    private(set) var message_:ProtobufUnittest.TestAllTypes!
     required internal init() {
          super.init()
     }
@@ -145,7 +145,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasMessage_
          }
     }
-    var message_:ProtobufUnittest.TestAllTypes {
+    var message_:ProtobufUnittest.TestAllTypes! {
          get {
              return builderResult.message_
          }
@@ -154,7 +154,7 @@ internal extension ProtobufUnittest {
              builderResult.message_ = value
          }
     }
-    func setMessage_(value:ProtobufUnittest.TestAllTypes)-> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+    func setMessage_(value:ProtobufUnittest.TestAllTypes!)-> ProtobufUnittest.TestLiteImportsNonliteBuilder {
       self.message_ = value
       return self
     }
@@ -169,7 +169,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearMessage_() -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
       builderResult.hasMessage_ = false
-      builderResult.message_ = ProtobufUnittest.TestAllTypes()
+      builderResult.message_ = nil
       return self
     }
     override internal var internalGetResult:GeneratedMessage {

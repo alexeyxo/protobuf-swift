@@ -102,7 +102,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         else {
             printer->Print(variables_, "$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
-            printer->Print(variables_, "$acontrol$private(set) var $name$:$type$ = $type$()\n");
+            printer->Print(variables_, "$acontrol$private(set) var $name$:$type$!\n");
         }
         
     }
@@ -117,7 +117,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         return builderResult.has$capitalized_name$\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$var $name$:$storage_type$ {\n"
+                       "$acontrol$var $name$:$storage_type$! {\n"
                        "     get {\n"
                        "         return builderResult.$name$\n"
                        "     }\n"
@@ -126,7 +126,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:$storage_type$)-> $classname$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:$storage_type$!)-> $classname$Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
@@ -141,7 +141,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n"
                        "$acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder {\n"
                        "  builderResult.has$capitalized_name$ = false\n"
-                       "  builderResult.$name$ = $type$()\n"
+                       "  builderResult.$name$ = nil\n"
                        "  return self\n"
                        "}\n");
     }

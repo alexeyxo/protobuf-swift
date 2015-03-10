@@ -5,6 +5,24 @@ import ProtocolBuffers
 
 
 
+public func == (lhs: User, rhs: User) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasGroup == rhs.hasGroup) && (!lhs.hasGroup || lhs.group == rhs.group)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+public func == (lhs: Group, rhs: Group) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasOwner == rhs.hasOwner) && (!lhs.hasOwner || lhs.owner == rhs.owner)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
 public func == (lhs: PerfomanceBatch, rhs: PerfomanceBatch) -> Bool {
   if (lhs === rhs) {
     return true
@@ -44,6 +62,404 @@ public struct PerformanceRoot {
     Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
   public func registerAllExtensions(registry:ExtensionRegistry) {
+  }
+}
+
+final public class User : GeneratedMessage, GeneratedMessageProtocol {
+  public private(set) var hasGroup:Bool = false
+  public private(set) var group:Group!
+  required public init() {
+       super.init()
+  }
+  override public func isInitialized() -> Bool {
+   return true
+  }
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+    if hasGroup {
+      output.writeMessage(1, value:group)
+    }
+    unknownFields.writeToCodedOutputStream(output)
+  }
+  override public func serializedSize() -> Int32 {
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
+    }
+
+    serialize_size = 0
+    if hasGroup {
+      serialize_size += group.computeMessageSize(1)
+    }
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
+  }
+  public class func parseFromData(data:NSData) -> User {
+    return User.builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> User {
+    return User.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFromInputStream(input:NSInputStream) -> User {
+    return User.builder().mergeFromInputStream(input).build()
+  }
+  public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->User {
+    return User.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFromCodedInputStream(input:CodedInputStream) -> User {
+    return User.builder().mergeFromCodedInputStream(input).build()
+  }
+  public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> User {
+    return User.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  public class func builder() -> UserBuilder {
+    return User.classBuilder() as UserBuilder
+  }
+  public func builder() -> UserBuilder {
+    return classBuilder() as UserBuilder
+  }
+  public override class func classBuilder() -> MessageBuilder {
+    return UserBuilder()
+  }
+  public override func classBuilder() -> MessageBuilder {
+    return User.builder()
+  }
+  public func toBuilder() -> UserBuilder {
+    return User.builderWithPrototype(self)
+  }
+  public class func builderWithPrototype(prototype:User) -> UserBuilder {
+    return User.builder().mergeFrom(prototype)
+  }
+  override public func writeDescriptionTo(inout output:String, indent:String) {
+    if hasGroup {
+      output += "\(indent) group {\n"
+      group.writeDescriptionTo(&output, indent:"\(indent)  ")
+      output += "\(indent) }\n"
+    }
+    unknownFields.writeDescriptionTo(&output, indent:indent)
+  }
+  override public var hashValue:Int {
+      get {
+          var hashCode:Int = 7
+          if hasGroup {
+            hashCode = (hashCode &* 31) &+ group.hashValue
+          }
+          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+          return hashCode
+      }
+  }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "User"
+  }
+  override public func className() -> String {
+      return "User"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return User.self
+  }
+  //Meta information declaration end
+
+}
+
+final public class UserBuilder : GeneratedMessageBuilder {
+  private var builderResult:User
+
+  required override public init () {
+     builderResult = User()
+     super.init()
+  }
+  public var hasGroup:Bool {
+       get {
+           return builderResult.hasGroup
+       }
+  }
+  public var group:Group! {
+       get {
+           return builderResult.group
+       }
+       set (value) {
+           builderResult.hasGroup = true
+           builderResult.group = value
+       }
+  }
+  public func setGroup(value:Group!)-> UserBuilder {
+    self.group = value
+    return self
+  }
+  public func mergeGroup(value:Group) -> UserBuilder {
+    if (builderResult.hasGroup) {
+      builderResult.group = Group.builderWithPrototype(builderResult.group).mergeFrom(value).buildPartial()
+    } else {
+      builderResult.group = value
+    }
+    builderResult.hasGroup = true
+    return self
+  }
+  public func clearGroup() -> UserBuilder {
+    builderResult.hasGroup = false
+    builderResult.group = nil
+    return self
+  }
+  override public var internalGetResult:GeneratedMessage {
+       get {
+          return builderResult
+       }
+  }
+  public override func clear() -> UserBuilder {
+    builderResult = User()
+    return self
+  }
+  public override func clone() -> UserBuilder {
+    return User.builderWithPrototype(builderResult)
+  }
+  public override func build() -> User {
+       checkInitialized()
+       return buildPartial()
+  }
+  public func buildPartial() -> User {
+    var returnMe:User = builderResult
+    return returnMe
+  }
+  public func mergeFrom(other:User) -> UserBuilder {
+    if (other == User()) {
+     return self
+    }
+    if (other.hasGroup) {
+        mergeGroup(other.group)
+    }
+    mergeUnknownFields(other.unknownFields)
+    return self
+  }
+  public override func mergeFromCodedInputStream(input:CodedInputStream) ->UserBuilder {
+       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+  }
+  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UserBuilder {
+    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    while (true) {
+      var tag = input.readTag()
+      switch tag {
+      case 0: 
+        self.unknownFields = unknownFieldsBuilder.build()
+        return self
+
+      case 10 :
+        var subBuilder:GroupBuilder = Group.builder()
+        if hasGroup {
+          subBuilder.mergeFrom(group)
+        }
+        input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+        group = subBuilder.buildPartial()
+
+      default:
+        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+           unknownFields = unknownFieldsBuilder.build()
+           return self
+        }
+      }
+    }
+  }
+}
+
+final public class Group : GeneratedMessage, GeneratedMessageProtocol {
+  public private(set) var hasOwner:Bool = false
+  public private(set) var owner:User!
+  required public init() {
+       super.init()
+  }
+  override public func isInitialized() -> Bool {
+   return true
+  }
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+    if hasOwner {
+      output.writeMessage(1, value:owner)
+    }
+    unknownFields.writeToCodedOutputStream(output)
+  }
+  override public func serializedSize() -> Int32 {
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
+    }
+
+    serialize_size = 0
+    if hasOwner {
+      serialize_size += owner.computeMessageSize(1)
+    }
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
+  }
+  public class func parseFromData(data:NSData) -> Group {
+    return Group.builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Group {
+    return Group.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFromInputStream(input:NSInputStream) -> Group {
+    return Group.builder().mergeFromInputStream(input).build()
+  }
+  public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Group {
+    return Group.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFromCodedInputStream(input:CodedInputStream) -> Group {
+    return Group.builder().mergeFromCodedInputStream(input).build()
+  }
+  public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Group {
+    return Group.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  public class func builder() -> GroupBuilder {
+    return Group.classBuilder() as GroupBuilder
+  }
+  public func builder() -> GroupBuilder {
+    return classBuilder() as GroupBuilder
+  }
+  public override class func classBuilder() -> MessageBuilder {
+    return GroupBuilder()
+  }
+  public override func classBuilder() -> MessageBuilder {
+    return Group.builder()
+  }
+  public func toBuilder() -> GroupBuilder {
+    return Group.builderWithPrototype(self)
+  }
+  public class func builderWithPrototype(prototype:Group) -> GroupBuilder {
+    return Group.builder().mergeFrom(prototype)
+  }
+  override public func writeDescriptionTo(inout output:String, indent:String) {
+    if hasOwner {
+      output += "\(indent) owner {\n"
+      owner.writeDescriptionTo(&output, indent:"\(indent)  ")
+      output += "\(indent) }\n"
+    }
+    unknownFields.writeDescriptionTo(&output, indent:indent)
+  }
+  override public var hashValue:Int {
+      get {
+          var hashCode:Int = 7
+          if hasOwner {
+            hashCode = (hashCode &* 31) &+ owner.hashValue
+          }
+          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+          return hashCode
+      }
+  }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "Group"
+  }
+  override public func className() -> String {
+      return "Group"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return Group.self
+  }
+  //Meta information declaration end
+
+}
+
+final public class GroupBuilder : GeneratedMessageBuilder {
+  private var builderResult:Group
+
+  required override public init () {
+     builderResult = Group()
+     super.init()
+  }
+  public var hasOwner:Bool {
+       get {
+           return builderResult.hasOwner
+       }
+  }
+  public var owner:User! {
+       get {
+           return builderResult.owner
+       }
+       set (value) {
+           builderResult.hasOwner = true
+           builderResult.owner = value
+       }
+  }
+  public func setOwner(value:User!)-> GroupBuilder {
+    self.owner = value
+    return self
+  }
+  public func mergeOwner(value:User) -> GroupBuilder {
+    if (builderResult.hasOwner) {
+      builderResult.owner = User.builderWithPrototype(builderResult.owner).mergeFrom(value).buildPartial()
+    } else {
+      builderResult.owner = value
+    }
+    builderResult.hasOwner = true
+    return self
+  }
+  public func clearOwner() -> GroupBuilder {
+    builderResult.hasOwner = false
+    builderResult.owner = nil
+    return self
+  }
+  override public var internalGetResult:GeneratedMessage {
+       get {
+          return builderResult
+       }
+  }
+  public override func clear() -> GroupBuilder {
+    builderResult = Group()
+    return self
+  }
+  public override func clone() -> GroupBuilder {
+    return Group.builderWithPrototype(builderResult)
+  }
+  public override func build() -> Group {
+       checkInitialized()
+       return buildPartial()
+  }
+  public func buildPartial() -> Group {
+    var returnMe:Group = builderResult
+    return returnMe
+  }
+  public func mergeFrom(other:Group) -> GroupBuilder {
+    if (other == Group()) {
+     return self
+    }
+    if (other.hasOwner) {
+        mergeOwner(other.owner)
+    }
+    mergeUnknownFields(other.unknownFields)
+    return self
+  }
+  public override func mergeFromCodedInputStream(input:CodedInputStream) ->GroupBuilder {
+       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+  }
+  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> GroupBuilder {
+    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    while (true) {
+      var tag = input.readTag()
+      switch tag {
+      case 0: 
+        self.unknownFields = unknownFieldsBuilder.build()
+        return self
+
+      case 10 :
+        var subBuilder:UserBuilder = User.builder()
+        if hasOwner {
+          subBuilder.mergeFrom(owner)
+        }
+        input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+        owner = subBuilder.buildPartial()
+
+      default:
+        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+           unknownFields = unknownFieldsBuilder.build()
+           return self
+        }
+      }
+    }
   }
 }
 

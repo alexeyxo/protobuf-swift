@@ -115,7 +115,7 @@ internal extension ProtobufUnittest {
     private(set) var i:Int32 = Int32(0)
 
     private(set) var hasMsg:Bool = false
-    private(set) var msg:ProtobufUnittest.ForeignMessage = ProtobufUnittest.ForeignMessage()
+    private(set) var msg:ProtobufUnittest.ForeignMessage!
     private(set) var hasIntegerField:Bool {
           get {
                if ProtobufUnittest.TestOptimizedForSize.Foo.getIntegerField(storageFoo) == nil {
@@ -333,7 +333,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasMsg
          }
     }
-    var msg:ProtobufUnittest.ForeignMessage {
+    var msg:ProtobufUnittest.ForeignMessage! {
          get {
              return builderResult.msg
          }
@@ -342,7 +342,7 @@ internal extension ProtobufUnittest {
              builderResult.msg = value
          }
     }
-    func setMsg(value:ProtobufUnittest.ForeignMessage)-> ProtobufUnittest.TestOptimizedForSizeBuilder {
+    func setMsg(value:ProtobufUnittest.ForeignMessage!)-> ProtobufUnittest.TestOptimizedForSizeBuilder {
       self.msg = value
       return self
     }
@@ -357,7 +357,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearMsg() -> ProtobufUnittest.TestOptimizedForSizeBuilder {
       builderResult.hasMsg = false
-      builderResult.msg = ProtobufUnittest.ForeignMessage()
+      builderResult.msg = nil
       return self
     }
     var hasIntegerField:Bool {
@@ -674,7 +674,7 @@ internal extension ProtobufUnittest {
 
   final internal class TestOptionalOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasO:Bool = false
-    private(set) var o:ProtobufUnittest.TestRequiredOptimizedForSize = ProtobufUnittest.TestRequiredOptimizedForSize()
+    private(set) var o:ProtobufUnittest.TestRequiredOptimizedForSize!
     required internal init() {
          super.init()
     }
@@ -789,7 +789,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasO
          }
     }
-    var o:ProtobufUnittest.TestRequiredOptimizedForSize {
+    var o:ProtobufUnittest.TestRequiredOptimizedForSize! {
          get {
              return builderResult.o
          }
@@ -798,7 +798,7 @@ internal extension ProtobufUnittest {
              builderResult.o = value
          }
     }
-    func setO(value:ProtobufUnittest.TestRequiredOptimizedForSize)-> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
+    func setO(value:ProtobufUnittest.TestRequiredOptimizedForSize!)-> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
       self.o = value
       return self
     }
@@ -813,7 +813,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearO() -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
       builderResult.hasO = false
-      builderResult.o = ProtobufUnittest.TestRequiredOptimizedForSize()
+      builderResult.o = nil
       return self
     }
     override internal var internalGetResult:GeneratedMessage {

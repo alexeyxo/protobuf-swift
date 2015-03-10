@@ -36,7 +36,7 @@ internal extension ProtobufUnittest {
 
   final internal class TestEmbedOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasOptionalMessage:Bool = false
-    private(set) var optionalMessage:ProtobufUnittest.TestOptimizedForSize = ProtobufUnittest.TestOptimizedForSize()
+    private(set) var optionalMessage:ProtobufUnittest.TestOptimizedForSize!
     private(set) var repeatedMessage:Array<ProtobufUnittest.TestOptimizedForSize>  = Array<ProtobufUnittest.TestOptimizedForSize>()
     required internal init() {
          super.init()
@@ -178,7 +178,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasOptionalMessage
          }
     }
-    var optionalMessage:ProtobufUnittest.TestOptimizedForSize {
+    var optionalMessage:ProtobufUnittest.TestOptimizedForSize! {
          get {
              return builderResult.optionalMessage
          }
@@ -187,7 +187,7 @@ internal extension ProtobufUnittest {
              builderResult.optionalMessage = value
          }
     }
-    func setOptionalMessage(value:ProtobufUnittest.TestOptimizedForSize)-> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
+    func setOptionalMessage(value:ProtobufUnittest.TestOptimizedForSize!)-> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
       self.optionalMessage = value
       return self
     }
@@ -202,7 +202,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearOptionalMessage() -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
       builderResult.hasOptionalMessage = false
-      builderResult.optionalMessage = ProtobufUnittest.TestOptimizedForSize()
+      builderResult.optionalMessage = nil
       return self
     }
     var repeatedMessage:Array<ProtobufUnittest.TestOptimizedForSize> {

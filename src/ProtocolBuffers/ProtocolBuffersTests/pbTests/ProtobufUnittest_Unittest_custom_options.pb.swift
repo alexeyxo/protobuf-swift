@@ -3009,12 +3009,12 @@ internal extension ProtobufUnittest {
     //Nested type declaration end
 
     private(set) var hasBar:Bool = false
-    private(set) var bar:ProtobufUnittest.ComplexOptionType1 = ProtobufUnittest.ComplexOptionType1()
+    private(set) var bar:ProtobufUnittest.ComplexOptionType1!
     private(set) var hasBaz:Bool = false
     private(set) var baz:Int32 = Int32(0)
 
     private(set) var hasFred:Bool = false
-    private(set) var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4()
+    private(set) var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4!
     private(set) var barney:Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4>  = Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4>()
     required internal init() {
          super.init()
@@ -3179,7 +3179,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasBar
          }
     }
-    var bar:ProtobufUnittest.ComplexOptionType1 {
+    var bar:ProtobufUnittest.ComplexOptionType1! {
          get {
              return builderResult.bar
          }
@@ -3188,7 +3188,7 @@ internal extension ProtobufUnittest {
              builderResult.bar = value
          }
     }
-    func setBar(value:ProtobufUnittest.ComplexOptionType1)-> ProtobufUnittest.ComplexOptionType2Builder {
+    func setBar(value:ProtobufUnittest.ComplexOptionType1!)-> ProtobufUnittest.ComplexOptionType2Builder {
       self.bar = value
       return self
     }
@@ -3203,7 +3203,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearBar() -> ProtobufUnittest.ComplexOptionType2Builder {
       builderResult.hasBar = false
-      builderResult.bar = ProtobufUnittest.ComplexOptionType1()
+      builderResult.bar = nil
       return self
     }
     var hasBaz:Bool {
@@ -3234,7 +3234,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasFred
          }
     }
-    var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+    var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4! {
          get {
              return builderResult.fred
          }
@@ -3243,7 +3243,7 @@ internal extension ProtobufUnittest {
              builderResult.fred = value
          }
     }
-    func setFred(value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4)-> ProtobufUnittest.ComplexOptionType2Builder {
+    func setFred(value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4!)-> ProtobufUnittest.ComplexOptionType2Builder {
       self.fred = value
       return self
     }
@@ -3258,7 +3258,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearFred() -> ProtobufUnittest.ComplexOptionType2Builder {
       builderResult.hasFred = false
-      builderResult.fred = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4()
+      builderResult.fred = nil
       return self
     }
     var barney:Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4> {
@@ -3558,7 +3558,7 @@ internal extension ProtobufUnittest {
     private(set) var qux:Int32 = Int32(0)
 
     private(set) var hasComplexOptionType5:Bool = false
-    private(set) var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5()
+    private(set) var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5!
     required internal init() {
          super.init()
     }
@@ -3703,7 +3703,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasComplexOptionType5
          }
     }
-    var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+    var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5! {
          get {
              return builderResult.complexOptionType5
          }
@@ -3712,7 +3712,7 @@ internal extension ProtobufUnittest {
              builderResult.complexOptionType5 = value
          }
     }
-    func setComplexOptionType5(value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5)-> ProtobufUnittest.ComplexOptionType3Builder {
+    func setComplexOptionType5(value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5!)-> ProtobufUnittest.ComplexOptionType3Builder {
       self.complexOptionType5 = value
       return self
     }
@@ -3727,7 +3727,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearComplexOptionType5() -> ProtobufUnittest.ComplexOptionType3Builder {
       builderResult.hasComplexOptionType5 = false
-      builderResult.complexOptionType5 = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5()
+      builderResult.complexOptionType5 = nil
       return self
     }
     override internal var internalGetResult:GeneratedMessage {
@@ -4463,11 +4463,11 @@ internal extension ProtobufUnittest {
     private(set) var s:String = ""
 
     private(set) var hasSub:Bool = false
-    private(set) var sub:ProtobufUnittest.Aggregate = ProtobufUnittest.Aggregate()
+    private(set) var sub:ProtobufUnittest.Aggregate!
     private(set) var hasFile:Bool = false
-    private(set) var file:Google.Protobuf.FileOptions = Google.Protobuf.FileOptions()
+    private(set) var file:Google.Protobuf.FileOptions!
     private(set) var hasMset:Bool = false
-    private(set) var mset:ProtobufUnittest.AggregateMessageSet = ProtobufUnittest.AggregateMessageSet()
+    private(set) var mset:ProtobufUnittest.AggregateMessageSet!
     internal class func nested() -> ConcreateExtensionField {
          return Aggregatenested
     }
@@ -4693,7 +4693,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasSub
          }
     }
-    var sub:ProtobufUnittest.Aggregate {
+    var sub:ProtobufUnittest.Aggregate! {
          get {
              return builderResult.sub
          }
@@ -4702,7 +4702,7 @@ internal extension ProtobufUnittest {
              builderResult.sub = value
          }
     }
-    func setSub(value:ProtobufUnittest.Aggregate)-> ProtobufUnittest.AggregateBuilder {
+    func setSub(value:ProtobufUnittest.Aggregate!)-> ProtobufUnittest.AggregateBuilder {
       self.sub = value
       return self
     }
@@ -4717,7 +4717,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearSub() -> ProtobufUnittest.AggregateBuilder {
       builderResult.hasSub = false
-      builderResult.sub = ProtobufUnittest.Aggregate()
+      builderResult.sub = nil
       return self
     }
     var hasFile:Bool {
@@ -4725,7 +4725,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasFile
          }
     }
-    var file:Google.Protobuf.FileOptions {
+    var file:Google.Protobuf.FileOptions! {
          get {
              return builderResult.file
          }
@@ -4734,7 +4734,7 @@ internal extension ProtobufUnittest {
              builderResult.file = value
          }
     }
-    func setFile(value:Google.Protobuf.FileOptions)-> ProtobufUnittest.AggregateBuilder {
+    func setFile(value:Google.Protobuf.FileOptions!)-> ProtobufUnittest.AggregateBuilder {
       self.file = value
       return self
     }
@@ -4749,7 +4749,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearFile() -> ProtobufUnittest.AggregateBuilder {
       builderResult.hasFile = false
-      builderResult.file = Google.Protobuf.FileOptions()
+      builderResult.file = nil
       return self
     }
     var hasMset:Bool {
@@ -4757,7 +4757,7 @@ internal extension ProtobufUnittest {
              return builderResult.hasMset
          }
     }
-    var mset:ProtobufUnittest.AggregateMessageSet {
+    var mset:ProtobufUnittest.AggregateMessageSet! {
          get {
              return builderResult.mset
          }
@@ -4766,7 +4766,7 @@ internal extension ProtobufUnittest {
              builderResult.mset = value
          }
     }
-    func setMset(value:ProtobufUnittest.AggregateMessageSet)-> ProtobufUnittest.AggregateBuilder {
+    func setMset(value:ProtobufUnittest.AggregateMessageSet!)-> ProtobufUnittest.AggregateBuilder {
       self.mset = value
       return self
     }
@@ -4781,7 +4781,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearMset() -> ProtobufUnittest.AggregateBuilder {
       builderResult.hasMset = false
-      builderResult.mset = ProtobufUnittest.AggregateMessageSet()
+      builderResult.mset = nil
       return self
     }
     override internal var internalGetResult:GeneratedMessage {
