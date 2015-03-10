@@ -52,15 +52,15 @@ class GeneratedMessageTests: XCTestCase {
     func testClearExtension()
     {
         var  builder1 = ProtobufUnittest.TestAllExtensions.builder()
-        builder1.setExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension(), value:Int32(1))
+        builder1.setExtension(ProtobufUnittest.GoogleProtobufUnittestRoot.optionalInt32Extension(), value:Int32(1))
         
-        XCTAssertTrue(builder1.hasExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension()), "")
-        builder1.clearExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension())
-        XCTAssertFalse(builder1.hasExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension()), "")
+        XCTAssertTrue(builder1.hasExtension(ProtobufUnittest.GoogleProtobufUnittestRoot.optionalInt32Extension()), "")
+        builder1.clearExtension(ProtobufUnittest.GoogleProtobufUnittestRoot.optionalInt32Extension())
+        XCTAssertFalse(builder1.hasExtension(ProtobufUnittest.GoogleProtobufUnittestRoot.optionalInt32Extension()), "")
         
         var builder2 = ProtobufUnittest.TestAllExtensions.builder()
-        builder2.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), value:Int32(1))
-        if let val = builder2.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
+        builder2.addExtension(ProtobufUnittest.GoogleProtobufUnittestRoot.repeatedInt32Extension(), value:Int32(1))
+        if let val = builder2.getExtension(ProtobufUnittest.GoogleProtobufUnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(1 == val.count, "")
         }
@@ -68,9 +68,9 @@ class GeneratedMessageTests: XCTestCase {
         {
             XCTAssertTrue(false, "")
         }
-        builder2.clearExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension())
+        builder2.clearExtension(ProtobufUnittest.GoogleProtobufUnittestRoot.repeatedInt32Extension())
         
-        if let val = builder2.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
+        if let val = builder2.getExtension(ProtobufUnittest.GoogleProtobufUnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(0 == val.count, "")
         }
