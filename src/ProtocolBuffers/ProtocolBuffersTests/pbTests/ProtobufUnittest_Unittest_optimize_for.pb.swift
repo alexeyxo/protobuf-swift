@@ -200,7 +200,9 @@ internal extension ProtobufUnittest {
         serialize_size += stringField.computeStringSize(3)
       }
       if hasMsg {
-        serialize_size += msg.computeMessageSize(19)
+          if let varSizemsg = msg?.computeMessageSize(19) {
+              serialize_size += varSizemsg
+          }
       }
       serialize_size += extensionsSerializedSize()
       serialize_size += unknownFields.serializedSize()
@@ -255,7 +257,7 @@ internal extension ProtobufUnittest {
       }
       if hasMsg {
         output += "\(indent) msg {\n"
-        msg.writeDescriptionTo(&output, indent:"\(indent)  ")
+        msg?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
@@ -274,7 +276,9 @@ internal extension ProtobufUnittest {
                hashCode = (hashCode &* 31) &+ stringField.hashValue
             }
             if hasMsg {
-              hashCode = (hashCode &* 31) &+ msg.hashValue
+                if let hashValuemsg = msg?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValuemsg
+                }
             }
             hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1000), endExclusive:Int32(536870912)))
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -700,7 +704,9 @@ internal extension ProtobufUnittest {
 
       serialize_size = 0
       if hasO {
-        serialize_size += o.computeMessageSize(1)
+          if let varSizeo = o?.computeMessageSize(1) {
+              serialize_size += varSizeo
+          }
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -745,7 +751,7 @@ internal extension ProtobufUnittest {
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasO {
         output += "\(indent) o {\n"
-        o.writeDescriptionTo(&output, indent:"\(indent)  ")
+        o?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -754,7 +760,9 @@ internal extension ProtobufUnittest {
         get {
             var hashCode:Int = 7
             if hasO {
-              hashCode = (hashCode &* 31) &+ o.hashValue
+                if let hashValueo = o?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueo
+                }
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode

@@ -3054,13 +3054,17 @@ internal extension ProtobufUnittest {
 
       serialize_size = 0
       if hasBar {
-        serialize_size += bar.computeMessageSize(1)
+          if let varSizebar = bar?.computeMessageSize(1) {
+              serialize_size += varSizebar
+          }
       }
       if hasBaz {
         serialize_size += baz.computeInt32Size(2)
       }
       if hasFred {
-        serialize_size += fred.computeMessageSize(3)
+          if let varSizefred = fred?.computeMessageSize(3) {
+              serialize_size += varSizefred
+          }
       }
       for oneElementbarney in barney {
           serialize_size += oneElementbarney.computeMessageSize(4)
@@ -3109,7 +3113,7 @@ internal extension ProtobufUnittest {
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasBar {
         output += "\(indent) bar {\n"
-        bar.writeDescriptionTo(&output, indent:"\(indent)  ")
+        bar?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasBaz {
@@ -3117,7 +3121,7 @@ internal extension ProtobufUnittest {
       }
       if hasFred {
         output += "\(indent) fred {\n"
-        fred.writeDescriptionTo(&output, indent:"\(indent)  ")
+        fred?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       var barneyElementIndex:Int = 0
@@ -3134,13 +3138,17 @@ internal extension ProtobufUnittest {
         get {
             var hashCode:Int = 7
             if hasBar {
-              hashCode = (hashCode &* 31) &+ bar.hashValue
+                if let hashValuebar = bar?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValuebar
+                }
             }
             if hasBaz {
                hashCode = (hashCode &* 31) &+ baz.hashValue
             }
             if hasFred {
-              hashCode = (hashCode &* 31) &+ fred.hashValue
+                if let hashValuefred = fred?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValuefred
+                }
             }
             for oneElementbarney in barney {
                 hashCode = (hashCode &* 31) &+ oneElementbarney.hashValue
@@ -3585,7 +3593,9 @@ internal extension ProtobufUnittest {
         serialize_size += qux.computeInt32Size(1)
       }
       if hasComplexOptionType5 {
-        serialize_size += complexOptionType5.computeGroupSize(2)
+          if let varSizecomplexOptionType5 = complexOptionType5?.computeGroupSize(2) {
+              serialize_size += varSizecomplexOptionType5
+          }
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -3633,7 +3643,7 @@ internal extension ProtobufUnittest {
       }
       if hasComplexOptionType5 {
         output += "\(indent) complexOptionType5 {\n"
-        complexOptionType5.writeDescriptionTo(&output, indent:"\(indent)  ")
+        complexOptionType5?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -3645,7 +3655,9 @@ internal extension ProtobufUnittest {
                hashCode = (hashCode &* 31) &+ qux.hashValue
             }
             if hasComplexOptionType5 {
-              hashCode = (hashCode &* 31) &+ complexOptionType5.hashValue
+                if let hashValuecomplexOptionType5 = complexOptionType5?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValuecomplexOptionType5
+                }
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode
@@ -4524,13 +4536,19 @@ internal extension ProtobufUnittest {
         serialize_size += s.computeStringSize(2)
       }
       if hasSub {
-        serialize_size += sub.computeMessageSize(3)
+          if let varSizesub = sub?.computeMessageSize(3) {
+              serialize_size += varSizesub
+          }
       }
       if hasFile {
-        serialize_size += file.computeMessageSize(4)
+          if let varSizefile = file?.computeMessageSize(4) {
+              serialize_size += varSizefile
+          }
       }
       if hasMset {
-        serialize_size += mset.computeMessageSize(5)
+          if let varSizemset = mset?.computeMessageSize(5) {
+              serialize_size += varSizemset
+          }
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -4581,17 +4599,17 @@ internal extension ProtobufUnittest {
       }
       if hasSub {
         output += "\(indent) sub {\n"
-        sub.writeDescriptionTo(&output, indent:"\(indent)  ")
+        sub?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasFile {
         output += "\(indent) file {\n"
-        file.writeDescriptionTo(&output, indent:"\(indent)  ")
+        file?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasMset {
         output += "\(indent) mset {\n"
-        mset.writeDescriptionTo(&output, indent:"\(indent)  ")
+        mset?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -4606,13 +4624,19 @@ internal extension ProtobufUnittest {
                hashCode = (hashCode &* 31) &+ s.hashValue
             }
             if hasSub {
-              hashCode = (hashCode &* 31) &+ sub.hashValue
+                if let hashValuesub = sub?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValuesub
+                }
             }
             if hasFile {
-              hashCode = (hashCode &* 31) &+ file.hashValue
+                if let hashValuefile = file?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValuefile
+                }
             }
             if hasMset {
-              hashCode = (hashCode &* 31) &+ mset.hashValue
+                if let hashValuemset = mset?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValuemset
+                }
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode

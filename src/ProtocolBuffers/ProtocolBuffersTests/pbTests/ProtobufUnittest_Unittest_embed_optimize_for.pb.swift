@@ -76,7 +76,9 @@ internal extension ProtobufUnittest {
 
       serialize_size = 0
       if hasOptionalMessage {
-        serialize_size += optionalMessage.computeMessageSize(1)
+          if let varSizeoptionalMessage = optionalMessage?.computeMessageSize(1) {
+              serialize_size += varSizeoptionalMessage
+          }
       }
       for oneElementrepeatedMessage in repeatedMessage {
           serialize_size += oneElementrepeatedMessage.computeMessageSize(2)
@@ -124,7 +126,7 @@ internal extension ProtobufUnittest {
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasOptionalMessage {
         output += "\(indent) optionalMessage {\n"
-        optionalMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+        optionalMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       var repeatedMessageElementIndex:Int = 0
@@ -140,7 +142,9 @@ internal extension ProtobufUnittest {
         get {
             var hashCode:Int = 7
             if hasOptionalMessage {
-              hashCode = (hashCode &* 31) &+ optionalMessage.hashValue
+                if let hashValueoptionalMessage = optionalMessage?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptionalMessage
+                }
             }
             for oneElementrepeatedMessage in repeatedMessage {
                 hashCode = (hashCode &* 31) &+ oneElementrepeatedMessage.hashValue

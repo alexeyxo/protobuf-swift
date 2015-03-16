@@ -2488,16 +2488,24 @@ internal extension ProtobufUnittest {
         serialize_size += optionalBytes.computeDataSize(15)
       }
       if hasOptionalGroup {
-        serialize_size += optionalGroup.computeGroupSize(16)
+          if let varSizeoptionalGroup = optionalGroup?.computeGroupSize(16) {
+              serialize_size += varSizeoptionalGroup
+          }
       }
       if hasOptionalNestedMessage {
-        serialize_size += optionalNestedMessage.computeMessageSize(18)
+          if let varSizeoptionalNestedMessage = optionalNestedMessage?.computeMessageSize(18) {
+              serialize_size += varSizeoptionalNestedMessage
+          }
       }
       if hasOptionalForeignMessage {
-        serialize_size += optionalForeignMessage.computeMessageSize(19)
+          if let varSizeoptionalForeignMessage = optionalForeignMessage?.computeMessageSize(19) {
+              serialize_size += varSizeoptionalForeignMessage
+          }
       }
       if hasOptionalImportMessage {
-        serialize_size += optionalImportMessage.computeMessageSize(20)
+          if let varSizeoptionalImportMessage = optionalImportMessage?.computeMessageSize(20) {
+              serialize_size += varSizeoptionalImportMessage
+          }
       }
       if (hasOptionalNestedEnum) {
         serialize_size += optionalNestedEnum.rawValue.computeEnumSize(21)
@@ -2515,10 +2523,14 @@ internal extension ProtobufUnittest {
         serialize_size += optionalCord.computeStringSize(25)
       }
       if hasOptionalPublicImportMessage {
-        serialize_size += optionalPublicImportMessage.computeMessageSize(26)
+          if let varSizeoptionalPublicImportMessage = optionalPublicImportMessage?.computeMessageSize(26) {
+              serialize_size += varSizeoptionalPublicImportMessage
+          }
       }
       if hasOptionalLazyMessage {
-        serialize_size += optionalLazyMessage.computeMessageSize(27)
+          if let varSizeoptionalLazyMessage = optionalLazyMessage?.computeMessageSize(27) {
+              serialize_size += varSizeoptionalLazyMessage
+          }
       }
       var dataSizeRepeatedInt32:Int32 = 0
       for oneValuerepeatedInt32 in repeatedInt32 {
@@ -2705,7 +2717,9 @@ internal extension ProtobufUnittest {
         serialize_size += oneofUint32.computeUInt32Size(111)
       }
       if hasOneofNestedMessage {
-        serialize_size += oneofNestedMessage.computeMessageSize(112)
+          if let varSizeoneofNestedMessage = oneofNestedMessage?.computeMessageSize(112) {
+              serialize_size += varSizeoneofNestedMessage
+          }
       }
       if hasOneofString {
         serialize_size += oneofString.computeStringSize(113)
@@ -2801,22 +2815,22 @@ internal extension ProtobufUnittest {
       }
       if hasOptionalGroup {
         output += "\(indent) optionalGroup {\n"
-        optionalGroup.writeDescriptionTo(&output, indent:"\(indent)  ")
+        optionalGroup?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasOptionalNestedMessage {
         output += "\(indent) optionalNestedMessage {\n"
-        optionalNestedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+        optionalNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasOptionalForeignMessage {
         output += "\(indent) optionalForeignMessage {\n"
-        optionalForeignMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+        optionalForeignMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasOptionalImportMessage {
         output += "\(indent) optionalImportMessage {\n"
-        optionalImportMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+        optionalImportMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if (hasOptionalNestedEnum) {
@@ -2836,12 +2850,12 @@ internal extension ProtobufUnittest {
       }
       if hasOptionalPublicImportMessage {
         output += "\(indent) optionalPublicImportMessage {\n"
-        optionalPublicImportMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+        optionalPublicImportMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasOptionalLazyMessage {
         output += "\(indent) optionalLazyMessage {\n"
-        optionalLazyMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+        optionalLazyMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       var repeatedInt32ElementIndex:Int = 0
@@ -3044,7 +3058,7 @@ internal extension ProtobufUnittest {
       }
       if hasOneofNestedMessage {
         output += "\(indent) oneofNestedMessage {\n"
-        oneofNestedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneofNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasOneofString {
@@ -3104,16 +3118,24 @@ internal extension ProtobufUnittest {
                hashCode = (hashCode &* 31) &+ optionalBytes.hashValue
             }
             if hasOptionalGroup {
-              hashCode = (hashCode &* 31) &+ optionalGroup.hashValue
+                if let hashValueoptionalGroup = optionalGroup?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptionalGroup
+                }
             }
             if hasOptionalNestedMessage {
-              hashCode = (hashCode &* 31) &+ optionalNestedMessage.hashValue
+                if let hashValueoptionalNestedMessage = optionalNestedMessage?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptionalNestedMessage
+                }
             }
             if hasOptionalForeignMessage {
-              hashCode = (hashCode &* 31) &+ optionalForeignMessage.hashValue
+                if let hashValueoptionalForeignMessage = optionalForeignMessage?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptionalForeignMessage
+                }
             }
             if hasOptionalImportMessage {
-              hashCode = (hashCode &* 31) &+ optionalImportMessage.hashValue
+                if let hashValueoptionalImportMessage = optionalImportMessage?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptionalImportMessage
+                }
             }
             if hasOptionalNestedEnum {
                hashCode = (hashCode &* 31) &+ Int(optionalNestedEnum.rawValue)
@@ -3131,10 +3153,14 @@ internal extension ProtobufUnittest {
                hashCode = (hashCode &* 31) &+ optionalCord.hashValue
             }
             if hasOptionalPublicImportMessage {
-              hashCode = (hashCode &* 31) &+ optionalPublicImportMessage.hashValue
+                if let hashValueoptionalPublicImportMessage = optionalPublicImportMessage?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptionalPublicImportMessage
+                }
             }
             if hasOptionalLazyMessage {
-              hashCode = (hashCode &* 31) &+ optionalLazyMessage.hashValue
+                if let hashValueoptionalLazyMessage = optionalLazyMessage?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptionalLazyMessage
+                }
             }
             for oneValuerepeatedInt32 in repeatedInt32 {
                 hashCode = (hashCode &* 31) &+ oneValuerepeatedInt32.hashValue
@@ -3275,7 +3301,9 @@ internal extension ProtobufUnittest {
                hashCode = (hashCode &* 31) &+ oneofUint32.hashValue
             }
             if hasOneofNestedMessage {
-              hashCode = (hashCode &* 31) &+ oneofNestedMessage.hashValue
+                if let hashValueoneofNestedMessage = oneofNestedMessage?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoneofNestedMessage
+                }
             }
             if hasOneofString {
                hashCode = (hashCode &* 31) &+ oneofString.hashValue
@@ -7608,7 +7636,9 @@ internal extension ProtobufUnittest {
 
               serialize_size = 0
               if hasField1 {
-                serialize_size += field1.computeMessageSize(11)
+                  if let varSizefield1 = field1?.computeMessageSize(11) {
+                      serialize_size += varSizefield1
+                  }
               }
               serialize_size += unknownFields.serializedSize()
               memoizedSerializedSize = serialize_size
@@ -7653,7 +7683,7 @@ internal extension ProtobufUnittest {
             override internal func writeDescriptionTo(inout output:String, indent:String) {
               if hasField1 {
                 output += "\(indent) field1 {\n"
-                field1.writeDescriptionTo(&output, indent:"\(indent)  ")
+                field1?.writeDescriptionTo(&output, indent:"\(indent)  ")
                 output += "\(indent) }\n"
               }
               unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -7662,7 +7692,9 @@ internal extension ProtobufUnittest {
                 get {
                     var hashCode:Int = 7
                     if hasField1 {
-                      hashCode = (hashCode &* 31) &+ field1.hashValue
+                        if let hashValuefield1 = field1?.hashValue {
+                            hashCode = (hashCode &* 31) &+ hashValuefield1
+                        }
                     }
                     hashCode = (hashCode &* 31) &+  unknownFields.hashValue
                     return hashCode
@@ -7813,7 +7845,9 @@ internal extension ProtobufUnittest {
 
               serialize_size = 0
               if hasField1 {
-                serialize_size += field1.computeMessageSize(21)
+                  if let varSizefield1 = field1?.computeMessageSize(21) {
+                      serialize_size += varSizefield1
+                  }
               }
               serialize_size += unknownFields.serializedSize()
               memoizedSerializedSize = serialize_size
@@ -7858,7 +7892,7 @@ internal extension ProtobufUnittest {
             override internal func writeDescriptionTo(inout output:String, indent:String) {
               if hasField1 {
                 output += "\(indent) field1 {\n"
-                field1.writeDescriptionTo(&output, indent:"\(indent)  ")
+                field1?.writeDescriptionTo(&output, indent:"\(indent)  ")
                 output += "\(indent) }\n"
               }
               unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -7867,7 +7901,9 @@ internal extension ProtobufUnittest {
                 get {
                     var hashCode:Int = 7
                     if hasField1 {
-                      hashCode = (hashCode &* 31) &+ field1.hashValue
+                        if let hashValuefield1 = field1?.hashValue {
+                            hashCode = (hashCode &* 31) &+ hashValuefield1
+                        }
                     }
                     hashCode = (hashCode &* 31) &+  unknownFields.hashValue
                     return hashCode
@@ -8446,7 +8482,9 @@ internal extension ProtobufUnittest {
 
           serialize_size = 0
           if hasOptionalGroupAllTypes {
-            serialize_size += optionalGroupAllTypes.computeMessageSize(11)
+              if let varSizeoptionalGroupAllTypes = optionalGroupAllTypes?.computeMessageSize(11) {
+                  serialize_size += varSizeoptionalGroupAllTypes
+              }
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -8491,7 +8529,7 @@ internal extension ProtobufUnittest {
         override internal func writeDescriptionTo(inout output:String, indent:String) {
           if hasOptionalGroupAllTypes {
             output += "\(indent) optionalGroupAllTypes {\n"
-            optionalGroupAllTypes.writeDescriptionTo(&output, indent:"\(indent)  ")
+            optionalGroupAllTypes?.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent) }\n"
           }
           unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -8500,7 +8538,9 @@ internal extension ProtobufUnittest {
             get {
                 var hashCode:Int = 7
                 if hasOptionalGroupAllTypes {
-                  hashCode = (hashCode &* 31) &+ optionalGroupAllTypes.hashValue
+                    if let hashValueoptionalGroupAllTypes = optionalGroupAllTypes?.hashValue {
+                        hashCode = (hashCode &* 31) &+ hashValueoptionalGroupAllTypes
+                    }
                 }
                 hashCode = (hashCode &* 31) &+  unknownFields.hashValue
                 return hashCode
@@ -8651,7 +8691,9 @@ internal extension ProtobufUnittest {
 
           serialize_size = 0
           if hasRepeatedGroupAllTypes {
-            serialize_size += repeatedGroupAllTypes.computeMessageSize(21)
+              if let varSizerepeatedGroupAllTypes = repeatedGroupAllTypes?.computeMessageSize(21) {
+                  serialize_size += varSizerepeatedGroupAllTypes
+              }
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -8696,7 +8738,7 @@ internal extension ProtobufUnittest {
         override internal func writeDescriptionTo(inout output:String, indent:String) {
           if hasRepeatedGroupAllTypes {
             output += "\(indent) repeatedGroupAllTypes {\n"
-            repeatedGroupAllTypes.writeDescriptionTo(&output, indent:"\(indent)  ")
+            repeatedGroupAllTypes?.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent) }\n"
           }
           unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -8705,7 +8747,9 @@ internal extension ProtobufUnittest {
             get {
                 var hashCode:Int = 7
                 if hasRepeatedGroupAllTypes {
-                  hashCode = (hashCode &* 31) &+ repeatedGroupAllTypes.hashValue
+                    if let hashValuerepeatedGroupAllTypes = repeatedGroupAllTypes?.hashValue {
+                        hashCode = (hashCode &* 31) &+ hashValuerepeatedGroupAllTypes
+                    }
                 }
                 hashCode = (hashCode &* 31) &+  unknownFields.hashValue
                 return hashCode
@@ -8882,16 +8926,22 @@ internal extension ProtobufUnittest {
 
       serialize_size = 0
       if hasRequiredAllTypes {
-        serialize_size += requiredAllTypes.computeMessageSize(1)
+          if let varSizerequiredAllTypes = requiredAllTypes?.computeMessageSize(1) {
+              serialize_size += varSizerequiredAllTypes
+          }
       }
       if hasOptionalAllTypes {
-        serialize_size += optionalAllTypes.computeMessageSize(2)
+          if let varSizeoptionalAllTypes = optionalAllTypes?.computeMessageSize(2) {
+              serialize_size += varSizeoptionalAllTypes
+          }
       }
       for oneElementrepeatedAllTypes in repeatedAllTypes {
           serialize_size += oneElementrepeatedAllTypes.computeMessageSize(3)
       }
       if hasOptionalGroup {
-        serialize_size += optionalGroup.computeGroupSize(10)
+          if let varSizeoptionalGroup = optionalGroup?.computeGroupSize(10) {
+              serialize_size += varSizeoptionalGroup
+          }
       }
       for oneElementrepeatedGroup in repeatedGroup {
           serialize_size += oneElementrepeatedGroup.computeGroupSize(20)
@@ -8940,12 +8990,12 @@ internal extension ProtobufUnittest {
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasRequiredAllTypes {
         output += "\(indent) requiredAllTypes {\n"
-        requiredAllTypes.writeDescriptionTo(&output, indent:"\(indent)  ")
+        requiredAllTypes?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasOptionalAllTypes {
         output += "\(indent) optionalAllTypes {\n"
-        optionalAllTypes.writeDescriptionTo(&output, indent:"\(indent)  ")
+        optionalAllTypes?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       var repeatedAllTypesElementIndex:Int = 0
@@ -8957,7 +9007,7 @@ internal extension ProtobufUnittest {
       }
       if hasOptionalGroup {
         output += "\(indent) optionalGroup {\n"
-        optionalGroup.writeDescriptionTo(&output, indent:"\(indent)  ")
+        optionalGroup?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       var repeatedGroupElementIndex:Int = 0
@@ -8974,16 +9024,22 @@ internal extension ProtobufUnittest {
         get {
             var hashCode:Int = 7
             if hasRequiredAllTypes {
-              hashCode = (hashCode &* 31) &+ requiredAllTypes.hashValue
+                if let hashValuerequiredAllTypes = requiredAllTypes?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValuerequiredAllTypes
+                }
             }
             if hasOptionalAllTypes {
-              hashCode = (hashCode &* 31) &+ optionalAllTypes.hashValue
+                if let hashValueoptionalAllTypes = optionalAllTypes?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptionalAllTypes
+                }
             }
             for oneElementrepeatedAllTypes in repeatedAllTypes {
                 hashCode = (hashCode &* 31) &+ oneElementrepeatedAllTypes.hashValue
             }
             if hasOptionalGroup {
-              hashCode = (hashCode &* 31) &+ optionalGroup.hashValue
+                if let hashValueoptionalGroup = optionalGroup?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptionalGroup
+                }
             }
             for oneElementrepeatedGroup in repeatedGroup {
                 hashCode = (hashCode &* 31) &+ oneElementrepeatedGroup.hashValue

@@ -270,7 +270,9 @@ internal extension ProtobufUnittest {
 
       serialize_size = 0
       if hasMessageSet {
-        serialize_size += messageSet.computeMessageSize(1)
+          if let varSizemessageSet = messageSet?.computeMessageSize(1) {
+              serialize_size += varSizemessageSet
+          }
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -315,7 +317,7 @@ internal extension ProtobufUnittest {
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasMessageSet {
         output += "\(indent) messageSet {\n"
-        messageSet.writeDescriptionTo(&output, indent:"\(indent)  ")
+        messageSet?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -324,7 +326,9 @@ internal extension ProtobufUnittest {
         get {
             var hashCode:Int = 7
             if hasMessageSet {
-              hashCode = (hashCode &* 31) &+ messageSet.hashValue
+                if let hashValuemessageSet = messageSet?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValuemessageSet
+                }
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode

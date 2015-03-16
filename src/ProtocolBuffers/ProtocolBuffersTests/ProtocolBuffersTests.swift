@@ -36,6 +36,7 @@ class ProtocolBuffersTests: XCTestCase {
         var user:User! = nil
         var group = GroupBuilder()
         group.setOwner(user)
+        var gg = group.build()
         
         let build = builder.build()
         

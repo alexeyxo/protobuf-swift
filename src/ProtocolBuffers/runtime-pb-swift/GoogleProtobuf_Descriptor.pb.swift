@@ -621,10 +621,14 @@ public extension Google.Protobuf {
           serialize_size += oneElementextension_.computeMessageSize(7)
       }
       if hasOptions {
-        serialize_size += options.computeMessageSize(8)
+          if let varSizeoptions = options?.computeMessageSize(8) {
+              serialize_size += varSizeoptions
+          }
       }
       if hasSourceCodeInfo {
-        serialize_size += sourceCodeInfo.computeMessageSize(9)
+          if let varSizesourceCodeInfo = sourceCodeInfo?.computeMessageSize(9) {
+              serialize_size += varSizesourceCodeInfo
+          }
       }
       var dataSizePublicDependency:Int32 = 0
       for oneValuepublicDependency in publicDependency {
@@ -720,12 +724,12 @@ public extension Google.Protobuf {
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        options.writeDescriptionTo(&output, indent:"\(indent)  ")
+        options?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasSourceCodeInfo {
         output += "\(indent) sourceCodeInfo {\n"
-        sourceCodeInfo.writeDescriptionTo(&output, indent:"\(indent)  ")
+        sourceCodeInfo?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       var publicDependencyElementIndex:Int = 0
@@ -765,10 +769,14 @@ public extension Google.Protobuf {
                 hashCode = (hashCode &* 31) &+ oneElementextension_.hashValue
             }
             if hasOptions {
-              hashCode = (hashCode &* 31) &+ options.hashValue
+                if let hashValueoptions = options?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptions
+                }
             }
             if hasSourceCodeInfo {
-              hashCode = (hashCode &* 31) &+ sourceCodeInfo.hashValue
+                if let hashValuesourceCodeInfo = sourceCodeInfo?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValuesourceCodeInfo
+                }
             }
             for oneValuepublicDependency in publicDependency {
                 hashCode = (hashCode &* 31) &+ oneValuepublicDependency.hashValue
@@ -1509,7 +1517,9 @@ public extension Google.Protobuf {
           serialize_size += oneElementextension_.computeMessageSize(6)
       }
       if hasOptions {
-        serialize_size += options.computeMessageSize(7)
+          if let varSizeoptions = options?.computeMessageSize(7) {
+              serialize_size += varSizeoptions
+          }
       }
       for oneElementoneofDecl in oneofDecl {
           serialize_size += oneElementoneofDecl.computeMessageSize(8)
@@ -1595,7 +1605,7 @@ public extension Google.Protobuf {
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        options.writeDescriptionTo(&output, indent:"\(indent)  ")
+        options?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       var oneofDeclElementIndex:Int = 0
@@ -1629,7 +1639,9 @@ public extension Google.Protobuf {
                 hashCode = (hashCode &* 31) &+ oneElementextension_.hashValue
             }
             if hasOptions {
-              hashCode = (hashCode &* 31) &+ options.hashValue
+                if let hashValueoptions = options?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptions
+                }
             }
             for oneElementoneofDecl in oneofDecl {
                 hashCode = (hashCode &* 31) &+ oneElementoneofDecl.hashValue
@@ -2063,7 +2075,9 @@ public extension Google.Protobuf {
         serialize_size += defaultValue.computeStringSize(7)
       }
       if hasOptions {
-        serialize_size += options.computeMessageSize(8)
+          if let varSizeoptions = options?.computeMessageSize(8) {
+              serialize_size += varSizeoptions
+          }
       }
       if hasOneofIndex {
         serialize_size += oneofIndex.computeInt32Size(9)
@@ -2132,7 +2146,7 @@ public extension Google.Protobuf {
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        options.writeDescriptionTo(&output, indent:"\(indent)  ")
+        options?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasOneofIndex {
@@ -2165,7 +2179,9 @@ public extension Google.Protobuf {
                hashCode = (hashCode &* 31) &+ defaultValue.hashValue
             }
             if hasOptions {
-              hashCode = (hashCode &* 31) &+ options.hashValue
+                if let hashValueoptions = options?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptions
+                }
             }
             if hasOneofIndex {
                hashCode = (hashCode &* 31) &+ oneofIndex.hashValue
@@ -2770,7 +2786,9 @@ public extension Google.Protobuf {
           serialize_size += oneElementvalue.computeMessageSize(2)
       }
       if hasOptions {
-        serialize_size += options.computeMessageSize(3)
+          if let varSizeoptions = options?.computeMessageSize(3) {
+              serialize_size += varSizeoptions
+          }
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -2825,7 +2843,7 @@ public extension Google.Protobuf {
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        options.writeDescriptionTo(&output, indent:"\(indent)  ")
+        options?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -2840,7 +2858,9 @@ public extension Google.Protobuf {
                 hashCode = (hashCode &* 31) &+ oneElementvalue.hashValue
             }
             if hasOptions {
-              hashCode = (hashCode &* 31) &+ options.hashValue
+                if let hashValueoptions = options?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptions
+                }
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode
@@ -3061,7 +3081,9 @@ public extension Google.Protobuf {
         serialize_size += number.computeInt32Size(2)
       }
       if hasOptions {
-        serialize_size += options.computeMessageSize(3)
+          if let varSizeoptions = options?.computeMessageSize(3) {
+              serialize_size += varSizeoptions
+          }
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -3112,7 +3134,7 @@ public extension Google.Protobuf {
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        options.writeDescriptionTo(&output, indent:"\(indent)  ")
+        options?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -3127,7 +3149,9 @@ public extension Google.Protobuf {
                hashCode = (hashCode &* 31) &+ number.hashValue
             }
             if hasOptions {
-              hashCode = (hashCode &* 31) &+ options.hashValue
+                if let hashValueoptions = options?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptions
+                }
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode
@@ -3361,7 +3385,9 @@ public extension Google.Protobuf {
           serialize_size += oneElementmethod.computeMessageSize(2)
       }
       if hasOptions {
-        serialize_size += options.computeMessageSize(3)
+          if let varSizeoptions = options?.computeMessageSize(3) {
+              serialize_size += varSizeoptions
+          }
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -3416,7 +3442,7 @@ public extension Google.Protobuf {
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        options.writeDescriptionTo(&output, indent:"\(indent)  ")
+        options?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -3431,7 +3457,9 @@ public extension Google.Protobuf {
                 hashCode = (hashCode &* 31) &+ oneElementmethod.hashValue
             }
             if hasOptions {
-              hashCode = (hashCode &* 31) &+ options.hashValue
+                if let hashValueoptions = options?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptions
+                }
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode
@@ -3661,7 +3689,9 @@ public extension Google.Protobuf {
         serialize_size += outputType.computeStringSize(3)
       }
       if hasOptions {
-        serialize_size += options.computeMessageSize(4)
+          if let varSizeoptions = options?.computeMessageSize(4) {
+              serialize_size += varSizeoptions
+          }
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -3715,7 +3745,7 @@ public extension Google.Protobuf {
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        options.writeDescriptionTo(&output, indent:"\(indent)  ")
+        options?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -3733,7 +3763,9 @@ public extension Google.Protobuf {
                hashCode = (hashCode &* 31) &+ outputType.hashValue
             }
             if hasOptions {
-              hashCode = (hashCode &* 31) &+ options.hashValue
+                if let hashValueoptions = options?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptions
+                }
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode

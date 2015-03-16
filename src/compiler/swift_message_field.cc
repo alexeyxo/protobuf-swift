@@ -189,7 +189,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  serialize_size += $name$.compute$group_or_message$Size($number$)\n"
+                       "    if let varSize$name$ = $name$?.compute$group_or_message$Size($number$) {\n"
+                       "        serialize_size += varSize$name$\n"
+                       "    }\n"
                        "}\n");
     }
     
@@ -198,7 +200,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
                        "  output += \"\\(indent) $name$ {\\n\"\n"
-                       "  $name$.writeDescriptionTo(&output, indent:\"\\(indent)  \")\n"
+                       "  $name$?.writeDescriptionTo(&output, indent:\"\\(indent)  \")\n"
                        "  output += \"\\(indent) }\\n\"\n"
                        "}\n");
     }
@@ -213,7 +215,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  hashCode = (hashCode &* 31) &+ $name$.hashValue\n"
+                       "    if let hashValue$name$ = $name$?.hashValue {\n"
+                       "        hashCode = (hashCode &* 31) &+ hashValue$name$\n"
+                       "    }\n"
                        "}\n");
     }
     

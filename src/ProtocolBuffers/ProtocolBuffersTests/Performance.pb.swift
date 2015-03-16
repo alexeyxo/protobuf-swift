@@ -88,7 +88,9 @@ final public class User : GeneratedMessage, GeneratedMessageProtocol {
 
     serialize_size = 0
     if hasGroup {
-      serialize_size += group.computeMessageSize(1)
+        if let varSizegroup = group?.computeMessageSize(1) {
+            serialize_size += varSizegroup
+        }
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
@@ -133,7 +135,7 @@ final public class User : GeneratedMessage, GeneratedMessageProtocol {
   override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasGroup {
       output += "\(indent) group {\n"
-      group.writeDescriptionTo(&output, indent:"\(indent)  ")
+      group?.writeDescriptionTo(&output, indent:"\(indent)  ")
       output += "\(indent) }\n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -142,7 +144,9 @@ final public class User : GeneratedMessage, GeneratedMessageProtocol {
       get {
           var hashCode:Int = 7
           if hasGroup {
-            hashCode = (hashCode &* 31) &+ group.hashValue
+              if let hashValuegroup = group?.hashValue {
+                  hashCode = (hashCode &* 31) &+ hashValuegroup
+              }
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -287,7 +291,9 @@ final public class Group : GeneratedMessage, GeneratedMessageProtocol {
 
     serialize_size = 0
     if hasOwner {
-      serialize_size += owner.computeMessageSize(1)
+        if let varSizeowner = owner?.computeMessageSize(1) {
+            serialize_size += varSizeowner
+        }
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
@@ -332,7 +338,7 @@ final public class Group : GeneratedMessage, GeneratedMessageProtocol {
   override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasOwner {
       output += "\(indent) owner {\n"
-      owner.writeDescriptionTo(&output, indent:"\(indent)  ")
+      owner?.writeDescriptionTo(&output, indent:"\(indent)  ")
       output += "\(indent) }\n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -341,7 +347,9 @@ final public class Group : GeneratedMessage, GeneratedMessageProtocol {
       get {
           var hashCode:Int = 7
           if hasOwner {
-            hashCode = (hashCode &* 31) &+ owner.hashValue
+              if let hashValueowner = owner?.hashValue {
+                  hashCode = (hashCode &* 31) &+ hashValueowner
+              }
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
