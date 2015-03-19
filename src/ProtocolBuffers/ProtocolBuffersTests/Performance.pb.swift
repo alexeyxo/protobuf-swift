@@ -115,10 +115,10 @@ final public class User : GeneratedMessage, GeneratedMessageProtocol {
     return User.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   public class func builder() -> UserBuilder {
-    return User.classBuilder() as UserBuilder
+    return User.classBuilder() as! UserBuilder
   }
   public func builder() -> UserBuilder {
-    return classBuilder() as UserBuilder
+    return classBuilder() as! UserBuilder
   }
   public override class func classBuilder() -> MessageBuilder {
     return UserBuilder()
@@ -318,10 +318,10 @@ final public class Group : GeneratedMessage, GeneratedMessageProtocol {
     return Group.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   public class func builder() -> GroupBuilder {
-    return Group.classBuilder() as GroupBuilder
+    return Group.classBuilder() as! GroupBuilder
   }
   public func builder() -> GroupBuilder {
-    return classBuilder() as GroupBuilder
+    return classBuilder() as! GroupBuilder
   }
   public override class func classBuilder() -> MessageBuilder {
     return GroupBuilder()
@@ -528,10 +528,10 @@ final public class PerfomanceBatch : GeneratedMessage, GeneratedMessageProtocol 
     return PerfomanceBatch.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   public class func builder() -> PerfomanceBatchBuilder {
-    return PerfomanceBatch.classBuilder() as PerfomanceBatchBuilder
+    return PerfomanceBatch.classBuilder() as! PerfomanceBatchBuilder
   }
   public func builder() -> PerfomanceBatchBuilder {
-    return classBuilder() as PerfomanceBatchBuilder
+    return classBuilder() as! PerfomanceBatchBuilder
   }
   public override class func classBuilder() -> MessageBuilder {
     return PerfomanceBatchBuilder()
@@ -777,10 +777,10 @@ final public class Perfomance : GeneratedMessage, GeneratedMessageProtocol {
     return Perfomance.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   public class func builder() -> PerfomanceBuilder {
-    return Perfomance.classBuilder() as PerfomanceBuilder
+    return Perfomance.classBuilder() as! PerfomanceBuilder
   }
   public func builder() -> PerfomanceBuilder {
-    return classBuilder() as PerfomanceBuilder
+    return classBuilder() as! PerfomanceBuilder
   }
   public override class func classBuilder() -> MessageBuilder {
     return PerfomanceBuilder()

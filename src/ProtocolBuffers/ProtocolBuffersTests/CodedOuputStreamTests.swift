@@ -17,12 +17,12 @@ internal class CodedOuputStreamTests: XCTestCase
         return stream
     }
     
-    func bytes(from:Byte...) -> NSData
+    func bytes(from:UInt8...) -> NSData
     {
         var returnData:NSMutableData = NSMutableData()
-        var bytesArray = [Byte](count:Int(from.count), repeatedValue: 0)
+        var bytesArray = [UInt8](count:Int(from.count), repeatedValue: 0)
         var i:Int = 0
-        for index:Byte in from
+        for index:UInt8 in from
         {
             bytesArray[i] = index
             i++
@@ -37,7 +37,7 @@ internal class CodedOuputStreamTests: XCTestCase
         output.writeRawLittleEndian32(value)
         output.flush()
     
-        var actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
+        var actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
         
         XCTAssertTrue(data.isEqualToData(actual), "Test32")
     
@@ -49,7 +49,7 @@ internal class CodedOuputStreamTests: XCTestCase
             output.writeRawLittleEndian32(value)
             output.flush()
     
-            let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
+            let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
             XCTAssertTrue(data.isEqualToData(actual), "Test32")
         }
     }
@@ -60,7 +60,7 @@ internal class CodedOuputStreamTests: XCTestCase
         output.writeRawLittleEndian64(value)
         output.flush()
         
-        var actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
+        var actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
 
         XCTAssertTrue(data.isEqualToData(actual), "Test64")
         
@@ -72,7 +72,7 @@ internal class CodedOuputStreamTests: XCTestCase
             output.writeRawLittleEndian64(value)
             output.flush()
             
-            let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
+            let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
             
             XCTAssertTrue(data.isEqualToData(actual),"Test64")
         }
@@ -89,7 +89,7 @@ internal class CodedOuputStreamTests: XCTestCase
             output1.writeRawVarint32(invalue)
             output1.flush()
     
-            var actual1:NSData = rawOutput1.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
+            var actual1:NSData = rawOutput1.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
             XCTAssertTrue(data.isEqualToData(actual1), "")
 
             XCTAssertTrue(Int32(data.length) == Int32(value).computeRawVarint32Size(), "")
@@ -100,7 +100,7 @@ internal class CodedOuputStreamTests: XCTestCase
         output2.writeRawVarint64(value)
         output2.flush()
     
-        var actual2:NSData = rawOutput2.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
+        var actual2:NSData = rawOutput2.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
         XCTAssertTrue(data.isEqualToData(actual2), "")
     
     
@@ -117,7 +117,7 @@ internal class CodedOuputStreamTests: XCTestCase
                 output3.writeRawVarint32(Int32(value))
                 output3.flush()
     
-                var actual3:NSData = rawOutput3.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
+                var actual3:NSData = rawOutput3.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
                 XCTAssertTrue(data.isEqualToData(actual3), "")
             }
     
@@ -127,7 +127,7 @@ internal class CodedOuputStreamTests: XCTestCase
             output4.writeRawVarint64(value)
             output4.flush()
     
-            var actual4:NSData = rawOutput4.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
+            var actual4:NSData = rawOutput4.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
             XCTAssertTrue(data.isEqualToData(actual4), "")
         }
     }
@@ -135,17 +135,17 @@ internal class CodedOuputStreamTests: XCTestCase
     
     func testWriteVarintOne()
     {
-        assertWriteVarint(bytes(Byte(0x00)), value:0)
+        assertWriteVarint(bytes(UInt8(0x00)), value:0)
     }
     
     func testWriteVarintTwo()
     {
-        assertWriteVarint(bytes(Byte(0x01)), value:1)
+        assertWriteVarint(bytes(UInt8(0x01)), value:1)
     }
     
     func testWriteVarintThree()
     {
-        assertWriteVarint(bytes(Byte(0x7f)), value:127)
+        assertWriteVarint(bytes(UInt8(0x7f)), value:127)
     }
     
     func testWriteVarintFour()
@@ -157,8 +157,8 @@ internal class CodedOuputStreamTests: XCTestCase
     func testWriteVarintFive()
     {
     // 2961488830
-//        var signedByte:Byte = Byte(129)
-//        var byte:SignedByte = SignedByte(signedByte)
+//        var signedByte:UInt8 = UInt8(129)
+//        var UInt8:SignedByte = SignedByte(signedByte)
         
         var value:Int64 = (0x3e << 0)
         value |= (0x77 << 7)
@@ -267,7 +267,7 @@ internal class CodedOuputStreamTests: XCTestCase
             var output:CodedOutputStream = CodedOutputStream(output:rawOutput, bufferSize:Int32(blockSize))
             message.writeToCodedOutputStream(output)
             output.flush()
-            var actual = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
+            var actual = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
             XCTAssertTrue(rawBytes == actual, "")
         }
   

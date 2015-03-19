@@ -59,7 +59,7 @@ public enum WireFormat:Int32
     
     public static func convertTypes<Type, ReturnType>(var convertValue value:Type, inout retValue:ReturnType)
     {
-        memcpy(&retValue, &value, ByteCount(sizeof(Type)))
+        memcpy(&retValue, &value, sizeof(Type))
     }
     
     public static func logicalRightShift32(var value aValue:Int32, spaces aSpaces:Int32) ->Int32
@@ -323,7 +323,7 @@ public extension String
     }
     func utf8ToNSData()-> NSData
     {
-        var bytes = [Byte]() + self.utf8
+        var bytes = [UInt8]() + self.utf8
         let data = NSData(bytes: bytes, length:bytes.count)
         return data
     }

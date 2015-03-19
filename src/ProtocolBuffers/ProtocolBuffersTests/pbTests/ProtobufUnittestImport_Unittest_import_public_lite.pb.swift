@@ -81,10 +81,10 @@ internal extension ProtobufUnittestImport {
       return ProtobufUnittestImport.PublicImportMessageLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittestImport.PublicImportMessageLiteBuilder {
-      return ProtobufUnittestImport.PublicImportMessageLite.classBuilder() as ProtobufUnittestImport.PublicImportMessageLiteBuilder
+      return ProtobufUnittestImport.PublicImportMessageLite.classBuilder() as! ProtobufUnittestImport.PublicImportMessageLiteBuilder
     }
     internal func builder() -> ProtobufUnittestImport.PublicImportMessageLiteBuilder {
-      return classBuilder() as ProtobufUnittestImport.PublicImportMessageLiteBuilder
+      return classBuilder() as! ProtobufUnittestImport.PublicImportMessageLiteBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittestImport.PublicImportMessageLiteBuilder()

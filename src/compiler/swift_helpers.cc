@@ -645,7 +645,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 if (field->type() == FieldDescriptor::TYPE_BYTES) {
                     if (field->has_default_value()) {
                         return
-                        "NSData(bytes:([Byte]() + \"" + CEscape(field->default_value_string()) + "\".utf8), length:" + SimpleItoa(field->default_value_string().length()) + ")";
+                        "NSData(bytes:([UInt8]() + \"" + CEscape(field->default_value_string()) + "\".utf8), length:" + SimpleItoa(field->default_value_string().length()) + ")";
                     } else {
                         return "NSData()";
                     }

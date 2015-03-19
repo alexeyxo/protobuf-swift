@@ -95,10 +95,10 @@ internal extension ProtobufUnittestImport {
       return ProtobufUnittestImport.ImportMessageLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittestImport.ImportMessageLiteBuilder {
-      return ProtobufUnittestImport.ImportMessageLite.classBuilder() as ProtobufUnittestImport.ImportMessageLiteBuilder
+      return ProtobufUnittestImport.ImportMessageLite.classBuilder() as! ProtobufUnittestImport.ImportMessageLiteBuilder
     }
     internal func builder() -> ProtobufUnittestImport.ImportMessageLiteBuilder {
-      return classBuilder() as ProtobufUnittestImport.ImportMessageLiteBuilder
+      return classBuilder() as! ProtobufUnittestImport.ImportMessageLiteBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittestImport.ImportMessageLiteBuilder()

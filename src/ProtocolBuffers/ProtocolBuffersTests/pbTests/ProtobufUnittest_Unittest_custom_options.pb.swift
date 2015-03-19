@@ -805,10 +805,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.TestMessageWithCustomOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.TestMessageWithCustomOptionsBuilder {
-      return ProtobufUnittest.TestMessageWithCustomOptions.classBuilder() as ProtobufUnittest.TestMessageWithCustomOptionsBuilder
+      return ProtobufUnittest.TestMessageWithCustomOptions.classBuilder() as! ProtobufUnittest.TestMessageWithCustomOptionsBuilder
     }
     internal func builder() -> ProtobufUnittest.TestMessageWithCustomOptionsBuilder {
-      return classBuilder() as ProtobufUnittest.TestMessageWithCustomOptionsBuilder
+      return classBuilder() as! ProtobufUnittest.TestMessageWithCustomOptionsBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestMessageWithCustomOptionsBuilder()
@@ -980,10 +980,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.CustomOptionFooRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.CustomOptionFooRequestBuilder {
-      return ProtobufUnittest.CustomOptionFooRequest.classBuilder() as ProtobufUnittest.CustomOptionFooRequestBuilder
+      return ProtobufUnittest.CustomOptionFooRequest.classBuilder() as! ProtobufUnittest.CustomOptionFooRequestBuilder
     }
     internal func builder() -> ProtobufUnittest.CustomOptionFooRequestBuilder {
-      return classBuilder() as ProtobufUnittest.CustomOptionFooRequestBuilder
+      return classBuilder() as! ProtobufUnittest.CustomOptionFooRequestBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionFooRequestBuilder()
@@ -1120,10 +1120,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.CustomOptionFooResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.CustomOptionFooResponseBuilder {
-      return ProtobufUnittest.CustomOptionFooResponse.classBuilder() as ProtobufUnittest.CustomOptionFooResponseBuilder
+      return ProtobufUnittest.CustomOptionFooResponse.classBuilder() as! ProtobufUnittest.CustomOptionFooResponseBuilder
     }
     internal func builder() -> ProtobufUnittest.CustomOptionFooResponseBuilder {
-      return classBuilder() as ProtobufUnittest.CustomOptionFooResponseBuilder
+      return classBuilder() as! ProtobufUnittest.CustomOptionFooResponseBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionFooResponseBuilder()
@@ -1260,10 +1260,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.CustomOptionFooClientMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.CustomOptionFooClientMessageBuilder {
-      return ProtobufUnittest.CustomOptionFooClientMessage.classBuilder() as ProtobufUnittest.CustomOptionFooClientMessageBuilder
+      return ProtobufUnittest.CustomOptionFooClientMessage.classBuilder() as! ProtobufUnittest.CustomOptionFooClientMessageBuilder
     }
     internal func builder() -> ProtobufUnittest.CustomOptionFooClientMessageBuilder {
-      return classBuilder() as ProtobufUnittest.CustomOptionFooClientMessageBuilder
+      return classBuilder() as! ProtobufUnittest.CustomOptionFooClientMessageBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionFooClientMessageBuilder()
@@ -1400,10 +1400,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.CustomOptionFooServerMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.CustomOptionFooServerMessageBuilder {
-      return ProtobufUnittest.CustomOptionFooServerMessage.classBuilder() as ProtobufUnittest.CustomOptionFooServerMessageBuilder
+      return ProtobufUnittest.CustomOptionFooServerMessage.classBuilder() as! ProtobufUnittest.CustomOptionFooServerMessageBuilder
     }
     internal func builder() -> ProtobufUnittest.CustomOptionFooServerMessageBuilder {
-      return classBuilder() as ProtobufUnittest.CustomOptionFooServerMessageBuilder
+      return classBuilder() as! ProtobufUnittest.CustomOptionFooServerMessageBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionFooServerMessageBuilder()
@@ -1552,10 +1552,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.DummyMessageContainingEnum.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.DummyMessageContainingEnumBuilder {
-      return ProtobufUnittest.DummyMessageContainingEnum.classBuilder() as ProtobufUnittest.DummyMessageContainingEnumBuilder
+      return ProtobufUnittest.DummyMessageContainingEnum.classBuilder() as! ProtobufUnittest.DummyMessageContainingEnumBuilder
     }
     internal func builder() -> ProtobufUnittest.DummyMessageContainingEnumBuilder {
-      return classBuilder() as ProtobufUnittest.DummyMessageContainingEnumBuilder
+      return classBuilder() as! ProtobufUnittest.DummyMessageContainingEnumBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.DummyMessageContainingEnumBuilder()
@@ -1692,10 +1692,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.DummyMessageInvalidAsOptionType.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder {
-      return ProtobufUnittest.DummyMessageInvalidAsOptionType.classBuilder() as ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder
+      return ProtobufUnittest.DummyMessageInvalidAsOptionType.classBuilder() as! ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder
     }
     internal func builder() -> ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder {
-      return classBuilder() as ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder
+      return classBuilder() as! ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.DummyMessageInvalidAsOptionTypeBuilder()
@@ -1832,10 +1832,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.CustomOptionMinIntegerValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.CustomOptionMinIntegerValuesBuilder {
-      return ProtobufUnittest.CustomOptionMinIntegerValues.classBuilder() as ProtobufUnittest.CustomOptionMinIntegerValuesBuilder
+      return ProtobufUnittest.CustomOptionMinIntegerValues.classBuilder() as! ProtobufUnittest.CustomOptionMinIntegerValuesBuilder
     }
     internal func builder() -> ProtobufUnittest.CustomOptionMinIntegerValuesBuilder {
-      return classBuilder() as ProtobufUnittest.CustomOptionMinIntegerValuesBuilder
+      return classBuilder() as! ProtobufUnittest.CustomOptionMinIntegerValuesBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionMinIntegerValuesBuilder()
@@ -1972,10 +1972,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.CustomOptionMaxIntegerValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder {
-      return ProtobufUnittest.CustomOptionMaxIntegerValues.classBuilder() as ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder
+      return ProtobufUnittest.CustomOptionMaxIntegerValues.classBuilder() as! ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder
     }
     internal func builder() -> ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder {
-      return classBuilder() as ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder
+      return classBuilder() as! ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionMaxIntegerValuesBuilder()
@@ -2112,10 +2112,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.CustomOptionOtherValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.CustomOptionOtherValuesBuilder {
-      return ProtobufUnittest.CustomOptionOtherValues.classBuilder() as ProtobufUnittest.CustomOptionOtherValuesBuilder
+      return ProtobufUnittest.CustomOptionOtherValues.classBuilder() as! ProtobufUnittest.CustomOptionOtherValuesBuilder
     }
     internal func builder() -> ProtobufUnittest.CustomOptionOtherValuesBuilder {
-      return classBuilder() as ProtobufUnittest.CustomOptionOtherValuesBuilder
+      return classBuilder() as! ProtobufUnittest.CustomOptionOtherValuesBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionOtherValuesBuilder()
@@ -2252,10 +2252,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.SettingRealsFromPositiveInts.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.SettingRealsFromPositiveIntsBuilder {
-      return ProtobufUnittest.SettingRealsFromPositiveInts.classBuilder() as ProtobufUnittest.SettingRealsFromPositiveIntsBuilder
+      return ProtobufUnittest.SettingRealsFromPositiveInts.classBuilder() as! ProtobufUnittest.SettingRealsFromPositiveIntsBuilder
     }
     internal func builder() -> ProtobufUnittest.SettingRealsFromPositiveIntsBuilder {
-      return classBuilder() as ProtobufUnittest.SettingRealsFromPositiveIntsBuilder
+      return classBuilder() as! ProtobufUnittest.SettingRealsFromPositiveIntsBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.SettingRealsFromPositiveIntsBuilder()
@@ -2392,10 +2392,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.SettingRealsFromNegativeInts.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.SettingRealsFromNegativeIntsBuilder {
-      return ProtobufUnittest.SettingRealsFromNegativeInts.classBuilder() as ProtobufUnittest.SettingRealsFromNegativeIntsBuilder
+      return ProtobufUnittest.SettingRealsFromNegativeInts.classBuilder() as! ProtobufUnittest.SettingRealsFromNegativeIntsBuilder
     }
     internal func builder() -> ProtobufUnittest.SettingRealsFromNegativeIntsBuilder {
-      return classBuilder() as ProtobufUnittest.SettingRealsFromNegativeIntsBuilder
+      return classBuilder() as! ProtobufUnittest.SettingRealsFromNegativeIntsBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.SettingRealsFromNegativeIntsBuilder()
@@ -2576,10 +2576,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.ComplexOptionType1.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.ComplexOptionType1Builder {
-      return ProtobufUnittest.ComplexOptionType1.classBuilder() as ProtobufUnittest.ComplexOptionType1Builder
+      return ProtobufUnittest.ComplexOptionType1.classBuilder() as! ProtobufUnittest.ComplexOptionType1Builder
     }
     internal func builder() -> ProtobufUnittest.ComplexOptionType1Builder {
-      return classBuilder() as ProtobufUnittest.ComplexOptionType1Builder
+      return classBuilder() as! ProtobufUnittest.ComplexOptionType1Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.ComplexOptionType1Builder()
@@ -2871,10 +2871,10 @@ internal extension ProtobufUnittest {
           return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         internal class func builder() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
-          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.classBuilder() as ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder
+          return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.classBuilder() as! ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder
         }
         internal func builder() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
-          return classBuilder() as ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder
+          return classBuilder() as! ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder
         }
         internal override class func classBuilder() -> MessageBuilder {
           return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder()
@@ -3093,10 +3093,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.ComplexOptionType2.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.ComplexOptionType2Builder {
-      return ProtobufUnittest.ComplexOptionType2.classBuilder() as ProtobufUnittest.ComplexOptionType2Builder
+      return ProtobufUnittest.ComplexOptionType2.classBuilder() as! ProtobufUnittest.ComplexOptionType2Builder
     }
     internal func builder() -> ProtobufUnittest.ComplexOptionType2Builder {
-      return classBuilder() as ProtobufUnittest.ComplexOptionType2Builder
+      return classBuilder() as! ProtobufUnittest.ComplexOptionType2Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.ComplexOptionType2Builder()
@@ -3425,10 +3425,10 @@ internal extension ProtobufUnittest {
           return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         internal class func builder() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
-          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.classBuilder() as ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder
+          return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.classBuilder() as! ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder
         }
         internal func builder() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
-          return classBuilder() as ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder
+          return classBuilder() as! ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder
         }
         internal override class func classBuilder() -> MessageBuilder {
           return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder()
@@ -3620,10 +3620,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.ComplexOptionType3.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.ComplexOptionType3Builder {
-      return ProtobufUnittest.ComplexOptionType3.classBuilder() as ProtobufUnittest.ComplexOptionType3Builder
+      return ProtobufUnittest.ComplexOptionType3.classBuilder() as! ProtobufUnittest.ComplexOptionType3Builder
     }
     internal func builder() -> ProtobufUnittest.ComplexOptionType3Builder {
-      return classBuilder() as ProtobufUnittest.ComplexOptionType3Builder
+      return classBuilder() as! ProtobufUnittest.ComplexOptionType3Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.ComplexOptionType3Builder()
@@ -3857,10 +3857,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.ComplexOpt6.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.ComplexOpt6Builder {
-      return ProtobufUnittest.ComplexOpt6.classBuilder() as ProtobufUnittest.ComplexOpt6Builder
+      return ProtobufUnittest.ComplexOpt6.classBuilder() as! ProtobufUnittest.ComplexOpt6Builder
     }
     internal func builder() -> ProtobufUnittest.ComplexOpt6Builder {
-      return classBuilder() as ProtobufUnittest.ComplexOpt6Builder
+      return classBuilder() as! ProtobufUnittest.ComplexOpt6Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.ComplexOpt6Builder()
@@ -4032,10 +4032,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.VariousComplexOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.VariousComplexOptionsBuilder {
-      return ProtobufUnittest.VariousComplexOptions.classBuilder() as ProtobufUnittest.VariousComplexOptionsBuilder
+      return ProtobufUnittest.VariousComplexOptions.classBuilder() as! ProtobufUnittest.VariousComplexOptionsBuilder
     }
     internal func builder() -> ProtobufUnittest.VariousComplexOptionsBuilder {
-      return classBuilder() as ProtobufUnittest.VariousComplexOptionsBuilder
+      return classBuilder() as! ProtobufUnittest.VariousComplexOptionsBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.VariousComplexOptionsBuilder()
@@ -4177,10 +4177,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.AggregateMessageSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.AggregateMessageSetBuilder {
-      return ProtobufUnittest.AggregateMessageSet.classBuilder() as ProtobufUnittest.AggregateMessageSetBuilder
+      return ProtobufUnittest.AggregateMessageSet.classBuilder() as! ProtobufUnittest.AggregateMessageSetBuilder
     }
     internal func builder() -> ProtobufUnittest.AggregateMessageSetBuilder {
-      return classBuilder() as ProtobufUnittest.AggregateMessageSetBuilder
+      return classBuilder() as! ProtobufUnittest.AggregateMessageSetBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.AggregateMessageSetBuilder()
@@ -4332,10 +4332,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.AggregateMessageSetElement.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.AggregateMessageSetElementBuilder {
-      return ProtobufUnittest.AggregateMessageSetElement.classBuilder() as ProtobufUnittest.AggregateMessageSetElementBuilder
+      return ProtobufUnittest.AggregateMessageSetElement.classBuilder() as! ProtobufUnittest.AggregateMessageSetElementBuilder
     }
     internal func builder() -> ProtobufUnittest.AggregateMessageSetElementBuilder {
-      return classBuilder() as ProtobufUnittest.AggregateMessageSetElementBuilder
+      return classBuilder() as! ProtobufUnittest.AggregateMessageSetElementBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.AggregateMessageSetElementBuilder()
@@ -4573,10 +4573,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.Aggregate.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.AggregateBuilder {
-      return ProtobufUnittest.Aggregate.classBuilder() as ProtobufUnittest.AggregateBuilder
+      return ProtobufUnittest.Aggregate.classBuilder() as! ProtobufUnittest.AggregateBuilder
     }
     internal func builder() -> ProtobufUnittest.AggregateBuilder {
-      return classBuilder() as ProtobufUnittest.AggregateBuilder
+      return classBuilder() as! ProtobufUnittest.AggregateBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.AggregateBuilder()
@@ -4951,10 +4951,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.AggregateMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.AggregateMessageBuilder {
-      return ProtobufUnittest.AggregateMessage.classBuilder() as ProtobufUnittest.AggregateMessageBuilder
+      return ProtobufUnittest.AggregateMessage.classBuilder() as! ProtobufUnittest.AggregateMessageBuilder
     }
     internal func builder() -> ProtobufUnittest.AggregateMessageBuilder {
-      return classBuilder() as ProtobufUnittest.AggregateMessageBuilder
+      return classBuilder() as! ProtobufUnittest.AggregateMessageBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.AggregateMessageBuilder()
@@ -5140,10 +5140,10 @@ internal extension ProtobufUnittest {
           return ProtobufUnittest.NestedOptionType.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         internal class func builder() -> ProtobufUnittest.NestedOptionType.NestedMessageBuilder {
-          return ProtobufUnittest.NestedOptionType.NestedMessage.classBuilder() as ProtobufUnittest.NestedOptionType.NestedMessageBuilder
+          return ProtobufUnittest.NestedOptionType.NestedMessage.classBuilder() as! ProtobufUnittest.NestedOptionType.NestedMessageBuilder
         }
         internal func builder() -> ProtobufUnittest.NestedOptionType.NestedMessageBuilder {
-          return classBuilder() as ProtobufUnittest.NestedOptionType.NestedMessageBuilder
+          return classBuilder() as! ProtobufUnittest.NestedOptionType.NestedMessageBuilder
         }
         internal override class func classBuilder() -> MessageBuilder {
           return ProtobufUnittest.NestedOptionType.NestedMessageBuilder()
@@ -5330,10 +5330,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.NestedOptionType.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.NestedOptionTypeBuilder {
-      return ProtobufUnittest.NestedOptionType.classBuilder() as ProtobufUnittest.NestedOptionTypeBuilder
+      return ProtobufUnittest.NestedOptionType.classBuilder() as! ProtobufUnittest.NestedOptionTypeBuilder
     }
     internal func builder() -> ProtobufUnittest.NestedOptionTypeBuilder {
-      return classBuilder() as ProtobufUnittest.NestedOptionTypeBuilder
+      return classBuilder() as! ProtobufUnittest.NestedOptionTypeBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.NestedOptionTypeBuilder()

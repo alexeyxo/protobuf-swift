@@ -228,10 +228,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.TestOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      return ProtobufUnittest.TestOptimizedForSize.classBuilder() as ProtobufUnittest.TestOptimizedForSizeBuilder
+      return ProtobufUnittest.TestOptimizedForSize.classBuilder() as! ProtobufUnittest.TestOptimizedForSizeBuilder
     }
     internal func builder() -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      return classBuilder() as ProtobufUnittest.TestOptimizedForSizeBuilder
+      return classBuilder() as! ProtobufUnittest.TestOptimizedForSizeBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestOptimizedForSizeBuilder()
@@ -541,10 +541,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.TestRequiredOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
-      return ProtobufUnittest.TestRequiredOptimizedForSize.classBuilder() as ProtobufUnittest.TestRequiredOptimizedForSizeBuilder
+      return ProtobufUnittest.TestRequiredOptimizedForSize.classBuilder() as! ProtobufUnittest.TestRequiredOptimizedForSizeBuilder
     }
     internal func builder() -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
-      return classBuilder() as ProtobufUnittest.TestRequiredOptimizedForSizeBuilder
+      return classBuilder() as! ProtobufUnittest.TestRequiredOptimizedForSizeBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestRequiredOptimizedForSizeBuilder()
@@ -731,10 +731,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.TestOptionalOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-      return ProtobufUnittest.TestOptionalOptimizedForSize.classBuilder() as ProtobufUnittest.TestOptionalOptimizedForSizeBuilder
+      return ProtobufUnittest.TestOptionalOptimizedForSize.classBuilder() as! ProtobufUnittest.TestOptionalOptimizedForSizeBuilder
     }
     internal func builder() -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-      return classBuilder() as ProtobufUnittest.TestOptionalOptimizedForSizeBuilder
+      return classBuilder() as! ProtobufUnittest.TestOptionalOptimizedForSizeBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestOptionalOptimizedForSizeBuilder()

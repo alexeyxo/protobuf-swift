@@ -87,7 +87,7 @@ public class CodedInputStream
         
         if input != nil
         {
-            var pointer = UnsafeMutablePointer<Byte>(buffer.mutableBytes)
+            var pointer = UnsafeMutablePointer<UInt8>(buffer.mutableBytes)
             bufferSize = Int32(input!.read(pointer, maxLength:buffer.length))
             
         }
@@ -131,7 +131,7 @@ public class CodedInputStream
         }
         
         if (size <= bufferSize - bufferPos) {
-            var pointer = UnsafePointer<Byte>(buffer.bytes)
+            var pointer = UnsafePointer<UInt8>(buffer.bytes)
             var data = NSData(bytes: pointer + Int(bufferPos), length: Int(size))
             bufferPos += size
             return data
@@ -140,20 +140,20 @@ public class CodedInputStream
             
             var bytes = NSMutableData(length: Int(size))!
             var pos:Int32 = bufferSize - bufferPos
-            memcpy(bytes.mutableBytes, buffer.mutableBytes + Int(bufferPos), UInt(pos))
+            memcpy(bytes.mutableBytes, buffer.mutableBytes + Int(bufferPos), Int(pos))
             bufferPos = bufferSize
             
             refillBuffer(true)
             
             while (size - pos > bufferSize)
             {
-                memcpy(bytes.mutableBytes + Int(pos), buffer.mutableBytes, UInt(bufferSize))
+                memcpy(bytes.mutableBytes + Int(pos), buffer.mutableBytes, Int(bufferSize))
                 pos += bufferSize
                 bufferPos = bufferSize
                 refillBuffer(true)
             }
             
-            memcpy(bytes.mutableBytes + Int(pos), buffer.mutableBytes, UInt(size - pos))
+            memcpy(bytes.mutableBytes + Int(pos), buffer.mutableBytes, Int(size - pos))
             bufferPos = size - pos
             return bytes
             
@@ -181,7 +181,7 @@ public class CodedInputStream
                     var n:Int = 0
                     if input != nil {
                         
-                        var pointer = UnsafeMutablePointer<Byte>(chunk.mutableBytes)
+                        var pointer = UnsafeMutablePointer<UInt8>(chunk.mutableBytes)
                         n = input!.read(pointer + Int(pos), maxLength:chunk.length - Int(pos))
                     }
                     if (n <= 0) {
@@ -197,10 +197,10 @@ public class CodedInputStream
             
             var bytes = NSMutableData(length:Int(size))!
             var pos:Int = originalBufferSize - originalBufferPos
-            memcpy(bytes.mutableBytes, buffer.mutableBytes + Int(originalBufferPos), UInt(pos))
+            memcpy(bytes.mutableBytes, buffer.mutableBytes + Int(originalBufferPos), pos)
             for chunk in chunks
             {
-                memcpy(bytes.mutableBytes + pos, chunk.bytes, UInt(chunk.length))
+                memcpy(bytes.mutableBytes + pos, chunk.bytes, chunk.length)
                 pos += chunk.length
             }
             
@@ -244,7 +244,7 @@ public class CodedInputStream
                 }
                 else
                 {
-                    var pointer = UnsafeMutablePointer<Byte>(data.mutableBytes)
+                    var pointer = UnsafeMutablePointer<UInt8>(data.mutableBytes)
                     n = input!.read(pointer, maxLength:Int(size - pos))
                 }
                 if (n <= 0) {
@@ -258,10 +258,10 @@ public class CodedInputStream
     
     public func readRawLittleEndian32() -> Int32
     {
-        var b1:Byte = readRawByte()
-        var b2:Byte = readRawByte()
-        var b3:Byte = readRawByte()
-        var b4:Byte = readRawByte()
+        var b1:UInt8 = readRawByte()
+        var b2:UInt8 = readRawByte()
+        var b3:UInt8 = readRawByte()
+        var b4:UInt8 = readRawByte()
         var result:Int32 = (Int32(b1) & 0xff)
         result |= ((Int32(b2) & 0xff) <<  8)
         result |= ((Int32(b3) & 0xff) << 16)
@@ -270,14 +270,14 @@ public class CodedInputStream
     }
     public  func readRawLittleEndian64() -> Int64
     {
-        var b1:Byte = readRawByte()
-        var b2:Byte = readRawByte()
-        var b3:Byte = readRawByte()
-        var b4:Byte = readRawByte()
-        var b5:Byte = readRawByte()
-        var b6:Byte = readRawByte()
-        var b7:Byte = readRawByte()
-        var b8:Byte = readRawByte()
+        var b1:UInt8 = readRawByte()
+        var b2:UInt8 = readRawByte()
+        var b3:UInt8 = readRawByte()
+        var b4:UInt8 = readRawByte()
+        var b5:UInt8 = readRawByte()
+        var b6:UInt8 = readRawByte()
+        var b7:UInt8 = readRawByte()
+        var b8:UInt8 = readRawByte()
         var result:Int64  = (Int64(b1) & 0xff)
         result |= ((Int64(b2) & 0xff) <<  8)
         result |= ((Int64(b3) & 0xff) << 16)
@@ -421,13 +421,13 @@ public class CodedInputStream
         return readRawVarint32() != 0
     }
     
-    public func readRawByte() ->Byte
+    public func readRawByte() ->UInt8
     {
         if (bufferPos == bufferSize)
         {
             refillBuffer(true)
         }
-        var pointer = UnsafeMutablePointer<Byte>(buffer.mutableBytes)
+        var pointer = UnsafeMutablePointer<UInt8>(buffer.mutableBytes)
         var res = pointer[Int(bufferPos++)]
         return res
     }
@@ -435,7 +435,7 @@ public class CodedInputStream
     public func readRawVarint32() -> Int32
     {
         //C++ protobuf varints
-        var b:Byte = readRawByte()
+        var b:UInt8 = readRawByte()
         var result:Int32 = Int32(b)
         if (b & 0x80) == 0 {
             return result
@@ -500,14 +500,14 @@ public class CodedInputStream
         var size:Int32 = readRawVarint32()
         if (size <= (bufferSize - bufferPos) && size > 0)
         {
-            var result:String = NSString(bytes: (buffer.mutableBytes + Int(bufferPos)), length: Int(size), encoding:  NSUTF8StringEncoding)!
+            var result:String = NSString(bytes: (buffer.mutableBytes + Int(bufferPos)), length: Int(size), encoding:  NSUTF8StringEncoding)! as String
             bufferPos += size
             return result
         }
         else
         {
             let data = readRawData(size)
-            return NSString(data: data, encoding: NSUTF8StringEncoding)!
+            return NSString(data: data, encoding: NSUTF8StringEncoding)! as String
         }
     }
     

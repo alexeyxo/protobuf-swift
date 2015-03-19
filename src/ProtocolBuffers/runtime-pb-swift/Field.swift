@@ -27,7 +27,7 @@ public func ==(lhs:Field, rhs:Field) -> Bool
     return check
 }
 
-//public func ==(lhs:Array<Array<Byte>>, rhs:Array<Array<Byte>>) -> Bool
+//public func ==(lhs:Array<Array<UInt8>>, rhs:Array<Array<UInt8>>) -> Bool
 //{
 //    if lhs.count == rhs.count
 //    {
@@ -59,7 +59,7 @@ public func ==(lhs:Field, rhs:Field) -> Bool
 //
 //
 //
-//public func ==(lhs:Array<Byte>, rhs:Array<Byte>) -> Bool
+//public func ==(lhs:Array<UInt8>, rhs:Array<UInt8>) -> Bool
 //{
 //    if lhs.count == rhs.count
 //    {

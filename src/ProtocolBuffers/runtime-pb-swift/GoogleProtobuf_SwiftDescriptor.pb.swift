@@ -122,10 +122,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.SwiftFileOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.SwiftFileOptionsBuilder {
-      return Google.Protobuf.SwiftFileOptions.classBuilder() as Google.Protobuf.SwiftFileOptionsBuilder
+      return Google.Protobuf.SwiftFileOptions.classBuilder() as! Google.Protobuf.SwiftFileOptionsBuilder
     }
     public func builder() -> Google.Protobuf.SwiftFileOptionsBuilder {
-      return classBuilder() as Google.Protobuf.SwiftFileOptionsBuilder
+      return classBuilder() as! Google.Protobuf.SwiftFileOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.SwiftFileOptionsBuilder()

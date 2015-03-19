@@ -47,13 +47,13 @@ internal class RingBuffer
         return res
     }
     
-    func appendByte(byte aByte:Byte) -> Bool
+    func appendByte(byte aByte:UInt8) -> Bool
     {
         if freeSpace() < 1
         {
             return false
         }
-        var pointer = UnsafeMutablePointer<Byte>(buffer.mutableBytes)
+        var pointer = UnsafeMutablePointer<UInt8>(buffer.mutableBytes)
         var bpointer = UnsafeMutableBufferPointer(start: pointer, count: buffer.length)
         bpointer[Int(position++)] = aByte
         return true
@@ -67,7 +67,7 @@ internal class RingBuffer
         if (position >= tail)
         {
             totalWritten = min(Int32(buffer.length) - Int32(position), Int32(aLength))
-            memcpy(buffer.mutableBytes + Int(position), input.bytes + Int(aOffset), UInt(totalWritten))
+            memcpy(buffer.mutableBytes + Int(position), input.bytes + Int(aOffset), Int(totalWritten))
             position += totalWritten
             if totalWritten == aLength
             {
@@ -90,7 +90,7 @@ internal class RingBuffer
         }
         
         let written:Int32 = min(Int32(freeSpaces), aLength)
-        memcpy(buffer.mutableBytes + Int(position), input.bytes + Int(aOffset), UInt(written))
+        memcpy(buffer.mutableBytes + Int(position), input.bytes + Int(aOffset), Int(written))
         position += written
         totalWritten += written
         
@@ -102,7 +102,7 @@ internal class RingBuffer
         var totalWritten:Int32 = 0
         
         var data = buffer
-        var pointer = UnsafeMutablePointer<Byte>(data.mutableBytes)
+        var pointer = UnsafeMutablePointer<UInt8>(data.mutableBytes)
         if tail > position
         {
             

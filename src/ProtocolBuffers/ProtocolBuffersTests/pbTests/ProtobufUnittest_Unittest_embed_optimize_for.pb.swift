@@ -106,10 +106,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.TestEmbedOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
-      return ProtobufUnittest.TestEmbedOptimizedForSize.classBuilder() as ProtobufUnittest.TestEmbedOptimizedForSizeBuilder
+      return ProtobufUnittest.TestEmbedOptimizedForSize.classBuilder() as! ProtobufUnittest.TestEmbedOptimizedForSizeBuilder
     }
     internal func builder() -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
-      return classBuilder() as ProtobufUnittest.TestEmbedOptimizedForSizeBuilder
+      return classBuilder() as! ProtobufUnittest.TestEmbedOptimizedForSizeBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestEmbedOptimizedForSizeBuilder()

@@ -18,7 +18,7 @@ class  TestUtilities {
     }
     
     class func getData(str:String) -> NSData {
-        var bytes = [Byte]()
+        var bytes = [UInt8]()
         bytes += str.utf8
         return NSData(bytes:&bytes, length:bytes.count)
     }
@@ -277,7 +277,7 @@ class  TestUtilities {
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<Array<Byte>>
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<Array<UInt8>>
         {
             XCTAssertTrue(2 == val.count, "")
         }
@@ -721,7 +721,7 @@ class  TestUtilities {
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<Array<Byte>>
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<Array<UInt8>>
         {
             XCTAssertTrue(2 == val.count, "")
         }
@@ -1373,7 +1373,7 @@ class  TestUtilities {
         builder.bb = 602
         message.oneofNestedMessage = builder.build()
         message.oneofString = "603"
-        message.oneofBytes = NSData(bytes: ([Byte]() + "604".utf8), length: 3)
+        message.oneofBytes = NSData(bytes: ([UInt8]() + "604".utf8), length: 3)
     }
     
     class func setAllExtensions(message:ProtobufUnittest.TestAllExtensionsBuilder)
@@ -1912,7 +1912,7 @@ class  TestUtilities {
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<Array<Byte>>
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<Array<UInt8>>
         {
             XCTAssertTrue(0 == val.count, "")
         }

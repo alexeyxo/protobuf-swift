@@ -109,10 +109,10 @@ internal extension Google.Protobuf.NoGenericServicesTest {
       return Google.Protobuf.NoGenericServicesTest.TestMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> Google.Protobuf.NoGenericServicesTest.TestMessageBuilder {
-      return Google.Protobuf.NoGenericServicesTest.TestMessage.classBuilder() as Google.Protobuf.NoGenericServicesTest.TestMessageBuilder
+      return Google.Protobuf.NoGenericServicesTest.TestMessage.classBuilder() as! Google.Protobuf.NoGenericServicesTest.TestMessageBuilder
     }
     internal func builder() -> Google.Protobuf.NoGenericServicesTest.TestMessageBuilder {
-      return classBuilder() as Google.Protobuf.NoGenericServicesTest.TestMessageBuilder
+      return classBuilder() as! Google.Protobuf.NoGenericServicesTest.TestMessageBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.NoGenericServicesTest.TestMessageBuilder()

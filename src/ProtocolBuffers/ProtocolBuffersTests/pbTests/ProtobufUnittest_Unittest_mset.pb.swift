@@ -139,10 +139,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.TestMessageSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.TestMessageSetBuilder {
-      return ProtobufUnittest.TestMessageSet.classBuilder() as ProtobufUnittest.TestMessageSetBuilder
+      return ProtobufUnittest.TestMessageSet.classBuilder() as! ProtobufUnittest.TestMessageSetBuilder
     }
     internal func builder() -> ProtobufUnittest.TestMessageSetBuilder {
-      return classBuilder() as ProtobufUnittest.TestMessageSetBuilder
+      return classBuilder() as! ProtobufUnittest.TestMessageSetBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestMessageSetBuilder()
@@ -297,10 +297,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.TestMessageSetContainer.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.TestMessageSetContainerBuilder {
-      return ProtobufUnittest.TestMessageSetContainer.classBuilder() as ProtobufUnittest.TestMessageSetContainerBuilder
+      return ProtobufUnittest.TestMessageSetContainer.classBuilder() as! ProtobufUnittest.TestMessageSetContainerBuilder
     }
     internal func builder() -> ProtobufUnittest.TestMessageSetContainerBuilder {
-      return classBuilder() as ProtobufUnittest.TestMessageSetContainerBuilder
+      return classBuilder() as! ProtobufUnittest.TestMessageSetContainerBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestMessageSetContainerBuilder()
@@ -502,10 +502,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.TestMessageSetExtension1.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.TestMessageSetExtension1Builder {
-      return ProtobufUnittest.TestMessageSetExtension1.classBuilder() as ProtobufUnittest.TestMessageSetExtension1Builder
+      return ProtobufUnittest.TestMessageSetExtension1.classBuilder() as! ProtobufUnittest.TestMessageSetExtension1Builder
     }
     internal func builder() -> ProtobufUnittest.TestMessageSetExtension1Builder {
-      return classBuilder() as ProtobufUnittest.TestMessageSetExtension1Builder
+      return classBuilder() as! ProtobufUnittest.TestMessageSetExtension1Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestMessageSetExtension1Builder()
@@ -689,10 +689,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.TestMessageSetExtension2.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.TestMessageSetExtension2Builder {
-      return ProtobufUnittest.TestMessageSetExtension2.classBuilder() as ProtobufUnittest.TestMessageSetExtension2Builder
+      return ProtobufUnittest.TestMessageSetExtension2.classBuilder() as! ProtobufUnittest.TestMessageSetExtension2Builder
     }
     internal func builder() -> ProtobufUnittest.TestMessageSetExtension2Builder {
-      return classBuilder() as ProtobufUnittest.TestMessageSetExtension2Builder
+      return classBuilder() as! ProtobufUnittest.TestMessageSetExtension2Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestMessageSetExtension2Builder()
@@ -893,10 +893,10 @@ internal extension ProtobufUnittest {
           return ProtobufUnittest.RawMessageSet.Item.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         internal class func builder() -> ProtobufUnittest.RawMessageSet.ItemBuilder {
-          return ProtobufUnittest.RawMessageSet.Item.classBuilder() as ProtobufUnittest.RawMessageSet.ItemBuilder
+          return ProtobufUnittest.RawMessageSet.Item.classBuilder() as! ProtobufUnittest.RawMessageSet.ItemBuilder
         }
         internal func builder() -> ProtobufUnittest.RawMessageSet.ItemBuilder {
-          return classBuilder() as ProtobufUnittest.RawMessageSet.ItemBuilder
+          return classBuilder() as! ProtobufUnittest.RawMessageSet.ItemBuilder
         }
         internal override class func classBuilder() -> MessageBuilder {
           return ProtobufUnittest.RawMessageSet.ItemBuilder()
@@ -1121,10 +1121,10 @@ internal extension ProtobufUnittest {
       return ProtobufUnittest.RawMessageSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> ProtobufUnittest.RawMessageSetBuilder {
-      return ProtobufUnittest.RawMessageSet.classBuilder() as ProtobufUnittest.RawMessageSetBuilder
+      return ProtobufUnittest.RawMessageSet.classBuilder() as! ProtobufUnittest.RawMessageSetBuilder
     }
     internal func builder() -> ProtobufUnittest.RawMessageSetBuilder {
-      return classBuilder() as ProtobufUnittest.RawMessageSetBuilder
+      return classBuilder() as! ProtobufUnittest.RawMessageSetBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.RawMessageSetBuilder()

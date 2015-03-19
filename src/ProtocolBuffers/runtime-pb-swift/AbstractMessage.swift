@@ -33,7 +33,7 @@ public protocol Message:class,MessageInit
     func writeToCodedOutputStream(output:CodedOutputStream)
     func writeToOutputStream(output:NSOutputStream)
     func data()-> NSData
-    class func classBuilder()-> MessageBuilder
+    static func classBuilder()-> MessageBuilder
     func classBuilder()-> MessageBuilder
     
 }

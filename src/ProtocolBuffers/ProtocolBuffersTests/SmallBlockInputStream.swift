@@ -37,8 +37,11 @@ class SmallBlockInputStream:NSInputStream
         return underlyingStream!.getBuffer(buffer, length: len)
     }
     
-    
-    func hasBytesAvailable() -> Bool {
-        return underlyingStream!.hasBytesAvailable
+    override var hasBytesAvailable:Bool
+    {
+        get {
+            return underlyingStream!.hasBytesAvailable
+        }
     }
+    
 }

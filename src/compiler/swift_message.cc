@@ -325,10 +325,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(
                        
                        "$acontrol$ class func builder() -> $classname$Builder {\n"
-                       "  return $classname$.classBuilder() as $classname$Builder\n"
+                       "  return $classname$.classBuilder() as! $classname$Builder\n"
                        "}\n"
                        "$acontrol$ func builder() -> $classname$Builder {\n"
-                       "  return classBuilder() as $classname$Builder\n"
+                       "  return classBuilder() as! $classname$Builder\n"
                        "}\n"
                        "$acontrol$ override class func classBuilder() -> MessageBuilder {\n"
                        "  return $classname$Builder()\n"

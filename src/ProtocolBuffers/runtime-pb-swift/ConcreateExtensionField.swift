@@ -154,79 +154,79 @@ messageOrGroupClass:Any.Type,
         switch type {
 
         case .ExtensionTypeBool:
-            var downCastValue = value as Bool
+            var downCastValue = value as! Bool
             output.writeBool(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeFixed32:
-            var downCastValue = value as UInt32
+            var downCastValue = value as! UInt32
             output.writeFixed32(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeSFixed32:
-             var downCastValue = value as Int32
+             var downCastValue = value as! Int32
             output.writeSFixed32(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeFixed64:
-            var downCastValue = value as UInt64
+            var downCastValue = value as! UInt64
             output.writeFixed64(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeSFixed64:
-            var downCastValue = value as Int64
+            var downCastValue = value as! Int64
             output.writeSFixed64(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeDouble:
-            var downCastValue = value as Double
+            var downCastValue = value as! Double
             output.writeDouble(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeFloat:
-            var downCastValue = value as Float
+            var downCastValue = value as! Float
             output.writeFloat(fieldNumber, value:downCastValue)
        
         case .ExtensionTypeInt32:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             output.writeInt32(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeInt64:
-            var downCastValue = value as Int64
+            var downCastValue = value as! Int64
             output.writeInt64(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeSInt32:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             output.writeSInt32(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeSInt64:
-            var downCastValue = value as Int64
+            var downCastValue = value as! Int64
             output.writeSInt64(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeUInt32:
-            var downCastValue = value as UInt32
+            var downCastValue = value as! UInt32
             output.writeUInt32(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeUInt64:
-            var downCastValue = value as UInt64
+            var downCastValue = value as! UInt64
             output.writeUInt64(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeBytes:
-            var downCastValue = value as NSData
+            var downCastValue = value as! NSData
             output.writeData(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeString:
-            var downCastValue = value as String
+            var downCastValue = value as! String
             output.writeString(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeEnum:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             output.writeEnum(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeGroup:
-            var downCastValue = value as GeneratedMessage
+            var downCastValue = value as! GeneratedMessage
             output.writeGroup(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeMessage where isMessageSetWireFormat == true:
-            var downCastValue = value as GeneratedMessage
+            var downCastValue = value as! GeneratedMessage
             output.writeMessageSetExtension(fieldNumber, value:downCastValue)
         
         case .ExtensionTypeMessage where isMessageSetWireFormat == false:
-            var downCastValue = value as GeneratedMessage
+            var downCastValue = value as! GeneratedMessage
             output.writeMessage(fieldNumber, value:downCastValue)
         
         default:
@@ -239,75 +239,75 @@ messageOrGroupClass:Any.Type,
         switch type {
 
         case .ExtensionTypeBool:
-            var downCastValue = value as Bool
+            var downCastValue = value as! Bool
             output.writeBoolNoTag(downCastValue)
             
         case .ExtensionTypeFixed32:
-            var downCastValue = value as UInt32
+            var downCastValue = value as! UInt32
             output.writeFixed32NoTag(downCastValue)
         
         case .ExtensionTypeSFixed32:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             output.writeSFixed32NoTag(downCastValue)
         
         case .ExtensionTypeInt32:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             output.writeInt32NoTag(downCastValue)
             
         case .ExtensionTypeSInt32:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             output.writeSInt32NoTag(downCastValue)
             
         case .ExtensionTypeEnum:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             output.writeEnumNoTag(downCastValue)
             
         case .ExtensionTypeFixed64:
-            var downCastValue = value as UInt64
+            var downCastValue = value as! UInt64
             output.writeFixed64NoTag(downCastValue)
             
         case .ExtensionTypeInt64:
-            var downCastValue = value as Int64
+            var downCastValue = value as! Int64
             output.writeInt64NoTag(downCastValue)
             
         case .ExtensionTypeSInt64:
-            var downCastValue = value as Int64
+            var downCastValue = value as! Int64
             output.writeSInt64NoTag(downCastValue)
         
         case .ExtensionTypeSFixed64:
-            var downCastValue = value as Int64
+            var downCastValue = value as! Int64
             output.writeSFixed64NoTag(downCastValue)
             
         case .ExtensionTypeDouble:
-            var downCastValue = value as Double
+            var downCastValue = value as! Double
             output.writeDoubleNoTag(downCastValue)
             
         case .ExtensionTypeFloat:
-            var downCastValue = value as Float
+            var downCastValue = value as! Float
             output.writeFloatNoTag(downCastValue)
 
         case .ExtensionTypeUInt32:
-            var downCastValue = value as UInt32
+            var downCastValue = value as! UInt32
             output.writeUInt32NoTag(downCastValue)
         
         case .ExtensionTypeUInt64:
-            var downCastValue = value as UInt64
+            var downCastValue = value as! UInt64
             output.writeUInt64NoTag(downCastValue)
         
         case .ExtensionTypeBytes:
-            var downCastValue = value as NSData
+            var downCastValue = value as! NSData
             output.writeDataNoTag(downCastValue)
 
         case .ExtensionTypeString:
-            var downCastValue = value as String
+            var downCastValue = value as! String
             output.writeStringNoTag(downCastValue)
         
         case .ExtensionTypeGroup:
-            var downCastValue = value as GeneratedMessage
+            var downCastValue = value as! GeneratedMessage
             output.writeGroupNoTag(fieldNumber, value:downCastValue)
 
         case .ExtensionTypeMessage:
-            var downCastValue = value as GeneratedMessage
+            var downCastValue = value as! GeneratedMessage
             output.writeMessageNoTag(downCastValue)
             
         default:
@@ -320,79 +320,79 @@ messageOrGroupClass:Any.Type,
         switch type {
         
         case .ExtensionTypeBool:
-            var downCastValue = value as Bool
+            var downCastValue = value as! Bool
             return downCastValue.computeBoolSize(fieldNumber)
 
         case .ExtensionTypeFixed32:
-            var downCastValue = value as UInt32
+            var downCastValue = value as! UInt32
             return downCastValue.computeFixed32Size(fieldNumber)
             
         case .ExtensionTypeSFixed32:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             return downCastValue.computeSFixed32Size(fieldNumber)
             
         case .ExtensionTypeSInt32:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             return downCastValue.computeSInt32Size(fieldNumber)
             
         case .ExtensionTypeInt32:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             return downCastValue.computeInt32Size(fieldNumber)
             
         case .ExtensionTypeEnum:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             return downCastValue.computeEnumSize(fieldNumber)
             
         case .ExtensionTypeFixed64:
-            var downCastValue = value as UInt64
+            var downCastValue = value as! UInt64
             return downCastValue.computeFixed64Size(fieldNumber)
             
         case .ExtensionTypeSFixed64:
-            var downCastValue = value as Int64
+            var downCastValue = value as! Int64
             return downCastValue.computeSFixed64Size(fieldNumber)
 
         case .ExtensionTypeInt64:
-            var downCastValue = value as Int64
+            var downCastValue = value as! Int64
             return downCastValue.computeInt64Size(fieldNumber)
             
         case .ExtensionTypeSInt64:
-            var downCastValue = value as Int64
+            var downCastValue = value as! Int64
             return downCastValue.computeSInt64Size(fieldNumber)
             
         case .ExtensionTypeFloat:
-            var downCastValue = value as Float
+            var downCastValue = value as! Float
             return downCastValue.computeFloatSize(fieldNumber)
             
         case .ExtensionTypeDouble:
-            var downCastValue = value as Double
+            var downCastValue = value as! Double
              return downCastValue.computeDoubleSize(fieldNumber)
             
         case .ExtensionTypeUInt32:
-            var downCastValue = value as UInt32
+            var downCastValue = value as! UInt32
             return downCastValue.computeUInt32Size(fieldNumber)
             
         case .ExtensionTypeUInt64:
-            var downCastValue = value as UInt64
+            var downCastValue = value as! UInt64
            return downCastValue.computeUInt64Size(fieldNumber)
             
         case .ExtensionTypeBytes:
-            var downCastValue = value as NSData
+            var downCastValue = value as! NSData
             return downCastValue.computeDataSize(fieldNumber)
             
         case .ExtensionTypeString:
-            var downCastValue = value as String
+            var downCastValue = value as! String
             return downCastValue.computeStringSize(fieldNumber)
             
         case .ExtensionTypeGroup:
-            var downCastValue = value as GeneratedMessage
+            var downCastValue = value as! GeneratedMessage
             return downCastValue.computeGroupSize(fieldNumber)
             
         case .ExtensionTypeMessage where isMessageSetWireFormat == true:
-            var downCastValue = value as GeneratedMessage
+            var downCastValue = value as! GeneratedMessage
             return downCastValue.computeMessageSetExtensionSize(fieldNumber)
             
         case .ExtensionTypeMessage where isMessageSetWireFormat == false:
-            var downCastValue = value as GeneratedMessage
+            var downCastValue = value as! GeneratedMessage
             return downCastValue.computeMessageSize(fieldNumber)
             
         default:
@@ -406,75 +406,75 @@ messageOrGroupClass:Any.Type,
         switch type {
 
         case .ExtensionTypeBool:
-            var downCastValue = value as Bool
+            var downCastValue = value as! Bool
             return downCastValue.computeBoolSizeNoTag()
             
         case .ExtensionTypeFixed32:
-            var downCastValue = value as UInt32
+            var downCastValue = value as! UInt32
             return downCastValue.computeFixed32SizeNoTag()
             
         case .ExtensionTypeSFixed32:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             return downCastValue.computeSFixed32SizeNoTag()
         
         case .ExtensionTypeInt32:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             return downCastValue.computeInt32SizeNoTag()
         
         case .ExtensionTypeSInt32:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             return downCastValue.computeSInt32SizeNoTag()
             
         case .ExtensionTypeEnum:
-            var downCastValue = value as Int32
+            var downCastValue = value as! Int32
             return downCastValue.computeEnumSizeNoTag()
             
         case .ExtensionTypeFixed64:
-            var downCastValue = value as UInt64
+            var downCastValue = value as! UInt64
             return downCastValue.computeFixed64SizeNoTag()
             
         case .ExtensionTypeSFixed64:
-            var downCastValue = value as Int64
+            var downCastValue = value as! Int64
             return downCastValue.computeSFixed64SizeNoTag()
         
         case .ExtensionTypeInt64:
-            var downCastValue = value as Int64
+            var downCastValue = value as! Int64
             return downCastValue.computeInt64SizeNoTag()
             
         case .ExtensionTypeSInt64:
-            var downCastValue = value as Int64
+            var downCastValue = value as! Int64
             return downCastValue.computeSInt64SizeNoTag()
             
         case .ExtensionTypeFloat:
-            var downCastValue = value as Float
+            var downCastValue = value as! Float
             return downCastValue.computeFloatSizeNoTag()
             
         case .ExtensionTypeDouble:
-            var downCastValue = value as Double
+            var downCastValue = value as! Double
             return downCastValue.computeDoubleSizeNoTag()
             
         case .ExtensionTypeUInt32:
-            var downCastValue = value as UInt32
+            var downCastValue = value as! UInt32
             return downCastValue.computeUInt32SizeNoTag()
             
         case .ExtensionTypeUInt64:
-            var downCastValue = value as UInt64
+            var downCastValue = value as! UInt64
             return downCastValue.computeUInt64SizeNoTag()
             
         case .ExtensionTypeBytes:
-            var downCastValue = value as NSData
+            var downCastValue = value as! NSData
             return downCastValue.computeDataSizeNoTag()
             
         case .ExtensionTypeString:
-            var downCastValue = value as String
+            var downCastValue = value as! String
             return downCastValue.computeStringSizeNoTag()
             
         case .ExtensionTypeGroup:
-            var downCastValue = value as GeneratedMessage
+            var downCastValue = value as! GeneratedMessage
             return downCastValue.computeGroupSizeNoTag()
             
         case .ExtensionTypeMessage:
-            var downCastValue = value as GeneratedMessage
+            var downCastValue = value as! GeneratedMessage
             return downCastValue.computeMessageSizeNoTag()
             
         default:

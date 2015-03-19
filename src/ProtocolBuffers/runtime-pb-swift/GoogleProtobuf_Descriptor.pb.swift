@@ -344,10 +344,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.FileDescriptorSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.FileDescriptorSetBuilder {
-      return Google.Protobuf.FileDescriptorSet.classBuilder() as Google.Protobuf.FileDescriptorSetBuilder
+      return Google.Protobuf.FileDescriptorSet.classBuilder() as! Google.Protobuf.FileDescriptorSetBuilder
     }
     public func builder() -> Google.Protobuf.FileDescriptorSetBuilder {
-      return classBuilder() as Google.Protobuf.FileDescriptorSetBuilder
+      return classBuilder() as! Google.Protobuf.FileDescriptorSetBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.FileDescriptorSetBuilder()
@@ -665,10 +665,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.FileDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.FileDescriptorProtoBuilder {
-      return Google.Protobuf.FileDescriptorProto.classBuilder() as Google.Protobuf.FileDescriptorProtoBuilder
+      return Google.Protobuf.FileDescriptorProto.classBuilder() as! Google.Protobuf.FileDescriptorProtoBuilder
     }
     public func builder() -> Google.Protobuf.FileDescriptorProtoBuilder {
-      return classBuilder() as Google.Protobuf.FileDescriptorProtoBuilder
+      return classBuilder() as! Google.Protobuf.FileDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.FileDescriptorProtoBuilder()
@@ -1230,10 +1230,10 @@ public extension Google.Protobuf {
           return Google.Protobuf.DescriptorProto.ExtensionRange.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         public class func builder() -> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.classBuilder() as Google.Protobuf.DescriptorProto.ExtensionRangeBuilder
+          return Google.Protobuf.DescriptorProto.ExtensionRange.classBuilder() as! Google.Protobuf.DescriptorProto.ExtensionRangeBuilder
         }
         public func builder() -> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
-          return classBuilder() as Google.Protobuf.DescriptorProto.ExtensionRangeBuilder
+          return classBuilder() as! Google.Protobuf.DescriptorProto.ExtensionRangeBuilder
         }
         public override class func classBuilder() -> MessageBuilder {
           return Google.Protobuf.DescriptorProto.ExtensionRangeBuilder()
@@ -1547,10 +1547,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.DescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.DescriptorProtoBuilder {
-      return Google.Protobuf.DescriptorProto.classBuilder() as Google.Protobuf.DescriptorProtoBuilder
+      return Google.Protobuf.DescriptorProto.classBuilder() as! Google.Protobuf.DescriptorProtoBuilder
     }
     public func builder() -> Google.Protobuf.DescriptorProtoBuilder {
-      return classBuilder() as Google.Protobuf.DescriptorProtoBuilder
+      return classBuilder() as! Google.Protobuf.DescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.DescriptorProtoBuilder()
@@ -2105,10 +2105,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.FieldDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.FieldDescriptorProtoBuilder {
-      return Google.Protobuf.FieldDescriptorProto.classBuilder() as Google.Protobuf.FieldDescriptorProtoBuilder
+      return Google.Protobuf.FieldDescriptorProto.classBuilder() as! Google.Protobuf.FieldDescriptorProtoBuilder
     }
     public func builder() -> Google.Protobuf.FieldDescriptorProtoBuilder {
-      return classBuilder() as Google.Protobuf.FieldDescriptorProtoBuilder
+      return classBuilder() as! Google.Protobuf.FieldDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.FieldDescriptorProtoBuilder()
@@ -2597,10 +2597,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.OneofDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.OneofDescriptorProtoBuilder {
-      return Google.Protobuf.OneofDescriptorProto.classBuilder() as Google.Protobuf.OneofDescriptorProtoBuilder
+      return Google.Protobuf.OneofDescriptorProto.classBuilder() as! Google.Protobuf.OneofDescriptorProtoBuilder
     }
     public func builder() -> Google.Protobuf.OneofDescriptorProtoBuilder {
-      return classBuilder() as Google.Protobuf.OneofDescriptorProtoBuilder
+      return classBuilder() as! Google.Protobuf.OneofDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.OneofDescriptorProtoBuilder()
@@ -2813,10 +2813,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.EnumDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.EnumDescriptorProtoBuilder {
-      return Google.Protobuf.EnumDescriptorProto.classBuilder() as Google.Protobuf.EnumDescriptorProtoBuilder
+      return Google.Protobuf.EnumDescriptorProto.classBuilder() as! Google.Protobuf.EnumDescriptorProtoBuilder
     }
     public func builder() -> Google.Protobuf.EnumDescriptorProtoBuilder {
-      return classBuilder() as Google.Protobuf.EnumDescriptorProtoBuilder
+      return classBuilder() as! Google.Protobuf.EnumDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.EnumDescriptorProtoBuilder()
@@ -3108,10 +3108,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.EnumValueDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
-      return Google.Protobuf.EnumValueDescriptorProto.classBuilder() as Google.Protobuf.EnumValueDescriptorProtoBuilder
+      return Google.Protobuf.EnumValueDescriptorProto.classBuilder() as! Google.Protobuf.EnumValueDescriptorProtoBuilder
     }
     public func builder() -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
-      return classBuilder() as Google.Protobuf.EnumValueDescriptorProtoBuilder
+      return classBuilder() as! Google.Protobuf.EnumValueDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.EnumValueDescriptorProtoBuilder()
@@ -3412,10 +3412,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.ServiceDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.ServiceDescriptorProtoBuilder {
-      return Google.Protobuf.ServiceDescriptorProto.classBuilder() as Google.Protobuf.ServiceDescriptorProtoBuilder
+      return Google.Protobuf.ServiceDescriptorProto.classBuilder() as! Google.Protobuf.ServiceDescriptorProtoBuilder
     }
     public func builder() -> Google.Protobuf.ServiceDescriptorProtoBuilder {
-      return classBuilder() as Google.Protobuf.ServiceDescriptorProtoBuilder
+      return classBuilder() as! Google.Protobuf.ServiceDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.ServiceDescriptorProtoBuilder()
@@ -3716,10 +3716,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.MethodDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.MethodDescriptorProtoBuilder {
-      return Google.Protobuf.MethodDescriptorProto.classBuilder() as Google.Protobuf.MethodDescriptorProtoBuilder
+      return Google.Protobuf.MethodDescriptorProto.classBuilder() as! Google.Protobuf.MethodDescriptorProtoBuilder
     }
     public func builder() -> Google.Protobuf.MethodDescriptorProtoBuilder {
-      return classBuilder() as Google.Protobuf.MethodDescriptorProtoBuilder
+      return classBuilder() as! Google.Protobuf.MethodDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.MethodDescriptorProtoBuilder()
@@ -4147,10 +4147,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.FileOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.FileOptionsBuilder {
-      return Google.Protobuf.FileOptions.classBuilder() as Google.Protobuf.FileOptionsBuilder
+      return Google.Protobuf.FileOptions.classBuilder() as! Google.Protobuf.FileOptionsBuilder
     }
     public func builder() -> Google.Protobuf.FileOptionsBuilder {
-      return classBuilder() as Google.Protobuf.FileOptionsBuilder
+      return classBuilder() as! Google.Protobuf.FileOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.FileOptionsBuilder()
@@ -4763,10 +4763,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.MessageOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.MessageOptionsBuilder {
-      return Google.Protobuf.MessageOptions.classBuilder() as Google.Protobuf.MessageOptionsBuilder
+      return Google.Protobuf.MessageOptions.classBuilder() as! Google.Protobuf.MessageOptionsBuilder
     }
     public func builder() -> Google.Protobuf.MessageOptionsBuilder {
-      return classBuilder() as Google.Protobuf.MessageOptionsBuilder
+      return classBuilder() as! Google.Protobuf.MessageOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.MessageOptionsBuilder()
@@ -5133,10 +5133,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.FieldOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.FieldOptionsBuilder {
-      return Google.Protobuf.FieldOptions.classBuilder() as Google.Protobuf.FieldOptionsBuilder
+      return Google.Protobuf.FieldOptions.classBuilder() as! Google.Protobuf.FieldOptionsBuilder
     }
     public func builder() -> Google.Protobuf.FieldOptionsBuilder {
-      return classBuilder() as Google.Protobuf.FieldOptionsBuilder
+      return classBuilder() as! Google.Protobuf.FieldOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.FieldOptionsBuilder()
@@ -5565,10 +5565,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.EnumOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.EnumOptionsBuilder {
-      return Google.Protobuf.EnumOptions.classBuilder() as Google.Protobuf.EnumOptionsBuilder
+      return Google.Protobuf.EnumOptions.classBuilder() as! Google.Protobuf.EnumOptionsBuilder
     }
     public func builder() -> Google.Protobuf.EnumOptionsBuilder {
-      return classBuilder() as Google.Protobuf.EnumOptionsBuilder
+      return classBuilder() as! Google.Protobuf.EnumOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.EnumOptionsBuilder()
@@ -5843,10 +5843,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.EnumValueOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.EnumValueOptionsBuilder {
-      return Google.Protobuf.EnumValueOptions.classBuilder() as Google.Protobuf.EnumValueOptionsBuilder
+      return Google.Protobuf.EnumValueOptions.classBuilder() as! Google.Protobuf.EnumValueOptionsBuilder
     }
     public func builder() -> Google.Protobuf.EnumValueOptionsBuilder {
-      return classBuilder() as Google.Protobuf.EnumValueOptionsBuilder
+      return classBuilder() as! Google.Protobuf.EnumValueOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.EnumValueOptionsBuilder()
@@ -6086,10 +6086,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.ServiceOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.ServiceOptionsBuilder {
-      return Google.Protobuf.ServiceOptions.classBuilder() as Google.Protobuf.ServiceOptionsBuilder
+      return Google.Protobuf.ServiceOptions.classBuilder() as! Google.Protobuf.ServiceOptionsBuilder
     }
     public func builder() -> Google.Protobuf.ServiceOptionsBuilder {
-      return classBuilder() as Google.Protobuf.ServiceOptionsBuilder
+      return classBuilder() as! Google.Protobuf.ServiceOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.ServiceOptionsBuilder()
@@ -6329,10 +6329,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.MethodOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.MethodOptionsBuilder {
-      return Google.Protobuf.MethodOptions.classBuilder() as Google.Protobuf.MethodOptionsBuilder
+      return Google.Protobuf.MethodOptions.classBuilder() as! Google.Protobuf.MethodOptionsBuilder
     }
     public func builder() -> Google.Protobuf.MethodOptionsBuilder {
-      return classBuilder() as Google.Protobuf.MethodOptionsBuilder
+      return classBuilder() as! Google.Protobuf.MethodOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.MethodOptionsBuilder()
@@ -6570,10 +6570,10 @@ public extension Google.Protobuf {
           return Google.Protobuf.UninterpretedOption.NamePart.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         public class func builder() -> Google.Protobuf.UninterpretedOption.NamePartBuilder {
-          return Google.Protobuf.UninterpretedOption.NamePart.classBuilder() as Google.Protobuf.UninterpretedOption.NamePartBuilder
+          return Google.Protobuf.UninterpretedOption.NamePart.classBuilder() as! Google.Protobuf.UninterpretedOption.NamePartBuilder
         }
         public func builder() -> Google.Protobuf.UninterpretedOption.NamePartBuilder {
-          return classBuilder() as Google.Protobuf.UninterpretedOption.NamePartBuilder
+          return classBuilder() as! Google.Protobuf.UninterpretedOption.NamePartBuilder
         }
         public override class func classBuilder() -> MessageBuilder {
           return Google.Protobuf.UninterpretedOption.NamePartBuilder()
@@ -6852,10 +6852,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.UninterpretedOption.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.UninterpretedOptionBuilder {
-      return Google.Protobuf.UninterpretedOption.classBuilder() as Google.Protobuf.UninterpretedOptionBuilder
+      return Google.Protobuf.UninterpretedOption.classBuilder() as! Google.Protobuf.UninterpretedOptionBuilder
     }
     public func builder() -> Google.Protobuf.UninterpretedOptionBuilder {
-      return classBuilder() as Google.Protobuf.UninterpretedOptionBuilder
+      return classBuilder() as! Google.Protobuf.UninterpretedOptionBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.UninterpretedOptionBuilder()
@@ -7297,10 +7297,10 @@ public extension Google.Protobuf {
           return Google.Protobuf.SourceCodeInfo.Location.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         public class func builder() -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
-          return Google.Protobuf.SourceCodeInfo.Location.classBuilder() as Google.Protobuf.SourceCodeInfo.LocationBuilder
+          return Google.Protobuf.SourceCodeInfo.Location.classBuilder() as! Google.Protobuf.SourceCodeInfo.LocationBuilder
         }
         public func builder() -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
-          return classBuilder() as Google.Protobuf.SourceCodeInfo.LocationBuilder
+          return classBuilder() as! Google.Protobuf.SourceCodeInfo.LocationBuilder
         }
         public override class func classBuilder() -> MessageBuilder {
           return Google.Protobuf.SourceCodeInfo.LocationBuilder()
@@ -7585,10 +7585,10 @@ public extension Google.Protobuf {
       return Google.Protobuf.SourceCodeInfo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func builder() -> Google.Protobuf.SourceCodeInfoBuilder {
-      return Google.Protobuf.SourceCodeInfo.classBuilder() as Google.Protobuf.SourceCodeInfoBuilder
+      return Google.Protobuf.SourceCodeInfo.classBuilder() as! Google.Protobuf.SourceCodeInfoBuilder
     }
     public func builder() -> Google.Protobuf.SourceCodeInfoBuilder {
-      return classBuilder() as Google.Protobuf.SourceCodeInfoBuilder
+      return classBuilder() as! Google.Protobuf.SourceCodeInfoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.SourceCodeInfoBuilder()

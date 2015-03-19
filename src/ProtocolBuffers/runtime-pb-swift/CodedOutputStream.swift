@@ -59,7 +59,7 @@ public class CodedOutputStream
        var size = buffer.flushToOutputStream(output!)
     }
    
-    public func writeRawByte(byte aByte:Byte)
+    public func writeRawByte(byte aByte:UInt8)
     {
         while (!buffer.appendByte(byte: aByte))
         {
@@ -344,33 +344,33 @@ public class CodedOutputStream
     
     public func writeRawLittleEndian32(value:Int32)
     {
-        writeRawByte(byte:Byte(value & 0xFF))
-        writeRawByte(byte:Byte((value >> 8) & 0xFF))
-        writeRawByte(byte:Byte((value >> 16) & 0xFF))
-        writeRawByte(byte:Byte((value >> 24) & 0xFF))
+        writeRawByte(byte:UInt8(value & 0xFF))
+        writeRawByte(byte:UInt8((value >> 8) & 0xFF))
+        writeRawByte(byte:UInt8((value >> 16) & 0xFF))
+        writeRawByte(byte:UInt8((value >> 24) & 0xFF))
     }
     
     public func writeRawLittleEndian64(value:Int64)
     {
-        writeRawByte(byte:Byte(value & 0xFF))
-        writeRawByte(byte:Byte((value >> 8) & 0xFF))
-        writeRawByte(byte:Byte((value >> 16) & 0xFF))
-        writeRawByte(byte:Byte((value >> 24) & 0xFF))
-        writeRawByte(byte:Byte((value >> 32) & 0xFF))
-        writeRawByte(byte:Byte((value >> 40) & 0xFF))
-        writeRawByte(byte:Byte((value >> 48) & 0xFF))
-        writeRawByte(byte:Byte((value >> 56) & 0xFF))
+        writeRawByte(byte:UInt8(value & 0xFF))
+        writeRawByte(byte:UInt8((value >> 8) & 0xFF))
+        writeRawByte(byte:UInt8((value >> 16) & 0xFF))
+        writeRawByte(byte:UInt8((value >> 24) & 0xFF))
+        writeRawByte(byte:UInt8((value >> 32) & 0xFF))
+        writeRawByte(byte:UInt8((value >> 40) & 0xFF))
+        writeRawByte(byte:UInt8((value >> 48) & 0xFF))
+        writeRawByte(byte:UInt8((value >> 56) & 0xFF))
     }
     
     
     public func writeRawVarint32(var value:Int32) {
         while (true) {
             if ((value & ~0x7F) == 0) {
-                writeRawByte(byte:Byte(value))
+                writeRawByte(byte:UInt8(value))
                 break
             } else
             {
-                writeRawByte(byte: Byte((value & 0x7F) | 0x80))
+                writeRawByte(byte: UInt8((value & 0x7F) | 0x80))
                 value = WireFormat.logicalRightShift32(value:value,spaces: 7)
             }
         }
@@ -379,10 +379,10 @@ public class CodedOutputStream
     public func writeRawVarint64(var value:Int64) {
         while (true) {
             if ((value & ~0x7F) == 0) {
-                writeRawByte(byte:Byte(value))
+                writeRawByte(byte:UInt8(value))
                 break
             } else {
-                writeRawByte(byte: Byte((value & 0x7F) | 0x80))
+                writeRawByte(byte: UInt8((value & 0x7F) | 0x80))
                 value = WireFormat.logicalRightShift64(value:value, spaces: 7)
             }
         }
