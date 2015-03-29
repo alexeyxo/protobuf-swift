@@ -41,7 +41,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
 
-        static map<string, string> packages;
+        static map<string,string> packages;
         
         vector< pair<string, string> > options;
         ParseGeneratorParameter(parameter, &options);
@@ -75,94 +75,61 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             }
             printer.Print("\n");
             
-            bool extensionGenerated = false;
+            string lastPackage = "";
+            bool isPreviousExtensions = false;
+            bool extensionsOnly = true;
+            int countBraces = 0;
             
-            vector<string> structsGenerated;
-            
-            if (!IsBootstrapFile(file)) {
-                for (int i = 0; i < tokens.size(); i++) {
+                for (int i = 0; i < tokens.size(); i++)
+                {
+                    if ((packages.find((lastPackage + "." + tokens[i])) == packages.end() && !IsBootstrapPackage(tokens[i])) || (IsBootstrapPackage(tokens[i]) && IsBootstrapFile(file))) {
                     
-                    if (packages.find(tokens[i]) == packages.end() && !IsBootstrapPackage(tokens[i])) {
-                        (packages[tokens[i]] = "generate");
-                        
-                        if (extensionGenerated) {
-                            printer.Print("{");
-                            structsGenerated.push_back(tokens[i]);
+                        if (isPreviousExtensions) {
+                            printer.Print("{ ");
+                            countBraces++;
                         }
-                        printer.Print("$acontrol$ struct $package$ {",
+                        printer.Print("$acontrol$ struct $package$ { ",
                                       "acontrol", GetAccessControlType(file),
                                       "package", tokens[i]);
-                        structsGenerated.push_back(tokens[i]);
-                        extensionGenerated = false;
+                        lastPackage = lastPackage + "." + tokens[i];
+                        packages[lastPackage] = "generated";
+                        isPreviousExtensions = false;
+                        extensionsOnly = false;
+                        countBraces++;
                     }
                     else
                     {
-                        if (i == 0) {
+                        if (!isPreviousExtensions) {
                             printer.Print("$acontrol$ extension $package$",
                                           "acontrol", GetAccessControlType(file),
                                           "package", tokens[i]);
+                            isPreviousExtensions = true;
+                            lastPackage = lastPackage + "." + tokens[i];
                         }
                         else
                         {
                             printer.Print(".$package$",
                                           "package", tokens[i]);
+                            isPreviousExtensions = true;
+                            lastPackage = lastPackage + "." + tokens[i];
                         }
-                        if (i == tokens.size() - 1) {
-                            printer.Print(" {}");
-                        }
-                        extensionGenerated = true;
                         
                     }
-                }
-                
-                for (int i = 0; i < structsGenerated.size(); i++) {
-                    printer.Print("}");
-                }
-                printer.Print("\n");
-            }
-            else
-            {
-                for (int i = 0; i < tokens.size(); i++) {
                     
-                    if (packages.find(tokens[i]) == packages.end() && IsBootstrapPackage(tokens[i])) {
-                        (packages[tokens[i]] = "generate");
+                    if (i == tokens.size() -1 ) {
+                        if (extensionsOnly) {
+                            printer.Print("{}");
+                        }
                         
-                        if (extensionGenerated) {
-                            printer.Print("{");
-                            structsGenerated.push_back(tokens[i]);
-                        }
-                        printer.Print("$acontrol$ struct $package$ {",
-                                      "acontrol", GetAccessControlType(file),
-                                      "package", tokens[i]);
-                        structsGenerated.push_back(tokens[i]);
-                        extensionGenerated = false;
-                    }
-                    else
-                    {
-                        if (i == 0) {
-                            printer.Print("$acontrol$ extension $package$",
-                                          "acontrol", GetAccessControlType(file),
-                                          "package", tokens[i]);
-                        }
-                        else
+                        for (int i = 0; i < countBraces; i++)
                         {
-                            printer.Print(".$package$",
-                                          "package", tokens[i]);
+                            printer.Print("}");
                         }
-                        extensionGenerated = true;
-                        if (i == tokens.size() - 1) {
-                            printer.Print(" {}");
-                        }
+                        printer.Print("\n\n");
                         
                     }
+                    
                 }
-                
-                for (int i = 0; i < structsGenerated.size(); i++) {
-                    printer.Print("}");
-                }
-                printer.Print("\n");
-
-            }
             
             file_generator.GenerateSource(&printer);
         }
