@@ -4,7 +4,8 @@ import Foundation
 import ProtocolBuffers
 
 
-internal struct ProtobufUnittest {}
+internal struct ProtobufUnittest { }
+
 internal func == (lhs: ProtobufUnittest.TestAllTypes.NestedMessage, rhs: ProtobufUnittest.TestAllTypes.NestedMessage) -> Bool {
   if (lhs === rhs) {
     return true

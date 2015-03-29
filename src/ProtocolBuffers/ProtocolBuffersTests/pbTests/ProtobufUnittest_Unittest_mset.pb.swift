@@ -4,7 +4,8 @@ import Foundation
 import ProtocolBuffers
 
 
-internal extension ProtobufUnittest {}
+internal extension ProtobufUnittest{}
+
 internal func == (lhs: ProtobufUnittest.TestMessageSet, rhs: ProtobufUnittest.TestMessageSet) -> Bool {
   if (lhs === rhs) {
     return true

@@ -4,7 +4,6 @@ import Foundation
 import ProtocolBuffers
 
 
-
 public func == (lhs: User, rhs: User) -> Bool {
   if (lhs === rhs) {
     return true
