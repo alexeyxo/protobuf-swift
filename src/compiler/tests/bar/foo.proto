@@ -1,0 +1,5 @@
+package bar;
+
+message Foo {
+  optional string hello = 1;
+}
