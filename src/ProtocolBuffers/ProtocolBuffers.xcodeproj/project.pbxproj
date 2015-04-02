@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30999D991ACB050600AB60C4 /* Bar_Foo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D971ACB050600AB60C4 /* Bar_Foo.pb.swift */; };
+		30999D9A1ACB050600AB60C4 /* Bar_Foo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D971ACB050600AB60C4 /* Bar_Foo.pb.swift */; };
+		30999D9B1ACB050600AB60C4 /* Baz_Foo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D981ACB050600AB60C4 /* Baz_Foo.pb.swift */; };
+		30999D9C1ACB050600AB60C4 /* Baz_Foo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30999D981ACB050600AB60C4 /* Baz_Foo.pb.swift */; };
 		3F0201C31A2C800700EE503C /* Performance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F64475D19F040DE0030E56C /* Performance.pb.swift */; };
 		3F0201C41A2C800800EE503C /* Performance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F64475D19F040DE0030E56C /* Performance.pb.swift */; };
 		3F0E59F61AB1E564004D07DE /* GoogleProtobuf_Unittest_enormous_descriptor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F12127B1A93717500B07187 /* GoogleProtobuf_Unittest_enormous_descriptor.pb.swift */; };
@@ -144,6 +148,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		30999D971ACB050600AB60C4 /* Bar_Foo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bar_Foo.pb.swift; sourceTree = "<group>"; };
+		30999D981ACB050600AB60C4 /* Baz_Foo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Baz_Foo.pb.swift; sourceTree = "<group>"; };
 		3F12126C1A9370E500B07187 /* GoogleProtobuf_Descriptor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleProtobuf_Descriptor.pb.swift; sourceTree = "<group>"; };
 		3F12126D1A9370E500B07187 /* GoogleProtobuf_SwiftDescriptor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleProtobuf_SwiftDescriptor.pb.swift; sourceTree = "<group>"; };
 		3F1212721A93712000B07187 /* ProtobufUnittest_Unittest.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ProtobufUnittest_Unittest.pb.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -234,6 +240,8 @@
 		3F0201851A2B8C7400EE503C /* CompileTests */ = {
 			isa = PBXGroup;
 			children = (
+				30999D971ACB050600AB60C4 /* Bar_Foo.pb.swift */,
+				30999D981ACB050600AB60C4 /* Baz_Foo.pb.swift */,
 				3F12127B1A93717500B07187 /* GoogleProtobuf_Unittest_enormous_descriptor.pb.swift */,
 				3F12127C1A93717500B07187 /* GoogleProtobufNoGenericServicesTest_Unittest_no_generic_services.pb.swift */,
 				3F12127D1A93717500B07187 /* ProtobufUnittest_Unittest_custom_options.pb.swift */,
@@ -600,8 +608,10 @@
 				3F0E5A091AB1E565004D07DE /* ProtobufUnittestImport_Unittest_import_lite.pb.swift in Sources */,
 				3F0E5A081AB1E565004D07DE /* ProtobufUnittest_Unittest_optimize_for.pb.swift in Sources */,
 				3F0E5A0B1AB1E565004D07DE /* Unittest_empty.pb.swift in Sources */,
+				30999D9A1ACB050600AB60C4 /* Bar_Foo.pb.swift in Sources */,
 				3F0E5A071AB1E565004D07DE /* ProtobufUnittest_Unittest_mset.pb.swift in Sources */,
 				3F4106491A1A677A00742090 /* SmallBlockInputStream.swift in Sources */,
+				30999D9C1ACB050600AB60C4 /* Baz_Foo.pb.swift in Sources */,
 				3F0E5A041AB1E565004D07DE /* ProtobufUnittest_Unittest_embed_optimize_for.pb.swift in Sources */,
 				3F41064A1A1A677A00742090 /* ProtocolBuffersTests.swift in Sources */,
 				3F41064B1A1A677A00742090 /* TestUtilities.swift in Sources */,
@@ -653,8 +663,10 @@
 				3F0E59FE1AB1E564004D07DE /* ProtobufUnittestImport_Unittest_import_lite.pb.swift in Sources */,
 				3F0E59FD1AB1E564004D07DE /* ProtobufUnittest_Unittest_optimize_for.pb.swift in Sources */,
 				3F0E5A001AB1E564004D07DE /* Unittest_empty.pb.swift in Sources */,
+				30999D991ACB050600AB60C4 /* Bar_Foo.pb.swift in Sources */,
 				3F0E59FC1AB1E564004D07DE /* ProtobufUnittest_Unittest_mset.pb.swift in Sources */,
 				3F813FF41A1030000008F493 /* SizeTest.swift in Sources */,
+				30999D9B1ACB050600AB60C4 /* Baz_Foo.pb.swift in Sources */,
 				3F0E59F91AB1E564004D07DE /* ProtobufUnittest_Unittest_embed_optimize_for.pb.swift in Sources */,
 				3F8556D119C71C05003802F2 /* CodedInputStreamTests.swift in Sources */,
 				3F8556A919C71BCF003802F2 /* ProtocolBuffersTests.swift in Sources */,

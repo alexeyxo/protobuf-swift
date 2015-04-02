@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ProtocolBuffers-Swift"
-  s.version      = "1.5.1"
+  s.version      = "1.5.2"
   s.summary      = "Protocol Buffers for Swift"
   s.homepage     = "http://protobuf.io#swift"
   s.license      = "Apache 2.0"
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.author       = { "Alexey Khokhlov" => "alexeyxo@gmail.com" }
   s.authors      = { "Alexey Khokhlov" => "alexeyxo@gmail.com" }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '7.0'
   s.osx.deployment_target = '10.10'
 
   s.module_name = "ProtocolBuffers"
