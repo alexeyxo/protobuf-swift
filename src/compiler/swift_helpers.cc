@@ -421,7 +421,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         name += FileClassPrefix(descriptor->file());
         if (descriptor->containing_type() != NULL) {
 
-            return CheckReservedNames(UnderscoresToCapitalizedCamelCase(descriptor->name()));
+            return CheckReservedNames(descriptor->name());
         }
         else
         {
