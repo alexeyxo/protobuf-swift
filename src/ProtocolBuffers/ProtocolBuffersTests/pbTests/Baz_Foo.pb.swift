@@ -82,10 +82,10 @@ internal extension Baz {
       return Baz.Foo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func builder() -> Baz.FooBuilder {
-      return Baz.Foo.classBuilder() as Baz.FooBuilder
+      return Baz.Foo.classBuilder() as! Baz.FooBuilder
     }
     internal func builder() -> Baz.FooBuilder {
-      return classBuilder() as Baz.FooBuilder
+      return classBuilder() as! Baz.FooBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return Baz.FooBuilder()
