@@ -1,7 +1,7 @@
 import "google/protobuf/swift-descriptor.proto";
 
 option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
-
+option (.google.protobuf.swift_file_options).class_prefix = "PB";
 // package google.protobuf;
 
 message User {
@@ -26,4 +26,16 @@ message Perfomance
    optional string str  = 5;
    optional bytes bytes  = 6;
    optional string description = 7;
+}
+
+
+//ISSUE #57
+enum Flavor {
+  CHOCOLATE = 1;
+  VANILLA = 2;
+}
+
+message IceCreamCone {
+  optional int32 scoops = 1;
+  optional Flavor flavor = 2;
 }

@@ -84,6 +84,7 @@ namespace google {
                 string ExtensionFileClassName(const FileDescriptor* file);
                 // These return the fully-qualified class name corresponding to the given
                 // descriptor.
+                string ClassNameEnum(const EnumDescriptor* descriptor);
                 string ClassName(const Descriptor* descriptor);
                 string ClassName(const EnumDescriptor* descriptor);
                 string ClassName(const ServiceDescriptor* descriptor);

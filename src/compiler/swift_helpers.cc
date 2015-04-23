@@ -402,6 +402,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return CheckReservedNames(name + UnderscoresToCapitalizedCamelCase(descriptor->name()));
     }
 
+    string ClassNameEnum(const EnumDescriptor* descriptor) {
+        string name;
+        name += FileClassPrefix(descriptor->file());
+        name += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return CheckReservedNames(name);
+    }
 
     string ClassName(const Descriptor* descriptor) {
         string name;

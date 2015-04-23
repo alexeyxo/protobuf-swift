@@ -20,21 +20,21 @@ class ProtocolBuffersTests: XCTestCase {
     }
     
     func testPerformance() {
-        var originalBuilder = Perfomance.builder()
+        var originalBuilder = PBPerfomance.builder()
         originalBuilder.setInts(Int32(32))
                        .setInts64(Int64(64))
                        .setDoubles(Double(12.12))
                        .setFloats(Float(123.123))
                        .setStr("string")
         let original = originalBuilder.build()
-        var builder = PerfomanceBatchBuilder()
+        var builder = PBPerfomanceBatchBuilder()
         
         for _ in 0...2 {
             builder.batch += [original]
         }
         
-        var user:User! = nil
-        var group = GroupBuilder()
+        var user:PBUser! = nil
+        var group = PBGroupBuilder()
         group.setOwner(user)
         var gg = group.build()
         
@@ -42,7 +42,7 @@ class ProtocolBuffersTests: XCTestCase {
         
         self.measureBlock() {
             for _ in 0...1 {
-                let clone = PerfomanceBatch.parseFromData(build.data())
+                let clone = PBPerfomanceBatch.parseFromData(build.data())
 
             }
         }
