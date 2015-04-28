@@ -16,7 +16,7 @@ class ProtobufSwift < Formula
   end
 
   test do
-     testdata = <<-EOS.undent
+    testdata = <<-EOS.undent
        enum Flavor{
          CHOCOLATE = 1;
           VANILLA = 2;
@@ -27,6 +27,6 @@ class ProtobufSwift < Formula
         }
     EOS
     (testpath/"test.proto").write(testdata)
-    system "protoc", "test.proto", "--swift_out=." 
+    system "protoc", "test.proto", "--swift_out=."
   end
 end
