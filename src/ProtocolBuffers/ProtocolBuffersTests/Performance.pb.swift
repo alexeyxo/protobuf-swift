@@ -74,18 +74,6 @@ public struct PerformanceRoot {
   }
 }
 
-
-
-//Enum type declaration start 
-
-public enum PBFlavor:Int32 {
-  case Chocolate = 1
-  case Vanilla = 2
-
-}
-
-//Enum type declaration end 
-
 final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
   public private(set) var hasGroup:Bool = false
   public private(set) var group:PBGroup!
@@ -211,11 +199,11 @@ final public class PBUserBuilder : GeneratedMessageBuilder {
            builderResult.group = value
        }
   }
-  public func setGroup(value:PBGroup!)-> PBUserBuilder {
+  public func setGroup(value:PBGroup!)-> PBGroupBuilder {
     self.group = value
     return self
   }
-  public func mergeGroup(value:PBGroup) -> PBUserBuilder {
+  public func mergeGroup(value:PBGroup) -> PBGroupBuilder {
     if (builderResult.hasGroup) {
       builderResult.group = PBGroup.builderWithPrototype(builderResult.group).mergeFrom(value).buildPartial()
     } else {
@@ -224,7 +212,7 @@ final public class PBUserBuilder : GeneratedMessageBuilder {
     builderResult.hasGroup = true
     return self
   }
-  public func clearGroup() -> PBUserBuilder {
+  public func clearGroup() -> PBGroupBuilder {
     builderResult.hasGroup = false
     builderResult.group = nil
     return self
@@ -414,11 +402,11 @@ final public class PBGroupBuilder : GeneratedMessageBuilder {
            builderResult.owner = value
        }
   }
-  public func setOwner(value:PBUser!)-> PBGroupBuilder {
+  public func setOwner(value:PBUser!)-> PBUserBuilder {
     self.owner = value
     return self
   }
-  public func mergeOwner(value:PBUser) -> PBGroupBuilder {
+  public func mergeOwner(value:PBUser) -> PBUserBuilder {
     if (builderResult.hasOwner) {
       builderResult.owner = PBUser.builderWithPrototype(builderResult.owner).mergeFrom(value).buildPartial()
     } else {
@@ -427,7 +415,7 @@ final public class PBGroupBuilder : GeneratedMessageBuilder {
     builderResult.hasOwner = true
     return self
   }
-  public func clearOwner() -> PBGroupBuilder {
+  public func clearOwner() -> PBUserBuilder {
     builderResult.hasOwner = false
     builderResult.owner = nil
     return self
@@ -618,11 +606,11 @@ final public class PBPerfomanceBatchBuilder : GeneratedMessageBuilder {
            builderResult.batch = value
        }
   }
-  public func setBatch(value:Array<PBPerfomance>)-> PBPerfomanceBatchBuilder {
+  public func setBatch(value:Array<PBPerfomance>)-> PBPerfomanceBuilder {
     self.batch = value
     return self
   }
-  public func clearBatch() -> PBPerfomanceBatchBuilder {
+  public func clearBatch() -> PBPerfomanceBuilder {
     builderResult.batch.removeAll(keepCapacity: false)
     return self
   }
@@ -1144,10 +1132,22 @@ final public class PBPerfomanceBuilder : GeneratedMessageBuilder {
 }
 
 final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
+
+
+    //Enum type declaration start 
+
+    public enum PBFlavor:Int32 {
+      case Chocolate = 1
+      case Vanilla = 2
+
+    }
+
+    //Enum type declaration end 
+
   public private(set) var hasScoops:Bool = false
   public private(set) var scoops:Int32 = Int32(0)
 
-  public private(set) var flavor:PBFlavor = PBFlavor.Chocolate
+  public private(set) var flavor:PBIceCreamCone = PBIceCreamCone.Chocolate
   public private(set) var hasFlavor:Bool = false
   required public init() {
        super.init()
@@ -1291,7 +1291,7 @@ final public class PBIceCreamConeBuilder : GeneratedMessageBuilder {
             return builderResult.hasFlavor
         }
     }
-    public var flavor:PBFlavor {
+    public var flavor:PBIceCreamCone {
         get {
             return builderResult.flavor
         }
@@ -1300,7 +1300,7 @@ final public class PBIceCreamConeBuilder : GeneratedMessageBuilder {
             builderResult.flavor = value
         }
     }
-    public func setFlavor(value:PBFlavor)-> PBIceCreamConeBuilder {
+    public func setFlavor(value:PBIceCreamCone)-> PBIceCreamConeBuilder {
       self.flavor = value
       return self
     }
@@ -1359,7 +1359,7 @@ final public class PBIceCreamConeBuilder : GeneratedMessageBuilder {
 
       case 16 :
         let valueIntflavor = input.readEnum()
-        if let enumsflavor = PBFlavor(rawValue:valueIntflavor){
+        if let enumsflavor = PBIceCreamCone(rawValue:valueIntflavor){
              flavor = enumsflavor
         } else {
              unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntflavor))

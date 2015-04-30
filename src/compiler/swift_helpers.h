@@ -91,14 +91,14 @@ namespace google {
                 //
                 
                 //Message
+                string ClassName(const Descriptor* descriptor);
                 string ClassNameReturedType(const Descriptor* descriptor);
                 //
                 
 //                string ClassNameEnum(const EnumDescriptor* descriptor);
-                string ClassName(const Descriptor* descriptor);
+                
 //                string ClassName(const EnumDescriptor* descriptor);
                 string ClassName(const ServiceDescriptor* descriptor);
-                string ClassNameMessage(const Descriptor* descriptor);
                 string ClassNameExtensions(const Descriptor* descriptor);
                 string ClassNameOneof(const OneofDescriptor* descriptor);
                 string EnumValueName(const EnumValueDescriptor* descriptor);

@@ -4,7 +4,7 @@ import Foundation
 
 public struct Google { public struct Protobuf { }}
 
-public func == (lhs: Google.Protobuf.FileDescriptorSet, rhs: Google.Protobuf.FileDescriptorSet) -> Bool {
+public func == (lhs: FileDescriptorSet, rhs: FileDescriptorSet) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -13,7 +13,7 @@ public func == (lhs: Google.Protobuf.FileDescriptorSet, rhs: Google.Protobuf.Fil
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.FileDescriptorProto, rhs: Google.Protobuf.FileDescriptorProto) -> Bool {
+public func == (lhs: FileDescriptorProto, rhs: FileDescriptorProto) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -32,7 +32,7 @@ public func == (lhs: Google.Protobuf.FileDescriptorProto, rhs: Google.Protobuf.F
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.DescriptorProto.ExtensionRange, rhs: Google.Protobuf.DescriptorProto.ExtensionRange) -> Bool {
+public func == (lhs: Google.Protobuf.DescriptorProto, rhs: Google.Protobuf.DescriptorProto) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -42,7 +42,7 @@ public func == (lhs: Google.Protobuf.DescriptorProto.ExtensionRange, rhs: Google
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.DescriptorProto, rhs: Google.Protobuf.DescriptorProto) -> Bool {
+public func == (lhs: DescriptorProto, rhs: DescriptorProto) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -58,7 +58,7 @@ public func == (lhs: Google.Protobuf.DescriptorProto, rhs: Google.Protobuf.Descr
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.FieldDescriptorProto, rhs: Google.Protobuf.FieldDescriptorProto) -> Bool {
+public func == (lhs: FieldDescriptorProto, rhs: FieldDescriptorProto) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -75,7 +75,7 @@ public func == (lhs: Google.Protobuf.FieldDescriptorProto, rhs: Google.Protobuf.
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.OneofDescriptorProto, rhs: Google.Protobuf.OneofDescriptorProto) -> Bool {
+public func == (lhs: OneofDescriptorProto, rhs: OneofDescriptorProto) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -84,7 +84,7 @@ public func == (lhs: Google.Protobuf.OneofDescriptorProto, rhs: Google.Protobuf.
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.EnumDescriptorProto, rhs: Google.Protobuf.EnumDescriptorProto) -> Bool {
+public func == (lhs: EnumDescriptorProto, rhs: EnumDescriptorProto) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -95,7 +95,7 @@ public func == (lhs: Google.Protobuf.EnumDescriptorProto, rhs: Google.Protobuf.E
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.EnumValueDescriptorProto, rhs: Google.Protobuf.EnumValueDescriptorProto) -> Bool {
+public func == (lhs: EnumValueDescriptorProto, rhs: EnumValueDescriptorProto) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -106,7 +106,7 @@ public func == (lhs: Google.Protobuf.EnumValueDescriptorProto, rhs: Google.Proto
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.ServiceDescriptorProto, rhs: Google.Protobuf.ServiceDescriptorProto) -> Bool {
+public func == (lhs: ServiceDescriptorProto, rhs: ServiceDescriptorProto) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -117,7 +117,7 @@ public func == (lhs: Google.Protobuf.ServiceDescriptorProto, rhs: Google.Protobu
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.MethodDescriptorProto, rhs: Google.Protobuf.MethodDescriptorProto) -> Bool {
+public func == (lhs: MethodDescriptorProto, rhs: MethodDescriptorProto) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -129,7 +129,7 @@ public func == (lhs: Google.Protobuf.MethodDescriptorProto, rhs: Google.Protobuf
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.FileOptions, rhs: Google.Protobuf.FileOptions) -> Bool {
+public func == (lhs: FileOptions, rhs: FileOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -150,7 +150,7 @@ public func == (lhs: Google.Protobuf.FileOptions, rhs: Google.Protobuf.FileOptio
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.MessageOptions, rhs: Google.Protobuf.MessageOptions) -> Bool {
+public func == (lhs: MessageOptions, rhs: MessageOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -163,7 +163,7 @@ public func == (lhs: Google.Protobuf.MessageOptions, rhs: Google.Protobuf.Messag
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.FieldOptions, rhs: Google.Protobuf.FieldOptions) -> Bool {
+public func == (lhs: FieldOptions, rhs: FieldOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -179,7 +179,7 @@ public func == (lhs: Google.Protobuf.FieldOptions, rhs: Google.Protobuf.FieldOpt
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.EnumOptions, rhs: Google.Protobuf.EnumOptions) -> Bool {
+public func == (lhs: EnumOptions, rhs: EnumOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -191,7 +191,7 @@ public func == (lhs: Google.Protobuf.EnumOptions, rhs: Google.Protobuf.EnumOptio
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.EnumValueOptions, rhs: Google.Protobuf.EnumValueOptions) -> Bool {
+public func == (lhs: EnumValueOptions, rhs: EnumValueOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -202,7 +202,7 @@ public func == (lhs: Google.Protobuf.EnumValueOptions, rhs: Google.Protobuf.Enum
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.ServiceOptions, rhs: Google.Protobuf.ServiceOptions) -> Bool {
+public func == (lhs: ServiceOptions, rhs: ServiceOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -213,7 +213,7 @@ public func == (lhs: Google.Protobuf.ServiceOptions, rhs: Google.Protobuf.Servic
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.MethodOptions, rhs: Google.Protobuf.MethodOptions) -> Bool {
+public func == (lhs: MethodOptions, rhs: MethodOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -224,7 +224,7 @@ public func == (lhs: Google.Protobuf.MethodOptions, rhs: Google.Protobuf.MethodO
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.UninterpretedOption.NamePart, rhs: Google.Protobuf.UninterpretedOption.NamePart) -> Bool {
+public func == (lhs: Google.Protobuf.UninterpretedOption, rhs: Google.Protobuf.UninterpretedOption) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -234,7 +234,7 @@ public func == (lhs: Google.Protobuf.UninterpretedOption.NamePart, rhs: Google.P
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.UninterpretedOption, rhs: Google.Protobuf.UninterpretedOption) -> Bool {
+public func == (lhs: UninterpretedOption, rhs: UninterpretedOption) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -249,7 +249,7 @@ public func == (lhs: Google.Protobuf.UninterpretedOption, rhs: Google.Protobuf.U
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.SourceCodeInfo.Location, rhs: Google.Protobuf.SourceCodeInfo.Location) -> Bool {
+public func == (lhs: Google.Protobuf.SourceCodeInfo, rhs: Google.Protobuf.SourceCodeInfo) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -261,7 +261,7 @@ public func == (lhs: Google.Protobuf.SourceCodeInfo.Location, rhs: Google.Protob
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func == (lhs: Google.Protobuf.SourceCodeInfo, rhs: Google.Protobuf.SourceCodeInfo) -> Bool {
+public func == (lhs: SourceCodeInfo, rhs: SourceCodeInfo) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -289,7 +289,7 @@ public extension Google.Protobuf {
   }
 
   final public class FileDescriptorSet : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var file:Array<Google.Protobuf.FileDescriptorProto>  = Array<Google.Protobuf.FileDescriptorProto>()
+    public private(set) var file:Array<FileDescriptorProto>  = Array<FileDescriptorProto>()
     required public init() {
          super.init()
     }
@@ -326,41 +326,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.FileDescriptorSet {
-      return Google.Protobuf.FileDescriptorSet.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> FileDescriptorSet {
+      return FileDescriptorSet.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileDescriptorSet {
-      return Google.Protobuf.FileDescriptorSet.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> FileDescriptorSet {
+      return FileDescriptorSet.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FileDescriptorSet {
-      return Google.Protobuf.FileDescriptorSet.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> FileDescriptorSet {
+      return FileDescriptorSet.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.FileDescriptorSet {
-      return Google.Protobuf.FileDescriptorSet.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->FileDescriptorSet {
+      return FileDescriptorSet.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.FileDescriptorSet {
-      return Google.Protobuf.FileDescriptorSet.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> FileDescriptorSet {
+      return FileDescriptorSet.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileDescriptorSet {
-      return Google.Protobuf.FileDescriptorSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> FileDescriptorSet {
+      return FileDescriptorSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.FileDescriptorSetBuilder {
-      return Google.Protobuf.FileDescriptorSet.classBuilder() as! Google.Protobuf.FileDescriptorSetBuilder
+    public class func builder() -> FileDescriptorSetBuilder {
+      return FileDescriptorSet.classBuilder() as! FileDescriptorSetBuilder
     }
-    public func builder() -> Google.Protobuf.FileDescriptorSetBuilder {
-      return classBuilder() as! Google.Protobuf.FileDescriptorSetBuilder
+    public func builder() -> FileDescriptorSetBuilder {
+      return classBuilder() as! FileDescriptorSetBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.FileDescriptorSetBuilder()
+      return FileDescriptorSetBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.FileDescriptorSet.builder()
+      return FileDescriptorSet.builder()
     }
-    public func toBuilder() -> Google.Protobuf.FileDescriptorSetBuilder {
-      return Google.Protobuf.FileDescriptorSet.builderWithPrototype(self)
+    public func toBuilder() -> FileDescriptorSetBuilder {
+      return FileDescriptorSet.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.FileDescriptorSet) -> Google.Protobuf.FileDescriptorSetBuilder {
-      return Google.Protobuf.FileDescriptorSet.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:FileDescriptorSet) -> FileDescriptorSetBuilder {
+      return FileDescriptorSet.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       var fileElementIndex:Int = 0
@@ -387,26 +387,26 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.FileDescriptorSet"
+        return "FileDescriptorSet"
     }
     override public func className() -> String {
-        return "Google.Protobuf.FileDescriptorSet"
+        return "FileDescriptorSet"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.FileDescriptorSet.self
+        return FileDescriptorSet.self
     }
     //Meta information declaration end
 
   }
 
   final public class FileDescriptorSetBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.FileDescriptorSet
+    private var builderResult:FileDescriptorSet
 
     required override public init () {
-       builderResult = Google.Protobuf.FileDescriptorSet()
+       builderResult = FileDescriptorSet()
        super.init()
     }
-    public var file:Array<Google.Protobuf.FileDescriptorProto> {
+    public var file:Array<FileDescriptorProto> {
          get {
              return builderResult.file
          }
@@ -414,11 +414,11 @@ public extension Google.Protobuf {
              builderResult.file = value
          }
     }
-    public func setFile(value:Array<Google.Protobuf.FileDescriptorProto>)-> Google.Protobuf.FileDescriptorSetBuilder {
+    public func setFile(value:Array<FileDescriptorProto>)-> FileDescriptorProtoBuilder {
       self.file = value
       return self
     }
-    public func clearFile() -> Google.Protobuf.FileDescriptorSetBuilder {
+    public func clearFile() -> FileDescriptorProtoBuilder {
       builderResult.file.removeAll(keepCapacity: false)
       return self
     }
@@ -427,23 +427,23 @@ public extension Google.Protobuf {
             return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.FileDescriptorSetBuilder {
-      builderResult = Google.Protobuf.FileDescriptorSet()
+    public override func clear() -> FileDescriptorSetBuilder {
+      builderResult = FileDescriptorSet()
       return self
     }
-    public override func clone() -> Google.Protobuf.FileDescriptorSetBuilder {
-      return Google.Protobuf.FileDescriptorSet.builderWithPrototype(builderResult)
+    public override func clone() -> FileDescriptorSetBuilder {
+      return FileDescriptorSet.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.FileDescriptorSet {
+    public override func build() -> FileDescriptorSet {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.FileDescriptorSet {
-      var returnMe:Google.Protobuf.FileDescriptorSet = builderResult
+    public func buildPartial() -> FileDescriptorSet {
+      var returnMe:FileDescriptorSet = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.FileDescriptorSet) -> Google.Protobuf.FileDescriptorSetBuilder {
-      if (other == Google.Protobuf.FileDescriptorSet()) {
+    public func mergeFrom(other:FileDescriptorSet) -> FileDescriptorSetBuilder {
+      if (other == FileDescriptorSet()) {
        return self
       }
       if !other.file.isEmpty  {
@@ -452,10 +452,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.FileDescriptorSetBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->FileDescriptorSetBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileDescriptorSetBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> FileDescriptorSetBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -465,7 +465,7 @@ public extension Google.Protobuf {
           return self
 
         case 10 :
-          var subBuilder = Google.Protobuf.FileDescriptorProto.builder()
+          var subBuilder = FileDescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           file += [subBuilder.buildPartial()]
 
@@ -487,16 +487,16 @@ public extension Google.Protobuf {
     public private(set) var package:String = ""
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.FileOptions!
+    public private(set) var options:FileOptions!
     public private(set) var hasSourceCodeInfo:Bool = false
-    public private(set) var sourceCodeInfo:Google.Protobuf.SourceCodeInfo!
+    public private(set) var sourceCodeInfo:SourceCodeInfo!
     public private(set) var dependency:Array<String> = Array<String>()
     public private(set) var publicDependency:Array<Int32> = Array<Int32>()
     public private(set) var weakDependency:Array<Int32> = Array<Int32>()
-    public private(set) var messageType:Array<Google.Protobuf.DescriptorProto>  = Array<Google.Protobuf.DescriptorProto>()
-    public private(set) var enumType:Array<Google.Protobuf.EnumDescriptorProto>  = Array<Google.Protobuf.EnumDescriptorProto>()
-    public private(set) var service:Array<Google.Protobuf.ServiceDescriptorProto>  = Array<Google.Protobuf.ServiceDescriptorProto>()
-    public private(set) var extension_:Array<Google.Protobuf.FieldDescriptorProto>  = Array<Google.Protobuf.FieldDescriptorProto>()
+    public private(set) var messageType:Array<DescriptorProto>  = Array<DescriptorProto>()
+    public private(set) var enumType:Array<EnumDescriptorProto>  = Array<EnumDescriptorProto>()
+    public private(set) var service:Array<ServiceDescriptorProto>  = Array<ServiceDescriptorProto>()
+    public private(set) var extension_:Array<FieldDescriptorProto>  = Array<FieldDescriptorProto>()
     required public init() {
          super.init()
     }
@@ -647,41 +647,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.FileDescriptorProto {
-      return Google.Protobuf.FileDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> FileDescriptorProto {
+      return FileDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileDescriptorProto {
-      return Google.Protobuf.FileDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> FileDescriptorProto {
+      return FileDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FileDescriptorProto {
-      return Google.Protobuf.FileDescriptorProto.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> FileDescriptorProto {
+      return FileDescriptorProto.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.FileDescriptorProto {
-      return Google.Protobuf.FileDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->FileDescriptorProto {
+      return FileDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.FileDescriptorProto {
-      return Google.Protobuf.FileDescriptorProto.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> FileDescriptorProto {
+      return FileDescriptorProto.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileDescriptorProto {
-      return Google.Protobuf.FileDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> FileDescriptorProto {
+      return FileDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.FileDescriptorProtoBuilder {
-      return Google.Protobuf.FileDescriptorProto.classBuilder() as! Google.Protobuf.FileDescriptorProtoBuilder
+    public class func builder() -> FileDescriptorProtoBuilder {
+      return FileDescriptorProto.classBuilder() as! FileDescriptorProtoBuilder
     }
-    public func builder() -> Google.Protobuf.FileDescriptorProtoBuilder {
-      return classBuilder() as! Google.Protobuf.FileDescriptorProtoBuilder
+    public func builder() -> FileDescriptorProtoBuilder {
+      return classBuilder() as! FileDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.FileDescriptorProtoBuilder()
+      return FileDescriptorProtoBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.FileDescriptorProto.builder()
+      return FileDescriptorProto.builder()
     }
-    public func toBuilder() -> Google.Protobuf.FileDescriptorProtoBuilder {
-      return Google.Protobuf.FileDescriptorProto.builderWithPrototype(self)
+    public func toBuilder() -> FileDescriptorProtoBuilder {
+      return FileDescriptorProto.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.FileDescriptorProto) -> Google.Protobuf.FileDescriptorProtoBuilder {
-      return Google.Protobuf.FileDescriptorProto.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:FileDescriptorProto) -> FileDescriptorProtoBuilder {
+      return FileDescriptorProto.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasName {
@@ -794,23 +794,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.FileDescriptorProto"
+        return "FileDescriptorProto"
     }
     override public func className() -> String {
-        return "Google.Protobuf.FileDescriptorProto"
+        return "FileDescriptorProto"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.FileDescriptorProto.self
+        return FileDescriptorProto.self
     }
     //Meta information declaration end
 
   }
 
   final public class FileDescriptorProtoBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.FileDescriptorProto
+    private var builderResult:FileDescriptorProto
 
     required override public init () {
-       builderResult = Google.Protobuf.FileDescriptorProto()
+       builderResult = FileDescriptorProto()
        super.init()
     }
     public var hasName:Bool {
@@ -827,11 +827,11 @@ public extension Google.Protobuf {
              builderResult.name = value
          }
     }
-    public func setName(value:String)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setName(value:String)-> FileDescriptorProtoBuilder {
       self.name = value
       return self
     }
-    public func clearName() -> Google.Protobuf.FileDescriptorProtoBuilder{
+    public func clearName() -> FileDescriptorProtoBuilder{
          builderResult.hasName = false
          builderResult.name = ""
          return self
@@ -850,11 +850,11 @@ public extension Google.Protobuf {
              builderResult.package = value
          }
     }
-    public func setPackage(value:String)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setPackage(value:String)-> FileDescriptorProtoBuilder {
       self.package = value
       return self
     }
-    public func clearPackage() -> Google.Protobuf.FileDescriptorProtoBuilder{
+    public func clearPackage() -> FileDescriptorProtoBuilder{
          builderResult.hasPackage = false
          builderResult.package = ""
          return self
@@ -867,11 +867,11 @@ public extension Google.Protobuf {
              builderResult.dependency = array
          }
     }
-    public func setDependency(value:Array<String>)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setDependency(value:Array<String>)-> FileDescriptorProtoBuilder {
       self.dependency = value
       return self
     }
-    public func clearDependency() -> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func clearDependency() -> FileDescriptorProtoBuilder {
        builderResult.dependency.removeAll(keepCapacity: false)
        return self
     }
@@ -883,11 +883,11 @@ public extension Google.Protobuf {
              builderResult.publicDependency = array
          }
     }
-    public func setPublicDependency(value:Array<Int32>)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setPublicDependency(value:Array<Int32>)-> FileDescriptorProtoBuilder {
       self.publicDependency = value
       return self
     }
-    public func clearPublicDependency() -> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func clearPublicDependency() -> FileDescriptorProtoBuilder {
        builderResult.publicDependency.removeAll(keepCapacity: false)
        return self
     }
@@ -899,15 +899,15 @@ public extension Google.Protobuf {
              builderResult.weakDependency = array
          }
     }
-    public func setWeakDependency(value:Array<Int32>)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setWeakDependency(value:Array<Int32>)-> FileDescriptorProtoBuilder {
       self.weakDependency = value
       return self
     }
-    public func clearWeakDependency() -> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func clearWeakDependency() -> FileDescriptorProtoBuilder {
        builderResult.weakDependency.removeAll(keepCapacity: false)
        return self
     }
-    public var messageType:Array<Google.Protobuf.DescriptorProto> {
+    public var messageType:Array<DescriptorProto> {
          get {
              return builderResult.messageType
          }
@@ -915,15 +915,15 @@ public extension Google.Protobuf {
              builderResult.messageType = value
          }
     }
-    public func setMessageType(value:Array<Google.Protobuf.DescriptorProto>)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setMessageType(value:Array<DescriptorProto>)-> DescriptorProtoBuilder {
       self.messageType = value
       return self
     }
-    public func clearMessageType() -> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func clearMessageType() -> DescriptorProtoBuilder {
       builderResult.messageType.removeAll(keepCapacity: false)
       return self
     }
-    public var enumType:Array<Google.Protobuf.EnumDescriptorProto> {
+    public var enumType:Array<EnumDescriptorProto> {
          get {
              return builderResult.enumType
          }
@@ -931,15 +931,15 @@ public extension Google.Protobuf {
              builderResult.enumType = value
          }
     }
-    public func setEnumType(value:Array<Google.Protobuf.EnumDescriptorProto>)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setEnumType(value:Array<EnumDescriptorProto>)-> EnumDescriptorProtoBuilder {
       self.enumType = value
       return self
     }
-    public func clearEnumType() -> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func clearEnumType() -> EnumDescriptorProtoBuilder {
       builderResult.enumType.removeAll(keepCapacity: false)
       return self
     }
-    public var service:Array<Google.Protobuf.ServiceDescriptorProto> {
+    public var service:Array<ServiceDescriptorProto> {
          get {
              return builderResult.service
          }
@@ -947,15 +947,15 @@ public extension Google.Protobuf {
              builderResult.service = value
          }
     }
-    public func setService(value:Array<Google.Protobuf.ServiceDescriptorProto>)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setService(value:Array<ServiceDescriptorProto>)-> ServiceDescriptorProtoBuilder {
       self.service = value
       return self
     }
-    public func clearService() -> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func clearService() -> ServiceDescriptorProtoBuilder {
       builderResult.service.removeAll(keepCapacity: false)
       return self
     }
-    public var extension_:Array<Google.Protobuf.FieldDescriptorProto> {
+    public var extension_:Array<FieldDescriptorProto> {
          get {
              return builderResult.extension_
          }
@@ -963,11 +963,11 @@ public extension Google.Protobuf {
              builderResult.extension_ = value
          }
     }
-    public func setExtension(value:Array<Google.Protobuf.FieldDescriptorProto>)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setExtension(value:Array<FieldDescriptorProto>)-> FieldDescriptorProtoBuilder {
       self.extension_ = value
       return self
     }
-    public func clearExtension() -> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func clearExtension() -> FieldDescriptorProtoBuilder {
       builderResult.extension_.removeAll(keepCapacity: false)
       return self
     }
@@ -976,7 +976,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.FileOptions! {
+    public var options:FileOptions! {
          get {
              return builderResult.options
          }
@@ -985,20 +985,20 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.FileOptions!)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setOptions(value:FileOptions!)-> FileOptionsBuilder {
       self.options = value
       return self
     }
-    public func mergeOptions(value:Google.Protobuf.FileOptions) -> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func mergeOptions(value:FileOptions) -> FileOptionsBuilder {
       if (builderResult.hasOptions) {
-        builderResult.options = Google.Protobuf.FileOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
+        builderResult.options = FileOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
       } else {
         builderResult.options = value
       }
       builderResult.hasOptions = true
       return self
     }
-    public func clearOptions() -> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func clearOptions() -> FileOptionsBuilder {
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -1008,7 +1008,7 @@ public extension Google.Protobuf {
              return builderResult.hasSourceCodeInfo
          }
     }
-    public var sourceCodeInfo:Google.Protobuf.SourceCodeInfo! {
+    public var sourceCodeInfo:SourceCodeInfo! {
          get {
              return builderResult.sourceCodeInfo
          }
@@ -1017,20 +1017,20 @@ public extension Google.Protobuf {
              builderResult.sourceCodeInfo = value
          }
     }
-    public func setSourceCodeInfo(value:Google.Protobuf.SourceCodeInfo!)-> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func setSourceCodeInfo(value:SourceCodeInfo!)-> SourceCodeInfoBuilder {
       self.sourceCodeInfo = value
       return self
     }
-    public func mergeSourceCodeInfo(value:Google.Protobuf.SourceCodeInfo) -> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func mergeSourceCodeInfo(value:SourceCodeInfo) -> SourceCodeInfoBuilder {
       if (builderResult.hasSourceCodeInfo) {
-        builderResult.sourceCodeInfo = Google.Protobuf.SourceCodeInfo.builderWithPrototype(builderResult.sourceCodeInfo).mergeFrom(value).buildPartial()
+        builderResult.sourceCodeInfo = SourceCodeInfo.builderWithPrototype(builderResult.sourceCodeInfo).mergeFrom(value).buildPartial()
       } else {
         builderResult.sourceCodeInfo = value
       }
       builderResult.hasSourceCodeInfo = true
       return self
     }
-    public func clearSourceCodeInfo() -> Google.Protobuf.FileDescriptorProtoBuilder {
+    public func clearSourceCodeInfo() -> SourceCodeInfoBuilder {
       builderResult.hasSourceCodeInfo = false
       builderResult.sourceCodeInfo = nil
       return self
@@ -1040,23 +1040,23 @@ public extension Google.Protobuf {
             return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.FileDescriptorProtoBuilder {
-      builderResult = Google.Protobuf.FileDescriptorProto()
+    public override func clear() -> FileDescriptorProtoBuilder {
+      builderResult = FileDescriptorProto()
       return self
     }
-    public override func clone() -> Google.Protobuf.FileDescriptorProtoBuilder {
-      return Google.Protobuf.FileDescriptorProto.builderWithPrototype(builderResult)
+    public override func clone() -> FileDescriptorProtoBuilder {
+      return FileDescriptorProto.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.FileDescriptorProto {
+    public override func build() -> FileDescriptorProto {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.FileDescriptorProto {
-      var returnMe:Google.Protobuf.FileDescriptorProto = builderResult
+    public func buildPartial() -> FileDescriptorProto {
+      var returnMe:FileDescriptorProto = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.FileDescriptorProto) -> Google.Protobuf.FileDescriptorProtoBuilder {
-      if (other == Google.Protobuf.FileDescriptorProto()) {
+    public func mergeFrom(other:FileDescriptorProto) -> FileDescriptorProtoBuilder {
+      if (other == FileDescriptorProto()) {
        return self
       }
       if other.hasName {
@@ -1095,10 +1095,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.FileDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->FileDescriptorProtoBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> FileDescriptorProtoBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -1117,27 +1117,27 @@ public extension Google.Protobuf {
           dependency += [input.readString()]
 
         case 34 :
-          var subBuilder = Google.Protobuf.DescriptorProto.builder()
+          var subBuilder = DescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           messageType += [subBuilder.buildPartial()]
 
         case 42 :
-          var subBuilder = Google.Protobuf.EnumDescriptorProto.builder()
+          var subBuilder = EnumDescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           enumType += [subBuilder.buildPartial()]
 
         case 50 :
-          var subBuilder = Google.Protobuf.ServiceDescriptorProto.builder()
+          var subBuilder = ServiceDescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           service += [subBuilder.buildPartial()]
 
         case 58 :
-          var subBuilder = Google.Protobuf.FieldDescriptorProto.builder()
+          var subBuilder = FieldDescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           extension_ += [subBuilder.buildPartial()]
 
         case 66 :
-          var subBuilder:Google.Protobuf.FileOptionsBuilder = Google.Protobuf.FileOptions.builder()
+          var subBuilder:FileOptionsBuilder = FileOptions.builder()
           if hasOptions {
             subBuilder.mergeFrom(options)
           }
@@ -1145,7 +1145,7 @@ public extension Google.Protobuf {
           options = subBuilder.buildPartial()
 
         case 74 :
-          var subBuilder:Google.Protobuf.SourceCodeInfoBuilder = Google.Protobuf.SourceCodeInfo.builder()
+          var subBuilder:SourceCodeInfoBuilder = SourceCodeInfo.builder()
           if hasSourceCodeInfo {
             subBuilder.mergeFrom(sourceCodeInfo)
           }
@@ -1212,41 +1212,41 @@ public extension Google.Protobuf {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseFromData(data:NSData) -> Google.Protobuf.DescriptorProto.ExtensionRange {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+        public class func parseFromData(data:NSData) -> Google.Protobuf.DescriptorProto {
+          return Google.Protobuf.DescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto.ExtensionRange {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto {
+          return Google.Protobuf.DescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.DescriptorProto.ExtensionRange {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.builder().mergeFromInputStream(input).build()
+        public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.DescriptorProto {
+          return Google.Protobuf.DescriptorProto.builder().mergeFromInputStream(input).build()
         }
-        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.DescriptorProto.ExtensionRange {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.DescriptorProto {
+          return Google.Protobuf.DescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.DescriptorProto.ExtensionRange {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.builder().mergeFromCodedInputStream(input).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.DescriptorProto {
+          return Google.Protobuf.DescriptorProto.builder().mergeFromCodedInputStream(input).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto.ExtensionRange {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto {
+          return Google.Protobuf.DescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        public class func builder() -> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.classBuilder() as! Google.Protobuf.DescriptorProto.ExtensionRangeBuilder
+        public class func builder() -> Google.Protobuf.DescriptorProtoBuilder {
+          return Google.Protobuf.DescriptorProto.classBuilder() as! Google.Protobuf.DescriptorProtoBuilder
         }
-        public func builder() -> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
-          return classBuilder() as! Google.Protobuf.DescriptorProto.ExtensionRangeBuilder
+        public func builder() -> Google.Protobuf.DescriptorProtoBuilder {
+          return classBuilder() as! Google.Protobuf.DescriptorProtoBuilder
         }
         public override class func classBuilder() -> MessageBuilder {
-          return Google.Protobuf.DescriptorProto.ExtensionRangeBuilder()
+          return Google.Protobuf.DescriptorProtoBuilder()
         }
         public override func classBuilder() -> MessageBuilder {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.builder()
+          return Google.Protobuf.DescriptorProto.builder()
         }
-        public func toBuilder() -> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.builderWithPrototype(self)
+        public func toBuilder() -> Google.Protobuf.DescriptorProtoBuilder {
+          return Google.Protobuf.DescriptorProto.builderWithPrototype(self)
         }
-        public class func builderWithPrototype(prototype:Google.Protobuf.DescriptorProto.ExtensionRange) -> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.builder().mergeFrom(prototype)
+        public class func builderWithPrototype(prototype:Google.Protobuf.DescriptorProto) -> Google.Protobuf.DescriptorProtoBuilder {
+          return Google.Protobuf.DescriptorProto.builder().mergeFrom(prototype)
         }
         override public func writeDescriptionTo(inout output:String, indent:String) {
           if hasStart {
@@ -1275,23 +1275,23 @@ public extension Google.Protobuf {
         //Meta information declaration start
 
         override public class func className() -> String {
-            return "Google.Protobuf.DescriptorProto.ExtensionRange"
+            return "Google.Protobuf.DescriptorProto"
         }
         override public func className() -> String {
-            return "Google.Protobuf.DescriptorProto.ExtensionRange"
+            return "Google.Protobuf.DescriptorProto"
         }
         override public func classMetaType() -> GeneratedMessage.Type {
-            return Google.Protobuf.DescriptorProto.ExtensionRange.self
+            return Google.Protobuf.DescriptorProto.self
         }
         //Meta information declaration end
 
       }
 
       final public class ExtensionRangeBuilder : GeneratedMessageBuilder {
-        private var builderResult:Google.Protobuf.DescriptorProto.ExtensionRange
+        private var builderResult:Google.Protobuf.DescriptorProto
 
         required override public init () {
-           builderResult = Google.Protobuf.DescriptorProto.ExtensionRange()
+           builderResult = Google.Protobuf.DescriptorProto()
            super.init()
         }
         public var hasStart:Bool {
@@ -1308,11 +1308,11 @@ public extension Google.Protobuf {
                  builderResult.start = value
              }
         }
-        public func setStart(value:Int32)-> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
+        public func setStart(value:Int32)-> ExtensionRangeBuilder {
           self.start = value
           return self
         }
-        public func clearStart() -> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder{
+        public func clearStart() -> ExtensionRangeBuilder{
              builderResult.hasStart = false
              builderResult.start = Int32(0)
              return self
@@ -1331,11 +1331,11 @@ public extension Google.Protobuf {
                  builderResult.end = value
              }
         }
-        public func setEnd(value:Int32)-> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
+        public func setEnd(value:Int32)-> ExtensionRangeBuilder {
           self.end = value
           return self
         }
-        public func clearEnd() -> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder{
+        public func clearEnd() -> ExtensionRangeBuilder{
              builderResult.hasEnd = false
              builderResult.end = Int32(0)
              return self
@@ -1345,23 +1345,23 @@ public extension Google.Protobuf {
                 return builderResult
              }
         }
-        public override func clear() -> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
-          builderResult = Google.Protobuf.DescriptorProto.ExtensionRange()
+        public override func clear() -> Google.Protobuf.DescriptorProtoBuilder {
+          builderResult = Google.Protobuf.DescriptorProto()
           return self
         }
-        public override func clone() -> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.builderWithPrototype(builderResult)
+        public override func clone() -> Google.Protobuf.DescriptorProtoBuilder {
+          return Google.Protobuf.DescriptorProto.builderWithPrototype(builderResult)
         }
-        public override func build() -> Google.Protobuf.DescriptorProto.ExtensionRange {
+        public override func build() -> Google.Protobuf.DescriptorProto {
              checkInitialized()
              return buildPartial()
         }
-        public func buildPartial() -> Google.Protobuf.DescriptorProto.ExtensionRange {
-          var returnMe:Google.Protobuf.DescriptorProto.ExtensionRange = builderResult
+        public func buildPartial() -> Google.Protobuf.DescriptorProto {
+          var returnMe:Google.Protobuf.DescriptorProto = builderResult
           return returnMe
         }
-        public func mergeFrom(other:Google.Protobuf.DescriptorProto.ExtensionRange) -> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
-          if (other == Google.Protobuf.DescriptorProto.ExtensionRange()) {
+        public func mergeFrom(other:Google.Protobuf.DescriptorProto) -> Google.Protobuf.DescriptorProtoBuilder {
+          if (other == Google.Protobuf.DescriptorProto()) {
            return self
           }
           if other.hasStart {
@@ -1373,10 +1373,10 @@ public extension Google.Protobuf {
           mergeUnknownFields(other.unknownFields)
           return self
         }
-        public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
+        public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.DescriptorProtoBuilder {
              return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
         }
-        public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto.ExtensionRangeBuilder {
+        public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProtoBuilder {
           var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
           while (true) {
             var tag = input.readTag()
@@ -1407,13 +1407,13 @@ public extension Google.Protobuf {
     public private(set) var name:String = ""
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.MessageOptions!
-    public private(set) var field:Array<Google.Protobuf.FieldDescriptorProto>  = Array<Google.Protobuf.FieldDescriptorProto>()
-    public private(set) var extension_:Array<Google.Protobuf.FieldDescriptorProto>  = Array<Google.Protobuf.FieldDescriptorProto>()
-    public private(set) var nestedType:Array<Google.Protobuf.DescriptorProto>  = Array<Google.Protobuf.DescriptorProto>()
-    public private(set) var enumType:Array<Google.Protobuf.EnumDescriptorProto>  = Array<Google.Protobuf.EnumDescriptorProto>()
-    public private(set) var extensionRange:Array<Google.Protobuf.DescriptorProto.ExtensionRange>  = Array<Google.Protobuf.DescriptorProto.ExtensionRange>()
-    public private(set) var oneofDecl:Array<Google.Protobuf.OneofDescriptorProto>  = Array<Google.Protobuf.OneofDescriptorProto>()
+    public private(set) var options:MessageOptions!
+    public private(set) var field:Array<FieldDescriptorProto>  = Array<FieldDescriptorProto>()
+    public private(set) var extension_:Array<FieldDescriptorProto>  = Array<FieldDescriptorProto>()
+    public private(set) var nestedType:Array<DescriptorProto>  = Array<DescriptorProto>()
+    public private(set) var enumType:Array<EnumDescriptorProto>  = Array<EnumDescriptorProto>()
+    public private(set) var extensionRange:Array<Google.Protobuf.DescriptorProto>  = Array<Google.Protobuf.DescriptorProto>()
+    public private(set) var oneofDecl:Array<OneofDescriptorProto>  = Array<OneofDescriptorProto>()
     required public init() {
          super.init()
     }
@@ -1529,41 +1529,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.DescriptorProto {
-      return Google.Protobuf.DescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> DescriptorProto {
+      return DescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto {
-      return Google.Protobuf.DescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> DescriptorProto {
+      return DescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.DescriptorProto {
-      return Google.Protobuf.DescriptorProto.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> DescriptorProto {
+      return DescriptorProto.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.DescriptorProto {
-      return Google.Protobuf.DescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->DescriptorProto {
+      return DescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.DescriptorProto {
-      return Google.Protobuf.DescriptorProto.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> DescriptorProto {
+      return DescriptorProto.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto {
-      return Google.Protobuf.DescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DescriptorProto {
+      return DescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.DescriptorProtoBuilder {
-      return Google.Protobuf.DescriptorProto.classBuilder() as! Google.Protobuf.DescriptorProtoBuilder
+    public class func builder() -> DescriptorProtoBuilder {
+      return DescriptorProto.classBuilder() as! DescriptorProtoBuilder
     }
-    public func builder() -> Google.Protobuf.DescriptorProtoBuilder {
-      return classBuilder() as! Google.Protobuf.DescriptorProtoBuilder
+    public func builder() -> DescriptorProtoBuilder {
+      return classBuilder() as! DescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.DescriptorProtoBuilder()
+      return DescriptorProtoBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.DescriptorProto.builder()
+      return DescriptorProto.builder()
     }
-    public func toBuilder() -> Google.Protobuf.DescriptorProtoBuilder {
-      return Google.Protobuf.DescriptorProto.builderWithPrototype(self)
+    public func toBuilder() -> DescriptorProtoBuilder {
+      return DescriptorProto.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.DescriptorProto) -> Google.Protobuf.DescriptorProtoBuilder {
-      return Google.Protobuf.DescriptorProto.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:DescriptorProto) -> DescriptorProtoBuilder {
+      return DescriptorProto.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasName {
@@ -1656,23 +1656,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.DescriptorProto"
+        return "DescriptorProto"
     }
     override public func className() -> String {
-        return "Google.Protobuf.DescriptorProto"
+        return "DescriptorProto"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.DescriptorProto.self
+        return DescriptorProto.self
     }
     //Meta information declaration end
 
   }
 
   final public class DescriptorProtoBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.DescriptorProto
+    private var builderResult:DescriptorProto
 
     required override public init () {
-       builderResult = Google.Protobuf.DescriptorProto()
+       builderResult = DescriptorProto()
        super.init()
     }
     public var hasName:Bool {
@@ -1689,16 +1689,16 @@ public extension Google.Protobuf {
              builderResult.name = value
          }
     }
-    public func setName(value:String)-> Google.Protobuf.DescriptorProtoBuilder {
+    public func setName(value:String)-> DescriptorProtoBuilder {
       self.name = value
       return self
     }
-    public func clearName() -> Google.Protobuf.DescriptorProtoBuilder{
+    public func clearName() -> DescriptorProtoBuilder{
          builderResult.hasName = false
          builderResult.name = ""
          return self
     }
-    public var field:Array<Google.Protobuf.FieldDescriptorProto> {
+    public var field:Array<FieldDescriptorProto> {
          get {
              return builderResult.field
          }
@@ -1706,15 +1706,15 @@ public extension Google.Protobuf {
              builderResult.field = value
          }
     }
-    public func setField(value:Array<Google.Protobuf.FieldDescriptorProto>)-> Google.Protobuf.DescriptorProtoBuilder {
+    public func setField(value:Array<FieldDescriptorProto>)-> FieldDescriptorProtoBuilder {
       self.field = value
       return self
     }
-    public func clearField() -> Google.Protobuf.DescriptorProtoBuilder {
+    public func clearField() -> FieldDescriptorProtoBuilder {
       builderResult.field.removeAll(keepCapacity: false)
       return self
     }
-    public var extension_:Array<Google.Protobuf.FieldDescriptorProto> {
+    public var extension_:Array<FieldDescriptorProto> {
          get {
              return builderResult.extension_
          }
@@ -1722,15 +1722,15 @@ public extension Google.Protobuf {
              builderResult.extension_ = value
          }
     }
-    public func setExtension(value:Array<Google.Protobuf.FieldDescriptorProto>)-> Google.Protobuf.DescriptorProtoBuilder {
+    public func setExtension(value:Array<FieldDescriptorProto>)-> FieldDescriptorProtoBuilder {
       self.extension_ = value
       return self
     }
-    public func clearExtension() -> Google.Protobuf.DescriptorProtoBuilder {
+    public func clearExtension() -> FieldDescriptorProtoBuilder {
       builderResult.extension_.removeAll(keepCapacity: false)
       return self
     }
-    public var nestedType:Array<Google.Protobuf.DescriptorProto> {
+    public var nestedType:Array<DescriptorProto> {
          get {
              return builderResult.nestedType
          }
@@ -1738,15 +1738,15 @@ public extension Google.Protobuf {
              builderResult.nestedType = value
          }
     }
-    public func setNestedType(value:Array<Google.Protobuf.DescriptorProto>)-> Google.Protobuf.DescriptorProtoBuilder {
+    public func setNestedType(value:Array<DescriptorProto>)-> DescriptorProtoBuilder {
       self.nestedType = value
       return self
     }
-    public func clearNestedType() -> Google.Protobuf.DescriptorProtoBuilder {
+    public func clearNestedType() -> DescriptorProtoBuilder {
       builderResult.nestedType.removeAll(keepCapacity: false)
       return self
     }
-    public var enumType:Array<Google.Protobuf.EnumDescriptorProto> {
+    public var enumType:Array<EnumDescriptorProto> {
          get {
              return builderResult.enumType
          }
@@ -1754,15 +1754,15 @@ public extension Google.Protobuf {
              builderResult.enumType = value
          }
     }
-    public func setEnumType(value:Array<Google.Protobuf.EnumDescriptorProto>)-> Google.Protobuf.DescriptorProtoBuilder {
+    public func setEnumType(value:Array<EnumDescriptorProto>)-> EnumDescriptorProtoBuilder {
       self.enumType = value
       return self
     }
-    public func clearEnumType() -> Google.Protobuf.DescriptorProtoBuilder {
+    public func clearEnumType() -> EnumDescriptorProtoBuilder {
       builderResult.enumType.removeAll(keepCapacity: false)
       return self
     }
-    public var extensionRange:Array<Google.Protobuf.DescriptorProto.ExtensionRange> {
+    public var extensionRange:Array<Google.Protobuf.DescriptorProto> {
          get {
              return builderResult.extensionRange
          }
@@ -1770,7 +1770,7 @@ public extension Google.Protobuf {
              builderResult.extensionRange = value
          }
     }
-    public func setExtensionRange(value:Array<Google.Protobuf.DescriptorProto.ExtensionRange>)-> Google.Protobuf.DescriptorProtoBuilder {
+    public func setExtensionRange(value:Array<Google.Protobuf.DescriptorProto>)-> Google.Protobuf.DescriptorProtoBuilder {
       self.extensionRange = value
       return self
     }
@@ -1778,7 +1778,7 @@ public extension Google.Protobuf {
       builderResult.extensionRange.removeAll(keepCapacity: false)
       return self
     }
-    public var oneofDecl:Array<Google.Protobuf.OneofDescriptorProto> {
+    public var oneofDecl:Array<OneofDescriptorProto> {
          get {
              return builderResult.oneofDecl
          }
@@ -1786,11 +1786,11 @@ public extension Google.Protobuf {
              builderResult.oneofDecl = value
          }
     }
-    public func setOneofDecl(value:Array<Google.Protobuf.OneofDescriptorProto>)-> Google.Protobuf.DescriptorProtoBuilder {
+    public func setOneofDecl(value:Array<OneofDescriptorProto>)-> OneofDescriptorProtoBuilder {
       self.oneofDecl = value
       return self
     }
-    public func clearOneofDecl() -> Google.Protobuf.DescriptorProtoBuilder {
+    public func clearOneofDecl() -> OneofDescriptorProtoBuilder {
       builderResult.oneofDecl.removeAll(keepCapacity: false)
       return self
     }
@@ -1799,7 +1799,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.MessageOptions! {
+    public var options:MessageOptions! {
          get {
              return builderResult.options
          }
@@ -1808,20 +1808,20 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.MessageOptions!)-> Google.Protobuf.DescriptorProtoBuilder {
+    public func setOptions(value:MessageOptions!)-> MessageOptionsBuilder {
       self.options = value
       return self
     }
-    public func mergeOptions(value:Google.Protobuf.MessageOptions) -> Google.Protobuf.DescriptorProtoBuilder {
+    public func mergeOptions(value:MessageOptions) -> MessageOptionsBuilder {
       if (builderResult.hasOptions) {
-        builderResult.options = Google.Protobuf.MessageOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
+        builderResult.options = MessageOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
       } else {
         builderResult.options = value
       }
       builderResult.hasOptions = true
       return self
     }
-    public func clearOptions() -> Google.Protobuf.DescriptorProtoBuilder {
+    public func clearOptions() -> MessageOptionsBuilder {
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -1831,23 +1831,23 @@ public extension Google.Protobuf {
             return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.DescriptorProtoBuilder {
-      builderResult = Google.Protobuf.DescriptorProto()
+    public override func clear() -> DescriptorProtoBuilder {
+      builderResult = DescriptorProto()
       return self
     }
-    public override func clone() -> Google.Protobuf.DescriptorProtoBuilder {
-      return Google.Protobuf.DescriptorProto.builderWithPrototype(builderResult)
+    public override func clone() -> DescriptorProtoBuilder {
+      return DescriptorProto.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.DescriptorProto {
+    public override func build() -> DescriptorProto {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.DescriptorProto {
-      var returnMe:Google.Protobuf.DescriptorProto = builderResult
+    public func buildPartial() -> DescriptorProto {
+      var returnMe:DescriptorProto = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.DescriptorProto) -> Google.Protobuf.DescriptorProtoBuilder {
-      if (other == Google.Protobuf.DescriptorProto()) {
+    public func mergeFrom(other:DescriptorProto) -> DescriptorProtoBuilder {
+      if (other == DescriptorProto()) {
        return self
       }
       if other.hasName {
@@ -1877,10 +1877,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.DescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->DescriptorProtoBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DescriptorProtoBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -1893,32 +1893,32 @@ public extension Google.Protobuf {
           name = input.readString()
 
         case 18 :
-          var subBuilder = Google.Protobuf.FieldDescriptorProto.builder()
+          var subBuilder = FieldDescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           field += [subBuilder.buildPartial()]
 
         case 26 :
-          var subBuilder = Google.Protobuf.DescriptorProto.builder()
+          var subBuilder = DescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           nestedType += [subBuilder.buildPartial()]
 
         case 34 :
-          var subBuilder = Google.Protobuf.EnumDescriptorProto.builder()
+          var subBuilder = EnumDescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           enumType += [subBuilder.buildPartial()]
 
         case 42 :
-          var subBuilder = Google.Protobuf.DescriptorProto.ExtensionRange.builder()
+          var subBuilder = Google.Protobuf.DescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           extensionRange += [subBuilder.buildPartial()]
 
         case 50 :
-          var subBuilder = Google.Protobuf.FieldDescriptorProto.builder()
+          var subBuilder = FieldDescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           extension_ += [subBuilder.buildPartial()]
 
         case 58 :
-          var subBuilder:Google.Protobuf.MessageOptionsBuilder = Google.Protobuf.MessageOptions.builder()
+          var subBuilder:MessageOptionsBuilder = MessageOptions.builder()
           if hasOptions {
             subBuilder.mergeFrom(options)
           }
@@ -1926,7 +1926,7 @@ public extension Google.Protobuf {
           options = subBuilder.buildPartial()
 
         case 66 :
-          var subBuilder = Google.Protobuf.OneofDescriptorProto.builder()
+          var subBuilder = OneofDescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           oneofDecl += [subBuilder.buildPartial()]
 
@@ -1988,9 +1988,9 @@ public extension Google.Protobuf {
     public private(set) var hasNumber:Bool = false
     public private(set) var number:Int32 = Int32(0)
 
-    public private(set) var label:Google.Protobuf.FieldDescriptorProto.Label = Google.Protobuf.FieldDescriptorProto.Label.LabelOptional
+    public private(set) var label:Google.Protobuf.FieldDescriptorProto = Google.Protobuf.FieldDescriptorProto.LabelOptional
     public private(set) var hasLabel:Bool = false
-    public private(set) var types:Google.Protobuf.FieldDescriptorProto.Types = Google.Protobuf.FieldDescriptorProto.Types.TypeDouble
+    public private(set) var types:Google.Protobuf.FieldDescriptorProto = Google.Protobuf.FieldDescriptorProto.TypeDouble
     public private(set) var hasTypes:Bool = false
     public private(set) var hasTypeName:Bool = false
     public private(set) var typeName:String = ""
@@ -2005,7 +2005,7 @@ public extension Google.Protobuf {
     public private(set) var oneofIndex:Int32 = Int32(0)
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.FieldOptions!
+    public private(set) var options:FieldOptions!
     required public init() {
          super.init()
     }
@@ -2087,41 +2087,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.FieldDescriptorProto {
-      return Google.Protobuf.FieldDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> FieldDescriptorProto {
+      return FieldDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldDescriptorProto {
-      return Google.Protobuf.FieldDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> FieldDescriptorProto {
+      return FieldDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FieldDescriptorProto {
-      return Google.Protobuf.FieldDescriptorProto.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> FieldDescriptorProto {
+      return FieldDescriptorProto.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.FieldDescriptorProto {
-      return Google.Protobuf.FieldDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->FieldDescriptorProto {
+      return FieldDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.FieldDescriptorProto {
-      return Google.Protobuf.FieldDescriptorProto.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> FieldDescriptorProto {
+      return FieldDescriptorProto.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldDescriptorProto {
-      return Google.Protobuf.FieldDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> FieldDescriptorProto {
+      return FieldDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.FieldDescriptorProtoBuilder {
-      return Google.Protobuf.FieldDescriptorProto.classBuilder() as! Google.Protobuf.FieldDescriptorProtoBuilder
+    public class func builder() -> FieldDescriptorProtoBuilder {
+      return FieldDescriptorProto.classBuilder() as! FieldDescriptorProtoBuilder
     }
-    public func builder() -> Google.Protobuf.FieldDescriptorProtoBuilder {
-      return classBuilder() as! Google.Protobuf.FieldDescriptorProtoBuilder
+    public func builder() -> FieldDescriptorProtoBuilder {
+      return classBuilder() as! FieldDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.FieldDescriptorProtoBuilder()
+      return FieldDescriptorProtoBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.FieldDescriptorProto.builder()
+      return FieldDescriptorProto.builder()
     }
-    public func toBuilder() -> Google.Protobuf.FieldDescriptorProtoBuilder {
-      return Google.Protobuf.FieldDescriptorProto.builderWithPrototype(self)
+    public func toBuilder() -> FieldDescriptorProtoBuilder {
+      return FieldDescriptorProto.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.FieldDescriptorProto) -> Google.Protobuf.FieldDescriptorProtoBuilder {
-      return Google.Protobuf.FieldDescriptorProto.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:FieldDescriptorProto) -> FieldDescriptorProtoBuilder {
+      return FieldDescriptorProto.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasName {
@@ -2196,23 +2196,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.FieldDescriptorProto"
+        return "FieldDescriptorProto"
     }
     override public func className() -> String {
-        return "Google.Protobuf.FieldDescriptorProto"
+        return "FieldDescriptorProto"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.FieldDescriptorProto.self
+        return FieldDescriptorProto.self
     }
     //Meta information declaration end
 
   }
 
   final public class FieldDescriptorProtoBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.FieldDescriptorProto
+    private var builderResult:FieldDescriptorProto
 
     required override public init () {
-       builderResult = Google.Protobuf.FieldDescriptorProto()
+       builderResult = FieldDescriptorProto()
        super.init()
     }
     public var hasName:Bool {
@@ -2229,11 +2229,11 @@ public extension Google.Protobuf {
              builderResult.name = value
          }
     }
-    public func setName(value:String)-> Google.Protobuf.FieldDescriptorProtoBuilder {
+    public func setName(value:String)-> FieldDescriptorProtoBuilder {
       self.name = value
       return self
     }
-    public func clearName() -> Google.Protobuf.FieldDescriptorProtoBuilder{
+    public func clearName() -> FieldDescriptorProtoBuilder{
          builderResult.hasName = false
          builderResult.name = ""
          return self
@@ -2252,11 +2252,11 @@ public extension Google.Protobuf {
              builderResult.number = value
          }
     }
-    public func setNumber(value:Int32)-> Google.Protobuf.FieldDescriptorProtoBuilder {
+    public func setNumber(value:Int32)-> FieldDescriptorProtoBuilder {
       self.number = value
       return self
     }
-    public func clearNumber() -> Google.Protobuf.FieldDescriptorProtoBuilder{
+    public func clearNumber() -> FieldDescriptorProtoBuilder{
          builderResult.hasNumber = false
          builderResult.number = Int32(0)
          return self
@@ -2266,7 +2266,7 @@ public extension Google.Protobuf {
               return builderResult.hasLabel
           }
       }
-      public var label:Google.Protobuf.FieldDescriptorProto.Label {
+      public var label:Google.Protobuf.FieldDescriptorProto {
           get {
               return builderResult.label
           }
@@ -2275,7 +2275,7 @@ public extension Google.Protobuf {
               builderResult.label = value
           }
       }
-      public func setLabel(value:Google.Protobuf.FieldDescriptorProto.Label)-> Google.Protobuf.FieldDescriptorProtoBuilder {
+      public func setLabel(value:Google.Protobuf.FieldDescriptorProto)-> Google.Protobuf.FieldDescriptorProtoBuilder {
         self.label = value
         return self
       }
@@ -2289,7 +2289,7 @@ public extension Google.Protobuf {
               return builderResult.hasTypes
           }
       }
-      public var types:Google.Protobuf.FieldDescriptorProto.Types {
+      public var types:Google.Protobuf.FieldDescriptorProto {
           get {
               return builderResult.types
           }
@@ -2298,7 +2298,7 @@ public extension Google.Protobuf {
               builderResult.types = value
           }
       }
-      public func setTypes(value:Google.Protobuf.FieldDescriptorProto.Types)-> Google.Protobuf.FieldDescriptorProtoBuilder {
+      public func setTypes(value:Google.Protobuf.FieldDescriptorProto)-> Google.Protobuf.FieldDescriptorProtoBuilder {
         self.types = value
         return self
       }
@@ -2321,11 +2321,11 @@ public extension Google.Protobuf {
              builderResult.typeName = value
          }
     }
-    public func setTypeName(value:String)-> Google.Protobuf.FieldDescriptorProtoBuilder {
+    public func setTypeName(value:String)-> FieldDescriptorProtoBuilder {
       self.typeName = value
       return self
     }
-    public func clearTypeName() -> Google.Protobuf.FieldDescriptorProtoBuilder{
+    public func clearTypeName() -> FieldDescriptorProtoBuilder{
          builderResult.hasTypeName = false
          builderResult.typeName = ""
          return self
@@ -2344,11 +2344,11 @@ public extension Google.Protobuf {
              builderResult.extendee = value
          }
     }
-    public func setExtendee(value:String)-> Google.Protobuf.FieldDescriptorProtoBuilder {
+    public func setExtendee(value:String)-> FieldDescriptorProtoBuilder {
       self.extendee = value
       return self
     }
-    public func clearExtendee() -> Google.Protobuf.FieldDescriptorProtoBuilder{
+    public func clearExtendee() -> FieldDescriptorProtoBuilder{
          builderResult.hasExtendee = false
          builderResult.extendee = ""
          return self
@@ -2367,11 +2367,11 @@ public extension Google.Protobuf {
              builderResult.defaultValue = value
          }
     }
-    public func setDefaultValue(value:String)-> Google.Protobuf.FieldDescriptorProtoBuilder {
+    public func setDefaultValue(value:String)-> FieldDescriptorProtoBuilder {
       self.defaultValue = value
       return self
     }
-    public func clearDefaultValue() -> Google.Protobuf.FieldDescriptorProtoBuilder{
+    public func clearDefaultValue() -> FieldDescriptorProtoBuilder{
          builderResult.hasDefaultValue = false
          builderResult.defaultValue = ""
          return self
@@ -2390,11 +2390,11 @@ public extension Google.Protobuf {
              builderResult.oneofIndex = value
          }
     }
-    public func setOneofIndex(value:Int32)-> Google.Protobuf.FieldDescriptorProtoBuilder {
+    public func setOneofIndex(value:Int32)-> FieldDescriptorProtoBuilder {
       self.oneofIndex = value
       return self
     }
-    public func clearOneofIndex() -> Google.Protobuf.FieldDescriptorProtoBuilder{
+    public func clearOneofIndex() -> FieldDescriptorProtoBuilder{
          builderResult.hasOneofIndex = false
          builderResult.oneofIndex = Int32(0)
          return self
@@ -2404,7 +2404,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.FieldOptions! {
+    public var options:FieldOptions! {
          get {
              return builderResult.options
          }
@@ -2413,20 +2413,20 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.FieldOptions!)-> Google.Protobuf.FieldDescriptorProtoBuilder {
+    public func setOptions(value:FieldOptions!)-> FieldOptionsBuilder {
       self.options = value
       return self
     }
-    public func mergeOptions(value:Google.Protobuf.FieldOptions) -> Google.Protobuf.FieldDescriptorProtoBuilder {
+    public func mergeOptions(value:FieldOptions) -> FieldOptionsBuilder {
       if (builderResult.hasOptions) {
-        builderResult.options = Google.Protobuf.FieldOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
+        builderResult.options = FieldOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
       } else {
         builderResult.options = value
       }
       builderResult.hasOptions = true
       return self
     }
-    public func clearOptions() -> Google.Protobuf.FieldDescriptorProtoBuilder {
+    public func clearOptions() -> FieldOptionsBuilder {
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -2436,23 +2436,23 @@ public extension Google.Protobuf {
             return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.FieldDescriptorProtoBuilder {
-      builderResult = Google.Protobuf.FieldDescriptorProto()
+    public override func clear() -> FieldDescriptorProtoBuilder {
+      builderResult = FieldDescriptorProto()
       return self
     }
-    public override func clone() -> Google.Protobuf.FieldDescriptorProtoBuilder {
-      return Google.Protobuf.FieldDescriptorProto.builderWithPrototype(builderResult)
+    public override func clone() -> FieldDescriptorProtoBuilder {
+      return FieldDescriptorProto.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.FieldDescriptorProto {
+    public override func build() -> FieldDescriptorProto {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.FieldDescriptorProto {
-      var returnMe:Google.Protobuf.FieldDescriptorProto = builderResult
+    public func buildPartial() -> FieldDescriptorProto {
+      var returnMe:FieldDescriptorProto = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.FieldDescriptorProto) -> Google.Protobuf.FieldDescriptorProtoBuilder {
-      if (other == Google.Protobuf.FieldDescriptorProto()) {
+    public func mergeFrom(other:FieldDescriptorProto) -> FieldDescriptorProtoBuilder {
+      if (other == FieldDescriptorProto()) {
        return self
       }
       if other.hasName {
@@ -2485,10 +2485,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.FieldDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->FieldDescriptorProtoBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> FieldDescriptorProtoBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -2508,7 +2508,7 @@ public extension Google.Protobuf {
 
         case 32 :
           let valueIntlabel = input.readEnum()
-          if let enumslabel = Google.Protobuf.FieldDescriptorProto.Label(rawValue:valueIntlabel){
+          if let enumslabel = Google.Protobuf.FieldDescriptorProto(rawValue:valueIntlabel){
                label = enumslabel
           } else {
                unknownFieldsBuilder.mergeVarintField(4, value:Int64(valueIntlabel))
@@ -2516,7 +2516,7 @@ public extension Google.Protobuf {
 
         case 40 :
           let valueInttypes = input.readEnum()
-          if let enumstypes = Google.Protobuf.FieldDescriptorProto.Types(rawValue:valueInttypes){
+          if let enumstypes = Google.Protobuf.FieldDescriptorProto(rawValue:valueInttypes){
                types = enumstypes
           } else {
                unknownFieldsBuilder.mergeVarintField(5, value:Int64(valueInttypes))
@@ -2529,7 +2529,7 @@ public extension Google.Protobuf {
           defaultValue = input.readString()
 
         case 66 :
-          var subBuilder:Google.Protobuf.FieldOptionsBuilder = Google.Protobuf.FieldOptions.builder()
+          var subBuilder:FieldOptionsBuilder = FieldOptions.builder()
           if hasOptions {
             subBuilder.mergeFrom(options)
           }
@@ -2579,41 +2579,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.OneofDescriptorProto {
-      return Google.Protobuf.OneofDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> OneofDescriptorProto {
+      return OneofDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.OneofDescriptorProto {
-      return Google.Protobuf.OneofDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> OneofDescriptorProto {
+      return OneofDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.OneofDescriptorProto {
-      return Google.Protobuf.OneofDescriptorProto.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> OneofDescriptorProto {
+      return OneofDescriptorProto.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.OneofDescriptorProto {
-      return Google.Protobuf.OneofDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->OneofDescriptorProto {
+      return OneofDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.OneofDescriptorProto {
-      return Google.Protobuf.OneofDescriptorProto.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> OneofDescriptorProto {
+      return OneofDescriptorProto.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.OneofDescriptorProto {
-      return Google.Protobuf.OneofDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> OneofDescriptorProto {
+      return OneofDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.OneofDescriptorProtoBuilder {
-      return Google.Protobuf.OneofDescriptorProto.classBuilder() as! Google.Protobuf.OneofDescriptorProtoBuilder
+    public class func builder() -> OneofDescriptorProtoBuilder {
+      return OneofDescriptorProto.classBuilder() as! OneofDescriptorProtoBuilder
     }
-    public func builder() -> Google.Protobuf.OneofDescriptorProtoBuilder {
-      return classBuilder() as! Google.Protobuf.OneofDescriptorProtoBuilder
+    public func builder() -> OneofDescriptorProtoBuilder {
+      return classBuilder() as! OneofDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.OneofDescriptorProtoBuilder()
+      return OneofDescriptorProtoBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.OneofDescriptorProto.builder()
+      return OneofDescriptorProto.builder()
     }
-    public func toBuilder() -> Google.Protobuf.OneofDescriptorProtoBuilder {
-      return Google.Protobuf.OneofDescriptorProto.builderWithPrototype(self)
+    public func toBuilder() -> OneofDescriptorProtoBuilder {
+      return OneofDescriptorProto.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.OneofDescriptorProto) -> Google.Protobuf.OneofDescriptorProtoBuilder {
-      return Google.Protobuf.OneofDescriptorProto.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:OneofDescriptorProto) -> OneofDescriptorProtoBuilder {
+      return OneofDescriptorProto.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasName {
@@ -2636,23 +2636,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.OneofDescriptorProto"
+        return "OneofDescriptorProto"
     }
     override public func className() -> String {
-        return "Google.Protobuf.OneofDescriptorProto"
+        return "OneofDescriptorProto"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.OneofDescriptorProto.self
+        return OneofDescriptorProto.self
     }
     //Meta information declaration end
 
   }
 
   final public class OneofDescriptorProtoBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.OneofDescriptorProto
+    private var builderResult:OneofDescriptorProto
 
     required override public init () {
-       builderResult = Google.Protobuf.OneofDescriptorProto()
+       builderResult = OneofDescriptorProto()
        super.init()
     }
     public var hasName:Bool {
@@ -2669,11 +2669,11 @@ public extension Google.Protobuf {
              builderResult.name = value
          }
     }
-    public func setName(value:String)-> Google.Protobuf.OneofDescriptorProtoBuilder {
+    public func setName(value:String)-> OneofDescriptorProtoBuilder {
       self.name = value
       return self
     }
-    public func clearName() -> Google.Protobuf.OneofDescriptorProtoBuilder{
+    public func clearName() -> OneofDescriptorProtoBuilder{
          builderResult.hasName = false
          builderResult.name = ""
          return self
@@ -2683,23 +2683,23 @@ public extension Google.Protobuf {
             return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.OneofDescriptorProtoBuilder {
-      builderResult = Google.Protobuf.OneofDescriptorProto()
+    public override func clear() -> OneofDescriptorProtoBuilder {
+      builderResult = OneofDescriptorProto()
       return self
     }
-    public override func clone() -> Google.Protobuf.OneofDescriptorProtoBuilder {
-      return Google.Protobuf.OneofDescriptorProto.builderWithPrototype(builderResult)
+    public override func clone() -> OneofDescriptorProtoBuilder {
+      return OneofDescriptorProto.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.OneofDescriptorProto {
+    public override func build() -> OneofDescriptorProto {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.OneofDescriptorProto {
-      var returnMe:Google.Protobuf.OneofDescriptorProto = builderResult
+    public func buildPartial() -> OneofDescriptorProto {
+      var returnMe:OneofDescriptorProto = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.OneofDescriptorProto) -> Google.Protobuf.OneofDescriptorProtoBuilder {
-      if (other == Google.Protobuf.OneofDescriptorProto()) {
+    public func mergeFrom(other:OneofDescriptorProto) -> OneofDescriptorProtoBuilder {
+      if (other == OneofDescriptorProto()) {
        return self
       }
       if other.hasName {
@@ -2708,10 +2708,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.OneofDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->OneofDescriptorProtoBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.OneofDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> OneofDescriptorProtoBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -2738,8 +2738,8 @@ public extension Google.Protobuf {
     public private(set) var name:String = ""
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.EnumOptions!
-    public private(set) var value:Array<Google.Protobuf.EnumValueDescriptorProto>  = Array<Google.Protobuf.EnumValueDescriptorProto>()
+    public private(set) var options:EnumOptions!
+    public private(set) var value:Array<EnumValueDescriptorProto>  = Array<EnumValueDescriptorProto>()
     required public init() {
          super.init()
     }
@@ -2795,41 +2795,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.EnumDescriptorProto {
-      return Google.Protobuf.EnumDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> EnumDescriptorProto {
+      return EnumDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumDescriptorProto {
-      return Google.Protobuf.EnumDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> EnumDescriptorProto {
+      return EnumDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.EnumDescriptorProto {
-      return Google.Protobuf.EnumDescriptorProto.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> EnumDescriptorProto {
+      return EnumDescriptorProto.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.EnumDescriptorProto {
-      return Google.Protobuf.EnumDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->EnumDescriptorProto {
+      return EnumDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.EnumDescriptorProto {
-      return Google.Protobuf.EnumDescriptorProto.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> EnumDescriptorProto {
+      return EnumDescriptorProto.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumDescriptorProto {
-      return Google.Protobuf.EnumDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> EnumDescriptorProto {
+      return EnumDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.EnumDescriptorProtoBuilder {
-      return Google.Protobuf.EnumDescriptorProto.classBuilder() as! Google.Protobuf.EnumDescriptorProtoBuilder
+    public class func builder() -> EnumDescriptorProtoBuilder {
+      return EnumDescriptorProto.classBuilder() as! EnumDescriptorProtoBuilder
     }
-    public func builder() -> Google.Protobuf.EnumDescriptorProtoBuilder {
-      return classBuilder() as! Google.Protobuf.EnumDescriptorProtoBuilder
+    public func builder() -> EnumDescriptorProtoBuilder {
+      return classBuilder() as! EnumDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.EnumDescriptorProtoBuilder()
+      return EnumDescriptorProtoBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.EnumDescriptorProto.builder()
+      return EnumDescriptorProto.builder()
     }
-    public func toBuilder() -> Google.Protobuf.EnumDescriptorProtoBuilder {
-      return Google.Protobuf.EnumDescriptorProto.builderWithPrototype(self)
+    public func toBuilder() -> EnumDescriptorProtoBuilder {
+      return EnumDescriptorProto.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.EnumDescriptorProto) -> Google.Protobuf.EnumDescriptorProtoBuilder {
-      return Google.Protobuf.EnumDescriptorProto.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:EnumDescriptorProto) -> EnumDescriptorProtoBuilder {
+      return EnumDescriptorProto.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasName {
@@ -2872,23 +2872,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.EnumDescriptorProto"
+        return "EnumDescriptorProto"
     }
     override public func className() -> String {
-        return "Google.Protobuf.EnumDescriptorProto"
+        return "EnumDescriptorProto"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.EnumDescriptorProto.self
+        return EnumDescriptorProto.self
     }
     //Meta information declaration end
 
   }
 
   final public class EnumDescriptorProtoBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.EnumDescriptorProto
+    private var builderResult:EnumDescriptorProto
 
     required override public init () {
-       builderResult = Google.Protobuf.EnumDescriptorProto()
+       builderResult = EnumDescriptorProto()
        super.init()
     }
     public var hasName:Bool {
@@ -2905,16 +2905,16 @@ public extension Google.Protobuf {
              builderResult.name = value
          }
     }
-    public func setName(value:String)-> Google.Protobuf.EnumDescriptorProtoBuilder {
+    public func setName(value:String)-> EnumDescriptorProtoBuilder {
       self.name = value
       return self
     }
-    public func clearName() -> Google.Protobuf.EnumDescriptorProtoBuilder{
+    public func clearName() -> EnumDescriptorProtoBuilder{
          builderResult.hasName = false
          builderResult.name = ""
          return self
     }
-    public var value:Array<Google.Protobuf.EnumValueDescriptorProto> {
+    public var value:Array<EnumValueDescriptorProto> {
          get {
              return builderResult.value
          }
@@ -2922,11 +2922,11 @@ public extension Google.Protobuf {
              builderResult.value = value
          }
     }
-    public func setValue(value:Array<Google.Protobuf.EnumValueDescriptorProto>)-> Google.Protobuf.EnumDescriptorProtoBuilder {
+    public func setValue(value:Array<EnumValueDescriptorProto>)-> EnumValueDescriptorProtoBuilder {
       self.value = value
       return self
     }
-    public func clearValue() -> Google.Protobuf.EnumDescriptorProtoBuilder {
+    public func clearValue() -> EnumValueDescriptorProtoBuilder {
       builderResult.value.removeAll(keepCapacity: false)
       return self
     }
@@ -2935,7 +2935,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.EnumOptions! {
+    public var options:EnumOptions! {
          get {
              return builderResult.options
          }
@@ -2944,20 +2944,20 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.EnumOptions!)-> Google.Protobuf.EnumDescriptorProtoBuilder {
+    public func setOptions(value:EnumOptions!)-> EnumOptionsBuilder {
       self.options = value
       return self
     }
-    public func mergeOptions(value:Google.Protobuf.EnumOptions) -> Google.Protobuf.EnumDescriptorProtoBuilder {
+    public func mergeOptions(value:EnumOptions) -> EnumOptionsBuilder {
       if (builderResult.hasOptions) {
-        builderResult.options = Google.Protobuf.EnumOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
+        builderResult.options = EnumOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
       } else {
         builderResult.options = value
       }
       builderResult.hasOptions = true
       return self
     }
-    public func clearOptions() -> Google.Protobuf.EnumDescriptorProtoBuilder {
+    public func clearOptions() -> EnumOptionsBuilder {
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -2967,23 +2967,23 @@ public extension Google.Protobuf {
             return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.EnumDescriptorProtoBuilder {
-      builderResult = Google.Protobuf.EnumDescriptorProto()
+    public override func clear() -> EnumDescriptorProtoBuilder {
+      builderResult = EnumDescriptorProto()
       return self
     }
-    public override func clone() -> Google.Protobuf.EnumDescriptorProtoBuilder {
-      return Google.Protobuf.EnumDescriptorProto.builderWithPrototype(builderResult)
+    public override func clone() -> EnumDescriptorProtoBuilder {
+      return EnumDescriptorProto.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.EnumDescriptorProto {
+    public override func build() -> EnumDescriptorProto {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.EnumDescriptorProto {
-      var returnMe:Google.Protobuf.EnumDescriptorProto = builderResult
+    public func buildPartial() -> EnumDescriptorProto {
+      var returnMe:EnumDescriptorProto = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.EnumDescriptorProto) -> Google.Protobuf.EnumDescriptorProtoBuilder {
-      if (other == Google.Protobuf.EnumDescriptorProto()) {
+    public func mergeFrom(other:EnumDescriptorProto) -> EnumDescriptorProtoBuilder {
+      if (other == EnumDescriptorProto()) {
        return self
       }
       if other.hasName {
@@ -2998,10 +2998,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.EnumDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->EnumDescriptorProtoBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> EnumDescriptorProtoBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -3014,12 +3014,12 @@ public extension Google.Protobuf {
           name = input.readString()
 
         case 18 :
-          var subBuilder = Google.Protobuf.EnumValueDescriptorProto.builder()
+          var subBuilder = EnumValueDescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           value += [subBuilder.buildPartial()]
 
         case 26 :
-          var subBuilder:Google.Protobuf.EnumOptionsBuilder = Google.Protobuf.EnumOptions.builder()
+          var subBuilder:EnumOptionsBuilder = EnumOptions.builder()
           if hasOptions {
             subBuilder.mergeFrom(options)
           }
@@ -3044,7 +3044,7 @@ public extension Google.Protobuf {
     public private(set) var number:Int32 = Int32(0)
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.EnumValueOptions!
+    public private(set) var options:EnumValueOptions!
     required public init() {
          super.init()
     }
@@ -3090,41 +3090,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.EnumValueDescriptorProto {
-      return Google.Protobuf.EnumValueDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> EnumValueDescriptorProto {
+      return EnumValueDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumValueDescriptorProto {
-      return Google.Protobuf.EnumValueDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> EnumValueDescriptorProto {
+      return EnumValueDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.EnumValueDescriptorProto {
-      return Google.Protobuf.EnumValueDescriptorProto.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> EnumValueDescriptorProto {
+      return EnumValueDescriptorProto.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.EnumValueDescriptorProto {
-      return Google.Protobuf.EnumValueDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->EnumValueDescriptorProto {
+      return EnumValueDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.EnumValueDescriptorProto {
-      return Google.Protobuf.EnumValueDescriptorProto.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> EnumValueDescriptorProto {
+      return EnumValueDescriptorProto.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumValueDescriptorProto {
-      return Google.Protobuf.EnumValueDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> EnumValueDescriptorProto {
+      return EnumValueDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
-      return Google.Protobuf.EnumValueDescriptorProto.classBuilder() as! Google.Protobuf.EnumValueDescriptorProtoBuilder
+    public class func builder() -> EnumValueDescriptorProtoBuilder {
+      return EnumValueDescriptorProto.classBuilder() as! EnumValueDescriptorProtoBuilder
     }
-    public func builder() -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
-      return classBuilder() as! Google.Protobuf.EnumValueDescriptorProtoBuilder
+    public func builder() -> EnumValueDescriptorProtoBuilder {
+      return classBuilder() as! EnumValueDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.EnumValueDescriptorProtoBuilder()
+      return EnumValueDescriptorProtoBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.EnumValueDescriptorProto.builder()
+      return EnumValueDescriptorProto.builder()
     }
-    public func toBuilder() -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
-      return Google.Protobuf.EnumValueDescriptorProto.builderWithPrototype(self)
+    public func toBuilder() -> EnumValueDescriptorProtoBuilder {
+      return EnumValueDescriptorProto.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.EnumValueDescriptorProto) -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
-      return Google.Protobuf.EnumValueDescriptorProto.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:EnumValueDescriptorProto) -> EnumValueDescriptorProtoBuilder {
+      return EnumValueDescriptorProto.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasName {
@@ -3163,23 +3163,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.EnumValueDescriptorProto"
+        return "EnumValueDescriptorProto"
     }
     override public func className() -> String {
-        return "Google.Protobuf.EnumValueDescriptorProto"
+        return "EnumValueDescriptorProto"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.EnumValueDescriptorProto.self
+        return EnumValueDescriptorProto.self
     }
     //Meta information declaration end
 
   }
 
   final public class EnumValueDescriptorProtoBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.EnumValueDescriptorProto
+    private var builderResult:EnumValueDescriptorProto
 
     required override public init () {
-       builderResult = Google.Protobuf.EnumValueDescriptorProto()
+       builderResult = EnumValueDescriptorProto()
        super.init()
     }
     public var hasName:Bool {
@@ -3196,11 +3196,11 @@ public extension Google.Protobuf {
              builderResult.name = value
          }
     }
-    public func setName(value:String)-> Google.Protobuf.EnumValueDescriptorProtoBuilder {
+    public func setName(value:String)-> EnumValueDescriptorProtoBuilder {
       self.name = value
       return self
     }
-    public func clearName() -> Google.Protobuf.EnumValueDescriptorProtoBuilder{
+    public func clearName() -> EnumValueDescriptorProtoBuilder{
          builderResult.hasName = false
          builderResult.name = ""
          return self
@@ -3219,11 +3219,11 @@ public extension Google.Protobuf {
              builderResult.number = value
          }
     }
-    public func setNumber(value:Int32)-> Google.Protobuf.EnumValueDescriptorProtoBuilder {
+    public func setNumber(value:Int32)-> EnumValueDescriptorProtoBuilder {
       self.number = value
       return self
     }
-    public func clearNumber() -> Google.Protobuf.EnumValueDescriptorProtoBuilder{
+    public func clearNumber() -> EnumValueDescriptorProtoBuilder{
          builderResult.hasNumber = false
          builderResult.number = Int32(0)
          return self
@@ -3233,7 +3233,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.EnumValueOptions! {
+    public var options:EnumValueOptions! {
          get {
              return builderResult.options
          }
@@ -3242,20 +3242,20 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.EnumValueOptions!)-> Google.Protobuf.EnumValueDescriptorProtoBuilder {
+    public func setOptions(value:EnumValueOptions!)-> EnumValueOptionsBuilder {
       self.options = value
       return self
     }
-    public func mergeOptions(value:Google.Protobuf.EnumValueOptions) -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
+    public func mergeOptions(value:EnumValueOptions) -> EnumValueOptionsBuilder {
       if (builderResult.hasOptions) {
-        builderResult.options = Google.Protobuf.EnumValueOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
+        builderResult.options = EnumValueOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
       } else {
         builderResult.options = value
       }
       builderResult.hasOptions = true
       return self
     }
-    public func clearOptions() -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
+    public func clearOptions() -> EnumValueOptionsBuilder {
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -3265,23 +3265,23 @@ public extension Google.Protobuf {
             return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
-      builderResult = Google.Protobuf.EnumValueDescriptorProto()
+    public override func clear() -> EnumValueDescriptorProtoBuilder {
+      builderResult = EnumValueDescriptorProto()
       return self
     }
-    public override func clone() -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
-      return Google.Protobuf.EnumValueDescriptorProto.builderWithPrototype(builderResult)
+    public override func clone() -> EnumValueDescriptorProtoBuilder {
+      return EnumValueDescriptorProto.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.EnumValueDescriptorProto {
+    public override func build() -> EnumValueDescriptorProto {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.EnumValueDescriptorProto {
-      var returnMe:Google.Protobuf.EnumValueDescriptorProto = builderResult
+    public func buildPartial() -> EnumValueDescriptorProto {
+      var returnMe:EnumValueDescriptorProto = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.EnumValueDescriptorProto) -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
-      if (other == Google.Protobuf.EnumValueDescriptorProto()) {
+    public func mergeFrom(other:EnumValueDescriptorProto) -> EnumValueDescriptorProtoBuilder {
+      if (other == EnumValueDescriptorProto()) {
        return self
       }
       if other.hasName {
@@ -3296,10 +3296,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.EnumValueDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->EnumValueDescriptorProtoBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> EnumValueDescriptorProtoBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -3315,7 +3315,7 @@ public extension Google.Protobuf {
           number = input.readInt32()
 
         case 26 :
-          var subBuilder:Google.Protobuf.EnumValueOptionsBuilder = Google.Protobuf.EnumValueOptions.builder()
+          var subBuilder:EnumValueOptionsBuilder = EnumValueOptions.builder()
           if hasOptions {
             subBuilder.mergeFrom(options)
           }
@@ -3337,8 +3337,8 @@ public extension Google.Protobuf {
     public private(set) var name:String = ""
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.ServiceOptions!
-    public private(set) var method:Array<Google.Protobuf.MethodDescriptorProto>  = Array<Google.Protobuf.MethodDescriptorProto>()
+    public private(set) var options:ServiceOptions!
+    public private(set) var method:Array<MethodDescriptorProto>  = Array<MethodDescriptorProto>()
     required public init() {
          super.init()
     }
@@ -3394,41 +3394,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.ServiceDescriptorProto {
-      return Google.Protobuf.ServiceDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> ServiceDescriptorProto {
+      return ServiceDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ServiceDescriptorProto {
-      return Google.Protobuf.ServiceDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ServiceDescriptorProto {
+      return ServiceDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.ServiceDescriptorProto {
-      return Google.Protobuf.ServiceDescriptorProto.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> ServiceDescriptorProto {
+      return ServiceDescriptorProto.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.ServiceDescriptorProto {
-      return Google.Protobuf.ServiceDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ServiceDescriptorProto {
+      return ServiceDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.ServiceDescriptorProto {
-      return Google.Protobuf.ServiceDescriptorProto.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> ServiceDescriptorProto {
+      return ServiceDescriptorProto.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ServiceDescriptorProto {
-      return Google.Protobuf.ServiceDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ServiceDescriptorProto {
+      return ServiceDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.ServiceDescriptorProtoBuilder {
-      return Google.Protobuf.ServiceDescriptorProto.classBuilder() as! Google.Protobuf.ServiceDescriptorProtoBuilder
+    public class func builder() -> ServiceDescriptorProtoBuilder {
+      return ServiceDescriptorProto.classBuilder() as! ServiceDescriptorProtoBuilder
     }
-    public func builder() -> Google.Protobuf.ServiceDescriptorProtoBuilder {
-      return classBuilder() as! Google.Protobuf.ServiceDescriptorProtoBuilder
+    public func builder() -> ServiceDescriptorProtoBuilder {
+      return classBuilder() as! ServiceDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.ServiceDescriptorProtoBuilder()
+      return ServiceDescriptorProtoBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.ServiceDescriptorProto.builder()
+      return ServiceDescriptorProto.builder()
     }
-    public func toBuilder() -> Google.Protobuf.ServiceDescriptorProtoBuilder {
-      return Google.Protobuf.ServiceDescriptorProto.builderWithPrototype(self)
+    public func toBuilder() -> ServiceDescriptorProtoBuilder {
+      return ServiceDescriptorProto.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.ServiceDescriptorProto) -> Google.Protobuf.ServiceDescriptorProtoBuilder {
-      return Google.Protobuf.ServiceDescriptorProto.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ServiceDescriptorProto) -> ServiceDescriptorProtoBuilder {
+      return ServiceDescriptorProto.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasName {
@@ -3471,23 +3471,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.ServiceDescriptorProto"
+        return "ServiceDescriptorProto"
     }
     override public func className() -> String {
-        return "Google.Protobuf.ServiceDescriptorProto"
+        return "ServiceDescriptorProto"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.ServiceDescriptorProto.self
+        return ServiceDescriptorProto.self
     }
     //Meta information declaration end
 
   }
 
   final public class ServiceDescriptorProtoBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.ServiceDescriptorProto
+    private var builderResult:ServiceDescriptorProto
 
     required override public init () {
-       builderResult = Google.Protobuf.ServiceDescriptorProto()
+       builderResult = ServiceDescriptorProto()
        super.init()
     }
     public var hasName:Bool {
@@ -3504,16 +3504,16 @@ public extension Google.Protobuf {
              builderResult.name = value
          }
     }
-    public func setName(value:String)-> Google.Protobuf.ServiceDescriptorProtoBuilder {
+    public func setName(value:String)-> ServiceDescriptorProtoBuilder {
       self.name = value
       return self
     }
-    public func clearName() -> Google.Protobuf.ServiceDescriptorProtoBuilder{
+    public func clearName() -> ServiceDescriptorProtoBuilder{
          builderResult.hasName = false
          builderResult.name = ""
          return self
     }
-    public var method:Array<Google.Protobuf.MethodDescriptorProto> {
+    public var method:Array<MethodDescriptorProto> {
          get {
              return builderResult.method
          }
@@ -3521,11 +3521,11 @@ public extension Google.Protobuf {
              builderResult.method = value
          }
     }
-    public func setMethod(value:Array<Google.Protobuf.MethodDescriptorProto>)-> Google.Protobuf.ServiceDescriptorProtoBuilder {
+    public func setMethod(value:Array<MethodDescriptorProto>)-> MethodDescriptorProtoBuilder {
       self.method = value
       return self
     }
-    public func clearMethod() -> Google.Protobuf.ServiceDescriptorProtoBuilder {
+    public func clearMethod() -> MethodDescriptorProtoBuilder {
       builderResult.method.removeAll(keepCapacity: false)
       return self
     }
@@ -3534,7 +3534,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.ServiceOptions! {
+    public var options:ServiceOptions! {
          get {
              return builderResult.options
          }
@@ -3543,20 +3543,20 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.ServiceOptions!)-> Google.Protobuf.ServiceDescriptorProtoBuilder {
+    public func setOptions(value:ServiceOptions!)-> ServiceOptionsBuilder {
       self.options = value
       return self
     }
-    public func mergeOptions(value:Google.Protobuf.ServiceOptions) -> Google.Protobuf.ServiceDescriptorProtoBuilder {
+    public func mergeOptions(value:ServiceOptions) -> ServiceOptionsBuilder {
       if (builderResult.hasOptions) {
-        builderResult.options = Google.Protobuf.ServiceOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
+        builderResult.options = ServiceOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
       } else {
         builderResult.options = value
       }
       builderResult.hasOptions = true
       return self
     }
-    public func clearOptions() -> Google.Protobuf.ServiceDescriptorProtoBuilder {
+    public func clearOptions() -> ServiceOptionsBuilder {
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -3566,23 +3566,23 @@ public extension Google.Protobuf {
             return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.ServiceDescriptorProtoBuilder {
-      builderResult = Google.Protobuf.ServiceDescriptorProto()
+    public override func clear() -> ServiceDescriptorProtoBuilder {
+      builderResult = ServiceDescriptorProto()
       return self
     }
-    public override func clone() -> Google.Protobuf.ServiceDescriptorProtoBuilder {
-      return Google.Protobuf.ServiceDescriptorProto.builderWithPrototype(builderResult)
+    public override func clone() -> ServiceDescriptorProtoBuilder {
+      return ServiceDescriptorProto.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.ServiceDescriptorProto {
+    public override func build() -> ServiceDescriptorProto {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.ServiceDescriptorProto {
-      var returnMe:Google.Protobuf.ServiceDescriptorProto = builderResult
+    public func buildPartial() -> ServiceDescriptorProto {
+      var returnMe:ServiceDescriptorProto = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.ServiceDescriptorProto) -> Google.Protobuf.ServiceDescriptorProtoBuilder {
-      if (other == Google.Protobuf.ServiceDescriptorProto()) {
+    public func mergeFrom(other:ServiceDescriptorProto) -> ServiceDescriptorProtoBuilder {
+      if (other == ServiceDescriptorProto()) {
        return self
       }
       if other.hasName {
@@ -3597,10 +3597,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.ServiceDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->ServiceDescriptorProtoBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ServiceDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ServiceDescriptorProtoBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -3613,12 +3613,12 @@ public extension Google.Protobuf {
           name = input.readString()
 
         case 18 :
-          var subBuilder = Google.Protobuf.MethodDescriptorProto.builder()
+          var subBuilder = MethodDescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           method += [subBuilder.buildPartial()]
 
         case 26 :
-          var subBuilder:Google.Protobuf.ServiceOptionsBuilder = Google.Protobuf.ServiceOptions.builder()
+          var subBuilder:ServiceOptionsBuilder = ServiceOptions.builder()
           if hasOptions {
             subBuilder.mergeFrom(options)
           }
@@ -3646,7 +3646,7 @@ public extension Google.Protobuf {
     public private(set) var outputType:String = ""
 
     public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.MethodOptions!
+    public private(set) var options:MethodOptions!
     required public init() {
          super.init()
     }
@@ -3698,41 +3698,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.MethodDescriptorProto {
-      return Google.Protobuf.MethodDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> MethodDescriptorProto {
+      return MethodDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MethodDescriptorProto {
-      return Google.Protobuf.MethodDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> MethodDescriptorProto {
+      return MethodDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.MethodDescriptorProto {
-      return Google.Protobuf.MethodDescriptorProto.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> MethodDescriptorProto {
+      return MethodDescriptorProto.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.MethodDescriptorProto {
-      return Google.Protobuf.MethodDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->MethodDescriptorProto {
+      return MethodDescriptorProto.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.MethodDescriptorProto {
-      return Google.Protobuf.MethodDescriptorProto.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> MethodDescriptorProto {
+      return MethodDescriptorProto.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MethodDescriptorProto {
-      return Google.Protobuf.MethodDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> MethodDescriptorProto {
+      return MethodDescriptorProto.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.MethodDescriptorProtoBuilder {
-      return Google.Protobuf.MethodDescriptorProto.classBuilder() as! Google.Protobuf.MethodDescriptorProtoBuilder
+    public class func builder() -> MethodDescriptorProtoBuilder {
+      return MethodDescriptorProto.classBuilder() as! MethodDescriptorProtoBuilder
     }
-    public func builder() -> Google.Protobuf.MethodDescriptorProtoBuilder {
-      return classBuilder() as! Google.Protobuf.MethodDescriptorProtoBuilder
+    public func builder() -> MethodDescriptorProtoBuilder {
+      return classBuilder() as! MethodDescriptorProtoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.MethodDescriptorProtoBuilder()
+      return MethodDescriptorProtoBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.MethodDescriptorProto.builder()
+      return MethodDescriptorProto.builder()
     }
-    public func toBuilder() -> Google.Protobuf.MethodDescriptorProtoBuilder {
-      return Google.Protobuf.MethodDescriptorProto.builderWithPrototype(self)
+    public func toBuilder() -> MethodDescriptorProtoBuilder {
+      return MethodDescriptorProto.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.MethodDescriptorProto) -> Google.Protobuf.MethodDescriptorProtoBuilder {
-      return Google.Protobuf.MethodDescriptorProto.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:MethodDescriptorProto) -> MethodDescriptorProtoBuilder {
+      return MethodDescriptorProto.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasName {
@@ -3777,23 +3777,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.MethodDescriptorProto"
+        return "MethodDescriptorProto"
     }
     override public func className() -> String {
-        return "Google.Protobuf.MethodDescriptorProto"
+        return "MethodDescriptorProto"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.MethodDescriptorProto.self
+        return MethodDescriptorProto.self
     }
     //Meta information declaration end
 
   }
 
   final public class MethodDescriptorProtoBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.MethodDescriptorProto
+    private var builderResult:MethodDescriptorProto
 
     required override public init () {
-       builderResult = Google.Protobuf.MethodDescriptorProto()
+       builderResult = MethodDescriptorProto()
        super.init()
     }
     public var hasName:Bool {
@@ -3810,11 +3810,11 @@ public extension Google.Protobuf {
              builderResult.name = value
          }
     }
-    public func setName(value:String)-> Google.Protobuf.MethodDescriptorProtoBuilder {
+    public func setName(value:String)-> MethodDescriptorProtoBuilder {
       self.name = value
       return self
     }
-    public func clearName() -> Google.Protobuf.MethodDescriptorProtoBuilder{
+    public func clearName() -> MethodDescriptorProtoBuilder{
          builderResult.hasName = false
          builderResult.name = ""
          return self
@@ -3833,11 +3833,11 @@ public extension Google.Protobuf {
              builderResult.inputType = value
          }
     }
-    public func setInputType(value:String)-> Google.Protobuf.MethodDescriptorProtoBuilder {
+    public func setInputType(value:String)-> MethodDescriptorProtoBuilder {
       self.inputType = value
       return self
     }
-    public func clearInputType() -> Google.Protobuf.MethodDescriptorProtoBuilder{
+    public func clearInputType() -> MethodDescriptorProtoBuilder{
          builderResult.hasInputType = false
          builderResult.inputType = ""
          return self
@@ -3856,11 +3856,11 @@ public extension Google.Protobuf {
              builderResult.outputType = value
          }
     }
-    public func setOutputType(value:String)-> Google.Protobuf.MethodDescriptorProtoBuilder {
+    public func setOutputType(value:String)-> MethodDescriptorProtoBuilder {
       self.outputType = value
       return self
     }
-    public func clearOutputType() -> Google.Protobuf.MethodDescriptorProtoBuilder{
+    public func clearOutputType() -> MethodDescriptorProtoBuilder{
          builderResult.hasOutputType = false
          builderResult.outputType = ""
          return self
@@ -3870,7 +3870,7 @@ public extension Google.Protobuf {
              return builderResult.hasOptions
          }
     }
-    public var options:Google.Protobuf.MethodOptions! {
+    public var options:MethodOptions! {
          get {
              return builderResult.options
          }
@@ -3879,20 +3879,20 @@ public extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    public func setOptions(value:Google.Protobuf.MethodOptions!)-> Google.Protobuf.MethodDescriptorProtoBuilder {
+    public func setOptions(value:MethodOptions!)-> MethodOptionsBuilder {
       self.options = value
       return self
     }
-    public func mergeOptions(value:Google.Protobuf.MethodOptions) -> Google.Protobuf.MethodDescriptorProtoBuilder {
+    public func mergeOptions(value:MethodOptions) -> MethodOptionsBuilder {
       if (builderResult.hasOptions) {
-        builderResult.options = Google.Protobuf.MethodOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
+        builderResult.options = MethodOptions.builderWithPrototype(builderResult.options).mergeFrom(value).buildPartial()
       } else {
         builderResult.options = value
       }
       builderResult.hasOptions = true
       return self
     }
-    public func clearOptions() -> Google.Protobuf.MethodDescriptorProtoBuilder {
+    public func clearOptions() -> MethodOptionsBuilder {
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -3902,23 +3902,23 @@ public extension Google.Protobuf {
             return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.MethodDescriptorProtoBuilder {
-      builderResult = Google.Protobuf.MethodDescriptorProto()
+    public override func clear() -> MethodDescriptorProtoBuilder {
+      builderResult = MethodDescriptorProto()
       return self
     }
-    public override func clone() -> Google.Protobuf.MethodDescriptorProtoBuilder {
-      return Google.Protobuf.MethodDescriptorProto.builderWithPrototype(builderResult)
+    public override func clone() -> MethodDescriptorProtoBuilder {
+      return MethodDescriptorProto.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.MethodDescriptorProto {
+    public override func build() -> MethodDescriptorProto {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.MethodDescriptorProto {
-      var returnMe:Google.Protobuf.MethodDescriptorProto = builderResult
+    public func buildPartial() -> MethodDescriptorProto {
+      var returnMe:MethodDescriptorProto = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.MethodDescriptorProto) -> Google.Protobuf.MethodDescriptorProtoBuilder {
-      if (other == Google.Protobuf.MethodDescriptorProto()) {
+    public func mergeFrom(other:MethodDescriptorProto) -> MethodDescriptorProtoBuilder {
+      if (other == MethodDescriptorProto()) {
        return self
       }
       if other.hasName {
@@ -3936,10 +3936,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.MethodDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->MethodDescriptorProtoBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MethodDescriptorProtoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> MethodDescriptorProtoBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -3958,7 +3958,7 @@ public extension Google.Protobuf {
           outputType = input.readString()
 
         case 34 :
-          var subBuilder:Google.Protobuf.MethodOptionsBuilder = Google.Protobuf.MethodOptions.builder()
+          var subBuilder:MethodOptionsBuilder = MethodOptions.builder()
           if hasOptions {
             subBuilder.mergeFrom(options)
           }
@@ -4004,7 +4004,7 @@ public extension Google.Protobuf {
     public private(set) var hasJavaStringCheckUtf8:Bool = false
     public private(set) var javaStringCheckUtf8:Bool = false
 
-    public private(set) var optimizeFor:Google.Protobuf.FileOptions.OptimizeMode = Google.Protobuf.FileOptions.OptimizeMode.Speed
+    public private(set) var optimizeFor:Google.Protobuf.FileOptions = Google.Protobuf.FileOptions.Speed
     public private(set) var hasOptimizeFor:Bool = false
     public private(set) var hasGoPackage:Bool = false
     public private(set) var goPackage:String = ""
@@ -4021,7 +4021,7 @@ public extension Google.Protobuf {
     public private(set) var hasDeprecated:Bool = false
     public private(set) var deprecated:Bool = false
 
-    public private(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
+    public private(set) var uninterpretedOption:Array<UninterpretedOption>  = Array<UninterpretedOption>()
     required public init() {
          super.init()
     }
@@ -4129,41 +4129,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.FileOptions {
-      return Google.Protobuf.FileOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> FileOptions {
+      return FileOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileOptions {
-      return Google.Protobuf.FileOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> FileOptions {
+      return FileOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FileOptions {
-      return Google.Protobuf.FileOptions.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> FileOptions {
+      return FileOptions.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.FileOptions {
-      return Google.Protobuf.FileOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->FileOptions {
+      return FileOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.FileOptions {
-      return Google.Protobuf.FileOptions.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> FileOptions {
+      return FileOptions.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileOptions {
-      return Google.Protobuf.FileOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> FileOptions {
+      return FileOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.FileOptionsBuilder {
-      return Google.Protobuf.FileOptions.classBuilder() as! Google.Protobuf.FileOptionsBuilder
+    public class func builder() -> FileOptionsBuilder {
+      return FileOptions.classBuilder() as! FileOptionsBuilder
     }
-    public func builder() -> Google.Protobuf.FileOptionsBuilder {
-      return classBuilder() as! Google.Protobuf.FileOptionsBuilder
+    public func builder() -> FileOptionsBuilder {
+      return classBuilder() as! FileOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.FileOptionsBuilder()
+      return FileOptionsBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.FileOptions.builder()
+      return FileOptions.builder()
     }
-    public func toBuilder() -> Google.Protobuf.FileOptionsBuilder {
-      return Google.Protobuf.FileOptions.builderWithPrototype(self)
+    public func toBuilder() -> FileOptionsBuilder {
+      return FileOptions.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.FileOptions) -> Google.Protobuf.FileOptionsBuilder {
-      return Google.Protobuf.FileOptions.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:FileOptions) -> FileOptionsBuilder {
+      return FileOptions.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasJavaPackage {
@@ -4258,23 +4258,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.FileOptions"
+        return "FileOptions"
     }
     override public func className() -> String {
-        return "Google.Protobuf.FileOptions"
+        return "FileOptions"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.FileOptions.self
+        return FileOptions.self
     }
     //Meta information declaration end
 
   }
 
   final public class FileOptionsBuilder : ExtendableMessageBuilder {
-    private var builderResult:Google.Protobuf.FileOptions
+    private var builderResult:FileOptions
 
     required override public init () {
-       builderResult = Google.Protobuf.FileOptions()
+       builderResult = FileOptions()
        super.init()
     }
     public var hasJavaPackage:Bool {
@@ -4291,11 +4291,11 @@ public extension Google.Protobuf {
              builderResult.javaPackage = value
          }
     }
-    public func setJavaPackage(value:String)-> Google.Protobuf.FileOptionsBuilder {
+    public func setJavaPackage(value:String)-> FileOptionsBuilder {
       self.javaPackage = value
       return self
     }
-    public func clearJavaPackage() -> Google.Protobuf.FileOptionsBuilder{
+    public func clearJavaPackage() -> FileOptionsBuilder{
          builderResult.hasJavaPackage = false
          builderResult.javaPackage = ""
          return self
@@ -4314,11 +4314,11 @@ public extension Google.Protobuf {
              builderResult.javaOuterClassname = value
          }
     }
-    public func setJavaOuterClassname(value:String)-> Google.Protobuf.FileOptionsBuilder {
+    public func setJavaOuterClassname(value:String)-> FileOptionsBuilder {
       self.javaOuterClassname = value
       return self
     }
-    public func clearJavaOuterClassname() -> Google.Protobuf.FileOptionsBuilder{
+    public func clearJavaOuterClassname() -> FileOptionsBuilder{
          builderResult.hasJavaOuterClassname = false
          builderResult.javaOuterClassname = ""
          return self
@@ -4337,11 +4337,11 @@ public extension Google.Protobuf {
              builderResult.javaMultipleFiles = value
          }
     }
-    public func setJavaMultipleFiles(value:Bool)-> Google.Protobuf.FileOptionsBuilder {
+    public func setJavaMultipleFiles(value:Bool)-> FileOptionsBuilder {
       self.javaMultipleFiles = value
       return self
     }
-    public func clearJavaMultipleFiles() -> Google.Protobuf.FileOptionsBuilder{
+    public func clearJavaMultipleFiles() -> FileOptionsBuilder{
          builderResult.hasJavaMultipleFiles = false
          builderResult.javaMultipleFiles = false
          return self
@@ -4360,11 +4360,11 @@ public extension Google.Protobuf {
              builderResult.javaGenerateEqualsAndHash = value
          }
     }
-    public func setJavaGenerateEqualsAndHash(value:Bool)-> Google.Protobuf.FileOptionsBuilder {
+    public func setJavaGenerateEqualsAndHash(value:Bool)-> FileOptionsBuilder {
       self.javaGenerateEqualsAndHash = value
       return self
     }
-    public func clearJavaGenerateEqualsAndHash() -> Google.Protobuf.FileOptionsBuilder{
+    public func clearJavaGenerateEqualsAndHash() -> FileOptionsBuilder{
          builderResult.hasJavaGenerateEqualsAndHash = false
          builderResult.javaGenerateEqualsAndHash = false
          return self
@@ -4383,11 +4383,11 @@ public extension Google.Protobuf {
              builderResult.javaStringCheckUtf8 = value
          }
     }
-    public func setJavaStringCheckUtf8(value:Bool)-> Google.Protobuf.FileOptionsBuilder {
+    public func setJavaStringCheckUtf8(value:Bool)-> FileOptionsBuilder {
       self.javaStringCheckUtf8 = value
       return self
     }
-    public func clearJavaStringCheckUtf8() -> Google.Protobuf.FileOptionsBuilder{
+    public func clearJavaStringCheckUtf8() -> FileOptionsBuilder{
          builderResult.hasJavaStringCheckUtf8 = false
          builderResult.javaStringCheckUtf8 = false
          return self
@@ -4397,7 +4397,7 @@ public extension Google.Protobuf {
               return builderResult.hasOptimizeFor
           }
       }
-      public var optimizeFor:Google.Protobuf.FileOptions.OptimizeMode {
+      public var optimizeFor:Google.Protobuf.FileOptions {
           get {
               return builderResult.optimizeFor
           }
@@ -4406,7 +4406,7 @@ public extension Google.Protobuf {
               builderResult.optimizeFor = value
           }
       }
-      public func setOptimizeFor(value:Google.Protobuf.FileOptions.OptimizeMode)-> Google.Protobuf.FileOptionsBuilder {
+      public func setOptimizeFor(value:Google.Protobuf.FileOptions)-> Google.Protobuf.FileOptionsBuilder {
         self.optimizeFor = value
         return self
       }
@@ -4429,11 +4429,11 @@ public extension Google.Protobuf {
              builderResult.goPackage = value
          }
     }
-    public func setGoPackage(value:String)-> Google.Protobuf.FileOptionsBuilder {
+    public func setGoPackage(value:String)-> FileOptionsBuilder {
       self.goPackage = value
       return self
     }
-    public func clearGoPackage() -> Google.Protobuf.FileOptionsBuilder{
+    public func clearGoPackage() -> FileOptionsBuilder{
          builderResult.hasGoPackage = false
          builderResult.goPackage = ""
          return self
@@ -4452,11 +4452,11 @@ public extension Google.Protobuf {
              builderResult.ccGenericServices = value
          }
     }
-    public func setCcGenericServices(value:Bool)-> Google.Protobuf.FileOptionsBuilder {
+    public func setCcGenericServices(value:Bool)-> FileOptionsBuilder {
       self.ccGenericServices = value
       return self
     }
-    public func clearCcGenericServices() -> Google.Protobuf.FileOptionsBuilder{
+    public func clearCcGenericServices() -> FileOptionsBuilder{
          builderResult.hasCcGenericServices = false
          builderResult.ccGenericServices = false
          return self
@@ -4475,11 +4475,11 @@ public extension Google.Protobuf {
              builderResult.javaGenericServices = value
          }
     }
-    public func setJavaGenericServices(value:Bool)-> Google.Protobuf.FileOptionsBuilder {
+    public func setJavaGenericServices(value:Bool)-> FileOptionsBuilder {
       self.javaGenericServices = value
       return self
     }
-    public func clearJavaGenericServices() -> Google.Protobuf.FileOptionsBuilder{
+    public func clearJavaGenericServices() -> FileOptionsBuilder{
          builderResult.hasJavaGenericServices = false
          builderResult.javaGenericServices = false
          return self
@@ -4498,11 +4498,11 @@ public extension Google.Protobuf {
              builderResult.pyGenericServices = value
          }
     }
-    public func setPyGenericServices(value:Bool)-> Google.Protobuf.FileOptionsBuilder {
+    public func setPyGenericServices(value:Bool)-> FileOptionsBuilder {
       self.pyGenericServices = value
       return self
     }
-    public func clearPyGenericServices() -> Google.Protobuf.FileOptionsBuilder{
+    public func clearPyGenericServices() -> FileOptionsBuilder{
          builderResult.hasPyGenericServices = false
          builderResult.pyGenericServices = false
          return self
@@ -4521,16 +4521,16 @@ public extension Google.Protobuf {
              builderResult.deprecated = value
          }
     }
-    public func setDeprecated(value:Bool)-> Google.Protobuf.FileOptionsBuilder {
+    public func setDeprecated(value:Bool)-> FileOptionsBuilder {
       self.deprecated = value
       return self
     }
-    public func clearDeprecated() -> Google.Protobuf.FileOptionsBuilder{
+    public func clearDeprecated() -> FileOptionsBuilder{
          builderResult.hasDeprecated = false
          builderResult.deprecated = false
          return self
     }
-    public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
+    public var uninterpretedOption:Array<UninterpretedOption> {
          get {
              return builderResult.uninterpretedOption
          }
@@ -4538,11 +4538,11 @@ public extension Google.Protobuf {
              builderResult.uninterpretedOption = value
          }
     }
-    public func setUninterpretedOption(value:Array<Google.Protobuf.UninterpretedOption>)-> Google.Protobuf.FileOptionsBuilder {
+    public func setUninterpretedOption(value:Array<UninterpretedOption>)-> UninterpretedOptionBuilder {
       self.uninterpretedOption = value
       return self
     }
-    public func clearUninterpretedOption() -> Google.Protobuf.FileOptionsBuilder {
+    public func clearUninterpretedOption() -> UninterpretedOptionBuilder {
       builderResult.uninterpretedOption.removeAll(keepCapacity: false)
       return self
     }
@@ -4551,23 +4551,23 @@ public extension Google.Protobuf {
              return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.FileOptionsBuilder {
-      builderResult = Google.Protobuf.FileOptions()
+    public override func clear() -> FileOptionsBuilder {
+      builderResult = FileOptions()
       return self
     }
-    public override func clone() -> Google.Protobuf.FileOptionsBuilder {
-      return Google.Protobuf.FileOptions.builderWithPrototype(builderResult)
+    public override func clone() -> FileOptionsBuilder {
+      return FileOptions.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.FileOptions {
+    public override func build() -> FileOptions {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.FileOptions {
-      var returnMe:Google.Protobuf.FileOptions = builderResult
+    public func buildPartial() -> FileOptions {
+      var returnMe:FileOptions = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.FileOptions) -> Google.Protobuf.FileOptionsBuilder {
-      if (other == Google.Protobuf.FileOptions()) {
+    public func mergeFrom(other:FileOptions) -> FileOptionsBuilder {
+      if (other == FileOptions()) {
        return self
       }
       if other.hasJavaPackage {
@@ -4610,10 +4610,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.FileOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->FileOptionsBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> FileOptionsBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -4630,7 +4630,7 @@ public extension Google.Protobuf {
 
         case 72 :
           let valueIntoptimizeFor = input.readEnum()
-          if let enumsoptimizeFor = Google.Protobuf.FileOptions.OptimizeMode(rawValue:valueIntoptimizeFor){
+          if let enumsoptimizeFor = Google.Protobuf.FileOptions(rawValue:valueIntoptimizeFor){
                optimizeFor = enumsoptimizeFor
           } else {
                unknownFieldsBuilder.mergeVarintField(9, value:Int64(valueIntoptimizeFor))
@@ -4661,7 +4661,7 @@ public extension Google.Protobuf {
           javaStringCheckUtf8 = input.readBool()
 
         case 7994 :
-          var subBuilder = Google.Protobuf.UninterpretedOption.builder()
+          var subBuilder = UninterpretedOption.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           uninterpretedOption += [subBuilder.buildPartial()]
 
@@ -4685,7 +4685,7 @@ public extension Google.Protobuf {
     public private(set) var hasDeprecated:Bool = false
     public private(set) var deprecated:Bool = false
 
-    public private(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
+    public private(set) var uninterpretedOption:Array<UninterpretedOption>  = Array<UninterpretedOption>()
     required public init() {
          super.init()
     }
@@ -4745,41 +4745,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.MessageOptions {
-      return Google.Protobuf.MessageOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> MessageOptions {
+      return MessageOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MessageOptions {
-      return Google.Protobuf.MessageOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> MessageOptions {
+      return MessageOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.MessageOptions {
-      return Google.Protobuf.MessageOptions.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> MessageOptions {
+      return MessageOptions.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.MessageOptions {
-      return Google.Protobuf.MessageOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->MessageOptions {
+      return MessageOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.MessageOptions {
-      return Google.Protobuf.MessageOptions.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> MessageOptions {
+      return MessageOptions.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MessageOptions {
-      return Google.Protobuf.MessageOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> MessageOptions {
+      return MessageOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.MessageOptionsBuilder {
-      return Google.Protobuf.MessageOptions.classBuilder() as! Google.Protobuf.MessageOptionsBuilder
+    public class func builder() -> MessageOptionsBuilder {
+      return MessageOptions.classBuilder() as! MessageOptionsBuilder
     }
-    public func builder() -> Google.Protobuf.MessageOptionsBuilder {
-      return classBuilder() as! Google.Protobuf.MessageOptionsBuilder
+    public func builder() -> MessageOptionsBuilder {
+      return classBuilder() as! MessageOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.MessageOptionsBuilder()
+      return MessageOptionsBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.MessageOptions.builder()
+      return MessageOptions.builder()
     }
-    public func toBuilder() -> Google.Protobuf.MessageOptionsBuilder {
-      return Google.Protobuf.MessageOptions.builderWithPrototype(self)
+    public func toBuilder() -> MessageOptionsBuilder {
+      return MessageOptions.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.MessageOptions) -> Google.Protobuf.MessageOptionsBuilder {
-      return Google.Protobuf.MessageOptions.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:MessageOptions) -> MessageOptionsBuilder {
+      return MessageOptions.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasMessageSetWireFormat {
@@ -4826,23 +4826,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.MessageOptions"
+        return "MessageOptions"
     }
     override public func className() -> String {
-        return "Google.Protobuf.MessageOptions"
+        return "MessageOptions"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.MessageOptions.self
+        return MessageOptions.self
     }
     //Meta information declaration end
 
   }
 
   final public class MessageOptionsBuilder : ExtendableMessageBuilder {
-    private var builderResult:Google.Protobuf.MessageOptions
+    private var builderResult:MessageOptions
 
     required override public init () {
-       builderResult = Google.Protobuf.MessageOptions()
+       builderResult = MessageOptions()
        super.init()
     }
     public var hasMessageSetWireFormat:Bool {
@@ -4859,11 +4859,11 @@ public extension Google.Protobuf {
              builderResult.messageSetWireFormat = value
          }
     }
-    public func setMessageSetWireFormat(value:Bool)-> Google.Protobuf.MessageOptionsBuilder {
+    public func setMessageSetWireFormat(value:Bool)-> MessageOptionsBuilder {
       self.messageSetWireFormat = value
       return self
     }
-    public func clearMessageSetWireFormat() -> Google.Protobuf.MessageOptionsBuilder{
+    public func clearMessageSetWireFormat() -> MessageOptionsBuilder{
          builderResult.hasMessageSetWireFormat = false
          builderResult.messageSetWireFormat = false
          return self
@@ -4882,11 +4882,11 @@ public extension Google.Protobuf {
              builderResult.noStandardDescriptorAccessor = value
          }
     }
-    public func setNoStandardDescriptorAccessor(value:Bool)-> Google.Protobuf.MessageOptionsBuilder {
+    public func setNoStandardDescriptorAccessor(value:Bool)-> MessageOptionsBuilder {
       self.noStandardDescriptorAccessor = value
       return self
     }
-    public func clearNoStandardDescriptorAccessor() -> Google.Protobuf.MessageOptionsBuilder{
+    public func clearNoStandardDescriptorAccessor() -> MessageOptionsBuilder{
          builderResult.hasNoStandardDescriptorAccessor = false
          builderResult.noStandardDescriptorAccessor = false
          return self
@@ -4905,16 +4905,16 @@ public extension Google.Protobuf {
              builderResult.deprecated = value
          }
     }
-    public func setDeprecated(value:Bool)-> Google.Protobuf.MessageOptionsBuilder {
+    public func setDeprecated(value:Bool)-> MessageOptionsBuilder {
       self.deprecated = value
       return self
     }
-    public func clearDeprecated() -> Google.Protobuf.MessageOptionsBuilder{
+    public func clearDeprecated() -> MessageOptionsBuilder{
          builderResult.hasDeprecated = false
          builderResult.deprecated = false
          return self
     }
-    public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
+    public var uninterpretedOption:Array<UninterpretedOption> {
          get {
              return builderResult.uninterpretedOption
          }
@@ -4922,11 +4922,11 @@ public extension Google.Protobuf {
              builderResult.uninterpretedOption = value
          }
     }
-    public func setUninterpretedOption(value:Array<Google.Protobuf.UninterpretedOption>)-> Google.Protobuf.MessageOptionsBuilder {
+    public func setUninterpretedOption(value:Array<UninterpretedOption>)-> UninterpretedOptionBuilder {
       self.uninterpretedOption = value
       return self
     }
-    public func clearUninterpretedOption() -> Google.Protobuf.MessageOptionsBuilder {
+    public func clearUninterpretedOption() -> UninterpretedOptionBuilder {
       builderResult.uninterpretedOption.removeAll(keepCapacity: false)
       return self
     }
@@ -4935,23 +4935,23 @@ public extension Google.Protobuf {
              return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.MessageOptionsBuilder {
-      builderResult = Google.Protobuf.MessageOptions()
+    public override func clear() -> MessageOptionsBuilder {
+      builderResult = MessageOptions()
       return self
     }
-    public override func clone() -> Google.Protobuf.MessageOptionsBuilder {
-      return Google.Protobuf.MessageOptions.builderWithPrototype(builderResult)
+    public override func clone() -> MessageOptionsBuilder {
+      return MessageOptions.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.MessageOptions {
+    public override func build() -> MessageOptions {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.MessageOptions {
-      var returnMe:Google.Protobuf.MessageOptions = builderResult
+    public func buildPartial() -> MessageOptions {
+      var returnMe:MessageOptions = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.MessageOptions) -> Google.Protobuf.MessageOptionsBuilder {
-      if (other == Google.Protobuf.MessageOptions()) {
+    public func mergeFrom(other:MessageOptions) -> MessageOptionsBuilder {
+      if (other == MessageOptions()) {
        return self
       }
       if other.hasMessageSetWireFormat {
@@ -4970,10 +4970,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.MessageOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->MessageOptionsBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MessageOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> MessageOptionsBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -4992,7 +4992,7 @@ public extension Google.Protobuf {
           deprecated = input.readBool()
 
         case 7994 :
-          var subBuilder = Google.Protobuf.UninterpretedOption.builder()
+          var subBuilder = UninterpretedOption.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           uninterpretedOption += [subBuilder.buildPartial()]
 
@@ -5020,7 +5020,7 @@ public extension Google.Protobuf {
 
       //Enum type declaration end 
 
-    public private(set) var ctype:Google.Protobuf.FieldOptions.Ctype = Google.Protobuf.FieldOptions.Ctype.String
+    public private(set) var ctype:Google.Protobuf.FieldOptions = Google.Protobuf.FieldOptions.String
     public private(set) var hasCtype:Bool = false
     public private(set) var hasPacked:Bool = false
     public private(set) var packed:Bool = false
@@ -5037,7 +5037,7 @@ public extension Google.Protobuf {
     public private(set) var hasWeak:Bool = false
     public private(set) var weak:Bool = false
 
-    public private(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
+    public private(set) var uninterpretedOption:Array<UninterpretedOption>  = Array<UninterpretedOption>()
     required public init() {
          super.init()
     }
@@ -5115,41 +5115,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.FieldOptions {
-      return Google.Protobuf.FieldOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> FieldOptions {
+      return FieldOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldOptions {
-      return Google.Protobuf.FieldOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> FieldOptions {
+      return FieldOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FieldOptions {
-      return Google.Protobuf.FieldOptions.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> FieldOptions {
+      return FieldOptions.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.FieldOptions {
-      return Google.Protobuf.FieldOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->FieldOptions {
+      return FieldOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.FieldOptions {
-      return Google.Protobuf.FieldOptions.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> FieldOptions {
+      return FieldOptions.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldOptions {
-      return Google.Protobuf.FieldOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> FieldOptions {
+      return FieldOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.FieldOptionsBuilder {
-      return Google.Protobuf.FieldOptions.classBuilder() as! Google.Protobuf.FieldOptionsBuilder
+    public class func builder() -> FieldOptionsBuilder {
+      return FieldOptions.classBuilder() as! FieldOptionsBuilder
     }
-    public func builder() -> Google.Protobuf.FieldOptionsBuilder {
-      return classBuilder() as! Google.Protobuf.FieldOptionsBuilder
+    public func builder() -> FieldOptionsBuilder {
+      return classBuilder() as! FieldOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.FieldOptionsBuilder()
+      return FieldOptionsBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.FieldOptions.builder()
+      return FieldOptions.builder()
     }
-    public func toBuilder() -> Google.Protobuf.FieldOptionsBuilder {
-      return Google.Protobuf.FieldOptions.builderWithPrototype(self)
+    public func toBuilder() -> FieldOptionsBuilder {
+      return FieldOptions.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.FieldOptions) -> Google.Protobuf.FieldOptionsBuilder {
-      return Google.Protobuf.FieldOptions.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:FieldOptions) -> FieldOptionsBuilder {
+      return FieldOptions.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if (hasCtype) {
@@ -5214,23 +5214,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.FieldOptions"
+        return "FieldOptions"
     }
     override public func className() -> String {
-        return "Google.Protobuf.FieldOptions"
+        return "FieldOptions"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.FieldOptions.self
+        return FieldOptions.self
     }
     //Meta information declaration end
 
   }
 
   final public class FieldOptionsBuilder : ExtendableMessageBuilder {
-    private var builderResult:Google.Protobuf.FieldOptions
+    private var builderResult:FieldOptions
 
     required override public init () {
-       builderResult = Google.Protobuf.FieldOptions()
+       builderResult = FieldOptions()
        super.init()
     }
       public var hasCtype:Bool{
@@ -5238,7 +5238,7 @@ public extension Google.Protobuf {
               return builderResult.hasCtype
           }
       }
-      public var ctype:Google.Protobuf.FieldOptions.Ctype {
+      public var ctype:Google.Protobuf.FieldOptions {
           get {
               return builderResult.ctype
           }
@@ -5247,7 +5247,7 @@ public extension Google.Protobuf {
               builderResult.ctype = value
           }
       }
-      public func setCtype(value:Google.Protobuf.FieldOptions.Ctype)-> Google.Protobuf.FieldOptionsBuilder {
+      public func setCtype(value:Google.Protobuf.FieldOptions)-> Google.Protobuf.FieldOptionsBuilder {
         self.ctype = value
         return self
       }
@@ -5270,11 +5270,11 @@ public extension Google.Protobuf {
              builderResult.packed = value
          }
     }
-    public func setPacked(value:Bool)-> Google.Protobuf.FieldOptionsBuilder {
+    public func setPacked(value:Bool)-> FieldOptionsBuilder {
       self.packed = value
       return self
     }
-    public func clearPacked() -> Google.Protobuf.FieldOptionsBuilder{
+    public func clearPacked() -> FieldOptionsBuilder{
          builderResult.hasPacked = false
          builderResult.packed = false
          return self
@@ -5293,11 +5293,11 @@ public extension Google.Protobuf {
              builderResult.lazy = value
          }
     }
-    public func setLazy(value:Bool)-> Google.Protobuf.FieldOptionsBuilder {
+    public func setLazy(value:Bool)-> FieldOptionsBuilder {
       self.lazy = value
       return self
     }
-    public func clearLazy() -> Google.Protobuf.FieldOptionsBuilder{
+    public func clearLazy() -> FieldOptionsBuilder{
          builderResult.hasLazy = false
          builderResult.lazy = false
          return self
@@ -5316,11 +5316,11 @@ public extension Google.Protobuf {
              builderResult.deprecated = value
          }
     }
-    public func setDeprecated(value:Bool)-> Google.Protobuf.FieldOptionsBuilder {
+    public func setDeprecated(value:Bool)-> FieldOptionsBuilder {
       self.deprecated = value
       return self
     }
-    public func clearDeprecated() -> Google.Protobuf.FieldOptionsBuilder{
+    public func clearDeprecated() -> FieldOptionsBuilder{
          builderResult.hasDeprecated = false
          builderResult.deprecated = false
          return self
@@ -5339,11 +5339,11 @@ public extension Google.Protobuf {
              builderResult.experimentalMapKey = value
          }
     }
-    public func setExperimentalMapKey(value:String)-> Google.Protobuf.FieldOptionsBuilder {
+    public func setExperimentalMapKey(value:String)-> FieldOptionsBuilder {
       self.experimentalMapKey = value
       return self
     }
-    public func clearExperimentalMapKey() -> Google.Protobuf.FieldOptionsBuilder{
+    public func clearExperimentalMapKey() -> FieldOptionsBuilder{
          builderResult.hasExperimentalMapKey = false
          builderResult.experimentalMapKey = ""
          return self
@@ -5362,16 +5362,16 @@ public extension Google.Protobuf {
              builderResult.weak = value
          }
     }
-    public func setWeak(value:Bool)-> Google.Protobuf.FieldOptionsBuilder {
+    public func setWeak(value:Bool)-> FieldOptionsBuilder {
       self.weak = value
       return self
     }
-    public func clearWeak() -> Google.Protobuf.FieldOptionsBuilder{
+    public func clearWeak() -> FieldOptionsBuilder{
          builderResult.hasWeak = false
          builderResult.weak = false
          return self
     }
-    public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
+    public var uninterpretedOption:Array<UninterpretedOption> {
          get {
              return builderResult.uninterpretedOption
          }
@@ -5379,11 +5379,11 @@ public extension Google.Protobuf {
              builderResult.uninterpretedOption = value
          }
     }
-    public func setUninterpretedOption(value:Array<Google.Protobuf.UninterpretedOption>)-> Google.Protobuf.FieldOptionsBuilder {
+    public func setUninterpretedOption(value:Array<UninterpretedOption>)-> UninterpretedOptionBuilder {
       self.uninterpretedOption = value
       return self
     }
-    public func clearUninterpretedOption() -> Google.Protobuf.FieldOptionsBuilder {
+    public func clearUninterpretedOption() -> UninterpretedOptionBuilder {
       builderResult.uninterpretedOption.removeAll(keepCapacity: false)
       return self
     }
@@ -5392,23 +5392,23 @@ public extension Google.Protobuf {
              return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.FieldOptionsBuilder {
-      builderResult = Google.Protobuf.FieldOptions()
+    public override func clear() -> FieldOptionsBuilder {
+      builderResult = FieldOptions()
       return self
     }
-    public override func clone() -> Google.Protobuf.FieldOptionsBuilder {
-      return Google.Protobuf.FieldOptions.builderWithPrototype(builderResult)
+    public override func clone() -> FieldOptionsBuilder {
+      return FieldOptions.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.FieldOptions {
+    public override func build() -> FieldOptions {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.FieldOptions {
-      var returnMe:Google.Protobuf.FieldOptions = builderResult
+    public func buildPartial() -> FieldOptions {
+      var returnMe:FieldOptions = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.FieldOptions) -> Google.Protobuf.FieldOptionsBuilder {
-      if (other == Google.Protobuf.FieldOptions()) {
+    public func mergeFrom(other:FieldOptions) -> FieldOptionsBuilder {
+      if (other == FieldOptions()) {
        return self
       }
       if other.hasCtype {
@@ -5436,10 +5436,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.FieldOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->FieldOptionsBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> FieldOptionsBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -5450,7 +5450,7 @@ public extension Google.Protobuf {
 
         case 8 :
           let valueIntctype = input.readEnum()
-          if let enumsctype = Google.Protobuf.FieldOptions.Ctype(rawValue:valueIntctype){
+          if let enumsctype = Google.Protobuf.FieldOptions(rawValue:valueIntctype){
                ctype = enumsctype
           } else {
                unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueIntctype))
@@ -5472,7 +5472,7 @@ public extension Google.Protobuf {
           weak = input.readBool()
 
         case 7994 :
-          var subBuilder = Google.Protobuf.UninterpretedOption.builder()
+          var subBuilder = UninterpretedOption.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           uninterpretedOption += [subBuilder.buildPartial()]
 
@@ -5493,7 +5493,7 @@ public extension Google.Protobuf {
     public private(set) var hasDeprecated:Bool = false
     public private(set) var deprecated:Bool = false
 
-    public private(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
+    public private(set) var uninterpretedOption:Array<UninterpretedOption>  = Array<UninterpretedOption>()
     required public init() {
          super.init()
     }
@@ -5547,41 +5547,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.EnumOptions {
-      return Google.Protobuf.EnumOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> EnumOptions {
+      return EnumOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumOptions {
-      return Google.Protobuf.EnumOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> EnumOptions {
+      return EnumOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.EnumOptions {
-      return Google.Protobuf.EnumOptions.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> EnumOptions {
+      return EnumOptions.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.EnumOptions {
-      return Google.Protobuf.EnumOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->EnumOptions {
+      return EnumOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.EnumOptions {
-      return Google.Protobuf.EnumOptions.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> EnumOptions {
+      return EnumOptions.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumOptions {
-      return Google.Protobuf.EnumOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> EnumOptions {
+      return EnumOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.EnumOptionsBuilder {
-      return Google.Protobuf.EnumOptions.classBuilder() as! Google.Protobuf.EnumOptionsBuilder
+    public class func builder() -> EnumOptionsBuilder {
+      return EnumOptions.classBuilder() as! EnumOptionsBuilder
     }
-    public func builder() -> Google.Protobuf.EnumOptionsBuilder {
-      return classBuilder() as! Google.Protobuf.EnumOptionsBuilder
+    public func builder() -> EnumOptionsBuilder {
+      return classBuilder() as! EnumOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.EnumOptionsBuilder()
+      return EnumOptionsBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.EnumOptions.builder()
+      return EnumOptions.builder()
     }
-    public func toBuilder() -> Google.Protobuf.EnumOptionsBuilder {
-      return Google.Protobuf.EnumOptions.builderWithPrototype(self)
+    public func toBuilder() -> EnumOptionsBuilder {
+      return EnumOptions.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.EnumOptions) -> Google.Protobuf.EnumOptionsBuilder {
-      return Google.Protobuf.EnumOptions.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:EnumOptions) -> EnumOptionsBuilder {
+      return EnumOptions.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasAllowAlias {
@@ -5622,23 +5622,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.EnumOptions"
+        return "EnumOptions"
     }
     override public func className() -> String {
-        return "Google.Protobuf.EnumOptions"
+        return "EnumOptions"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.EnumOptions.self
+        return EnumOptions.self
     }
     //Meta information declaration end
 
   }
 
   final public class EnumOptionsBuilder : ExtendableMessageBuilder {
-    private var builderResult:Google.Protobuf.EnumOptions
+    private var builderResult:EnumOptions
 
     required override public init () {
-       builderResult = Google.Protobuf.EnumOptions()
+       builderResult = EnumOptions()
        super.init()
     }
     public var hasAllowAlias:Bool {
@@ -5655,11 +5655,11 @@ public extension Google.Protobuf {
              builderResult.allowAlias = value
          }
     }
-    public func setAllowAlias(value:Bool)-> Google.Protobuf.EnumOptionsBuilder {
+    public func setAllowAlias(value:Bool)-> EnumOptionsBuilder {
       self.allowAlias = value
       return self
     }
-    public func clearAllowAlias() -> Google.Protobuf.EnumOptionsBuilder{
+    public func clearAllowAlias() -> EnumOptionsBuilder{
          builderResult.hasAllowAlias = false
          builderResult.allowAlias = false
          return self
@@ -5678,16 +5678,16 @@ public extension Google.Protobuf {
              builderResult.deprecated = value
          }
     }
-    public func setDeprecated(value:Bool)-> Google.Protobuf.EnumOptionsBuilder {
+    public func setDeprecated(value:Bool)-> EnumOptionsBuilder {
       self.deprecated = value
       return self
     }
-    public func clearDeprecated() -> Google.Protobuf.EnumOptionsBuilder{
+    public func clearDeprecated() -> EnumOptionsBuilder{
          builderResult.hasDeprecated = false
          builderResult.deprecated = false
          return self
     }
-    public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
+    public var uninterpretedOption:Array<UninterpretedOption> {
          get {
              return builderResult.uninterpretedOption
          }
@@ -5695,11 +5695,11 @@ public extension Google.Protobuf {
              builderResult.uninterpretedOption = value
          }
     }
-    public func setUninterpretedOption(value:Array<Google.Protobuf.UninterpretedOption>)-> Google.Protobuf.EnumOptionsBuilder {
+    public func setUninterpretedOption(value:Array<UninterpretedOption>)-> UninterpretedOptionBuilder {
       self.uninterpretedOption = value
       return self
     }
-    public func clearUninterpretedOption() -> Google.Protobuf.EnumOptionsBuilder {
+    public func clearUninterpretedOption() -> UninterpretedOptionBuilder {
       builderResult.uninterpretedOption.removeAll(keepCapacity: false)
       return self
     }
@@ -5708,23 +5708,23 @@ public extension Google.Protobuf {
              return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.EnumOptionsBuilder {
-      builderResult = Google.Protobuf.EnumOptions()
+    public override func clear() -> EnumOptionsBuilder {
+      builderResult = EnumOptions()
       return self
     }
-    public override func clone() -> Google.Protobuf.EnumOptionsBuilder {
-      return Google.Protobuf.EnumOptions.builderWithPrototype(builderResult)
+    public override func clone() -> EnumOptionsBuilder {
+      return EnumOptions.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.EnumOptions {
+    public override func build() -> EnumOptions {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.EnumOptions {
-      var returnMe:Google.Protobuf.EnumOptions = builderResult
+    public func buildPartial() -> EnumOptions {
+      var returnMe:EnumOptions = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.EnumOptions) -> Google.Protobuf.EnumOptionsBuilder {
-      if (other == Google.Protobuf.EnumOptions()) {
+    public func mergeFrom(other:EnumOptions) -> EnumOptionsBuilder {
+      if (other == EnumOptions()) {
        return self
       }
       if other.hasAllowAlias {
@@ -5740,10 +5740,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.EnumOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->EnumOptionsBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> EnumOptionsBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -5759,7 +5759,7 @@ public extension Google.Protobuf {
           deprecated = input.readBool()
 
         case 7994 :
-          var subBuilder = Google.Protobuf.UninterpretedOption.builder()
+          var subBuilder = UninterpretedOption.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           uninterpretedOption += [subBuilder.buildPartial()]
 
@@ -5777,7 +5777,7 @@ public extension Google.Protobuf {
     public private(set) var hasDeprecated:Bool = false
     public private(set) var deprecated:Bool = false
 
-    public private(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
+    public private(set) var uninterpretedOption:Array<UninterpretedOption>  = Array<UninterpretedOption>()
     required public init() {
          super.init()
     }
@@ -5825,41 +5825,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.EnumValueOptions {
-      return Google.Protobuf.EnumValueOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> EnumValueOptions {
+      return EnumValueOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumValueOptions {
-      return Google.Protobuf.EnumValueOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> EnumValueOptions {
+      return EnumValueOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.EnumValueOptions {
-      return Google.Protobuf.EnumValueOptions.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> EnumValueOptions {
+      return EnumValueOptions.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.EnumValueOptions {
-      return Google.Protobuf.EnumValueOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->EnumValueOptions {
+      return EnumValueOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.EnumValueOptions {
-      return Google.Protobuf.EnumValueOptions.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> EnumValueOptions {
+      return EnumValueOptions.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumValueOptions {
-      return Google.Protobuf.EnumValueOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> EnumValueOptions {
+      return EnumValueOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.EnumValueOptionsBuilder {
-      return Google.Protobuf.EnumValueOptions.classBuilder() as! Google.Protobuf.EnumValueOptionsBuilder
+    public class func builder() -> EnumValueOptionsBuilder {
+      return EnumValueOptions.classBuilder() as! EnumValueOptionsBuilder
     }
-    public func builder() -> Google.Protobuf.EnumValueOptionsBuilder {
-      return classBuilder() as! Google.Protobuf.EnumValueOptionsBuilder
+    public func builder() -> EnumValueOptionsBuilder {
+      return classBuilder() as! EnumValueOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.EnumValueOptionsBuilder()
+      return EnumValueOptionsBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.EnumValueOptions.builder()
+      return EnumValueOptions.builder()
     }
-    public func toBuilder() -> Google.Protobuf.EnumValueOptionsBuilder {
-      return Google.Protobuf.EnumValueOptions.builderWithPrototype(self)
+    public func toBuilder() -> EnumValueOptionsBuilder {
+      return EnumValueOptions.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.EnumValueOptions) -> Google.Protobuf.EnumValueOptionsBuilder {
-      return Google.Protobuf.EnumValueOptions.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:EnumValueOptions) -> EnumValueOptionsBuilder {
+      return EnumValueOptions.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasDeprecated {
@@ -5894,23 +5894,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.EnumValueOptions"
+        return "EnumValueOptions"
     }
     override public func className() -> String {
-        return "Google.Protobuf.EnumValueOptions"
+        return "EnumValueOptions"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.EnumValueOptions.self
+        return EnumValueOptions.self
     }
     //Meta information declaration end
 
   }
 
   final public class EnumValueOptionsBuilder : ExtendableMessageBuilder {
-    private var builderResult:Google.Protobuf.EnumValueOptions
+    private var builderResult:EnumValueOptions
 
     required override public init () {
-       builderResult = Google.Protobuf.EnumValueOptions()
+       builderResult = EnumValueOptions()
        super.init()
     }
     public var hasDeprecated:Bool {
@@ -5927,16 +5927,16 @@ public extension Google.Protobuf {
              builderResult.deprecated = value
          }
     }
-    public func setDeprecated(value:Bool)-> Google.Protobuf.EnumValueOptionsBuilder {
+    public func setDeprecated(value:Bool)-> EnumValueOptionsBuilder {
       self.deprecated = value
       return self
     }
-    public func clearDeprecated() -> Google.Protobuf.EnumValueOptionsBuilder{
+    public func clearDeprecated() -> EnumValueOptionsBuilder{
          builderResult.hasDeprecated = false
          builderResult.deprecated = false
          return self
     }
-    public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
+    public var uninterpretedOption:Array<UninterpretedOption> {
          get {
              return builderResult.uninterpretedOption
          }
@@ -5944,11 +5944,11 @@ public extension Google.Protobuf {
              builderResult.uninterpretedOption = value
          }
     }
-    public func setUninterpretedOption(value:Array<Google.Protobuf.UninterpretedOption>)-> Google.Protobuf.EnumValueOptionsBuilder {
+    public func setUninterpretedOption(value:Array<UninterpretedOption>)-> UninterpretedOptionBuilder {
       self.uninterpretedOption = value
       return self
     }
-    public func clearUninterpretedOption() -> Google.Protobuf.EnumValueOptionsBuilder {
+    public func clearUninterpretedOption() -> UninterpretedOptionBuilder {
       builderResult.uninterpretedOption.removeAll(keepCapacity: false)
       return self
     }
@@ -5957,23 +5957,23 @@ public extension Google.Protobuf {
              return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.EnumValueOptionsBuilder {
-      builderResult = Google.Protobuf.EnumValueOptions()
+    public override func clear() -> EnumValueOptionsBuilder {
+      builderResult = EnumValueOptions()
       return self
     }
-    public override func clone() -> Google.Protobuf.EnumValueOptionsBuilder {
-      return Google.Protobuf.EnumValueOptions.builderWithPrototype(builderResult)
+    public override func clone() -> EnumValueOptionsBuilder {
+      return EnumValueOptions.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.EnumValueOptions {
+    public override func build() -> EnumValueOptions {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.EnumValueOptions {
-      var returnMe:Google.Protobuf.EnumValueOptions = builderResult
+    public func buildPartial() -> EnumValueOptions {
+      var returnMe:EnumValueOptions = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.EnumValueOptions) -> Google.Protobuf.EnumValueOptionsBuilder {
-      if (other == Google.Protobuf.EnumValueOptions()) {
+    public func mergeFrom(other:EnumValueOptions) -> EnumValueOptionsBuilder {
+      if (other == EnumValueOptions()) {
        return self
       }
       if other.hasDeprecated {
@@ -5986,10 +5986,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.EnumValueOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->EnumValueOptionsBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumValueOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> EnumValueOptionsBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -6002,7 +6002,7 @@ public extension Google.Protobuf {
           deprecated = input.readBool()
 
         case 7994 :
-          var subBuilder = Google.Protobuf.UninterpretedOption.builder()
+          var subBuilder = UninterpretedOption.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           uninterpretedOption += [subBuilder.buildPartial()]
 
@@ -6020,7 +6020,7 @@ public extension Google.Protobuf {
     public private(set) var hasDeprecated:Bool = false
     public private(set) var deprecated:Bool = false
 
-    public private(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
+    public private(set) var uninterpretedOption:Array<UninterpretedOption>  = Array<UninterpretedOption>()
     required public init() {
          super.init()
     }
@@ -6068,41 +6068,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.ServiceOptions {
-      return Google.Protobuf.ServiceOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> ServiceOptions {
+      return ServiceOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ServiceOptions {
-      return Google.Protobuf.ServiceOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ServiceOptions {
+      return ServiceOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.ServiceOptions {
-      return Google.Protobuf.ServiceOptions.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> ServiceOptions {
+      return ServiceOptions.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.ServiceOptions {
-      return Google.Protobuf.ServiceOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ServiceOptions {
+      return ServiceOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.ServiceOptions {
-      return Google.Protobuf.ServiceOptions.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> ServiceOptions {
+      return ServiceOptions.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ServiceOptions {
-      return Google.Protobuf.ServiceOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ServiceOptions {
+      return ServiceOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.ServiceOptionsBuilder {
-      return Google.Protobuf.ServiceOptions.classBuilder() as! Google.Protobuf.ServiceOptionsBuilder
+    public class func builder() -> ServiceOptionsBuilder {
+      return ServiceOptions.classBuilder() as! ServiceOptionsBuilder
     }
-    public func builder() -> Google.Protobuf.ServiceOptionsBuilder {
-      return classBuilder() as! Google.Protobuf.ServiceOptionsBuilder
+    public func builder() -> ServiceOptionsBuilder {
+      return classBuilder() as! ServiceOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.ServiceOptionsBuilder()
+      return ServiceOptionsBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.ServiceOptions.builder()
+      return ServiceOptions.builder()
     }
-    public func toBuilder() -> Google.Protobuf.ServiceOptionsBuilder {
-      return Google.Protobuf.ServiceOptions.builderWithPrototype(self)
+    public func toBuilder() -> ServiceOptionsBuilder {
+      return ServiceOptions.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.ServiceOptions) -> Google.Protobuf.ServiceOptionsBuilder {
-      return Google.Protobuf.ServiceOptions.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ServiceOptions) -> ServiceOptionsBuilder {
+      return ServiceOptions.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasDeprecated {
@@ -6137,23 +6137,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.ServiceOptions"
+        return "ServiceOptions"
     }
     override public func className() -> String {
-        return "Google.Protobuf.ServiceOptions"
+        return "ServiceOptions"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.ServiceOptions.self
+        return ServiceOptions.self
     }
     //Meta information declaration end
 
   }
 
   final public class ServiceOptionsBuilder : ExtendableMessageBuilder {
-    private var builderResult:Google.Protobuf.ServiceOptions
+    private var builderResult:ServiceOptions
 
     required override public init () {
-       builderResult = Google.Protobuf.ServiceOptions()
+       builderResult = ServiceOptions()
        super.init()
     }
     public var hasDeprecated:Bool {
@@ -6170,16 +6170,16 @@ public extension Google.Protobuf {
              builderResult.deprecated = value
          }
     }
-    public func setDeprecated(value:Bool)-> Google.Protobuf.ServiceOptionsBuilder {
+    public func setDeprecated(value:Bool)-> ServiceOptionsBuilder {
       self.deprecated = value
       return self
     }
-    public func clearDeprecated() -> Google.Protobuf.ServiceOptionsBuilder{
+    public func clearDeprecated() -> ServiceOptionsBuilder{
          builderResult.hasDeprecated = false
          builderResult.deprecated = false
          return self
     }
-    public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
+    public var uninterpretedOption:Array<UninterpretedOption> {
          get {
              return builderResult.uninterpretedOption
          }
@@ -6187,11 +6187,11 @@ public extension Google.Protobuf {
              builderResult.uninterpretedOption = value
          }
     }
-    public func setUninterpretedOption(value:Array<Google.Protobuf.UninterpretedOption>)-> Google.Protobuf.ServiceOptionsBuilder {
+    public func setUninterpretedOption(value:Array<UninterpretedOption>)-> UninterpretedOptionBuilder {
       self.uninterpretedOption = value
       return self
     }
-    public func clearUninterpretedOption() -> Google.Protobuf.ServiceOptionsBuilder {
+    public func clearUninterpretedOption() -> UninterpretedOptionBuilder {
       builderResult.uninterpretedOption.removeAll(keepCapacity: false)
       return self
     }
@@ -6200,23 +6200,23 @@ public extension Google.Protobuf {
              return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.ServiceOptionsBuilder {
-      builderResult = Google.Protobuf.ServiceOptions()
+    public override func clear() -> ServiceOptionsBuilder {
+      builderResult = ServiceOptions()
       return self
     }
-    public override func clone() -> Google.Protobuf.ServiceOptionsBuilder {
-      return Google.Protobuf.ServiceOptions.builderWithPrototype(builderResult)
+    public override func clone() -> ServiceOptionsBuilder {
+      return ServiceOptions.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.ServiceOptions {
+    public override func build() -> ServiceOptions {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.ServiceOptions {
-      var returnMe:Google.Protobuf.ServiceOptions = builderResult
+    public func buildPartial() -> ServiceOptions {
+      var returnMe:ServiceOptions = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.ServiceOptions) -> Google.Protobuf.ServiceOptionsBuilder {
-      if (other == Google.Protobuf.ServiceOptions()) {
+    public func mergeFrom(other:ServiceOptions) -> ServiceOptionsBuilder {
+      if (other == ServiceOptions()) {
        return self
       }
       if other.hasDeprecated {
@@ -6229,10 +6229,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.ServiceOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->ServiceOptionsBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ServiceOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ServiceOptionsBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -6245,7 +6245,7 @@ public extension Google.Protobuf {
           deprecated = input.readBool()
 
         case 7994 :
-          var subBuilder = Google.Protobuf.UninterpretedOption.builder()
+          var subBuilder = UninterpretedOption.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           uninterpretedOption += [subBuilder.buildPartial()]
 
@@ -6263,7 +6263,7 @@ public extension Google.Protobuf {
     public private(set) var hasDeprecated:Bool = false
     public private(set) var deprecated:Bool = false
 
-    public private(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
+    public private(set) var uninterpretedOption:Array<UninterpretedOption>  = Array<UninterpretedOption>()
     required public init() {
          super.init()
     }
@@ -6311,41 +6311,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.MethodOptions {
-      return Google.Protobuf.MethodOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> MethodOptions {
+      return MethodOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MethodOptions {
-      return Google.Protobuf.MethodOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> MethodOptions {
+      return MethodOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.MethodOptions {
-      return Google.Protobuf.MethodOptions.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> MethodOptions {
+      return MethodOptions.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.MethodOptions {
-      return Google.Protobuf.MethodOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->MethodOptions {
+      return MethodOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.MethodOptions {
-      return Google.Protobuf.MethodOptions.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> MethodOptions {
+      return MethodOptions.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MethodOptions {
-      return Google.Protobuf.MethodOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> MethodOptions {
+      return MethodOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.MethodOptionsBuilder {
-      return Google.Protobuf.MethodOptions.classBuilder() as! Google.Protobuf.MethodOptionsBuilder
+    public class func builder() -> MethodOptionsBuilder {
+      return MethodOptions.classBuilder() as! MethodOptionsBuilder
     }
-    public func builder() -> Google.Protobuf.MethodOptionsBuilder {
-      return classBuilder() as! Google.Protobuf.MethodOptionsBuilder
+    public func builder() -> MethodOptionsBuilder {
+      return classBuilder() as! MethodOptionsBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.MethodOptionsBuilder()
+      return MethodOptionsBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.MethodOptions.builder()
+      return MethodOptions.builder()
     }
-    public func toBuilder() -> Google.Protobuf.MethodOptionsBuilder {
-      return Google.Protobuf.MethodOptions.builderWithPrototype(self)
+    public func toBuilder() -> MethodOptionsBuilder {
+      return MethodOptions.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.MethodOptions) -> Google.Protobuf.MethodOptionsBuilder {
-      return Google.Protobuf.MethodOptions.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:MethodOptions) -> MethodOptionsBuilder {
+      return MethodOptions.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasDeprecated {
@@ -6380,23 +6380,23 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.MethodOptions"
+        return "MethodOptions"
     }
     override public func className() -> String {
-        return "Google.Protobuf.MethodOptions"
+        return "MethodOptions"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.MethodOptions.self
+        return MethodOptions.self
     }
     //Meta information declaration end
 
   }
 
   final public class MethodOptionsBuilder : ExtendableMessageBuilder {
-    private var builderResult:Google.Protobuf.MethodOptions
+    private var builderResult:MethodOptions
 
     required override public init () {
-       builderResult = Google.Protobuf.MethodOptions()
+       builderResult = MethodOptions()
        super.init()
     }
     public var hasDeprecated:Bool {
@@ -6413,16 +6413,16 @@ public extension Google.Protobuf {
              builderResult.deprecated = value
          }
     }
-    public func setDeprecated(value:Bool)-> Google.Protobuf.MethodOptionsBuilder {
+    public func setDeprecated(value:Bool)-> MethodOptionsBuilder {
       self.deprecated = value
       return self
     }
-    public func clearDeprecated() -> Google.Protobuf.MethodOptionsBuilder{
+    public func clearDeprecated() -> MethodOptionsBuilder{
          builderResult.hasDeprecated = false
          builderResult.deprecated = false
          return self
     }
-    public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
+    public var uninterpretedOption:Array<UninterpretedOption> {
          get {
              return builderResult.uninterpretedOption
          }
@@ -6430,11 +6430,11 @@ public extension Google.Protobuf {
              builderResult.uninterpretedOption = value
          }
     }
-    public func setUninterpretedOption(value:Array<Google.Protobuf.UninterpretedOption>)-> Google.Protobuf.MethodOptionsBuilder {
+    public func setUninterpretedOption(value:Array<UninterpretedOption>)-> UninterpretedOptionBuilder {
       self.uninterpretedOption = value
       return self
     }
-    public func clearUninterpretedOption() -> Google.Protobuf.MethodOptionsBuilder {
+    public func clearUninterpretedOption() -> UninterpretedOptionBuilder {
       builderResult.uninterpretedOption.removeAll(keepCapacity: false)
       return self
     }
@@ -6443,23 +6443,23 @@ public extension Google.Protobuf {
              return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.MethodOptionsBuilder {
-      builderResult = Google.Protobuf.MethodOptions()
+    public override func clear() -> MethodOptionsBuilder {
+      builderResult = MethodOptions()
       return self
     }
-    public override func clone() -> Google.Protobuf.MethodOptionsBuilder {
-      return Google.Protobuf.MethodOptions.builderWithPrototype(builderResult)
+    public override func clone() -> MethodOptionsBuilder {
+      return MethodOptions.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.MethodOptions {
+    public override func build() -> MethodOptions {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.MethodOptions {
-      var returnMe:Google.Protobuf.MethodOptions = builderResult
+    public func buildPartial() -> MethodOptions {
+      var returnMe:MethodOptions = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.MethodOptions) -> Google.Protobuf.MethodOptionsBuilder {
-      if (other == Google.Protobuf.MethodOptions()) {
+    public func mergeFrom(other:MethodOptions) -> MethodOptionsBuilder {
+      if (other == MethodOptions()) {
        return self
       }
       if other.hasDeprecated {
@@ -6472,10 +6472,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.MethodOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->MethodOptionsBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MethodOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> MethodOptionsBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -6488,7 +6488,7 @@ public extension Google.Protobuf {
           deprecated = input.readBool()
 
         case 7994 :
-          var subBuilder = Google.Protobuf.UninterpretedOption.builder()
+          var subBuilder = UninterpretedOption.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           uninterpretedOption += [subBuilder.buildPartial()]
 
@@ -6552,41 +6552,41 @@ public extension Google.Protobuf {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseFromData(data:NSData) -> Google.Protobuf.UninterpretedOption.NamePart {
-          return Google.Protobuf.UninterpretedOption.NamePart.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+        public class func parseFromData(data:NSData) -> Google.Protobuf.UninterpretedOption {
+          return Google.Protobuf.UninterpretedOption.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOption.NamePart {
-          return Google.Protobuf.UninterpretedOption.NamePart.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOption {
+          return Google.Protobuf.UninterpretedOption.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.UninterpretedOption.NamePart {
-          return Google.Protobuf.UninterpretedOption.NamePart.builder().mergeFromInputStream(input).build()
+        public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.UninterpretedOption {
+          return Google.Protobuf.UninterpretedOption.builder().mergeFromInputStream(input).build()
         }
-        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.UninterpretedOption.NamePart {
-          return Google.Protobuf.UninterpretedOption.NamePart.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.UninterpretedOption {
+          return Google.Protobuf.UninterpretedOption.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.UninterpretedOption.NamePart {
-          return Google.Protobuf.UninterpretedOption.NamePart.builder().mergeFromCodedInputStream(input).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.UninterpretedOption {
+          return Google.Protobuf.UninterpretedOption.builder().mergeFromCodedInputStream(input).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOption.NamePart {
-          return Google.Protobuf.UninterpretedOption.NamePart.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOption {
+          return Google.Protobuf.UninterpretedOption.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        public class func builder() -> Google.Protobuf.UninterpretedOption.NamePartBuilder {
-          return Google.Protobuf.UninterpretedOption.NamePart.classBuilder() as! Google.Protobuf.UninterpretedOption.NamePartBuilder
+        public class func builder() -> Google.Protobuf.UninterpretedOptionBuilder {
+          return Google.Protobuf.UninterpretedOption.classBuilder() as! Google.Protobuf.UninterpretedOptionBuilder
         }
-        public func builder() -> Google.Protobuf.UninterpretedOption.NamePartBuilder {
-          return classBuilder() as! Google.Protobuf.UninterpretedOption.NamePartBuilder
+        public func builder() -> Google.Protobuf.UninterpretedOptionBuilder {
+          return classBuilder() as! Google.Protobuf.UninterpretedOptionBuilder
         }
         public override class func classBuilder() -> MessageBuilder {
-          return Google.Protobuf.UninterpretedOption.NamePartBuilder()
+          return Google.Protobuf.UninterpretedOptionBuilder()
         }
         public override func classBuilder() -> MessageBuilder {
-          return Google.Protobuf.UninterpretedOption.NamePart.builder()
+          return Google.Protobuf.UninterpretedOption.builder()
         }
-        public func toBuilder() -> Google.Protobuf.UninterpretedOption.NamePartBuilder {
-          return Google.Protobuf.UninterpretedOption.NamePart.builderWithPrototype(self)
+        public func toBuilder() -> Google.Protobuf.UninterpretedOptionBuilder {
+          return Google.Protobuf.UninterpretedOption.builderWithPrototype(self)
         }
-        public class func builderWithPrototype(prototype:Google.Protobuf.UninterpretedOption.NamePart) -> Google.Protobuf.UninterpretedOption.NamePartBuilder {
-          return Google.Protobuf.UninterpretedOption.NamePart.builder().mergeFrom(prototype)
+        public class func builderWithPrototype(prototype:Google.Protobuf.UninterpretedOption) -> Google.Protobuf.UninterpretedOptionBuilder {
+          return Google.Protobuf.UninterpretedOption.builder().mergeFrom(prototype)
         }
         override public func writeDescriptionTo(inout output:String, indent:String) {
           if hasNamePart {
@@ -6615,23 +6615,23 @@ public extension Google.Protobuf {
         //Meta information declaration start
 
         override public class func className() -> String {
-            return "Google.Protobuf.UninterpretedOption.NamePart"
+            return "Google.Protobuf.UninterpretedOption"
         }
         override public func className() -> String {
-            return "Google.Protobuf.UninterpretedOption.NamePart"
+            return "Google.Protobuf.UninterpretedOption"
         }
         override public func classMetaType() -> GeneratedMessage.Type {
-            return Google.Protobuf.UninterpretedOption.NamePart.self
+            return Google.Protobuf.UninterpretedOption.self
         }
         //Meta information declaration end
 
       }
 
       final public class NamePartBuilder : GeneratedMessageBuilder {
-        private var builderResult:Google.Protobuf.UninterpretedOption.NamePart
+        private var builderResult:Google.Protobuf.UninterpretedOption
 
         required override public init () {
-           builderResult = Google.Protobuf.UninterpretedOption.NamePart()
+           builderResult = Google.Protobuf.UninterpretedOption()
            super.init()
         }
         public var hasNamePart:Bool {
@@ -6648,11 +6648,11 @@ public extension Google.Protobuf {
                  builderResult.namePart = value
              }
         }
-        public func setNamePart(value:String)-> Google.Protobuf.UninterpretedOption.NamePartBuilder {
+        public func setNamePart(value:String)-> NamePartBuilder {
           self.namePart = value
           return self
         }
-        public func clearNamePart() -> Google.Protobuf.UninterpretedOption.NamePartBuilder{
+        public func clearNamePart() -> NamePartBuilder{
              builderResult.hasNamePart = false
              builderResult.namePart = ""
              return self
@@ -6671,11 +6671,11 @@ public extension Google.Protobuf {
                  builderResult.isExtension = value
              }
         }
-        public func setIsExtension(value:Bool)-> Google.Protobuf.UninterpretedOption.NamePartBuilder {
+        public func setIsExtension(value:Bool)-> NamePartBuilder {
           self.isExtension = value
           return self
         }
-        public func clearIsExtension() -> Google.Protobuf.UninterpretedOption.NamePartBuilder{
+        public func clearIsExtension() -> NamePartBuilder{
              builderResult.hasIsExtension = false
              builderResult.isExtension = false
              return self
@@ -6685,23 +6685,23 @@ public extension Google.Protobuf {
                 return builderResult
              }
         }
-        public override func clear() -> Google.Protobuf.UninterpretedOption.NamePartBuilder {
-          builderResult = Google.Protobuf.UninterpretedOption.NamePart()
+        public override func clear() -> Google.Protobuf.UninterpretedOptionBuilder {
+          builderResult = Google.Protobuf.UninterpretedOption()
           return self
         }
-        public override func clone() -> Google.Protobuf.UninterpretedOption.NamePartBuilder {
-          return Google.Protobuf.UninterpretedOption.NamePart.builderWithPrototype(builderResult)
+        public override func clone() -> Google.Protobuf.UninterpretedOptionBuilder {
+          return Google.Protobuf.UninterpretedOption.builderWithPrototype(builderResult)
         }
-        public override func build() -> Google.Protobuf.UninterpretedOption.NamePart {
+        public override func build() -> Google.Protobuf.UninterpretedOption {
              checkInitialized()
              return buildPartial()
         }
-        public func buildPartial() -> Google.Protobuf.UninterpretedOption.NamePart {
-          var returnMe:Google.Protobuf.UninterpretedOption.NamePart = builderResult
+        public func buildPartial() -> Google.Protobuf.UninterpretedOption {
+          var returnMe:Google.Protobuf.UninterpretedOption = builderResult
           return returnMe
         }
-        public func mergeFrom(other:Google.Protobuf.UninterpretedOption.NamePart) -> Google.Protobuf.UninterpretedOption.NamePartBuilder {
-          if (other == Google.Protobuf.UninterpretedOption.NamePart()) {
+        public func mergeFrom(other:Google.Protobuf.UninterpretedOption) -> Google.Protobuf.UninterpretedOptionBuilder {
+          if (other == Google.Protobuf.UninterpretedOption()) {
            return self
           }
           if other.hasNamePart {
@@ -6713,10 +6713,10 @@ public extension Google.Protobuf {
           mergeUnknownFields(other.unknownFields)
           return self
         }
-        public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.UninterpretedOption.NamePartBuilder {
+        public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.UninterpretedOptionBuilder {
              return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
         }
-        public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOption.NamePartBuilder {
+        public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOptionBuilder {
           var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
           while (true) {
             var tag = input.readTag()
@@ -6761,7 +6761,7 @@ public extension Google.Protobuf {
     public private(set) var hasAggregateValue:Bool = false
     public private(set) var aggregateValue:String = ""
 
-    public private(set) var name:Array<Google.Protobuf.UninterpretedOption.NamePart>  = Array<Google.Protobuf.UninterpretedOption.NamePart>()
+    public private(set) var name:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
     required public init() {
          super.init()
     }
@@ -6834,41 +6834,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.UninterpretedOption {
-      return Google.Protobuf.UninterpretedOption.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> UninterpretedOption {
+      return UninterpretedOption.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOption {
-      return Google.Protobuf.UninterpretedOption.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> UninterpretedOption {
+      return UninterpretedOption.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.UninterpretedOption {
-      return Google.Protobuf.UninterpretedOption.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> UninterpretedOption {
+      return UninterpretedOption.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.UninterpretedOption {
-      return Google.Protobuf.UninterpretedOption.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->UninterpretedOption {
+      return UninterpretedOption.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.UninterpretedOption {
-      return Google.Protobuf.UninterpretedOption.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> UninterpretedOption {
+      return UninterpretedOption.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOption {
-      return Google.Protobuf.UninterpretedOption.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UninterpretedOption {
+      return UninterpretedOption.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.UninterpretedOptionBuilder {
-      return Google.Protobuf.UninterpretedOption.classBuilder() as! Google.Protobuf.UninterpretedOptionBuilder
+    public class func builder() -> UninterpretedOptionBuilder {
+      return UninterpretedOption.classBuilder() as! UninterpretedOptionBuilder
     }
-    public func builder() -> Google.Protobuf.UninterpretedOptionBuilder {
-      return classBuilder() as! Google.Protobuf.UninterpretedOptionBuilder
+    public func builder() -> UninterpretedOptionBuilder {
+      return classBuilder() as! UninterpretedOptionBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.UninterpretedOptionBuilder()
+      return UninterpretedOptionBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.UninterpretedOption.builder()
+      return UninterpretedOption.builder()
     }
-    public func toBuilder() -> Google.Protobuf.UninterpretedOptionBuilder {
-      return Google.Protobuf.UninterpretedOption.builderWithPrototype(self)
+    public func toBuilder() -> UninterpretedOptionBuilder {
+      return UninterpretedOption.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.UninterpretedOption) -> Google.Protobuf.UninterpretedOptionBuilder {
-      return Google.Protobuf.UninterpretedOption.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:UninterpretedOption) -> UninterpretedOptionBuilder {
+      return UninterpretedOption.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       var nameElementIndex:Int = 0
@@ -6931,26 +6931,26 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.UninterpretedOption"
+        return "UninterpretedOption"
     }
     override public func className() -> String {
-        return "Google.Protobuf.UninterpretedOption"
+        return "UninterpretedOption"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.UninterpretedOption.self
+        return UninterpretedOption.self
     }
     //Meta information declaration end
 
   }
 
   final public class UninterpretedOptionBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.UninterpretedOption
+    private var builderResult:UninterpretedOption
 
     required override public init () {
-       builderResult = Google.Protobuf.UninterpretedOption()
+       builderResult = UninterpretedOption()
        super.init()
     }
-    public var name:Array<Google.Protobuf.UninterpretedOption.NamePart> {
+    public var name:Array<Google.Protobuf.UninterpretedOption> {
          get {
              return builderResult.name
          }
@@ -6958,7 +6958,7 @@ public extension Google.Protobuf {
              builderResult.name = value
          }
     }
-    public func setName(value:Array<Google.Protobuf.UninterpretedOption.NamePart>)-> Google.Protobuf.UninterpretedOptionBuilder {
+    public func setName(value:Array<Google.Protobuf.UninterpretedOption>)-> Google.Protobuf.UninterpretedOptionBuilder {
       self.name = value
       return self
     }
@@ -6980,11 +6980,11 @@ public extension Google.Protobuf {
              builderResult.identifierValue = value
          }
     }
-    public func setIdentifierValue(value:String)-> Google.Protobuf.UninterpretedOptionBuilder {
+    public func setIdentifierValue(value:String)-> UninterpretedOptionBuilder {
       self.identifierValue = value
       return self
     }
-    public func clearIdentifierValue() -> Google.Protobuf.UninterpretedOptionBuilder{
+    public func clearIdentifierValue() -> UninterpretedOptionBuilder{
          builderResult.hasIdentifierValue = false
          builderResult.identifierValue = ""
          return self
@@ -7003,11 +7003,11 @@ public extension Google.Protobuf {
              builderResult.positiveIntValue = value
          }
     }
-    public func setPositiveIntValue(value:UInt64)-> Google.Protobuf.UninterpretedOptionBuilder {
+    public func setPositiveIntValue(value:UInt64)-> UninterpretedOptionBuilder {
       self.positiveIntValue = value
       return self
     }
-    public func clearPositiveIntValue() -> Google.Protobuf.UninterpretedOptionBuilder{
+    public func clearPositiveIntValue() -> UninterpretedOptionBuilder{
          builderResult.hasPositiveIntValue = false
          builderResult.positiveIntValue = UInt64(0)
          return self
@@ -7026,11 +7026,11 @@ public extension Google.Protobuf {
              builderResult.negativeIntValue = value
          }
     }
-    public func setNegativeIntValue(value:Int64)-> Google.Protobuf.UninterpretedOptionBuilder {
+    public func setNegativeIntValue(value:Int64)-> UninterpretedOptionBuilder {
       self.negativeIntValue = value
       return self
     }
-    public func clearNegativeIntValue() -> Google.Protobuf.UninterpretedOptionBuilder{
+    public func clearNegativeIntValue() -> UninterpretedOptionBuilder{
          builderResult.hasNegativeIntValue = false
          builderResult.negativeIntValue = Int64(0)
          return self
@@ -7049,11 +7049,11 @@ public extension Google.Protobuf {
              builderResult.doubleValue = value
          }
     }
-    public func setDoubleValue(value:Double)-> Google.Protobuf.UninterpretedOptionBuilder {
+    public func setDoubleValue(value:Double)-> UninterpretedOptionBuilder {
       self.doubleValue = value
       return self
     }
-    public func clearDoubleValue() -> Google.Protobuf.UninterpretedOptionBuilder{
+    public func clearDoubleValue() -> UninterpretedOptionBuilder{
          builderResult.hasDoubleValue = false
          builderResult.doubleValue = Double(0)
          return self
@@ -7072,11 +7072,11 @@ public extension Google.Protobuf {
              builderResult.stringValue = value
          }
     }
-    public func setStringValue(value:NSData)-> Google.Protobuf.UninterpretedOptionBuilder {
+    public func setStringValue(value:NSData)-> UninterpretedOptionBuilder {
       self.stringValue = value
       return self
     }
-    public func clearStringValue() -> Google.Protobuf.UninterpretedOptionBuilder{
+    public func clearStringValue() -> UninterpretedOptionBuilder{
          builderResult.hasStringValue = false
          builderResult.stringValue = NSData()
          return self
@@ -7095,11 +7095,11 @@ public extension Google.Protobuf {
              builderResult.aggregateValue = value
          }
     }
-    public func setAggregateValue(value:String)-> Google.Protobuf.UninterpretedOptionBuilder {
+    public func setAggregateValue(value:String)-> UninterpretedOptionBuilder {
       self.aggregateValue = value
       return self
     }
-    public func clearAggregateValue() -> Google.Protobuf.UninterpretedOptionBuilder{
+    public func clearAggregateValue() -> UninterpretedOptionBuilder{
          builderResult.hasAggregateValue = false
          builderResult.aggregateValue = ""
          return self
@@ -7109,23 +7109,23 @@ public extension Google.Protobuf {
             return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.UninterpretedOptionBuilder {
-      builderResult = Google.Protobuf.UninterpretedOption()
+    public override func clear() -> UninterpretedOptionBuilder {
+      builderResult = UninterpretedOption()
       return self
     }
-    public override func clone() -> Google.Protobuf.UninterpretedOptionBuilder {
-      return Google.Protobuf.UninterpretedOption.builderWithPrototype(builderResult)
+    public override func clone() -> UninterpretedOptionBuilder {
+      return UninterpretedOption.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.UninterpretedOption {
+    public override func build() -> UninterpretedOption {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.UninterpretedOption {
-      var returnMe:Google.Protobuf.UninterpretedOption = builderResult
+    public func buildPartial() -> UninterpretedOption {
+      var returnMe:UninterpretedOption = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.UninterpretedOption) -> Google.Protobuf.UninterpretedOptionBuilder {
-      if (other == Google.Protobuf.UninterpretedOption()) {
+    public func mergeFrom(other:UninterpretedOption) -> UninterpretedOptionBuilder {
+      if (other == UninterpretedOption()) {
        return self
       }
       if !other.name.isEmpty  {
@@ -7152,10 +7152,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.UninterpretedOptionBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->UninterpretedOptionBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOptionBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UninterpretedOptionBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -7165,7 +7165,7 @@ public extension Google.Protobuf {
           return self
 
         case 18 :
-          var subBuilder = Google.Protobuf.UninterpretedOption.NamePart.builder()
+          var subBuilder = Google.Protobuf.UninterpretedOption.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           name += [subBuilder.buildPartial()]
 
@@ -7279,41 +7279,41 @@ public extension Google.Protobuf {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseFromData(data:NSData) -> Google.Protobuf.SourceCodeInfo.Location {
-          return Google.Protobuf.SourceCodeInfo.Location.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+        public class func parseFromData(data:NSData) -> Google.Protobuf.SourceCodeInfo {
+          return Google.Protobuf.SourceCodeInfo.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfo.Location {
-          return Google.Protobuf.SourceCodeInfo.Location.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfo {
+          return Google.Protobuf.SourceCodeInfo.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.SourceCodeInfo.Location {
-          return Google.Protobuf.SourceCodeInfo.Location.builder().mergeFromInputStream(input).build()
+        public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.SourceCodeInfo {
+          return Google.Protobuf.SourceCodeInfo.builder().mergeFromInputStream(input).build()
         }
-        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.SourceCodeInfo.Location {
-          return Google.Protobuf.SourceCodeInfo.Location.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.SourceCodeInfo {
+          return Google.Protobuf.SourceCodeInfo.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SourceCodeInfo.Location {
-          return Google.Protobuf.SourceCodeInfo.Location.builder().mergeFromCodedInputStream(input).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SourceCodeInfo {
+          return Google.Protobuf.SourceCodeInfo.builder().mergeFromCodedInputStream(input).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfo.Location {
-          return Google.Protobuf.SourceCodeInfo.Location.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfo {
+          return Google.Protobuf.SourceCodeInfo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        public class func builder() -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
-          return Google.Protobuf.SourceCodeInfo.Location.classBuilder() as! Google.Protobuf.SourceCodeInfo.LocationBuilder
+        public class func builder() -> Google.Protobuf.SourceCodeInfoBuilder {
+          return Google.Protobuf.SourceCodeInfo.classBuilder() as! Google.Protobuf.SourceCodeInfoBuilder
         }
-        public func builder() -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
-          return classBuilder() as! Google.Protobuf.SourceCodeInfo.LocationBuilder
+        public func builder() -> Google.Protobuf.SourceCodeInfoBuilder {
+          return classBuilder() as! Google.Protobuf.SourceCodeInfoBuilder
         }
         public override class func classBuilder() -> MessageBuilder {
-          return Google.Protobuf.SourceCodeInfo.LocationBuilder()
+          return Google.Protobuf.SourceCodeInfoBuilder()
         }
         public override func classBuilder() -> MessageBuilder {
-          return Google.Protobuf.SourceCodeInfo.Location.builder()
+          return Google.Protobuf.SourceCodeInfo.builder()
         }
-        public func toBuilder() -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
-          return Google.Protobuf.SourceCodeInfo.Location.builderWithPrototype(self)
+        public func toBuilder() -> Google.Protobuf.SourceCodeInfoBuilder {
+          return Google.Protobuf.SourceCodeInfo.builderWithPrototype(self)
         }
-        public class func builderWithPrototype(prototype:Google.Protobuf.SourceCodeInfo.Location) -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
-          return Google.Protobuf.SourceCodeInfo.Location.builder().mergeFrom(prototype)
+        public class func builderWithPrototype(prototype:Google.Protobuf.SourceCodeInfo) -> Google.Protobuf.SourceCodeInfoBuilder {
+          return Google.Protobuf.SourceCodeInfo.builder().mergeFrom(prototype)
         }
         override public func writeDescriptionTo(inout output:String, indent:String) {
           var pathElementIndex:Int = 0
@@ -7358,23 +7358,23 @@ public extension Google.Protobuf {
         //Meta information declaration start
 
         override public class func className() -> String {
-            return "Google.Protobuf.SourceCodeInfo.Location"
+            return "Google.Protobuf.SourceCodeInfo"
         }
         override public func className() -> String {
-            return "Google.Protobuf.SourceCodeInfo.Location"
+            return "Google.Protobuf.SourceCodeInfo"
         }
         override public func classMetaType() -> GeneratedMessage.Type {
-            return Google.Protobuf.SourceCodeInfo.Location.self
+            return Google.Protobuf.SourceCodeInfo.self
         }
         //Meta information declaration end
 
       }
 
       final public class LocationBuilder : GeneratedMessageBuilder {
-        private var builderResult:Google.Protobuf.SourceCodeInfo.Location
+        private var builderResult:Google.Protobuf.SourceCodeInfo
 
         required override public init () {
-           builderResult = Google.Protobuf.SourceCodeInfo.Location()
+           builderResult = Google.Protobuf.SourceCodeInfo()
            super.init()
         }
         public var path:Array<Int32> {
@@ -7385,11 +7385,11 @@ public extension Google.Protobuf {
                  builderResult.path = array
              }
         }
-        public func setPath(value:Array<Int32>)-> Google.Protobuf.SourceCodeInfo.LocationBuilder {
+        public func setPath(value:Array<Int32>)-> LocationBuilder {
           self.path = value
           return self
         }
-        public func clearPath() -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
+        public func clearPath() -> LocationBuilder {
            builderResult.path.removeAll(keepCapacity: false)
            return self
         }
@@ -7401,11 +7401,11 @@ public extension Google.Protobuf {
                  builderResult.span = array
              }
         }
-        public func setSpan(value:Array<Int32>)-> Google.Protobuf.SourceCodeInfo.LocationBuilder {
+        public func setSpan(value:Array<Int32>)-> LocationBuilder {
           self.span = value
           return self
         }
-        public func clearSpan() -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
+        public func clearSpan() -> LocationBuilder {
            builderResult.span.removeAll(keepCapacity: false)
            return self
         }
@@ -7423,11 +7423,11 @@ public extension Google.Protobuf {
                  builderResult.leadingComments = value
              }
         }
-        public func setLeadingComments(value:String)-> Google.Protobuf.SourceCodeInfo.LocationBuilder {
+        public func setLeadingComments(value:String)-> LocationBuilder {
           self.leadingComments = value
           return self
         }
-        public func clearLeadingComments() -> Google.Protobuf.SourceCodeInfo.LocationBuilder{
+        public func clearLeadingComments() -> LocationBuilder{
              builderResult.hasLeadingComments = false
              builderResult.leadingComments = ""
              return self
@@ -7446,11 +7446,11 @@ public extension Google.Protobuf {
                  builderResult.trailingComments = value
              }
         }
-        public func setTrailingComments(value:String)-> Google.Protobuf.SourceCodeInfo.LocationBuilder {
+        public func setTrailingComments(value:String)-> LocationBuilder {
           self.trailingComments = value
           return self
         }
-        public func clearTrailingComments() -> Google.Protobuf.SourceCodeInfo.LocationBuilder{
+        public func clearTrailingComments() -> LocationBuilder{
              builderResult.hasTrailingComments = false
              builderResult.trailingComments = ""
              return self
@@ -7460,23 +7460,23 @@ public extension Google.Protobuf {
                 return builderResult
              }
         }
-        public override func clear() -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
-          builderResult = Google.Protobuf.SourceCodeInfo.Location()
+        public override func clear() -> Google.Protobuf.SourceCodeInfoBuilder {
+          builderResult = Google.Protobuf.SourceCodeInfo()
           return self
         }
-        public override func clone() -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
-          return Google.Protobuf.SourceCodeInfo.Location.builderWithPrototype(builderResult)
+        public override func clone() -> Google.Protobuf.SourceCodeInfoBuilder {
+          return Google.Protobuf.SourceCodeInfo.builderWithPrototype(builderResult)
         }
-        public override func build() -> Google.Protobuf.SourceCodeInfo.Location {
+        public override func build() -> Google.Protobuf.SourceCodeInfo {
              checkInitialized()
              return buildPartial()
         }
-        public func buildPartial() -> Google.Protobuf.SourceCodeInfo.Location {
-          var returnMe:Google.Protobuf.SourceCodeInfo.Location = builderResult
+        public func buildPartial() -> Google.Protobuf.SourceCodeInfo {
+          var returnMe:Google.Protobuf.SourceCodeInfo = builderResult
           return returnMe
         }
-        public func mergeFrom(other:Google.Protobuf.SourceCodeInfo.Location) -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
-          if (other == Google.Protobuf.SourceCodeInfo.Location()) {
+        public func mergeFrom(other:Google.Protobuf.SourceCodeInfo) -> Google.Protobuf.SourceCodeInfoBuilder {
+          if (other == Google.Protobuf.SourceCodeInfo()) {
            return self
           }
           if !other.path.isEmpty {
@@ -7494,10 +7494,10 @@ public extension Google.Protobuf {
           mergeUnknownFields(other.unknownFields)
           return self
         }
-        public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.SourceCodeInfo.LocationBuilder {
+        public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.SourceCodeInfoBuilder {
              return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
         }
-        public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
+        public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfoBuilder {
           var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
           while (true) {
             var tag = input.readTag()
@@ -7540,7 +7540,7 @@ public extension Google.Protobuf {
 
     //Nested type declaration end
 
-    public private(set) var location:Array<Google.Protobuf.SourceCodeInfo.Location>  = Array<Google.Protobuf.SourceCodeInfo.Location>()
+    public private(set) var location:Array<Google.Protobuf.SourceCodeInfo>  = Array<Google.Protobuf.SourceCodeInfo>()
     required public init() {
          super.init()
     }
@@ -7567,41 +7567,41 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseFromData(data:NSData) -> Google.Protobuf.SourceCodeInfo {
-      return Google.Protobuf.SourceCodeInfo.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) -> SourceCodeInfo {
+      return SourceCodeInfo.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfo {
-      return Google.Protobuf.SourceCodeInfo.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> SourceCodeInfo {
+      return SourceCodeInfo.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.SourceCodeInfo {
-      return Google.Protobuf.SourceCodeInfo.builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) -> SourceCodeInfo {
+      return SourceCodeInfo.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.SourceCodeInfo {
-      return Google.Protobuf.SourceCodeInfo.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->SourceCodeInfo {
+      return SourceCodeInfo.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SourceCodeInfo {
-      return Google.Protobuf.SourceCodeInfo.builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) -> SourceCodeInfo {
+      return SourceCodeInfo.builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfo {
-      return Google.Protobuf.SourceCodeInfo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SourceCodeInfo {
+      return SourceCodeInfo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.SourceCodeInfoBuilder {
-      return Google.Protobuf.SourceCodeInfo.classBuilder() as! Google.Protobuf.SourceCodeInfoBuilder
+    public class func builder() -> SourceCodeInfoBuilder {
+      return SourceCodeInfo.classBuilder() as! SourceCodeInfoBuilder
     }
-    public func builder() -> Google.Protobuf.SourceCodeInfoBuilder {
-      return classBuilder() as! Google.Protobuf.SourceCodeInfoBuilder
+    public func builder() -> SourceCodeInfoBuilder {
+      return classBuilder() as! SourceCodeInfoBuilder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.SourceCodeInfoBuilder()
+      return SourceCodeInfoBuilder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.SourceCodeInfo.builder()
+      return SourceCodeInfo.builder()
     }
-    public func toBuilder() -> Google.Protobuf.SourceCodeInfoBuilder {
-      return Google.Protobuf.SourceCodeInfo.builderWithPrototype(self)
+    public func toBuilder() -> SourceCodeInfoBuilder {
+      return SourceCodeInfo.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.SourceCodeInfo) -> Google.Protobuf.SourceCodeInfoBuilder {
-      return Google.Protobuf.SourceCodeInfo.builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:SourceCodeInfo) -> SourceCodeInfoBuilder {
+      return SourceCodeInfo.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       var locationElementIndex:Int = 0
@@ -7628,26 +7628,26 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.SourceCodeInfo"
+        return "SourceCodeInfo"
     }
     override public func className() -> String {
-        return "Google.Protobuf.SourceCodeInfo"
+        return "SourceCodeInfo"
     }
     override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.SourceCodeInfo.self
+        return SourceCodeInfo.self
     }
     //Meta information declaration end
 
   }
 
   final public class SourceCodeInfoBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.SourceCodeInfo
+    private var builderResult:SourceCodeInfo
 
     required override public init () {
-       builderResult = Google.Protobuf.SourceCodeInfo()
+       builderResult = SourceCodeInfo()
        super.init()
     }
-    public var location:Array<Google.Protobuf.SourceCodeInfo.Location> {
+    public var location:Array<Google.Protobuf.SourceCodeInfo> {
          get {
              return builderResult.location
          }
@@ -7655,7 +7655,7 @@ public extension Google.Protobuf {
              builderResult.location = value
          }
     }
-    public func setLocation(value:Array<Google.Protobuf.SourceCodeInfo.Location>)-> Google.Protobuf.SourceCodeInfoBuilder {
+    public func setLocation(value:Array<Google.Protobuf.SourceCodeInfo>)-> Google.Protobuf.SourceCodeInfoBuilder {
       self.location = value
       return self
     }
@@ -7668,23 +7668,23 @@ public extension Google.Protobuf {
             return builderResult
          }
     }
-    public override func clear() -> Google.Protobuf.SourceCodeInfoBuilder {
-      builderResult = Google.Protobuf.SourceCodeInfo()
+    public override func clear() -> SourceCodeInfoBuilder {
+      builderResult = SourceCodeInfo()
       return self
     }
-    public override func clone() -> Google.Protobuf.SourceCodeInfoBuilder {
-      return Google.Protobuf.SourceCodeInfo.builderWithPrototype(builderResult)
+    public override func clone() -> SourceCodeInfoBuilder {
+      return SourceCodeInfo.builderWithPrototype(builderResult)
     }
-    public override func build() -> Google.Protobuf.SourceCodeInfo {
+    public override func build() -> SourceCodeInfo {
          checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> Google.Protobuf.SourceCodeInfo {
-      var returnMe:Google.Protobuf.SourceCodeInfo = builderResult
+    public func buildPartial() -> SourceCodeInfo {
+      var returnMe:SourceCodeInfo = builderResult
       return returnMe
     }
-    public func mergeFrom(other:Google.Protobuf.SourceCodeInfo) -> Google.Protobuf.SourceCodeInfoBuilder {
-      if (other == Google.Protobuf.SourceCodeInfo()) {
+    public func mergeFrom(other:SourceCodeInfo) -> SourceCodeInfoBuilder {
+      if (other == SourceCodeInfo()) {
        return self
       }
       if !other.location.isEmpty  {
@@ -7693,10 +7693,10 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.SourceCodeInfoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) ->SourceCodeInfoBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfoBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SourceCodeInfoBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
@@ -7706,7 +7706,7 @@ public extension Google.Protobuf {
           return self
 
         case 10 :
-          var subBuilder = Google.Protobuf.SourceCodeInfo.Location.builder()
+          var subBuilder = Google.Protobuf.SourceCodeInfo.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           location += [subBuilder.buildPartial()]
 

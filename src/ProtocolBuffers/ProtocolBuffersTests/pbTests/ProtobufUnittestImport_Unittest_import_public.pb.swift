@@ -6,7 +6,7 @@ import ProtocolBuffers
 
 internal extension ProtobufUnittestImport{}
 
-internal func == (lhs: ProtobufUnittestImport.PublicImportMessage, rhs: ProtobufUnittestImport.PublicImportMessage) -> Bool {
+internal func == (lhs: PublicImportMessage, rhs: PublicImportMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -63,41 +63,41 @@ internal extension ProtobufUnittestImport {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseFromData(data:NSData) -> ProtobufUnittestImport.PublicImportMessage {
-      return ProtobufUnittestImport.PublicImportMessage.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicRoot.sharedInstance.extensionRegistry).build()
+    internal class func parseFromData(data:NSData) -> PublicImportMessage {
+      return PublicImportMessage.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.PublicImportMessage {
-      return ProtobufUnittestImport.PublicImportMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> PublicImportMessage {
+      return PublicImportMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestImport.PublicImportMessage {
-      return ProtobufUnittestImport.PublicImportMessage.builder().mergeFromInputStream(input).build()
+    internal class func parseFromInputStream(input:NSInputStream) -> PublicImportMessage {
+      return PublicImportMessage.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittestImport.PublicImportMessage {
-      return ProtobufUnittestImport.PublicImportMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PublicImportMessage {
+      return PublicImportMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestImport.PublicImportMessage {
-      return ProtobufUnittestImport.PublicImportMessage.builder().mergeFromCodedInputStream(input).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> PublicImportMessage {
+      return PublicImportMessage.builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.PublicImportMessage {
-      return ProtobufUnittestImport.PublicImportMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PublicImportMessage {
+      return PublicImportMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittestImport.PublicImportMessageBuilder {
-      return ProtobufUnittestImport.PublicImportMessage.classBuilder() as! ProtobufUnittestImport.PublicImportMessageBuilder
+    internal class func builder() -> PublicImportMessageBuilder {
+      return PublicImportMessage.classBuilder() as! PublicImportMessageBuilder
     }
-    internal func builder() -> ProtobufUnittestImport.PublicImportMessageBuilder {
-      return classBuilder() as! ProtobufUnittestImport.PublicImportMessageBuilder
+    internal func builder() -> PublicImportMessageBuilder {
+      return classBuilder() as! PublicImportMessageBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return ProtobufUnittestImport.PublicImportMessageBuilder()
+      return PublicImportMessageBuilder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return ProtobufUnittestImport.PublicImportMessage.builder()
+      return PublicImportMessage.builder()
     }
-    internal func toBuilder() -> ProtobufUnittestImport.PublicImportMessageBuilder {
-      return ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(self)
+    internal func toBuilder() -> PublicImportMessageBuilder {
+      return PublicImportMessage.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittestImport.PublicImportMessage) -> ProtobufUnittestImport.PublicImportMessageBuilder {
-      return ProtobufUnittestImport.PublicImportMessage.builder().mergeFrom(prototype)
+    internal class func builderWithPrototype(prototype:PublicImportMessage) -> PublicImportMessageBuilder {
+      return PublicImportMessage.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasE {
@@ -120,23 +120,23 @@ internal extension ProtobufUnittestImport {
     //Meta information declaration start
 
     override internal class func className() -> String {
-        return "ProtobufUnittestImport.PublicImportMessage"
+        return "PublicImportMessage"
     }
     override internal func className() -> String {
-        return "ProtobufUnittestImport.PublicImportMessage"
+        return "PublicImportMessage"
     }
     override internal func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittestImport.PublicImportMessage.self
+        return PublicImportMessage.self
     }
     //Meta information declaration end
 
   }
 
   final internal class PublicImportMessageBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittestImport.PublicImportMessage
+    private var builderResult:PublicImportMessage
 
     required override internal init () {
-       builderResult = ProtobufUnittestImport.PublicImportMessage()
+       builderResult = PublicImportMessage()
        super.init()
     }
     var hasE:Bool {
@@ -153,11 +153,11 @@ internal extension ProtobufUnittestImport {
              builderResult.e = value
          }
     }
-    func setE(value:Int32)-> ProtobufUnittestImport.PublicImportMessageBuilder {
+    func setE(value:Int32)-> PublicImportMessageBuilder {
       self.e = value
       return self
     }
-    internal func clearE() -> ProtobufUnittestImport.PublicImportMessageBuilder{
+    internal func clearE() -> PublicImportMessageBuilder{
          builderResult.hasE = false
          builderResult.e = Int32(0)
          return self
@@ -167,23 +167,23 @@ internal extension ProtobufUnittestImport {
             return builderResult
          }
     }
-    internal override func clear() -> ProtobufUnittestImport.PublicImportMessageBuilder {
-      builderResult = ProtobufUnittestImport.PublicImportMessage()
+    internal override func clear() -> PublicImportMessageBuilder {
+      builderResult = PublicImportMessage()
       return self
     }
-    internal override func clone() -> ProtobufUnittestImport.PublicImportMessageBuilder {
-      return ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(builderResult)
+    internal override func clone() -> PublicImportMessageBuilder {
+      return PublicImportMessage.builderWithPrototype(builderResult)
     }
-    internal override func build() -> ProtobufUnittestImport.PublicImportMessage {
+    internal override func build() -> PublicImportMessage {
          checkInitialized()
          return buildPartial()
     }
-    internal func buildPartial() -> ProtobufUnittestImport.PublicImportMessage {
-      var returnMe:ProtobufUnittestImport.PublicImportMessage = builderResult
+    internal func buildPartial() -> PublicImportMessage {
+      var returnMe:PublicImportMessage = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:ProtobufUnittestImport.PublicImportMessage) -> ProtobufUnittestImport.PublicImportMessageBuilder {
-      if (other == ProtobufUnittestImport.PublicImportMessage()) {
+    internal func mergeFrom(other:PublicImportMessage) -> PublicImportMessageBuilder {
+      if (other == PublicImportMessage()) {
        return self
       }
       if other.hasE {
@@ -192,10 +192,10 @@ internal extension ProtobufUnittestImport {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittestImport.PublicImportMessageBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->PublicImportMessageBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.PublicImportMessageBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PublicImportMessageBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()

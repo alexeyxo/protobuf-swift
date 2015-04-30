@@ -6,7 +6,7 @@ import ProtocolBuffers
 
 internal struct Baz { }
 
-internal func == (lhs: Baz.Foo, rhs: Baz.Foo) -> Bool {
+internal func == (lhs: Foo, rhs: Foo) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -63,41 +63,41 @@ internal extension Baz {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseFromData(data:NSData) -> Baz.Foo {
-      return Baz.Foo.builder().mergeFromData(data, extensionRegistry:Baz.FooRoot.sharedInstance.extensionRegistry).build()
+    internal class func parseFromData(data:NSData) -> Foo {
+      return Foo.builder().mergeFromData(data, extensionRegistry:Baz.FooRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Baz.Foo {
-      return Baz.Foo.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Foo {
+      return Foo.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) -> Baz.Foo {
-      return Baz.Foo.builder().mergeFromInputStream(input).build()
+    internal class func parseFromInputStream(input:NSInputStream) -> Foo {
+      return Foo.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Baz.Foo {
-      return Baz.Foo.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Foo {
+      return Foo.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) -> Baz.Foo {
-      return Baz.Foo.builder().mergeFromCodedInputStream(input).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream) -> Foo {
+      return Foo.builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Baz.Foo {
-      return Baz.Foo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Foo {
+      return Foo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Baz.FooBuilder {
-      return Baz.Foo.classBuilder() as! Baz.FooBuilder
+    internal class func builder() -> FooBuilder {
+      return Foo.classBuilder() as! FooBuilder
     }
-    internal func builder() -> Baz.FooBuilder {
-      return classBuilder() as! Baz.FooBuilder
+    internal func builder() -> FooBuilder {
+      return classBuilder() as! FooBuilder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Baz.FooBuilder()
+      return FooBuilder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return Baz.Foo.builder()
+      return Foo.builder()
     }
-    internal func toBuilder() -> Baz.FooBuilder {
-      return Baz.Foo.builderWithPrototype(self)
+    internal func toBuilder() -> FooBuilder {
+      return Foo.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Baz.Foo) -> Baz.FooBuilder {
-      return Baz.Foo.builder().mergeFrom(prototype)
+    internal class func builderWithPrototype(prototype:Foo) -> FooBuilder {
+      return Foo.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasHello {
@@ -120,23 +120,23 @@ internal extension Baz {
     //Meta information declaration start
 
     override internal class func className() -> String {
-        return "Baz.Foo"
+        return "Foo"
     }
     override internal func className() -> String {
-        return "Baz.Foo"
+        return "Foo"
     }
     override internal func classMetaType() -> GeneratedMessage.Type {
-        return Baz.Foo.self
+        return Foo.self
     }
     //Meta information declaration end
 
   }
 
   final internal class FooBuilder : GeneratedMessageBuilder {
-    private var builderResult:Baz.Foo
+    private var builderResult:Foo
 
     required override internal init () {
-       builderResult = Baz.Foo()
+       builderResult = Foo()
        super.init()
     }
     var hasHello:Bool {
@@ -153,11 +153,11 @@ internal extension Baz {
              builderResult.hello = value
          }
     }
-    func setHello(value:String)-> Baz.FooBuilder {
+    func setHello(value:String)-> FooBuilder {
       self.hello = value
       return self
     }
-    internal func clearHello() -> Baz.FooBuilder{
+    internal func clearHello() -> FooBuilder{
          builderResult.hasHello = false
          builderResult.hello = ""
          return self
@@ -167,23 +167,23 @@ internal extension Baz {
             return builderResult
          }
     }
-    internal override func clear() -> Baz.FooBuilder {
-      builderResult = Baz.Foo()
+    internal override func clear() -> FooBuilder {
+      builderResult = Foo()
       return self
     }
-    internal override func clone() -> Baz.FooBuilder {
-      return Baz.Foo.builderWithPrototype(builderResult)
+    internal override func clone() -> FooBuilder {
+      return Foo.builderWithPrototype(builderResult)
     }
-    internal override func build() -> Baz.Foo {
+    internal override func build() -> Foo {
          checkInitialized()
          return buildPartial()
     }
-    internal func buildPartial() -> Baz.Foo {
-      var returnMe:Baz.Foo = builderResult
+    internal func buildPartial() -> Foo {
+      var returnMe:Foo = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:Baz.Foo) -> Baz.FooBuilder {
-      if (other == Baz.Foo()) {
+    internal func mergeFrom(other:Foo) -> FooBuilder {
+      if (other == Foo()) {
        return self
       }
       if other.hasHello {
@@ -192,10 +192,10 @@ internal extension Baz {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Baz.FooBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->FooBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Baz.FooBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> FooBuilder {
       var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
