@@ -51,8 +51,7 @@ namespace google {
                 
                 
                 //Packages
-                string ReturnedType(const string& full_name);
-                vector<string> FullNameSplit(const string& str);
+                vector<string> FullNameSplit(const FileDescriptor* file);
                 string FullName(const FileDescriptor* file);
                 string FullName(const vector<string> splitVector);
                 string PackageExtensionName(const vector<string> splitVector);
@@ -84,9 +83,20 @@ namespace google {
                 string ExtensionFileClassName(const FileDescriptor* file);
                 // These return the fully-qualified class name corresponding to the given
                 // descriptor.
-                string ClassNameEnum(const EnumDescriptor* descriptor);
-                string ClassName(const Descriptor* descriptor);
+                //
+                
+                // Enums class name and returned type
                 string ClassName(const EnumDescriptor* descriptor);
+                string ClassNameReturedType(const EnumDescriptor* descriptor);
+                //
+                
+                //Message
+                string ClassNameReturedType(const Descriptor* descriptor);
+                //
+                
+//                string ClassNameEnum(const EnumDescriptor* descriptor);
+                string ClassName(const Descriptor* descriptor);
+//                string ClassName(const EnumDescriptor* descriptor);
                 string ClassName(const ServiceDescriptor* descriptor);
                 string ClassNameMessage(const Descriptor* descriptor);
                 string ClassNameExtensions(const Descriptor* descriptor);

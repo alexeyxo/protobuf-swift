@@ -57,7 +57,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print("\n\n//Enum type declaration start \n\n");
         printer->Print("$acontrol$ enum $classname$:Int32 {\n",
-                       "classname",ClassNameEnum(descriptor_),
+                       "classname",ClassName(descriptor_),
                        "acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Indent();

@@ -62,7 +62,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 package_name = UnderscoresToCapitalizedCamelCase(file->package()) + "_";
             }
             
-            vector<string> tokens = FullNameSplit(file->package());
+            vector<string> tokens = FullNameSplit(file);
             
             scoped_ptr<io::ZeroCopyOutputStream> output(generator_context->Open(package_name + filepath + ".pb.swift"));
             io::Printer printer(output.get(), '$');

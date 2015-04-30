@@ -32,17 +32,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     namespace {
         void SetEnumVariables(const FieldDescriptor* descriptor,
                               map<string, string>* variables) {
+            
             const EnumValueDescriptor* default_value;
             default_value = descriptor->default_value_enum();
-            
-            string type = ClassName(descriptor->enum_type());
-            
-            (*variables)["classname"]             = ClassName(descriptor->containing_type());
+            string type = ClassNameReturedType(descriptor->enum_type());
             (*variables)["name"]                  = UnderscoresToCamelCase(descriptor);
             (*variables)["capitalized_name"]      = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());
-            
-
             (*variables)["type"] = type;
             (*variables)["default"] = EnumValueName(default_value);
             (*variables)["tag"] = SimpleItoa(internal::WireFormat::MakeTag(descriptor));
@@ -132,11 +128,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  }\n");
         
         printer->Print(variables_,
-                       "  $acontrolFunc$ func set$capitalized_name$(value:$type$)-> $classname$Builder {\n"
+                       "  $acontrolFunc$ func set$capitalized_name$(value:$type$)-> $type$Builder {\n"
                        "    self.$name$ = value\n"
                        "    return self\n"
                        "  }\n"
-                       "  $acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder {\n"
+                       "  $acontrolFunc$ func clear$capitalized_name$() -> $type$Builder {\n"
                        "     builderResult.has$capitalized_name$ = false\n"
                        "     builderResult.$name$ = .$default$\n"
                        "     return self\n"
@@ -253,11 +249,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "        builderResult.$name$ = value\n"
                        "    }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:Array<$type$>)-> $classname$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:Array<$type$>)-> $type$Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
-                       "$acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder {\n"
+                       "$acontrolFunc$ func clear$capitalized_name$() -> $type$Builder {\n"
                        "  builderResult.$name$.removeAll(keepCapacity: false)\n"
                        "  return self\n"
                        "}\n");

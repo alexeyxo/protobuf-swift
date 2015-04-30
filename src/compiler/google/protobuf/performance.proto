@@ -12,13 +12,11 @@ message Group {
   optional User owner = 1;
 }
 
-message PerfomanceBatch
-{
+message PerfomanceBatch {
   repeated Perfomance batch = 1;
 }
 
-message Perfomance
-{
+message Perfomance {
    required int32 ints = 1;
    required int64 ints64 = 2;
    required double doubles = 3;
@@ -30,12 +28,17 @@ message Perfomance
 
 
 //ISSUE #57
-enum Flavor {
-  CHOCOLATE = 1;
-  VANILLA = 2;
-}
+// enum Flavor {
+//   CHOCOLATE = 1;
+//   VANILLA = 2;
+// }
 
 message IceCreamCone {
+  enum Flavor {
+    CHOCOLATE = 1;
+    VANILLA = 2;
+  }
   optional int32 scoops = 1;
   optional Flavor flavor = 2;
+
 }
