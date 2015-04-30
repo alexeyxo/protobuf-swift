@@ -1147,7 +1147,7 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
   public private(set) var hasScoops:Bool = false
   public private(set) var scoops:Int32 = Int32(0)
 
-  public private(set) var flavor:PBIceCreamCone = PBIceCreamCone.Chocolate
+  public private(set) var flavor:PBIceCreamCone.PBFlavor = PBIceCreamCone.PBFlavor.Chocolate
   public private(set) var hasFlavor:Bool = false
   required public init() {
        super.init()
@@ -1291,7 +1291,7 @@ final public class PBIceCreamConeBuilder : GeneratedMessageBuilder {
             return builderResult.hasFlavor
         }
     }
-    public var flavor:PBIceCreamCone {
+    public var flavor:PBIceCreamCone.PBFlavor {
         get {
             return builderResult.flavor
         }
@@ -1300,11 +1300,11 @@ final public class PBIceCreamConeBuilder : GeneratedMessageBuilder {
             builderResult.flavor = value
         }
     }
-    public func setFlavor(value:PBIceCreamCone)-> PBIceCreamConeBuilder {
+    public func setFlavor(value:PBIceCreamCone.PBFlavor)-> PBIceCreamCone.PBFlavorBuilder {
       self.flavor = value
       return self
     }
-    public func clearFlavor() -> PBIceCreamConeBuilder {
+    public func clearFlavor() -> PBIceCreamCone.PBFlavorBuilder {
        builderResult.hasFlavor = false
        builderResult.flavor = .Chocolate
        return self
@@ -1359,7 +1359,7 @@ final public class PBIceCreamConeBuilder : GeneratedMessageBuilder {
 
       case 16 :
         let valueIntflavor = input.readEnum()
-        if let enumsflavor = PBIceCreamCone(rawValue:valueIntflavor){
+        if let enumsflavor = PBIceCreamCone.PBFlavor(rawValue:valueIntflavor){
              flavor = enumsflavor
         } else {
              unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntflavor))

@@ -395,12 +395,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string name;
         if (descriptor->containing_type() != NULL) {
             name = ClassNameWorker(descriptor->containing_type());
+            name += ".";
         }
-        else
-        {
-            name += FileClassPrefix(descriptor->file());
-            name += CheckReservedNames(UnderscoresToCapitalizedCamelCase(descriptor->name()));
-        }
+   
+        name += FileClassPrefix(descriptor->file());
+        name += CheckReservedNames(UnderscoresToCapitalizedCamelCase(descriptor->name()));
         return CheckReservedNames(name);
         
     }
@@ -417,12 +416,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string name;
         if (descriptor->containing_type() != NULL) {
             name = ClassNameWorker(descriptor->containing_type());
+            name += ".";
         }
-        else
-        {
-            name += FileClassPrefix(descriptor->file());
-            name += CheckReservedNames(UnderscoresToCapitalizedCamelCase(descriptor->name()));
-        }
+
+        name += FileClassPrefix(descriptor->file());
+        name += CheckReservedNames(UnderscoresToCapitalizedCamelCase(descriptor->name()));
+
         return CheckReservedNames(name);
     }
     ////
