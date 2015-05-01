@@ -471,21 +471,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         string classNames = ClassNameReturedType(descriptor_);
         
-        printer->Print(
-                       "$acontrol$ func == (lhs: $classname$, rhs: $classname$) -> Bool {\n",
+        printer->Print("$acontrol$ func == (lhs: $classname$, rhs: $classname$) -> Bool {\n",
                        "classname", classNames,
                         "acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
         
         
-        printer->Print(
-                       "if (lhs === rhs) {\n"
+        printer->Print("if (lhs === rhs) {\n"
                        "  return true\n"
                        "}\n"
                        );
-        
-        
-        
         
         // Merge the fields and the extension ranges, both sorted by field number.
         printer->Print("var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)\n");
@@ -520,6 +515,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Outdent();
         printer->Print("}\n\n");
+        
+        // !=
+        printer->Print("$acontrol$ func != (lhs: $classname$, rhs: $classname$) -> Bool {\n",
+                       "classname", classNames,
+                       "acontrol", GetAccessControlType(descriptor_->file()));
+        printer->Indent();
+        printer->Print("var check:Bool = !(lhs == rhs)\n"
+                       "return check\n"
+                       );
+        printer->Outdent();
+        printer->Print("}\n\n");
+        
     }
     
     
