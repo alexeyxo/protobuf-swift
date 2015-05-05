@@ -13,6 +13,11 @@ public func == (lhs: PBUser, rhs: PBUser) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
+public func != (lhs: PBUser, rhs: PBUser) -> Bool {
+  var check:Bool = !(lhs == rhs)
+  return check
+}
+
 public func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
   if (lhs === rhs) {
     return true
@@ -22,6 +27,11 @@ public func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
+public func != (lhs: PBGroup, rhs: PBGroup) -> Bool {
+  var check:Bool = !(lhs == rhs)
+  return check
+}
+
 public func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
   if (lhs === rhs) {
     return true
@@ -29,6 +39,11 @@ public func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.batch == rhs.batch)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+public func != (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
+  var check:Bool = !(lhs == rhs)
+  return check
 }
 
 public func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
@@ -46,6 +61,11 @@ public func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
+public func != (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
+  var check:Bool = !(lhs == rhs)
+  return check
+}
+
 public func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
   if (lhs === rhs) {
     return true
@@ -54,6 +74,11 @@ public func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
   fieldCheck = fieldCheck && (lhs.hasScoops == rhs.hasScoops) && (!lhs.hasScoops || lhs.scoops == rhs.scoops)
   fieldCheck = fieldCheck && (lhs.hasFlavor == rhs.hasFlavor) && (!lhs.hasFlavor || lhs.flavor == rhs.flavor)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+public func != (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
+  var check:Bool = !(lhs == rhs)
+  return check
 }
 
 public struct PerformanceRoot {
@@ -199,11 +224,11 @@ final public class PBUserBuilder : GeneratedMessageBuilder {
            builderResult.group = value
        }
   }
-  public func setGroup(value:PBGroup!)-> PBGroupBuilder {
+  public func setGroup(value:PBGroup!)-> PBUserBuilder {
     self.group = value
     return self
   }
-  public func mergeGroup(value:PBGroup) -> PBGroupBuilder {
+  public func mergeGroup(value:PBGroup) -> PBUserBuilder {
     if (builderResult.hasGroup) {
       builderResult.group = PBGroup.builderWithPrototype(builderResult.group).mergeFrom(value).buildPartial()
     } else {
@@ -212,7 +237,7 @@ final public class PBUserBuilder : GeneratedMessageBuilder {
     builderResult.hasGroup = true
     return self
   }
-  public func clearGroup() -> PBGroupBuilder {
+  public func clearGroup() -> PBUserBuilder {
     builderResult.hasGroup = false
     builderResult.group = nil
     return self
@@ -402,11 +427,11 @@ final public class PBGroupBuilder : GeneratedMessageBuilder {
            builderResult.owner = value
        }
   }
-  public func setOwner(value:PBUser!)-> PBUserBuilder {
+  public func setOwner(value:PBUser!)-> PBGroupBuilder {
     self.owner = value
     return self
   }
-  public func mergeOwner(value:PBUser) -> PBUserBuilder {
+  public func mergeOwner(value:PBUser) -> PBGroupBuilder {
     if (builderResult.hasOwner) {
       builderResult.owner = PBUser.builderWithPrototype(builderResult.owner).mergeFrom(value).buildPartial()
     } else {
@@ -415,7 +440,7 @@ final public class PBGroupBuilder : GeneratedMessageBuilder {
     builderResult.hasOwner = true
     return self
   }
-  public func clearOwner() -> PBUserBuilder {
+  public func clearOwner() -> PBGroupBuilder {
     builderResult.hasOwner = false
     builderResult.owner = nil
     return self
@@ -606,11 +631,11 @@ final public class PBPerfomanceBatchBuilder : GeneratedMessageBuilder {
            builderResult.batch = value
        }
   }
-  public func setBatch(value:Array<PBPerfomance>)-> PBPerfomanceBuilder {
+  public func setBatch(value:Array<PBPerfomance>)-> PBPerfomanceBatchBuilder {
     self.batch = value
     return self
   }
-  public func clearBatch() -> PBPerfomanceBuilder {
+  public func clearBatch() -> PBPerfomanceBatchBuilder {
     builderResult.batch.removeAll(keepCapacity: false)
     return self
   }
@@ -1300,11 +1325,11 @@ final public class PBIceCreamConeBuilder : GeneratedMessageBuilder {
             builderResult.flavor = value
         }
     }
-    public func setFlavor(value:PBIceCreamCone.PBFlavor)-> PBIceCreamCone.PBFlavorBuilder {
+    public func setFlavor(value:PBIceCreamCone.PBFlavor)-> PBIceCreamConeBuilder {
       self.flavor = value
       return self
     }
-    public func clearFlavor() -> PBIceCreamCone.PBFlavorBuilder {
+    public func clearFlavor() -> PBIceCreamConeBuilder {
        builderResult.hasFlavor = false
        builderResult.flavor = .Chocolate
        return self

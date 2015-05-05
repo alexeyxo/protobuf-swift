@@ -47,7 +47,7 @@ class  TestUtilities {
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension(),index:1, value:"515")
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), index:1, value:TestUtilities.getData("516"))
 
-        var a = ProtobufUnittest.RepeatedGroup_extension.builder()
+        var a = ProtobufUnittest.RepeatedGroupExtension.builder()
         a.a = 517
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), index:1, value:a.build())
         
@@ -96,7 +96,7 @@ class  TestUtilities {
         XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalForeignMessageExtension()), "")
         XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalImportMessageExtension()), "")
         
-        if let extensions = message.getExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroup_extension
+        if let extensions = message.getExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
         {
             XCTAssertTrue(extensions.hasA, "")
         }
@@ -182,7 +182,7 @@ class  TestUtilities {
             XCTAssertTrue(TestUtilities.getData("116") == val, "")
         }
         
-        if let mes = message.getExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroup_extension
+        if let mes = message.getExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
         {
             XCTAssertTrue(117 == mes.a, "")
         }
@@ -383,7 +383,7 @@ class  TestUtilities {
     
         if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
-            if let value = val[0] as? ProtobufUnittest.RepeatedGroup_extension
+            if let value = val[0] as? ProtobufUnittest.RepeatedGroupExtension
             {
                 XCTAssertTrue(217 == value.a, "")
             }
@@ -496,7 +496,7 @@ class  TestUtilities {
         
         if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
-            if let value = val[1] as? ProtobufUnittest.RepeatedGroup_extension
+            if let value = val[1] as? ProtobufUnittest.RepeatedGroupExtension
             {
                 XCTAssertTrue(317 == value.a, "")
             }
@@ -827,7 +827,7 @@ class  TestUtilities {
         
         if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
-            if let values = val[0] as? ProtobufUnittest.RepeatedGroup_extension
+            if let values = val[0] as? ProtobufUnittest.RepeatedGroupExtension
             {
                 XCTAssertTrue(217 ==  values.a, "")
             }
@@ -942,7 +942,7 @@ class  TestUtilities {
         
         if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
-            if let values = val[1] as? ProtobufUnittest.RepeatedGroup_extension
+            if let values = val[1] as? ProtobufUnittest.RepeatedGroupExtension
             {
                 XCTAssertTrue(517 == values.a, "")
             }
@@ -1394,7 +1394,7 @@ class  TestUtilities {
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalStringExtension(), value:"115")
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalBytesExtension(), value:TestUtilities.getData("116"))
         
-        var optgr = ProtobufUnittest.OptionalGroup_extension.builder()
+        var optgr = ProtobufUnittest.OptionalGroupExtension.builder()
         optgr.a = 117
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension(), value:optgr.build())
         
@@ -1436,7 +1436,7 @@ class  TestUtilities {
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), value:TestUtilities.getData("216"))
         
         
-        var repGr = ProtobufUnittest.RepeatedGroup_extension.builder()
+        var repGr = ProtobufUnittest.RepeatedGroupExtension.builder()
         repGr.a = 217
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), value:repGr.build())
         var netmesrep = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
@@ -1474,7 +1474,7 @@ class  TestUtilities {
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), value:TestUtilities.getData("316"))
         
         
-        var repGr2 = ProtobufUnittest.RepeatedGroup_extension.builder()
+        var repGr2 = ProtobufUnittest.RepeatedGroupExtension.builder()
         repGr2.a = 317
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), value:repGr2.build())
         var netmesrep2 = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
@@ -1799,7 +1799,7 @@ class  TestUtilities {
         }
         
         // Embedded messages should also be clear.
-        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroup_extension
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
         {
             XCTAssertFalse(val.hasA, "")
         }
@@ -1816,7 +1816,7 @@ class  TestUtilities {
             XCTAssertFalse(val.hasD, "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroup_extension
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
         {
             XCTAssertTrue(val.a == 0, "")
         }
