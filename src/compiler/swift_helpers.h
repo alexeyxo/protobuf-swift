@@ -54,6 +54,8 @@ namespace google {
                 vector<string> FullNameSplit(const FileDescriptor* file);
                 string FullName(const FileDescriptor* file);
                 string FullName(const vector<string> splitVector);
+                string PackageName(const Descriptor* descriptor);
+                string PackageName(const EnumDescriptor* descriptor);
                 string PackageExtensionName(const vector<string> splitVector);
                 ///
                 

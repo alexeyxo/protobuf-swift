@@ -149,7 +149,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         void SetPrimitiveVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
             std::string name = UnderscoresToCamelCase(descriptor);
-            (*variables)["classname"] = ClassName(descriptor->containing_type());
+            
+            (*variables)["containing_class"] = ClassNameReturedType(descriptor->containing_type());
+            
             (*variables)["name"] = name;
             (*variables)["capitalized_name"] = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());
@@ -254,11 +256,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:$storage_type$)-> $classname$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:$storage_type$)-> $containing_class$Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
-                       "$acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder{\n"
+                       "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$Builder{\n"
                        "     builderResult.has$capitalized_name$ = false\n"
                        "     builderResult.$name$ = $default$\n"
                        "     return self\n"
@@ -361,11 +363,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = array\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:Array<$storage_type$>)-> $classname$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:Array<$storage_type$>)-> $containing_class$Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
-                       "$acontrolFunc$ func clear$capitalized_name$() -> $classname$Builder {\n"
+                       "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$Builder {\n"
                        "   builderResult.$name$.removeAll(keepCapacity: false)\n"
                        "   return self\n"
                        "}\n");

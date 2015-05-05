@@ -303,30 +303,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     /////////////////////
     
     ////Workers
-//    string ClassNameWorker(const EnumDescriptor* descriptor) {
-//        string name;
-//        name += FileClassPrefix(descriptor->file());
-//        if (descriptor->containing_type() != NULL) {
-//            name = ClassNameWorker(descriptor->containing_type());
-//            name += ".";
-//        }
-//        else
-//        {
-//            name += CheckReservedNames(FullName(descriptor->file()));
-//        }
-//        return CheckReservedNames(name + UnderscoresToCapitalizedCamelCase(descriptor->name()));
-//    }
     
     string ClassNameWorker(const Descriptor* descriptor) {
-        string name;
+        string name = "";
         name += FileClassPrefix(descriptor->file());
         if (descriptor->containing_type() != NULL) {
             name = ClassNameWorker(descriptor->containing_type());
             name += ".";
-        }
-        else
-        {
-            name += CheckReservedNames(FullName(descriptor->file()));
         }
         return CheckReservedNames(name + UnderscoresToCapitalizedCamelCase(descriptor->name()));
     }
@@ -392,7 +375,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     string ClassNameReturedType(const EnumDescriptor* descriptor) {
-        string name;
+        
+        string name = PackageName(descriptor);
+
         if (descriptor->containing_type() != NULL) {
             name = ClassNameWorker(descriptor->containing_type());
             name += ".";
@@ -404,6 +389,19 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
     }
     
+    string PackageName(const EnumDescriptor* descriptor)
+    {
+        string name = "";
+        if (descriptor->containing_type() != NULL) {
+            name = PackageName(descriptor->containing_type());
+        }
+        else
+        {
+            name = FullName(descriptor->file());
+        }
+        return name;
+    }
+    
     //// Messages class name and returned type
     string ClassName(const Descriptor* descriptor) {
         string name;
@@ -413,9 +411,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     string ClassNameReturedType(const Descriptor* descriptor) {
-        string name;
+        string name = PackageName(descriptor);
         if (descriptor->containing_type() != NULL) {
-            name = ClassNameWorker(descriptor->containing_type());
+            name += ClassNameWorker(descriptor->containing_type());
             name += ".";
         }
 
@@ -423,6 +421,19 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         name += CheckReservedNames(UnderscoresToCapitalizedCamelCase(descriptor->name()));
 
         return CheckReservedNames(name);
+    }
+    
+    string PackageName(const Descriptor* descriptor)
+    {
+        string name = "";
+        if (descriptor->containing_type() != NULL) {
+            name = PackageName(descriptor->containing_type());
+        }
+        else
+        {
+            name = FullName(descriptor->file());
+        }
+        return name;
     }
     ////
     
@@ -662,7 +673,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::CPPTYPE_ENUM:
                 return EnumValueName(field->default_value_enum());
             case FieldDescriptor::CPPTYPE_MESSAGE:
-                return ClassName(field->message_type()) + "()";
+                return ClassNameReturedType(field->message_type()) + "()";
         }
 
         GOOGLE_LOG(FATAL) << "Can't get here.";

@@ -2,7 +2,6 @@ import "google/protobuf/swift-descriptor.proto";
 
 option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
 option (.google.protobuf.swift_file_options).class_prefix = "PB";
-// package google.protobuf;
 
 message User {
   optional Group group = 1;

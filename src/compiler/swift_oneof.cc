@@ -100,7 +100,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Indent();
             if (GetSwiftType(fieldType) == SWIFTTYPE_MESSAGE) {
                 
-                string classNames = ClassName(fieldType->message_type());
+                string classNames = ClassNameReturedType(fieldType->message_type());
                 printer->Print("case $name$($type$)\n\n",
                                "name",UnderscoresToCapitalizedCamelCase(fieldType),
                                "type",classNames);
@@ -123,7 +123,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             else if (GetSwiftType(fieldType) == SWIFTTYPE_ENUM)
             {
                 const FieldDescriptor* enumDesc = descriptor_->field(i);
-                string type = ClassName(enumDesc->enum_type());
+                string type = ClassNameReturedType(enumDesc->enum_type());
                 printer->Print("case $name$($type$)\n\n",
                                "name",UnderscoresToCapitalizedCamelCase(enumDesc->name()),
                                "type",type);
