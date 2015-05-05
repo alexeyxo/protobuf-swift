@@ -25,6 +25,11 @@ message Perfomance {
    optional string description = 7;
 }
 
+message ProtoPoint {
+    required float latitude = 1;
+    required float longitude = 2;
+}
+
 
 //ISSUE #57
 // enum Flavor {
