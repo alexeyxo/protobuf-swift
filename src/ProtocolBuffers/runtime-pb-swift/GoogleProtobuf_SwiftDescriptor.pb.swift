@@ -15,11 +15,6 @@ public func == (lhs: Google.Protobuf.SwiftFileOptions, rhs: Google.Protobuf.Swif
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func != (lhs: Google.Protobuf.SwiftFileOptions, rhs: Google.Protobuf.SwiftFileOptions) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 public var SwiftDescriptorRootswiftFileOptions:ConcreateExtensionField {
    get {
        return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftFileOptionsStatic
@@ -62,7 +57,7 @@ public extension Google.Protobuf {
 
   //Enum type declaration end 
 
-  final public class SwiftFileOptions : GeneratedMessage, GeneratedMessageProtocol {
+  final public class SwiftFileOptions : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     public private(set) var hasClassPrefix:Bool = false
     public private(set) var classPrefix:String = ""
 
