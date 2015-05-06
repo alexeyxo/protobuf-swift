@@ -6,48 +6,6 @@ import ProtocolBuffers
 
 internal struct ProtobufUnittest { }
 
-internal func == (lhs: ProtobufUnittest.TestAllTypes.NestedMessage, rhs: ProtobufUnittest.TestAllTypes.NestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestAllTypes.NestedMessage, rhs: ProtobufUnittest.TestAllTypes.NestedMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.TestAllTypes.OptionalGroup, rhs: ProtobufUnittest.TestAllTypes.OptionalGroup) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestAllTypes.OptionalGroup, rhs: ProtobufUnittest.TestAllTypes.OptionalGroup) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.TestAllTypes.RepeatedGroup, rhs: ProtobufUnittest.TestAllTypes.RepeatedGroup) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestAllTypes.RepeatedGroup, rhs: ProtobufUnittest.TestAllTypes.RepeatedGroup) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestAllTypes, rhs: ProtobufUnittest.TestAllTypes) -> Bool {
   if (lhs === rhs) {
     return true
@@ -131,9 +89,31 @@ internal func == (lhs: ProtobufUnittest.TestAllTypes, rhs: ProtobufUnittest.Test
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestAllTypes, rhs: ProtobufUnittest.TestAllTypes) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
+internal func == (lhs: ProtobufUnittest.TestAllTypes.NestedMessage, rhs: ProtobufUnittest.TestAllTypes.NestedMessage) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+internal func == (lhs: ProtobufUnittest.TestAllTypes.OptionalGroup, rhs: ProtobufUnittest.TestAllTypes.OptionalGroup) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+internal func == (lhs: ProtobufUnittest.TestAllTypes.RepeatedGroup, rhs: ProtobufUnittest.TestAllTypes.RepeatedGroup) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 internal func == (lhs: ProtobufUnittest.NestedTestAllTypes, rhs: ProtobufUnittest.NestedTestAllTypes) -> Bool {
@@ -146,11 +126,6 @@ internal func == (lhs: ProtobufUnittest.NestedTestAllTypes, rhs: ProtobufUnittes
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.NestedTestAllTypes, rhs: ProtobufUnittest.NestedTestAllTypes) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestDeprecatedFields, rhs: ProtobufUnittest.TestDeprecatedFields) -> Bool {
   if (lhs === rhs) {
     return true
@@ -158,11 +133,6 @@ internal func == (lhs: ProtobufUnittest.TestDeprecatedFields, rhs: ProtobufUnitt
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasDeprecatedInt32 == rhs.hasDeprecatedInt32) && (!lhs.hasDeprecatedInt32 || lhs.deprecatedInt32 == rhs.deprecatedInt32)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestDeprecatedFields, rhs: ProtobufUnittest.TestDeprecatedFields) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.ForeignMessage, rhs: ProtobufUnittest.ForeignMessage) -> Bool {
@@ -174,11 +144,6 @@ internal func == (lhs: ProtobufUnittest.ForeignMessage, rhs: ProtobufUnittest.Fo
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.ForeignMessage, rhs: ProtobufUnittest.ForeignMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestAllExtensions, rhs: ProtobufUnittest.TestAllExtensions) -> Bool {
   if (lhs === rhs) {
     return true
@@ -186,11 +151,6 @@ internal func == (lhs: ProtobufUnittest.TestAllExtensions, rhs: ProtobufUnittest
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1), endExclusive:Int32(536870912))
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestAllExtensions, rhs: ProtobufUnittest.TestAllExtensions) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.OptionalGroupExtension, rhs: ProtobufUnittest.OptionalGroupExtension) -> Bool {
@@ -202,11 +162,6 @@ internal func == (lhs: ProtobufUnittest.OptionalGroupExtension, rhs: ProtobufUni
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.OptionalGroupExtension, rhs: ProtobufUnittest.OptionalGroupExtension) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.RepeatedGroupExtension, rhs: ProtobufUnittest.RepeatedGroupExtension) -> Bool {
   if (lhs === rhs) {
     return true
@@ -216,22 +171,12 @@ internal func == (lhs: ProtobufUnittest.RepeatedGroupExtension, rhs: ProtobufUni
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.RepeatedGroupExtension, rhs: ProtobufUnittest.RepeatedGroupExtension) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestNestedExtension, rhs: ProtobufUnittest.TestNestedExtension) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestNestedExtension, rhs: ProtobufUnittest.TestNestedExtension) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestRequired, rhs: ProtobufUnittest.TestRequired) -> Bool {
@@ -275,11 +220,6 @@ internal func == (lhs: ProtobufUnittest.TestRequired, rhs: ProtobufUnittest.Test
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestRequired, rhs: ProtobufUnittest.TestRequired) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestRequiredForeign, rhs: ProtobufUnittest.TestRequiredForeign) -> Bool {
   if (lhs === rhs) {
     return true
@@ -291,11 +231,6 @@ internal func == (lhs: ProtobufUnittest.TestRequiredForeign, rhs: ProtobufUnitte
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestRequiredForeign, rhs: ProtobufUnittest.TestRequiredForeign) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestForeignNested, rhs: ProtobufUnittest.TestForeignNested) -> Bool {
   if (lhs === rhs) {
     return true
@@ -303,11 +238,6 @@ internal func == (lhs: ProtobufUnittest.TestForeignNested, rhs: ProtobufUnittest
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasForeignNested == rhs.hasForeignNested) && (!lhs.hasForeignNested || lhs.foreignNested == rhs.foreignNested)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestForeignNested, rhs: ProtobufUnittest.TestForeignNested) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestEmptyMessage, rhs: ProtobufUnittest.TestEmptyMessage) -> Bool {
@@ -318,11 +248,6 @@ internal func == (lhs: ProtobufUnittest.TestEmptyMessage, rhs: ProtobufUnittest.
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestEmptyMessage, rhs: ProtobufUnittest.TestEmptyMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestEmptyMessageWithExtensions, rhs: ProtobufUnittest.TestEmptyMessageWithExtensions) -> Bool {
   if (lhs === rhs) {
     return true
@@ -330,11 +255,6 @@ internal func == (lhs: ProtobufUnittest.TestEmptyMessageWithExtensions, rhs: Pro
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1), endExclusive:Int32(536870912))
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestEmptyMessageWithExtensions, rhs: ProtobufUnittest.TestEmptyMessageWithExtensions) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestMultipleExtensionRanges, rhs: ProtobufUnittest.TestMultipleExtensionRanges) -> Bool {
@@ -348,11 +268,6 @@ internal func == (lhs: ProtobufUnittest.TestMultipleExtensionRanges, rhs: Protob
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestMultipleExtensionRanges, rhs: ProtobufUnittest.TestMultipleExtensionRanges) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestReallyLargeTagNumber, rhs: ProtobufUnittest.TestReallyLargeTagNumber) -> Bool {
   if (lhs === rhs) {
     return true
@@ -361,11 +276,6 @@ internal func == (lhs: ProtobufUnittest.TestReallyLargeTagNumber, rhs: ProtobufU
   fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
   fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestReallyLargeTagNumber, rhs: ProtobufUnittest.TestReallyLargeTagNumber) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestRecursiveMessage, rhs: ProtobufUnittest.TestRecursiveMessage) -> Bool {
@@ -378,11 +288,6 @@ internal func == (lhs: ProtobufUnittest.TestRecursiveMessage, rhs: ProtobufUnitt
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestRecursiveMessage, rhs: ProtobufUnittest.TestRecursiveMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestMutualRecursionA, rhs: ProtobufUnittest.TestMutualRecursionA) -> Bool {
   if (lhs === rhs) {
     return true
@@ -390,11 +295,6 @@ internal func == (lhs: ProtobufUnittest.TestMutualRecursionA, rhs: ProtobufUnitt
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestMutualRecursionA, rhs: ProtobufUnittest.TestMutualRecursionA) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestMutualRecursionB, rhs: ProtobufUnittest.TestMutualRecursionB) -> Bool {
@@ -405,39 +305,6 @@ internal func == (lhs: ProtobufUnittest.TestMutualRecursionB, rhs: ProtobufUnitt
   fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
   fieldCheck = fieldCheck && (lhs.hasOptionalInt32 == rhs.hasOptionalInt32) && (!lhs.hasOptionalInt32 || lhs.optionalInt32 == rhs.optionalInt32)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestMutualRecursionB, rhs: ProtobufUnittest.TestMutualRecursionB) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.TestDupFieldNumber.Foo, rhs: ProtobufUnittest.TestDupFieldNumber.Foo) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestDupFieldNumber.Foo, rhs: ProtobufUnittest.TestDupFieldNumber.Foo) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.TestDupFieldNumber.Bar, rhs: ProtobufUnittest.TestDupFieldNumber.Bar) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestDupFieldNumber.Bar, rhs: ProtobufUnittest.TestDupFieldNumber.Bar) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestDupFieldNumber, rhs: ProtobufUnittest.TestDupFieldNumber) -> Bool {
@@ -451,9 +318,22 @@ internal func == (lhs: ProtobufUnittest.TestDupFieldNumber, rhs: ProtobufUnittes
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestDupFieldNumber, rhs: ProtobufUnittest.TestDupFieldNumber) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
+internal func == (lhs: ProtobufUnittest.TestDupFieldNumber.Foo, rhs: ProtobufUnittest.TestDupFieldNumber.Foo) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+internal func == (lhs: ProtobufUnittest.TestDupFieldNumber.Bar, rhs: ProtobufUnittest.TestDupFieldNumber.Bar) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 internal func == (lhs: ProtobufUnittest.TestEagerMessage, rhs: ProtobufUnittest.TestEagerMessage) -> Bool {
@@ -465,11 +345,6 @@ internal func == (lhs: ProtobufUnittest.TestEagerMessage, rhs: ProtobufUnittest.
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestEagerMessage, rhs: ProtobufUnittest.TestEagerMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestLazyMessage, rhs: ProtobufUnittest.TestLazyMessage) -> Bool {
   if (lhs === rhs) {
     return true
@@ -477,26 +352,6 @@ internal func == (lhs: ProtobufUnittest.TestLazyMessage, rhs: ProtobufUnittest.T
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasSubMessage == rhs.hasSubMessage) && (!lhs.hasSubMessage || lhs.subMessage == rhs.subMessage)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestLazyMessage, rhs: ProtobufUnittest.TestLazyMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.TestNestedMessageHasBits.NestedMessage, rhs: ProtobufUnittest.TestNestedMessageHasBits.NestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.nestedmessageRepeatedInt32 == rhs.nestedmessageRepeatedInt32)
-  fieldCheck = fieldCheck && (lhs.nestedmessageRepeatedForeignmessage == rhs.nestedmessageRepeatedForeignmessage)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestNestedMessageHasBits.NestedMessage, rhs: ProtobufUnittest.TestNestedMessageHasBits.NestedMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestNestedMessageHasBits, rhs: ProtobufUnittest.TestNestedMessageHasBits) -> Bool {
@@ -508,9 +363,14 @@ internal func == (lhs: ProtobufUnittest.TestNestedMessageHasBits, rhs: ProtobufU
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestNestedMessageHasBits, rhs: ProtobufUnittest.TestNestedMessageHasBits) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
+internal func == (lhs: ProtobufUnittest.TestNestedMessageHasBits.NestedMessage, rhs: ProtobufUnittest.TestNestedMessageHasBits.NestedMessage) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.nestedmessageRepeatedInt32 == rhs.nestedmessageRepeatedInt32)
+  fieldCheck = fieldCheck && (lhs.nestedmessageRepeatedForeignmessage == rhs.nestedmessageRepeatedForeignmessage)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 internal func == (lhs: ProtobufUnittest.TestCamelCaseFieldNames, rhs: ProtobufUnittest.TestCamelCaseFieldNames) -> Bool {
@@ -533,11 +393,6 @@ internal func == (lhs: ProtobufUnittest.TestCamelCaseFieldNames, rhs: ProtobufUn
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestCamelCaseFieldNames, rhs: ProtobufUnittest.TestCamelCaseFieldNames) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestFieldOrderings, rhs: ProtobufUnittest.TestFieldOrderings) -> Bool {
   if (lhs === rhs) {
     return true
@@ -549,11 +404,6 @@ internal func == (lhs: ProtobufUnittest.TestFieldOrderings, rhs: ProtobufUnittes
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(12), endExclusive:Int32(101))
   fieldCheck = fieldCheck && (lhs.hasMyFloat == rhs.hasMyFloat) && (!lhs.hasMyFloat || lhs.myFloat == rhs.myFloat)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestFieldOrderings, rhs: ProtobufUnittest.TestFieldOrderings) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestExtremeDefaultValues, rhs: ProtobufUnittest.TestExtremeDefaultValues) -> Bool {
@@ -591,11 +441,6 @@ internal func == (lhs: ProtobufUnittest.TestExtremeDefaultValues, rhs: ProtobufU
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestExtremeDefaultValues, rhs: ProtobufUnittest.TestExtremeDefaultValues) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.SparseEnumMessage, rhs: ProtobufUnittest.SparseEnumMessage) -> Bool {
   if (lhs === rhs) {
     return true
@@ -603,11 +448,6 @@ internal func == (lhs: ProtobufUnittest.SparseEnumMessage, rhs: ProtobufUnittest
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasSparseEnum == rhs.hasSparseEnum) && (!lhs.hasSparseEnum || lhs.sparseEnum == rhs.sparseEnum)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.SparseEnumMessage, rhs: ProtobufUnittest.SparseEnumMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.OneString, rhs: ProtobufUnittest.OneString) -> Bool {
@@ -619,11 +459,6 @@ internal func == (lhs: ProtobufUnittest.OneString, rhs: ProtobufUnittest.OneStri
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.OneString, rhs: ProtobufUnittest.OneString) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.MoreString, rhs: ProtobufUnittest.MoreString) -> Bool {
   if (lhs === rhs) {
     return true
@@ -631,11 +466,6 @@ internal func == (lhs: ProtobufUnittest.MoreString, rhs: ProtobufUnittest.MoreSt
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.data == rhs.data)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.MoreString, rhs: ProtobufUnittest.MoreString) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.OneBytes, rhs: ProtobufUnittest.OneBytes) -> Bool {
@@ -647,11 +477,6 @@ internal func == (lhs: ProtobufUnittest.OneBytes, rhs: ProtobufUnittest.OneBytes
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.OneBytes, rhs: ProtobufUnittest.OneBytes) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.MoreBytes, rhs: ProtobufUnittest.MoreBytes) -> Bool {
   if (lhs === rhs) {
     return true
@@ -659,11 +484,6 @@ internal func == (lhs: ProtobufUnittest.MoreBytes, rhs: ProtobufUnittest.MoreByt
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.data == rhs.data)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.MoreBytes, rhs: ProtobufUnittest.MoreBytes) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.Int32Message, rhs: ProtobufUnittest.Int32Message) -> Bool {
@@ -675,11 +495,6 @@ internal func == (lhs: ProtobufUnittest.Int32Message, rhs: ProtobufUnittest.Int3
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.Int32Message, rhs: ProtobufUnittest.Int32Message) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.Uint32Message, rhs: ProtobufUnittest.Uint32Message) -> Bool {
   if (lhs === rhs) {
     return true
@@ -687,11 +502,6 @@ internal func == (lhs: ProtobufUnittest.Uint32Message, rhs: ProtobufUnittest.Uin
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.Uint32Message, rhs: ProtobufUnittest.Uint32Message) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.Int64Message, rhs: ProtobufUnittest.Int64Message) -> Bool {
@@ -703,11 +513,6 @@ internal func == (lhs: ProtobufUnittest.Int64Message, rhs: ProtobufUnittest.Int6
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.Int64Message, rhs: ProtobufUnittest.Int64Message) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.Uint64Message, rhs: ProtobufUnittest.Uint64Message) -> Bool {
   if (lhs === rhs) {
     return true
@@ -717,11 +522,6 @@ internal func == (lhs: ProtobufUnittest.Uint64Message, rhs: ProtobufUnittest.Uin
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.Uint64Message, rhs: ProtobufUnittest.Uint64Message) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.BoolMessage, rhs: ProtobufUnittest.BoolMessage) -> Bool {
   if (lhs === rhs) {
     return true
@@ -729,26 +529,6 @@ internal func == (lhs: ProtobufUnittest.BoolMessage, rhs: ProtobufUnittest.BoolM
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.BoolMessage, rhs: ProtobufUnittest.BoolMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.TestOneof.FooGroup, rhs: ProtobufUnittest.TestOneof.FooGroup) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = fieldCheck && (lhs.hasB == rhs.hasB) && (!lhs.hasB || lhs.b == rhs.b)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestOneof.FooGroup, rhs: ProtobufUnittest.TestOneof.FooGroup) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestOneof, rhs: ProtobufUnittest.TestOneof) -> Bool {
@@ -763,12 +543,7 @@ internal func == (lhs: ProtobufUnittest.TestOneof, rhs: ProtobufUnittest.TestOne
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestOneof, rhs: ProtobufUnittest.TestOneof) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup, rhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup) -> Bool {
+internal func == (lhs: ProtobufUnittest.TestOneof.FooGroup, rhs: ProtobufUnittest.TestOneof.FooGroup) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -776,11 +551,6 @@ internal func == (lhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup, r
   fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
   fieldCheck = fieldCheck && (lhs.hasB == rhs.hasB) && (!lhs.hasB || lhs.b == rhs.b)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup, rhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestOneofBackwardsCompatible, rhs: ProtobufUnittest.TestOneofBackwardsCompatible) -> Bool {
@@ -795,12 +565,7 @@ internal func == (lhs: ProtobufUnittest.TestOneofBackwardsCompatible, rhs: Proto
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestOneofBackwardsCompatible, rhs: ProtobufUnittest.TestOneofBackwardsCompatible) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.TestOneof2.FooGroup, rhs: ProtobufUnittest.TestOneof2.FooGroup) -> Bool {
+internal func == (lhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup, rhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -808,26 +573,6 @@ internal func == (lhs: ProtobufUnittest.TestOneof2.FooGroup, rhs: ProtobufUnitte
   fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
   fieldCheck = fieldCheck && (lhs.hasB == rhs.hasB) && (!lhs.hasB || lhs.b == rhs.b)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestOneof2.FooGroup, rhs: ProtobufUnittest.TestOneof2.FooGroup) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.TestOneof2.NestedMessage, rhs: ProtobufUnittest.TestOneof2.NestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasQuxInt == rhs.hasQuxInt) && (!lhs.hasQuxInt || lhs.quxInt == rhs.quxInt)
-  fieldCheck = fieldCheck && (lhs.corgeInt == rhs.corgeInt)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestOneof2.NestedMessage, rhs: ProtobufUnittest.TestOneof2.NestedMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestOneof2, rhs: ProtobufUnittest.TestOneof2) -> Bool {
@@ -855,23 +600,24 @@ internal func == (lhs: ProtobufUnittest.TestOneof2, rhs: ProtobufUnittest.TestOn
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestOneof2, rhs: ProtobufUnittest.TestOneof2) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.TestRequiredOneof.NestedMessage, rhs: ProtobufUnittest.TestRequiredOneof.NestedMessage) -> Bool {
+internal func == (lhs: ProtobufUnittest.TestOneof2.FooGroup, rhs: ProtobufUnittest.TestOneof2.FooGroup) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasRequiredDouble == rhs.hasRequiredDouble) && (!lhs.hasRequiredDouble || lhs.requiredDouble == rhs.requiredDouble)
+  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+  fieldCheck = fieldCheck && (lhs.hasB == rhs.hasB) && (!lhs.hasB || lhs.b == rhs.b)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestRequiredOneof.NestedMessage, rhs: ProtobufUnittest.TestRequiredOneof.NestedMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
+internal func == (lhs: ProtobufUnittest.TestOneof2.NestedMessage, rhs: ProtobufUnittest.TestOneof2.NestedMessage) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasQuxInt == rhs.hasQuxInt) && (!lhs.hasQuxInt || lhs.quxInt == rhs.quxInt)
+  fieldCheck = fieldCheck && (lhs.corgeInt == rhs.corgeInt)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 internal func == (lhs: ProtobufUnittest.TestRequiredOneof, rhs: ProtobufUnittest.TestRequiredOneof) -> Bool {
@@ -885,9 +631,13 @@ internal func == (lhs: ProtobufUnittest.TestRequiredOneof, rhs: ProtobufUnittest
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestRequiredOneof, rhs: ProtobufUnittest.TestRequiredOneof) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
+internal func == (lhs: ProtobufUnittest.TestRequiredOneof.NestedMessage, rhs: ProtobufUnittest.TestRequiredOneof.NestedMessage) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasRequiredDouble == rhs.hasRequiredDouble) && (!lhs.hasRequiredDouble || lhs.requiredDouble == rhs.requiredDouble)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 internal func == (lhs: ProtobufUnittest.TestPackedTypes, rhs: ProtobufUnittest.TestPackedTypes) -> Bool {
@@ -912,11 +662,6 @@ internal func == (lhs: ProtobufUnittest.TestPackedTypes, rhs: ProtobufUnittest.T
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestPackedTypes, rhs: ProtobufUnittest.TestPackedTypes) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestUnpackedTypes, rhs: ProtobufUnittest.TestUnpackedTypes) -> Bool {
   if (lhs === rhs) {
     return true
@@ -939,11 +684,6 @@ internal func == (lhs: ProtobufUnittest.TestUnpackedTypes, rhs: ProtobufUnittest
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestUnpackedTypes, rhs: ProtobufUnittest.TestUnpackedTypes) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestPackedExtensions, rhs: ProtobufUnittest.TestPackedExtensions) -> Bool {
   if (lhs === rhs) {
     return true
@@ -953,11 +693,6 @@ internal func == (lhs: ProtobufUnittest.TestPackedExtensions, rhs: ProtobufUnitt
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestPackedExtensions, rhs: ProtobufUnittest.TestPackedExtensions) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestUnpackedExtensions, rhs: ProtobufUnittest.TestUnpackedExtensions) -> Bool {
   if (lhs === rhs) {
     return true
@@ -965,25 +700,6 @@ internal func == (lhs: ProtobufUnittest.TestUnpackedExtensions, rhs: ProtobufUni
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1), endExclusive:Int32(536870912))
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestUnpackedExtensions, rhs: ProtobufUnittest.TestUnpackedExtensions) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.TestDynamicExtensions.DynamicMessageType, rhs: ProtobufUnittest.TestDynamicExtensions.DynamicMessageType) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasDynamicField == rhs.hasDynamicField) && (!lhs.hasDynamicField || lhs.dynamicField == rhs.dynamicField)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestDynamicExtensions.DynamicMessageType, rhs: ProtobufUnittest.TestDynamicExtensions.DynamicMessageType) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestDynamicExtensions, rhs: ProtobufUnittest.TestDynamicExtensions) -> Bool {
@@ -1001,9 +717,13 @@ internal func == (lhs: ProtobufUnittest.TestDynamicExtensions, rhs: ProtobufUnit
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestDynamicExtensions, rhs: ProtobufUnittest.TestDynamicExtensions) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
+internal func == (lhs: ProtobufUnittest.TestDynamicExtensions.DynamicMessageType, rhs: ProtobufUnittest.TestDynamicExtensions.DynamicMessageType) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasDynamicField == rhs.hasDynamicField) && (!lhs.hasDynamicField || lhs.dynamicField == rhs.dynamicField)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 internal func == (lhs: ProtobufUnittest.TestRepeatedScalarDifferentTagSizes, rhs: ProtobufUnittest.TestRepeatedScalarDifferentTagSizes) -> Bool {
@@ -1020,9 +740,18 @@ internal func == (lhs: ProtobufUnittest.TestRepeatedScalarDifferentTagSizes, rhs
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestRepeatedScalarDifferentTagSizes, rhs: ProtobufUnittest.TestRepeatedScalarDifferentTagSizes) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
+internal func == (lhs: ProtobufUnittest.TestParsingMerge, rhs: ProtobufUnittest.TestParsingMerge) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasRequiredAllTypes == rhs.hasRequiredAllTypes) && (!lhs.hasRequiredAllTypes || lhs.requiredAllTypes == rhs.requiredAllTypes)
+  fieldCheck = fieldCheck && (lhs.hasOptionalAllTypes == rhs.hasOptionalAllTypes) && (!lhs.hasOptionalAllTypes || lhs.optionalAllTypes == rhs.optionalAllTypes)
+  fieldCheck = fieldCheck && (lhs.repeatedAllTypes == rhs.repeatedAllTypes)
+  fieldCheck = fieldCheck && (lhs.hasOptionalGroup == rhs.hasOptionalGroup) && (!lhs.hasOptionalGroup || lhs.optionalGroup == rhs.optionalGroup)
+  fieldCheck = fieldCheck && (lhs.repeatedGroup == rhs.repeatedGroup)
+  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1000), endExclusive:Int32(536870912))
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 internal func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
@@ -1040,9 +769,22 @@ internal func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
+internal func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasField1 == rhs.hasField1) && (!lhs.hasField1 || lhs.field1 == rhs.field1)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+internal func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasField1 == rhs.hasField1) && (!lhs.hasField1 || lhs.field1 == rhs.field1)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 internal func == (lhs: ProtobufUnittest.TestParsingMerge.OptionalGroup, rhs: ProtobufUnittest.TestParsingMerge.OptionalGroup) -> Bool {
@@ -1054,11 +796,6 @@ internal func == (lhs: ProtobufUnittest.TestParsingMerge.OptionalGroup, rhs: Pro
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestParsingMerge.OptionalGroup, rhs: ProtobufUnittest.TestParsingMerge.OptionalGroup) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedGroup, rhs: ProtobufUnittest.TestParsingMerge.RepeatedGroup) -> Bool {
   if (lhs === rhs) {
     return true
@@ -1066,30 +803,6 @@ internal func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedGroup, rhs: Pro
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasRepeatedGroupAllTypes == rhs.hasRepeatedGroupAllTypes) && (!lhs.hasRepeatedGroupAllTypes || lhs.repeatedGroupAllTypes == rhs.repeatedGroupAllTypes)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestParsingMerge.RepeatedGroup, rhs: ProtobufUnittest.TestParsingMerge.RepeatedGroup) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.TestParsingMerge, rhs: ProtobufUnittest.TestParsingMerge) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasRequiredAllTypes == rhs.hasRequiredAllTypes) && (!lhs.hasRequiredAllTypes || lhs.requiredAllTypes == rhs.requiredAllTypes)
-  fieldCheck = fieldCheck && (lhs.hasOptionalAllTypes == rhs.hasOptionalAllTypes) && (!lhs.hasOptionalAllTypes || lhs.optionalAllTypes == rhs.optionalAllTypes)
-  fieldCheck = fieldCheck && (lhs.repeatedAllTypes == rhs.repeatedAllTypes)
-  fieldCheck = fieldCheck && (lhs.hasOptionalGroup == rhs.hasOptionalGroup) && (!lhs.hasOptionalGroup || lhs.optionalGroup == rhs.optionalGroup)
-  fieldCheck = fieldCheck && (lhs.repeatedGroup == rhs.repeatedGroup)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1000), endExclusive:Int32(536870912))
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestParsingMerge, rhs: ProtobufUnittest.TestParsingMerge) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.TestCommentInjectionMessage, rhs: ProtobufUnittest.TestCommentInjectionMessage) -> Bool {
@@ -1101,22 +814,12 @@ internal func == (lhs: ProtobufUnittest.TestCommentInjectionMessage, rhs: Protob
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestCommentInjectionMessage, rhs: ProtobufUnittest.TestCommentInjectionMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.FooRequest, rhs: ProtobufUnittest.FooRequest) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.FooRequest, rhs: ProtobufUnittest.FooRequest) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.FooResponse, rhs: ProtobufUnittest.FooResponse) -> Bool {
@@ -1127,22 +830,12 @@ internal func == (lhs: ProtobufUnittest.FooResponse, rhs: ProtobufUnittest.FooRe
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.FooResponse, rhs: ProtobufUnittest.FooResponse) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.FooClientMessage, rhs: ProtobufUnittest.FooClientMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.FooClientMessage, rhs: ProtobufUnittest.FooClientMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.FooServerMessage, rhs: ProtobufUnittest.FooServerMessage) -> Bool {
@@ -1153,11 +846,6 @@ internal func == (lhs: ProtobufUnittest.FooServerMessage, rhs: ProtobufUnittest.
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.FooServerMessage, rhs: ProtobufUnittest.FooServerMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.BarRequest, rhs: ProtobufUnittest.BarRequest) -> Bool {
   if (lhs === rhs) {
     return true
@@ -1166,22 +854,12 @@ internal func == (lhs: ProtobufUnittest.BarRequest, rhs: ProtobufUnittest.BarReq
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.BarRequest, rhs: ProtobufUnittest.BarRequest) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.BarResponse, rhs: ProtobufUnittest.BarResponse) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.BarResponse, rhs: ProtobufUnittest.BarResponse) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal var UnittestRootoptionalInt32Extension:ConcreateExtensionField {
@@ -2449,12 +2127,12 @@ internal extension ProtobufUnittest {
 
   //Enum type declaration end 
 
-  final internal class TestAllTypes : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestAllTypes : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Nested type declaration start
 
-      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasBb:Bool = false
         private(set) var bb:Int32 = Int32(0)
 
@@ -2644,7 +2322,7 @@ internal extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class OptionalGroup : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class OptionalGroup : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasA:Bool = false
         private(set) var a:Int32 = Int32(0)
 
@@ -2834,7 +2512,7 @@ internal extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class RepeatedGroup : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class RepeatedGroup : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasA:Bool = false
         private(set) var a:Int32 = Int32(0)
 
@@ -6693,7 +6371,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class NestedTestAllTypes : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class NestedTestAllTypes : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasChild:Bool = false
     private(set) var child:ProtobufUnittest.NestedTestAllTypes!
     private(set) var hasPayload:Bool = false
@@ -6959,7 +6637,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestDeprecatedFields : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestDeprecatedFields : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasDeprecatedInt32:Bool = false
     private(set) var deprecatedInt32:Int32 = Int32(0)
 
@@ -7143,7 +6821,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class ForeignMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class ForeignMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasC:Bool = false
     private(set) var c:Int32 = Int32(0)
 
@@ -7327,7 +7005,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestAllExtensions : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class TestAllExtensions : ExtendableMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -7475,7 +7153,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class OptionalGroupExtension : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class OptionalGroupExtension : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasA:Bool = false
     private(set) var a:Int32 = Int32(0)
 
@@ -7659,7 +7337,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class RepeatedGroupExtension : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class RepeatedGroupExtension : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasA:Bool = false
     private(set) var a:Int32 = Int32(0)
 
@@ -7843,7 +7521,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestNestedExtension : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestNestedExtension : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     internal class func test() -> ConcreateExtensionField {
          return TestNestedExtensiontest
     }
@@ -7989,7 +7667,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestRequired : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestRequired : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasA:Bool = false
     private(set) var a:Int32 = Int32(0)
 
@@ -9596,7 +9274,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestRequiredForeign : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestRequiredForeign : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasOptionalMessage:Bool = false
     private(set) var optionalMessage:ProtobufUnittest.TestRequired!
     private(set) var hasDummy:Bool = false
@@ -9899,7 +9577,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestForeignNested : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestForeignNested : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasForeignNested:Bool = false
     private(set) var foreignNested:ProtobufUnittest.TestAllTypes.NestedMessage!
     required internal init() {
@@ -10102,7 +9780,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestEmptyMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestEmptyMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -10242,7 +9920,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestEmptyMessageWithExtensions : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class TestEmptyMessageWithExtensions : ExtendableMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -10390,7 +10068,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestMultipleExtensionRanges : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class TestMultipleExtensionRanges : ExtendableMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -10544,7 +10222,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestReallyLargeTagNumber : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestReallyLargeTagNumber : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasA:Bool = false
     private(set) var a:Int32 = Int32(0)
 
@@ -10772,7 +10450,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestRecursiveMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestRecursiveMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasA:Bool = false
     private(set) var a:ProtobufUnittest.TestRecursiveMessage!
     private(set) var hasI:Bool = false
@@ -11019,7 +10697,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestMutualRecursionA : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestMutualRecursionA : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasBb:Bool = false
     private(set) var bb:ProtobufUnittest.TestMutualRecursionB!
     required internal init() {
@@ -11222,7 +10900,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestMutualRecursionB : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestMutualRecursionB : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasA:Bool = false
     private(set) var a:ProtobufUnittest.TestMutualRecursionA!
     private(set) var hasOptionalInt32:Bool = false
@@ -11469,12 +11147,12 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestDupFieldNumber : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestDupFieldNumber : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Nested type declaration start
 
-      final internal class Foo : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class Foo : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasA:Bool = false
         private(set) var a:Int32 = Int32(0)
 
@@ -11664,7 +11342,7 @@ internal extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class Bar : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class Bar : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasA:Bool = false
         private(set) var a:Int32 = Int32(0)
 
@@ -12159,7 +11837,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestEagerMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestEagerMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasSubMessage:Bool = false
     private(set) var subMessage:ProtobufUnittest.TestAllTypes!
     required internal init() {
@@ -12362,7 +12040,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestLazyMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestLazyMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasSubMessage:Bool = false
     private(set) var subMessage:ProtobufUnittest.TestAllTypes!
     required internal init() {
@@ -12565,12 +12243,12 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestNestedMessageHasBits : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestNestedMessageHasBits : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Nested type declaration start
 
-      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var nestedmessageRepeatedInt32:Array<Int32> = Array<Int32>()
         private(set) var nestedmessageRepeatedForeignmessage:Array<ProtobufUnittest.ForeignMessage>  = Array<ProtobufUnittest.ForeignMessage>()
         required internal init() {
@@ -12997,7 +12675,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestCamelCaseFieldNames : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestCamelCaseFieldNames : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasPrimitiveField:Bool = false
     private(set) var primitiveField:Int32 = Int32(0)
 
@@ -13679,7 +13357,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestFieldOrderings : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class TestFieldOrderings : ExtendableMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasMyString:Bool = false
     private(set) var myString:String = ""
 
@@ -13962,7 +13640,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestExtremeDefaultValues : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestExtremeDefaultValues : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasEscapedBytes:Bool = false
     private(set) var escapedBytes:NSData = NSData(bytes:([UInt8]() + "testsr".utf8), length:6)
 
@@ -15290,7 +14968,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class SparseEnumMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class SparseEnumMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var sparseEnum:ProtobufUnittest.TestSparseEnum = ProtobufUnittest.TestSparseEnum.SparseA
     private(set) var hasSparseEnum:Bool = false
     required internal init() {
@@ -15478,7 +15156,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class OneString : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class OneString : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasData:Bool = false
     private(set) var data:String = ""
 
@@ -15662,7 +15340,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class MoreString : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class MoreString : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var data:Array<String> = Array<String>()
     required internal init() {
          super.init()
@@ -15844,7 +15522,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class OneBytes : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class OneBytes : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasData:Bool = false
     private(set) var data:NSData = NSData()
 
@@ -16028,7 +15706,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class MoreBytes : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class MoreBytes : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var data:Array<NSData> = Array<NSData>()
     required internal init() {
          super.init()
@@ -16210,7 +15888,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class Int32Message : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class Int32Message : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasData:Bool = false
     private(set) var data:Int32 = Int32(0)
 
@@ -16394,7 +16072,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class Uint32Message : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class Uint32Message : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasData:Bool = false
     private(set) var data:UInt32 = UInt32(0)
 
@@ -16578,7 +16256,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class Int64Message : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class Int64Message : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasData:Bool = false
     private(set) var data:Int64 = Int64(0)
 
@@ -16762,7 +16440,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class Uint64Message : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class Uint64Message : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasData:Bool = false
     private(set) var data:UInt64 = UInt64(0)
 
@@ -16946,7 +16624,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class BoolMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class BoolMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasData:Bool = false
     private(set) var data:Bool = false
 
@@ -17130,12 +16808,12 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestOneof : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestOneof : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Nested type declaration start
 
-      final internal class FooGroup : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class FooGroup : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasA:Bool = false
         private(set) var a:Int32 = Int32(0)
 
@@ -17839,12 +17517,12 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestOneofBackwardsCompatible : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestOneofBackwardsCompatible : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Nested type declaration start
 
-      final internal class FooGroup : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class FooGroup : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasA:Bool = false
         private(set) var a:Int32 = Int32(0)
 
@@ -18427,12 +18105,12 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestOneof2 : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestOneof2 : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Nested type declaration start
 
-      final internal class FooGroup : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class FooGroup : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasA:Bool = false
         private(set) var a:Int32 = Int32(0)
 
@@ -18666,7 +18344,7 @@ internal extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasQuxInt:Bool = false
         private(set) var quxInt:Int64 = Int64(0)
 
@@ -20277,12 +19955,12 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestRequiredOneof : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestRequiredOneof : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Nested type declaration start
 
-      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasRequiredDouble:Bool = false
         private(set) var requiredDouble:Double = Double(0)
 
@@ -20861,7 +20539,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestPackedTypes : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestPackedTypes : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var packedInt32:Array<Int32> = Array<Int32>()
     private var packedInt32MemoizedSerializedSize:Int32 = -1
     private(set) var packedInt64:Array<Int64> = Array<Int64>()
@@ -21748,7 +21426,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestUnpackedTypes : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestUnpackedTypes : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var unpackedInt32:Array<Int32> = Array<Int32>()
     private(set) var unpackedInt64:Array<Int64> = Array<Int64>()
     private(set) var unpackedUint32:Array<UInt32> = Array<UInt32>()
@@ -22466,7 +22144,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestPackedExtensions : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class TestPackedExtensions : ExtendableMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -22614,7 +22292,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestUnpackedExtensions : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class TestUnpackedExtensions : ExtendableMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -22762,12 +22440,12 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestDynamicExtensions : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestDynamicExtensions : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Nested type declaration start
 
-      final internal class DynamicMessageType : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class DynamicMessageType : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasDynamicField:Bool = false
         private(set) var dynamicField:Int32 = Int32(0)
 
@@ -23467,7 +23145,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestRepeatedScalarDifferentTagSizes : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestRepeatedScalarDifferentTagSizes : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var repeatedFixed32:Array<UInt32> = Array<UInt32>()
     private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
     private(set) var repeatedFixed64:Array<UInt64> = Array<UInt64>()
@@ -23853,17 +23531,17 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestParsingMerge : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class TestParsingMerge : ExtendableMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Nested type declaration start
 
-      final internal class RepeatedFieldsGenerator : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class RepeatedFieldsGenerator : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
         //Nested type declaration start
 
-          final internal class Group1 : GeneratedMessage, GeneratedMessageProtocol {
+          final internal class Group1 : GeneratedMessage, GeneratedMessageProtocol, Hashable {
             private(set) var hasField1:Bool = false
             private(set) var field1:ProtobufUnittest.TestAllTypes!
             required internal init() {
@@ -24072,7 +23750,7 @@ internal extension ProtobufUnittest {
 
         //Nested type declaration start
 
-          final internal class Group2 : GeneratedMessage, GeneratedMessageProtocol {
+          final internal class Group2 : GeneratedMessage, GeneratedMessageProtocol, Hashable {
             private(set) var hasField1:Bool = false
             private(set) var field1:ProtobufUnittest.TestAllTypes!
             required internal init() {
@@ -24709,7 +24387,7 @@ internal extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class OptionalGroup : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class OptionalGroup : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasOptionalGroupAllTypes:Bool = false
         private(set) var optionalGroupAllTypes:ProtobufUnittest.TestAllTypes!
         required internal init() {
@@ -24918,7 +24596,7 @@ internal extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class RepeatedGroup : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class RepeatedGroup : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasRepeatedGroupAllTypes:Bool = false
         private(set) var repeatedGroupAllTypes:ProtobufUnittest.TestAllTypes!
         required internal init() {
@@ -25550,7 +25228,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestCommentInjectionMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestCommentInjectionMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasA:Bool = false
     private(set) var a:String = "*/ <- Neither should this."
 
@@ -25734,7 +25412,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class FooRequest : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class FooRequest : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -25874,7 +25552,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class FooResponse : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class FooResponse : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -26014,7 +25692,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class FooClientMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class FooClientMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -26154,7 +25832,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class FooServerMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class FooServerMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -26294,7 +25972,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class BarRequest : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class BarRequest : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -26434,7 +26112,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class BarResponse : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class BarResponse : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }

@@ -13,11 +13,6 @@ public func == (lhs: PBUser, rhs: PBUser) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func != (lhs: PBUser, rhs: PBUser) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 public func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
   if (lhs === rhs) {
     return true
@@ -27,11 +22,6 @@ public func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func != (lhs: PBGroup, rhs: PBGroup) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 public func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
   if (lhs === rhs) {
     return true
@@ -39,11 +29,6 @@ public func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.batch == rhs.batch)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-public func != (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 public func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
@@ -61,11 +46,6 @@ public func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func != (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 public func == (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
   if (lhs === rhs) {
     return true
@@ -76,11 +56,6 @@ public func == (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func != (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 public func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
   if (lhs === rhs) {
     return true
@@ -89,11 +64,6 @@ public func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
   fieldCheck = fieldCheck && (lhs.hasScoops == rhs.hasScoops) && (!lhs.hasScoops || lhs.scoops == rhs.scoops)
   fieldCheck = fieldCheck && (lhs.hasFlavor == rhs.hasFlavor) && (!lhs.hasFlavor || lhs.flavor == rhs.flavor)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-public func != (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 public struct PerformanceRoot {
@@ -114,7 +84,7 @@ public struct PerformanceRoot {
   }
 }
 
-final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
+final public class PBUser : GeneratedMessage, GeneratedMessageProtocol, Hashable {
   public private(set) var hasGroup:Bool = false
   public private(set) var group:PBGroup!
   required public init() {
@@ -317,7 +287,7 @@ final public class PBUserBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
+final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol, Hashable {
   public private(set) var hasOwner:Bool = false
   public private(set) var owner:PBUser!
   required public init() {
@@ -520,7 +490,7 @@ final public class PBGroupBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtocol {
+final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtocol, Hashable {
   public private(set) var batch:Array<PBPerfomance>  = Array<PBPerfomance>()
   required public init() {
        super.init()
@@ -711,7 +681,7 @@ final public class PBPerfomanceBatchBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
+final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol, Hashable {
   public private(set) var hasInts:Bool = false
   public private(set) var ints:Int32 = Int32(0)
 
@@ -1171,7 +1141,7 @@ final public class PBPerfomanceBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
+final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol, Hashable {
   public private(set) var hasLatitude:Bool = false
   public private(set) var latitude:Float = Float(0)
 
@@ -1405,7 +1375,7 @@ final public class PBProtoPointBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
+final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Enum type declaration start 

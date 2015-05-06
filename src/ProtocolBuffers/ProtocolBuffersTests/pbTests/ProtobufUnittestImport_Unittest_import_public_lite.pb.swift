@@ -15,11 +15,6 @@ internal func == (lhs: ProtobufUnittestImport.PublicImportMessageLite, rhs: Prot
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittestImport.PublicImportMessageLite, rhs: ProtobufUnittestImport.PublicImportMessageLite) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal extension ProtobufUnittestImport {
   internal struct UnittestImportPublicLiteRoot {
     internal static var sharedInstance : UnittestImportPublicLiteRoot {
@@ -38,7 +33,7 @@ internal extension ProtobufUnittestImport {
     }
   }
 
-  final internal class PublicImportMessageLite : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class PublicImportMessageLite : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasE:Bool = false
     private(set) var e:Int32 = Int32(0)
 

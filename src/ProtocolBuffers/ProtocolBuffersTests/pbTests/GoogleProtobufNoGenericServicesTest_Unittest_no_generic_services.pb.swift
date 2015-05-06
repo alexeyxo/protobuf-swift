@@ -16,11 +16,6 @@ internal func == (lhs: Google.Protobuf.NoGenericServicesTest.TestMessage, rhs: G
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: Google.Protobuf.NoGenericServicesTest.TestMessage, rhs: Google.Protobuf.NoGenericServicesTest.TestMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal var UnittestNoGenericServicesRoottestExtension:ConcreateExtensionField {
    get {
        return Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServicesRoot.sharedInstance.UnittestNoGenericServicesRoottestExtensionStatic
@@ -61,7 +56,7 @@ internal extension Google.Protobuf.NoGenericServicesTest {
 
   //Enum type declaration end 
 
-  final internal class TestMessage : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class TestMessage : ExtendableMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasA:Bool = false
     private(set) var a:Int32 = Int32(0)
 
