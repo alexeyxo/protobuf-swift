@@ -15,22 +15,12 @@ internal func == (lhs: ProtobufUnittest.TestMessageWithCustomOptions, rhs: Proto
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestMessageWithCustomOptions, rhs: ProtobufUnittest.TestMessageWithCustomOptions) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.CustomOptionFooRequest, rhs: ProtobufUnittest.CustomOptionFooRequest) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.CustomOptionFooRequest, rhs: ProtobufUnittest.CustomOptionFooRequest) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.CustomOptionFooResponse, rhs: ProtobufUnittest.CustomOptionFooResponse) -> Bool {
@@ -41,22 +31,12 @@ internal func == (lhs: ProtobufUnittest.CustomOptionFooResponse, rhs: ProtobufUn
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.CustomOptionFooResponse, rhs: ProtobufUnittest.CustomOptionFooResponse) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.CustomOptionFooClientMessage, rhs: ProtobufUnittest.CustomOptionFooClientMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.CustomOptionFooClientMessage, rhs: ProtobufUnittest.CustomOptionFooClientMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.CustomOptionFooServerMessage, rhs: ProtobufUnittest.CustomOptionFooServerMessage) -> Bool {
@@ -67,22 +47,12 @@ internal func == (lhs: ProtobufUnittest.CustomOptionFooServerMessage, rhs: Proto
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.CustomOptionFooServerMessage, rhs: ProtobufUnittest.CustomOptionFooServerMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.DummyMessageContainingEnum, rhs: ProtobufUnittest.DummyMessageContainingEnum) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.DummyMessageContainingEnum, rhs: ProtobufUnittest.DummyMessageContainingEnum) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.DummyMessageInvalidAsOptionType, rhs: ProtobufUnittest.DummyMessageInvalidAsOptionType) -> Bool {
@@ -93,22 +63,12 @@ internal func == (lhs: ProtobufUnittest.DummyMessageInvalidAsOptionType, rhs: Pr
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.DummyMessageInvalidAsOptionType, rhs: ProtobufUnittest.DummyMessageInvalidAsOptionType) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.CustomOptionMinIntegerValues, rhs: ProtobufUnittest.CustomOptionMinIntegerValues) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.CustomOptionMinIntegerValues, rhs: ProtobufUnittest.CustomOptionMinIntegerValues) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.CustomOptionMaxIntegerValues, rhs: ProtobufUnittest.CustomOptionMaxIntegerValues) -> Bool {
@@ -119,22 +79,12 @@ internal func == (lhs: ProtobufUnittest.CustomOptionMaxIntegerValues, rhs: Proto
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.CustomOptionMaxIntegerValues, rhs: ProtobufUnittest.CustomOptionMaxIntegerValues) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.CustomOptionOtherValues, rhs: ProtobufUnittest.CustomOptionOtherValues) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.CustomOptionOtherValues, rhs: ProtobufUnittest.CustomOptionOtherValues) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.SettingRealsFromPositiveInts, rhs: ProtobufUnittest.SettingRealsFromPositiveInts) -> Bool {
@@ -145,22 +95,12 @@ internal func == (lhs: ProtobufUnittest.SettingRealsFromPositiveInts, rhs: Proto
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.SettingRealsFromPositiveInts, rhs: ProtobufUnittest.SettingRealsFromPositiveInts) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.SettingRealsFromNegativeInts, rhs: ProtobufUnittest.SettingRealsFromNegativeInts) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.SettingRealsFromNegativeInts, rhs: ProtobufUnittest.SettingRealsFromNegativeInts) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.ComplexOptionType1, rhs: ProtobufUnittest.ComplexOptionType1) -> Bool {
@@ -176,25 +116,6 @@ internal func == (lhs: ProtobufUnittest.ComplexOptionType1, rhs: ProtobufUnittes
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.ComplexOptionType1, rhs: ProtobufUnittest.ComplexOptionType1) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4, rhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasWaldo == rhs.hasWaldo) && (!lhs.hasWaldo || lhs.waldo == rhs.waldo)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4, rhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.ComplexOptionType2, rhs: ProtobufUnittest.ComplexOptionType2) -> Bool {
   if (lhs === rhs) {
     return true
@@ -208,23 +129,13 @@ internal func == (lhs: ProtobufUnittest.ComplexOptionType2, rhs: ProtobufUnittes
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.ComplexOptionType2, rhs: ProtobufUnittest.ComplexOptionType2) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5, rhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) -> Bool {
+internal func == (lhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4, rhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasPlugh == rhs.hasPlugh) && (!lhs.hasPlugh || lhs.plugh == rhs.plugh)
+  fieldCheck = fieldCheck && (lhs.hasWaldo == rhs.hasWaldo) && (!lhs.hasWaldo || lhs.waldo == rhs.waldo)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5, rhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.ComplexOptionType3, rhs: ProtobufUnittest.ComplexOptionType3) -> Bool {
@@ -237,9 +148,13 @@ internal func == (lhs: ProtobufUnittest.ComplexOptionType3, rhs: ProtobufUnittes
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.ComplexOptionType3, rhs: ProtobufUnittest.ComplexOptionType3) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
+internal func == (lhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5, rhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasPlugh == rhs.hasPlugh) && (!lhs.hasPlugh || lhs.plugh == rhs.plugh)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 internal func == (lhs: ProtobufUnittest.ComplexOpt6, rhs: ProtobufUnittest.ComplexOpt6) -> Bool {
@@ -251,22 +166,12 @@ internal func == (lhs: ProtobufUnittest.ComplexOpt6, rhs: ProtobufUnittest.Compl
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.ComplexOpt6, rhs: ProtobufUnittest.ComplexOpt6) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.VariousComplexOptions, rhs: ProtobufUnittest.VariousComplexOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.VariousComplexOptions, rhs: ProtobufUnittest.VariousComplexOptions) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.AggregateMessageSet, rhs: ProtobufUnittest.AggregateMessageSet) -> Bool {
@@ -278,11 +183,6 @@ internal func == (lhs: ProtobufUnittest.AggregateMessageSet, rhs: ProtobufUnitte
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.AggregateMessageSet, rhs: ProtobufUnittest.AggregateMessageSet) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.AggregateMessageSetElement, rhs: ProtobufUnittest.AggregateMessageSetElement) -> Bool {
   if (lhs === rhs) {
     return true
@@ -290,11 +190,6 @@ internal func == (lhs: ProtobufUnittest.AggregateMessageSetElement, rhs: Protobu
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasS == rhs.hasS) && (!lhs.hasS || lhs.s == rhs.s)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.AggregateMessageSetElement, rhs: ProtobufUnittest.AggregateMessageSetElement) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.Aggregate, rhs: ProtobufUnittest.Aggregate) -> Bool {
@@ -310,11 +205,6 @@ internal func == (lhs: ProtobufUnittest.Aggregate, rhs: ProtobufUnittest.Aggrega
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.Aggregate, rhs: ProtobufUnittest.Aggregate) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.AggregateMessage, rhs: ProtobufUnittest.AggregateMessage) -> Bool {
   if (lhs === rhs) {
     return true
@@ -322,25 +212,6 @@ internal func == (lhs: ProtobufUnittest.AggregateMessage, rhs: ProtobufUnittest.
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasFieldname == rhs.hasFieldname) && (!lhs.hasFieldname || lhs.fieldname == rhs.fieldname)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.AggregateMessage, rhs: ProtobufUnittest.AggregateMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
-internal func == (lhs: ProtobufUnittest.NestedOptionType.NestedMessage, rhs: ProtobufUnittest.NestedOptionType.NestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasNestedField == rhs.hasNestedField) && (!lhs.hasNestedField || lhs.nestedField == rhs.nestedField)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.NestedOptionType.NestedMessage, rhs: ProtobufUnittest.NestedOptionType.NestedMessage) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal func == (lhs: ProtobufUnittest.NestedOptionType, rhs: ProtobufUnittest.NestedOptionType) -> Bool {
@@ -351,9 +222,13 @@ internal func == (lhs: ProtobufUnittest.NestedOptionType, rhs: ProtobufUnittest.
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.NestedOptionType, rhs: ProtobufUnittest.NestedOptionType) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
+internal func == (lhs: ProtobufUnittest.NestedOptionType.NestedMessage, rhs: ProtobufUnittest.NestedOptionType.NestedMessage) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasNestedField == rhs.hasNestedField) && (!lhs.hasNestedField || lhs.nestedField == rhs.nestedField)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 internal var UnittestCustomOptionsRootfileOpt1:ConcreateExtensionField {
@@ -870,7 +745,7 @@ internal extension ProtobufUnittest {
 
   //Enum type declaration end 
 
-  final internal class TestMessageWithCustomOptions : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestMessageWithCustomOptions : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
       //Enum type declaration start 
@@ -1066,7 +941,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class CustomOptionFooRequest : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class CustomOptionFooRequest : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -1206,7 +1081,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class CustomOptionFooResponse : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class CustomOptionFooResponse : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -1346,7 +1221,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class CustomOptionFooClientMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class CustomOptionFooClientMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -1486,7 +1361,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class CustomOptionFooServerMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class CustomOptionFooServerMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -1626,7 +1501,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class DummyMessageContainingEnum : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class DummyMessageContainingEnum : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
       //Enum type declaration start 
@@ -1778,7 +1653,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class DummyMessageInvalidAsOptionType : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class DummyMessageInvalidAsOptionType : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -1918,7 +1793,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class CustomOptionMinIntegerValues : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class CustomOptionMinIntegerValues : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -2058,7 +1933,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class CustomOptionMaxIntegerValues : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class CustomOptionMaxIntegerValues : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -2198,7 +2073,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class CustomOptionOtherValues : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class CustomOptionOtherValues : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -2338,7 +2213,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class SettingRealsFromPositiveInts : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class SettingRealsFromPositiveInts : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -2478,7 +2353,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class SettingRealsFromNegativeInts : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class SettingRealsFromNegativeInts : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -2618,7 +2493,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class ComplexOptionType1 : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class ComplexOptionType1 : ExtendableMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasFoo:Bool = false
     private(set) var foo:Int32 = Int32(0)
 
@@ -2940,12 +2815,12 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class ComplexOptionType2 : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class ComplexOptionType2 : ExtendableMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Nested type declaration start
 
-      final internal class ComplexOptionType4 : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class ComplexOptionType4 : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasWaldo:Bool = false
         private(set) var waldo:Int32 = Int32(0)
 
@@ -3497,12 +3372,12 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class ComplexOptionType3 : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class ComplexOptionType3 : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Nested type declaration start
 
-      final internal class ComplexOptionType5 : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class ComplexOptionType5 : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasPlugh:Bool = false
         private(set) var plugh:Int32 = Int32(0)
 
@@ -3934,7 +3809,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class ComplexOpt6 : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class ComplexOpt6 : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasXyzzy:Bool = false
     private(set) var xyzzy:Int32 = Int32(0)
 
@@ -4118,7 +3993,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class VariousComplexOptions : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class VariousComplexOptions : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -4258,7 +4133,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class AggregateMessageSet : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class AggregateMessageSet : ExtendableMessage, GeneratedMessageProtocol, Hashable {
     required internal init() {
          super.init()
     }
@@ -4406,7 +4281,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class AggregateMessageSetElement : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class AggregateMessageSetElement : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasS:Bool = false
     private(set) var s:String = ""
 
@@ -4593,7 +4468,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class Aggregate : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class Aggregate : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasI:Bool = false
     private(set) var i:Int32 = Int32(0)
 
@@ -5028,7 +4903,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class AggregateMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class AggregateMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasFieldname:Bool = false
     private(set) var fieldname:Int32 = Int32(0)
 
@@ -5212,12 +5087,12 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class NestedOptionType : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class NestedOptionType : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Nested type declaration start
 
-      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
+      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
         private(set) var hasNestedField:Bool = false
         private(set) var nestedField:Int32 = Int32(0)
 

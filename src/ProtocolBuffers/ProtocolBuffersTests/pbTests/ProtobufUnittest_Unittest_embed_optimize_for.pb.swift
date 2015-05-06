@@ -16,11 +16,6 @@ internal func == (lhs: ProtobufUnittest.TestEmbedOptimizedForSize, rhs: Protobuf
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestEmbedOptimizedForSize, rhs: ProtobufUnittest.TestEmbedOptimizedForSize) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal extension ProtobufUnittest {
   internal struct UnittestEmbedOptimizeForRoot {
     internal static var sharedInstance : UnittestEmbedOptimizeForRoot {
@@ -40,7 +35,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestEmbedOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestEmbedOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasOptionalMessage:Bool = false
     private(set) var optionalMessage:ProtobufUnittest.TestOptimizedForSize!
     private(set) var repeatedMessage:Array<ProtobufUnittest.TestOptimizedForSize>  = Array<ProtobufUnittest.TestOptimizedForSize>()
