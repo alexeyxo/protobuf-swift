@@ -15,11 +15,6 @@ internal func == (lhs: Baz.Foo, rhs: Baz.Foo) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: Baz.Foo, rhs: Baz.Foo) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal extension Baz {
   internal struct FooRoot {
     internal static var sharedInstance : FooRoot {
@@ -38,7 +33,7 @@ internal extension Baz {
     }
   }
 
-  final internal class Foo : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class Foo : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasHello:Bool = false
     private(set) var hello:String = ""
 

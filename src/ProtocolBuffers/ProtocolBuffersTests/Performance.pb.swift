@@ -13,11 +13,6 @@ public func == (lhs: PBUser, rhs: PBUser) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func != (lhs: PBUser, rhs: PBUser) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 public func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
   if (lhs === rhs) {
     return true
@@ -27,11 +22,6 @@ public func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func != (lhs: PBGroup, rhs: PBGroup) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 public func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
   if (lhs === rhs) {
     return true
@@ -39,11 +29,6 @@ public func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.batch == rhs.batch)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-public func != (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 public func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
@@ -61,9 +46,14 @@ public func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public func != (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
+public func == (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasLatitude == rhs.hasLatitude) && (!lhs.hasLatitude || lhs.latitude == rhs.latitude)
+  fieldCheck = fieldCheck && (lhs.hasLongitude == rhs.hasLongitude) && (!lhs.hasLongitude || lhs.longitude == rhs.longitude)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 public func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
@@ -74,11 +64,6 @@ public func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
   fieldCheck = fieldCheck && (lhs.hasScoops == rhs.hasScoops) && (!lhs.hasScoops || lhs.scoops == rhs.scoops)
   fieldCheck = fieldCheck && (lhs.hasFlavor == rhs.hasFlavor) && (!lhs.hasFlavor || lhs.flavor == rhs.flavor)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-public func != (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 public struct PerformanceRoot {
@@ -99,7 +84,7 @@ public struct PerformanceRoot {
   }
 }
 
-final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
+final public class PBUser : GeneratedMessage, GeneratedMessageProtocol, Hashable {
   public private(set) var hasGroup:Bool = false
   public private(set) var group:PBGroup!
   required public init() {
@@ -302,7 +287,7 @@ final public class PBUserBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
+final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol, Hashable {
   public private(set) var hasOwner:Bool = false
   public private(set) var owner:PBUser!
   required public init() {
@@ -505,7 +490,7 @@ final public class PBGroupBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtocol {
+final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtocol, Hashable {
   public private(set) var batch:Array<PBPerfomance>  = Array<PBPerfomance>()
   required public init() {
        super.init()
@@ -696,7 +681,7 @@ final public class PBPerfomanceBatchBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
+final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol, Hashable {
   public private(set) var hasInts:Bool = false
   public private(set) var ints:Int32 = Int32(0)
 
@@ -1156,7 +1141,241 @@ final public class PBPerfomanceBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
+final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  public private(set) var hasLatitude:Bool = false
+  public private(set) var latitude:Float = Float(0)
+
+  public private(set) var hasLongitude:Bool = false
+  public private(set) var longitude:Float = Float(0)
+
+  required public init() {
+       super.init()
+  }
+  override public func isInitialized() -> Bool {
+    if !hasLatitude {
+      return false
+    }
+    if !hasLongitude {
+      return false
+    }
+   return true
+  }
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+    if hasLatitude {
+      output.writeFloat(1, value:latitude)
+    }
+    if hasLongitude {
+      output.writeFloat(2, value:longitude)
+    }
+    unknownFields.writeToCodedOutputStream(output)
+  }
+  override public func serializedSize() -> Int32 {
+    var serialize_size:Int32 = memoizedSerializedSize
+    if serialize_size != -1 {
+     return serialize_size
+    }
+
+    serialize_size = 0
+    if hasLatitude {
+      serialize_size += latitude.computeFloatSize(1)
+    }
+    if hasLongitude {
+      serialize_size += longitude.computeFloatSize(2)
+    }
+    serialize_size += unknownFields.serializedSize()
+    memoizedSerializedSize = serialize_size
+    return serialize_size
+  }
+  public class func parseFromData(data:NSData) -> PBProtoPoint {
+    return PBProtoPoint.builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBProtoPoint {
+    return PBProtoPoint.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFromInputStream(input:NSInputStream) -> PBProtoPoint {
+    return PBProtoPoint.builder().mergeFromInputStream(input).build()
+  }
+  public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->PBProtoPoint {
+    return PBProtoPoint.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFromCodedInputStream(input:CodedInputStream) -> PBProtoPoint {
+    return PBProtoPoint.builder().mergeFromCodedInputStream(input).build()
+  }
+  public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBProtoPoint {
+    return PBProtoPoint.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  public class func builder() -> PBProtoPointBuilder {
+    return PBProtoPoint.classBuilder() as! PBProtoPointBuilder
+  }
+  public func builder() -> PBProtoPointBuilder {
+    return classBuilder() as! PBProtoPointBuilder
+  }
+  public override class func classBuilder() -> MessageBuilder {
+    return PBProtoPointBuilder()
+  }
+  public override func classBuilder() -> MessageBuilder {
+    return PBProtoPoint.builder()
+  }
+  public func toBuilder() -> PBProtoPointBuilder {
+    return PBProtoPoint.builderWithPrototype(self)
+  }
+  public class func builderWithPrototype(prototype:PBProtoPoint) -> PBProtoPointBuilder {
+    return PBProtoPoint.builder().mergeFrom(prototype)
+  }
+  override public func writeDescriptionTo(inout output:String, indent:String) {
+    if hasLatitude {
+      output += "\(indent) latitude: \(latitude) \n"
+    }
+    if hasLongitude {
+      output += "\(indent) longitude: \(longitude) \n"
+    }
+    unknownFields.writeDescriptionTo(&output, indent:indent)
+  }
+  override public var hashValue:Int {
+      get {
+          var hashCode:Int = 7
+          if hasLatitude {
+             hashCode = (hashCode &* 31) &+ latitude.hashValue
+          }
+          if hasLongitude {
+             hashCode = (hashCode &* 31) &+ longitude.hashValue
+          }
+          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+          return hashCode
+      }
+  }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "PBProtoPoint"
+  }
+  override public func className() -> String {
+      return "PBProtoPoint"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return PBProtoPoint.self
+  }
+  //Meta information declaration end
+
+}
+
+final public class PBProtoPointBuilder : GeneratedMessageBuilder {
+  private var builderResult:PBProtoPoint
+
+  required override public init () {
+     builderResult = PBProtoPoint()
+     super.init()
+  }
+  public var hasLatitude:Bool {
+       get {
+            return builderResult.hasLatitude
+       }
+  }
+  public var latitude:Float {
+       get {
+            return builderResult.latitude
+       }
+       set (value) {
+           builderResult.hasLatitude = true
+           builderResult.latitude = value
+       }
+  }
+  public func setLatitude(value:Float)-> PBProtoPointBuilder {
+    self.latitude = value
+    return self
+  }
+  public func clearLatitude() -> PBProtoPointBuilder{
+       builderResult.hasLatitude = false
+       builderResult.latitude = Float(0)
+       return self
+  }
+  public var hasLongitude:Bool {
+       get {
+            return builderResult.hasLongitude
+       }
+  }
+  public var longitude:Float {
+       get {
+            return builderResult.longitude
+       }
+       set (value) {
+           builderResult.hasLongitude = true
+           builderResult.longitude = value
+       }
+  }
+  public func setLongitude(value:Float)-> PBProtoPointBuilder {
+    self.longitude = value
+    return self
+  }
+  public func clearLongitude() -> PBProtoPointBuilder{
+       builderResult.hasLongitude = false
+       builderResult.longitude = Float(0)
+       return self
+  }
+  override public var internalGetResult:GeneratedMessage {
+       get {
+          return builderResult
+       }
+  }
+  public override func clear() -> PBProtoPointBuilder {
+    builderResult = PBProtoPoint()
+    return self
+  }
+  public override func clone() -> PBProtoPointBuilder {
+    return PBProtoPoint.builderWithPrototype(builderResult)
+  }
+  public override func build() -> PBProtoPoint {
+       checkInitialized()
+       return buildPartial()
+  }
+  public func buildPartial() -> PBProtoPoint {
+    var returnMe:PBProtoPoint = builderResult
+    return returnMe
+  }
+  public func mergeFrom(other:PBProtoPoint) -> PBProtoPointBuilder {
+    if (other == PBProtoPoint()) {
+     return self
+    }
+    if other.hasLatitude {
+         latitude = other.latitude
+    }
+    if other.hasLongitude {
+         longitude = other.longitude
+    }
+    mergeUnknownFields(other.unknownFields)
+    return self
+  }
+  public override func mergeFromCodedInputStream(input:CodedInputStream) ->PBProtoPointBuilder {
+       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+  }
+  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBProtoPointBuilder {
+    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    while (true) {
+      var tag = input.readTag()
+      switch tag {
+      case 0: 
+        self.unknownFields = unknownFieldsBuilder.build()
+        return self
+
+      case 13 :
+        latitude = input.readFloat()
+
+      case 21 :
+        longitude = input.readFloat()
+
+      default:
+        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+           unknownFields = unknownFieldsBuilder.build()
+           return self
+        }
+      }
+    }
+  }
+}
+
+final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, Hashable {
 
 
     //Enum type declaration start 

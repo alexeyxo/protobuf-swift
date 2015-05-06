@@ -57,7 +57,7 @@ public func == (lhs: AbstractMessage, rhs: AbstractMessage) -> Bool
 {
     return true
 }
-public class AbstractMessage:Equatable, Hashable, Message {
+public class AbstractMessage:Hashable, Message {
     
     public var unknownFields:UnknownFieldSet
     required public init()

@@ -19,11 +19,6 @@ internal func == (lhs: ProtobufUnittest.TestOptimizedForSize, rhs: ProtobufUnitt
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestOptimizedForSize, rhs: ProtobufUnittest.TestOptimizedForSize) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestRequiredOptimizedForSize, rhs: ProtobufUnittest.TestRequiredOptimizedForSize) -> Bool {
   if (lhs === rhs) {
     return true
@@ -33,11 +28,6 @@ internal func == (lhs: ProtobufUnittest.TestRequiredOptimizedForSize, rhs: Proto
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal func != (lhs: ProtobufUnittest.TestRequiredOptimizedForSize, rhs: ProtobufUnittest.TestRequiredOptimizedForSize) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
-}
-
 internal func == (lhs: ProtobufUnittest.TestOptionalOptimizedForSize, rhs: ProtobufUnittest.TestOptionalOptimizedForSize) -> Bool {
   if (lhs === rhs) {
     return true
@@ -45,11 +35,6 @@ internal func == (lhs: ProtobufUnittest.TestOptionalOptimizedForSize, rhs: Proto
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasO == rhs.hasO) && (!lhs.hasO || lhs.o == rhs.o)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func != (lhs: ProtobufUnittest.TestOptionalOptimizedForSize, rhs: ProtobufUnittest.TestOptionalOptimizedForSize) -> Bool {
-  var check:Bool = !(lhs == rhs)
-  return check
 }
 
 internal var TestOptimizedForSizetestExtension:ConcreateExtensionField {
@@ -87,7 +72,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestOptimizedForSize : ExtendableMessage, GeneratedMessageProtocol {
+  final internal class TestOptimizedForSize : ExtendableMessage, GeneratedMessageProtocol, Hashable {
 
 
     //OneOf declaration start
@@ -505,7 +490,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestRequiredOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestRequiredOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasX:Bool = false
     private(set) var x:Int32 = Int32(0)
 
@@ -692,7 +677,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestOptionalOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol {
+  final internal class TestOptionalOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasO:Bool = false
     private(set) var o:ProtobufUnittest.TestRequiredOptimizedForSize!
     required internal init() {

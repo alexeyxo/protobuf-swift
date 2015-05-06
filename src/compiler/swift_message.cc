@@ -204,12 +204,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(
-                           "final $acontrol$ class $classname$ : ExtendableMessage, GeneratedMessageProtocol {\n",
+                           "final $acontrol$ class $classname$ : ExtendableMessage, GeneratedMessageProtocol, Hashable {\n",
                            "classname", classNamesMessage,
                            "acontrol", GetAccessControlType(descriptor_->file()));
         } else {
             printer->Print(
-                           "final $acontrol$ class $classname$ : GeneratedMessage, GeneratedMessageProtocol {\n",
+                           "final $acontrol$ class $classname$ : GeneratedMessage, GeneratedMessageProtocol, Hashable {\n",
                            "classname", classNamesMessage,
                            "acontrol", GetAccessControlType(descriptor_->file()));
         }
@@ -516,17 +516,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Outdent();
         printer->Print("}\n\n");
         
-        // !=
-        printer->Print("$acontrol$ func != (lhs: $classname$, rhs: $classname$) -> Bool {\n",
-                       "classname", classNames,
-                       "acontrol", GetAccessControlType(descriptor_->file()));
-        printer->Indent();
-        printer->Print("var check:Bool = !(lhs == rhs)\n"
-                       "return check\n"
-                       );
-        printer->Outdent();
-        printer->Print("}\n\n");
-        
+        for (int j = 0; j < descriptor_->nested_type_count(); j++) {
+             MessageGenerator(descriptor_->nested_type(j)).GenerateMessageIsEqualSource(printer);
+        }
     }
     
     
