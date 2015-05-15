@@ -490,8 +490,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
 
 
-    SwiftType GetSwiftType(FieldDescriptor::Type field_type) {
-        switch (field_type) {
+    SwiftType GetSwiftType(FieldDescriptor *field) {
+        switch (field->type()) {
             case FieldDescriptor::TYPE_INT32:
             case FieldDescriptor::TYPE_UINT32:
             case FieldDescriptor::TYPE_SINT32:
@@ -526,7 +526,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
             case FieldDescriptor::TYPE_GROUP:
             case FieldDescriptor::TYPE_MESSAGE:
+                if (field.is_map()) {
+                    return SWIFTTYPE_MAP;
+                }
                 return SWIFTTYPE_MESSAGE;
+                
         }
 
         GOOGLE_LOG(FATAL) << "Can't get here.";
@@ -574,7 +578,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
     bool ReturnsPrimitiveType(const FieldDescriptor* field) {
-        return IsPrimitiveType(GetSwiftType(field->type()));
+        return IsPrimitiveType(GetSwiftType(field));
     }
 
 

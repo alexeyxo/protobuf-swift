@@ -15,7 +15,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "swift_primitive_field.h"
+#include "swift_map_field.h"
 
 #include <map>
 #include <string>
@@ -36,26 +36,48 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     namespace {
         
-        const char* PrimitiveTypeName(const FieldDescriptor* field) {
+        const char* MapKeyName(const FieldDescriptor* field) {
             switch (field->type()) {
                 case FieldDescriptor::TYPE_INT32   : return "Int32" ;
                 case FieldDescriptor::TYPE_UINT32  : return "UInt32";
                 case FieldDescriptor::TYPE_SINT32  : return "Int32" ;
                 case FieldDescriptor::TYPE_FIXED32 : return "UInt32";
                 case FieldDescriptor::TYPE_SFIXED32: return "Int32" ;
-                    
                 case FieldDescriptor::TYPE_INT64   : return "Int64" ;
                 case FieldDescriptor::TYPE_UINT64  : return "UInt64";
                 case FieldDescriptor::TYPE_SINT64  : return "Int64" ;
                 case FieldDescriptor::TYPE_FIXED64 : return "UInt64";
                 case FieldDescriptor::TYPE_SFIXED64: return "Int64" ;
-                    
-                case FieldDescriptor::TYPE_FLOAT   : return "Float" ;
-                case FieldDescriptor::TYPE_DOUBLE  : return "Double" ;
                 case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
                 case FieldDescriptor::TYPE_STRING  : return "String";
-                case FieldDescriptor::TYPE_BYTES   : return "NSData"  ;
                 default                            : return NULL;
+            }
+            
+            GOOGLE_LOG(FATAL) << "Can't get here.";
+            return NULL;
+        }
+        
+        
+        const char* MapValueName(const FieldDescriptor* field) {
+            switch (field->type()) {
+                case FieldDescriptor::TYPE_INT32   : return "Int32" ;
+                case FieldDescriptor::TYPE_UINT32  : return "Uint32";
+                case FieldDescriptor::TYPE_SINT32  : return "Int32" ;
+                case FieldDescriptor::TYPE_FIXED32 : return "Uint32";
+                case FieldDescriptor::TYPE_SFIXED32: return "Int32" ;
+                case FieldDescriptor::TYPE_INT64   : return "Int64" ;
+                case FieldDescriptor::TYPE_UINT64  : return "Uint64";
+                case FieldDescriptor::TYPE_SINT64  : return "Int64" ;
+                case FieldDescriptor::TYPE_FIXED64 : return "Uint64";
+                case FieldDescriptor::TYPE_SFIXED64: return "Int64" ;
+                case FieldDescriptor::TYPE_FLOAT   : return "Float" ;
+                case FieldDescriptor::TYPE_DOUBLE  : return "Double";
+                case FieldDescriptor::TYPE_BOOL    : return "Bool"  ;
+                case FieldDescriptor::TYPE_STRING  : return "Object";
+                case FieldDescriptor::TYPE_BYTES   : return "Object";
+                case FieldDescriptor::TYPE_ENUM    : return "Object";
+                case FieldDescriptor::TYPE_GROUP   : return "Object";
+                case FieldDescriptor::TYPE_MESSAGE : return "Object";
             }
             
             GOOGLE_LOG(FATAL) << "Can't get here.";
@@ -83,7 +105,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 case FieldDescriptor::TYPE_GROUP   : return "Group"   ;
                 case FieldDescriptor::TYPE_MESSAGE : return "Message" ;
             }
-            
             GOOGLE_LOG(FATAL) << "Can't get here.";
             return NULL;
         }
@@ -120,7 +141,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             return -1;
         }
         
-        void SetPrimitiveVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
+        void SetMapVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
             std::string name = UnderscoresToCamelCase(descriptor);
             
             (*variables)["containing_class"] = ClassNameReturedType(descriptor->containing_type());
@@ -128,9 +149,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["name"] = name;
             (*variables)["capitalized_name"] = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());
-            (*variables)["type"] = PrimitiveTypeName(descriptor);
+            (*variables)["type"] = MapKeyName(descriptor);
             
-            (*variables)["storage_type"] = PrimitiveTypeName(descriptor);
+            (*variables)["storage_type"] = MapKeyName(descriptor);
             (*variables)["storage_attribute"] = "";
             if (isOneOfField(descriptor)) {
                 const OneofDescriptor* oneof = descriptor->containing_oneof();
@@ -145,12 +166,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["tag_size"] = SimpleItoa(
                                                   WireFormat::TagSize(descriptor->number(), descriptor->type()));
             
-            
-            
-            int fixed_size = FixedSize(descriptor->type());
-            if (fixed_size != -1) {
-                (*variables)["fixed_size"] = SimpleItoa(fixed_size);
-            }
             (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->containing_type()->file());
             (* variables)["acontrolFunc"] = GetAccessControlType(descriptor->containing_type()->file());
 
@@ -158,22 +173,22 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }  // namespace
     
     
-    PrimitiveFieldGenerator::PrimitiveFieldGenerator(const FieldDescriptor* descriptor)
+    MapFieldGenerator::MapFieldGenerator(const FieldDescriptor* descriptor)
     : descriptor_(descriptor) {
-        SetPrimitiveVariables(descriptor, &variables_);
+        SetMapVariables(descriptor, &variables_);
     }
     
     
     
-    PrimitiveFieldGenerator::~PrimitiveFieldGenerator() {
+    MapFieldGenerator::~MapFieldGenerator() {
     }
     
     //TODO
-    void PrimitiveFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
+    void MapFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
     }
     
     
-    void PrimitiveFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
+    void MapFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
         
         if (isOneOfField(descriptor_)) {
             printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool {\n"
@@ -205,14 +220,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     
-    void PrimitiveFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
+    void MapFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
     }
     
-    
-    void PrimitiveFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
-    }
-    
-    void PrimitiveFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
+    void MapFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         
         printer->Print(variables_,
                        "$acontrol$var has$capitalized_name$:Bool {\n"
@@ -242,36 +253,36 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     
-    void PrimitiveFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
+    void MapFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if other.has$capitalized_name$ {\n"
                        "     $name$ = other.$name$\n"
                        "}\n");
     }
     
-    void PrimitiveFieldGenerator::GenerateBuildingCodeSource(io::Printer* printer) const {
+    void MapFieldGenerator::GenerateBuildingCodeSource(io::Printer* printer) const {
     }
     
-    void PrimitiveFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
+    void MapFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "$name$ = input.read$capitalized_type$()\n");
     }
     
-    void PrimitiveFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
+    void MapFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
                        "  output.write$capitalized_type$($number$, value:$name$)\n"
                        "}\n");
     }
     
-    void PrimitiveFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
+    void MapFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
                        "  serialize_size += $name$.compute$capitalized_type$Size($number$)\n"
                        "}\n");
     }
     
-    void PrimitiveFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
+    void MapFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
                        "  output += \"\\(indent) $name$: \\($name$) \\n\"\n");
@@ -279,184 +290,19 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
     }
     
-    void PrimitiveFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
+    void MapFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "(lhs.has$capitalized_name$ == rhs.has$capitalized_name$) && (!lhs.has$capitalized_name$ || lhs.$name$ == rhs.$name$)");
         
     }
     
-    void PrimitiveFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
+    void MapFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
             printer->Print(variables_,
                            "if has$capitalized_name$ {\n"
                            "   hashCode = (hashCode &* 31) &+ $name$.hashValue\n"
                            "}\n");
     }
     
-    RepeatedPrimitiveFieldGenerator::RepeatedPrimitiveFieldGenerator(const FieldDescriptor* descriptor)
-    : descriptor_(descriptor) {
-        SetPrimitiveVariables(descriptor, &variables_);
-    }
-    
-    
-    RepeatedPrimitiveFieldGenerator::~RepeatedPrimitiveFieldGenerator() {
-    }
-    
-    
-    //TODO
-    void RepeatedPrimitiveFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-        
-    }
-    
-    
-    void RepeatedPrimitiveFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
-    }
-    
-    
-    void RepeatedPrimitiveFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {;
-    }
-    
-    void RepeatedPrimitiveFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
-        
-        printer->Print(variables_, "$acontrol$private(set) var $name$:Array<$storage_type$> = Array<$storage_type$>()\n");
-        if (descriptor_->options().packed()) {
-            printer->Print(variables_,"private var $name$MemoizedSerializedSize:Int32 = -1\n");
-        }
-    }
-    
-    void RepeatedPrimitiveFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
-        
-        
-        
-        printer->Print(variables_,
-                       "$acontrol$var $name$:Array<$storage_type$> {\n"
-                       "     get {\n"
-                       "         return builderResult.$name$\n"
-                       "     }\n"
-                       "     set (array) {\n"
-                       "         builderResult.$name$ = array\n"
-                       "     }\n"
-                       "}\n"
-                       "$acontrol$func set$capitalized_name$(value:Array<$storage_type$>)-> $containing_class$Builder {\n"
-                       "  self.$name$ = value\n"
-                       "  return self\n"
-                       "}\n"
-                       "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$Builder {\n"
-                       "   builderResult.$name$.removeAll(keepCapacity: false)\n"
-                       "   return self\n"
-                       "}\n");
-    }
-    
-    void RepeatedPrimitiveFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
-        printer->Print(variables_,
-                       "if !other.$name$.isEmpty {\n"
-                       "    builderResult.$name$ += other.$name$\n"
-                       "}\n");
-    }
-    
-    
-    void RepeatedPrimitiveFieldGenerator::GenerateBuildingCodeSource(io::Printer* printer) const {
-    }
-    
-    
-    void RepeatedPrimitiveFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
-        if (descriptor_->options().packed())
-        {
-            printer->Print(variables_,
-                           "var length:Int32 = input.readRawVarint32()\n"
-                           "var limit:Int32 = input.pushLimit(length)\n"
-                           "while (input.bytesUntilLimit() > 0) {\n"
-                           "  builderResult.$name$ += [input.read$capitalized_type$()]\n"
-                           "}\n"
-                           "input.popLimit(limit)\n");
-        }
-        else
-        {
-            printer->Print(variables_,
-                           "$name$ += [input.read$capitalized_type$()]\n");
-        }
-    }
-    
-    
-    void RepeatedPrimitiveFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
-        
-        printer->Print(variables_,"if !$name$.isEmpty {\n");
-        printer->Indent();
-        
-        if (descriptor_->options().packed()) {
-            printer->Print(variables_,
-                           "output.writeRawVarint32($tag$)\n"
-                           "output.writeRawVarint32($name$MemoizedSerializedSize)\n"
-                           "for oneValue$name$ in $name$ {\n"
-                           "  output.write$capitalized_type$NoTag(oneValue$name$)\n"
-                           "}\n");
-        } else {
-            printer->Print(variables_,
-                           "for oneValue$name$ in $name$ {\n"
-                           "  output.write$capitalized_type$($number$, value:oneValue$name$)\n"
-                           "}\n");
-        }
-        printer->Outdent();
-        printer->Print("}\n");
-    }
-    
-    
-    void RepeatedPrimitiveFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
-        
-        printer->Print(variables_,
-                       "var dataSize$capitalized_name$:Int32 = 0\n");
-        
-        if (FixedSize(descriptor_->type()) == -1) {
-            printer->Print(variables_,
-                           "for oneValue$name$ in $name$ {\n"
-                           "    dataSize$capitalized_name$ += oneValue$name$.compute$capitalized_type$SizeNoTag()\n"
-                           "}\n");
-        } else {
-            printer->Print(variables_,
-                           "dataSize$capitalized_name$ = $fixed_size$ * Int32($name$.count)\n");
-        }
-        
-        printer->Print(variables_,"serialize_size += dataSize$capitalized_name$\n");
-        
-        if (descriptor_->options().packed()) {
-            printer->Print(variables_,
-                           "if !$name$.isEmpty {\n"
-                           "  serialize_size += $tag_size$\n"
-                           "  serialize_size += dataSize$capitalized_name$.computeInt32SizeNoTag()\n"
-                           "}\n"
-                           "$name$MemoizedSerializedSize = dataSize$capitalized_name$\n");
-        } else {
-            printer->Print(variables_,
-                           "serialize_size += $tag_size$ * Int32($name$.count)\n");
-        }
-        
-        
-    }
-    
-    
-    void RepeatedPrimitiveFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
-        
-        printer->Print(variables_,
-                       "var $name$ElementIndex:Int = 0\n"
-                       "for oneValue$name$ in $name$  {\n"
-                       "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(oneValue$name$)\\n\"\n"
-                       "    $name$ElementIndex++\n"
-                       "}\n");
-    }
-    
-    
-    void RepeatedPrimitiveFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
-        printer->Print(variables_,
-                       "(lhs.$name$ == rhs.$name$)");
-    }
-    
-    
-    void RepeatedPrimitiveFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
-            printer->Print(variables_,
-                           "for oneValue$name$ in $name$ {\n"
-                           "    hashCode = (hashCode &* 31) &+ oneValue$name$.hashValue\n"
-                           "}\n");
-        
-    }
 }  // namespace swift
 }  // namespace compiler
 }  // namespace protobuf

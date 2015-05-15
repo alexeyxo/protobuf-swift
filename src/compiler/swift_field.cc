@@ -22,6 +22,7 @@
 #include "swift_field.h"
 #include "swift_helpers.h"
 #include "swift_primitive_field.h"
+#include "swift_map_field.h"
 #include "swift_enum_field.h"
 #include "swift_message_field.h"
 
@@ -63,6 +64,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                     return new MessageFieldGenerator(field);
                 case SWIFTTYPE_ENUM:
                     return new EnumFieldGenerator(field);
+                case SWIFTTYPE_MAP:
+                    return new MapFieldGenerator(field);
                 default:
                     return new PrimitiveFieldGenerator(field);
             }

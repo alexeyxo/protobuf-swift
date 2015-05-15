@@ -116,14 +116,11 @@ namespace google {
                     SWIFTTYPE_STRING,
                     SWIFTTYPE_DATA,
                     SWIFTTYPE_ENUM,
-                    SWIFTTYPE_MESSAGE
+                    SWIFTTYPE_MESSAGE,
+                    SWIFTTYPE_MAP
                 };
                 
-                SwiftType GetSwiftType(FieldDescriptor::Type field_type);
-                
-                inline SwiftType GetSwiftType(const FieldDescriptor* field) {
-                    return GetSwiftType(field->type());
-                }
+                SwiftType GetSwiftType(const FieldDescriptor *field);
                 
                 // Get the fully-qualified class name for a boxed primitive type, e.g.
                 // "NSNumber" for SWIFTTYPE_INT.  Returns NULL for enum and message
