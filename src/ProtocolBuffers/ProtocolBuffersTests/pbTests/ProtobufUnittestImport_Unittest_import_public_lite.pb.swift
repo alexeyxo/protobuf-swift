@@ -16,10 +16,10 @@ internal func == (lhs: ProtobufUnittestImport.PublicImportMessageLite, rhs: Prot
 }
 
 internal extension ProtobufUnittestImport {
-  internal struct UnittestImportPublicLiteRoot {
-    internal static var sharedInstance : UnittestImportPublicLiteRoot {
+  internal struct UnittestImportPublicLite {
+    internal static var sharedInstance : UnittestImportPublicLite {
      struct Static {
-         static let instance : UnittestImportPublicLiteRoot = UnittestImportPublicLiteRoot()
+         static let instance : UnittestImportPublicLite = UnittestImportPublicLite()
      }
      return Static.instance
     }
@@ -64,7 +64,7 @@ internal extension ProtobufUnittestImport {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittestImport.PublicImportMessageLite {
-      return ProtobufUnittestImport.PublicImportMessageLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicLiteRoot.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittestImport.PublicImportMessageLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicLite.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.PublicImportMessageLite {
       return ProtobufUnittestImport.PublicImportMessageLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

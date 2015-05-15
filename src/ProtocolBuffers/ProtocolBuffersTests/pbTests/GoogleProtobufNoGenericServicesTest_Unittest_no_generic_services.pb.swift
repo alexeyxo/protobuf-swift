@@ -16,32 +16,32 @@ internal func == (lhs: Google.Protobuf.NoGenericServicesTest.TestMessage, rhs: G
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal var UnittestNoGenericServicesRoottestExtension:ConcreateExtensionField {
+internal var UnittestNoGenericServicestestExtension:ConcreateExtensionField {
    get {
-       return Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServicesRoot.sharedInstance.UnittestNoGenericServicesRoottestExtensionStatic
+       return Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServices.sharedInstance.UnittestNoGenericServicestestExtensionStatic
    }
 }
 internal extension Google.Protobuf.NoGenericServicesTest {
-  internal struct UnittestNoGenericServicesRoot {
-    internal static var sharedInstance : UnittestNoGenericServicesRoot {
+  internal struct UnittestNoGenericServices {
+    internal static var sharedInstance : UnittestNoGenericServices {
      struct Static {
-         static let instance : UnittestNoGenericServicesRoot = UnittestNoGenericServicesRoot()
+         static let instance : UnittestNoGenericServices = UnittestNoGenericServices()
      }
      return Static.instance
     }
-    var UnittestNoGenericServicesRoottestExtensionStatic:ConcreateExtensionField
+    var UnittestNoGenericServicestestExtensionStatic:ConcreateExtensionField
     internal var extensionRegistry:ExtensionRegistry
 
     init() {
-      UnittestNoGenericServicesRoottestExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:Google.Protobuf.NoGenericServicesTest.TestMessage.self, fieldNumber: 1000, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestNoGenericServicestestExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:Google.Protobuf.NoGenericServicesTest.TestMessage.self, fieldNumber: 1000, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
     }
     internal func registerAllExtensions(registry:ExtensionRegistry) {
-      registry.addExtension(UnittestNoGenericServicesRoottestExtensionStatic)
+      registry.addExtension(UnittestNoGenericServicestestExtensionStatic)
     }
     internal static func testExtension() -> ConcreateExtensionField {
-         return UnittestNoGenericServicesRoot.sharedInstance.UnittestNoGenericServicesRoottestExtensionStatic
+         return UnittestNoGenericServices.sharedInstance.UnittestNoGenericServicestestExtensionStatic
     }
   }
 
@@ -92,7 +92,7 @@ internal extension Google.Protobuf.NoGenericServicesTest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Google.Protobuf.NoGenericServicesTest.TestMessage {
-      return Google.Protobuf.NoGenericServicesTest.TestMessage.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServicesRoot.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.NoGenericServicesTest.TestMessage.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServices.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.NoGenericServicesTest.TestMessage {
       return Google.Protobuf.NoGenericServicesTest.TestMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

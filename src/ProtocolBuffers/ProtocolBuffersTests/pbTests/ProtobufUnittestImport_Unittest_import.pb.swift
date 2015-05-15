@@ -16,10 +16,10 @@ internal func == (lhs: ProtobufUnittestImport.ImportMessage, rhs: ProtobufUnitte
 }
 
 internal extension ProtobufUnittestImport {
-  internal struct UnittestImportRoot {
-    internal static var sharedInstance : UnittestImportRoot {
+  internal struct UnittestImport {
+    internal static var sharedInstance : UnittestImport {
      struct Static {
-         static let instance : UnittestImportRoot = UnittestImportRoot()
+         static let instance : UnittestImport = UnittestImport()
      }
      return Static.instance
     }
@@ -28,7 +28,7 @@ internal extension ProtobufUnittestImport {
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
-      ProtobufUnittestImport.UnittestImportPublicRoot.sharedInstance.registerAllExtensions(extensionRegistry)
+      ProtobufUnittestImport.UnittestImportPublic.sharedInstance.registerAllExtensions(extensionRegistry)
     }
     internal func registerAllExtensions(registry:ExtensionRegistry) {
     }
@@ -78,7 +78,7 @@ internal extension ProtobufUnittestImport {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittestImport.ImportMessage {
-      return ProtobufUnittestImport.ImportMessage.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestImport.UnittestImportRoot.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittestImport.ImportMessage.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestImport.UnittestImport.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.ImportMessage {
       return ProtobufUnittestImport.ImportMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

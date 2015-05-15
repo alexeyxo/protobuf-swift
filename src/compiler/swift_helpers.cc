@@ -278,20 +278,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         // Ensure the FileClassName is camelcased irrespective of whether the
         // camelcase_output_filename option is set.
 
-        return FullName(file) + UnderscoresToCapitalizedCamelCase(FileName(file)) + "Root";
+        return FullName(file) + UnderscoresToCapitalizedCamelCase(FileName(file)) + "";
     }
 
     string PackageFileName(const FileDescriptor* file) {
         // Ensure the FileClassName is camelcased irrespective of whether the
         // camelcase_output_filename option is set.
 
-        return UnderscoresToCapitalizedCamelCase(FileName(file)) + "Root";
+        return UnderscoresToCapitalizedCamelCase(FileName(file)) + "";
     }
 
     string ExtensionFileClassName(const FileDescriptor* file) {
         // Ensure the FileClassName is camelcased irrespective of whether the
         // camelcase_output_filename option is set.
-        return FileClassPrefix(file) + UnderscoresToCapitalizedCamelCase(FileName(file)) + "Root";
+        return FileClassPrefix(file) + UnderscoresToCapitalizedCamelCase(FileName(file)) + "";
     }
 
     string ToSwiftName(const string& full_name, const FileDescriptor* file) {

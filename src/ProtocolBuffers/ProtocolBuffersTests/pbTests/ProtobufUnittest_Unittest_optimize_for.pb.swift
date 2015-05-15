@@ -39,19 +39,19 @@ internal func == (lhs: ProtobufUnittest.TestOptionalOptimizedForSize, rhs: Proto
 
 internal var TestOptimizedForSizetestExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtensionStatic
+       return ProtobufUnittest.UnittestOptimizeFor.sharedInstance.TestOptimizedForSizetestExtensionStatic
    }
 }
 internal var TestOptimizedForSizetestExtension2:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtension2Static
+       return ProtobufUnittest.UnittestOptimizeFor.sharedInstance.TestOptimizedForSizetestExtension2Static
    }
 }
 internal extension ProtobufUnittest {
-  internal struct UnittestOptimizeForRoot {
-    internal static var sharedInstance : UnittestOptimizeForRoot {
+  internal struct UnittestOptimizeFor {
+    internal static var sharedInstance : UnittestOptimizeFor {
      struct Static {
-         static let instance : UnittestOptimizeForRoot = UnittestOptimizeForRoot()
+         static let instance : UnittestOptimizeFor = UnittestOptimizeFor()
      }
      return Static.instance
     }
@@ -64,7 +64,7 @@ internal extension ProtobufUnittest {
       TestOptimizedForSizetestExtension2Static = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestOptimizedForSize.self, fieldNumber: 1235, defaultValue:ProtobufUnittest.TestRequiredOptimizedForSize(), messageOrGroupClass:ProtobufUnittest.TestRequiredOptimizedForSize.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
-      ProtobufUnittest.UnittestRoot.sharedInstance.registerAllExtensions(extensionRegistry)
+      ProtobufUnittest.Unittest.sharedInstance.registerAllExtensions(extensionRegistry)
     }
     internal func registerAllExtensions(registry:ExtensionRegistry) {
       registry.addExtension(TestOptimizedForSizetestExtensionStatic)
@@ -211,7 +211,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestOptimizedForSize {
-      return ProtobufUnittest.TestOptimizedForSize.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestOptimizedForSize.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestOptimizeFor.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestOptimizedForSize {
       return ProtobufUnittest.TestOptimizedForSize.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -524,7 +524,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestRequiredOptimizedForSize {
-      return ProtobufUnittest.TestRequiredOptimizedForSize.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestRequiredOptimizedForSize.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestOptimizeFor.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestRequiredOptimizedForSize {
       return ProtobufUnittest.TestRequiredOptimizedForSize.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -714,7 +714,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestOptionalOptimizedForSize {
-      return ProtobufUnittest.TestOptionalOptimizedForSize.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestOptionalOptimizedForSize.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestOptimizeFor.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestOptionalOptimizedForSize {
       return ProtobufUnittest.TestOptionalOptimizedForSize.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

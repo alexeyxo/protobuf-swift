@@ -15,33 +15,33 @@ public func == (lhs: Google.Protobuf.SwiftFileOptions, rhs: Google.Protobuf.Swif
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public var SwiftDescriptorRootswiftFileOptions:ConcreateExtensionField {
+public var SwiftDescriptorswiftFileOptions:ConcreateExtensionField {
    get {
-       return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftFileOptionsStatic
+       return Google.Protobuf.SwiftDescriptor.sharedInstance.SwiftDescriptorswiftFileOptionsStatic
    }
 }
 public extension Google.Protobuf {
-  public struct SwiftDescriptorRoot {
-    public static var sharedInstance : SwiftDescriptorRoot {
+  public struct SwiftDescriptor {
+    public static var sharedInstance : SwiftDescriptor {
      struct Static {
-         static let instance : SwiftDescriptorRoot = SwiftDescriptorRoot()
+         static let instance : SwiftDescriptor = SwiftDescriptor()
      }
      return Static.instance
     }
-    var SwiftDescriptorRootswiftFileOptionsStatic:ConcreateExtensionField
+    var SwiftDescriptorswiftFileOptionsStatic:ConcreateExtensionField
     public var extensionRegistry:ExtensionRegistry
 
     init() {
-      SwiftDescriptorRootswiftFileOptionsStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 5092014, defaultValue:Google.Protobuf.SwiftFileOptions(), messageOrGroupClass:Google.Protobuf.SwiftFileOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      SwiftDescriptorswiftFileOptionsStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 5092014, defaultValue:Google.Protobuf.SwiftFileOptions(), messageOrGroupClass:Google.Protobuf.SwiftFileOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
-      Google.Protobuf.DescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
+      Google.Protobuf.Descriptor.sharedInstance.registerAllExtensions(extensionRegistry)
     }
     public func registerAllExtensions(registry:ExtensionRegistry) {
-      registry.addExtension(SwiftDescriptorRootswiftFileOptionsStatic)
+      registry.addExtension(SwiftDescriptorswiftFileOptionsStatic)
     }
     public static func swiftFileOptions() -> ConcreateExtensionField {
-         return SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftFileOptionsStatic
+         return SwiftDescriptor.sharedInstance.SwiftDescriptorswiftFileOptionsStatic
     }
   }
 
@@ -105,7 +105,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.SwiftFileOptions {
-      return Google.Protobuf.SwiftFileOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.SwiftFileOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.SwiftDescriptor.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SwiftFileOptions {
       return Google.Protobuf.SwiftFileOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
