@@ -32,7 +32,7 @@ message IceCreamCone {
   //   CHOCOLATE = 1;
   //   VANILLA = 2;
   // }
-  int32 scoops = 1;
+  // int32 scoops = 1;
   // Flavor flavor = 2;
   map <int32, ProtoPoint> mapper = 3;
 

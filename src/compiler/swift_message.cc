@@ -318,7 +318,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         GenerateMessageHashSource(printer);
-        //Meta informations
+        
         printer->Print("\n\n//Meta information declaration start\n\n");
         
         printer->Print("override $acontrol$ class func className() -> String {\n"
@@ -360,7 +360,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(
                        "override $acontrol$ func writeToCodedOutputStream(output:CodedOutputStream) {\n","acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
-        // Merge the fields and the extension ranges, both sorted by field number.
+        
         for (int i = 0, j = 0;
              i < descriptor_->field_count() || j < sorted_extensions.size(); ) {
             if (i == descriptor_->field_count()) {
@@ -434,7 +434,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Indent();
         
-        // Merge the fields and the extension ranges, both sorted by field number.
         for (int i = 0, j = 0;
              i < descriptor_->field_count() || j < sorted_extensions.size(); ) {
             if (i == descriptor_->field_count()) {
@@ -482,7 +481,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n"
                        );
         
-        // Merge the fields and the extension ranges, both sorted by field number.
         printer->Print("var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)\n");
         for (int i = 0, j = 0; i < descriptor_->field_count() || j < sorted_extensions.size(); ) {
             
@@ -543,7 +541,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Indent();
         printer->Print("var hashCode:Int = 7\n");
         
-        //    // Merge the fields and the extension ranges, both sorted by field number.
         for (int i = 0, j = 0;
              i < descriptor_->field_count() || j < sorted_extensions.size(); ) {
             if (i == descriptor_->field_count()) {
@@ -750,8 +747,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print("$acontrol$ func mergeFrom(other:$classname$) -> $classname$Builder {\n",
                        "classname", classNames,
                        "acontrol", GetAccessControlType(descriptor_->file()));
-        // Optimization:  If other is the default instance, we know none of its
-        //   fields are set so we can skip the merge.
+
         printer->Indent();
         printer->Print("if (other == $classname$()) {\n"
                        " return self\n"
@@ -846,9 +842,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "override $acontrol$ func isInitialized() -> Bool {\n",
                        "acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
-        // Check that all required fields in this message are set.
-        // TODO(kenton):  We can optimize this when we switch to putting all the
-        //   "has" fields into a single bitfield.
+      
         for (int i = 0; i < descriptor_->field_count(); i++) {
             const FieldDescriptor* field = descriptor_->field(i);
             
@@ -861,7 +855,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             }
         }
         
-        // Now check that all embedded messages are initialized.
         for (int i = 0; i < descriptor_->field_count(); i++) {
             const FieldDescriptor* field = descriptor_->field(i);
             if (field->cpp_type() == FieldDescriptor::CPPTYPE_MESSAGE &&

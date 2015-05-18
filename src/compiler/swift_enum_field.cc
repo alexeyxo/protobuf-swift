@@ -59,14 +59,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
     }  // namespace
     
-    EnumFieldGenerator::EnumFieldGenerator(const FieldDescriptor* descriptor)
-    : descriptor_(descriptor) {
+    EnumFieldGenerator::EnumFieldGenerator(const FieldDescriptor* descriptor) : descriptor_(descriptor) {
         SetEnumVariables(descriptor, &variables_);
     }
     
     
-    EnumFieldGenerator::~EnumFieldGenerator() {
-    }
+    EnumFieldGenerator::~EnumFieldGenerator() {}
     
     
     void EnumFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
@@ -111,10 +109,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     
-    void EnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
-    }
-    
-    
+    void EnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {}
+
     void EnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "  $acontrol$var has$capitalized_name$:Bool{\n"
@@ -154,8 +150,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     
-    void EnumFieldGenerator::GenerateBuildingCodeSource(io::Printer* printer) const {
-    }
+    void EnumFieldGenerator::GenerateBuildingCodeSource(io::Printer* printer) const {}
     
     void EnumFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
@@ -226,13 +221,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,"$acontrol$var $name$:[$type$] = [$type$]()\n");
     }
     
-    //TODO
     void RepeatedEnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
-        //    printer->Print(variables_, "var $name$:$type$\n");
     }
-    
-    
-    
+
     void RepeatedEnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
     }
     

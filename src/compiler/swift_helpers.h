@@ -97,6 +97,12 @@ namespace google {
                 string ClassNameReturedType(const Descriptor* descriptor);
                 //
                 
+                //Maps
+                string GetCapitalizedType(const FieldDescriptor* field);
+                string MapKeyName(const FieldDescriptor* field);
+                string MapValueName(const FieldDescriptor* field);
+                //
+                
 //                string ClassNameEnum(const EnumDescriptor* descriptor);
                 
 //                string ClassName(const EnumDescriptor* descriptor);

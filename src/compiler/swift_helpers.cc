@@ -275,22 +275,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
 
     string FileClassName(const FileDescriptor* file) {
-        // Ensure the FileClassName is camelcased irrespective of whether the
-        // camelcase_output_filename option is set.
-
         return FullName(file) + UnderscoresToCapitalizedCamelCase(FileName(file)) + "";
     }
 
     string PackageFileName(const FileDescriptor* file) {
-        // Ensure the FileClassName is camelcased irrespective of whether the
-        // camelcase_output_filename option is set.
-
         return UnderscoresToCapitalizedCamelCase(FileName(file)) + "";
     }
 
     string ExtensionFileClassName(const FileDescriptor* file) {
-        // Ensure the FileClassName is camelcased irrespective of whether the
-        // camelcase_output_filename option is set.
         return FileClassPrefix(file) + UnderscoresToCapitalizedCamelCase(FileName(file)) + "";
     }
 
@@ -300,6 +292,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         result += full_name;
         return result;
     }
+
+    
     /////////////////////
     
     ////Workers
@@ -490,7 +484,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
 
 
-    SwiftType GetSwiftType(FieldDescriptor *field) {
+    SwiftType GetSwiftType(const FieldDescriptor *field) {
         switch (field->type()) {
             case FieldDescriptor::TYPE_INT32:
             case FieldDescriptor::TYPE_UINT32:
@@ -525,12 +519,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 return SWIFTTYPE_ENUM;
 
             case FieldDescriptor::TYPE_GROUP:
-            case FieldDescriptor::TYPE_MESSAGE:
-                if (field.is_map()) {
+            case FieldDescriptor::TYPE_MESSAGE: {
+                if (field->is_map()) {
                     return SWIFTTYPE_MAP;
                 }
                 return SWIFTTYPE_MESSAGE;
-                
+            }
+            
         }
 
         GOOGLE_LOG(FATAL) << "Can't get here.";
@@ -549,6 +544,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case SWIFTTYPE_DATA   : return "NSData";
             case SWIFTTYPE_ENUM   : return "Int32";
             case SWIFTTYPE_MESSAGE: return NULL;
+            case SWIFTTYPE_MAP: return NULL;
         }
 
         GOOGLE_LOG(FATAL) << "Can't get here.";
@@ -570,6 +566,90 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 return false;
         }
     }
+    
+    
+    //Maps
+    
+    
+    string GetCapitalizedType(const FieldDescriptor* field) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "Int32"   ;
+            case FieldDescriptor::TYPE_UINT32  : return "UInt32"  ;
+            case FieldDescriptor::TYPE_SINT32  : return "SInt32"  ;
+            case FieldDescriptor::TYPE_FIXED32 : return "Fixed32" ;
+            case FieldDescriptor::TYPE_SFIXED32: return "SFixed32";
+            case FieldDescriptor::TYPE_INT64   : return "Int64"   ;
+            case FieldDescriptor::TYPE_UINT64  : return "UInt64"  ;
+            case FieldDescriptor::TYPE_SINT64  : return "SInt64"  ;
+            case FieldDescriptor::TYPE_FIXED64 : return "Fixed64" ;
+            case FieldDescriptor::TYPE_SFIXED64: return "SFixed64";
+            case FieldDescriptor::TYPE_FLOAT   : return "Float"   ;
+            case FieldDescriptor::TYPE_DOUBLE  : return "Double"  ;
+            case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
+            case FieldDescriptor::TYPE_STRING  : return "String"  ;
+            case FieldDescriptor::TYPE_BYTES   : return "Data"    ;
+            case FieldDescriptor::TYPE_ENUM    : return "Enum"    ;
+            case FieldDescriptor::TYPE_GROUP   : return "Group"   ;
+            case FieldDescriptor::TYPE_MESSAGE : return "Message" ;
+        }
+        
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+    }
+    
+    string MapKeyName(const FieldDescriptor* field) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "Int32" ;
+            case FieldDescriptor::TYPE_UINT32  : return "UInt32";
+            case FieldDescriptor::TYPE_SINT32  : return "Int32" ;
+            case FieldDescriptor::TYPE_FIXED32 : return "UInt32";
+            case FieldDescriptor::TYPE_SFIXED32: return "Int32" ;
+            case FieldDescriptor::TYPE_INT64   : return "Int64" ;
+            case FieldDescriptor::TYPE_UINT64  : return "UInt64";
+            case FieldDescriptor::TYPE_SINT64  : return "Int64" ;
+            case FieldDescriptor::TYPE_FIXED64 : return "UInt64";
+            case FieldDescriptor::TYPE_SFIXED64: return "Int64" ;
+            case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
+            case FieldDescriptor::TYPE_STRING  : return "String";
+            
+            default                            : return NULL;
+        }
+        
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+    }
+    
+    
+    string MapValueName(const FieldDescriptor* field) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "Int32" ;
+            case FieldDescriptor::TYPE_UINT32  : return "UInt32";
+            case FieldDescriptor::TYPE_SINT32  : return "Int32" ;
+            case FieldDescriptor::TYPE_FIXED32 : return "UInt32";
+            case FieldDescriptor::TYPE_SFIXED32: return "Int32" ;
+            case FieldDescriptor::TYPE_INT64   : return "Int64" ;
+            case FieldDescriptor::TYPE_UINT64  : return "UInt64";
+            case FieldDescriptor::TYPE_SINT64  : return "Int64" ;
+            case FieldDescriptor::TYPE_FIXED64 : return "UInt64";
+            case FieldDescriptor::TYPE_SFIXED64: return "Int64" ;
+            case FieldDescriptor::TYPE_BOOL    : return "Bool"  ;
+            case FieldDescriptor::TYPE_STRING  : return "String";
+            case FieldDescriptor::TYPE_BYTES   : return "NSData";
+            case FieldDescriptor::TYPE_GROUP   :
+            case FieldDescriptor::TYPE_MESSAGE :
+            {
+                return ClassNameReturedType(field->message_type());
+            }
+            case FieldDescriptor::TYPE_ENUM    :
+            {
+                return ClassNameReturedType(field->enum_type());
+            }
+            default                            : return NULL;
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+    }
+    //
 
 
     bool IsReferenceType(SwiftType type) {
@@ -627,8 +707,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
 
     string DefaultValue(const FieldDescriptor* field) {
-        // Switch on cpp_type since we need to know which default_value_* method
-        // of FieldDescriptor to call.
+
         switch (field->cpp_type()) {
             case FieldDescriptor::CPPTYPE_INT32:  return "Int32(" + SimpleItoa(field->default_value_int32()) +")";
             case FieldDescriptor::CPPTYPE_UINT32: return "UInt32(" + SimpleItoa(field->default_value_uint32()) + ")";
@@ -676,48 +755,31 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 }
             case FieldDescriptor::CPPTYPE_ENUM:
                 return EnumValueName(field->default_value_enum());
+            
             case FieldDescriptor::CPPTYPE_MESSAGE:
+            {
+                if (field->is_map()) {
+                 
+                    const FieldDescriptor* key_descriptor = field->message_type()->FindFieldByName("key");
+                    const FieldDescriptor* value_descriptor = field->message_type()->FindFieldByName("value");
+                    return "[" + MapKeyName(key_descriptor) + ":" + MapValueName(value_descriptor) + "]()";
+                }
+                
                 return ClassNameReturedType(field->message_type()) + "()";
+            }
         }
 
         GOOGLE_LOG(FATAL) << "Can't get here.";
         return "";
     }
 
-    //  const char* GetArrayValueType(const FieldDescriptor* field) {
-    //    switch (field->type()) {
-    //      case FieldDescriptor::TYPE_INT32   : return "Int32" ;
-    //      case FieldDescriptor::TYPE_UINT32  : return "UInt32";
-    //      case FieldDescriptor::TYPE_SINT32  : return "Int32" ;
-    //      case FieldDescriptor::TYPE_FIXED32 : return "UInt32";
-    //      case FieldDescriptor::TYPE_SFIXED32: return "Int32" ;
-    //      case FieldDescriptor::TYPE_INT64   : return "Int64" ;
-    //      case FieldDescriptor::TYPE_UINT64  : return "UInt64";
-    //      case FieldDescriptor::TYPE_SINT64  : return "Int64" ;
-    //      case FieldDescriptor::TYPE_FIXED64 : return "UInt64";
-    //      case FieldDescriptor::TYPE_SFIXED64: return "PBArrayValueTypeInt64" ;
-    //      case FieldDescriptor::TYPE_FLOAT   : return "PBArrayValueTypeFloat" ;
-    //      case FieldDescriptor::TYPE_DOUBLE  : return "PBArrayValueTypeDouble";
-    //      case FieldDescriptor::TYPE_BOOL    : return "PBArrayValueTypeBool"  ;
-    //      case FieldDescriptor::TYPE_STRING  : return "PBArrayValueTypeObject";
-    //      case FieldDescriptor::TYPE_BYTES   : return "PBArrayValueTypeObject";
-    //      case FieldDescriptor::TYPE_ENUM    : return "PBArrayValueTypeObject";
-    //      case FieldDescriptor::TYPE_GROUP   : return "PBArrayValueTypeObject";
-    //      case FieldDescriptor::TYPE_MESSAGE : return "PBArrayValueTypeObject";
-    //    }
-    //
-    //    GOOGLE_LOG(FATAL) << "Can't get here.";
-    //    return NULL;
-    //  }
-
-    // Escape C++ trigraphs by escaping question marks to \?
 
     string EscapeTrigraphs(const string& to_escape) {
         return StringReplace(to_escape, "?", "\\?", true);
     }
 
     string EscapeUnicode(const string& to_escape) {
-        return to_escape;//StringReplace(to_escape, "\", "", true);
+        return to_escape;
 
     }
 

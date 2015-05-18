@@ -43,8 +43,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["containing_class"] = containing_class;
             (*variables)["storage_attribute"] = "";
             
-            (*variables)["group_or_message"] =
-            (descriptor->type() == FieldDescriptor::TYPE_GROUP) ? "Group" : "Message";
+            (*variables)["group_or_message"] = (descriptor->type() == FieldDescriptor::TYPE_GROUP) ? "Group" : "Message";
             
             (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->file());
             (* variables)["acontrolFunc"] = GetAccessControlType(descriptor->file());
@@ -67,15 +66,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     MessageFieldGenerator::~MessageFieldGenerator() {
     }
     
-    
-    
-    
-    
+
     void MessageFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-        //
-        //      printer->Print(variables_,"@property (strong)$storage_attribute$ $type$ $name$;\n");
+       
     }
-    
     
     
     void MessageFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
@@ -242,7 +236,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     RepeatedMessageFieldGenerator::~RepeatedMessageFieldGenerator() {
     }
     
-    //TODO
     void RepeatedMessageFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
     }
     
@@ -253,10 +246,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void RepeatedMessageFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
-        //      printer->Print(variables_, "$name$ = [$type$]()\n");
+
     }
-    
-    
+        
     
     void RepeatedMessageFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
         
