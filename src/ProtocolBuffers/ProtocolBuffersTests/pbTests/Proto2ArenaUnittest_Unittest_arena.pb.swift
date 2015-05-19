@@ -26,10 +26,10 @@ internal func == (lhs: Proto2ArenaUnittest.ArenaMessage, rhs: Proto2ArenaUnittes
 }
 
 internal extension Proto2ArenaUnittest {
-  internal struct UnittestArenaProto {
-    internal static var sharedInstance : UnittestArenaProto {
+  internal struct UnittestArenaRoot {
+    internal static var sharedInstance : UnittestArenaRoot {
      struct Static {
-         static let instance : UnittestArenaProto = UnittestArenaProto()
+         static let instance : UnittestArenaRoot = UnittestArenaRoot()
      }
      return Static.instance
     }
@@ -38,7 +38,7 @@ internal extension Proto2ArenaUnittest {
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
-      Proto2ArenaUnittest.UnittestNoArenaImportProto.sharedInstance.registerAllExtensions(extensionRegistry)
+      Proto2ArenaUnittest.UnittestNoArenaImportRoot.sharedInstance.registerAllExtensions(extensionRegistry)
     }
     internal func registerAllExtensions(registry:ExtensionRegistry) {
     }
@@ -75,7 +75,7 @@ internal extension Proto2ArenaUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto2ArenaUnittest.NestedMessage {
-      return Proto2ArenaUnittest.NestedMessage.builder().mergeFromData(data, extensionRegistry:Proto2ArenaUnittest.UnittestArenaProto.sharedInstance.extensionRegistry).build()
+      return Proto2ArenaUnittest.NestedMessage.builder().mergeFromData(data, extensionRegistry:Proto2ArenaUnittest.UnittestArenaRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.NestedMessage {
       return Proto2ArenaUnittest.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -264,7 +264,7 @@ internal extension Proto2ArenaUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto2ArenaUnittest.ArenaMessage {
-      return Proto2ArenaUnittest.ArenaMessage.builder().mergeFromData(data, extensionRegistry:Proto2ArenaUnittest.UnittestArenaProto.sharedInstance.extensionRegistry).build()
+      return Proto2ArenaUnittest.ArenaMessage.builder().mergeFromData(data, extensionRegistry:Proto2ArenaUnittest.UnittestArenaRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.ArenaMessage {
       return Proto2ArenaUnittest.ArenaMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

@@ -31,357 +31,357 @@ class  TestUtilities {
     
     class func modifyRepeatedExtensions(var message:ProtobufUnittest.TestAllExtensionsBuilder)
     {
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedInt32Extension(), index:1, value:Int32(501))
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedInt64Extension(), index:1, value:Int64(502))
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedUint32Extension(), index:1, value:UInt32(503))
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedUint64Extension(), index:1, value:UInt64(504))
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedSint32Extension(), index:1, value:Int32(505))
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedSint64Extension(), index:1, value:Int64(506))
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedFixed32Extension(), index:1, value:UInt32(507))
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedFixed64Extension(), index:1, value:UInt64(508))
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedSfixed32Extension(), index:1, value:Int32(509))
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedSfixed64Extension(), index:1, value:Int64(510))
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedFloatExtension(), index:1, value:Float(511.0))
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedDoubleExtension(), index:1, value:Double(512.0))
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedBoolExtension(), index:1, value:true)
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedStringExtension(),index:1, value:"515")
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedBytesExtension(), index:1, value:TestUtilities.getData("516"))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), index:1, value:Int32(501))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension(), index:1, value:Int64(502))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension(), index:1, value:UInt32(503))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension(), index:1, value:UInt64(504))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension(), index:1, value:Int32(505))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension(), index:1, value:Int64(506))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension(), index:1, value:UInt32(507))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension(), index:1, value:UInt64(508))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension(), index:1, value:Int32(509))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension(), index:1, value:Int64(510))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension(), index:1, value:Float(511.0))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension(), index:1, value:Double(512.0))
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension(), index:1, value:true)
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension(),index:1, value:"515")
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), index:1, value:TestUtilities.getData("516"))
 
         var a = ProtobufUnittest.RepeatedGroupExtension.builder()
         a.a = 517
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedGroupExtension(), index:1, value:a.build())
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), index:1, value:a.build())
         
         var b = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
         b.bb = 518
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedNestedMessageExtension(), index:1, value:b.build())
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension(), index:1, value:b.build())
         var foreign = ProtobufUnittest.ForeignMessage.builder()
         foreign.c = 519
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension(), index:1, value:foreign.build())
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension(), index:1, value:foreign.build())
         
         var importMessage = ProtobufUnittestImport.ImportMessage.builder()
         importMessage.d = 520
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedImportMessageExtension(), index:1, value:importMessage.build())
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension(), index:1, value:importMessage.build())
         
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedNestedEnumExtension(), index:1, value:ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue)
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension(), index:1, value:ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue)
         
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedForeignEnumExtension(), index:1, value:ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue)
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedImportEnumExtension(), index:1, value:ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue)
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension(), index:1, value:ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue)
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension(), index:1, value:ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue)
         
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedStringPieceExtension(),index:1, value:"524")
-        message.setExtension(ProtobufUnittest.UnittestProto.repeatedCordExtension(), index:1, value:"525")
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension(),index:1, value:"524")
+        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension(), index:1, value:"525")
 
     }
     
     func assertAllExtensionsSet(var message:ProtobufUnittest.TestAllExtensions)
     {
         
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalInt32Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalInt64Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalUint32Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalUint64Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalSint32Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalSint64Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalFixed32Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalFixed64Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalSfixed32Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalSfixed64Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalFloatExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalDoubleExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalBoolExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalStringExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalBytesExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalInt64Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalUint32Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalUint64Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalSint32Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalSint64Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalFixed32Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalFixed64Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalSfixed32Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalSfixed64Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalFloatExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalDoubleExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalBoolExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalStringExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalBytesExtension()), "")
         
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalGroupExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalNestedMessageExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalForeignMessageExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalImportMessageExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalNestedMessageExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalForeignMessageExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalImportMessageExtension()), "")
         
-        if let extensions = message.getExtension(ProtobufUnittest.UnittestProto.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
+        if let extensions = message.getExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
         {
             XCTAssertTrue(extensions.hasA, "")
         }
-        if let ext = message.getExtension(ProtobufUnittest.UnittestProto.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
+        if let ext = message.getExtension(ProtobufUnittest.UnittestRoot.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
         {
             XCTAssertTrue(ext.hasBb, "")
         }
         
-        if let ext = message.getExtension(ProtobufUnittest.UnittestProto.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
+        if let ext = message.getExtension(ProtobufUnittest.UnittestRoot.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
         {
             XCTAssertTrue(ext.hasC, "")
         }
         
-        if let ext = message.getExtension(ProtobufUnittest.UnittestProto.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
+        if let ext = message.getExtension(ProtobufUnittest.UnittestRoot.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
         {
             XCTAssertTrue(ext.hasD, "")
         }
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalNestedEnumExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalForeignEnumExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalImportEnumExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalNestedEnumExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalForeignEnumExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalImportEnumExtension()), "")
         
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalStringPieceExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.optionalCordExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalStringPieceExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalCordExtension()), "")
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalInt32Extension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension()) as? Int32
         {
             XCTAssertTrue(101 == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalInt64Extension()) as? Int64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalInt64Extension()) as? Int64
         {
             XCTAssertTrue(Int64(102) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalUint32Extension()) as? UInt32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalUint32Extension()) as? UInt32
         {
             XCTAssertTrue(UInt32(103) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalUint64Extension()) as? UInt64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalUint64Extension()) as? UInt64
         {
             XCTAssertTrue(UInt64(104) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalSint32Extension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalSint32Extension()) as? Int32
         {
             XCTAssertTrue(105 == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalSint64Extension()) as? Int64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalSint64Extension()) as? Int64
         {
             XCTAssertTrue(Int64(106) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalFixed32Extension()) as? UInt32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalFixed32Extension()) as? UInt32
         {
             XCTAssertTrue(UInt32(107) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalFixed64Extension()) as? UInt64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalFixed64Extension()) as? UInt64
         {
             XCTAssertTrue(UInt64(108) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalSfixed32Extension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalSfixed32Extension()) as? Int32
         {
             XCTAssertTrue(Int32(109) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalSfixed64Extension()) as? Int64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalSfixed64Extension()) as? Int64
         {
             XCTAssertTrue(Int64(110) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalFloatExtension()) as? Float
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalFloatExtension()) as? Float
         {
             XCTAssertTrue(Float(111.0) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalDoubleExtension()) as? Double
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalDoubleExtension()) as? Double
         {
             XCTAssertTrue(Double(112.0) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalBoolExtension()) as? Bool
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalBoolExtension()) as? Bool
         {
             XCTAssertTrue(true == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalStringExtension()) as? String
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalStringExtension()) as? String
         {
             XCTAssertTrue("115" == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalBytesExtension()) as? NSData
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalBytesExtension()) as? NSData
         {
             XCTAssertTrue(TestUtilities.getData("116") == val, "")
         }
         
-        if let mes = message.getExtension(ProtobufUnittest.UnittestProto.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
+        if let mes = message.getExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
         {
             XCTAssertTrue(117 == mes.a, "")
         }
         
-        if let mes = message.getExtension(ProtobufUnittest.UnittestProto.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
+        if let mes = message.getExtension(ProtobufUnittest.UnittestRoot.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
         {
             XCTAssertTrue(118 == mes.bb, "")
         }
-        if let mes = message.getExtension(ProtobufUnittest.UnittestProto.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
+        if let mes = message.getExtension(ProtobufUnittest.UnittestRoot.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
         {
             XCTAssertTrue(119 == mes.c, "")
         }
-        if let mes = message.getExtension(ProtobufUnittest.UnittestProto.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
+        if let mes = message.getExtension(ProtobufUnittest.UnittestRoot.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
         {
             XCTAssertTrue(120 == mes.d, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalNestedEnumExtension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalNestedEnumExtension()) as? Int32
         {
             XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalForeignEnumExtension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalForeignEnumExtension()) as? Int32
         {
             XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalImportEnumExtension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalImportEnumExtension()) as? Int32
         {
             XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalStringPieceExtension()) as? String
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalStringPieceExtension()) as? String
         {
             XCTAssertTrue("124" == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalCordExtension()) as? String
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalCordExtension()) as? String
         {
             XCTAssertTrue("125" == val, "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension()) as? [Int64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension()) as? [UInt32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension()) as? [UInt64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension()) as? [Int64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension()) as? [UInt32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension()) as? [UInt64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension()) as? [Int64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFloatExtension()) as? [Float]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension()) as? [Float]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedDoubleExtension()) as? [Double]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension()) as? [Double]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBoolExtension()) as? [Bool]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension()) as? [Bool]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension()) as? [String]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBytesExtension()) as? Array<Array<UInt8>>
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<Array<UInt8>>
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedGroupExtension()) as? [GeneratedMessage]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedMessageExtension()) as? [GeneratedMessage]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension()) as? [GeneratedMessage]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension()) as? [GeneratedMessage]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedEnumExtension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignEnumExtension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedImportEnumExtension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringPieceExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension()) as? [String]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedCordExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension()) as? [String]
         {
             XCTAssertTrue(2 == val.count, "")
         }
         
         ///
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(201 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension()) as? [Int64]
         {
             XCTAssertTrue(202 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension()) as? [UInt32]
         {
             XCTAssertTrue(203 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension()) as? [UInt64]
         {
             XCTAssertTrue(204 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension()) as? [Int32]
         {
             XCTAssertTrue(205 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension()) as? [Int64]
         {
             XCTAssertTrue(206 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension()) as? [UInt32]
         {
             XCTAssertTrue(207 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension()) as? [UInt64]
         {
             XCTAssertTrue(208 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension()) as? [Int32]
         {
             XCTAssertTrue(209 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension()) as? [Int64]
         {
             XCTAssertTrue(210 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFloatExtension()) as? [Float]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension()) as? [Float]
         {
             XCTAssertTrue(Float(211.0) == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedDoubleExtension()) as? [Double]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension()) as? [Double]
         {
             XCTAssertTrue(Double(212.0) == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBoolExtension()) as? [Bool]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension()) as? [Bool]
         {
             XCTAssertTrue(true == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension()) as? [String]
         {
             XCTAssertTrue("215" == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBytesExtension()) as? Array<NSData>
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<NSData>
         {
             XCTAssertTrue(TestUtilities.getData("216") == val[0], "")
         }
     
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedGroupExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
             if let value = val[0] as? ProtobufUnittest.RepeatedGroupExtension
             {
@@ -389,112 +389,112 @@ class  TestUtilities {
             }
         }
         
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedMessageExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
             if let value = val[0] as? ProtobufUnittest.TestAllTypes.NestedMessage
             {
                 XCTAssertTrue(218 == value.bb, "")
             }
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             if let value = val[0] as? ProtobufUnittest.ForeignMessage
             {
                 XCTAssertTrue(219 == value.c, "")
             }
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedImportMessageExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension()) as? [GeneratedMessage]
         {
             if let value = val[0] as? ProtobufUnittestImport.ImportMessage
             {
                 XCTAssertTrue(220 == value.d, "")
             }
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedEnumExtension()) as? [Int32]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Bar.rawValue == val[0], "")
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignEnumExtension()) as? [Int32]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBar.rawValue == val[0], "")
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedImportEnumExtension()) as? [Int32]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBar.rawValue == val[0], "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringPieceExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension()) as? [String]
         {
             XCTAssertTrue("224" == val[0], "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedCordExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension()) as? [String]
         {
             XCTAssertTrue("225" == val[0], "")
         }
 
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(301 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension()) as? [Int64]
         {
             XCTAssertTrue(302 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension()) as? [UInt32]
         {
             XCTAssertTrue(303 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension()) as? [UInt64]
         {
             XCTAssertTrue(304 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension()) as? [Int32]
         {
             XCTAssertTrue(305 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension()) as? [Int64]
         {
             XCTAssertTrue(306 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension()) as? [UInt32]
         {
             XCTAssertTrue(307 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension()) as? [UInt64]
         {
             XCTAssertTrue(308 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension()) as? [Int32]
         {
             XCTAssertTrue(309 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension()) as? [Int64]
         {
             XCTAssertTrue(310 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFloatExtension()) as? [Float]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension()) as? [Float]
         {
             XCTAssertTrue(Float(311.0) == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedDoubleExtension()) as? [Double]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension()) as? [Double]
         {
             XCTAssertTrue(Double(312.0) == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBoolExtension()) as? [Bool]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension()) as? [Bool]
         {
             XCTAssertTrue(false == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension()) as? [String]
         {
             XCTAssertTrue("315" == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBytesExtension()) as? Array<NSData>
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<NSData>
         {
             XCTAssertTrue(TestUtilities.getData("316") == val[1], "")
         }
         
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedGroupExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
             if let value = val[1] as? ProtobufUnittest.RepeatedGroupExtension
             {
@@ -502,14 +502,14 @@ class  TestUtilities {
             }
         }
         
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedMessageExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
             if let value = val[1] as? ProtobufUnittest.TestAllTypes.NestedMessage
             {
                 XCTAssertTrue(318 == value.bb, "")
             }
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             if let value = val[1] as? ProtobufUnittest.ForeignMessage
             {
@@ -517,7 +517,7 @@ class  TestUtilities {
             }
             
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedImportMessageExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension()) as? [GeneratedMessage]
         {
             if let value = val[1] as? ProtobufUnittestImport.ImportMessage
             {
@@ -525,131 +525,131 @@ class  TestUtilities {
             }
             
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedEnumExtension()) as? [Int32]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue == val[1], "")
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignEnumExtension()) as? [Int32]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue == val[1], "")
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedImportEnumExtension()) as? [Int32]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue == val[1], "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringPieceExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension()) as? [String]
         {
             XCTAssertTrue("324" == val[1], "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedCordExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension()) as? [String]
         {
             XCTAssertTrue("325" == val[1], "")
         }
         
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultInt32Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultInt64Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultUint32Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultUint64Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultSint32Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultSint64Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultFixed32Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultFixed64Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultSfixed32Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultSfixed64Extension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultFloatExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultDoubleExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultBoolExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultStringExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultBytesExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultInt32Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultInt64Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultUint32Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultUint64Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultSint32Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultSint64Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultFixed32Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultFixed64Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultSfixed32Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultSfixed64Extension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultFloatExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultDoubleExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultBoolExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultStringExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultBytesExtension()), "")
         
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultNestedEnumExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultForeignEnumExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultImportEnumExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultNestedEnumExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultForeignEnumExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultImportEnumExtension()), "")
         
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultStringPieceExtension()), "")
-        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestProto.defaultCordExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultStringPieceExtension()), "")
+        XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultCordExtension()), "")
         
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultInt32Extension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultInt32Extension()) as? Int32
         {
             XCTAssertTrue(401 == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultInt64Extension()) as? Int64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultInt64Extension()) as? Int64
         {
             XCTAssertTrue(Int64(402) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultUint32Extension()) as? UInt32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultUint32Extension()) as? UInt32
         {
             XCTAssertTrue(UInt32(403) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultUint64Extension()) as? UInt64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultUint64Extension()) as? UInt64
         {
             XCTAssertTrue(UInt64(404) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultSint32Extension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultSint32Extension()) as? Int32
         {
             XCTAssertTrue(405 == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultSint64Extension()) as? Int64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultSint64Extension()) as? Int64
         {
             XCTAssertTrue(Int64(406) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultFixed32Extension()) as? UInt32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultFixed32Extension()) as? UInt32
         {
             XCTAssertTrue(UInt32(407) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultFixed64Extension()) as? UInt64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultFixed64Extension()) as? UInt64
         {
             XCTAssertTrue(UInt64(408) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultSfixed32Extension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultSfixed32Extension()) as? Int32
         {
             XCTAssertTrue(Int32(409) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultSfixed64Extension()) as? Int64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultSfixed64Extension()) as? Int64
         {
             XCTAssertTrue(Int64(410) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultFloatExtension()) as? Float
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultFloatExtension()) as? Float
         {
             XCTAssertTrue(Float(411.0) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultDoubleExtension()) as? Double
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultDoubleExtension()) as? Double
         {
             XCTAssertTrue(Double(412.0) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultBoolExtension()) as? Bool
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultBoolExtension()) as? Bool
         {
             XCTAssertTrue(false == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultStringExtension()) as? String
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultStringExtension()) as? String
         {
             XCTAssertTrue("415" == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultBytesExtension()) as? NSData
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultBytesExtension()) as? NSData
         {
             XCTAssertTrue(TestUtilities.getData("416") == val, "")
         }
     
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultNestedEnumExtension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultNestedEnumExtension()) as? Int32
         {
             XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultForeignEnumExtension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultForeignEnumExtension()) as? Int32
         {
             XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultImportEnumExtension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultImportEnumExtension()) as? Int32
         {
             XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultStringPieceExtension()) as? String
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultStringPieceExtension()) as? String
         {
             XCTAssertTrue("424" == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultCordExtension()) as? String
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultCordExtension()) as? String
         {
             XCTAssertTrue("425" == val, "")
         }
@@ -664,168 +664,168 @@ class  TestUtilities {
     func assertRepeatedExtensionsModified(message:ProtobufUnittest.TestAllExtensions)
     {
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension()) as? [Int64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension()) as? [UInt32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension()) as? [UInt64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension()) as? [Int64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension()) as? [UInt32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension()) as? [UInt64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension()) as? [Int64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFloatExtension()) as? [Float]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension()) as? [Float]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedDoubleExtension()) as? [Double]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension()) as? [Double]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBoolExtension()) as? [Bool]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension()) as? [Bool]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension()) as? [String]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBytesExtension()) as? Array<Array<UInt8>>
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<Array<UInt8>>
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedGroupExtension()) as? [GeneratedMessage]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedMessageExtension()) as? [GeneratedMessage]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension()) as? [GeneratedMessage]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension()) as? [GeneratedMessage]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedEnumExtension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignEnumExtension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedImportEnumExtension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringPieceExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension()) as? [String]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedCordExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension()) as? [String]
         {
             XCTAssertTrue(2 == val.count, "")
         }
         
         ///
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(201 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension()) as? [Int64]
         {
             XCTAssertTrue(202 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension()) as? [UInt32]
         {
             XCTAssertTrue(203 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension()) as? [UInt64]
         {
             XCTAssertTrue(204 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension()) as? [Int32]
         {
             XCTAssertTrue(205 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension()) as? [Int64]
         {
             XCTAssertTrue(206 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension()) as? [UInt32]
         {
             XCTAssertTrue(207 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension()) as? [UInt64]
         {
             XCTAssertTrue(208 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension()) as? [Int32]
         {
             XCTAssertTrue(209 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension()) as? [Int64]
         {
             XCTAssertTrue(210 == val[0],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFloatExtension()) as? [Float]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension()) as? [Float]
         {
             XCTAssertTrue(Float(211.0) == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedDoubleExtension()) as? [Double]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension()) as? [Double]
         {
             XCTAssertTrue(Double(212.0) == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBoolExtension()) as? [Bool]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension()) as? [Bool]
         {
             XCTAssertTrue(true == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension()) as? [String]
         {
             XCTAssertTrue("215" == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBytesExtension()) as? Array<NSData>
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<NSData>
         {
             XCTAssertTrue(TestUtilities.getData("216") == val[0], "")
         }
         
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedGroupExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
             if let values = val[0] as? ProtobufUnittest.RepeatedGroupExtension
             {
@@ -833,7 +833,7 @@ class  TestUtilities {
             }
         }
         
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedMessageExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
             if let values = val[0] as? ProtobufUnittest.TestAllTypes.NestedMessage
             {
@@ -841,106 +841,106 @@ class  TestUtilities {
             }
             
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             if let values = val[0] as? ProtobufUnittest.ForeignMessage
             {
                 XCTAssertTrue(219 == values.c, "")
             }
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedImportMessageExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension()) as? [GeneratedMessage]
         {
             if let values = val[0] as? ProtobufUnittestImport.ImportMessage
             {
                 XCTAssertTrue(220 == values.d, "")
             }
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedEnumExtension()) as? [Int32]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Bar.rawValue == val[0], "")
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignEnumExtension()) as? [Int32]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBar.rawValue == val[0], "")
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedImportEnumExtension()) as? [Int32]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBar.rawValue == val[0], "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringPieceExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension()) as? [String]
         {
             XCTAssertTrue("224" == val[0], "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedCordExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension()) as? [String]
         {
             XCTAssertTrue("225" == val[0], "")
         }
 
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(501 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension()) as? [Int64]
         {
             XCTAssertTrue(502 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension()) as? [UInt32]
         {
             XCTAssertTrue(503 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension()) as? [UInt64]
         {
             XCTAssertTrue(504 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension()) as? [Int32]
         {
             XCTAssertTrue(505 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension()) as? [Int64]
         {
             XCTAssertTrue(506 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension()) as? [UInt32]
         {
             XCTAssertTrue(507 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension()) as? [UInt64]
         {
             XCTAssertTrue(508 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension()) as? [Int32]
         {
             XCTAssertTrue(509 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension()) as? [Int64]
         {
             XCTAssertTrue(510 == val[1],"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFloatExtension()) as? [Float]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension()) as? [Float]
         {
             XCTAssertTrue(Float(511.0) == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedDoubleExtension()) as? [Double]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension()) as? [Double]
         {
             XCTAssertTrue(Double(512.0) == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBoolExtension()) as? [Bool]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension()) as? [Bool]
         {
             XCTAssertTrue(true == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension()) as? [String]
         {
             XCTAssertTrue("515" == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBytesExtension()) as? Array<NSData>
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<NSData>
         {
             XCTAssertTrue(TestUtilities.getData("516") == val[1], "")
         }
         
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedGroupExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
             if let values = val[1] as? ProtobufUnittest.RepeatedGroupExtension
             {
@@ -948,7 +948,7 @@ class  TestUtilities {
             }
         }
         
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedMessageExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
             if let values = val[1] as? ProtobufUnittest.TestAllTypes.NestedMessage
             {
@@ -956,7 +956,7 @@ class  TestUtilities {
             }
             
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             if let values = val[1] as? ProtobufUnittest.ForeignMessage
             {
@@ -964,7 +964,7 @@ class  TestUtilities {
             }
             
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedImportMessageExtension()) as? [GeneratedMessage]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension()) as? [GeneratedMessage]
         {
             if let values = val[1] as? ProtobufUnittestImport.ImportMessage
             {
@@ -972,25 +972,25 @@ class  TestUtilities {
             }
             
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedEnumExtension()) as? [Int32]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue == val[1], "")
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignEnumExtension()) as? [Int32]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue == val[1], "")
         }
-        if let val =  message.getExtension(ProtobufUnittest.UnittestProto.repeatedImportEnumExtension()) as? [Int32]
+        if let val =  message.getExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue == val[1], "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringPieceExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension()) as? [String]
         {
             XCTAssertTrue("524" == val[1], "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedCordExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension()) as? [String]
         {
             XCTAssertTrue("525" == val[1], "")
         }
@@ -1378,151 +1378,151 @@ class  TestUtilities {
     
     class func setAllExtensions(message:ProtobufUnittest.TestAllExtensionsBuilder)
     {
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalInt32Extension(), value:Int32(101))
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalInt64Extension(), value:Int64(102))
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalUint32Extension(), value:UInt32(103))
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalUint64Extension(), value:UInt64(104))
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalSint32Extension(), value:Int32(105))
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalSint64Extension(), value:Int64(106))
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalFixed32Extension(), value:UInt32(107))
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalFixed64Extension(), value:UInt64(108))
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalSfixed32Extension(), value:Int32(109))
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalSfixed64Extension(), value:Int64(110))
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalFloatExtension(), value:Float(111.0))
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalDoubleExtension(), value:Double(112.0))
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalBoolExtension(), value:true)
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalStringExtension(), value:"115")
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalBytesExtension(), value:TestUtilities.getData("116"))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension(), value:Int32(101))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalInt64Extension(), value:Int64(102))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalUint32Extension(), value:UInt32(103))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalUint64Extension(), value:UInt64(104))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalSint32Extension(), value:Int32(105))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalSint64Extension(), value:Int64(106))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalFixed32Extension(), value:UInt32(107))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalFixed64Extension(), value:UInt64(108))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalSfixed32Extension(), value:Int32(109))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalSfixed64Extension(), value:Int64(110))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalFloatExtension(), value:Float(111.0))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalDoubleExtension(), value:Double(112.0))
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalBoolExtension(), value:true)
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalStringExtension(), value:"115")
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalBytesExtension(), value:TestUtilities.getData("116"))
         
         var optgr = ProtobufUnittest.OptionalGroupExtension.builder()
         optgr.a = 117
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalGroupExtension(), value:optgr.build())
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension(), value:optgr.build())
         
         var netmesb = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
         netmesb.bb = 118
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalNestedMessageExtension(), value:netmesb.build())
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalNestedMessageExtension(), value:netmesb.build())
         
         var forMes = ProtobufUnittest.ForeignMessage.builder()
         forMes.c = 119
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalForeignMessageExtension(), value:forMes.build())
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalForeignMessageExtension(), value:forMes.build())
         
         var impMes = ProtobufUnittestImport.ImportMessage.builder()
         impMes.d = 120
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalImportMessageExtension(), value:impMes.build())
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalImportMessageExtension(), value:impMes.build())
         
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue)
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue)
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue)
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue)
         
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalStringPieceExtension(),  value:"124")
-        message.setExtension(ProtobufUnittest.UnittestProto.optionalCordExtension(), value:"125")
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalStringPieceExtension(),  value:"124")
+        message.setExtension(ProtobufUnittest.UnittestRoot.optionalCordExtension(), value:"125")
         
         // -----------------------------------------------------------------
         
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedInt32Extension(), value:Int32(201))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedInt64Extension(), value:Int64(202))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedUint32Extension(), value:UInt32(203))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedUint64Extension(), value:UInt64(204))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedSint32Extension(), value:Int32(205))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedSint64Extension(), value:Int64(206))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedFixed32Extension(), value:UInt32(207))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedFixed64Extension(), value:UInt64(208))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedSfixed32Extension(), value:Int32(209))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedSfixed64Extension(), value:Int64(210))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedFloatExtension(), value:Float(211.0))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedDoubleExtension(), value:Double(212.0))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedBoolExtension(), value:true)
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedStringExtension(), value:"215")
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedBytesExtension(), value:TestUtilities.getData("216"))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), value:Int32(201))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension(), value:Int64(202))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension(), value:UInt32(203))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension(), value:UInt64(204))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension(), value:Int32(205))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension(), value:Int64(206))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension(), value:UInt32(207))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension(), value:UInt64(208))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension(), value:Int32(209))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension(), value:Int64(210))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension(), value:Float(211.0))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension(), value:Double(212.0))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension(), value:true)
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension(), value:"215")
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), value:TestUtilities.getData("216"))
         
         
         var repGr = ProtobufUnittest.RepeatedGroupExtension.builder()
         repGr.a = 217
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedGroupExtension(), value:repGr.build())
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), value:repGr.build())
         var netmesrep = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
         netmesrep.bb = 218
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedNestedMessageExtension(), value:netmesrep.build())
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension(), value:netmesrep.build())
         
         var msgFore = ProtobufUnittest.ForeignMessage.builder()
         msgFore.c = 219
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension(), value:msgFore.build())
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension(), value:msgFore.build())
         var impMes220 = ProtobufUnittestImport.ImportMessage.builder()
         impMes220.d = 220
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedImportMessageExtension(), value:impMes220.build())
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension(), value:impMes220.build())
         
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Bar.rawValue)
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBar.rawValue)
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBar.rawValue)
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedStringPieceExtension(), value:"224")
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedCordExtension(), value:"225")
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Bar.rawValue)
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBar.rawValue)
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBar.rawValue)
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension(), value:"224")
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension(), value:"225")
         
         // Add a second one of each field.
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedInt32Extension(), value:Int32(301))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedInt64Extension(), value:Int64(302))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedUint32Extension(), value:UInt32(303))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedUint64Extension(), value:UInt64(304))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedSint32Extension(), value:Int32(305))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedSint64Extension(), value:Int64(306))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedFixed32Extension(), value:UInt32(307))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedFixed64Extension(), value:UInt64(308))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedSfixed32Extension(), value:Int32(309))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedSfixed64Extension(), value:Int64(310))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedFloatExtension(), value:Float(311.0))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedDoubleExtension(), value:Double(312.0))
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedBoolExtension(), value:false)
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedStringExtension(), value:"315")
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedBytesExtension(), value:TestUtilities.getData("316"))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), value:Int32(301))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension(), value:Int64(302))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension(), value:UInt32(303))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension(), value:UInt64(304))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension(), value:Int32(305))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension(), value:Int64(306))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension(), value:UInt32(307))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension(), value:UInt64(308))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension(), value:Int32(309))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension(), value:Int64(310))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension(), value:Float(311.0))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension(), value:Double(312.0))
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension(), value:false)
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension(), value:"315")
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), value:TestUtilities.getData("316"))
         
         
         var repGr2 = ProtobufUnittest.RepeatedGroupExtension.builder()
         repGr2.a = 317
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedGroupExtension(), value:repGr2.build())
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), value:repGr2.build())
         var netmesrep2 = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
         netmesrep2.bb = 318
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedNestedMessageExtension(), value:netmesrep2.build())
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension(), value:netmesrep2.build())
         
         var msgFore2 = ProtobufUnittest.ForeignMessage.builder()
         msgFore2.c = 319
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension(), value:msgFore2.build())
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension(), value:msgFore2.build())
         var impMes2 = ProtobufUnittestImport.ImportMessage.builder()
         impMes2.d = 320
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedImportMessageExtension(), value:impMes2.build())
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension(), value:impMes2.build())
         
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue)
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue)
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedStringPieceExtension(), value:"324")
-        message.addExtension(ProtobufUnittest.UnittestProto.repeatedCordExtension(), value:"325")
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue)
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue)
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension(), value:"324")
+        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension(), value:"325")
         
         // -----------------------------------------------------------------
         
         
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultInt32Extension(), value:Int32(401))
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultInt64Extension(), value:Int64(402))
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultUint32Extension(), value:UInt32(403))
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultUint64Extension(), value:UInt64(404))
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultSint32Extension(), value:Int32(405))
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultSint64Extension(), value:Int64(406))
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultFixed32Extension(), value:UInt32(407))
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultFixed64Extension(), value:UInt64(408))
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultSfixed32Extension(), value:Int32(409))
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultSfixed64Extension(), value:Int64(410))
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultFloatExtension(), value:Float(411.0))
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultDoubleExtension(), value:Double(412.0))
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultBoolExtension(), value:false)
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultStringExtension(), value:"415")
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultBytesExtension(), value:TestUtilities.getData("416"))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultInt32Extension(), value:Int32(401))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultInt64Extension(), value:Int64(402))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultUint32Extension(), value:UInt32(403))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultUint64Extension(), value:UInt64(404))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultSint32Extension(), value:Int32(405))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultSint64Extension(), value:Int64(406))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultFixed32Extension(), value:UInt32(407))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultFixed64Extension(), value:UInt64(408))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultSfixed32Extension(), value:Int32(409))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultSfixed64Extension(), value:Int64(410))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultFloatExtension(), value:Float(411.0))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultDoubleExtension(), value:Double(412.0))
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultBoolExtension(), value:false)
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultStringExtension(), value:"415")
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultBytesExtension(), value:TestUtilities.getData("416"))
         
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue)
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue)
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue)
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultStringPieceExtension(), value:"424")
-        message.setExtension(ProtobufUnittest.UnittestProto.defaultCordExtension(), value:"425")
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue)
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue)
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue)
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultStringPieceExtension(), value:"424")
+        message.setExtension(ProtobufUnittest.UnittestRoot.defaultCordExtension(), value:"425")
         
     }
     class func registerAllExtensions(registry:ExtensionRegistry)
     {
-        ProtobufUnittest.UnittestProto.sharedInstance.registerAllExtensions(registry)
+        ProtobufUnittest.UnittestRoot.sharedInstance.registerAllExtensions(registry)
     }
     
     class func extensionRegistry() -> ExtensionRegistry {
@@ -1709,354 +1709,354 @@ class  TestUtilities {
     
     func assertExtensionsClear(message:ProtobufUnittest.TestAllExtensions)
     {
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalInt32Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalInt64Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalUint32Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalUint64Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalSint32Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalSint64Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalFixed32Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalFixed64Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalSfixed32Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalSfixed64Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalFloatExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalDoubleExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalBoolExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalStringExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalBytesExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalInt64Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalUint32Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalUint64Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalSint32Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalSint64Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalFixed32Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalFixed64Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalSfixed32Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalSfixed64Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalFloatExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalDoubleExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalBoolExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalStringExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalBytesExtension()), "")
         
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalGroupExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalNestedMessageExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalForeignMessageExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalImportMessageExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalNestedMessageExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalForeignMessageExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalImportMessageExtension()), "")
         
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalNestedEnumExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalForeignEnumExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalImportEnumExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalNestedEnumExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalForeignEnumExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalImportEnumExtension()), "")
         
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalStringPieceExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.optionalCordExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalStringPieceExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalCordExtension()), "")
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalInt32Extension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension()) as? Int32
         {
             XCTAssertTrue(0 == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalInt64Extension()) as? Int64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalInt64Extension()) as? Int64
         {
             XCTAssertTrue(Int64(0) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalUint32Extension()) as? UInt32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalUint32Extension()) as? UInt32
         {
             XCTAssertTrue(0 == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalUint64Extension()) as? UInt64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalUint64Extension()) as? UInt64
         {
             XCTAssertTrue(UInt64(0) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalSint32Extension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalSint32Extension()) as? Int32
         {
             XCTAssertTrue(0 == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalSint64Extension()) as? Int64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalSint64Extension()) as? Int64
         {
             XCTAssertTrue(Int64(0) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalFixed32Extension()) as? UInt32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalFixed32Extension()) as? UInt32
         {
             XCTAssertTrue(UInt32(0) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalFixed64Extension()) as? UInt64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalFixed64Extension()) as? UInt64
         {
             XCTAssertTrue(UInt64(0) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalSfixed32Extension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalSfixed32Extension()) as? Int32
         {
             XCTAssertTrue(0 == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalSfixed64Extension()) as? Int64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalSfixed64Extension()) as? Int64
         {
             XCTAssertTrue(Int64(0) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalFloatExtension()) as? Float
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalFloatExtension()) as? Float
         {
             XCTAssertTrue(Float(0) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalDoubleExtension()) as? Double
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalDoubleExtension()) as? Double
         {
             XCTAssertTrue(Double(0) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalBoolExtension()) as? Bool
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalBoolExtension()) as? Bool
         {
             XCTAssertTrue(false == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalStringExtension()) as? String
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalStringExtension()) as? String
         {
             XCTAssertTrue("" == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalBytesExtension()) as? NSData
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalBytesExtension()) as? NSData
         {
             XCTAssertTrue(NSData() == val, "")
         }
         
         // Embedded messages should also be clear.
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
         {
             XCTAssertFalse(val.hasA, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
         {
             XCTAssertFalse(val.hasBb, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
         {
             XCTAssertFalse(val.hasC, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
         {
             XCTAssertFalse(val.hasD, "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
         {
             XCTAssertTrue(val.a == 0, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
         {
             XCTAssertTrue(val.bb == 0, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
         {
             XCTAssertTrue(val.c == 0, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
         {
             XCTAssertTrue(val.d == 0, "")
         }
         
         // Enums without defaults are set to the first value in the enum.
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalNestedEnumExtension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalNestedEnumExtension()) as? Int32
         {
             XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue == val,"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalForeignEnumExtension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalForeignEnumExtension()) as? Int32
         {
             XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue == val,"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalImportEnumExtension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalImportEnumExtension()) as? Int32
         {
             XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue == val,"")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalStringPieceExtension()) as? String
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalStringPieceExtension()) as? String
         {
             XCTAssertTrue("" == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.optionalCordExtension()) as? String
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.optionalCordExtension()) as? String
         {
             XCTAssertTrue("" == val, "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(0 == val.count, "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedInt64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension()) as? [Int64]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension()) as? [UInt32]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedUint64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension()) as? [UInt64]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension()) as? [Int32]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSint64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension()) as? [Int64]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension()) as? [UInt32]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFixed64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension()) as? [UInt64]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension()) as? [Int32]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedSfixed64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension()) as? [Int64]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedFloatExtension()) as? [Float]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension()) as? [Float]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedDoubleExtension()) as? [Double]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension()) as? [Double]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBoolExtension()) as? [Bool]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension()) as? [Bool]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension()) as? [String]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedBytesExtension()) as? Array<Array<UInt8>>
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension()) as? Array<Array<UInt8>>
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedGroupExtension()) as? [GeneratedMessage]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedMessageExtension()) as? [GeneratedMessage]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension()) as? [GeneratedMessage]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(0 == val.count, "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignMessageExtension()) as? [GeneratedMessage]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension()) as? [GeneratedMessage]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedNestedEnumExtension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedForeignEnumExtension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedImportEnumExtension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedStringPieceExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension()) as? [String]
         {
             XCTAssertTrue(0 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.repeatedCordExtension()) as? [String]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension()) as? [String]
         {
             XCTAssertTrue(0 == val.count, "")
         }
         
         // hasBlah() should also be NO for all default fields.
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultInt32Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultInt64Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultUint32Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultUint64Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultSint32Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultSint64Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultFixed32Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultFixed64Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultSfixed32Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultSfixed64Extension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultFloatExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultDoubleExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultBoolExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultStringExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultBytesExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultInt32Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultInt64Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultUint32Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultUint64Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultSint32Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultSint64Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultFixed32Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultFixed64Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultSfixed32Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultSfixed64Extension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultFloatExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultDoubleExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultBoolExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultStringExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultBytesExtension()), "")
         
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultNestedEnumExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultForeignEnumExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultImportEnumExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultNestedEnumExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultForeignEnumExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultImportEnumExtension()), "")
         
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultStringPieceExtension()), "")
-        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestProto.defaultCordExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultStringPieceExtension()), "")
+        XCTAssertFalse(message.hasExtension(ProtobufUnittest.UnittestRoot.defaultCordExtension()), "")
         
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultInt32Extension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultInt32Extension()) as? Int32
         {
             XCTAssertTrue(41 == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultInt64Extension()) as? Int64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultInt64Extension()) as? Int64
         {
             XCTAssertTrue(Int64(42) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultUint32Extension()) as? UInt32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultUint32Extension()) as? UInt32
         {
             XCTAssertTrue(43 == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultUint64Extension()) as? UInt64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultUint64Extension()) as? UInt64
         {
             XCTAssertTrue(UInt64(44) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultSint32Extension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultSint32Extension()) as? Int32
         {
             XCTAssertTrue(-45 == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultSint64Extension()) as? Int64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultSint64Extension()) as? Int64
         {
             XCTAssertTrue(Int64(46) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultFixed32Extension()) as? UInt32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultFixed32Extension()) as? UInt32
         {
             XCTAssertTrue(UInt32(47) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultFixed64Extension()) as? UInt64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultFixed64Extension()) as? UInt64
         {
             XCTAssertTrue(UInt64(48) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultSfixed32Extension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultSfixed32Extension()) as? Int32
         {
             XCTAssertTrue(49 == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultSfixed64Extension()) as? Int64
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultSfixed64Extension()) as? Int64
         {
             XCTAssertTrue(Int64(-50) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultFloatExtension()) as? Float
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultFloatExtension()) as? Float
         {
             XCTAssertTrue(Float(51.5) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultDoubleExtension()) as? Double
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultDoubleExtension()) as? Double
         {
             XCTAssertTrue(Double(52e3) == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultBoolExtension()) as? Bool
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultBoolExtension()) as? Bool
         {
             XCTAssertTrue(true == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultStringExtension()) as? String
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultStringExtension()) as? String
         {
             XCTAssertTrue("hello" == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultBytesExtension()) as? NSData
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultBytesExtension()) as? NSData
         {
             XCTAssertTrue(TestUtilities.getData("world") == val, "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultNestedEnumExtension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultNestedEnumExtension()) as? Int32
         {
             XCTAssertTrue(ProtobufUnittest.TestAllTypes.NestedEnum.Bar.rawValue == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultForeignEnumExtension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultForeignEnumExtension()) as? Int32
         {
             XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBar.rawValue == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultImportEnumExtension()) as? Int32
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultImportEnumExtension()) as? Int32
         {
             XCTAssertTrue(ProtobufUnittestImport.ImportEnum.ImportBar.rawValue == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultStringPieceExtension()) as? String
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultStringPieceExtension()) as? String
         {
             XCTAssertTrue("abc" == val, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.defaultCordExtension()) as? String
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.defaultCordExtension()) as? String
         {
             XCTAssertTrue("123" == val, "")
         }
@@ -2154,212 +2154,212 @@ class  TestUtilities {
     
     class func setPackedExtensions(message:ProtobufUnittest.TestPackedExtensionsBuilder)
     {
-       message.addExtension(ProtobufUnittest.UnittestProto.packedInt32Extension(), value:Int32(601))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedInt64Extension(), value:Int64(602))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedUint32Extension(), value:UInt32(603))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedUint64Extension(), value:UInt64(604))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedSint32Extension(), value:Int32(605))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedSint64Extension(), value:Int64(606))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedFixed32Extension(), value:UInt32(607))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedFixed64Extension(), value:UInt64(608))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedSfixed32Extension(), value:Int32(609))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedSfixed64Extension(), value:Int64(610))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedFloatExtension(), value:Float(611.0))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedDoubleExtension(),  value:Double(612.0))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedBoolExtension(), value:true)
-       message.addExtension(ProtobufUnittest.UnittestProto.packedEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBar.rawValue)
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedInt32Extension(), value:Int32(601))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedInt64Extension(), value:Int64(602))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedUint32Extension(), value:UInt32(603))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedUint64Extension(), value:UInt64(604))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedSint32Extension(), value:Int32(605))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedSint64Extension(), value:Int64(606))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedFixed32Extension(), value:UInt32(607))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedFixed64Extension(), value:UInt64(608))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedSfixed32Extension(), value:Int32(609))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedSfixed64Extension(), value:Int64(610))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedFloatExtension(), value:Float(611.0))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedDoubleExtension(),  value:Double(612.0))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedBoolExtension(), value:true)
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBar.rawValue)
         // Add a second one of each field.
-       message.addExtension(ProtobufUnittest.UnittestProto.packedInt32Extension(), value:Int32(701))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedInt64Extension(), value:Int64(702))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedUint32Extension(), value:UInt32(703))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedUint64Extension(), value:UInt64(704))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedSint32Extension(), value:Int32(705))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedSint64Extension(), value:Int64(706))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedFixed32Extension(), value:UInt32(707))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedFixed64Extension(), value:UInt64(708))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedSfixed32Extension(), value:Int32(709))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedSfixed64Extension(), value:Int64(710))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedFloatExtension(), value:Float(711.0))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedDoubleExtension(), value:Double(712.0))
-       message.addExtension(ProtobufUnittest.UnittestProto.packedBoolExtension(), value:false)
-       message.addExtension(ProtobufUnittest.UnittestProto.packedEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedInt32Extension(), value:Int32(701))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedInt64Extension(), value:Int64(702))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedUint32Extension(), value:UInt32(703))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedUint64Extension(), value:UInt64(704))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedSint32Extension(), value:Int32(705))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedSint64Extension(), value:Int64(706))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedFixed32Extension(), value:UInt32(707))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedFixed64Extension(), value:UInt64(708))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedSfixed32Extension(), value:Int32(709))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedSfixed64Extension(), value:Int64(710))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedFloatExtension(), value:Float(711.0))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedDoubleExtension(), value:Double(712.0))
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedBoolExtension(), value:false)
+       message.addExtension(ProtobufUnittest.UnittestRoot.packedEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
     }
     
     
     func assertPackedExtensionsSet(message:ProtobufUnittest.TestPackedExtensions)
     {
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedInt32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedInt64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedInt64Extension()) as? [Int64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedUint32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedUint32Extension()) as? [UInt32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedUint64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedUint64Extension()) as? [UInt64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedSint32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedSint32Extension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedSint64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedSint64Extension()) as? [Int64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedFixed32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedFixed32Extension()) as? [UInt32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedFixed64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedFixed64Extension()) as? [UInt64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedSfixed32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedSfixed32Extension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedSfixed64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedSfixed64Extension()) as? [Int64]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedFloatExtension()) as? [Float]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedFloatExtension()) as? [Float]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedDoubleExtension()) as? [Double]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedDoubleExtension()) as? [Double]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedBoolExtension()) as? [Bool]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedBoolExtension()) as? [Bool]
         {
             XCTAssertTrue(2 == val.count, "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedEnumExtension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(2 == val.count, "")
         }
         
         ///
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedInt32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(601 == val[0], "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedInt64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedInt64Extension()) as? [Int64]
         {
             XCTAssertTrue(602 == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedUint32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedUint32Extension()) as? [UInt32]
         {
             XCTAssertTrue(603 == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedUint64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedUint64Extension()) as? [UInt64]
         {
             XCTAssertTrue(604 == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedSint32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedSint32Extension()) as? [Int32]
         {
             XCTAssertTrue(605 == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedSint64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedSint64Extension()) as? [Int64]
         {
             XCTAssertTrue(606 == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedFixed32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedFixed32Extension()) as? [UInt32]
         {
             XCTAssertTrue(607 == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedFixed64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedFixed64Extension()) as? [UInt64]
         {
             XCTAssertTrue(608 == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedSfixed32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedSfixed32Extension()) as? [Int32]
         {
             XCTAssertTrue(609 == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedSfixed64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedSfixed64Extension()) as? [Int64]
         {
             XCTAssertTrue(610 == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedFloatExtension()) as? [Float]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedFloatExtension()) as? [Float]
         {
             XCTAssertTrue(611.0 == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedDoubleExtension()) as? [Double]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedDoubleExtension()) as? [Double]
         {
             XCTAssertTrue(612.0 == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedBoolExtension()) as? [Bool]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedBoolExtension()) as? [Bool]
         {
             XCTAssertTrue(true == val[0], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedEnumExtension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBar.rawValue == val[0], "")
         }
         ///
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedInt32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedInt32Extension()) as? [Int32]
         {
             XCTAssertTrue(701 == val[1], "")
         }
         
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedInt64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedInt64Extension()) as? [Int64]
         {
             XCTAssertTrue(702 == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedUint32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedUint32Extension()) as? [UInt32]
         {
             XCTAssertTrue(703 == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedUint64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedUint64Extension()) as? [UInt64]
         {
             XCTAssertTrue(704 == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedSint32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedSint32Extension()) as? [Int32]
         {
             XCTAssertTrue(705 == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedSint64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedSint64Extension()) as? [Int64]
         {
             XCTAssertTrue(706 == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedFixed32Extension()) as? [UInt32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedFixed32Extension()) as? [UInt32]
         {
             XCTAssertTrue(707 == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedFixed64Extension()) as? [UInt64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedFixed64Extension()) as? [UInt64]
         {
             XCTAssertTrue(708 == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedSfixed32Extension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedSfixed32Extension()) as? [Int32]
         {
             XCTAssertTrue(709 == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedSfixed64Extension()) as? [Int64]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedSfixed64Extension()) as? [Int64]
         {
             XCTAssertTrue(710 == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedFloatExtension()) as? [Float]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedFloatExtension()) as? [Float]
         {
             XCTAssertTrue(711.0 == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedDoubleExtension()) as? [Double]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedDoubleExtension()) as? [Double]
         {
             XCTAssertTrue(712.0 == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedBoolExtension()) as? [Bool]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedBoolExtension()) as? [Bool]
         {
             XCTAssertTrue(false == val[1], "")
         }
-        if let val = message.getExtension(ProtobufUnittest.UnittestProto.packedEnumExtension()) as? [Int32]
+        if let val = message.getExtension(ProtobufUnittest.UnittestRoot.packedEnumExtension()) as? [Int32]
         {
             XCTAssertTrue(ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue == val[1], "")
         }

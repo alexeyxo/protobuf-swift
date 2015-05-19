@@ -275,15 +275,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
 
     string FileClassName(const FileDescriptor* file) {
-        return FullName(file) + UnderscoresToCapitalizedCamelCase(FileName(file)) + "Proto";
+        return FullName(file) + UnderscoresToCapitalizedCamelCase(FileName(file)) + "Root";
     }
 
     string PackageFileName(const FileDescriptor* file) {
-        return UnderscoresToCapitalizedCamelCase(FileName(file)) + "Proto";
+        return UnderscoresToCapitalizedCamelCase(FileName(file)) + "Root";
     }
 
     string ExtensionFileClassName(const FileDescriptor* file) {
-        return FileClassPrefix(file) + UnderscoresToCapitalizedCamelCase(FileName(file)) + "Proto";
+        return FileClassPrefix(file) + UnderscoresToCapitalizedCamelCase(FileName(file)) + "Root";
     }
 
     string ToSwiftName(const string& full_name, const FileDescriptor* file) {

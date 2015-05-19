@@ -33,10 +33,10 @@ internal func == (lhs: Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra, rhs
 }
 
 internal extension Proto2PreserveUnknownEnumUnittest {
-  internal struct UnittestPreserveUnknownEnumProto {
-    internal static var sharedInstance : UnittestPreserveUnknownEnumProto {
+  internal struct UnittestPreserveUnknownEnumRoot {
+    internal static var sharedInstance : UnittestPreserveUnknownEnumRoot {
      struct Static {
-         static let instance : UnittestPreserveUnknownEnumProto = UnittestPreserveUnknownEnumProto()
+         static let instance : UnittestPreserveUnknownEnumRoot = UnittestPreserveUnknownEnumRoot()
      }
      return Static.instance
     }
@@ -224,7 +224,7 @@ internal extension Proto2PreserveUnknownEnumUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto2PreserveUnknownEnumUnittest.MyMessage {
-      return Proto2PreserveUnknownEnumUnittest.MyMessage.builder().mergeFromData(data, extensionRegistry:Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumProto.sharedInstance.extensionRegistry).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessage.builder().mergeFromData(data, extensionRegistry:Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessage {
       return Proto2PreserveUnknownEnumUnittest.MyMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -684,7 +684,7 @@ internal extension Proto2PreserveUnknownEnumUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder().mergeFromData(data, extensionRegistry:Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumProto.sharedInstance.extensionRegistry).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder().mergeFromData(data, extensionRegistry:Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
       return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

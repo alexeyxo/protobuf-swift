@@ -275,10 +275,10 @@ public func == (lhs: Google.Protobuf.SourceCodeInfo.Location, rhs: Google.Protob
 }
 
 public extension Google.Protobuf {
-  public struct DescriptorProto {
-    public static var sharedInstance : DescriptorProto {
+  public struct DescriptorRoot {
+    public static var sharedInstance : DescriptorRoot {
      struct Static {
-         static let instance : DescriptorProto = DescriptorProto()
+         static let instance : DescriptorRoot = DescriptorRoot()
      }
      return Static.instance
     }
@@ -331,7 +331,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.FileDescriptorSet {
-      return Google.Protobuf.FileDescriptorSet.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.FileDescriptorSet.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileDescriptorSet {
       return Google.Protobuf.FileDescriptorSet.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -661,7 +661,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.FileDescriptorProto {
-      return Google.Protobuf.FileDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.FileDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileDescriptorProto {
       return Google.Protobuf.FileDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1261,7 +1261,7 @@ public extension Google.Protobuf {
           return serialize_size
         }
         public class func parseFromData(data:NSData) -> Google.Protobuf.DescriptorProto.ExtensionRange {
-          return Google.Protobuf.DescriptorProto.ExtensionRange.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+          return Google.Protobuf.DescriptorProto.ExtensionRange.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
         }
         public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto.ExtensionRange {
           return Google.Protobuf.DescriptorProto.ExtensionRange.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1578,7 +1578,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.DescriptorProto {
-      return Google.Protobuf.DescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.DescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto {
       return Google.Protobuf.DescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2136,7 +2136,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.FieldDescriptorProto {
-      return Google.Protobuf.FieldDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.FieldDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldDescriptorProto {
       return Google.Protobuf.FieldDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2628,7 +2628,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.OneofDescriptorProto {
-      return Google.Protobuf.OneofDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.OneofDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.OneofDescriptorProto {
       return Google.Protobuf.OneofDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2844,7 +2844,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.EnumDescriptorProto {
-      return Google.Protobuf.EnumDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.EnumDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumDescriptorProto {
       return Google.Protobuf.EnumDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -3139,7 +3139,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.EnumValueDescriptorProto {
-      return Google.Protobuf.EnumValueDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.EnumValueDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumValueDescriptorProto {
       return Google.Protobuf.EnumValueDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -3443,7 +3443,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.ServiceDescriptorProto {
-      return Google.Protobuf.ServiceDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.ServiceDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ServiceDescriptorProto {
       return Google.Protobuf.ServiceDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -3765,7 +3765,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.MethodDescriptorProto {
-      return Google.Protobuf.MethodDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.MethodDescriptorProto.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MethodDescriptorProto {
       return Google.Protobuf.MethodDescriptorProto.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4275,7 +4275,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.FileOptions {
-      return Google.Protobuf.FileOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.FileOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileOptions {
       return Google.Protobuf.FileOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4935,7 +4935,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.MessageOptions {
-      return Google.Protobuf.MessageOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.MessageOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MessageOptions {
       return Google.Protobuf.MessageOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -5331,7 +5331,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.FieldOptions {
-      return Google.Protobuf.FieldOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.FieldOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldOptions {
       return Google.Protobuf.FieldOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -5728,7 +5728,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.EnumOptions {
-      return Google.Protobuf.EnumOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.EnumOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumOptions {
       return Google.Protobuf.EnumOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -6006,7 +6006,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.EnumValueOptions {
-      return Google.Protobuf.EnumValueOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.EnumValueOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumValueOptions {
       return Google.Protobuf.EnumValueOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -6249,7 +6249,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.ServiceOptions {
-      return Google.Protobuf.ServiceOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.ServiceOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ServiceOptions {
       return Google.Protobuf.ServiceOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -6492,7 +6492,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.MethodOptions {
-      return Google.Protobuf.MethodOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.MethodOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MethodOptions {
       return Google.Protobuf.MethodOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -6733,7 +6733,7 @@ public extension Google.Protobuf {
           return serialize_size
         }
         public class func parseFromData(data:NSData) -> Google.Protobuf.UninterpretedOption.NamePart {
-          return Google.Protobuf.UninterpretedOption.NamePart.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+          return Google.Protobuf.UninterpretedOption.NamePart.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
         }
         public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOption.NamePart {
           return Google.Protobuf.UninterpretedOption.NamePart.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -7015,7 +7015,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.UninterpretedOption {
-      return Google.Protobuf.UninterpretedOption.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.UninterpretedOption.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOption {
       return Google.Protobuf.UninterpretedOption.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -7460,7 +7460,7 @@ public extension Google.Protobuf {
           return serialize_size
         }
         public class func parseFromData(data:NSData) -> Google.Protobuf.SourceCodeInfo.Location {
-          return Google.Protobuf.SourceCodeInfo.Location.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+          return Google.Protobuf.SourceCodeInfo.Location.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
         }
         public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfo.Location {
           return Google.Protobuf.SourceCodeInfo.Location.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -7748,7 +7748,7 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.SourceCodeInfo {
-      return Google.Protobuf.SourceCodeInfo.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorProto.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.SourceCodeInfo.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfo {
       return Google.Protobuf.SourceCodeInfo.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

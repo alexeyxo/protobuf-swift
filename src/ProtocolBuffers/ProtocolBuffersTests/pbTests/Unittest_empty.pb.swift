@@ -4,10 +4,10 @@ import Foundation
 import ProtocolBuffers
 
 
-internal struct UnittestEmptyProto {
-  internal static var sharedInstance : UnittestEmptyProto {
+internal struct UnittestEmptyRoot {
+  internal static var sharedInstance : UnittestEmptyRoot {
    struct Static {
-       static let instance : UnittestEmptyProto = UnittestEmptyProto()
+       static let instance : UnittestEmptyRoot = UnittestEmptyRoot()
    }
    return Static.instance
   }

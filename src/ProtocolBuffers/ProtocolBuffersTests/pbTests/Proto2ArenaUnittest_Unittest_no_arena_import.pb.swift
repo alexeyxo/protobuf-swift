@@ -16,10 +16,10 @@ internal func == (lhs: Proto2ArenaUnittest.ImportNoArenaNestedMessage, rhs: Prot
 }
 
 internal extension Proto2ArenaUnittest {
-  internal struct UnittestNoArenaImportProto {
-    internal static var sharedInstance : UnittestNoArenaImportProto {
+  internal struct UnittestNoArenaImportRoot {
+    internal static var sharedInstance : UnittestNoArenaImportRoot {
      struct Static {
-         static let instance : UnittestNoArenaImportProto = UnittestNoArenaImportProto()
+         static let instance : UnittestNoArenaImportRoot = UnittestNoArenaImportRoot()
      }
      return Static.instance
     }
@@ -64,7 +64,7 @@ internal extension Proto2ArenaUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
-      return Proto2ArenaUnittest.ImportNoArenaNestedMessage.builder().mergeFromData(data, extensionRegistry:Proto2ArenaUnittest.UnittestNoArenaImportProto.sharedInstance.extensionRegistry).build()
+      return Proto2ArenaUnittest.ImportNoArenaNestedMessage.builder().mergeFromData(data, extensionRegistry:Proto2ArenaUnittest.UnittestNoArenaImportRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
       return Proto2ArenaUnittest.ImportNoArenaNestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

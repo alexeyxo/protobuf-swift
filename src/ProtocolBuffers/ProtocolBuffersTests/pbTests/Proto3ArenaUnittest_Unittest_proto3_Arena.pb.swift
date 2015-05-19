@@ -144,10 +144,10 @@ internal func == (lhs: Proto3ArenaUnittest.TestEmptyMessage, rhs: Proto3ArenaUni
 }
 
 internal extension Proto3ArenaUnittest {
-  internal struct UnittestProto3ArenaProto {
-    internal static var sharedInstance : UnittestProto3ArenaProto {
+  internal struct UnittestProto3ArenaRoot {
+    internal static var sharedInstance : UnittestProto3ArenaRoot {
      struct Static {
-         static let instance : UnittestProto3ArenaProto = UnittestProto3ArenaProto()
+         static let instance : UnittestProto3ArenaRoot = UnittestProto3ArenaRoot()
      }
      return Static.instance
     }
@@ -156,7 +156,7 @@ internal extension Proto3ArenaUnittest {
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
-      ProtobufUnittestImport.UnittestImportProto.sharedInstance.registerAllExtensions(extensionRegistry)
+      ProtobufUnittestImport.UnittestImportRoot.sharedInstance.registerAllExtensions(extensionRegistry)
     }
     internal func registerAllExtensions(registry:ExtensionRegistry) {
     }
@@ -212,7 +212,7 @@ internal extension Proto3ArenaUnittest {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
-          return Proto3ArenaUnittest.TestAllTypes.NestedMessage.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaProto.sharedInstance.extensionRegistry).build()
+          return Proto3ArenaUnittest.TestAllTypes.NestedMessage.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
           return Proto3ArenaUnittest.TestAllTypes.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -402,7 +402,7 @@ internal extension Proto3ArenaUnittest {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> Proto3ArenaUnittest.TestAllTypes.OptionalGroup {
-          return Proto3ArenaUnittest.TestAllTypes.OptionalGroup.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaProto.sharedInstance.extensionRegistry).build()
+          return Proto3ArenaUnittest.TestAllTypes.OptionalGroup.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto3ArenaUnittest.TestAllTypes.OptionalGroup {
           return Proto3ArenaUnittest.TestAllTypes.OptionalGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -592,7 +592,7 @@ internal extension Proto3ArenaUnittest {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> Proto3ArenaUnittest.TestAllTypes.RepeatedGroup {
-          return Proto3ArenaUnittest.TestAllTypes.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaProto.sharedInstance.extensionRegistry).build()
+          return Proto3ArenaUnittest.TestAllTypes.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto3ArenaUnittest.TestAllTypes.RepeatedGroup {
           return Proto3ArenaUnittest.TestAllTypes.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1416,7 +1416,7 @@ internal extension Proto3ArenaUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto3ArenaUnittest.TestAllTypes {
-      return Proto3ArenaUnittest.TestAllTypes.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaProto.sharedInstance.extensionRegistry).build()
+      return Proto3ArenaUnittest.TestAllTypes.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto3ArenaUnittest.TestAllTypes {
       return Proto3ArenaUnittest.TestAllTypes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -3709,7 +3709,7 @@ internal extension Proto3ArenaUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto3ArenaUnittest.TestPackedTypes {
-      return Proto3ArenaUnittest.TestPackedTypes.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaProto.sharedInstance.extensionRegistry).build()
+      return Proto3ArenaUnittest.TestPackedTypes.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto3ArenaUnittest.TestPackedTypes {
       return Proto3ArenaUnittest.TestPackedTypes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4364,7 +4364,7 @@ internal extension Proto3ArenaUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto3ArenaUnittest.NestedTestAllTypes {
-      return Proto3ArenaUnittest.NestedTestAllTypes.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaProto.sharedInstance.extensionRegistry).build()
+      return Proto3ArenaUnittest.NestedTestAllTypes.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto3ArenaUnittest.NestedTestAllTypes {
       return Proto3ArenaUnittest.NestedTestAllTypes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4619,7 +4619,7 @@ internal extension Proto3ArenaUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto3ArenaUnittest.ForeignMessage {
-      return Proto3ArenaUnittest.ForeignMessage.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaProto.sharedInstance.extensionRegistry).build()
+      return Proto3ArenaUnittest.ForeignMessage.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto3ArenaUnittest.ForeignMessage {
       return Proto3ArenaUnittest.ForeignMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -4794,7 +4794,7 @@ internal extension Proto3ArenaUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto3ArenaUnittest.TestEmptyMessage {
-      return Proto3ArenaUnittest.TestEmptyMessage.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaProto.sharedInstance.extensionRegistry).build()
+      return Proto3ArenaUnittest.TestEmptyMessage.builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto3ArenaUnittest.TestEmptyMessage {
       return Proto3ArenaUnittest.TestEmptyMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

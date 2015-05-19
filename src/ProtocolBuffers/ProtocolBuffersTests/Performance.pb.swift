@@ -78,10 +78,10 @@ public func == (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-public struct PerformanceProto {
-  public static var sharedInstance : PerformanceProto {
+public struct PerformanceRoot {
+  public static var sharedInstance : PerformanceRoot {
    struct Static {
-       static let instance : PerformanceProto = PerformanceProto()
+       static let instance : PerformanceRoot = PerformanceRoot()
    }
    return Static.instance
   }
@@ -90,7 +90,7 @@ public struct PerformanceProto {
   init() {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
-    Google.Protobuf.SwiftDescriptorProto.sharedInstance.registerAllExtensions(extensionRegistry)
+    Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
   public func registerAllExtensions(registry:ExtensionRegistry) {
   }
@@ -128,7 +128,7 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol, Hashable
     return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBUser {
-    return PBUser.builder().mergeFromData(data, extensionRegistry:PerformanceProto.sharedInstance.extensionRegistry).build()
+    return PBUser.builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBUser {
     return PBUser.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -331,7 +331,7 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol, Hashabl
     return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBGroup {
-    return PBGroup.builder().mergeFromData(data, extensionRegistry:PerformanceProto.sharedInstance.extensionRegistry).build()
+    return PBGroup.builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBGroup {
     return PBGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -531,7 +531,7 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
     return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBPerfomanceBatch {
-    return PBPerfomanceBatch.builder().mergeFromData(data, extensionRegistry:PerformanceProto.sharedInstance.extensionRegistry).build()
+    return PBPerfomanceBatch.builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBPerfomanceBatch {
     return PBPerfomanceBatch.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -768,7 +768,7 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol, Ha
     return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBPerfomance {
-    return PBPerfomance.builder().mergeFromData(data, extensionRegistry:PerformanceProto.sharedInstance.extensionRegistry).build()
+    return PBPerfomance.builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBPerfomance {
     return PBPerfomance.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1177,7 +1177,7 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, 
         return serialize_size
       }
       public class func parseFromData(data:NSData) -> PBIceCreamCone.PBMapperEntry {
-        return PBIceCreamCone.PBMapperEntry.builder().mergeFromData(data, extensionRegistry:PerformanceProto.sharedInstance.extensionRegistry).build()
+        return PBIceCreamCone.PBMapperEntry.builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
       }
       public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBIceCreamCone.PBMapperEntry {
         return PBIceCreamCone.PBMapperEntry.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1457,7 +1457,7 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, 
     return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBIceCreamCone {
-    return PBIceCreamCone.builder().mergeFromData(data, extensionRegistry:PerformanceProto.sharedInstance.extensionRegistry).build()
+    return PBIceCreamCone.builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBIceCreamCone {
     return PBIceCreamCone.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1765,7 +1765,7 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol, Ha
     return serialize_size
   }
   public class func parseFromData(data:NSData) -> PBProtoPoint {
-    return PBProtoPoint.builder().mergeFromData(data, extensionRegistry:PerformanceProto.sharedInstance.extensionRegistry).build()
+    return PBProtoPoint.builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
   }
   public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> PBProtoPoint {
     return PBProtoPoint.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
