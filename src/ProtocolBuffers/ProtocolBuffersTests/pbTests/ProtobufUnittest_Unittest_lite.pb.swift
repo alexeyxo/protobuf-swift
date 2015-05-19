@@ -282,1025 +282,1025 @@ internal func == (lhs: ProtobufUnittest.TestEmptyMessageWithExtensionsLite, rhs:
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-internal var UnittestLiteoptionalInt32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalInt32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalInt32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalInt32ExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalInt64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalInt64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalInt64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalInt64ExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalUint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalUint32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalUint32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalUint32ExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalUint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalUint64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalUint64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalUint64ExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalSint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalSint32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalSint32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalSint32ExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalSint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalSint64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalSint64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalSint64ExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalFixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalFixed32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalFixed32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalFixed32ExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalFixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalFixed64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalFixed64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalFixed64ExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalSfixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalSfixed32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalSfixed32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalSfixed32ExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalSfixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalSfixed64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalSfixed64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalSfixed64ExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalFloatExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalFloatExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalFloatExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalFloatExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalDoubleExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalDoubleExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalDoubleExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalDoubleExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalBoolExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalBoolExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalBoolExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalBoolExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalStringExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalStringExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalStringExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalStringExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalBytesExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalBytesExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalBytesExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalBytesExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalGroupExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalGroupExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalGroupExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalGroupExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalNestedMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalNestedMessageExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalNestedMessageExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalNestedMessageExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalForeignMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalForeignMessageExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalForeignMessageExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalForeignMessageExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalImportMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalImportMessageExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalImportMessageExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalImportMessageExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalNestedEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalNestedEnumExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalNestedEnumExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalNestedEnumExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalForeignEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalForeignEnumExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalForeignEnumExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalForeignEnumExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalImportEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalImportEnumExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalImportEnumExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalImportEnumExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalStringPieceExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalStringPieceExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalStringPieceExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalStringPieceExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalCordExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalCordExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalCordExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalCordExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalPublicImportMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalPublicImportMessageExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalPublicImportMessageExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalPublicImportMessageExtensionLiteStatic
    }
 }
-internal var UnittestLiteoptionalLazyMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooptionalLazyMessageExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoptionalLazyMessageExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalLazyMessageExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedInt32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedInt32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedInt32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedInt32ExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedInt64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedInt64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedInt64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedInt64ExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedUint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedUint32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedUint32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedUint32ExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedUint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedUint64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedUint64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedUint64ExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedSint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedSint32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedSint32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedSint32ExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedSint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedSint64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedSint64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedSint64ExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedFixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedFixed32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedFixed32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedFixed32ExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedFixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedFixed64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedFixed64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedFixed64ExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedSfixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedSfixed32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedSfixed32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedSfixed32ExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedSfixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedSfixed64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedSfixed64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedSfixed64ExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedFloatExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedFloatExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedFloatExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedFloatExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedDoubleExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedDoubleExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedDoubleExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedDoubleExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedBoolExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedBoolExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedBoolExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedBoolExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedStringExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedStringExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedStringExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedStringExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedBytesExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedBytesExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedBytesExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedBytesExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedGroupExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedGroupExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedGroupExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedGroupExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedNestedMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedNestedMessageExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedNestedMessageExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedNestedMessageExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedForeignMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedForeignMessageExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedForeignMessageExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedForeignMessageExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedImportMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedImportMessageExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedImportMessageExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedImportMessageExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedNestedEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedNestedEnumExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedNestedEnumExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedNestedEnumExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedForeignEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedForeignEnumExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedForeignEnumExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedForeignEnumExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedImportEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedImportEnumExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedImportEnumExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedImportEnumExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedStringPieceExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedStringPieceExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedStringPieceExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedStringPieceExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedCordExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedCordExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedCordExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedCordExtensionLiteStatic
    }
 }
-internal var UnittestLiterepeatedLazyMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtorepeatedLazyMessageExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiterepeatedLazyMessageExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedLazyMessageExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultInt32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultInt32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultInt32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultInt32ExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultInt64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultInt64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultInt64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultInt64ExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultUint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultUint32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultUint32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultUint32ExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultUint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultUint64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultUint64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultUint64ExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultSint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultSint32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultSint32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultSint32ExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultSint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultSint64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultSint64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultSint64ExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultFixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultFixed32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultFixed32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultFixed32ExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultFixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultFixed64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultFixed64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultFixed64ExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultSfixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultSfixed32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultSfixed32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultSfixed32ExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultSfixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultSfixed64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultSfixed64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultSfixed64ExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultFloatExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultFloatExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultFloatExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultFloatExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultDoubleExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultDoubleExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultDoubleExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultDoubleExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultBoolExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultBoolExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultBoolExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultBoolExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultStringExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultStringExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultStringExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultStringExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultBytesExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultBytesExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultBytesExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultBytesExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultNestedEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultNestedEnumExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultNestedEnumExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultNestedEnumExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultForeignEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultForeignEnumExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultForeignEnumExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultForeignEnumExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultImportEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultImportEnumExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultImportEnumExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultImportEnumExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultStringPieceExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultStringPieceExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultStringPieceExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultStringPieceExtensionLiteStatic
    }
 }
-internal var UnittestLitedefaultCordExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtodefaultCordExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitedefaultCordExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultCordExtensionLiteStatic
    }
 }
-internal var UnittestLiteoneofUint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooneofUint32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoneofUint32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooneofUint32ExtensionLiteStatic
    }
 }
-internal var UnittestLiteoneofNestedMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooneofNestedMessageExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoneofNestedMessageExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooneofNestedMessageExtensionLiteStatic
    }
 }
-internal var UnittestLiteoneofStringExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooneofStringExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoneofStringExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooneofStringExtensionLiteStatic
    }
 }
-internal var UnittestLiteoneofBytesExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtooneofBytesExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLiteoneofBytesExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtooneofBytesExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedInt32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedInt32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedInt32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedInt32ExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedInt64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedInt64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedInt64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedInt64ExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedUint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedUint32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedUint32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedUint32ExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedUint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedUint64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedUint64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedUint64ExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedSint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedSint32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedSint32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedSint32ExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedSint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedSint64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedSint64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedSint64ExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedFixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedFixed32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedFixed32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedFixed32ExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedFixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedFixed64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedFixed64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedFixed64ExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedSfixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedSfixed32ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedSfixed32ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedSfixed32ExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedSfixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedSfixed64ExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedSfixed64ExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedSfixed64ExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedFloatExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedFloatExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedFloatExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedFloatExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedDoubleExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedDoubleExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedDoubleExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedDoubleExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedBoolExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedBoolExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedBoolExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedBoolExtensionLiteStatic
    }
 }
-internal var UnittestLitepackedEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteProtopackedEnumExtensionLite:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.UnittestLitepackedEnumExtensionLiteStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.UnittestLiteProtopackedEnumExtensionLiteStatic
    }
 }
 internal var TestNestedExtensionLitenestedExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.TestNestedExtensionLitenestedExtensionStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.TestNestedExtensionLitenestedExtensionStatic
    }
 }
 internal var TestParsingMergeLiteoptionalExt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.TestParsingMergeLiteoptionalExtStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.TestParsingMergeLiteoptionalExtStatic
    }
 }
 internal var TestParsingMergeLiterepeatedExt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestLite.sharedInstance.TestParsingMergeLiterepeatedExtStatic
+       return ProtobufUnittest.UnittestLiteProto.sharedInstance.TestParsingMergeLiterepeatedExtStatic
    }
 }
 internal extension ProtobufUnittest {
-  internal struct UnittestLite {
-    internal static var sharedInstance : UnittestLite {
+  internal struct UnittestLiteProto {
+    internal static var sharedInstance : UnittestLiteProto {
      struct Static {
-         static let instance : UnittestLite = UnittestLite()
+         static let instance : UnittestLiteProto = UnittestLiteProto()
      }
      return Static.instance
     }
-    var UnittestLiteoptionalInt32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalInt64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalUint32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalUint64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalSint32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalSint64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalFixed32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalFixed64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalSfixed32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalSfixed64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalFloatExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalDoubleExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalBoolExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalStringExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalBytesExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalGroupExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalNestedMessageExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalForeignMessageExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalImportMessageExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalNestedEnumExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalForeignEnumExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalImportEnumExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalStringPieceExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalCordExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalPublicImportMessageExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoptionalLazyMessageExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedInt32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedInt64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedUint32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedUint64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedSint32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedSint64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedFixed32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedFixed64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedSfixed32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedSfixed64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedFloatExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedDoubleExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedBoolExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedStringExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedBytesExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedGroupExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedNestedMessageExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedForeignMessageExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedImportMessageExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedNestedEnumExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedForeignEnumExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedImportEnumExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedStringPieceExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedCordExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiterepeatedLazyMessageExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultInt32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultInt64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultUint32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultUint64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultSint32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultSint64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultFixed32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultFixed64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultSfixed32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultSfixed64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultFloatExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultDoubleExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultBoolExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultStringExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultBytesExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultNestedEnumExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultForeignEnumExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultImportEnumExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultStringPieceExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitedefaultCordExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoneofUint32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoneofNestedMessageExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoneofStringExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLiteoneofBytesExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedInt32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedInt64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedUint32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedUint64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedSint32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedSint64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedFixed32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedFixed64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedSfixed32ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedSfixed64ExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedFloatExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedDoubleExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedBoolExtensionLiteStatic:ConcreateExtensionField
-    var UnittestLitepackedEnumExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalInt32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalInt64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalUint32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalUint64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalSint32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalSint64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalFixed32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalFixed64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalSfixed32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalSfixed64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalFloatExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalDoubleExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalBoolExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalStringExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalBytesExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalGroupExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalNestedMessageExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalForeignMessageExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalImportMessageExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalNestedEnumExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalForeignEnumExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalImportEnumExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalStringPieceExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalCordExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalPublicImportMessageExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooptionalLazyMessageExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedInt32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedInt64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedUint32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedUint64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedSint32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedSint64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedFixed32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedFixed64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedSfixed32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedSfixed64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedFloatExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedDoubleExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedBoolExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedStringExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedBytesExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedGroupExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedNestedMessageExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedForeignMessageExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedImportMessageExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedNestedEnumExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedForeignEnumExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedImportEnumExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedStringPieceExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedCordExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtorepeatedLazyMessageExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultInt32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultInt64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultUint32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultUint64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultSint32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultSint64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultFixed32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultFixed64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultSfixed32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultSfixed64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultFloatExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultDoubleExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultBoolExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultStringExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultBytesExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultNestedEnumExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultForeignEnumExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultImportEnumExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultStringPieceExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtodefaultCordExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooneofUint32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooneofNestedMessageExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooneofStringExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtooneofBytesExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedInt32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedInt64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedUint32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedUint64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedSint32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedSint64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedFixed32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedFixed64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedSfixed32ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedSfixed64ExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedFloatExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedDoubleExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedBoolExtensionLiteStatic:ConcreateExtensionField
+    var UnittestLiteProtopackedEnumExtensionLiteStatic:ConcreateExtensionField
     var TestNestedExtensionLitenestedExtensionStatic:ConcreateExtensionField
     var TestParsingMergeLiteoptionalExtStatic:ConcreateExtensionField
     var TestParsingMergeLiterepeatedExtStatic:ConcreateExtensionField
     internal var extensionRegistry:ExtensionRegistry
 
     init() {
-      UnittestLiteoptionalInt32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 1, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalInt64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 2, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 3, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalUint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 4, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalSint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 5, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalSint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 6, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalFixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 7, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalFixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 8, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalSfixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 9, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalSfixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 10, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalFloatExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 11, defaultValue:Float(0), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalDoubleExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 12, defaultValue:Double(0), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 13, defaultValue:false, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 14, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 15, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalGroupExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 16, defaultValue:ProtobufUnittest.OptionalGroupExtensionLite(), messageOrGroupClass:ProtobufUnittest.OptionalGroupExtensionLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 18, defaultValue:ProtobufUnittest.TestAllTypesLite.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalForeignMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 19, defaultValue:ProtobufUnittest.ForeignMessageLite(), messageOrGroupClass:ProtobufUnittest.ForeignMessageLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalImportMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 20, defaultValue:ProtobufUnittestImport.ImportMessageLite(), messageOrGroupClass:ProtobufUnittestImport.ImportMessageLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 21, defaultValue:TestAllTypesLite.NestedEnum.Foo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 22, defaultValue:ProtobufUnittest.ForeignEnumLite.ForeignLiteFoo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 23, defaultValue:ProtobufUnittestImport.ImportEnumLite.ImportLiteFoo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalStringPieceExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 24, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalCordExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 25, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalPublicImportMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 26, defaultValue:ProtobufUnittestImport.PublicImportMessageLite(), messageOrGroupClass:ProtobufUnittestImport.PublicImportMessageLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoptionalLazyMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 27, defaultValue:ProtobufUnittest.TestAllTypesLite.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedInt32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 31, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedInt64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 32, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 33, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedUint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 34, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedSint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 35, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedSint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 36, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedFixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 37, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedFixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 38, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedSfixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 39, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedSfixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 40, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedFloatExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 41, defaultValue:Array<Float>(), messageOrGroupClass:Float.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedDoubleExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 42, defaultValue:Array<Double>(), messageOrGroupClass:Double.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 43, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 44, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 45, defaultValue:Array<NSData>(), messageOrGroupClass:NSData.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedGroupExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 46, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.RepeatedGroupExtensionLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 48, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedForeignMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 49, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.ForeignMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedImportMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 50, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittestImport.ImportMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 51, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 52, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 53, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedStringPieceExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 54, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedCordExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 55, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiterepeatedLazyMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 57, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultInt32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 61, defaultValue:Int32(41), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultInt64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 62, defaultValue:Int64(42), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 63, defaultValue:UInt32(43), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultUint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 64, defaultValue:UInt64(44), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultSint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 65, defaultValue:Int32(-45), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultSint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 66, defaultValue:Int64(46), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultFixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 67, defaultValue:UInt32(47), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultFixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 68, defaultValue:UInt64(48), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultSfixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 69, defaultValue:Int32(49), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultSfixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 70, defaultValue:Int64(-50), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultFloatExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 71, defaultValue:Float(51.5), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultDoubleExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 72, defaultValue:Double(52000), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 73, defaultValue:true, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 74, defaultValue:"hello", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 75, defaultValue:NSData(bytes:([UInt8]() + "world".utf8), length:5), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 81, defaultValue:TestAllTypesLite.NestedEnum.Bar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 82, defaultValue:ProtobufUnittest.ForeignEnumLite.ForeignLiteBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 83, defaultValue:ProtobufUnittestImport.ImportEnumLite.ImportLiteBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultStringPieceExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 84, defaultValue:"abc", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitedefaultCordExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 85, defaultValue:"123", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoneofUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 111, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoneofNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 112, defaultValue:ProtobufUnittest.TestAllTypesLite.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoneofStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 113, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteoneofBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 114, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLitepackedInt32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 90, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedInt64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 91, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 92, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedUint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 93, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedSint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 94, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedSint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 95, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedFixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 96, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedFixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 97, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedSfixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 98, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedSfixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 99, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedFloatExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 100, defaultValue:Array<Float>(), messageOrGroupClass:Float.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedDoubleExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 101, defaultValue:Array<Double>(), messageOrGroupClass:Double.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 102, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
-      UnittestLitepackedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 103, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalInt32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 1, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalInt64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 2, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 3, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalUint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 4, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalSint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 5, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalSint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 6, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalFixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 7, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalFixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 8, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalSfixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 9, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalSfixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 10, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalFloatExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 11, defaultValue:Float(0), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalDoubleExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 12, defaultValue:Double(0), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 13, defaultValue:false, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 14, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 15, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalGroupExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 16, defaultValue:ProtobufUnittest.OptionalGroupExtensionLite(), messageOrGroupClass:ProtobufUnittest.OptionalGroupExtensionLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 18, defaultValue:ProtobufUnittest.TestAllTypesLite.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalForeignMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 19, defaultValue:ProtobufUnittest.ForeignMessageLite(), messageOrGroupClass:ProtobufUnittest.ForeignMessageLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalImportMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 20, defaultValue:ProtobufUnittestImport.ImportMessageLite(), messageOrGroupClass:ProtobufUnittestImport.ImportMessageLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 21, defaultValue:TestAllTypesLite.NestedEnum.Foo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 22, defaultValue:ProtobufUnittest.ForeignEnumLite.ForeignLiteFoo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 23, defaultValue:ProtobufUnittestImport.ImportEnumLite.ImportLiteFoo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalStringPieceExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 24, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalCordExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 25, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalPublicImportMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 26, defaultValue:ProtobufUnittestImport.PublicImportMessageLite(), messageOrGroupClass:ProtobufUnittestImport.PublicImportMessageLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooptionalLazyMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 27, defaultValue:ProtobufUnittest.TestAllTypesLite.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedInt32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 31, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedInt64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 32, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 33, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedUint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 34, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedSint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 35, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedSint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 36, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedFixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 37, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedFixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 38, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedSfixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 39, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedSfixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 40, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedFloatExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 41, defaultValue:Array<Float>(), messageOrGroupClass:Float.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedDoubleExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 42, defaultValue:Array<Double>(), messageOrGroupClass:Double.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 43, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 44, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 45, defaultValue:Array<NSData>(), messageOrGroupClass:NSData.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedGroupExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 46, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.RepeatedGroupExtensionLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 48, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedForeignMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 49, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.ForeignMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedImportMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 50, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittestImport.ImportMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 51, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 52, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 53, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedStringPieceExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 54, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedCordExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 55, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtorepeatedLazyMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 57, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultInt32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 61, defaultValue:Int32(41), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultInt64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 62, defaultValue:Int64(42), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 63, defaultValue:UInt32(43), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultUint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 64, defaultValue:UInt64(44), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultSint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 65, defaultValue:Int32(-45), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultSint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 66, defaultValue:Int64(46), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultFixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 67, defaultValue:UInt32(47), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultFixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 68, defaultValue:UInt64(48), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultSfixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 69, defaultValue:Int32(49), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultSfixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 70, defaultValue:Int64(-50), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultFloatExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 71, defaultValue:Float(51.5), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultDoubleExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 72, defaultValue:Double(52000), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 73, defaultValue:true, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 74, defaultValue:"hello", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 75, defaultValue:NSData(bytes:([UInt8]() + "world".utf8), length:5), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 81, defaultValue:TestAllTypesLite.NestedEnum.Bar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 82, defaultValue:ProtobufUnittest.ForeignEnumLite.ForeignLiteBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 83, defaultValue:ProtobufUnittestImport.ImportEnumLite.ImportLiteBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultStringPieceExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 84, defaultValue:"abc", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtodefaultCordExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 85, defaultValue:"123", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooneofUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 111, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooneofNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 112, defaultValue:ProtobufUnittest.TestAllTypesLite.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooneofStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 113, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtooneofBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 114, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedInt32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 90, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedInt64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 91, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 92, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedUint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt64, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 93, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedSint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt32, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 94, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedSint64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSInt64, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 95, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedFixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed32, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 96, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedFixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFixed64, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 97, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedSfixed32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed32, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 98, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedSfixed64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeSFixed64, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 99, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedFloatExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeFloat, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 100, defaultValue:Array<Float>(), messageOrGroupClass:Float.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedDoubleExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 101, defaultValue:Array<Double>(), messageOrGroupClass:Double.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 102, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
+      UnittestLiteProtopackedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 103, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
       TestNestedExtensionLitenestedExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 12345, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       TestParsingMergeLiteoptionalExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestParsingMergeLite.self, fieldNumber: 1000, defaultValue:ProtobufUnittest.TestAllTypesLite(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       TestParsingMergeLiterepeatedExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestParsingMergeLite.self, fieldNumber: 1001, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
-      ProtobufUnittestImport.UnittestImportLite.sharedInstance.registerAllExtensions(extensionRegistry)
+      ProtobufUnittestImport.UnittestImportLiteProto.sharedInstance.registerAllExtensions(extensionRegistry)
     }
     internal func registerAllExtensions(registry:ExtensionRegistry) {
-      registry.addExtension(UnittestLiteoptionalInt32ExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalInt64ExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalUint32ExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalUint64ExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalSint32ExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalSint64ExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalFixed32ExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalFixed64ExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalSfixed32ExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalSfixed64ExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalFloatExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalDoubleExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalBoolExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalStringExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalBytesExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalGroupExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalNestedMessageExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalForeignMessageExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalImportMessageExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalNestedEnumExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalForeignEnumExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalImportEnumExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalStringPieceExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalCordExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalPublicImportMessageExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoptionalLazyMessageExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedInt32ExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedInt64ExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedUint32ExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedUint64ExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedSint32ExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedSint64ExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedFixed32ExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedFixed64ExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedSfixed32ExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedSfixed64ExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedFloatExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedDoubleExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedBoolExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedStringExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedBytesExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedGroupExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedNestedMessageExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedForeignMessageExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedImportMessageExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedNestedEnumExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedForeignEnumExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedImportEnumExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedStringPieceExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedCordExtensionLiteStatic)
-      registry.addExtension(UnittestLiterepeatedLazyMessageExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultInt32ExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultInt64ExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultUint32ExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultUint64ExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultSint32ExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultSint64ExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultFixed32ExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultFixed64ExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultSfixed32ExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultSfixed64ExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultFloatExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultDoubleExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultBoolExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultStringExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultBytesExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultNestedEnumExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultForeignEnumExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultImportEnumExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultStringPieceExtensionLiteStatic)
-      registry.addExtension(UnittestLitedefaultCordExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoneofUint32ExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoneofNestedMessageExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoneofStringExtensionLiteStatic)
-      registry.addExtension(UnittestLiteoneofBytesExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedInt32ExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedInt64ExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedUint32ExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedUint64ExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedSint32ExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedSint64ExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedFixed32ExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedFixed64ExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedSfixed32ExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedSfixed64ExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedFloatExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedDoubleExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedBoolExtensionLiteStatic)
-      registry.addExtension(UnittestLitepackedEnumExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalInt32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalInt64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalUint32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalUint64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalSint32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalSint64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalFixed32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalFixed64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalSfixed32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalSfixed64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalFloatExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalDoubleExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalBoolExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalStringExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalBytesExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalGroupExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalNestedMessageExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalForeignMessageExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalImportMessageExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalNestedEnumExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalForeignEnumExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalImportEnumExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalStringPieceExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalCordExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalPublicImportMessageExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooptionalLazyMessageExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedInt32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedInt64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedUint32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedUint64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedSint32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedSint64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedFixed32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedFixed64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedSfixed32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedSfixed64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedFloatExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedDoubleExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedBoolExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedStringExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedBytesExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedGroupExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedNestedMessageExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedForeignMessageExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedImportMessageExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedNestedEnumExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedForeignEnumExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedImportEnumExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedStringPieceExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedCordExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtorepeatedLazyMessageExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultInt32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultInt64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultUint32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultUint64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultSint32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultSint64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultFixed32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultFixed64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultSfixed32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultSfixed64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultFloatExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultDoubleExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultBoolExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultStringExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultBytesExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultNestedEnumExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultForeignEnumExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultImportEnumExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultStringPieceExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtodefaultCordExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooneofUint32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooneofNestedMessageExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooneofStringExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtooneofBytesExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedInt32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedInt64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedUint32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedUint64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedSint32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedSint64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedFixed32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedFixed64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedSfixed32ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedSfixed64ExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedFloatExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedDoubleExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedBoolExtensionLiteStatic)
+      registry.addExtension(UnittestLiteProtopackedEnumExtensionLiteStatic)
       registry.addExtension(TestNestedExtensionLitenestedExtensionStatic)
       registry.addExtension(TestParsingMergeLiteoptionalExtStatic)
       registry.addExtension(TestParsingMergeLiterepeatedExtStatic)
     }
     internal static func optionalInt32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalInt32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalInt32ExtensionLiteStatic
     }
     internal static func optionalInt64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalInt64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalInt64ExtensionLiteStatic
     }
     internal static func optionalUint32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalUint32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalUint32ExtensionLiteStatic
     }
     internal static func optionalUint64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalUint64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalUint64ExtensionLiteStatic
     }
     internal static func optionalSint32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalSint32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalSint32ExtensionLiteStatic
     }
     internal static func optionalSint64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalSint64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalSint64ExtensionLiteStatic
     }
     internal static func optionalFixed32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalFixed32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalFixed32ExtensionLiteStatic
     }
     internal static func optionalFixed64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalFixed64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalFixed64ExtensionLiteStatic
     }
     internal static func optionalSfixed32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalSfixed32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalSfixed32ExtensionLiteStatic
     }
     internal static func optionalSfixed64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalSfixed64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalSfixed64ExtensionLiteStatic
     }
     internal static func optionalFloatExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalFloatExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalFloatExtensionLiteStatic
     }
     internal static func optionalDoubleExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalDoubleExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalDoubleExtensionLiteStatic
     }
     internal static func optionalBoolExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalBoolExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalBoolExtensionLiteStatic
     }
     internal static func optionalStringExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalStringExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalStringExtensionLiteStatic
     }
     internal static func optionalBytesExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalBytesExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalBytesExtensionLiteStatic
     }
     internal static func optionalGroupExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalGroupExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalGroupExtensionLiteStatic
     }
     internal static func optionalNestedMessageExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalNestedMessageExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalNestedMessageExtensionLiteStatic
     }
     internal static func optionalForeignMessageExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalForeignMessageExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalForeignMessageExtensionLiteStatic
     }
     internal static func optionalImportMessageExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalImportMessageExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalImportMessageExtensionLiteStatic
     }
     internal static func optionalNestedEnumExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalNestedEnumExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalNestedEnumExtensionLiteStatic
     }
     internal static func optionalForeignEnumExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalForeignEnumExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalForeignEnumExtensionLiteStatic
     }
     internal static func optionalImportEnumExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalImportEnumExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalImportEnumExtensionLiteStatic
     }
     internal static func optionalStringPieceExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalStringPieceExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalStringPieceExtensionLiteStatic
     }
     internal static func optionalCordExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalCordExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalCordExtensionLiteStatic
     }
     internal static func optionalPublicImportMessageExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalPublicImportMessageExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalPublicImportMessageExtensionLiteStatic
     }
     internal static func optionalLazyMessageExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoptionalLazyMessageExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooptionalLazyMessageExtensionLiteStatic
     }
     internal static func repeatedInt32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedInt32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedInt32ExtensionLiteStatic
     }
     internal static func repeatedInt64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedInt64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedInt64ExtensionLiteStatic
     }
     internal static func repeatedUint32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedUint32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedUint32ExtensionLiteStatic
     }
     internal static func repeatedUint64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedUint64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedUint64ExtensionLiteStatic
     }
     internal static func repeatedSint32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedSint32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedSint32ExtensionLiteStatic
     }
     internal static func repeatedSint64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedSint64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedSint64ExtensionLiteStatic
     }
     internal static func repeatedFixed32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedFixed32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedFixed32ExtensionLiteStatic
     }
     internal static func repeatedFixed64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedFixed64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedFixed64ExtensionLiteStatic
     }
     internal static func repeatedSfixed32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedSfixed32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedSfixed32ExtensionLiteStatic
     }
     internal static func repeatedSfixed64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedSfixed64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedSfixed64ExtensionLiteStatic
     }
     internal static func repeatedFloatExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedFloatExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedFloatExtensionLiteStatic
     }
     internal static func repeatedDoubleExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedDoubleExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedDoubleExtensionLiteStatic
     }
     internal static func repeatedBoolExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedBoolExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedBoolExtensionLiteStatic
     }
     internal static func repeatedStringExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedStringExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedStringExtensionLiteStatic
     }
     internal static func repeatedBytesExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedBytesExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedBytesExtensionLiteStatic
     }
     internal static func repeatedGroupExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedGroupExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedGroupExtensionLiteStatic
     }
     internal static func repeatedNestedMessageExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedNestedMessageExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedNestedMessageExtensionLiteStatic
     }
     internal static func repeatedForeignMessageExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedForeignMessageExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedForeignMessageExtensionLiteStatic
     }
     internal static func repeatedImportMessageExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedImportMessageExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedImportMessageExtensionLiteStatic
     }
     internal static func repeatedNestedEnumExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedNestedEnumExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedNestedEnumExtensionLiteStatic
     }
     internal static func repeatedForeignEnumExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedForeignEnumExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedForeignEnumExtensionLiteStatic
     }
     internal static func repeatedImportEnumExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedImportEnumExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedImportEnumExtensionLiteStatic
     }
     internal static func repeatedStringPieceExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedStringPieceExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedStringPieceExtensionLiteStatic
     }
     internal static func repeatedCordExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedCordExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedCordExtensionLiteStatic
     }
     internal static func repeatedLazyMessageExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiterepeatedLazyMessageExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtorepeatedLazyMessageExtensionLiteStatic
     }
     internal static func defaultInt32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultInt32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultInt32ExtensionLiteStatic
     }
     internal static func defaultInt64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultInt64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultInt64ExtensionLiteStatic
     }
     internal static func defaultUint32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultUint32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultUint32ExtensionLiteStatic
     }
     internal static func defaultUint64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultUint64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultUint64ExtensionLiteStatic
     }
     internal static func defaultSint32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultSint32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultSint32ExtensionLiteStatic
     }
     internal static func defaultSint64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultSint64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultSint64ExtensionLiteStatic
     }
     internal static func defaultFixed32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultFixed32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultFixed32ExtensionLiteStatic
     }
     internal static func defaultFixed64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultFixed64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultFixed64ExtensionLiteStatic
     }
     internal static func defaultSfixed32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultSfixed32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultSfixed32ExtensionLiteStatic
     }
     internal static func defaultSfixed64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultSfixed64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultSfixed64ExtensionLiteStatic
     }
     internal static func defaultFloatExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultFloatExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultFloatExtensionLiteStatic
     }
     internal static func defaultDoubleExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultDoubleExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultDoubleExtensionLiteStatic
     }
     internal static func defaultBoolExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultBoolExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultBoolExtensionLiteStatic
     }
     internal static func defaultStringExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultStringExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultStringExtensionLiteStatic
     }
     internal static func defaultBytesExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultBytesExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultBytesExtensionLiteStatic
     }
     internal static func defaultNestedEnumExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultNestedEnumExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultNestedEnumExtensionLiteStatic
     }
     internal static func defaultForeignEnumExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultForeignEnumExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultForeignEnumExtensionLiteStatic
     }
     internal static func defaultImportEnumExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultImportEnumExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultImportEnumExtensionLiteStatic
     }
     internal static func defaultStringPieceExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultStringPieceExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultStringPieceExtensionLiteStatic
     }
     internal static func defaultCordExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitedefaultCordExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtodefaultCordExtensionLiteStatic
     }
     internal static func oneofUint32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoneofUint32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooneofUint32ExtensionLiteStatic
     }
     internal static func oneofNestedMessageExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoneofNestedMessageExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooneofNestedMessageExtensionLiteStatic
     }
     internal static func oneofStringExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoneofStringExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooneofStringExtensionLiteStatic
     }
     internal static func oneofBytesExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLiteoneofBytesExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtooneofBytesExtensionLiteStatic
     }
     internal static func packedInt32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedInt32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedInt32ExtensionLiteStatic
     }
     internal static func packedInt64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedInt64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedInt64ExtensionLiteStatic
     }
     internal static func packedUint32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedUint32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedUint32ExtensionLiteStatic
     }
     internal static func packedUint64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedUint64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedUint64ExtensionLiteStatic
     }
     internal static func packedSint32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedSint32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedSint32ExtensionLiteStatic
     }
     internal static func packedSint64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedSint64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedSint64ExtensionLiteStatic
     }
     internal static func packedFixed32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedFixed32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedFixed32ExtensionLiteStatic
     }
     internal static func packedFixed64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedFixed64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedFixed64ExtensionLiteStatic
     }
     internal static func packedSfixed32ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedSfixed32ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedSfixed32ExtensionLiteStatic
     }
     internal static func packedSfixed64ExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedSfixed64ExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedSfixed64ExtensionLiteStatic
     }
     internal static func packedFloatExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedFloatExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedFloatExtensionLiteStatic
     }
     internal static func packedDoubleExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedDoubleExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedDoubleExtensionLiteStatic
     }
     internal static func packedBoolExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedBoolExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedBoolExtensionLiteStatic
     }
     internal static func packedEnumExtensionLite() -> ConcreateExtensionField {
-         return UnittestLite.sharedInstance.UnittestLitepackedEnumExtensionLiteStatic
+         return UnittestLiteProto.sharedInstance.UnittestLiteProtopackedEnumExtensionLiteStatic
     }
   }
 
@@ -1353,7 +1353,7 @@ internal extension ProtobufUnittest {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
-          return ProtobufUnittest.TestAllTypesLite.NestedMessage.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+          return ProtobufUnittest.TestAllTypesLite.NestedMessage.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
           return ProtobufUnittest.TestAllTypesLite.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1543,7 +1543,7 @@ internal extension ProtobufUnittest {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
-          return ProtobufUnittest.TestAllTypesLite.OptionalGroup.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+          return ProtobufUnittest.TestAllTypesLite.OptionalGroup.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
           return ProtobufUnittest.TestAllTypesLite.OptionalGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -1733,7 +1733,7 @@ internal extension ProtobufUnittest {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
-          return ProtobufUnittest.TestAllTypesLite.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+          return ProtobufUnittest.TestAllTypesLite.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
           return ProtobufUnittest.TestAllTypesLite.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2751,7 +2751,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestAllTypesLite {
-      return ProtobufUnittest.TestAllTypesLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestAllTypesLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestAllTypesLite {
       return ProtobufUnittest.TestAllTypesLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -5591,7 +5591,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.ForeignMessageLite {
-      return ProtobufUnittest.ForeignMessageLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.ForeignMessageLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.ForeignMessageLite {
       return ProtobufUnittest.ForeignMessageLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -6018,7 +6018,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestPackedTypesLite {
-      return ProtobufUnittest.TestPackedTypesLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestPackedTypesLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestPackedTypesLite {
       return ProtobufUnittest.TestPackedTypesLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -6658,7 +6658,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestAllExtensionsLite {
-      return ProtobufUnittest.TestAllExtensionsLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestAllExtensionsLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestAllExtensionsLite {
       return ProtobufUnittest.TestAllExtensionsLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -6810,7 +6810,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.OptionalGroupExtensionLite {
-      return ProtobufUnittest.OptionalGroupExtensionLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.OptionalGroupExtensionLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.OptionalGroupExtensionLite {
       return ProtobufUnittest.OptionalGroupExtensionLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -6994,7 +6994,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.RepeatedGroupExtensionLite {
-      return ProtobufUnittest.RepeatedGroupExtensionLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.RepeatedGroupExtensionLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.RepeatedGroupExtensionLite {
       return ProtobufUnittest.RepeatedGroupExtensionLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -7174,7 +7174,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestPackedExtensionsLite {
-      return ProtobufUnittest.TestPackedExtensionsLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestPackedExtensionsLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestPackedExtensionsLite {
       return ProtobufUnittest.TestPackedExtensionsLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -7320,7 +7320,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestNestedExtensionLite {
-      return ProtobufUnittest.TestNestedExtensionLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestNestedExtensionLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestNestedExtensionLite {
       return ProtobufUnittest.TestNestedExtensionLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -7469,7 +7469,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestDeprecatedLite {
-      return ProtobufUnittest.TestDeprecatedLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestDeprecatedLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestDeprecatedLite {
       return ProtobufUnittest.TestDeprecatedLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -7664,7 +7664,7 @@ internal extension ProtobufUnittest {
               return serialize_size
             }
             internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
-              return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+              return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
             }
             internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
               return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -7873,7 +7873,7 @@ internal extension ProtobufUnittest {
               return serialize_size
             }
             internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
-              return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+              return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
             }
             internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
               return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -8116,7 +8116,7 @@ internal extension ProtobufUnittest {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
-          return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+          return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
           return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -8510,7 +8510,7 @@ internal extension ProtobufUnittest {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
-          return ProtobufUnittest.TestParsingMergeLite.OptionalGroup.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+          return ProtobufUnittest.TestParsingMergeLite.OptionalGroup.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
           return ProtobufUnittest.TestParsingMergeLite.OptionalGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -8719,7 +8719,7 @@ internal extension ProtobufUnittest {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
-          return ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+          return ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
           return ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -8971,7 +8971,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestParsingMergeLite {
-      return ProtobufUnittest.TestParsingMergeLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestParsingMergeLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestParsingMergeLite {
       return ProtobufUnittest.TestParsingMergeLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -9341,7 +9341,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestEmptyMessageLite {
-      return ProtobufUnittest.TestEmptyMessageLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestEmptyMessageLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestEmptyMessageLite {
       return ProtobufUnittest.TestEmptyMessageLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -9486,7 +9486,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
-      return ProtobufUnittest.TestEmptyMessageWithExtensionsLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestEmptyMessageWithExtensionsLite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
       return ProtobufUnittest.TestEmptyMessageWithExtensionsLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

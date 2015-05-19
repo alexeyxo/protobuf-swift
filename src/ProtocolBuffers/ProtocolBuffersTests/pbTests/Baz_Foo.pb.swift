@@ -16,10 +16,10 @@ internal func == (lhs: Baz.Foo, rhs: Baz.Foo) -> Bool {
 }
 
 internal extension Baz {
-  internal struct Foo {
-    internal static var sharedInstance : Foo {
+  internal struct FooProto {
+    internal static var sharedInstance : FooProto {
      struct Static {
-         static let instance : Foo = Foo()
+         static let instance : FooProto = FooProto()
      }
      return Static.instance
     }
@@ -64,7 +64,7 @@ internal extension Baz {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Baz.Foo {
-      return Baz.Foo.builder().mergeFromData(data, extensionRegistry:Baz.Foo.sharedInstance.extensionRegistry).build()
+      return Baz.Foo.builder().mergeFromData(data, extensionRegistry:Baz.FooProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Baz.Foo {
       return Baz.Foo.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

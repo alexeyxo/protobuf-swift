@@ -171,8 +171,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void MapFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
-//        printer->Print(variables_,
-//                       "$name$ = input.read$capitalized_type$()\n");
+
+        printer->Print(variables_,
+                       "var subBuilder = $backward_class$.builder()\n");
+        printer->Print(variables_,
+                       "input.readMessage(subBuilder,extensionRegistry:extensionRegistry)\n");
+        printer->Print(variables_,
+                       "let buildOf$capitalized_name$ = subBuilder.buildPartial()\n"
+                       "$name$[buildOf$capitalized_name$.key] = buildOf$capitalized_name$.value\n");
     }
     
     void MapFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
@@ -190,7 +196,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "if has$capitalized_name$ {\n"
                        "    for (key$capitalized_name$, value$capitalized_name$) in $name$ {\n"
                        "        var valueOf$capitalized_name$ = $backward_class$.builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
-                       "        output.computeMessage($number$, value:valueOf$capitalized_name$)\n"
+                       "        serialize_size += valueOf$capitalized_name$.computeMessageSize($number$)\n"
                        "    }\n"
                        "}\n");
     }
@@ -211,7 +217,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MapFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
             printer->Print(variables_,
                            "if has$capitalized_name$ {\n"
-                           "   hashCode = (hashCode &* 31) &+ $name$.hashValue\n"
+                           "    for (key$capitalized_name$, value$capitalized_name$) in $name$ {\n"
+                           "        hashCode = (hashCode &* 31) &+ key$capitalized_name$.hashValue\n"
+                           "        hashCode = (hashCode &* 31) &+ value$capitalized_name$.hashValue\n"
+                           "    }\n"
                            "}\n");
     }
     

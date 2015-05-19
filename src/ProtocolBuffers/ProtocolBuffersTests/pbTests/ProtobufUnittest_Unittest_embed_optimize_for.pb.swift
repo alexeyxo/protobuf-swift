@@ -17,10 +17,10 @@ internal func == (lhs: ProtobufUnittest.TestEmbedOptimizedForSize, rhs: Protobuf
 }
 
 internal extension ProtobufUnittest {
-  internal struct UnittestEmbedOptimizeFor {
-    internal static var sharedInstance : UnittestEmbedOptimizeFor {
+  internal struct UnittestEmbedOptimizeForProto {
+    internal static var sharedInstance : UnittestEmbedOptimizeForProto {
      struct Static {
-         static let instance : UnittestEmbedOptimizeFor = UnittestEmbedOptimizeFor()
+         static let instance : UnittestEmbedOptimizeForProto = UnittestEmbedOptimizeForProto()
      }
      return Static.instance
     }
@@ -29,7 +29,7 @@ internal extension ProtobufUnittest {
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
-      ProtobufUnittest.UnittestOptimizeFor.sharedInstance.registerAllExtensions(extensionRegistry)
+      ProtobufUnittest.UnittestOptimizeForProto.sharedInstance.registerAllExtensions(extensionRegistry)
     }
     internal func registerAllExtensions(registry:ExtensionRegistry) {
     }
@@ -89,7 +89,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestEmbedOptimizedForSize {
-      return ProtobufUnittest.TestEmbedOptimizedForSize.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestEmbedOptimizeFor.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestEmbedOptimizedForSize.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestEmbedOptimizeForProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestEmbedOptimizedForSize {
       return ProtobufUnittest.TestEmbedOptimizedForSize.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

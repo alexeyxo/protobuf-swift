@@ -28,10 +28,10 @@ internal func == (lhs: UnittestDropUnknownFields.FooWithExtraFields, rhs: Unitte
 }
 
 internal extension UnittestDropUnknownFields {
-  internal struct UnittestDropUnknownFields {
-    internal static var sharedInstance : UnittestDropUnknownFields {
+  internal struct UnittestDropUnknownFieldsProto {
+    internal static var sharedInstance : UnittestDropUnknownFieldsProto {
      struct Static {
-         static let instance : UnittestDropUnknownFields = UnittestDropUnknownFields()
+         static let instance : UnittestDropUnknownFieldsProto = UnittestDropUnknownFieldsProto()
      }
      return Static.instance
     }
@@ -97,7 +97,7 @@ internal extension UnittestDropUnknownFields {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> UnittestDropUnknownFields.Foo {
-      return UnittestDropUnknownFields.Foo.builder().mergeFromData(data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFields.sharedInstance.extensionRegistry).build()
+      return UnittestDropUnknownFields.Foo.builder().mergeFromData(data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> UnittestDropUnknownFields.Foo {
       return UnittestDropUnknownFields.Foo.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -352,7 +352,7 @@ internal extension UnittestDropUnknownFields {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> UnittestDropUnknownFields.FooWithExtraFields {
-      return UnittestDropUnknownFields.FooWithExtraFields.builder().mergeFromData(data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFields.sharedInstance.extensionRegistry).build()
+      return UnittestDropUnknownFields.FooWithExtraFields.builder().mergeFromData(data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> UnittestDropUnknownFields.FooWithExtraFields {
       return UnittestDropUnknownFields.FooWithExtraFields.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

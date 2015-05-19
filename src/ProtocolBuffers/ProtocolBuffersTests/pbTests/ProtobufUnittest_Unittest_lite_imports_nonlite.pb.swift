@@ -16,10 +16,10 @@ internal func == (lhs: ProtobufUnittest.TestLiteImportsNonlite, rhs: ProtobufUni
 }
 
 internal extension ProtobufUnittest {
-  internal struct UnittestLiteImportsNonlite {
-    internal static var sharedInstance : UnittestLiteImportsNonlite {
+  internal struct UnittestLiteImportsNonliteProto {
+    internal static var sharedInstance : UnittestLiteImportsNonliteProto {
      struct Static {
-         static let instance : UnittestLiteImportsNonlite = UnittestLiteImportsNonlite()
+         static let instance : UnittestLiteImportsNonliteProto = UnittestLiteImportsNonliteProto()
      }
      return Static.instance
     }
@@ -28,7 +28,7 @@ internal extension ProtobufUnittest {
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
-      ProtobufUnittest.Unittest.sharedInstance.registerAllExtensions(extensionRegistry)
+      ProtobufUnittest.UnittestProto.sharedInstance.registerAllExtensions(extensionRegistry)
     }
     internal func registerAllExtensions(registry:ExtensionRegistry) {
     }
@@ -66,7 +66,7 @@ internal extension ProtobufUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestLiteImportsNonlite {
-      return ProtobufUnittest.TestLiteImportsNonlite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteImportsNonlite.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittest.TestLiteImportsNonlite.builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteImportsNonliteProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestLiteImportsNonlite {
       return ProtobufUnittest.TestLiteImportsNonlite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

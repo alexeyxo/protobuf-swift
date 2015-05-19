@@ -92,10 +92,10 @@ internal func == (lhs: Proto2NofieldpresenceUnittest.ForeignMessage, rhs: Proto2
 }
 
 internal extension Proto2NofieldpresenceUnittest {
-  internal struct UnittestNoFieldPresence {
-    internal static var sharedInstance : UnittestNoFieldPresence {
+  internal struct UnittestNoFieldPresenceProto {
+    internal static var sharedInstance : UnittestNoFieldPresenceProto {
      struct Static {
-         static let instance : UnittestNoFieldPresence = UnittestNoFieldPresence()
+         static let instance : UnittestNoFieldPresenceProto = UnittestNoFieldPresenceProto()
      }
      return Static.instance
     }
@@ -104,7 +104,7 @@ internal extension Proto2NofieldpresenceUnittest {
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
-      ProtobufUnittest.Unittest.sharedInstance.registerAllExtensions(extensionRegistry)
+      ProtobufUnittest.UnittestProto.sharedInstance.registerAllExtensions(extensionRegistry)
     }
     internal func registerAllExtensions(registry:ExtensionRegistry) {
     }
@@ -159,7 +159,7 @@ internal extension Proto2NofieldpresenceUnittest {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresence.sharedInstance.extensionRegistry).build()
+          return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceProto.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
           return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -954,7 +954,7 @@ internal extension Proto2NofieldpresenceUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return Proto2NofieldpresenceUnittest.TestAllTypes.builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresence.sharedInstance.extensionRegistry).build()
+      return Proto2NofieldpresenceUnittest.TestAllTypes.builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestAllTypes {
       return Proto2NofieldpresenceUnittest.TestAllTypes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -2875,7 +2875,7 @@ internal extension Proto2NofieldpresenceUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return Proto2NofieldpresenceUnittest.TestProto2Required.builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresence.sharedInstance.extensionRegistry).build()
+      return Proto2NofieldpresenceUnittest.TestProto2Required.builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestProto2Required {
       return Proto2NofieldpresenceUnittest.TestProto2Required.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
@@ -3077,7 +3077,7 @@ internal extension Proto2NofieldpresenceUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return Proto2NofieldpresenceUnittest.ForeignMessage.builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresence.sharedInstance.extensionRegistry).build()
+      return Proto2NofieldpresenceUnittest.ForeignMessage.builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceProto.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.ForeignMessage {
       return Proto2NofieldpresenceUnittest.ForeignMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()

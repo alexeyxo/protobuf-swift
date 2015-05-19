@@ -1,40 +1,41 @@
 syntax = "proto3";
-// import "google/protobuf/swift-descriptor.proto";
-//
-// option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
-// option (.google.protobuf.swift_file_options).class_prefix = "PB";
-//
-// message User {
-//   optional Group group = 1;
-// }
-//
-// message Group {
-//   optional User owner = 1;
-// }
-//
-// message PerfomanceBatch {
-//   repeated Perfomance batch = 1;
-// }
-//
-// message Perfomance {
-//    required int32 ints = 1;
-//    required int64 ints64 = 2;
-//    required double doubles = 3;
-//    required float floats  = 4;
-//    optional string str  = 5;
-//    optional bytes bytes  = 6;
-//    optional string description = 7;
-// }
-//
+import "google/protobuf/swift-descriptor.proto";
+
+option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
+option (.google.protobuf.swift_file_options).class_prefix = "PB";
+
+message User {
+  Group group = 1;
+}
+
+message Group {
+  User owner = 1;
+}
+
+message PerfomanceBatch {
+  repeated Perfomance batch = 1;
+}
+
+message Perfomance {
+   int32 ints = 1;
+   int64 ints64 = 2;
+   double doubles = 3;
+   float floats  = 4;
+   string str  = 5;
+   bytes bytes  = 6;
+   string description = 7;
+}
+
 
 message IceCreamCone {
-  // enum Flavor {
-  //   CHOCOLATE = 1;
-  //   VANILLA = 2;
-  // }
-  // int32 scoops = 1;
-  // Flavor flavor = 2;
+  enum Flavor {
+    CHOCOLATE = 0;
+    VANILLA = 1;
+  }
+  int32 scoops = 1;
+  Flavor flavor = 2;
   map <int32, ProtoPoint> mapper = 3;
+  repeated ProtoPoint points = 4;
 
 }
 
