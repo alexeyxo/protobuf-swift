@@ -762,7 +762,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                  
                     const FieldDescriptor* key_descriptor = field->message_type()->FindFieldByName("key");
                     const FieldDescriptor* value_descriptor = field->message_type()->FindFieldByName("value");
-                    return "[" + MapKeyName(key_descriptor) + ":" + MapValueName(value_descriptor) + "]()";
+                    return "Dictionary<" + MapKeyName(key_descriptor) + "," + MapValueName(value_descriptor) + ">()";
                 }
                 
                 return ClassNameReturedType(field->message_type()) + "()";

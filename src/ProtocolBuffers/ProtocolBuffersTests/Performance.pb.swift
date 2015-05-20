@@ -1403,7 +1403,7 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, 
   public private(set) var flavor:PBIceCreamCone.PBFlavor = PBIceCreamCone.PBFlavor.Chocolate
   public private(set) var hasFlavor:Bool = false
   public private(set) var hasMapper:Bool = false
-  public private(set) var mapper:[Int32:PBProtoPoint] = [Int32:PBProtoPoint]()
+  public private(set) var mapper:Dictionary<Int32,PBProtoPoint> = Dictionary<Int32,PBProtoPoint>()
 
   public private(set) var points:Array<PBProtoPoint>  = Array<PBProtoPoint>()
   required public init() {
@@ -1608,7 +1608,7 @@ final public class PBIceCreamConeBuilder : GeneratedMessageBuilder {
             return builderResult.hasMapper
        }
   }
-  public var mapper:[Int32:PBProtoPoint] {
+  public var mapper:Dictionary<Int32,PBProtoPoint> {
        get {
             return builderResult.mapper
        }
@@ -1617,13 +1617,13 @@ final public class PBIceCreamConeBuilder : GeneratedMessageBuilder {
            builderResult.mapper = value
        }
   }
-  public func setMapper(value:[Int32:PBProtoPoint])-> PBIceCreamConeBuilder {
+  public func setMapper(value:Dictionary<Int32,PBProtoPoint>)-> PBIceCreamConeBuilder {
     self.mapper = value
     return self
   }
   public func clearMapper() -> PBIceCreamConeBuilder{
        builderResult.hasMapper = false
-       builderResult.mapper = [Int32:PBProtoPoint]()
+       builderResult.mapper = Dictionary<Int32,PBProtoPoint>()
        return self
   }
   public var points:Array<PBProtoPoint> {

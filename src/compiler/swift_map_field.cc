@@ -105,7 +105,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 //            (*variables)["containing_class"] = ClassNameReturedType(descriptor->containing_type());
             (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->containing_type()->file());
             (* variables)["acontrolFunc"] = GetAccessControlType(descriptor->containing_type()->file());
-            
+            (* variables)["type"] =  "Dictionary<" + MapKeyName(key_descriptor) + "," + MapValueName(value_descriptor) + ">";
+           
 //            (*variables)["tag"] = SimpleItoa(WireFormat::MakeTag(descriptor));
 //            (*variables)["tag_size"] = SimpleItoa(WireFormat::TagSize(descriptor->number(), descriptor->type()));
 
@@ -124,7 +125,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MapFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const
     {
         printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
-        printer->Print(variables_,"$acontrol$private(set) var $name$:[$keyType$:$valueType$] = $default$\n\n");
+        printer->Print(variables_,"$acontrol$private(set) var $name$:$type$ = $default$\n\n");
     }
     
     void MapFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {}
@@ -138,7 +139,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "          return builderResult.has$capitalized_name$\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$var $name$:[$keyType$:$valueType$] {\n"
+                       "$acontrol$var $name$:$type$ {\n"
                        "     get {\n"
                        "          return builderResult.$name$\n"
                        "     }\n"
@@ -147,7 +148,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:[$keyType$:$valueType$])-> $containing_class$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:$type$)-> $containing_class$Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
