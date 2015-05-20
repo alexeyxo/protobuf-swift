@@ -36,40 +36,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     namespace {
         
-        
-        // For encodings with fixed sizes, returns that size in bytes.  Otherwise
-        // returns -1.
-//        int FixedSize(FieldDescriptor::Type type) {
-//            switch (type) {
-//                case FieldDescriptor::TYPE_INT32   : return -1;
-//                case FieldDescriptor::TYPE_INT64   : return -1;
-//                case FieldDescriptor::TYPE_UINT32  : return -1;
-//                case FieldDescriptor::TYPE_UINT64  : return -1;
-//                case FieldDescriptor::TYPE_SINT32  : return -1;
-//                case FieldDescriptor::TYPE_SINT64  : return -1;
-//                case FieldDescriptor::TYPE_FIXED32 : return WireFormatLite::kFixed32Size;
-//                case FieldDescriptor::TYPE_FIXED64 : return WireFormatLite::kFixed64Size;
-//                case FieldDescriptor::TYPE_SFIXED32: return WireFormatLite::kSFixed32Size;
-//                case FieldDescriptor::TYPE_SFIXED64: return WireFormatLite::kSFixed64Size;
-//                case FieldDescriptor::TYPE_FLOAT   : return WireFormatLite::kFloatSize;
-//                case FieldDescriptor::TYPE_DOUBLE  : return WireFormatLite::kDoubleSize;
-//                    
-//                case FieldDescriptor::TYPE_BOOL    : return WireFormatLite::kBoolSize;
-//                case FieldDescriptor::TYPE_ENUM    : return -1;
-//                    
-//                case FieldDescriptor::TYPE_STRING  : return -1;
-//                case FieldDescriptor::TYPE_BYTES   : return -1;
-//                case FieldDescriptor::TYPE_GROUP   : return -1;
-//                case FieldDescriptor::TYPE_MESSAGE : return -1;
-//                    
-//                    // No default because we want the compiler to complain if any new
-//                    // types are added.
-//            }
-//            GOOGLE_LOG(FATAL) << "Can't get here.";
-//            return -1;
-//        }
-        
         void SetMapVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
+            
+            
             std::string name = UnderscoresToCamelCase(descriptor);
             
           
@@ -102,7 +71,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["default"] = DefaultValue(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());
             (*variables)["backward_class"] = ClassNameReturedType(descriptor->message_type());
-//            (*variables)["containing_class"] = ClassNameReturedType(descriptor->containing_type());
             (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->containing_type()->file());
             (* variables)["acontrolFunc"] = GetAccessControlType(descriptor->containing_type()->file());
             (* variables)["type"] =  "Dictionary<" + MapKeyName(key_descriptor) + "," + MapValueName(value_descriptor) + ">";
