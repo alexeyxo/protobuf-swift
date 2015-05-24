@@ -68,11 +68,11 @@ namespace google {
                 
                 string GetAccessControlTypeForFields(const FileDescriptor* file);
                 
-                // Gets the name of the file we're going to generate (sans the .pb.h
+                // Gets the name of the file we're going to generate (sans the .proto.swift
                 // extension).  This does not include the path to that file.
                 string FileName(const FileDescriptor* file);
-                
-                // Gets the path of the file we're going to generate (sans the .pb.h
+                string FileNameDescription(const FileDescriptor* file);
+                // Gets the path of the file we're going to generate (sans the .proto.swift
                 // extension).  The path will be dependent on the swift package
                 // declared in the proto package.
                 string FilePath(const FileDescriptor* file);

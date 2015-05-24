@@ -253,6 +253,19 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
         return FilenameToCamelCase(StripProto(basename));
     }
+    
+    string FileNameDescription(const FileDescriptor* file) {
+        string basename;
+        
+        string::size_type last_slash = file->name().find_last_of('/');
+        if (last_slash == string::npos) {
+            basename += file->name();
+        } else {
+            basename += file->name().substr(last_slash + 1);
+        }
+        
+        return basename;
+    }
 
     string FilePath(const FileDescriptor* file) {
         string path = FileName(file);
