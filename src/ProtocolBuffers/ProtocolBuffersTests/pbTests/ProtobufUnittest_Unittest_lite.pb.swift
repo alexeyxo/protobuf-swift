@@ -2029,6 +2029,34 @@ internal extension ProtobufUnittest {
     private(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessageLite!
     private(set) var hasOptionalLazyMessage:Bool = false
     private(set) var optionalLazyMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage!
+    private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
+    private(set) var repeatedInt64:Array<Int64> = Array<Int64>()
+    private(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
+    private(set) var repeatedUint64:Array<UInt64> = Array<UInt64>()
+    private(set) var repeatedSint32:Array<Int32> = Array<Int32>()
+    private(set) var repeatedSint64:Array<Int64> = Array<Int64>()
+    private(set) var repeatedFixed32:Array<UInt32> = Array<UInt32>()
+    private(set) var repeatedFixed64:Array<UInt64> = Array<UInt64>()
+    private(set) var repeatedSfixed32:Array<Int32> = Array<Int32>()
+    private(set) var repeatedSfixed64:Array<Int64> = Array<Int64>()
+    private(set) var repeatedFloat:Array<Float> = Array<Float>()
+    private(set) var repeatedDouble:Array<Double> = Array<Double>()
+    private(set) var repeatedBool:Array<Bool> = Array<Bool>()
+    private(set) var repeatedString:Array<String> = Array<String>()
+    private(set) var repeatedBytes:Array<NSData> = Array<NSData>()
+    private(set) var repeatedGroup:Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup>  = Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup>()
+    private(set) var repeatedNestedMessage:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>  = Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>()
+    private(set) var repeatedForeignMessage:Array<ProtobufUnittest.ForeignMessageLite>  = Array<ProtobufUnittest.ForeignMessageLite>()
+    private(set) var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessageLite>  = Array<ProtobufUnittestImport.ImportMessageLite>()
+    private var repeatedNestedEnumMemoizedSerializedSize:Int32 = 0
+    private(set) var repeatedNestedEnum:Array<TestAllTypesLite.NestedEnum> = Array<TestAllTypesLite.NestedEnum>()
+    private var repeatedForeignEnumMemoizedSerializedSize:Int32 = 0
+    private(set) var repeatedForeignEnum:Array<ProtobufUnittest.ForeignEnumLite> = Array<ProtobufUnittest.ForeignEnumLite>()
+    private var repeatedImportEnumMemoizedSerializedSize:Int32 = 0
+    private(set) var repeatedImportEnum:Array<ProtobufUnittestImport.ImportEnumLite> = Array<ProtobufUnittestImport.ImportEnumLite>()
+    private(set) var repeatedStringPiece:Array<String> = Array<String>()
+    private(set) var repeatedCord:Array<String> = Array<String>()
+    private(set) var repeatedLazyMessage:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>  = Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>()
     private(set) var hasDefaultInt32:Bool = false
     private(set) var defaultInt32:Int32 = Int32(41)
 
@@ -2158,34 +2186,6 @@ internal extension ProtobufUnittest {
               storageOneofField = TestAllTypesLite.OneofField.OneofBytes(newvalue)
          }
     }
-    private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
-    private(set) var repeatedInt64:Array<Int64> = Array<Int64>()
-    private(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
-    private(set) var repeatedUint64:Array<UInt64> = Array<UInt64>()
-    private(set) var repeatedSint32:Array<Int32> = Array<Int32>()
-    private(set) var repeatedSint64:Array<Int64> = Array<Int64>()
-    private(set) var repeatedFixed32:Array<UInt32> = Array<UInt32>()
-    private(set) var repeatedFixed64:Array<UInt64> = Array<UInt64>()
-    private(set) var repeatedSfixed32:Array<Int32> = Array<Int32>()
-    private(set) var repeatedSfixed64:Array<Int64> = Array<Int64>()
-    private(set) var repeatedFloat:Array<Float> = Array<Float>()
-    private(set) var repeatedDouble:Array<Double> = Array<Double>()
-    private(set) var repeatedBool:Array<Bool> = Array<Bool>()
-    private(set) var repeatedString:Array<String> = Array<String>()
-    private(set) var repeatedBytes:Array<NSData> = Array<NSData>()
-    private(set) var repeatedGroup:Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup>  = Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup>()
-    private(set) var repeatedNestedMessage:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>  = Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>()
-    private(set) var repeatedForeignMessage:Array<ProtobufUnittest.ForeignMessageLite>  = Array<ProtobufUnittest.ForeignMessageLite>()
-    private(set) var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessageLite>  = Array<ProtobufUnittestImport.ImportMessageLite>()
-    private var repeatedNestedEnumMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedNestedEnum:Array<TestAllTypesLite.NestedEnum> = Array<TestAllTypesLite.NestedEnum>()
-    private var repeatedForeignEnumMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedForeignEnum:Array<ProtobufUnittest.ForeignEnumLite> = Array<ProtobufUnittest.ForeignEnumLite>()
-    private var repeatedImportEnumMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedImportEnum:Array<ProtobufUnittestImport.ImportEnumLite> = Array<ProtobufUnittestImport.ImportEnumLite>()
-    private(set) var repeatedStringPiece:Array<String> = Array<String>()
-    private(set) var repeatedCord:Array<String> = Array<String>()
-    private(set) var repeatedLazyMessage:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>  = Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>()
     required internal init() {
          super.init()
     }
@@ -8896,16 +8896,16 @@ internal extension ProtobufUnittest {
     private(set) var requiredAllTypes:ProtobufUnittest.TestAllTypesLite!
     private(set) var hasOptionalAllTypes:Bool = false
     private(set) var optionalAllTypes:ProtobufUnittest.TestAllTypesLite!
+    private(set) var repeatedAllTypes:Array<ProtobufUnittest.TestAllTypesLite>  = Array<ProtobufUnittest.TestAllTypesLite>()
     private(set) var hasOptionalGroup:Bool = false
     private(set) var optionalGroup:ProtobufUnittest.TestParsingMergeLite.OptionalGroup!
+    private(set) var repeatedGroup:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup>  = Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup>()
     internal class func optionalExt() -> ConcreateExtensionField {
          return TestParsingMergeLiteoptionalExt
     }
     internal class func repeatedExt() -> ConcreateExtensionField {
          return TestParsingMergeLiterepeatedExt
     }
-    private(set) var repeatedAllTypes:Array<ProtobufUnittest.TestAllTypesLite>  = Array<ProtobufUnittest.TestAllTypesLite>()
-    private(set) var repeatedGroup:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup>  = Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup>()
     required internal init() {
          super.init()
     }

@@ -490,13 +490,6 @@ public extension Google.Protobuf {
     public private(set) var hasPackage:Bool = false
     public private(set) var package:String = ""
 
-    public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.FileOptions!
-    public private(set) var hasSourceCodeInfo:Bool = false
-    public private(set) var sourceCodeInfo:Google.Protobuf.SourceCodeInfo!
-    public private(set) var hasSyntax:Bool = false
-    public private(set) var syntax:String = ""
-
     public private(set) var dependency:Array<String> = Array<String>()
     public private(set) var publicDependency:Array<Int32> = Array<Int32>()
     public private(set) var weakDependency:Array<Int32> = Array<Int32>()
@@ -504,6 +497,13 @@ public extension Google.Protobuf {
     public private(set) var enumType:Array<Google.Protobuf.EnumDescriptorProto>  = Array<Google.Protobuf.EnumDescriptorProto>()
     public private(set) var service:Array<Google.Protobuf.ServiceDescriptorProto>  = Array<Google.Protobuf.ServiceDescriptorProto>()
     public private(set) var extension_:Array<Google.Protobuf.FieldDescriptorProto>  = Array<Google.Protobuf.FieldDescriptorProto>()
+    public private(set) var hasOptions:Bool = false
+    public private(set) var options:Google.Protobuf.FileOptions!
+    public private(set) var hasSourceCodeInfo:Bool = false
+    public private(set) var sourceCodeInfo:Google.Protobuf.SourceCodeInfo!
+    public private(set) var hasSyntax:Bool = false
+    public private(set) var syntax:String = ""
+
     required public init() {
          super.init()
     }
@@ -1454,14 +1454,14 @@ public extension Google.Protobuf {
     public private(set) var hasName:Bool = false
     public private(set) var name:String = ""
 
-    public private(set) var hasOptions:Bool = false
-    public private(set) var options:Google.Protobuf.MessageOptions!
     public private(set) var field:Array<Google.Protobuf.FieldDescriptorProto>  = Array<Google.Protobuf.FieldDescriptorProto>()
     public private(set) var extension_:Array<Google.Protobuf.FieldDescriptorProto>  = Array<Google.Protobuf.FieldDescriptorProto>()
     public private(set) var nestedType:Array<Google.Protobuf.DescriptorProto>  = Array<Google.Protobuf.DescriptorProto>()
     public private(set) var enumType:Array<Google.Protobuf.EnumDescriptorProto>  = Array<Google.Protobuf.EnumDescriptorProto>()
     public private(set) var extensionRange:Array<Google.Protobuf.DescriptorProto.ExtensionRange>  = Array<Google.Protobuf.DescriptorProto.ExtensionRange>()
     public private(set) var oneofDecl:Array<Google.Protobuf.OneofDescriptorProto>  = Array<Google.Protobuf.OneofDescriptorProto>()
+    public private(set) var hasOptions:Bool = false
+    public private(set) var options:Google.Protobuf.MessageOptions!
     required public init() {
          super.init()
     }
@@ -2785,9 +2785,9 @@ public extension Google.Protobuf {
     public private(set) var hasName:Bool = false
     public private(set) var name:String = ""
 
+    public private(set) var value:Array<Google.Protobuf.EnumValueDescriptorProto>  = Array<Google.Protobuf.EnumValueDescriptorProto>()
     public private(set) var hasOptions:Bool = false
     public private(set) var options:Google.Protobuf.EnumOptions!
-    public private(set) var value:Array<Google.Protobuf.EnumValueDescriptorProto>  = Array<Google.Protobuf.EnumValueDescriptorProto>()
     required public init() {
          super.init()
     }
@@ -3384,9 +3384,9 @@ public extension Google.Protobuf {
     public private(set) var hasName:Bool = false
     public private(set) var name:String = ""
 
+    public private(set) var method:Array<Google.Protobuf.MethodDescriptorProto>  = Array<Google.Protobuf.MethodDescriptorProto>()
     public private(set) var hasOptions:Bool = false
     public private(set) var options:Google.Protobuf.ServiceOptions!
-    public private(set) var method:Array<Google.Protobuf.MethodDescriptorProto>  = Array<Google.Protobuf.MethodDescriptorProto>()
     required public init() {
          super.init()
     }
@@ -6923,6 +6923,7 @@ public extension Google.Protobuf {
 
     //Nested type declaration end
 
+    public private(set) var name:Array<Google.Protobuf.UninterpretedOption.NamePart>  = Array<Google.Protobuf.UninterpretedOption.NamePart>()
     public private(set) var hasIdentifierValue:Bool = false
     public private(set) var identifierValue:String = ""
 
@@ -6941,7 +6942,6 @@ public extension Google.Protobuf {
     public private(set) var hasAggregateValue:Bool = false
     public private(set) var aggregateValue:String = ""
 
-    public private(set) var name:Array<Google.Protobuf.UninterpretedOption.NamePart>  = Array<Google.Protobuf.UninterpretedOption.NamePart>()
     required public init() {
          super.init()
     }
@@ -7383,16 +7383,16 @@ public extension Google.Protobuf {
     //Nested type declaration start
 
       final public class Location : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+        public private(set) var path:Array<Int32> = Array<Int32>()
+        private var pathMemoizedSerializedSize:Int32 = -1
+        public private(set) var span:Array<Int32> = Array<Int32>()
+        private var spanMemoizedSerializedSize:Int32 = -1
         public private(set) var hasLeadingComments:Bool = false
         public private(set) var leadingComments:String = ""
 
         public private(set) var hasTrailingComments:Bool = false
         public private(set) var trailingComments:String = ""
 
-        public private(set) var path:Array<Int32> = Array<Int32>()
-        private var pathMemoizedSerializedSize:Int32 = -1
-        public private(set) var span:Array<Int32> = Array<Int32>()
-        private var spanMemoizedSerializedSize:Int32 = -1
         required public init() {
              super.init()
         }

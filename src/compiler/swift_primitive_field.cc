@@ -147,7 +147,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     
-    void PrimitiveFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
+    void PrimitiveFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
         
         if (isOneOfField(descriptor_)) {
             printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool {\n"
@@ -282,19 +282,19 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     
-    void RepeatedPrimitiveFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
+    void RepeatedPrimitiveFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
+        printer->Print(variables_, "$acontrol$private(set) var $name$:Array<$storage_type$> = Array<$storage_type$>()\n");
+        if (descriptor_->options().packed()) {
+            printer->Print(variables_,"private var $name$MemoizedSerializedSize:Int32 = -1\n");
+        }
     }
-    
     
     void RepeatedPrimitiveFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {;
     }
     
     void RepeatedPrimitiveFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
         
-        printer->Print(variables_, "$acontrol$private(set) var $name$:Array<$storage_type$> = Array<$storage_type$>()\n");
-        if (descriptor_->options().packed()) {
-            printer->Print(variables_,"private var $name$MemoizedSerializedSize:Int32 = -1\n");
-        }
+  
     }
     
     void RepeatedPrimitiveFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {

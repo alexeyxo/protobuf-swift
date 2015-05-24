@@ -75,7 +75,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     
-    void EnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
+    void EnumFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
         if (isOneOfField(descriptor_)) {
             printer->Print(variables_,
                            "$acontrol$private(set) var has$capitalized_name$:Bool {\n"
@@ -221,17 +221,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,"$acontrol$var $name$:[$type$] = [$type$]()\n");
     }
     
-    void RepeatedEnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
+    void RepeatedEnumFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "private var $name$MemoizedSerializedSize:Int32 = 0\n");
+        printer->Print(variables_,
+                       "$acontrol$private(set) var $name$:Array<$type$> = Array<$type$>()\n");
     }
 
     void RepeatedEnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
     }
     
     void RepeatedEnumFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
-        printer->Print(variables_,
-                       "private var $name$MemoizedSerializedSize:Int32 = 0\n");
-        printer->Print(variables_,
-                       "$acontrol$private(set) var $name$:Array<$type$> = Array<$type$>()\n");
     }
     
     void RepeatedEnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {

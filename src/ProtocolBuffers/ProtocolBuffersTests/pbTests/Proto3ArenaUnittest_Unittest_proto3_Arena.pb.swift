@@ -888,6 +888,32 @@ internal extension Proto3ArenaUnittest {
     private(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage!
     private(set) var hasOptionalLazyMessage:Bool = false
     private(set) var optionalLazyMessage:Proto3ArenaUnittest.TestAllTypes.NestedMessage!
+    private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
+    private(set) var repeatedInt64:Array<Int64> = Array<Int64>()
+    private(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
+    private(set) var repeatedUint64:Array<UInt64> = Array<UInt64>()
+    private(set) var repeatedSint32:Array<Int32> = Array<Int32>()
+    private(set) var repeatedSint64:Array<Int64> = Array<Int64>()
+    private(set) var repeatedFixed32:Array<UInt32> = Array<UInt32>()
+    private(set) var repeatedFixed64:Array<UInt64> = Array<UInt64>()
+    private(set) var repeatedSfixed32:Array<Int32> = Array<Int32>()
+    private(set) var repeatedSfixed64:Array<Int64> = Array<Int64>()
+    private(set) var repeatedFloat:Array<Float> = Array<Float>()
+    private(set) var repeatedDouble:Array<Double> = Array<Double>()
+    private(set) var repeatedBool:Array<Bool> = Array<Bool>()
+    private(set) var repeatedString:Array<String> = Array<String>()
+    private(set) var repeatedBytes:Array<NSData> = Array<NSData>()
+    private(set) var repeatedGroup:Array<Proto3ArenaUnittest.TestAllTypes.RepeatedGroup>  = Array<Proto3ArenaUnittest.TestAllTypes.RepeatedGroup>()
+    private(set) var repeatedNestedMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>  = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
+    private(set) var repeatedForeignMessage:Array<Proto3ArenaUnittest.ForeignMessage>  = Array<Proto3ArenaUnittest.ForeignMessage>()
+    private(set) var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessage>  = Array<ProtobufUnittestImport.ImportMessage>()
+    private var repeatedNestedEnumMemoizedSerializedSize:Int32 = 0
+    private(set) var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> = Array<TestAllTypes.NestedEnum>()
+    private var repeatedForeignEnumMemoizedSerializedSize:Int32 = 0
+    private(set) var repeatedForeignEnum:Array<Proto3ArenaUnittest.ForeignEnum> = Array<Proto3ArenaUnittest.ForeignEnum>()
+    private(set) var repeatedStringPiece:Array<String> = Array<String>()
+    private(set) var repeatedCord:Array<String> = Array<String>()
+    private(set) var repeatedLazyMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>  = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
     private(set) var hasOneofUint32:Bool {
           get {
                if TestAllTypes.OneofField.getOneofUint32(storageOneofField) == nil {
@@ -960,32 +986,6 @@ internal extension Proto3ArenaUnittest {
               storageOneofField = TestAllTypes.OneofField.OneofBytes(newvalue)
          }
     }
-    private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
-    private(set) var repeatedInt64:Array<Int64> = Array<Int64>()
-    private(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
-    private(set) var repeatedUint64:Array<UInt64> = Array<UInt64>()
-    private(set) var repeatedSint32:Array<Int32> = Array<Int32>()
-    private(set) var repeatedSint64:Array<Int64> = Array<Int64>()
-    private(set) var repeatedFixed32:Array<UInt32> = Array<UInt32>()
-    private(set) var repeatedFixed64:Array<UInt64> = Array<UInt64>()
-    private(set) var repeatedSfixed32:Array<Int32> = Array<Int32>()
-    private(set) var repeatedSfixed64:Array<Int64> = Array<Int64>()
-    private(set) var repeatedFloat:Array<Float> = Array<Float>()
-    private(set) var repeatedDouble:Array<Double> = Array<Double>()
-    private(set) var repeatedBool:Array<Bool> = Array<Bool>()
-    private(set) var repeatedString:Array<String> = Array<String>()
-    private(set) var repeatedBytes:Array<NSData> = Array<NSData>()
-    private(set) var repeatedGroup:Array<Proto3ArenaUnittest.TestAllTypes.RepeatedGroup>  = Array<Proto3ArenaUnittest.TestAllTypes.RepeatedGroup>()
-    private(set) var repeatedNestedMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>  = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
-    private(set) var repeatedForeignMessage:Array<Proto3ArenaUnittest.ForeignMessage>  = Array<Proto3ArenaUnittest.ForeignMessage>()
-    private(set) var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessage>  = Array<ProtobufUnittestImport.ImportMessage>()
-    private var repeatedNestedEnumMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> = Array<TestAllTypes.NestedEnum>()
-    private var repeatedForeignEnumMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedForeignEnum:Array<Proto3ArenaUnittest.ForeignEnum> = Array<Proto3ArenaUnittest.ForeignEnum>()
-    private(set) var repeatedStringPiece:Array<String> = Array<String>()
-    private(set) var repeatedCord:Array<String> = Array<String>()
-    private(set) var repeatedLazyMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>  = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
     required internal init() {
          super.init()
     }

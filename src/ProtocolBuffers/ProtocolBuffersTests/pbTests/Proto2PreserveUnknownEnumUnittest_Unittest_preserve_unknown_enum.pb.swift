@@ -119,6 +119,10 @@ internal extension Proto2PreserveUnknownEnumUnittest {
     private var storageO:MyMessage.O =  MyMessage.O.OOneOfNotSet
     private(set) var e:Proto2PreserveUnknownEnumUnittest.MyEnum = Proto2PreserveUnknownEnumUnittest.MyEnum.Foo
     private(set) var hasE:Bool = false
+    private var repeatedEMemoizedSerializedSize:Int32 = 0
+    private(set) var repeatedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnum> = Array<Proto2PreserveUnknownEnumUnittest.MyEnum>()
+    private var repeatedPackedEMemoizedSerializedSize:Int32 = 0
+    private(set) var repeatedPackedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnum> = Array<Proto2PreserveUnknownEnumUnittest.MyEnum>()
     private(set) var hasOneofE1:Bool {
           get {
                if MyMessage.O.getOneofE1(storageO) == nil {
@@ -155,10 +159,6 @@ internal extension Proto2PreserveUnknownEnumUnittest {
               storageO = MyMessage.O.OneofE2(newvalue)
          }
     }
-    private var repeatedEMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnum> = Array<Proto2PreserveUnknownEnumUnittest.MyEnum>()
-    private var repeatedPackedEMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedPackedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnum> = Array<Proto2PreserveUnknownEnumUnittest.MyEnum>()
     required internal init() {
          super.init()
     }
@@ -579,6 +579,10 @@ internal extension Proto2PreserveUnknownEnumUnittest {
     private var storageO:MyMessagePlusExtra.O =  MyMessagePlusExtra.O.OOneOfNotSet
     private(set) var e:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra = Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra.EFoo
     private(set) var hasE:Bool = false
+    private var repeatedEMemoizedSerializedSize:Int32 = 0
+    private(set) var repeatedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra> = Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra>()
+    private var repeatedPackedEMemoizedSerializedSize:Int32 = 0
+    private(set) var repeatedPackedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra> = Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra>()
     private(set) var hasOneofE1:Bool {
           get {
                if MyMessagePlusExtra.O.getOneofE1(storageO) == nil {
@@ -615,10 +619,6 @@ internal extension Proto2PreserveUnknownEnumUnittest {
               storageO = MyMessagePlusExtra.O.OneofE2(newvalue)
          }
     }
-    private var repeatedEMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra> = Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra>()
-    private var repeatedPackedEMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedPackedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra> = Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra>()
     required internal init() {
          super.init()
     }

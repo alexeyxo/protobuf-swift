@@ -261,7 +261,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
-            field_generators_.get(descriptor_->field(i)).GenerateSynthesizeSource(printer);
+            field_generators_.get(descriptor_->field(i)).GenerateVariablesSource(printer);
         }
         
         
