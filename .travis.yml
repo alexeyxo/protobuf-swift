@@ -1,10 +1,11 @@
 language: objective-c
+osx_image: beta-xcode6.3
 before_install:
   - brew update
   - brew uninstall xctool
   - brew install xctool --HEAD
   - xctool -v
-  - brew install protobuf
+  - brew install --devel protobuf
 install:
   - scripts/build.sh
   - scripts/makeTests.sh
