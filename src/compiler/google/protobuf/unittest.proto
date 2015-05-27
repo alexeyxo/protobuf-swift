@@ -527,12 +527,12 @@ extend TestFieldOrderings {
 
 message TestExtremeDefaultValues {
   optional bytes escaped_bytes = 1 [default = "asdfasdfgasdfasdf"];
-  optional uint32 large_uint32 = 2 [default = 0xFFFFFFF];
-  optional uint64 large_uint64 = 3 [default = 0xFFFFFFFFFFFFFFF];
-  optional  int32 small_int32  = 4 [default = -0x7FFFFFFF];
-  optional  int64 small_int64  = 5 [default = -0x7FFFFFFFFFFFFFF];
-  optional  int32 really_small_int32 = 21 [default = -0x8000000];
-  optional  int64 really_small_int64 = 22 [default = -0x800000000000000];
+  optional uint32 large_uint32 = 2 [default = 0xFFF];
+  optional uint64 large_uint64 = 3 [default = 0xFFFFFFF];
+  optional  int32 small_int32  = 4 [default = -0x7FFF];
+  optional  int64 small_int64  = 5 [default = -0x7FFFFFF];
+  optional  int32 really_small_int32 = 21 [default = -0x80];
+  optional  int64 really_small_int64 = 22 [default = -0x80000];
 
   // The default value here is UTF-8 for "\u1234".  (We could also just type
   // the UTF-8 text directly into this text file rather than escape it, but
