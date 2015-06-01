@@ -42,6 +42,26 @@
 		3FC5190F1B1C7EB100436FA6 /* ThreadingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */; };
 		3FC519111B1C7FFA00436FA6 /* UnittestThreading.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519101B1C7FFA00436FA6 /* UnittestThreading.proto.swift */; };
 		3FC519121B1C7FFA00436FA6 /* UnittestThreading.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519101B1C7FFA00436FA6 /* UnittestThreading.proto.swift */; };
+		3FC5191E1B1C913A00436FA6 /* Google.Protobuf.Any.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519141B1C913A00436FA6 /* Google.Protobuf.Any.proto.swift */; };
+		3FC5191F1B1C913A00436FA6 /* Google.Protobuf.Any.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519141B1C913A00436FA6 /* Google.Protobuf.Any.proto.swift */; };
+		3FC519201B1C913A00436FA6 /* Google.Protobuf.Api.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519151B1C913A00436FA6 /* Google.Protobuf.Api.proto.swift */; };
+		3FC519211B1C913A00436FA6 /* Google.Protobuf.Api.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519151B1C913A00436FA6 /* Google.Protobuf.Api.proto.swift */; };
+		3FC519221B1C913A00436FA6 /* Google.Protobuf.Duration.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519161B1C913A00436FA6 /* Google.Protobuf.Duration.proto.swift */; };
+		3FC519231B1C913A00436FA6 /* Google.Protobuf.Duration.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519161B1C913A00436FA6 /* Google.Protobuf.Duration.proto.swift */; };
+		3FC519241B1C913A00436FA6 /* Google.Protobuf.Empty.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519171B1C913A00436FA6 /* Google.Protobuf.Empty.proto.swift */; };
+		3FC519251B1C913A00436FA6 /* Google.Protobuf.Empty.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519171B1C913A00436FA6 /* Google.Protobuf.Empty.proto.swift */; };
+		3FC519261B1C913A00436FA6 /* Google.Protobuf.FieldMask.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519181B1C913A00436FA6 /* Google.Protobuf.FieldMask.proto.swift */; };
+		3FC519271B1C913A00436FA6 /* Google.Protobuf.FieldMask.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519181B1C913A00436FA6 /* Google.Protobuf.FieldMask.proto.swift */; };
+		3FC519281B1C913A00436FA6 /* Google.Protobuf.SourceContext.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519191B1C913A00436FA6 /* Google.Protobuf.SourceContext.proto.swift */; };
+		3FC519291B1C913A00436FA6 /* Google.Protobuf.SourceContext.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519191B1C913A00436FA6 /* Google.Protobuf.SourceContext.proto.swift */; };
+		3FC5192A1B1C913A00436FA6 /* Google.Protobuf.Struct.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5191A1B1C913A00436FA6 /* Google.Protobuf.Struct.proto.swift */; };
+		3FC5192B1B1C913A00436FA6 /* Google.Protobuf.Struct.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5191A1B1C913A00436FA6 /* Google.Protobuf.Struct.proto.swift */; };
+		3FC5192C1B1C913A00436FA6 /* Google.Protobuf.Timestamp.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5191B1B1C913A00436FA6 /* Google.Protobuf.Timestamp.proto.swift */; };
+		3FC5192D1B1C913A00436FA6 /* Google.Protobuf.Timestamp.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5191B1B1C913A00436FA6 /* Google.Protobuf.Timestamp.proto.swift */; };
+		3FC5192E1B1C913A00436FA6 /* Google.Protobuf.Types.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5191C1B1C913A00436FA6 /* Google.Protobuf.Types.proto.swift */; };
+		3FC5192F1B1C913A00436FA6 /* Google.Protobuf.Types.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5191C1B1C913A00436FA6 /* Google.Protobuf.Types.proto.swift */; };
+		3FC519301B1C913A00436FA6 /* Google.Protobuf.Wrappers.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5191D1B1C913A00436FA6 /* Google.Protobuf.Wrappers.proto.swift */; };
+		3FC519311B1C913A00436FA6 /* Google.Protobuf.Wrappers.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5191D1B1C913A00436FA6 /* Google.Protobuf.Wrappers.proto.swift */; };
 		3FCF29671A4CD01000133274 /* AbstractMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29581A4CD00F00133274 /* AbstractMessage.swift */; };
 		3FCF29681A4CD01000133274 /* AbstractMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29581A4CD00F00133274 /* AbstractMessage.swift */; };
 		3FCF29691A4CD01000133274 /* CodedInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29591A4CD00F00133274 /* CodedInputStream.swift */; };
@@ -194,6 +214,16 @@
 		3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UnknowFieldsTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadingTest.swift; sourceTree = "<group>"; };
 		3FC519101B1C7FFA00436FA6 /* UnittestThreading.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnittestThreading.proto.swift; sourceTree = "<group>"; };
+		3FC519141B1C913A00436FA6 /* Google.Protobuf.Any.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Any.proto.swift; sourceTree = "<group>"; };
+		3FC519151B1C913A00436FA6 /* Google.Protobuf.Api.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Api.proto.swift; sourceTree = "<group>"; };
+		3FC519161B1C913A00436FA6 /* Google.Protobuf.Duration.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Duration.proto.swift; sourceTree = "<group>"; };
+		3FC519171B1C913A00436FA6 /* Google.Protobuf.Empty.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Empty.proto.swift; sourceTree = "<group>"; };
+		3FC519181B1C913A00436FA6 /* Google.Protobuf.FieldMask.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.FieldMask.proto.swift; sourceTree = "<group>"; };
+		3FC519191B1C913A00436FA6 /* Google.Protobuf.SourceContext.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.SourceContext.proto.swift; sourceTree = "<group>"; };
+		3FC5191A1B1C913A00436FA6 /* Google.Protobuf.Struct.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Struct.proto.swift; sourceTree = "<group>"; };
+		3FC5191B1B1C913A00436FA6 /* Google.Protobuf.Timestamp.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Timestamp.proto.swift; sourceTree = "<group>"; };
+		3FC5191C1B1C913A00436FA6 /* Google.Protobuf.Types.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Types.proto.swift; sourceTree = "<group>"; };
+		3FC5191D1B1C913A00436FA6 /* Google.Protobuf.Wrappers.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Wrappers.proto.swift; sourceTree = "<group>"; };
 		3FCF29581A4CD00F00133274 /* AbstractMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractMessage.swift; sourceTree = "<group>"; };
 		3FCF29591A4CD00F00133274 /* CodedInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedInputStream.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3FCF295A1A4CD00F00133274 /* CodedOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedOutputStream.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -399,9 +429,27 @@
 			path = testdata;
 			sourceTree = "<group>";
 		};
+		3FC519131B1C90CC00436FA6 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3FC519141B1C913A00436FA6 /* Google.Protobuf.Any.proto.swift */,
+				3FC519151B1C913A00436FA6 /* Google.Protobuf.Api.proto.swift */,
+				3FC519161B1C913A00436FA6 /* Google.Protobuf.Duration.proto.swift */,
+				3FC519171B1C913A00436FA6 /* Google.Protobuf.Empty.proto.swift */,
+				3FC519181B1C913A00436FA6 /* Google.Protobuf.FieldMask.proto.swift */,
+				3FC519191B1C913A00436FA6 /* Google.Protobuf.SourceContext.proto.swift */,
+				3FC5191A1B1C913A00436FA6 /* Google.Protobuf.Struct.proto.swift */,
+				3FC5191B1B1C913A00436FA6 /* Google.Protobuf.Timestamp.proto.swift */,
+				3FC5191C1B1C913A00436FA6 /* Google.Protobuf.Types.proto.swift */,
+				3FC5191D1B1C913A00436FA6 /* Google.Protobuf.Wrappers.proto.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		3FCF29571A4CD00F00133274 /* runtime-pb-swift */ = {
 			isa = PBXGroup;
 			children = (
+				3FC519131B1C90CC00436FA6 /* Utility */,
 				3FF8D3E11B121FF7008D40C3 /* Google.Protobuf.Descriptor.proto.swift */,
 				3FF8D3E21B121FF7008D40C3 /* Google.Protobuf.SwiftDescriptor.proto.swift */,
 				3FCF29581A4CD00F00133274 /* AbstractMessage.swift */,
@@ -622,17 +670,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC519211B1C913A00436FA6 /* Google.Protobuf.Api.proto.swift in Sources */,
+				3FC519251B1C913A00436FA6 /* Google.Protobuf.Empty.proto.swift in Sources */,
 				3FCF29821A4CD01000133274 /* UnknownFieldSetBuilder.swift in Sources */,
+				3FC5192B1B1C913A00436FA6 /* Google.Protobuf.Struct.proto.swift in Sources */,
 				3FCF29841A4CD01000133274 /* WireFormat.swift in Sources */,
 				3FF8D3E61B121FF7008D40C3 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */,
+				3FC5192D1B1C913A00436FA6 /* Google.Protobuf.Timestamp.proto.swift in Sources */,
+				3FC519311B1C913A00436FA6 /* Google.Protobuf.Wrappers.proto.swift in Sources */,
 				3FCF296C1A4CD01000133274 /* CodedOutputStream.swift in Sources */,
+				3FC519291B1C913A00436FA6 /* Google.Protobuf.SourceContext.proto.swift in Sources */,
 				3FCF297C1A4CD01000133274 /* RingBuffer.swift in Sources */,
+				3FC5192F1B1C913A00436FA6 /* Google.Protobuf.Types.proto.swift in Sources */,
 				3FCF29721A4CD01000133274 /* ExtendableMessage.swift in Sources */,
 				3FCF29761A4CD01000133274 /* Field.swift in Sources */,
 				3FCF29801A4CD01000133274 /* UnknownFieldSet.swift in Sources */,
 				3FCF296E1A4CD01000133274 /* ConcreateExtensionField.swift in Sources */,
+				3FC519231B1C913A00436FA6 /* Google.Protobuf.Duration.proto.swift in Sources */,
 				3FCF296A1A4CD01000133274 /* CodedInputStream.swift in Sources */,
 				3FCF29741A4CD01000133274 /* ExtensionRegistry.swift in Sources */,
+				3FC5191F1B1C913A00436FA6 /* Google.Protobuf.Any.proto.swift in Sources */,
+				3FC519271B1C913A00436FA6 /* Google.Protobuf.FieldMask.proto.swift in Sources */,
 				3FF8D3E41B121FF7008D40C3 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
 				3FCF29781A4CD01000133274 /* GeneratedMessage.swift in Sources */,
 				3FCF29681A4CD01000133274 /* AbstractMessage.swift in Sources */,
@@ -688,17 +746,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC519201B1C913A00436FA6 /* Google.Protobuf.Api.proto.swift in Sources */,
+				3FC519241B1C913A00436FA6 /* Google.Protobuf.Empty.proto.swift in Sources */,
 				3FCF29811A4CD01000133274 /* UnknownFieldSetBuilder.swift in Sources */,
+				3FC5192A1B1C913A00436FA6 /* Google.Protobuf.Struct.proto.swift in Sources */,
 				3FCF29831A4CD01000133274 /* WireFormat.swift in Sources */,
 				3FF8D3E51B121FF7008D40C3 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */,
+				3FC5192C1B1C913A00436FA6 /* Google.Protobuf.Timestamp.proto.swift in Sources */,
+				3FC519301B1C913A00436FA6 /* Google.Protobuf.Wrappers.proto.swift in Sources */,
 				3FCF296B1A4CD01000133274 /* CodedOutputStream.swift in Sources */,
+				3FC519281B1C913A00436FA6 /* Google.Protobuf.SourceContext.proto.swift in Sources */,
 				3FCF297B1A4CD01000133274 /* RingBuffer.swift in Sources */,
+				3FC5192E1B1C913A00436FA6 /* Google.Protobuf.Types.proto.swift in Sources */,
 				3FCF29711A4CD01000133274 /* ExtendableMessage.swift in Sources */,
 				3FCF29751A4CD01000133274 /* Field.swift in Sources */,
 				3FCF297F1A4CD01000133274 /* UnknownFieldSet.swift in Sources */,
 				3FCF296D1A4CD01000133274 /* ConcreateExtensionField.swift in Sources */,
+				3FC519221B1C913A00436FA6 /* Google.Protobuf.Duration.proto.swift in Sources */,
 				3FCF29691A4CD01000133274 /* CodedInputStream.swift in Sources */,
 				3FCF29731A4CD01000133274 /* ExtensionRegistry.swift in Sources */,
+				3FC5191E1B1C913A00436FA6 /* Google.Protobuf.Any.proto.swift in Sources */,
+				3FC519261B1C913A00436FA6 /* Google.Protobuf.FieldMask.proto.swift in Sources */,
 				3FF8D3E31B121FF7008D40C3 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
 				3FCF29771A4CD01000133274 /* GeneratedMessage.swift in Sources */,
 				3FCF29671A4CD01000133274 /* AbstractMessage.swift in Sources */,

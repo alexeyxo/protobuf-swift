@@ -27,40 +27,24 @@
 // THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 syntax = "proto3";
 
-package proto2_preserve_unknown_enum_unittest;
+package google.protobuf;
 
-enum MyEnum {
-  FOO = 0;
-  BAR = 1;
-  BAZ = 2;
-}
+option java_multiple_files = true;
+option java_outer_classname = "EmptyProto";
+option java_package = "com.google.protobuf";
+option objc_class_prefix = "GPB";
 
-enum MyEnumPlusExtra {
-  E_FOO = 0;
-  E_BAR = 1;
-  E_BAZ = 2;
-  E_EXTRA = 3;
-}
 
-message MyMessage {
-  MyEnum e = 1;
-  repeated MyEnum repeated_e = 2;
-  repeated MyEnum repeated_packed_e = 3 [packed=true];
-  oneof o {
-    MyEnum oneof_e_1 = 4;
-    MyEnum oneof_e_2 = 5;
-  }
-}
+// A generic empty message that you can re-use to avoid defining duplicated
+// empty messages in your APIs. A typical example is to use it as the request
+// or the response type of an API method. For instance:
+//
+//     service Foo {
+//       rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+//     }
+//
+message Empty {
 
-message MyMessagePlusExtra {
-  MyEnumPlusExtra e = 1;
-  repeated MyEnumPlusExtra repeated_e = 2;
-  repeated MyEnumPlusExtra repeated_packed_e = 3 [packed=true];
-  oneof o {
-    MyEnumPlusExtra oneof_e_1 = 4;
-    MyEnumPlusExtra oneof_e_2 = 5;
-  }
 }

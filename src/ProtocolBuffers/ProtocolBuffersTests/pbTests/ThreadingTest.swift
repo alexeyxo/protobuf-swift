@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 alexeyxo. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import ProtocolBuffers
 import XCTest
 

@@ -47,10 +47,22 @@ public func == (lhs: Google.Protobuf.DescriptorProto, rhs: Google.Protobuf.Descr
   fieldCheck = fieldCheck && (lhs.extension_ == rhs.extension_)
   fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
   fieldCheck = fieldCheck && (lhs.oneofDecl == rhs.oneofDecl)
+  fieldCheck = fieldCheck && (lhs.reservedRange == rhs.reservedRange)
+  fieldCheck = fieldCheck && (lhs.reservedName == rhs.reservedName)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
 public func == (lhs: Google.Protobuf.DescriptorProto.ExtensionRange, rhs: Google.Protobuf.DescriptorProto.ExtensionRange) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasStart == rhs.hasStart) && (!lhs.hasStart || lhs.start == rhs.start)
+  fieldCheck = fieldCheck && (lhs.hasEnd == rhs.hasEnd) && (!lhs.hasEnd || lhs.end == rhs.end)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+public func == (lhs: Google.Protobuf.DescriptorProto.ReservedRange, rhs: Google.Protobuf.DescriptorProto.ReservedRange) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -150,6 +162,8 @@ public func == (lhs: Google.Protobuf.FileOptions, rhs: Google.Protobuf.FileOptio
   fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
   fieldCheck = fieldCheck && (lhs.hasJavaStringCheckUtf8 == rhs.hasJavaStringCheckUtf8) && (!lhs.hasJavaStringCheckUtf8 || lhs.javaStringCheckUtf8 == rhs.javaStringCheckUtf8)
   fieldCheck = fieldCheck && (lhs.hasCcEnableArenas == rhs.hasCcEnableArenas) && (!lhs.hasCcEnableArenas || lhs.ccEnableArenas == rhs.ccEnableArenas)
+  fieldCheck = fieldCheck && (lhs.hasObjcClassPrefix == rhs.hasObjcClassPrefix) && (!lhs.hasObjcClassPrefix || lhs.objcClassPrefix == rhs.objcClassPrefix)
+  fieldCheck = fieldCheck && (lhs.hasCsharpNamespace == rhs.hasCsharpNamespace) && (!lhs.hasCsharpNamespace || lhs.csharpNamespace == rhs.csharpNamespace)
   fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1000), endExclusive:Int32(536870912))
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
@@ -178,6 +192,7 @@ public func == (lhs: Google.Protobuf.FieldOptions, rhs: Google.Protobuf.FieldOpt
   fieldCheck = fieldCheck && (lhs.hasPacked == rhs.hasPacked) && (!lhs.hasPacked || lhs.packed == rhs.packed)
   fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
   fieldCheck = fieldCheck && (lhs.hasLazy == rhs.hasLazy) && (!lhs.hasLazy || lhs.lazy == rhs.lazy)
+  fieldCheck = fieldCheck && (lhs.hasJstype == rhs.hasJstype) && (!lhs.hasJstype || lhs.jstype == rhs.jstype)
   fieldCheck = fieldCheck && (lhs.hasWeak == rhs.hasWeak) && (!lhs.hasWeak || lhs.weak == rhs.weak)
   fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1000), endExclusive:Int32(536870912))
@@ -272,6 +287,7 @@ public func == (lhs: Google.Protobuf.SourceCodeInfo.Location, rhs: Google.Protob
   fieldCheck = fieldCheck && (lhs.span == rhs.span)
   fieldCheck = fieldCheck && (lhs.hasLeadingComments == rhs.hasLeadingComments) && (!lhs.hasLeadingComments || lhs.leadingComments == rhs.leadingComments)
   fieldCheck = fieldCheck && (lhs.hasTrailingComments == rhs.hasTrailingComments) && (!lhs.hasTrailingComments || lhs.trailingComments == rhs.trailingComments)
+  fieldCheck = fieldCheck && (lhs.leadingDetachedComments == rhs.leadingDetachedComments)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
@@ -1452,6 +1468,240 @@ public extension Google.Protobuf {
 
     //Nested type declaration end
 
+
+
+    //Nested type declaration start
+
+      final public class ReservedRange : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+        public private(set) var hasStart:Bool = false
+        public private(set) var start:Int32 = Int32(0)
+
+        public private(set) var hasEnd:Bool = false
+        public private(set) var end:Int32 = Int32(0)
+
+        required public init() {
+             super.init()
+        }
+        override public func isInitialized() -> Bool {
+         return true
+        }
+        override public func writeToCodedOutputStream(output:CodedOutputStream) {
+          if hasStart {
+            output.writeInt32(1, value:start)
+          }
+          if hasEnd {
+            output.writeInt32(2, value:end)
+          }
+          unknownFields.writeToCodedOutputStream(output)
+        }
+        override public func serializedSize() -> Int32 {
+          var serialize_size:Int32 = memoizedSerializedSize
+          if serialize_size != -1 {
+           return serialize_size
+          }
+
+          serialize_size = 0
+          if hasStart {
+            serialize_size += start.computeInt32Size(1)
+          }
+          if hasEnd {
+            serialize_size += end.computeInt32Size(2)
+          }
+          serialize_size += unknownFields.serializedSize()
+          memoizedSerializedSize = serialize_size
+          return serialize_size
+        }
+        public class func parseFromData(data:NSData) -> Google.Protobuf.DescriptorProto.ReservedRange {
+          return Google.Protobuf.DescriptorProto.ReservedRange.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
+        }
+        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto.ReservedRange {
+          return Google.Protobuf.DescriptorProto.ReservedRange.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        }
+        public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.DescriptorProto.ReservedRange {
+          return Google.Protobuf.DescriptorProto.ReservedRange.builder().mergeFromInputStream(input).build()
+        }
+        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.DescriptorProto.ReservedRange {
+          return Google.Protobuf.DescriptorProto.ReservedRange.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        }
+        public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.DescriptorProto.ReservedRange {
+          return Google.Protobuf.DescriptorProto.ReservedRange.builder().mergeFromCodedInputStream(input).build()
+        }
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto.ReservedRange {
+          return Google.Protobuf.DescriptorProto.ReservedRange.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        }
+        public class func builder() -> Google.Protobuf.DescriptorProto.ReservedRangeBuilder {
+          return Google.Protobuf.DescriptorProto.ReservedRange.classBuilder() as! Google.Protobuf.DescriptorProto.ReservedRangeBuilder
+        }
+        public func builder() -> Google.Protobuf.DescriptorProto.ReservedRangeBuilder {
+          return classBuilder() as! Google.Protobuf.DescriptorProto.ReservedRangeBuilder
+        }
+        public override class func classBuilder() -> MessageBuilder {
+          return Google.Protobuf.DescriptorProto.ReservedRangeBuilder()
+        }
+        public override func classBuilder() -> MessageBuilder {
+          return Google.Protobuf.DescriptorProto.ReservedRange.builder()
+        }
+        public func toBuilder() -> Google.Protobuf.DescriptorProto.ReservedRangeBuilder {
+          return Google.Protobuf.DescriptorProto.ReservedRange.builderWithPrototype(self)
+        }
+        public class func builderWithPrototype(prototype:Google.Protobuf.DescriptorProto.ReservedRange) -> Google.Protobuf.DescriptorProto.ReservedRangeBuilder {
+          return Google.Protobuf.DescriptorProto.ReservedRange.builder().mergeFrom(prototype)
+        }
+        override public func writeDescriptionTo(inout output:String, indent:String) {
+          if hasStart {
+            output += "\(indent) start: \(start) \n"
+          }
+          if hasEnd {
+            output += "\(indent) end: \(end) \n"
+          }
+          unknownFields.writeDescriptionTo(&output, indent:indent)
+        }
+        override public var hashValue:Int {
+            get {
+                var hashCode:Int = 7
+                if hasStart {
+                   hashCode = (hashCode &* 31) &+ start.hashValue
+                }
+                if hasEnd {
+                   hashCode = (hashCode &* 31) &+ end.hashValue
+                }
+                hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+                return hashCode
+            }
+        }
+
+
+        //Meta information declaration start
+
+        override public class func className() -> String {
+            return "Google.Protobuf.DescriptorProto.ReservedRange"
+        }
+        override public func className() -> String {
+            return "Google.Protobuf.DescriptorProto.ReservedRange"
+        }
+        override public func classMetaType() -> GeneratedMessage.Type {
+            return Google.Protobuf.DescriptorProto.ReservedRange.self
+        }
+        //Meta information declaration end
+
+      }
+
+      final public class ReservedRangeBuilder : GeneratedMessageBuilder {
+        private var builderResult:Google.Protobuf.DescriptorProto.ReservedRange
+
+        required override public init () {
+           builderResult = Google.Protobuf.DescriptorProto.ReservedRange()
+           super.init()
+        }
+        public var hasStart:Bool {
+             get {
+                  return builderResult.hasStart
+             }
+        }
+        public var start:Int32 {
+             get {
+                  return builderResult.start
+             }
+             set (value) {
+                 builderResult.hasStart = true
+                 builderResult.start = value
+             }
+        }
+        public func setStart(value:Int32)-> Google.Protobuf.DescriptorProto.ReservedRangeBuilder {
+          self.start = value
+          return self
+        }
+        public func clearStart() -> Google.Protobuf.DescriptorProto.ReservedRangeBuilder{
+             builderResult.hasStart = false
+             builderResult.start = Int32(0)
+             return self
+        }
+        public var hasEnd:Bool {
+             get {
+                  return builderResult.hasEnd
+             }
+        }
+        public var end:Int32 {
+             get {
+                  return builderResult.end
+             }
+             set (value) {
+                 builderResult.hasEnd = true
+                 builderResult.end = value
+             }
+        }
+        public func setEnd(value:Int32)-> Google.Protobuf.DescriptorProto.ReservedRangeBuilder {
+          self.end = value
+          return self
+        }
+        public func clearEnd() -> Google.Protobuf.DescriptorProto.ReservedRangeBuilder{
+             builderResult.hasEnd = false
+             builderResult.end = Int32(0)
+             return self
+        }
+        override public var internalGetResult:GeneratedMessage {
+             get {
+                return builderResult
+             }
+        }
+        public override func clear() -> Google.Protobuf.DescriptorProto.ReservedRangeBuilder {
+          builderResult = Google.Protobuf.DescriptorProto.ReservedRange()
+          return self
+        }
+        public override func clone() -> Google.Protobuf.DescriptorProto.ReservedRangeBuilder {
+          return Google.Protobuf.DescriptorProto.ReservedRange.builderWithPrototype(builderResult)
+        }
+        public override func build() -> Google.Protobuf.DescriptorProto.ReservedRange {
+             checkInitialized()
+             return buildPartial()
+        }
+        public func buildPartial() -> Google.Protobuf.DescriptorProto.ReservedRange {
+          var returnMe:Google.Protobuf.DescriptorProto.ReservedRange = builderResult
+          return returnMe
+        }
+        public func mergeFrom(other:Google.Protobuf.DescriptorProto.ReservedRange) -> Google.Protobuf.DescriptorProto.ReservedRangeBuilder {
+          if (other == Google.Protobuf.DescriptorProto.ReservedRange()) {
+           return self
+          }
+          if other.hasStart {
+               start = other.start
+          }
+          if other.hasEnd {
+               end = other.end
+          }
+          mergeUnknownFields(other.unknownFields)
+          return self
+        }
+        public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.DescriptorProto.ReservedRangeBuilder {
+             return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+        }
+        public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto.ReservedRangeBuilder {
+          var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          while (true) {
+            var tag = input.readTag()
+            switch tag {
+            case 0: 
+              self.unknownFields = unknownFieldsBuilder.build()
+              return self
+
+            case 8 :
+              start = input.readInt32()
+
+            case 16 :
+              end = input.readInt32()
+
+            default:
+              if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+                 unknownFields = unknownFieldsBuilder.build()
+                 return self
+              }
+            }
+          }
+        }
+      }
+
+    //Nested type declaration end
+
     public private(set) var hasName:Bool = false
     public private(set) var name:String = ""
 
@@ -1463,6 +1713,8 @@ public extension Google.Protobuf {
     public private(set) var oneofDecl:Array<Google.Protobuf.OneofDescriptorProto>  = Array<Google.Protobuf.OneofDescriptorProto>()
     public private(set) var hasOptions:Bool = false
     public private(set) var options:Google.Protobuf.MessageOptions!
+    public private(set) var reservedRange:Array<Google.Protobuf.DescriptorProto.ReservedRange>  = Array<Google.Protobuf.DescriptorProto.ReservedRange>()
+    public private(set) var reservedName:Array<String> = Array<String>()
     required public init() {
          super.init()
     }
@@ -1539,6 +1791,14 @@ public extension Google.Protobuf {
       for oneElementoneofDecl in oneofDecl {
           output.writeMessage(8, value:oneElementoneofDecl)
       }
+      for oneElementreservedRange in reservedRange {
+          output.writeMessage(9, value:oneElementreservedRange)
+      }
+      if !reservedName.isEmpty {
+        for oneValuereservedName in reservedName {
+          output.writeString(10, value:oneValuereservedName)
+        }
+      }
       unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -1574,6 +1834,15 @@ public extension Google.Protobuf {
       for oneElementoneofDecl in oneofDecl {
           serialize_size += oneElementoneofDecl.computeMessageSize(8)
       }
+      for oneElementreservedRange in reservedRange {
+          serialize_size += oneElementreservedRange.computeMessageSize(9)
+      }
+      var dataSizeReservedName:Int32 = 0
+      for oneValuereservedName in reservedName {
+          dataSizeReservedName += oneValuereservedName.computeStringSizeNoTag()
+      }
+      serialize_size += dataSizeReservedName
+      serialize_size += 1 * Int32(reservedName.count)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
@@ -1665,6 +1934,18 @@ public extension Google.Protobuf {
           output += "\(indent)}\n"
           oneofDeclElementIndex++
       }
+      var reservedRangeElementIndex:Int = 0
+      for oneElementreservedRange in reservedRange {
+          output += "\(indent) reservedRange[\(reservedRangeElementIndex)] {\n"
+          oneElementreservedRange.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += "\(indent)}\n"
+          reservedRangeElementIndex++
+      }
+      var reservedNameElementIndex:Int = 0
+      for oneValuereservedName in reservedName  {
+          output += "\(indent) reservedName[\(reservedNameElementIndex)]: \(oneValuereservedName)\n"
+          reservedNameElementIndex++
+      }
       unknownFields.writeDescriptionTo(&output, indent:indent)
     }
     override public var hashValue:Int {
@@ -1695,6 +1976,12 @@ public extension Google.Protobuf {
             }
             for oneElementoneofDecl in oneofDecl {
                 hashCode = (hashCode &* 31) &+ oneElementoneofDecl.hashValue
+            }
+            for oneElementreservedRange in reservedRange {
+                hashCode = (hashCode &* 31) &+ oneElementreservedRange.hashValue
+            }
+            for oneValuereservedName in reservedName {
+                hashCode = (hashCode &* 31) &+ oneValuereservedName.hashValue
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode
@@ -1875,6 +2162,38 @@ public extension Google.Protobuf {
       builderResult.options = nil
       return self
     }
+    public var reservedRange:Array<Google.Protobuf.DescriptorProto.ReservedRange> {
+         get {
+             return builderResult.reservedRange
+         }
+         set (value) {
+             builderResult.reservedRange = value
+         }
+    }
+    public func setReservedRange(value:Array<Google.Protobuf.DescriptorProto.ReservedRange>)-> Google.Protobuf.DescriptorProtoBuilder {
+      self.reservedRange = value
+      return self
+    }
+    public func clearReservedRange() -> Google.Protobuf.DescriptorProtoBuilder {
+      builderResult.reservedRange.removeAll(keepCapacity: false)
+      return self
+    }
+    public var reservedName:Array<String> {
+         get {
+             return builderResult.reservedName
+         }
+         set (array) {
+             builderResult.reservedName = array
+         }
+    }
+    public func setReservedName(value:Array<String>)-> Google.Protobuf.DescriptorProtoBuilder {
+      self.reservedName = value
+      return self
+    }
+    public func clearReservedName() -> Google.Protobuf.DescriptorProtoBuilder {
+       builderResult.reservedName.removeAll(keepCapacity: false)
+       return self
+    }
     override public var internalGetResult:GeneratedMessage {
          get {
             return builderResult
@@ -1922,6 +2241,12 @@ public extension Google.Protobuf {
       }
       if (other.hasOptions) {
           mergeOptions(other.options)
+      }
+      if !other.reservedRange.isEmpty  {
+         builderResult.reservedRange += other.reservedRange
+      }
+      if !other.reservedName.isEmpty {
+          builderResult.reservedName += other.reservedName
       }
       mergeUnknownFields(other.unknownFields)
       return self
@@ -1978,6 +2303,14 @@ public extension Google.Protobuf {
           var subBuilder = Google.Protobuf.OneofDescriptorProto.builder()
           input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           oneofDecl += [subBuilder.buildPartial()]
+
+        case 74 :
+          var subBuilder = Google.Protobuf.DescriptorProto.ReservedRange.builder()
+          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+          reservedRange += [subBuilder.buildPartial()]
+
+        case 82 :
+          reservedName += [input.readString()]
 
         default:
           if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
@@ -4161,6 +4494,12 @@ public extension Google.Protobuf {
     public private(set) var hasCcEnableArenas:Bool = false
     public private(set) var ccEnableArenas:Bool = false
 
+    public private(set) var hasObjcClassPrefix:Bool = false
+    public private(set) var objcClassPrefix:String = ""
+
+    public private(set) var hasCsharpNamespace:Bool = false
+    public private(set) var csharpNamespace:String = ""
+
     public private(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
     required public init() {
          super.init()
@@ -4218,6 +4557,12 @@ public extension Google.Protobuf {
       if hasCcEnableArenas {
         output.writeBool(31, value:ccEnableArenas)
       }
+      if hasObjcClassPrefix {
+        output.writeString(36, value:objcClassPrefix)
+      }
+      if hasCsharpNamespace {
+        output.writeString(37, value:csharpNamespace)
+      }
       for oneElementuninterpretedOption in uninterpretedOption {
           output.writeMessage(999, value:oneElementuninterpretedOption)
       }
@@ -4266,6 +4611,12 @@ public extension Google.Protobuf {
       }
       if hasCcEnableArenas {
         serialize_size += ccEnableArenas.computeBoolSize(31)
+      }
+      if hasObjcClassPrefix {
+        serialize_size += objcClassPrefix.computeStringSize(36)
+      }
+      if hasCsharpNamespace {
+        serialize_size += csharpNamespace.computeStringSize(37)
       }
       for oneElementuninterpretedOption in uninterpretedOption {
           serialize_size += oneElementuninterpretedOption.computeMessageSize(999)
@@ -4348,6 +4699,12 @@ public extension Google.Protobuf {
       if hasCcEnableArenas {
         output += "\(indent) ccEnableArenas: \(ccEnableArenas) \n"
       }
+      if hasObjcClassPrefix {
+        output += "\(indent) objcClassPrefix: \(objcClassPrefix) \n"
+      }
+      if hasCsharpNamespace {
+        output += "\(indent) csharpNamespace: \(csharpNamespace) \n"
+      }
       var uninterpretedOptionElementIndex:Int = 0
       for oneElementuninterpretedOption in uninterpretedOption {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -4396,6 +4753,12 @@ public extension Google.Protobuf {
             }
             if hasCcEnableArenas {
                hashCode = (hashCode &* 31) &+ ccEnableArenas.hashValue
+            }
+            if hasObjcClassPrefix {
+               hashCode = (hashCode &* 31) &+ objcClassPrefix.hashValue
+            }
+            if hasCsharpNamespace {
+               hashCode = (hashCode &* 31) &+ csharpNamespace.hashValue
             }
             for oneElementuninterpretedOption in uninterpretedOption {
                 hashCode = (hashCode &* 31) &+ oneElementuninterpretedOption.hashValue
@@ -4705,6 +5068,52 @@ public extension Google.Protobuf {
          builderResult.ccEnableArenas = false
          return self
     }
+    public var hasObjcClassPrefix:Bool {
+         get {
+              return builderResult.hasObjcClassPrefix
+         }
+    }
+    public var objcClassPrefix:String {
+         get {
+              return builderResult.objcClassPrefix
+         }
+         set (value) {
+             builderResult.hasObjcClassPrefix = true
+             builderResult.objcClassPrefix = value
+         }
+    }
+    public func setObjcClassPrefix(value:String)-> Google.Protobuf.FileOptionsBuilder {
+      self.objcClassPrefix = value
+      return self
+    }
+    public func clearObjcClassPrefix() -> Google.Protobuf.FileOptionsBuilder{
+         builderResult.hasObjcClassPrefix = false
+         builderResult.objcClassPrefix = ""
+         return self
+    }
+    public var hasCsharpNamespace:Bool {
+         get {
+              return builderResult.hasCsharpNamespace
+         }
+    }
+    public var csharpNamespace:String {
+         get {
+              return builderResult.csharpNamespace
+         }
+         set (value) {
+             builderResult.hasCsharpNamespace = true
+             builderResult.csharpNamespace = value
+         }
+    }
+    public func setCsharpNamespace(value:String)-> Google.Protobuf.FileOptionsBuilder {
+      self.csharpNamespace = value
+      return self
+    }
+    public func clearCsharpNamespace() -> Google.Protobuf.FileOptionsBuilder{
+         builderResult.hasCsharpNamespace = false
+         builderResult.csharpNamespace = ""
+         return self
+    }
     public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
          get {
              return builderResult.uninterpretedOption
@@ -4781,6 +5190,12 @@ public extension Google.Protobuf {
       if other.hasCcEnableArenas {
            ccEnableArenas = other.ccEnableArenas
       }
+      if other.hasObjcClassPrefix {
+           objcClassPrefix = other.objcClassPrefix
+      }
+      if other.hasCsharpNamespace {
+           csharpNamespace = other.csharpNamespace
+      }
       if !other.uninterpretedOption.isEmpty  {
          builderResult.uninterpretedOption += other.uninterpretedOption
       }
@@ -4840,6 +5255,12 @@ public extension Google.Protobuf {
 
         case 248 :
           ccEnableArenas = input.readBool()
+
+        case 290 :
+          objcClassPrefix = input.readString()
+
+        case 298 :
+          csharpNamespace = input.readString()
 
         case 7994 :
           var subBuilder = Google.Protobuf.UninterpretedOption.builder()
@@ -5245,11 +5666,26 @@ public extension Google.Protobuf {
 
       //Enum type declaration end 
 
+
+
+      //Enum type declaration start 
+
+      public enum Jstype:Int32 {
+        case JsNormal = 0
+        case JsString = 1
+        case JsNumber = 2
+
+      }
+
+      //Enum type declaration end 
+
     public private(set) var ctype:FieldOptions.Ctype = FieldOptions.Ctype.String
     public private(set) var hasCtype:Bool = false
     public private(set) var hasPacked:Bool = false
     public private(set) var packed:Bool = false
 
+    public private(set) var jstype:FieldOptions.Jstype = FieldOptions.Jstype.JsNormal
+    public private(set) var hasJstype:Bool = false
     public private(set) var hasLazy:Bool = false
     public private(set) var lazy:Bool = false
 
@@ -5292,6 +5728,9 @@ public extension Google.Protobuf {
       if hasLazy {
         output.writeBool(5, value:lazy)
       }
+      if hasJstype {
+        output.writeEnum(6, value:jstype.rawValue)
+      }
       if hasWeak {
         output.writeBool(10, value:weak)
       }
@@ -5319,6 +5758,9 @@ public extension Google.Protobuf {
       }
       if hasLazy {
         serialize_size += lazy.computeBoolSize(5)
+      }
+      if (hasJstype) {
+        serialize_size += jstype.rawValue.computeEnumSize(6)
       }
       if hasWeak {
         serialize_size += weak.computeBoolSize(10)
@@ -5380,6 +5822,9 @@ public extension Google.Protobuf {
       if hasLazy {
         output += "\(indent) lazy: \(lazy) \n"
       }
+      if (hasJstype) {
+        output += "\(indent) jstype: \(jstype.rawValue)\n"
+      }
       if hasWeak {
         output += "\(indent) weak: \(weak) \n"
       }
@@ -5407,6 +5852,9 @@ public extension Google.Protobuf {
             }
             if hasLazy {
                hashCode = (hashCode &* 31) &+ lazy.hashValue
+            }
+            if hasJstype {
+               hashCode = (hashCode &* 31) &+ Int(jstype.rawValue)
             }
             if hasWeak {
                hashCode = (hashCode &* 31) &+ weak.hashValue
@@ -5489,6 +5937,29 @@ public extension Google.Protobuf {
          builderResult.packed = false
          return self
     }
+      public var hasJstype:Bool{
+          get {
+              return builderResult.hasJstype
+          }
+      }
+      public var jstype:FieldOptions.Jstype {
+          get {
+              return builderResult.jstype
+          }
+          set (value) {
+              builderResult.hasJstype = true
+              builderResult.jstype = value
+          }
+      }
+      public func setJstype(value:FieldOptions.Jstype)-> Google.Protobuf.FieldOptionsBuilder {
+        self.jstype = value
+        return self
+      }
+      public func clearJstype() -> Google.Protobuf.FieldOptionsBuilder {
+         builderResult.hasJstype = false
+         builderResult.jstype = .JsNormal
+         return self
+      }
     public var hasLazy:Bool {
          get {
               return builderResult.hasLazy
@@ -5604,6 +6075,9 @@ public extension Google.Protobuf {
       if other.hasPacked {
            packed = other.packed
       }
+      if other.hasJstype {
+           jstype = other.jstype
+      }
       if other.hasLazy {
            lazy = other.lazy
       }
@@ -5648,6 +6122,14 @@ public extension Google.Protobuf {
 
         case 40 :
           lazy = input.readBool()
+
+        case 48 :
+          let valueIntjstype = input.readEnum()
+          if let enumsjstype = FieldOptions.Jstype(rawValue:valueIntjstype){
+               jstype = enumsjstype
+          } else {
+               unknownFieldsBuilder.mergeVarintField(6, value:Int64(valueIntjstype))
+          }
 
         case 80 :
           weak = input.readBool()
@@ -7394,6 +7876,7 @@ public extension Google.Protobuf {
         public private(set) var hasTrailingComments:Bool = false
         public private(set) var trailingComments:String = ""
 
+        public private(set) var leadingDetachedComments:Array<String> = Array<String>()
         required public init() {
              super.init()
         }
@@ -7420,6 +7903,11 @@ public extension Google.Protobuf {
           }
           if hasTrailingComments {
             output.writeString(4, value:trailingComments)
+          }
+          if !leadingDetachedComments.isEmpty {
+            for oneValueleadingDetachedComments in leadingDetachedComments {
+              output.writeString(6, value:oneValueleadingDetachedComments)
+            }
           }
           unknownFields.writeToCodedOutputStream(output)
         }
@@ -7456,6 +7944,12 @@ public extension Google.Protobuf {
           if hasTrailingComments {
             serialize_size += trailingComments.computeStringSize(4)
           }
+          var dataSizeLeadingDetachedComments:Int32 = 0
+          for oneValueleadingDetachedComments in leadingDetachedComments {
+              dataSizeLeadingDetachedComments += oneValueleadingDetachedComments.computeStringSizeNoTag()
+          }
+          serialize_size += dataSizeLeadingDetachedComments
+          serialize_size += 1 * Int32(leadingDetachedComments.count)
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
@@ -7513,6 +8007,11 @@ public extension Google.Protobuf {
           if hasTrailingComments {
             output += "\(indent) trailingComments: \(trailingComments) \n"
           }
+          var leadingDetachedCommentsElementIndex:Int = 0
+          for oneValueleadingDetachedComments in leadingDetachedComments  {
+              output += "\(indent) leadingDetachedComments[\(leadingDetachedCommentsElementIndex)]: \(oneValueleadingDetachedComments)\n"
+              leadingDetachedCommentsElementIndex++
+          }
           unknownFields.writeDescriptionTo(&output, indent:indent)
         }
         override public var hashValue:Int {
@@ -7529,6 +8028,9 @@ public extension Google.Protobuf {
                 }
                 if hasTrailingComments {
                    hashCode = (hashCode &* 31) &+ trailingComments.hashValue
+                }
+                for oneValueleadingDetachedComments in leadingDetachedComments {
+                    hashCode = (hashCode &* 31) &+ oneValueleadingDetachedComments.hashValue
                 }
                 hashCode = (hashCode &* 31) &+  unknownFields.hashValue
                 return hashCode
@@ -7636,6 +8138,22 @@ public extension Google.Protobuf {
              builderResult.trailingComments = ""
              return self
         }
+        public var leadingDetachedComments:Array<String> {
+             get {
+                 return builderResult.leadingDetachedComments
+             }
+             set (array) {
+                 builderResult.leadingDetachedComments = array
+             }
+        }
+        public func setLeadingDetachedComments(value:Array<String>)-> Google.Protobuf.SourceCodeInfo.LocationBuilder {
+          self.leadingDetachedComments = value
+          return self
+        }
+        public func clearLeadingDetachedComments() -> Google.Protobuf.SourceCodeInfo.LocationBuilder {
+           builderResult.leadingDetachedComments.removeAll(keepCapacity: false)
+           return self
+        }
         override public var internalGetResult:GeneratedMessage {
              get {
                 return builderResult
@@ -7671,6 +8189,9 @@ public extension Google.Protobuf {
           }
           if other.hasTrailingComments {
                trailingComments = other.trailingComments
+          }
+          if !other.leadingDetachedComments.isEmpty {
+              builderResult.leadingDetachedComments += other.leadingDetachedComments
           }
           mergeUnknownFields(other.unknownFields)
           return self
@@ -7708,6 +8229,9 @@ public extension Google.Protobuf {
 
             case 34 :
               trailingComments = input.readString()
+
+            case 50 :
+              leadingDetachedComments += [input.readString()]
 
             default:
               if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {

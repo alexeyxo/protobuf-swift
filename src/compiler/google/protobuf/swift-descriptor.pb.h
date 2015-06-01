@@ -127,30 +127,30 @@ class SwiftFileOptions : public ::google::protobuf::Message {
   // accessors -------------------------------------------------------
 
   // optional string class_prefix = 1;
-  inline bool has_class_prefix() const;
-  inline void clear_class_prefix();
+  bool has_class_prefix() const;
+  void clear_class_prefix();
   static const int kClassPrefixFieldNumber = 1;
-  inline const ::std::string& class_prefix() const;
-  inline void set_class_prefix(const ::std::string& value);
-  inline void set_class_prefix(const char* value);
-  inline void set_class_prefix(const char* value, size_t size);
-  inline ::std::string* mutable_class_prefix();
-  inline ::std::string* release_class_prefix();
-  inline void set_allocated_class_prefix(::std::string* class_prefix);
+  const ::std::string& class_prefix() const;
+  void set_class_prefix(const ::std::string& value);
+  void set_class_prefix(const char* value);
+  void set_class_prefix(const char* value, size_t size);
+  ::std::string* mutable_class_prefix();
+  ::std::string* release_class_prefix();
+  void set_allocated_class_prefix(::std::string* class_prefix);
 
   // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
-  inline bool has_entities_access_control() const;
-  inline void clear_entities_access_control();
+  bool has_entities_access_control() const;
+  void clear_entities_access_control();
   static const int kEntitiesAccessControlFieldNumber = 2;
-  inline ::google::protobuf::AccessControl entities_access_control() const;
-  inline void set_entities_access_control(::google::protobuf::AccessControl value);
+  ::google::protobuf::AccessControl entities_access_control() const;
+  void set_entities_access_control(::google::protobuf::AccessControl value);
 
   // optional bool compile_for_framework = 3 [default = true];
-  inline bool has_compile_for_framework() const;
-  inline void clear_compile_for_framework();
+  bool has_compile_for_framework() const;
+  void clear_compile_for_framework();
   static const int kCompileForFrameworkFieldNumber = 3;
-  inline bool compile_for_framework() const;
-  inline void set_compile_for_framework(bool value);
+  bool compile_for_framework() const;
+  void set_compile_for_framework(bool value);
 
   // @@protoc_insertion_point(class_scope:google.protobuf.SwiftFileOptions)
  private:
@@ -183,6 +183,7 @@ extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::Fi
 
 // ===================================================================
 
+#if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // SwiftFileOptions
 
 // optional string class_prefix = 1;
@@ -287,6 +288,7 @@ inline void SwiftFileOptions::set_compile_for_framework(bool value) {
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftFileOptions.compile_for_framework)
 }
 
+#endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 
