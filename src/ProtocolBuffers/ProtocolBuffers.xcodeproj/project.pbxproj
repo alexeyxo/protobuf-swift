@@ -38,6 +38,10 @@
 		3F9301411A0964ED00F7A20B /* text_format_unittest_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */; };
 		3F9301421A0964ED00F7A20B /* text_format_unittest_extensions_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */; };
 		3FC236AE1A18E3120006EC7D /* UnknowFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */; };
+		3FC5190E1B1C7EB100436FA6 /* ThreadingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */; };
+		3FC5190F1B1C7EB100436FA6 /* ThreadingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */; };
+		3FC519111B1C7FFA00436FA6 /* UnittestThreading.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519101B1C7FFA00436FA6 /* UnittestThreading.proto.swift */; };
+		3FC519121B1C7FFA00436FA6 /* UnittestThreading.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519101B1C7FFA00436FA6 /* UnittestThreading.proto.swift */; };
 		3FCF29671A4CD01000133274 /* AbstractMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29581A4CD00F00133274 /* AbstractMessage.swift */; };
 		3FCF29681A4CD01000133274 /* AbstractMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29581A4CD00F00133274 /* AbstractMessage.swift */; };
 		3FCF29691A4CD01000133274 /* CodedInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29591A4CD00F00133274 /* CodedInputStream.swift */; };
@@ -188,6 +192,8 @@
 		3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_data.txt; sourceTree = "<group>"; };
 		3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_extensions_data.txt; sourceTree = "<group>"; };
 		3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UnknowFieldsTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadingTest.swift; sourceTree = "<group>"; };
+		3FC519101B1C7FFA00436FA6 /* UnittestThreading.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnittestThreading.proto.swift; sourceTree = "<group>"; };
 		3FCF29581A4CD00F00133274 /* AbstractMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractMessage.swift; sourceTree = "<group>"; };
 		3FCF29591A4CD00F00133274 /* CodedInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedInputStream.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3FCF295A1A4CD00F00133274 /* CodedOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedOutputStream.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -287,6 +293,7 @@
 				3FF8D3B61B121F5F008D40C3 /* ProtobufUnittestNoArena.UnittestNoArena.proto.swift */,
 				3FF8D3B71B121F5F008D40C3 /* UnittestDropUnknownFields.UnittestDropUnknownFields.proto.swift */,
 				3FF8D3B81B121F5F008D40C3 /* UnittestEmpty.proto.swift */,
+				3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */,
 			);
 			name = CompileTests;
 			sourceTree = "<group>";
@@ -294,6 +301,7 @@
 		3F2B1CD719E2A6EC001A505E /* pbTests */ = {
 			isa = PBXGroup;
 			children = (
+				3FC519101B1C7FFA00436FA6 /* UnittestThreading.proto.swift */,
 				3FF8D3991B121F48008D40C3 /* ProtobufUnittest.Unittest.proto.swift */,
 				3FF8D39A1B121F48008D40C3 /* ProtobufUnittestImport.UnittestImport.proto.swift */,
 				3FF8D39B1B121F48008D40C3 /* ProtobufUnittestImport.UnittestImportPublic.proto.swift */,
@@ -635,9 +643,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC5190F1B1C7EB100436FA6 /* ThreadingTest.swift in Sources */,
 				3FF8D3DE1B121F5F008D40C3 /* UnittestDropUnknownFields.UnittestDropUnknownFields.proto.swift in Sources */,
 				3FF8D3CA1B121F5F008D40C3 /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift in Sources */,
 				3FF8D3D21B121F5F008D40C3 /* ProtobufUnittest.UnittestLiteImportsNonlite.proto.swift in Sources */,
+				3FC519121B1C7FFA00436FA6 /* UnittestThreading.proto.swift in Sources */,
 				3FF8D3CE1B121F5F008D40C3 /* ProtobufUnittest.UnittestEmbedOptimizeFor.proto.swift in Sources */,
 				3F0201C41A2C800800EE503C /* Performance.pb.swift in Sources */,
 				3FF8D3D01B121F5F008D40C3 /* ProtobufUnittest.UnittestLite.proto.swift in Sources */,
@@ -699,9 +709,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC5190E1B1C7EB100436FA6 /* ThreadingTest.swift in Sources */,
 				3FF8D3DD1B121F5F008D40C3 /* UnittestDropUnknownFields.UnittestDropUnknownFields.proto.swift in Sources */,
 				3FF8D3C91B121F5F008D40C3 /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift in Sources */,
 				3FF8D3D11B121F5F008D40C3 /* ProtobufUnittest.UnittestLiteImportsNonlite.proto.swift in Sources */,
+				3FC519111B1C7FFA00436FA6 /* UnittestThreading.proto.swift in Sources */,
 				3FF8D3CD1B121F5F008D40C3 /* ProtobufUnittest.UnittestEmbedOptimizeFor.proto.swift in Sources */,
 				3F0201C31A2C800700EE503C /* Performance.pb.swift in Sources */,
 				3FF8D3CF1B121F5F008D40C3 /* ProtobufUnittest.UnittestLite.proto.swift in Sources */,
