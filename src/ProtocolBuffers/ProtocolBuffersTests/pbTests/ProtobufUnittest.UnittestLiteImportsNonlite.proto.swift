@@ -153,16 +153,32 @@ internal extension ProtobufUnittest {
     }
     var message_:ProtobufUnittest.TestAllTypes! {
          get {
+             if message_Builder_ != nil {
+                self.mergeMessage_(message_Builder_.buildPartial())
+                message_Builder_ = nil
+             }
              return builderResult.message_
          }
          set (value) {
+             message_Builder_ = nil
              builderResult.hasMessage_ = true
              builderResult.message_ = value
+         }
+    }
+    private var message_Builder_:ProtobufUnittest.TestAllTypesBuilder! {
+         didSet {
+            builderResult.hasMessage_ = true
          }
     }
     func setMessage_(value:ProtobufUnittest.TestAllTypes!)-> ProtobufUnittest.TestLiteImportsNonliteBuilder {
       self.message_ = value
       return self
+    }
+    internal func getMessage_Builder() -> ProtobufUnittest.TestAllTypesBuilder {
+      if message_Builder_ == nil {
+         message_Builder_ = ProtobufUnittest.TestAllTypesBuilder()
+      }
+      return message_Builder_
     }
     internal func mergeMessage_(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
       if (builderResult.hasMessage_) {
@@ -174,6 +190,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearMessage_() -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+      message_Builder_ = nil
       builderResult.hasMessage_ = false
       builderResult.message_ = nil
       return self

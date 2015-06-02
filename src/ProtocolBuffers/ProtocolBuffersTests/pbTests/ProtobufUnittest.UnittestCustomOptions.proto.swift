@@ -3191,16 +3191,32 @@ internal extension ProtobufUnittest {
     }
     var bar:ProtobufUnittest.ComplexOptionType1! {
          get {
+             if barBuilder_ != nil {
+                self.mergeBar(barBuilder_.buildPartial())
+                barBuilder_ = nil
+             }
              return builderResult.bar
          }
          set (value) {
+             barBuilder_ = nil
              builderResult.hasBar = true
              builderResult.bar = value
+         }
+    }
+    private var barBuilder_:ProtobufUnittest.ComplexOptionType1Builder! {
+         didSet {
+            builderResult.hasBar = true
          }
     }
     func setBar(value:ProtobufUnittest.ComplexOptionType1!)-> ProtobufUnittest.ComplexOptionType2Builder {
       self.bar = value
       return self
+    }
+    internal func getBarBuilder() -> ProtobufUnittest.ComplexOptionType1Builder {
+      if barBuilder_ == nil {
+         barBuilder_ = ProtobufUnittest.ComplexOptionType1Builder()
+      }
+      return barBuilder_
     }
     internal func mergeBar(value:ProtobufUnittest.ComplexOptionType1) -> ProtobufUnittest.ComplexOptionType2Builder {
       if (builderResult.hasBar) {
@@ -3212,6 +3228,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearBar() -> ProtobufUnittest.ComplexOptionType2Builder {
+      barBuilder_ = nil
       builderResult.hasBar = false
       builderResult.bar = nil
       return self
@@ -3246,16 +3263,32 @@ internal extension ProtobufUnittest {
     }
     var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4! {
          get {
+             if fredBuilder_ != nil {
+                self.mergeFred(fredBuilder_.buildPartial())
+                fredBuilder_ = nil
+             }
              return builderResult.fred
          }
          set (value) {
+             fredBuilder_ = nil
              builderResult.hasFred = true
              builderResult.fred = value
+         }
+    }
+    private var fredBuilder_:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder! {
+         didSet {
+            builderResult.hasFred = true
          }
     }
     func setFred(value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4!)-> ProtobufUnittest.ComplexOptionType2Builder {
       self.fred = value
       return self
+    }
+    internal func getFredBuilder() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
+      if fredBuilder_ == nil {
+         fredBuilder_ = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder()
+      }
+      return fredBuilder_
     }
     internal func mergeFred(value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) -> ProtobufUnittest.ComplexOptionType2Builder {
       if (builderResult.hasFred) {
@@ -3267,6 +3300,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearFred() -> ProtobufUnittest.ComplexOptionType2Builder {
+      fredBuilder_ = nil
       builderResult.hasFred = false
       builderResult.fred = nil
       return self
@@ -3719,16 +3753,32 @@ internal extension ProtobufUnittest {
     }
     var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5! {
          get {
+             if complexOptionType5Builder_ != nil {
+                self.mergeComplexOptionType5(complexOptionType5Builder_.buildPartial())
+                complexOptionType5Builder_ = nil
+             }
              return builderResult.complexOptionType5
          }
          set (value) {
+             complexOptionType5Builder_ = nil
              builderResult.hasComplexOptionType5 = true
              builderResult.complexOptionType5 = value
+         }
+    }
+    private var complexOptionType5Builder_:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder! {
+         didSet {
+            builderResult.hasComplexOptionType5 = true
          }
     }
     func setComplexOptionType5(value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5!)-> ProtobufUnittest.ComplexOptionType3Builder {
       self.complexOptionType5 = value
       return self
+    }
+    internal func getComplexOptionType5Builder() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
+      if complexOptionType5Builder_ == nil {
+         complexOptionType5Builder_ = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder()
+      }
+      return complexOptionType5Builder_
     }
     internal func mergeComplexOptionType5(value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) -> ProtobufUnittest.ComplexOptionType3Builder {
       if (builderResult.hasComplexOptionType5) {
@@ -3740,6 +3790,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearComplexOptionType5() -> ProtobufUnittest.ComplexOptionType3Builder {
+      complexOptionType5Builder_ = nil
       builderResult.hasComplexOptionType5 = false
       builderResult.complexOptionType5 = nil
       return self
@@ -4721,16 +4772,32 @@ internal extension ProtobufUnittest {
     }
     var sub:ProtobufUnittest.Aggregate! {
          get {
+             if subBuilder_ != nil {
+                self.mergeSub(subBuilder_.buildPartial())
+                subBuilder_ = nil
+             }
              return builderResult.sub
          }
          set (value) {
+             subBuilder_ = nil
              builderResult.hasSub = true
              builderResult.sub = value
+         }
+    }
+    private var subBuilder_:ProtobufUnittest.AggregateBuilder! {
+         didSet {
+            builderResult.hasSub = true
          }
     }
     func setSub(value:ProtobufUnittest.Aggregate!)-> ProtobufUnittest.AggregateBuilder {
       self.sub = value
       return self
+    }
+    internal func getSubBuilder() -> ProtobufUnittest.AggregateBuilder {
+      if subBuilder_ == nil {
+         subBuilder_ = ProtobufUnittest.AggregateBuilder()
+      }
+      return subBuilder_
     }
     internal func mergeSub(value:ProtobufUnittest.Aggregate) -> ProtobufUnittest.AggregateBuilder {
       if (builderResult.hasSub) {
@@ -4742,6 +4809,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearSub() -> ProtobufUnittest.AggregateBuilder {
+      subBuilder_ = nil
       builderResult.hasSub = false
       builderResult.sub = nil
       return self
@@ -4753,16 +4821,32 @@ internal extension ProtobufUnittest {
     }
     var file:Google.Protobuf.FileOptions! {
          get {
+             if fileBuilder_ != nil {
+                self.mergeFile(fileBuilder_.buildPartial())
+                fileBuilder_ = nil
+             }
              return builderResult.file
          }
          set (value) {
+             fileBuilder_ = nil
              builderResult.hasFile = true
              builderResult.file = value
+         }
+    }
+    private var fileBuilder_:Google.Protobuf.FileOptionsBuilder! {
+         didSet {
+            builderResult.hasFile = true
          }
     }
     func setFile(value:Google.Protobuf.FileOptions!)-> ProtobufUnittest.AggregateBuilder {
       self.file = value
       return self
+    }
+    internal func getFileBuilder() -> Google.Protobuf.FileOptionsBuilder {
+      if fileBuilder_ == nil {
+         fileBuilder_ = Google.Protobuf.FileOptionsBuilder()
+      }
+      return fileBuilder_
     }
     internal func mergeFile(value:Google.Protobuf.FileOptions) -> ProtobufUnittest.AggregateBuilder {
       if (builderResult.hasFile) {
@@ -4774,6 +4858,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearFile() -> ProtobufUnittest.AggregateBuilder {
+      fileBuilder_ = nil
       builderResult.hasFile = false
       builderResult.file = nil
       return self
@@ -4785,16 +4870,32 @@ internal extension ProtobufUnittest {
     }
     var mset:ProtobufUnittest.AggregateMessageSet! {
          get {
+             if msetBuilder_ != nil {
+                self.mergeMset(msetBuilder_.buildPartial())
+                msetBuilder_ = nil
+             }
              return builderResult.mset
          }
          set (value) {
+             msetBuilder_ = nil
              builderResult.hasMset = true
              builderResult.mset = value
+         }
+    }
+    private var msetBuilder_:ProtobufUnittest.AggregateMessageSetBuilder! {
+         didSet {
+            builderResult.hasMset = true
          }
     }
     func setMset(value:ProtobufUnittest.AggregateMessageSet!)-> ProtobufUnittest.AggregateBuilder {
       self.mset = value
       return self
+    }
+    internal func getMsetBuilder() -> ProtobufUnittest.AggregateMessageSetBuilder {
+      if msetBuilder_ == nil {
+         msetBuilder_ = ProtobufUnittest.AggregateMessageSetBuilder()
+      }
+      return msetBuilder_
     }
     internal func mergeMset(value:ProtobufUnittest.AggregateMessageSet) -> ProtobufUnittest.AggregateBuilder {
       if (builderResult.hasMset) {
@@ -4806,6 +4907,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearMset() -> ProtobufUnittest.AggregateBuilder {
+      msetBuilder_ = nil
       builderResult.hasMset = false
       builderResult.mset = nil
       return self

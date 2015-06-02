@@ -347,16 +347,32 @@ internal extension Google.Protobuf {
     }
     var sourceContext:Google.Protobuf.SourceContext! {
          get {
+             if sourceContextBuilder_ != nil {
+                self.mergeSourceContext(sourceContextBuilder_.buildPartial())
+                sourceContextBuilder_ = nil
+             }
              return builderResult.sourceContext
          }
          set (value) {
+             sourceContextBuilder_ = nil
              builderResult.hasSourceContext = true
              builderResult.sourceContext = value
+         }
+    }
+    private var sourceContextBuilder_:Google.Protobuf.SourceContextBuilder! {
+         didSet {
+            builderResult.hasSourceContext = true
          }
     }
     func setSourceContext(value:Google.Protobuf.SourceContext!)-> Google.Protobuf.TypesBuilder {
       self.sourceContext = value
       return self
+    }
+    internal func getSourceContextBuilder() -> Google.Protobuf.SourceContextBuilder {
+      if sourceContextBuilder_ == nil {
+         sourceContextBuilder_ = Google.Protobuf.SourceContextBuilder()
+      }
+      return sourceContextBuilder_
     }
     internal func mergeSourceContext(value:Google.Protobuf.SourceContext) -> Google.Protobuf.TypesBuilder {
       if (builderResult.hasSourceContext) {
@@ -368,6 +384,7 @@ internal extension Google.Protobuf {
       return self
     }
     internal func clearSourceContext() -> Google.Protobuf.TypesBuilder {
+      sourceContextBuilder_ = nil
       builderResult.hasSourceContext = false
       builderResult.sourceContext = nil
       return self
@@ -1221,16 +1238,32 @@ internal extension Google.Protobuf {
     }
     var sourceContext:Google.Protobuf.SourceContext! {
          get {
+             if sourceContextBuilder_ != nil {
+                self.mergeSourceContext(sourceContextBuilder_.buildPartial())
+                sourceContextBuilder_ = nil
+             }
              return builderResult.sourceContext
          }
          set (value) {
+             sourceContextBuilder_ = nil
              builderResult.hasSourceContext = true
              builderResult.sourceContext = value
+         }
+    }
+    private var sourceContextBuilder_:Google.Protobuf.SourceContextBuilder! {
+         didSet {
+            builderResult.hasSourceContext = true
          }
     }
     func setSourceContext(value:Google.Protobuf.SourceContext!)-> Google.Protobuf.EnumBuilder {
       self.sourceContext = value
       return self
+    }
+    internal func getSourceContextBuilder() -> Google.Protobuf.SourceContextBuilder {
+      if sourceContextBuilder_ == nil {
+         sourceContextBuilder_ = Google.Protobuf.SourceContextBuilder()
+      }
+      return sourceContextBuilder_
     }
     internal func mergeSourceContext(value:Google.Protobuf.SourceContext) -> Google.Protobuf.EnumBuilder {
       if (builderResult.hasSourceContext) {
@@ -1242,6 +1275,7 @@ internal extension Google.Protobuf {
       return self
     }
     internal func clearSourceContext() -> Google.Protobuf.EnumBuilder {
+      sourceContextBuilder_ = nil
       builderResult.hasSourceContext = false
       builderResult.sourceContext = nil
       return self
@@ -1753,16 +1787,32 @@ internal extension Google.Protobuf {
     }
     var value:Google.Protobuf.Any! {
          get {
+             if valueBuilder_ != nil {
+                self.mergeValue(valueBuilder_.buildPartial())
+                valueBuilder_ = nil
+             }
              return builderResult.value
          }
          set (value) {
+             valueBuilder_ = nil
              builderResult.hasValue = true
              builderResult.value = value
+         }
+    }
+    private var valueBuilder_:Google.Protobuf.AnyBuilder! {
+         didSet {
+            builderResult.hasValue = true
          }
     }
     func setValue(value:Google.Protobuf.Any!)-> Google.Protobuf.OptionBuilder {
       self.value = value
       return self
+    }
+    internal func getValueBuilder() -> Google.Protobuf.AnyBuilder {
+      if valueBuilder_ == nil {
+         valueBuilder_ = Google.Protobuf.AnyBuilder()
+      }
+      return valueBuilder_
     }
     internal func mergeValue(value:Google.Protobuf.Any) -> Google.Protobuf.OptionBuilder {
       if (builderResult.hasValue) {
@@ -1774,6 +1824,7 @@ internal extension Google.Protobuf {
       return self
     }
     internal func clearValue() -> Google.Protobuf.OptionBuilder {
+      valueBuilder_ = nil
       builderResult.hasValue = false
       builderResult.value = nil
       return self

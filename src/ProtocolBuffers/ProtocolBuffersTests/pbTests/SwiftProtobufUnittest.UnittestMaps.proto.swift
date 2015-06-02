@@ -1389,16 +1389,32 @@ internal extension SwiftProtobufUnittest {
         }
         var value:SwiftProtobufUnittest.MapMessageValue! {
              get {
+                 if valueBuilder_ != nil {
+                    self.mergeValue(valueBuilder_.buildPartial())
+                    valueBuilder_ = nil
+                 }
                  return builderResult.value
              }
              set (value) {
+                 valueBuilder_ = nil
                  builderResult.hasValue = true
                  builderResult.value = value
+             }
+        }
+        private var valueBuilder_:SwiftProtobufUnittest.MapMessageValueBuilder! {
+             didSet {
+                builderResult.hasValue = true
              }
         }
         func setValue(value:SwiftProtobufUnittest.MapMessageValue!)-> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntryBuilder {
           self.value = value
           return self
+        }
+        internal func getValueBuilder() -> SwiftProtobufUnittest.MapMessageValueBuilder {
+          if valueBuilder_ == nil {
+             valueBuilder_ = SwiftProtobufUnittest.MapMessageValueBuilder()
+          }
+          return valueBuilder_
         }
         internal func mergeValue(value:SwiftProtobufUnittest.MapMessageValue) -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntryBuilder {
           if (builderResult.hasValue) {
@@ -1410,6 +1426,7 @@ internal extension SwiftProtobufUnittest {
           return self
         }
         internal func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntryBuilder {
+          valueBuilder_ = nil
           builderResult.hasValue = false
           builderResult.value = nil
           return self

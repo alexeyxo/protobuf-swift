@@ -35,17 +35,25 @@ class ProtocolBuffersTests: XCTestCase {
         
         var user:PBUser! = nil
         var group = PBGroupBuilder()
-        group.setOwner(user)
+        
+        group.getOwnerBuilder().setGroupName("asdfasdf")
+        
+        var bazBuilder = PBBazBuilder()
+        bazBuilder.getBarBuilder().getFooBuilder().setVal(10)
+        var baz = bazBuilder.build()
+        
         var gg = group.build()
+        println(baz)
+        println(gg)
         
-        let build = builder.build()
-        
-        self.measureBlock() {
-            for _ in 0...1 {
-                let clone = PBPerfomanceBatch.parseFromData(build.data())
-
-            }
-        }
+//        let build = builder.build()
+//        
+//        self.measureBlock() {
+//            for _ in 0...1 {
+//                let clone = PBPerfomanceBatch.parseFromData(build.data())
+//
+//            }
+//        }
     }
 //
 //    func testPerformanceJson()

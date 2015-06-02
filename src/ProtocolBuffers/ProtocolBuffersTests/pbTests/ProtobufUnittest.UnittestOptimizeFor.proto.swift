@@ -341,16 +341,32 @@ internal extension ProtobufUnittest {
     }
     var msg:ProtobufUnittest.ForeignMessage! {
          get {
+             if msgBuilder_ != nil {
+                self.mergeMsg(msgBuilder_.buildPartial())
+                msgBuilder_ = nil
+             }
              return builderResult.msg
          }
          set (value) {
+             msgBuilder_ = nil
              builderResult.hasMsg = true
              builderResult.msg = value
+         }
+    }
+    private var msgBuilder_:ProtobufUnittest.ForeignMessageBuilder! {
+         didSet {
+            builderResult.hasMsg = true
          }
     }
     func setMsg(value:ProtobufUnittest.ForeignMessage!)-> ProtobufUnittest.TestOptimizedForSizeBuilder {
       self.msg = value
       return self
+    }
+    internal func getMsgBuilder() -> ProtobufUnittest.ForeignMessageBuilder {
+      if msgBuilder_ == nil {
+         msgBuilder_ = ProtobufUnittest.ForeignMessageBuilder()
+      }
+      return msgBuilder_
     }
     internal func mergeMsg(value:ProtobufUnittest.ForeignMessage) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
       if (builderResult.hasMsg) {
@@ -362,6 +378,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearMsg() -> ProtobufUnittest.TestOptimizedForSizeBuilder {
+      msgBuilder_ = nil
       builderResult.hasMsg = false
       builderResult.msg = nil
       return self
@@ -801,16 +818,32 @@ internal extension ProtobufUnittest {
     }
     var o:ProtobufUnittest.TestRequiredOptimizedForSize! {
          get {
+             if oBuilder_ != nil {
+                self.mergeO(oBuilder_.buildPartial())
+                oBuilder_ = nil
+             }
              return builderResult.o
          }
          set (value) {
+             oBuilder_ = nil
              builderResult.hasO = true
              builderResult.o = value
+         }
+    }
+    private var oBuilder_:ProtobufUnittest.TestRequiredOptimizedForSizeBuilder! {
+         didSet {
+            builderResult.hasO = true
          }
     }
     func setO(value:ProtobufUnittest.TestRequiredOptimizedForSize!)-> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
       self.o = value
       return self
+    }
+    internal func getOBuilder() -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
+      if oBuilder_ == nil {
+         oBuilder_ = ProtobufUnittest.TestRequiredOptimizedForSizeBuilder()
+      }
+      return oBuilder_
     }
     internal func mergeO(value:ProtobufUnittest.TestRequiredOptimizedForSize) -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
       if (builderResult.hasO) {
@@ -822,6 +855,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearO() -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
+      oBuilder_ = nil
       builderResult.hasO = false
       builderResult.o = nil
       return self

@@ -239,16 +239,32 @@ internal extension Google.Protobuf {
         }
         var value:Google.Protobuf.Value! {
              get {
+                 if valueBuilder_ != nil {
+                    self.mergeValue(valueBuilder_.buildPartial())
+                    valueBuilder_ = nil
+                 }
                  return builderResult.value
              }
              set (value) {
+                 valueBuilder_ = nil
                  builderResult.hasValue = true
                  builderResult.value = value
+             }
+        }
+        private var valueBuilder_:Google.Protobuf.ValueBuilder! {
+             didSet {
+                builderResult.hasValue = true
              }
         }
         func setValue(value:Google.Protobuf.Value!)-> Google.Protobuf.Struct.FieldsEntryBuilder {
           self.value = value
           return self
+        }
+        internal func getValueBuilder() -> Google.Protobuf.ValueBuilder {
+          if valueBuilder_ == nil {
+             valueBuilder_ = Google.Protobuf.ValueBuilder()
+          }
+          return valueBuilder_
         }
         internal func mergeValue(value:Google.Protobuf.Value) -> Google.Protobuf.Struct.FieldsEntryBuilder {
           if (builderResult.hasValue) {
@@ -260,6 +276,7 @@ internal extension Google.Protobuf {
           return self
         }
         internal func clearValue() -> Google.Protobuf.Struct.FieldsEntryBuilder {
+          valueBuilder_ = nil
           builderResult.hasValue = false
           builderResult.value = nil
           return self
@@ -988,16 +1005,32 @@ internal extension Google.Protobuf {
     }
     var structValue:Google.Protobuf.Struct! {
          get {
+             if structValueBuilder_ != nil {
+                self.mergeStructValue(structValueBuilder_.buildPartial())
+                structValueBuilder_ = nil
+             }
              return builderResult.structValue
          }
          set (value) {
+             structValueBuilder_ = nil
              builderResult.hasStructValue = true
              builderResult.structValue = value
+         }
+    }
+    private var structValueBuilder_:Google.Protobuf.StructBuilder! {
+         didSet {
+            builderResult.hasStructValue = true
          }
     }
     func setStructValue(value:Google.Protobuf.Struct!)-> Google.Protobuf.ValueBuilder {
       self.structValue = value
       return self
+    }
+    internal func getStructValueBuilder() -> Google.Protobuf.StructBuilder {
+      if structValueBuilder_ == nil {
+         structValueBuilder_ = Google.Protobuf.StructBuilder()
+      }
+      return structValueBuilder_
     }
     internal func mergeStructValue(value:Google.Protobuf.Struct) -> Google.Protobuf.ValueBuilder {
       if (builderResult.hasStructValue) {
@@ -1009,6 +1042,7 @@ internal extension Google.Protobuf {
       return self
     }
     internal func clearStructValue() -> Google.Protobuf.ValueBuilder {
+      structValueBuilder_ = nil
       builderResult.hasStructValue = false
       builderResult.structValue = nil
       return self
@@ -1020,16 +1054,32 @@ internal extension Google.Protobuf {
     }
     var listValue:Google.Protobuf.ListValue! {
          get {
+             if listValueBuilder_ != nil {
+                self.mergeListValue(listValueBuilder_.buildPartial())
+                listValueBuilder_ = nil
+             }
              return builderResult.listValue
          }
          set (value) {
+             listValueBuilder_ = nil
              builderResult.hasListValue = true
              builderResult.listValue = value
+         }
+    }
+    private var listValueBuilder_:Google.Protobuf.ListValueBuilder! {
+         didSet {
+            builderResult.hasListValue = true
          }
     }
     func setListValue(value:Google.Protobuf.ListValue!)-> Google.Protobuf.ValueBuilder {
       self.listValue = value
       return self
+    }
+    internal func getListValueBuilder() -> Google.Protobuf.ListValueBuilder {
+      if listValueBuilder_ == nil {
+         listValueBuilder_ = Google.Protobuf.ListValueBuilder()
+      }
+      return listValueBuilder_
     }
     internal func mergeListValue(value:Google.Protobuf.ListValue) -> Google.Protobuf.ValueBuilder {
       if (builderResult.hasListValue) {
@@ -1041,6 +1091,7 @@ internal extension Google.Protobuf {
       return self
     }
     internal func clearListValue() -> Google.Protobuf.ValueBuilder {
+      listValueBuilder_ = nil
       builderResult.hasListValue = false
       builderResult.listValue = nil
       return self

@@ -3711,16 +3711,32 @@ internal extension ProtobufUnittest {
     }
     var optionalGroup:ProtobufUnittest.TestAllTypesLite.OptionalGroup! {
          get {
+             if optionalGroupBuilder_ != nil {
+                self.mergeOptionalGroup(optionalGroupBuilder_.buildPartial())
+                optionalGroupBuilder_ = nil
+             }
              return builderResult.optionalGroup
          }
          set (value) {
+             optionalGroupBuilder_ = nil
              builderResult.hasOptionalGroup = true
              builderResult.optionalGroup = value
+         }
+    }
+    private var optionalGroupBuilder_:ProtobufUnittest.TestAllTypesLite.OptionalGroupBuilder! {
+         didSet {
+            builderResult.hasOptionalGroup = true
          }
     }
     func setOptionalGroup(value:ProtobufUnittest.TestAllTypesLite.OptionalGroup!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.optionalGroup = value
       return self
+    }
+    internal func getOptionalGroupBuilder() -> ProtobufUnittest.TestAllTypesLite.OptionalGroupBuilder {
+      if optionalGroupBuilder_ == nil {
+         optionalGroupBuilder_ = ProtobufUnittest.TestAllTypesLite.OptionalGroupBuilder()
+      }
+      return optionalGroupBuilder_
     }
     internal func mergeOptionalGroup(value:ProtobufUnittest.TestAllTypesLite.OptionalGroup) -> ProtobufUnittest.TestAllTypesLiteBuilder {
       if (builderResult.hasOptionalGroup) {
@@ -3732,6 +3748,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearOptionalGroup() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+      optionalGroupBuilder_ = nil
       builderResult.hasOptionalGroup = false
       builderResult.optionalGroup = nil
       return self
@@ -3743,16 +3760,32 @@ internal extension ProtobufUnittest {
     }
     var optionalNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage! {
          get {
+             if optionalNestedMessageBuilder_ != nil {
+                self.mergeOptionalNestedMessage(optionalNestedMessageBuilder_.buildPartial())
+                optionalNestedMessageBuilder_ = nil
+             }
              return builderResult.optionalNestedMessage
          }
          set (value) {
+             optionalNestedMessageBuilder_ = nil
              builderResult.hasOptionalNestedMessage = true
              builderResult.optionalNestedMessage = value
+         }
+    }
+    private var optionalNestedMessageBuilder_:ProtobufUnittest.TestAllTypesLite.NestedMessageBuilder! {
+         didSet {
+            builderResult.hasOptionalNestedMessage = true
          }
     }
     func setOptionalNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.optionalNestedMessage = value
       return self
+    }
+    internal func getOptionalNestedMessageBuilder() -> ProtobufUnittest.TestAllTypesLite.NestedMessageBuilder {
+      if optionalNestedMessageBuilder_ == nil {
+         optionalNestedMessageBuilder_ = ProtobufUnittest.TestAllTypesLite.NestedMessageBuilder()
+      }
+      return optionalNestedMessageBuilder_
     }
     internal func mergeOptionalNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage) -> ProtobufUnittest.TestAllTypesLiteBuilder {
       if (builderResult.hasOptionalNestedMessage) {
@@ -3764,6 +3797,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearOptionalNestedMessage() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+      optionalNestedMessageBuilder_ = nil
       builderResult.hasOptionalNestedMessage = false
       builderResult.optionalNestedMessage = nil
       return self
@@ -3775,16 +3809,32 @@ internal extension ProtobufUnittest {
     }
     var optionalForeignMessage:ProtobufUnittest.ForeignMessageLite! {
          get {
+             if optionalForeignMessageBuilder_ != nil {
+                self.mergeOptionalForeignMessage(optionalForeignMessageBuilder_.buildPartial())
+                optionalForeignMessageBuilder_ = nil
+             }
              return builderResult.optionalForeignMessage
          }
          set (value) {
+             optionalForeignMessageBuilder_ = nil
              builderResult.hasOptionalForeignMessage = true
              builderResult.optionalForeignMessage = value
+         }
+    }
+    private var optionalForeignMessageBuilder_:ProtobufUnittest.ForeignMessageLiteBuilder! {
+         didSet {
+            builderResult.hasOptionalForeignMessage = true
          }
     }
     func setOptionalForeignMessage(value:ProtobufUnittest.ForeignMessageLite!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.optionalForeignMessage = value
       return self
+    }
+    internal func getOptionalForeignMessageBuilder() -> ProtobufUnittest.ForeignMessageLiteBuilder {
+      if optionalForeignMessageBuilder_ == nil {
+         optionalForeignMessageBuilder_ = ProtobufUnittest.ForeignMessageLiteBuilder()
+      }
+      return optionalForeignMessageBuilder_
     }
     internal func mergeOptionalForeignMessage(value:ProtobufUnittest.ForeignMessageLite) -> ProtobufUnittest.TestAllTypesLiteBuilder {
       if (builderResult.hasOptionalForeignMessage) {
@@ -3796,6 +3846,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearOptionalForeignMessage() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+      optionalForeignMessageBuilder_ = nil
       builderResult.hasOptionalForeignMessage = false
       builderResult.optionalForeignMessage = nil
       return self
@@ -3807,16 +3858,32 @@ internal extension ProtobufUnittest {
     }
     var optionalImportMessage:ProtobufUnittestImport.ImportMessageLite! {
          get {
+             if optionalImportMessageBuilder_ != nil {
+                self.mergeOptionalImportMessage(optionalImportMessageBuilder_.buildPartial())
+                optionalImportMessageBuilder_ = nil
+             }
              return builderResult.optionalImportMessage
          }
          set (value) {
+             optionalImportMessageBuilder_ = nil
              builderResult.hasOptionalImportMessage = true
              builderResult.optionalImportMessage = value
+         }
+    }
+    private var optionalImportMessageBuilder_:ProtobufUnittestImport.ImportMessageLiteBuilder! {
+         didSet {
+            builderResult.hasOptionalImportMessage = true
          }
     }
     func setOptionalImportMessage(value:ProtobufUnittestImport.ImportMessageLite!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.optionalImportMessage = value
       return self
+    }
+    internal func getOptionalImportMessageBuilder() -> ProtobufUnittestImport.ImportMessageLiteBuilder {
+      if optionalImportMessageBuilder_ == nil {
+         optionalImportMessageBuilder_ = ProtobufUnittestImport.ImportMessageLiteBuilder()
+      }
+      return optionalImportMessageBuilder_
     }
     internal func mergeOptionalImportMessage(value:ProtobufUnittestImport.ImportMessageLite) -> ProtobufUnittest.TestAllTypesLiteBuilder {
       if (builderResult.hasOptionalImportMessage) {
@@ -3828,6 +3895,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearOptionalImportMessage() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+      optionalImportMessageBuilder_ = nil
       builderResult.hasOptionalImportMessage = false
       builderResult.optionalImportMessage = nil
       return self
@@ -3954,16 +4022,32 @@ internal extension ProtobufUnittest {
     }
     var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessageLite! {
          get {
+             if optionalPublicImportMessageBuilder_ != nil {
+                self.mergeOptionalPublicImportMessage(optionalPublicImportMessageBuilder_.buildPartial())
+                optionalPublicImportMessageBuilder_ = nil
+             }
              return builderResult.optionalPublicImportMessage
          }
          set (value) {
+             optionalPublicImportMessageBuilder_ = nil
              builderResult.hasOptionalPublicImportMessage = true
              builderResult.optionalPublicImportMessage = value
+         }
+    }
+    private var optionalPublicImportMessageBuilder_:ProtobufUnittestImport.PublicImportMessageLiteBuilder! {
+         didSet {
+            builderResult.hasOptionalPublicImportMessage = true
          }
     }
     func setOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessageLite!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.optionalPublicImportMessage = value
       return self
+    }
+    internal func getOptionalPublicImportMessageBuilder() -> ProtobufUnittestImport.PublicImportMessageLiteBuilder {
+      if optionalPublicImportMessageBuilder_ == nil {
+         optionalPublicImportMessageBuilder_ = ProtobufUnittestImport.PublicImportMessageLiteBuilder()
+      }
+      return optionalPublicImportMessageBuilder_
     }
     internal func mergeOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessageLite) -> ProtobufUnittest.TestAllTypesLiteBuilder {
       if (builderResult.hasOptionalPublicImportMessage) {
@@ -3975,6 +4059,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearOptionalPublicImportMessage() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+      optionalPublicImportMessageBuilder_ = nil
       builderResult.hasOptionalPublicImportMessage = false
       builderResult.optionalPublicImportMessage = nil
       return self
@@ -3986,16 +4071,32 @@ internal extension ProtobufUnittest {
     }
     var optionalLazyMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage! {
          get {
+             if optionalLazyMessageBuilder_ != nil {
+                self.mergeOptionalLazyMessage(optionalLazyMessageBuilder_.buildPartial())
+                optionalLazyMessageBuilder_ = nil
+             }
              return builderResult.optionalLazyMessage
          }
          set (value) {
+             optionalLazyMessageBuilder_ = nil
              builderResult.hasOptionalLazyMessage = true
              builderResult.optionalLazyMessage = value
+         }
+    }
+    private var optionalLazyMessageBuilder_:ProtobufUnittest.TestAllTypesLite.NestedMessageBuilder! {
+         didSet {
+            builderResult.hasOptionalLazyMessage = true
          }
     }
     func setOptionalLazyMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.optionalLazyMessage = value
       return self
+    }
+    internal func getOptionalLazyMessageBuilder() -> ProtobufUnittest.TestAllTypesLite.NestedMessageBuilder {
+      if optionalLazyMessageBuilder_ == nil {
+         optionalLazyMessageBuilder_ = ProtobufUnittest.TestAllTypesLite.NestedMessageBuilder()
+      }
+      return optionalLazyMessageBuilder_
     }
     internal func mergeOptionalLazyMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage) -> ProtobufUnittest.TestAllTypesLiteBuilder {
       if (builderResult.hasOptionalLazyMessage) {
@@ -4007,6 +4108,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearOptionalLazyMessage() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+      optionalLazyMessageBuilder_ = nil
       builderResult.hasOptionalLazyMessage = false
       builderResult.optionalLazyMessage = nil
       return self
@@ -4901,16 +5003,32 @@ internal extension ProtobufUnittest {
     }
     var oneofNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage! {
          get {
+             if oneofNestedMessageBuilder_ != nil {
+                self.mergeOneofNestedMessage(oneofNestedMessageBuilder_.buildPartial())
+                oneofNestedMessageBuilder_ = nil
+             }
              return builderResult.oneofNestedMessage
          }
          set (value) {
+             oneofNestedMessageBuilder_ = nil
              builderResult.hasOneofNestedMessage = true
              builderResult.oneofNestedMessage = value
+         }
+    }
+    private var oneofNestedMessageBuilder_:ProtobufUnittest.TestAllTypesLite.NestedMessageBuilder! {
+         didSet {
+            builderResult.hasOneofNestedMessage = true
          }
     }
     func setOneofNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage!)-> ProtobufUnittest.TestAllTypesLiteBuilder {
       self.oneofNestedMessage = value
       return self
+    }
+    internal func getOneofNestedMessageBuilder() -> ProtobufUnittest.TestAllTypesLite.NestedMessageBuilder {
+      if oneofNestedMessageBuilder_ == nil {
+         oneofNestedMessageBuilder_ = ProtobufUnittest.TestAllTypesLite.NestedMessageBuilder()
+      }
+      return oneofNestedMessageBuilder_
     }
     internal func mergeOneofNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage) -> ProtobufUnittest.TestAllTypesLiteBuilder {
       if (builderResult.hasOneofNestedMessage) {
@@ -4922,6 +5040,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearOneofNestedMessage() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+      oneofNestedMessageBuilder_ = nil
       builderResult.hasOneofNestedMessage = false
       builderResult.oneofNestedMessage = nil
       return self
@@ -7751,16 +7870,32 @@ internal extension ProtobufUnittest {
             }
             var field1:ProtobufUnittest.TestAllTypesLite! {
                  get {
+                     if field1Builder_ != nil {
+                        self.mergeField1(field1Builder_.buildPartial())
+                        field1Builder_ = nil
+                     }
                      return builderResult.field1
                  }
                  set (value) {
+                     field1Builder_ = nil
                      builderResult.hasField1 = true
                      builderResult.field1 = value
+                 }
+            }
+            private var field1Builder_:ProtobufUnittest.TestAllTypesLiteBuilder! {
+                 didSet {
+                    builderResult.hasField1 = true
                  }
             }
             func setField1(value:ProtobufUnittest.TestAllTypesLite!)-> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
               self.field1 = value
               return self
+            }
+            internal func getField1Builder() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+              if field1Builder_ == nil {
+                 field1Builder_ = ProtobufUnittest.TestAllTypesLiteBuilder()
+              }
+              return field1Builder_
             }
             internal func mergeField1(value:ProtobufUnittest.TestAllTypesLite) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
               if (builderResult.hasField1) {
@@ -7772,6 +7907,7 @@ internal extension ProtobufUnittest {
               return self
             }
             internal func clearField1() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+              field1Builder_ = nil
               builderResult.hasField1 = false
               builderResult.field1 = nil
               return self
@@ -7960,16 +8096,32 @@ internal extension ProtobufUnittest {
             }
             var field1:ProtobufUnittest.TestAllTypesLite! {
                  get {
+                     if field1Builder_ != nil {
+                        self.mergeField1(field1Builder_.buildPartial())
+                        field1Builder_ = nil
+                     }
                      return builderResult.field1
                  }
                  set (value) {
+                     field1Builder_ = nil
                      builderResult.hasField1 = true
                      builderResult.field1 = value
+                 }
+            }
+            private var field1Builder_:ProtobufUnittest.TestAllTypesLiteBuilder! {
+                 didSet {
+                    builderResult.hasField1 = true
                  }
             }
             func setField1(value:ProtobufUnittest.TestAllTypesLite!)-> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
               self.field1 = value
               return self
+            }
+            internal func getField1Builder() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+              if field1Builder_ == nil {
+                 field1Builder_ = ProtobufUnittest.TestAllTypesLiteBuilder()
+              }
+              return field1Builder_
             }
             internal func mergeField1(value:ProtobufUnittest.TestAllTypesLite) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
               if (builderResult.hasField1) {
@@ -7981,6 +8133,7 @@ internal extension ProtobufUnittest {
               return self
             }
             internal func clearField1() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+              field1Builder_ = nil
               builderResult.hasField1 = false
               builderResult.field1 = nil
               return self
@@ -8597,16 +8750,32 @@ internal extension ProtobufUnittest {
         }
         var optionalGroupAllTypes:ProtobufUnittest.TestAllTypesLite! {
              get {
+                 if optionalGroupAllTypesBuilder_ != nil {
+                    self.mergeOptionalGroupAllTypes(optionalGroupAllTypesBuilder_.buildPartial())
+                    optionalGroupAllTypesBuilder_ = nil
+                 }
                  return builderResult.optionalGroupAllTypes
              }
              set (value) {
+                 optionalGroupAllTypesBuilder_ = nil
                  builderResult.hasOptionalGroupAllTypes = true
                  builderResult.optionalGroupAllTypes = value
+             }
+        }
+        private var optionalGroupAllTypesBuilder_:ProtobufUnittest.TestAllTypesLiteBuilder! {
+             didSet {
+                builderResult.hasOptionalGroupAllTypes = true
              }
         }
         func setOptionalGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite!)-> ProtobufUnittest.TestParsingMergeLite.OptionalGroupBuilder {
           self.optionalGroupAllTypes = value
           return self
+        }
+        internal func getOptionalGroupAllTypesBuilder() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+          if optionalGroupAllTypesBuilder_ == nil {
+             optionalGroupAllTypesBuilder_ = ProtobufUnittest.TestAllTypesLiteBuilder()
+          }
+          return optionalGroupAllTypesBuilder_
         }
         internal func mergeOptionalGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite) -> ProtobufUnittest.TestParsingMergeLite.OptionalGroupBuilder {
           if (builderResult.hasOptionalGroupAllTypes) {
@@ -8618,6 +8787,7 @@ internal extension ProtobufUnittest {
           return self
         }
         internal func clearOptionalGroupAllTypes() -> ProtobufUnittest.TestParsingMergeLite.OptionalGroupBuilder {
+          optionalGroupAllTypesBuilder_ = nil
           builderResult.hasOptionalGroupAllTypes = false
           builderResult.optionalGroupAllTypes = nil
           return self
@@ -8806,16 +8976,32 @@ internal extension ProtobufUnittest {
         }
         var repeatedGroupAllTypes:ProtobufUnittest.TestAllTypesLite! {
              get {
+                 if repeatedGroupAllTypesBuilder_ != nil {
+                    self.mergeRepeatedGroupAllTypes(repeatedGroupAllTypesBuilder_.buildPartial())
+                    repeatedGroupAllTypesBuilder_ = nil
+                 }
                  return builderResult.repeatedGroupAllTypes
              }
              set (value) {
+                 repeatedGroupAllTypesBuilder_ = nil
                  builderResult.hasRepeatedGroupAllTypes = true
                  builderResult.repeatedGroupAllTypes = value
+             }
+        }
+        private var repeatedGroupAllTypesBuilder_:ProtobufUnittest.TestAllTypesLiteBuilder! {
+             didSet {
+                builderResult.hasRepeatedGroupAllTypes = true
              }
         }
         func setRepeatedGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite!)-> ProtobufUnittest.TestParsingMergeLite.RepeatedGroupBuilder {
           self.repeatedGroupAllTypes = value
           return self
+        }
+        internal func getRepeatedGroupAllTypesBuilder() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+          if repeatedGroupAllTypesBuilder_ == nil {
+             repeatedGroupAllTypesBuilder_ = ProtobufUnittest.TestAllTypesLiteBuilder()
+          }
+          return repeatedGroupAllTypesBuilder_
         }
         internal func mergeRepeatedGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite) -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroupBuilder {
           if (builderResult.hasRepeatedGroupAllTypes) {
@@ -8827,6 +9013,7 @@ internal extension ProtobufUnittest {
           return self
         }
         internal func clearRepeatedGroupAllTypes() -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroupBuilder {
+          repeatedGroupAllTypesBuilder_ = nil
           builderResult.hasRepeatedGroupAllTypes = false
           builderResult.repeatedGroupAllTypes = nil
           return self
@@ -9100,16 +9287,32 @@ internal extension ProtobufUnittest {
     }
     var requiredAllTypes:ProtobufUnittest.TestAllTypesLite! {
          get {
+             if requiredAllTypesBuilder_ != nil {
+                self.mergeRequiredAllTypes(requiredAllTypesBuilder_.buildPartial())
+                requiredAllTypesBuilder_ = nil
+             }
              return builderResult.requiredAllTypes
          }
          set (value) {
+             requiredAllTypesBuilder_ = nil
              builderResult.hasRequiredAllTypes = true
              builderResult.requiredAllTypes = value
+         }
+    }
+    private var requiredAllTypesBuilder_:ProtobufUnittest.TestAllTypesLiteBuilder! {
+         didSet {
+            builderResult.hasRequiredAllTypes = true
          }
     }
     func setRequiredAllTypes(value:ProtobufUnittest.TestAllTypesLite!)-> ProtobufUnittest.TestParsingMergeLiteBuilder {
       self.requiredAllTypes = value
       return self
+    }
+    internal func getRequiredAllTypesBuilder() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+      if requiredAllTypesBuilder_ == nil {
+         requiredAllTypesBuilder_ = ProtobufUnittest.TestAllTypesLiteBuilder()
+      }
+      return requiredAllTypesBuilder_
     }
     internal func mergeRequiredAllTypes(value:ProtobufUnittest.TestAllTypesLite) -> ProtobufUnittest.TestParsingMergeLiteBuilder {
       if (builderResult.hasRequiredAllTypes) {
@@ -9121,6 +9324,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearRequiredAllTypes() -> ProtobufUnittest.TestParsingMergeLiteBuilder {
+      requiredAllTypesBuilder_ = nil
       builderResult.hasRequiredAllTypes = false
       builderResult.requiredAllTypes = nil
       return self
@@ -9132,16 +9336,32 @@ internal extension ProtobufUnittest {
     }
     var optionalAllTypes:ProtobufUnittest.TestAllTypesLite! {
          get {
+             if optionalAllTypesBuilder_ != nil {
+                self.mergeOptionalAllTypes(optionalAllTypesBuilder_.buildPartial())
+                optionalAllTypesBuilder_ = nil
+             }
              return builderResult.optionalAllTypes
          }
          set (value) {
+             optionalAllTypesBuilder_ = nil
              builderResult.hasOptionalAllTypes = true
              builderResult.optionalAllTypes = value
+         }
+    }
+    private var optionalAllTypesBuilder_:ProtobufUnittest.TestAllTypesLiteBuilder! {
+         didSet {
+            builderResult.hasOptionalAllTypes = true
          }
     }
     func setOptionalAllTypes(value:ProtobufUnittest.TestAllTypesLite!)-> ProtobufUnittest.TestParsingMergeLiteBuilder {
       self.optionalAllTypes = value
       return self
+    }
+    internal func getOptionalAllTypesBuilder() -> ProtobufUnittest.TestAllTypesLiteBuilder {
+      if optionalAllTypesBuilder_ == nil {
+         optionalAllTypesBuilder_ = ProtobufUnittest.TestAllTypesLiteBuilder()
+      }
+      return optionalAllTypesBuilder_
     }
     internal func mergeOptionalAllTypes(value:ProtobufUnittest.TestAllTypesLite) -> ProtobufUnittest.TestParsingMergeLiteBuilder {
       if (builderResult.hasOptionalAllTypes) {
@@ -9153,6 +9373,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearOptionalAllTypes() -> ProtobufUnittest.TestParsingMergeLiteBuilder {
+      optionalAllTypesBuilder_ = nil
       builderResult.hasOptionalAllTypes = false
       builderResult.optionalAllTypes = nil
       return self
@@ -9180,16 +9401,32 @@ internal extension ProtobufUnittest {
     }
     var optionalGroup:ProtobufUnittest.TestParsingMergeLite.OptionalGroup! {
          get {
+             if optionalGroupBuilder_ != nil {
+                self.mergeOptionalGroup(optionalGroupBuilder_.buildPartial())
+                optionalGroupBuilder_ = nil
+             }
              return builderResult.optionalGroup
          }
          set (value) {
+             optionalGroupBuilder_ = nil
              builderResult.hasOptionalGroup = true
              builderResult.optionalGroup = value
+         }
+    }
+    private var optionalGroupBuilder_:ProtobufUnittest.TestParsingMergeLite.OptionalGroupBuilder! {
+         didSet {
+            builderResult.hasOptionalGroup = true
          }
     }
     func setOptionalGroup(value:ProtobufUnittest.TestParsingMergeLite.OptionalGroup!)-> ProtobufUnittest.TestParsingMergeLiteBuilder {
       self.optionalGroup = value
       return self
+    }
+    internal func getOptionalGroupBuilder() -> ProtobufUnittest.TestParsingMergeLite.OptionalGroupBuilder {
+      if optionalGroupBuilder_ == nil {
+         optionalGroupBuilder_ = ProtobufUnittest.TestParsingMergeLite.OptionalGroupBuilder()
+      }
+      return optionalGroupBuilder_
     }
     internal func mergeOptionalGroup(value:ProtobufUnittest.TestParsingMergeLite.OptionalGroup) -> ProtobufUnittest.TestParsingMergeLiteBuilder {
       if (builderResult.hasOptionalGroup) {
@@ -9201,6 +9438,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearOptionalGroup() -> ProtobufUnittest.TestParsingMergeLiteBuilder {
+      optionalGroupBuilder_ = nil
       builderResult.hasOptionalGroup = false
       builderResult.optionalGroup = nil
       return self

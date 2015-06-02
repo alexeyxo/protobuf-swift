@@ -367,16 +367,32 @@ internal extension ProtobufUnittest {
     }
     var messageSet:ProtobufUnittest.TestMessageSet! {
          get {
+             if messageSetBuilder_ != nil {
+                self.mergeMessageSet(messageSetBuilder_.buildPartial())
+                messageSetBuilder_ = nil
+             }
              return builderResult.messageSet
          }
          set (value) {
+             messageSetBuilder_ = nil
              builderResult.hasMessageSet = true
              builderResult.messageSet = value
+         }
+    }
+    private var messageSetBuilder_:ProtobufUnittest.TestMessageSetBuilder! {
+         didSet {
+            builderResult.hasMessageSet = true
          }
     }
     func setMessageSet(value:ProtobufUnittest.TestMessageSet!)-> ProtobufUnittest.TestMessageSetContainerBuilder {
       self.messageSet = value
       return self
+    }
+    internal func getMessageSetBuilder() -> ProtobufUnittest.TestMessageSetBuilder {
+      if messageSetBuilder_ == nil {
+         messageSetBuilder_ = ProtobufUnittest.TestMessageSetBuilder()
+      }
+      return messageSetBuilder_
     }
     internal func mergeMessageSet(value:ProtobufUnittest.TestMessageSet) -> ProtobufUnittest.TestMessageSetContainerBuilder {
       if (builderResult.hasMessageSet) {
@@ -388,6 +404,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearMessageSet() -> ProtobufUnittest.TestMessageSetContainerBuilder {
+      messageSetBuilder_ = nil
       builderResult.hasMessageSet = false
       builderResult.messageSet = nil
       return self

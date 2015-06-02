@@ -314,16 +314,32 @@ internal extension Google.Protobuf {
     }
     var sourceContext:Google.Protobuf.SourceContext! {
          get {
+             if sourceContextBuilder_ != nil {
+                self.mergeSourceContext(sourceContextBuilder_.buildPartial())
+                sourceContextBuilder_ = nil
+             }
              return builderResult.sourceContext
          }
          set (value) {
+             sourceContextBuilder_ = nil
              builderResult.hasSourceContext = true
              builderResult.sourceContext = value
+         }
+    }
+    private var sourceContextBuilder_:Google.Protobuf.SourceContextBuilder! {
+         didSet {
+            builderResult.hasSourceContext = true
          }
     }
     func setSourceContext(value:Google.Protobuf.SourceContext!)-> Google.Protobuf.ApiBuilder {
       self.sourceContext = value
       return self
+    }
+    internal func getSourceContextBuilder() -> Google.Protobuf.SourceContextBuilder {
+      if sourceContextBuilder_ == nil {
+         sourceContextBuilder_ = Google.Protobuf.SourceContextBuilder()
+      }
+      return sourceContextBuilder_
     }
     internal func mergeSourceContext(value:Google.Protobuf.SourceContext) -> Google.Protobuf.ApiBuilder {
       if (builderResult.hasSourceContext) {
@@ -335,6 +351,7 @@ internal extension Google.Protobuf {
       return self
     }
     internal func clearSourceContext() -> Google.Protobuf.ApiBuilder {
+      sourceContextBuilder_ = nil
       builderResult.hasSourceContext = false
       builderResult.sourceContext = nil
       return self

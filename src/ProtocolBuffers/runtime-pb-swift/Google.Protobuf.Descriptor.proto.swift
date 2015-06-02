@@ -1014,16 +1014,32 @@ public extension Google.Protobuf {
     }
     public var options:Google.Protobuf.FileOptions! {
          get {
+             if optionsBuilder_ != nil {
+                self.mergeOptions(optionsBuilder_.buildPartial())
+                optionsBuilder_ = nil
+             }
              return builderResult.options
          }
          set (value) {
+             optionsBuilder_ = nil
              builderResult.hasOptions = true
              builderResult.options = value
+         }
+    }
+    private var optionsBuilder_:Google.Protobuf.FileOptionsBuilder! {
+         didSet {
+            builderResult.hasOptions = true
          }
     }
     public func setOptions(value:Google.Protobuf.FileOptions!)-> Google.Protobuf.FileDescriptorProtoBuilder {
       self.options = value
       return self
+    }
+    public func getOptionsBuilder() -> Google.Protobuf.FileOptionsBuilder {
+      if optionsBuilder_ == nil {
+         optionsBuilder_ = Google.Protobuf.FileOptionsBuilder()
+      }
+      return optionsBuilder_
     }
     public func mergeOptions(value:Google.Protobuf.FileOptions) -> Google.Protobuf.FileDescriptorProtoBuilder {
       if (builderResult.hasOptions) {
@@ -1035,6 +1051,7 @@ public extension Google.Protobuf {
       return self
     }
     public func clearOptions() -> Google.Protobuf.FileDescriptorProtoBuilder {
+      optionsBuilder_ = nil
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -1046,16 +1063,32 @@ public extension Google.Protobuf {
     }
     public var sourceCodeInfo:Google.Protobuf.SourceCodeInfo! {
          get {
+             if sourceCodeInfoBuilder_ != nil {
+                self.mergeSourceCodeInfo(sourceCodeInfoBuilder_.buildPartial())
+                sourceCodeInfoBuilder_ = nil
+             }
              return builderResult.sourceCodeInfo
          }
          set (value) {
+             sourceCodeInfoBuilder_ = nil
              builderResult.hasSourceCodeInfo = true
              builderResult.sourceCodeInfo = value
+         }
+    }
+    private var sourceCodeInfoBuilder_:Google.Protobuf.SourceCodeInfoBuilder! {
+         didSet {
+            builderResult.hasSourceCodeInfo = true
          }
     }
     public func setSourceCodeInfo(value:Google.Protobuf.SourceCodeInfo!)-> Google.Protobuf.FileDescriptorProtoBuilder {
       self.sourceCodeInfo = value
       return self
+    }
+    public func getSourceCodeInfoBuilder() -> Google.Protobuf.SourceCodeInfoBuilder {
+      if sourceCodeInfoBuilder_ == nil {
+         sourceCodeInfoBuilder_ = Google.Protobuf.SourceCodeInfoBuilder()
+      }
+      return sourceCodeInfoBuilder_
     }
     public func mergeSourceCodeInfo(value:Google.Protobuf.SourceCodeInfo) -> Google.Protobuf.FileDescriptorProtoBuilder {
       if (builderResult.hasSourceCodeInfo) {
@@ -1067,6 +1100,7 @@ public extension Google.Protobuf {
       return self
     }
     public func clearSourceCodeInfo() -> Google.Protobuf.FileDescriptorProtoBuilder {
+      sourceCodeInfoBuilder_ = nil
       builderResult.hasSourceCodeInfo = false
       builderResult.sourceCodeInfo = nil
       return self
@@ -2137,16 +2171,32 @@ public extension Google.Protobuf {
     }
     public var options:Google.Protobuf.MessageOptions! {
          get {
+             if optionsBuilder_ != nil {
+                self.mergeOptions(optionsBuilder_.buildPartial())
+                optionsBuilder_ = nil
+             }
              return builderResult.options
          }
          set (value) {
+             optionsBuilder_ = nil
              builderResult.hasOptions = true
              builderResult.options = value
+         }
+    }
+    private var optionsBuilder_:Google.Protobuf.MessageOptionsBuilder! {
+         didSet {
+            builderResult.hasOptions = true
          }
     }
     public func setOptions(value:Google.Protobuf.MessageOptions!)-> Google.Protobuf.DescriptorProtoBuilder {
       self.options = value
       return self
+    }
+    public func getOptionsBuilder() -> Google.Protobuf.MessageOptionsBuilder {
+      if optionsBuilder_ == nil {
+         optionsBuilder_ = Google.Protobuf.MessageOptionsBuilder()
+      }
+      return optionsBuilder_
     }
     public func mergeOptions(value:Google.Protobuf.MessageOptions) -> Google.Protobuf.DescriptorProtoBuilder {
       if (builderResult.hasOptions) {
@@ -2158,6 +2208,7 @@ public extension Google.Protobuf {
       return self
     }
     public func clearOptions() -> Google.Protobuf.DescriptorProtoBuilder {
+      optionsBuilder_ = nil
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -2788,16 +2839,32 @@ public extension Google.Protobuf {
     }
     public var options:Google.Protobuf.FieldOptions! {
          get {
+             if optionsBuilder_ != nil {
+                self.mergeOptions(optionsBuilder_.buildPartial())
+                optionsBuilder_ = nil
+             }
              return builderResult.options
          }
          set (value) {
+             optionsBuilder_ = nil
              builderResult.hasOptions = true
              builderResult.options = value
+         }
+    }
+    private var optionsBuilder_:Google.Protobuf.FieldOptionsBuilder! {
+         didSet {
+            builderResult.hasOptions = true
          }
     }
     public func setOptions(value:Google.Protobuf.FieldOptions!)-> Google.Protobuf.FieldDescriptorProtoBuilder {
       self.options = value
       return self
+    }
+    public func getOptionsBuilder() -> Google.Protobuf.FieldOptionsBuilder {
+      if optionsBuilder_ == nil {
+         optionsBuilder_ = Google.Protobuf.FieldOptionsBuilder()
+      }
+      return optionsBuilder_
     }
     public func mergeOptions(value:Google.Protobuf.FieldOptions) -> Google.Protobuf.FieldDescriptorProtoBuilder {
       if (builderResult.hasOptions) {
@@ -2809,6 +2876,7 @@ public extension Google.Protobuf {
       return self
     }
     public func clearOptions() -> Google.Protobuf.FieldDescriptorProtoBuilder {
+      optionsBuilder_ = nil
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -3319,16 +3387,32 @@ public extension Google.Protobuf {
     }
     public var options:Google.Protobuf.EnumOptions! {
          get {
+             if optionsBuilder_ != nil {
+                self.mergeOptions(optionsBuilder_.buildPartial())
+                optionsBuilder_ = nil
+             }
              return builderResult.options
          }
          set (value) {
+             optionsBuilder_ = nil
              builderResult.hasOptions = true
              builderResult.options = value
+         }
+    }
+    private var optionsBuilder_:Google.Protobuf.EnumOptionsBuilder! {
+         didSet {
+            builderResult.hasOptions = true
          }
     }
     public func setOptions(value:Google.Protobuf.EnumOptions!)-> Google.Protobuf.EnumDescriptorProtoBuilder {
       self.options = value
       return self
+    }
+    public func getOptionsBuilder() -> Google.Protobuf.EnumOptionsBuilder {
+      if optionsBuilder_ == nil {
+         optionsBuilder_ = Google.Protobuf.EnumOptionsBuilder()
+      }
+      return optionsBuilder_
     }
     public func mergeOptions(value:Google.Protobuf.EnumOptions) -> Google.Protobuf.EnumDescriptorProtoBuilder {
       if (builderResult.hasOptions) {
@@ -3340,6 +3424,7 @@ public extension Google.Protobuf {
       return self
     }
     public func clearOptions() -> Google.Protobuf.EnumDescriptorProtoBuilder {
+      optionsBuilder_ = nil
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -3617,16 +3702,32 @@ public extension Google.Protobuf {
     }
     public var options:Google.Protobuf.EnumValueOptions! {
          get {
+             if optionsBuilder_ != nil {
+                self.mergeOptions(optionsBuilder_.buildPartial())
+                optionsBuilder_ = nil
+             }
              return builderResult.options
          }
          set (value) {
+             optionsBuilder_ = nil
              builderResult.hasOptions = true
              builderResult.options = value
+         }
+    }
+    private var optionsBuilder_:Google.Protobuf.EnumValueOptionsBuilder! {
+         didSet {
+            builderResult.hasOptions = true
          }
     }
     public func setOptions(value:Google.Protobuf.EnumValueOptions!)-> Google.Protobuf.EnumValueDescriptorProtoBuilder {
       self.options = value
       return self
+    }
+    public func getOptionsBuilder() -> Google.Protobuf.EnumValueOptionsBuilder {
+      if optionsBuilder_ == nil {
+         optionsBuilder_ = Google.Protobuf.EnumValueOptionsBuilder()
+      }
+      return optionsBuilder_
     }
     public func mergeOptions(value:Google.Protobuf.EnumValueOptions) -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
       if (builderResult.hasOptions) {
@@ -3638,6 +3739,7 @@ public extension Google.Protobuf {
       return self
     }
     public func clearOptions() -> Google.Protobuf.EnumValueDescriptorProtoBuilder {
+      optionsBuilder_ = nil
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -3918,16 +4020,32 @@ public extension Google.Protobuf {
     }
     public var options:Google.Protobuf.ServiceOptions! {
          get {
+             if optionsBuilder_ != nil {
+                self.mergeOptions(optionsBuilder_.buildPartial())
+                optionsBuilder_ = nil
+             }
              return builderResult.options
          }
          set (value) {
+             optionsBuilder_ = nil
              builderResult.hasOptions = true
              builderResult.options = value
+         }
+    }
+    private var optionsBuilder_:Google.Protobuf.ServiceOptionsBuilder! {
+         didSet {
+            builderResult.hasOptions = true
          }
     }
     public func setOptions(value:Google.Protobuf.ServiceOptions!)-> Google.Protobuf.ServiceDescriptorProtoBuilder {
       self.options = value
       return self
+    }
+    public func getOptionsBuilder() -> Google.Protobuf.ServiceOptionsBuilder {
+      if optionsBuilder_ == nil {
+         optionsBuilder_ = Google.Protobuf.ServiceOptionsBuilder()
+      }
+      return optionsBuilder_
     }
     public func mergeOptions(value:Google.Protobuf.ServiceOptions) -> Google.Protobuf.ServiceDescriptorProtoBuilder {
       if (builderResult.hasOptions) {
@@ -3939,6 +4057,7 @@ public extension Google.Protobuf {
       return self
     }
     public func clearOptions() -> Google.Protobuf.ServiceDescriptorProtoBuilder {
+      optionsBuilder_ = nil
       builderResult.hasOptions = false
       builderResult.options = nil
       return self
@@ -4284,16 +4403,32 @@ public extension Google.Protobuf {
     }
     public var options:Google.Protobuf.MethodOptions! {
          get {
+             if optionsBuilder_ != nil {
+                self.mergeOptions(optionsBuilder_.buildPartial())
+                optionsBuilder_ = nil
+             }
              return builderResult.options
          }
          set (value) {
+             optionsBuilder_ = nil
              builderResult.hasOptions = true
              builderResult.options = value
+         }
+    }
+    private var optionsBuilder_:Google.Protobuf.MethodOptionsBuilder! {
+         didSet {
+            builderResult.hasOptions = true
          }
     }
     public func setOptions(value:Google.Protobuf.MethodOptions!)-> Google.Protobuf.MethodDescriptorProtoBuilder {
       self.options = value
       return self
+    }
+    public func getOptionsBuilder() -> Google.Protobuf.MethodOptionsBuilder {
+      if optionsBuilder_ == nil {
+         optionsBuilder_ = Google.Protobuf.MethodOptionsBuilder()
+      }
+      return optionsBuilder_
     }
     public func mergeOptions(value:Google.Protobuf.MethodOptions) -> Google.Protobuf.MethodDescriptorProtoBuilder {
       if (builderResult.hasOptions) {
@@ -4305,6 +4440,7 @@ public extension Google.Protobuf {
       return self
     }
     public func clearOptions() -> Google.Protobuf.MethodDescriptorProtoBuilder {
+      optionsBuilder_ = nil
       builderResult.hasOptions = false
       builderResult.options = nil
       return self

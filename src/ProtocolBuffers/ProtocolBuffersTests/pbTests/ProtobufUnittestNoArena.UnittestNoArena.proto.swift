@@ -2562,16 +2562,32 @@ internal extension ProtobufUnittestNoArena {
     }
     var optionalGroup:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup! {
          get {
+             if optionalGroupBuilder_ != nil {
+                self.mergeOptionalGroup(optionalGroupBuilder_.buildPartial())
+                optionalGroupBuilder_ = nil
+             }
              return builderResult.optionalGroup
          }
          set (value) {
+             optionalGroupBuilder_ = nil
              builderResult.hasOptionalGroup = true
              builderResult.optionalGroup = value
+         }
+    }
+    private var optionalGroupBuilder_:ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder! {
+         didSet {
+            builderResult.hasOptionalGroup = true
          }
     }
     func setOptionalGroup(value:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalGroup = value
       return self
+    }
+    internal func getOptionalGroupBuilder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
+      if optionalGroupBuilder_ == nil {
+         optionalGroupBuilder_ = ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder()
+      }
+      return optionalGroupBuilder_
     }
     internal func mergeOptionalGroup(value:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       if (builderResult.hasOptionalGroup) {
@@ -2583,6 +2599,7 @@ internal extension ProtobufUnittestNoArena {
       return self
     }
     internal func clearOptionalGroup() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      optionalGroupBuilder_ = nil
       builderResult.hasOptionalGroup = false
       builderResult.optionalGroup = nil
       return self
@@ -2594,16 +2611,32 @@ internal extension ProtobufUnittestNoArena {
     }
     var optionalNestedMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
          get {
+             if optionalNestedMessageBuilder_ != nil {
+                self.mergeOptionalNestedMessage(optionalNestedMessageBuilder_.buildPartial())
+                optionalNestedMessageBuilder_ = nil
+             }
              return builderResult.optionalNestedMessage
          }
          set (value) {
+             optionalNestedMessageBuilder_ = nil
              builderResult.hasOptionalNestedMessage = true
              builderResult.optionalNestedMessage = value
+         }
+    }
+    private var optionalNestedMessageBuilder_:ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder! {
+         didSet {
+            builderResult.hasOptionalNestedMessage = true
          }
     }
     func setOptionalNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalNestedMessage = value
       return self
+    }
+    internal func getOptionalNestedMessageBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
+      if optionalNestedMessageBuilder_ == nil {
+         optionalNestedMessageBuilder_ = ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder()
+      }
+      return optionalNestedMessageBuilder_
     }
     internal func mergeOptionalNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       if (builderResult.hasOptionalNestedMessage) {
@@ -2615,6 +2648,7 @@ internal extension ProtobufUnittestNoArena {
       return self
     }
     internal func clearOptionalNestedMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      optionalNestedMessageBuilder_ = nil
       builderResult.hasOptionalNestedMessage = false
       builderResult.optionalNestedMessage = nil
       return self
@@ -2626,16 +2660,32 @@ internal extension ProtobufUnittestNoArena {
     }
     var optionalForeignMessage:ProtobufUnittestNoArena.ForeignMessage! {
          get {
+             if optionalForeignMessageBuilder_ != nil {
+                self.mergeOptionalForeignMessage(optionalForeignMessageBuilder_.buildPartial())
+                optionalForeignMessageBuilder_ = nil
+             }
              return builderResult.optionalForeignMessage
          }
          set (value) {
+             optionalForeignMessageBuilder_ = nil
              builderResult.hasOptionalForeignMessage = true
              builderResult.optionalForeignMessage = value
+         }
+    }
+    private var optionalForeignMessageBuilder_:ProtobufUnittestNoArena.ForeignMessageBuilder! {
+         didSet {
+            builderResult.hasOptionalForeignMessage = true
          }
     }
     func setOptionalForeignMessage(value:ProtobufUnittestNoArena.ForeignMessage!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalForeignMessage = value
       return self
+    }
+    internal func getOptionalForeignMessageBuilder() -> ProtobufUnittestNoArena.ForeignMessageBuilder {
+      if optionalForeignMessageBuilder_ == nil {
+         optionalForeignMessageBuilder_ = ProtobufUnittestNoArena.ForeignMessageBuilder()
+      }
+      return optionalForeignMessageBuilder_
     }
     internal func mergeOptionalForeignMessage(value:ProtobufUnittestNoArena.ForeignMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       if (builderResult.hasOptionalForeignMessage) {
@@ -2647,6 +2697,7 @@ internal extension ProtobufUnittestNoArena {
       return self
     }
     internal func clearOptionalForeignMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      optionalForeignMessageBuilder_ = nil
       builderResult.hasOptionalForeignMessage = false
       builderResult.optionalForeignMessage = nil
       return self
@@ -2658,16 +2709,32 @@ internal extension ProtobufUnittestNoArena {
     }
     var optionalImportMessage:ProtobufUnittestImport.ImportMessage! {
          get {
+             if optionalImportMessageBuilder_ != nil {
+                self.mergeOptionalImportMessage(optionalImportMessageBuilder_.buildPartial())
+                optionalImportMessageBuilder_ = nil
+             }
              return builderResult.optionalImportMessage
          }
          set (value) {
+             optionalImportMessageBuilder_ = nil
              builderResult.hasOptionalImportMessage = true
              builderResult.optionalImportMessage = value
+         }
+    }
+    private var optionalImportMessageBuilder_:ProtobufUnittestImport.ImportMessageBuilder! {
+         didSet {
+            builderResult.hasOptionalImportMessage = true
          }
     }
     func setOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalImportMessage = value
       return self
+    }
+    internal func getOptionalImportMessageBuilder() -> ProtobufUnittestImport.ImportMessageBuilder {
+      if optionalImportMessageBuilder_ == nil {
+         optionalImportMessageBuilder_ = ProtobufUnittestImport.ImportMessageBuilder()
+      }
+      return optionalImportMessageBuilder_
     }
     internal func mergeOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       if (builderResult.hasOptionalImportMessage) {
@@ -2679,6 +2746,7 @@ internal extension ProtobufUnittestNoArena {
       return self
     }
     internal func clearOptionalImportMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      optionalImportMessageBuilder_ = nil
       builderResult.hasOptionalImportMessage = false
       builderResult.optionalImportMessage = nil
       return self
@@ -2805,16 +2873,32 @@ internal extension ProtobufUnittestNoArena {
     }
     var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage! {
          get {
+             if optionalPublicImportMessageBuilder_ != nil {
+                self.mergeOptionalPublicImportMessage(optionalPublicImportMessageBuilder_.buildPartial())
+                optionalPublicImportMessageBuilder_ = nil
+             }
              return builderResult.optionalPublicImportMessage
          }
          set (value) {
+             optionalPublicImportMessageBuilder_ = nil
              builderResult.hasOptionalPublicImportMessage = true
              builderResult.optionalPublicImportMessage = value
+         }
+    }
+    private var optionalPublicImportMessageBuilder_:ProtobufUnittestImport.PublicImportMessageBuilder! {
+         didSet {
+            builderResult.hasOptionalPublicImportMessage = true
          }
     }
     func setOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalPublicImportMessage = value
       return self
+    }
+    internal func getOptionalPublicImportMessageBuilder() -> ProtobufUnittestImport.PublicImportMessageBuilder {
+      if optionalPublicImportMessageBuilder_ == nil {
+         optionalPublicImportMessageBuilder_ = ProtobufUnittestImport.PublicImportMessageBuilder()
+      }
+      return optionalPublicImportMessageBuilder_
     }
     internal func mergeOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       if (builderResult.hasOptionalPublicImportMessage) {
@@ -2826,6 +2910,7 @@ internal extension ProtobufUnittestNoArena {
       return self
     }
     internal func clearOptionalPublicImportMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      optionalPublicImportMessageBuilder_ = nil
       builderResult.hasOptionalPublicImportMessage = false
       builderResult.optionalPublicImportMessage = nil
       return self
@@ -2837,16 +2922,32 @@ internal extension ProtobufUnittestNoArena {
     }
     var optionalLazyMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
          get {
+             if optionalLazyMessageBuilder_ != nil {
+                self.mergeOptionalLazyMessage(optionalLazyMessageBuilder_.buildPartial())
+                optionalLazyMessageBuilder_ = nil
+             }
              return builderResult.optionalLazyMessage
          }
          set (value) {
+             optionalLazyMessageBuilder_ = nil
              builderResult.hasOptionalLazyMessage = true
              builderResult.optionalLazyMessage = value
+         }
+    }
+    private var optionalLazyMessageBuilder_:ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder! {
+         didSet {
+            builderResult.hasOptionalLazyMessage = true
          }
     }
     func setOptionalLazyMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalLazyMessage = value
       return self
+    }
+    internal func getOptionalLazyMessageBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
+      if optionalLazyMessageBuilder_ == nil {
+         optionalLazyMessageBuilder_ = ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder()
+      }
+      return optionalLazyMessageBuilder_
     }
     internal func mergeOptionalLazyMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       if (builderResult.hasOptionalLazyMessage) {
@@ -2858,6 +2959,7 @@ internal extension ProtobufUnittestNoArena {
       return self
     }
     internal func clearOptionalLazyMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      optionalLazyMessageBuilder_ = nil
       builderResult.hasOptionalLazyMessage = false
       builderResult.optionalLazyMessage = nil
       return self
@@ -3752,16 +3854,32 @@ internal extension ProtobufUnittestNoArena {
     }
     var oneofNestedMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
          get {
+             if oneofNestedMessageBuilder_ != nil {
+                self.mergeOneofNestedMessage(oneofNestedMessageBuilder_.buildPartial())
+                oneofNestedMessageBuilder_ = nil
+             }
              return builderResult.oneofNestedMessage
          }
          set (value) {
+             oneofNestedMessageBuilder_ = nil
              builderResult.hasOneofNestedMessage = true
              builderResult.oneofNestedMessage = value
+         }
+    }
+    private var oneofNestedMessageBuilder_:ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder! {
+         didSet {
+            builderResult.hasOneofNestedMessage = true
          }
     }
     func setOneofNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.oneofNestedMessage = value
       return self
+    }
+    internal func getOneofNestedMessageBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
+      if oneofNestedMessageBuilder_ == nil {
+         oneofNestedMessageBuilder_ = ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder()
+      }
+      return oneofNestedMessageBuilder_
     }
     internal func mergeOneofNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       if (builderResult.hasOneofNestedMessage) {
@@ -3773,6 +3891,7 @@ internal extension ProtobufUnittestNoArena {
       return self
     }
     internal func clearOneofNestedMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      oneofNestedMessageBuilder_ = nil
       builderResult.hasOneofNestedMessage = false
       builderResult.oneofNestedMessage = nil
       return self
@@ -4714,16 +4833,32 @@ internal extension ProtobufUnittestNoArena {
     }
     var arenaMessage:Proto2ArenaUnittest.ArenaMessage! {
          get {
+             if arenaMessageBuilder_ != nil {
+                self.mergeArenaMessage(arenaMessageBuilder_.buildPartial())
+                arenaMessageBuilder_ = nil
+             }
              return builderResult.arenaMessage
          }
          set (value) {
+             arenaMessageBuilder_ = nil
              builderResult.hasArenaMessage = true
              builderResult.arenaMessage = value
+         }
+    }
+    private var arenaMessageBuilder_:Proto2ArenaUnittest.ArenaMessageBuilder! {
+         didSet {
+            builderResult.hasArenaMessage = true
          }
     }
     func setArenaMessage(value:Proto2ArenaUnittest.ArenaMessage!)-> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
       self.arenaMessage = value
       return self
+    }
+    internal func getArenaMessageBuilder() -> Proto2ArenaUnittest.ArenaMessageBuilder {
+      if arenaMessageBuilder_ == nil {
+         arenaMessageBuilder_ = Proto2ArenaUnittest.ArenaMessageBuilder()
+      }
+      return arenaMessageBuilder_
     }
     internal func mergeArenaMessage(value:Proto2ArenaUnittest.ArenaMessage) -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
       if (builderResult.hasArenaMessage) {
@@ -4735,6 +4870,7 @@ internal extension ProtobufUnittestNoArena {
       return self
     }
     internal func clearArenaMessage() -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
+      arenaMessageBuilder_ = nil
       builderResult.hasArenaMessage = false
       builderResult.arenaMessage = nil
       return self

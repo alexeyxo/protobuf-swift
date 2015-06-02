@@ -186,16 +186,32 @@ internal extension ProtobufUnittest {
     }
     var optionalMessage:ProtobufUnittest.TestOptimizedForSize! {
          get {
+             if optionalMessageBuilder_ != nil {
+                self.mergeOptionalMessage(optionalMessageBuilder_.buildPartial())
+                optionalMessageBuilder_ = nil
+             }
              return builderResult.optionalMessage
          }
          set (value) {
+             optionalMessageBuilder_ = nil
              builderResult.hasOptionalMessage = true
              builderResult.optionalMessage = value
+         }
+    }
+    private var optionalMessageBuilder_:ProtobufUnittest.TestOptimizedForSizeBuilder! {
+         didSet {
+            builderResult.hasOptionalMessage = true
          }
     }
     func setOptionalMessage(value:ProtobufUnittest.TestOptimizedForSize!)-> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
       self.optionalMessage = value
       return self
+    }
+    internal func getOptionalMessageBuilder() -> ProtobufUnittest.TestOptimizedForSizeBuilder {
+      if optionalMessageBuilder_ == nil {
+         optionalMessageBuilder_ = ProtobufUnittest.TestOptimizedForSizeBuilder()
+      }
+      return optionalMessageBuilder_
     }
     internal func mergeOptionalMessage(value:ProtobufUnittest.TestOptimizedForSize) -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
       if (builderResult.hasOptionalMessage) {
@@ -207,6 +223,7 @@ internal extension ProtobufUnittest {
       return self
     }
     internal func clearOptionalMessage() -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
+      optionalMessageBuilder_ = nil
       builderResult.hasOptionalMessage = false
       builderResult.optionalMessage = nil
       return self

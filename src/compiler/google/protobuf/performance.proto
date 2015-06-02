@@ -6,6 +6,8 @@ option (.google.protobuf.swift_file_options).class_prefix = "PB";
 
 message User {
   Group group = 1;
+  string groupName = 2;
+  string groupLastName = 3;
 }
 
 message Group {
@@ -26,6 +28,23 @@ message Perfomance {
    string description = 7;
 }
 
+
+//
+message Foo {
+   int32 val = 1;
+  // some other fields.
+}
+
+message Bar {
+   Foo foo = 1;
+  // some other fields.
+}
+
+message Baz {
+   Bar bar = 1;
+  // some other fields.
+}
+//
 
 message IceCreamCone {
   enum Flavor {
