@@ -21,8 +21,8 @@ class ProtocolBuffersTests: XCTestCase {
     
     func testPerformance() {
         var originalBuilder = PBPerfomance.builder()
-        originalBuilder.setInts(Int32(32))
-                       .setInts64(Int64(64))
+        originalBuilder.setInts(Int32(-32))
+                       .setInts64(Int64(-64))
                        .setDoubles(Double(12.12))
                        .setFloats(Float(123.123))
                        .setStr("string")

@@ -258,10 +258,10 @@ public class CodedInputStream
     
     public func readRawLittleEndian32() -> Int32
     {
-        var b1:UInt8 = readRawByte()
-        var b2:UInt8 = readRawByte()
-        var b3:UInt8 = readRawByte()
-        var b4:UInt8 = readRawByte()
+        var b1:Int8 = readRawByte()
+        var b2:Int8 = readRawByte()
+        var b3:Int8 = readRawByte()
+        var b4:Int8 = readRawByte()
         var result:Int32 = (Int32(b1) & 0xff)
         result |= ((Int32(b2) & 0xff) <<  8)
         result |= ((Int32(b3) & 0xff) << 16)
@@ -270,14 +270,14 @@ public class CodedInputStream
     }
     public  func readRawLittleEndian64() -> Int64
     {
-        var b1:UInt8 = readRawByte()
-        var b2:UInt8 = readRawByte()
-        var b3:UInt8 = readRawByte()
-        var b4:UInt8 = readRawByte()
-        var b5:UInt8 = readRawByte()
-        var b6:UInt8 = readRawByte()
-        var b7:UInt8 = readRawByte()
-        var b8:UInt8 = readRawByte()
+        var b1:Int8 = readRawByte()
+        var b2:Int8 = readRawByte()
+        var b3:Int8 = readRawByte()
+        var b4:Int8 = readRawByte()
+        var b5:Int8 = readRawByte()
+        var b6:Int8 = readRawByte()
+        var b7:Int8 = readRawByte()
+        var b8:Int8 = readRawByte()
         var result:Int64  = (Int64(b1) & 0xff)
         result |= ((Int64(b2) & 0xff) <<  8)
         result |= ((Int64(b3) & 0xff) << 16)
@@ -289,7 +289,6 @@ public class CodedInputStream
         
         return result
     }
-    
     
     public func readTag()->Int32
     {
@@ -421,59 +420,56 @@ public class CodedInputStream
         return readRawVarint32() != 0
     }
     
-    public func readRawByte() ->UInt8
+    public func readRawByte() -> Int8
     {
         if (bufferPos == bufferSize)
         {
             refillBuffer(true)
         }
-        var pointer = UnsafeMutablePointer<UInt8>(buffer.mutableBytes)
+        var pointer = UnsafeMutablePointer<Int8>(buffer.mutableBytes)
         var res = pointer[Int(bufferPos++)]
         return res
     }
     
     public func readRawVarint32() -> Int32
     {
-        //C++ protobuf varints
-        var b:UInt8 = readRawByte()
-        var result:Int32 = Int32(b)
-        if (b & 0x80) == 0 {
-            return result
+        var tmp : Int8 = readRawByte();
+        if (tmp >= 0) {
+            return Int32(tmp);
         }
-        result -= 0x80
-        b = readRawByte()
-        result += Int32(b) <<  7
-        if (b & 0x80) == 0 {
-            return result
-        }
-        result -= (0x80 << 7)
-        b = readRawByte()
-        result += Int32(b) << 14
-        if (b & 0x80) == 0 {
-            return result
-        }
-        result -= Int32(0x80 << 14)
-        b = readRawByte()
-        result += Int32(b) << 21
-        if (b & 0x80) == 0 {
-            return result
-        }
-        result -= Int32(0x80 << 21)
-        b = readRawByte()
-        result += Int32(b) << 28
-        if (b & 0x80) == 0 {
-            return result
-        }
-        for i in 1..<5 {
-            b = readRawByte()
-            if (Int32(b) & 0x80) == 0 {
-                return result
+        var result : Int32 = Int32(tmp) & 0x7f;
+        tmp = readRawByte()
+        if (tmp >= 0) {
+            result |= Int32(tmp) << 7;
+        } else {
+            result |= (Int32(tmp) & 0x7f) << 7;
+            tmp = readRawByte()
+            if (tmp >= 0) {
+                result |= Int32(tmp) << 14;
+            } else {
+                result |= (Int32(tmp) & 0x7f) << 14;
+                tmp = readRawByte()
+                if (tmp >= 0) {
+                    result |= Int32(tmp) << 21;
+                } else {
+                    result |= (Int32(tmp) & 0x7f) << 21;
+                    tmp = readRawByte()
+                    result |= (Int32(tmp) << 28);
+                    if (tmp < 0) {
+                        // Discard upper 32 bits.
+                        for (var i : Int = 0; i < 5; i++) {
+                            if (readRawByte() >= 0) {
+                                return result;
+                            }
+                        }
+                        
+                        NSException(name:"InvalidProtocolBuffer", reason:"malformedVarint", userInfo: nil).raise()
+                    }
+                }
             }
         }
-        NSException(name:"InvalidProtocolBuffer", reason:"malformedVarint", userInfo: nil).raise()
-        return result
+        return result;
     }
-    
     public func readRawVarint64() -> Int64
     {
         var shift:Int64 = 0

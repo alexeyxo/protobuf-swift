@@ -184,11 +184,11 @@ class UnknowFieldsTests: XCTestCase {
     
     func testLargeVarint() {
         var field = Field()
-        field += Int64(0x7FFFFFFFFFFFFFFF)
+        field += Int64(0x7FF)
         var data = UnknownFieldSet.builder().addField(field, number:1).build().data()
         var parsed = UnknownFieldSet.parseFromData(data)
         var fields = parsed.getField(1)
         XCTAssertTrue(1 == fields.variantArray.count, "")
-        XCTAssertTrue(Int64(0x7FFFFFFFFFFFFFFF) == field.variantArray[0], "")
+        XCTAssertTrue(Int64(0x7FF) == field.variantArray[0], "")
     }
 }

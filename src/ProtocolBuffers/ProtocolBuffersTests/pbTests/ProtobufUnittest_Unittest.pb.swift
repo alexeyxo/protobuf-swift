@@ -13645,22 +13645,22 @@ internal extension ProtobufUnittest {
     private(set) var escapedBytes:NSData = NSData(bytes:([UInt8]() + "testsr".utf8), length:6)
 
     private(set) var hasLargeUint32:Bool = false
-    private(set) var largeUint32:UInt32 = UInt32(65535)
+    private(set) var largeUint32:UInt32 = UInt32(255)
 
     private(set) var hasLargeUint64:Bool = false
-    private(set) var largeUint64:UInt64 = UInt64(16777215)
+    private(set) var largeUint64:UInt64 = UInt64(4095)
 
     private(set) var hasSmallInt32:Bool = false
-    private(set) var smallInt32:Int32 = Int32(-2147483647)
+    private(set) var smallInt32:Int32 = Int32(-127)
 
     private(set) var hasSmallInt64:Bool = false
-    private(set) var smallInt64:Int64 = Int64(-9223372036854775807)
+    private(set) var smallInt64:Int64 = Int64(-127)
 
     private(set) var hasReallySmallInt32:Bool = false
-    private(set) var reallySmallInt32:Int32 = Int32(-2147483648)
+    private(set) var reallySmallInt32:Int32 = Int32(-128)
 
     private(set) var hasReallySmallInt64:Bool = false
-    private(set) var reallySmallInt64:Int64 = Int64(-576460752303423488)
+    private(set) var reallySmallInt64:Int64 = Int64(-2048)
 
     private(set) var hasUtf8String:Bool = false
     private(set) var utf8String:String = "tests"
@@ -14179,7 +14179,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearLargeUint32() -> ProtobufUnittest.TestExtremeDefaultValuesBuilder{
          builderResult.hasLargeUint32 = false
-         builderResult.largeUint32 = UInt32(65535)
+         builderResult.largeUint32 = UInt32(255)
          return self
     }
     var hasLargeUint64:Bool {
@@ -14202,7 +14202,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearLargeUint64() -> ProtobufUnittest.TestExtremeDefaultValuesBuilder{
          builderResult.hasLargeUint64 = false
-         builderResult.largeUint64 = UInt64(16777215)
+         builderResult.largeUint64 = UInt64(4095)
          return self
     }
     var hasSmallInt32:Bool {
@@ -14225,7 +14225,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearSmallInt32() -> ProtobufUnittest.TestExtremeDefaultValuesBuilder{
          builderResult.hasSmallInt32 = false
-         builderResult.smallInt32 = Int32(-2147483647)
+         builderResult.smallInt32 = Int32(-127)
          return self
     }
     var hasSmallInt64:Bool {
@@ -14248,7 +14248,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearSmallInt64() -> ProtobufUnittest.TestExtremeDefaultValuesBuilder{
          builderResult.hasSmallInt64 = false
-         builderResult.smallInt64 = Int64(-9223372036854775807)
+         builderResult.smallInt64 = Int64(-127)
          return self
     }
     var hasReallySmallInt32:Bool {
@@ -14271,7 +14271,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearReallySmallInt32() -> ProtobufUnittest.TestExtremeDefaultValuesBuilder{
          builderResult.hasReallySmallInt32 = false
-         builderResult.reallySmallInt32 = Int32(-2147483648)
+         builderResult.reallySmallInt32 = Int32(-128)
          return self
     }
     var hasReallySmallInt64:Bool {
@@ -14294,7 +14294,7 @@ internal extension ProtobufUnittest {
     }
     internal func clearReallySmallInt64() -> ProtobufUnittest.TestExtremeDefaultValuesBuilder{
          builderResult.hasReallySmallInt64 = false
-         builderResult.reallySmallInt64 = Int64(-576460752303423488)
+         builderResult.reallySmallInt64 = Int64(-2048)
          return self
     }
     var hasUtf8String:Bool {
