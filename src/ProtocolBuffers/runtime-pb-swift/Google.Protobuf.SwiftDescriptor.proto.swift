@@ -114,7 +114,7 @@ public extension Google.Protobuf {
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.SwiftFileOptions {
       return Google.Protobuf.SwiftFileOptions.builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.SwiftFileOptions {
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SwiftFileOptions {
       return Google.Protobuf.SwiftFileOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SwiftFileOptions {
@@ -187,10 +187,9 @@ public extension Google.Protobuf {
   }
 
   final public class SwiftFileOptionsBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.SwiftFileOptions
+    private var builderResult:Google.Protobuf.SwiftFileOptions = Google.Protobuf.SwiftFileOptions()
 
     required override public init () {
-       builderResult = Google.Protobuf.SwiftFileOptions()
        super.init()
     }
     public var hasClassPrefix:Bool {
@@ -207,7 +206,7 @@ public extension Google.Protobuf {
              builderResult.classPrefix = value
          }
     }
-    public func setClassPrefix(value:String)-> Google.Protobuf.SwiftFileOptionsBuilder {
+    public func setClassPrefix(value:String) -> Google.Protobuf.SwiftFileOptionsBuilder {
       self.classPrefix = value
       return self
     }
@@ -230,7 +229,7 @@ public extension Google.Protobuf {
               builderResult.entitiesAccessControl = value
           }
       }
-      public func setEntitiesAccessControl(value:Google.Protobuf.AccessControl)-> Google.Protobuf.SwiftFileOptionsBuilder {
+      public func setEntitiesAccessControl(value:Google.Protobuf.AccessControl) -> Google.Protobuf.SwiftFileOptionsBuilder {
         self.entitiesAccessControl = value
         return self
       }
@@ -253,7 +252,7 @@ public extension Google.Protobuf {
              builderResult.compileForFramework = value
          }
     }
-    public func setCompileForFramework(value:Bool)-> Google.Protobuf.SwiftFileOptionsBuilder {
+    public func setCompileForFramework(value:Bool) -> Google.Protobuf.SwiftFileOptionsBuilder {
       self.compileForFramework = value
       return self
     }
@@ -283,7 +282,7 @@ public extension Google.Protobuf {
       return returnMe
     }
     public func mergeFrom(other:Google.Protobuf.SwiftFileOptions) -> Google.Protobuf.SwiftFileOptionsBuilder {
-      if (other == Google.Protobuf.SwiftFileOptions()) {
+      if other == Google.Protobuf.SwiftFileOptions() {
        return self
       }
       if other.hasClassPrefix {
@@ -298,7 +297,7 @@ public extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.SwiftFileOptionsBuilder {
+    public override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SwiftFileOptionsBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SwiftFileOptionsBuilder {

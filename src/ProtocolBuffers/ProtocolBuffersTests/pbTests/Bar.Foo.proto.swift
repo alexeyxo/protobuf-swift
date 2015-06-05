@@ -73,7 +73,7 @@ internal extension Bar {
     internal class func parseFromInputStream(input:NSInputStream) -> Bar.Foo {
       return Bar.Foo.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Bar.Foo {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Bar.Foo {
       return Bar.Foo.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Bar.Foo {
@@ -134,10 +134,9 @@ internal extension Bar {
   }
 
   final internal class FooBuilder : GeneratedMessageBuilder {
-    private var builderResult:Bar.Foo
+    private var builderResult:Bar.Foo = Bar.Foo()
 
     required override internal init () {
-       builderResult = Bar.Foo()
        super.init()
     }
     var hasHello:Bool {
@@ -154,7 +153,7 @@ internal extension Bar {
              builderResult.hello = value
          }
     }
-    func setHello(value:String)-> Bar.FooBuilder {
+    func setHello(value:String) -> Bar.FooBuilder {
       self.hello = value
       return self
     }
@@ -184,7 +183,7 @@ internal extension Bar {
       return returnMe
     }
     internal func mergeFrom(other:Bar.Foo) -> Bar.FooBuilder {
-      if (other == Bar.Foo()) {
+      if other == Bar.Foo() {
        return self
       }
       if other.hasHello {
@@ -193,7 +192,7 @@ internal extension Bar {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Bar.FooBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Bar.FooBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Bar.FooBuilder {

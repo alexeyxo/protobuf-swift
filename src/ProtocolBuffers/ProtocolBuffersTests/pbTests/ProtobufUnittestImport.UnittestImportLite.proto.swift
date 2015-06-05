@@ -87,7 +87,7 @@ internal extension ProtobufUnittestImport {
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestImport.ImportMessageLite {
       return ProtobufUnittestImport.ImportMessageLite.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittestImport.ImportMessageLite {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.ImportMessageLite {
       return ProtobufUnittestImport.ImportMessageLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestImport.ImportMessageLite {
@@ -148,10 +148,9 @@ internal extension ProtobufUnittestImport {
   }
 
   final internal class ImportMessageLiteBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittestImport.ImportMessageLite
+    private var builderResult:ProtobufUnittestImport.ImportMessageLite = ProtobufUnittestImport.ImportMessageLite()
 
     required override internal init () {
-       builderResult = ProtobufUnittestImport.ImportMessageLite()
        super.init()
     }
     var hasD:Bool {
@@ -168,7 +167,7 @@ internal extension ProtobufUnittestImport {
              builderResult.d = value
          }
     }
-    func setD(value:Int32)-> ProtobufUnittestImport.ImportMessageLiteBuilder {
+    func setD(value:Int32) -> ProtobufUnittestImport.ImportMessageLiteBuilder {
       self.d = value
       return self
     }
@@ -198,7 +197,7 @@ internal extension ProtobufUnittestImport {
       return returnMe
     }
     internal func mergeFrom(other:ProtobufUnittestImport.ImportMessageLite) -> ProtobufUnittestImport.ImportMessageLiteBuilder {
-      if (other == ProtobufUnittestImport.ImportMessageLite()) {
+      if other == ProtobufUnittestImport.ImportMessageLite() {
        return self
       }
       if other.hasD {
@@ -207,7 +206,7 @@ internal extension ProtobufUnittestImport {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittestImport.ImportMessageLiteBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestImport.ImportMessageLiteBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.ImportMessageLiteBuilder {

@@ -75,7 +75,7 @@ internal extension ProtobufUnittest {
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.TestLiteImportsNonlite {
       return ProtobufUnittest.TestLiteImportsNonlite.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.TestLiteImportsNonlite {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestLiteImportsNonlite {
       return ProtobufUnittest.TestLiteImportsNonlite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestLiteImportsNonlite {
@@ -140,10 +140,9 @@ internal extension ProtobufUnittest {
   }
 
   final internal class TestLiteImportsNonliteBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittest.TestLiteImportsNonlite
+    private var builderResult:ProtobufUnittest.TestLiteImportsNonlite = ProtobufUnittest.TestLiteImportsNonlite()
 
     required override internal init () {
-       builderResult = ProtobufUnittest.TestLiteImportsNonlite()
        super.init()
     }
     var hasMessage_:Bool {
@@ -160,7 +159,6 @@ internal extension ProtobufUnittest {
              return builderResult.message_
          }
          set (value) {
-             message_Builder_ = nil
              builderResult.hasMessage_ = true
              builderResult.message_ = value
          }
@@ -170,7 +168,7 @@ internal extension ProtobufUnittest {
             builderResult.hasMessage_ = true
          }
     }
-    func setMessage_(value:ProtobufUnittest.TestAllTypes!)-> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+    func setMessage_(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
       self.message_ = value
       return self
     }
@@ -181,7 +179,7 @@ internal extension ProtobufUnittest {
       return message_Builder_
     }
     internal func mergeMessage_(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
-      if (builderResult.hasMessage_) {
+      if builderResult.hasMessage_ {
         builderResult.message_ = ProtobufUnittest.TestAllTypes.builderWithPrototype(builderResult.message_).mergeFrom(value).buildPartial()
       } else {
         builderResult.message_ = value
@@ -216,7 +214,7 @@ internal extension ProtobufUnittest {
       return returnMe
     }
     internal func mergeFrom(other:ProtobufUnittest.TestLiteImportsNonlite) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
-      if (other == ProtobufUnittest.TestLiteImportsNonlite()) {
+      if other == ProtobufUnittest.TestLiteImportsNonlite() {
        return self
       }
       if (other.hasMessage_) {
@@ -225,7 +223,7 @@ internal extension ProtobufUnittest {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.TestLiteImportsNonliteBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {

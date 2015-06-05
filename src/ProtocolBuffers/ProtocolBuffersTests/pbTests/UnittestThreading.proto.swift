@@ -70,7 +70,7 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
   internal class func parseFromInputStream(input:NSInputStream) -> ThreadingMessages {
     return ThreadingMessages.builder().mergeFromInputStream(input).build()
   }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ThreadingMessages {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ThreadingMessages {
     return ThreadingMessages.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromCodedInputStream(input:CodedInputStream) -> ThreadingMessages {
@@ -131,10 +131,9 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
 }
 
 final internal class ThreadingMessagesBuilder : GeneratedMessageBuilder {
-  private var builderResult:ThreadingMessages
+  private var builderResult:ThreadingMessages = ThreadingMessages()
 
   required override internal init () {
-     builderResult = ThreadingMessages()
      super.init()
   }
   var hasTestString:Bool {
@@ -151,7 +150,7 @@ final internal class ThreadingMessagesBuilder : GeneratedMessageBuilder {
            builderResult.testString = value
        }
   }
-  func setTestString(value:String)-> ThreadingMessagesBuilder {
+  func setTestString(value:String) -> ThreadingMessagesBuilder {
     self.testString = value
     return self
   }
@@ -181,7 +180,7 @@ final internal class ThreadingMessagesBuilder : GeneratedMessageBuilder {
     return returnMe
   }
   internal func mergeFrom(other:ThreadingMessages) -> ThreadingMessagesBuilder {
-    if (other == ThreadingMessages()) {
+    if other == ThreadingMessages() {
      return self
     }
     if other.hasTestString {
@@ -190,7 +189,7 @@ final internal class ThreadingMessagesBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ThreadingMessagesBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ThreadingMessagesBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
   internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ThreadingMessagesBuilder {

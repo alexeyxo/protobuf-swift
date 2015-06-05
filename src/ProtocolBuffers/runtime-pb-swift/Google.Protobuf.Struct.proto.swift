@@ -132,7 +132,7 @@ internal extension Google.Protobuf {
         internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.Struct.FieldsEntry {
           return Google.Protobuf.Struct.FieldsEntry.builder().mergeFromInputStream(input).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.Struct.FieldsEntry {
+        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Struct.FieldsEntry {
           return Google.Protobuf.Struct.FieldsEntry.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Struct.FieldsEntry {
@@ -203,10 +203,9 @@ internal extension Google.Protobuf {
       }
 
       final internal class FieldsEntryBuilder : GeneratedMessageBuilder {
-        private var builderResult:Google.Protobuf.Struct.FieldsEntry
+        private var builderResult:Google.Protobuf.Struct.FieldsEntry = Google.Protobuf.Struct.FieldsEntry()
 
         required override internal init () {
-           builderResult = Google.Protobuf.Struct.FieldsEntry()
            super.init()
         }
         var hasKey:Bool {
@@ -223,7 +222,7 @@ internal extension Google.Protobuf {
                  builderResult.key = value
              }
         }
-        func setKey(value:String)-> Google.Protobuf.Struct.FieldsEntryBuilder {
+        func setKey(value:String) -> Google.Protobuf.Struct.FieldsEntryBuilder {
           self.key = value
           return self
         }
@@ -246,7 +245,6 @@ internal extension Google.Protobuf {
                  return builderResult.value
              }
              set (value) {
-                 valueBuilder_ = nil
                  builderResult.hasValue = true
                  builderResult.value = value
              }
@@ -256,7 +254,7 @@ internal extension Google.Protobuf {
                 builderResult.hasValue = true
              }
         }
-        func setValue(value:Google.Protobuf.Value!)-> Google.Protobuf.Struct.FieldsEntryBuilder {
+        func setValue(value:Google.Protobuf.Value!) -> Google.Protobuf.Struct.FieldsEntryBuilder {
           self.value = value
           return self
         }
@@ -267,7 +265,7 @@ internal extension Google.Protobuf {
           return valueBuilder_
         }
         internal func mergeValue(value:Google.Protobuf.Value) -> Google.Protobuf.Struct.FieldsEntryBuilder {
-          if (builderResult.hasValue) {
+          if builderResult.hasValue {
             builderResult.value = Google.Protobuf.Value.builderWithPrototype(builderResult.value).mergeFrom(value).buildPartial()
           } else {
             builderResult.value = value
@@ -302,7 +300,7 @@ internal extension Google.Protobuf {
           return returnMe
         }
         internal func mergeFrom(other:Google.Protobuf.Struct.FieldsEntry) -> Google.Protobuf.Struct.FieldsEntryBuilder {
-          if (other == Google.Protobuf.Struct.FieldsEntry()) {
+          if other == Google.Protobuf.Struct.FieldsEntry() {
            return self
           }
           if other.hasKey {
@@ -314,7 +312,7 @@ internal extension Google.Protobuf {
           mergeUnknownFields(other.unknownFields)
           return self
         }
-        internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.Struct.FieldsEntryBuilder {
+        internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Struct.FieldsEntryBuilder {
              return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
         }
         internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Struct.FieldsEntryBuilder {
@@ -393,7 +391,7 @@ internal extension Google.Protobuf {
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.Struct {
       return Google.Protobuf.Struct.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.Struct {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Struct {
       return Google.Protobuf.Struct.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Struct {
@@ -457,10 +455,9 @@ internal extension Google.Protobuf {
   }
 
   final internal class StructBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Struct
+    private var builderResult:Google.Protobuf.Struct = Google.Protobuf.Struct()
 
     required override internal init () {
-       builderResult = Google.Protobuf.Struct()
        super.init()
     }
     var hasFields:Bool {
@@ -477,7 +474,7 @@ internal extension Google.Protobuf {
              builderResult.fields = value
          }
     }
-    func setFields(value:Dictionary<String,Google.Protobuf.Value>)-> Google.Protobuf.StructBuilder {
+    func setFields(value:Dictionary<String,Google.Protobuf.Value>) -> Google.Protobuf.StructBuilder {
       self.fields = value
       return self
     }
@@ -507,7 +504,7 @@ internal extension Google.Protobuf {
       return returnMe
     }
     internal func mergeFrom(other:Google.Protobuf.Struct) -> Google.Protobuf.StructBuilder {
-      if (other == Google.Protobuf.Struct()) {
+      if other == Google.Protobuf.Struct() {
        return self
       }
       if other.hasFields {
@@ -516,7 +513,7 @@ internal extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.StructBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.StructBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.StructBuilder {
@@ -562,7 +559,7 @@ internal extension Google.Protobuf {
       }
       case NullValue(Google.Protobuf.NullValue)
 
-      internal static func getNullValue(value:Kind) ->Google.Protobuf.NullValue? {
+      internal static func getNullValue(value:Kind) -> Google.Protobuf.NullValue? {
            switch value {
            case .NullValue(let enumValue):
                 return enumValue
@@ -572,7 +569,7 @@ internal extension Google.Protobuf {
       }
       case NumberValue(Double)
 
-      internal static func getNumberValue(value:Kind) ->Double? {
+      internal static func getNumberValue(value:Kind) -> Double? {
            switch value {
            case .NumberValue(let enumValue):
                 return enumValue
@@ -582,7 +579,7 @@ internal extension Google.Protobuf {
       }
       case StringValue(String)
 
-      internal static func getStringValue(value:Kind) ->String? {
+      internal static func getStringValue(value:Kind) -> String? {
            switch value {
            case .StringValue(let enumValue):
                 return enumValue
@@ -592,7 +589,7 @@ internal extension Google.Protobuf {
       }
       case BoolValue(Bool)
 
-      internal static func getBoolValue(value:Kind) ->Bool? {
+      internal static func getBoolValue(value:Kind) -> Bool? {
            switch value {
            case .BoolValue(let enumValue):
                 return enumValue
@@ -602,7 +599,7 @@ internal extension Google.Protobuf {
       }
       case StructValue(Google.Protobuf.Struct)
 
-      internal static func getStructValue(value:Kind) ->Google.Protobuf.Struct? {
+      internal static func getStructValue(value:Kind) -> Google.Protobuf.Struct? {
            switch value {
            case .StructValue(let enumValue):
                 return enumValue
@@ -612,7 +609,7 @@ internal extension Google.Protobuf {
       }
       case ListValue(Google.Protobuf.ListValue)
 
-      internal static func getListValue(value:Kind) ->Google.Protobuf.ListValue? {
+      internal static func getListValue(value:Kind) -> Google.Protobuf.ListValue? {
            switch value {
            case .ListValue(let enumValue):
                 return enumValue
@@ -801,7 +798,7 @@ internal extension Google.Protobuf {
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.Value {
       return Google.Protobuf.Value.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.Value {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Value {
       return Google.Protobuf.Value.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Value {
@@ -900,10 +897,9 @@ internal extension Google.Protobuf {
   }
 
   final internal class ValueBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Value
+    private var builderResult:Google.Protobuf.Value = Google.Protobuf.Value()
 
     required override internal init () {
-       builderResult = Google.Protobuf.Value()
        super.init()
     }
       var hasNullValue:Bool{
@@ -920,7 +916,7 @@ internal extension Google.Protobuf {
               builderResult.nullValue = value
           }
       }
-      internal func setNullValue(value:Google.Protobuf.NullValue)-> Google.Protobuf.ValueBuilder {
+      internal func setNullValue(value:Google.Protobuf.NullValue) -> Google.Protobuf.ValueBuilder {
         self.nullValue = value
         return self
       }
@@ -943,7 +939,7 @@ internal extension Google.Protobuf {
              builderResult.numberValue = value
          }
     }
-    func setNumberValue(value:Double)-> Google.Protobuf.ValueBuilder {
+    func setNumberValue(value:Double) -> Google.Protobuf.ValueBuilder {
       self.numberValue = value
       return self
     }
@@ -966,7 +962,7 @@ internal extension Google.Protobuf {
              builderResult.stringValue = value
          }
     }
-    func setStringValue(value:String)-> Google.Protobuf.ValueBuilder {
+    func setStringValue(value:String) -> Google.Protobuf.ValueBuilder {
       self.stringValue = value
       return self
     }
@@ -989,7 +985,7 @@ internal extension Google.Protobuf {
              builderResult.boolValue = value
          }
     }
-    func setBoolValue(value:Bool)-> Google.Protobuf.ValueBuilder {
+    func setBoolValue(value:Bool) -> Google.Protobuf.ValueBuilder {
       self.boolValue = value
       return self
     }
@@ -1012,7 +1008,6 @@ internal extension Google.Protobuf {
              return builderResult.structValue
          }
          set (value) {
-             structValueBuilder_ = nil
              builderResult.hasStructValue = true
              builderResult.structValue = value
          }
@@ -1022,7 +1017,7 @@ internal extension Google.Protobuf {
             builderResult.hasStructValue = true
          }
     }
-    func setStructValue(value:Google.Protobuf.Struct!)-> Google.Protobuf.ValueBuilder {
+    func setStructValue(value:Google.Protobuf.Struct!) -> Google.Protobuf.ValueBuilder {
       self.structValue = value
       return self
     }
@@ -1033,7 +1028,7 @@ internal extension Google.Protobuf {
       return structValueBuilder_
     }
     internal func mergeStructValue(value:Google.Protobuf.Struct) -> Google.Protobuf.ValueBuilder {
-      if (builderResult.hasStructValue) {
+      if builderResult.hasStructValue {
         builderResult.structValue = Google.Protobuf.Struct.builderWithPrototype(builderResult.structValue).mergeFrom(value).buildPartial()
       } else {
         builderResult.structValue = value
@@ -1061,7 +1056,6 @@ internal extension Google.Protobuf {
              return builderResult.listValue
          }
          set (value) {
-             listValueBuilder_ = nil
              builderResult.hasListValue = true
              builderResult.listValue = value
          }
@@ -1071,7 +1065,7 @@ internal extension Google.Protobuf {
             builderResult.hasListValue = true
          }
     }
-    func setListValue(value:Google.Protobuf.ListValue!)-> Google.Protobuf.ValueBuilder {
+    func setListValue(value:Google.Protobuf.ListValue!) -> Google.Protobuf.ValueBuilder {
       self.listValue = value
       return self
     }
@@ -1082,7 +1076,7 @@ internal extension Google.Protobuf {
       return listValueBuilder_
     }
     internal func mergeListValue(value:Google.Protobuf.ListValue) -> Google.Protobuf.ValueBuilder {
-      if (builderResult.hasListValue) {
+      if builderResult.hasListValue {
         builderResult.listValue = Google.Protobuf.ListValue.builderWithPrototype(builderResult.listValue).mergeFrom(value).buildPartial()
       } else {
         builderResult.listValue = value
@@ -1117,7 +1111,7 @@ internal extension Google.Protobuf {
       return returnMe
     }
     internal func mergeFrom(other:Google.Protobuf.Value) -> Google.Protobuf.ValueBuilder {
-      if (other == Google.Protobuf.Value()) {
+      if other == Google.Protobuf.Value() {
        return self
       }
       if other.hasNullValue {
@@ -1141,7 +1135,7 @@ internal extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.ValueBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.ValueBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ValueBuilder {
@@ -1233,7 +1227,7 @@ internal extension Google.Protobuf {
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.ListValue {
       return Google.Protobuf.ListValue.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.ListValue {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ListValue {
       return Google.Protobuf.ListValue.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.ListValue {
@@ -1298,10 +1292,9 @@ internal extension Google.Protobuf {
   }
 
   final internal class ListValueBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.ListValue
+    private var builderResult:Google.Protobuf.ListValue = Google.Protobuf.ListValue()
 
     required override internal init () {
-       builderResult = Google.Protobuf.ListValue()
        super.init()
     }
     var values:Array<Google.Protobuf.Value> {
@@ -1312,7 +1305,7 @@ internal extension Google.Protobuf {
              builderResult.values = value
          }
     }
-    func setValues(value:Array<Google.Protobuf.Value>)-> Google.Protobuf.ListValueBuilder {
+    func setValues(value:Array<Google.Protobuf.Value>) -> Google.Protobuf.ListValueBuilder {
       self.values = value
       return self
     }
@@ -1341,7 +1334,7 @@ internal extension Google.Protobuf {
       return returnMe
     }
     internal func mergeFrom(other:Google.Protobuf.ListValue) -> Google.Protobuf.ListValueBuilder {
-      if (other == Google.Protobuf.ListValue()) {
+      if other == Google.Protobuf.ListValue() {
        return self
       }
       if !other.values.isEmpty  {
@@ -1350,7 +1343,7 @@ internal extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.ListValueBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.ListValueBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ListValueBuilder {

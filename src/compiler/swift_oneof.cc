@@ -108,7 +108,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
-                printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
+                printer->Print("static func get$name$(value:$type$) -> $fieldType$? {\n"
                                "     switch value {\n"
                                "     case .$name$(let enumValue):\n"
                                "          return enumValue\n"
@@ -129,7 +129,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                "type",type);
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
-                printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
+                printer->Print("static func get$name$(value:$type$) -> $fieldType$? {\n"
                                "     switch value {\n"
                                "     case .$name$(let enumValue):\n"
                                "          return enumValue\n"
@@ -148,7 +148,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                "type",PrimitiveTypeName(fieldType));
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
-                printer->Print("static func get$name$(value:$type$) ->$fieldType$? {\n"
+                printer->Print("static func get$name$(value:$type$) -> $fieldType$? {\n"
                                "     switch value {\n"
                                "     case .$name$(let enumValue):\n"
                                "          return enumValue\n"

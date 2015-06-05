@@ -73,7 +73,7 @@ internal extension ProtobufUnittestImport {
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestImport.PublicImportMessage {
       return ProtobufUnittestImport.PublicImportMessage.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittestImport.PublicImportMessage {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.PublicImportMessage {
       return ProtobufUnittestImport.PublicImportMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestImport.PublicImportMessage {
@@ -134,10 +134,9 @@ internal extension ProtobufUnittestImport {
   }
 
   final internal class PublicImportMessageBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittestImport.PublicImportMessage
+    private var builderResult:ProtobufUnittestImport.PublicImportMessage = ProtobufUnittestImport.PublicImportMessage()
 
     required override internal init () {
-       builderResult = ProtobufUnittestImport.PublicImportMessage()
        super.init()
     }
     var hasE:Bool {
@@ -154,7 +153,7 @@ internal extension ProtobufUnittestImport {
              builderResult.e = value
          }
     }
-    func setE(value:Int32)-> ProtobufUnittestImport.PublicImportMessageBuilder {
+    func setE(value:Int32) -> ProtobufUnittestImport.PublicImportMessageBuilder {
       self.e = value
       return self
     }
@@ -184,7 +183,7 @@ internal extension ProtobufUnittestImport {
       return returnMe
     }
     internal func mergeFrom(other:ProtobufUnittestImport.PublicImportMessage) -> ProtobufUnittestImport.PublicImportMessageBuilder {
-      if (other == ProtobufUnittestImport.PublicImportMessage()) {
+      if other == ProtobufUnittestImport.PublicImportMessage() {
        return self
       }
       if other.hasE {
@@ -193,7 +192,7 @@ internal extension ProtobufUnittestImport {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittestImport.PublicImportMessageBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestImport.PublicImportMessageBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.PublicImportMessageBuilder {

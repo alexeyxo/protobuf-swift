@@ -73,7 +73,7 @@ internal extension Google.Protobuf {
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.SourceContext {
       return Google.Protobuf.SourceContext.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.SourceContext {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceContext {
       return Google.Protobuf.SourceContext.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SourceContext {
@@ -134,10 +134,9 @@ internal extension Google.Protobuf {
   }
 
   final internal class SourceContextBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.SourceContext
+    private var builderResult:Google.Protobuf.SourceContext = Google.Protobuf.SourceContext()
 
     required override internal init () {
-       builderResult = Google.Protobuf.SourceContext()
        super.init()
     }
     var hasFileName:Bool {
@@ -154,7 +153,7 @@ internal extension Google.Protobuf {
              builderResult.fileName = value
          }
     }
-    func setFileName(value:String)-> Google.Protobuf.SourceContextBuilder {
+    func setFileName(value:String) -> Google.Protobuf.SourceContextBuilder {
       self.fileName = value
       return self
     }
@@ -184,7 +183,7 @@ internal extension Google.Protobuf {
       return returnMe
     }
     internal func mergeFrom(other:Google.Protobuf.SourceContext) -> Google.Protobuf.SourceContextBuilder {
-      if (other == Google.Protobuf.SourceContext()) {
+      if other == Google.Protobuf.SourceContext() {
        return self
       }
       if other.hasFileName {
@@ -193,7 +192,7 @@ internal extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.SourceContextBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SourceContextBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceContextBuilder {

@@ -76,7 +76,7 @@ internal extension Google.Protobuf {
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FieldMask {
       return Google.Protobuf.FieldMask.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.FieldMask {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldMask {
       return Google.Protobuf.FieldMask.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.FieldMask {
@@ -139,10 +139,9 @@ internal extension Google.Protobuf {
   }
 
   final internal class FieldMaskBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.FieldMask
+    private var builderResult:Google.Protobuf.FieldMask = Google.Protobuf.FieldMask()
 
     required override internal init () {
-       builderResult = Google.Protobuf.FieldMask()
        super.init()
     }
     var paths:Array<String> {
@@ -153,7 +152,7 @@ internal extension Google.Protobuf {
              builderResult.paths = array
          }
     }
-    func setPaths(value:Array<String>)-> Google.Protobuf.FieldMaskBuilder {
+    func setPaths(value:Array<String>) -> Google.Protobuf.FieldMaskBuilder {
       self.paths = value
       return self
     }
@@ -182,7 +181,7 @@ internal extension Google.Protobuf {
       return returnMe
     }
     internal func mergeFrom(other:Google.Protobuf.FieldMask) -> Google.Protobuf.FieldMaskBuilder {
-      if (other == Google.Protobuf.FieldMask()) {
+      if other == Google.Protobuf.FieldMask() {
        return self
       }
       if !other.paths.isEmpty {
@@ -191,7 +190,7 @@ internal extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.FieldMaskBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.FieldMaskBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldMaskBuilder {

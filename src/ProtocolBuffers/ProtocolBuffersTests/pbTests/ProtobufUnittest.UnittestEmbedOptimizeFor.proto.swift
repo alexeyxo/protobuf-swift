@@ -98,7 +98,7 @@ internal extension ProtobufUnittest {
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.TestEmbedOptimizedForSize {
       return ProtobufUnittest.TestEmbedOptimizedForSize.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittest.TestEmbedOptimizedForSize {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestEmbedOptimizedForSize {
       return ProtobufUnittest.TestEmbedOptimizedForSize.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestEmbedOptimizedForSize {
@@ -173,10 +173,9 @@ internal extension ProtobufUnittest {
   }
 
   final internal class TestEmbedOptimizedForSizeBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittest.TestEmbedOptimizedForSize
+    private var builderResult:ProtobufUnittest.TestEmbedOptimizedForSize = ProtobufUnittest.TestEmbedOptimizedForSize()
 
     required override internal init () {
-       builderResult = ProtobufUnittest.TestEmbedOptimizedForSize()
        super.init()
     }
     var hasOptionalMessage:Bool {
@@ -193,7 +192,6 @@ internal extension ProtobufUnittest {
              return builderResult.optionalMessage
          }
          set (value) {
-             optionalMessageBuilder_ = nil
              builderResult.hasOptionalMessage = true
              builderResult.optionalMessage = value
          }
@@ -203,7 +201,7 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalMessage = true
          }
     }
-    func setOptionalMessage(value:ProtobufUnittest.TestOptimizedForSize!)-> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
+    func setOptionalMessage(value:ProtobufUnittest.TestOptimizedForSize!) -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
       self.optionalMessage = value
       return self
     }
@@ -214,7 +212,7 @@ internal extension ProtobufUnittest {
       return optionalMessageBuilder_
     }
     internal func mergeOptionalMessage(value:ProtobufUnittest.TestOptimizedForSize) -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
-      if (builderResult.hasOptionalMessage) {
+      if builderResult.hasOptionalMessage {
         builderResult.optionalMessage = ProtobufUnittest.TestOptimizedForSize.builderWithPrototype(builderResult.optionalMessage).mergeFrom(value).buildPartial()
       } else {
         builderResult.optionalMessage = value
@@ -236,7 +234,7 @@ internal extension ProtobufUnittest {
              builderResult.repeatedMessage = value
          }
     }
-    func setRepeatedMessage(value:Array<ProtobufUnittest.TestOptimizedForSize>)-> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
+    func setRepeatedMessage(value:Array<ProtobufUnittest.TestOptimizedForSize>) -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
       self.repeatedMessage = value
       return self
     }
@@ -265,7 +263,7 @@ internal extension ProtobufUnittest {
       return returnMe
     }
     internal func mergeFrom(other:ProtobufUnittest.TestEmbedOptimizedForSize) -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
-      if (other == ProtobufUnittest.TestEmbedOptimizedForSize()) {
+      if other == ProtobufUnittest.TestEmbedOptimizedForSize() {
        return self
       }
       if (other.hasOptionalMessage) {
@@ -277,7 +275,7 @@ internal extension ProtobufUnittest {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {

@@ -561,7 +561,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrol$ class func parseFromInputStream(input:NSInputStream) -> $classNameReturnedType$ {\n"
                        "  return $classNameReturnedType$.builder().mergeFromInputStream(input).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->$classNameReturnedType$ {\n"
+                       "$acontrol$ class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> $classNameReturnedType$ {\n"
                        "  return $classNameReturnedType$.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFromCodedInputStream(input:CodedInputStream) -> $classNameReturnedType$ {\n"
@@ -635,9 +635,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Indent();
         
         printer->Print(variables_,
-                       "private var builderResult:$classNameReturnedType$\n\n"
+                       "private var builderResult:$classNameReturnedType$ = $classNameReturnedType$()\n\n"
                        "required override $acontrol$ init () {\n"
-                       "   builderResult = $classNameReturnedType$()\n"
                        "   super.init()\n"
                        "}\n");
         for (int i = 0; i < descriptor_->field_count(); i++) {
@@ -704,7 +703,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
         printer->Indent();
         printer->Print(variables_,
-                       "if (other == $classNameReturnedType$()) {\n"
+                       "if other == $classNameReturnedType$() {\n"
                        " return self\n"
                        "}\n");
         
@@ -731,7 +730,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
         
         printer->Print(variables_,
-                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream) ->$classNameReturnedType$Builder {\n"
+                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream) -> $classNameReturnedType$Builder {\n"
                        "     return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
                        "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classNameReturnedType$Builder {\n");

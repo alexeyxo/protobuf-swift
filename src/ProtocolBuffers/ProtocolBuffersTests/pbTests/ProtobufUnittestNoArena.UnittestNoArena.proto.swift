@@ -212,7 +212,7 @@ internal extension ProtobufUnittestNoArena {
         internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
           return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder().mergeFromInputStream(input).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
+        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
           return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
@@ -273,10 +273,9 @@ internal extension ProtobufUnittestNoArena {
       }
 
       final internal class NestedMessageBuilder : GeneratedMessageBuilder {
-        private var builderResult:ProtobufUnittestNoArena.TestAllTypes.NestedMessage
+        private var builderResult:ProtobufUnittestNoArena.TestAllTypes.NestedMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage()
 
         required override internal init () {
-           builderResult = ProtobufUnittestNoArena.TestAllTypes.NestedMessage()
            super.init()
         }
         var hasBb:Bool {
@@ -293,7 +292,7 @@ internal extension ProtobufUnittestNoArena {
                  builderResult.bb = value
              }
         }
-        func setBb(value:Int32)-> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
+        func setBb(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
           self.bb = value
           return self
         }
@@ -323,7 +322,7 @@ internal extension ProtobufUnittestNoArena {
           return returnMe
         }
         internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
-          if (other == ProtobufUnittestNoArena.TestAllTypes.NestedMessage()) {
+          if other == ProtobufUnittestNoArena.TestAllTypes.NestedMessage() {
            return self
           }
           if other.hasBb {
@@ -332,7 +331,7 @@ internal extension ProtobufUnittestNoArena {
           mergeUnknownFields(other.unknownFields)
           return self
         }
-        internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
+        internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
              return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
         }
         internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
@@ -402,7 +401,7 @@ internal extension ProtobufUnittestNoArena {
         internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
           return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder().mergeFromInputStream(input).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
+        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
           return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
@@ -463,10 +462,9 @@ internal extension ProtobufUnittestNoArena {
       }
 
       final internal class OptionalGroupBuilder : GeneratedMessageBuilder {
-        private var builderResult:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup
+        private var builderResult:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup()
 
         required override internal init () {
-           builderResult = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup()
            super.init()
         }
         var hasA:Bool {
@@ -483,7 +481,7 @@ internal extension ProtobufUnittestNoArena {
                  builderResult.a = value
              }
         }
-        func setA(value:Int32)-> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
+        func setA(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
           self.a = value
           return self
         }
@@ -513,7 +511,7 @@ internal extension ProtobufUnittestNoArena {
           return returnMe
         }
         internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
-          if (other == ProtobufUnittestNoArena.TestAllTypes.OptionalGroup()) {
+          if other == ProtobufUnittestNoArena.TestAllTypes.OptionalGroup() {
            return self
           }
           if other.hasA {
@@ -522,7 +520,7 @@ internal extension ProtobufUnittestNoArena {
           mergeUnknownFields(other.unknownFields)
           return self
         }
-        internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
+        internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
              return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
         }
         internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
@@ -592,7 +590,7 @@ internal extension ProtobufUnittestNoArena {
         internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
           return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder().mergeFromInputStream(input).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
+        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
           return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
@@ -653,10 +651,9 @@ internal extension ProtobufUnittestNoArena {
       }
 
       final internal class RepeatedGroupBuilder : GeneratedMessageBuilder {
-        private var builderResult:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup
+        private var builderResult:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup()
 
         required override internal init () {
-           builderResult = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup()
            super.init()
         }
         var hasA:Bool {
@@ -673,7 +670,7 @@ internal extension ProtobufUnittestNoArena {
                  builderResult.a = value
              }
         }
-        func setA(value:Int32)-> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
+        func setA(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
           self.a = value
           return self
         }
@@ -703,7 +700,7 @@ internal extension ProtobufUnittestNoArena {
           return returnMe
         }
         internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
-          if (other == ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup()) {
+          if other == ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup() {
            return self
           }
           if other.hasA {
@@ -712,7 +709,7 @@ internal extension ProtobufUnittestNoArena {
           mergeUnknownFields(other.unknownFields)
           return self
         }
-        internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
+        internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
              return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
         }
         internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
@@ -756,7 +753,7 @@ internal extension ProtobufUnittestNoArena {
       }
       case OneofUint32(UInt32)
 
-      internal static func getOneofUint32(value:OneofField) ->UInt32? {
+      internal static func getOneofUint32(value:OneofField) -> UInt32? {
            switch value {
            case .OneofUint32(let enumValue):
                 return enumValue
@@ -766,7 +763,7 @@ internal extension ProtobufUnittestNoArena {
       }
       case OneofNestedMessage(ProtobufUnittestNoArena.TestAllTypes.NestedMessage)
 
-      internal static func getOneofNestedMessage(value:OneofField) ->ProtobufUnittestNoArena.TestAllTypes.NestedMessage? {
+      internal static func getOneofNestedMessage(value:OneofField) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage? {
            switch value {
            case .OneofNestedMessage(let enumValue):
                 return enumValue
@@ -776,7 +773,7 @@ internal extension ProtobufUnittestNoArena {
       }
       case OneofString(String)
 
-      internal static func getOneofString(value:OneofField) ->String? {
+      internal static func getOneofString(value:OneofField) -> String? {
            switch value {
            case .OneofString(let enumValue):
                 return enumValue
@@ -786,7 +783,7 @@ internal extension ProtobufUnittestNoArena {
       }
       case OneofBytes(NSData)
 
-      internal static func getOneofBytes(value:OneofField) ->NSData? {
+      internal static func getOneofBytes(value:OneofField) -> NSData? {
            switch value {
            case .OneofBytes(let enumValue):
                 return enumValue
@@ -1611,7 +1608,7 @@ internal extension ProtobufUnittestNoArena {
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestNoArena.TestAllTypes {
       return ProtobufUnittestNoArena.TestAllTypes.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittestNoArena.TestAllTypes {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes {
       return ProtobufUnittestNoArena.TestAllTypes.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes {
@@ -2204,10 +2201,9 @@ internal extension ProtobufUnittestNoArena {
   }
 
   final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittestNoArena.TestAllTypes
+    private var builderResult:ProtobufUnittestNoArena.TestAllTypes = ProtobufUnittestNoArena.TestAllTypes()
 
     required override internal init () {
-       builderResult = ProtobufUnittestNoArena.TestAllTypes()
        super.init()
     }
     var hasOptionalInt32:Bool {
@@ -2224,7 +2220,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalInt32 = value
          }
     }
-    func setOptionalInt32(value:Int32)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalInt32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalInt32 = value
       return self
     }
@@ -2247,7 +2243,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalInt64 = value
          }
     }
-    func setOptionalInt64(value:Int64)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalInt64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalInt64 = value
       return self
     }
@@ -2270,7 +2266,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalUint32 = value
          }
     }
-    func setOptionalUint32(value:UInt32)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalUint32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalUint32 = value
       return self
     }
@@ -2293,7 +2289,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalUint64 = value
          }
     }
-    func setOptionalUint64(value:UInt64)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalUint64(value:UInt64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalUint64 = value
       return self
     }
@@ -2316,7 +2312,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalSint32 = value
          }
     }
-    func setOptionalSint32(value:Int32)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalSint32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalSint32 = value
       return self
     }
@@ -2339,7 +2335,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalSint64 = value
          }
     }
-    func setOptionalSint64(value:Int64)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalSint64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalSint64 = value
       return self
     }
@@ -2362,7 +2358,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalFixed32 = value
          }
     }
-    func setOptionalFixed32(value:UInt32)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalFixed32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalFixed32 = value
       return self
     }
@@ -2385,7 +2381,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalFixed64 = value
          }
     }
-    func setOptionalFixed64(value:UInt64)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalFixed64(value:UInt64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalFixed64 = value
       return self
     }
@@ -2408,7 +2404,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalSfixed32 = value
          }
     }
-    func setOptionalSfixed32(value:Int32)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalSfixed32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalSfixed32 = value
       return self
     }
@@ -2431,7 +2427,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalSfixed64 = value
          }
     }
-    func setOptionalSfixed64(value:Int64)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalSfixed64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalSfixed64 = value
       return self
     }
@@ -2454,7 +2450,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalFloat = value
          }
     }
-    func setOptionalFloat(value:Float)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalFloat(value:Float) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalFloat = value
       return self
     }
@@ -2477,7 +2473,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalDouble = value
          }
     }
-    func setOptionalDouble(value:Double)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalDouble(value:Double) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalDouble = value
       return self
     }
@@ -2500,7 +2496,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalBool = value
          }
     }
-    func setOptionalBool(value:Bool)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalBool(value:Bool) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalBool = value
       return self
     }
@@ -2523,7 +2519,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalString = value
          }
     }
-    func setOptionalString(value:String)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalString(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalString = value
       return self
     }
@@ -2546,7 +2542,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalBytes = value
          }
     }
-    func setOptionalBytes(value:NSData)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalBytes(value:NSData) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalBytes = value
       return self
     }
@@ -2569,7 +2565,6 @@ internal extension ProtobufUnittestNoArena {
              return builderResult.optionalGroup
          }
          set (value) {
-             optionalGroupBuilder_ = nil
              builderResult.hasOptionalGroup = true
              builderResult.optionalGroup = value
          }
@@ -2579,7 +2574,7 @@ internal extension ProtobufUnittestNoArena {
             builderResult.hasOptionalGroup = true
          }
     }
-    func setOptionalGroup(value:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalGroup(value:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalGroup = value
       return self
     }
@@ -2590,7 +2585,7 @@ internal extension ProtobufUnittestNoArena {
       return optionalGroupBuilder_
     }
     internal func mergeOptionalGroup(value:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if (builderResult.hasOptionalGroup) {
+      if builderResult.hasOptionalGroup {
         builderResult.optionalGroup = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builderWithPrototype(builderResult.optionalGroup).mergeFrom(value).buildPartial()
       } else {
         builderResult.optionalGroup = value
@@ -2618,7 +2613,6 @@ internal extension ProtobufUnittestNoArena {
              return builderResult.optionalNestedMessage
          }
          set (value) {
-             optionalNestedMessageBuilder_ = nil
              builderResult.hasOptionalNestedMessage = true
              builderResult.optionalNestedMessage = value
          }
@@ -2628,7 +2622,7 @@ internal extension ProtobufUnittestNoArena {
             builderResult.hasOptionalNestedMessage = true
          }
     }
-    func setOptionalNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalNestedMessage = value
       return self
     }
@@ -2639,7 +2633,7 @@ internal extension ProtobufUnittestNoArena {
       return optionalNestedMessageBuilder_
     }
     internal func mergeOptionalNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if (builderResult.hasOptionalNestedMessage) {
+      if builderResult.hasOptionalNestedMessage {
         builderResult.optionalNestedMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalNestedMessage).mergeFrom(value).buildPartial()
       } else {
         builderResult.optionalNestedMessage = value
@@ -2667,7 +2661,6 @@ internal extension ProtobufUnittestNoArena {
              return builderResult.optionalForeignMessage
          }
          set (value) {
-             optionalForeignMessageBuilder_ = nil
              builderResult.hasOptionalForeignMessage = true
              builderResult.optionalForeignMessage = value
          }
@@ -2677,7 +2670,7 @@ internal extension ProtobufUnittestNoArena {
             builderResult.hasOptionalForeignMessage = true
          }
     }
-    func setOptionalForeignMessage(value:ProtobufUnittestNoArena.ForeignMessage!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalForeignMessage(value:ProtobufUnittestNoArena.ForeignMessage!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalForeignMessage = value
       return self
     }
@@ -2688,7 +2681,7 @@ internal extension ProtobufUnittestNoArena {
       return optionalForeignMessageBuilder_
     }
     internal func mergeOptionalForeignMessage(value:ProtobufUnittestNoArena.ForeignMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if (builderResult.hasOptionalForeignMessage) {
+      if builderResult.hasOptionalForeignMessage {
         builderResult.optionalForeignMessage = ProtobufUnittestNoArena.ForeignMessage.builderWithPrototype(builderResult.optionalForeignMessage).mergeFrom(value).buildPartial()
       } else {
         builderResult.optionalForeignMessage = value
@@ -2716,7 +2709,6 @@ internal extension ProtobufUnittestNoArena {
              return builderResult.optionalImportMessage
          }
          set (value) {
-             optionalImportMessageBuilder_ = nil
              builderResult.hasOptionalImportMessage = true
              builderResult.optionalImportMessage = value
          }
@@ -2726,7 +2718,7 @@ internal extension ProtobufUnittestNoArena {
             builderResult.hasOptionalImportMessage = true
          }
     }
-    func setOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalImportMessage = value
       return self
     }
@@ -2737,7 +2729,7 @@ internal extension ProtobufUnittestNoArena {
       return optionalImportMessageBuilder_
     }
     internal func mergeOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if (builderResult.hasOptionalImportMessage) {
+      if builderResult.hasOptionalImportMessage {
         builderResult.optionalImportMessage = ProtobufUnittestImport.ImportMessage.builderWithPrototype(builderResult.optionalImportMessage).mergeFrom(value).buildPartial()
       } else {
         builderResult.optionalImportMessage = value
@@ -2765,7 +2757,7 @@ internal extension ProtobufUnittestNoArena {
               builderResult.optionalNestedEnum = value
           }
       }
-      internal func setOptionalNestedEnum(value:TestAllTypes.NestedEnum)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      internal func setOptionalNestedEnum(value:TestAllTypes.NestedEnum) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
         self.optionalNestedEnum = value
         return self
       }
@@ -2788,7 +2780,7 @@ internal extension ProtobufUnittestNoArena {
               builderResult.optionalForeignEnum = value
           }
       }
-      internal func setOptionalForeignEnum(value:ProtobufUnittestNoArena.ForeignEnum)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      internal func setOptionalForeignEnum(value:ProtobufUnittestNoArena.ForeignEnum) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
         self.optionalForeignEnum = value
         return self
       }
@@ -2811,7 +2803,7 @@ internal extension ProtobufUnittestNoArena {
               builderResult.optionalImportEnum = value
           }
       }
-      internal func setOptionalImportEnum(value:ProtobufUnittestImport.ImportEnum)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      internal func setOptionalImportEnum(value:ProtobufUnittestImport.ImportEnum) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
         self.optionalImportEnum = value
         return self
       }
@@ -2834,7 +2826,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalStringPiece = value
          }
     }
-    func setOptionalStringPiece(value:String)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalStringPiece(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalStringPiece = value
       return self
     }
@@ -2857,7 +2849,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.optionalCord = value
          }
     }
-    func setOptionalCord(value:String)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalCord(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalCord = value
       return self
     }
@@ -2880,7 +2872,6 @@ internal extension ProtobufUnittestNoArena {
              return builderResult.optionalPublicImportMessage
          }
          set (value) {
-             optionalPublicImportMessageBuilder_ = nil
              builderResult.hasOptionalPublicImportMessage = true
              builderResult.optionalPublicImportMessage = value
          }
@@ -2890,7 +2881,7 @@ internal extension ProtobufUnittestNoArena {
             builderResult.hasOptionalPublicImportMessage = true
          }
     }
-    func setOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalPublicImportMessage = value
       return self
     }
@@ -2901,7 +2892,7 @@ internal extension ProtobufUnittestNoArena {
       return optionalPublicImportMessageBuilder_
     }
     internal func mergeOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if (builderResult.hasOptionalPublicImportMessage) {
+      if builderResult.hasOptionalPublicImportMessage {
         builderResult.optionalPublicImportMessage = ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(builderResult.optionalPublicImportMessage).mergeFrom(value).buildPartial()
       } else {
         builderResult.optionalPublicImportMessage = value
@@ -2929,7 +2920,6 @@ internal extension ProtobufUnittestNoArena {
              return builderResult.optionalLazyMessage
          }
          set (value) {
-             optionalLazyMessageBuilder_ = nil
              builderResult.hasOptionalLazyMessage = true
              builderResult.optionalLazyMessage = value
          }
@@ -2939,7 +2929,7 @@ internal extension ProtobufUnittestNoArena {
             builderResult.hasOptionalLazyMessage = true
          }
     }
-    func setOptionalLazyMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOptionalLazyMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.optionalLazyMessage = value
       return self
     }
@@ -2950,7 +2940,7 @@ internal extension ProtobufUnittestNoArena {
       return optionalLazyMessageBuilder_
     }
     internal func mergeOptionalLazyMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if (builderResult.hasOptionalLazyMessage) {
+      if builderResult.hasOptionalLazyMessage {
         builderResult.optionalLazyMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalLazyMessage).mergeFrom(value).buildPartial()
       } else {
         builderResult.optionalLazyMessage = value
@@ -2972,7 +2962,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedInt32 = array
          }
     }
-    func setRepeatedInt32(value:Array<Int32>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedInt32(value:Array<Int32>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedInt32 = value
       return self
     }
@@ -2988,7 +2978,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedInt64 = array
          }
     }
-    func setRepeatedInt64(value:Array<Int64>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedInt64(value:Array<Int64>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedInt64 = value
       return self
     }
@@ -3004,7 +2994,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedUint32 = array
          }
     }
-    func setRepeatedUint32(value:Array<UInt32>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedUint32(value:Array<UInt32>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedUint32 = value
       return self
     }
@@ -3020,7 +3010,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedUint64 = array
          }
     }
-    func setRepeatedUint64(value:Array<UInt64>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedUint64(value:Array<UInt64>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedUint64 = value
       return self
     }
@@ -3036,7 +3026,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedSint32 = array
          }
     }
-    func setRepeatedSint32(value:Array<Int32>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedSint32(value:Array<Int32>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedSint32 = value
       return self
     }
@@ -3052,7 +3042,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedSint64 = array
          }
     }
-    func setRepeatedSint64(value:Array<Int64>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedSint64(value:Array<Int64>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedSint64 = value
       return self
     }
@@ -3068,7 +3058,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedFixed32 = array
          }
     }
-    func setRepeatedFixed32(value:Array<UInt32>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedFixed32(value:Array<UInt32>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedFixed32 = value
       return self
     }
@@ -3084,7 +3074,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedFixed64 = array
          }
     }
-    func setRepeatedFixed64(value:Array<UInt64>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedFixed64(value:Array<UInt64>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedFixed64 = value
       return self
     }
@@ -3100,7 +3090,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedSfixed32 = array
          }
     }
-    func setRepeatedSfixed32(value:Array<Int32>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedSfixed32(value:Array<Int32>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedSfixed32 = value
       return self
     }
@@ -3116,7 +3106,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedSfixed64 = array
          }
     }
-    func setRepeatedSfixed64(value:Array<Int64>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedSfixed64(value:Array<Int64>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedSfixed64 = value
       return self
     }
@@ -3132,7 +3122,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedFloat = array
          }
     }
-    func setRepeatedFloat(value:Array<Float>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedFloat(value:Array<Float>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedFloat = value
       return self
     }
@@ -3148,7 +3138,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedDouble = array
          }
     }
-    func setRepeatedDouble(value:Array<Double>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedDouble(value:Array<Double>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedDouble = value
       return self
     }
@@ -3164,7 +3154,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedBool = array
          }
     }
-    func setRepeatedBool(value:Array<Bool>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedBool(value:Array<Bool>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedBool = value
       return self
     }
@@ -3180,7 +3170,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedString = array
          }
     }
-    func setRepeatedString(value:Array<String>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedString(value:Array<String>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedString = value
       return self
     }
@@ -3196,7 +3186,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedBytes = array
          }
     }
-    func setRepeatedBytes(value:Array<NSData>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedBytes(value:Array<NSData>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedBytes = value
       return self
     }
@@ -3212,7 +3202,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedGroup = value
          }
     }
-    func setRepeatedGroup(value:Array<ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedGroup(value:Array<ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedGroup = value
       return self
     }
@@ -3228,7 +3218,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedNestedMessage = value
          }
     }
-    func setRepeatedNestedMessage(value:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedNestedMessage(value:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedNestedMessage = value
       return self
     }
@@ -3244,7 +3234,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedForeignMessage = value
          }
     }
-    func setRepeatedForeignMessage(value:Array<ProtobufUnittestNoArena.ForeignMessage>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedForeignMessage(value:Array<ProtobufUnittestNoArena.ForeignMessage>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedForeignMessage = value
       return self
     }
@@ -3260,7 +3250,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedImportMessage = value
          }
     }
-    func setRepeatedImportMessage(value:Array<ProtobufUnittestImport.ImportMessage>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedImportMessage(value:Array<ProtobufUnittestImport.ImportMessage>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedImportMessage = value
       return self
     }
@@ -3276,7 +3266,7 @@ internal extension ProtobufUnittestNoArena {
             builderResult.repeatedNestedEnum = value
         }
     }
-    func setRepeatedNestedEnum(value:Array<TestAllTypes.NestedEnum>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedNestedEnum(value:Array<TestAllTypes.NestedEnum>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedNestedEnum = value
       return self
     }
@@ -3292,7 +3282,7 @@ internal extension ProtobufUnittestNoArena {
             builderResult.repeatedForeignEnum = value
         }
     }
-    func setRepeatedForeignEnum(value:Array<ProtobufUnittestNoArena.ForeignEnum>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedForeignEnum(value:Array<ProtobufUnittestNoArena.ForeignEnum>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedForeignEnum = value
       return self
     }
@@ -3308,7 +3298,7 @@ internal extension ProtobufUnittestNoArena {
             builderResult.repeatedImportEnum = value
         }
     }
-    func setRepeatedImportEnum(value:Array<ProtobufUnittestImport.ImportEnum>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedImportEnum(value:Array<ProtobufUnittestImport.ImportEnum>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedImportEnum = value
       return self
     }
@@ -3324,7 +3314,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedStringPiece = array
          }
     }
-    func setRepeatedStringPiece(value:Array<String>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedStringPiece(value:Array<String>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedStringPiece = value
       return self
     }
@@ -3340,7 +3330,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedCord = array
          }
     }
-    func setRepeatedCord(value:Array<String>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedCord(value:Array<String>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedCord = value
       return self
     }
@@ -3356,7 +3346,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.repeatedLazyMessage = value
          }
     }
-    func setRepeatedLazyMessage(value:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setRepeatedLazyMessage(value:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.repeatedLazyMessage = value
       return self
     }
@@ -3378,7 +3368,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultInt32 = value
          }
     }
-    func setDefaultInt32(value:Int32)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultInt32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultInt32 = value
       return self
     }
@@ -3401,7 +3391,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultInt64 = value
          }
     }
-    func setDefaultInt64(value:Int64)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultInt64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultInt64 = value
       return self
     }
@@ -3424,7 +3414,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultUint32 = value
          }
     }
-    func setDefaultUint32(value:UInt32)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultUint32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultUint32 = value
       return self
     }
@@ -3447,7 +3437,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultUint64 = value
          }
     }
-    func setDefaultUint64(value:UInt64)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultUint64(value:UInt64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultUint64 = value
       return self
     }
@@ -3470,7 +3460,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultSint32 = value
          }
     }
-    func setDefaultSint32(value:Int32)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultSint32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultSint32 = value
       return self
     }
@@ -3493,7 +3483,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultSint64 = value
          }
     }
-    func setDefaultSint64(value:Int64)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultSint64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultSint64 = value
       return self
     }
@@ -3516,7 +3506,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultFixed32 = value
          }
     }
-    func setDefaultFixed32(value:UInt32)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultFixed32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultFixed32 = value
       return self
     }
@@ -3539,7 +3529,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultFixed64 = value
          }
     }
-    func setDefaultFixed64(value:UInt64)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultFixed64(value:UInt64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultFixed64 = value
       return self
     }
@@ -3562,7 +3552,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultSfixed32 = value
          }
     }
-    func setDefaultSfixed32(value:Int32)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultSfixed32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultSfixed32 = value
       return self
     }
@@ -3585,7 +3575,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultSfixed64 = value
          }
     }
-    func setDefaultSfixed64(value:Int64)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultSfixed64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultSfixed64 = value
       return self
     }
@@ -3608,7 +3598,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultFloat = value
          }
     }
-    func setDefaultFloat(value:Float)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultFloat(value:Float) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultFloat = value
       return self
     }
@@ -3631,7 +3621,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultDouble = value
          }
     }
-    func setDefaultDouble(value:Double)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultDouble(value:Double) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultDouble = value
       return self
     }
@@ -3654,7 +3644,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultBool = value
          }
     }
-    func setDefaultBool(value:Bool)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultBool(value:Bool) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultBool = value
       return self
     }
@@ -3677,7 +3667,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultString = value
          }
     }
-    func setDefaultString(value:String)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultString(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultString = value
       return self
     }
@@ -3700,7 +3690,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultBytes = value
          }
     }
-    func setDefaultBytes(value:NSData)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultBytes(value:NSData) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultBytes = value
       return self
     }
@@ -3723,7 +3713,7 @@ internal extension ProtobufUnittestNoArena {
               builderResult.defaultNestedEnum = value
           }
       }
-      internal func setDefaultNestedEnum(value:TestAllTypes.NestedEnum)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      internal func setDefaultNestedEnum(value:TestAllTypes.NestedEnum) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
         self.defaultNestedEnum = value
         return self
       }
@@ -3746,7 +3736,7 @@ internal extension ProtobufUnittestNoArena {
               builderResult.defaultForeignEnum = value
           }
       }
-      internal func setDefaultForeignEnum(value:ProtobufUnittestNoArena.ForeignEnum)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      internal func setDefaultForeignEnum(value:ProtobufUnittestNoArena.ForeignEnum) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
         self.defaultForeignEnum = value
         return self
       }
@@ -3769,7 +3759,7 @@ internal extension ProtobufUnittestNoArena {
               builderResult.defaultImportEnum = value
           }
       }
-      internal func setDefaultImportEnum(value:ProtobufUnittestImport.ImportEnum)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+      internal func setDefaultImportEnum(value:ProtobufUnittestImport.ImportEnum) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
         self.defaultImportEnum = value
         return self
       }
@@ -3792,7 +3782,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultStringPiece = value
          }
     }
-    func setDefaultStringPiece(value:String)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultStringPiece(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultStringPiece = value
       return self
     }
@@ -3815,7 +3805,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.defaultCord = value
          }
     }
-    func setDefaultCord(value:String)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setDefaultCord(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.defaultCord = value
       return self
     }
@@ -3838,7 +3828,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.oneofUint32 = value
          }
     }
-    func setOneofUint32(value:UInt32)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOneofUint32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.oneofUint32 = value
       return self
     }
@@ -3861,7 +3851,6 @@ internal extension ProtobufUnittestNoArena {
              return builderResult.oneofNestedMessage
          }
          set (value) {
-             oneofNestedMessageBuilder_ = nil
              builderResult.hasOneofNestedMessage = true
              builderResult.oneofNestedMessage = value
          }
@@ -3871,7 +3860,7 @@ internal extension ProtobufUnittestNoArena {
             builderResult.hasOneofNestedMessage = true
          }
     }
-    func setOneofNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOneofNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.oneofNestedMessage = value
       return self
     }
@@ -3882,7 +3871,7 @@ internal extension ProtobufUnittestNoArena {
       return oneofNestedMessageBuilder_
     }
     internal func mergeOneofNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if (builderResult.hasOneofNestedMessage) {
+      if builderResult.hasOneofNestedMessage {
         builderResult.oneofNestedMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.oneofNestedMessage).mergeFrom(value).buildPartial()
       } else {
         builderResult.oneofNestedMessage = value
@@ -3910,7 +3899,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.oneofString = value
          }
     }
-    func setOneofString(value:String)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOneofString(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.oneofString = value
       return self
     }
@@ -3933,7 +3922,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.oneofBytes = value
          }
     }
-    func setOneofBytes(value:NSData)-> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    func setOneofBytes(value:NSData) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
       self.oneofBytes = value
       return self
     }
@@ -3963,7 +3952,7 @@ internal extension ProtobufUnittestNoArena {
       return returnMe
     }
     internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if (other == ProtobufUnittestNoArena.TestAllTypes()) {
+      if other == ProtobufUnittestNoArena.TestAllTypes() {
        return self
       }
       if other.hasOptionalInt32 {
@@ -4194,7 +4183,7 @@ internal extension ProtobufUnittestNoArena {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittestNoArena.TestAllTypesBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
@@ -4570,7 +4559,7 @@ internal extension ProtobufUnittestNoArena {
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestNoArena.ForeignMessage {
       return ProtobufUnittestNoArena.ForeignMessage.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittestNoArena.ForeignMessage {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.ForeignMessage {
       return ProtobufUnittestNoArena.ForeignMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.ForeignMessage {
@@ -4631,10 +4620,9 @@ internal extension ProtobufUnittestNoArena {
   }
 
   final internal class ForeignMessageBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittestNoArena.ForeignMessage
+    private var builderResult:ProtobufUnittestNoArena.ForeignMessage = ProtobufUnittestNoArena.ForeignMessage()
 
     required override internal init () {
-       builderResult = ProtobufUnittestNoArena.ForeignMessage()
        super.init()
     }
     var hasC:Bool {
@@ -4651,7 +4639,7 @@ internal extension ProtobufUnittestNoArena {
              builderResult.c = value
          }
     }
-    func setC(value:Int32)-> ProtobufUnittestNoArena.ForeignMessageBuilder {
+    func setC(value:Int32) -> ProtobufUnittestNoArena.ForeignMessageBuilder {
       self.c = value
       return self
     }
@@ -4681,7 +4669,7 @@ internal extension ProtobufUnittestNoArena {
       return returnMe
     }
     internal func mergeFrom(other:ProtobufUnittestNoArena.ForeignMessage) -> ProtobufUnittestNoArena.ForeignMessageBuilder {
-      if (other == ProtobufUnittestNoArena.ForeignMessage()) {
+      if other == ProtobufUnittestNoArena.ForeignMessage() {
        return self
       }
       if other.hasC {
@@ -4690,7 +4678,7 @@ internal extension ProtobufUnittestNoArena {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittestNoArena.ForeignMessageBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.ForeignMessageBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.ForeignMessageBuilder {
@@ -4755,7 +4743,7 @@ internal extension ProtobufUnittestNoArena {
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestNoArena.TestNoArenaMessage {
       return ProtobufUnittestNoArena.TestNoArenaMessage.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittestNoArena.TestNoArenaMessage {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestNoArenaMessage {
       return ProtobufUnittestNoArena.TestNoArenaMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestNoArenaMessage {
@@ -4820,10 +4808,9 @@ internal extension ProtobufUnittestNoArena {
   }
 
   final internal class TestNoArenaMessageBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittestNoArena.TestNoArenaMessage
+    private var builderResult:ProtobufUnittestNoArena.TestNoArenaMessage = ProtobufUnittestNoArena.TestNoArenaMessage()
 
     required override internal init () {
-       builderResult = ProtobufUnittestNoArena.TestNoArenaMessage()
        super.init()
     }
     var hasArenaMessage:Bool {
@@ -4840,7 +4827,6 @@ internal extension ProtobufUnittestNoArena {
              return builderResult.arenaMessage
          }
          set (value) {
-             arenaMessageBuilder_ = nil
              builderResult.hasArenaMessage = true
              builderResult.arenaMessage = value
          }
@@ -4850,7 +4836,7 @@ internal extension ProtobufUnittestNoArena {
             builderResult.hasArenaMessage = true
          }
     }
-    func setArenaMessage(value:Proto2ArenaUnittest.ArenaMessage!)-> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
+    func setArenaMessage(value:Proto2ArenaUnittest.ArenaMessage!) -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
       self.arenaMessage = value
       return self
     }
@@ -4861,7 +4847,7 @@ internal extension ProtobufUnittestNoArena {
       return arenaMessageBuilder_
     }
     internal func mergeArenaMessage(value:Proto2ArenaUnittest.ArenaMessage) -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
-      if (builderResult.hasArenaMessage) {
+      if builderResult.hasArenaMessage {
         builderResult.arenaMessage = Proto2ArenaUnittest.ArenaMessage.builderWithPrototype(builderResult.arenaMessage).mergeFrom(value).buildPartial()
       } else {
         builderResult.arenaMessage = value
@@ -4896,7 +4882,7 @@ internal extension ProtobufUnittestNoArena {
       return returnMe
     }
     internal func mergeFrom(other:ProtobufUnittestNoArena.TestNoArenaMessage) -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
-      if (other == ProtobufUnittestNoArena.TestNoArenaMessage()) {
+      if other == ProtobufUnittestNoArena.TestNoArenaMessage() {
        return self
       }
       if (other.hasArenaMessage) {
@@ -4905,7 +4891,7 @@ internal extension ProtobufUnittestNoArena {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {

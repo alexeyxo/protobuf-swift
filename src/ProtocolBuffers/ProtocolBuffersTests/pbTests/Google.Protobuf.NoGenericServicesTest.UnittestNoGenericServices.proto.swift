@@ -101,7 +101,7 @@ internal extension Google.Protobuf.NoGenericServicesTest {
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.NoGenericServicesTest.TestMessage {
       return Google.Protobuf.NoGenericServicesTest.TestMessage.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.NoGenericServicesTest.TestMessage {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.NoGenericServicesTest.TestMessage {
       return Google.Protobuf.NoGenericServicesTest.TestMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.NoGenericServicesTest.TestMessage {
@@ -164,10 +164,9 @@ internal extension Google.Protobuf.NoGenericServicesTest {
   }
 
   final internal class TestMessageBuilder : ExtendableMessageBuilder {
-    private var builderResult:Google.Protobuf.NoGenericServicesTest.TestMessage
+    private var builderResult:Google.Protobuf.NoGenericServicesTest.TestMessage = Google.Protobuf.NoGenericServicesTest.TestMessage()
 
     required override internal init () {
-       builderResult = Google.Protobuf.NoGenericServicesTest.TestMessage()
        super.init()
     }
     var hasA:Bool {
@@ -184,7 +183,7 @@ internal extension Google.Protobuf.NoGenericServicesTest {
              builderResult.a = value
          }
     }
-    func setA(value:Int32)-> Google.Protobuf.NoGenericServicesTest.TestMessageBuilder {
+    func setA(value:Int32) -> Google.Protobuf.NoGenericServicesTest.TestMessageBuilder {
       self.a = value
       return self
     }
@@ -214,7 +213,7 @@ internal extension Google.Protobuf.NoGenericServicesTest {
       return returnMe
     }
     internal func mergeFrom(other:Google.Protobuf.NoGenericServicesTest.TestMessage) -> Google.Protobuf.NoGenericServicesTest.TestMessageBuilder {
-      if (other == Google.Protobuf.NoGenericServicesTest.TestMessage()) {
+      if other == Google.Protobuf.NoGenericServicesTest.TestMessage() {
        return self
       }
       if other.hasA {
@@ -224,7 +223,7 @@ internal extension Google.Protobuf.NoGenericServicesTest {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.NoGenericServicesTest.TestMessageBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.NoGenericServicesTest.TestMessageBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.NoGenericServicesTest.TestMessageBuilder {

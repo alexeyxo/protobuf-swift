@@ -73,7 +73,7 @@ internal extension Proto2ArenaUnittest {
     internal class func parseFromInputStream(input:NSInputStream) -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
       return Proto2ArenaUnittest.ImportNoArenaNestedMessage.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Proto2ArenaUnittest.ImportNoArenaNestedMessage {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
       return Proto2ArenaUnittest.ImportNoArenaNestedMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
@@ -134,10 +134,9 @@ internal extension Proto2ArenaUnittest {
   }
 
   final internal class ImportNoArenaNestedMessageBuilder : GeneratedMessageBuilder {
-    private var builderResult:Proto2ArenaUnittest.ImportNoArenaNestedMessage
+    private var builderResult:Proto2ArenaUnittest.ImportNoArenaNestedMessage = Proto2ArenaUnittest.ImportNoArenaNestedMessage()
 
     required override internal init () {
-       builderResult = Proto2ArenaUnittest.ImportNoArenaNestedMessage()
        super.init()
     }
     var hasD:Bool {
@@ -154,7 +153,7 @@ internal extension Proto2ArenaUnittest {
              builderResult.d = value
          }
     }
-    func setD(value:Int32)-> Proto2ArenaUnittest.ImportNoArenaNestedMessageBuilder {
+    func setD(value:Int32) -> Proto2ArenaUnittest.ImportNoArenaNestedMessageBuilder {
       self.d = value
       return self
     }
@@ -184,7 +183,7 @@ internal extension Proto2ArenaUnittest {
       return returnMe
     }
     internal func mergeFrom(other:Proto2ArenaUnittest.ImportNoArenaNestedMessage) -> Proto2ArenaUnittest.ImportNoArenaNestedMessageBuilder {
-      if (other == Proto2ArenaUnittest.ImportNoArenaNestedMessage()) {
+      if other == Proto2ArenaUnittest.ImportNoArenaNestedMessage() {
        return self
       }
       if other.hasD {
@@ -193,7 +192,7 @@ internal extension Proto2ArenaUnittest {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Proto2ArenaUnittest.ImportNoArenaNestedMessageBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2ArenaUnittest.ImportNoArenaNestedMessageBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.ImportNoArenaNestedMessageBuilder {

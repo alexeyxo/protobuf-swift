@@ -83,7 +83,7 @@ internal extension Google.Protobuf {
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.Timestamp {
       return Google.Protobuf.Timestamp.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.Timestamp {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Timestamp {
       return Google.Protobuf.Timestamp.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Timestamp {
@@ -150,10 +150,9 @@ internal extension Google.Protobuf {
   }
 
   final internal class TimestampBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Timestamp
+    private var builderResult:Google.Protobuf.Timestamp = Google.Protobuf.Timestamp()
 
     required override internal init () {
-       builderResult = Google.Protobuf.Timestamp()
        super.init()
     }
     var hasSeconds:Bool {
@@ -170,7 +169,7 @@ internal extension Google.Protobuf {
              builderResult.seconds = value
          }
     }
-    func setSeconds(value:Int64)-> Google.Protobuf.TimestampBuilder {
+    func setSeconds(value:Int64) -> Google.Protobuf.TimestampBuilder {
       self.seconds = value
       return self
     }
@@ -193,7 +192,7 @@ internal extension Google.Protobuf {
              builderResult.nanos = value
          }
     }
-    func setNanos(value:Int32)-> Google.Protobuf.TimestampBuilder {
+    func setNanos(value:Int32) -> Google.Protobuf.TimestampBuilder {
       self.nanos = value
       return self
     }
@@ -223,7 +222,7 @@ internal extension Google.Protobuf {
       return returnMe
     }
     internal func mergeFrom(other:Google.Protobuf.Timestamp) -> Google.Protobuf.TimestampBuilder {
-      if (other == Google.Protobuf.Timestamp()) {
+      if other == Google.Protobuf.Timestamp() {
        return self
       }
       if other.hasSeconds {
@@ -235,7 +234,7 @@ internal extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.TimestampBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.TimestampBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.TimestampBuilder {

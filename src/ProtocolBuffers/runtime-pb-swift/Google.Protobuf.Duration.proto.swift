@@ -83,7 +83,7 @@ internal extension Google.Protobuf {
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.Duration {
       return Google.Protobuf.Duration.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.Duration {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Duration {
       return Google.Protobuf.Duration.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Duration {
@@ -150,10 +150,9 @@ internal extension Google.Protobuf {
   }
 
   final internal class DurationBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Duration
+    private var builderResult:Google.Protobuf.Duration = Google.Protobuf.Duration()
 
     required override internal init () {
-       builderResult = Google.Protobuf.Duration()
        super.init()
     }
     var hasSeconds:Bool {
@@ -170,7 +169,7 @@ internal extension Google.Protobuf {
              builderResult.seconds = value
          }
     }
-    func setSeconds(value:Int64)-> Google.Protobuf.DurationBuilder {
+    func setSeconds(value:Int64) -> Google.Protobuf.DurationBuilder {
       self.seconds = value
       return self
     }
@@ -193,7 +192,7 @@ internal extension Google.Protobuf {
              builderResult.nanos = value
          }
     }
-    func setNanos(value:Int32)-> Google.Protobuf.DurationBuilder {
+    func setNanos(value:Int32) -> Google.Protobuf.DurationBuilder {
       self.nanos = value
       return self
     }
@@ -223,7 +222,7 @@ internal extension Google.Protobuf {
       return returnMe
     }
     internal func mergeFrom(other:Google.Protobuf.Duration) -> Google.Protobuf.DurationBuilder {
-      if (other == Google.Protobuf.Duration()) {
+      if other == Google.Protobuf.Duration() {
        return self
       }
       if other.hasSeconds {
@@ -235,7 +234,7 @@ internal extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.DurationBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.DurationBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DurationBuilder {

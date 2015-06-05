@@ -63,7 +63,7 @@ internal extension Google.Protobuf {
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.Empty {
       return Google.Protobuf.Empty.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.Empty {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Empty {
       return Google.Protobuf.Empty.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Empty {
@@ -118,10 +118,9 @@ internal extension Google.Protobuf {
   }
 
   final internal class EmptyBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Empty
+    private var builderResult:Google.Protobuf.Empty = Google.Protobuf.Empty()
 
     required override internal init () {
-       builderResult = Google.Protobuf.Empty()
        super.init()
     }
     override internal var internalGetResult:GeneratedMessage {
@@ -145,13 +144,13 @@ internal extension Google.Protobuf {
       return returnMe
     }
     internal func mergeFrom(other:Google.Protobuf.Empty) -> Google.Protobuf.EmptyBuilder {
-      if (other == Google.Protobuf.Empty()) {
+      if other == Google.Protobuf.Empty() {
        return self
       }
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.EmptyBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.EmptyBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EmptyBuilder {

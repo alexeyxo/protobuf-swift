@@ -126,7 +126,7 @@ internal extension Google.Protobuf {
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.Api {
       return Google.Protobuf.Api.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.Api {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Api {
       return Google.Protobuf.Api.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Api {
@@ -223,10 +223,9 @@ internal extension Google.Protobuf {
   }
 
   final internal class ApiBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Api
+    private var builderResult:Google.Protobuf.Api = Google.Protobuf.Api()
 
     required override internal init () {
-       builderResult = Google.Protobuf.Api()
        super.init()
     }
     var hasName:Bool {
@@ -243,7 +242,7 @@ internal extension Google.Protobuf {
              builderResult.name = value
          }
     }
-    func setName(value:String)-> Google.Protobuf.ApiBuilder {
+    func setName(value:String) -> Google.Protobuf.ApiBuilder {
       self.name = value
       return self
     }
@@ -260,7 +259,7 @@ internal extension Google.Protobuf {
              builderResult.methods = value
          }
     }
-    func setMethods(value:Array<Google.Protobuf.Method>)-> Google.Protobuf.ApiBuilder {
+    func setMethods(value:Array<Google.Protobuf.Method>) -> Google.Protobuf.ApiBuilder {
       self.methods = value
       return self
     }
@@ -276,7 +275,7 @@ internal extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    func setOptions(value:Array<Google.Protobuf.Option>)-> Google.Protobuf.ApiBuilder {
+    func setOptions(value:Array<Google.Protobuf.Option>) -> Google.Protobuf.ApiBuilder {
       self.options = value
       return self
     }
@@ -298,7 +297,7 @@ internal extension Google.Protobuf {
              builderResult.version = value
          }
     }
-    func setVersion(value:String)-> Google.Protobuf.ApiBuilder {
+    func setVersion(value:String) -> Google.Protobuf.ApiBuilder {
       self.version = value
       return self
     }
@@ -321,7 +320,6 @@ internal extension Google.Protobuf {
              return builderResult.sourceContext
          }
          set (value) {
-             sourceContextBuilder_ = nil
              builderResult.hasSourceContext = true
              builderResult.sourceContext = value
          }
@@ -331,7 +329,7 @@ internal extension Google.Protobuf {
             builderResult.hasSourceContext = true
          }
     }
-    func setSourceContext(value:Google.Protobuf.SourceContext!)-> Google.Protobuf.ApiBuilder {
+    func setSourceContext(value:Google.Protobuf.SourceContext!) -> Google.Protobuf.ApiBuilder {
       self.sourceContext = value
       return self
     }
@@ -342,7 +340,7 @@ internal extension Google.Protobuf {
       return sourceContextBuilder_
     }
     internal func mergeSourceContext(value:Google.Protobuf.SourceContext) -> Google.Protobuf.ApiBuilder {
-      if (builderResult.hasSourceContext) {
+      if builderResult.hasSourceContext {
         builderResult.sourceContext = Google.Protobuf.SourceContext.builderWithPrototype(builderResult.sourceContext).mergeFrom(value).buildPartial()
       } else {
         builderResult.sourceContext = value
@@ -377,7 +375,7 @@ internal extension Google.Protobuf {
       return returnMe
     }
     internal func mergeFrom(other:Google.Protobuf.Api) -> Google.Protobuf.ApiBuilder {
-      if (other == Google.Protobuf.Api()) {
+      if other == Google.Protobuf.Api() {
        return self
       }
       if other.hasName {
@@ -398,7 +396,7 @@ internal extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.ApiBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.ApiBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ApiBuilder {
@@ -526,7 +524,7 @@ internal extension Google.Protobuf {
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.Method {
       return Google.Protobuf.Method.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Google.Protobuf.Method {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Method {
       return Google.Protobuf.Method.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Method {
@@ -621,10 +619,9 @@ internal extension Google.Protobuf {
   }
 
   final internal class MethodBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Method
+    private var builderResult:Google.Protobuf.Method = Google.Protobuf.Method()
 
     required override internal init () {
-       builderResult = Google.Protobuf.Method()
        super.init()
     }
     var hasName:Bool {
@@ -641,7 +638,7 @@ internal extension Google.Protobuf {
              builderResult.name = value
          }
     }
-    func setName(value:String)-> Google.Protobuf.MethodBuilder {
+    func setName(value:String) -> Google.Protobuf.MethodBuilder {
       self.name = value
       return self
     }
@@ -664,7 +661,7 @@ internal extension Google.Protobuf {
              builderResult.requestTypeUrl = value
          }
     }
-    func setRequestTypeUrl(value:String)-> Google.Protobuf.MethodBuilder {
+    func setRequestTypeUrl(value:String) -> Google.Protobuf.MethodBuilder {
       self.requestTypeUrl = value
       return self
     }
@@ -687,7 +684,7 @@ internal extension Google.Protobuf {
              builderResult.requestStreaming = value
          }
     }
-    func setRequestStreaming(value:Bool)-> Google.Protobuf.MethodBuilder {
+    func setRequestStreaming(value:Bool) -> Google.Protobuf.MethodBuilder {
       self.requestStreaming = value
       return self
     }
@@ -710,7 +707,7 @@ internal extension Google.Protobuf {
              builderResult.responseTypeUrl = value
          }
     }
-    func setResponseTypeUrl(value:String)-> Google.Protobuf.MethodBuilder {
+    func setResponseTypeUrl(value:String) -> Google.Protobuf.MethodBuilder {
       self.responseTypeUrl = value
       return self
     }
@@ -733,7 +730,7 @@ internal extension Google.Protobuf {
              builderResult.responseStreaming = value
          }
     }
-    func setResponseStreaming(value:Bool)-> Google.Protobuf.MethodBuilder {
+    func setResponseStreaming(value:Bool) -> Google.Protobuf.MethodBuilder {
       self.responseStreaming = value
       return self
     }
@@ -750,7 +747,7 @@ internal extension Google.Protobuf {
              builderResult.options = value
          }
     }
-    func setOptions(value:Array<Google.Protobuf.Option>)-> Google.Protobuf.MethodBuilder {
+    func setOptions(value:Array<Google.Protobuf.Option>) -> Google.Protobuf.MethodBuilder {
       self.options = value
       return self
     }
@@ -779,7 +776,7 @@ internal extension Google.Protobuf {
       return returnMe
     }
     internal func mergeFrom(other:Google.Protobuf.Method) -> Google.Protobuf.MethodBuilder {
-      if (other == Google.Protobuf.Method()) {
+      if other == Google.Protobuf.Method() {
        return self
       }
       if other.hasName {
@@ -803,7 +800,7 @@ internal extension Google.Protobuf {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->Google.Protobuf.MethodBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.MethodBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MethodBuilder {

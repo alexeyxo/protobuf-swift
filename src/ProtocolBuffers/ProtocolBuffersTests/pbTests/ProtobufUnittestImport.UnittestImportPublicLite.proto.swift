@@ -73,7 +73,7 @@ internal extension ProtobufUnittestImport {
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestImport.PublicImportMessageLite {
       return ProtobufUnittestImport.PublicImportMessageLite.builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtobufUnittestImport.PublicImportMessageLite {
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.PublicImportMessageLite {
       return ProtobufUnittestImport.PublicImportMessageLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestImport.PublicImportMessageLite {
@@ -134,10 +134,9 @@ internal extension ProtobufUnittestImport {
   }
 
   final internal class PublicImportMessageLiteBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittestImport.PublicImportMessageLite
+    private var builderResult:ProtobufUnittestImport.PublicImportMessageLite = ProtobufUnittestImport.PublicImportMessageLite()
 
     required override internal init () {
-       builderResult = ProtobufUnittestImport.PublicImportMessageLite()
        super.init()
     }
     var hasE:Bool {
@@ -154,7 +153,7 @@ internal extension ProtobufUnittestImport {
              builderResult.e = value
          }
     }
-    func setE(value:Int32)-> ProtobufUnittestImport.PublicImportMessageLiteBuilder {
+    func setE(value:Int32) -> ProtobufUnittestImport.PublicImportMessageLiteBuilder {
       self.e = value
       return self
     }
@@ -184,7 +183,7 @@ internal extension ProtobufUnittestImport {
       return returnMe
     }
     internal func mergeFrom(other:ProtobufUnittestImport.PublicImportMessageLite) -> ProtobufUnittestImport.PublicImportMessageLiteBuilder {
-      if (other == ProtobufUnittestImport.PublicImportMessageLite()) {
+      if other == ProtobufUnittestImport.PublicImportMessageLite() {
        return self
       }
       if other.hasE {
@@ -193,7 +192,7 @@ internal extension ProtobufUnittestImport {
       mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtobufUnittestImport.PublicImportMessageLiteBuilder {
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestImport.PublicImportMessageLiteBuilder {
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.PublicImportMessageLiteBuilder {

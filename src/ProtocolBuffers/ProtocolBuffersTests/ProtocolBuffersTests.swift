@@ -21,12 +21,14 @@ class ProtocolBuffersTests: XCTestCase {
     
     func testPerformance() {
         var originalBuilder = PBPerfomance.builder()
-        originalBuilder.setInts(Int32(32))
-                       .setInts64(Int64(64))
+        originalBuilder.setInts(Int32(-32))
+                       .setInts64(Int64(-64))
                        .setDoubles(Double(12.12))
                        .setFloats(Float(123.123))
                        .setStr("string")
         let original = originalBuilder.build()
+
+        let original2 = PBPerfomance.parseFromData(original.data())
         var builder = PBPerfomanceBatchBuilder()
         
         for _ in 0...2 {
@@ -40,20 +42,18 @@ class ProtocolBuffersTests: XCTestCase {
         
         var bazBuilder = PBBazBuilder()
         bazBuilder.getBarBuilder().getFooBuilder().setVal(10)
-        var baz = bazBuilder.build()
         
-        var gg = group.build()
-        println(baz)
-        println(gg)
+        
         
 //        let build = builder.build()
 //        
-//        self.measureBlock() {
-//            for _ in 0...1 {
-//                let clone = PBPerfomanceBatch.parseFromData(build.data())
-//
-//            }
-//        }
+        self.measureBlock() {
+            var baz = bazBuilder.build()
+            var gg = group.build()
+            println(baz)
+            println(gg)
+
+        }
     }
 //
 //    func testPerformanceJson()
