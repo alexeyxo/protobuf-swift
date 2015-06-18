@@ -8,7 +8,14 @@ Protocol Buffers are a way of encoding structured data in an efficient yet exten
 
 ####Required Protocol Buffers 2.6
 
-##How To Install Protobuf
+##How To Install Protobuf Compiler from Homebrew
+
+1.`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
+2.`brew install protobuf-swift`
+
+
+##How To Install Protobuf Compiler
 
 
 1.`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
@@ -23,7 +30,15 @@ Protocol Buffers are a way of encoding structured data in an efficient yet exten
 
 6.`./scripts/build.sh`
 
-7.Add `./src/ProtocolBuffers/ProtocolBuffers.xcodeproj` in your project.
+Add `./src/ProtocolBuffers/ProtocolBuffers.xcodeproj` in your project.
+
+##Cocoapods
+
+Podfile:
+```pod
+use_frameworks!
+pod 'ProtocolBuffers-Swift'
+```
 
 ##<img src="https://cloud.githubusercontent.com/assets/432536/5252404/443d64f4-7952-11e4-9d26-fc5cc664cb61.png" width="22" height="22"> Installation via [Carthage](https://github.com/Carthage/Carthage)
 
