@@ -262,6 +262,9 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol, Hashable
 
 final public class PBUserBuilder : GeneratedMessageBuilder {
   private var builderResult:PBUser = PBUser()
+  public func getMessage() -> PBUser {
+      return builderResult
+  }
 
   required override public init () {
      super.init()
@@ -274,8 +277,7 @@ final public class PBUserBuilder : GeneratedMessageBuilder {
   public var group:PBGroup! {
        get {
            if groupBuilder_ != nil {
-              self.mergeGroup(groupBuilder_.buildPartial())
-              groupBuilder_ = nil
+              builderResult.group = groupBuilder_.getMessage()
            }
            return builderResult.group
        }
@@ -289,15 +291,19 @@ final public class PBUserBuilder : GeneratedMessageBuilder {
           builderResult.hasGroup = true
        }
   }
-  public func setGroup(value:PBGroup!) -> PBUserBuilder {
-    self.group = value
-    return self
-  }
   public func getGroupBuilder() -> PBGroupBuilder {
     if groupBuilder_ == nil {
        groupBuilder_ = PBGroupBuilder()
+       builderResult.group = groupBuilder_.getMessage()
+       if group != nil {
+          groupBuilder_.mergeFrom(group)
+       }
     }
     return groupBuilder_
+  }
+  public func setGroup(value:PBGroup!) -> PBUserBuilder {
+    self.group = value
+    return self
   }
   public func mergeGroup(value:PBGroup) -> PBUserBuilder {
     if builderResult.hasGroup {
@@ -538,6 +544,9 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol, Hashabl
 
 final public class PBGroupBuilder : GeneratedMessageBuilder {
   private var builderResult:PBGroup = PBGroup()
+  public func getMessage() -> PBGroup {
+      return builderResult
+  }
 
   required override public init () {
      super.init()
@@ -550,8 +559,7 @@ final public class PBGroupBuilder : GeneratedMessageBuilder {
   public var owner:PBUser! {
        get {
            if ownerBuilder_ != nil {
-              self.mergeOwner(ownerBuilder_.buildPartial())
-              ownerBuilder_ = nil
+              builderResult.owner = ownerBuilder_.getMessage()
            }
            return builderResult.owner
        }
@@ -565,15 +573,19 @@ final public class PBGroupBuilder : GeneratedMessageBuilder {
           builderResult.hasOwner = true
        }
   }
-  public func setOwner(value:PBUser!) -> PBGroupBuilder {
-    self.owner = value
-    return self
-  }
   public func getOwnerBuilder() -> PBUserBuilder {
     if ownerBuilder_ == nil {
        ownerBuilder_ = PBUserBuilder()
+       builderResult.owner = ownerBuilder_.getMessage()
+       if owner != nil {
+          ownerBuilder_.mergeFrom(owner)
+       }
     }
     return ownerBuilder_
+  }
+  public func setOwner(value:PBUser!) -> PBGroupBuilder {
+    self.owner = value
+    return self
   }
   public func mergeOwner(value:PBUser) -> PBGroupBuilder {
     if builderResult.hasOwner {
@@ -753,6 +765,9 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
 
 final public class PBPerfomanceBatchBuilder : GeneratedMessageBuilder {
   private var builderResult:PBPerfomanceBatch = PBPerfomanceBatch()
+  public func getMessage() -> PBPerfomanceBatch {
+      return builderResult
+  }
 
   required override public init () {
      super.init()
@@ -1021,6 +1036,9 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol, Ha
 
 final public class PBPerfomanceBuilder : GeneratedMessageBuilder {
   private var builderResult:PBPerfomance = PBPerfomance()
+  public func getMessage() -> PBPerfomance {
+      return builderResult
+  }
 
   required override public init () {
      super.init()
@@ -1378,6 +1396,9 @@ final public class PBFoo : GeneratedMessage, GeneratedMessageProtocol, Hashable 
 
 final public class PBFooBuilder : GeneratedMessageBuilder {
   private var builderResult:PBFoo = PBFoo()
+  public func getMessage() -> PBFoo {
+      return builderResult
+  }
 
   required override public init () {
      super.init()
@@ -1566,6 +1587,9 @@ final public class PBBar : GeneratedMessage, GeneratedMessageProtocol, Hashable 
 
 final public class PBBarBuilder : GeneratedMessageBuilder {
   private var builderResult:PBBar = PBBar()
+  public func getMessage() -> PBBar {
+      return builderResult
+  }
 
   required override public init () {
      super.init()
@@ -1578,8 +1602,7 @@ final public class PBBarBuilder : GeneratedMessageBuilder {
   public var foo:PBFoo! {
        get {
            if fooBuilder_ != nil {
-              self.mergeFoo(fooBuilder_.buildPartial())
-              fooBuilder_ = nil
+              builderResult.foo = fooBuilder_.getMessage()
            }
            return builderResult.foo
        }
@@ -1593,15 +1616,19 @@ final public class PBBarBuilder : GeneratedMessageBuilder {
           builderResult.hasFoo = true
        }
   }
-  public func setFoo(value:PBFoo!) -> PBBarBuilder {
-    self.foo = value
-    return self
-  }
   public func getFooBuilder() -> PBFooBuilder {
     if fooBuilder_ == nil {
        fooBuilder_ = PBFooBuilder()
+       builderResult.foo = fooBuilder_.getMessage()
+       if foo != nil {
+          fooBuilder_.mergeFrom(foo)
+       }
     }
     return fooBuilder_
+  }
+  public func setFoo(value:PBFoo!) -> PBBarBuilder {
+    self.foo = value
+    return self
   }
   public func mergeFoo(value:PBFoo) -> PBBarBuilder {
     if builderResult.hasFoo {
@@ -1784,6 +1811,9 @@ final public class PBBaz : GeneratedMessage, GeneratedMessageProtocol, Hashable 
 
 final public class PBBazBuilder : GeneratedMessageBuilder {
   private var builderResult:PBBaz = PBBaz()
+  public func getMessage() -> PBBaz {
+      return builderResult
+  }
 
   required override public init () {
      super.init()
@@ -1796,8 +1826,7 @@ final public class PBBazBuilder : GeneratedMessageBuilder {
   public var bar:PBBar! {
        get {
            if barBuilder_ != nil {
-              self.mergeBar(barBuilder_.buildPartial())
-              barBuilder_ = nil
+              builderResult.bar = barBuilder_.getMessage()
            }
            return builderResult.bar
        }
@@ -1811,15 +1840,19 @@ final public class PBBazBuilder : GeneratedMessageBuilder {
           builderResult.hasBar = true
        }
   }
-  public func setBar(value:PBBar!) -> PBBazBuilder {
-    self.bar = value
-    return self
-  }
   public func getBarBuilder() -> PBBarBuilder {
     if barBuilder_ == nil {
        barBuilder_ = PBBarBuilder()
+       builderResult.bar = barBuilder_.getMessage()
+       if bar != nil {
+          barBuilder_.mergeFrom(bar)
+       }
     }
     return barBuilder_
+  }
+  public func setBar(value:PBBar!) -> PBBazBuilder {
+    self.bar = value
+    return self
   }
   public func mergeBar(value:PBBar) -> PBBazBuilder {
     if builderResult.hasBar {
@@ -2022,6 +2055,9 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, 
 
     final public class PBMapperEntryBuilder : GeneratedMessageBuilder {
       private var builderResult:PBIceCreamCone.PBMapperEntry = PBIceCreamCone.PBMapperEntry()
+      public func getMessage() -> PBIceCreamCone.PBMapperEntry {
+          return builderResult
+      }
 
       required override public init () {
          super.init()
@@ -2057,8 +2093,7 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, 
       public var value:PBProtoPoint! {
            get {
                if valueBuilder_ != nil {
-                  self.mergeValue(valueBuilder_.buildPartial())
-                  valueBuilder_ = nil
+                  builderResult.value = valueBuilder_.getMessage()
                }
                return builderResult.value
            }
@@ -2072,15 +2107,19 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, 
               builderResult.hasValue = true
            }
       }
-      public func setValue(value:PBProtoPoint!) -> PBIceCreamCone.PBMapperEntryBuilder {
-        self.value = value
-        return self
-      }
       public func getValueBuilder() -> PBProtoPointBuilder {
         if valueBuilder_ == nil {
            valueBuilder_ = PBProtoPointBuilder()
+           builderResult.value = valueBuilder_.getMessage()
+           if value != nil {
+              valueBuilder_.mergeFrom(value)
+           }
         }
         return valueBuilder_
+      }
+      public func setValue(value:PBProtoPoint!) -> PBIceCreamCone.PBMapperEntryBuilder {
+        self.value = value
+        return self
       }
       public func mergeValue(value:PBProtoPoint) -> PBIceCreamCone.PBMapperEntryBuilder {
         if builderResult.hasValue {
@@ -2332,6 +2371,9 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, 
 
 final public class PBIceCreamConeBuilder : GeneratedMessageBuilder {
   private var builderResult:PBIceCreamCone = PBIceCreamCone()
+  public func getMessage() -> PBIceCreamCone {
+      return builderResult
+  }
 
   required override public init () {
      super.init()
@@ -2620,6 +2662,9 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol, Ha
 
 final public class PBProtoPointBuilder : GeneratedMessageBuilder {
   private var builderResult:PBProtoPoint = PBProtoPoint()
+  public func getMessage() -> PBProtoPoint {
+      return builderResult
+  }
 
   required override public init () {
      super.init()

@@ -188,6 +188,9 @@ public extension Google.Protobuf {
 
   final public class SwiftFileOptionsBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.SwiftFileOptions = Google.Protobuf.SwiftFileOptions()
+    public func getMessage() -> Google.Protobuf.SwiftFileOptions {
+        return builderResult
+    }
 
     required override public init () {
        super.init()

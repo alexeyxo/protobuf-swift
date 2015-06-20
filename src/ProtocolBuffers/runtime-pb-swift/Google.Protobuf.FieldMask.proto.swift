@@ -140,6 +140,9 @@ internal extension Google.Protobuf {
 
   final internal class FieldMaskBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.FieldMask = Google.Protobuf.FieldMask()
+    internal func getMessage() -> Google.Protobuf.FieldMask {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

@@ -135,6 +135,9 @@ internal extension ProtobufUnittestImport {
 
   final internal class PublicImportMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittestImport.PublicImportMessage = ProtobufUnittestImport.PublicImportMessage()
+    internal func getMessage() -> ProtobufUnittestImport.PublicImportMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

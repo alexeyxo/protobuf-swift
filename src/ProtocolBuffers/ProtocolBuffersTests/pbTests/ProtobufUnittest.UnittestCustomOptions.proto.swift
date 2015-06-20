@@ -859,6 +859,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestMessageWithCustomOptions = ProtobufUnittest.TestMessageWithCustomOptions()
+    internal func getMessage() -> ProtobufUnittest.TestMessageWithCustomOptions {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1027,6 +1030,9 @@ internal extension ProtobufUnittest {
 
   final internal class CustomOptionFooRequestBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.CustomOptionFooRequest = ProtobufUnittest.CustomOptionFooRequest()
+    internal func getMessage() -> ProtobufUnittest.CustomOptionFooRequest {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1166,6 +1172,9 @@ internal extension ProtobufUnittest {
 
   final internal class CustomOptionFooResponseBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.CustomOptionFooResponse = ProtobufUnittest.CustomOptionFooResponse()
+    internal func getMessage() -> ProtobufUnittest.CustomOptionFooResponse {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1305,6 +1314,9 @@ internal extension ProtobufUnittest {
 
   final internal class CustomOptionFooClientMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.CustomOptionFooClientMessage = ProtobufUnittest.CustomOptionFooClientMessage()
+    internal func getMessage() -> ProtobufUnittest.CustomOptionFooClientMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1444,6 +1456,9 @@ internal extension ProtobufUnittest {
 
   final internal class CustomOptionFooServerMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.CustomOptionFooServerMessage = ProtobufUnittest.CustomOptionFooServerMessage()
+    internal func getMessage() -> ProtobufUnittest.CustomOptionFooServerMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1595,6 +1610,9 @@ internal extension ProtobufUnittest {
 
   final internal class DummyMessageContainingEnumBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.DummyMessageContainingEnum = ProtobufUnittest.DummyMessageContainingEnum()
+    internal func getMessage() -> ProtobufUnittest.DummyMessageContainingEnum {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1734,6 +1752,9 @@ internal extension ProtobufUnittest {
 
   final internal class DummyMessageInvalidAsOptionTypeBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.DummyMessageInvalidAsOptionType = ProtobufUnittest.DummyMessageInvalidAsOptionType()
+    internal func getMessage() -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1873,6 +1894,9 @@ internal extension ProtobufUnittest {
 
   final internal class CustomOptionMinIntegerValuesBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.CustomOptionMinIntegerValues = ProtobufUnittest.CustomOptionMinIntegerValues()
+    internal func getMessage() -> ProtobufUnittest.CustomOptionMinIntegerValues {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -2012,6 +2036,9 @@ internal extension ProtobufUnittest {
 
   final internal class CustomOptionMaxIntegerValuesBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.CustomOptionMaxIntegerValues = ProtobufUnittest.CustomOptionMaxIntegerValues()
+    internal func getMessage() -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -2151,6 +2178,9 @@ internal extension ProtobufUnittest {
 
   final internal class CustomOptionOtherValuesBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.CustomOptionOtherValues = ProtobufUnittest.CustomOptionOtherValues()
+    internal func getMessage() -> ProtobufUnittest.CustomOptionOtherValues {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -2290,6 +2320,9 @@ internal extension ProtobufUnittest {
 
   final internal class SettingRealsFromPositiveIntsBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.SettingRealsFromPositiveInts = ProtobufUnittest.SettingRealsFromPositiveInts()
+    internal func getMessage() -> ProtobufUnittest.SettingRealsFromPositiveInts {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -2429,6 +2462,9 @@ internal extension ProtobufUnittest {
 
   final internal class SettingRealsFromNegativeIntsBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.SettingRealsFromNegativeInts = ProtobufUnittest.SettingRealsFromNegativeInts()
+    internal func getMessage() -> ProtobufUnittest.SettingRealsFromNegativeInts {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -2640,6 +2676,9 @@ internal extension ProtobufUnittest {
 
   final internal class ComplexOptionType1Builder : ExtendableMessageBuilder {
     private var builderResult:ProtobufUnittest.ComplexOptionType1 = ProtobufUnittest.ComplexOptionType1()
+    internal func getMessage() -> ProtobufUnittest.ComplexOptionType1 {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -2912,6 +2951,9 @@ internal extension ProtobufUnittest {
 
       final internal class ComplexOptionType4Builder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4()
+        internal func getMessage() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -3165,6 +3207,9 @@ internal extension ProtobufUnittest {
 
   final internal class ComplexOptionType2Builder : ExtendableMessageBuilder {
     private var builderResult:ProtobufUnittest.ComplexOptionType2 = ProtobufUnittest.ComplexOptionType2()
+    internal func getMessage() -> ProtobufUnittest.ComplexOptionType2 {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -3177,8 +3222,7 @@ internal extension ProtobufUnittest {
     var bar:ProtobufUnittest.ComplexOptionType1! {
          get {
              if barBuilder_ != nil {
-                self.mergeBar(barBuilder_.buildPartial())
-                barBuilder_ = nil
+                builderResult.bar = barBuilder_.getMessage()
              }
              return builderResult.bar
          }
@@ -3192,15 +3236,19 @@ internal extension ProtobufUnittest {
             builderResult.hasBar = true
          }
     }
-    func setBar(value:ProtobufUnittest.ComplexOptionType1!) -> ProtobufUnittest.ComplexOptionType2Builder {
-      self.bar = value
-      return self
-    }
     internal func getBarBuilder() -> ProtobufUnittest.ComplexOptionType1Builder {
       if barBuilder_ == nil {
          barBuilder_ = ProtobufUnittest.ComplexOptionType1Builder()
+         builderResult.bar = barBuilder_.getMessage()
+         if bar != nil {
+            barBuilder_.mergeFrom(bar)
+         }
       }
       return barBuilder_
+    }
+    func setBar(value:ProtobufUnittest.ComplexOptionType1!) -> ProtobufUnittest.ComplexOptionType2Builder {
+      self.bar = value
+      return self
     }
     internal func mergeBar(value:ProtobufUnittest.ComplexOptionType1) -> ProtobufUnittest.ComplexOptionType2Builder {
       if builderResult.hasBar {
@@ -3248,8 +3296,7 @@ internal extension ProtobufUnittest {
     var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4! {
          get {
              if fredBuilder_ != nil {
-                self.mergeFred(fredBuilder_.buildPartial())
-                fredBuilder_ = nil
+                builderResult.fred = fredBuilder_.getMessage()
              }
              return builderResult.fred
          }
@@ -3263,15 +3310,19 @@ internal extension ProtobufUnittest {
             builderResult.hasFred = true
          }
     }
-    func setFred(value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4!) -> ProtobufUnittest.ComplexOptionType2Builder {
-      self.fred = value
-      return self
-    }
     internal func getFredBuilder() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder {
       if fredBuilder_ == nil {
          fredBuilder_ = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4Builder()
+         builderResult.fred = fredBuilder_.getMessage()
+         if fred != nil {
+            fredBuilder_.mergeFrom(fred)
+         }
       }
       return fredBuilder_
+    }
+    func setFred(value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4!) -> ProtobufUnittest.ComplexOptionType2Builder {
+      self.fred = value
+      return self
     }
     internal func mergeFred(value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) -> ProtobufUnittest.ComplexOptionType2Builder {
       if builderResult.hasFred {
@@ -3496,6 +3547,9 @@ internal extension ProtobufUnittest {
 
       final internal class ComplexOptionType5Builder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5()
+        internal func getMessage() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -3700,6 +3754,9 @@ internal extension ProtobufUnittest {
 
   final internal class ComplexOptionType3Builder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.ComplexOptionType3 = ProtobufUnittest.ComplexOptionType3()
+    internal func getMessage() -> ProtobufUnittest.ComplexOptionType3 {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -3735,8 +3792,7 @@ internal extension ProtobufUnittest {
     var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5! {
          get {
              if complexOptionType5Builder_ != nil {
-                self.mergeComplexOptionType5(complexOptionType5Builder_.buildPartial())
-                complexOptionType5Builder_ = nil
+                builderResult.complexOptionType5 = complexOptionType5Builder_.getMessage()
              }
              return builderResult.complexOptionType5
          }
@@ -3750,15 +3806,19 @@ internal extension ProtobufUnittest {
             builderResult.hasComplexOptionType5 = true
          }
     }
-    func setComplexOptionType5(value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5!) -> ProtobufUnittest.ComplexOptionType3Builder {
-      self.complexOptionType5 = value
-      return self
-    }
     internal func getComplexOptionType5Builder() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder {
       if complexOptionType5Builder_ == nil {
          complexOptionType5Builder_ = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5Builder()
+         builderResult.complexOptionType5 = complexOptionType5Builder_.getMessage()
+         if complexOptionType5 != nil {
+            complexOptionType5Builder_.mergeFrom(complexOptionType5)
+         }
       }
       return complexOptionType5Builder_
+    }
+    func setComplexOptionType5(value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5!) -> ProtobufUnittest.ComplexOptionType3Builder {
+      self.complexOptionType5 = value
+      return self
     }
     internal func mergeComplexOptionType5(value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) -> ProtobufUnittest.ComplexOptionType3Builder {
       if builderResult.hasComplexOptionType5 {
@@ -3942,6 +4002,9 @@ internal extension ProtobufUnittest {
 
   final internal class ComplexOpt6Builder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.ComplexOpt6 = ProtobufUnittest.ComplexOpt6()
+    internal func getMessage() -> ProtobufUnittest.ComplexOpt6 {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -4110,6 +4173,9 @@ internal extension ProtobufUnittest {
 
   final internal class VariousComplexOptionsBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.VariousComplexOptions = ProtobufUnittest.VariousComplexOptions()
+    internal func getMessage() -> ProtobufUnittest.VariousComplexOptions {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -4256,6 +4322,9 @@ internal extension ProtobufUnittest {
 
   final internal class AggregateMessageSetBuilder : ExtendableMessageBuilder {
     private var builderResult:ProtobufUnittest.AggregateMessageSet = ProtobufUnittest.AggregateMessageSet()
+    internal func getMessage() -> ProtobufUnittest.AggregateMessageSet {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -4414,6 +4483,9 @@ internal extension ProtobufUnittest {
 
   final internal class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.AggregateMessageSetElement = ProtobufUnittest.AggregateMessageSetElement()
+    internal func getMessage() -> ProtobufUnittest.AggregateMessageSetElement {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -4690,6 +4762,9 @@ internal extension ProtobufUnittest {
 
   final internal class AggregateBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.Aggregate = ProtobufUnittest.Aggregate()
+    internal func getMessage() -> ProtobufUnittest.Aggregate {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -4748,8 +4823,7 @@ internal extension ProtobufUnittest {
     var sub:ProtobufUnittest.Aggregate! {
          get {
              if subBuilder_ != nil {
-                self.mergeSub(subBuilder_.buildPartial())
-                subBuilder_ = nil
+                builderResult.sub = subBuilder_.getMessage()
              }
              return builderResult.sub
          }
@@ -4763,15 +4837,19 @@ internal extension ProtobufUnittest {
             builderResult.hasSub = true
          }
     }
-    func setSub(value:ProtobufUnittest.Aggregate!) -> ProtobufUnittest.AggregateBuilder {
-      self.sub = value
-      return self
-    }
     internal func getSubBuilder() -> ProtobufUnittest.AggregateBuilder {
       if subBuilder_ == nil {
          subBuilder_ = ProtobufUnittest.AggregateBuilder()
+         builderResult.sub = subBuilder_.getMessage()
+         if sub != nil {
+            subBuilder_.mergeFrom(sub)
+         }
       }
       return subBuilder_
+    }
+    func setSub(value:ProtobufUnittest.Aggregate!) -> ProtobufUnittest.AggregateBuilder {
+      self.sub = value
+      return self
     }
     internal func mergeSub(value:ProtobufUnittest.Aggregate) -> ProtobufUnittest.AggregateBuilder {
       if builderResult.hasSub {
@@ -4796,8 +4874,7 @@ internal extension ProtobufUnittest {
     var file:Google.Protobuf.FileOptions! {
          get {
              if fileBuilder_ != nil {
-                self.mergeFile(fileBuilder_.buildPartial())
-                fileBuilder_ = nil
+                builderResult.file = fileBuilder_.getMessage()
              }
              return builderResult.file
          }
@@ -4811,15 +4888,19 @@ internal extension ProtobufUnittest {
             builderResult.hasFile = true
          }
     }
-    func setFile(value:Google.Protobuf.FileOptions!) -> ProtobufUnittest.AggregateBuilder {
-      self.file = value
-      return self
-    }
     internal func getFileBuilder() -> Google.Protobuf.FileOptionsBuilder {
       if fileBuilder_ == nil {
          fileBuilder_ = Google.Protobuf.FileOptionsBuilder()
+         builderResult.file = fileBuilder_.getMessage()
+         if file != nil {
+            fileBuilder_.mergeFrom(file)
+         }
       }
       return fileBuilder_
+    }
+    func setFile(value:Google.Protobuf.FileOptions!) -> ProtobufUnittest.AggregateBuilder {
+      self.file = value
+      return self
     }
     internal func mergeFile(value:Google.Protobuf.FileOptions) -> ProtobufUnittest.AggregateBuilder {
       if builderResult.hasFile {
@@ -4844,8 +4925,7 @@ internal extension ProtobufUnittest {
     var mset:ProtobufUnittest.AggregateMessageSet! {
          get {
              if msetBuilder_ != nil {
-                self.mergeMset(msetBuilder_.buildPartial())
-                msetBuilder_ = nil
+                builderResult.mset = msetBuilder_.getMessage()
              }
              return builderResult.mset
          }
@@ -4859,15 +4939,19 @@ internal extension ProtobufUnittest {
             builderResult.hasMset = true
          }
     }
-    func setMset(value:ProtobufUnittest.AggregateMessageSet!) -> ProtobufUnittest.AggregateBuilder {
-      self.mset = value
-      return self
-    }
     internal func getMsetBuilder() -> ProtobufUnittest.AggregateMessageSetBuilder {
       if msetBuilder_ == nil {
          msetBuilder_ = ProtobufUnittest.AggregateMessageSetBuilder()
+         builderResult.mset = msetBuilder_.getMessage()
+         if mset != nil {
+            msetBuilder_.mergeFrom(mset)
+         }
       }
       return msetBuilder_
+    }
+    func setMset(value:ProtobufUnittest.AggregateMessageSet!) -> ProtobufUnittest.AggregateBuilder {
+      self.mset = value
+      return self
     }
     internal func mergeMset(value:ProtobufUnittest.AggregateMessageSet) -> ProtobufUnittest.AggregateBuilder {
       if builderResult.hasMset {
@@ -5079,6 +5163,9 @@ internal extension ProtobufUnittest {
 
   final internal class AggregateMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.AggregateMessage = ProtobufUnittest.AggregateMessage()
+    internal func getMessage() -> ProtobufUnittest.AggregateMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -5267,6 +5354,9 @@ internal extension ProtobufUnittest {
 
       final internal class NestedMessageBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.NestedOptionType.NestedMessage = ProtobufUnittest.NestedOptionType.NestedMessage()
+        internal func getMessage() -> ProtobufUnittest.NestedOptionType.NestedMessage {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -5450,6 +5540,9 @@ internal extension ProtobufUnittest {
 
   final internal class NestedOptionTypeBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.NestedOptionType = ProtobufUnittest.NestedOptionType()
+    internal func getMessage() -> ProtobufUnittest.NestedOptionType {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

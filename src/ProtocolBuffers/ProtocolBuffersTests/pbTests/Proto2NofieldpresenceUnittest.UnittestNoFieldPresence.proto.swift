@@ -230,6 +230,9 @@ internal extension Proto2NofieldpresenceUnittest {
 
       final internal class NestedMessageBuilder : GeneratedMessageBuilder {
         private var builderResult:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage()
+        internal func getMessage() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -1392,6 +1395,9 @@ internal extension Proto2NofieldpresenceUnittest {
 
   final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
     private var builderResult:Proto2NofieldpresenceUnittest.TestAllTypes = Proto2NofieldpresenceUnittest.TestAllTypes()
+    internal func getMessage() -> Proto2NofieldpresenceUnittest.TestAllTypes {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1749,8 +1755,7 @@ internal extension Proto2NofieldpresenceUnittest {
     var optionalNestedMessage:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage! {
          get {
              if optionalNestedMessageBuilder_ != nil {
-                self.mergeOptionalNestedMessage(optionalNestedMessageBuilder_.buildPartial())
-                optionalNestedMessageBuilder_ = nil
+                builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
              }
              return builderResult.optionalNestedMessage
          }
@@ -1764,15 +1769,19 @@ internal extension Proto2NofieldpresenceUnittest {
             builderResult.hasOptionalNestedMessage = true
          }
     }
-    func setOptionalNestedMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage!) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
-      self.optionalNestedMessage = value
-      return self
-    }
     internal func getOptionalNestedMessageBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessageBuilder {
       if optionalNestedMessageBuilder_ == nil {
          optionalNestedMessageBuilder_ = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessageBuilder()
+         builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
+         if optionalNestedMessage != nil {
+            optionalNestedMessageBuilder_.mergeFrom(optionalNestedMessage)
+         }
       }
       return optionalNestedMessageBuilder_
+    }
+    func setOptionalNestedMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage!) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
+      self.optionalNestedMessage = value
+      return self
     }
     internal func mergeOptionalNestedMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
       if builderResult.hasOptionalNestedMessage {
@@ -1797,8 +1806,7 @@ internal extension Proto2NofieldpresenceUnittest {
     var optionalForeignMessage:Proto2NofieldpresenceUnittest.ForeignMessage! {
          get {
              if optionalForeignMessageBuilder_ != nil {
-                self.mergeOptionalForeignMessage(optionalForeignMessageBuilder_.buildPartial())
-                optionalForeignMessageBuilder_ = nil
+                builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
              }
              return builderResult.optionalForeignMessage
          }
@@ -1812,15 +1820,19 @@ internal extension Proto2NofieldpresenceUnittest {
             builderResult.hasOptionalForeignMessage = true
          }
     }
-    func setOptionalForeignMessage(value:Proto2NofieldpresenceUnittest.ForeignMessage!) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
-      self.optionalForeignMessage = value
-      return self
-    }
     internal func getOptionalForeignMessageBuilder() -> Proto2NofieldpresenceUnittest.ForeignMessageBuilder {
       if optionalForeignMessageBuilder_ == nil {
          optionalForeignMessageBuilder_ = Proto2NofieldpresenceUnittest.ForeignMessageBuilder()
+         builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
+         if optionalForeignMessage != nil {
+            optionalForeignMessageBuilder_.mergeFrom(optionalForeignMessage)
+         }
       }
       return optionalForeignMessageBuilder_
+    }
+    func setOptionalForeignMessage(value:Proto2NofieldpresenceUnittest.ForeignMessage!) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
+      self.optionalForeignMessage = value
+      return self
     }
     internal func mergeOptionalForeignMessage(value:Proto2NofieldpresenceUnittest.ForeignMessage) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
       if builderResult.hasOptionalForeignMessage {
@@ -1845,8 +1857,7 @@ internal extension Proto2NofieldpresenceUnittest {
     var optionalProto2Message:ProtobufUnittest.TestAllTypes! {
          get {
              if optionalProto2MessageBuilder_ != nil {
-                self.mergeOptionalProto2Message(optionalProto2MessageBuilder_.buildPartial())
-                optionalProto2MessageBuilder_ = nil
+                builderResult.optionalProto2Message = optionalProto2MessageBuilder_.getMessage()
              }
              return builderResult.optionalProto2Message
          }
@@ -1860,15 +1871,19 @@ internal extension Proto2NofieldpresenceUnittest {
             builderResult.hasOptionalProto2Message = true
          }
     }
-    func setOptionalProto2Message(value:ProtobufUnittest.TestAllTypes!) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
-      self.optionalProto2Message = value
-      return self
-    }
     internal func getOptionalProto2MessageBuilder() -> ProtobufUnittest.TestAllTypesBuilder {
       if optionalProto2MessageBuilder_ == nil {
          optionalProto2MessageBuilder_ = ProtobufUnittest.TestAllTypesBuilder()
+         builderResult.optionalProto2Message = optionalProto2MessageBuilder_.getMessage()
+         if optionalProto2Message != nil {
+            optionalProto2MessageBuilder_.mergeFrom(optionalProto2Message)
+         }
       }
       return optionalProto2MessageBuilder_
+    }
+    func setOptionalProto2Message(value:ProtobufUnittest.TestAllTypes!) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
+      self.optionalProto2Message = value
+      return self
     }
     internal func mergeOptionalProto2Message(value:ProtobufUnittest.TestAllTypes) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
       if builderResult.hasOptionalProto2Message {
@@ -1985,8 +2000,7 @@ internal extension Proto2NofieldpresenceUnittest {
     var optionalLazyMessage:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage! {
          get {
              if optionalLazyMessageBuilder_ != nil {
-                self.mergeOptionalLazyMessage(optionalLazyMessageBuilder_.buildPartial())
-                optionalLazyMessageBuilder_ = nil
+                builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
              }
              return builderResult.optionalLazyMessage
          }
@@ -2000,15 +2014,19 @@ internal extension Proto2NofieldpresenceUnittest {
             builderResult.hasOptionalLazyMessage = true
          }
     }
-    func setOptionalLazyMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage!) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
-      self.optionalLazyMessage = value
-      return self
-    }
     internal func getOptionalLazyMessageBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessageBuilder {
       if optionalLazyMessageBuilder_ == nil {
          optionalLazyMessageBuilder_ = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessageBuilder()
+         builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
+         if optionalLazyMessage != nil {
+            optionalLazyMessageBuilder_.mergeFrom(optionalLazyMessage)
+         }
       }
       return optionalLazyMessageBuilder_
+    }
+    func setOptionalLazyMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage!) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
+      self.optionalLazyMessage = value
+      return self
     }
     internal func mergeOptionalLazyMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
       if builderResult.hasOptionalLazyMessage {
@@ -2424,8 +2442,7 @@ internal extension Proto2NofieldpresenceUnittest {
     var oneofNestedMessage:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage! {
          get {
              if oneofNestedMessageBuilder_ != nil {
-                self.mergeOneofNestedMessage(oneofNestedMessageBuilder_.buildPartial())
-                oneofNestedMessageBuilder_ = nil
+                builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
              }
              return builderResult.oneofNestedMessage
          }
@@ -2439,15 +2456,19 @@ internal extension Proto2NofieldpresenceUnittest {
             builderResult.hasOneofNestedMessage = true
          }
     }
-    func setOneofNestedMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage!) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
-      self.oneofNestedMessage = value
-      return self
-    }
     internal func getOneofNestedMessageBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessageBuilder {
       if oneofNestedMessageBuilder_ == nil {
          oneofNestedMessageBuilder_ = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessageBuilder()
+         builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
+         if oneofNestedMessage != nil {
+            oneofNestedMessageBuilder_.mergeFrom(oneofNestedMessage)
+         }
       }
       return oneofNestedMessageBuilder_
+    }
+    func setOneofNestedMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage!) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
+      self.oneofNestedMessage = value
+      return self
     }
     internal func mergeOneofNestedMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) -> Proto2NofieldpresenceUnittest.TestAllTypesBuilder {
       if builderResult.hasOneofNestedMessage {
@@ -3028,6 +3049,9 @@ internal extension Proto2NofieldpresenceUnittest {
 
   final internal class TestProto2RequiredBuilder : GeneratedMessageBuilder {
     private var builderResult:Proto2NofieldpresenceUnittest.TestProto2Required = Proto2NofieldpresenceUnittest.TestProto2Required()
+    internal func getMessage() -> Proto2NofieldpresenceUnittest.TestProto2Required {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -3040,8 +3064,7 @@ internal extension Proto2NofieldpresenceUnittest {
     var proto2:ProtobufUnittest.TestRequired! {
          get {
              if proto2Builder_ != nil {
-                self.mergeProto2(proto2Builder_.buildPartial())
-                proto2Builder_ = nil
+                builderResult.proto2 = proto2Builder_.getMessage()
              }
              return builderResult.proto2
          }
@@ -3055,15 +3078,19 @@ internal extension Proto2NofieldpresenceUnittest {
             builderResult.hasProto2 = true
          }
     }
-    func setProto2(value:ProtobufUnittest.TestRequired!) -> Proto2NofieldpresenceUnittest.TestProto2RequiredBuilder {
-      self.proto2 = value
-      return self
-    }
     internal func getProto2Builder() -> ProtobufUnittest.TestRequiredBuilder {
       if proto2Builder_ == nil {
          proto2Builder_ = ProtobufUnittest.TestRequiredBuilder()
+         builderResult.proto2 = proto2Builder_.getMessage()
+         if proto2 != nil {
+            proto2Builder_.mergeFrom(proto2)
+         }
       }
       return proto2Builder_
+    }
+    func setProto2(value:ProtobufUnittest.TestRequired!) -> Proto2NofieldpresenceUnittest.TestProto2RequiredBuilder {
+      self.proto2 = value
+      return self
     }
     internal func mergeProto2(value:ProtobufUnittest.TestRequired) -> Proto2NofieldpresenceUnittest.TestProto2RequiredBuilder {
       if builderResult.hasProto2 {
@@ -3241,6 +3268,9 @@ internal extension Proto2NofieldpresenceUnittest {
 
   final internal class ForeignMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:Proto2NofieldpresenceUnittest.ForeignMessage = Proto2NofieldpresenceUnittest.ForeignMessage()
+    internal func getMessage() -> Proto2NofieldpresenceUnittest.ForeignMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

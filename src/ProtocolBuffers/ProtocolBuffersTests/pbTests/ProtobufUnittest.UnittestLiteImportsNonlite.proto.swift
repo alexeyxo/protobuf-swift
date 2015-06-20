@@ -141,6 +141,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestLiteImportsNonliteBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestLiteImportsNonlite = ProtobufUnittest.TestLiteImportsNonlite()
+    internal func getMessage() -> ProtobufUnittest.TestLiteImportsNonlite {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -153,8 +156,7 @@ internal extension ProtobufUnittest {
     var message_:ProtobufUnittest.TestAllTypes! {
          get {
              if message_Builder_ != nil {
-                self.mergeMessage_(message_Builder_.buildPartial())
-                message_Builder_ = nil
+                builderResult.message_ = message_Builder_.getMessage()
              }
              return builderResult.message_
          }
@@ -168,15 +170,19 @@ internal extension ProtobufUnittest {
             builderResult.hasMessage_ = true
          }
     }
-    func setMessage_(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
-      self.message_ = value
-      return self
-    }
     internal func getMessage_Builder() -> ProtobufUnittest.TestAllTypesBuilder {
       if message_Builder_ == nil {
          message_Builder_ = ProtobufUnittest.TestAllTypesBuilder()
+         builderResult.message_ = message_Builder_.getMessage()
+         if message_ != nil {
+            message_Builder_.mergeFrom(message_)
+         }
       }
       return message_Builder_
+    }
+    func setMessage_(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
+      self.message_ = value
+      return self
     }
     internal func mergeMessage_(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestLiteImportsNonliteBuilder {
       if builderResult.hasMessage_ {

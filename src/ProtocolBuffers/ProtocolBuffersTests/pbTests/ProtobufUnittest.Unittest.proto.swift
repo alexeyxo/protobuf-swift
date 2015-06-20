@@ -2245,6 +2245,9 @@ internal extension ProtobufUnittest {
 
       final internal class NestedMessageBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestAllTypes.NestedMessage = ProtobufUnittest.TestAllTypes.NestedMessage()
+        internal func getMessage() -> ProtobufUnittest.TestAllTypes.NestedMessage {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -2434,6 +2437,9 @@ internal extension ProtobufUnittest {
 
       final internal class OptionalGroupBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestAllTypes.OptionalGroup = ProtobufUnittest.TestAllTypes.OptionalGroup()
+        internal func getMessage() -> ProtobufUnittest.TestAllTypes.OptionalGroup {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -2623,6 +2629,9 @@ internal extension ProtobufUnittest {
 
       final internal class RepeatedGroupBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestAllTypes.RepeatedGroup = ProtobufUnittest.TestAllTypes.RepeatedGroup()
+        internal func getMessage() -> ProtobufUnittest.TestAllTypes.RepeatedGroup {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -4173,6 +4182,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestAllTypes = ProtobufUnittest.TestAllTypes()
+    internal func getMessage() -> ProtobufUnittest.TestAllTypes {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -4530,8 +4542,7 @@ internal extension ProtobufUnittest {
     var optionalGroup:ProtobufUnittest.TestAllTypes.OptionalGroup! {
          get {
              if optionalGroupBuilder_ != nil {
-                self.mergeOptionalGroup(optionalGroupBuilder_.buildPartial())
-                optionalGroupBuilder_ = nil
+                builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
              }
              return builderResult.optionalGroup
          }
@@ -4545,15 +4556,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalGroup = true
          }
     }
-    func setOptionalGroup(value:ProtobufUnittest.TestAllTypes.OptionalGroup!) -> ProtobufUnittest.TestAllTypesBuilder {
-      self.optionalGroup = value
-      return self
-    }
     internal func getOptionalGroupBuilder() -> ProtobufUnittest.TestAllTypes.OptionalGroupBuilder {
       if optionalGroupBuilder_ == nil {
          optionalGroupBuilder_ = ProtobufUnittest.TestAllTypes.OptionalGroupBuilder()
+         builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
+         if optionalGroup != nil {
+            optionalGroupBuilder_.mergeFrom(optionalGroup)
+         }
       }
       return optionalGroupBuilder_
+    }
+    func setOptionalGroup(value:ProtobufUnittest.TestAllTypes.OptionalGroup!) -> ProtobufUnittest.TestAllTypesBuilder {
+      self.optionalGroup = value
+      return self
     }
     internal func mergeOptionalGroup(value:ProtobufUnittest.TestAllTypes.OptionalGroup) -> ProtobufUnittest.TestAllTypesBuilder {
       if builderResult.hasOptionalGroup {
@@ -4578,8 +4593,7 @@ internal extension ProtobufUnittest {
     var optionalNestedMessage:ProtobufUnittest.TestAllTypes.NestedMessage! {
          get {
              if optionalNestedMessageBuilder_ != nil {
-                self.mergeOptionalNestedMessage(optionalNestedMessageBuilder_.buildPartial())
-                optionalNestedMessageBuilder_ = nil
+                builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
              }
              return builderResult.optionalNestedMessage
          }
@@ -4593,15 +4607,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalNestedMessage = true
          }
     }
-    func setOptionalNestedMessage(value:ProtobufUnittest.TestAllTypes.NestedMessage!) -> ProtobufUnittest.TestAllTypesBuilder {
-      self.optionalNestedMessage = value
-      return self
-    }
     internal func getOptionalNestedMessageBuilder() -> ProtobufUnittest.TestAllTypes.NestedMessageBuilder {
       if optionalNestedMessageBuilder_ == nil {
          optionalNestedMessageBuilder_ = ProtobufUnittest.TestAllTypes.NestedMessageBuilder()
+         builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
+         if optionalNestedMessage != nil {
+            optionalNestedMessageBuilder_.mergeFrom(optionalNestedMessage)
+         }
       }
       return optionalNestedMessageBuilder_
+    }
+    func setOptionalNestedMessage(value:ProtobufUnittest.TestAllTypes.NestedMessage!) -> ProtobufUnittest.TestAllTypesBuilder {
+      self.optionalNestedMessage = value
+      return self
     }
     internal func mergeOptionalNestedMessage(value:ProtobufUnittest.TestAllTypes.NestedMessage) -> ProtobufUnittest.TestAllTypesBuilder {
       if builderResult.hasOptionalNestedMessage {
@@ -4626,8 +4644,7 @@ internal extension ProtobufUnittest {
     var optionalForeignMessage:ProtobufUnittest.ForeignMessage! {
          get {
              if optionalForeignMessageBuilder_ != nil {
-                self.mergeOptionalForeignMessage(optionalForeignMessageBuilder_.buildPartial())
-                optionalForeignMessageBuilder_ = nil
+                builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
              }
              return builderResult.optionalForeignMessage
          }
@@ -4641,15 +4658,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalForeignMessage = true
          }
     }
-    func setOptionalForeignMessage(value:ProtobufUnittest.ForeignMessage!) -> ProtobufUnittest.TestAllTypesBuilder {
-      self.optionalForeignMessage = value
-      return self
-    }
     internal func getOptionalForeignMessageBuilder() -> ProtobufUnittest.ForeignMessageBuilder {
       if optionalForeignMessageBuilder_ == nil {
          optionalForeignMessageBuilder_ = ProtobufUnittest.ForeignMessageBuilder()
+         builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
+         if optionalForeignMessage != nil {
+            optionalForeignMessageBuilder_.mergeFrom(optionalForeignMessage)
+         }
       }
       return optionalForeignMessageBuilder_
+    }
+    func setOptionalForeignMessage(value:ProtobufUnittest.ForeignMessage!) -> ProtobufUnittest.TestAllTypesBuilder {
+      self.optionalForeignMessage = value
+      return self
     }
     internal func mergeOptionalForeignMessage(value:ProtobufUnittest.ForeignMessage) -> ProtobufUnittest.TestAllTypesBuilder {
       if builderResult.hasOptionalForeignMessage {
@@ -4674,8 +4695,7 @@ internal extension ProtobufUnittest {
     var optionalImportMessage:ProtobufUnittestImport.ImportMessage! {
          get {
              if optionalImportMessageBuilder_ != nil {
-                self.mergeOptionalImportMessage(optionalImportMessageBuilder_.buildPartial())
-                optionalImportMessageBuilder_ = nil
+                builderResult.optionalImportMessage = optionalImportMessageBuilder_.getMessage()
              }
              return builderResult.optionalImportMessage
          }
@@ -4689,15 +4709,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalImportMessage = true
          }
     }
-    func setOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage!) -> ProtobufUnittest.TestAllTypesBuilder {
-      self.optionalImportMessage = value
-      return self
-    }
     internal func getOptionalImportMessageBuilder() -> ProtobufUnittestImport.ImportMessageBuilder {
       if optionalImportMessageBuilder_ == nil {
          optionalImportMessageBuilder_ = ProtobufUnittestImport.ImportMessageBuilder()
+         builderResult.optionalImportMessage = optionalImportMessageBuilder_.getMessage()
+         if optionalImportMessage != nil {
+            optionalImportMessageBuilder_.mergeFrom(optionalImportMessage)
+         }
       }
       return optionalImportMessageBuilder_
+    }
+    func setOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage!) -> ProtobufUnittest.TestAllTypesBuilder {
+      self.optionalImportMessage = value
+      return self
     }
     internal func mergeOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage) -> ProtobufUnittest.TestAllTypesBuilder {
       if builderResult.hasOptionalImportMessage {
@@ -4837,8 +4861,7 @@ internal extension ProtobufUnittest {
     var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage! {
          get {
              if optionalPublicImportMessageBuilder_ != nil {
-                self.mergeOptionalPublicImportMessage(optionalPublicImportMessageBuilder_.buildPartial())
-                optionalPublicImportMessageBuilder_ = nil
+                builderResult.optionalPublicImportMessage = optionalPublicImportMessageBuilder_.getMessage()
              }
              return builderResult.optionalPublicImportMessage
          }
@@ -4852,15 +4875,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalPublicImportMessage = true
          }
     }
-    func setOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage!) -> ProtobufUnittest.TestAllTypesBuilder {
-      self.optionalPublicImportMessage = value
-      return self
-    }
     internal func getOptionalPublicImportMessageBuilder() -> ProtobufUnittestImport.PublicImportMessageBuilder {
       if optionalPublicImportMessageBuilder_ == nil {
          optionalPublicImportMessageBuilder_ = ProtobufUnittestImport.PublicImportMessageBuilder()
+         builderResult.optionalPublicImportMessage = optionalPublicImportMessageBuilder_.getMessage()
+         if optionalPublicImportMessage != nil {
+            optionalPublicImportMessageBuilder_.mergeFrom(optionalPublicImportMessage)
+         }
       }
       return optionalPublicImportMessageBuilder_
+    }
+    func setOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage!) -> ProtobufUnittest.TestAllTypesBuilder {
+      self.optionalPublicImportMessage = value
+      return self
     }
     internal func mergeOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage) -> ProtobufUnittest.TestAllTypesBuilder {
       if builderResult.hasOptionalPublicImportMessage {
@@ -4885,8 +4912,7 @@ internal extension ProtobufUnittest {
     var optionalLazyMessage:ProtobufUnittest.TestAllTypes.NestedMessage! {
          get {
              if optionalLazyMessageBuilder_ != nil {
-                self.mergeOptionalLazyMessage(optionalLazyMessageBuilder_.buildPartial())
-                optionalLazyMessageBuilder_ = nil
+                builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
              }
              return builderResult.optionalLazyMessage
          }
@@ -4900,15 +4926,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalLazyMessage = true
          }
     }
-    func setOptionalLazyMessage(value:ProtobufUnittest.TestAllTypes.NestedMessage!) -> ProtobufUnittest.TestAllTypesBuilder {
-      self.optionalLazyMessage = value
-      return self
-    }
     internal func getOptionalLazyMessageBuilder() -> ProtobufUnittest.TestAllTypes.NestedMessageBuilder {
       if optionalLazyMessageBuilder_ == nil {
          optionalLazyMessageBuilder_ = ProtobufUnittest.TestAllTypes.NestedMessageBuilder()
+         builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
+         if optionalLazyMessage != nil {
+            optionalLazyMessageBuilder_.mergeFrom(optionalLazyMessage)
+         }
       }
       return optionalLazyMessageBuilder_
+    }
+    func setOptionalLazyMessage(value:ProtobufUnittest.TestAllTypes.NestedMessage!) -> ProtobufUnittest.TestAllTypesBuilder {
+      self.optionalLazyMessage = value
+      return self
     }
     internal func mergeOptionalLazyMessage(value:ProtobufUnittest.TestAllTypes.NestedMessage) -> ProtobufUnittest.TestAllTypesBuilder {
       if builderResult.hasOptionalLazyMessage {
@@ -5816,8 +5846,7 @@ internal extension ProtobufUnittest {
     var oneofNestedMessage:ProtobufUnittest.TestAllTypes.NestedMessage! {
          get {
              if oneofNestedMessageBuilder_ != nil {
-                self.mergeOneofNestedMessage(oneofNestedMessageBuilder_.buildPartial())
-                oneofNestedMessageBuilder_ = nil
+                builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
              }
              return builderResult.oneofNestedMessage
          }
@@ -5831,15 +5860,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOneofNestedMessage = true
          }
     }
-    func setOneofNestedMessage(value:ProtobufUnittest.TestAllTypes.NestedMessage!) -> ProtobufUnittest.TestAllTypesBuilder {
-      self.oneofNestedMessage = value
-      return self
-    }
     internal func getOneofNestedMessageBuilder() -> ProtobufUnittest.TestAllTypes.NestedMessageBuilder {
       if oneofNestedMessageBuilder_ == nil {
          oneofNestedMessageBuilder_ = ProtobufUnittest.TestAllTypes.NestedMessageBuilder()
+         builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
+         if oneofNestedMessage != nil {
+            oneofNestedMessageBuilder_.mergeFrom(oneofNestedMessage)
+         }
       }
       return oneofNestedMessageBuilder_
+    }
+    func setOneofNestedMessage(value:ProtobufUnittest.TestAllTypes.NestedMessage!) -> ProtobufUnittest.TestAllTypesBuilder {
+      self.oneofNestedMessage = value
+      return self
     }
     internal func mergeOneofNestedMessage(value:ProtobufUnittest.TestAllTypes.NestedMessage) -> ProtobufUnittest.TestAllTypesBuilder {
       if builderResult.hasOneofNestedMessage {
@@ -6617,6 +6650,9 @@ internal extension ProtobufUnittest {
 
   final internal class NestedTestAllTypesBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.NestedTestAllTypes = ProtobufUnittest.NestedTestAllTypes()
+    internal func getMessage() -> ProtobufUnittest.NestedTestAllTypes {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -6629,8 +6665,7 @@ internal extension ProtobufUnittest {
     var child:ProtobufUnittest.NestedTestAllTypes! {
          get {
              if childBuilder_ != nil {
-                self.mergeChild(childBuilder_.buildPartial())
-                childBuilder_ = nil
+                builderResult.child = childBuilder_.getMessage()
              }
              return builderResult.child
          }
@@ -6644,15 +6679,19 @@ internal extension ProtobufUnittest {
             builderResult.hasChild = true
          }
     }
-    func setChild(value:ProtobufUnittest.NestedTestAllTypes!) -> ProtobufUnittest.NestedTestAllTypesBuilder {
-      self.child = value
-      return self
-    }
     internal func getChildBuilder() -> ProtobufUnittest.NestedTestAllTypesBuilder {
       if childBuilder_ == nil {
          childBuilder_ = ProtobufUnittest.NestedTestAllTypesBuilder()
+         builderResult.child = childBuilder_.getMessage()
+         if child != nil {
+            childBuilder_.mergeFrom(child)
+         }
       }
       return childBuilder_
+    }
+    func setChild(value:ProtobufUnittest.NestedTestAllTypes!) -> ProtobufUnittest.NestedTestAllTypesBuilder {
+      self.child = value
+      return self
     }
     internal func mergeChild(value:ProtobufUnittest.NestedTestAllTypes) -> ProtobufUnittest.NestedTestAllTypesBuilder {
       if builderResult.hasChild {
@@ -6677,8 +6716,7 @@ internal extension ProtobufUnittest {
     var payload:ProtobufUnittest.TestAllTypes! {
          get {
              if payloadBuilder_ != nil {
-                self.mergePayload(payloadBuilder_.buildPartial())
-                payloadBuilder_ = nil
+                builderResult.payload = payloadBuilder_.getMessage()
              }
              return builderResult.payload
          }
@@ -6692,15 +6730,19 @@ internal extension ProtobufUnittest {
             builderResult.hasPayload = true
          }
     }
-    func setPayload(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.NestedTestAllTypesBuilder {
-      self.payload = value
-      return self
-    }
     internal func getPayloadBuilder() -> ProtobufUnittest.TestAllTypesBuilder {
       if payloadBuilder_ == nil {
          payloadBuilder_ = ProtobufUnittest.TestAllTypesBuilder()
+         builderResult.payload = payloadBuilder_.getMessage()
+         if payload != nil {
+            payloadBuilder_.mergeFrom(payload)
+         }
       }
       return payloadBuilder_
+    }
+    func setPayload(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.NestedTestAllTypesBuilder {
+      self.payload = value
+      return self
     }
     internal func mergePayload(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.NestedTestAllTypesBuilder {
       if builderResult.hasPayload {
@@ -6889,6 +6931,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestDeprecatedFieldsBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestDeprecatedFields = ProtobufUnittest.TestDeprecatedFields()
+    internal func getMessage() -> ProtobufUnittest.TestDeprecatedFields {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -7072,6 +7117,9 @@ internal extension ProtobufUnittest {
 
   final internal class ForeignMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.ForeignMessage = ProtobufUnittest.ForeignMessage()
+    internal func getMessage() -> ProtobufUnittest.ForeignMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -7247,6 +7295,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestAllExtensionsBuilder : ExtendableMessageBuilder {
     private var builderResult:ProtobufUnittest.TestAllExtensions = ProtobufUnittest.TestAllExtensions()
+    internal func getMessage() -> ProtobufUnittest.TestAllExtensions {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -7402,6 +7453,9 @@ internal extension ProtobufUnittest {
 
   final internal class OptionalGroupExtensionBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.OptionalGroupExtension = ProtobufUnittest.OptionalGroupExtension()
+    internal func getMessage() -> ProtobufUnittest.OptionalGroupExtension {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -7585,6 +7639,9 @@ internal extension ProtobufUnittest {
 
   final internal class RepeatedGroupExtensionBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.RepeatedGroupExtension = ProtobufUnittest.RepeatedGroupExtension()
+    internal func getMessage() -> ProtobufUnittest.RepeatedGroupExtension {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -7759,6 +7816,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestNestedExtensionBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestNestedExtension = ProtobufUnittest.TestNestedExtension()
+    internal func getMessage() -> ProtobufUnittest.TestNestedExtension {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -8408,6 +8468,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestRequiredBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestRequired = ProtobufUnittest.TestRequired()
+    internal func getMessage() -> ProtobufUnittest.TestRequired {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -9571,6 +9634,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestRequiredForeignBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestRequiredForeign = ProtobufUnittest.TestRequiredForeign()
+    internal func getMessage() -> ProtobufUnittest.TestRequiredForeign {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -9583,8 +9649,7 @@ internal extension ProtobufUnittest {
     var optionalMessage:ProtobufUnittest.TestRequired! {
          get {
              if optionalMessageBuilder_ != nil {
-                self.mergeOptionalMessage(optionalMessageBuilder_.buildPartial())
-                optionalMessageBuilder_ = nil
+                builderResult.optionalMessage = optionalMessageBuilder_.getMessage()
              }
              return builderResult.optionalMessage
          }
@@ -9598,15 +9663,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalMessage = true
          }
     }
-    func setOptionalMessage(value:ProtobufUnittest.TestRequired!) -> ProtobufUnittest.TestRequiredForeignBuilder {
-      self.optionalMessage = value
-      return self
-    }
     internal func getOptionalMessageBuilder() -> ProtobufUnittest.TestRequiredBuilder {
       if optionalMessageBuilder_ == nil {
          optionalMessageBuilder_ = ProtobufUnittest.TestRequiredBuilder()
+         builderResult.optionalMessage = optionalMessageBuilder_.getMessage()
+         if optionalMessage != nil {
+            optionalMessageBuilder_.mergeFrom(optionalMessage)
+         }
       }
       return optionalMessageBuilder_
+    }
+    func setOptionalMessage(value:ProtobufUnittest.TestRequired!) -> ProtobufUnittest.TestRequiredForeignBuilder {
+      self.optionalMessage = value
+      return self
     }
     internal func mergeOptionalMessage(value:ProtobufUnittest.TestRequired) -> ProtobufUnittest.TestRequiredForeignBuilder {
       if builderResult.hasOptionalMessage {
@@ -9842,6 +9911,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestForeignNestedBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestForeignNested = ProtobufUnittest.TestForeignNested()
+    internal func getMessage() -> ProtobufUnittest.TestForeignNested {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -9854,8 +9926,7 @@ internal extension ProtobufUnittest {
     var foreignNested:ProtobufUnittest.TestAllTypes.NestedMessage! {
          get {
              if foreignNestedBuilder_ != nil {
-                self.mergeForeignNested(foreignNestedBuilder_.buildPartial())
-                foreignNestedBuilder_ = nil
+                builderResult.foreignNested = foreignNestedBuilder_.getMessage()
              }
              return builderResult.foreignNested
          }
@@ -9869,15 +9940,19 @@ internal extension ProtobufUnittest {
             builderResult.hasForeignNested = true
          }
     }
-    func setForeignNested(value:ProtobufUnittest.TestAllTypes.NestedMessage!) -> ProtobufUnittest.TestForeignNestedBuilder {
-      self.foreignNested = value
-      return self
-    }
     internal func getForeignNestedBuilder() -> ProtobufUnittest.TestAllTypes.NestedMessageBuilder {
       if foreignNestedBuilder_ == nil {
          foreignNestedBuilder_ = ProtobufUnittest.TestAllTypes.NestedMessageBuilder()
+         builderResult.foreignNested = foreignNestedBuilder_.getMessage()
+         if foreignNested != nil {
+            foreignNestedBuilder_.mergeFrom(foreignNested)
+         }
       }
       return foreignNestedBuilder_
+    }
+    func setForeignNested(value:ProtobufUnittest.TestAllTypes.NestedMessage!) -> ProtobufUnittest.TestForeignNestedBuilder {
+      self.foreignNested = value
+      return self
     }
     internal func mergeForeignNested(value:ProtobufUnittest.TestAllTypes.NestedMessage) -> ProtobufUnittest.TestForeignNestedBuilder {
       if builderResult.hasForeignNested {
@@ -10040,6 +10115,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestEmptyMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestEmptyMessage = ProtobufUnittest.TestEmptyMessage()
+    internal func getMessage() -> ProtobufUnittest.TestEmptyMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -10186,6 +10264,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestEmptyMessageWithExtensionsBuilder : ExtendableMessageBuilder {
     private var builderResult:ProtobufUnittest.TestEmptyMessageWithExtensions = ProtobufUnittest.TestEmptyMessageWithExtensions()
+    internal func getMessage() -> ProtobufUnittest.TestEmptyMessageWithExtensions {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -10339,6 +10420,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestMultipleExtensionRangesBuilder : ExtendableMessageBuilder {
     private var builderResult:ProtobufUnittest.TestMultipleExtensionRanges = ProtobufUnittest.TestMultipleExtensionRanges()
+    internal func getMessage() -> ProtobufUnittest.TestMultipleExtensionRanges {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -10509,6 +10593,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestReallyLargeTagNumberBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestReallyLargeTagNumber = ProtobufUnittest.TestReallyLargeTagNumber()
+    internal func getMessage() -> ProtobufUnittest.TestReallyLargeTagNumber {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -10741,6 +10828,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestRecursiveMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestRecursiveMessage = ProtobufUnittest.TestRecursiveMessage()
+    internal func getMessage() -> ProtobufUnittest.TestRecursiveMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -10753,8 +10843,7 @@ internal extension ProtobufUnittest {
     var a:ProtobufUnittest.TestRecursiveMessage! {
          get {
              if aBuilder_ != nil {
-                self.mergeA(aBuilder_.buildPartial())
-                aBuilder_ = nil
+                builderResult.a = aBuilder_.getMessage()
              }
              return builderResult.a
          }
@@ -10768,15 +10857,19 @@ internal extension ProtobufUnittest {
             builderResult.hasA = true
          }
     }
-    func setA(value:ProtobufUnittest.TestRecursiveMessage!) -> ProtobufUnittest.TestRecursiveMessageBuilder {
-      self.a = value
-      return self
-    }
     internal func getABuilder() -> ProtobufUnittest.TestRecursiveMessageBuilder {
       if aBuilder_ == nil {
          aBuilder_ = ProtobufUnittest.TestRecursiveMessageBuilder()
+         builderResult.a = aBuilder_.getMessage()
+         if a != nil {
+            aBuilder_.mergeFrom(a)
+         }
       }
       return aBuilder_
+    }
+    func setA(value:ProtobufUnittest.TestRecursiveMessage!) -> ProtobufUnittest.TestRecursiveMessageBuilder {
+      self.a = value
+      return self
     }
     internal func mergeA(value:ProtobufUnittest.TestRecursiveMessage) -> ProtobufUnittest.TestRecursiveMessageBuilder {
       if builderResult.hasA {
@@ -10988,6 +11081,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestMutualRecursionABuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestMutualRecursionA = ProtobufUnittest.TestMutualRecursionA()
+    internal func getMessage() -> ProtobufUnittest.TestMutualRecursionA {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -11000,8 +11096,7 @@ internal extension ProtobufUnittest {
     var bb:ProtobufUnittest.TestMutualRecursionB! {
          get {
              if bbBuilder_ != nil {
-                self.mergeBb(bbBuilder_.buildPartial())
-                bbBuilder_ = nil
+                builderResult.bb = bbBuilder_.getMessage()
              }
              return builderResult.bb
          }
@@ -11015,15 +11110,19 @@ internal extension ProtobufUnittest {
             builderResult.hasBb = true
          }
     }
-    func setBb(value:ProtobufUnittest.TestMutualRecursionB!) -> ProtobufUnittest.TestMutualRecursionABuilder {
-      self.bb = value
-      return self
-    }
     internal func getBbBuilder() -> ProtobufUnittest.TestMutualRecursionBBuilder {
       if bbBuilder_ == nil {
          bbBuilder_ = ProtobufUnittest.TestMutualRecursionBBuilder()
+         builderResult.bb = bbBuilder_.getMessage()
+         if bb != nil {
+            bbBuilder_.mergeFrom(bb)
+         }
       }
       return bbBuilder_
+    }
+    func setBb(value:ProtobufUnittest.TestMutualRecursionB!) -> ProtobufUnittest.TestMutualRecursionABuilder {
+      self.bb = value
+      return self
     }
     internal func mergeBb(value:ProtobufUnittest.TestMutualRecursionB) -> ProtobufUnittest.TestMutualRecursionABuilder {
       if builderResult.hasBb {
@@ -11221,6 +11320,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestMutualRecursionBBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestMutualRecursionB = ProtobufUnittest.TestMutualRecursionB()
+    internal func getMessage() -> ProtobufUnittest.TestMutualRecursionB {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -11233,8 +11335,7 @@ internal extension ProtobufUnittest {
     var a:ProtobufUnittest.TestMutualRecursionA! {
          get {
              if aBuilder_ != nil {
-                self.mergeA(aBuilder_.buildPartial())
-                aBuilder_ = nil
+                builderResult.a = aBuilder_.getMessage()
              }
              return builderResult.a
          }
@@ -11248,15 +11349,19 @@ internal extension ProtobufUnittest {
             builderResult.hasA = true
          }
     }
-    func setA(value:ProtobufUnittest.TestMutualRecursionA!) -> ProtobufUnittest.TestMutualRecursionBBuilder {
-      self.a = value
-      return self
-    }
     internal func getABuilder() -> ProtobufUnittest.TestMutualRecursionABuilder {
       if aBuilder_ == nil {
          aBuilder_ = ProtobufUnittest.TestMutualRecursionABuilder()
+         builderResult.a = aBuilder_.getMessage()
+         if a != nil {
+            aBuilder_.mergeFrom(a)
+         }
       }
       return aBuilder_
+    }
+    func setA(value:ProtobufUnittest.TestMutualRecursionA!) -> ProtobufUnittest.TestMutualRecursionBBuilder {
+      self.a = value
+      return self
     }
     internal func mergeA(value:ProtobufUnittest.TestMutualRecursionA) -> ProtobufUnittest.TestMutualRecursionBBuilder {
       if builderResult.hasA {
@@ -11468,6 +11573,9 @@ internal extension ProtobufUnittest {
 
       final internal class FooBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestDupFieldNumber.Foo = ProtobufUnittest.TestDupFieldNumber.Foo()
+        internal func getMessage() -> ProtobufUnittest.TestDupFieldNumber.Foo {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -11657,6 +11765,9 @@ internal extension ProtobufUnittest {
 
       final internal class BarBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestDupFieldNumber.Bar = ProtobufUnittest.TestDupFieldNumber.Bar()
+        internal func getMessage() -> ProtobufUnittest.TestDupFieldNumber.Bar {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -11881,6 +11992,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestDupFieldNumberBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestDupFieldNumber = ProtobufUnittest.TestDupFieldNumber()
+    internal func getMessage() -> ProtobufUnittest.TestDupFieldNumber {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -11916,8 +12030,7 @@ internal extension ProtobufUnittest {
     var foo:ProtobufUnittest.TestDupFieldNumber.Foo! {
          get {
              if fooBuilder_ != nil {
-                self.mergeFoo(fooBuilder_.buildPartial())
-                fooBuilder_ = nil
+                builderResult.foo = fooBuilder_.getMessage()
              }
              return builderResult.foo
          }
@@ -11931,15 +12044,19 @@ internal extension ProtobufUnittest {
             builderResult.hasFoo = true
          }
     }
-    func setFoo(value:ProtobufUnittest.TestDupFieldNumber.Foo!) -> ProtobufUnittest.TestDupFieldNumberBuilder {
-      self.foo = value
-      return self
-    }
     internal func getFooBuilder() -> ProtobufUnittest.TestDupFieldNumber.FooBuilder {
       if fooBuilder_ == nil {
          fooBuilder_ = ProtobufUnittest.TestDupFieldNumber.FooBuilder()
+         builderResult.foo = fooBuilder_.getMessage()
+         if foo != nil {
+            fooBuilder_.mergeFrom(foo)
+         }
       }
       return fooBuilder_
+    }
+    func setFoo(value:ProtobufUnittest.TestDupFieldNumber.Foo!) -> ProtobufUnittest.TestDupFieldNumberBuilder {
+      self.foo = value
+      return self
     }
     internal func mergeFoo(value:ProtobufUnittest.TestDupFieldNumber.Foo) -> ProtobufUnittest.TestDupFieldNumberBuilder {
       if builderResult.hasFoo {
@@ -11964,8 +12081,7 @@ internal extension ProtobufUnittest {
     var bar:ProtobufUnittest.TestDupFieldNumber.Bar! {
          get {
              if barBuilder_ != nil {
-                self.mergeBar(barBuilder_.buildPartial())
-                barBuilder_ = nil
+                builderResult.bar = barBuilder_.getMessage()
              }
              return builderResult.bar
          }
@@ -11979,15 +12095,19 @@ internal extension ProtobufUnittest {
             builderResult.hasBar = true
          }
     }
-    func setBar(value:ProtobufUnittest.TestDupFieldNumber.Bar!) -> ProtobufUnittest.TestDupFieldNumberBuilder {
-      self.bar = value
-      return self
-    }
     internal func getBarBuilder() -> ProtobufUnittest.TestDupFieldNumber.BarBuilder {
       if barBuilder_ == nil {
          barBuilder_ = ProtobufUnittest.TestDupFieldNumber.BarBuilder()
+         builderResult.bar = barBuilder_.getMessage()
+         if bar != nil {
+            barBuilder_.mergeFrom(bar)
+         }
       }
       return barBuilder_
+    }
+    func setBar(value:ProtobufUnittest.TestDupFieldNumber.Bar!) -> ProtobufUnittest.TestDupFieldNumberBuilder {
+      self.bar = value
+      return self
     }
     internal func mergeBar(value:ProtobufUnittest.TestDupFieldNumber.Bar) -> ProtobufUnittest.TestDupFieldNumberBuilder {
       if builderResult.hasBar {
@@ -12187,6 +12307,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestEagerMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestEagerMessage = ProtobufUnittest.TestEagerMessage()
+    internal func getMessage() -> ProtobufUnittest.TestEagerMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -12199,8 +12322,7 @@ internal extension ProtobufUnittest {
     var subMessage:ProtobufUnittest.TestAllTypes! {
          get {
              if subMessageBuilder_ != nil {
-                self.mergeSubMessage(subMessageBuilder_.buildPartial())
-                subMessageBuilder_ = nil
+                builderResult.subMessage = subMessageBuilder_.getMessage()
              }
              return builderResult.subMessage
          }
@@ -12214,15 +12336,19 @@ internal extension ProtobufUnittest {
             builderResult.hasSubMessage = true
          }
     }
-    func setSubMessage(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestEagerMessageBuilder {
-      self.subMessage = value
-      return self
-    }
     internal func getSubMessageBuilder() -> ProtobufUnittest.TestAllTypesBuilder {
       if subMessageBuilder_ == nil {
          subMessageBuilder_ = ProtobufUnittest.TestAllTypesBuilder()
+         builderResult.subMessage = subMessageBuilder_.getMessage()
+         if subMessage != nil {
+            subMessageBuilder_.mergeFrom(subMessage)
+         }
       }
       return subMessageBuilder_
+    }
+    func setSubMessage(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestEagerMessageBuilder {
+      self.subMessage = value
+      return self
     }
     internal func mergeSubMessage(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestEagerMessageBuilder {
       if builderResult.hasSubMessage {
@@ -12405,6 +12531,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestLazyMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestLazyMessage = ProtobufUnittest.TestLazyMessage()
+    internal func getMessage() -> ProtobufUnittest.TestLazyMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -12417,8 +12546,7 @@ internal extension ProtobufUnittest {
     var subMessage:ProtobufUnittest.TestAllTypes! {
          get {
              if subMessageBuilder_ != nil {
-                self.mergeSubMessage(subMessageBuilder_.buildPartial())
-                subMessageBuilder_ = nil
+                builderResult.subMessage = subMessageBuilder_.getMessage()
              }
              return builderResult.subMessage
          }
@@ -12432,15 +12560,19 @@ internal extension ProtobufUnittest {
             builderResult.hasSubMessage = true
          }
     }
-    func setSubMessage(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestLazyMessageBuilder {
-      self.subMessage = value
-      return self
-    }
     internal func getSubMessageBuilder() -> ProtobufUnittest.TestAllTypesBuilder {
       if subMessageBuilder_ == nil {
          subMessageBuilder_ = ProtobufUnittest.TestAllTypesBuilder()
+         builderResult.subMessage = subMessageBuilder_.getMessage()
+         if subMessage != nil {
+            subMessageBuilder_.mergeFrom(subMessage)
+         }
       }
       return subMessageBuilder_
+    }
+    func setSubMessage(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestLazyMessageBuilder {
+      self.subMessage = value
+      return self
     }
     internal func mergeSubMessage(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestLazyMessageBuilder {
       if builderResult.hasSubMessage {
@@ -12645,6 +12777,9 @@ internal extension ProtobufUnittest {
 
       final internal class NestedMessageBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage = ProtobufUnittest.TestNestedMessageHasBits.NestedMessage()
+        internal func getMessage() -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -12851,6 +12986,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestNestedMessageHasBitsBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestNestedMessageHasBits = ProtobufUnittest.TestNestedMessageHasBits()
+    internal func getMessage() -> ProtobufUnittest.TestNestedMessageHasBits {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -12863,8 +13001,7 @@ internal extension ProtobufUnittest {
     var optionalNestedMessage:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage! {
          get {
              if optionalNestedMessageBuilder_ != nil {
-                self.mergeOptionalNestedMessage(optionalNestedMessageBuilder_.buildPartial())
-                optionalNestedMessageBuilder_ = nil
+                builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
              }
              return builderResult.optionalNestedMessage
          }
@@ -12878,15 +13015,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalNestedMessage = true
          }
     }
-    func setOptionalNestedMessage(value:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage!) -> ProtobufUnittest.TestNestedMessageHasBitsBuilder {
-      self.optionalNestedMessage = value
-      return self
-    }
     internal func getOptionalNestedMessageBuilder() -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessageBuilder {
       if optionalNestedMessageBuilder_ == nil {
          optionalNestedMessageBuilder_ = ProtobufUnittest.TestNestedMessageHasBits.NestedMessageBuilder()
+         builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
+         if optionalNestedMessage != nil {
+            optionalNestedMessageBuilder_.mergeFrom(optionalNestedMessage)
+         }
       }
       return optionalNestedMessageBuilder_
+    }
+    func setOptionalNestedMessage(value:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage!) -> ProtobufUnittest.TestNestedMessageHasBitsBuilder {
+      self.optionalNestedMessage = value
+      return self
     }
     internal func mergeOptionalNestedMessage(value:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage) -> ProtobufUnittest.TestNestedMessageHasBitsBuilder {
       if builderResult.hasOptionalNestedMessage {
@@ -13259,6 +13400,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestCamelCaseFieldNamesBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestCamelCaseFieldNames = ProtobufUnittest.TestCamelCaseFieldNames()
+    internal func getMessage() -> ProtobufUnittest.TestCamelCaseFieldNames {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -13340,8 +13484,7 @@ internal extension ProtobufUnittest {
     var messageField:ProtobufUnittest.ForeignMessage! {
          get {
              if messageFieldBuilder_ != nil {
-                self.mergeMessageField(messageFieldBuilder_.buildPartial())
-                messageFieldBuilder_ = nil
+                builderResult.messageField = messageFieldBuilder_.getMessage()
              }
              return builderResult.messageField
          }
@@ -13355,15 +13498,19 @@ internal extension ProtobufUnittest {
             builderResult.hasMessageField = true
          }
     }
-    func setMessageField(value:ProtobufUnittest.ForeignMessage!) -> ProtobufUnittest.TestCamelCaseFieldNamesBuilder {
-      self.messageField = value
-      return self
-    }
     internal func getMessageFieldBuilder() -> ProtobufUnittest.ForeignMessageBuilder {
       if messageFieldBuilder_ == nil {
          messageFieldBuilder_ = ProtobufUnittest.ForeignMessageBuilder()
+         builderResult.messageField = messageFieldBuilder_.getMessage()
+         if messageField != nil {
+            messageFieldBuilder_.mergeFrom(messageField)
+         }
       }
       return messageFieldBuilder_
+    }
+    func setMessageField(value:ProtobufUnittest.ForeignMessage!) -> ProtobufUnittest.TestCamelCaseFieldNamesBuilder {
+      self.messageField = value
+      return self
     }
     internal func mergeMessageField(value:ProtobufUnittest.ForeignMessage) -> ProtobufUnittest.TestCamelCaseFieldNamesBuilder {
       if builderResult.hasMessageField {
@@ -13781,6 +13928,9 @@ internal extension ProtobufUnittest {
 
       final internal class NestedMessageBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestFieldOrderings.NestedMessage = ProtobufUnittest.TestFieldOrderings.NestedMessage()
+        internal func getMessage() -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -14054,6 +14204,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestFieldOrderingsBuilder : ExtendableMessageBuilder {
     private var builderResult:ProtobufUnittest.TestFieldOrderings = ProtobufUnittest.TestFieldOrderings()
+    internal func getMessage() -> ProtobufUnittest.TestFieldOrderings {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -14135,8 +14288,7 @@ internal extension ProtobufUnittest {
     var optionalNestedMessage:ProtobufUnittest.TestFieldOrderings.NestedMessage! {
          get {
              if optionalNestedMessageBuilder_ != nil {
-                self.mergeOptionalNestedMessage(optionalNestedMessageBuilder_.buildPartial())
-                optionalNestedMessageBuilder_ = nil
+                builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
              }
              return builderResult.optionalNestedMessage
          }
@@ -14150,15 +14302,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalNestedMessage = true
          }
     }
-    func setOptionalNestedMessage(value:ProtobufUnittest.TestFieldOrderings.NestedMessage!) -> ProtobufUnittest.TestFieldOrderingsBuilder {
-      self.optionalNestedMessage = value
-      return self
-    }
     internal func getOptionalNestedMessageBuilder() -> ProtobufUnittest.TestFieldOrderings.NestedMessageBuilder {
       if optionalNestedMessageBuilder_ == nil {
          optionalNestedMessageBuilder_ = ProtobufUnittest.TestFieldOrderings.NestedMessageBuilder()
+         builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
+         if optionalNestedMessage != nil {
+            optionalNestedMessageBuilder_.mergeFrom(optionalNestedMessage)
+         }
       }
       return optionalNestedMessageBuilder_
+    }
+    func setOptionalNestedMessage(value:ProtobufUnittest.TestFieldOrderings.NestedMessage!) -> ProtobufUnittest.TestFieldOrderingsBuilder {
+      self.optionalNestedMessage = value
+      return self
     }
     internal func mergeOptionalNestedMessage(value:ProtobufUnittest.TestFieldOrderings.NestedMessage) -> ProtobufUnittest.TestFieldOrderingsBuilder {
       if builderResult.hasOptionalNestedMessage {
@@ -14745,6 +14901,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestExtremeDefaultValuesBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestExtremeDefaultValues = ProtobufUnittest.TestExtremeDefaultValues()
+    internal func getMessage() -> ProtobufUnittest.TestExtremeDefaultValues {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -15681,6 +15840,9 @@ internal extension ProtobufUnittest {
 
   final internal class SparseEnumMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.SparseEnumMessage = ProtobufUnittest.SparseEnumMessage()
+    internal func getMessage() -> ProtobufUnittest.SparseEnumMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -15869,6 +16031,9 @@ internal extension ProtobufUnittest {
 
   final internal class OneStringBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.OneString = ProtobufUnittest.OneString()
+    internal func getMessage() -> ProtobufUnittest.OneString {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -16057,6 +16222,9 @@ internal extension ProtobufUnittest {
 
   final internal class MoreStringBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.MoreString = ProtobufUnittest.MoreString()
+    internal func getMessage() -> ProtobufUnittest.MoreString {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -16233,6 +16401,9 @@ internal extension ProtobufUnittest {
 
   final internal class OneBytesBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.OneBytes = ProtobufUnittest.OneBytes()
+    internal func getMessage() -> ProtobufUnittest.OneBytes {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -16421,6 +16592,9 @@ internal extension ProtobufUnittest {
 
   final internal class MoreBytesBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.MoreBytes = ProtobufUnittest.MoreBytes()
+    internal func getMessage() -> ProtobufUnittest.MoreBytes {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -16597,6 +16771,9 @@ internal extension ProtobufUnittest {
 
   final internal class Int32MessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.Int32Message = ProtobufUnittest.Int32Message()
+    internal func getMessage() -> ProtobufUnittest.Int32Message {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -16780,6 +16957,9 @@ internal extension ProtobufUnittest {
 
   final internal class Uint32MessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.Uint32Message = ProtobufUnittest.Uint32Message()
+    internal func getMessage() -> ProtobufUnittest.Uint32Message {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -16963,6 +17143,9 @@ internal extension ProtobufUnittest {
 
   final internal class Int64MessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.Int64Message = ProtobufUnittest.Int64Message()
+    internal func getMessage() -> ProtobufUnittest.Int64Message {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -17146,6 +17329,9 @@ internal extension ProtobufUnittest {
 
   final internal class Uint64MessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.Uint64Message = ProtobufUnittest.Uint64Message()
+    internal func getMessage() -> ProtobufUnittest.Uint64Message {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -17329,6 +17515,9 @@ internal extension ProtobufUnittest {
 
   final internal class BoolMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.BoolMessage = ProtobufUnittest.BoolMessage()
+    internal func getMessage() -> ProtobufUnittest.BoolMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -17532,6 +17721,9 @@ internal extension ProtobufUnittest {
 
       final internal class FooGroupBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestOneof.FooGroup = ProtobufUnittest.TestOneof.FooGroup()
+        internal func getMessage() -> ProtobufUnittest.TestOneof.FooGroup {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -17921,6 +18113,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestOneofBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestOneof = ProtobufUnittest.TestOneof()
+    internal func getMessage() -> ProtobufUnittest.TestOneof {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -17979,8 +18174,7 @@ internal extension ProtobufUnittest {
     var fooMessage:ProtobufUnittest.TestAllTypes! {
          get {
              if fooMessageBuilder_ != nil {
-                self.mergeFooMessage(fooMessageBuilder_.buildPartial())
-                fooMessageBuilder_ = nil
+                builderResult.fooMessage = fooMessageBuilder_.getMessage()
              }
              return builderResult.fooMessage
          }
@@ -17994,15 +18188,19 @@ internal extension ProtobufUnittest {
             builderResult.hasFooMessage = true
          }
     }
-    func setFooMessage(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestOneofBuilder {
-      self.fooMessage = value
-      return self
-    }
     internal func getFooMessageBuilder() -> ProtobufUnittest.TestAllTypesBuilder {
       if fooMessageBuilder_ == nil {
          fooMessageBuilder_ = ProtobufUnittest.TestAllTypesBuilder()
+         builderResult.fooMessage = fooMessageBuilder_.getMessage()
+         if fooMessage != nil {
+            fooMessageBuilder_.mergeFrom(fooMessage)
+         }
       }
       return fooMessageBuilder_
+    }
+    func setFooMessage(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestOneofBuilder {
+      self.fooMessage = value
+      return self
     }
     internal func mergeFooMessage(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestOneofBuilder {
       if builderResult.hasFooMessage {
@@ -18027,8 +18225,7 @@ internal extension ProtobufUnittest {
     var fooGroup:ProtobufUnittest.TestOneof.FooGroup! {
          get {
              if fooGroupBuilder_ != nil {
-                self.mergeFooGroup(fooGroupBuilder_.buildPartial())
-                fooGroupBuilder_ = nil
+                builderResult.fooGroup = fooGroupBuilder_.getMessage()
              }
              return builderResult.fooGroup
          }
@@ -18042,15 +18239,19 @@ internal extension ProtobufUnittest {
             builderResult.hasFooGroup = true
          }
     }
-    func setFooGroup(value:ProtobufUnittest.TestOneof.FooGroup!) -> ProtobufUnittest.TestOneofBuilder {
-      self.fooGroup = value
-      return self
-    }
     internal func getFooGroupBuilder() -> ProtobufUnittest.TestOneof.FooGroupBuilder {
       if fooGroupBuilder_ == nil {
          fooGroupBuilder_ = ProtobufUnittest.TestOneof.FooGroupBuilder()
+         builderResult.fooGroup = fooGroupBuilder_.getMessage()
+         if fooGroup != nil {
+            fooGroupBuilder_.mergeFrom(fooGroup)
+         }
       }
       return fooGroupBuilder_
+    }
+    func setFooGroup(value:ProtobufUnittest.TestOneof.FooGroup!) -> ProtobufUnittest.TestOneofBuilder {
+      self.fooGroup = value
+      return self
     }
     internal func mergeFooGroup(value:ProtobufUnittest.TestOneof.FooGroup) -> ProtobufUnittest.TestOneofBuilder {
       if builderResult.hasFooGroup {
@@ -18271,6 +18472,9 @@ internal extension ProtobufUnittest {
 
       final internal class FooGroupBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup = ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup()
+        internal func getMessage() -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -18539,6 +18743,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestOneofBackwardsCompatibleBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestOneofBackwardsCompatible = ProtobufUnittest.TestOneofBackwardsCompatible()
+    internal func getMessage() -> ProtobufUnittest.TestOneofBackwardsCompatible {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -18597,8 +18804,7 @@ internal extension ProtobufUnittest {
     var fooMessage:ProtobufUnittest.TestAllTypes! {
          get {
              if fooMessageBuilder_ != nil {
-                self.mergeFooMessage(fooMessageBuilder_.buildPartial())
-                fooMessageBuilder_ = nil
+                builderResult.fooMessage = fooMessageBuilder_.getMessage()
              }
              return builderResult.fooMessage
          }
@@ -18612,15 +18818,19 @@ internal extension ProtobufUnittest {
             builderResult.hasFooMessage = true
          }
     }
-    func setFooMessage(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestOneofBackwardsCompatibleBuilder {
-      self.fooMessage = value
-      return self
-    }
     internal func getFooMessageBuilder() -> ProtobufUnittest.TestAllTypesBuilder {
       if fooMessageBuilder_ == nil {
          fooMessageBuilder_ = ProtobufUnittest.TestAllTypesBuilder()
+         builderResult.fooMessage = fooMessageBuilder_.getMessage()
+         if fooMessage != nil {
+            fooMessageBuilder_.mergeFrom(fooMessage)
+         }
       }
       return fooMessageBuilder_
+    }
+    func setFooMessage(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestOneofBackwardsCompatibleBuilder {
+      self.fooMessage = value
+      return self
     }
     internal func mergeFooMessage(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestOneofBackwardsCompatibleBuilder {
       if builderResult.hasFooMessage {
@@ -18645,8 +18855,7 @@ internal extension ProtobufUnittest {
     var fooGroup:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup! {
          get {
              if fooGroupBuilder_ != nil {
-                self.mergeFooGroup(fooGroupBuilder_.buildPartial())
-                fooGroupBuilder_ = nil
+                builderResult.fooGroup = fooGroupBuilder_.getMessage()
              }
              return builderResult.fooGroup
          }
@@ -18660,15 +18869,19 @@ internal extension ProtobufUnittest {
             builderResult.hasFooGroup = true
          }
     }
-    func setFooGroup(value:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup!) -> ProtobufUnittest.TestOneofBackwardsCompatibleBuilder {
-      self.fooGroup = value
-      return self
-    }
     internal func getFooGroupBuilder() -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroupBuilder {
       if fooGroupBuilder_ == nil {
          fooGroupBuilder_ = ProtobufUnittest.TestOneofBackwardsCompatible.FooGroupBuilder()
+         builderResult.fooGroup = fooGroupBuilder_.getMessage()
+         if fooGroup != nil {
+            fooGroupBuilder_.mergeFrom(fooGroup)
+         }
       }
       return fooGroupBuilder_
+    }
+    func setFooGroup(value:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup!) -> ProtobufUnittest.TestOneofBackwardsCompatibleBuilder {
+      self.fooGroup = value
+      return self
     }
     internal func mergeFooGroup(value:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup) -> ProtobufUnittest.TestOneofBackwardsCompatibleBuilder {
       if builderResult.hasFooGroup {
@@ -18889,6 +19102,9 @@ internal extension ProtobufUnittest {
 
       final internal class FooGroupBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestOneof2.FooGroup = ProtobufUnittest.TestOneof2.FooGroup()
+        internal func getMessage() -> ProtobufUnittest.TestOneof2.FooGroup {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -19127,6 +19343,9 @@ internal extension ProtobufUnittest {
 
       final internal class NestedMessageBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestOneof2.NestedMessage = ProtobufUnittest.TestOneof2.NestedMessage()
+        internal func getMessage() -> ProtobufUnittest.TestOneof2.NestedMessage {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -20017,6 +20236,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestOneof2Builder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestOneof2 = ProtobufUnittest.TestOneof2()
+    internal func getMessage() -> ProtobufUnittest.TestOneof2 {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -20167,8 +20389,7 @@ internal extension ProtobufUnittest {
     var fooMessage:ProtobufUnittest.TestOneof2.NestedMessage! {
          get {
              if fooMessageBuilder_ != nil {
-                self.mergeFooMessage(fooMessageBuilder_.buildPartial())
-                fooMessageBuilder_ = nil
+                builderResult.fooMessage = fooMessageBuilder_.getMessage()
              }
              return builderResult.fooMessage
          }
@@ -20182,15 +20403,19 @@ internal extension ProtobufUnittest {
             builderResult.hasFooMessage = true
          }
     }
-    func setFooMessage(value:ProtobufUnittest.TestOneof2.NestedMessage!) -> ProtobufUnittest.TestOneof2Builder {
-      self.fooMessage = value
-      return self
-    }
     internal func getFooMessageBuilder() -> ProtobufUnittest.TestOneof2.NestedMessageBuilder {
       if fooMessageBuilder_ == nil {
          fooMessageBuilder_ = ProtobufUnittest.TestOneof2.NestedMessageBuilder()
+         builderResult.fooMessage = fooMessageBuilder_.getMessage()
+         if fooMessage != nil {
+            fooMessageBuilder_.mergeFrom(fooMessage)
+         }
       }
       return fooMessageBuilder_
+    }
+    func setFooMessage(value:ProtobufUnittest.TestOneof2.NestedMessage!) -> ProtobufUnittest.TestOneof2Builder {
+      self.fooMessage = value
+      return self
     }
     internal func mergeFooMessage(value:ProtobufUnittest.TestOneof2.NestedMessage) -> ProtobufUnittest.TestOneof2Builder {
       if builderResult.hasFooMessage {
@@ -20215,8 +20440,7 @@ internal extension ProtobufUnittest {
     var fooGroup:ProtobufUnittest.TestOneof2.FooGroup! {
          get {
              if fooGroupBuilder_ != nil {
-                self.mergeFooGroup(fooGroupBuilder_.buildPartial())
-                fooGroupBuilder_ = nil
+                builderResult.fooGroup = fooGroupBuilder_.getMessage()
              }
              return builderResult.fooGroup
          }
@@ -20230,15 +20454,19 @@ internal extension ProtobufUnittest {
             builderResult.hasFooGroup = true
          }
     }
-    func setFooGroup(value:ProtobufUnittest.TestOneof2.FooGroup!) -> ProtobufUnittest.TestOneof2Builder {
-      self.fooGroup = value
-      return self
-    }
     internal func getFooGroupBuilder() -> ProtobufUnittest.TestOneof2.FooGroupBuilder {
       if fooGroupBuilder_ == nil {
          fooGroupBuilder_ = ProtobufUnittest.TestOneof2.FooGroupBuilder()
+         builderResult.fooGroup = fooGroupBuilder_.getMessage()
+         if fooGroup != nil {
+            fooGroupBuilder_.mergeFrom(fooGroup)
+         }
       }
       return fooGroupBuilder_
+    }
+    func setFooGroup(value:ProtobufUnittest.TestOneof2.FooGroup!) -> ProtobufUnittest.TestOneof2Builder {
+      self.fooGroup = value
+      return self
     }
     internal func mergeFooGroup(value:ProtobufUnittest.TestOneof2.FooGroup) -> ProtobufUnittest.TestOneof2Builder {
       if builderResult.hasFooGroup {
@@ -20263,8 +20491,7 @@ internal extension ProtobufUnittest {
     var fooLazyMessage:ProtobufUnittest.TestOneof2.NestedMessage! {
          get {
              if fooLazyMessageBuilder_ != nil {
-                self.mergeFooLazyMessage(fooLazyMessageBuilder_.buildPartial())
-                fooLazyMessageBuilder_ = nil
+                builderResult.fooLazyMessage = fooLazyMessageBuilder_.getMessage()
              }
              return builderResult.fooLazyMessage
          }
@@ -20278,15 +20505,19 @@ internal extension ProtobufUnittest {
             builderResult.hasFooLazyMessage = true
          }
     }
-    func setFooLazyMessage(value:ProtobufUnittest.TestOneof2.NestedMessage!) -> ProtobufUnittest.TestOneof2Builder {
-      self.fooLazyMessage = value
-      return self
-    }
     internal func getFooLazyMessageBuilder() -> ProtobufUnittest.TestOneof2.NestedMessageBuilder {
       if fooLazyMessageBuilder_ == nil {
          fooLazyMessageBuilder_ = ProtobufUnittest.TestOneof2.NestedMessageBuilder()
+         builderResult.fooLazyMessage = fooLazyMessageBuilder_.getMessage()
+         if fooLazyMessage != nil {
+            fooLazyMessageBuilder_.mergeFrom(fooLazyMessage)
+         }
       }
       return fooLazyMessageBuilder_
+    }
+    func setFooLazyMessage(value:ProtobufUnittest.TestOneof2.NestedMessage!) -> ProtobufUnittest.TestOneof2Builder {
+      self.fooLazyMessage = value
+      return self
     }
     internal func mergeFooLazyMessage(value:ProtobufUnittest.TestOneof2.NestedMessage) -> ProtobufUnittest.TestOneof2Builder {
       if builderResult.hasFooLazyMessage {
@@ -20772,6 +21003,9 @@ internal extension ProtobufUnittest {
 
       final internal class NestedMessageBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestRequiredOneof.NestedMessage = ProtobufUnittest.TestRequiredOneof.NestedMessage()
+        internal func getMessage() -> ProtobufUnittest.TestRequiredOneof.NestedMessage {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -21091,6 +21325,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestRequiredOneofBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestRequiredOneof = ProtobufUnittest.TestRequiredOneof()
+    internal func getMessage() -> ProtobufUnittest.TestRequiredOneof {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -21149,8 +21386,7 @@ internal extension ProtobufUnittest {
     var fooMessage:ProtobufUnittest.TestRequiredOneof.NestedMessage! {
          get {
              if fooMessageBuilder_ != nil {
-                self.mergeFooMessage(fooMessageBuilder_.buildPartial())
-                fooMessageBuilder_ = nil
+                builderResult.fooMessage = fooMessageBuilder_.getMessage()
              }
              return builderResult.fooMessage
          }
@@ -21164,15 +21400,19 @@ internal extension ProtobufUnittest {
             builderResult.hasFooMessage = true
          }
     }
-    func setFooMessage(value:ProtobufUnittest.TestRequiredOneof.NestedMessage!) -> ProtobufUnittest.TestRequiredOneofBuilder {
-      self.fooMessage = value
-      return self
-    }
     internal func getFooMessageBuilder() -> ProtobufUnittest.TestRequiredOneof.NestedMessageBuilder {
       if fooMessageBuilder_ == nil {
          fooMessageBuilder_ = ProtobufUnittest.TestRequiredOneof.NestedMessageBuilder()
+         builderResult.fooMessage = fooMessageBuilder_.getMessage()
+         if fooMessage != nil {
+            fooMessageBuilder_.mergeFrom(fooMessage)
+         }
       }
       return fooMessageBuilder_
+    }
+    func setFooMessage(value:ProtobufUnittest.TestRequiredOneof.NestedMessage!) -> ProtobufUnittest.TestRequiredOneofBuilder {
+      self.fooMessage = value
+      return self
     }
     internal func mergeFooMessage(value:ProtobufUnittest.TestRequiredOneof.NestedMessage) -> ProtobufUnittest.TestRequiredOneofBuilder {
       if builderResult.hasFooMessage {
@@ -21711,6 +21951,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestPackedTypesBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestPackedTypes = ProtobufUnittest.TestPackedTypes()
+    internal func getMessage() -> ProtobufUnittest.TestPackedTypes {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -22498,6 +22741,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestUnpackedTypesBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestUnpackedTypes = ProtobufUnittest.TestUnpackedTypes()
+    internal func getMessage() -> ProtobufUnittest.TestUnpackedTypes {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -22957,6 +23203,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestPackedExtensionsBuilder : ExtendableMessageBuilder {
     private var builderResult:ProtobufUnittest.TestPackedExtensions = ProtobufUnittest.TestPackedExtensions()
+    internal func getMessage() -> ProtobufUnittest.TestPackedExtensions {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -23104,6 +23353,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestUnpackedExtensionsBuilder : ExtendableMessageBuilder {
     private var builderResult:ProtobufUnittest.TestUnpackedExtensions = ProtobufUnittest.TestUnpackedExtensions()
+    internal func getMessage() -> ProtobufUnittest.TestUnpackedExtensions {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -23264,6 +23516,9 @@ internal extension ProtobufUnittest {
 
       final internal class DynamicMessageTypeBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType = ProtobufUnittest.TestDynamicExtensions.DynamicMessageType()
+        internal func getMessage() -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -23576,6 +23831,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestDynamicExtensionsBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestDynamicExtensions = ProtobufUnittest.TestDynamicExtensions()
+    internal func getMessage() -> ProtobufUnittest.TestDynamicExtensions {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -23657,8 +23915,7 @@ internal extension ProtobufUnittest {
     var messageExtension:ProtobufUnittest.ForeignMessage! {
          get {
              if messageExtensionBuilder_ != nil {
-                self.mergeMessageExtension(messageExtensionBuilder_.buildPartial())
-                messageExtensionBuilder_ = nil
+                builderResult.messageExtension = messageExtensionBuilder_.getMessage()
              }
              return builderResult.messageExtension
          }
@@ -23672,15 +23929,19 @@ internal extension ProtobufUnittest {
             builderResult.hasMessageExtension = true
          }
     }
-    func setMessageExtension(value:ProtobufUnittest.ForeignMessage!) -> ProtobufUnittest.TestDynamicExtensionsBuilder {
-      self.messageExtension = value
-      return self
-    }
     internal func getMessageExtensionBuilder() -> ProtobufUnittest.ForeignMessageBuilder {
       if messageExtensionBuilder_ == nil {
          messageExtensionBuilder_ = ProtobufUnittest.ForeignMessageBuilder()
+         builderResult.messageExtension = messageExtensionBuilder_.getMessage()
+         if messageExtension != nil {
+            messageExtensionBuilder_.mergeFrom(messageExtension)
+         }
       }
       return messageExtensionBuilder_
+    }
+    func setMessageExtension(value:ProtobufUnittest.ForeignMessage!) -> ProtobufUnittest.TestDynamicExtensionsBuilder {
+      self.messageExtension = value
+      return self
     }
     internal func mergeMessageExtension(value:ProtobufUnittest.ForeignMessage) -> ProtobufUnittest.TestDynamicExtensionsBuilder {
       if builderResult.hasMessageExtension {
@@ -23705,8 +23966,7 @@ internal extension ProtobufUnittest {
     var dynamicMessageExtension:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType! {
          get {
              if dynamicMessageExtensionBuilder_ != nil {
-                self.mergeDynamicMessageExtension(dynamicMessageExtensionBuilder_.buildPartial())
-                dynamicMessageExtensionBuilder_ = nil
+                builderResult.dynamicMessageExtension = dynamicMessageExtensionBuilder_.getMessage()
              }
              return builderResult.dynamicMessageExtension
          }
@@ -23720,15 +23980,19 @@ internal extension ProtobufUnittest {
             builderResult.hasDynamicMessageExtension = true
          }
     }
-    func setDynamicMessageExtension(value:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType!) -> ProtobufUnittest.TestDynamicExtensionsBuilder {
-      self.dynamicMessageExtension = value
-      return self
-    }
     internal func getDynamicMessageExtensionBuilder() -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageTypeBuilder {
       if dynamicMessageExtensionBuilder_ == nil {
          dynamicMessageExtensionBuilder_ = ProtobufUnittest.TestDynamicExtensions.DynamicMessageTypeBuilder()
+         builderResult.dynamicMessageExtension = dynamicMessageExtensionBuilder_.getMessage()
+         if dynamicMessageExtension != nil {
+            dynamicMessageExtensionBuilder_.mergeFrom(dynamicMessageExtension)
+         }
       }
       return dynamicMessageExtensionBuilder_
+    }
+    func setDynamicMessageExtension(value:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType!) -> ProtobufUnittest.TestDynamicExtensionsBuilder {
+      self.dynamicMessageExtension = value
+      return self
     }
     internal func mergeDynamicMessageExtension(value:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType) -> ProtobufUnittest.TestDynamicExtensionsBuilder {
       if builderResult.hasDynamicMessageExtension {
@@ -24093,6 +24357,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestRepeatedScalarDifferentTagSizesBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestRepeatedScalarDifferentTagSizes = ProtobufUnittest.TestRepeatedScalarDifferentTagSizes()
+    internal func getMessage() -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -24394,6 +24661,9 @@ internal extension ProtobufUnittest {
 
           final internal class Group1Builder : GeneratedMessageBuilder {
             private var builderResult:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1()
+            internal func getMessage() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 {
+                return builderResult
+            }
 
             required override internal init () {
                super.init()
@@ -24406,8 +24676,7 @@ internal extension ProtobufUnittest {
             var field1:ProtobufUnittest.TestAllTypes! {
                  get {
                      if field1Builder_ != nil {
-                        self.mergeField1(field1Builder_.buildPartial())
-                        field1Builder_ = nil
+                        builderResult.field1 = field1Builder_.getMessage()
                      }
                      return builderResult.field1
                  }
@@ -24421,15 +24690,19 @@ internal extension ProtobufUnittest {
                     builderResult.hasField1 = true
                  }
             }
-            func setField1(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1Builder {
-              self.field1 = value
-              return self
-            }
             internal func getField1Builder() -> ProtobufUnittest.TestAllTypesBuilder {
               if field1Builder_ == nil {
                  field1Builder_ = ProtobufUnittest.TestAllTypesBuilder()
+                 builderResult.field1 = field1Builder_.getMessage()
+                 if field1 != nil {
+                    field1Builder_.mergeFrom(field1)
+                 }
               }
               return field1Builder_
+            }
+            func setField1(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1Builder {
+              self.field1 = value
+              return self
             }
             internal func mergeField1(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1Builder {
               if builderResult.hasField1 {
@@ -24618,6 +24891,9 @@ internal extension ProtobufUnittest {
 
           final internal class Group2Builder : GeneratedMessageBuilder {
             private var builderResult:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2()
+            internal func getMessage() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 {
+                return builderResult
+            }
 
             required override internal init () {
                super.init()
@@ -24630,8 +24906,7 @@ internal extension ProtobufUnittest {
             var field1:ProtobufUnittest.TestAllTypes! {
                  get {
                      if field1Builder_ != nil {
-                        self.mergeField1(field1Builder_.buildPartial())
-                        field1Builder_ = nil
+                        builderResult.field1 = field1Builder_.getMessage()
                      }
                      return builderResult.field1
                  }
@@ -24645,15 +24920,19 @@ internal extension ProtobufUnittest {
                     builderResult.hasField1 = true
                  }
             }
-            func setField1(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2Builder {
-              self.field1 = value
-              return self
-            }
             internal func getField1Builder() -> ProtobufUnittest.TestAllTypesBuilder {
               if field1Builder_ == nil {
                  field1Builder_ = ProtobufUnittest.TestAllTypesBuilder()
+                 builderResult.field1 = field1Builder_.getMessage()
+                 if field1 != nil {
+                    field1Builder_.mergeFrom(field1)
+                 }
               }
               return field1Builder_
+            }
+            func setField1(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2Builder {
+              self.field1 = value
+              return self
             }
             internal func mergeField1(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2Builder {
               if builderResult.hasField1 {
@@ -24936,6 +25215,9 @@ internal extension ProtobufUnittest {
 
       final internal class RepeatedFieldsGeneratorBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator()
+        internal func getMessage() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -25269,6 +25551,9 @@ internal extension ProtobufUnittest {
 
       final internal class OptionalGroupBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestParsingMerge.OptionalGroup = ProtobufUnittest.TestParsingMerge.OptionalGroup()
+        internal func getMessage() -> ProtobufUnittest.TestParsingMerge.OptionalGroup {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -25281,8 +25566,7 @@ internal extension ProtobufUnittest {
         var optionalGroupAllTypes:ProtobufUnittest.TestAllTypes! {
              get {
                  if optionalGroupAllTypesBuilder_ != nil {
-                    self.mergeOptionalGroupAllTypes(optionalGroupAllTypesBuilder_.buildPartial())
-                    optionalGroupAllTypesBuilder_ = nil
+                    builderResult.optionalGroupAllTypes = optionalGroupAllTypesBuilder_.getMessage()
                  }
                  return builderResult.optionalGroupAllTypes
              }
@@ -25296,15 +25580,19 @@ internal extension ProtobufUnittest {
                 builderResult.hasOptionalGroupAllTypes = true
              }
         }
-        func setOptionalGroupAllTypes(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestParsingMerge.OptionalGroupBuilder {
-          self.optionalGroupAllTypes = value
-          return self
-        }
         internal func getOptionalGroupAllTypesBuilder() -> ProtobufUnittest.TestAllTypesBuilder {
           if optionalGroupAllTypesBuilder_ == nil {
              optionalGroupAllTypesBuilder_ = ProtobufUnittest.TestAllTypesBuilder()
+             builderResult.optionalGroupAllTypes = optionalGroupAllTypesBuilder_.getMessage()
+             if optionalGroupAllTypes != nil {
+                optionalGroupAllTypesBuilder_.mergeFrom(optionalGroupAllTypes)
+             }
           }
           return optionalGroupAllTypesBuilder_
+        }
+        func setOptionalGroupAllTypes(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestParsingMerge.OptionalGroupBuilder {
+          self.optionalGroupAllTypes = value
+          return self
         }
         internal func mergeOptionalGroupAllTypes(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestParsingMerge.OptionalGroupBuilder {
           if builderResult.hasOptionalGroupAllTypes {
@@ -25493,6 +25781,9 @@ internal extension ProtobufUnittest {
 
       final internal class RepeatedGroupBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.TestParsingMerge.RepeatedGroup = ProtobufUnittest.TestParsingMerge.RepeatedGroup()
+        internal func getMessage() -> ProtobufUnittest.TestParsingMerge.RepeatedGroup {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -25505,8 +25796,7 @@ internal extension ProtobufUnittest {
         var repeatedGroupAllTypes:ProtobufUnittest.TestAllTypes! {
              get {
                  if repeatedGroupAllTypesBuilder_ != nil {
-                    self.mergeRepeatedGroupAllTypes(repeatedGroupAllTypesBuilder_.buildPartial())
-                    repeatedGroupAllTypesBuilder_ = nil
+                    builderResult.repeatedGroupAllTypes = repeatedGroupAllTypesBuilder_.getMessage()
                  }
                  return builderResult.repeatedGroupAllTypes
              }
@@ -25520,15 +25810,19 @@ internal extension ProtobufUnittest {
                 builderResult.hasRepeatedGroupAllTypes = true
              }
         }
-        func setRepeatedGroupAllTypes(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestParsingMerge.RepeatedGroupBuilder {
-          self.repeatedGroupAllTypes = value
-          return self
-        }
         internal func getRepeatedGroupAllTypesBuilder() -> ProtobufUnittest.TestAllTypesBuilder {
           if repeatedGroupAllTypesBuilder_ == nil {
              repeatedGroupAllTypesBuilder_ = ProtobufUnittest.TestAllTypesBuilder()
+             builderResult.repeatedGroupAllTypes = repeatedGroupAllTypesBuilder_.getMessage()
+             if repeatedGroupAllTypes != nil {
+                repeatedGroupAllTypesBuilder_.mergeFrom(repeatedGroupAllTypes)
+             }
           }
           return repeatedGroupAllTypesBuilder_
+        }
+        func setRepeatedGroupAllTypes(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestParsingMerge.RepeatedGroupBuilder {
+          self.repeatedGroupAllTypes = value
+          return self
         }
         internal func mergeRepeatedGroupAllTypes(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestParsingMerge.RepeatedGroupBuilder {
           if builderResult.hasRepeatedGroupAllTypes {
@@ -25802,6 +26096,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestParsingMergeBuilder : ExtendableMessageBuilder {
     private var builderResult:ProtobufUnittest.TestParsingMerge = ProtobufUnittest.TestParsingMerge()
+    internal func getMessage() -> ProtobufUnittest.TestParsingMerge {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -25814,8 +26111,7 @@ internal extension ProtobufUnittest {
     var requiredAllTypes:ProtobufUnittest.TestAllTypes! {
          get {
              if requiredAllTypesBuilder_ != nil {
-                self.mergeRequiredAllTypes(requiredAllTypesBuilder_.buildPartial())
-                requiredAllTypesBuilder_ = nil
+                builderResult.requiredAllTypes = requiredAllTypesBuilder_.getMessage()
              }
              return builderResult.requiredAllTypes
          }
@@ -25829,15 +26125,19 @@ internal extension ProtobufUnittest {
             builderResult.hasRequiredAllTypes = true
          }
     }
-    func setRequiredAllTypes(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestParsingMergeBuilder {
-      self.requiredAllTypes = value
-      return self
-    }
     internal func getRequiredAllTypesBuilder() -> ProtobufUnittest.TestAllTypesBuilder {
       if requiredAllTypesBuilder_ == nil {
          requiredAllTypesBuilder_ = ProtobufUnittest.TestAllTypesBuilder()
+         builderResult.requiredAllTypes = requiredAllTypesBuilder_.getMessage()
+         if requiredAllTypes != nil {
+            requiredAllTypesBuilder_.mergeFrom(requiredAllTypes)
+         }
       }
       return requiredAllTypesBuilder_
+    }
+    func setRequiredAllTypes(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestParsingMergeBuilder {
+      self.requiredAllTypes = value
+      return self
     }
     internal func mergeRequiredAllTypes(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestParsingMergeBuilder {
       if builderResult.hasRequiredAllTypes {
@@ -25862,8 +26162,7 @@ internal extension ProtobufUnittest {
     var optionalAllTypes:ProtobufUnittest.TestAllTypes! {
          get {
              if optionalAllTypesBuilder_ != nil {
-                self.mergeOptionalAllTypes(optionalAllTypesBuilder_.buildPartial())
-                optionalAllTypesBuilder_ = nil
+                builderResult.optionalAllTypes = optionalAllTypesBuilder_.getMessage()
              }
              return builderResult.optionalAllTypes
          }
@@ -25877,15 +26176,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalAllTypes = true
          }
     }
-    func setOptionalAllTypes(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestParsingMergeBuilder {
-      self.optionalAllTypes = value
-      return self
-    }
     internal func getOptionalAllTypesBuilder() -> ProtobufUnittest.TestAllTypesBuilder {
       if optionalAllTypesBuilder_ == nil {
          optionalAllTypesBuilder_ = ProtobufUnittest.TestAllTypesBuilder()
+         builderResult.optionalAllTypes = optionalAllTypesBuilder_.getMessage()
+         if optionalAllTypes != nil {
+            optionalAllTypesBuilder_.mergeFrom(optionalAllTypes)
+         }
       }
       return optionalAllTypesBuilder_
+    }
+    func setOptionalAllTypes(value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestParsingMergeBuilder {
+      self.optionalAllTypes = value
+      return self
     }
     internal func mergeOptionalAllTypes(value:ProtobufUnittest.TestAllTypes) -> ProtobufUnittest.TestParsingMergeBuilder {
       if builderResult.hasOptionalAllTypes {
@@ -25926,8 +26229,7 @@ internal extension ProtobufUnittest {
     var optionalGroup:ProtobufUnittest.TestParsingMerge.OptionalGroup! {
          get {
              if optionalGroupBuilder_ != nil {
-                self.mergeOptionalGroup(optionalGroupBuilder_.buildPartial())
-                optionalGroupBuilder_ = nil
+                builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
              }
              return builderResult.optionalGroup
          }
@@ -25941,15 +26243,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalGroup = true
          }
     }
-    func setOptionalGroup(value:ProtobufUnittest.TestParsingMerge.OptionalGroup!) -> ProtobufUnittest.TestParsingMergeBuilder {
-      self.optionalGroup = value
-      return self
-    }
     internal func getOptionalGroupBuilder() -> ProtobufUnittest.TestParsingMerge.OptionalGroupBuilder {
       if optionalGroupBuilder_ == nil {
          optionalGroupBuilder_ = ProtobufUnittest.TestParsingMerge.OptionalGroupBuilder()
+         builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
+         if optionalGroup != nil {
+            optionalGroupBuilder_.mergeFrom(optionalGroup)
+         }
       }
       return optionalGroupBuilder_
+    }
+    func setOptionalGroup(value:ProtobufUnittest.TestParsingMerge.OptionalGroup!) -> ProtobufUnittest.TestParsingMergeBuilder {
+      self.optionalGroup = value
+      return self
     }
     internal func mergeOptionalGroup(value:ProtobufUnittest.TestParsingMerge.OptionalGroup) -> ProtobufUnittest.TestParsingMergeBuilder {
       if builderResult.hasOptionalGroup {
@@ -26182,6 +26488,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestCommentInjectionMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestCommentInjectionMessage = ProtobufUnittest.TestCommentInjectionMessage()
+    internal func getMessage() -> ProtobufUnittest.TestCommentInjectionMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -26350,6 +26659,9 @@ internal extension ProtobufUnittest {
 
   final internal class FooRequestBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.FooRequest = ProtobufUnittest.FooRequest()
+    internal func getMessage() -> ProtobufUnittest.FooRequest {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -26489,6 +26801,9 @@ internal extension ProtobufUnittest {
 
   final internal class FooResponseBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.FooResponse = ProtobufUnittest.FooResponse()
+    internal func getMessage() -> ProtobufUnittest.FooResponse {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -26628,6 +26943,9 @@ internal extension ProtobufUnittest {
 
   final internal class FooClientMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.FooClientMessage = ProtobufUnittest.FooClientMessage()
+    internal func getMessage() -> ProtobufUnittest.FooClientMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -26767,6 +27085,9 @@ internal extension ProtobufUnittest {
 
   final internal class FooServerMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.FooServerMessage = ProtobufUnittest.FooServerMessage()
+    internal func getMessage() -> ProtobufUnittest.FooServerMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -26906,6 +27227,9 @@ internal extension ProtobufUnittest {
 
   final internal class BarRequestBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.BarRequest = ProtobufUnittest.BarRequest()
+    internal func getMessage() -> ProtobufUnittest.BarRequest {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -27045,6 +27369,9 @@ internal extension ProtobufUnittest {
 
   final internal class BarResponseBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.BarResponse = ProtobufUnittest.BarResponse()
+    internal func getMessage() -> ProtobufUnittest.BarResponse {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

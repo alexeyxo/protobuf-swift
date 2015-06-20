@@ -209,6 +209,9 @@ internal extension SwiftProtobufUnittest {
 
   final internal class MapMessageValueBuilder : GeneratedMessageBuilder {
     private var builderResult:SwiftProtobufUnittest.MapMessageValue = SwiftProtobufUnittest.MapMessageValue()
+    internal func getMessage() -> SwiftProtobufUnittest.MapMessageValue {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -412,6 +415,9 @@ internal extension SwiftProtobufUnittest {
 
       final internal class MapInt32Int32EntryBuilder : GeneratedMessageBuilder {
         private var builderResult:SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry()
+        internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -645,6 +651,9 @@ internal extension SwiftProtobufUnittest {
 
       final internal class MapInt64Int64EntryBuilder : GeneratedMessageBuilder {
         private var builderResult:SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry()
+        internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -878,6 +887,9 @@ internal extension SwiftProtobufUnittest {
 
       final internal class MapStringStringEntryBuilder : GeneratedMessageBuilder {
         private var builderResult:SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry()
+        internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -1111,6 +1123,9 @@ internal extension SwiftProtobufUnittest {
 
       final internal class MapStringBytesEntryBuilder : GeneratedMessageBuilder {
         private var builderResult:SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry()
+        internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -1349,6 +1364,9 @@ internal extension SwiftProtobufUnittest {
 
       final internal class MapStringMessageEntryBuilder : GeneratedMessageBuilder {
         private var builderResult:SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry()
+        internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -1384,8 +1402,7 @@ internal extension SwiftProtobufUnittest {
         var value:SwiftProtobufUnittest.MapMessageValue! {
              get {
                  if valueBuilder_ != nil {
-                    self.mergeValue(valueBuilder_.buildPartial())
-                    valueBuilder_ = nil
+                    builderResult.value = valueBuilder_.getMessage()
                  }
                  return builderResult.value
              }
@@ -1399,15 +1416,19 @@ internal extension SwiftProtobufUnittest {
                 builderResult.hasValue = true
              }
         }
-        func setValue(value:SwiftProtobufUnittest.MapMessageValue!) -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntryBuilder {
-          self.value = value
-          return self
-        }
         internal func getValueBuilder() -> SwiftProtobufUnittest.MapMessageValueBuilder {
           if valueBuilder_ == nil {
              valueBuilder_ = SwiftProtobufUnittest.MapMessageValueBuilder()
+             builderResult.value = valueBuilder_.getMessage()
+             if value != nil {
+                valueBuilder_.mergeFrom(value)
+             }
           }
           return valueBuilder_
+        }
+        func setValue(value:SwiftProtobufUnittest.MapMessageValue!) -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntryBuilder {
+          self.value = value
+          return self
         }
         internal func mergeValue(value:SwiftProtobufUnittest.MapMessageValue) -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntryBuilder {
           if builderResult.hasValue {
@@ -1611,6 +1632,9 @@ internal extension SwiftProtobufUnittest {
 
       final internal class MapInt32EnumEntryBuilder : GeneratedMessageBuilder {
         private var builderResult:SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry()
+        internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -1970,6 +1994,9 @@ internal extension SwiftProtobufUnittest {
 
   final internal class MessageContainsMapBuilder : GeneratedMessageBuilder {
     private var builderResult:SwiftProtobufUnittest.MessageContainsMap = SwiftProtobufUnittest.MessageContainsMap()
+    internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

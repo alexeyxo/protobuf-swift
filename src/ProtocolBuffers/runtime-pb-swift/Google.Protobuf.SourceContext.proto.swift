@@ -135,6 +135,9 @@ internal extension Google.Protobuf {
 
   final internal class SourceContextBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.SourceContext = Google.Protobuf.SourceContext()
+    internal func getMessage() -> Google.Protobuf.SourceContext {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

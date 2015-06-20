@@ -75,7 +75,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
         if (isOneOfField(descriptor_)) {
             
-            printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool {\n"
+            printer->Print(variables_,
+                           "$acontrol$private(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
                            "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
                            "               return false\n"
@@ -86,7 +87,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "      }\n"
                            "}\n");
             
-            printer->Print(variables_,"$acontrol$private(set) var $name$:$type$!{\n"
+            printer->Print(variables_,
+                           "$acontrol$private(set) var $name$:$type$!{\n"
                            "     get {\n"
                            "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "     }\n"
@@ -115,8 +117,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrol$var $name$:$type$! {\n"
                        "     get {\n"
                        "         if $name$Builder_ != nil {\n"
-                       "            self.merge$capitalized_name$($name$Builder_.buildPartial())\n"
-                       "            $name$Builder_ = nil\n"
+                       "            builderResult.$name$ = $name$Builder_.getMessage()\n"
+//                       "            return $name$Builder_.getMessage()\n"
                        "         }\n"
                        "         return builderResult.$name$\n"
                        "     }\n"
@@ -130,15 +132,19 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "        builderResult.has$capitalized_name$ = true\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:$type$!) -> $containing_class$Builder {\n"
-                       "  self.$name$ = value\n"
-                       "  return self\n"
-                       "}\n"
                        "$acontrolFunc$ func get$capitalized_name$Builder() -> $type$Builder {\n"
                        "  if $name$Builder_ == nil {\n"
                        "     $name$Builder_ = $type$Builder()\n"
+                       "     builderResult.$name$ = $name$Builder_.getMessage()\n"
+                       "     if $name$ != nil {\n"
+                       "        $name$Builder_.mergeFrom($name$)\n"
+                       "     }\n"
                        "  }\n"
                        "  return $name$Builder_\n"
+                       "}\n"
+                       "$acontrol$func set$capitalized_name$(value:$type$!) -> $containing_class$Builder {\n"
+                       "  self.$name$ = value\n"
+                       "  return self\n"
                        "}\n"
                        "$acontrolFunc$ func merge$capitalized_name$(value:$type$) -> $containing_class$Builder {\n"
                        "  if builderResult.has$capitalized_name$ {\n"

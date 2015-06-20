@@ -306,6 +306,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestOptimizedForSizeBuilder : ExtendableMessageBuilder {
     private var builderResult:ProtobufUnittest.TestOptimizedForSize = ProtobufUnittest.TestOptimizedForSize()
+    internal func getMessage() -> ProtobufUnittest.TestOptimizedForSize {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -341,8 +344,7 @@ internal extension ProtobufUnittest {
     var msg:ProtobufUnittest.ForeignMessage! {
          get {
              if msgBuilder_ != nil {
-                self.mergeMsg(msgBuilder_.buildPartial())
-                msgBuilder_ = nil
+                builderResult.msg = msgBuilder_.getMessage()
              }
              return builderResult.msg
          }
@@ -356,15 +358,19 @@ internal extension ProtobufUnittest {
             builderResult.hasMsg = true
          }
     }
-    func setMsg(value:ProtobufUnittest.ForeignMessage!) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      self.msg = value
-      return self
-    }
     internal func getMsgBuilder() -> ProtobufUnittest.ForeignMessageBuilder {
       if msgBuilder_ == nil {
          msgBuilder_ = ProtobufUnittest.ForeignMessageBuilder()
+         builderResult.msg = msgBuilder_.getMessage()
+         if msg != nil {
+            msgBuilder_.mergeFrom(msg)
+         }
       }
       return msgBuilder_
+    }
+    func setMsg(value:ProtobufUnittest.ForeignMessage!) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
+      self.msg = value
+      return self
     }
     internal func mergeMsg(value:ProtobufUnittest.ForeignMessage) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
       if builderResult.hasMsg {
@@ -610,6 +616,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestRequiredOptimizedForSizeBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestRequiredOptimizedForSize = ProtobufUnittest.TestRequiredOptimizedForSize()
+    internal func getMessage() -> ProtobufUnittest.TestRequiredOptimizedForSize {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -803,6 +812,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestOptionalOptimizedForSizeBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestOptionalOptimizedForSize = ProtobufUnittest.TestOptionalOptimizedForSize()
+    internal func getMessage() -> ProtobufUnittest.TestOptionalOptimizedForSize {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -815,8 +827,7 @@ internal extension ProtobufUnittest {
     var o:ProtobufUnittest.TestRequiredOptimizedForSize! {
          get {
              if oBuilder_ != nil {
-                self.mergeO(oBuilder_.buildPartial())
-                oBuilder_ = nil
+                builderResult.o = oBuilder_.getMessage()
              }
              return builderResult.o
          }
@@ -830,15 +841,19 @@ internal extension ProtobufUnittest {
             builderResult.hasO = true
          }
     }
-    func setO(value:ProtobufUnittest.TestRequiredOptimizedForSize!) -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-      self.o = value
-      return self
-    }
     internal func getOBuilder() -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
       if oBuilder_ == nil {
          oBuilder_ = ProtobufUnittest.TestRequiredOptimizedForSizeBuilder()
+         builderResult.o = oBuilder_.getMessage()
+         if o != nil {
+            oBuilder_.mergeFrom(o)
+         }
       }
       return oBuilder_
+    }
+    func setO(value:ProtobufUnittest.TestRequiredOptimizedForSize!) -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
+      self.o = value
+      return self
     }
     internal func mergeO(value:ProtobufUnittest.TestRequiredOptimizedForSize) -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
       if builderResult.hasO {

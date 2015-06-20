@@ -204,6 +204,9 @@ internal extension Google.Protobuf {
 
       final internal class FieldsEntryBuilder : GeneratedMessageBuilder {
         private var builderResult:Google.Protobuf.Struct.FieldsEntry = Google.Protobuf.Struct.FieldsEntry()
+        internal func getMessage() -> Google.Protobuf.Struct.FieldsEntry {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -239,8 +242,7 @@ internal extension Google.Protobuf {
         var value:Google.Protobuf.Value! {
              get {
                  if valueBuilder_ != nil {
-                    self.mergeValue(valueBuilder_.buildPartial())
-                    valueBuilder_ = nil
+                    builderResult.value = valueBuilder_.getMessage()
                  }
                  return builderResult.value
              }
@@ -254,15 +256,19 @@ internal extension Google.Protobuf {
                 builderResult.hasValue = true
              }
         }
-        func setValue(value:Google.Protobuf.Value!) -> Google.Protobuf.Struct.FieldsEntryBuilder {
-          self.value = value
-          return self
-        }
         internal func getValueBuilder() -> Google.Protobuf.ValueBuilder {
           if valueBuilder_ == nil {
              valueBuilder_ = Google.Protobuf.ValueBuilder()
+             builderResult.value = valueBuilder_.getMessage()
+             if value != nil {
+                valueBuilder_.mergeFrom(value)
+             }
           }
           return valueBuilder_
+        }
+        func setValue(value:Google.Protobuf.Value!) -> Google.Protobuf.Struct.FieldsEntryBuilder {
+          self.value = value
+          return self
         }
         internal func mergeValue(value:Google.Protobuf.Value) -> Google.Protobuf.Struct.FieldsEntryBuilder {
           if builderResult.hasValue {
@@ -456,6 +462,9 @@ internal extension Google.Protobuf {
 
   final internal class StructBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Struct = Google.Protobuf.Struct()
+    internal func getMessage() -> Google.Protobuf.Struct {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -898,6 +907,9 @@ internal extension Google.Protobuf {
 
   final internal class ValueBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Value = Google.Protobuf.Value()
+    internal func getMessage() -> Google.Protobuf.Value {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1002,8 +1014,7 @@ internal extension Google.Protobuf {
     var structValue:Google.Protobuf.Struct! {
          get {
              if structValueBuilder_ != nil {
-                self.mergeStructValue(structValueBuilder_.buildPartial())
-                structValueBuilder_ = nil
+                builderResult.structValue = structValueBuilder_.getMessage()
              }
              return builderResult.structValue
          }
@@ -1017,15 +1028,19 @@ internal extension Google.Protobuf {
             builderResult.hasStructValue = true
          }
     }
-    func setStructValue(value:Google.Protobuf.Struct!) -> Google.Protobuf.ValueBuilder {
-      self.structValue = value
-      return self
-    }
     internal func getStructValueBuilder() -> Google.Protobuf.StructBuilder {
       if structValueBuilder_ == nil {
          structValueBuilder_ = Google.Protobuf.StructBuilder()
+         builderResult.structValue = structValueBuilder_.getMessage()
+         if structValue != nil {
+            structValueBuilder_.mergeFrom(structValue)
+         }
       }
       return structValueBuilder_
+    }
+    func setStructValue(value:Google.Protobuf.Struct!) -> Google.Protobuf.ValueBuilder {
+      self.structValue = value
+      return self
     }
     internal func mergeStructValue(value:Google.Protobuf.Struct) -> Google.Protobuf.ValueBuilder {
       if builderResult.hasStructValue {
@@ -1050,8 +1065,7 @@ internal extension Google.Protobuf {
     var listValue:Google.Protobuf.ListValue! {
          get {
              if listValueBuilder_ != nil {
-                self.mergeListValue(listValueBuilder_.buildPartial())
-                listValueBuilder_ = nil
+                builderResult.listValue = listValueBuilder_.getMessage()
              }
              return builderResult.listValue
          }
@@ -1065,15 +1079,19 @@ internal extension Google.Protobuf {
             builderResult.hasListValue = true
          }
     }
-    func setListValue(value:Google.Protobuf.ListValue!) -> Google.Protobuf.ValueBuilder {
-      self.listValue = value
-      return self
-    }
     internal func getListValueBuilder() -> Google.Protobuf.ListValueBuilder {
       if listValueBuilder_ == nil {
          listValueBuilder_ = Google.Protobuf.ListValueBuilder()
+         builderResult.listValue = listValueBuilder_.getMessage()
+         if listValue != nil {
+            listValueBuilder_.mergeFrom(listValue)
+         }
       }
       return listValueBuilder_
+    }
+    func setListValue(value:Google.Protobuf.ListValue!) -> Google.Protobuf.ValueBuilder {
+      self.listValue = value
+      return self
     }
     internal func mergeListValue(value:Google.Protobuf.ListValue) -> Google.Protobuf.ValueBuilder {
       if builderResult.hasListValue {
@@ -1293,6 +1311,9 @@ internal extension Google.Protobuf {
 
   final internal class ListValueBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.ListValue = Google.Protobuf.ListValue()
+    internal func getMessage() -> Google.Protobuf.ListValue {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

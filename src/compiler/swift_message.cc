@@ -635,7 +635,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Indent();
         
         printer->Print(variables_,
-                       "private var builderResult:$classNameReturnedType$ = $classNameReturnedType$()\n\n"
+                       "private var builderResult:$classNameReturnedType$ = $classNameReturnedType$()\n"
+                       "$acontrol$ func getMessage() -> $classNameReturnedType$ {\n"
+                       "    return builderResult\n"
+                       "}\n\n"
                        "required override $acontrol$ init () {\n"
                        "   super.init()\n"
                        "}\n");

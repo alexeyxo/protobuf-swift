@@ -135,6 +135,9 @@ internal extension Bar {
 
   final internal class FooBuilder : GeneratedMessageBuilder {
     private var builderResult:Bar.Foo = Bar.Foo()
+    internal func getMessage() -> Bar.Foo {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

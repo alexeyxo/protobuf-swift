@@ -207,6 +207,9 @@ internal extension Google.Protobuf {
 
   final internal class DoubleValueBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.DoubleValue = Google.Protobuf.DoubleValue()
+    internal func getMessage() -> Google.Protobuf.DoubleValue {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -390,6 +393,9 @@ internal extension Google.Protobuf {
 
   final internal class FloatValueBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.FloatValue = Google.Protobuf.FloatValue()
+    internal func getMessage() -> Google.Protobuf.FloatValue {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -573,6 +579,9 @@ internal extension Google.Protobuf {
 
   final internal class Int64ValueBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Int64Value = Google.Protobuf.Int64Value()
+    internal func getMessage() -> Google.Protobuf.Int64Value {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -756,6 +765,9 @@ internal extension Google.Protobuf {
 
   final internal class Uint64ValueBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Uint64Value = Google.Protobuf.Uint64Value()
+    internal func getMessage() -> Google.Protobuf.Uint64Value {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -939,6 +951,9 @@ internal extension Google.Protobuf {
 
   final internal class Int32ValueBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Int32Value = Google.Protobuf.Int32Value()
+    internal func getMessage() -> Google.Protobuf.Int32Value {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1122,6 +1137,9 @@ internal extension Google.Protobuf {
 
   final internal class Uint32ValueBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Uint32Value = Google.Protobuf.Uint32Value()
+    internal func getMessage() -> Google.Protobuf.Uint32Value {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1305,6 +1323,9 @@ internal extension Google.Protobuf {
 
   final internal class BoolValueBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.BoolValue = Google.Protobuf.BoolValue()
+    internal func getMessage() -> Google.Protobuf.BoolValue {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1488,6 +1509,9 @@ internal extension Google.Protobuf {
 
   final internal class StringValueBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.StringValue = Google.Protobuf.StringValue()
+    internal func getMessage() -> Google.Protobuf.StringValue {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1671,6 +1695,9 @@ internal extension Google.Protobuf {
 
   final internal class BytesValueBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.BytesValue = Google.Protobuf.BytesValue()
+    internal func getMessage() -> Google.Protobuf.BytesValue {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

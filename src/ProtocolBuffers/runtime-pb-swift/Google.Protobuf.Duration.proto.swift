@@ -151,6 +151,9 @@ internal extension Google.Protobuf {
 
   final internal class DurationBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Duration = Google.Protobuf.Duration()
+    internal func getMessage() -> Google.Protobuf.Duration {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

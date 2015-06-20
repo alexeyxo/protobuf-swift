@@ -174,6 +174,9 @@ internal extension UnittestDropUnknownFields {
 
   final internal class FooBuilder : GeneratedMessageBuilder {
     private var builderResult:UnittestDropUnknownFields.Foo = UnittestDropUnknownFields.Foo()
+    internal func getMessage() -> UnittestDropUnknownFields.Foo {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -434,6 +437,9 @@ internal extension UnittestDropUnknownFields {
 
   final internal class FooWithExtraFieldsBuilder : GeneratedMessageBuilder {
     private var builderResult:UnittestDropUnknownFields.FooWithExtraFields = UnittestDropUnknownFields.FooWithExtraFields()
+    internal func getMessage() -> UnittestDropUnknownFields.FooWithExtraFields {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

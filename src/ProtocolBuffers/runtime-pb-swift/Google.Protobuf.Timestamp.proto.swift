@@ -151,6 +151,9 @@ internal extension Google.Protobuf {
 
   final internal class TimestampBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Timestamp = Google.Protobuf.Timestamp()
+    internal func getMessage() -> Google.Protobuf.Timestamp {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

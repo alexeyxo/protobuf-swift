@@ -119,6 +119,9 @@ internal extension Google.Protobuf {
 
   final internal class EmptyBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Empty = Google.Protobuf.Empty()
+    internal func getMessage() -> Google.Protobuf.Empty {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

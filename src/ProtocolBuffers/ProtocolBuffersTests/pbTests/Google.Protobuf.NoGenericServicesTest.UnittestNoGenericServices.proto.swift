@@ -165,6 +165,9 @@ internal extension Google.Protobuf.NoGenericServicesTest {
 
   final internal class TestMessageBuilder : ExtendableMessageBuilder {
     private var builderResult:Google.Protobuf.NoGenericServicesTest.TestMessage = Google.Protobuf.NoGenericServicesTest.TestMessage()
+    internal func getMessage() -> Google.Protobuf.NoGenericServicesTest.TestMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

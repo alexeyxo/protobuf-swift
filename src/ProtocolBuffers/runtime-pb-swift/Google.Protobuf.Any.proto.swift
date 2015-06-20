@@ -151,6 +151,9 @@ internal extension Google.Protobuf {
 
   final internal class AnyBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Any = Google.Protobuf.Any()
+    internal func getMessage() -> Google.Protobuf.Any {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

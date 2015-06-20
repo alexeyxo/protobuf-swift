@@ -146,6 +146,9 @@ internal extension Proto2ArenaUnittest {
 
   final internal class NestedMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:Proto2ArenaUnittest.NestedMessage = Proto2ArenaUnittest.NestedMessage()
+    internal func getMessage() -> Proto2ArenaUnittest.NestedMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -348,6 +351,9 @@ internal extension Proto2ArenaUnittest {
 
   final internal class ArenaMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:Proto2ArenaUnittest.ArenaMessage = Proto2ArenaUnittest.ArenaMessage()
+    internal func getMessage() -> Proto2ArenaUnittest.ArenaMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

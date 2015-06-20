@@ -323,6 +323,9 @@ internal extension Proto2PreserveUnknownEnumUnittest {
 
   final internal class MyMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:Proto2PreserveUnknownEnumUnittest.MyMessage = Proto2PreserveUnknownEnumUnittest.MyMessage()
+    internal func getMessage() -> Proto2PreserveUnknownEnumUnittest.MyMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -782,6 +785,9 @@ internal extension Proto2PreserveUnknownEnumUnittest {
 
   final internal class MyMessagePlusExtraBuilder : GeneratedMessageBuilder {
     private var builderResult:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra = Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra()
+    internal func getMessage() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

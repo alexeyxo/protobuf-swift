@@ -264,6 +264,9 @@ internal extension Google.Protobuf {
 
   final internal class TypesBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Types = Google.Protobuf.Types()
+    internal func getMessage() -> Google.Protobuf.Types {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -347,8 +350,7 @@ internal extension Google.Protobuf {
     var sourceContext:Google.Protobuf.SourceContext! {
          get {
              if sourceContextBuilder_ != nil {
-                self.mergeSourceContext(sourceContextBuilder_.buildPartial())
-                sourceContextBuilder_ = nil
+                builderResult.sourceContext = sourceContextBuilder_.getMessage()
              }
              return builderResult.sourceContext
          }
@@ -362,15 +364,19 @@ internal extension Google.Protobuf {
             builderResult.hasSourceContext = true
          }
     }
-    func setSourceContext(value:Google.Protobuf.SourceContext!) -> Google.Protobuf.TypesBuilder {
-      self.sourceContext = value
-      return self
-    }
     internal func getSourceContextBuilder() -> Google.Protobuf.SourceContextBuilder {
       if sourceContextBuilder_ == nil {
          sourceContextBuilder_ = Google.Protobuf.SourceContextBuilder()
+         builderResult.sourceContext = sourceContextBuilder_.getMessage()
+         if sourceContext != nil {
+            sourceContextBuilder_.mergeFrom(sourceContext)
+         }
       }
       return sourceContextBuilder_
+    }
+    func setSourceContext(value:Google.Protobuf.SourceContext!) -> Google.Protobuf.TypesBuilder {
+      self.sourceContext = value
+      return self
     }
     internal func mergeSourceContext(value:Google.Protobuf.SourceContext) -> Google.Protobuf.TypesBuilder {
       if builderResult.hasSourceContext {
@@ -723,6 +729,9 @@ internal extension Google.Protobuf {
 
   final internal class FieldBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Field = Google.Protobuf.Field()
+    internal func getMessage() -> Google.Protobuf.Field {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1168,6 +1177,9 @@ internal extension Google.Protobuf {
 
   final internal class EnumBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Enum = Google.Protobuf.Enum()
+    internal func getMessage() -> Google.Protobuf.Enum {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1235,8 +1247,7 @@ internal extension Google.Protobuf {
     var sourceContext:Google.Protobuf.SourceContext! {
          get {
              if sourceContextBuilder_ != nil {
-                self.mergeSourceContext(sourceContextBuilder_.buildPartial())
-                sourceContextBuilder_ = nil
+                builderResult.sourceContext = sourceContextBuilder_.getMessage()
              }
              return builderResult.sourceContext
          }
@@ -1250,15 +1261,19 @@ internal extension Google.Protobuf {
             builderResult.hasSourceContext = true
          }
     }
-    func setSourceContext(value:Google.Protobuf.SourceContext!) -> Google.Protobuf.EnumBuilder {
-      self.sourceContext = value
-      return self
-    }
     internal func getSourceContextBuilder() -> Google.Protobuf.SourceContextBuilder {
       if sourceContextBuilder_ == nil {
          sourceContextBuilder_ = Google.Protobuf.SourceContextBuilder()
+         builderResult.sourceContext = sourceContextBuilder_.getMessage()
+         if sourceContext != nil {
+            sourceContextBuilder_.mergeFrom(sourceContext)
+         }
       }
       return sourceContextBuilder_
+    }
+    func setSourceContext(value:Google.Protobuf.SourceContext!) -> Google.Protobuf.EnumBuilder {
+      self.sourceContext = value
+      return self
     }
     internal func mergeSourceContext(value:Google.Protobuf.SourceContext) -> Google.Protobuf.EnumBuilder {
       if builderResult.hasSourceContext {
@@ -1490,6 +1505,9 @@ internal extension Google.Protobuf {
 
   final internal class EnumValueBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.EnumValue = Google.Protobuf.EnumValue()
+    internal func getMessage() -> Google.Protobuf.EnumValue {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1746,6 +1764,9 @@ internal extension Google.Protobuf {
 
   final internal class OptionBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Option = Google.Protobuf.Option()
+    internal func getMessage() -> Google.Protobuf.Option {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -1781,8 +1802,7 @@ internal extension Google.Protobuf {
     var value:Google.Protobuf.Any! {
          get {
              if valueBuilder_ != nil {
-                self.mergeValue(valueBuilder_.buildPartial())
-                valueBuilder_ = nil
+                builderResult.value = valueBuilder_.getMessage()
              }
              return builderResult.value
          }
@@ -1796,15 +1816,19 @@ internal extension Google.Protobuf {
             builderResult.hasValue = true
          }
     }
-    func setValue(value:Google.Protobuf.Any!) -> Google.Protobuf.OptionBuilder {
-      self.value = value
-      return self
-    }
     internal func getValueBuilder() -> Google.Protobuf.AnyBuilder {
       if valueBuilder_ == nil {
          valueBuilder_ = Google.Protobuf.AnyBuilder()
+         builderResult.value = valueBuilder_.getMessage()
+         if value != nil {
+            valueBuilder_.mergeFrom(value)
+         }
       }
       return valueBuilder_
+    }
+    func setValue(value:Google.Protobuf.Any!) -> Google.Protobuf.OptionBuilder {
+      self.value = value
+      return self
     }
     internal func mergeValue(value:Google.Protobuf.Any) -> Google.Protobuf.OptionBuilder {
       if builderResult.hasValue {

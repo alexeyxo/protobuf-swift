@@ -174,6 +174,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestEmbedOptimizedForSizeBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestEmbedOptimizedForSize = ProtobufUnittest.TestEmbedOptimizedForSize()
+    internal func getMessage() -> ProtobufUnittest.TestEmbedOptimizedForSize {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -186,8 +189,7 @@ internal extension ProtobufUnittest {
     var optionalMessage:ProtobufUnittest.TestOptimizedForSize! {
          get {
              if optionalMessageBuilder_ != nil {
-                self.mergeOptionalMessage(optionalMessageBuilder_.buildPartial())
-                optionalMessageBuilder_ = nil
+                builderResult.optionalMessage = optionalMessageBuilder_.getMessage()
              }
              return builderResult.optionalMessage
          }
@@ -201,15 +203,19 @@ internal extension ProtobufUnittest {
             builderResult.hasOptionalMessage = true
          }
     }
-    func setOptionalMessage(value:ProtobufUnittest.TestOptimizedForSize!) -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
-      self.optionalMessage = value
-      return self
-    }
     internal func getOptionalMessageBuilder() -> ProtobufUnittest.TestOptimizedForSizeBuilder {
       if optionalMessageBuilder_ == nil {
          optionalMessageBuilder_ = ProtobufUnittest.TestOptimizedForSizeBuilder()
+         builderResult.optionalMessage = optionalMessageBuilder_.getMessage()
+         if optionalMessage != nil {
+            optionalMessageBuilder_.mergeFrom(optionalMessage)
+         }
       }
       return optionalMessageBuilder_
+    }
+    func setOptionalMessage(value:ProtobufUnittest.TestOptimizedForSize!) -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
+      self.optionalMessage = value
+      return self
     }
     internal func mergeOptionalMessage(value:ProtobufUnittest.TestOptimizedForSize) -> ProtobufUnittest.TestEmbedOptimizedForSizeBuilder {
       if builderResult.hasOptionalMessage {

@@ -189,6 +189,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestMessageSetBuilder : ExtendableMessageBuilder {
     private var builderResult:ProtobufUnittest.TestMessageSet = ProtobufUnittest.TestMessageSet()
+    internal func getMessage() -> ProtobufUnittest.TestMessageSet {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -354,6 +357,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestMessageSetContainerBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestMessageSetContainer = ProtobufUnittest.TestMessageSetContainer()
+    internal func getMessage() -> ProtobufUnittest.TestMessageSetContainer {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -366,8 +372,7 @@ internal extension ProtobufUnittest {
     var messageSet:ProtobufUnittest.TestMessageSet! {
          get {
              if messageSetBuilder_ != nil {
-                self.mergeMessageSet(messageSetBuilder_.buildPartial())
-                messageSetBuilder_ = nil
+                builderResult.messageSet = messageSetBuilder_.getMessage()
              }
              return builderResult.messageSet
          }
@@ -381,15 +386,19 @@ internal extension ProtobufUnittest {
             builderResult.hasMessageSet = true
          }
     }
-    func setMessageSet(value:ProtobufUnittest.TestMessageSet!) -> ProtobufUnittest.TestMessageSetContainerBuilder {
-      self.messageSet = value
-      return self
-    }
     internal func getMessageSetBuilder() -> ProtobufUnittest.TestMessageSetBuilder {
       if messageSetBuilder_ == nil {
          messageSetBuilder_ = ProtobufUnittest.TestMessageSetBuilder()
+         builderResult.messageSet = messageSetBuilder_.getMessage()
+         if messageSet != nil {
+            messageSetBuilder_.mergeFrom(messageSet)
+         }
       }
       return messageSetBuilder_
+    }
+    func setMessageSet(value:ProtobufUnittest.TestMessageSet!) -> ProtobufUnittest.TestMessageSetContainerBuilder {
+      self.messageSet = value
+      return self
     }
     internal func mergeMessageSet(value:ProtobufUnittest.TestMessageSet) -> ProtobufUnittest.TestMessageSetContainerBuilder {
       if builderResult.hasMessageSet {
@@ -570,6 +579,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestMessageSetExtension1Builder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestMessageSetExtension1 = ProtobufUnittest.TestMessageSetExtension1()
+    internal func getMessage() -> ProtobufUnittest.TestMessageSetExtension1 {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -756,6 +768,9 @@ internal extension ProtobufUnittest {
 
   final internal class TestMessageSetExtension2Builder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.TestMessageSetExtension2 = ProtobufUnittest.TestMessageSetExtension2()
+    internal func getMessage() -> ProtobufUnittest.TestMessageSetExtension2 {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -965,6 +980,9 @@ internal extension ProtobufUnittest {
 
       final internal class ItemBuilder : GeneratedMessageBuilder {
         private var builderResult:ProtobufUnittest.RawMessageSet.Item = ProtobufUnittest.RawMessageSet.Item()
+        internal func getMessage() -> ProtobufUnittest.RawMessageSet.Item {
+            return builderResult
+        }
 
         required override internal init () {
            super.init()
@@ -1190,6 +1208,9 @@ internal extension ProtobufUnittest {
 
   final internal class RawMessageSetBuilder : GeneratedMessageBuilder {
     private var builderResult:ProtobufUnittest.RawMessageSet = ProtobufUnittest.RawMessageSet()
+    internal func getMessage() -> ProtobufUnittest.RawMessageSet {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

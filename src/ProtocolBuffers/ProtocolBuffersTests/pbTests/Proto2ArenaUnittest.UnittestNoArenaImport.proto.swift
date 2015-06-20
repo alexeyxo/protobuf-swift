@@ -135,6 +135,9 @@ internal extension Proto2ArenaUnittest {
 
   final internal class ImportNoArenaNestedMessageBuilder : GeneratedMessageBuilder {
     private var builderResult:Proto2ArenaUnittest.ImportNoArenaNestedMessage = Proto2ArenaUnittest.ImportNoArenaNestedMessage()
+    internal func getMessage() -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

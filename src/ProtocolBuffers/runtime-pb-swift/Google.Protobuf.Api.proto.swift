@@ -224,6 +224,9 @@ internal extension Google.Protobuf {
 
   final internal class ApiBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Api = Google.Protobuf.Api()
+    internal func getMessage() -> Google.Protobuf.Api {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()
@@ -314,8 +317,7 @@ internal extension Google.Protobuf {
     var sourceContext:Google.Protobuf.SourceContext! {
          get {
              if sourceContextBuilder_ != nil {
-                self.mergeSourceContext(sourceContextBuilder_.buildPartial())
-                sourceContextBuilder_ = nil
+                builderResult.sourceContext = sourceContextBuilder_.getMessage()
              }
              return builderResult.sourceContext
          }
@@ -329,15 +331,19 @@ internal extension Google.Protobuf {
             builderResult.hasSourceContext = true
          }
     }
-    func setSourceContext(value:Google.Protobuf.SourceContext!) -> Google.Protobuf.ApiBuilder {
-      self.sourceContext = value
-      return self
-    }
     internal func getSourceContextBuilder() -> Google.Protobuf.SourceContextBuilder {
       if sourceContextBuilder_ == nil {
          sourceContextBuilder_ = Google.Protobuf.SourceContextBuilder()
+         builderResult.sourceContext = sourceContextBuilder_.getMessage()
+         if sourceContext != nil {
+            sourceContextBuilder_.mergeFrom(sourceContext)
+         }
       }
       return sourceContextBuilder_
+    }
+    func setSourceContext(value:Google.Protobuf.SourceContext!) -> Google.Protobuf.ApiBuilder {
+      self.sourceContext = value
+      return self
     }
     internal func mergeSourceContext(value:Google.Protobuf.SourceContext) -> Google.Protobuf.ApiBuilder {
       if builderResult.hasSourceContext {
@@ -620,6 +626,9 @@ internal extension Google.Protobuf {
 
   final internal class MethodBuilder : GeneratedMessageBuilder {
     private var builderResult:Google.Protobuf.Method = Google.Protobuf.Method()
+    internal func getMessage() -> Google.Protobuf.Method {
+        return builderResult
+    }
 
     required override internal init () {
        super.init()

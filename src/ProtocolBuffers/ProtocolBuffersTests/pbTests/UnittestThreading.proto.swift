@@ -132,6 +132,9 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
 
 final internal class ThreadingMessagesBuilder : GeneratedMessageBuilder {
   private var builderResult:ThreadingMessages = ThreadingMessages()
+  internal func getMessage() -> ThreadingMessages {
+      return builderResult
+  }
 
   required override internal init () {
      super.init()
