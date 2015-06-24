@@ -142,7 +142,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MapFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
 
         printer->Print(variables_,
-                       "var subBuilder = $backward_class$.builder()\n");
+                       "var subBuilder = $backward_class$.Builder()\n");
         printer->Print(variables_,
                        "input.readMessage(subBuilder,extensionRegistry:extensionRegistry)\n");
         printer->Print(variables_,
@@ -154,7 +154,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
                        "    for (key$capitalized_name$, value$capitalized_name$) in $name$ {\n"
-                       "        var valueOf$capitalized_name$ = $backward_class$.builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
+                       "        var valueOf$capitalized_name$ = $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
                        "        output.writeMessage($number$, value:valueOf$capitalized_name$)\n"
                        "    }\n"
                        "}\n");
@@ -164,7 +164,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
                        "    for (key$capitalized_name$, value$capitalized_name$) in $name$ {\n"
-                       "        var valueOf$capitalized_name$ = $backward_class$.builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
+                       "        var valueOf$capitalized_name$ = $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
                        "        serialize_size += valueOf$capitalized_name$.computeMessageSize($number$)\n"
                        "    }\n"
                        "}\n");

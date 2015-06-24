@@ -292,23 +292,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         GenerateParseFromMethodsSource(printer);
     
         printer->Print(variables_,
-                       "$acontrol$ class func builder() -> $classNameReturnedType$.Builder {\n"
+                       "$acontrol$ class func getBuilder() -> $classNameReturnedType$.Builder {\n"
                        "  return $classNameReturnedType$.classBuilder() as! $classNameReturnedType$.Builder\n"
                        "}\n"
-                       "$acontrol$ func builder() -> $classNameReturnedType$.Builder {\n"
+                       "$acontrol$ func getBuilder() -> $classNameReturnedType$.Builder {\n"
                        "  return classBuilder() as! $classNameReturnedType$.Builder\n"
                        "}\n"
                        "$acontrol$ override class func classBuilder() -> MessageBuilder {\n"
                        "  return $classNameReturnedType$.Builder()\n"
                        "}\n"
                        "$acontrol$ override func classBuilder() -> MessageBuilder {\n"
-                       "  return $classNameReturnedType$.builder()\n"
+                       "  return $classNameReturnedType$.Builder()\n"
                        "}\n"
                        "$acontrol$ func toBuilder() -> $classNameReturnedType$.Builder {\n"
                        "  return $classNameReturnedType$.builderWithPrototype(self)\n"
                        "}\n"
                        "$acontrol$ class func builderWithPrototype(prototype:$classNameReturnedType$) -> $classNameReturnedType$.Builder {\n"
-                       "  return $classNameReturnedType$.builder().mergeFrom(prototype)\n"
+                       "  return $classNameReturnedType$.Builder().mergeFrom(prototype)\n"
                        "}\n");
         
         GenerateMessageDescriptionSource(printer);
@@ -554,22 +554,22 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageGenerator::GenerateParseFromMethodsSource(io::Printer* printer) {
         printer->Print(variables_,
                        "$acontrol$ class func parseFromData(data:NSData) -> $classNameReturnedType$ {\n"
-                       "  return $classNameReturnedType$.builder().mergeFromData(data, extensionRegistry:$fileName$.sharedInstance.extensionRegistry).build()\n"
+                       "  return $classNameReturnedType$.Builder().mergeFromData(data, extensionRegistry:$fileName$.sharedInstance.extensionRegistry).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> $classNameReturnedType$ {\n"
-                       "  return $classNameReturnedType$.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()\n"
+                       "  return $classNameReturnedType$.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFromInputStream(input:NSInputStream) -> $classNameReturnedType$ {\n"
-                       "  return $classNameReturnedType$.builder().mergeFromInputStream(input).build()\n"
+                       "  return $classNameReturnedType$.Builder().mergeFromInputStream(input).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> $classNameReturnedType$ {\n"
-                       "  return $classNameReturnedType$.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()\n"
+                       "  return $classNameReturnedType$.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFromCodedInputStream(input:CodedInputStream) -> $classNameReturnedType$ {\n"
-                       "  return $classNameReturnedType$.builder().mergeFromCodedInputStream(input).build()\n"
+                       "  return $classNameReturnedType$.Builder().mergeFromCodedInputStream(input).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classNameReturnedType$ {\n"
-                       "  return $classNameReturnedType$.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()\n"
+                       "  return $classNameReturnedType$.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n");
     }
     
@@ -741,7 +741,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Indent();
         printer->Print(
-                       "var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)\n"
+                       "var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)\n"
                        "while (true) {\n");
         printer->Indent();
 

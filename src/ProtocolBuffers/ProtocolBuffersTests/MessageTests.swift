@@ -32,19 +32,19 @@ class MessageTests: XCTestCase {
     
     func mergeSource() -> ProtobufUnittest.TestAllTypes
     {
-        var builder = ProtobufUnittest.TestAllTypes.builder()
+        var builder = ProtobufUnittest.TestAllTypes.Builder()
         builder.optionalInt32 = 1
         builder.optionalString = "foo"
-        builder.optionalForeignMessage = ProtobufUnittest.ForeignMessage.builder().build()
+        builder.optionalForeignMessage = ProtobufUnittest.ForeignMessage.Builder().build()
         builder.repeatedString += ["bar"]
         return builder.build()
     }
     func mergeDestination() -> ProtobufUnittest.TestAllTypes
     {
-        var builder = ProtobufUnittest.TestAllTypes.builder()
+        var builder = ProtobufUnittest.TestAllTypes.Builder()
         builder.optionalInt64 = 2
         builder.optionalString = "baz"
-        var foreign = ProtobufUnittest.ForeignMessage.builder()
+        var foreign = ProtobufUnittest.ForeignMessage.Builder()
         foreign.c = 3
         builder.optionalForeignMessage = foreign.build()
         builder.repeatedString += ["qux"]
@@ -52,11 +52,11 @@ class MessageTests: XCTestCase {
     }
     func mergeResult() -> ProtobufUnittest.TestAllTypes
     {
-        var builder = ProtobufUnittest.TestAllTypes.builder()
+        var builder = ProtobufUnittest.TestAllTypes.Builder()
         builder.optionalInt32 = 1
             builder.optionalInt64 = 2
         builder.optionalString = "foo"
-        var foreign = ProtobufUnittest.ForeignMessage.builder()
+        var foreign = ProtobufUnittest.ForeignMessage.Builder()
         foreign.c = 3
         builder.optionalForeignMessage = foreign.build()
         builder.repeatedString += ["qux","bar"]
@@ -73,7 +73,7 @@ class MessageTests: XCTestCase {
     }
     
     func testRequiredInitialized() -> ProtobufUnittest.TestRequired {
-        var mes = ProtobufUnittest.TestRequired.builder()
+        var mes = ProtobufUnittest.TestRequired.Builder()
         mes.a = 1
         mes.b = 2
         mes.c = 3
@@ -82,7 +82,7 @@ class MessageTests: XCTestCase {
     
     func testRequired()
     {
-        var builder = ProtobufUnittest.TestRequired.builder()
+        var builder = ProtobufUnittest.TestRequired.Builder()
         XCTAssertFalse(builder.isInitialized(), "")
         builder.a = 1
         XCTAssertFalse(builder.isInitialized(), "")
@@ -93,7 +93,7 @@ class MessageTests: XCTestCase {
     }
     
     func testRequiredForeign() {
-        var builder = ProtobufUnittest.TestRequiredForeign.builder()
+        var builder = ProtobufUnittest.TestRequiredForeign.Builder()
         
         XCTAssertTrue(builder.isInitialized(), "")
         
@@ -108,7 +108,7 @@ class MessageTests: XCTestCase {
     }
     
     func testRequiredExtension() {
-        var builder = ProtobufUnittest.TestAllExtensions.builder()
+        var builder = ProtobufUnittest.TestAllExtensions.Builder()
         XCTAssertTrue(builder.isInitialized(), "")
         
         builder.setExtension(ProtobufUnittest.TestRequired.single(), value:testRequiredUninitialized())
@@ -125,13 +125,13 @@ class MessageTests: XCTestCase {
     }
     
     func testBuildPartial() {
-        var message = ProtobufUnittest.TestRequired.builder().buildPartial()
+        var message = ProtobufUnittest.TestRequired.Builder().buildPartial()
         XCTAssertFalse(message.isInitialized(), "")
     }
     
     func testBuildNestedPartial() {
     
-        var message = ProtobufUnittest.TestRequiredForeign.builder()
+        var message = ProtobufUnittest.TestRequiredForeign.Builder()
         message.optionalMessage = testRequiredUninitialized()
         message.repeatedMessage += [testRequiredUninitialized()]
         message.repeatedMessage += [testRequiredUninitialized()]
@@ -141,8 +141,8 @@ class MessageTests: XCTestCase {
     
     ///Issue #61 
     func testProtoPointWorks() {
-        var point1 = PBProtoPoint.builder().setLatitude(1.0).setLongitude(1.0).build()
-        var point2 = PBProtoPoint.builder().setLatitude(2.0).setLongitude(2.0).build()
+        var point1 = PBProtoPoint.Builder().setLatitude(1.0).setLongitude(1.0).build()
+        var point2 = PBProtoPoint.Builder().setLatitude(2.0).setLongitude(2.0).build()
         
         XCTAssert(point1.latitude == 1.0, "")
         XCTAssert(point2.latitude == 2.0, "")
@@ -152,8 +152,8 @@ class MessageTests: XCTestCase {
     }
     
     func testProtoPointShouldWork() {
-        var point1 = PBProtoPoint.builder().setLatitude(1.0).setLongitude(1.0).build()
-        var point2 = PBProtoPoint.builder().setLatitude(2.0).setLongitude(2.0).build()
+        var point1 = PBProtoPoint.Builder().setLatitude(1.0).setLongitude(1.0).build()
+        var point2 = PBProtoPoint.Builder().setLatitude(2.0).setLongitude(2.0).build()
         
         XCTAssert(point1.latitude == 1.0, "")
         XCTAssert(point2.latitude == 2.0, "")

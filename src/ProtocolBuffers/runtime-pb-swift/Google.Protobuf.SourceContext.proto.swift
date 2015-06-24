@@ -65,40 +65,40 @@ internal extension Google.Protobuf {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Google.Protobuf.SourceContext {
-      return Google.Protobuf.SourceContext.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.SourceContextRoot.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.SourceContext.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.SourceContextRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceContext {
-      return Google.Protobuf.SourceContext.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.SourceContext.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.SourceContext {
-      return Google.Protobuf.SourceContext.builder().mergeFromInputStream(input).build()
+      return Google.Protobuf.SourceContext.Builder().mergeFromInputStream(input).build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceContext {
-      return Google.Protobuf.SourceContext.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.SourceContext.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SourceContext {
-      return Google.Protobuf.SourceContext.builder().mergeFromCodedInputStream(input).build()
+      return Google.Protobuf.SourceContext.Builder().mergeFromCodedInputStream(input).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceContext {
-      return Google.Protobuf.SourceContext.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.SourceContext.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Google.Protobuf.SourceContext.Builder {
+    internal class func getBuilder() -> Google.Protobuf.SourceContext.Builder {
       return Google.Protobuf.SourceContext.classBuilder() as! Google.Protobuf.SourceContext.Builder
     }
-    internal func builder() -> Google.Protobuf.SourceContext.Builder {
+    internal func getBuilder() -> Google.Protobuf.SourceContext.Builder {
       return classBuilder() as! Google.Protobuf.SourceContext.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.SourceContext.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.SourceContext.builder()
+      return Google.Protobuf.SourceContext.Builder()
     }
     internal func toBuilder() -> Google.Protobuf.SourceContext.Builder {
       return Google.Protobuf.SourceContext.builderWithPrototype(self)
     }
     internal class func builderWithPrototype(prototype:Google.Protobuf.SourceContext) -> Google.Protobuf.SourceContext.Builder {
-      return Google.Protobuf.SourceContext.builder().mergeFrom(prototype)
+      return Google.Protobuf.SourceContext.Builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasFileName {
@@ -197,7 +197,7 @@ internal extension Google.Protobuf {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceContext.Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
           switch tag {

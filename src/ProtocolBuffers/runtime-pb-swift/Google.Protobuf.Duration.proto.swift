@@ -75,40 +75,40 @@ internal extension Google.Protobuf {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Google.Protobuf.Duration {
-      return Google.Protobuf.Duration.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DurationRoot.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.Duration.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DurationRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Duration {
-      return Google.Protobuf.Duration.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.Duration.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.Duration {
-      return Google.Protobuf.Duration.builder().mergeFromInputStream(input).build()
+      return Google.Protobuf.Duration.Builder().mergeFromInputStream(input).build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Duration {
-      return Google.Protobuf.Duration.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.Duration.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Duration {
-      return Google.Protobuf.Duration.builder().mergeFromCodedInputStream(input).build()
+      return Google.Protobuf.Duration.Builder().mergeFromCodedInputStream(input).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Duration {
-      return Google.Protobuf.Duration.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.Duration.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Google.Protobuf.Duration.Builder {
+    internal class func getBuilder() -> Google.Protobuf.Duration.Builder {
       return Google.Protobuf.Duration.classBuilder() as! Google.Protobuf.Duration.Builder
     }
-    internal func builder() -> Google.Protobuf.Duration.Builder {
+    internal func getBuilder() -> Google.Protobuf.Duration.Builder {
       return classBuilder() as! Google.Protobuf.Duration.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Duration.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.Duration.builder()
+      return Google.Protobuf.Duration.Builder()
     }
     internal func toBuilder() -> Google.Protobuf.Duration.Builder {
       return Google.Protobuf.Duration.builderWithPrototype(self)
     }
     internal class func builderWithPrototype(prototype:Google.Protobuf.Duration) -> Google.Protobuf.Duration.Builder {
-      return Google.Protobuf.Duration.builder().mergeFrom(prototype)
+      return Google.Protobuf.Duration.Builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasSeconds {
@@ -239,7 +239,7 @@ internal extension Google.Protobuf {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Duration.Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
           switch tag {

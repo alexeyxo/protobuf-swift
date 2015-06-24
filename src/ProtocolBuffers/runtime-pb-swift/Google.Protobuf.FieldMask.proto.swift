@@ -68,40 +68,40 @@ internal extension Google.Protobuf {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Google.Protobuf.FieldMask {
-      return Google.Protobuf.FieldMask.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.FieldMaskRoot.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.FieldMask.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.FieldMaskRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldMask {
-      return Google.Protobuf.FieldMask.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.FieldMask.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FieldMask {
-      return Google.Protobuf.FieldMask.builder().mergeFromInputStream(input).build()
+      return Google.Protobuf.FieldMask.Builder().mergeFromInputStream(input).build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldMask {
-      return Google.Protobuf.FieldMask.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.FieldMask.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.FieldMask {
-      return Google.Protobuf.FieldMask.builder().mergeFromCodedInputStream(input).build()
+      return Google.Protobuf.FieldMask.Builder().mergeFromCodedInputStream(input).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldMask {
-      return Google.Protobuf.FieldMask.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.FieldMask.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Google.Protobuf.FieldMask.Builder {
+    internal class func getBuilder() -> Google.Protobuf.FieldMask.Builder {
       return Google.Protobuf.FieldMask.classBuilder() as! Google.Protobuf.FieldMask.Builder
     }
-    internal func builder() -> Google.Protobuf.FieldMask.Builder {
+    internal func getBuilder() -> Google.Protobuf.FieldMask.Builder {
       return classBuilder() as! Google.Protobuf.FieldMask.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.FieldMask.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.FieldMask.builder()
+      return Google.Protobuf.FieldMask.Builder()
     }
     internal func toBuilder() -> Google.Protobuf.FieldMask.Builder {
       return Google.Protobuf.FieldMask.builderWithPrototype(self)
     }
     internal class func builderWithPrototype(prototype:Google.Protobuf.FieldMask) -> Google.Protobuf.FieldMask.Builder {
-      return Google.Protobuf.FieldMask.builder().mergeFrom(prototype)
+      return Google.Protobuf.FieldMask.Builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       var pathsElementIndex:Int = 0
@@ -195,7 +195,7 @@ internal extension Google.Protobuf {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldMask.Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
           switch tag {

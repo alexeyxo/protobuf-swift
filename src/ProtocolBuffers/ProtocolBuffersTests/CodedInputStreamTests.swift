@@ -263,7 +263,7 @@ class CodedInputStreamTests: XCTestCase
         var rawBytes = message.data()
         var input1 = CodedInputStream(data:rawBytes)
         var input2 = CodedInputStream(data:rawBytes)
-        var unknownFields = UnknownFieldSetBuilder()
+        var unknownFields = UnknownFieldSet.Builder()
     
         while (true) {
             var tag  = input1.readTag()
@@ -287,7 +287,7 @@ class CodedInputStreamTests: XCTestCase
             var bpointer = UnsafeMutableBufferPointer(start: pointer, count: blob.length)
             bpointer[i] = UInt8(1)
         }
-        var builder = ProtobufUnittest.TestAllTypes.builder()
+        var builder = ProtobufUnittest.TestAllTypes.Builder()
         TestUtilities.setAllFields(builder)
     
         builder.optionalBytes = blob

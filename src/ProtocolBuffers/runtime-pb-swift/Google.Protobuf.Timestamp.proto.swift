@@ -75,40 +75,40 @@ internal extension Google.Protobuf {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Google.Protobuf.Timestamp {
-      return Google.Protobuf.Timestamp.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.TimestampRoot.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.Timestamp.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.TimestampRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Timestamp {
-      return Google.Protobuf.Timestamp.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.Timestamp.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.Timestamp {
-      return Google.Protobuf.Timestamp.builder().mergeFromInputStream(input).build()
+      return Google.Protobuf.Timestamp.Builder().mergeFromInputStream(input).build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Timestamp {
-      return Google.Protobuf.Timestamp.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.Timestamp.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Timestamp {
-      return Google.Protobuf.Timestamp.builder().mergeFromCodedInputStream(input).build()
+      return Google.Protobuf.Timestamp.Builder().mergeFromCodedInputStream(input).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Timestamp {
-      return Google.Protobuf.Timestamp.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.Timestamp.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Google.Protobuf.Timestamp.Builder {
+    internal class func getBuilder() -> Google.Protobuf.Timestamp.Builder {
       return Google.Protobuf.Timestamp.classBuilder() as! Google.Protobuf.Timestamp.Builder
     }
-    internal func builder() -> Google.Protobuf.Timestamp.Builder {
+    internal func getBuilder() -> Google.Protobuf.Timestamp.Builder {
       return classBuilder() as! Google.Protobuf.Timestamp.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Timestamp.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.Timestamp.builder()
+      return Google.Protobuf.Timestamp.Builder()
     }
     internal func toBuilder() -> Google.Protobuf.Timestamp.Builder {
       return Google.Protobuf.Timestamp.builderWithPrototype(self)
     }
     internal class func builderWithPrototype(prototype:Google.Protobuf.Timestamp) -> Google.Protobuf.Timestamp.Builder {
-      return Google.Protobuf.Timestamp.builder().mergeFrom(prototype)
+      return Google.Protobuf.Timestamp.Builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasSeconds {
@@ -239,7 +239,7 @@ internal extension Google.Protobuf {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Timestamp.Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
           switch tag {

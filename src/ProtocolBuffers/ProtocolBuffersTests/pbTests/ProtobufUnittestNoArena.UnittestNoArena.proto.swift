@@ -204,40 +204,40 @@ internal extension ProtobufUnittestNoArena {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
+          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
         internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder().mergeFromInputStream(input).build()
+          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFromInputStream(input).build()
         }
         internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder().mergeFromCodedInputStream(input).build()
+          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFromCodedInputStream(input).build()
         }
         internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func builder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+        internal class func getBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder
         }
-        internal func builder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+        internal func getBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
           return classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder
         }
         internal override class func classBuilder() -> MessageBuilder {
           return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
         }
         internal override func classBuilder() -> MessageBuilder {
-          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
+          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
         }
         internal func toBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(self)
         }
         internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
-          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder().mergeFrom(prototype)
+          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(prototype)
         }
         override internal func writeDescriptionTo(inout output:String, indent:String) {
           if hasBb {
@@ -336,7 +336,7 @@ internal extension ProtobufUnittestNoArena {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
           internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
-            var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               var tag = input.readTag()
               switch tag {
@@ -396,40 +396,40 @@ internal extension ProtobufUnittestNoArena {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
+          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
         internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder().mergeFromInputStream(input).build()
+          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFromInputStream(input).build()
         }
         internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder().mergeFromCodedInputStream(input).build()
+          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFromCodedInputStream(input).build()
         }
         internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func builder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+        internal class func getBuilder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder
         }
-        internal func builder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+        internal func getBuilder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
           return classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder
         }
         internal override class func classBuilder() -> MessageBuilder {
           return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder()
         }
         internal override func classBuilder() -> MessageBuilder {
-          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder()
+          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder()
         }
         internal func toBuilder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builderWithPrototype(self)
         }
         internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
-          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder().mergeFrom(prototype)
+          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(prototype)
         }
         override internal func writeDescriptionTo(inout output:String, indent:String) {
           if hasA {
@@ -528,7 +528,7 @@ internal extension ProtobufUnittestNoArena {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
           internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
-            var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               var tag = input.readTag()
               switch tag {
@@ -588,40 +588,40 @@ internal extension ProtobufUnittestNoArena {
           return serialize_size
         }
         internal class func parseFromData(data:NSData) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
+          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
         }
         internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
         internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder().mergeFromInputStream(input).build()
+          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFromInputStream(input).build()
         }
         internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder().mergeFromCodedInputStream(input).build()
+          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFromCodedInputStream(input).build()
         }
         internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func builder() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+        internal class func getBuilder() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder
         }
-        internal func builder() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+        internal func getBuilder() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
           return classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder
         }
         internal override class func classBuilder() -> MessageBuilder {
           return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder()
         }
         internal override func classBuilder() -> MessageBuilder {
-          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder()
+          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder()
         }
         internal func toBuilder() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builderWithPrototype(self)
         }
         internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
-          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder().mergeFrom(prototype)
+          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(prototype)
         }
         override internal func writeDescriptionTo(inout output:String, indent:String) {
           if hasA {
@@ -720,7 +720,7 @@ internal extension ProtobufUnittestNoArena {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
           internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
-            var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               var tag = input.readTag()
               switch tag {
@@ -1609,40 +1609,40 @@ internal extension ProtobufUnittestNoArena {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittestNoArena.TestAllTypes {
-      return ProtobufUnittestNoArena.TestAllTypes.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes {
-      return ProtobufUnittestNoArena.TestAllTypes.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+      return ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestNoArena.TestAllTypes {
-      return ProtobufUnittestNoArena.TestAllTypes.builder().mergeFromInputStream(input).build()
+      return ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFromInputStream(input).build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes {
-      return ProtobufUnittestNoArena.TestAllTypes.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+      return ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes {
-      return ProtobufUnittestNoArena.TestAllTypes.builder().mergeFromCodedInputStream(input).build()
+      return ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFromCodedInputStream(input).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes {
-      return ProtobufUnittestNoArena.TestAllTypes.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+      return ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+    internal class func getBuilder() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
       return ProtobufUnittestNoArena.TestAllTypes.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.Builder
     }
-    internal func builder() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+    internal func getBuilder() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
       return classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittestNoArena.TestAllTypes.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return ProtobufUnittestNoArena.TestAllTypes.builder()
+      return ProtobufUnittestNoArena.TestAllTypes.Builder()
     }
     internal func toBuilder() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
       return ProtobufUnittestNoArena.TestAllTypes.builderWithPrototype(self)
     }
     internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestAllTypes) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
-      return ProtobufUnittestNoArena.TestAllTypes.builder().mergeFrom(prototype)
+      return ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasOptionalInt32 {
@@ -4218,7 +4218,7 @@ internal extension ProtobufUnittestNoArena {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
           switch tag {
@@ -4272,7 +4272,7 @@ internal extension ProtobufUnittestNoArena {
             optionalBytes = input.readData()
 
           case 131 :
-            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder()
+            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder()
             if hasOptionalGroup {
               subBuilder.mergeFrom(optionalGroup)
             }
@@ -4280,7 +4280,7 @@ internal extension ProtobufUnittestNoArena {
             optionalGroup = subBuilder.buildPartial()
 
           case 146 :
-            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
+            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
             if hasOptionalNestedMessage {
               subBuilder.mergeFrom(optionalNestedMessage)
             }
@@ -4288,7 +4288,7 @@ internal extension ProtobufUnittestNoArena {
             optionalNestedMessage = subBuilder.buildPartial()
 
           case 154 :
-            var subBuilder:ProtobufUnittestNoArena.ForeignMessage.Builder = ProtobufUnittestNoArena.ForeignMessage.builder()
+            var subBuilder:ProtobufUnittestNoArena.ForeignMessage.Builder = ProtobufUnittestNoArena.ForeignMessage.Builder()
             if hasOptionalForeignMessage {
               subBuilder.mergeFrom(optionalForeignMessage)
             }
@@ -4296,7 +4296,7 @@ internal extension ProtobufUnittestNoArena {
             optionalForeignMessage = subBuilder.buildPartial()
 
           case 162 :
-            var subBuilder:ProtobufUnittestImport.ImportMessage.Builder = ProtobufUnittestImport.ImportMessage.builder()
+            var subBuilder:ProtobufUnittestImport.ImportMessage.Builder = ProtobufUnittestImport.ImportMessage.Builder()
             if hasOptionalImportMessage {
               subBuilder.mergeFrom(optionalImportMessage)
             }
@@ -4334,7 +4334,7 @@ internal extension ProtobufUnittestNoArena {
             optionalCord = input.readString()
 
           case 210 :
-            var subBuilder:ProtobufUnittestImport.PublicImportMessage.Builder = ProtobufUnittestImport.PublicImportMessage.builder()
+            var subBuilder:ProtobufUnittestImport.PublicImportMessage.Builder = ProtobufUnittestImport.PublicImportMessage.Builder()
             if hasOptionalPublicImportMessage {
               subBuilder.mergeFrom(optionalPublicImportMessage)
             }
@@ -4342,7 +4342,7 @@ internal extension ProtobufUnittestNoArena {
             optionalPublicImportMessage = subBuilder.buildPartial()
 
           case 218 :
-            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
+            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
             if hasOptionalLazyMessage {
               subBuilder.mergeFrom(optionalLazyMessage)
             }
@@ -4395,22 +4395,22 @@ internal extension ProtobufUnittestNoArena {
             repeatedBytes += [input.readData()]
 
           case 371 :
-            var subBuilder = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder()
+            var subBuilder = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder()
             input.readGroup(46,builder:subBuilder,extensionRegistry:extensionRegistry)
             repeatedGroup += [subBuilder.buildPartial()]
 
           case 386 :
-            var subBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
+            var subBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedNestedMessage += [subBuilder.buildPartial()]
 
           case 394 :
-            var subBuilder = ProtobufUnittestNoArena.ForeignMessage.builder()
+            var subBuilder = ProtobufUnittestNoArena.ForeignMessage.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedForeignMessage += [subBuilder.buildPartial()]
 
           case 402 :
-            var subBuilder = ProtobufUnittestImport.ImportMessage.builder()
+            var subBuilder = ProtobufUnittestImport.ImportMessage.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedImportMessage += [subBuilder.buildPartial()]
 
@@ -4445,7 +4445,7 @@ internal extension ProtobufUnittestNoArena {
             repeatedCord += [input.readString()]
 
           case 458 :
-            var subBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
+            var subBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedLazyMessage += [subBuilder.buildPartial()]
 
@@ -4528,7 +4528,7 @@ internal extension ProtobufUnittestNoArena {
             oneofUint32 = input.readUInt32()
 
           case 898 :
-            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
+            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
             if hasOneofNestedMessage {
               subBuilder.mergeFrom(oneofNestedMessage)
             }
@@ -4584,40 +4584,40 @@ internal extension ProtobufUnittestNoArena {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittestNoArena.ForeignMessage {
-      return ProtobufUnittestNoArena.ForeignMessage.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.ForeignMessage {
-      return ProtobufUnittestNoArena.ForeignMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+      return ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestNoArena.ForeignMessage {
-      return ProtobufUnittestNoArena.ForeignMessage.builder().mergeFromInputStream(input).build()
+      return ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFromInputStream(input).build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.ForeignMessage {
-      return ProtobufUnittestNoArena.ForeignMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+      return ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.ForeignMessage {
-      return ProtobufUnittestNoArena.ForeignMessage.builder().mergeFromCodedInputStream(input).build()
+      return ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFromCodedInputStream(input).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.ForeignMessage {
-      return ProtobufUnittestNoArena.ForeignMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+      return ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+    internal class func getBuilder() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
       return ProtobufUnittestNoArena.ForeignMessage.classBuilder() as! ProtobufUnittestNoArena.ForeignMessage.Builder
     }
-    internal func builder() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+    internal func getBuilder() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
       return classBuilder() as! ProtobufUnittestNoArena.ForeignMessage.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittestNoArena.ForeignMessage.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return ProtobufUnittestNoArena.ForeignMessage.builder()
+      return ProtobufUnittestNoArena.ForeignMessage.Builder()
     }
     internal func toBuilder() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
       return ProtobufUnittestNoArena.ForeignMessage.builderWithPrototype(self)
     }
     internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.ForeignMessage) -> ProtobufUnittestNoArena.ForeignMessage.Builder {
-      return ProtobufUnittestNoArena.ForeignMessage.builder().mergeFrom(prototype)
+      return ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasC {
@@ -4716,7 +4716,7 @@ internal extension ProtobufUnittestNoArena {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.ForeignMessage.Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
           switch tag {
@@ -4771,40 +4771,40 @@ internal extension ProtobufUnittestNoArena {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      return ProtobufUnittestNoArena.TestNoArenaMessage.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      return ProtobufUnittestNoArena.TestNoArenaMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+      return ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      return ProtobufUnittestNoArena.TestNoArenaMessage.builder().mergeFromInputStream(input).build()
+      return ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFromInputStream(input).build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      return ProtobufUnittestNoArena.TestNoArenaMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+      return ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      return ProtobufUnittestNoArena.TestNoArenaMessage.builder().mergeFromCodedInputStream(input).build()
+      return ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFromCodedInputStream(input).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      return ProtobufUnittestNoArena.TestNoArenaMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+      return ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+    internal class func getBuilder() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
       return ProtobufUnittestNoArena.TestNoArenaMessage.classBuilder() as! ProtobufUnittestNoArena.TestNoArenaMessage.Builder
     }
-    internal func builder() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+    internal func getBuilder() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
       return classBuilder() as! ProtobufUnittestNoArena.TestNoArenaMessage.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittestNoArena.TestNoArenaMessage.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return ProtobufUnittestNoArena.TestNoArenaMessage.builder()
+      return ProtobufUnittestNoArena.TestNoArenaMessage.Builder()
     }
     internal func toBuilder() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
       return ProtobufUnittestNoArena.TestNoArenaMessage.builderWithPrototype(self)
     }
     internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestNoArenaMessage) -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
-      return ProtobufUnittestNoArena.TestNoArenaMessage.builder().mergeFrom(prototype)
+      return ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasArenaMessage {
@@ -4935,7 +4935,7 @@ internal extension ProtobufUnittestNoArena {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
           switch tag {
@@ -4944,7 +4944,7 @@ internal extension ProtobufUnittestNoArena {
             return self
 
           case 10 :
-            var subBuilder:Proto2ArenaUnittest.ArenaMessage.Builder = Proto2ArenaUnittest.ArenaMessage.builder()
+            var subBuilder:Proto2ArenaUnittest.ArenaMessage.Builder = Proto2ArenaUnittest.ArenaMessage.Builder()
             if hasArenaMessage {
               subBuilder.mergeFrom(arenaMessage)
             }

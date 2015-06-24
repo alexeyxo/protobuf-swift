@@ -79,40 +79,40 @@ internal extension ProtobufUnittestImport {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> ProtobufUnittestImport.ImportMessage {
-      return ProtobufUnittestImport.ImportMessage.builder().mergeFromData(data, extensionRegistry:ProtobufUnittestImport.UnittestImportRoot.sharedInstance.extensionRegistry).build()
+      return ProtobufUnittestImport.ImportMessage.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittestImport.UnittestImportRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.ImportMessage {
-      return ProtobufUnittestImport.ImportMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+      return ProtobufUnittestImport.ImportMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestImport.ImportMessage {
-      return ProtobufUnittestImport.ImportMessage.builder().mergeFromInputStream(input).build()
+      return ProtobufUnittestImport.ImportMessage.Builder().mergeFromInputStream(input).build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.ImportMessage {
-      return ProtobufUnittestImport.ImportMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+      return ProtobufUnittestImport.ImportMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestImport.ImportMessage {
-      return ProtobufUnittestImport.ImportMessage.builder().mergeFromCodedInputStream(input).build()
+      return ProtobufUnittestImport.ImportMessage.Builder().mergeFromCodedInputStream(input).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.ImportMessage {
-      return ProtobufUnittestImport.ImportMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+      return ProtobufUnittestImport.ImportMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittestImport.ImportMessage.Builder {
+    internal class func getBuilder() -> ProtobufUnittestImport.ImportMessage.Builder {
       return ProtobufUnittestImport.ImportMessage.classBuilder() as! ProtobufUnittestImport.ImportMessage.Builder
     }
-    internal func builder() -> ProtobufUnittestImport.ImportMessage.Builder {
+    internal func getBuilder() -> ProtobufUnittestImport.ImportMessage.Builder {
       return classBuilder() as! ProtobufUnittestImport.ImportMessage.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return ProtobufUnittestImport.ImportMessage.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return ProtobufUnittestImport.ImportMessage.builder()
+      return ProtobufUnittestImport.ImportMessage.Builder()
     }
     internal func toBuilder() -> ProtobufUnittestImport.ImportMessage.Builder {
       return ProtobufUnittestImport.ImportMessage.builderWithPrototype(self)
     }
     internal class func builderWithPrototype(prototype:ProtobufUnittestImport.ImportMessage) -> ProtobufUnittestImport.ImportMessage.Builder {
-      return ProtobufUnittestImport.ImportMessage.builder().mergeFrom(prototype)
+      return ProtobufUnittestImport.ImportMessage.Builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if hasD {
@@ -211,7 +211,7 @@ internal extension ProtobufUnittestImport {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.ImportMessage.Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
           switch tag {

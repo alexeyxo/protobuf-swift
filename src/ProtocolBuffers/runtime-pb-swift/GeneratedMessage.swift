@@ -117,7 +117,7 @@ public class GeneratedMessageBuilder:AbstractMessageBuilder
         result.unknownFields = UnknownFieldSet.builderWithUnknownFields(result.unknownFields).mergeUnknownFields(unknownFields).build()
         return self
     }
-    public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
+    public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
         return unknownFields.mergeFieldFrom(tag, input:input)
     }
 }

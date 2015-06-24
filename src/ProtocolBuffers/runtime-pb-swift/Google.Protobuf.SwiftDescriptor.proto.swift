@@ -106,40 +106,40 @@ public extension Google.Protobuf {
       return serialize_size
     }
     public class func parseFromData(data:NSData) -> Google.Protobuf.SwiftFileOptions {
-      return Google.Protobuf.SwiftFileOptions.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.SwiftFileOptions.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
     public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SwiftFileOptions {
-      return Google.Protobuf.SwiftFileOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.SwiftFileOptions.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.SwiftFileOptions {
-      return Google.Protobuf.SwiftFileOptions.builder().mergeFromInputStream(input).build()
+      return Google.Protobuf.SwiftFileOptions.Builder().mergeFromInputStream(input).build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SwiftFileOptions {
-      return Google.Protobuf.SwiftFileOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.SwiftFileOptions.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SwiftFileOptions {
-      return Google.Protobuf.SwiftFileOptions.builder().mergeFromCodedInputStream(input).build()
+      return Google.Protobuf.SwiftFileOptions.Builder().mergeFromCodedInputStream(input).build()
     }
     public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SwiftFileOptions {
-      return Google.Protobuf.SwiftFileOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.SwiftFileOptions.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.SwiftFileOptions.Builder {
+    public class func getBuilder() -> Google.Protobuf.SwiftFileOptions.Builder {
       return Google.Protobuf.SwiftFileOptions.classBuilder() as! Google.Protobuf.SwiftFileOptions.Builder
     }
-    public func builder() -> Google.Protobuf.SwiftFileOptions.Builder {
+    public func getBuilder() -> Google.Protobuf.SwiftFileOptions.Builder {
       return classBuilder() as! Google.Protobuf.SwiftFileOptions.Builder
     }
     public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.SwiftFileOptions.Builder()
     }
     public override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.SwiftFileOptions.builder()
+      return Google.Protobuf.SwiftFileOptions.Builder()
     }
     public func toBuilder() -> Google.Protobuf.SwiftFileOptions.Builder {
       return Google.Protobuf.SwiftFileOptions.builderWithPrototype(self)
     }
     public class func builderWithPrototype(prototype:Google.Protobuf.SwiftFileOptions) -> Google.Protobuf.SwiftFileOptions.Builder {
-      return Google.Protobuf.SwiftFileOptions.builder().mergeFrom(prototype)
+      return Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
       if hasClassPrefix {
@@ -302,7 +302,7 @@ public extension Google.Protobuf {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SwiftFileOptions.Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
           switch tag {

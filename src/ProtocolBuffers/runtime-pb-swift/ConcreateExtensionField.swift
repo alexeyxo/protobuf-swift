@@ -685,7 +685,7 @@ messageOrGroupClass:Any.Type,
     
   
     
-    func mergeMessageSetExtentionFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSetBuilder)
+    func mergeMessageSetExtentionFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSet.Builder)
     {
         NSException(name:"InternalError", reason:"", userInfo: nil).raise()
     }
@@ -749,7 +749,7 @@ messageOrGroupClass:Any.Type,
         return ""
     }
     
-    public func mergeFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) {
+    public func mergeFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) {
         if (isPacked) {
             var length:Int32 = input.readRawVarint32()
             var limit:Int32 = input.pushLimit(length)

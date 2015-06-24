@@ -225,40 +225,40 @@ internal extension Proto2PreserveUnknownEnumUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto2PreserveUnknownEnumUnittest.MyMessage {
-      return Proto2PreserveUnknownEnumUnittest.MyMessage.builder().mergeFromData(data, extensionRegistry:Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFromData(data, extensionRegistry:Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessage {
-      return Proto2PreserveUnknownEnumUnittest.MyMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromInputStream(input:NSInputStream) -> Proto2PreserveUnknownEnumUnittest.MyMessage {
-      return Proto2PreserveUnknownEnumUnittest.MyMessage.builder().mergeFromInputStream(input).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFromInputStream(input).build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessage {
-      return Proto2PreserveUnknownEnumUnittest.MyMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Proto2PreserveUnknownEnumUnittest.MyMessage {
-      return Proto2PreserveUnknownEnumUnittest.MyMessage.builder().mergeFromCodedInputStream(input).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFromCodedInputStream(input).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessage {
-      return Proto2PreserveUnknownEnumUnittest.MyMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+    internal class func getBuilder() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
       return Proto2PreserveUnknownEnumUnittest.MyMessage.classBuilder() as! Proto2PreserveUnknownEnumUnittest.MyMessage.Builder
     }
-    internal func builder() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+    internal func getBuilder() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
       return classBuilder() as! Proto2PreserveUnknownEnumUnittest.MyMessage.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return Proto2PreserveUnknownEnumUnittest.MyMessage.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return Proto2PreserveUnknownEnumUnittest.MyMessage.builder()
+      return Proto2PreserveUnknownEnumUnittest.MyMessage.Builder()
     }
     internal func toBuilder() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
       return Proto2PreserveUnknownEnumUnittest.MyMessage.builderWithPrototype(self)
     }
     internal class func builderWithPrototype(prototype:Proto2PreserveUnknownEnumUnittest.MyMessage) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
-      return Proto2PreserveUnknownEnumUnittest.MyMessage.builder().mergeFrom(prototype)
+      return Proto2PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if (hasE) {
@@ -475,7 +475,7 @@ internal extension Proto2PreserveUnknownEnumUnittest {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
           switch tag {
@@ -687,40 +687,40 @@ internal extension Proto2PreserveUnknownEnumUnittest {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder().mergeFromData(data, extensionRegistry:Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFromData(data, extensionRegistry:Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromInputStream(input:NSInputStream) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder().mergeFromInputStream(input).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFromInputStream(input).build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder().mergeFromCodedInputStream(input).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFromCodedInputStream(input).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+    internal class func getBuilder() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
       return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.classBuilder() as! Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder
     }
-    internal func builder() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+    internal func getBuilder() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
       return classBuilder() as! Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder()
+      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder()
     }
     internal func toBuilder() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
       return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builderWithPrototype(self)
     }
     internal class func builderWithPrototype(prototype:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder().mergeFrom(prototype)
+      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       if (hasE) {
@@ -937,7 +937,7 @@ internal extension Proto2PreserveUnknownEnumUnittest {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
           switch tag {

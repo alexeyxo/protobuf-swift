@@ -177,7 +177,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "var subBuilder:$type$.Builder = $type$.builder()\n"
+                       "var subBuilder:$type$.Builder = $type$.Builder()\n"
                        "if has$capitalized_name$ {\n"
                        "  subBuilder.mergeFrom($name$)\n"
                        "}\n");
@@ -312,7 +312,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedMessageFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "var subBuilder = $type$.builder()\n");
+                       "var subBuilder = $type$.Builder()\n");
         
         if (descriptor_->type() == FieldDescriptor::TYPE_GROUP) {
             printer->Print(variables_,

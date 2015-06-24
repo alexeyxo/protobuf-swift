@@ -327,7 +327,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         return self
     }
     
-    override public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
+    override public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
         
         var message = internalGetResult
         var wireType = WireFormat.wireFormatGetTagWireType(tag)

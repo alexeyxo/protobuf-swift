@@ -55,40 +55,40 @@ internal extension Google.Protobuf {
       return serialize_size
     }
     internal class func parseFromData(data:NSData) -> Google.Protobuf.Empty {
-      return Google.Protobuf.Empty.builder().mergeFromData(data, extensionRegistry:Google.Protobuf.EmptyRoot.sharedInstance.extensionRegistry).build()
+      return Google.Protobuf.Empty.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.EmptyRoot.sharedInstance.extensionRegistry).build()
     }
     internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Empty {
-      return Google.Protobuf.Empty.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.Empty.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.Empty {
-      return Google.Protobuf.Empty.builder().mergeFromInputStream(input).build()
+      return Google.Protobuf.Empty.Builder().mergeFromInputStream(input).build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Empty {
-      return Google.Protobuf.Empty.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.Empty.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Empty {
-      return Google.Protobuf.Empty.builder().mergeFromCodedInputStream(input).build()
+      return Google.Protobuf.Empty.Builder().mergeFromCodedInputStream(input).build()
     }
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Empty {
-      return Google.Protobuf.Empty.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+      return Google.Protobuf.Empty.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Google.Protobuf.Empty.Builder {
+    internal class func getBuilder() -> Google.Protobuf.Empty.Builder {
       return Google.Protobuf.Empty.classBuilder() as! Google.Protobuf.Empty.Builder
     }
-    internal func builder() -> Google.Protobuf.Empty.Builder {
+    internal func getBuilder() -> Google.Protobuf.Empty.Builder {
       return classBuilder() as! Google.Protobuf.Empty.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Empty.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.Empty.builder()
+      return Google.Protobuf.Empty.Builder()
     }
     internal func toBuilder() -> Google.Protobuf.Empty.Builder {
       return Google.Protobuf.Empty.builderWithPrototype(self)
     }
     internal class func builderWithPrototype(prototype:Google.Protobuf.Empty) -> Google.Protobuf.Empty.Builder {
-      return Google.Protobuf.Empty.builder().mergeFrom(prototype)
+      return Google.Protobuf.Empty.Builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -155,7 +155,7 @@ internal extension Google.Protobuf {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Empty.Builder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
           switch tag {

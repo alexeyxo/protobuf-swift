@@ -83,8 +83,6 @@
 		3FCF297C1A4CD01000133274 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29621A4CD01000133274 /* RingBuffer.swift */; };
 		3FCF297F1A4CD01000133274 /* UnknownFieldSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29641A4CD01000133274 /* UnknownFieldSet.swift */; };
 		3FCF29801A4CD01000133274 /* UnknownFieldSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29641A4CD01000133274 /* UnknownFieldSet.swift */; };
-		3FCF29811A4CD01000133274 /* UnknownFieldSetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29651A4CD01000133274 /* UnknownFieldSetBuilder.swift */; };
-		3FCF29821A4CD01000133274 /* UnknownFieldSetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29651A4CD01000133274 /* UnknownFieldSetBuilder.swift */; };
 		3FCF29831A4CD01000133274 /* WireFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29661A4CD01000133274 /* WireFormat.swift */; };
 		3FCF29841A4CD01000133274 /* WireFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29661A4CD01000133274 /* WireFormat.swift */; };
 		3FCF29851A4CD2B300133274 /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FCF29611A4CD01000133274 /* ProtocolBuffers.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -233,7 +231,6 @@
 		3FCF29611A4CD01000133274 /* ProtocolBuffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolBuffers.h; sourceTree = "<group>"; };
 		3FCF29621A4CD01000133274 /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RingBuffer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3FCF29641A4CD01000133274 /* UnknownFieldSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnknownFieldSet.swift; sourceTree = "<group>"; };
-		3FCF29651A4CD01000133274 /* UnknownFieldSetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnknownFieldSetBuilder.swift; sourceTree = "<group>"; };
 		3FCF29661A4CD01000133274 /* WireFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = WireFormat.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3FEFE99E1A12612E005DEAF3 /* MessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MessageTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3FF8D3991B121F48008D40C3 /* ProtobufUnittest.Unittest.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufUnittest.Unittest.proto.swift; sourceTree = "<group>"; };
@@ -459,7 +456,6 @@
 				3FCF29611A4CD01000133274 /* ProtocolBuffers.h */,
 				3FCF29621A4CD01000133274 /* RingBuffer.swift */,
 				3FCF29641A4CD01000133274 /* UnknownFieldSet.swift */,
-				3FCF29651A4CD01000133274 /* UnknownFieldSetBuilder.swift */,
 				3FCF29661A4CD01000133274 /* WireFormat.swift */,
 			);
 			path = "runtime-pb-swift";
@@ -668,7 +664,6 @@
 			files = (
 				3FC519211B1C913A00436FA6 /* Google.Protobuf.Api.proto.swift in Sources */,
 				3FC519251B1C913A00436FA6 /* Google.Protobuf.Empty.proto.swift in Sources */,
-				3FCF29821A4CD01000133274 /* UnknownFieldSetBuilder.swift in Sources */,
 				3FC5192B1B1C913A00436FA6 /* Google.Protobuf.Struct.proto.swift in Sources */,
 				3FCF29841A4CD01000133274 /* WireFormat.swift in Sources */,
 				3FF8D3E61B121FF7008D40C3 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */,
@@ -743,7 +738,6 @@
 			files = (
 				3FC519201B1C913A00436FA6 /* Google.Protobuf.Api.proto.swift in Sources */,
 				3FC519241B1C913A00436FA6 /* Google.Protobuf.Empty.proto.swift in Sources */,
-				3FCF29811A4CD01000133274 /* UnknownFieldSetBuilder.swift in Sources */,
 				3FC5192A1B1C913A00436FA6 /* Google.Protobuf.Struct.proto.swift in Sources */,
 				3FCF29831A4CD01000133274 /* WireFormat.swift in Sources */,
 				3FF8D3E51B121FF7008D40C3 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */,

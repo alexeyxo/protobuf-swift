@@ -62,40 +62,40 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
     return serialize_size
   }
   internal class func parseFromData(data:NSData) -> ThreadingMessages {
-    return ThreadingMessages.builder().mergeFromData(data, extensionRegistry:UnittestThreadingRoot.sharedInstance.extensionRegistry).build()
+    return ThreadingMessages.Builder().mergeFromData(data, extensionRegistry:UnittestThreadingRoot.sharedInstance.extensionRegistry).build()
   }
   internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ThreadingMessages {
-    return ThreadingMessages.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    return ThreadingMessages.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromInputStream(input:NSInputStream) -> ThreadingMessages {
-    return ThreadingMessages.builder().mergeFromInputStream(input).build()
+    return ThreadingMessages.Builder().mergeFromInputStream(input).build()
   }
   internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ThreadingMessages {
-    return ThreadingMessages.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    return ThreadingMessages.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func parseFromCodedInputStream(input:CodedInputStream) -> ThreadingMessages {
-    return ThreadingMessages.builder().mergeFromCodedInputStream(input).build()
+    return ThreadingMessages.Builder().mergeFromCodedInputStream(input).build()
   }
   internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ThreadingMessages {
-    return ThreadingMessages.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    return ThreadingMessages.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  internal class func builder() -> ThreadingMessages.Builder {
+  internal class func getBuilder() -> ThreadingMessages.Builder {
     return ThreadingMessages.classBuilder() as! ThreadingMessages.Builder
   }
-  internal func builder() -> ThreadingMessages.Builder {
+  internal func getBuilder() -> ThreadingMessages.Builder {
     return classBuilder() as! ThreadingMessages.Builder
   }
   internal override class func classBuilder() -> MessageBuilder {
     return ThreadingMessages.Builder()
   }
   internal override func classBuilder() -> MessageBuilder {
-    return ThreadingMessages.builder()
+    return ThreadingMessages.Builder()
   }
   internal func toBuilder() -> ThreadingMessages.Builder {
     return ThreadingMessages.builderWithPrototype(self)
   }
   internal class func builderWithPrototype(prototype:ThreadingMessages) -> ThreadingMessages.Builder {
-    return ThreadingMessages.builder().mergeFrom(prototype)
+    return ThreadingMessages.Builder().mergeFrom(prototype)
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasTestString {
@@ -194,7 +194,7 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ThreadingMessages.Builder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         var tag = input.readTag()
         switch tag {
