@@ -31,8 +31,8 @@ syntax = "proto3";
 
 package google.protobuf;
 
-import "google/protobuf/source_context.proto";
-import "google/protobuf/type.proto";
+import "google/protobuf/Utilities/source_context.proto";
+import "google/protobuf/Utilities/type.proto";
 
 option java_multiple_files = true;
 option java_outer_classname = "ApiProto";
