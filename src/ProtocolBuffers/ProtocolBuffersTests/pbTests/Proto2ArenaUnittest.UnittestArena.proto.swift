@@ -93,22 +93,22 @@ internal extension Proto2ArenaUnittest {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.NestedMessage {
       return Proto2ArenaUnittest.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Proto2ArenaUnittest.NestedMessageBuilder {
-      return Proto2ArenaUnittest.NestedMessage.classBuilder() as! Proto2ArenaUnittest.NestedMessageBuilder
+    internal class func builder() -> Proto2ArenaUnittest.NestedMessage.Builder {
+      return Proto2ArenaUnittest.NestedMessage.classBuilder() as! Proto2ArenaUnittest.NestedMessage.Builder
     }
-    internal func builder() -> Proto2ArenaUnittest.NestedMessageBuilder {
-      return classBuilder() as! Proto2ArenaUnittest.NestedMessageBuilder
+    internal func builder() -> Proto2ArenaUnittest.NestedMessage.Builder {
+      return classBuilder() as! Proto2ArenaUnittest.NestedMessage.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Proto2ArenaUnittest.NestedMessageBuilder()
+      return Proto2ArenaUnittest.NestedMessage.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return Proto2ArenaUnittest.NestedMessage.builder()
     }
-    internal func toBuilder() -> Proto2ArenaUnittest.NestedMessageBuilder {
+    internal func toBuilder() -> Proto2ArenaUnittest.NestedMessage.Builder {
       return Proto2ArenaUnittest.NestedMessage.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Proto2ArenaUnittest.NestedMessage) -> Proto2ArenaUnittest.NestedMessageBuilder {
+    internal class func builderWithPrototype(prototype:Proto2ArenaUnittest.NestedMessage) -> Proto2ArenaUnittest.NestedMessage.Builder {
       return Proto2ArenaUnittest.NestedMessage.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -142,93 +142,93 @@ internal extension Proto2ArenaUnittest {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:Proto2ArenaUnittest.NestedMessage = Proto2ArenaUnittest.NestedMessage()
+      internal func getMessage() -> Proto2ArenaUnittest.NestedMessage {
+          return builderResult
+      }
 
-  final internal class NestedMessageBuilder : GeneratedMessageBuilder {
-    private var builderResult:Proto2ArenaUnittest.NestedMessage = Proto2ArenaUnittest.NestedMessage()
-    internal func getMessage() -> Proto2ArenaUnittest.NestedMessage {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasD:Bool {
-         get {
-              return builderResult.hasD
-         }
-    }
-    var d:Int32 {
-         get {
-              return builderResult.d
-         }
-         set (value) {
-             builderResult.hasD = true
-             builderResult.d = value
-         }
-    }
-    func setD(value:Int32) -> Proto2ArenaUnittest.NestedMessageBuilder {
-      self.d = value
-      return self
-    }
-    internal func clearD() -> Proto2ArenaUnittest.NestedMessageBuilder{
-         builderResult.hasD = false
-         builderResult.d = Int32(0)
+      required override internal init () {
+         super.init()
+      }
+      var hasD:Bool {
+           get {
+                return builderResult.hasD
+           }
+      }
+      var d:Int32 {
+           get {
+                return builderResult.d
+           }
+           set (value) {
+               builderResult.hasD = true
+               builderResult.d = value
+           }
+      }
+      func setD(value:Int32) -> Proto2ArenaUnittest.NestedMessage.Builder {
+        self.d = value
+        return self
+      }
+      internal func clearD() -> Proto2ArenaUnittest.NestedMessage.Builder{
+           builderResult.hasD = false
+           builderResult.d = Int32(0)
+           return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> Proto2ArenaUnittest.NestedMessage.Builder {
+        builderResult = Proto2ArenaUnittest.NestedMessage()
+        return self
+      }
+      internal override func clone() -> Proto2ArenaUnittest.NestedMessage.Builder {
+        return Proto2ArenaUnittest.NestedMessage.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> Proto2ArenaUnittest.NestedMessage {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> Proto2ArenaUnittest.NestedMessage {
+        var returnMe:Proto2ArenaUnittest.NestedMessage = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:Proto2ArenaUnittest.NestedMessage) -> Proto2ArenaUnittest.NestedMessage.Builder {
+        if other == Proto2ArenaUnittest.NestedMessage() {
          return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> Proto2ArenaUnittest.NestedMessageBuilder {
-      builderResult = Proto2ArenaUnittest.NestedMessage()
-      return self
-    }
-    internal override func clone() -> Proto2ArenaUnittest.NestedMessageBuilder {
-      return Proto2ArenaUnittest.NestedMessage.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> Proto2ArenaUnittest.NestedMessage {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> Proto2ArenaUnittest.NestedMessage {
-      var returnMe:Proto2ArenaUnittest.NestedMessage = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:Proto2ArenaUnittest.NestedMessage) -> Proto2ArenaUnittest.NestedMessageBuilder {
-      if other == Proto2ArenaUnittest.NestedMessage() {
-       return self
+        }
+        if other.hasD {
+             d = other.d
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      if other.hasD {
-           d = other.d
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2ArenaUnittest.NestedMessage.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2ArenaUnittest.NestedMessageBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.NestedMessageBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.NestedMessage.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 8 :
-          d = input.readInt32()
+          case 8 :
+            d = input.readInt32()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
   final internal class ArenaMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -284,22 +284,22 @@ internal extension Proto2ArenaUnittest {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.ArenaMessage {
       return Proto2ArenaUnittest.ArenaMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Proto2ArenaUnittest.ArenaMessageBuilder {
-      return Proto2ArenaUnittest.ArenaMessage.classBuilder() as! Proto2ArenaUnittest.ArenaMessageBuilder
+    internal class func builder() -> Proto2ArenaUnittest.ArenaMessage.Builder {
+      return Proto2ArenaUnittest.ArenaMessage.classBuilder() as! Proto2ArenaUnittest.ArenaMessage.Builder
     }
-    internal func builder() -> Proto2ArenaUnittest.ArenaMessageBuilder {
-      return classBuilder() as! Proto2ArenaUnittest.ArenaMessageBuilder
+    internal func builder() -> Proto2ArenaUnittest.ArenaMessage.Builder {
+      return classBuilder() as! Proto2ArenaUnittest.ArenaMessage.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Proto2ArenaUnittest.ArenaMessageBuilder()
+      return Proto2ArenaUnittest.ArenaMessage.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return Proto2ArenaUnittest.ArenaMessage.builder()
     }
-    internal func toBuilder() -> Proto2ArenaUnittest.ArenaMessageBuilder {
+    internal func toBuilder() -> Proto2ArenaUnittest.ArenaMessage.Builder {
       return Proto2ArenaUnittest.ArenaMessage.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Proto2ArenaUnittest.ArenaMessage) -> Proto2ArenaUnittest.ArenaMessageBuilder {
+    internal class func builderWithPrototype(prototype:Proto2ArenaUnittest.ArenaMessage) -> Proto2ArenaUnittest.ArenaMessage.Builder {
       return Proto2ArenaUnittest.ArenaMessage.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -347,112 +347,112 @@ internal extension Proto2ArenaUnittest {
     }
     //Meta information declaration end
 
-  }
-
-  final internal class ArenaMessageBuilder : GeneratedMessageBuilder {
-    private var builderResult:Proto2ArenaUnittest.ArenaMessage = Proto2ArenaUnittest.ArenaMessage()
-    internal func getMessage() -> Proto2ArenaUnittest.ArenaMessage {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var repeatedNestedMessage:Array<Proto2ArenaUnittest.NestedMessage> {
-         get {
-             return builderResult.repeatedNestedMessage
-         }
-         set (value) {
-             builderResult.repeatedNestedMessage = value
-         }
-    }
-    func setRepeatedNestedMessage(value:Array<Proto2ArenaUnittest.NestedMessage>) -> Proto2ArenaUnittest.ArenaMessageBuilder {
-      self.repeatedNestedMessage = value
-      return self
-    }
-    internal func clearRepeatedNestedMessage() -> Proto2ArenaUnittest.ArenaMessageBuilder {
-      builderResult.repeatedNestedMessage.removeAll(keepCapacity: false)
-      return self
-    }
-    var repeatedImportNoArenaMessage:Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage> {
-         get {
-             return builderResult.repeatedImportNoArenaMessage
-         }
-         set (value) {
-             builderResult.repeatedImportNoArenaMessage = value
-         }
-    }
-    func setRepeatedImportNoArenaMessage(value:Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage>) -> Proto2ArenaUnittest.ArenaMessageBuilder {
-      self.repeatedImportNoArenaMessage = value
-      return self
-    }
-    internal func clearRepeatedImportNoArenaMessage() -> Proto2ArenaUnittest.ArenaMessageBuilder {
-      builderResult.repeatedImportNoArenaMessage.removeAll(keepCapacity: false)
-      return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> Proto2ArenaUnittest.ArenaMessageBuilder {
-      builderResult = Proto2ArenaUnittest.ArenaMessage()
-      return self
-    }
-    internal override func clone() -> Proto2ArenaUnittest.ArenaMessageBuilder {
-      return Proto2ArenaUnittest.ArenaMessage.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> Proto2ArenaUnittest.ArenaMessage {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> Proto2ArenaUnittest.ArenaMessage {
-      var returnMe:Proto2ArenaUnittest.ArenaMessage = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:Proto2ArenaUnittest.ArenaMessage) -> Proto2ArenaUnittest.ArenaMessageBuilder {
-      if other == Proto2ArenaUnittest.ArenaMessage() {
-       return self
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:Proto2ArenaUnittest.ArenaMessage = Proto2ArenaUnittest.ArenaMessage()
+      internal func getMessage() -> Proto2ArenaUnittest.ArenaMessage {
+          return builderResult
       }
-      if !other.repeatedNestedMessage.isEmpty  {
-         builderResult.repeatedNestedMessage += other.repeatedNestedMessage
+
+      required override internal init () {
+         super.init()
       }
-      if !other.repeatedImportNoArenaMessage.isEmpty  {
-         builderResult.repeatedImportNoArenaMessage += other.repeatedImportNoArenaMessage
+      var repeatedNestedMessage:Array<Proto2ArenaUnittest.NestedMessage> {
+           get {
+               return builderResult.repeatedNestedMessage
+           }
+           set (value) {
+               builderResult.repeatedNestedMessage = value
+           }
       }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2ArenaUnittest.ArenaMessageBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.ArenaMessageBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      func setRepeatedNestedMessage(value:Array<Proto2ArenaUnittest.NestedMessage>) -> Proto2ArenaUnittest.ArenaMessage.Builder {
+        self.repeatedNestedMessage = value
+        return self
+      }
+      internal func clearRepeatedNestedMessage() -> Proto2ArenaUnittest.ArenaMessage.Builder {
+        builderResult.repeatedNestedMessage.removeAll(keepCapacity: false)
+        return self
+      }
+      var repeatedImportNoArenaMessage:Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage> {
+           get {
+               return builderResult.repeatedImportNoArenaMessage
+           }
+           set (value) {
+               builderResult.repeatedImportNoArenaMessage = value
+           }
+      }
+      func setRepeatedImportNoArenaMessage(value:Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage>) -> Proto2ArenaUnittest.ArenaMessage.Builder {
+        self.repeatedImportNoArenaMessage = value
+        return self
+      }
+      internal func clearRepeatedImportNoArenaMessage() -> Proto2ArenaUnittest.ArenaMessage.Builder {
+        builderResult.repeatedImportNoArenaMessage.removeAll(keepCapacity: false)
+        return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> Proto2ArenaUnittest.ArenaMessage.Builder {
+        builderResult = Proto2ArenaUnittest.ArenaMessage()
+        return self
+      }
+      internal override func clone() -> Proto2ArenaUnittest.ArenaMessage.Builder {
+        return Proto2ArenaUnittest.ArenaMessage.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> Proto2ArenaUnittest.ArenaMessage {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> Proto2ArenaUnittest.ArenaMessage {
+        var returnMe:Proto2ArenaUnittest.ArenaMessage = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:Proto2ArenaUnittest.ArenaMessage) -> Proto2ArenaUnittest.ArenaMessage.Builder {
+        if other == Proto2ArenaUnittest.ArenaMessage() {
+         return self
+        }
+        if !other.repeatedNestedMessage.isEmpty  {
+           builderResult.repeatedNestedMessage += other.repeatedNestedMessage
+        }
+        if !other.repeatedImportNoArenaMessage.isEmpty  {
+           builderResult.repeatedImportNoArenaMessage += other.repeatedImportNoArenaMessage
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2ArenaUnittest.ArenaMessage.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.ArenaMessage.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 10 :
-          var subBuilder = Proto2ArenaUnittest.NestedMessage.builder()
-          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-          repeatedNestedMessage += [subBuilder.buildPartial()]
+          case 10 :
+            var subBuilder = Proto2ArenaUnittest.NestedMessage.builder()
+            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            repeatedNestedMessage += [subBuilder.buildPartial()]
 
-        case 18 :
-          var subBuilder = Proto2ArenaUnittest.ImportNoArenaNestedMessage.builder()
-          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-          repeatedImportNoArenaMessage += [subBuilder.buildPartial()]
+          case 18 :
+            var subBuilder = Proto2ArenaUnittest.ImportNoArenaNestedMessage.builder()
+            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            repeatedImportNoArenaMessage += [subBuilder.buildPartial()]
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

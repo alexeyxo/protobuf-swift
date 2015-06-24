@@ -242,22 +242,22 @@ internal extension Proto2PreserveUnknownEnumUnittest {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessage {
       return Proto2PreserveUnknownEnumUnittest.MyMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-      return Proto2PreserveUnknownEnumUnittest.MyMessage.classBuilder() as! Proto2PreserveUnknownEnumUnittest.MyMessageBuilder
+    internal class func builder() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+      return Proto2PreserveUnknownEnumUnittest.MyMessage.classBuilder() as! Proto2PreserveUnknownEnumUnittest.MyMessage.Builder
     }
-    internal func builder() -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-      return classBuilder() as! Proto2PreserveUnknownEnumUnittest.MyMessageBuilder
+    internal func builder() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+      return classBuilder() as! Proto2PreserveUnknownEnumUnittest.MyMessage.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Proto2PreserveUnknownEnumUnittest.MyMessageBuilder()
+      return Proto2PreserveUnknownEnumUnittest.MyMessage.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return Proto2PreserveUnknownEnumUnittest.MyMessage.builder()
     }
-    internal func toBuilder() -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
+    internal func toBuilder() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
       return Proto2PreserveUnknownEnumUnittest.MyMessage.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Proto2PreserveUnknownEnumUnittest.MyMessage) -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
+    internal class func builderWithPrototype(prototype:Proto2PreserveUnknownEnumUnittest.MyMessage) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
       return Proto2PreserveUnknownEnumUnittest.MyMessage.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -319,225 +319,225 @@ internal extension Proto2PreserveUnknownEnumUnittest {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:Proto2PreserveUnknownEnumUnittest.MyMessage = Proto2PreserveUnknownEnumUnittest.MyMessage()
+      internal func getMessage() -> Proto2PreserveUnknownEnumUnittest.MyMessage {
+          return builderResult
+      }
 
-  final internal class MyMessageBuilder : GeneratedMessageBuilder {
-    private var builderResult:Proto2PreserveUnknownEnumUnittest.MyMessage = Proto2PreserveUnknownEnumUnittest.MyMessage()
-    internal func getMessage() -> Proto2PreserveUnknownEnumUnittest.MyMessage {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-      var hasE:Bool{
-          get {
-              return builderResult.hasE
-          }
+      required override internal init () {
+         super.init()
       }
-      var e:Proto2PreserveUnknownEnumUnittest.MyEnum {
-          get {
-              return builderResult.e
-          }
-          set (value) {
-              builderResult.hasE = true
-              builderResult.e = value
-          }
-      }
-      internal func setE(value:Proto2PreserveUnknownEnumUnittest.MyEnum) -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-        self.e = value
-        return self
-      }
-      internal func clearE() -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-         builderResult.hasE = false
-         builderResult.e = .Foo
-         return self
-      }
-    var repeatedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnum> {
-        get {
-            return builderResult.repeatedE
+        var hasE:Bool{
+            get {
+                return builderResult.hasE
+            }
         }
-        set (value) {
-            builderResult.repeatedE = value
+        var e:Proto2PreserveUnknownEnumUnittest.MyEnum {
+            get {
+                return builderResult.e
+            }
+            set (value) {
+                builderResult.hasE = true
+                builderResult.e = value
+            }
         }
-    }
-    func setRepeatedE(value:Array<Proto2PreserveUnknownEnumUnittest.MyEnum>) -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-      self.repeatedE = value
-      return self
-    }
-    internal func clearRepeatedE() -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-      builderResult.repeatedE.removeAll(keepCapacity: false)
-      return self
-    }
-    var repeatedPackedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnum> {
-        get {
-            return builderResult.repeatedPackedE
-        }
-        set (value) {
-            builderResult.repeatedPackedE = value
-        }
-    }
-    func setRepeatedPackedE(value:Array<Proto2PreserveUnknownEnumUnittest.MyEnum>) -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-      self.repeatedPackedE = value
-      return self
-    }
-    internal func clearRepeatedPackedE() -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-      builderResult.repeatedPackedE.removeAll(keepCapacity: false)
-      return self
-    }
-      var hasOneofE1:Bool{
-          get {
-              return builderResult.hasOneofE1
-          }
-      }
-      var oneofE1:Proto2PreserveUnknownEnumUnittest.MyEnum {
-          get {
-              return builderResult.oneofE1
-          }
-          set (value) {
-              builderResult.hasOneofE1 = true
-              builderResult.oneofE1 = value
-          }
-      }
-      internal func setOneofE1(value:Proto2PreserveUnknownEnumUnittest.MyEnum) -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-        self.oneofE1 = value
-        return self
-      }
-      internal func clearOneofE1() -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-         builderResult.hasOneofE1 = false
-         builderResult.oneofE1 = .Foo
-         return self
-      }
-      var hasOneofE2:Bool{
-          get {
-              return builderResult.hasOneofE2
-          }
-      }
-      var oneofE2:Proto2PreserveUnknownEnumUnittest.MyEnum {
-          get {
-              return builderResult.oneofE2
-          }
-          set (value) {
-              builderResult.hasOneofE2 = true
-              builderResult.oneofE2 = value
-          }
-      }
-      internal func setOneofE2(value:Proto2PreserveUnknownEnumUnittest.MyEnum) -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-        self.oneofE2 = value
-        return self
-      }
-      internal func clearOneofE2() -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-         builderResult.hasOneofE2 = false
-         builderResult.oneofE2 = .Foo
-         return self
-      }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-      builderResult = Proto2PreserveUnknownEnumUnittest.MyMessage()
-      return self
-    }
-    internal override func clone() -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-      return Proto2PreserveUnknownEnumUnittest.MyMessage.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> Proto2PreserveUnknownEnumUnittest.MyMessage {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> Proto2PreserveUnknownEnumUnittest.MyMessage {
-      var returnMe:Proto2PreserveUnknownEnumUnittest.MyMessage = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:Proto2PreserveUnknownEnumUnittest.MyMessage) -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-      if other == Proto2PreserveUnknownEnumUnittest.MyMessage() {
-       return self
-      }
-      if other.hasE {
-           e = other.e
-      }
-      if !other.repeatedE.isEmpty {
-         builderResult.repeatedE += other.repeatedE
-      }
-      if !other.repeatedPackedE.isEmpty {
-         builderResult.repeatedPackedE += other.repeatedPackedE
-      }
-      if other.hasOneofE1 {
-           oneofE1 = other.oneofE1
-      }
-      if other.hasOneofE2 {
-           oneofE2 = other.oneofE2
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessageBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
+        internal func setE(value:Proto2PreserveUnknownEnumUnittest.MyEnum) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+          self.e = value
           return self
-
-        case 8 :
-          let valueInte = input.readEnum()
-          if let enumse = Proto2PreserveUnknownEnumUnittest.MyEnum(rawValue:valueInte){
-               e = enumse
-          } else {
-               unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueInte))
+        }
+        internal func clearE() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+           builderResult.hasE = false
+           builderResult.e = .Foo
+           return self
+        }
+      var repeatedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnum> {
+          get {
+              return builderResult.repeatedE
           }
-
-        case 16 :
-          let valueIntrepeatedE = input.readEnum()
-          if let enumsrepeatedE = Proto2PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntrepeatedE) {
-               builderResult.repeatedE += [enumsrepeatedE]
-          } else {
-               unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntrepeatedE))
+          set (value) {
+              builderResult.repeatedE = value
           }
-
-        case 26 :
-          var length:Int32 = input.readRawVarint32()
-          var oldLimit:Int32 = input.pushLimit(length)
-          while input.bytesUntilLimit() > 0 {
-          let valueIntrepeatedPackedE = input.readEnum()
-          if let enumsrepeatedPackedE = Proto2PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntrepeatedPackedE) {
-               builderResult.repeatedPackedE += [enumsrepeatedPackedE]
-          } else {
-               unknownFieldsBuilder.mergeVarintField(3, value:Int64(valueIntrepeatedPackedE))
+      }
+      func setRepeatedE(value:Array<Proto2PreserveUnknownEnumUnittest.MyEnum>) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+        self.repeatedE = value
+        return self
+      }
+      internal func clearRepeatedE() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+        builderResult.repeatedE.removeAll(keepCapacity: false)
+        return self
+      }
+      var repeatedPackedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnum> {
+          get {
+              return builderResult.repeatedPackedE
           }
+          set (value) {
+              builderResult.repeatedPackedE = value
           }
-          input.popLimit(oldLimit)
+      }
+      func setRepeatedPackedE(value:Array<Proto2PreserveUnknownEnumUnittest.MyEnum>) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+        self.repeatedPackedE = value
+        return self
+      }
+      internal func clearRepeatedPackedE() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+        builderResult.repeatedPackedE.removeAll(keepCapacity: false)
+        return self
+      }
+        var hasOneofE1:Bool{
+            get {
+                return builderResult.hasOneofE1
+            }
+        }
+        var oneofE1:Proto2PreserveUnknownEnumUnittest.MyEnum {
+            get {
+                return builderResult.oneofE1
+            }
+            set (value) {
+                builderResult.hasOneofE1 = true
+                builderResult.oneofE1 = value
+            }
+        }
+        internal func setOneofE1(value:Proto2PreserveUnknownEnumUnittest.MyEnum) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+          self.oneofE1 = value
+          return self
+        }
+        internal func clearOneofE1() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+           builderResult.hasOneofE1 = false
+           builderResult.oneofE1 = .Foo
+           return self
+        }
+        var hasOneofE2:Bool{
+            get {
+                return builderResult.hasOneofE2
+            }
+        }
+        var oneofE2:Proto2PreserveUnknownEnumUnittest.MyEnum {
+            get {
+                return builderResult.oneofE2
+            }
+            set (value) {
+                builderResult.hasOneofE2 = true
+                builderResult.oneofE2 = value
+            }
+        }
+        internal func setOneofE2(value:Proto2PreserveUnknownEnumUnittest.MyEnum) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+          self.oneofE2 = value
+          return self
+        }
+        internal func clearOneofE2() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+           builderResult.hasOneofE2 = false
+           builderResult.oneofE2 = .Foo
+           return self
+        }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+        builderResult = Proto2PreserveUnknownEnumUnittest.MyMessage()
+        return self
+      }
+      internal override func clone() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+        return Proto2PreserveUnknownEnumUnittest.MyMessage.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> Proto2PreserveUnknownEnumUnittest.MyMessage {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> Proto2PreserveUnknownEnumUnittest.MyMessage {
+        var returnMe:Proto2PreserveUnknownEnumUnittest.MyMessage = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:Proto2PreserveUnknownEnumUnittest.MyMessage) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+        if other == Proto2PreserveUnknownEnumUnittest.MyMessage() {
+         return self
+        }
+        if other.hasE {
+             e = other.e
+        }
+        if !other.repeatedE.isEmpty {
+           builderResult.repeatedE += other.repeatedE
+        }
+        if !other.repeatedPackedE.isEmpty {
+           builderResult.repeatedPackedE += other.repeatedPackedE
+        }
+        if other.hasOneofE1 {
+             oneofE1 = other.oneofE1
+        }
+        if other.hasOneofE2 {
+             oneofE2 = other.oneofE2
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 32 :
-          let valueIntoneofE1 = input.readEnum()
-          if let enumsoneofE1 = Proto2PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntoneofE1){
-               oneofE1 = enumsoneofE1
-          } else {
-               unknownFieldsBuilder.mergeVarintField(4, value:Int64(valueIntoneofE1))
-          }
+          case 8 :
+            let valueInte = input.readEnum()
+            if let enumse = Proto2PreserveUnknownEnumUnittest.MyEnum(rawValue:valueInte){
+                 e = enumse
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueInte))
+            }
 
-        case 40 :
-          let valueIntoneofE2 = input.readEnum()
-          if let enumsoneofE2 = Proto2PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntoneofE2){
-               oneofE2 = enumsoneofE2
-          } else {
-               unknownFieldsBuilder.mergeVarintField(5, value:Int64(valueIntoneofE2))
-          }
+          case 16 :
+            let valueIntrepeatedE = input.readEnum()
+            if let enumsrepeatedE = Proto2PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntrepeatedE) {
+                 builderResult.repeatedE += [enumsrepeatedE]
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntrepeatedE))
+            }
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          case 26 :
+            var length:Int32 = input.readRawVarint32()
+            var oldLimit:Int32 = input.pushLimit(length)
+            while input.bytesUntilLimit() > 0 {
+            let valueIntrepeatedPackedE = input.readEnum()
+            if let enumsrepeatedPackedE = Proto2PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntrepeatedPackedE) {
+                 builderResult.repeatedPackedE += [enumsrepeatedPackedE]
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(3, value:Int64(valueIntrepeatedPackedE))
+            }
+            }
+            input.popLimit(oldLimit)
+
+          case 32 :
+            let valueIntoneofE1 = input.readEnum()
+            if let enumsoneofE1 = Proto2PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntoneofE1){
+                 oneofE1 = enumsoneofE1
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(4, value:Int64(valueIntoneofE1))
+            }
+
+          case 40 :
+            let valueIntoneofE2 = input.readEnum()
+            if let enumsoneofE2 = Proto2PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntoneofE2){
+                 oneofE2 = enumsoneofE2
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(5, value:Int64(valueIntoneofE2))
+            }
+
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
   final internal class MyMessagePlusExtra : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -704,22 +704,22 @@ internal extension Proto2PreserveUnknownEnumUnittest {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
       return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.classBuilder() as! Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder
+    internal class func builder() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.classBuilder() as! Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder
     }
-    internal func builder() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-      return classBuilder() as! Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder
+    internal func builder() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+      return classBuilder() as! Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder()
+      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder()
     }
-    internal func toBuilder() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
+    internal func toBuilder() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
       return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
+    internal class func builderWithPrototype(prototype:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
       return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -781,225 +781,225 @@ internal extension Proto2PreserveUnknownEnumUnittest {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra = Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra()
+      internal func getMessage() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+          return builderResult
+      }
 
-  final internal class MyMessagePlusExtraBuilder : GeneratedMessageBuilder {
-    private var builderResult:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra = Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra()
-    internal func getMessage() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-      var hasE:Bool{
-          get {
-              return builderResult.hasE
-          }
+      required override internal init () {
+         super.init()
       }
-      var e:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra {
-          get {
-              return builderResult.e
-          }
-          set (value) {
-              builderResult.hasE = true
-              builderResult.e = value
-          }
-      }
-      internal func setE(value:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-        self.e = value
-        return self
-      }
-      internal func clearE() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-         builderResult.hasE = false
-         builderResult.e = .EFoo
-         return self
-      }
-    var repeatedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra> {
-        get {
-            return builderResult.repeatedE
+        var hasE:Bool{
+            get {
+                return builderResult.hasE
+            }
         }
-        set (value) {
-            builderResult.repeatedE = value
+        var e:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra {
+            get {
+                return builderResult.e
+            }
+            set (value) {
+                builderResult.hasE = true
+                builderResult.e = value
+            }
         }
-    }
-    func setRepeatedE(value:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-      self.repeatedE = value
-      return self
-    }
-    internal func clearRepeatedE() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-      builderResult.repeatedE.removeAll(keepCapacity: false)
-      return self
-    }
-    var repeatedPackedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra> {
-        get {
-            return builderResult.repeatedPackedE
-        }
-        set (value) {
-            builderResult.repeatedPackedE = value
-        }
-    }
-    func setRepeatedPackedE(value:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-      self.repeatedPackedE = value
-      return self
-    }
-    internal func clearRepeatedPackedE() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-      builderResult.repeatedPackedE.removeAll(keepCapacity: false)
-      return self
-    }
-      var hasOneofE1:Bool{
-          get {
-              return builderResult.hasOneofE1
-          }
-      }
-      var oneofE1:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra {
-          get {
-              return builderResult.oneofE1
-          }
-          set (value) {
-              builderResult.hasOneofE1 = true
-              builderResult.oneofE1 = value
-          }
-      }
-      internal func setOneofE1(value:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-        self.oneofE1 = value
-        return self
-      }
-      internal func clearOneofE1() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-         builderResult.hasOneofE1 = false
-         builderResult.oneofE1 = .EFoo
-         return self
-      }
-      var hasOneofE2:Bool{
-          get {
-              return builderResult.hasOneofE2
-          }
-      }
-      var oneofE2:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra {
-          get {
-              return builderResult.oneofE2
-          }
-          set (value) {
-              builderResult.hasOneofE2 = true
-              builderResult.oneofE2 = value
-          }
-      }
-      internal func setOneofE2(value:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-        self.oneofE2 = value
-        return self
-      }
-      internal func clearOneofE2() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-         builderResult.hasOneofE2 = false
-         builderResult.oneofE2 = .EFoo
-         return self
-      }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-      builderResult = Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra()
-      return self
-    }
-    internal override func clone() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-      return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      var returnMe:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-      if other == Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra() {
-       return self
-      }
-      if other.hasE {
-           e = other.e
-      }
-      if !other.repeatedE.isEmpty {
-         builderResult.repeatedE += other.repeatedE
-      }
-      if !other.repeatedPackedE.isEmpty {
-         builderResult.repeatedPackedE += other.repeatedPackedE
-      }
-      if other.hasOneofE1 {
-           oneofE1 = other.oneofE1
-      }
-      if other.hasOneofE2 {
-           oneofE2 = other.oneofE2
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtraBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
+        internal func setE(value:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+          self.e = value
           return self
-
-        case 8 :
-          let valueInte = input.readEnum()
-          if let enumse = Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueInte){
-               e = enumse
-          } else {
-               unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueInte))
+        }
+        internal func clearE() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+           builderResult.hasE = false
+           builderResult.e = .EFoo
+           return self
+        }
+      var repeatedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra> {
+          get {
+              return builderResult.repeatedE
           }
-
-        case 16 :
-          let valueIntrepeatedE = input.readEnum()
-          if let enumsrepeatedE = Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedE) {
-               builderResult.repeatedE += [enumsrepeatedE]
-          } else {
-               unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntrepeatedE))
+          set (value) {
+              builderResult.repeatedE = value
           }
-
-        case 26 :
-          var length:Int32 = input.readRawVarint32()
-          var oldLimit:Int32 = input.pushLimit(length)
-          while input.bytesUntilLimit() > 0 {
-          let valueIntrepeatedPackedE = input.readEnum()
-          if let enumsrepeatedPackedE = Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedPackedE) {
-               builderResult.repeatedPackedE += [enumsrepeatedPackedE]
-          } else {
-               unknownFieldsBuilder.mergeVarintField(3, value:Int64(valueIntrepeatedPackedE))
+      }
+      func setRepeatedE(value:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        self.repeatedE = value
+        return self
+      }
+      internal func clearRepeatedE() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        builderResult.repeatedE.removeAll(keepCapacity: false)
+        return self
+      }
+      var repeatedPackedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra> {
+          get {
+              return builderResult.repeatedPackedE
           }
+          set (value) {
+              builderResult.repeatedPackedE = value
           }
-          input.popLimit(oldLimit)
+      }
+      func setRepeatedPackedE(value:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        self.repeatedPackedE = value
+        return self
+      }
+      internal func clearRepeatedPackedE() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        builderResult.repeatedPackedE.removeAll(keepCapacity: false)
+        return self
+      }
+        var hasOneofE1:Bool{
+            get {
+                return builderResult.hasOneofE1
+            }
+        }
+        var oneofE1:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra {
+            get {
+                return builderResult.oneofE1
+            }
+            set (value) {
+                builderResult.hasOneofE1 = true
+                builderResult.oneofE1 = value
+            }
+        }
+        internal func setOneofE1(value:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+          self.oneofE1 = value
+          return self
+        }
+        internal func clearOneofE1() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+           builderResult.hasOneofE1 = false
+           builderResult.oneofE1 = .EFoo
+           return self
+        }
+        var hasOneofE2:Bool{
+            get {
+                return builderResult.hasOneofE2
+            }
+        }
+        var oneofE2:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra {
+            get {
+                return builderResult.oneofE2
+            }
+            set (value) {
+                builderResult.hasOneofE2 = true
+                builderResult.oneofE2 = value
+            }
+        }
+        internal func setOneofE2(value:Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+          self.oneofE2 = value
+          return self
+        }
+        internal func clearOneofE2() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+           builderResult.hasOneofE2 = false
+           builderResult.oneofE2 = .EFoo
+           return self
+        }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        builderResult = Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra()
+        return self
+      }
+      internal override func clone() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        return Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+        var returnMe:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        if other == Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra() {
+         return self
+        }
+        if other.hasE {
+             e = other.e
+        }
+        if !other.repeatedE.isEmpty {
+           builderResult.repeatedE += other.repeatedE
+        }
+        if !other.repeatedPackedE.isEmpty {
+           builderResult.repeatedPackedE += other.repeatedPackedE
+        }
+        if other.hasOneofE1 {
+             oneofE1 = other.oneofE1
+        }
+        if other.hasOneofE2 {
+             oneofE2 = other.oneofE2
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 32 :
-          let valueIntoneofE1 = input.readEnum()
-          if let enumsoneofE1 = Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntoneofE1){
-               oneofE1 = enumsoneofE1
-          } else {
-               unknownFieldsBuilder.mergeVarintField(4, value:Int64(valueIntoneofE1))
-          }
+          case 8 :
+            let valueInte = input.readEnum()
+            if let enumse = Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueInte){
+                 e = enumse
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueInte))
+            }
 
-        case 40 :
-          let valueIntoneofE2 = input.readEnum()
-          if let enumsoneofE2 = Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntoneofE2){
-               oneofE2 = enumsoneofE2
-          } else {
-               unknownFieldsBuilder.mergeVarintField(5, value:Int64(valueIntoneofE2))
-          }
+          case 16 :
+            let valueIntrepeatedE = input.readEnum()
+            if let enumsrepeatedE = Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedE) {
+                 builderResult.repeatedE += [enumsrepeatedE]
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntrepeatedE))
+            }
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          case 26 :
+            var length:Int32 = input.readRawVarint32()
+            var oldLimit:Int32 = input.pushLimit(length)
+            while input.bytesUntilLimit() > 0 {
+            let valueIntrepeatedPackedE = input.readEnum()
+            if let enumsrepeatedPackedE = Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedPackedE) {
+                 builderResult.repeatedPackedE += [enumsrepeatedPackedE]
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(3, value:Int64(valueIntrepeatedPackedE))
+            }
+            }
+            input.popLimit(oldLimit)
+
+          case 32 :
+            let valueIntoneofE1 = input.readEnum()
+            if let enumsoneofE1 = Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntoneofE1){
+                 oneofE1 = enumsoneofE1
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(4, value:Int64(valueIntoneofE1))
+            }
+
+          case 40 :
+            let valueIntoneofE2 = input.readEnum()
+            if let enumsoneofE2 = Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntoneofE2){
+                 oneofE2 = enumsoneofE2
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(5, value:Int64(valueIntoneofE2))
+            }
+
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

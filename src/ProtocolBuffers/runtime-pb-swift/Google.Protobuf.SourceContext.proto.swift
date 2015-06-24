@@ -82,22 +82,22 @@ internal extension Google.Protobuf {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceContext {
       return Google.Protobuf.SourceContext.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Google.Protobuf.SourceContextBuilder {
-      return Google.Protobuf.SourceContext.classBuilder() as! Google.Protobuf.SourceContextBuilder
+    internal class func builder() -> Google.Protobuf.SourceContext.Builder {
+      return Google.Protobuf.SourceContext.classBuilder() as! Google.Protobuf.SourceContext.Builder
     }
-    internal func builder() -> Google.Protobuf.SourceContextBuilder {
-      return classBuilder() as! Google.Protobuf.SourceContextBuilder
+    internal func builder() -> Google.Protobuf.SourceContext.Builder {
+      return classBuilder() as! Google.Protobuf.SourceContext.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.SourceContextBuilder()
+      return Google.Protobuf.SourceContext.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return Google.Protobuf.SourceContext.builder()
     }
-    internal func toBuilder() -> Google.Protobuf.SourceContextBuilder {
+    internal func toBuilder() -> Google.Protobuf.SourceContext.Builder {
       return Google.Protobuf.SourceContext.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Google.Protobuf.SourceContext) -> Google.Protobuf.SourceContextBuilder {
+    internal class func builderWithPrototype(prototype:Google.Protobuf.SourceContext) -> Google.Protobuf.SourceContext.Builder {
       return Google.Protobuf.SourceContext.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -131,93 +131,93 @@ internal extension Google.Protobuf {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:Google.Protobuf.SourceContext = Google.Protobuf.SourceContext()
+      internal func getMessage() -> Google.Protobuf.SourceContext {
+          return builderResult
+      }
 
-  final internal class SourceContextBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.SourceContext = Google.Protobuf.SourceContext()
-    internal func getMessage() -> Google.Protobuf.SourceContext {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasFileName:Bool {
-         get {
-              return builderResult.hasFileName
-         }
-    }
-    var fileName:String {
-         get {
-              return builderResult.fileName
-         }
-         set (value) {
-             builderResult.hasFileName = true
-             builderResult.fileName = value
-         }
-    }
-    func setFileName(value:String) -> Google.Protobuf.SourceContextBuilder {
-      self.fileName = value
-      return self
-    }
-    internal func clearFileName() -> Google.Protobuf.SourceContextBuilder{
-         builderResult.hasFileName = false
-         builderResult.fileName = ""
+      required override internal init () {
+         super.init()
+      }
+      var hasFileName:Bool {
+           get {
+                return builderResult.hasFileName
+           }
+      }
+      var fileName:String {
+           get {
+                return builderResult.fileName
+           }
+           set (value) {
+               builderResult.hasFileName = true
+               builderResult.fileName = value
+           }
+      }
+      func setFileName(value:String) -> Google.Protobuf.SourceContext.Builder {
+        self.fileName = value
+        return self
+      }
+      internal func clearFileName() -> Google.Protobuf.SourceContext.Builder{
+           builderResult.hasFileName = false
+           builderResult.fileName = ""
+           return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> Google.Protobuf.SourceContext.Builder {
+        builderResult = Google.Protobuf.SourceContext()
+        return self
+      }
+      internal override func clone() -> Google.Protobuf.SourceContext.Builder {
+        return Google.Protobuf.SourceContext.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> Google.Protobuf.SourceContext {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> Google.Protobuf.SourceContext {
+        var returnMe:Google.Protobuf.SourceContext = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:Google.Protobuf.SourceContext) -> Google.Protobuf.SourceContext.Builder {
+        if other == Google.Protobuf.SourceContext() {
          return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> Google.Protobuf.SourceContextBuilder {
-      builderResult = Google.Protobuf.SourceContext()
-      return self
-    }
-    internal override func clone() -> Google.Protobuf.SourceContextBuilder {
-      return Google.Protobuf.SourceContext.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> Google.Protobuf.SourceContext {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> Google.Protobuf.SourceContext {
-      var returnMe:Google.Protobuf.SourceContext = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:Google.Protobuf.SourceContext) -> Google.Protobuf.SourceContextBuilder {
-      if other == Google.Protobuf.SourceContext() {
-       return self
+        }
+        if other.hasFileName {
+             fileName = other.fileName
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      if other.hasFileName {
-           fileName = other.fileName
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SourceContext.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SourceContextBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceContextBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceContext.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 10 :
-          fileName = input.readString()
+          case 10 :
+            fileName = input.readString()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

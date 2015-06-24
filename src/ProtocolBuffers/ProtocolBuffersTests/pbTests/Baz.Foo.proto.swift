@@ -82,22 +82,22 @@ internal extension Baz {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Baz.Foo {
       return Baz.Foo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Baz.FooBuilder {
-      return Baz.Foo.classBuilder() as! Baz.FooBuilder
+    internal class func builder() -> Baz.Foo.Builder {
+      return Baz.Foo.classBuilder() as! Baz.Foo.Builder
     }
-    internal func builder() -> Baz.FooBuilder {
-      return classBuilder() as! Baz.FooBuilder
+    internal func builder() -> Baz.Foo.Builder {
+      return classBuilder() as! Baz.Foo.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Baz.FooBuilder()
+      return Baz.Foo.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return Baz.Foo.builder()
     }
-    internal func toBuilder() -> Baz.FooBuilder {
+    internal func toBuilder() -> Baz.Foo.Builder {
       return Baz.Foo.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Baz.Foo) -> Baz.FooBuilder {
+    internal class func builderWithPrototype(prototype:Baz.Foo) -> Baz.Foo.Builder {
       return Baz.Foo.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -131,93 +131,93 @@ internal extension Baz {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:Baz.Foo = Baz.Foo()
+      internal func getMessage() -> Baz.Foo {
+          return builderResult
+      }
 
-  final internal class FooBuilder : GeneratedMessageBuilder {
-    private var builderResult:Baz.Foo = Baz.Foo()
-    internal func getMessage() -> Baz.Foo {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasHello:Bool {
-         get {
-              return builderResult.hasHello
-         }
-    }
-    var hello:String {
-         get {
-              return builderResult.hello
-         }
-         set (value) {
-             builderResult.hasHello = true
-             builderResult.hello = value
-         }
-    }
-    func setHello(value:String) -> Baz.FooBuilder {
-      self.hello = value
-      return self
-    }
-    internal func clearHello() -> Baz.FooBuilder{
-         builderResult.hasHello = false
-         builderResult.hello = ""
+      required override internal init () {
+         super.init()
+      }
+      var hasHello:Bool {
+           get {
+                return builderResult.hasHello
+           }
+      }
+      var hello:String {
+           get {
+                return builderResult.hello
+           }
+           set (value) {
+               builderResult.hasHello = true
+               builderResult.hello = value
+           }
+      }
+      func setHello(value:String) -> Baz.Foo.Builder {
+        self.hello = value
+        return self
+      }
+      internal func clearHello() -> Baz.Foo.Builder{
+           builderResult.hasHello = false
+           builderResult.hello = ""
+           return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> Baz.Foo.Builder {
+        builderResult = Baz.Foo()
+        return self
+      }
+      internal override func clone() -> Baz.Foo.Builder {
+        return Baz.Foo.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> Baz.Foo {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> Baz.Foo {
+        var returnMe:Baz.Foo = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:Baz.Foo) -> Baz.Foo.Builder {
+        if other == Baz.Foo() {
          return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> Baz.FooBuilder {
-      builderResult = Baz.Foo()
-      return self
-    }
-    internal override func clone() -> Baz.FooBuilder {
-      return Baz.Foo.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> Baz.Foo {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> Baz.Foo {
-      var returnMe:Baz.Foo = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:Baz.Foo) -> Baz.FooBuilder {
-      if other == Baz.Foo() {
-       return self
+        }
+        if other.hasHello {
+             hello = other.hello
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      if other.hasHello {
-           hello = other.hello
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Baz.Foo.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Baz.FooBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Baz.FooBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Baz.Foo.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 10 :
-          hello = input.readString()
+          case 10 :
+            hello = input.readString()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

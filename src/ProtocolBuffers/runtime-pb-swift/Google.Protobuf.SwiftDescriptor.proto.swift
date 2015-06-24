@@ -123,22 +123,22 @@ public extension Google.Protobuf {
     public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SwiftFileOptions {
       return Google.Protobuf.SwiftFileOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func builder() -> Google.Protobuf.SwiftFileOptionsBuilder {
-      return Google.Protobuf.SwiftFileOptions.classBuilder() as! Google.Protobuf.SwiftFileOptionsBuilder
+    public class func builder() -> Google.Protobuf.SwiftFileOptions.Builder {
+      return Google.Protobuf.SwiftFileOptions.classBuilder() as! Google.Protobuf.SwiftFileOptions.Builder
     }
-    public func builder() -> Google.Protobuf.SwiftFileOptionsBuilder {
-      return classBuilder() as! Google.Protobuf.SwiftFileOptionsBuilder
+    public func builder() -> Google.Protobuf.SwiftFileOptions.Builder {
+      return classBuilder() as! Google.Protobuf.SwiftFileOptions.Builder
     }
     public override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.SwiftFileOptionsBuilder()
+      return Google.Protobuf.SwiftFileOptions.Builder()
     }
     public override func classBuilder() -> MessageBuilder {
       return Google.Protobuf.SwiftFileOptions.builder()
     }
-    public func toBuilder() -> Google.Protobuf.SwiftFileOptionsBuilder {
+    public func toBuilder() -> Google.Protobuf.SwiftFileOptions.Builder {
       return Google.Protobuf.SwiftFileOptions.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.SwiftFileOptions) -> Google.Protobuf.SwiftFileOptionsBuilder {
+    public class func builderWithPrototype(prototype:Google.Protobuf.SwiftFileOptions) -> Google.Protobuf.SwiftFileOptions.Builder {
       return Google.Protobuf.SwiftFileOptions.builder().mergeFrom(prototype)
     }
     override public func writeDescriptionTo(inout output:String, indent:String) {
@@ -184,156 +184,156 @@ public extension Google.Protobuf {
     }
     //Meta information declaration end
 
-  }
-
-  final public class SwiftFileOptionsBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.SwiftFileOptions = Google.Protobuf.SwiftFileOptions()
-    public func getMessage() -> Google.Protobuf.SwiftFileOptions {
-        return builderResult
-    }
-
-    required override public init () {
-       super.init()
-    }
-    public var hasClassPrefix:Bool {
-         get {
-              return builderResult.hasClassPrefix
-         }
-    }
-    public var classPrefix:String {
-         get {
-              return builderResult.classPrefix
-         }
-         set (value) {
-             builderResult.hasClassPrefix = true
-             builderResult.classPrefix = value
-         }
-    }
-    public func setClassPrefix(value:String) -> Google.Protobuf.SwiftFileOptionsBuilder {
-      self.classPrefix = value
-      return self
-    }
-    public func clearClassPrefix() -> Google.Protobuf.SwiftFileOptionsBuilder{
-         builderResult.hasClassPrefix = false
-         builderResult.classPrefix = ""
-         return self
-    }
-      public var hasEntitiesAccessControl:Bool{
-          get {
-              return builderResult.hasEntitiesAccessControl
-          }
+    final public class Builder : GeneratedMessageBuilder {
+      private var builderResult:Google.Protobuf.SwiftFileOptions = Google.Protobuf.SwiftFileOptions()
+      public func getMessage() -> Google.Protobuf.SwiftFileOptions {
+          return builderResult
       }
-      public var entitiesAccessControl:Google.Protobuf.AccessControl {
-          get {
-              return builderResult.entitiesAccessControl
-          }
-          set (value) {
-              builderResult.hasEntitiesAccessControl = true
-              builderResult.entitiesAccessControl = value
-          }
+
+      required override public init () {
+         super.init()
       }
-      public func setEntitiesAccessControl(value:Google.Protobuf.AccessControl) -> Google.Protobuf.SwiftFileOptionsBuilder {
-        self.entitiesAccessControl = value
+      public var hasClassPrefix:Bool {
+           get {
+                return builderResult.hasClassPrefix
+           }
+      }
+      public var classPrefix:String {
+           get {
+                return builderResult.classPrefix
+           }
+           set (value) {
+               builderResult.hasClassPrefix = true
+               builderResult.classPrefix = value
+           }
+      }
+      public func setClassPrefix(value:String) -> Google.Protobuf.SwiftFileOptions.Builder {
+        self.classPrefix = value
         return self
       }
-      public func clearEntitiesAccessControl() -> Google.Protobuf.SwiftFileOptionsBuilder {
-         builderResult.hasEntitiesAccessControl = false
-         builderResult.entitiesAccessControl = .InternalEntities
-         return self
+      public func clearClassPrefix() -> Google.Protobuf.SwiftFileOptions.Builder{
+           builderResult.hasClassPrefix = false
+           builderResult.classPrefix = ""
+           return self
       }
-    public var hasCompileForFramework:Bool {
-         get {
-              return builderResult.hasCompileForFramework
-         }
-    }
-    public var compileForFramework:Bool {
-         get {
-              return builderResult.compileForFramework
-         }
-         set (value) {
-             builderResult.hasCompileForFramework = true
-             builderResult.compileForFramework = value
-         }
-    }
-    public func setCompileForFramework(value:Bool) -> Google.Protobuf.SwiftFileOptionsBuilder {
-      self.compileForFramework = value
-      return self
-    }
-    public func clearCompileForFramework() -> Google.Protobuf.SwiftFileOptionsBuilder{
-         builderResult.hasCompileForFramework = false
-         builderResult.compileForFramework = true
-         return self
-    }
-    override public var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    public override func clear() -> Google.Protobuf.SwiftFileOptionsBuilder {
-      builderResult = Google.Protobuf.SwiftFileOptions()
-      return self
-    }
-    public override func clone() -> Google.Protobuf.SwiftFileOptionsBuilder {
-      return Google.Protobuf.SwiftFileOptions.builderWithPrototype(builderResult)
-    }
-    public override func build() -> Google.Protobuf.SwiftFileOptions {
-         checkInitialized()
-         return buildPartial()
-    }
-    public func buildPartial() -> Google.Protobuf.SwiftFileOptions {
-      var returnMe:Google.Protobuf.SwiftFileOptions = builderResult
-      return returnMe
-    }
-    public func mergeFrom(other:Google.Protobuf.SwiftFileOptions) -> Google.Protobuf.SwiftFileOptionsBuilder {
-      if other == Google.Protobuf.SwiftFileOptions() {
-       return self
-      }
-      if other.hasClassPrefix {
-           classPrefix = other.classPrefix
-      }
-      if other.hasEntitiesAccessControl {
-           entitiesAccessControl = other.entitiesAccessControl
-      }
-      if other.hasCompileForFramework {
-           compileForFramework = other.compileForFramework
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SwiftFileOptionsBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SwiftFileOptionsBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
+        public var hasEntitiesAccessControl:Bool{
+            get {
+                return builderResult.hasEntitiesAccessControl
+            }
+        }
+        public var entitiesAccessControl:Google.Protobuf.AccessControl {
+            get {
+                return builderResult.entitiesAccessControl
+            }
+            set (value) {
+                builderResult.hasEntitiesAccessControl = true
+                builderResult.entitiesAccessControl = value
+            }
+        }
+        public func setEntitiesAccessControl(value:Google.Protobuf.AccessControl) -> Google.Protobuf.SwiftFileOptions.Builder {
+          self.entitiesAccessControl = value
           return self
+        }
+        public func clearEntitiesAccessControl() -> Google.Protobuf.SwiftFileOptions.Builder {
+           builderResult.hasEntitiesAccessControl = false
+           builderResult.entitiesAccessControl = .InternalEntities
+           return self
+        }
+      public var hasCompileForFramework:Bool {
+           get {
+                return builderResult.hasCompileForFramework
+           }
+      }
+      public var compileForFramework:Bool {
+           get {
+                return builderResult.compileForFramework
+           }
+           set (value) {
+               builderResult.hasCompileForFramework = true
+               builderResult.compileForFramework = value
+           }
+      }
+      public func setCompileForFramework(value:Bool) -> Google.Protobuf.SwiftFileOptions.Builder {
+        self.compileForFramework = value
+        return self
+      }
+      public func clearCompileForFramework() -> Google.Protobuf.SwiftFileOptions.Builder{
+           builderResult.hasCompileForFramework = false
+           builderResult.compileForFramework = true
+           return self
+      }
+      override public var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      public override func clear() -> Google.Protobuf.SwiftFileOptions.Builder {
+        builderResult = Google.Protobuf.SwiftFileOptions()
+        return self
+      }
+      public override func clone() -> Google.Protobuf.SwiftFileOptions.Builder {
+        return Google.Protobuf.SwiftFileOptions.builderWithPrototype(builderResult)
+      }
+      public override func build() -> Google.Protobuf.SwiftFileOptions {
+           checkInitialized()
+           return buildPartial()
+      }
+      public func buildPartial() -> Google.Protobuf.SwiftFileOptions {
+        var returnMe:Google.Protobuf.SwiftFileOptions = builderResult
+        return returnMe
+      }
+      public func mergeFrom(other:Google.Protobuf.SwiftFileOptions) -> Google.Protobuf.SwiftFileOptions.Builder {
+        if other == Google.Protobuf.SwiftFileOptions() {
+         return self
+        }
+        if other.hasClassPrefix {
+             classPrefix = other.classPrefix
+        }
+        if other.hasEntitiesAccessControl {
+             entitiesAccessControl = other.entitiesAccessControl
+        }
+        if other.hasCompileForFramework {
+             compileForFramework = other.compileForFramework
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      public override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.SwiftFileOptions.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SwiftFileOptions.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 10 :
-          classPrefix = input.readString()
+          case 10 :
+            classPrefix = input.readString()
 
-        case 16 :
-          let valueIntentitiesAccessControl = input.readEnum()
-          if let enumsentitiesAccessControl = Google.Protobuf.AccessControl(rawValue:valueIntentitiesAccessControl){
-               entitiesAccessControl = enumsentitiesAccessControl
-          } else {
-               unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntentitiesAccessControl))
-          }
+          case 16 :
+            let valueIntentitiesAccessControl = input.readEnum()
+            if let enumsentitiesAccessControl = Google.Protobuf.AccessControl(rawValue:valueIntentitiesAccessControl){
+                 entitiesAccessControl = enumsentitiesAccessControl
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntentitiesAccessControl))
+            }
 
-        case 24 :
-          compileForFramework = input.readBool()
+          case 24 :
+            compileForFramework = input.readBool()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

@@ -229,22 +229,22 @@ internal extension ProtobufUnittest {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestOptimizedForSize {
       return ProtobufUnittest.TestOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      return ProtobufUnittest.TestOptimizedForSize.classBuilder() as! ProtobufUnittest.TestOptimizedForSizeBuilder
+    internal class func builder() -> ProtobufUnittest.TestOptimizedForSize.Builder {
+      return ProtobufUnittest.TestOptimizedForSize.classBuilder() as! ProtobufUnittest.TestOptimizedForSize.Builder
     }
-    internal func builder() -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      return classBuilder() as! ProtobufUnittest.TestOptimizedForSizeBuilder
+    internal func builder() -> ProtobufUnittest.TestOptimizedForSize.Builder {
+      return classBuilder() as! ProtobufUnittest.TestOptimizedForSize.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return ProtobufUnittest.TestOptimizedForSizeBuilder()
+      return ProtobufUnittest.TestOptimizedForSize.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestOptimizedForSize.builder()
     }
-    internal func toBuilder() -> ProtobufUnittest.TestOptimizedForSizeBuilder {
+    internal func toBuilder() -> ProtobufUnittest.TestOptimizedForSize.Builder {
       return ProtobufUnittest.TestOptimizedForSize.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestOptimizedForSize) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestOptimizedForSize) -> ProtobufUnittest.TestOptimizedForSize.Builder {
       return ProtobufUnittest.TestOptimizedForSize.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -302,214 +302,214 @@ internal extension ProtobufUnittest {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : ExtendableMessageBuilder {
+      private var builderResult:ProtobufUnittest.TestOptimizedForSize = ProtobufUnittest.TestOptimizedForSize()
+      internal func getMessage() -> ProtobufUnittest.TestOptimizedForSize {
+          return builderResult
+      }
 
-  final internal class TestOptimizedForSizeBuilder : ExtendableMessageBuilder {
-    private var builderResult:ProtobufUnittest.TestOptimizedForSize = ProtobufUnittest.TestOptimizedForSize()
-    internal func getMessage() -> ProtobufUnittest.TestOptimizedForSize {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasI:Bool {
-         get {
-              return builderResult.hasI
-         }
-    }
-    var i:Int32 {
-         get {
-              return builderResult.i
-         }
-         set (value) {
-             builderResult.hasI = true
-             builderResult.i = value
-         }
-    }
-    func setI(value:Int32) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      self.i = value
-      return self
-    }
-    internal func clearI() -> ProtobufUnittest.TestOptimizedForSizeBuilder{
-         builderResult.hasI = false
-         builderResult.i = Int32(0)
+      required override internal init () {
+         super.init()
+      }
+      var hasI:Bool {
+           get {
+                return builderResult.hasI
+           }
+      }
+      var i:Int32 {
+           get {
+                return builderResult.i
+           }
+           set (value) {
+               builderResult.hasI = true
+               builderResult.i = value
+           }
+      }
+      func setI(value:Int32) -> ProtobufUnittest.TestOptimizedForSize.Builder {
+        self.i = value
+        return self
+      }
+      internal func clearI() -> ProtobufUnittest.TestOptimizedForSize.Builder{
+           builderResult.hasI = false
+           builderResult.i = Int32(0)
+           return self
+      }
+      var hasMsg:Bool {
+           get {
+               return builderResult.hasMsg
+           }
+      }
+      var msg:ProtobufUnittest.ForeignMessage! {
+           get {
+               if msgBuilder_ != nil {
+                  builderResult.msg = msgBuilder_.getMessage()
+               }
+               return builderResult.msg
+           }
+           set (value) {
+               builderResult.hasMsg = true
+               builderResult.msg = value
+           }
+      }
+      private var msgBuilder_:ProtobufUnittest.ForeignMessage.Builder! {
+           didSet {
+              builderResult.hasMsg = true
+           }
+      }
+      internal func getMsgBuilder() -> ProtobufUnittest.ForeignMessage.Builder {
+        if msgBuilder_ == nil {
+           msgBuilder_ = ProtobufUnittest.ForeignMessage.Builder()
+           builderResult.msg = msgBuilder_.getMessage()
+           if msg != nil {
+              msgBuilder_.mergeFrom(msg)
+           }
+        }
+        return msgBuilder_
+      }
+      func setMsg(value:ProtobufUnittest.ForeignMessage!) -> ProtobufUnittest.TestOptimizedForSize.Builder {
+        self.msg = value
+        return self
+      }
+      internal func mergeMsg(value:ProtobufUnittest.ForeignMessage) -> ProtobufUnittest.TestOptimizedForSize.Builder {
+        if builderResult.hasMsg {
+          builderResult.msg = ProtobufUnittest.ForeignMessage.builderWithPrototype(builderResult.msg).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.msg = value
+        }
+        builderResult.hasMsg = true
+        return self
+      }
+      internal func clearMsg() -> ProtobufUnittest.TestOptimizedForSize.Builder {
+        msgBuilder_ = nil
+        builderResult.hasMsg = false
+        builderResult.msg = nil
+        return self
+      }
+      var hasIntegerField:Bool {
+           get {
+                return builderResult.hasIntegerField
+           }
+      }
+      var integerField:Int32 {
+           get {
+                return builderResult.integerField
+           }
+           set (value) {
+               builderResult.hasIntegerField = true
+               builderResult.integerField = value
+           }
+      }
+      func setIntegerField(value:Int32) -> ProtobufUnittest.TestOptimizedForSize.Builder {
+        self.integerField = value
+        return self
+      }
+      internal func clearIntegerField() -> ProtobufUnittest.TestOptimizedForSize.Builder{
+           builderResult.hasIntegerField = false
+           builderResult.integerField = Int32(0)
+           return self
+      }
+      var hasStringField:Bool {
+           get {
+                return builderResult.hasStringField
+           }
+      }
+      var stringField:String {
+           get {
+                return builderResult.stringField
+           }
+           set (value) {
+               builderResult.hasStringField = true
+               builderResult.stringField = value
+           }
+      }
+      func setStringField(value:String) -> ProtobufUnittest.TestOptimizedForSize.Builder {
+        self.stringField = value
+        return self
+      }
+      internal func clearStringField() -> ProtobufUnittest.TestOptimizedForSize.Builder{
+           builderResult.hasStringField = false
+           builderResult.stringField = ""
+           return self
+      }
+      override internal var internalGetResult:ExtendableMessage {
+           get {
+               return builderResult
+           }
+      }
+      internal override func clear() -> ProtobufUnittest.TestOptimizedForSize.Builder {
+        builderResult = ProtobufUnittest.TestOptimizedForSize()
+        return self
+      }
+      internal override func clone() -> ProtobufUnittest.TestOptimizedForSize.Builder {
+        return ProtobufUnittest.TestOptimizedForSize.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> ProtobufUnittest.TestOptimizedForSize {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> ProtobufUnittest.TestOptimizedForSize {
+        var returnMe:ProtobufUnittest.TestOptimizedForSize = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:ProtobufUnittest.TestOptimizedForSize) -> ProtobufUnittest.TestOptimizedForSize.Builder {
+        if other == ProtobufUnittest.TestOptimizedForSize() {
          return self
-    }
-    var hasMsg:Bool {
-         get {
-             return builderResult.hasMsg
-         }
-    }
-    var msg:ProtobufUnittest.ForeignMessage! {
-         get {
-             if msgBuilder_ != nil {
-                builderResult.msg = msgBuilder_.getMessage()
-             }
-             return builderResult.msg
-         }
-         set (value) {
-             builderResult.hasMsg = true
-             builderResult.msg = value
-         }
-    }
-    private var msgBuilder_:ProtobufUnittest.ForeignMessageBuilder! {
-         didSet {
-            builderResult.hasMsg = true
-         }
-    }
-    internal func getMsgBuilder() -> ProtobufUnittest.ForeignMessageBuilder {
-      if msgBuilder_ == nil {
-         msgBuilder_ = ProtobufUnittest.ForeignMessageBuilder()
-         builderResult.msg = msgBuilder_.getMessage()
-         if msg != nil {
-            msgBuilder_.mergeFrom(msg)
-         }
+        }
+        if other.hasI {
+             i = other.i
+        }
+        if (other.hasMsg) {
+            mergeMsg(other.msg)
+        }
+        if other.hasIntegerField {
+             integerField = other.integerField
+        }
+        if other.hasStringField {
+             stringField = other.stringField
+        }
+        mergeExtensionFields(other)
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      return msgBuilder_
-    }
-    func setMsg(value:ProtobufUnittest.ForeignMessage!) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      self.msg = value
-      return self
-    }
-    internal func mergeMsg(value:ProtobufUnittest.ForeignMessage) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      if builderResult.hasMsg {
-        builderResult.msg = ProtobufUnittest.ForeignMessage.builderWithPrototype(builderResult.msg).mergeFrom(value).buildPartial()
-      } else {
-        builderResult.msg = value
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestOptimizedForSize.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      builderResult.hasMsg = true
-      return self
-    }
-    internal func clearMsg() -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      msgBuilder_ = nil
-      builderResult.hasMsg = false
-      builderResult.msg = nil
-      return self
-    }
-    var hasIntegerField:Bool {
-         get {
-              return builderResult.hasIntegerField
-         }
-    }
-    var integerField:Int32 {
-         get {
-              return builderResult.integerField
-         }
-         set (value) {
-             builderResult.hasIntegerField = true
-             builderResult.integerField = value
-         }
-    }
-    func setIntegerField(value:Int32) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      self.integerField = value
-      return self
-    }
-    internal func clearIntegerField() -> ProtobufUnittest.TestOptimizedForSizeBuilder{
-         builderResult.hasIntegerField = false
-         builderResult.integerField = Int32(0)
-         return self
-    }
-    var hasStringField:Bool {
-         get {
-              return builderResult.hasStringField
-         }
-    }
-    var stringField:String {
-         get {
-              return builderResult.stringField
-         }
-         set (value) {
-             builderResult.hasStringField = true
-             builderResult.stringField = value
-         }
-    }
-    func setStringField(value:String) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      self.stringField = value
-      return self
-    }
-    internal func clearStringField() -> ProtobufUnittest.TestOptimizedForSizeBuilder{
-         builderResult.hasStringField = false
-         builderResult.stringField = ""
-         return self
-    }
-    override internal var internalGetResult:ExtendableMessage {
-         get {
-             return builderResult
-         }
-    }
-    internal override func clear() -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      builderResult = ProtobufUnittest.TestOptimizedForSize()
-      return self
-    }
-    internal override func clone() -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      return ProtobufUnittest.TestOptimizedForSize.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> ProtobufUnittest.TestOptimizedForSize {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> ProtobufUnittest.TestOptimizedForSize {
-      var returnMe:ProtobufUnittest.TestOptimizedForSize = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:ProtobufUnittest.TestOptimizedForSize) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      if other == ProtobufUnittest.TestOptimizedForSize() {
-       return self
-      }
-      if other.hasI {
-           i = other.i
-      }
-      if (other.hasMsg) {
-          mergeMsg(other.msg)
-      }
-      if other.hasIntegerField {
-           integerField = other.integerField
-      }
-      if other.hasStringField {
-           stringField = other.stringField
-      }
-      mergeExtensionFields(other)
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestOptimizedForSizeBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestOptimizedForSize.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 8 :
-          i = input.readInt32()
+          case 8 :
+            i = input.readInt32()
 
-        case 16 :
-          integerField = input.readInt32()
+          case 16 :
+            integerField = input.readInt32()
 
-        case 26 :
-          stringField = input.readString()
+          case 26 :
+            stringField = input.readString()
 
-        case 154 :
-          var subBuilder:ProtobufUnittest.ForeignMessageBuilder = ProtobufUnittest.ForeignMessage.builder()
-          if hasMsg {
-            subBuilder.mergeFrom(msg)
-          }
-          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-          msg = subBuilder.buildPartial()
+          case 154 :
+            var subBuilder:ProtobufUnittest.ForeignMessage.Builder = ProtobufUnittest.ForeignMessage.builder()
+            if hasMsg {
+              subBuilder.mergeFrom(msg)
+            }
+            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            msg = subBuilder.buildPartial()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
   final internal class TestRequiredOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -563,22 +563,22 @@ internal extension ProtobufUnittest {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestRequiredOptimizedForSize {
       return ProtobufUnittest.TestRequiredOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
-      return ProtobufUnittest.TestRequiredOptimizedForSize.classBuilder() as! ProtobufUnittest.TestRequiredOptimizedForSizeBuilder
+    internal class func builder() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+      return ProtobufUnittest.TestRequiredOptimizedForSize.classBuilder() as! ProtobufUnittest.TestRequiredOptimizedForSize.Builder
     }
-    internal func builder() -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
-      return classBuilder() as! ProtobufUnittest.TestRequiredOptimizedForSizeBuilder
+    internal func builder() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+      return classBuilder() as! ProtobufUnittest.TestRequiredOptimizedForSize.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return ProtobufUnittest.TestRequiredOptimizedForSizeBuilder()
+      return ProtobufUnittest.TestRequiredOptimizedForSize.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestRequiredOptimizedForSize.builder()
     }
-    internal func toBuilder() -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
+    internal func toBuilder() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
       return ProtobufUnittest.TestRequiredOptimizedForSize.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestRequiredOptimizedForSize) -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestRequiredOptimizedForSize) -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
       return ProtobufUnittest.TestRequiredOptimizedForSize.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -612,93 +612,93 @@ internal extension ProtobufUnittest {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:ProtobufUnittest.TestRequiredOptimizedForSize = ProtobufUnittest.TestRequiredOptimizedForSize()
+      internal func getMessage() -> ProtobufUnittest.TestRequiredOptimizedForSize {
+          return builderResult
+      }
 
-  final internal class TestRequiredOptimizedForSizeBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittest.TestRequiredOptimizedForSize = ProtobufUnittest.TestRequiredOptimizedForSize()
-    internal func getMessage() -> ProtobufUnittest.TestRequiredOptimizedForSize {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasX:Bool {
-         get {
-              return builderResult.hasX
-         }
-    }
-    var x:Int32 {
-         get {
-              return builderResult.x
-         }
-         set (value) {
-             builderResult.hasX = true
-             builderResult.x = value
-         }
-    }
-    func setX(value:Int32) -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
-      self.x = value
-      return self
-    }
-    internal func clearX() -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder{
-         builderResult.hasX = false
-         builderResult.x = Int32(0)
+      required override internal init () {
+         super.init()
+      }
+      var hasX:Bool {
+           get {
+                return builderResult.hasX
+           }
+      }
+      var x:Int32 {
+           get {
+                return builderResult.x
+           }
+           set (value) {
+               builderResult.hasX = true
+               builderResult.x = value
+           }
+      }
+      func setX(value:Int32) -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+        self.x = value
+        return self
+      }
+      internal func clearX() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder{
+           builderResult.hasX = false
+           builderResult.x = Int32(0)
+           return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+        builderResult = ProtobufUnittest.TestRequiredOptimizedForSize()
+        return self
+      }
+      internal override func clone() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+        return ProtobufUnittest.TestRequiredOptimizedForSize.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> ProtobufUnittest.TestRequiredOptimizedForSize {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> ProtobufUnittest.TestRequiredOptimizedForSize {
+        var returnMe:ProtobufUnittest.TestRequiredOptimizedForSize = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:ProtobufUnittest.TestRequiredOptimizedForSize) -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+        if other == ProtobufUnittest.TestRequiredOptimizedForSize() {
          return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
-      builderResult = ProtobufUnittest.TestRequiredOptimizedForSize()
-      return self
-    }
-    internal override func clone() -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
-      return ProtobufUnittest.TestRequiredOptimizedForSize.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> ProtobufUnittest.TestRequiredOptimizedForSize {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> ProtobufUnittest.TestRequiredOptimizedForSize {
-      var returnMe:ProtobufUnittest.TestRequiredOptimizedForSize = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:ProtobufUnittest.TestRequiredOptimizedForSize) -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
-      if other == ProtobufUnittest.TestRequiredOptimizedForSize() {
-       return self
+        }
+        if other.hasX {
+             x = other.x
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      if other.hasX {
-           x = other.x
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 8 :
-          x = input.readInt32()
+          case 8 :
+            x = input.readInt32()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
   final internal class TestOptionalOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -755,22 +755,22 @@ internal extension ProtobufUnittest {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestOptionalOptimizedForSize {
       return ProtobufUnittest.TestOptionalOptimizedForSize.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-      return ProtobufUnittest.TestOptionalOptimizedForSize.classBuilder() as! ProtobufUnittest.TestOptionalOptimizedForSizeBuilder
+    internal class func builder() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+      return ProtobufUnittest.TestOptionalOptimizedForSize.classBuilder() as! ProtobufUnittest.TestOptionalOptimizedForSize.Builder
     }
-    internal func builder() -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-      return classBuilder() as! ProtobufUnittest.TestOptionalOptimizedForSizeBuilder
+    internal func builder() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+      return classBuilder() as! ProtobufUnittest.TestOptionalOptimizedForSize.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return ProtobufUnittest.TestOptionalOptimizedForSizeBuilder()
+      return ProtobufUnittest.TestOptionalOptimizedForSize.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestOptionalOptimizedForSize.builder()
     }
-    internal func toBuilder() -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
+    internal func toBuilder() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
       return ProtobufUnittest.TestOptionalOptimizedForSize.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestOptionalOptimizedForSize) -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestOptionalOptimizedForSize) -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
       return ProtobufUnittest.TestOptionalOptimizedForSize.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -808,126 +808,126 @@ internal extension ProtobufUnittest {
     }
     //Meta information declaration end
 
-  }
-
-  final internal class TestOptionalOptimizedForSizeBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittest.TestOptionalOptimizedForSize = ProtobufUnittest.TestOptionalOptimizedForSize()
-    internal func getMessage() -> ProtobufUnittest.TestOptionalOptimizedForSize {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasO:Bool {
-         get {
-             return builderResult.hasO
-         }
-    }
-    var o:ProtobufUnittest.TestRequiredOptimizedForSize! {
-         get {
-             if oBuilder_ != nil {
-                builderResult.o = oBuilder_.getMessage()
-             }
-             return builderResult.o
-         }
-         set (value) {
-             builderResult.hasO = true
-             builderResult.o = value
-         }
-    }
-    private var oBuilder_:ProtobufUnittest.TestRequiredOptimizedForSizeBuilder! {
-         didSet {
-            builderResult.hasO = true
-         }
-    }
-    internal func getOBuilder() -> ProtobufUnittest.TestRequiredOptimizedForSizeBuilder {
-      if oBuilder_ == nil {
-         oBuilder_ = ProtobufUnittest.TestRequiredOptimizedForSizeBuilder()
-         builderResult.o = oBuilder_.getMessage()
-         if o != nil {
-            oBuilder_.mergeFrom(o)
-         }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:ProtobufUnittest.TestOptionalOptimizedForSize = ProtobufUnittest.TestOptionalOptimizedForSize()
+      internal func getMessage() -> ProtobufUnittest.TestOptionalOptimizedForSize {
+          return builderResult
       }
-      return oBuilder_
-    }
-    func setO(value:ProtobufUnittest.TestRequiredOptimizedForSize!) -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-      self.o = value
-      return self
-    }
-    internal func mergeO(value:ProtobufUnittest.TestRequiredOptimizedForSize) -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-      if builderResult.hasO {
-        builderResult.o = ProtobufUnittest.TestRequiredOptimizedForSize.builderWithPrototype(builderResult.o).mergeFrom(value).buildPartial()
-      } else {
-        builderResult.o = value
-      }
-      builderResult.hasO = true
-      return self
-    }
-    internal func clearO() -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-      oBuilder_ = nil
-      builderResult.hasO = false
-      builderResult.o = nil
-      return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-      builderResult = ProtobufUnittest.TestOptionalOptimizedForSize()
-      return self
-    }
-    internal override func clone() -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-      return ProtobufUnittest.TestOptionalOptimizedForSize.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> ProtobufUnittest.TestOptionalOptimizedForSize {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> ProtobufUnittest.TestOptionalOptimizedForSize {
-      var returnMe:ProtobufUnittest.TestOptionalOptimizedForSize = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:ProtobufUnittest.TestOptionalOptimizedForSize) -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-      if other == ProtobufUnittest.TestOptionalOptimizedForSize() {
-       return self
-      }
-      if (other.hasO) {
-          mergeO(other.o)
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestOptionalOptimizedForSizeBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
 
-        case 10 :
-          var subBuilder:ProtobufUnittest.TestRequiredOptimizedForSizeBuilder = ProtobufUnittest.TestRequiredOptimizedForSize.builder()
-          if hasO {
-            subBuilder.mergeFrom(o)
-          }
-          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-          o = subBuilder.buildPartial()
+      required override internal init () {
+         super.init()
+      }
+      var hasO:Bool {
+           get {
+               return builderResult.hasO
+           }
+      }
+      var o:ProtobufUnittest.TestRequiredOptimizedForSize! {
+           get {
+               if oBuilder_ != nil {
+                  builderResult.o = oBuilder_.getMessage()
+               }
+               return builderResult.o
+           }
+           set (value) {
+               builderResult.hasO = true
+               builderResult.o = value
+           }
+      }
+      private var oBuilder_:ProtobufUnittest.TestRequiredOptimizedForSize.Builder! {
+           didSet {
+              builderResult.hasO = true
+           }
+      }
+      internal func getOBuilder() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+        if oBuilder_ == nil {
+           oBuilder_ = ProtobufUnittest.TestRequiredOptimizedForSize.Builder()
+           builderResult.o = oBuilder_.getMessage()
+           if o != nil {
+              oBuilder_.mergeFrom(o)
+           }
+        }
+        return oBuilder_
+      }
+      func setO(value:ProtobufUnittest.TestRequiredOptimizedForSize!) -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+        self.o = value
+        return self
+      }
+      internal func mergeO(value:ProtobufUnittest.TestRequiredOptimizedForSize) -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+        if builderResult.hasO {
+          builderResult.o = ProtobufUnittest.TestRequiredOptimizedForSize.builderWithPrototype(builderResult.o).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.o = value
+        }
+        builderResult.hasO = true
+        return self
+      }
+      internal func clearO() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+        oBuilder_ = nil
+        builderResult.hasO = false
+        builderResult.o = nil
+        return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+        builderResult = ProtobufUnittest.TestOptionalOptimizedForSize()
+        return self
+      }
+      internal override func clone() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+        return ProtobufUnittest.TestOptionalOptimizedForSize.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> ProtobufUnittest.TestOptionalOptimizedForSize {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> ProtobufUnittest.TestOptionalOptimizedForSize {
+        var returnMe:ProtobufUnittest.TestOptionalOptimizedForSize = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:ProtobufUnittest.TestOptionalOptimizedForSize) -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+        if other == ProtobufUnittest.TestOptionalOptimizedForSize() {
+         return self
+        }
+        if (other.hasO) {
+            mergeO(other.o)
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          case 10 :
+            var subBuilder:ProtobufUnittest.TestRequiredOptimizedForSize.Builder = ProtobufUnittest.TestRequiredOptimizedForSize.builder()
+            if hasO {
+              subBuilder.mergeFrom(o)
+            }
+            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            o = subBuilder.buildPartial()
+
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

@@ -140,22 +140,22 @@ internal extension ProtobufUnittest {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageSet {
       return ProtobufUnittest.TestMessageSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittest.TestMessageSetBuilder {
-      return ProtobufUnittest.TestMessageSet.classBuilder() as! ProtobufUnittest.TestMessageSetBuilder
+    internal class func builder() -> ProtobufUnittest.TestMessageSet.Builder {
+      return ProtobufUnittest.TestMessageSet.classBuilder() as! ProtobufUnittest.TestMessageSet.Builder
     }
-    internal func builder() -> ProtobufUnittest.TestMessageSetBuilder {
-      return classBuilder() as! ProtobufUnittest.TestMessageSetBuilder
+    internal func builder() -> ProtobufUnittest.TestMessageSet.Builder {
+      return classBuilder() as! ProtobufUnittest.TestMessageSet.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return ProtobufUnittest.TestMessageSetBuilder()
+      return ProtobufUnittest.TestMessageSet.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestMessageSet.builder()
     }
-    internal func toBuilder() -> ProtobufUnittest.TestMessageSetBuilder {
+    internal func toBuilder() -> ProtobufUnittest.TestMessageSet.Builder {
       return ProtobufUnittest.TestMessageSet.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestMessageSet) -> ProtobufUnittest.TestMessageSetBuilder {
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestMessageSet) -> ProtobufUnittest.TestMessageSet.Builder {
       return ProtobufUnittest.TestMessageSet.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -185,65 +185,65 @@ internal extension ProtobufUnittest {
     }
     //Meta information declaration end
 
-  }
-
-  final internal class TestMessageSetBuilder : ExtendableMessageBuilder {
-    private var builderResult:ProtobufUnittest.TestMessageSet = ProtobufUnittest.TestMessageSet()
-    internal func getMessage() -> ProtobufUnittest.TestMessageSet {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    override internal var internalGetResult:ExtendableMessage {
-         get {
-             return builderResult
-         }
-    }
-    internal override func clear() -> ProtobufUnittest.TestMessageSetBuilder {
-      builderResult = ProtobufUnittest.TestMessageSet()
-      return self
-    }
-    internal override func clone() -> ProtobufUnittest.TestMessageSetBuilder {
-      return ProtobufUnittest.TestMessageSet.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> ProtobufUnittest.TestMessageSet {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> ProtobufUnittest.TestMessageSet {
-      var returnMe:ProtobufUnittest.TestMessageSet = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:ProtobufUnittest.TestMessageSet) -> ProtobufUnittest.TestMessageSetBuilder {
-      if other == ProtobufUnittest.TestMessageSet() {
-       return self
+    final internal class Builder : ExtendableMessageBuilder {
+      private var builderResult:ProtobufUnittest.TestMessageSet = ProtobufUnittest.TestMessageSet()
+      internal func getMessage() -> ProtobufUnittest.TestMessageSet {
+          return builderResult
       }
-      mergeExtensionFields(other)
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestMessageSetBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageSetBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+      required override internal init () {
+         super.init()
+      }
+      override internal var internalGetResult:ExtendableMessage {
+           get {
+               return builderResult
+           }
+      }
+      internal override func clear() -> ProtobufUnittest.TestMessageSet.Builder {
+        builderResult = ProtobufUnittest.TestMessageSet()
+        return self
+      }
+      internal override func clone() -> ProtobufUnittest.TestMessageSet.Builder {
+        return ProtobufUnittest.TestMessageSet.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> ProtobufUnittest.TestMessageSet {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> ProtobufUnittest.TestMessageSet {
+        var returnMe:ProtobufUnittest.TestMessageSet = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:ProtobufUnittest.TestMessageSet) -> ProtobufUnittest.TestMessageSet.Builder {
+        if other == ProtobufUnittest.TestMessageSet() {
+         return self
+        }
+        mergeExtensionFields(other)
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestMessageSet.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageSet.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
+
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
   final internal class TestMessageSetContainer : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -300,22 +300,22 @@ internal extension ProtobufUnittest {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageSetContainer {
       return ProtobufUnittest.TestMessageSetContainer.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittest.TestMessageSetContainerBuilder {
-      return ProtobufUnittest.TestMessageSetContainer.classBuilder() as! ProtobufUnittest.TestMessageSetContainerBuilder
+    internal class func builder() -> ProtobufUnittest.TestMessageSetContainer.Builder {
+      return ProtobufUnittest.TestMessageSetContainer.classBuilder() as! ProtobufUnittest.TestMessageSetContainer.Builder
     }
-    internal func builder() -> ProtobufUnittest.TestMessageSetContainerBuilder {
-      return classBuilder() as! ProtobufUnittest.TestMessageSetContainerBuilder
+    internal func builder() -> ProtobufUnittest.TestMessageSetContainer.Builder {
+      return classBuilder() as! ProtobufUnittest.TestMessageSetContainer.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return ProtobufUnittest.TestMessageSetContainerBuilder()
+      return ProtobufUnittest.TestMessageSetContainer.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestMessageSetContainer.builder()
     }
-    internal func toBuilder() -> ProtobufUnittest.TestMessageSetContainerBuilder {
+    internal func toBuilder() -> ProtobufUnittest.TestMessageSetContainer.Builder {
       return ProtobufUnittest.TestMessageSetContainer.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestMessageSetContainer) -> ProtobufUnittest.TestMessageSetContainerBuilder {
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestMessageSetContainer) -> ProtobufUnittest.TestMessageSetContainer.Builder {
       return ProtobufUnittest.TestMessageSetContainer.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -353,126 +353,126 @@ internal extension ProtobufUnittest {
     }
     //Meta information declaration end
 
-  }
-
-  final internal class TestMessageSetContainerBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittest.TestMessageSetContainer = ProtobufUnittest.TestMessageSetContainer()
-    internal func getMessage() -> ProtobufUnittest.TestMessageSetContainer {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasMessageSet:Bool {
-         get {
-             return builderResult.hasMessageSet
-         }
-    }
-    var messageSet:ProtobufUnittest.TestMessageSet! {
-         get {
-             if messageSetBuilder_ != nil {
-                builderResult.messageSet = messageSetBuilder_.getMessage()
-             }
-             return builderResult.messageSet
-         }
-         set (value) {
-             builderResult.hasMessageSet = true
-             builderResult.messageSet = value
-         }
-    }
-    private var messageSetBuilder_:ProtobufUnittest.TestMessageSetBuilder! {
-         didSet {
-            builderResult.hasMessageSet = true
-         }
-    }
-    internal func getMessageSetBuilder() -> ProtobufUnittest.TestMessageSetBuilder {
-      if messageSetBuilder_ == nil {
-         messageSetBuilder_ = ProtobufUnittest.TestMessageSetBuilder()
-         builderResult.messageSet = messageSetBuilder_.getMessage()
-         if messageSet != nil {
-            messageSetBuilder_.mergeFrom(messageSet)
-         }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:ProtobufUnittest.TestMessageSetContainer = ProtobufUnittest.TestMessageSetContainer()
+      internal func getMessage() -> ProtobufUnittest.TestMessageSetContainer {
+          return builderResult
       }
-      return messageSetBuilder_
-    }
-    func setMessageSet(value:ProtobufUnittest.TestMessageSet!) -> ProtobufUnittest.TestMessageSetContainerBuilder {
-      self.messageSet = value
-      return self
-    }
-    internal func mergeMessageSet(value:ProtobufUnittest.TestMessageSet) -> ProtobufUnittest.TestMessageSetContainerBuilder {
-      if builderResult.hasMessageSet {
-        builderResult.messageSet = ProtobufUnittest.TestMessageSet.builderWithPrototype(builderResult.messageSet).mergeFrom(value).buildPartial()
-      } else {
-        builderResult.messageSet = value
-      }
-      builderResult.hasMessageSet = true
-      return self
-    }
-    internal func clearMessageSet() -> ProtobufUnittest.TestMessageSetContainerBuilder {
-      messageSetBuilder_ = nil
-      builderResult.hasMessageSet = false
-      builderResult.messageSet = nil
-      return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> ProtobufUnittest.TestMessageSetContainerBuilder {
-      builderResult = ProtobufUnittest.TestMessageSetContainer()
-      return self
-    }
-    internal override func clone() -> ProtobufUnittest.TestMessageSetContainerBuilder {
-      return ProtobufUnittest.TestMessageSetContainer.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> ProtobufUnittest.TestMessageSetContainer {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> ProtobufUnittest.TestMessageSetContainer {
-      var returnMe:ProtobufUnittest.TestMessageSetContainer = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:ProtobufUnittest.TestMessageSetContainer) -> ProtobufUnittest.TestMessageSetContainerBuilder {
-      if other == ProtobufUnittest.TestMessageSetContainer() {
-       return self
-      }
-      if (other.hasMessageSet) {
-          mergeMessageSet(other.messageSet)
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestMessageSetContainerBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageSetContainerBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
 
-        case 10 :
-          var subBuilder:ProtobufUnittest.TestMessageSetBuilder = ProtobufUnittest.TestMessageSet.builder()
-          if hasMessageSet {
-            subBuilder.mergeFrom(messageSet)
-          }
-          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-          messageSet = subBuilder.buildPartial()
+      required override internal init () {
+         super.init()
+      }
+      var hasMessageSet:Bool {
+           get {
+               return builderResult.hasMessageSet
+           }
+      }
+      var messageSet:ProtobufUnittest.TestMessageSet! {
+           get {
+               if messageSetBuilder_ != nil {
+                  builderResult.messageSet = messageSetBuilder_.getMessage()
+               }
+               return builderResult.messageSet
+           }
+           set (value) {
+               builderResult.hasMessageSet = true
+               builderResult.messageSet = value
+           }
+      }
+      private var messageSetBuilder_:ProtobufUnittest.TestMessageSet.Builder! {
+           didSet {
+              builderResult.hasMessageSet = true
+           }
+      }
+      internal func getMessageSetBuilder() -> ProtobufUnittest.TestMessageSet.Builder {
+        if messageSetBuilder_ == nil {
+           messageSetBuilder_ = ProtobufUnittest.TestMessageSet.Builder()
+           builderResult.messageSet = messageSetBuilder_.getMessage()
+           if messageSet != nil {
+              messageSetBuilder_.mergeFrom(messageSet)
+           }
+        }
+        return messageSetBuilder_
+      }
+      func setMessageSet(value:ProtobufUnittest.TestMessageSet!) -> ProtobufUnittest.TestMessageSetContainer.Builder {
+        self.messageSet = value
+        return self
+      }
+      internal func mergeMessageSet(value:ProtobufUnittest.TestMessageSet) -> ProtobufUnittest.TestMessageSetContainer.Builder {
+        if builderResult.hasMessageSet {
+          builderResult.messageSet = ProtobufUnittest.TestMessageSet.builderWithPrototype(builderResult.messageSet).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.messageSet = value
+        }
+        builderResult.hasMessageSet = true
+        return self
+      }
+      internal func clearMessageSet() -> ProtobufUnittest.TestMessageSetContainer.Builder {
+        messageSetBuilder_ = nil
+        builderResult.hasMessageSet = false
+        builderResult.messageSet = nil
+        return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> ProtobufUnittest.TestMessageSetContainer.Builder {
+        builderResult = ProtobufUnittest.TestMessageSetContainer()
+        return self
+      }
+      internal override func clone() -> ProtobufUnittest.TestMessageSetContainer.Builder {
+        return ProtobufUnittest.TestMessageSetContainer.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> ProtobufUnittest.TestMessageSetContainer {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> ProtobufUnittest.TestMessageSetContainer {
+        var returnMe:ProtobufUnittest.TestMessageSetContainer = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:ProtobufUnittest.TestMessageSetContainer) -> ProtobufUnittest.TestMessageSetContainer.Builder {
+        if other == ProtobufUnittest.TestMessageSetContainer() {
+         return self
+        }
+        if (other.hasMessageSet) {
+            mergeMessageSet(other.messageSet)
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestMessageSetContainer.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageSetContainer.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          case 10 :
+            var subBuilder:ProtobufUnittest.TestMessageSet.Builder = ProtobufUnittest.TestMessageSet.builder()
+            if hasMessageSet {
+              subBuilder.mergeFrom(messageSet)
+            }
+            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            messageSet = subBuilder.buildPartial()
+
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
   final internal class TestMessageSetExtension1 : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -526,22 +526,22 @@ internal extension ProtobufUnittest {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageSetExtension1 {
       return ProtobufUnittest.TestMessageSetExtension1.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittest.TestMessageSetExtension1Builder {
-      return ProtobufUnittest.TestMessageSetExtension1.classBuilder() as! ProtobufUnittest.TestMessageSetExtension1Builder
+    internal class func builder() -> ProtobufUnittest.TestMessageSetExtension1.Builder {
+      return ProtobufUnittest.TestMessageSetExtension1.classBuilder() as! ProtobufUnittest.TestMessageSetExtension1.Builder
     }
-    internal func builder() -> ProtobufUnittest.TestMessageSetExtension1Builder {
-      return classBuilder() as! ProtobufUnittest.TestMessageSetExtension1Builder
+    internal func builder() -> ProtobufUnittest.TestMessageSetExtension1.Builder {
+      return classBuilder() as! ProtobufUnittest.TestMessageSetExtension1.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return ProtobufUnittest.TestMessageSetExtension1Builder()
+      return ProtobufUnittest.TestMessageSetExtension1.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestMessageSetExtension1.builder()
     }
-    internal func toBuilder() -> ProtobufUnittest.TestMessageSetExtension1Builder {
+    internal func toBuilder() -> ProtobufUnittest.TestMessageSetExtension1.Builder {
       return ProtobufUnittest.TestMessageSetExtension1.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestMessageSetExtension1) -> ProtobufUnittest.TestMessageSetExtension1Builder {
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestMessageSetExtension1) -> ProtobufUnittest.TestMessageSetExtension1.Builder {
       return ProtobufUnittest.TestMessageSetExtension1.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -575,93 +575,93 @@ internal extension ProtobufUnittest {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:ProtobufUnittest.TestMessageSetExtension1 = ProtobufUnittest.TestMessageSetExtension1()
+      internal func getMessage() -> ProtobufUnittest.TestMessageSetExtension1 {
+          return builderResult
+      }
 
-  final internal class TestMessageSetExtension1Builder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittest.TestMessageSetExtension1 = ProtobufUnittest.TestMessageSetExtension1()
-    internal func getMessage() -> ProtobufUnittest.TestMessageSetExtension1 {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasI:Bool {
-         get {
-              return builderResult.hasI
-         }
-    }
-    var i:Int32 {
-         get {
-              return builderResult.i
-         }
-         set (value) {
-             builderResult.hasI = true
-             builderResult.i = value
-         }
-    }
-    func setI(value:Int32) -> ProtobufUnittest.TestMessageSetExtension1Builder {
-      self.i = value
-      return self
-    }
-    internal func clearI() -> ProtobufUnittest.TestMessageSetExtension1Builder{
-         builderResult.hasI = false
-         builderResult.i = Int32(0)
+      required override internal init () {
+         super.init()
+      }
+      var hasI:Bool {
+           get {
+                return builderResult.hasI
+           }
+      }
+      var i:Int32 {
+           get {
+                return builderResult.i
+           }
+           set (value) {
+               builderResult.hasI = true
+               builderResult.i = value
+           }
+      }
+      func setI(value:Int32) -> ProtobufUnittest.TestMessageSetExtension1.Builder {
+        self.i = value
+        return self
+      }
+      internal func clearI() -> ProtobufUnittest.TestMessageSetExtension1.Builder{
+           builderResult.hasI = false
+           builderResult.i = Int32(0)
+           return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> ProtobufUnittest.TestMessageSetExtension1.Builder {
+        builderResult = ProtobufUnittest.TestMessageSetExtension1()
+        return self
+      }
+      internal override func clone() -> ProtobufUnittest.TestMessageSetExtension1.Builder {
+        return ProtobufUnittest.TestMessageSetExtension1.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> ProtobufUnittest.TestMessageSetExtension1 {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> ProtobufUnittest.TestMessageSetExtension1 {
+        var returnMe:ProtobufUnittest.TestMessageSetExtension1 = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:ProtobufUnittest.TestMessageSetExtension1) -> ProtobufUnittest.TestMessageSetExtension1.Builder {
+        if other == ProtobufUnittest.TestMessageSetExtension1() {
          return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> ProtobufUnittest.TestMessageSetExtension1Builder {
-      builderResult = ProtobufUnittest.TestMessageSetExtension1()
-      return self
-    }
-    internal override func clone() -> ProtobufUnittest.TestMessageSetExtension1Builder {
-      return ProtobufUnittest.TestMessageSetExtension1.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> ProtobufUnittest.TestMessageSetExtension1 {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> ProtobufUnittest.TestMessageSetExtension1 {
-      var returnMe:ProtobufUnittest.TestMessageSetExtension1 = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:ProtobufUnittest.TestMessageSetExtension1) -> ProtobufUnittest.TestMessageSetExtension1Builder {
-      if other == ProtobufUnittest.TestMessageSetExtension1() {
-       return self
+        }
+        if other.hasI {
+             i = other.i
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      if other.hasI {
-           i = other.i
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestMessageSetExtension1.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestMessageSetExtension1Builder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageSetExtension1Builder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageSetExtension1.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 120 :
-          i = input.readInt32()
+          case 120 :
+            i = input.readInt32()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
   final internal class TestMessageSetExtension2 : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -715,22 +715,22 @@ internal extension ProtobufUnittest {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageSetExtension2 {
       return ProtobufUnittest.TestMessageSetExtension2.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittest.TestMessageSetExtension2Builder {
-      return ProtobufUnittest.TestMessageSetExtension2.classBuilder() as! ProtobufUnittest.TestMessageSetExtension2Builder
+    internal class func builder() -> ProtobufUnittest.TestMessageSetExtension2.Builder {
+      return ProtobufUnittest.TestMessageSetExtension2.classBuilder() as! ProtobufUnittest.TestMessageSetExtension2.Builder
     }
-    internal func builder() -> ProtobufUnittest.TestMessageSetExtension2Builder {
-      return classBuilder() as! ProtobufUnittest.TestMessageSetExtension2Builder
+    internal func builder() -> ProtobufUnittest.TestMessageSetExtension2.Builder {
+      return classBuilder() as! ProtobufUnittest.TestMessageSetExtension2.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return ProtobufUnittest.TestMessageSetExtension2Builder()
+      return ProtobufUnittest.TestMessageSetExtension2.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestMessageSetExtension2.builder()
     }
-    internal func toBuilder() -> ProtobufUnittest.TestMessageSetExtension2Builder {
+    internal func toBuilder() -> ProtobufUnittest.TestMessageSetExtension2.Builder {
       return ProtobufUnittest.TestMessageSetExtension2.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestMessageSetExtension2) -> ProtobufUnittest.TestMessageSetExtension2Builder {
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestMessageSetExtension2) -> ProtobufUnittest.TestMessageSetExtension2.Builder {
       return ProtobufUnittest.TestMessageSetExtension2.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -764,93 +764,93 @@ internal extension ProtobufUnittest {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:ProtobufUnittest.TestMessageSetExtension2 = ProtobufUnittest.TestMessageSetExtension2()
+      internal func getMessage() -> ProtobufUnittest.TestMessageSetExtension2 {
+          return builderResult
+      }
 
-  final internal class TestMessageSetExtension2Builder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittest.TestMessageSetExtension2 = ProtobufUnittest.TestMessageSetExtension2()
-    internal func getMessage() -> ProtobufUnittest.TestMessageSetExtension2 {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasStr:Bool {
-         get {
-              return builderResult.hasStr
-         }
-    }
-    var str:String {
-         get {
-              return builderResult.str
-         }
-         set (value) {
-             builderResult.hasStr = true
-             builderResult.str = value
-         }
-    }
-    func setStr(value:String) -> ProtobufUnittest.TestMessageSetExtension2Builder {
-      self.str = value
-      return self
-    }
-    internal func clearStr() -> ProtobufUnittest.TestMessageSetExtension2Builder{
-         builderResult.hasStr = false
-         builderResult.str = ""
+      required override internal init () {
+         super.init()
+      }
+      var hasStr:Bool {
+           get {
+                return builderResult.hasStr
+           }
+      }
+      var str:String {
+           get {
+                return builderResult.str
+           }
+           set (value) {
+               builderResult.hasStr = true
+               builderResult.str = value
+           }
+      }
+      func setStr(value:String) -> ProtobufUnittest.TestMessageSetExtension2.Builder {
+        self.str = value
+        return self
+      }
+      internal func clearStr() -> ProtobufUnittest.TestMessageSetExtension2.Builder{
+           builderResult.hasStr = false
+           builderResult.str = ""
+           return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> ProtobufUnittest.TestMessageSetExtension2.Builder {
+        builderResult = ProtobufUnittest.TestMessageSetExtension2()
+        return self
+      }
+      internal override func clone() -> ProtobufUnittest.TestMessageSetExtension2.Builder {
+        return ProtobufUnittest.TestMessageSetExtension2.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> ProtobufUnittest.TestMessageSetExtension2 {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> ProtobufUnittest.TestMessageSetExtension2 {
+        var returnMe:ProtobufUnittest.TestMessageSetExtension2 = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:ProtobufUnittest.TestMessageSetExtension2) -> ProtobufUnittest.TestMessageSetExtension2.Builder {
+        if other == ProtobufUnittest.TestMessageSetExtension2() {
          return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> ProtobufUnittest.TestMessageSetExtension2Builder {
-      builderResult = ProtobufUnittest.TestMessageSetExtension2()
-      return self
-    }
-    internal override func clone() -> ProtobufUnittest.TestMessageSetExtension2Builder {
-      return ProtobufUnittest.TestMessageSetExtension2.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> ProtobufUnittest.TestMessageSetExtension2 {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> ProtobufUnittest.TestMessageSetExtension2 {
-      var returnMe:ProtobufUnittest.TestMessageSetExtension2 = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:ProtobufUnittest.TestMessageSetExtension2) -> ProtobufUnittest.TestMessageSetExtension2Builder {
-      if other == ProtobufUnittest.TestMessageSetExtension2() {
-       return self
+        }
+        if other.hasStr {
+             str = other.str
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      if other.hasStr {
-           str = other.str
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestMessageSetExtension2.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestMessageSetExtension2Builder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageSetExtension2Builder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestMessageSetExtension2.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 202 :
-          str = input.readString()
+          case 202 :
+            str = input.readString()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
   final internal class RawMessageSet : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -921,22 +921,22 @@ internal extension ProtobufUnittest {
         internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.RawMessageSet.Item {
           return ProtobufUnittest.RawMessageSet.Item.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func builder() -> ProtobufUnittest.RawMessageSet.ItemBuilder {
-          return ProtobufUnittest.RawMessageSet.Item.classBuilder() as! ProtobufUnittest.RawMessageSet.ItemBuilder
+        internal class func builder() -> ProtobufUnittest.RawMessageSet.Item.Builder {
+          return ProtobufUnittest.RawMessageSet.Item.classBuilder() as! ProtobufUnittest.RawMessageSet.Item.Builder
         }
-        internal func builder() -> ProtobufUnittest.RawMessageSet.ItemBuilder {
-          return classBuilder() as! ProtobufUnittest.RawMessageSet.ItemBuilder
+        internal func builder() -> ProtobufUnittest.RawMessageSet.Item.Builder {
+          return classBuilder() as! ProtobufUnittest.RawMessageSet.Item.Builder
         }
         internal override class func classBuilder() -> MessageBuilder {
-          return ProtobufUnittest.RawMessageSet.ItemBuilder()
+          return ProtobufUnittest.RawMessageSet.Item.Builder()
         }
         internal override func classBuilder() -> MessageBuilder {
           return ProtobufUnittest.RawMessageSet.Item.builder()
         }
-        internal func toBuilder() -> ProtobufUnittest.RawMessageSet.ItemBuilder {
+        internal func toBuilder() -> ProtobufUnittest.RawMessageSet.Item.Builder {
           return ProtobufUnittest.RawMessageSet.Item.builderWithPrototype(self)
         }
-        internal class func builderWithPrototype(prototype:ProtobufUnittest.RawMessageSet.Item) -> ProtobufUnittest.RawMessageSet.ItemBuilder {
+        internal class func builderWithPrototype(prototype:ProtobufUnittest.RawMessageSet.Item) -> ProtobufUnittest.RawMessageSet.Item.Builder {
           return ProtobufUnittest.RawMessageSet.Item.builder().mergeFrom(prototype)
         }
         override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -976,122 +976,122 @@ internal extension ProtobufUnittest {
         }
         //Meta information declaration end
 
-      }
+        final internal class Builder : GeneratedMessageBuilder {
+          private var builderResult:ProtobufUnittest.RawMessageSet.Item = ProtobufUnittest.RawMessageSet.Item()
+          internal func getMessage() -> ProtobufUnittest.RawMessageSet.Item {
+              return builderResult
+          }
 
-      final internal class ItemBuilder : GeneratedMessageBuilder {
-        private var builderResult:ProtobufUnittest.RawMessageSet.Item = ProtobufUnittest.RawMessageSet.Item()
-        internal func getMessage() -> ProtobufUnittest.RawMessageSet.Item {
-            return builderResult
-        }
-
-        required override internal init () {
-           super.init()
-        }
-        var hasTypeId:Bool {
-             get {
-                  return builderResult.hasTypeId
-             }
-        }
-        var typeId:Int32 {
-             get {
-                  return builderResult.typeId
-             }
-             set (value) {
-                 builderResult.hasTypeId = true
-                 builderResult.typeId = value
-             }
-        }
-        func setTypeId(value:Int32) -> ProtobufUnittest.RawMessageSet.ItemBuilder {
-          self.typeId = value
-          return self
-        }
-        internal func clearTypeId() -> ProtobufUnittest.RawMessageSet.ItemBuilder{
-             builderResult.hasTypeId = false
-             builderResult.typeId = Int32(0)
+          required override internal init () {
+             super.init()
+          }
+          var hasTypeId:Bool {
+               get {
+                    return builderResult.hasTypeId
+               }
+          }
+          var typeId:Int32 {
+               get {
+                    return builderResult.typeId
+               }
+               set (value) {
+                   builderResult.hasTypeId = true
+                   builderResult.typeId = value
+               }
+          }
+          func setTypeId(value:Int32) -> ProtobufUnittest.RawMessageSet.Item.Builder {
+            self.typeId = value
+            return self
+          }
+          internal func clearTypeId() -> ProtobufUnittest.RawMessageSet.Item.Builder{
+               builderResult.hasTypeId = false
+               builderResult.typeId = Int32(0)
+               return self
+          }
+          var hasMessage_:Bool {
+               get {
+                    return builderResult.hasMessage_
+               }
+          }
+          var message_:NSData {
+               get {
+                    return builderResult.message_
+               }
+               set (value) {
+                   builderResult.hasMessage_ = true
+                   builderResult.message_ = value
+               }
+          }
+          func setMessage_(value:NSData) -> ProtobufUnittest.RawMessageSet.Item.Builder {
+            self.message_ = value
+            return self
+          }
+          internal func clearMessage_() -> ProtobufUnittest.RawMessageSet.Item.Builder{
+               builderResult.hasMessage_ = false
+               builderResult.message_ = NSData()
+               return self
+          }
+          override internal var internalGetResult:GeneratedMessage {
+               get {
+                  return builderResult
+               }
+          }
+          internal override func clear() -> ProtobufUnittest.RawMessageSet.Item.Builder {
+            builderResult = ProtobufUnittest.RawMessageSet.Item()
+            return self
+          }
+          internal override func clone() -> ProtobufUnittest.RawMessageSet.Item.Builder {
+            return ProtobufUnittest.RawMessageSet.Item.builderWithPrototype(builderResult)
+          }
+          internal override func build() -> ProtobufUnittest.RawMessageSet.Item {
+               checkInitialized()
+               return buildPartial()
+          }
+          internal func buildPartial() -> ProtobufUnittest.RawMessageSet.Item {
+            var returnMe:ProtobufUnittest.RawMessageSet.Item = builderResult
+            return returnMe
+          }
+          internal func mergeFrom(other:ProtobufUnittest.RawMessageSet.Item) -> ProtobufUnittest.RawMessageSet.Item.Builder {
+            if other == ProtobufUnittest.RawMessageSet.Item() {
              return self
-        }
-        var hasMessage_:Bool {
-             get {
-                  return builderResult.hasMessage_
-             }
-        }
-        var message_:NSData {
-             get {
-                  return builderResult.message_
-             }
-             set (value) {
-                 builderResult.hasMessage_ = true
-                 builderResult.message_ = value
-             }
-        }
-        func setMessage_(value:NSData) -> ProtobufUnittest.RawMessageSet.ItemBuilder {
-          self.message_ = value
-          return self
-        }
-        internal func clearMessage_() -> ProtobufUnittest.RawMessageSet.ItemBuilder{
-             builderResult.hasMessage_ = false
-             builderResult.message_ = NSData()
-             return self
-        }
-        override internal var internalGetResult:GeneratedMessage {
-             get {
-                return builderResult
-             }
-        }
-        internal override func clear() -> ProtobufUnittest.RawMessageSet.ItemBuilder {
-          builderResult = ProtobufUnittest.RawMessageSet.Item()
-          return self
-        }
-        internal override func clone() -> ProtobufUnittest.RawMessageSet.ItemBuilder {
-          return ProtobufUnittest.RawMessageSet.Item.builderWithPrototype(builderResult)
-        }
-        internal override func build() -> ProtobufUnittest.RawMessageSet.Item {
-             checkInitialized()
-             return buildPartial()
-        }
-        internal func buildPartial() -> ProtobufUnittest.RawMessageSet.Item {
-          var returnMe:ProtobufUnittest.RawMessageSet.Item = builderResult
-          return returnMe
-        }
-        internal func mergeFrom(other:ProtobufUnittest.RawMessageSet.Item) -> ProtobufUnittest.RawMessageSet.ItemBuilder {
-          if other == ProtobufUnittest.RawMessageSet.Item() {
-           return self
+            }
+            if other.hasTypeId {
+                 typeId = other.typeId
+            }
+            if other.hasMessage_ {
+                 message_ = other.message_
+            }
+            mergeUnknownFields(other.unknownFields)
+            return self
           }
-          if other.hasTypeId {
-               typeId = other.typeId
+          internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.RawMessageSet.Item.Builder {
+               return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          if other.hasMessage_ {
-               message_ = other.message_
-          }
-          mergeUnknownFields(other.unknownFields)
-          return self
-        }
-        internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.RawMessageSet.ItemBuilder {
-             return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-        }
-        internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.RawMessageSet.ItemBuilder {
-          var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-          while (true) {
-            var tag = input.readTag()
-            switch tag {
-            case 0: 
-              self.unknownFields = unknownFieldsBuilder.build()
-              return self
+          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.RawMessageSet.Item.Builder {
+            var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            while (true) {
+              var tag = input.readTag()
+              switch tag {
+              case 0: 
+                self.unknownFields = unknownFieldsBuilder.build()
+                return self
 
-            case 16 :
-              typeId = input.readInt32()
+              case 16 :
+                typeId = input.readInt32()
 
-            case 26 :
-              message_ = input.readData()
+              case 26 :
+                message_ = input.readData()
 
-            default:
-              if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-                 unknownFields = unknownFieldsBuilder.build()
-                 return self
+              default:
+                if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+                   unknownFields = unknownFieldsBuilder.build()
+                   return self
+                }
               }
             }
           }
         }
+
       }
 
     //Nested type declaration end
@@ -1151,22 +1151,22 @@ internal extension ProtobufUnittest {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.RawMessageSet {
       return ProtobufUnittest.RawMessageSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittest.RawMessageSetBuilder {
-      return ProtobufUnittest.RawMessageSet.classBuilder() as! ProtobufUnittest.RawMessageSetBuilder
+    internal class func builder() -> ProtobufUnittest.RawMessageSet.Builder {
+      return ProtobufUnittest.RawMessageSet.classBuilder() as! ProtobufUnittest.RawMessageSet.Builder
     }
-    internal func builder() -> ProtobufUnittest.RawMessageSetBuilder {
-      return classBuilder() as! ProtobufUnittest.RawMessageSetBuilder
+    internal func builder() -> ProtobufUnittest.RawMessageSet.Builder {
+      return classBuilder() as! ProtobufUnittest.RawMessageSet.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return ProtobufUnittest.RawMessageSetBuilder()
+      return ProtobufUnittest.RawMessageSet.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.RawMessageSet.builder()
     }
-    internal func toBuilder() -> ProtobufUnittest.RawMessageSetBuilder {
+    internal func toBuilder() -> ProtobufUnittest.RawMessageSet.Builder {
       return ProtobufUnittest.RawMessageSet.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittest.RawMessageSet) -> ProtobufUnittest.RawMessageSetBuilder {
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.RawMessageSet) -> ProtobufUnittest.RawMessageSet.Builder {
       return ProtobufUnittest.RawMessageSet.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -1204,88 +1204,88 @@ internal extension ProtobufUnittest {
     }
     //Meta information declaration end
 
-  }
-
-  final internal class RawMessageSetBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittest.RawMessageSet = ProtobufUnittest.RawMessageSet()
-    internal func getMessage() -> ProtobufUnittest.RawMessageSet {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var item:Array<ProtobufUnittest.RawMessageSet.Item> {
-         get {
-             return builderResult.item
-         }
-         set (value) {
-             builderResult.item = value
-         }
-    }
-    func setItem(value:Array<ProtobufUnittest.RawMessageSet.Item>) -> ProtobufUnittest.RawMessageSetBuilder {
-      self.item = value
-      return self
-    }
-    internal func clearItem() -> ProtobufUnittest.RawMessageSetBuilder {
-      builderResult.item.removeAll(keepCapacity: false)
-      return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> ProtobufUnittest.RawMessageSetBuilder {
-      builderResult = ProtobufUnittest.RawMessageSet()
-      return self
-    }
-    internal override func clone() -> ProtobufUnittest.RawMessageSetBuilder {
-      return ProtobufUnittest.RawMessageSet.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> ProtobufUnittest.RawMessageSet {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> ProtobufUnittest.RawMessageSet {
-      var returnMe:ProtobufUnittest.RawMessageSet = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:ProtobufUnittest.RawMessageSet) -> ProtobufUnittest.RawMessageSetBuilder {
-      if other == ProtobufUnittest.RawMessageSet() {
-       return self
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:ProtobufUnittest.RawMessageSet = ProtobufUnittest.RawMessageSet()
+      internal func getMessage() -> ProtobufUnittest.RawMessageSet {
+          return builderResult
       }
-      if !other.item.isEmpty  {
-         builderResult.item += other.item
+
+      required override internal init () {
+         super.init()
       }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.RawMessageSetBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.RawMessageSetBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      var item:Array<ProtobufUnittest.RawMessageSet.Item> {
+           get {
+               return builderResult.item
+           }
+           set (value) {
+               builderResult.item = value
+           }
+      }
+      func setItem(value:Array<ProtobufUnittest.RawMessageSet.Item>) -> ProtobufUnittest.RawMessageSet.Builder {
+        self.item = value
+        return self
+      }
+      internal func clearItem() -> ProtobufUnittest.RawMessageSet.Builder {
+        builderResult.item.removeAll(keepCapacity: false)
+        return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> ProtobufUnittest.RawMessageSet.Builder {
+        builderResult = ProtobufUnittest.RawMessageSet()
+        return self
+      }
+      internal override func clone() -> ProtobufUnittest.RawMessageSet.Builder {
+        return ProtobufUnittest.RawMessageSet.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> ProtobufUnittest.RawMessageSet {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> ProtobufUnittest.RawMessageSet {
+        var returnMe:ProtobufUnittest.RawMessageSet = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:ProtobufUnittest.RawMessageSet) -> ProtobufUnittest.RawMessageSet.Builder {
+        if other == ProtobufUnittest.RawMessageSet() {
+         return self
+        }
+        if !other.item.isEmpty  {
+           builderResult.item += other.item
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.RawMessageSet.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.RawMessageSet.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 11 :
-          var subBuilder = ProtobufUnittest.RawMessageSet.Item.builder()
-          input.readGroup(1,builder:subBuilder,extensionRegistry:extensionRegistry)
-          item += [subBuilder.buildPartial()]
+          case 11 :
+            var subBuilder = ProtobufUnittest.RawMessageSet.Item.builder()
+            input.readGroup(1,builder:subBuilder,extensionRegistry:extensionRegistry)
+            item += [subBuilder.buildPartial()]
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

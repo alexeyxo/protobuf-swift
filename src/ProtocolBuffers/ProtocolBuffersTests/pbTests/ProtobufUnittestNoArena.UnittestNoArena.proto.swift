@@ -221,22 +221,22 @@ internal extension ProtobufUnittestNoArena {
         internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
           return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func builder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
-          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder
+        internal class func builder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder
         }
-        internal func builder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
-          return classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder
+        internal func builder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+          return classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder
         }
         internal override class func classBuilder() -> MessageBuilder {
-          return ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder()
+          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
         }
         internal override func classBuilder() -> MessageBuilder {
           return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
         }
-        internal func toBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
+        internal func toBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(self)
         }
-        internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
+        internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder().mergeFrom(prototype)
         }
         override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -270,93 +270,93 @@ internal extension ProtobufUnittestNoArena {
         }
         //Meta information declaration end
 
-      }
+        final internal class Builder : GeneratedMessageBuilder {
+          private var builderResult:ProtobufUnittestNoArena.TestAllTypes.NestedMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage()
+          internal func getMessage() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
+              return builderResult
+          }
 
-      final internal class NestedMessageBuilder : GeneratedMessageBuilder {
-        private var builderResult:ProtobufUnittestNoArena.TestAllTypes.NestedMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage()
-        internal func getMessage() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-            return builderResult
-        }
-
-        required override internal init () {
-           super.init()
-        }
-        var hasBb:Bool {
-             get {
-                  return builderResult.hasBb
-             }
-        }
-        var bb:Int32 {
-             get {
-                  return builderResult.bb
-             }
-             set (value) {
-                 builderResult.hasBb = true
-                 builderResult.bb = value
-             }
-        }
-        func setBb(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
-          self.bb = value
-          return self
-        }
-        internal func clearBb() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder{
-             builderResult.hasBb = false
-             builderResult.bb = Int32(0)
+          required override internal init () {
+             super.init()
+          }
+          var hasBb:Bool {
+               get {
+                    return builderResult.hasBb
+               }
+          }
+          var bb:Int32 {
+               get {
+                    return builderResult.bb
+               }
+               set (value) {
+                   builderResult.hasBb = true
+                   builderResult.bb = value
+               }
+          }
+          func setBb(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+            self.bb = value
+            return self
+          }
+          internal func clearBb() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder{
+               builderResult.hasBb = false
+               builderResult.bb = Int32(0)
+               return self
+          }
+          override internal var internalGetResult:GeneratedMessage {
+               get {
+                  return builderResult
+               }
+          }
+          internal override func clear() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+            builderResult = ProtobufUnittestNoArena.TestAllTypes.NestedMessage()
+            return self
+          }
+          internal override func clone() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+            return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult)
+          }
+          internal override func build() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
+               checkInitialized()
+               return buildPartial()
+          }
+          internal func buildPartial() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
+            var returnMe:ProtobufUnittestNoArena.TestAllTypes.NestedMessage = builderResult
+            return returnMe
+          }
+          internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+            if other == ProtobufUnittestNoArena.TestAllTypes.NestedMessage() {
              return self
-        }
-        override internal var internalGetResult:GeneratedMessage {
-             get {
-                return builderResult
-             }
-        }
-        internal override func clear() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
-          builderResult = ProtobufUnittestNoArena.TestAllTypes.NestedMessage()
-          return self
-        }
-        internal override func clone() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
-          return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult)
-        }
-        internal override func build() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-             checkInitialized()
-             return buildPartial()
-        }
-        internal func buildPartial() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          var returnMe:ProtobufUnittestNoArena.TestAllTypes.NestedMessage = builderResult
-          return returnMe
-        }
-        internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
-          if other == ProtobufUnittestNoArena.TestAllTypes.NestedMessage() {
-           return self
+            }
+            if other.hasBb {
+                 bb = other.bb
+            }
+            mergeUnknownFields(other.unknownFields)
+            return self
           }
-          if other.hasBb {
-               bb = other.bb
+          internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+               return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          mergeUnknownFields(other.unknownFields)
-          return self
-        }
-        internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
-             return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-        }
-        internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
-          var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-          while (true) {
-            var tag = input.readTag()
-            switch tag {
-            case 0: 
-              self.unknownFields = unknownFieldsBuilder.build()
-              return self
+          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+            var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            while (true) {
+              var tag = input.readTag()
+              switch tag {
+              case 0: 
+                self.unknownFields = unknownFieldsBuilder.build()
+                return self
 
-            case 8 :
-              bb = input.readInt32()
+              case 8 :
+                bb = input.readInt32()
 
-            default:
-              if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-                 unknownFields = unknownFieldsBuilder.build()
-                 return self
+              default:
+                if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+                   unknownFields = unknownFieldsBuilder.build()
+                   return self
+                }
               }
             }
           }
         }
+
       }
 
     //Nested type declaration end
@@ -413,22 +413,22 @@ internal extension ProtobufUnittestNoArena {
         internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
           return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func builder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
-          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder
+        internal class func builder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder
         }
-        internal func builder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
-          return classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder
+        internal func builder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+          return classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder
         }
         internal override class func classBuilder() -> MessageBuilder {
-          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder()
+          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder()
         }
         internal override func classBuilder() -> MessageBuilder {
           return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder()
         }
-        internal func toBuilder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
+        internal func toBuilder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builderWithPrototype(self)
         }
-        internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
+        internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder().mergeFrom(prototype)
         }
         override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -462,93 +462,93 @@ internal extension ProtobufUnittestNoArena {
         }
         //Meta information declaration end
 
-      }
+        final internal class Builder : GeneratedMessageBuilder {
+          private var builderResult:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup()
+          internal func getMessage() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
+              return builderResult
+          }
 
-      final internal class OptionalGroupBuilder : GeneratedMessageBuilder {
-        private var builderResult:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup()
-        internal func getMessage() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-            return builderResult
-        }
-
-        required override internal init () {
-           super.init()
-        }
-        var hasA:Bool {
-             get {
-                  return builderResult.hasA
-             }
-        }
-        var a:Int32 {
-             get {
-                  return builderResult.a
-             }
-             set (value) {
-                 builderResult.hasA = true
-                 builderResult.a = value
-             }
-        }
-        func setA(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
-          self.a = value
-          return self
-        }
-        internal func clearA() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder{
-             builderResult.hasA = false
-             builderResult.a = Int32(0)
+          required override internal init () {
+             super.init()
+          }
+          var hasA:Bool {
+               get {
+                    return builderResult.hasA
+               }
+          }
+          var a:Int32 {
+               get {
+                    return builderResult.a
+               }
+               set (value) {
+                   builderResult.hasA = true
+                   builderResult.a = value
+               }
+          }
+          func setA(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+            self.a = value
+            return self
+          }
+          internal func clearA() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder{
+               builderResult.hasA = false
+               builderResult.a = Int32(0)
+               return self
+          }
+          override internal var internalGetResult:GeneratedMessage {
+               get {
+                  return builderResult
+               }
+          }
+          internal override func clear() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+            builderResult = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup()
+            return self
+          }
+          internal override func clone() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+            return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builderWithPrototype(builderResult)
+          }
+          internal override func build() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
+               checkInitialized()
+               return buildPartial()
+          }
+          internal func buildPartial() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
+            var returnMe:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup = builderResult
+            return returnMe
+          }
+          internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+            if other == ProtobufUnittestNoArena.TestAllTypes.OptionalGroup() {
              return self
-        }
-        override internal var internalGetResult:GeneratedMessage {
-             get {
-                return builderResult
-             }
-        }
-        internal override func clear() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
-          builderResult = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup()
-          return self
-        }
-        internal override func clone() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
-          return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builderWithPrototype(builderResult)
-        }
-        internal override func build() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-             checkInitialized()
-             return buildPartial()
-        }
-        internal func buildPartial() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          var returnMe:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup = builderResult
-          return returnMe
-        }
-        internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
-          if other == ProtobufUnittestNoArena.TestAllTypes.OptionalGroup() {
-           return self
+            }
+            if other.hasA {
+                 a = other.a
+            }
+            mergeUnknownFields(other.unknownFields)
+            return self
           }
-          if other.hasA {
-               a = other.a
+          internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+               return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          mergeUnknownFields(other.unknownFields)
-          return self
-        }
-        internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
-             return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-        }
-        internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
-          var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-          while (true) {
-            var tag = input.readTag()
-            switch tag {
-            case 0: 
-              self.unknownFields = unknownFieldsBuilder.build()
-              return self
+          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+            var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            while (true) {
+              var tag = input.readTag()
+              switch tag {
+              case 0: 
+                self.unknownFields = unknownFieldsBuilder.build()
+                return self
 
-            case 136 :
-              a = input.readInt32()
+              case 136 :
+                a = input.readInt32()
 
-            default:
-              if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-                 unknownFields = unknownFieldsBuilder.build()
-                 return self
+              default:
+                if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+                   unknownFields = unknownFieldsBuilder.build()
+                   return self
+                }
               }
             }
           }
         }
+
       }
 
     //Nested type declaration end
@@ -605,22 +605,22 @@ internal extension ProtobufUnittestNoArena {
         internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
           return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func builder() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
-          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder
+        internal class func builder() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder
         }
-        internal func builder() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
-          return classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder
+        internal func builder() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+          return classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder
         }
         internal override class func classBuilder() -> MessageBuilder {
-          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder()
+          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder()
         }
         internal override func classBuilder() -> MessageBuilder {
           return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder()
         }
-        internal func toBuilder() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
+        internal func toBuilder() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builderWithPrototype(self)
         }
-        internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
+        internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder().mergeFrom(prototype)
         }
         override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -654,93 +654,93 @@ internal extension ProtobufUnittestNoArena {
         }
         //Meta information declaration end
 
-      }
+        final internal class Builder : GeneratedMessageBuilder {
+          private var builderResult:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup()
+          internal func getMessage() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
+              return builderResult
+          }
 
-      final internal class RepeatedGroupBuilder : GeneratedMessageBuilder {
-        private var builderResult:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup()
-        internal func getMessage() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-            return builderResult
-        }
-
-        required override internal init () {
-           super.init()
-        }
-        var hasA:Bool {
-             get {
-                  return builderResult.hasA
-             }
-        }
-        var a:Int32 {
-             get {
-                  return builderResult.a
-             }
-             set (value) {
-                 builderResult.hasA = true
-                 builderResult.a = value
-             }
-        }
-        func setA(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
-          self.a = value
-          return self
-        }
-        internal func clearA() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder{
-             builderResult.hasA = false
-             builderResult.a = Int32(0)
+          required override internal init () {
+             super.init()
+          }
+          var hasA:Bool {
+               get {
+                    return builderResult.hasA
+               }
+          }
+          var a:Int32 {
+               get {
+                    return builderResult.a
+               }
+               set (value) {
+                   builderResult.hasA = true
+                   builderResult.a = value
+               }
+          }
+          func setA(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+            self.a = value
+            return self
+          }
+          internal func clearA() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder{
+               builderResult.hasA = false
+               builderResult.a = Int32(0)
+               return self
+          }
+          override internal var internalGetResult:GeneratedMessage {
+               get {
+                  return builderResult
+               }
+          }
+          internal override func clear() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+            builderResult = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup()
+            return self
+          }
+          internal override func clone() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+            return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builderWithPrototype(builderResult)
+          }
+          internal override func build() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
+               checkInitialized()
+               return buildPartial()
+          }
+          internal func buildPartial() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
+            var returnMe:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup = builderResult
+            return returnMe
+          }
+          internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+            if other == ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup() {
              return self
-        }
-        override internal var internalGetResult:GeneratedMessage {
-             get {
-                return builderResult
-             }
-        }
-        internal override func clear() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
-          builderResult = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup()
-          return self
-        }
-        internal override func clone() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
-          return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builderWithPrototype(builderResult)
-        }
-        internal override func build() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-             checkInitialized()
-             return buildPartial()
-        }
-        internal func buildPartial() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          var returnMe:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup = builderResult
-          return returnMe
-        }
-        internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
-          if other == ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup() {
-           return self
+            }
+            if other.hasA {
+                 a = other.a
+            }
+            mergeUnknownFields(other.unknownFields)
+            return self
           }
-          if other.hasA {
-               a = other.a
+          internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+               return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          mergeUnknownFields(other.unknownFields)
-          return self
-        }
-        internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
-             return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-        }
-        internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroupBuilder {
-          var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-          while (true) {
-            var tag = input.readTag()
-            switch tag {
-            case 0: 
-              self.unknownFields = unknownFieldsBuilder.build()
-              return self
+          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+            var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            while (true) {
+              var tag = input.readTag()
+              switch tag {
+              case 0: 
+                self.unknownFields = unknownFieldsBuilder.build()
+                return self
 
-            case 376 :
-              a = input.readInt32()
+              case 376 :
+                a = input.readInt32()
 
-            default:
-              if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-                 unknownFields = unknownFieldsBuilder.build()
-                 return self
+              default:
+                if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+                   unknownFields = unknownFieldsBuilder.build()
+                   return self
+                }
               }
             }
           }
         }
+
       }
 
     //Nested type declaration end
@@ -1626,22 +1626,22 @@ internal extension ProtobufUnittestNoArena {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes {
       return ProtobufUnittestNoArena.TestAllTypes.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      return ProtobufUnittestNoArena.TestAllTypes.classBuilder() as! ProtobufUnittestNoArena.TestAllTypesBuilder
+    internal class func builder() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+      return ProtobufUnittestNoArena.TestAllTypes.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.Builder
     }
-    internal func builder() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      return classBuilder() as! ProtobufUnittestNoArena.TestAllTypesBuilder
+    internal func builder() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+      return classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return ProtobufUnittestNoArena.TestAllTypesBuilder()
+      return ProtobufUnittestNoArena.TestAllTypes.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return ProtobufUnittestNoArena.TestAllTypes.builder()
     }
-    internal func toBuilder() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    internal func toBuilder() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
       return ProtobufUnittestNoArena.TestAllTypes.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestAllTypes) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
+    internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestAllTypes) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
       return ProtobufUnittestNoArena.TestAllTypes.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -2207,2350 +2207,2350 @@ internal extension ProtobufUnittestNoArena {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:ProtobufUnittestNoArena.TestAllTypes = ProtobufUnittestNoArena.TestAllTypes()
+      internal func getMessage() -> ProtobufUnittestNoArena.TestAllTypes {
+          return builderResult
+      }
 
-  final internal class TestAllTypesBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittestNoArena.TestAllTypes = ProtobufUnittestNoArena.TestAllTypes()
-    internal func getMessage() -> ProtobufUnittestNoArena.TestAllTypes {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasOptionalInt32:Bool {
-         get {
-              return builderResult.hasOptionalInt32
-         }
-    }
-    var optionalInt32:Int32 {
-         get {
-              return builderResult.optionalInt32
-         }
-         set (value) {
-             builderResult.hasOptionalInt32 = true
-             builderResult.optionalInt32 = value
-         }
-    }
-    func setOptionalInt32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalInt32 = value
-      return self
-    }
-    internal func clearOptionalInt32() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalInt32 = false
-         builderResult.optionalInt32 = Int32(0)
-         return self
-    }
-    var hasOptionalInt64:Bool {
-         get {
-              return builderResult.hasOptionalInt64
-         }
-    }
-    var optionalInt64:Int64 {
-         get {
-              return builderResult.optionalInt64
-         }
-         set (value) {
-             builderResult.hasOptionalInt64 = true
-             builderResult.optionalInt64 = value
-         }
-    }
-    func setOptionalInt64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalInt64 = value
-      return self
-    }
-    internal func clearOptionalInt64() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalInt64 = false
-         builderResult.optionalInt64 = Int64(0)
-         return self
-    }
-    var hasOptionalUint32:Bool {
-         get {
-              return builderResult.hasOptionalUint32
-         }
-    }
-    var optionalUint32:UInt32 {
-         get {
-              return builderResult.optionalUint32
-         }
-         set (value) {
-             builderResult.hasOptionalUint32 = true
-             builderResult.optionalUint32 = value
-         }
-    }
-    func setOptionalUint32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalUint32 = value
-      return self
-    }
-    internal func clearOptionalUint32() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalUint32 = false
-         builderResult.optionalUint32 = UInt32(0)
-         return self
-    }
-    var hasOptionalUint64:Bool {
-         get {
-              return builderResult.hasOptionalUint64
-         }
-    }
-    var optionalUint64:UInt64 {
-         get {
-              return builderResult.optionalUint64
-         }
-         set (value) {
-             builderResult.hasOptionalUint64 = true
-             builderResult.optionalUint64 = value
-         }
-    }
-    func setOptionalUint64(value:UInt64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalUint64 = value
-      return self
-    }
-    internal func clearOptionalUint64() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalUint64 = false
-         builderResult.optionalUint64 = UInt64(0)
-         return self
-    }
-    var hasOptionalSint32:Bool {
-         get {
-              return builderResult.hasOptionalSint32
-         }
-    }
-    var optionalSint32:Int32 {
-         get {
-              return builderResult.optionalSint32
-         }
-         set (value) {
-             builderResult.hasOptionalSint32 = true
-             builderResult.optionalSint32 = value
-         }
-    }
-    func setOptionalSint32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalSint32 = value
-      return self
-    }
-    internal func clearOptionalSint32() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalSint32 = false
-         builderResult.optionalSint32 = Int32(0)
-         return self
-    }
-    var hasOptionalSint64:Bool {
-         get {
-              return builderResult.hasOptionalSint64
-         }
-    }
-    var optionalSint64:Int64 {
-         get {
-              return builderResult.optionalSint64
-         }
-         set (value) {
-             builderResult.hasOptionalSint64 = true
-             builderResult.optionalSint64 = value
-         }
-    }
-    func setOptionalSint64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalSint64 = value
-      return self
-    }
-    internal func clearOptionalSint64() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalSint64 = false
-         builderResult.optionalSint64 = Int64(0)
-         return self
-    }
-    var hasOptionalFixed32:Bool {
-         get {
-              return builderResult.hasOptionalFixed32
-         }
-    }
-    var optionalFixed32:UInt32 {
-         get {
-              return builderResult.optionalFixed32
-         }
-         set (value) {
-             builderResult.hasOptionalFixed32 = true
-             builderResult.optionalFixed32 = value
-         }
-    }
-    func setOptionalFixed32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalFixed32 = value
-      return self
-    }
-    internal func clearOptionalFixed32() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalFixed32 = false
-         builderResult.optionalFixed32 = UInt32(0)
-         return self
-    }
-    var hasOptionalFixed64:Bool {
-         get {
-              return builderResult.hasOptionalFixed64
-         }
-    }
-    var optionalFixed64:UInt64 {
-         get {
-              return builderResult.optionalFixed64
-         }
-         set (value) {
-             builderResult.hasOptionalFixed64 = true
-             builderResult.optionalFixed64 = value
-         }
-    }
-    func setOptionalFixed64(value:UInt64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalFixed64 = value
-      return self
-    }
-    internal func clearOptionalFixed64() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalFixed64 = false
-         builderResult.optionalFixed64 = UInt64(0)
-         return self
-    }
-    var hasOptionalSfixed32:Bool {
-         get {
-              return builderResult.hasOptionalSfixed32
-         }
-    }
-    var optionalSfixed32:Int32 {
-         get {
-              return builderResult.optionalSfixed32
-         }
-         set (value) {
-             builderResult.hasOptionalSfixed32 = true
-             builderResult.optionalSfixed32 = value
-         }
-    }
-    func setOptionalSfixed32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalSfixed32 = value
-      return self
-    }
-    internal func clearOptionalSfixed32() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalSfixed32 = false
-         builderResult.optionalSfixed32 = Int32(0)
-         return self
-    }
-    var hasOptionalSfixed64:Bool {
-         get {
-              return builderResult.hasOptionalSfixed64
-         }
-    }
-    var optionalSfixed64:Int64 {
-         get {
-              return builderResult.optionalSfixed64
-         }
-         set (value) {
-             builderResult.hasOptionalSfixed64 = true
-             builderResult.optionalSfixed64 = value
-         }
-    }
-    func setOptionalSfixed64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalSfixed64 = value
-      return self
-    }
-    internal func clearOptionalSfixed64() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalSfixed64 = false
-         builderResult.optionalSfixed64 = Int64(0)
-         return self
-    }
-    var hasOptionalFloat:Bool {
-         get {
-              return builderResult.hasOptionalFloat
-         }
-    }
-    var optionalFloat:Float {
-         get {
-              return builderResult.optionalFloat
-         }
-         set (value) {
-             builderResult.hasOptionalFloat = true
-             builderResult.optionalFloat = value
-         }
-    }
-    func setOptionalFloat(value:Float) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalFloat = value
-      return self
-    }
-    internal func clearOptionalFloat() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalFloat = false
-         builderResult.optionalFloat = Float(0)
-         return self
-    }
-    var hasOptionalDouble:Bool {
-         get {
-              return builderResult.hasOptionalDouble
-         }
-    }
-    var optionalDouble:Double {
-         get {
-              return builderResult.optionalDouble
-         }
-         set (value) {
-             builderResult.hasOptionalDouble = true
-             builderResult.optionalDouble = value
-         }
-    }
-    func setOptionalDouble(value:Double) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalDouble = value
-      return self
-    }
-    internal func clearOptionalDouble() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalDouble = false
-         builderResult.optionalDouble = Double(0)
-         return self
-    }
-    var hasOptionalBool:Bool {
-         get {
-              return builderResult.hasOptionalBool
-         }
-    }
-    var optionalBool:Bool {
-         get {
-              return builderResult.optionalBool
-         }
-         set (value) {
-             builderResult.hasOptionalBool = true
-             builderResult.optionalBool = value
-         }
-    }
-    func setOptionalBool(value:Bool) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalBool = value
-      return self
-    }
-    internal func clearOptionalBool() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalBool = false
-         builderResult.optionalBool = false
-         return self
-    }
-    var hasOptionalString:Bool {
-         get {
-              return builderResult.hasOptionalString
-         }
-    }
-    var optionalString:String {
-         get {
-              return builderResult.optionalString
-         }
-         set (value) {
-             builderResult.hasOptionalString = true
-             builderResult.optionalString = value
-         }
-    }
-    func setOptionalString(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalString = value
-      return self
-    }
-    internal func clearOptionalString() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalString = false
-         builderResult.optionalString = ""
-         return self
-    }
-    var hasOptionalBytes:Bool {
-         get {
-              return builderResult.hasOptionalBytes
-         }
-    }
-    var optionalBytes:NSData {
-         get {
-              return builderResult.optionalBytes
-         }
-         set (value) {
-             builderResult.hasOptionalBytes = true
-             builderResult.optionalBytes = value
-         }
-    }
-    func setOptionalBytes(value:NSData) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalBytes = value
-      return self
-    }
-    internal func clearOptionalBytes() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalBytes = false
-         builderResult.optionalBytes = NSData()
-         return self
-    }
-    var hasOptionalGroup:Bool {
-         get {
-             return builderResult.hasOptionalGroup
-         }
-    }
-    var optionalGroup:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup! {
-         get {
-             if optionalGroupBuilder_ != nil {
-                builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
-             }
-             return builderResult.optionalGroup
-         }
-         set (value) {
-             builderResult.hasOptionalGroup = true
-             builderResult.optionalGroup = value
-         }
-    }
-    private var optionalGroupBuilder_:ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder! {
-         didSet {
-            builderResult.hasOptionalGroup = true
-         }
-    }
-    internal func getOptionalGroupBuilder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder {
-      if optionalGroupBuilder_ == nil {
-         optionalGroupBuilder_ = ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder()
-         builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
-         if optionalGroup != nil {
-            optionalGroupBuilder_.mergeFrom(optionalGroup)
-         }
+      required override internal init () {
+         super.init()
       }
-      return optionalGroupBuilder_
-    }
-    func setOptionalGroup(value:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalGroup = value
-      return self
-    }
-    internal func mergeOptionalGroup(value:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if builderResult.hasOptionalGroup {
-        builderResult.optionalGroup = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builderWithPrototype(builderResult.optionalGroup).mergeFrom(value).buildPartial()
-      } else {
-        builderResult.optionalGroup = value
+      var hasOptionalInt32:Bool {
+           get {
+                return builderResult.hasOptionalInt32
+           }
       }
-      builderResult.hasOptionalGroup = true
-      return self
-    }
-    internal func clearOptionalGroup() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      optionalGroupBuilder_ = nil
-      builderResult.hasOptionalGroup = false
-      builderResult.optionalGroup = nil
-      return self
-    }
-    var hasOptionalNestedMessage:Bool {
-         get {
-             return builderResult.hasOptionalNestedMessage
-         }
-    }
-    var optionalNestedMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
-         get {
-             if optionalNestedMessageBuilder_ != nil {
-                builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
-             }
-             return builderResult.optionalNestedMessage
-         }
-         set (value) {
-             builderResult.hasOptionalNestedMessage = true
-             builderResult.optionalNestedMessage = value
-         }
-    }
-    private var optionalNestedMessageBuilder_:ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder! {
-         didSet {
-            builderResult.hasOptionalNestedMessage = true
-         }
-    }
-    internal func getOptionalNestedMessageBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
-      if optionalNestedMessageBuilder_ == nil {
-         optionalNestedMessageBuilder_ = ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder()
-         builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
-         if optionalNestedMessage != nil {
-            optionalNestedMessageBuilder_.mergeFrom(optionalNestedMessage)
-         }
+      var optionalInt32:Int32 {
+           get {
+                return builderResult.optionalInt32
+           }
+           set (value) {
+               builderResult.hasOptionalInt32 = true
+               builderResult.optionalInt32 = value
+           }
       }
-      return optionalNestedMessageBuilder_
-    }
-    func setOptionalNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalNestedMessage = value
-      return self
-    }
-    internal func mergeOptionalNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if builderResult.hasOptionalNestedMessage {
-        builderResult.optionalNestedMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalNestedMessage).mergeFrom(value).buildPartial()
-      } else {
-        builderResult.optionalNestedMessage = value
-      }
-      builderResult.hasOptionalNestedMessage = true
-      return self
-    }
-    internal func clearOptionalNestedMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      optionalNestedMessageBuilder_ = nil
-      builderResult.hasOptionalNestedMessage = false
-      builderResult.optionalNestedMessage = nil
-      return self
-    }
-    var hasOptionalForeignMessage:Bool {
-         get {
-             return builderResult.hasOptionalForeignMessage
-         }
-    }
-    var optionalForeignMessage:ProtobufUnittestNoArena.ForeignMessage! {
-         get {
-             if optionalForeignMessageBuilder_ != nil {
-                builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
-             }
-             return builderResult.optionalForeignMessage
-         }
-         set (value) {
-             builderResult.hasOptionalForeignMessage = true
-             builderResult.optionalForeignMessage = value
-         }
-    }
-    private var optionalForeignMessageBuilder_:ProtobufUnittestNoArena.ForeignMessageBuilder! {
-         didSet {
-            builderResult.hasOptionalForeignMessage = true
-         }
-    }
-    internal func getOptionalForeignMessageBuilder() -> ProtobufUnittestNoArena.ForeignMessageBuilder {
-      if optionalForeignMessageBuilder_ == nil {
-         optionalForeignMessageBuilder_ = ProtobufUnittestNoArena.ForeignMessageBuilder()
-         builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
-         if optionalForeignMessage != nil {
-            optionalForeignMessageBuilder_.mergeFrom(optionalForeignMessage)
-         }
-      }
-      return optionalForeignMessageBuilder_
-    }
-    func setOptionalForeignMessage(value:ProtobufUnittestNoArena.ForeignMessage!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalForeignMessage = value
-      return self
-    }
-    internal func mergeOptionalForeignMessage(value:ProtobufUnittestNoArena.ForeignMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if builderResult.hasOptionalForeignMessage {
-        builderResult.optionalForeignMessage = ProtobufUnittestNoArena.ForeignMessage.builderWithPrototype(builderResult.optionalForeignMessage).mergeFrom(value).buildPartial()
-      } else {
-        builderResult.optionalForeignMessage = value
-      }
-      builderResult.hasOptionalForeignMessage = true
-      return self
-    }
-    internal func clearOptionalForeignMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      optionalForeignMessageBuilder_ = nil
-      builderResult.hasOptionalForeignMessage = false
-      builderResult.optionalForeignMessage = nil
-      return self
-    }
-    var hasOptionalImportMessage:Bool {
-         get {
-             return builderResult.hasOptionalImportMessage
-         }
-    }
-    var optionalImportMessage:ProtobufUnittestImport.ImportMessage! {
-         get {
-             if optionalImportMessageBuilder_ != nil {
-                builderResult.optionalImportMessage = optionalImportMessageBuilder_.getMessage()
-             }
-             return builderResult.optionalImportMessage
-         }
-         set (value) {
-             builderResult.hasOptionalImportMessage = true
-             builderResult.optionalImportMessage = value
-         }
-    }
-    private var optionalImportMessageBuilder_:ProtobufUnittestImport.ImportMessageBuilder! {
-         didSet {
-            builderResult.hasOptionalImportMessage = true
-         }
-    }
-    internal func getOptionalImportMessageBuilder() -> ProtobufUnittestImport.ImportMessageBuilder {
-      if optionalImportMessageBuilder_ == nil {
-         optionalImportMessageBuilder_ = ProtobufUnittestImport.ImportMessageBuilder()
-         builderResult.optionalImportMessage = optionalImportMessageBuilder_.getMessage()
-         if optionalImportMessage != nil {
-            optionalImportMessageBuilder_.mergeFrom(optionalImportMessage)
-         }
-      }
-      return optionalImportMessageBuilder_
-    }
-    func setOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalImportMessage = value
-      return self
-    }
-    internal func mergeOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if builderResult.hasOptionalImportMessage {
-        builderResult.optionalImportMessage = ProtobufUnittestImport.ImportMessage.builderWithPrototype(builderResult.optionalImportMessage).mergeFrom(value).buildPartial()
-      } else {
-        builderResult.optionalImportMessage = value
-      }
-      builderResult.hasOptionalImportMessage = true
-      return self
-    }
-    internal func clearOptionalImportMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      optionalImportMessageBuilder_ = nil
-      builderResult.hasOptionalImportMessage = false
-      builderResult.optionalImportMessage = nil
-      return self
-    }
-      var hasOptionalNestedEnum:Bool{
-          get {
-              return builderResult.hasOptionalNestedEnum
-          }
-      }
-      var optionalNestedEnum:TestAllTypes.NestedEnum {
-          get {
-              return builderResult.optionalNestedEnum
-          }
-          set (value) {
-              builderResult.hasOptionalNestedEnum = true
-              builderResult.optionalNestedEnum = value
-          }
-      }
-      internal func setOptionalNestedEnum(value:TestAllTypes.NestedEnum) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-        self.optionalNestedEnum = value
+      func setOptionalInt32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalInt32 = value
         return self
       }
-      internal func clearOptionalNestedEnum() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-         builderResult.hasOptionalNestedEnum = false
-         builderResult.optionalNestedEnum = .Foo
-         return self
+      internal func clearOptionalInt32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalInt32 = false
+           builderResult.optionalInt32 = Int32(0)
+           return self
       }
-      var hasOptionalForeignEnum:Bool{
-          get {
-              return builderResult.hasOptionalForeignEnum
-          }
+      var hasOptionalInt64:Bool {
+           get {
+                return builderResult.hasOptionalInt64
+           }
       }
-      var optionalForeignEnum:ProtobufUnittestNoArena.ForeignEnum {
-          get {
-              return builderResult.optionalForeignEnum
-          }
-          set (value) {
-              builderResult.hasOptionalForeignEnum = true
-              builderResult.optionalForeignEnum = value
-          }
+      var optionalInt64:Int64 {
+           get {
+                return builderResult.optionalInt64
+           }
+           set (value) {
+               builderResult.hasOptionalInt64 = true
+               builderResult.optionalInt64 = value
+           }
       }
-      internal func setOptionalForeignEnum(value:ProtobufUnittestNoArena.ForeignEnum) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-        self.optionalForeignEnum = value
+      func setOptionalInt64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalInt64 = value
         return self
       }
-      internal func clearOptionalForeignEnum() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-         builderResult.hasOptionalForeignEnum = false
-         builderResult.optionalForeignEnum = .ForeignFoo
-         return self
+      internal func clearOptionalInt64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalInt64 = false
+           builderResult.optionalInt64 = Int64(0)
+           return self
       }
-      var hasOptionalImportEnum:Bool{
-          get {
-              return builderResult.hasOptionalImportEnum
-          }
+      var hasOptionalUint32:Bool {
+           get {
+                return builderResult.hasOptionalUint32
+           }
       }
-      var optionalImportEnum:ProtobufUnittestImport.ImportEnum {
-          get {
-              return builderResult.optionalImportEnum
-          }
-          set (value) {
-              builderResult.hasOptionalImportEnum = true
-              builderResult.optionalImportEnum = value
-          }
+      var optionalUint32:UInt32 {
+           get {
+                return builderResult.optionalUint32
+           }
+           set (value) {
+               builderResult.hasOptionalUint32 = true
+               builderResult.optionalUint32 = value
+           }
       }
-      internal func setOptionalImportEnum(value:ProtobufUnittestImport.ImportEnum) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-        self.optionalImportEnum = value
+      func setOptionalUint32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalUint32 = value
         return self
       }
-      internal func clearOptionalImportEnum() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-         builderResult.hasOptionalImportEnum = false
-         builderResult.optionalImportEnum = .ImportFoo
-         return self
+      internal func clearOptionalUint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalUint32 = false
+           builderResult.optionalUint32 = UInt32(0)
+           return self
       }
-    var hasOptionalStringPiece:Bool {
-         get {
-              return builderResult.hasOptionalStringPiece
-         }
-    }
-    var optionalStringPiece:String {
-         get {
-              return builderResult.optionalStringPiece
-         }
-         set (value) {
-             builderResult.hasOptionalStringPiece = true
-             builderResult.optionalStringPiece = value
-         }
-    }
-    func setOptionalStringPiece(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalStringPiece = value
-      return self
-    }
-    internal func clearOptionalStringPiece() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalStringPiece = false
-         builderResult.optionalStringPiece = ""
-         return self
-    }
-    var hasOptionalCord:Bool {
-         get {
-              return builderResult.hasOptionalCord
-         }
-    }
-    var optionalCord:String {
-         get {
-              return builderResult.optionalCord
-         }
-         set (value) {
-             builderResult.hasOptionalCord = true
-             builderResult.optionalCord = value
-         }
-    }
-    func setOptionalCord(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalCord = value
-      return self
-    }
-    internal func clearOptionalCord() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOptionalCord = false
-         builderResult.optionalCord = ""
-         return self
-    }
-    var hasOptionalPublicImportMessage:Bool {
-         get {
-             return builderResult.hasOptionalPublicImportMessage
-         }
-    }
-    var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage! {
-         get {
-             if optionalPublicImportMessageBuilder_ != nil {
-                builderResult.optionalPublicImportMessage = optionalPublicImportMessageBuilder_.getMessage()
-             }
-             return builderResult.optionalPublicImportMessage
-         }
-         set (value) {
-             builderResult.hasOptionalPublicImportMessage = true
-             builderResult.optionalPublicImportMessage = value
-         }
-    }
-    private var optionalPublicImportMessageBuilder_:ProtobufUnittestImport.PublicImportMessageBuilder! {
-         didSet {
-            builderResult.hasOptionalPublicImportMessage = true
-         }
-    }
-    internal func getOptionalPublicImportMessageBuilder() -> ProtobufUnittestImport.PublicImportMessageBuilder {
-      if optionalPublicImportMessageBuilder_ == nil {
-         optionalPublicImportMessageBuilder_ = ProtobufUnittestImport.PublicImportMessageBuilder()
-         builderResult.optionalPublicImportMessage = optionalPublicImportMessageBuilder_.getMessage()
-         if optionalPublicImportMessage != nil {
-            optionalPublicImportMessageBuilder_.mergeFrom(optionalPublicImportMessage)
-         }
+      var hasOptionalUint64:Bool {
+           get {
+                return builderResult.hasOptionalUint64
+           }
       }
-      return optionalPublicImportMessageBuilder_
-    }
-    func setOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalPublicImportMessage = value
-      return self
-    }
-    internal func mergeOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if builderResult.hasOptionalPublicImportMessage {
-        builderResult.optionalPublicImportMessage = ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(builderResult.optionalPublicImportMessage).mergeFrom(value).buildPartial()
-      } else {
-        builderResult.optionalPublicImportMessage = value
+      var optionalUint64:UInt64 {
+           get {
+                return builderResult.optionalUint64
+           }
+           set (value) {
+               builderResult.hasOptionalUint64 = true
+               builderResult.optionalUint64 = value
+           }
       }
-      builderResult.hasOptionalPublicImportMessage = true
-      return self
-    }
-    internal func clearOptionalPublicImportMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      optionalPublicImportMessageBuilder_ = nil
-      builderResult.hasOptionalPublicImportMessage = false
-      builderResult.optionalPublicImportMessage = nil
-      return self
-    }
-    var hasOptionalLazyMessage:Bool {
-         get {
-             return builderResult.hasOptionalLazyMessage
-         }
-    }
-    var optionalLazyMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
-         get {
-             if optionalLazyMessageBuilder_ != nil {
-                builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
-             }
-             return builderResult.optionalLazyMessage
-         }
-         set (value) {
-             builderResult.hasOptionalLazyMessage = true
-             builderResult.optionalLazyMessage = value
-         }
-    }
-    private var optionalLazyMessageBuilder_:ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder! {
-         didSet {
-            builderResult.hasOptionalLazyMessage = true
-         }
-    }
-    internal func getOptionalLazyMessageBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
-      if optionalLazyMessageBuilder_ == nil {
-         optionalLazyMessageBuilder_ = ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder()
-         builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
-         if optionalLazyMessage != nil {
-            optionalLazyMessageBuilder_.mergeFrom(optionalLazyMessage)
-         }
-      }
-      return optionalLazyMessageBuilder_
-    }
-    func setOptionalLazyMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.optionalLazyMessage = value
-      return self
-    }
-    internal func mergeOptionalLazyMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if builderResult.hasOptionalLazyMessage {
-        builderResult.optionalLazyMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalLazyMessage).mergeFrom(value).buildPartial()
-      } else {
-        builderResult.optionalLazyMessage = value
-      }
-      builderResult.hasOptionalLazyMessage = true
-      return self
-    }
-    internal func clearOptionalLazyMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      optionalLazyMessageBuilder_ = nil
-      builderResult.hasOptionalLazyMessage = false
-      builderResult.optionalLazyMessage = nil
-      return self
-    }
-    var repeatedInt32:Array<Int32> {
-         get {
-             return builderResult.repeatedInt32
-         }
-         set (array) {
-             builderResult.repeatedInt32 = array
-         }
-    }
-    func setRepeatedInt32(value:Array<Int32>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedInt32 = value
-      return self
-    }
-    internal func clearRepeatedInt32() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedInt32.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedInt64:Array<Int64> {
-         get {
-             return builderResult.repeatedInt64
-         }
-         set (array) {
-             builderResult.repeatedInt64 = array
-         }
-    }
-    func setRepeatedInt64(value:Array<Int64>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedInt64 = value
-      return self
-    }
-    internal func clearRepeatedInt64() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedInt64.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedUint32:Array<UInt32> {
-         get {
-             return builderResult.repeatedUint32
-         }
-         set (array) {
-             builderResult.repeatedUint32 = array
-         }
-    }
-    func setRepeatedUint32(value:Array<UInt32>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedUint32 = value
-      return self
-    }
-    internal func clearRepeatedUint32() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedUint32.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedUint64:Array<UInt64> {
-         get {
-             return builderResult.repeatedUint64
-         }
-         set (array) {
-             builderResult.repeatedUint64 = array
-         }
-    }
-    func setRepeatedUint64(value:Array<UInt64>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedUint64 = value
-      return self
-    }
-    internal func clearRepeatedUint64() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedUint64.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedSint32:Array<Int32> {
-         get {
-             return builderResult.repeatedSint32
-         }
-         set (array) {
-             builderResult.repeatedSint32 = array
-         }
-    }
-    func setRepeatedSint32(value:Array<Int32>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedSint32 = value
-      return self
-    }
-    internal func clearRepeatedSint32() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedSint32.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedSint64:Array<Int64> {
-         get {
-             return builderResult.repeatedSint64
-         }
-         set (array) {
-             builderResult.repeatedSint64 = array
-         }
-    }
-    func setRepeatedSint64(value:Array<Int64>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedSint64 = value
-      return self
-    }
-    internal func clearRepeatedSint64() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedSint64.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedFixed32:Array<UInt32> {
-         get {
-             return builderResult.repeatedFixed32
-         }
-         set (array) {
-             builderResult.repeatedFixed32 = array
-         }
-    }
-    func setRepeatedFixed32(value:Array<UInt32>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedFixed32 = value
-      return self
-    }
-    internal func clearRepeatedFixed32() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedFixed32.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedFixed64:Array<UInt64> {
-         get {
-             return builderResult.repeatedFixed64
-         }
-         set (array) {
-             builderResult.repeatedFixed64 = array
-         }
-    }
-    func setRepeatedFixed64(value:Array<UInt64>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedFixed64 = value
-      return self
-    }
-    internal func clearRepeatedFixed64() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedFixed64.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedSfixed32:Array<Int32> {
-         get {
-             return builderResult.repeatedSfixed32
-         }
-         set (array) {
-             builderResult.repeatedSfixed32 = array
-         }
-    }
-    func setRepeatedSfixed32(value:Array<Int32>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedSfixed32 = value
-      return self
-    }
-    internal func clearRepeatedSfixed32() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedSfixed32.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedSfixed64:Array<Int64> {
-         get {
-             return builderResult.repeatedSfixed64
-         }
-         set (array) {
-             builderResult.repeatedSfixed64 = array
-         }
-    }
-    func setRepeatedSfixed64(value:Array<Int64>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedSfixed64 = value
-      return self
-    }
-    internal func clearRepeatedSfixed64() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedSfixed64.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedFloat:Array<Float> {
-         get {
-             return builderResult.repeatedFloat
-         }
-         set (array) {
-             builderResult.repeatedFloat = array
-         }
-    }
-    func setRepeatedFloat(value:Array<Float>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedFloat = value
-      return self
-    }
-    internal func clearRepeatedFloat() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedFloat.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedDouble:Array<Double> {
-         get {
-             return builderResult.repeatedDouble
-         }
-         set (array) {
-             builderResult.repeatedDouble = array
-         }
-    }
-    func setRepeatedDouble(value:Array<Double>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedDouble = value
-      return self
-    }
-    internal func clearRepeatedDouble() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedDouble.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedBool:Array<Bool> {
-         get {
-             return builderResult.repeatedBool
-         }
-         set (array) {
-             builderResult.repeatedBool = array
-         }
-    }
-    func setRepeatedBool(value:Array<Bool>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedBool = value
-      return self
-    }
-    internal func clearRepeatedBool() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedBool.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedString:Array<String> {
-         get {
-             return builderResult.repeatedString
-         }
-         set (array) {
-             builderResult.repeatedString = array
-         }
-    }
-    func setRepeatedString(value:Array<String>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedString = value
-      return self
-    }
-    internal func clearRepeatedString() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedString.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedBytes:Array<NSData> {
-         get {
-             return builderResult.repeatedBytes
-         }
-         set (array) {
-             builderResult.repeatedBytes = array
-         }
-    }
-    func setRepeatedBytes(value:Array<NSData>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedBytes = value
-      return self
-    }
-    internal func clearRepeatedBytes() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedBytes.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedGroup:Array<ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup> {
-         get {
-             return builderResult.repeatedGroup
-         }
-         set (value) {
-             builderResult.repeatedGroup = value
-         }
-    }
-    func setRepeatedGroup(value:Array<ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedGroup = value
-      return self
-    }
-    internal func clearRepeatedGroup() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      builderResult.repeatedGroup.removeAll(keepCapacity: false)
-      return self
-    }
-    var repeatedNestedMessage:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage> {
-         get {
-             return builderResult.repeatedNestedMessage
-         }
-         set (value) {
-             builderResult.repeatedNestedMessage = value
-         }
-    }
-    func setRepeatedNestedMessage(value:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedNestedMessage = value
-      return self
-    }
-    internal func clearRepeatedNestedMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      builderResult.repeatedNestedMessage.removeAll(keepCapacity: false)
-      return self
-    }
-    var repeatedForeignMessage:Array<ProtobufUnittestNoArena.ForeignMessage> {
-         get {
-             return builderResult.repeatedForeignMessage
-         }
-         set (value) {
-             builderResult.repeatedForeignMessage = value
-         }
-    }
-    func setRepeatedForeignMessage(value:Array<ProtobufUnittestNoArena.ForeignMessage>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedForeignMessage = value
-      return self
-    }
-    internal func clearRepeatedForeignMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      builderResult.repeatedForeignMessage.removeAll(keepCapacity: false)
-      return self
-    }
-    var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessage> {
-         get {
-             return builderResult.repeatedImportMessage
-         }
-         set (value) {
-             builderResult.repeatedImportMessage = value
-         }
-    }
-    func setRepeatedImportMessage(value:Array<ProtobufUnittestImport.ImportMessage>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedImportMessage = value
-      return self
-    }
-    internal func clearRepeatedImportMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      builderResult.repeatedImportMessage.removeAll(keepCapacity: false)
-      return self
-    }
-    var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> {
-        get {
-            return builderResult.repeatedNestedEnum
-        }
-        set (value) {
-            builderResult.repeatedNestedEnum = value
-        }
-    }
-    func setRepeatedNestedEnum(value:Array<TestAllTypes.NestedEnum>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedNestedEnum = value
-      return self
-    }
-    internal func clearRepeatedNestedEnum() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      builderResult.repeatedNestedEnum.removeAll(keepCapacity: false)
-      return self
-    }
-    var repeatedForeignEnum:Array<ProtobufUnittestNoArena.ForeignEnum> {
-        get {
-            return builderResult.repeatedForeignEnum
-        }
-        set (value) {
-            builderResult.repeatedForeignEnum = value
-        }
-    }
-    func setRepeatedForeignEnum(value:Array<ProtobufUnittestNoArena.ForeignEnum>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedForeignEnum = value
-      return self
-    }
-    internal func clearRepeatedForeignEnum() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      builderResult.repeatedForeignEnum.removeAll(keepCapacity: false)
-      return self
-    }
-    var repeatedImportEnum:Array<ProtobufUnittestImport.ImportEnum> {
-        get {
-            return builderResult.repeatedImportEnum
-        }
-        set (value) {
-            builderResult.repeatedImportEnum = value
-        }
-    }
-    func setRepeatedImportEnum(value:Array<ProtobufUnittestImport.ImportEnum>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedImportEnum = value
-      return self
-    }
-    internal func clearRepeatedImportEnum() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      builderResult.repeatedImportEnum.removeAll(keepCapacity: false)
-      return self
-    }
-    var repeatedStringPiece:Array<String> {
-         get {
-             return builderResult.repeatedStringPiece
-         }
-         set (array) {
-             builderResult.repeatedStringPiece = array
-         }
-    }
-    func setRepeatedStringPiece(value:Array<String>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedStringPiece = value
-      return self
-    }
-    internal func clearRepeatedStringPiece() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedStringPiece.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedCord:Array<String> {
-         get {
-             return builderResult.repeatedCord
-         }
-         set (array) {
-             builderResult.repeatedCord = array
-         }
-    }
-    func setRepeatedCord(value:Array<String>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedCord = value
-      return self
-    }
-    internal func clearRepeatedCord() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-       builderResult.repeatedCord.removeAll(keepCapacity: false)
-       return self
-    }
-    var repeatedLazyMessage:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage> {
-         get {
-             return builderResult.repeatedLazyMessage
-         }
-         set (value) {
-             builderResult.repeatedLazyMessage = value
-         }
-    }
-    func setRepeatedLazyMessage(value:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.repeatedLazyMessage = value
-      return self
-    }
-    internal func clearRepeatedLazyMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      builderResult.repeatedLazyMessage.removeAll(keepCapacity: false)
-      return self
-    }
-    var hasDefaultInt32:Bool {
-         get {
-              return builderResult.hasDefaultInt32
-         }
-    }
-    var defaultInt32:Int32 {
-         get {
-              return builderResult.defaultInt32
-         }
-         set (value) {
-             builderResult.hasDefaultInt32 = true
-             builderResult.defaultInt32 = value
-         }
-    }
-    func setDefaultInt32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultInt32 = value
-      return self
-    }
-    internal func clearDefaultInt32() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultInt32 = false
-         builderResult.defaultInt32 = Int32(41)
-         return self
-    }
-    var hasDefaultInt64:Bool {
-         get {
-              return builderResult.hasDefaultInt64
-         }
-    }
-    var defaultInt64:Int64 {
-         get {
-              return builderResult.defaultInt64
-         }
-         set (value) {
-             builderResult.hasDefaultInt64 = true
-             builderResult.defaultInt64 = value
-         }
-    }
-    func setDefaultInt64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultInt64 = value
-      return self
-    }
-    internal func clearDefaultInt64() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultInt64 = false
-         builderResult.defaultInt64 = Int64(42)
-         return self
-    }
-    var hasDefaultUint32:Bool {
-         get {
-              return builderResult.hasDefaultUint32
-         }
-    }
-    var defaultUint32:UInt32 {
-         get {
-              return builderResult.defaultUint32
-         }
-         set (value) {
-             builderResult.hasDefaultUint32 = true
-             builderResult.defaultUint32 = value
-         }
-    }
-    func setDefaultUint32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultUint32 = value
-      return self
-    }
-    internal func clearDefaultUint32() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultUint32 = false
-         builderResult.defaultUint32 = UInt32(43)
-         return self
-    }
-    var hasDefaultUint64:Bool {
-         get {
-              return builderResult.hasDefaultUint64
-         }
-    }
-    var defaultUint64:UInt64 {
-         get {
-              return builderResult.defaultUint64
-         }
-         set (value) {
-             builderResult.hasDefaultUint64 = true
-             builderResult.defaultUint64 = value
-         }
-    }
-    func setDefaultUint64(value:UInt64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultUint64 = value
-      return self
-    }
-    internal func clearDefaultUint64() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultUint64 = false
-         builderResult.defaultUint64 = UInt64(44)
-         return self
-    }
-    var hasDefaultSint32:Bool {
-         get {
-              return builderResult.hasDefaultSint32
-         }
-    }
-    var defaultSint32:Int32 {
-         get {
-              return builderResult.defaultSint32
-         }
-         set (value) {
-             builderResult.hasDefaultSint32 = true
-             builderResult.defaultSint32 = value
-         }
-    }
-    func setDefaultSint32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultSint32 = value
-      return self
-    }
-    internal func clearDefaultSint32() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultSint32 = false
-         builderResult.defaultSint32 = Int32(-45)
-         return self
-    }
-    var hasDefaultSint64:Bool {
-         get {
-              return builderResult.hasDefaultSint64
-         }
-    }
-    var defaultSint64:Int64 {
-         get {
-              return builderResult.defaultSint64
-         }
-         set (value) {
-             builderResult.hasDefaultSint64 = true
-             builderResult.defaultSint64 = value
-         }
-    }
-    func setDefaultSint64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultSint64 = value
-      return self
-    }
-    internal func clearDefaultSint64() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultSint64 = false
-         builderResult.defaultSint64 = Int64(46)
-         return self
-    }
-    var hasDefaultFixed32:Bool {
-         get {
-              return builderResult.hasDefaultFixed32
-         }
-    }
-    var defaultFixed32:UInt32 {
-         get {
-              return builderResult.defaultFixed32
-         }
-         set (value) {
-             builderResult.hasDefaultFixed32 = true
-             builderResult.defaultFixed32 = value
-         }
-    }
-    func setDefaultFixed32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultFixed32 = value
-      return self
-    }
-    internal func clearDefaultFixed32() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultFixed32 = false
-         builderResult.defaultFixed32 = UInt32(47)
-         return self
-    }
-    var hasDefaultFixed64:Bool {
-         get {
-              return builderResult.hasDefaultFixed64
-         }
-    }
-    var defaultFixed64:UInt64 {
-         get {
-              return builderResult.defaultFixed64
-         }
-         set (value) {
-             builderResult.hasDefaultFixed64 = true
-             builderResult.defaultFixed64 = value
-         }
-    }
-    func setDefaultFixed64(value:UInt64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultFixed64 = value
-      return self
-    }
-    internal func clearDefaultFixed64() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultFixed64 = false
-         builderResult.defaultFixed64 = UInt64(48)
-         return self
-    }
-    var hasDefaultSfixed32:Bool {
-         get {
-              return builderResult.hasDefaultSfixed32
-         }
-    }
-    var defaultSfixed32:Int32 {
-         get {
-              return builderResult.defaultSfixed32
-         }
-         set (value) {
-             builderResult.hasDefaultSfixed32 = true
-             builderResult.defaultSfixed32 = value
-         }
-    }
-    func setDefaultSfixed32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultSfixed32 = value
-      return self
-    }
-    internal func clearDefaultSfixed32() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultSfixed32 = false
-         builderResult.defaultSfixed32 = Int32(49)
-         return self
-    }
-    var hasDefaultSfixed64:Bool {
-         get {
-              return builderResult.hasDefaultSfixed64
-         }
-    }
-    var defaultSfixed64:Int64 {
-         get {
-              return builderResult.defaultSfixed64
-         }
-         set (value) {
-             builderResult.hasDefaultSfixed64 = true
-             builderResult.defaultSfixed64 = value
-         }
-    }
-    func setDefaultSfixed64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultSfixed64 = value
-      return self
-    }
-    internal func clearDefaultSfixed64() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultSfixed64 = false
-         builderResult.defaultSfixed64 = Int64(-50)
-         return self
-    }
-    var hasDefaultFloat:Bool {
-         get {
-              return builderResult.hasDefaultFloat
-         }
-    }
-    var defaultFloat:Float {
-         get {
-              return builderResult.defaultFloat
-         }
-         set (value) {
-             builderResult.hasDefaultFloat = true
-             builderResult.defaultFloat = value
-         }
-    }
-    func setDefaultFloat(value:Float) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultFloat = value
-      return self
-    }
-    internal func clearDefaultFloat() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultFloat = false
-         builderResult.defaultFloat = Float(51.5)
-         return self
-    }
-    var hasDefaultDouble:Bool {
-         get {
-              return builderResult.hasDefaultDouble
-         }
-    }
-    var defaultDouble:Double {
-         get {
-              return builderResult.defaultDouble
-         }
-         set (value) {
-             builderResult.hasDefaultDouble = true
-             builderResult.defaultDouble = value
-         }
-    }
-    func setDefaultDouble(value:Double) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultDouble = value
-      return self
-    }
-    internal func clearDefaultDouble() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultDouble = false
-         builderResult.defaultDouble = Double(52000)
-         return self
-    }
-    var hasDefaultBool:Bool {
-         get {
-              return builderResult.hasDefaultBool
-         }
-    }
-    var defaultBool:Bool {
-         get {
-              return builderResult.defaultBool
-         }
-         set (value) {
-             builderResult.hasDefaultBool = true
-             builderResult.defaultBool = value
-         }
-    }
-    func setDefaultBool(value:Bool) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultBool = value
-      return self
-    }
-    internal func clearDefaultBool() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultBool = false
-         builderResult.defaultBool = true
-         return self
-    }
-    var hasDefaultString:Bool {
-         get {
-              return builderResult.hasDefaultString
-         }
-    }
-    var defaultString:String {
-         get {
-              return builderResult.defaultString
-         }
-         set (value) {
-             builderResult.hasDefaultString = true
-             builderResult.defaultString = value
-         }
-    }
-    func setDefaultString(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultString = value
-      return self
-    }
-    internal func clearDefaultString() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultString = false
-         builderResult.defaultString = "hello"
-         return self
-    }
-    var hasDefaultBytes:Bool {
-         get {
-              return builderResult.hasDefaultBytes
-         }
-    }
-    var defaultBytes:NSData {
-         get {
-              return builderResult.defaultBytes
-         }
-         set (value) {
-             builderResult.hasDefaultBytes = true
-             builderResult.defaultBytes = value
-         }
-    }
-    func setDefaultBytes(value:NSData) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultBytes = value
-      return self
-    }
-    internal func clearDefaultBytes() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultBytes = false
-         builderResult.defaultBytes = NSData(bytes:([UInt8]() + "world".utf8), length:5)
-         return self
-    }
-      var hasDefaultNestedEnum:Bool{
-          get {
-              return builderResult.hasDefaultNestedEnum
-          }
-      }
-      var defaultNestedEnum:TestAllTypes.NestedEnum {
-          get {
-              return builderResult.defaultNestedEnum
-          }
-          set (value) {
-              builderResult.hasDefaultNestedEnum = true
-              builderResult.defaultNestedEnum = value
-          }
-      }
-      internal func setDefaultNestedEnum(value:TestAllTypes.NestedEnum) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-        self.defaultNestedEnum = value
+      func setOptionalUint64(value:UInt64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalUint64 = value
         return self
       }
-      internal func clearDefaultNestedEnum() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-         builderResult.hasDefaultNestedEnum = false
-         builderResult.defaultNestedEnum = .Bar
-         return self
+      internal func clearOptionalUint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalUint64 = false
+           builderResult.optionalUint64 = UInt64(0)
+           return self
       }
-      var hasDefaultForeignEnum:Bool{
-          get {
-              return builderResult.hasDefaultForeignEnum
-          }
+      var hasOptionalSint32:Bool {
+           get {
+                return builderResult.hasOptionalSint32
+           }
       }
-      var defaultForeignEnum:ProtobufUnittestNoArena.ForeignEnum {
-          get {
-              return builderResult.defaultForeignEnum
-          }
-          set (value) {
-              builderResult.hasDefaultForeignEnum = true
-              builderResult.defaultForeignEnum = value
-          }
+      var optionalSint32:Int32 {
+           get {
+                return builderResult.optionalSint32
+           }
+           set (value) {
+               builderResult.hasOptionalSint32 = true
+               builderResult.optionalSint32 = value
+           }
       }
-      internal func setDefaultForeignEnum(value:ProtobufUnittestNoArena.ForeignEnum) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-        self.defaultForeignEnum = value
+      func setOptionalSint32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalSint32 = value
         return self
       }
-      internal func clearDefaultForeignEnum() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-         builderResult.hasDefaultForeignEnum = false
-         builderResult.defaultForeignEnum = .ForeignBar
-         return self
+      internal func clearOptionalSint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalSint32 = false
+           builderResult.optionalSint32 = Int32(0)
+           return self
       }
-      var hasDefaultImportEnum:Bool{
-          get {
-              return builderResult.hasDefaultImportEnum
-          }
+      var hasOptionalSint64:Bool {
+           get {
+                return builderResult.hasOptionalSint64
+           }
       }
-      var defaultImportEnum:ProtobufUnittestImport.ImportEnum {
-          get {
-              return builderResult.defaultImportEnum
-          }
-          set (value) {
-              builderResult.hasDefaultImportEnum = true
-              builderResult.defaultImportEnum = value
-          }
+      var optionalSint64:Int64 {
+           get {
+                return builderResult.optionalSint64
+           }
+           set (value) {
+               builderResult.hasOptionalSint64 = true
+               builderResult.optionalSint64 = value
+           }
       }
-      internal func setDefaultImportEnum(value:ProtobufUnittestImport.ImportEnum) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-        self.defaultImportEnum = value
+      func setOptionalSint64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalSint64 = value
         return self
       }
-      internal func clearDefaultImportEnum() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-         builderResult.hasDefaultImportEnum = false
-         builderResult.defaultImportEnum = .ImportBar
-         return self
-      }
-    var hasDefaultStringPiece:Bool {
-         get {
-              return builderResult.hasDefaultStringPiece
-         }
-    }
-    var defaultStringPiece:String {
-         get {
-              return builderResult.defaultStringPiece
-         }
-         set (value) {
-             builderResult.hasDefaultStringPiece = true
-             builderResult.defaultStringPiece = value
-         }
-    }
-    func setDefaultStringPiece(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultStringPiece = value
-      return self
-    }
-    internal func clearDefaultStringPiece() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultStringPiece = false
-         builderResult.defaultStringPiece = "abc"
-         return self
-    }
-    var hasDefaultCord:Bool {
-         get {
-              return builderResult.hasDefaultCord
-         }
-    }
-    var defaultCord:String {
-         get {
-              return builderResult.defaultCord
-         }
-         set (value) {
-             builderResult.hasDefaultCord = true
-             builderResult.defaultCord = value
-         }
-    }
-    func setDefaultCord(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.defaultCord = value
-      return self
-    }
-    internal func clearDefaultCord() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasDefaultCord = false
-         builderResult.defaultCord = "123"
-         return self
-    }
-    var hasOneofUint32:Bool {
-         get {
-              return builderResult.hasOneofUint32
-         }
-    }
-    var oneofUint32:UInt32 {
-         get {
-              return builderResult.oneofUint32
-         }
-         set (value) {
-             builderResult.hasOneofUint32 = true
-             builderResult.oneofUint32 = value
-         }
-    }
-    func setOneofUint32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.oneofUint32 = value
-      return self
-    }
-    internal func clearOneofUint32() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOneofUint32 = false
-         builderResult.oneofUint32 = UInt32(0)
-         return self
-    }
-    var hasOneofNestedMessage:Bool {
-         get {
-             return builderResult.hasOneofNestedMessage
-         }
-    }
-    var oneofNestedMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
-         get {
-             if oneofNestedMessageBuilder_ != nil {
-                builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
-             }
-             return builderResult.oneofNestedMessage
-         }
-         set (value) {
-             builderResult.hasOneofNestedMessage = true
-             builderResult.oneofNestedMessage = value
-         }
-    }
-    private var oneofNestedMessageBuilder_:ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder! {
-         didSet {
-            builderResult.hasOneofNestedMessage = true
-         }
-    }
-    internal func getOneofNestedMessageBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder {
-      if oneofNestedMessageBuilder_ == nil {
-         oneofNestedMessageBuilder_ = ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder()
-         builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
-         if oneofNestedMessage != nil {
-            oneofNestedMessageBuilder_.mergeFrom(oneofNestedMessage)
-         }
-      }
-      return oneofNestedMessageBuilder_
-    }
-    func setOneofNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.oneofNestedMessage = value
-      return self
-    }
-    internal func mergeOneofNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if builderResult.hasOneofNestedMessage {
-        builderResult.oneofNestedMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.oneofNestedMessage).mergeFrom(value).buildPartial()
-      } else {
-        builderResult.oneofNestedMessage = value
-      }
-      builderResult.hasOneofNestedMessage = true
-      return self
-    }
-    internal func clearOneofNestedMessage() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      oneofNestedMessageBuilder_ = nil
-      builderResult.hasOneofNestedMessage = false
-      builderResult.oneofNestedMessage = nil
-      return self
-    }
-    var hasOneofString:Bool {
-         get {
-              return builderResult.hasOneofString
-         }
-    }
-    var oneofString:String {
-         get {
-              return builderResult.oneofString
-         }
-         set (value) {
-             builderResult.hasOneofString = true
-             builderResult.oneofString = value
-         }
-    }
-    func setOneofString(value:String) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.oneofString = value
-      return self
-    }
-    internal func clearOneofString() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOneofString = false
-         builderResult.oneofString = ""
-         return self
-    }
-    var hasOneofBytes:Bool {
-         get {
-              return builderResult.hasOneofBytes
-         }
-    }
-    var oneofBytes:NSData {
-         get {
-              return builderResult.oneofBytes
-         }
-         set (value) {
-             builderResult.hasOneofBytes = true
-             builderResult.oneofBytes = value
-         }
-    }
-    func setOneofBytes(value:NSData) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      self.oneofBytes = value
-      return self
-    }
-    internal func clearOneofBytes() -> ProtobufUnittestNoArena.TestAllTypesBuilder{
-         builderResult.hasOneofBytes = false
-         builderResult.oneofBytes = NSData()
-         return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      builderResult = ProtobufUnittestNoArena.TestAllTypes()
-      return self
-    }
-    internal override func clone() -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      return ProtobufUnittestNoArena.TestAllTypes.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> ProtobufUnittestNoArena.TestAllTypes {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> ProtobufUnittestNoArena.TestAllTypes {
-      var returnMe:ProtobufUnittestNoArena.TestAllTypes = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      if other == ProtobufUnittestNoArena.TestAllTypes() {
-       return self
-      }
-      if other.hasOptionalInt32 {
-           optionalInt32 = other.optionalInt32
-      }
-      if other.hasOptionalInt64 {
-           optionalInt64 = other.optionalInt64
-      }
-      if other.hasOptionalUint32 {
-           optionalUint32 = other.optionalUint32
-      }
-      if other.hasOptionalUint64 {
-           optionalUint64 = other.optionalUint64
-      }
-      if other.hasOptionalSint32 {
-           optionalSint32 = other.optionalSint32
-      }
-      if other.hasOptionalSint64 {
-           optionalSint64 = other.optionalSint64
-      }
-      if other.hasOptionalFixed32 {
-           optionalFixed32 = other.optionalFixed32
-      }
-      if other.hasOptionalFixed64 {
-           optionalFixed64 = other.optionalFixed64
-      }
-      if other.hasOptionalSfixed32 {
-           optionalSfixed32 = other.optionalSfixed32
-      }
-      if other.hasOptionalSfixed64 {
-           optionalSfixed64 = other.optionalSfixed64
-      }
-      if other.hasOptionalFloat {
-           optionalFloat = other.optionalFloat
-      }
-      if other.hasOptionalDouble {
-           optionalDouble = other.optionalDouble
-      }
-      if other.hasOptionalBool {
-           optionalBool = other.optionalBool
-      }
-      if other.hasOptionalString {
-           optionalString = other.optionalString
-      }
-      if other.hasOptionalBytes {
-           optionalBytes = other.optionalBytes
-      }
-      if (other.hasOptionalGroup) {
-          mergeOptionalGroup(other.optionalGroup)
-      }
-      if (other.hasOptionalNestedMessage) {
-          mergeOptionalNestedMessage(other.optionalNestedMessage)
-      }
-      if (other.hasOptionalForeignMessage) {
-          mergeOptionalForeignMessage(other.optionalForeignMessage)
-      }
-      if (other.hasOptionalImportMessage) {
-          mergeOptionalImportMessage(other.optionalImportMessage)
-      }
-      if other.hasOptionalNestedEnum {
-           optionalNestedEnum = other.optionalNestedEnum
-      }
-      if other.hasOptionalForeignEnum {
-           optionalForeignEnum = other.optionalForeignEnum
-      }
-      if other.hasOptionalImportEnum {
-           optionalImportEnum = other.optionalImportEnum
-      }
-      if other.hasOptionalStringPiece {
-           optionalStringPiece = other.optionalStringPiece
-      }
-      if other.hasOptionalCord {
-           optionalCord = other.optionalCord
-      }
-      if (other.hasOptionalPublicImportMessage) {
-          mergeOptionalPublicImportMessage(other.optionalPublicImportMessage)
-      }
-      if (other.hasOptionalLazyMessage) {
-          mergeOptionalLazyMessage(other.optionalLazyMessage)
-      }
-      if !other.repeatedInt32.isEmpty {
-          builderResult.repeatedInt32 += other.repeatedInt32
-      }
-      if !other.repeatedInt64.isEmpty {
-          builderResult.repeatedInt64 += other.repeatedInt64
-      }
-      if !other.repeatedUint32.isEmpty {
-          builderResult.repeatedUint32 += other.repeatedUint32
-      }
-      if !other.repeatedUint64.isEmpty {
-          builderResult.repeatedUint64 += other.repeatedUint64
-      }
-      if !other.repeatedSint32.isEmpty {
-          builderResult.repeatedSint32 += other.repeatedSint32
-      }
-      if !other.repeatedSint64.isEmpty {
-          builderResult.repeatedSint64 += other.repeatedSint64
-      }
-      if !other.repeatedFixed32.isEmpty {
-          builderResult.repeatedFixed32 += other.repeatedFixed32
-      }
-      if !other.repeatedFixed64.isEmpty {
-          builderResult.repeatedFixed64 += other.repeatedFixed64
-      }
-      if !other.repeatedSfixed32.isEmpty {
-          builderResult.repeatedSfixed32 += other.repeatedSfixed32
-      }
-      if !other.repeatedSfixed64.isEmpty {
-          builderResult.repeatedSfixed64 += other.repeatedSfixed64
-      }
-      if !other.repeatedFloat.isEmpty {
-          builderResult.repeatedFloat += other.repeatedFloat
-      }
-      if !other.repeatedDouble.isEmpty {
-          builderResult.repeatedDouble += other.repeatedDouble
-      }
-      if !other.repeatedBool.isEmpty {
-          builderResult.repeatedBool += other.repeatedBool
-      }
-      if !other.repeatedString.isEmpty {
-          builderResult.repeatedString += other.repeatedString
-      }
-      if !other.repeatedBytes.isEmpty {
-          builderResult.repeatedBytes += other.repeatedBytes
-      }
-      if !other.repeatedGroup.isEmpty  {
-         builderResult.repeatedGroup += other.repeatedGroup
-      }
-      if !other.repeatedNestedMessage.isEmpty  {
-         builderResult.repeatedNestedMessage += other.repeatedNestedMessage
-      }
-      if !other.repeatedForeignMessage.isEmpty  {
-         builderResult.repeatedForeignMessage += other.repeatedForeignMessage
-      }
-      if !other.repeatedImportMessage.isEmpty  {
-         builderResult.repeatedImportMessage += other.repeatedImportMessage
-      }
-      if !other.repeatedNestedEnum.isEmpty {
-         builderResult.repeatedNestedEnum += other.repeatedNestedEnum
-      }
-      if !other.repeatedForeignEnum.isEmpty {
-         builderResult.repeatedForeignEnum += other.repeatedForeignEnum
-      }
-      if !other.repeatedImportEnum.isEmpty {
-         builderResult.repeatedImportEnum += other.repeatedImportEnum
-      }
-      if !other.repeatedStringPiece.isEmpty {
-          builderResult.repeatedStringPiece += other.repeatedStringPiece
-      }
-      if !other.repeatedCord.isEmpty {
-          builderResult.repeatedCord += other.repeatedCord
-      }
-      if !other.repeatedLazyMessage.isEmpty  {
-         builderResult.repeatedLazyMessage += other.repeatedLazyMessage
-      }
-      if other.hasDefaultInt32 {
-           defaultInt32 = other.defaultInt32
-      }
-      if other.hasDefaultInt64 {
-           defaultInt64 = other.defaultInt64
-      }
-      if other.hasDefaultUint32 {
-           defaultUint32 = other.defaultUint32
-      }
-      if other.hasDefaultUint64 {
-           defaultUint64 = other.defaultUint64
-      }
-      if other.hasDefaultSint32 {
-           defaultSint32 = other.defaultSint32
-      }
-      if other.hasDefaultSint64 {
-           defaultSint64 = other.defaultSint64
-      }
-      if other.hasDefaultFixed32 {
-           defaultFixed32 = other.defaultFixed32
-      }
-      if other.hasDefaultFixed64 {
-           defaultFixed64 = other.defaultFixed64
-      }
-      if other.hasDefaultSfixed32 {
-           defaultSfixed32 = other.defaultSfixed32
-      }
-      if other.hasDefaultSfixed64 {
-           defaultSfixed64 = other.defaultSfixed64
-      }
-      if other.hasDefaultFloat {
-           defaultFloat = other.defaultFloat
-      }
-      if other.hasDefaultDouble {
-           defaultDouble = other.defaultDouble
-      }
-      if other.hasDefaultBool {
-           defaultBool = other.defaultBool
-      }
-      if other.hasDefaultString {
-           defaultString = other.defaultString
-      }
-      if other.hasDefaultBytes {
-           defaultBytes = other.defaultBytes
-      }
-      if other.hasDefaultNestedEnum {
-           defaultNestedEnum = other.defaultNestedEnum
-      }
-      if other.hasDefaultForeignEnum {
-           defaultForeignEnum = other.defaultForeignEnum
-      }
-      if other.hasDefaultImportEnum {
-           defaultImportEnum = other.defaultImportEnum
-      }
-      if other.hasDefaultStringPiece {
-           defaultStringPiece = other.defaultStringPiece
-      }
-      if other.hasDefaultCord {
-           defaultCord = other.defaultCord
-      }
-      if other.hasOneofUint32 {
-           oneofUint32 = other.oneofUint32
-      }
-      if (other.hasOneofNestedMessage) {
-          mergeOneofNestedMessage(other.oneofNestedMessage)
-      }
-      if other.hasOneofString {
-           oneofString = other.oneofString
-      }
-      if other.hasOneofBytes {
-           oneofBytes = other.oneofBytes
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypesBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
+      internal func clearOptionalSint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalSint64 = false
+           builderResult.optionalSint64 = Int64(0)
+           return self
+      }
+      var hasOptionalFixed32:Bool {
+           get {
+                return builderResult.hasOptionalFixed32
+           }
+      }
+      var optionalFixed32:UInt32 {
+           get {
+                return builderResult.optionalFixed32
+           }
+           set (value) {
+               builderResult.hasOptionalFixed32 = true
+               builderResult.optionalFixed32 = value
+           }
+      }
+      func setOptionalFixed32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalFixed32 = value
+        return self
+      }
+      internal func clearOptionalFixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalFixed32 = false
+           builderResult.optionalFixed32 = UInt32(0)
+           return self
+      }
+      var hasOptionalFixed64:Bool {
+           get {
+                return builderResult.hasOptionalFixed64
+           }
+      }
+      var optionalFixed64:UInt64 {
+           get {
+                return builderResult.optionalFixed64
+           }
+           set (value) {
+               builderResult.hasOptionalFixed64 = true
+               builderResult.optionalFixed64 = value
+           }
+      }
+      func setOptionalFixed64(value:UInt64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalFixed64 = value
+        return self
+      }
+      internal func clearOptionalFixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalFixed64 = false
+           builderResult.optionalFixed64 = UInt64(0)
+           return self
+      }
+      var hasOptionalSfixed32:Bool {
+           get {
+                return builderResult.hasOptionalSfixed32
+           }
+      }
+      var optionalSfixed32:Int32 {
+           get {
+                return builderResult.optionalSfixed32
+           }
+           set (value) {
+               builderResult.hasOptionalSfixed32 = true
+               builderResult.optionalSfixed32 = value
+           }
+      }
+      func setOptionalSfixed32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalSfixed32 = value
+        return self
+      }
+      internal func clearOptionalSfixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalSfixed32 = false
+           builderResult.optionalSfixed32 = Int32(0)
+           return self
+      }
+      var hasOptionalSfixed64:Bool {
+           get {
+                return builderResult.hasOptionalSfixed64
+           }
+      }
+      var optionalSfixed64:Int64 {
+           get {
+                return builderResult.optionalSfixed64
+           }
+           set (value) {
+               builderResult.hasOptionalSfixed64 = true
+               builderResult.optionalSfixed64 = value
+           }
+      }
+      func setOptionalSfixed64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalSfixed64 = value
+        return self
+      }
+      internal func clearOptionalSfixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalSfixed64 = false
+           builderResult.optionalSfixed64 = Int64(0)
+           return self
+      }
+      var hasOptionalFloat:Bool {
+           get {
+                return builderResult.hasOptionalFloat
+           }
+      }
+      var optionalFloat:Float {
+           get {
+                return builderResult.optionalFloat
+           }
+           set (value) {
+               builderResult.hasOptionalFloat = true
+               builderResult.optionalFloat = value
+           }
+      }
+      func setOptionalFloat(value:Float) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalFloat = value
+        return self
+      }
+      internal func clearOptionalFloat() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalFloat = false
+           builderResult.optionalFloat = Float(0)
+           return self
+      }
+      var hasOptionalDouble:Bool {
+           get {
+                return builderResult.hasOptionalDouble
+           }
+      }
+      var optionalDouble:Double {
+           get {
+                return builderResult.optionalDouble
+           }
+           set (value) {
+               builderResult.hasOptionalDouble = true
+               builderResult.optionalDouble = value
+           }
+      }
+      func setOptionalDouble(value:Double) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalDouble = value
+        return self
+      }
+      internal func clearOptionalDouble() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalDouble = false
+           builderResult.optionalDouble = Double(0)
+           return self
+      }
+      var hasOptionalBool:Bool {
+           get {
+                return builderResult.hasOptionalBool
+           }
+      }
+      var optionalBool:Bool {
+           get {
+                return builderResult.optionalBool
+           }
+           set (value) {
+               builderResult.hasOptionalBool = true
+               builderResult.optionalBool = value
+           }
+      }
+      func setOptionalBool(value:Bool) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalBool = value
+        return self
+      }
+      internal func clearOptionalBool() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalBool = false
+           builderResult.optionalBool = false
+           return self
+      }
+      var hasOptionalString:Bool {
+           get {
+                return builderResult.hasOptionalString
+           }
+      }
+      var optionalString:String {
+           get {
+                return builderResult.optionalString
+           }
+           set (value) {
+               builderResult.hasOptionalString = true
+               builderResult.optionalString = value
+           }
+      }
+      func setOptionalString(value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalString = value
+        return self
+      }
+      internal func clearOptionalString() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalString = false
+           builderResult.optionalString = ""
+           return self
+      }
+      var hasOptionalBytes:Bool {
+           get {
+                return builderResult.hasOptionalBytes
+           }
+      }
+      var optionalBytes:NSData {
+           get {
+                return builderResult.optionalBytes
+           }
+           set (value) {
+               builderResult.hasOptionalBytes = true
+               builderResult.optionalBytes = value
+           }
+      }
+      func setOptionalBytes(value:NSData) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalBytes = value
+        return self
+      }
+      internal func clearOptionalBytes() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalBytes = false
+           builderResult.optionalBytes = NSData()
+           return self
+      }
+      var hasOptionalGroup:Bool {
+           get {
+               return builderResult.hasOptionalGroup
+           }
+      }
+      var optionalGroup:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup! {
+           get {
+               if optionalGroupBuilder_ != nil {
+                  builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
+               }
+               return builderResult.optionalGroup
+           }
+           set (value) {
+               builderResult.hasOptionalGroup = true
+               builderResult.optionalGroup = value
+           }
+      }
+      private var optionalGroupBuilder_:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder! {
+           didSet {
+              builderResult.hasOptionalGroup = true
+           }
+      }
+      internal func getOptionalGroupBuilder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+        if optionalGroupBuilder_ == nil {
+           optionalGroupBuilder_ = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder()
+           builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
+           if optionalGroup != nil {
+              optionalGroupBuilder_.mergeFrom(optionalGroup)
+           }
+        }
+        return optionalGroupBuilder_
+      }
+      func setOptionalGroup(value:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalGroup = value
+        return self
+      }
+      internal func mergeOptionalGroup(value:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        if builderResult.hasOptionalGroup {
+          builderResult.optionalGroup = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builderWithPrototype(builderResult.optionalGroup).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.optionalGroup = value
+        }
+        builderResult.hasOptionalGroup = true
+        return self
+      }
+      internal func clearOptionalGroup() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        optionalGroupBuilder_ = nil
+        builderResult.hasOptionalGroup = false
+        builderResult.optionalGroup = nil
+        return self
+      }
+      var hasOptionalNestedMessage:Bool {
+           get {
+               return builderResult.hasOptionalNestedMessage
+           }
+      }
+      var optionalNestedMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
+           get {
+               if optionalNestedMessageBuilder_ != nil {
+                  builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
+               }
+               return builderResult.optionalNestedMessage
+           }
+           set (value) {
+               builderResult.hasOptionalNestedMessage = true
+               builderResult.optionalNestedMessage = value
+           }
+      }
+      private var optionalNestedMessageBuilder_:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder! {
+           didSet {
+              builderResult.hasOptionalNestedMessage = true
+           }
+      }
+      internal func getOptionalNestedMessageBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+        if optionalNestedMessageBuilder_ == nil {
+           optionalNestedMessageBuilder_ = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
+           builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
+           if optionalNestedMessage != nil {
+              optionalNestedMessageBuilder_.mergeFrom(optionalNestedMessage)
+           }
+        }
+        return optionalNestedMessageBuilder_
+      }
+      func setOptionalNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalNestedMessage = value
+        return self
+      }
+      internal func mergeOptionalNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        if builderResult.hasOptionalNestedMessage {
+          builderResult.optionalNestedMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalNestedMessage).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.optionalNestedMessage = value
+        }
+        builderResult.hasOptionalNestedMessage = true
+        return self
+      }
+      internal func clearOptionalNestedMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        optionalNestedMessageBuilder_ = nil
+        builderResult.hasOptionalNestedMessage = false
+        builderResult.optionalNestedMessage = nil
+        return self
+      }
+      var hasOptionalForeignMessage:Bool {
+           get {
+               return builderResult.hasOptionalForeignMessage
+           }
+      }
+      var optionalForeignMessage:ProtobufUnittestNoArena.ForeignMessage! {
+           get {
+               if optionalForeignMessageBuilder_ != nil {
+                  builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
+               }
+               return builderResult.optionalForeignMessage
+           }
+           set (value) {
+               builderResult.hasOptionalForeignMessage = true
+               builderResult.optionalForeignMessage = value
+           }
+      }
+      private var optionalForeignMessageBuilder_:ProtobufUnittestNoArena.ForeignMessage.Builder! {
+           didSet {
+              builderResult.hasOptionalForeignMessage = true
+           }
+      }
+      internal func getOptionalForeignMessageBuilder() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+        if optionalForeignMessageBuilder_ == nil {
+           optionalForeignMessageBuilder_ = ProtobufUnittestNoArena.ForeignMessage.Builder()
+           builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
+           if optionalForeignMessage != nil {
+              optionalForeignMessageBuilder_.mergeFrom(optionalForeignMessage)
+           }
+        }
+        return optionalForeignMessageBuilder_
+      }
+      func setOptionalForeignMessage(value:ProtobufUnittestNoArena.ForeignMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalForeignMessage = value
+        return self
+      }
+      internal func mergeOptionalForeignMessage(value:ProtobufUnittestNoArena.ForeignMessage) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        if builderResult.hasOptionalForeignMessage {
+          builderResult.optionalForeignMessage = ProtobufUnittestNoArena.ForeignMessage.builderWithPrototype(builderResult.optionalForeignMessage).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.optionalForeignMessage = value
+        }
+        builderResult.hasOptionalForeignMessage = true
+        return self
+      }
+      internal func clearOptionalForeignMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        optionalForeignMessageBuilder_ = nil
+        builderResult.hasOptionalForeignMessage = false
+        builderResult.optionalForeignMessage = nil
+        return self
+      }
+      var hasOptionalImportMessage:Bool {
+           get {
+               return builderResult.hasOptionalImportMessage
+           }
+      }
+      var optionalImportMessage:ProtobufUnittestImport.ImportMessage! {
+           get {
+               if optionalImportMessageBuilder_ != nil {
+                  builderResult.optionalImportMessage = optionalImportMessageBuilder_.getMessage()
+               }
+               return builderResult.optionalImportMessage
+           }
+           set (value) {
+               builderResult.hasOptionalImportMessage = true
+               builderResult.optionalImportMessage = value
+           }
+      }
+      private var optionalImportMessageBuilder_:ProtobufUnittestImport.ImportMessage.Builder! {
+           didSet {
+              builderResult.hasOptionalImportMessage = true
+           }
+      }
+      internal func getOptionalImportMessageBuilder() -> ProtobufUnittestImport.ImportMessage.Builder {
+        if optionalImportMessageBuilder_ == nil {
+           optionalImportMessageBuilder_ = ProtobufUnittestImport.ImportMessage.Builder()
+           builderResult.optionalImportMessage = optionalImportMessageBuilder_.getMessage()
+           if optionalImportMessage != nil {
+              optionalImportMessageBuilder_.mergeFrom(optionalImportMessage)
+           }
+        }
+        return optionalImportMessageBuilder_
+      }
+      func setOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalImportMessage = value
+        return self
+      }
+      internal func mergeOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        if builderResult.hasOptionalImportMessage {
+          builderResult.optionalImportMessage = ProtobufUnittestImport.ImportMessage.builderWithPrototype(builderResult.optionalImportMessage).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.optionalImportMessage = value
+        }
+        builderResult.hasOptionalImportMessage = true
+        return self
+      }
+      internal func clearOptionalImportMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        optionalImportMessageBuilder_ = nil
+        builderResult.hasOptionalImportMessage = false
+        builderResult.optionalImportMessage = nil
+        return self
+      }
+        var hasOptionalNestedEnum:Bool{
+            get {
+                return builderResult.hasOptionalNestedEnum
+            }
+        }
+        var optionalNestedEnum:TestAllTypes.NestedEnum {
+            get {
+                return builderResult.optionalNestedEnum
+            }
+            set (value) {
+                builderResult.hasOptionalNestedEnum = true
+                builderResult.optionalNestedEnum = value
+            }
+        }
+        internal func setOptionalNestedEnum(value:TestAllTypes.NestedEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+          self.optionalNestedEnum = value
           return self
-
-        case 8 :
-          optionalInt32 = input.readInt32()
-
-        case 16 :
-          optionalInt64 = input.readInt64()
-
-        case 24 :
-          optionalUint32 = input.readUInt32()
-
-        case 32 :
-          optionalUint64 = input.readUInt64()
-
-        case 40 :
-          optionalSint32 = input.readSInt32()
-
-        case 48 :
-          optionalSint64 = input.readSInt64()
-
-        case 61 :
-          optionalFixed32 = input.readFixed32()
-
-        case 65 :
-          optionalFixed64 = input.readFixed64()
-
-        case 77 :
-          optionalSfixed32 = input.readSFixed32()
-
-        case 81 :
-          optionalSfixed64 = input.readSFixed64()
-
-        case 93 :
-          optionalFloat = input.readFloat()
-
-        case 97 :
-          optionalDouble = input.readDouble()
-
-        case 104 :
-          optionalBool = input.readBool()
-
-        case 114 :
-          optionalString = input.readString()
-
-        case 122 :
-          optionalBytes = input.readData()
-
-        case 131 :
-          var subBuilder:ProtobufUnittestNoArena.TestAllTypes.OptionalGroupBuilder = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder()
-          if hasOptionalGroup {
-            subBuilder.mergeFrom(optionalGroup)
+        }
+        internal func clearOptionalNestedEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+           builderResult.hasOptionalNestedEnum = false
+           builderResult.optionalNestedEnum = .Foo
+           return self
+        }
+        var hasOptionalForeignEnum:Bool{
+            get {
+                return builderResult.hasOptionalForeignEnum
+            }
+        }
+        var optionalForeignEnum:ProtobufUnittestNoArena.ForeignEnum {
+            get {
+                return builderResult.optionalForeignEnum
+            }
+            set (value) {
+                builderResult.hasOptionalForeignEnum = true
+                builderResult.optionalForeignEnum = value
+            }
+        }
+        internal func setOptionalForeignEnum(value:ProtobufUnittestNoArena.ForeignEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+          self.optionalForeignEnum = value
+          return self
+        }
+        internal func clearOptionalForeignEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+           builderResult.hasOptionalForeignEnum = false
+           builderResult.optionalForeignEnum = .ForeignFoo
+           return self
+        }
+        var hasOptionalImportEnum:Bool{
+            get {
+                return builderResult.hasOptionalImportEnum
+            }
+        }
+        var optionalImportEnum:ProtobufUnittestImport.ImportEnum {
+            get {
+                return builderResult.optionalImportEnum
+            }
+            set (value) {
+                builderResult.hasOptionalImportEnum = true
+                builderResult.optionalImportEnum = value
+            }
+        }
+        internal func setOptionalImportEnum(value:ProtobufUnittestImport.ImportEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+          self.optionalImportEnum = value
+          return self
+        }
+        internal func clearOptionalImportEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+           builderResult.hasOptionalImportEnum = false
+           builderResult.optionalImportEnum = .ImportFoo
+           return self
+        }
+      var hasOptionalStringPiece:Bool {
+           get {
+                return builderResult.hasOptionalStringPiece
+           }
+      }
+      var optionalStringPiece:String {
+           get {
+                return builderResult.optionalStringPiece
+           }
+           set (value) {
+               builderResult.hasOptionalStringPiece = true
+               builderResult.optionalStringPiece = value
+           }
+      }
+      func setOptionalStringPiece(value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalStringPiece = value
+        return self
+      }
+      internal func clearOptionalStringPiece() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalStringPiece = false
+           builderResult.optionalStringPiece = ""
+           return self
+      }
+      var hasOptionalCord:Bool {
+           get {
+                return builderResult.hasOptionalCord
+           }
+      }
+      var optionalCord:String {
+           get {
+                return builderResult.optionalCord
+           }
+           set (value) {
+               builderResult.hasOptionalCord = true
+               builderResult.optionalCord = value
+           }
+      }
+      func setOptionalCord(value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalCord = value
+        return self
+      }
+      internal func clearOptionalCord() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOptionalCord = false
+           builderResult.optionalCord = ""
+           return self
+      }
+      var hasOptionalPublicImportMessage:Bool {
+           get {
+               return builderResult.hasOptionalPublicImportMessage
+           }
+      }
+      var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage! {
+           get {
+               if optionalPublicImportMessageBuilder_ != nil {
+                  builderResult.optionalPublicImportMessage = optionalPublicImportMessageBuilder_.getMessage()
+               }
+               return builderResult.optionalPublicImportMessage
+           }
+           set (value) {
+               builderResult.hasOptionalPublicImportMessage = true
+               builderResult.optionalPublicImportMessage = value
+           }
+      }
+      private var optionalPublicImportMessageBuilder_:ProtobufUnittestImport.PublicImportMessage.Builder! {
+           didSet {
+              builderResult.hasOptionalPublicImportMessage = true
+           }
+      }
+      internal func getOptionalPublicImportMessageBuilder() -> ProtobufUnittestImport.PublicImportMessage.Builder {
+        if optionalPublicImportMessageBuilder_ == nil {
+           optionalPublicImportMessageBuilder_ = ProtobufUnittestImport.PublicImportMessage.Builder()
+           builderResult.optionalPublicImportMessage = optionalPublicImportMessageBuilder_.getMessage()
+           if optionalPublicImportMessage != nil {
+              optionalPublicImportMessageBuilder_.mergeFrom(optionalPublicImportMessage)
+           }
+        }
+        return optionalPublicImportMessageBuilder_
+      }
+      func setOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalPublicImportMessage = value
+        return self
+      }
+      internal func mergeOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        if builderResult.hasOptionalPublicImportMessage {
+          builderResult.optionalPublicImportMessage = ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(builderResult.optionalPublicImportMessage).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.optionalPublicImportMessage = value
+        }
+        builderResult.hasOptionalPublicImportMessage = true
+        return self
+      }
+      internal func clearOptionalPublicImportMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        optionalPublicImportMessageBuilder_ = nil
+        builderResult.hasOptionalPublicImportMessage = false
+        builderResult.optionalPublicImportMessage = nil
+        return self
+      }
+      var hasOptionalLazyMessage:Bool {
+           get {
+               return builderResult.hasOptionalLazyMessage
+           }
+      }
+      var optionalLazyMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
+           get {
+               if optionalLazyMessageBuilder_ != nil {
+                  builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
+               }
+               return builderResult.optionalLazyMessage
+           }
+           set (value) {
+               builderResult.hasOptionalLazyMessage = true
+               builderResult.optionalLazyMessage = value
+           }
+      }
+      private var optionalLazyMessageBuilder_:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder! {
+           didSet {
+              builderResult.hasOptionalLazyMessage = true
+           }
+      }
+      internal func getOptionalLazyMessageBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+        if optionalLazyMessageBuilder_ == nil {
+           optionalLazyMessageBuilder_ = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
+           builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
+           if optionalLazyMessage != nil {
+              optionalLazyMessageBuilder_.mergeFrom(optionalLazyMessage)
+           }
+        }
+        return optionalLazyMessageBuilder_
+      }
+      func setOptionalLazyMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalLazyMessage = value
+        return self
+      }
+      internal func mergeOptionalLazyMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        if builderResult.hasOptionalLazyMessage {
+          builderResult.optionalLazyMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalLazyMessage).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.optionalLazyMessage = value
+        }
+        builderResult.hasOptionalLazyMessage = true
+        return self
+      }
+      internal func clearOptionalLazyMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        optionalLazyMessageBuilder_ = nil
+        builderResult.hasOptionalLazyMessage = false
+        builderResult.optionalLazyMessage = nil
+        return self
+      }
+      var repeatedInt32:Array<Int32> {
+           get {
+               return builderResult.repeatedInt32
+           }
+           set (array) {
+               builderResult.repeatedInt32 = array
+           }
+      }
+      func setRepeatedInt32(value:Array<Int32>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedInt32 = value
+        return self
+      }
+      internal func clearRepeatedInt32() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedInt32.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedInt64:Array<Int64> {
+           get {
+               return builderResult.repeatedInt64
+           }
+           set (array) {
+               builderResult.repeatedInt64 = array
+           }
+      }
+      func setRepeatedInt64(value:Array<Int64>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedInt64 = value
+        return self
+      }
+      internal func clearRepeatedInt64() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedInt64.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedUint32:Array<UInt32> {
+           get {
+               return builderResult.repeatedUint32
+           }
+           set (array) {
+               builderResult.repeatedUint32 = array
+           }
+      }
+      func setRepeatedUint32(value:Array<UInt32>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedUint32 = value
+        return self
+      }
+      internal func clearRepeatedUint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedUint32.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedUint64:Array<UInt64> {
+           get {
+               return builderResult.repeatedUint64
+           }
+           set (array) {
+               builderResult.repeatedUint64 = array
+           }
+      }
+      func setRepeatedUint64(value:Array<UInt64>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedUint64 = value
+        return self
+      }
+      internal func clearRepeatedUint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedUint64.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedSint32:Array<Int32> {
+           get {
+               return builderResult.repeatedSint32
+           }
+           set (array) {
+               builderResult.repeatedSint32 = array
+           }
+      }
+      func setRepeatedSint32(value:Array<Int32>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedSint32 = value
+        return self
+      }
+      internal func clearRepeatedSint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedSint32.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedSint64:Array<Int64> {
+           get {
+               return builderResult.repeatedSint64
+           }
+           set (array) {
+               builderResult.repeatedSint64 = array
+           }
+      }
+      func setRepeatedSint64(value:Array<Int64>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedSint64 = value
+        return self
+      }
+      internal func clearRepeatedSint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedSint64.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedFixed32:Array<UInt32> {
+           get {
+               return builderResult.repeatedFixed32
+           }
+           set (array) {
+               builderResult.repeatedFixed32 = array
+           }
+      }
+      func setRepeatedFixed32(value:Array<UInt32>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedFixed32 = value
+        return self
+      }
+      internal func clearRepeatedFixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedFixed32.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedFixed64:Array<UInt64> {
+           get {
+               return builderResult.repeatedFixed64
+           }
+           set (array) {
+               builderResult.repeatedFixed64 = array
+           }
+      }
+      func setRepeatedFixed64(value:Array<UInt64>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedFixed64 = value
+        return self
+      }
+      internal func clearRepeatedFixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedFixed64.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedSfixed32:Array<Int32> {
+           get {
+               return builderResult.repeatedSfixed32
+           }
+           set (array) {
+               builderResult.repeatedSfixed32 = array
+           }
+      }
+      func setRepeatedSfixed32(value:Array<Int32>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedSfixed32 = value
+        return self
+      }
+      internal func clearRepeatedSfixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedSfixed32.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedSfixed64:Array<Int64> {
+           get {
+               return builderResult.repeatedSfixed64
+           }
+           set (array) {
+               builderResult.repeatedSfixed64 = array
+           }
+      }
+      func setRepeatedSfixed64(value:Array<Int64>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedSfixed64 = value
+        return self
+      }
+      internal func clearRepeatedSfixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedSfixed64.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedFloat:Array<Float> {
+           get {
+               return builderResult.repeatedFloat
+           }
+           set (array) {
+               builderResult.repeatedFloat = array
+           }
+      }
+      func setRepeatedFloat(value:Array<Float>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedFloat = value
+        return self
+      }
+      internal func clearRepeatedFloat() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedFloat.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedDouble:Array<Double> {
+           get {
+               return builderResult.repeatedDouble
+           }
+           set (array) {
+               builderResult.repeatedDouble = array
+           }
+      }
+      func setRepeatedDouble(value:Array<Double>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedDouble = value
+        return self
+      }
+      internal func clearRepeatedDouble() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedDouble.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedBool:Array<Bool> {
+           get {
+               return builderResult.repeatedBool
+           }
+           set (array) {
+               builderResult.repeatedBool = array
+           }
+      }
+      func setRepeatedBool(value:Array<Bool>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedBool = value
+        return self
+      }
+      internal func clearRepeatedBool() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedBool.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedString:Array<String> {
+           get {
+               return builderResult.repeatedString
+           }
+           set (array) {
+               builderResult.repeatedString = array
+           }
+      }
+      func setRepeatedString(value:Array<String>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedString = value
+        return self
+      }
+      internal func clearRepeatedString() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedString.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedBytes:Array<NSData> {
+           get {
+               return builderResult.repeatedBytes
+           }
+           set (array) {
+               builderResult.repeatedBytes = array
+           }
+      }
+      func setRepeatedBytes(value:Array<NSData>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedBytes = value
+        return self
+      }
+      internal func clearRepeatedBytes() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedBytes.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedGroup:Array<ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup> {
+           get {
+               return builderResult.repeatedGroup
+           }
+           set (value) {
+               builderResult.repeatedGroup = value
+           }
+      }
+      func setRepeatedGroup(value:Array<ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedGroup = value
+        return self
+      }
+      internal func clearRepeatedGroup() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        builderResult.repeatedGroup.removeAll(keepCapacity: false)
+        return self
+      }
+      var repeatedNestedMessage:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage> {
+           get {
+               return builderResult.repeatedNestedMessage
+           }
+           set (value) {
+               builderResult.repeatedNestedMessage = value
+           }
+      }
+      func setRepeatedNestedMessage(value:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedNestedMessage = value
+        return self
+      }
+      internal func clearRepeatedNestedMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        builderResult.repeatedNestedMessage.removeAll(keepCapacity: false)
+        return self
+      }
+      var repeatedForeignMessage:Array<ProtobufUnittestNoArena.ForeignMessage> {
+           get {
+               return builderResult.repeatedForeignMessage
+           }
+           set (value) {
+               builderResult.repeatedForeignMessage = value
+           }
+      }
+      func setRepeatedForeignMessage(value:Array<ProtobufUnittestNoArena.ForeignMessage>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedForeignMessage = value
+        return self
+      }
+      internal func clearRepeatedForeignMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        builderResult.repeatedForeignMessage.removeAll(keepCapacity: false)
+        return self
+      }
+      var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessage> {
+           get {
+               return builderResult.repeatedImportMessage
+           }
+           set (value) {
+               builderResult.repeatedImportMessage = value
+           }
+      }
+      func setRepeatedImportMessage(value:Array<ProtobufUnittestImport.ImportMessage>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedImportMessage = value
+        return self
+      }
+      internal func clearRepeatedImportMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        builderResult.repeatedImportMessage.removeAll(keepCapacity: false)
+        return self
+      }
+      var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> {
+          get {
+              return builderResult.repeatedNestedEnum
           }
-          input.readGroup(16, builder:subBuilder, extensionRegistry:extensionRegistry)
-          optionalGroup = subBuilder.buildPartial()
-
-        case 146 :
-          var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
-          if hasOptionalNestedMessage {
-            subBuilder.mergeFrom(optionalNestedMessage)
+          set (value) {
+              builderResult.repeatedNestedEnum = value
           }
-          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-          optionalNestedMessage = subBuilder.buildPartial()
-
-        case 154 :
-          var subBuilder:ProtobufUnittestNoArena.ForeignMessageBuilder = ProtobufUnittestNoArena.ForeignMessage.builder()
-          if hasOptionalForeignMessage {
-            subBuilder.mergeFrom(optionalForeignMessage)
+      }
+      func setRepeatedNestedEnum(value:Array<TestAllTypes.NestedEnum>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedNestedEnum = value
+        return self
+      }
+      internal func clearRepeatedNestedEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        builderResult.repeatedNestedEnum.removeAll(keepCapacity: false)
+        return self
+      }
+      var repeatedForeignEnum:Array<ProtobufUnittestNoArena.ForeignEnum> {
+          get {
+              return builderResult.repeatedForeignEnum
           }
-          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-          optionalForeignMessage = subBuilder.buildPartial()
-
-        case 162 :
-          var subBuilder:ProtobufUnittestImport.ImportMessageBuilder = ProtobufUnittestImport.ImportMessage.builder()
-          if hasOptionalImportMessage {
-            subBuilder.mergeFrom(optionalImportMessage)
+          set (value) {
+              builderResult.repeatedForeignEnum = value
           }
-          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-          optionalImportMessage = subBuilder.buildPartial()
-
-        case 168 :
-          let valueIntoptionalNestedEnum = input.readEnum()
-          if let enumsoptionalNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
-               optionalNestedEnum = enumsoptionalNestedEnum
-          } else {
-               unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
+      }
+      func setRepeatedForeignEnum(value:Array<ProtobufUnittestNoArena.ForeignEnum>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedForeignEnum = value
+        return self
+      }
+      internal func clearRepeatedForeignEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        builderResult.repeatedForeignEnum.removeAll(keepCapacity: false)
+        return self
+      }
+      var repeatedImportEnum:Array<ProtobufUnittestImport.ImportEnum> {
+          get {
+              return builderResult.repeatedImportEnum
           }
-
-        case 176 :
-          let valueIntoptionalForeignEnum = input.readEnum()
-          if let enumsoptionalForeignEnum = ProtobufUnittestNoArena.ForeignEnum(rawValue:valueIntoptionalForeignEnum){
-               optionalForeignEnum = enumsoptionalForeignEnum
-          } else {
-               unknownFieldsBuilder.mergeVarintField(22, value:Int64(valueIntoptionalForeignEnum))
+          set (value) {
+              builderResult.repeatedImportEnum = value
           }
+      }
+      func setRepeatedImportEnum(value:Array<ProtobufUnittestImport.ImportEnum>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedImportEnum = value
+        return self
+      }
+      internal func clearRepeatedImportEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        builderResult.repeatedImportEnum.removeAll(keepCapacity: false)
+        return self
+      }
+      var repeatedStringPiece:Array<String> {
+           get {
+               return builderResult.repeatedStringPiece
+           }
+           set (array) {
+               builderResult.repeatedStringPiece = array
+           }
+      }
+      func setRepeatedStringPiece(value:Array<String>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedStringPiece = value
+        return self
+      }
+      internal func clearRepeatedStringPiece() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedStringPiece.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedCord:Array<String> {
+           get {
+               return builderResult.repeatedCord
+           }
+           set (array) {
+               builderResult.repeatedCord = array
+           }
+      }
+      func setRepeatedCord(value:Array<String>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedCord = value
+        return self
+      }
+      internal func clearRepeatedCord() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+         builderResult.repeatedCord.removeAll(keepCapacity: false)
+         return self
+      }
+      var repeatedLazyMessage:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage> {
+           get {
+               return builderResult.repeatedLazyMessage
+           }
+           set (value) {
+               builderResult.repeatedLazyMessage = value
+           }
+      }
+      func setRepeatedLazyMessage(value:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.repeatedLazyMessage = value
+        return self
+      }
+      internal func clearRepeatedLazyMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        builderResult.repeatedLazyMessage.removeAll(keepCapacity: false)
+        return self
+      }
+      var hasDefaultInt32:Bool {
+           get {
+                return builderResult.hasDefaultInt32
+           }
+      }
+      var defaultInt32:Int32 {
+           get {
+                return builderResult.defaultInt32
+           }
+           set (value) {
+               builderResult.hasDefaultInt32 = true
+               builderResult.defaultInt32 = value
+           }
+      }
+      func setDefaultInt32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultInt32 = value
+        return self
+      }
+      internal func clearDefaultInt32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultInt32 = false
+           builderResult.defaultInt32 = Int32(41)
+           return self
+      }
+      var hasDefaultInt64:Bool {
+           get {
+                return builderResult.hasDefaultInt64
+           }
+      }
+      var defaultInt64:Int64 {
+           get {
+                return builderResult.defaultInt64
+           }
+           set (value) {
+               builderResult.hasDefaultInt64 = true
+               builderResult.defaultInt64 = value
+           }
+      }
+      func setDefaultInt64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultInt64 = value
+        return self
+      }
+      internal func clearDefaultInt64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultInt64 = false
+           builderResult.defaultInt64 = Int64(42)
+           return self
+      }
+      var hasDefaultUint32:Bool {
+           get {
+                return builderResult.hasDefaultUint32
+           }
+      }
+      var defaultUint32:UInt32 {
+           get {
+                return builderResult.defaultUint32
+           }
+           set (value) {
+               builderResult.hasDefaultUint32 = true
+               builderResult.defaultUint32 = value
+           }
+      }
+      func setDefaultUint32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultUint32 = value
+        return self
+      }
+      internal func clearDefaultUint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultUint32 = false
+           builderResult.defaultUint32 = UInt32(43)
+           return self
+      }
+      var hasDefaultUint64:Bool {
+           get {
+                return builderResult.hasDefaultUint64
+           }
+      }
+      var defaultUint64:UInt64 {
+           get {
+                return builderResult.defaultUint64
+           }
+           set (value) {
+               builderResult.hasDefaultUint64 = true
+               builderResult.defaultUint64 = value
+           }
+      }
+      func setDefaultUint64(value:UInt64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultUint64 = value
+        return self
+      }
+      internal func clearDefaultUint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultUint64 = false
+           builderResult.defaultUint64 = UInt64(44)
+           return self
+      }
+      var hasDefaultSint32:Bool {
+           get {
+                return builderResult.hasDefaultSint32
+           }
+      }
+      var defaultSint32:Int32 {
+           get {
+                return builderResult.defaultSint32
+           }
+           set (value) {
+               builderResult.hasDefaultSint32 = true
+               builderResult.defaultSint32 = value
+           }
+      }
+      func setDefaultSint32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultSint32 = value
+        return self
+      }
+      internal func clearDefaultSint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultSint32 = false
+           builderResult.defaultSint32 = Int32(-45)
+           return self
+      }
+      var hasDefaultSint64:Bool {
+           get {
+                return builderResult.hasDefaultSint64
+           }
+      }
+      var defaultSint64:Int64 {
+           get {
+                return builderResult.defaultSint64
+           }
+           set (value) {
+               builderResult.hasDefaultSint64 = true
+               builderResult.defaultSint64 = value
+           }
+      }
+      func setDefaultSint64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultSint64 = value
+        return self
+      }
+      internal func clearDefaultSint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultSint64 = false
+           builderResult.defaultSint64 = Int64(46)
+           return self
+      }
+      var hasDefaultFixed32:Bool {
+           get {
+                return builderResult.hasDefaultFixed32
+           }
+      }
+      var defaultFixed32:UInt32 {
+           get {
+                return builderResult.defaultFixed32
+           }
+           set (value) {
+               builderResult.hasDefaultFixed32 = true
+               builderResult.defaultFixed32 = value
+           }
+      }
+      func setDefaultFixed32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultFixed32 = value
+        return self
+      }
+      internal func clearDefaultFixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultFixed32 = false
+           builderResult.defaultFixed32 = UInt32(47)
+           return self
+      }
+      var hasDefaultFixed64:Bool {
+           get {
+                return builderResult.hasDefaultFixed64
+           }
+      }
+      var defaultFixed64:UInt64 {
+           get {
+                return builderResult.defaultFixed64
+           }
+           set (value) {
+               builderResult.hasDefaultFixed64 = true
+               builderResult.defaultFixed64 = value
+           }
+      }
+      func setDefaultFixed64(value:UInt64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultFixed64 = value
+        return self
+      }
+      internal func clearDefaultFixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultFixed64 = false
+           builderResult.defaultFixed64 = UInt64(48)
+           return self
+      }
+      var hasDefaultSfixed32:Bool {
+           get {
+                return builderResult.hasDefaultSfixed32
+           }
+      }
+      var defaultSfixed32:Int32 {
+           get {
+                return builderResult.defaultSfixed32
+           }
+           set (value) {
+               builderResult.hasDefaultSfixed32 = true
+               builderResult.defaultSfixed32 = value
+           }
+      }
+      func setDefaultSfixed32(value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultSfixed32 = value
+        return self
+      }
+      internal func clearDefaultSfixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultSfixed32 = false
+           builderResult.defaultSfixed32 = Int32(49)
+           return self
+      }
+      var hasDefaultSfixed64:Bool {
+           get {
+                return builderResult.hasDefaultSfixed64
+           }
+      }
+      var defaultSfixed64:Int64 {
+           get {
+                return builderResult.defaultSfixed64
+           }
+           set (value) {
+               builderResult.hasDefaultSfixed64 = true
+               builderResult.defaultSfixed64 = value
+           }
+      }
+      func setDefaultSfixed64(value:Int64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultSfixed64 = value
+        return self
+      }
+      internal func clearDefaultSfixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultSfixed64 = false
+           builderResult.defaultSfixed64 = Int64(-50)
+           return self
+      }
+      var hasDefaultFloat:Bool {
+           get {
+                return builderResult.hasDefaultFloat
+           }
+      }
+      var defaultFloat:Float {
+           get {
+                return builderResult.defaultFloat
+           }
+           set (value) {
+               builderResult.hasDefaultFloat = true
+               builderResult.defaultFloat = value
+           }
+      }
+      func setDefaultFloat(value:Float) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultFloat = value
+        return self
+      }
+      internal func clearDefaultFloat() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultFloat = false
+           builderResult.defaultFloat = Float(51.5)
+           return self
+      }
+      var hasDefaultDouble:Bool {
+           get {
+                return builderResult.hasDefaultDouble
+           }
+      }
+      var defaultDouble:Double {
+           get {
+                return builderResult.defaultDouble
+           }
+           set (value) {
+               builderResult.hasDefaultDouble = true
+               builderResult.defaultDouble = value
+           }
+      }
+      func setDefaultDouble(value:Double) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultDouble = value
+        return self
+      }
+      internal func clearDefaultDouble() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultDouble = false
+           builderResult.defaultDouble = Double(52000)
+           return self
+      }
+      var hasDefaultBool:Bool {
+           get {
+                return builderResult.hasDefaultBool
+           }
+      }
+      var defaultBool:Bool {
+           get {
+                return builderResult.defaultBool
+           }
+           set (value) {
+               builderResult.hasDefaultBool = true
+               builderResult.defaultBool = value
+           }
+      }
+      func setDefaultBool(value:Bool) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultBool = value
+        return self
+      }
+      internal func clearDefaultBool() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultBool = false
+           builderResult.defaultBool = true
+           return self
+      }
+      var hasDefaultString:Bool {
+           get {
+                return builderResult.hasDefaultString
+           }
+      }
+      var defaultString:String {
+           get {
+                return builderResult.defaultString
+           }
+           set (value) {
+               builderResult.hasDefaultString = true
+               builderResult.defaultString = value
+           }
+      }
+      func setDefaultString(value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultString = value
+        return self
+      }
+      internal func clearDefaultString() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultString = false
+           builderResult.defaultString = "hello"
+           return self
+      }
+      var hasDefaultBytes:Bool {
+           get {
+                return builderResult.hasDefaultBytes
+           }
+      }
+      var defaultBytes:NSData {
+           get {
+                return builderResult.defaultBytes
+           }
+           set (value) {
+               builderResult.hasDefaultBytes = true
+               builderResult.defaultBytes = value
+           }
+      }
+      func setDefaultBytes(value:NSData) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultBytes = value
+        return self
+      }
+      internal func clearDefaultBytes() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultBytes = false
+           builderResult.defaultBytes = NSData(bytes:([UInt8]() + "world".utf8), length:5)
+           return self
+      }
+        var hasDefaultNestedEnum:Bool{
+            get {
+                return builderResult.hasDefaultNestedEnum
+            }
+        }
+        var defaultNestedEnum:TestAllTypes.NestedEnum {
+            get {
+                return builderResult.defaultNestedEnum
+            }
+            set (value) {
+                builderResult.hasDefaultNestedEnum = true
+                builderResult.defaultNestedEnum = value
+            }
+        }
+        internal func setDefaultNestedEnum(value:TestAllTypes.NestedEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+          self.defaultNestedEnum = value
+          return self
+        }
+        internal func clearDefaultNestedEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+           builderResult.hasDefaultNestedEnum = false
+           builderResult.defaultNestedEnum = .Bar
+           return self
+        }
+        var hasDefaultForeignEnum:Bool{
+            get {
+                return builderResult.hasDefaultForeignEnum
+            }
+        }
+        var defaultForeignEnum:ProtobufUnittestNoArena.ForeignEnum {
+            get {
+                return builderResult.defaultForeignEnum
+            }
+            set (value) {
+                builderResult.hasDefaultForeignEnum = true
+                builderResult.defaultForeignEnum = value
+            }
+        }
+        internal func setDefaultForeignEnum(value:ProtobufUnittestNoArena.ForeignEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+          self.defaultForeignEnum = value
+          return self
+        }
+        internal func clearDefaultForeignEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+           builderResult.hasDefaultForeignEnum = false
+           builderResult.defaultForeignEnum = .ForeignBar
+           return self
+        }
+        var hasDefaultImportEnum:Bool{
+            get {
+                return builderResult.hasDefaultImportEnum
+            }
+        }
+        var defaultImportEnum:ProtobufUnittestImport.ImportEnum {
+            get {
+                return builderResult.defaultImportEnum
+            }
+            set (value) {
+                builderResult.hasDefaultImportEnum = true
+                builderResult.defaultImportEnum = value
+            }
+        }
+        internal func setDefaultImportEnum(value:ProtobufUnittestImport.ImportEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+          self.defaultImportEnum = value
+          return self
+        }
+        internal func clearDefaultImportEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+           builderResult.hasDefaultImportEnum = false
+           builderResult.defaultImportEnum = .ImportBar
+           return self
+        }
+      var hasDefaultStringPiece:Bool {
+           get {
+                return builderResult.hasDefaultStringPiece
+           }
+      }
+      var defaultStringPiece:String {
+           get {
+                return builderResult.defaultStringPiece
+           }
+           set (value) {
+               builderResult.hasDefaultStringPiece = true
+               builderResult.defaultStringPiece = value
+           }
+      }
+      func setDefaultStringPiece(value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultStringPiece = value
+        return self
+      }
+      internal func clearDefaultStringPiece() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultStringPiece = false
+           builderResult.defaultStringPiece = "abc"
+           return self
+      }
+      var hasDefaultCord:Bool {
+           get {
+                return builderResult.hasDefaultCord
+           }
+      }
+      var defaultCord:String {
+           get {
+                return builderResult.defaultCord
+           }
+           set (value) {
+               builderResult.hasDefaultCord = true
+               builderResult.defaultCord = value
+           }
+      }
+      func setDefaultCord(value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.defaultCord = value
+        return self
+      }
+      internal func clearDefaultCord() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasDefaultCord = false
+           builderResult.defaultCord = "123"
+           return self
+      }
+      var hasOneofUint32:Bool {
+           get {
+                return builderResult.hasOneofUint32
+           }
+      }
+      var oneofUint32:UInt32 {
+           get {
+                return builderResult.oneofUint32
+           }
+           set (value) {
+               builderResult.hasOneofUint32 = true
+               builderResult.oneofUint32 = value
+           }
+      }
+      func setOneofUint32(value:UInt32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.oneofUint32 = value
+        return self
+      }
+      internal func clearOneofUint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOneofUint32 = false
+           builderResult.oneofUint32 = UInt32(0)
+           return self
+      }
+      var hasOneofNestedMessage:Bool {
+           get {
+               return builderResult.hasOneofNestedMessage
+           }
+      }
+      var oneofNestedMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
+           get {
+               if oneofNestedMessageBuilder_ != nil {
+                  builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
+               }
+               return builderResult.oneofNestedMessage
+           }
+           set (value) {
+               builderResult.hasOneofNestedMessage = true
+               builderResult.oneofNestedMessage = value
+           }
+      }
+      private var oneofNestedMessageBuilder_:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder! {
+           didSet {
+              builderResult.hasOneofNestedMessage = true
+           }
+      }
+      internal func getOneofNestedMessageBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+        if oneofNestedMessageBuilder_ == nil {
+           oneofNestedMessageBuilder_ = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
+           builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
+           if oneofNestedMessage != nil {
+              oneofNestedMessageBuilder_.mergeFrom(oneofNestedMessage)
+           }
+        }
+        return oneofNestedMessageBuilder_
+      }
+      func setOneofNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.oneofNestedMessage = value
+        return self
+      }
+      internal func mergeOneofNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        if builderResult.hasOneofNestedMessage {
+          builderResult.oneofNestedMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.oneofNestedMessage).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.oneofNestedMessage = value
+        }
+        builderResult.hasOneofNestedMessage = true
+        return self
+      }
+      internal func clearOneofNestedMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        oneofNestedMessageBuilder_ = nil
+        builderResult.hasOneofNestedMessage = false
+        builderResult.oneofNestedMessage = nil
+        return self
+      }
+      var hasOneofString:Bool {
+           get {
+                return builderResult.hasOneofString
+           }
+      }
+      var oneofString:String {
+           get {
+                return builderResult.oneofString
+           }
+           set (value) {
+               builderResult.hasOneofString = true
+               builderResult.oneofString = value
+           }
+      }
+      func setOneofString(value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.oneofString = value
+        return self
+      }
+      internal func clearOneofString() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOneofString = false
+           builderResult.oneofString = ""
+           return self
+      }
+      var hasOneofBytes:Bool {
+           get {
+                return builderResult.hasOneofBytes
+           }
+      }
+      var oneofBytes:NSData {
+           get {
+                return builderResult.oneofBytes
+           }
+           set (value) {
+               builderResult.hasOneofBytes = true
+               builderResult.oneofBytes = value
+           }
+      }
+      func setOneofBytes(value:NSData) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.oneofBytes = value
+        return self
+      }
+      internal func clearOneofBytes() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
+           builderResult.hasOneofBytes = false
+           builderResult.oneofBytes = NSData()
+           return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        builderResult = ProtobufUnittestNoArena.TestAllTypes()
+        return self
+      }
+      internal override func clone() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        return ProtobufUnittestNoArena.TestAllTypes.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> ProtobufUnittestNoArena.TestAllTypes {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> ProtobufUnittestNoArena.TestAllTypes {
+        var returnMe:ProtobufUnittestNoArena.TestAllTypes = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        if other == ProtobufUnittestNoArena.TestAllTypes() {
+         return self
+        }
+        if other.hasOptionalInt32 {
+             optionalInt32 = other.optionalInt32
+        }
+        if other.hasOptionalInt64 {
+             optionalInt64 = other.optionalInt64
+        }
+        if other.hasOptionalUint32 {
+             optionalUint32 = other.optionalUint32
+        }
+        if other.hasOptionalUint64 {
+             optionalUint64 = other.optionalUint64
+        }
+        if other.hasOptionalSint32 {
+             optionalSint32 = other.optionalSint32
+        }
+        if other.hasOptionalSint64 {
+             optionalSint64 = other.optionalSint64
+        }
+        if other.hasOptionalFixed32 {
+             optionalFixed32 = other.optionalFixed32
+        }
+        if other.hasOptionalFixed64 {
+             optionalFixed64 = other.optionalFixed64
+        }
+        if other.hasOptionalSfixed32 {
+             optionalSfixed32 = other.optionalSfixed32
+        }
+        if other.hasOptionalSfixed64 {
+             optionalSfixed64 = other.optionalSfixed64
+        }
+        if other.hasOptionalFloat {
+             optionalFloat = other.optionalFloat
+        }
+        if other.hasOptionalDouble {
+             optionalDouble = other.optionalDouble
+        }
+        if other.hasOptionalBool {
+             optionalBool = other.optionalBool
+        }
+        if other.hasOptionalString {
+             optionalString = other.optionalString
+        }
+        if other.hasOptionalBytes {
+             optionalBytes = other.optionalBytes
+        }
+        if (other.hasOptionalGroup) {
+            mergeOptionalGroup(other.optionalGroup)
+        }
+        if (other.hasOptionalNestedMessage) {
+            mergeOptionalNestedMessage(other.optionalNestedMessage)
+        }
+        if (other.hasOptionalForeignMessage) {
+            mergeOptionalForeignMessage(other.optionalForeignMessage)
+        }
+        if (other.hasOptionalImportMessage) {
+            mergeOptionalImportMessage(other.optionalImportMessage)
+        }
+        if other.hasOptionalNestedEnum {
+             optionalNestedEnum = other.optionalNestedEnum
+        }
+        if other.hasOptionalForeignEnum {
+             optionalForeignEnum = other.optionalForeignEnum
+        }
+        if other.hasOptionalImportEnum {
+             optionalImportEnum = other.optionalImportEnum
+        }
+        if other.hasOptionalStringPiece {
+             optionalStringPiece = other.optionalStringPiece
+        }
+        if other.hasOptionalCord {
+             optionalCord = other.optionalCord
+        }
+        if (other.hasOptionalPublicImportMessage) {
+            mergeOptionalPublicImportMessage(other.optionalPublicImportMessage)
+        }
+        if (other.hasOptionalLazyMessage) {
+            mergeOptionalLazyMessage(other.optionalLazyMessage)
+        }
+        if !other.repeatedInt32.isEmpty {
+            builderResult.repeatedInt32 += other.repeatedInt32
+        }
+        if !other.repeatedInt64.isEmpty {
+            builderResult.repeatedInt64 += other.repeatedInt64
+        }
+        if !other.repeatedUint32.isEmpty {
+            builderResult.repeatedUint32 += other.repeatedUint32
+        }
+        if !other.repeatedUint64.isEmpty {
+            builderResult.repeatedUint64 += other.repeatedUint64
+        }
+        if !other.repeatedSint32.isEmpty {
+            builderResult.repeatedSint32 += other.repeatedSint32
+        }
+        if !other.repeatedSint64.isEmpty {
+            builderResult.repeatedSint64 += other.repeatedSint64
+        }
+        if !other.repeatedFixed32.isEmpty {
+            builderResult.repeatedFixed32 += other.repeatedFixed32
+        }
+        if !other.repeatedFixed64.isEmpty {
+            builderResult.repeatedFixed64 += other.repeatedFixed64
+        }
+        if !other.repeatedSfixed32.isEmpty {
+            builderResult.repeatedSfixed32 += other.repeatedSfixed32
+        }
+        if !other.repeatedSfixed64.isEmpty {
+            builderResult.repeatedSfixed64 += other.repeatedSfixed64
+        }
+        if !other.repeatedFloat.isEmpty {
+            builderResult.repeatedFloat += other.repeatedFloat
+        }
+        if !other.repeatedDouble.isEmpty {
+            builderResult.repeatedDouble += other.repeatedDouble
+        }
+        if !other.repeatedBool.isEmpty {
+            builderResult.repeatedBool += other.repeatedBool
+        }
+        if !other.repeatedString.isEmpty {
+            builderResult.repeatedString += other.repeatedString
+        }
+        if !other.repeatedBytes.isEmpty {
+            builderResult.repeatedBytes += other.repeatedBytes
+        }
+        if !other.repeatedGroup.isEmpty  {
+           builderResult.repeatedGroup += other.repeatedGroup
+        }
+        if !other.repeatedNestedMessage.isEmpty  {
+           builderResult.repeatedNestedMessage += other.repeatedNestedMessage
+        }
+        if !other.repeatedForeignMessage.isEmpty  {
+           builderResult.repeatedForeignMessage += other.repeatedForeignMessage
+        }
+        if !other.repeatedImportMessage.isEmpty  {
+           builderResult.repeatedImportMessage += other.repeatedImportMessage
+        }
+        if !other.repeatedNestedEnum.isEmpty {
+           builderResult.repeatedNestedEnum += other.repeatedNestedEnum
+        }
+        if !other.repeatedForeignEnum.isEmpty {
+           builderResult.repeatedForeignEnum += other.repeatedForeignEnum
+        }
+        if !other.repeatedImportEnum.isEmpty {
+           builderResult.repeatedImportEnum += other.repeatedImportEnum
+        }
+        if !other.repeatedStringPiece.isEmpty {
+            builderResult.repeatedStringPiece += other.repeatedStringPiece
+        }
+        if !other.repeatedCord.isEmpty {
+            builderResult.repeatedCord += other.repeatedCord
+        }
+        if !other.repeatedLazyMessage.isEmpty  {
+           builderResult.repeatedLazyMessage += other.repeatedLazyMessage
+        }
+        if other.hasDefaultInt32 {
+             defaultInt32 = other.defaultInt32
+        }
+        if other.hasDefaultInt64 {
+             defaultInt64 = other.defaultInt64
+        }
+        if other.hasDefaultUint32 {
+             defaultUint32 = other.defaultUint32
+        }
+        if other.hasDefaultUint64 {
+             defaultUint64 = other.defaultUint64
+        }
+        if other.hasDefaultSint32 {
+             defaultSint32 = other.defaultSint32
+        }
+        if other.hasDefaultSint64 {
+             defaultSint64 = other.defaultSint64
+        }
+        if other.hasDefaultFixed32 {
+             defaultFixed32 = other.defaultFixed32
+        }
+        if other.hasDefaultFixed64 {
+             defaultFixed64 = other.defaultFixed64
+        }
+        if other.hasDefaultSfixed32 {
+             defaultSfixed32 = other.defaultSfixed32
+        }
+        if other.hasDefaultSfixed64 {
+             defaultSfixed64 = other.defaultSfixed64
+        }
+        if other.hasDefaultFloat {
+             defaultFloat = other.defaultFloat
+        }
+        if other.hasDefaultDouble {
+             defaultDouble = other.defaultDouble
+        }
+        if other.hasDefaultBool {
+             defaultBool = other.defaultBool
+        }
+        if other.hasDefaultString {
+             defaultString = other.defaultString
+        }
+        if other.hasDefaultBytes {
+             defaultBytes = other.defaultBytes
+        }
+        if other.hasDefaultNestedEnum {
+             defaultNestedEnum = other.defaultNestedEnum
+        }
+        if other.hasDefaultForeignEnum {
+             defaultForeignEnum = other.defaultForeignEnum
+        }
+        if other.hasDefaultImportEnum {
+             defaultImportEnum = other.defaultImportEnum
+        }
+        if other.hasDefaultStringPiece {
+             defaultStringPiece = other.defaultStringPiece
+        }
+        if other.hasDefaultCord {
+             defaultCord = other.defaultCord
+        }
+        if other.hasOneofUint32 {
+             oneofUint32 = other.oneofUint32
+        }
+        if (other.hasOneofNestedMessage) {
+            mergeOneofNestedMessage(other.oneofNestedMessage)
+        }
+        if other.hasOneofString {
+             oneofString = other.oneofString
+        }
+        if other.hasOneofBytes {
+             oneofBytes = other.oneofBytes
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 184 :
-          let valueIntoptionalImportEnum = input.readEnum()
-          if let enumsoptionalImportEnum = ProtobufUnittestImport.ImportEnum(rawValue:valueIntoptionalImportEnum){
-               optionalImportEnum = enumsoptionalImportEnum
-          } else {
-               unknownFieldsBuilder.mergeVarintField(23, value:Int64(valueIntoptionalImportEnum))
-          }
+          case 8 :
+            optionalInt32 = input.readInt32()
 
-        case 194 :
-          optionalStringPiece = input.readString()
+          case 16 :
+            optionalInt64 = input.readInt64()
 
-        case 202 :
-          optionalCord = input.readString()
+          case 24 :
+            optionalUint32 = input.readUInt32()
 
-        case 210 :
-          var subBuilder:ProtobufUnittestImport.PublicImportMessageBuilder = ProtobufUnittestImport.PublicImportMessage.builder()
-          if hasOptionalPublicImportMessage {
-            subBuilder.mergeFrom(optionalPublicImportMessage)
-          }
-          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-          optionalPublicImportMessage = subBuilder.buildPartial()
+          case 32 :
+            optionalUint64 = input.readUInt64()
 
-        case 218 :
-          var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
-          if hasOptionalLazyMessage {
-            subBuilder.mergeFrom(optionalLazyMessage)
-          }
-          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-          optionalLazyMessage = subBuilder.buildPartial()
+          case 40 :
+            optionalSint32 = input.readSInt32()
 
-        case 248 :
-          repeatedInt32 += [input.readInt32()]
+          case 48 :
+            optionalSint64 = input.readSInt64()
 
-        case 256 :
-          repeatedInt64 += [input.readInt64()]
+          case 61 :
+            optionalFixed32 = input.readFixed32()
 
-        case 264 :
-          repeatedUint32 += [input.readUInt32()]
+          case 65 :
+            optionalFixed64 = input.readFixed64()
 
-        case 272 :
-          repeatedUint64 += [input.readUInt64()]
+          case 77 :
+            optionalSfixed32 = input.readSFixed32()
 
-        case 280 :
-          repeatedSint32 += [input.readSInt32()]
+          case 81 :
+            optionalSfixed64 = input.readSFixed64()
 
-        case 288 :
-          repeatedSint64 += [input.readSInt64()]
+          case 93 :
+            optionalFloat = input.readFloat()
 
-        case 301 :
-          repeatedFixed32 += [input.readFixed32()]
+          case 97 :
+            optionalDouble = input.readDouble()
 
-        case 305 :
-          repeatedFixed64 += [input.readFixed64()]
+          case 104 :
+            optionalBool = input.readBool()
 
-        case 317 :
-          repeatedSfixed32 += [input.readSFixed32()]
+          case 114 :
+            optionalString = input.readString()
 
-        case 321 :
-          repeatedSfixed64 += [input.readSFixed64()]
+          case 122 :
+            optionalBytes = input.readData()
 
-        case 333 :
-          repeatedFloat += [input.readFloat()]
+          case 131 :
+            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.builder()
+            if hasOptionalGroup {
+              subBuilder.mergeFrom(optionalGroup)
+            }
+            input.readGroup(16, builder:subBuilder, extensionRegistry:extensionRegistry)
+            optionalGroup = subBuilder.buildPartial()
 
-        case 337 :
-          repeatedDouble += [input.readDouble()]
+          case 146 :
+            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
+            if hasOptionalNestedMessage {
+              subBuilder.mergeFrom(optionalNestedMessage)
+            }
+            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            optionalNestedMessage = subBuilder.buildPartial()
 
-        case 344 :
-          repeatedBool += [input.readBool()]
+          case 154 :
+            var subBuilder:ProtobufUnittestNoArena.ForeignMessage.Builder = ProtobufUnittestNoArena.ForeignMessage.builder()
+            if hasOptionalForeignMessage {
+              subBuilder.mergeFrom(optionalForeignMessage)
+            }
+            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            optionalForeignMessage = subBuilder.buildPartial()
 
-        case 354 :
-          repeatedString += [input.readString()]
+          case 162 :
+            var subBuilder:ProtobufUnittestImport.ImportMessage.Builder = ProtobufUnittestImport.ImportMessage.builder()
+            if hasOptionalImportMessage {
+              subBuilder.mergeFrom(optionalImportMessage)
+            }
+            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            optionalImportMessage = subBuilder.buildPartial()
 
-        case 362 :
-          repeatedBytes += [input.readData()]
+          case 168 :
+            let valueIntoptionalNestedEnum = input.readEnum()
+            if let enumsoptionalNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
+                 optionalNestedEnum = enumsoptionalNestedEnum
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
+            }
 
-        case 371 :
-          var subBuilder = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder()
-          input.readGroup(46,builder:subBuilder,extensionRegistry:extensionRegistry)
-          repeatedGroup += [subBuilder.buildPartial()]
+          case 176 :
+            let valueIntoptionalForeignEnum = input.readEnum()
+            if let enumsoptionalForeignEnum = ProtobufUnittestNoArena.ForeignEnum(rawValue:valueIntoptionalForeignEnum){
+                 optionalForeignEnum = enumsoptionalForeignEnum
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(22, value:Int64(valueIntoptionalForeignEnum))
+            }
 
-        case 386 :
-          var subBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
-          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-          repeatedNestedMessage += [subBuilder.buildPartial()]
+          case 184 :
+            let valueIntoptionalImportEnum = input.readEnum()
+            if let enumsoptionalImportEnum = ProtobufUnittestImport.ImportEnum(rawValue:valueIntoptionalImportEnum){
+                 optionalImportEnum = enumsoptionalImportEnum
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(23, value:Int64(valueIntoptionalImportEnum))
+            }
 
-        case 394 :
-          var subBuilder = ProtobufUnittestNoArena.ForeignMessage.builder()
-          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-          repeatedForeignMessage += [subBuilder.buildPartial()]
+          case 194 :
+            optionalStringPiece = input.readString()
 
-        case 402 :
-          var subBuilder = ProtobufUnittestImport.ImportMessage.builder()
-          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-          repeatedImportMessage += [subBuilder.buildPartial()]
+          case 202 :
+            optionalCord = input.readString()
 
-        case 408 :
-          let valueIntrepeatedNestedEnum = input.readEnum()
-          if let enumsrepeatedNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
-               builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
-          } else {
-               unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
-          }
+          case 210 :
+            var subBuilder:ProtobufUnittestImport.PublicImportMessage.Builder = ProtobufUnittestImport.PublicImportMessage.builder()
+            if hasOptionalPublicImportMessage {
+              subBuilder.mergeFrom(optionalPublicImportMessage)
+            }
+            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            optionalPublicImportMessage = subBuilder.buildPartial()
 
-        case 416 :
-          let valueIntrepeatedForeignEnum = input.readEnum()
-          if let enumsrepeatedForeignEnum = ProtobufUnittestNoArena.ForeignEnum(rawValue:valueIntrepeatedForeignEnum) {
-               builderResult.repeatedForeignEnum += [enumsrepeatedForeignEnum]
-          } else {
-               unknownFieldsBuilder.mergeVarintField(52, value:Int64(valueIntrepeatedForeignEnum))
-          }
+          case 218 :
+            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
+            if hasOptionalLazyMessage {
+              subBuilder.mergeFrom(optionalLazyMessage)
+            }
+            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            optionalLazyMessage = subBuilder.buildPartial()
 
-        case 424 :
-          let valueIntrepeatedImportEnum = input.readEnum()
-          if let enumsrepeatedImportEnum = ProtobufUnittestImport.ImportEnum(rawValue:valueIntrepeatedImportEnum) {
-               builderResult.repeatedImportEnum += [enumsrepeatedImportEnum]
-          } else {
-               unknownFieldsBuilder.mergeVarintField(53, value:Int64(valueIntrepeatedImportEnum))
-          }
+          case 248 :
+            repeatedInt32 += [input.readInt32()]
 
-        case 434 :
-          repeatedStringPiece += [input.readString()]
+          case 256 :
+            repeatedInt64 += [input.readInt64()]
 
-        case 442 :
-          repeatedCord += [input.readString()]
+          case 264 :
+            repeatedUint32 += [input.readUInt32()]
 
-        case 458 :
-          var subBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
-          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-          repeatedLazyMessage += [subBuilder.buildPartial()]
+          case 272 :
+            repeatedUint64 += [input.readUInt64()]
 
-        case 488 :
-          defaultInt32 = input.readInt32()
+          case 280 :
+            repeatedSint32 += [input.readSInt32()]
 
-        case 496 :
-          defaultInt64 = input.readInt64()
+          case 288 :
+            repeatedSint64 += [input.readSInt64()]
 
-        case 504 :
-          defaultUint32 = input.readUInt32()
+          case 301 :
+            repeatedFixed32 += [input.readFixed32()]
 
-        case 512 :
-          defaultUint64 = input.readUInt64()
+          case 305 :
+            repeatedFixed64 += [input.readFixed64()]
 
-        case 520 :
-          defaultSint32 = input.readSInt32()
+          case 317 :
+            repeatedSfixed32 += [input.readSFixed32()]
 
-        case 528 :
-          defaultSint64 = input.readSInt64()
+          case 321 :
+            repeatedSfixed64 += [input.readSFixed64()]
 
-        case 541 :
-          defaultFixed32 = input.readFixed32()
+          case 333 :
+            repeatedFloat += [input.readFloat()]
 
-        case 545 :
-          defaultFixed64 = input.readFixed64()
+          case 337 :
+            repeatedDouble += [input.readDouble()]
 
-        case 557 :
-          defaultSfixed32 = input.readSFixed32()
+          case 344 :
+            repeatedBool += [input.readBool()]
 
-        case 561 :
-          defaultSfixed64 = input.readSFixed64()
+          case 354 :
+            repeatedString += [input.readString()]
 
-        case 573 :
-          defaultFloat = input.readFloat()
+          case 362 :
+            repeatedBytes += [input.readData()]
 
-        case 577 :
-          defaultDouble = input.readDouble()
+          case 371 :
+            var subBuilder = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.builder()
+            input.readGroup(46,builder:subBuilder,extensionRegistry:extensionRegistry)
+            repeatedGroup += [subBuilder.buildPartial()]
 
-        case 584 :
-          defaultBool = input.readBool()
+          case 386 :
+            var subBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
+            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            repeatedNestedMessage += [subBuilder.buildPartial()]
 
-        case 594 :
-          defaultString = input.readString()
+          case 394 :
+            var subBuilder = ProtobufUnittestNoArena.ForeignMessage.builder()
+            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            repeatedForeignMessage += [subBuilder.buildPartial()]
 
-        case 602 :
-          defaultBytes = input.readData()
+          case 402 :
+            var subBuilder = ProtobufUnittestImport.ImportMessage.builder()
+            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            repeatedImportMessage += [subBuilder.buildPartial()]
 
-        case 648 :
-          let valueIntdefaultNestedEnum = input.readEnum()
-          if let enumsdefaultNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntdefaultNestedEnum){
-               defaultNestedEnum = enumsdefaultNestedEnum
-          } else {
-               unknownFieldsBuilder.mergeVarintField(81, value:Int64(valueIntdefaultNestedEnum))
-          }
+          case 408 :
+            let valueIntrepeatedNestedEnum = input.readEnum()
+            if let enumsrepeatedNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
+                 builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
+            }
 
-        case 656 :
-          let valueIntdefaultForeignEnum = input.readEnum()
-          if let enumsdefaultForeignEnum = ProtobufUnittestNoArena.ForeignEnum(rawValue:valueIntdefaultForeignEnum){
-               defaultForeignEnum = enumsdefaultForeignEnum
-          } else {
-               unknownFieldsBuilder.mergeVarintField(82, value:Int64(valueIntdefaultForeignEnum))
-          }
+          case 416 :
+            let valueIntrepeatedForeignEnum = input.readEnum()
+            if let enumsrepeatedForeignEnum = ProtobufUnittestNoArena.ForeignEnum(rawValue:valueIntrepeatedForeignEnum) {
+                 builderResult.repeatedForeignEnum += [enumsrepeatedForeignEnum]
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(52, value:Int64(valueIntrepeatedForeignEnum))
+            }
 
-        case 664 :
-          let valueIntdefaultImportEnum = input.readEnum()
-          if let enumsdefaultImportEnum = ProtobufUnittestImport.ImportEnum(rawValue:valueIntdefaultImportEnum){
-               defaultImportEnum = enumsdefaultImportEnum
-          } else {
-               unknownFieldsBuilder.mergeVarintField(83, value:Int64(valueIntdefaultImportEnum))
-          }
+          case 424 :
+            let valueIntrepeatedImportEnum = input.readEnum()
+            if let enumsrepeatedImportEnum = ProtobufUnittestImport.ImportEnum(rawValue:valueIntrepeatedImportEnum) {
+                 builderResult.repeatedImportEnum += [enumsrepeatedImportEnum]
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(53, value:Int64(valueIntrepeatedImportEnum))
+            }
 
-        case 674 :
-          defaultStringPiece = input.readString()
+          case 434 :
+            repeatedStringPiece += [input.readString()]
 
-        case 682 :
-          defaultCord = input.readString()
+          case 442 :
+            repeatedCord += [input.readString()]
 
-        case 888 :
-          oneofUint32 = input.readUInt32()
+          case 458 :
+            var subBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
+            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            repeatedLazyMessage += [subBuilder.buildPartial()]
 
-        case 898 :
-          var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessageBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
-          if hasOneofNestedMessage {
-            subBuilder.mergeFrom(oneofNestedMessage)
-          }
-          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-          oneofNestedMessage = subBuilder.buildPartial()
+          case 488 :
+            defaultInt32 = input.readInt32()
 
-        case 906 :
-          oneofString = input.readString()
+          case 496 :
+            defaultInt64 = input.readInt64()
 
-        case 914 :
-          oneofBytes = input.readData()
+          case 504 :
+            defaultUint32 = input.readUInt32()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          case 512 :
+            defaultUint64 = input.readUInt64()
+
+          case 520 :
+            defaultSint32 = input.readSInt32()
+
+          case 528 :
+            defaultSint64 = input.readSInt64()
+
+          case 541 :
+            defaultFixed32 = input.readFixed32()
+
+          case 545 :
+            defaultFixed64 = input.readFixed64()
+
+          case 557 :
+            defaultSfixed32 = input.readSFixed32()
+
+          case 561 :
+            defaultSfixed64 = input.readSFixed64()
+
+          case 573 :
+            defaultFloat = input.readFloat()
+
+          case 577 :
+            defaultDouble = input.readDouble()
+
+          case 584 :
+            defaultBool = input.readBool()
+
+          case 594 :
+            defaultString = input.readString()
+
+          case 602 :
+            defaultBytes = input.readData()
+
+          case 648 :
+            let valueIntdefaultNestedEnum = input.readEnum()
+            if let enumsdefaultNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntdefaultNestedEnum){
+                 defaultNestedEnum = enumsdefaultNestedEnum
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(81, value:Int64(valueIntdefaultNestedEnum))
+            }
+
+          case 656 :
+            let valueIntdefaultForeignEnum = input.readEnum()
+            if let enumsdefaultForeignEnum = ProtobufUnittestNoArena.ForeignEnum(rawValue:valueIntdefaultForeignEnum){
+                 defaultForeignEnum = enumsdefaultForeignEnum
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(82, value:Int64(valueIntdefaultForeignEnum))
+            }
+
+          case 664 :
+            let valueIntdefaultImportEnum = input.readEnum()
+            if let enumsdefaultImportEnum = ProtobufUnittestImport.ImportEnum(rawValue:valueIntdefaultImportEnum){
+                 defaultImportEnum = enumsdefaultImportEnum
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(83, value:Int64(valueIntdefaultImportEnum))
+            }
+
+          case 674 :
+            defaultStringPiece = input.readString()
+
+          case 682 :
+            defaultCord = input.readString()
+
+          case 888 :
+            oneofUint32 = input.readUInt32()
+
+          case 898 :
+            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builder()
+            if hasOneofNestedMessage {
+              subBuilder.mergeFrom(oneofNestedMessage)
+            }
+            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            oneofNestedMessage = subBuilder.buildPartial()
+
+          case 906 :
+            oneofString = input.readString()
+
+          case 914 :
+            oneofBytes = input.readData()
+
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
   final internal class ForeignMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -4601,22 +4601,22 @@ internal extension ProtobufUnittestNoArena {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.ForeignMessage {
       return ProtobufUnittestNoArena.ForeignMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittestNoArena.ForeignMessageBuilder {
-      return ProtobufUnittestNoArena.ForeignMessage.classBuilder() as! ProtobufUnittestNoArena.ForeignMessageBuilder
+    internal class func builder() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+      return ProtobufUnittestNoArena.ForeignMessage.classBuilder() as! ProtobufUnittestNoArena.ForeignMessage.Builder
     }
-    internal func builder() -> ProtobufUnittestNoArena.ForeignMessageBuilder {
-      return classBuilder() as! ProtobufUnittestNoArena.ForeignMessageBuilder
+    internal func builder() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+      return classBuilder() as! ProtobufUnittestNoArena.ForeignMessage.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return ProtobufUnittestNoArena.ForeignMessageBuilder()
+      return ProtobufUnittestNoArena.ForeignMessage.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return ProtobufUnittestNoArena.ForeignMessage.builder()
     }
-    internal func toBuilder() -> ProtobufUnittestNoArena.ForeignMessageBuilder {
+    internal func toBuilder() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
       return ProtobufUnittestNoArena.ForeignMessage.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.ForeignMessage) -> ProtobufUnittestNoArena.ForeignMessageBuilder {
+    internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.ForeignMessage) -> ProtobufUnittestNoArena.ForeignMessage.Builder {
       return ProtobufUnittestNoArena.ForeignMessage.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -4650,93 +4650,93 @@ internal extension ProtobufUnittestNoArena {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:ProtobufUnittestNoArena.ForeignMessage = ProtobufUnittestNoArena.ForeignMessage()
+      internal func getMessage() -> ProtobufUnittestNoArena.ForeignMessage {
+          return builderResult
+      }
 
-  final internal class ForeignMessageBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittestNoArena.ForeignMessage = ProtobufUnittestNoArena.ForeignMessage()
-    internal func getMessage() -> ProtobufUnittestNoArena.ForeignMessage {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasC:Bool {
-         get {
-              return builderResult.hasC
-         }
-    }
-    var c:Int32 {
-         get {
-              return builderResult.c
-         }
-         set (value) {
-             builderResult.hasC = true
-             builderResult.c = value
-         }
-    }
-    func setC(value:Int32) -> ProtobufUnittestNoArena.ForeignMessageBuilder {
-      self.c = value
-      return self
-    }
-    internal func clearC() -> ProtobufUnittestNoArena.ForeignMessageBuilder{
-         builderResult.hasC = false
-         builderResult.c = Int32(0)
+      required override internal init () {
+         super.init()
+      }
+      var hasC:Bool {
+           get {
+                return builderResult.hasC
+           }
+      }
+      var c:Int32 {
+           get {
+                return builderResult.c
+           }
+           set (value) {
+               builderResult.hasC = true
+               builderResult.c = value
+           }
+      }
+      func setC(value:Int32) -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+        self.c = value
+        return self
+      }
+      internal func clearC() -> ProtobufUnittestNoArena.ForeignMessage.Builder{
+           builderResult.hasC = false
+           builderResult.c = Int32(0)
+           return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+        builderResult = ProtobufUnittestNoArena.ForeignMessage()
+        return self
+      }
+      internal override func clone() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+        return ProtobufUnittestNoArena.ForeignMessage.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> ProtobufUnittestNoArena.ForeignMessage {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> ProtobufUnittestNoArena.ForeignMessage {
+        var returnMe:ProtobufUnittestNoArena.ForeignMessage = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:ProtobufUnittestNoArena.ForeignMessage) -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+        if other == ProtobufUnittestNoArena.ForeignMessage() {
          return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> ProtobufUnittestNoArena.ForeignMessageBuilder {
-      builderResult = ProtobufUnittestNoArena.ForeignMessage()
-      return self
-    }
-    internal override func clone() -> ProtobufUnittestNoArena.ForeignMessageBuilder {
-      return ProtobufUnittestNoArena.ForeignMessage.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> ProtobufUnittestNoArena.ForeignMessage {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> ProtobufUnittestNoArena.ForeignMessage {
-      var returnMe:ProtobufUnittestNoArena.ForeignMessage = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:ProtobufUnittestNoArena.ForeignMessage) -> ProtobufUnittestNoArena.ForeignMessageBuilder {
-      if other == ProtobufUnittestNoArena.ForeignMessage() {
-       return self
+        }
+        if other.hasC {
+             c = other.c
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      if other.hasC {
-           c = other.c
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.ForeignMessageBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.ForeignMessageBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 8 :
-          c = input.readInt32()
+          case 8 :
+            c = input.readInt32()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
   final internal class TestNoArenaMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -4788,22 +4788,22 @@ internal extension ProtobufUnittestNoArena {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestNoArenaMessage {
       return ProtobufUnittestNoArena.TestNoArenaMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
-      return ProtobufUnittestNoArena.TestNoArenaMessage.classBuilder() as! ProtobufUnittestNoArena.TestNoArenaMessageBuilder
+    internal class func builder() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+      return ProtobufUnittestNoArena.TestNoArenaMessage.classBuilder() as! ProtobufUnittestNoArena.TestNoArenaMessage.Builder
     }
-    internal func builder() -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
-      return classBuilder() as! ProtobufUnittestNoArena.TestNoArenaMessageBuilder
+    internal func builder() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+      return classBuilder() as! ProtobufUnittestNoArena.TestNoArenaMessage.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return ProtobufUnittestNoArena.TestNoArenaMessageBuilder()
+      return ProtobufUnittestNoArena.TestNoArenaMessage.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return ProtobufUnittestNoArena.TestNoArenaMessage.builder()
     }
-    internal func toBuilder() -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
+    internal func toBuilder() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
       return ProtobufUnittestNoArena.TestNoArenaMessage.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestNoArenaMessage) -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
+    internal class func builderWithPrototype(prototype:ProtobufUnittestNoArena.TestNoArenaMessage) -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
       return ProtobufUnittestNoArena.TestNoArenaMessage.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -4841,126 +4841,126 @@ internal extension ProtobufUnittestNoArena {
     }
     //Meta information declaration end
 
-  }
-
-  final internal class TestNoArenaMessageBuilder : GeneratedMessageBuilder {
-    private var builderResult:ProtobufUnittestNoArena.TestNoArenaMessage = ProtobufUnittestNoArena.TestNoArenaMessage()
-    internal func getMessage() -> ProtobufUnittestNoArena.TestNoArenaMessage {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasArenaMessage:Bool {
-         get {
-             return builderResult.hasArenaMessage
-         }
-    }
-    var arenaMessage:Proto2ArenaUnittest.ArenaMessage! {
-         get {
-             if arenaMessageBuilder_ != nil {
-                builderResult.arenaMessage = arenaMessageBuilder_.getMessage()
-             }
-             return builderResult.arenaMessage
-         }
-         set (value) {
-             builderResult.hasArenaMessage = true
-             builderResult.arenaMessage = value
-         }
-    }
-    private var arenaMessageBuilder_:Proto2ArenaUnittest.ArenaMessageBuilder! {
-         didSet {
-            builderResult.hasArenaMessage = true
-         }
-    }
-    internal func getArenaMessageBuilder() -> Proto2ArenaUnittest.ArenaMessageBuilder {
-      if arenaMessageBuilder_ == nil {
-         arenaMessageBuilder_ = Proto2ArenaUnittest.ArenaMessageBuilder()
-         builderResult.arenaMessage = arenaMessageBuilder_.getMessage()
-         if arenaMessage != nil {
-            arenaMessageBuilder_.mergeFrom(arenaMessage)
-         }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:ProtobufUnittestNoArena.TestNoArenaMessage = ProtobufUnittestNoArena.TestNoArenaMessage()
+      internal func getMessage() -> ProtobufUnittestNoArena.TestNoArenaMessage {
+          return builderResult
       }
-      return arenaMessageBuilder_
-    }
-    func setArenaMessage(value:Proto2ArenaUnittest.ArenaMessage!) -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
-      self.arenaMessage = value
-      return self
-    }
-    internal func mergeArenaMessage(value:Proto2ArenaUnittest.ArenaMessage) -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
-      if builderResult.hasArenaMessage {
-        builderResult.arenaMessage = Proto2ArenaUnittest.ArenaMessage.builderWithPrototype(builderResult.arenaMessage).mergeFrom(value).buildPartial()
-      } else {
-        builderResult.arenaMessage = value
-      }
-      builderResult.hasArenaMessage = true
-      return self
-    }
-    internal func clearArenaMessage() -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
-      arenaMessageBuilder_ = nil
-      builderResult.hasArenaMessage = false
-      builderResult.arenaMessage = nil
-      return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
-      builderResult = ProtobufUnittestNoArena.TestNoArenaMessage()
-      return self
-    }
-    internal override func clone() -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
-      return ProtobufUnittestNoArena.TestNoArenaMessage.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> ProtobufUnittestNoArena.TestNoArenaMessage {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      var returnMe:ProtobufUnittestNoArena.TestNoArenaMessage = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:ProtobufUnittestNoArena.TestNoArenaMessage) -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
-      if other == ProtobufUnittestNoArena.TestNoArenaMessage() {
-       return self
-      }
-      if (other.hasArenaMessage) {
-          mergeArenaMessage(other.arenaMessage)
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestNoArenaMessageBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
 
-        case 10 :
-          var subBuilder:Proto2ArenaUnittest.ArenaMessageBuilder = Proto2ArenaUnittest.ArenaMessage.builder()
-          if hasArenaMessage {
-            subBuilder.mergeFrom(arenaMessage)
-          }
-          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-          arenaMessage = subBuilder.buildPartial()
+      required override internal init () {
+         super.init()
+      }
+      var hasArenaMessage:Bool {
+           get {
+               return builderResult.hasArenaMessage
+           }
+      }
+      var arenaMessage:Proto2ArenaUnittest.ArenaMessage! {
+           get {
+               if arenaMessageBuilder_ != nil {
+                  builderResult.arenaMessage = arenaMessageBuilder_.getMessage()
+               }
+               return builderResult.arenaMessage
+           }
+           set (value) {
+               builderResult.hasArenaMessage = true
+               builderResult.arenaMessage = value
+           }
+      }
+      private var arenaMessageBuilder_:Proto2ArenaUnittest.ArenaMessage.Builder! {
+           didSet {
+              builderResult.hasArenaMessage = true
+           }
+      }
+      internal func getArenaMessageBuilder() -> Proto2ArenaUnittest.ArenaMessage.Builder {
+        if arenaMessageBuilder_ == nil {
+           arenaMessageBuilder_ = Proto2ArenaUnittest.ArenaMessage.Builder()
+           builderResult.arenaMessage = arenaMessageBuilder_.getMessage()
+           if arenaMessage != nil {
+              arenaMessageBuilder_.mergeFrom(arenaMessage)
+           }
+        }
+        return arenaMessageBuilder_
+      }
+      func setArenaMessage(value:Proto2ArenaUnittest.ArenaMessage!) -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+        self.arenaMessage = value
+        return self
+      }
+      internal func mergeArenaMessage(value:Proto2ArenaUnittest.ArenaMessage) -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+        if builderResult.hasArenaMessage {
+          builderResult.arenaMessage = Proto2ArenaUnittest.ArenaMessage.builderWithPrototype(builderResult.arenaMessage).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.arenaMessage = value
+        }
+        builderResult.hasArenaMessage = true
+        return self
+      }
+      internal func clearArenaMessage() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+        arenaMessageBuilder_ = nil
+        builderResult.hasArenaMessage = false
+        builderResult.arenaMessage = nil
+        return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+        builderResult = ProtobufUnittestNoArena.TestNoArenaMessage()
+        return self
+      }
+      internal override func clone() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+        return ProtobufUnittestNoArena.TestNoArenaMessage.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> ProtobufUnittestNoArena.TestNoArenaMessage {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> ProtobufUnittestNoArena.TestNoArenaMessage {
+        var returnMe:ProtobufUnittestNoArena.TestNoArenaMessage = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:ProtobufUnittestNoArena.TestNoArenaMessage) -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+        if other == ProtobufUnittestNoArena.TestNoArenaMessage() {
+         return self
+        }
+        if (other.hasArenaMessage) {
+            mergeArenaMessage(other.arenaMessage)
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          case 10 :
+            var subBuilder:Proto2ArenaUnittest.ArenaMessage.Builder = Proto2ArenaUnittest.ArenaMessage.builder()
+            if hasArenaMessage {
+              subBuilder.mergeFrom(arenaMessage)
+            }
+            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            arenaMessage = subBuilder.buildPartial()
+
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

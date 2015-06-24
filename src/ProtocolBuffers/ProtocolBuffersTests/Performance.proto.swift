@@ -193,22 +193,22 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol, Hashable
   public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBUser {
     return PBUser.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  public class func builder() -> PBUserBuilder {
-    return PBUser.classBuilder() as! PBUserBuilder
+  public class func builder() -> PBUser.Builder {
+    return PBUser.classBuilder() as! PBUser.Builder
   }
-  public func builder() -> PBUserBuilder {
-    return classBuilder() as! PBUserBuilder
+  public func builder() -> PBUser.Builder {
+    return classBuilder() as! PBUser.Builder
   }
   public override class func classBuilder() -> MessageBuilder {
-    return PBUserBuilder()
+    return PBUser.Builder()
   }
   public override func classBuilder() -> MessageBuilder {
     return PBUser.builder()
   }
-  public func toBuilder() -> PBUserBuilder {
+  public func toBuilder() -> PBUser.Builder {
     return PBUser.builderWithPrototype(self)
   }
-  public class func builderWithPrototype(prototype:PBUser) -> PBUserBuilder {
+  public class func builderWithPrototype(prototype:PBUser) -> PBUser.Builder {
     return PBUser.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
@@ -258,184 +258,184 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol, Hashable
   }
   //Meta information declaration end
 
-}
-
-final public class PBUserBuilder : GeneratedMessageBuilder {
-  private var builderResult:PBUser = PBUser()
-  public func getMessage() -> PBUser {
-      return builderResult
-  }
-
-  required override public init () {
-     super.init()
-  }
-  public var hasGroup:Bool {
-       get {
-           return builderResult.hasGroup
-       }
-  }
-  public var group:PBGroup! {
-       get {
-           if groupBuilder_ != nil {
-              builderResult.group = groupBuilder_.getMessage()
-           }
-           return builderResult.group
-       }
-       set (value) {
-           builderResult.hasGroup = true
-           builderResult.group = value
-       }
-  }
-  private var groupBuilder_:PBGroupBuilder! {
-       didSet {
-          builderResult.hasGroup = true
-       }
-  }
-  public func getGroupBuilder() -> PBGroupBuilder {
-    if groupBuilder_ == nil {
-       groupBuilder_ = PBGroupBuilder()
-       builderResult.group = groupBuilder_.getMessage()
-       if group != nil {
-          groupBuilder_.mergeFrom(group)
-       }
+  final public class Builder : GeneratedMessageBuilder {
+    private var builderResult:PBUser = PBUser()
+    public func getMessage() -> PBUser {
+        return builderResult
     }
-    return groupBuilder_
-  }
-  public func setGroup(value:PBGroup!) -> PBUserBuilder {
-    self.group = value
-    return self
-  }
-  public func mergeGroup(value:PBGroup) -> PBUserBuilder {
-    if builderResult.hasGroup {
-      builderResult.group = PBGroup.builderWithPrototype(builderResult.group).mergeFrom(value).buildPartial()
-    } else {
-      builderResult.group = value
+
+    required override public init () {
+       super.init()
     }
-    builderResult.hasGroup = true
-    return self
-  }
-  public func clearGroup() -> PBUserBuilder {
-    groupBuilder_ = nil
-    builderResult.hasGroup = false
-    builderResult.group = nil
-    return self
-  }
-  public var hasGroupName:Bool {
-       get {
-            return builderResult.hasGroupName
-       }
-  }
-  public var groupName:String {
-       get {
-            return builderResult.groupName
-       }
-       set (value) {
-           builderResult.hasGroupName = true
-           builderResult.groupName = value
-       }
-  }
-  public func setGroupName(value:String) -> PBUserBuilder {
-    self.groupName = value
-    return self
-  }
-  public func clearGroupName() -> PBUserBuilder{
-       builderResult.hasGroupName = false
-       builderResult.groupName = ""
+    public var hasGroup:Bool {
+         get {
+             return builderResult.hasGroup
+         }
+    }
+    public var group:PBGroup! {
+         get {
+             if groupBuilder_ != nil {
+                builderResult.group = groupBuilder_.getMessage()
+             }
+             return builderResult.group
+         }
+         set (value) {
+             builderResult.hasGroup = true
+             builderResult.group = value
+         }
+    }
+    private var groupBuilder_:PBGroup.Builder! {
+         didSet {
+            builderResult.hasGroup = true
+         }
+    }
+    public func getGroupBuilder() -> PBGroup.Builder {
+      if groupBuilder_ == nil {
+         groupBuilder_ = PBGroup.Builder()
+         builderResult.group = groupBuilder_.getMessage()
+         if group != nil {
+            groupBuilder_.mergeFrom(group)
+         }
+      }
+      return groupBuilder_
+    }
+    public func setGroup(value:PBGroup!) -> PBUser.Builder {
+      self.group = value
+      return self
+    }
+    public func mergeGroup(value:PBGroup) -> PBUser.Builder {
+      if builderResult.hasGroup {
+        builderResult.group = PBGroup.builderWithPrototype(builderResult.group).mergeFrom(value).buildPartial()
+      } else {
+        builderResult.group = value
+      }
+      builderResult.hasGroup = true
+      return self
+    }
+    public func clearGroup() -> PBUser.Builder {
+      groupBuilder_ = nil
+      builderResult.hasGroup = false
+      builderResult.group = nil
+      return self
+    }
+    public var hasGroupName:Bool {
+         get {
+              return builderResult.hasGroupName
+         }
+    }
+    public var groupName:String {
+         get {
+              return builderResult.groupName
+         }
+         set (value) {
+             builderResult.hasGroupName = true
+             builderResult.groupName = value
+         }
+    }
+    public func setGroupName(value:String) -> PBUser.Builder {
+      self.groupName = value
+      return self
+    }
+    public func clearGroupName() -> PBUser.Builder{
+         builderResult.hasGroupName = false
+         builderResult.groupName = ""
+         return self
+    }
+    public var hasGroupLastName:Bool {
+         get {
+              return builderResult.hasGroupLastName
+         }
+    }
+    public var groupLastName:String {
+         get {
+              return builderResult.groupLastName
+         }
+         set (value) {
+             builderResult.hasGroupLastName = true
+             builderResult.groupLastName = value
+         }
+    }
+    public func setGroupLastName(value:String) -> PBUser.Builder {
+      self.groupLastName = value
+      return self
+    }
+    public func clearGroupLastName() -> PBUser.Builder{
+         builderResult.hasGroupLastName = false
+         builderResult.groupLastName = ""
+         return self
+    }
+    override public var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    public override func clear() -> PBUser.Builder {
+      builderResult = PBUser()
+      return self
+    }
+    public override func clone() -> PBUser.Builder {
+      return PBUser.builderWithPrototype(builderResult)
+    }
+    public override func build() -> PBUser {
+         checkInitialized()
+         return buildPartial()
+    }
+    public func buildPartial() -> PBUser {
+      var returnMe:PBUser = builderResult
+      return returnMe
+    }
+    public func mergeFrom(other:PBUser) -> PBUser.Builder {
+      if other == PBUser() {
        return self
-  }
-  public var hasGroupLastName:Bool {
-       get {
-            return builderResult.hasGroupLastName
-       }
-  }
-  public var groupLastName:String {
-       get {
-            return builderResult.groupLastName
-       }
-       set (value) {
-           builderResult.hasGroupLastName = true
-           builderResult.groupLastName = value
-       }
-  }
-  public func setGroupLastName(value:String) -> PBUserBuilder {
-    self.groupLastName = value
-    return self
-  }
-  public func clearGroupLastName() -> PBUserBuilder{
-       builderResult.hasGroupLastName = false
-       builderResult.groupLastName = ""
-       return self
-  }
-  override public var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  public override func clear() -> PBUserBuilder {
-    builderResult = PBUser()
-    return self
-  }
-  public override func clone() -> PBUserBuilder {
-    return PBUser.builderWithPrototype(builderResult)
-  }
-  public override func build() -> PBUser {
-       checkInitialized()
-       return buildPartial()
-  }
-  public func buildPartial() -> PBUser {
-    var returnMe:PBUser = builderResult
-    return returnMe
-  }
-  public func mergeFrom(other:PBUser) -> PBUserBuilder {
-    if other == PBUser() {
-     return self
+      }
+      if (other.hasGroup) {
+          mergeGroup(other.group)
+      }
+      if other.hasGroupName {
+           groupName = other.groupName
+      }
+      if other.hasGroupLastName {
+           groupLastName = other.groupLastName
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
     }
-    if (other.hasGroup) {
-        mergeGroup(other.group)
+    public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBUser.Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    if other.hasGroupName {
-         groupName = other.groupName
-    }
-    if other.hasGroupLastName {
-         groupLastName = other.groupLastName
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBUserBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBUserBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBUser.Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-      case 10 :
-        var subBuilder:PBGroupBuilder = PBGroup.builder()
-        if hasGroup {
-          subBuilder.mergeFrom(group)
-        }
-        input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-        group = subBuilder.buildPartial()
+        case 10 :
+          var subBuilder:PBGroup.Builder = PBGroup.builder()
+          if hasGroup {
+            subBuilder.mergeFrom(group)
+          }
+          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+          group = subBuilder.buildPartial()
 
-      case 18 :
-        groupName = input.readString()
+        case 18 :
+          groupName = input.readString()
 
-      case 26 :
-        groupLastName = input.readString()
+        case 26 :
+          groupLastName = input.readString()
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
+
 }
 
 final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -487,22 +487,22 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol, Hashabl
   public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBGroup {
     return PBGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  public class func builder() -> PBGroupBuilder {
-    return PBGroup.classBuilder() as! PBGroupBuilder
+  public class func builder() -> PBGroup.Builder {
+    return PBGroup.classBuilder() as! PBGroup.Builder
   }
-  public func builder() -> PBGroupBuilder {
-    return classBuilder() as! PBGroupBuilder
+  public func builder() -> PBGroup.Builder {
+    return classBuilder() as! PBGroup.Builder
   }
   public override class func classBuilder() -> MessageBuilder {
-    return PBGroupBuilder()
+    return PBGroup.Builder()
   }
   public override func classBuilder() -> MessageBuilder {
     return PBGroup.builder()
   }
-  public func toBuilder() -> PBGroupBuilder {
+  public func toBuilder() -> PBGroup.Builder {
     return PBGroup.builderWithPrototype(self)
   }
-  public class func builderWithPrototype(prototype:PBGroup) -> PBGroupBuilder {
+  public class func builderWithPrototype(prototype:PBGroup) -> PBGroup.Builder {
     return PBGroup.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
@@ -540,126 +540,126 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol, Hashabl
   }
   //Meta information declaration end
 
-}
-
-final public class PBGroupBuilder : GeneratedMessageBuilder {
-  private var builderResult:PBGroup = PBGroup()
-  public func getMessage() -> PBGroup {
-      return builderResult
-  }
-
-  required override public init () {
-     super.init()
-  }
-  public var hasOwner:Bool {
-       get {
-           return builderResult.hasOwner
-       }
-  }
-  public var owner:PBUser! {
-       get {
-           if ownerBuilder_ != nil {
-              builderResult.owner = ownerBuilder_.getMessage()
-           }
-           return builderResult.owner
-       }
-       set (value) {
-           builderResult.hasOwner = true
-           builderResult.owner = value
-       }
-  }
-  private var ownerBuilder_:PBUserBuilder! {
-       didSet {
-          builderResult.hasOwner = true
-       }
-  }
-  public func getOwnerBuilder() -> PBUserBuilder {
-    if ownerBuilder_ == nil {
-       ownerBuilder_ = PBUserBuilder()
-       builderResult.owner = ownerBuilder_.getMessage()
-       if owner != nil {
-          ownerBuilder_.mergeFrom(owner)
-       }
+  final public class Builder : GeneratedMessageBuilder {
+    private var builderResult:PBGroup = PBGroup()
+    public func getMessage() -> PBGroup {
+        return builderResult
     }
-    return ownerBuilder_
-  }
-  public func setOwner(value:PBUser!) -> PBGroupBuilder {
-    self.owner = value
-    return self
-  }
-  public func mergeOwner(value:PBUser) -> PBGroupBuilder {
-    if builderResult.hasOwner {
-      builderResult.owner = PBUser.builderWithPrototype(builderResult.owner).mergeFrom(value).buildPartial()
-    } else {
-      builderResult.owner = value
-    }
-    builderResult.hasOwner = true
-    return self
-  }
-  public func clearOwner() -> PBGroupBuilder {
-    ownerBuilder_ = nil
-    builderResult.hasOwner = false
-    builderResult.owner = nil
-    return self
-  }
-  override public var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  public override func clear() -> PBGroupBuilder {
-    builderResult = PBGroup()
-    return self
-  }
-  public override func clone() -> PBGroupBuilder {
-    return PBGroup.builderWithPrototype(builderResult)
-  }
-  public override func build() -> PBGroup {
-       checkInitialized()
-       return buildPartial()
-  }
-  public func buildPartial() -> PBGroup {
-    var returnMe:PBGroup = builderResult
-    return returnMe
-  }
-  public func mergeFrom(other:PBGroup) -> PBGroupBuilder {
-    if other == PBGroup() {
-     return self
-    }
-    if (other.hasOwner) {
-        mergeOwner(other.owner)
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBGroupBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBGroupBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
 
-      case 10 :
-        var subBuilder:PBUserBuilder = PBUser.builder()
-        if hasOwner {
-          subBuilder.mergeFrom(owner)
-        }
-        input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-        owner = subBuilder.buildPartial()
+    required override public init () {
+       super.init()
+    }
+    public var hasOwner:Bool {
+         get {
+             return builderResult.hasOwner
+         }
+    }
+    public var owner:PBUser! {
+         get {
+             if ownerBuilder_ != nil {
+                builderResult.owner = ownerBuilder_.getMessage()
+             }
+             return builderResult.owner
+         }
+         set (value) {
+             builderResult.hasOwner = true
+             builderResult.owner = value
+         }
+    }
+    private var ownerBuilder_:PBUser.Builder! {
+         didSet {
+            builderResult.hasOwner = true
+         }
+    }
+    public func getOwnerBuilder() -> PBUser.Builder {
+      if ownerBuilder_ == nil {
+         ownerBuilder_ = PBUser.Builder()
+         builderResult.owner = ownerBuilder_.getMessage()
+         if owner != nil {
+            ownerBuilder_.mergeFrom(owner)
+         }
+      }
+      return ownerBuilder_
+    }
+    public func setOwner(value:PBUser!) -> PBGroup.Builder {
+      self.owner = value
+      return self
+    }
+    public func mergeOwner(value:PBUser) -> PBGroup.Builder {
+      if builderResult.hasOwner {
+        builderResult.owner = PBUser.builderWithPrototype(builderResult.owner).mergeFrom(value).buildPartial()
+      } else {
+        builderResult.owner = value
+      }
+      builderResult.hasOwner = true
+      return self
+    }
+    public func clearOwner() -> PBGroup.Builder {
+      ownerBuilder_ = nil
+      builderResult.hasOwner = false
+      builderResult.owner = nil
+      return self
+    }
+    override public var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    public override func clear() -> PBGroup.Builder {
+      builderResult = PBGroup()
+      return self
+    }
+    public override func clone() -> PBGroup.Builder {
+      return PBGroup.builderWithPrototype(builderResult)
+    }
+    public override func build() -> PBGroup {
+         checkInitialized()
+         return buildPartial()
+    }
+    public func buildPartial() -> PBGroup {
+      var returnMe:PBGroup = builderResult
+      return returnMe
+    }
+    public func mergeFrom(other:PBGroup) -> PBGroup.Builder {
+      if other == PBGroup() {
+       return self
+      }
+      if (other.hasOwner) {
+          mergeOwner(other.owner)
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBGroup.Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBGroup.Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+        case 10 :
+          var subBuilder:PBUser.Builder = PBUser.builder()
+          if hasOwner {
+            subBuilder.mergeFrom(owner)
+          }
+          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+          owner = subBuilder.buildPartial()
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
+
 }
 
 final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -708,22 +708,22 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
   public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBPerfomanceBatch {
     return PBPerfomanceBatch.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  public class func builder() -> PBPerfomanceBatchBuilder {
-    return PBPerfomanceBatch.classBuilder() as! PBPerfomanceBatchBuilder
+  public class func builder() -> PBPerfomanceBatch.Builder {
+    return PBPerfomanceBatch.classBuilder() as! PBPerfomanceBatch.Builder
   }
-  public func builder() -> PBPerfomanceBatchBuilder {
-    return classBuilder() as! PBPerfomanceBatchBuilder
+  public func builder() -> PBPerfomanceBatch.Builder {
+    return classBuilder() as! PBPerfomanceBatch.Builder
   }
   public override class func classBuilder() -> MessageBuilder {
-    return PBPerfomanceBatchBuilder()
+    return PBPerfomanceBatch.Builder()
   }
   public override func classBuilder() -> MessageBuilder {
     return PBPerfomanceBatch.builder()
   }
-  public func toBuilder() -> PBPerfomanceBatchBuilder {
+  public func toBuilder() -> PBPerfomanceBatch.Builder {
     return PBPerfomanceBatch.builderWithPrototype(self)
   }
-  public class func builderWithPrototype(prototype:PBPerfomanceBatch) -> PBPerfomanceBatchBuilder {
+  public class func builderWithPrototype(prototype:PBPerfomanceBatch) -> PBPerfomanceBatch.Builder {
     return PBPerfomanceBatch.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
@@ -761,88 +761,88 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
   }
   //Meta information declaration end
 
-}
-
-final public class PBPerfomanceBatchBuilder : GeneratedMessageBuilder {
-  private var builderResult:PBPerfomanceBatch = PBPerfomanceBatch()
-  public func getMessage() -> PBPerfomanceBatch {
-      return builderResult
-  }
-
-  required override public init () {
-     super.init()
-  }
-  public var batch:Array<PBPerfomance> {
-       get {
-           return builderResult.batch
-       }
-       set (value) {
-           builderResult.batch = value
-       }
-  }
-  public func setBatch(value:Array<PBPerfomance>) -> PBPerfomanceBatchBuilder {
-    self.batch = value
-    return self
-  }
-  public func clearBatch() -> PBPerfomanceBatchBuilder {
-    builderResult.batch.removeAll(keepCapacity: false)
-    return self
-  }
-  override public var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  public override func clear() -> PBPerfomanceBatchBuilder {
-    builderResult = PBPerfomanceBatch()
-    return self
-  }
-  public override func clone() -> PBPerfomanceBatchBuilder {
-    return PBPerfomanceBatch.builderWithPrototype(builderResult)
-  }
-  public override func build() -> PBPerfomanceBatch {
-       checkInitialized()
-       return buildPartial()
-  }
-  public func buildPartial() -> PBPerfomanceBatch {
-    var returnMe:PBPerfomanceBatch = builderResult
-    return returnMe
-  }
-  public func mergeFrom(other:PBPerfomanceBatch) -> PBPerfomanceBatchBuilder {
-    if other == PBPerfomanceBatch() {
-     return self
+  final public class Builder : GeneratedMessageBuilder {
+    private var builderResult:PBPerfomanceBatch = PBPerfomanceBatch()
+    public func getMessage() -> PBPerfomanceBatch {
+        return builderResult
     }
-    if !other.batch.isEmpty  {
-       builderResult.batch += other.batch
+
+    required override public init () {
+       super.init()
     }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBPerfomanceBatchBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBPerfomanceBatchBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    public var batch:Array<PBPerfomance> {
+         get {
+             return builderResult.batch
+         }
+         set (value) {
+             builderResult.batch = value
+         }
+    }
+    public func setBatch(value:Array<PBPerfomance>) -> PBPerfomanceBatch.Builder {
+      self.batch = value
+      return self
+    }
+    public func clearBatch() -> PBPerfomanceBatch.Builder {
+      builderResult.batch.removeAll(keepCapacity: false)
+      return self
+    }
+    override public var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    public override func clear() -> PBPerfomanceBatch.Builder {
+      builderResult = PBPerfomanceBatch()
+      return self
+    }
+    public override func clone() -> PBPerfomanceBatch.Builder {
+      return PBPerfomanceBatch.builderWithPrototype(builderResult)
+    }
+    public override func build() -> PBPerfomanceBatch {
+         checkInitialized()
+         return buildPartial()
+    }
+    public func buildPartial() -> PBPerfomanceBatch {
+      var returnMe:PBPerfomanceBatch = builderResult
+      return returnMe
+    }
+    public func mergeFrom(other:PBPerfomanceBatch) -> PBPerfomanceBatch.Builder {
+      if other == PBPerfomanceBatch() {
+       return self
+      }
+      if !other.batch.isEmpty  {
+         builderResult.batch += other.batch
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBPerfomanceBatch.Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBPerfomanceBatch.Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-      case 10 :
-        var subBuilder = PBPerfomance.builder()
-        input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-        batch += [subBuilder.buildPartial()]
+        case 10 :
+          var subBuilder = PBPerfomance.builder()
+          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+          batch += [subBuilder.buildPartial()]
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
+
 }
 
 final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -947,22 +947,22 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol, Ha
   public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBPerfomance {
     return PBPerfomance.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  public class func builder() -> PBPerfomanceBuilder {
-    return PBPerfomance.classBuilder() as! PBPerfomanceBuilder
+  public class func builder() -> PBPerfomance.Builder {
+    return PBPerfomance.classBuilder() as! PBPerfomance.Builder
   }
-  public func builder() -> PBPerfomanceBuilder {
-    return classBuilder() as! PBPerfomanceBuilder
+  public func builder() -> PBPerfomance.Builder {
+    return classBuilder() as! PBPerfomance.Builder
   }
   public override class func classBuilder() -> MessageBuilder {
-    return PBPerfomanceBuilder()
+    return PBPerfomance.Builder()
   }
   public override func classBuilder() -> MessageBuilder {
     return PBPerfomance.builder()
   }
-  public func toBuilder() -> PBPerfomanceBuilder {
+  public func toBuilder() -> PBPerfomance.Builder {
     return PBPerfomance.builderWithPrototype(self)
   }
-  public class func builderWithPrototype(prototype:PBPerfomance) -> PBPerfomanceBuilder {
+  public class func builderWithPrototype(prototype:PBPerfomance) -> PBPerfomance.Builder {
     return PBPerfomance.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
@@ -1032,267 +1032,267 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol, Ha
   }
   //Meta information declaration end
 
-}
+  final public class Builder : GeneratedMessageBuilder {
+    private var builderResult:PBPerfomance = PBPerfomance()
+    public func getMessage() -> PBPerfomance {
+        return builderResult
+    }
 
-final public class PBPerfomanceBuilder : GeneratedMessageBuilder {
-  private var builderResult:PBPerfomance = PBPerfomance()
-  public func getMessage() -> PBPerfomance {
-      return builderResult
-  }
-
-  required override public init () {
-     super.init()
-  }
-  public var hasInts:Bool {
-       get {
-            return builderResult.hasInts
-       }
-  }
-  public var ints:Int32 {
-       get {
-            return builderResult.ints
-       }
-       set (value) {
-           builderResult.hasInts = true
-           builderResult.ints = value
-       }
-  }
-  public func setInts(value:Int32) -> PBPerfomanceBuilder {
-    self.ints = value
-    return self
-  }
-  public func clearInts() -> PBPerfomanceBuilder{
-       builderResult.hasInts = false
-       builderResult.ints = Int32(0)
+    required override public init () {
+       super.init()
+    }
+    public var hasInts:Bool {
+         get {
+              return builderResult.hasInts
+         }
+    }
+    public var ints:Int32 {
+         get {
+              return builderResult.ints
+         }
+         set (value) {
+             builderResult.hasInts = true
+             builderResult.ints = value
+         }
+    }
+    public func setInts(value:Int32) -> PBPerfomance.Builder {
+      self.ints = value
+      return self
+    }
+    public func clearInts() -> PBPerfomance.Builder{
+         builderResult.hasInts = false
+         builderResult.ints = Int32(0)
+         return self
+    }
+    public var hasInts64:Bool {
+         get {
+              return builderResult.hasInts64
+         }
+    }
+    public var ints64:Int64 {
+         get {
+              return builderResult.ints64
+         }
+         set (value) {
+             builderResult.hasInts64 = true
+             builderResult.ints64 = value
+         }
+    }
+    public func setInts64(value:Int64) -> PBPerfomance.Builder {
+      self.ints64 = value
+      return self
+    }
+    public func clearInts64() -> PBPerfomance.Builder{
+         builderResult.hasInts64 = false
+         builderResult.ints64 = Int64(0)
+         return self
+    }
+    public var hasDoubles:Bool {
+         get {
+              return builderResult.hasDoubles
+         }
+    }
+    public var doubles:Double {
+         get {
+              return builderResult.doubles
+         }
+         set (value) {
+             builderResult.hasDoubles = true
+             builderResult.doubles = value
+         }
+    }
+    public func setDoubles(value:Double) -> PBPerfomance.Builder {
+      self.doubles = value
+      return self
+    }
+    public func clearDoubles() -> PBPerfomance.Builder{
+         builderResult.hasDoubles = false
+         builderResult.doubles = Double(0)
+         return self
+    }
+    public var hasFloats:Bool {
+         get {
+              return builderResult.hasFloats
+         }
+    }
+    public var floats:Float {
+         get {
+              return builderResult.floats
+         }
+         set (value) {
+             builderResult.hasFloats = true
+             builderResult.floats = value
+         }
+    }
+    public func setFloats(value:Float) -> PBPerfomance.Builder {
+      self.floats = value
+      return self
+    }
+    public func clearFloats() -> PBPerfomance.Builder{
+         builderResult.hasFloats = false
+         builderResult.floats = Float(0)
+         return self
+    }
+    public var hasStr:Bool {
+         get {
+              return builderResult.hasStr
+         }
+    }
+    public var str:String {
+         get {
+              return builderResult.str
+         }
+         set (value) {
+             builderResult.hasStr = true
+             builderResult.str = value
+         }
+    }
+    public func setStr(value:String) -> PBPerfomance.Builder {
+      self.str = value
+      return self
+    }
+    public func clearStr() -> PBPerfomance.Builder{
+         builderResult.hasStr = false
+         builderResult.str = ""
+         return self
+    }
+    public var hasBytes:Bool {
+         get {
+              return builderResult.hasBytes
+         }
+    }
+    public var bytes:NSData {
+         get {
+              return builderResult.bytes
+         }
+         set (value) {
+             builderResult.hasBytes = true
+             builderResult.bytes = value
+         }
+    }
+    public func setBytes(value:NSData) -> PBPerfomance.Builder {
+      self.bytes = value
+      return self
+    }
+    public func clearBytes() -> PBPerfomance.Builder{
+         builderResult.hasBytes = false
+         builderResult.bytes = NSData()
+         return self
+    }
+    public var hasDescription:Bool {
+         get {
+              return builderResult.hasDescription
+         }
+    }
+    public var description_:String {
+         get {
+              return builderResult.description_
+         }
+         set (value) {
+             builderResult.hasDescription = true
+             builderResult.description_ = value
+         }
+    }
+    public func setDescription(value:String) -> PBPerfomance.Builder {
+      self.description_ = value
+      return self
+    }
+    public func clearDescription() -> PBPerfomance.Builder{
+         builderResult.hasDescription = false
+         builderResult.description_ = ""
+         return self
+    }
+    override public var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    public override func clear() -> PBPerfomance.Builder {
+      builderResult = PBPerfomance()
+      return self
+    }
+    public override func clone() -> PBPerfomance.Builder {
+      return PBPerfomance.builderWithPrototype(builderResult)
+    }
+    public override func build() -> PBPerfomance {
+         checkInitialized()
+         return buildPartial()
+    }
+    public func buildPartial() -> PBPerfomance {
+      var returnMe:PBPerfomance = builderResult
+      return returnMe
+    }
+    public func mergeFrom(other:PBPerfomance) -> PBPerfomance.Builder {
+      if other == PBPerfomance() {
        return self
-  }
-  public var hasInts64:Bool {
-       get {
-            return builderResult.hasInts64
-       }
-  }
-  public var ints64:Int64 {
-       get {
-            return builderResult.ints64
-       }
-       set (value) {
-           builderResult.hasInts64 = true
-           builderResult.ints64 = value
-       }
-  }
-  public func setInts64(value:Int64) -> PBPerfomanceBuilder {
-    self.ints64 = value
-    return self
-  }
-  public func clearInts64() -> PBPerfomanceBuilder{
-       builderResult.hasInts64 = false
-       builderResult.ints64 = Int64(0)
-       return self
-  }
-  public var hasDoubles:Bool {
-       get {
-            return builderResult.hasDoubles
-       }
-  }
-  public var doubles:Double {
-       get {
-            return builderResult.doubles
-       }
-       set (value) {
-           builderResult.hasDoubles = true
-           builderResult.doubles = value
-       }
-  }
-  public func setDoubles(value:Double) -> PBPerfomanceBuilder {
-    self.doubles = value
-    return self
-  }
-  public func clearDoubles() -> PBPerfomanceBuilder{
-       builderResult.hasDoubles = false
-       builderResult.doubles = Double(0)
-       return self
-  }
-  public var hasFloats:Bool {
-       get {
-            return builderResult.hasFloats
-       }
-  }
-  public var floats:Float {
-       get {
-            return builderResult.floats
-       }
-       set (value) {
-           builderResult.hasFloats = true
-           builderResult.floats = value
-       }
-  }
-  public func setFloats(value:Float) -> PBPerfomanceBuilder {
-    self.floats = value
-    return self
-  }
-  public func clearFloats() -> PBPerfomanceBuilder{
-       builderResult.hasFloats = false
-       builderResult.floats = Float(0)
-       return self
-  }
-  public var hasStr:Bool {
-       get {
-            return builderResult.hasStr
-       }
-  }
-  public var str:String {
-       get {
-            return builderResult.str
-       }
-       set (value) {
-           builderResult.hasStr = true
-           builderResult.str = value
-       }
-  }
-  public func setStr(value:String) -> PBPerfomanceBuilder {
-    self.str = value
-    return self
-  }
-  public func clearStr() -> PBPerfomanceBuilder{
-       builderResult.hasStr = false
-       builderResult.str = ""
-       return self
-  }
-  public var hasBytes:Bool {
-       get {
-            return builderResult.hasBytes
-       }
-  }
-  public var bytes:NSData {
-       get {
-            return builderResult.bytes
-       }
-       set (value) {
-           builderResult.hasBytes = true
-           builderResult.bytes = value
-       }
-  }
-  public func setBytes(value:NSData) -> PBPerfomanceBuilder {
-    self.bytes = value
-    return self
-  }
-  public func clearBytes() -> PBPerfomanceBuilder{
-       builderResult.hasBytes = false
-       builderResult.bytes = NSData()
-       return self
-  }
-  public var hasDescription:Bool {
-       get {
-            return builderResult.hasDescription
-       }
-  }
-  public var description_:String {
-       get {
-            return builderResult.description_
-       }
-       set (value) {
-           builderResult.hasDescription = true
-           builderResult.description_ = value
-       }
-  }
-  public func setDescription(value:String) -> PBPerfomanceBuilder {
-    self.description_ = value
-    return self
-  }
-  public func clearDescription() -> PBPerfomanceBuilder{
-       builderResult.hasDescription = false
-       builderResult.description_ = ""
-       return self
-  }
-  override public var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  public override func clear() -> PBPerfomanceBuilder {
-    builderResult = PBPerfomance()
-    return self
-  }
-  public override func clone() -> PBPerfomanceBuilder {
-    return PBPerfomance.builderWithPrototype(builderResult)
-  }
-  public override func build() -> PBPerfomance {
-       checkInitialized()
-       return buildPartial()
-  }
-  public func buildPartial() -> PBPerfomance {
-    var returnMe:PBPerfomance = builderResult
-    return returnMe
-  }
-  public func mergeFrom(other:PBPerfomance) -> PBPerfomanceBuilder {
-    if other == PBPerfomance() {
-     return self
+      }
+      if other.hasInts {
+           ints = other.ints
+      }
+      if other.hasInts64 {
+           ints64 = other.ints64
+      }
+      if other.hasDoubles {
+           doubles = other.doubles
+      }
+      if other.hasFloats {
+           floats = other.floats
+      }
+      if other.hasStr {
+           str = other.str
+      }
+      if other.hasBytes {
+           bytes = other.bytes
+      }
+      if other.hasDescription {
+           description_ = other.description_
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
     }
-    if other.hasInts {
-         ints = other.ints
+    public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBPerfomance.Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    if other.hasInts64 {
-         ints64 = other.ints64
-    }
-    if other.hasDoubles {
-         doubles = other.doubles
-    }
-    if other.hasFloats {
-         floats = other.floats
-    }
-    if other.hasStr {
-         str = other.str
-    }
-    if other.hasBytes {
-         bytes = other.bytes
-    }
-    if other.hasDescription {
-         description_ = other.description_
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBPerfomanceBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBPerfomanceBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBPerfomance.Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-      case 8 :
-        ints = input.readInt32()
+        case 8 :
+          ints = input.readInt32()
 
-      case 16 :
-        ints64 = input.readInt64()
+        case 16 :
+          ints64 = input.readInt64()
 
-      case 25 :
-        doubles = input.readDouble()
+        case 25 :
+          doubles = input.readDouble()
 
-      case 37 :
-        floats = input.readFloat()
+        case 37 :
+          floats = input.readFloat()
 
-      case 42 :
-        str = input.readString()
+        case 42 :
+          str = input.readString()
 
-      case 50 :
-        bytes = input.readData()
+        case 50 :
+          bytes = input.readData()
 
-      case 58 :
-        description_ = input.readString()
+        case 58 :
+          description_ = input.readString()
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
+
 }
 
 final public class PBFoo : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -1343,22 +1343,22 @@ final public class PBFoo : GeneratedMessage, GeneratedMessageProtocol, Hashable 
   public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFoo {
     return PBFoo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  public class func builder() -> PBFooBuilder {
-    return PBFoo.classBuilder() as! PBFooBuilder
+  public class func builder() -> PBFoo.Builder {
+    return PBFoo.classBuilder() as! PBFoo.Builder
   }
-  public func builder() -> PBFooBuilder {
-    return classBuilder() as! PBFooBuilder
+  public func builder() -> PBFoo.Builder {
+    return classBuilder() as! PBFoo.Builder
   }
   public override class func classBuilder() -> MessageBuilder {
-    return PBFooBuilder()
+    return PBFoo.Builder()
   }
   public override func classBuilder() -> MessageBuilder {
     return PBFoo.builder()
   }
-  public func toBuilder() -> PBFooBuilder {
+  public func toBuilder() -> PBFoo.Builder {
     return PBFoo.builderWithPrototype(self)
   }
-  public class func builderWithPrototype(prototype:PBFoo) -> PBFooBuilder {
+  public class func builderWithPrototype(prototype:PBFoo) -> PBFoo.Builder {
     return PBFoo.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
@@ -1392,93 +1392,93 @@ final public class PBFoo : GeneratedMessage, GeneratedMessageProtocol, Hashable 
   }
   //Meta information declaration end
 
-}
+  final public class Builder : GeneratedMessageBuilder {
+    private var builderResult:PBFoo = PBFoo()
+    public func getMessage() -> PBFoo {
+        return builderResult
+    }
 
-final public class PBFooBuilder : GeneratedMessageBuilder {
-  private var builderResult:PBFoo = PBFoo()
-  public func getMessage() -> PBFoo {
-      return builderResult
-  }
-
-  required override public init () {
-     super.init()
-  }
-  public var hasVal:Bool {
-       get {
-            return builderResult.hasVal
-       }
-  }
-  public var val:Int32 {
-       get {
-            return builderResult.val
-       }
-       set (value) {
-           builderResult.hasVal = true
-           builderResult.val = value
-       }
-  }
-  public func setVal(value:Int32) -> PBFooBuilder {
-    self.val = value
-    return self
-  }
-  public func clearVal() -> PBFooBuilder{
-       builderResult.hasVal = false
-       builderResult.val = Int32(0)
+    required override public init () {
+       super.init()
+    }
+    public var hasVal:Bool {
+         get {
+              return builderResult.hasVal
+         }
+    }
+    public var val:Int32 {
+         get {
+              return builderResult.val
+         }
+         set (value) {
+             builderResult.hasVal = true
+             builderResult.val = value
+         }
+    }
+    public func setVal(value:Int32) -> PBFoo.Builder {
+      self.val = value
+      return self
+    }
+    public func clearVal() -> PBFoo.Builder{
+         builderResult.hasVal = false
+         builderResult.val = Int32(0)
+         return self
+    }
+    override public var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    public override func clear() -> PBFoo.Builder {
+      builderResult = PBFoo()
+      return self
+    }
+    public override func clone() -> PBFoo.Builder {
+      return PBFoo.builderWithPrototype(builderResult)
+    }
+    public override func build() -> PBFoo {
+         checkInitialized()
+         return buildPartial()
+    }
+    public func buildPartial() -> PBFoo {
+      var returnMe:PBFoo = builderResult
+      return returnMe
+    }
+    public func mergeFrom(other:PBFoo) -> PBFoo.Builder {
+      if other == PBFoo() {
        return self
-  }
-  override public var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  public override func clear() -> PBFooBuilder {
-    builderResult = PBFoo()
-    return self
-  }
-  public override func clone() -> PBFooBuilder {
-    return PBFoo.builderWithPrototype(builderResult)
-  }
-  public override func build() -> PBFoo {
-       checkInitialized()
-       return buildPartial()
-  }
-  public func buildPartial() -> PBFoo {
-    var returnMe:PBFoo = builderResult
-    return returnMe
-  }
-  public func mergeFrom(other:PBFoo) -> PBFooBuilder {
-    if other == PBFoo() {
-     return self
+      }
+      if other.hasVal {
+           val = other.val
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
     }
-    if other.hasVal {
-         val = other.val
+    public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBFoo.Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBFooBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFooBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBFoo.Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-      case 8 :
-        val = input.readInt32()
+        case 8 :
+          val = input.readInt32()
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
+
 }
 
 final public class PBBar : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -1530,22 +1530,22 @@ final public class PBBar : GeneratedMessage, GeneratedMessageProtocol, Hashable 
   public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBBar {
     return PBBar.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  public class func builder() -> PBBarBuilder {
-    return PBBar.classBuilder() as! PBBarBuilder
+  public class func builder() -> PBBar.Builder {
+    return PBBar.classBuilder() as! PBBar.Builder
   }
-  public func builder() -> PBBarBuilder {
-    return classBuilder() as! PBBarBuilder
+  public func builder() -> PBBar.Builder {
+    return classBuilder() as! PBBar.Builder
   }
   public override class func classBuilder() -> MessageBuilder {
-    return PBBarBuilder()
+    return PBBar.Builder()
   }
   public override func classBuilder() -> MessageBuilder {
     return PBBar.builder()
   }
-  public func toBuilder() -> PBBarBuilder {
+  public func toBuilder() -> PBBar.Builder {
     return PBBar.builderWithPrototype(self)
   }
-  public class func builderWithPrototype(prototype:PBBar) -> PBBarBuilder {
+  public class func builderWithPrototype(prototype:PBBar) -> PBBar.Builder {
     return PBBar.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
@@ -1583,126 +1583,126 @@ final public class PBBar : GeneratedMessage, GeneratedMessageProtocol, Hashable 
   }
   //Meta information declaration end
 
-}
-
-final public class PBBarBuilder : GeneratedMessageBuilder {
-  private var builderResult:PBBar = PBBar()
-  public func getMessage() -> PBBar {
-      return builderResult
-  }
-
-  required override public init () {
-     super.init()
-  }
-  public var hasFoo:Bool {
-       get {
-           return builderResult.hasFoo
-       }
-  }
-  public var foo:PBFoo! {
-       get {
-           if fooBuilder_ != nil {
-              builderResult.foo = fooBuilder_.getMessage()
-           }
-           return builderResult.foo
-       }
-       set (value) {
-           builderResult.hasFoo = true
-           builderResult.foo = value
-       }
-  }
-  private var fooBuilder_:PBFooBuilder! {
-       didSet {
-          builderResult.hasFoo = true
-       }
-  }
-  public func getFooBuilder() -> PBFooBuilder {
-    if fooBuilder_ == nil {
-       fooBuilder_ = PBFooBuilder()
-       builderResult.foo = fooBuilder_.getMessage()
-       if foo != nil {
-          fooBuilder_.mergeFrom(foo)
-       }
+  final public class Builder : GeneratedMessageBuilder {
+    private var builderResult:PBBar = PBBar()
+    public func getMessage() -> PBBar {
+        return builderResult
     }
-    return fooBuilder_
-  }
-  public func setFoo(value:PBFoo!) -> PBBarBuilder {
-    self.foo = value
-    return self
-  }
-  public func mergeFoo(value:PBFoo) -> PBBarBuilder {
-    if builderResult.hasFoo {
-      builderResult.foo = PBFoo.builderWithPrototype(builderResult.foo).mergeFrom(value).buildPartial()
-    } else {
-      builderResult.foo = value
-    }
-    builderResult.hasFoo = true
-    return self
-  }
-  public func clearFoo() -> PBBarBuilder {
-    fooBuilder_ = nil
-    builderResult.hasFoo = false
-    builderResult.foo = nil
-    return self
-  }
-  override public var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  public override func clear() -> PBBarBuilder {
-    builderResult = PBBar()
-    return self
-  }
-  public override func clone() -> PBBarBuilder {
-    return PBBar.builderWithPrototype(builderResult)
-  }
-  public override func build() -> PBBar {
-       checkInitialized()
-       return buildPartial()
-  }
-  public func buildPartial() -> PBBar {
-    var returnMe:PBBar = builderResult
-    return returnMe
-  }
-  public func mergeFrom(other:PBBar) -> PBBarBuilder {
-    if other == PBBar() {
-     return self
-    }
-    if (other.hasFoo) {
-        mergeFoo(other.foo)
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBBarBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBBarBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
 
-      case 10 :
-        var subBuilder:PBFooBuilder = PBFoo.builder()
-        if hasFoo {
-          subBuilder.mergeFrom(foo)
-        }
-        input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-        foo = subBuilder.buildPartial()
+    required override public init () {
+       super.init()
+    }
+    public var hasFoo:Bool {
+         get {
+             return builderResult.hasFoo
+         }
+    }
+    public var foo:PBFoo! {
+         get {
+             if fooBuilder_ != nil {
+                builderResult.foo = fooBuilder_.getMessage()
+             }
+             return builderResult.foo
+         }
+         set (value) {
+             builderResult.hasFoo = true
+             builderResult.foo = value
+         }
+    }
+    private var fooBuilder_:PBFoo.Builder! {
+         didSet {
+            builderResult.hasFoo = true
+         }
+    }
+    public func getFooBuilder() -> PBFoo.Builder {
+      if fooBuilder_ == nil {
+         fooBuilder_ = PBFoo.Builder()
+         builderResult.foo = fooBuilder_.getMessage()
+         if foo != nil {
+            fooBuilder_.mergeFrom(foo)
+         }
+      }
+      return fooBuilder_
+    }
+    public func setFoo(value:PBFoo!) -> PBBar.Builder {
+      self.foo = value
+      return self
+    }
+    public func mergeFoo(value:PBFoo) -> PBBar.Builder {
+      if builderResult.hasFoo {
+        builderResult.foo = PBFoo.builderWithPrototype(builderResult.foo).mergeFrom(value).buildPartial()
+      } else {
+        builderResult.foo = value
+      }
+      builderResult.hasFoo = true
+      return self
+    }
+    public func clearFoo() -> PBBar.Builder {
+      fooBuilder_ = nil
+      builderResult.hasFoo = false
+      builderResult.foo = nil
+      return self
+    }
+    override public var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    public override func clear() -> PBBar.Builder {
+      builderResult = PBBar()
+      return self
+    }
+    public override func clone() -> PBBar.Builder {
+      return PBBar.builderWithPrototype(builderResult)
+    }
+    public override func build() -> PBBar {
+         checkInitialized()
+         return buildPartial()
+    }
+    public func buildPartial() -> PBBar {
+      var returnMe:PBBar = builderResult
+      return returnMe
+    }
+    public func mergeFrom(other:PBBar) -> PBBar.Builder {
+      if other == PBBar() {
+       return self
+      }
+      if (other.hasFoo) {
+          mergeFoo(other.foo)
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBBar.Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBBar.Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+        case 10 :
+          var subBuilder:PBFoo.Builder = PBFoo.builder()
+          if hasFoo {
+            subBuilder.mergeFrom(foo)
+          }
+          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+          foo = subBuilder.buildPartial()
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
+
 }
 
 final public class PBBaz : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -1754,22 +1754,22 @@ final public class PBBaz : GeneratedMessage, GeneratedMessageProtocol, Hashable 
   public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBBaz {
     return PBBaz.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  public class func builder() -> PBBazBuilder {
-    return PBBaz.classBuilder() as! PBBazBuilder
+  public class func builder() -> PBBaz.Builder {
+    return PBBaz.classBuilder() as! PBBaz.Builder
   }
-  public func builder() -> PBBazBuilder {
-    return classBuilder() as! PBBazBuilder
+  public func builder() -> PBBaz.Builder {
+    return classBuilder() as! PBBaz.Builder
   }
   public override class func classBuilder() -> MessageBuilder {
-    return PBBazBuilder()
+    return PBBaz.Builder()
   }
   public override func classBuilder() -> MessageBuilder {
     return PBBaz.builder()
   }
-  public func toBuilder() -> PBBazBuilder {
+  public func toBuilder() -> PBBaz.Builder {
     return PBBaz.builderWithPrototype(self)
   }
-  public class func builderWithPrototype(prototype:PBBaz) -> PBBazBuilder {
+  public class func builderWithPrototype(prototype:PBBaz) -> PBBaz.Builder {
     return PBBaz.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
@@ -1807,126 +1807,126 @@ final public class PBBaz : GeneratedMessage, GeneratedMessageProtocol, Hashable 
   }
   //Meta information declaration end
 
-}
-
-final public class PBBazBuilder : GeneratedMessageBuilder {
-  private var builderResult:PBBaz = PBBaz()
-  public func getMessage() -> PBBaz {
-      return builderResult
-  }
-
-  required override public init () {
-     super.init()
-  }
-  public var hasBar:Bool {
-       get {
-           return builderResult.hasBar
-       }
-  }
-  public var bar:PBBar! {
-       get {
-           if barBuilder_ != nil {
-              builderResult.bar = barBuilder_.getMessage()
-           }
-           return builderResult.bar
-       }
-       set (value) {
-           builderResult.hasBar = true
-           builderResult.bar = value
-       }
-  }
-  private var barBuilder_:PBBarBuilder! {
-       didSet {
-          builderResult.hasBar = true
-       }
-  }
-  public func getBarBuilder() -> PBBarBuilder {
-    if barBuilder_ == nil {
-       barBuilder_ = PBBarBuilder()
-       builderResult.bar = barBuilder_.getMessage()
-       if bar != nil {
-          barBuilder_.mergeFrom(bar)
-       }
+  final public class Builder : GeneratedMessageBuilder {
+    private var builderResult:PBBaz = PBBaz()
+    public func getMessage() -> PBBaz {
+        return builderResult
     }
-    return barBuilder_
-  }
-  public func setBar(value:PBBar!) -> PBBazBuilder {
-    self.bar = value
-    return self
-  }
-  public func mergeBar(value:PBBar) -> PBBazBuilder {
-    if builderResult.hasBar {
-      builderResult.bar = PBBar.builderWithPrototype(builderResult.bar).mergeFrom(value).buildPartial()
-    } else {
-      builderResult.bar = value
-    }
-    builderResult.hasBar = true
-    return self
-  }
-  public func clearBar() -> PBBazBuilder {
-    barBuilder_ = nil
-    builderResult.hasBar = false
-    builderResult.bar = nil
-    return self
-  }
-  override public var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  public override func clear() -> PBBazBuilder {
-    builderResult = PBBaz()
-    return self
-  }
-  public override func clone() -> PBBazBuilder {
-    return PBBaz.builderWithPrototype(builderResult)
-  }
-  public override func build() -> PBBaz {
-       checkInitialized()
-       return buildPartial()
-  }
-  public func buildPartial() -> PBBaz {
-    var returnMe:PBBaz = builderResult
-    return returnMe
-  }
-  public func mergeFrom(other:PBBaz) -> PBBazBuilder {
-    if other == PBBaz() {
-     return self
-    }
-    if (other.hasBar) {
-        mergeBar(other.bar)
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBBazBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBBazBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
 
-      case 10 :
-        var subBuilder:PBBarBuilder = PBBar.builder()
-        if hasBar {
-          subBuilder.mergeFrom(bar)
-        }
-        input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-        bar = subBuilder.buildPartial()
+    required override public init () {
+       super.init()
+    }
+    public var hasBar:Bool {
+         get {
+             return builderResult.hasBar
+         }
+    }
+    public var bar:PBBar! {
+         get {
+             if barBuilder_ != nil {
+                builderResult.bar = barBuilder_.getMessage()
+             }
+             return builderResult.bar
+         }
+         set (value) {
+             builderResult.hasBar = true
+             builderResult.bar = value
+         }
+    }
+    private var barBuilder_:PBBar.Builder! {
+         didSet {
+            builderResult.hasBar = true
+         }
+    }
+    public func getBarBuilder() -> PBBar.Builder {
+      if barBuilder_ == nil {
+         barBuilder_ = PBBar.Builder()
+         builderResult.bar = barBuilder_.getMessage()
+         if bar != nil {
+            barBuilder_.mergeFrom(bar)
+         }
+      }
+      return barBuilder_
+    }
+    public func setBar(value:PBBar!) -> PBBaz.Builder {
+      self.bar = value
+      return self
+    }
+    public func mergeBar(value:PBBar) -> PBBaz.Builder {
+      if builderResult.hasBar {
+        builderResult.bar = PBBar.builderWithPrototype(builderResult.bar).mergeFrom(value).buildPartial()
+      } else {
+        builderResult.bar = value
+      }
+      builderResult.hasBar = true
+      return self
+    }
+    public func clearBar() -> PBBaz.Builder {
+      barBuilder_ = nil
+      builderResult.hasBar = false
+      builderResult.bar = nil
+      return self
+    }
+    override public var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    public override func clear() -> PBBaz.Builder {
+      builderResult = PBBaz()
+      return self
+    }
+    public override func clone() -> PBBaz.Builder {
+      return PBBaz.builderWithPrototype(builderResult)
+    }
+    public override func build() -> PBBaz {
+         checkInitialized()
+         return buildPartial()
+    }
+    public func buildPartial() -> PBBaz {
+      var returnMe:PBBaz = builderResult
+      return returnMe
+    }
+    public func mergeFrom(other:PBBaz) -> PBBaz.Builder {
+      if other == PBBaz() {
+       return self
+      }
+      if (other.hasBar) {
+          mergeBar(other.bar)
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBBaz.Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBBaz.Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+        case 10 :
+          var subBuilder:PBBar.Builder = PBBar.builder()
+          if hasBar {
+            subBuilder.mergeFrom(bar)
+          }
+          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+          bar = subBuilder.buildPartial()
+
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
+
 }
 
 final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -1992,22 +1992,22 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, 
       public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBIceCreamCone.PBMapperEntry {
         return PBIceCreamCone.PBMapperEntry.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      public class func builder() -> PBIceCreamCone.PBMapperEntryBuilder {
-        return PBIceCreamCone.PBMapperEntry.classBuilder() as! PBIceCreamCone.PBMapperEntryBuilder
+      public class func builder() -> PBIceCreamCone.PBMapperEntry.Builder {
+        return PBIceCreamCone.PBMapperEntry.classBuilder() as! PBIceCreamCone.PBMapperEntry.Builder
       }
-      public func builder() -> PBIceCreamCone.PBMapperEntryBuilder {
-        return classBuilder() as! PBIceCreamCone.PBMapperEntryBuilder
+      public func builder() -> PBIceCreamCone.PBMapperEntry.Builder {
+        return classBuilder() as! PBIceCreamCone.PBMapperEntry.Builder
       }
       public override class func classBuilder() -> MessageBuilder {
-        return PBIceCreamCone.PBMapperEntryBuilder()
+        return PBIceCreamCone.PBMapperEntry.Builder()
       }
       public override func classBuilder() -> MessageBuilder {
         return PBIceCreamCone.PBMapperEntry.builder()
       }
-      public func toBuilder() -> PBIceCreamCone.PBMapperEntryBuilder {
+      public func toBuilder() -> PBIceCreamCone.PBMapperEntry.Builder {
         return PBIceCreamCone.PBMapperEntry.builderWithPrototype(self)
       }
-      public class func builderWithPrototype(prototype:PBIceCreamCone.PBMapperEntry) -> PBIceCreamCone.PBMapperEntryBuilder {
+      public class func builderWithPrototype(prototype:PBIceCreamCone.PBMapperEntry) -> PBIceCreamCone.PBMapperEntry.Builder {
         return PBIceCreamCone.PBMapperEntry.builder().mergeFrom(prototype)
       }
       override public func writeDescriptionTo(inout output:String, indent:String) {
@@ -2051,155 +2051,155 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, 
       }
       //Meta information declaration end
 
-    }
+      final public class Builder : GeneratedMessageBuilder {
+        private var builderResult:PBIceCreamCone.PBMapperEntry = PBIceCreamCone.PBMapperEntry()
+        public func getMessage() -> PBIceCreamCone.PBMapperEntry {
+            return builderResult
+        }
 
-    final public class PBMapperEntryBuilder : GeneratedMessageBuilder {
-      private var builderResult:PBIceCreamCone.PBMapperEntry = PBIceCreamCone.PBMapperEntry()
-      public func getMessage() -> PBIceCreamCone.PBMapperEntry {
-          return builderResult
-      }
-
-      required override public init () {
-         super.init()
-      }
-      public var hasKey:Bool {
-           get {
-                return builderResult.hasKey
-           }
-      }
-      public var key:Int32 {
-           get {
-                return builderResult.key
-           }
-           set (value) {
-               builderResult.hasKey = true
-               builderResult.key = value
-           }
-      }
-      public func setKey(value:Int32) -> PBIceCreamCone.PBMapperEntryBuilder {
-        self.key = value
-        return self
-      }
-      public func clearKey() -> PBIceCreamCone.PBMapperEntryBuilder{
-           builderResult.hasKey = false
-           builderResult.key = Int32(0)
+        required override public init () {
+           super.init()
+        }
+        public var hasKey:Bool {
+             get {
+                  return builderResult.hasKey
+             }
+        }
+        public var key:Int32 {
+             get {
+                  return builderResult.key
+             }
+             set (value) {
+                 builderResult.hasKey = true
+                 builderResult.key = value
+             }
+        }
+        public func setKey(value:Int32) -> PBIceCreamCone.PBMapperEntry.Builder {
+          self.key = value
+          return self
+        }
+        public func clearKey() -> PBIceCreamCone.PBMapperEntry.Builder{
+             builderResult.hasKey = false
+             builderResult.key = Int32(0)
+             return self
+        }
+        public var hasValue:Bool {
+             get {
+                 return builderResult.hasValue
+             }
+        }
+        public var value:PBProtoPoint! {
+             get {
+                 if valueBuilder_ != nil {
+                    builderResult.value = valueBuilder_.getMessage()
+                 }
+                 return builderResult.value
+             }
+             set (value) {
+                 builderResult.hasValue = true
+                 builderResult.value = value
+             }
+        }
+        private var valueBuilder_:PBProtoPoint.Builder! {
+             didSet {
+                builderResult.hasValue = true
+             }
+        }
+        public func getValueBuilder() -> PBProtoPoint.Builder {
+          if valueBuilder_ == nil {
+             valueBuilder_ = PBProtoPoint.Builder()
+             builderResult.value = valueBuilder_.getMessage()
+             if value != nil {
+                valueBuilder_.mergeFrom(value)
+             }
+          }
+          return valueBuilder_
+        }
+        public func setValue(value:PBProtoPoint!) -> PBIceCreamCone.PBMapperEntry.Builder {
+          self.value = value
+          return self
+        }
+        public func mergeValue(value:PBProtoPoint) -> PBIceCreamCone.PBMapperEntry.Builder {
+          if builderResult.hasValue {
+            builderResult.value = PBProtoPoint.builderWithPrototype(builderResult.value).mergeFrom(value).buildPartial()
+          } else {
+            builderResult.value = value
+          }
+          builderResult.hasValue = true
+          return self
+        }
+        public func clearValue() -> PBIceCreamCone.PBMapperEntry.Builder {
+          valueBuilder_ = nil
+          builderResult.hasValue = false
+          builderResult.value = nil
+          return self
+        }
+        override public var internalGetResult:GeneratedMessage {
+             get {
+                return builderResult
+             }
+        }
+        public override func clear() -> PBIceCreamCone.PBMapperEntry.Builder {
+          builderResult = PBIceCreamCone.PBMapperEntry()
+          return self
+        }
+        public override func clone() -> PBIceCreamCone.PBMapperEntry.Builder {
+          return PBIceCreamCone.PBMapperEntry.builderWithPrototype(builderResult)
+        }
+        public override func build() -> PBIceCreamCone.PBMapperEntry {
+             checkInitialized()
+             return buildPartial()
+        }
+        public func buildPartial() -> PBIceCreamCone.PBMapperEntry {
+          var returnMe:PBIceCreamCone.PBMapperEntry = builderResult
+          return returnMe
+        }
+        public func mergeFrom(other:PBIceCreamCone.PBMapperEntry) -> PBIceCreamCone.PBMapperEntry.Builder {
+          if other == PBIceCreamCone.PBMapperEntry() {
            return self
-      }
-      public var hasValue:Bool {
-           get {
-               return builderResult.hasValue
-           }
-      }
-      public var value:PBProtoPoint! {
-           get {
-               if valueBuilder_ != nil {
-                  builderResult.value = valueBuilder_.getMessage()
-               }
-               return builderResult.value
-           }
-           set (value) {
-               builderResult.hasValue = true
-               builderResult.value = value
-           }
-      }
-      private var valueBuilder_:PBProtoPointBuilder! {
-           didSet {
-              builderResult.hasValue = true
-           }
-      }
-      public func getValueBuilder() -> PBProtoPointBuilder {
-        if valueBuilder_ == nil {
-           valueBuilder_ = PBProtoPointBuilder()
-           builderResult.value = valueBuilder_.getMessage()
-           if value != nil {
-              valueBuilder_.mergeFrom(value)
-           }
+          }
+          if other.hasKey {
+               key = other.key
+          }
+          if (other.hasValue) {
+              mergeValue(other.value)
+          }
+          mergeUnknownFields(other.unknownFields)
+          return self
         }
-        return valueBuilder_
-      }
-      public func setValue(value:PBProtoPoint!) -> PBIceCreamCone.PBMapperEntryBuilder {
-        self.value = value
-        return self
-      }
-      public func mergeValue(value:PBProtoPoint) -> PBIceCreamCone.PBMapperEntryBuilder {
-        if builderResult.hasValue {
-          builderResult.value = PBProtoPoint.builderWithPrototype(builderResult.value).mergeFrom(value).buildPartial()
-        } else {
-          builderResult.value = value
+        public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBIceCreamCone.PBMapperEntry.Builder {
+             return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
         }
-        builderResult.hasValue = true
-        return self
-      }
-      public func clearValue() -> PBIceCreamCone.PBMapperEntryBuilder {
-        valueBuilder_ = nil
-        builderResult.hasValue = false
-        builderResult.value = nil
-        return self
-      }
-      override public var internalGetResult:GeneratedMessage {
-           get {
-              return builderResult
-           }
-      }
-      public override func clear() -> PBIceCreamCone.PBMapperEntryBuilder {
-        builderResult = PBIceCreamCone.PBMapperEntry()
-        return self
-      }
-      public override func clone() -> PBIceCreamCone.PBMapperEntryBuilder {
-        return PBIceCreamCone.PBMapperEntry.builderWithPrototype(builderResult)
-      }
-      public override func build() -> PBIceCreamCone.PBMapperEntry {
-           checkInitialized()
-           return buildPartial()
-      }
-      public func buildPartial() -> PBIceCreamCone.PBMapperEntry {
-        var returnMe:PBIceCreamCone.PBMapperEntry = builderResult
-        return returnMe
-      }
-      public func mergeFrom(other:PBIceCreamCone.PBMapperEntry) -> PBIceCreamCone.PBMapperEntryBuilder {
-        if other == PBIceCreamCone.PBMapperEntry() {
-         return self
-        }
-        if other.hasKey {
-             key = other.key
-        }
-        if (other.hasValue) {
-            mergeValue(other.value)
-        }
-        mergeUnknownFields(other.unknownFields)
-        return self
-      }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBIceCreamCone.PBMapperEntryBuilder {
-           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-      }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBIceCreamCone.PBMapperEntryBuilder {
-        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-        while (true) {
-          var tag = input.readTag()
-          switch tag {
-          case 0: 
-            self.unknownFields = unknownFieldsBuilder.build()
-            return self
+        public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBIceCreamCone.PBMapperEntry.Builder {
+          var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          while (true) {
+            var tag = input.readTag()
+            switch tag {
+            case 0: 
+              self.unknownFields = unknownFieldsBuilder.build()
+              return self
 
-          case 8 :
-            key = input.readInt32()
+            case 8 :
+              key = input.readInt32()
 
-          case 18 :
-            var subBuilder:PBProtoPointBuilder = PBProtoPoint.builder()
-            if hasValue {
-              subBuilder.mergeFrom(value)
-            }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-            value = subBuilder.buildPartial()
+            case 18 :
+              var subBuilder:PBProtoPoint.Builder = PBProtoPoint.builder()
+              if hasValue {
+                subBuilder.mergeFrom(value)
+              }
+              input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+              value = subBuilder.buildPartial()
 
-          default:
-            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-               unknownFields = unknownFieldsBuilder.build()
-               return self
+            default:
+              if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+                 unknownFields = unknownFieldsBuilder.build()
+                 return self
+              }
             }
           }
         }
       }
+
     }
 
   //Nested type declaration end
@@ -2293,22 +2293,22 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, 
   public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBIceCreamCone {
     return PBIceCreamCone.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  public class func builder() -> PBIceCreamConeBuilder {
-    return PBIceCreamCone.classBuilder() as! PBIceCreamConeBuilder
+  public class func builder() -> PBIceCreamCone.Builder {
+    return PBIceCreamCone.classBuilder() as! PBIceCreamCone.Builder
   }
-  public func builder() -> PBIceCreamConeBuilder {
-    return classBuilder() as! PBIceCreamConeBuilder
+  public func builder() -> PBIceCreamCone.Builder {
+    return classBuilder() as! PBIceCreamCone.Builder
   }
   public override class func classBuilder() -> MessageBuilder {
-    return PBIceCreamConeBuilder()
+    return PBIceCreamCone.Builder()
   }
   public override func classBuilder() -> MessageBuilder {
     return PBIceCreamCone.builder()
   }
-  public func toBuilder() -> PBIceCreamConeBuilder {
+  public func toBuilder() -> PBIceCreamCone.Builder {
     return PBIceCreamCone.builderWithPrototype(self)
   }
-  public class func builderWithPrototype(prototype:PBIceCreamCone) -> PBIceCreamConeBuilder {
+  public class func builderWithPrototype(prototype:PBIceCreamCone) -> PBIceCreamCone.Builder {
     return PBIceCreamCone.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
@@ -2367,183 +2367,183 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol, 
   }
   //Meta information declaration end
 
-}
-
-final public class PBIceCreamConeBuilder : GeneratedMessageBuilder {
-  private var builderResult:PBIceCreamCone = PBIceCreamCone()
-  public func getMessage() -> PBIceCreamCone {
-      return builderResult
-  }
-
-  required override public init () {
-     super.init()
-  }
-  public var hasScoops:Bool {
-       get {
-            return builderResult.hasScoops
-       }
-  }
-  public var scoops:Int32 {
-       get {
-            return builderResult.scoops
-       }
-       set (value) {
-           builderResult.hasScoops = true
-           builderResult.scoops = value
-       }
-  }
-  public func setScoops(value:Int32) -> PBIceCreamConeBuilder {
-    self.scoops = value
-    return self
-  }
-  public func clearScoops() -> PBIceCreamConeBuilder{
-       builderResult.hasScoops = false
-       builderResult.scoops = Int32(0)
-       return self
-  }
-    public var hasFlavor:Bool{
-        get {
-            return builderResult.hasFlavor
-        }
+  final public class Builder : GeneratedMessageBuilder {
+    private var builderResult:PBIceCreamCone = PBIceCreamCone()
+    public func getMessage() -> PBIceCreamCone {
+        return builderResult
     }
-    public var flavor:PBIceCreamCone.PBFlavor {
-        get {
-            return builderResult.flavor
-        }
-        set (value) {
-            builderResult.hasFlavor = true
-            builderResult.flavor = value
-        }
+
+    required override public init () {
+       super.init()
     }
-    public func setFlavor(value:PBIceCreamCone.PBFlavor) -> PBIceCreamConeBuilder {
-      self.flavor = value
+    public var hasScoops:Bool {
+         get {
+              return builderResult.hasScoops
+         }
+    }
+    public var scoops:Int32 {
+         get {
+              return builderResult.scoops
+         }
+         set (value) {
+             builderResult.hasScoops = true
+             builderResult.scoops = value
+         }
+    }
+    public func setScoops(value:Int32) -> PBIceCreamCone.Builder {
+      self.scoops = value
       return self
     }
-    public func clearFlavor() -> PBIceCreamConeBuilder {
-       builderResult.hasFlavor = false
-       builderResult.flavor = .Chocolate
-       return self
+    public func clearScoops() -> PBIceCreamCone.Builder{
+         builderResult.hasScoops = false
+         builderResult.scoops = Int32(0)
+         return self
     }
-  public var hasMapper:Bool {
-       get {
-            return builderResult.hasMapper
-       }
-  }
-  public var mapper:Dictionary<Int32,PBProtoPoint> {
-       get {
-            return builderResult.mapper
-       }
-       set (value) {
-           builderResult.hasMapper = true
-           builderResult.mapper = value
-       }
-  }
-  public func setMapper(value:Dictionary<Int32,PBProtoPoint>) -> PBIceCreamConeBuilder {
-    self.mapper = value
-    return self
-  }
-  public func clearMapper() -> PBIceCreamConeBuilder{
-       builderResult.hasMapper = false
-       builderResult.mapper = Dictionary<Int32,PBProtoPoint>()
-       return self
-  }
-  public var points:Array<PBProtoPoint> {
-       get {
-           return builderResult.points
-       }
-       set (value) {
-           builderResult.points = value
-       }
-  }
-  public func setPoints(value:Array<PBProtoPoint>) -> PBIceCreamConeBuilder {
-    self.points = value
-    return self
-  }
-  public func clearPoints() -> PBIceCreamConeBuilder {
-    builderResult.points.removeAll(keepCapacity: false)
-    return self
-  }
-  override public var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  public override func clear() -> PBIceCreamConeBuilder {
-    builderResult = PBIceCreamCone()
-    return self
-  }
-  public override func clone() -> PBIceCreamConeBuilder {
-    return PBIceCreamCone.builderWithPrototype(builderResult)
-  }
-  public override func build() -> PBIceCreamCone {
-       checkInitialized()
-       return buildPartial()
-  }
-  public func buildPartial() -> PBIceCreamCone {
-    var returnMe:PBIceCreamCone = builderResult
-    return returnMe
-  }
-  public func mergeFrom(other:PBIceCreamCone) -> PBIceCreamConeBuilder {
-    if other == PBIceCreamCone() {
-     return self
-    }
-    if other.hasScoops {
-         scoops = other.scoops
-    }
-    if other.hasFlavor {
-         flavor = other.flavor
-    }
-    if other.hasMapper {
-         mapper = other.mapper
-    }
-    if !other.points.isEmpty  {
-       builderResult.points += other.points
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBIceCreamConeBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBIceCreamConeBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
+      public var hasFlavor:Bool{
+          get {
+              return builderResult.hasFlavor
+          }
+      }
+      public var flavor:PBIceCreamCone.PBFlavor {
+          get {
+              return builderResult.flavor
+          }
+          set (value) {
+              builderResult.hasFlavor = true
+              builderResult.flavor = value
+          }
+      }
+      public func setFlavor(value:PBIceCreamCone.PBFlavor) -> PBIceCreamCone.Builder {
+        self.flavor = value
         return self
+      }
+      public func clearFlavor() -> PBIceCreamCone.Builder {
+         builderResult.hasFlavor = false
+         builderResult.flavor = .Chocolate
+         return self
+      }
+    public var hasMapper:Bool {
+         get {
+              return builderResult.hasMapper
+         }
+    }
+    public var mapper:Dictionary<Int32,PBProtoPoint> {
+         get {
+              return builderResult.mapper
+         }
+         set (value) {
+             builderResult.hasMapper = true
+             builderResult.mapper = value
+         }
+    }
+    public func setMapper(value:Dictionary<Int32,PBProtoPoint>) -> PBIceCreamCone.Builder {
+      self.mapper = value
+      return self
+    }
+    public func clearMapper() -> PBIceCreamCone.Builder{
+         builderResult.hasMapper = false
+         builderResult.mapper = Dictionary<Int32,PBProtoPoint>()
+         return self
+    }
+    public var points:Array<PBProtoPoint> {
+         get {
+             return builderResult.points
+         }
+         set (value) {
+             builderResult.points = value
+         }
+    }
+    public func setPoints(value:Array<PBProtoPoint>) -> PBIceCreamCone.Builder {
+      self.points = value
+      return self
+    }
+    public func clearPoints() -> PBIceCreamCone.Builder {
+      builderResult.points.removeAll(keepCapacity: false)
+      return self
+    }
+    override public var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    public override func clear() -> PBIceCreamCone.Builder {
+      builderResult = PBIceCreamCone()
+      return self
+    }
+    public override func clone() -> PBIceCreamCone.Builder {
+      return PBIceCreamCone.builderWithPrototype(builderResult)
+    }
+    public override func build() -> PBIceCreamCone {
+         checkInitialized()
+         return buildPartial()
+    }
+    public func buildPartial() -> PBIceCreamCone {
+      var returnMe:PBIceCreamCone = builderResult
+      return returnMe
+    }
+    public func mergeFrom(other:PBIceCreamCone) -> PBIceCreamCone.Builder {
+      if other == PBIceCreamCone() {
+       return self
+      }
+      if other.hasScoops {
+           scoops = other.scoops
+      }
+      if other.hasFlavor {
+           flavor = other.flavor
+      }
+      if other.hasMapper {
+           mapper = other.mapper
+      }
+      if !other.points.isEmpty  {
+         builderResult.points += other.points
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
+    }
+    public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBIceCreamCone.Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    }
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBIceCreamCone.Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-      case 8 :
-        scoops = input.readInt32()
+        case 8 :
+          scoops = input.readInt32()
 
-      case 16 :
-        let valueIntflavor = input.readEnum()
-        if let enumsflavor = PBIceCreamCone.PBFlavor(rawValue:valueIntflavor){
-             flavor = enumsflavor
-        } else {
-             unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntflavor))
-        }
+        case 16 :
+          let valueIntflavor = input.readEnum()
+          if let enumsflavor = PBIceCreamCone.PBFlavor(rawValue:valueIntflavor){
+               flavor = enumsflavor
+          } else {
+               unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntflavor))
+          }
 
-      case 26 :
-        var subBuilder = PBIceCreamCone.PBMapperEntry.builder()
-        input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-        let buildOfMapper = subBuilder.buildPartial()
-        mapper[buildOfMapper.key] = buildOfMapper.value
+        case 26 :
+          var subBuilder = PBIceCreamCone.PBMapperEntry.builder()
+          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+          let buildOfMapper = subBuilder.buildPartial()
+          mapper[buildOfMapper.key] = buildOfMapper.value
 
-      case 34 :
-        var subBuilder = PBProtoPoint.builder()
-        input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-        points += [subBuilder.buildPartial()]
+        case 34 :
+          var subBuilder = PBProtoPoint.builder()
+          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+          points += [subBuilder.buildPartial()]
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
+
 }
 
 final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -2603,22 +2603,22 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol, Ha
   public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBProtoPoint {
     return PBProtoPoint.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  public class func builder() -> PBProtoPointBuilder {
-    return PBProtoPoint.classBuilder() as! PBProtoPointBuilder
+  public class func builder() -> PBProtoPoint.Builder {
+    return PBProtoPoint.classBuilder() as! PBProtoPoint.Builder
   }
-  public func builder() -> PBProtoPointBuilder {
-    return classBuilder() as! PBProtoPointBuilder
+  public func builder() -> PBProtoPoint.Builder {
+    return classBuilder() as! PBProtoPoint.Builder
   }
   public override class func classBuilder() -> MessageBuilder {
-    return PBProtoPointBuilder()
+    return PBProtoPoint.Builder()
   }
   public override func classBuilder() -> MessageBuilder {
     return PBProtoPoint.builder()
   }
-  public func toBuilder() -> PBProtoPointBuilder {
+  public func toBuilder() -> PBProtoPoint.Builder {
     return PBProtoPoint.builderWithPrototype(self)
   }
-  public class func builderWithPrototype(prototype:PBProtoPoint) -> PBProtoPointBuilder {
+  public class func builderWithPrototype(prototype:PBProtoPoint) -> PBProtoPoint.Builder {
     return PBProtoPoint.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
@@ -2658,122 +2658,122 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol, Ha
   }
   //Meta information declaration end
 
-}
+  final public class Builder : GeneratedMessageBuilder {
+    private var builderResult:PBProtoPoint = PBProtoPoint()
+    public func getMessage() -> PBProtoPoint {
+        return builderResult
+    }
 
-final public class PBProtoPointBuilder : GeneratedMessageBuilder {
-  private var builderResult:PBProtoPoint = PBProtoPoint()
-  public func getMessage() -> PBProtoPoint {
-      return builderResult
-  }
-
-  required override public init () {
-     super.init()
-  }
-  public var hasLatitude:Bool {
-       get {
-            return builderResult.hasLatitude
-       }
-  }
-  public var latitude:Float {
-       get {
-            return builderResult.latitude
-       }
-       set (value) {
-           builderResult.hasLatitude = true
-           builderResult.latitude = value
-       }
-  }
-  public func setLatitude(value:Float) -> PBProtoPointBuilder {
-    self.latitude = value
-    return self
-  }
-  public func clearLatitude() -> PBProtoPointBuilder{
-       builderResult.hasLatitude = false
-       builderResult.latitude = Float(0)
+    required override public init () {
+       super.init()
+    }
+    public var hasLatitude:Bool {
+         get {
+              return builderResult.hasLatitude
+         }
+    }
+    public var latitude:Float {
+         get {
+              return builderResult.latitude
+         }
+         set (value) {
+             builderResult.hasLatitude = true
+             builderResult.latitude = value
+         }
+    }
+    public func setLatitude(value:Float) -> PBProtoPoint.Builder {
+      self.latitude = value
+      return self
+    }
+    public func clearLatitude() -> PBProtoPoint.Builder{
+         builderResult.hasLatitude = false
+         builderResult.latitude = Float(0)
+         return self
+    }
+    public var hasLongitude:Bool {
+         get {
+              return builderResult.hasLongitude
+         }
+    }
+    public var longitude:Float {
+         get {
+              return builderResult.longitude
+         }
+         set (value) {
+             builderResult.hasLongitude = true
+             builderResult.longitude = value
+         }
+    }
+    public func setLongitude(value:Float) -> PBProtoPoint.Builder {
+      self.longitude = value
+      return self
+    }
+    public func clearLongitude() -> PBProtoPoint.Builder{
+         builderResult.hasLongitude = false
+         builderResult.longitude = Float(0)
+         return self
+    }
+    override public var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    public override func clear() -> PBProtoPoint.Builder {
+      builderResult = PBProtoPoint()
+      return self
+    }
+    public override func clone() -> PBProtoPoint.Builder {
+      return PBProtoPoint.builderWithPrototype(builderResult)
+    }
+    public override func build() -> PBProtoPoint {
+         checkInitialized()
+         return buildPartial()
+    }
+    public func buildPartial() -> PBProtoPoint {
+      var returnMe:PBProtoPoint = builderResult
+      return returnMe
+    }
+    public func mergeFrom(other:PBProtoPoint) -> PBProtoPoint.Builder {
+      if other == PBProtoPoint() {
        return self
-  }
-  public var hasLongitude:Bool {
-       get {
-            return builderResult.hasLongitude
-       }
-  }
-  public var longitude:Float {
-       get {
-            return builderResult.longitude
-       }
-       set (value) {
-           builderResult.hasLongitude = true
-           builderResult.longitude = value
-       }
-  }
-  public func setLongitude(value:Float) -> PBProtoPointBuilder {
-    self.longitude = value
-    return self
-  }
-  public func clearLongitude() -> PBProtoPointBuilder{
-       builderResult.hasLongitude = false
-       builderResult.longitude = Float(0)
-       return self
-  }
-  override public var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  public override func clear() -> PBProtoPointBuilder {
-    builderResult = PBProtoPoint()
-    return self
-  }
-  public override func clone() -> PBProtoPointBuilder {
-    return PBProtoPoint.builderWithPrototype(builderResult)
-  }
-  public override func build() -> PBProtoPoint {
-       checkInitialized()
-       return buildPartial()
-  }
-  public func buildPartial() -> PBProtoPoint {
-    var returnMe:PBProtoPoint = builderResult
-    return returnMe
-  }
-  public func mergeFrom(other:PBProtoPoint) -> PBProtoPointBuilder {
-    if other == PBProtoPoint() {
-     return self
+      }
+      if other.hasLatitude {
+           latitude = other.latitude
+      }
+      if other.hasLongitude {
+           longitude = other.longitude
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
     }
-    if other.hasLatitude {
-         latitude = other.latitude
+    public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBProtoPoint.Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    if other.hasLongitude {
-         longitude = other.longitude
-    }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream) -> PBProtoPointBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBProtoPointBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PBProtoPoint.Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-      case 13 :
-        latitude = input.readFloat()
+        case 13 :
+          latitude = input.readFloat()
 
-      case 21 :
-        longitude = input.readFloat()
+        case 21 :
+          longitude = input.readFloat()
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
+
 }
 
 

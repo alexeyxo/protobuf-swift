@@ -29,18 +29,18 @@ class ProtocolBuffersTests: XCTestCase {
         let original = originalBuilder.build()
 
         let original2 = PBPerfomance.parseFromData(original.data())
-        var builder = PBPerfomanceBatchBuilder()
+        var builder = PBPerfomanceBatch.Builder()
         
         for _ in 0...2 {
             builder.batch += [original]
         }
         
         var user:PBUser! = nil
-        var group = PBGroupBuilder()
+        var group = PBGroup.Builder()
         
         group.getOwnerBuilder().setGroupName("asdfasdf")
         
-        var bazBuilder = PBBazBuilder()
+        var bazBuilder = PBBaz.Builder()
         bazBuilder.getBarBuilder().getFooBuilder().setVal(10)
         
         

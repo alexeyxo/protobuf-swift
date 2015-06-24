@@ -92,22 +92,22 @@ internal extension Google.Protobuf {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Any {
       return Google.Protobuf.Any.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Google.Protobuf.AnyBuilder {
-      return Google.Protobuf.Any.classBuilder() as! Google.Protobuf.AnyBuilder
+    internal class func builder() -> Google.Protobuf.Any.Builder {
+      return Google.Protobuf.Any.classBuilder() as! Google.Protobuf.Any.Builder
     }
-    internal func builder() -> Google.Protobuf.AnyBuilder {
-      return classBuilder() as! Google.Protobuf.AnyBuilder
+    internal func builder() -> Google.Protobuf.Any.Builder {
+      return classBuilder() as! Google.Protobuf.Any.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.AnyBuilder()
+      return Google.Protobuf.Any.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Any.builder()
     }
-    internal func toBuilder() -> Google.Protobuf.AnyBuilder {
+    internal func toBuilder() -> Google.Protobuf.Any.Builder {
       return Google.Protobuf.Any.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Google.Protobuf.Any) -> Google.Protobuf.AnyBuilder {
+    internal class func builderWithPrototype(prototype:Google.Protobuf.Any) -> Google.Protobuf.Any.Builder {
       return Google.Protobuf.Any.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -147,122 +147,122 @@ internal extension Google.Protobuf {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:Google.Protobuf.Any = Google.Protobuf.Any()
+      internal func getMessage() -> Google.Protobuf.Any {
+          return builderResult
+      }
 
-  final internal class AnyBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Any = Google.Protobuf.Any()
-    internal func getMessage() -> Google.Protobuf.Any {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasTypeUrl:Bool {
-         get {
-              return builderResult.hasTypeUrl
-         }
-    }
-    var typeUrl:String {
-         get {
-              return builderResult.typeUrl
-         }
-         set (value) {
-             builderResult.hasTypeUrl = true
-             builderResult.typeUrl = value
-         }
-    }
-    func setTypeUrl(value:String) -> Google.Protobuf.AnyBuilder {
-      self.typeUrl = value
-      return self
-    }
-    internal func clearTypeUrl() -> Google.Protobuf.AnyBuilder{
-         builderResult.hasTypeUrl = false
-         builderResult.typeUrl = ""
+      required override internal init () {
+         super.init()
+      }
+      var hasTypeUrl:Bool {
+           get {
+                return builderResult.hasTypeUrl
+           }
+      }
+      var typeUrl:String {
+           get {
+                return builderResult.typeUrl
+           }
+           set (value) {
+               builderResult.hasTypeUrl = true
+               builderResult.typeUrl = value
+           }
+      }
+      func setTypeUrl(value:String) -> Google.Protobuf.Any.Builder {
+        self.typeUrl = value
+        return self
+      }
+      internal func clearTypeUrl() -> Google.Protobuf.Any.Builder{
+           builderResult.hasTypeUrl = false
+           builderResult.typeUrl = ""
+           return self
+      }
+      var hasValue:Bool {
+           get {
+                return builderResult.hasValue
+           }
+      }
+      var value:NSData {
+           get {
+                return builderResult.value
+           }
+           set (value) {
+               builderResult.hasValue = true
+               builderResult.value = value
+           }
+      }
+      func setValue(value:NSData) -> Google.Protobuf.Any.Builder {
+        self.value = value
+        return self
+      }
+      internal func clearValue() -> Google.Protobuf.Any.Builder{
+           builderResult.hasValue = false
+           builderResult.value = NSData()
+           return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> Google.Protobuf.Any.Builder {
+        builderResult = Google.Protobuf.Any()
+        return self
+      }
+      internal override func clone() -> Google.Protobuf.Any.Builder {
+        return Google.Protobuf.Any.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> Google.Protobuf.Any {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> Google.Protobuf.Any {
+        var returnMe:Google.Protobuf.Any = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:Google.Protobuf.Any) -> Google.Protobuf.Any.Builder {
+        if other == Google.Protobuf.Any() {
          return self
-    }
-    var hasValue:Bool {
-         get {
-              return builderResult.hasValue
-         }
-    }
-    var value:NSData {
-         get {
-              return builderResult.value
-         }
-         set (value) {
-             builderResult.hasValue = true
-             builderResult.value = value
-         }
-    }
-    func setValue(value:NSData) -> Google.Protobuf.AnyBuilder {
-      self.value = value
-      return self
-    }
-    internal func clearValue() -> Google.Protobuf.AnyBuilder{
-         builderResult.hasValue = false
-         builderResult.value = NSData()
-         return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> Google.Protobuf.AnyBuilder {
-      builderResult = Google.Protobuf.Any()
-      return self
-    }
-    internal override func clone() -> Google.Protobuf.AnyBuilder {
-      return Google.Protobuf.Any.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> Google.Protobuf.Any {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> Google.Protobuf.Any {
-      var returnMe:Google.Protobuf.Any = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:Google.Protobuf.Any) -> Google.Protobuf.AnyBuilder {
-      if other == Google.Protobuf.Any() {
-       return self
+        }
+        if other.hasTypeUrl {
+             typeUrl = other.typeUrl
+        }
+        if other.hasValue {
+             value = other.value
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      if other.hasTypeUrl {
-           typeUrl = other.typeUrl
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Any.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      if other.hasValue {
-           value = other.value
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.AnyBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.AnyBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Any.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 10 :
-          typeUrl = input.readString()
+          case 10 :
+            typeUrl = input.readString()
 
-        case 18 :
-          value = input.readData()
+          case 18 :
+            value = input.readData()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

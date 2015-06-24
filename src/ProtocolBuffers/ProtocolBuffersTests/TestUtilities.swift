@@ -29,7 +29,7 @@ class  TestUtilities {
         return goldenData
     }
     
-    class func modifyRepeatedExtensions(var message:ProtobufUnittest.TestAllExtensionsBuilder)
+    class func modifyRepeatedExtensions(var message:ProtobufUnittest.TestAllExtensions.Builder)
     {
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), index:1, value:Int32(501))
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension(), index:1, value:Int64(502))
@@ -1205,7 +1205,7 @@ class  TestUtilities {
         TestUtilities().assertAllFieldsSet(message)
     }
     
-    class func setAllFields(message:ProtobufUnittest.TestAllTypesBuilder)
+    class func setAllFields(message:ProtobufUnittest.TestAllTypes.Builder)
     {
         message.optionalInt32 = Int32(101)
         message.optionalInt64 = Int64(102)
@@ -1366,7 +1366,7 @@ class  TestUtilities {
         
     }
     
-    class func setOneOfFields(message:ProtobufUnittest.TestAllTypesBuilder)
+    class func setOneOfFields(message:ProtobufUnittest.TestAllTypes.Builder)
     {
         message.oneofUint32 = 601
         var builder = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
@@ -1376,7 +1376,7 @@ class  TestUtilities {
         message.oneofBytes = NSData(bytes: ([UInt8]() + "604".utf8), length: 3)
     }
     
-    class func setAllExtensions(message:ProtobufUnittest.TestAllExtensionsBuilder)
+    class func setAllExtensions(message:ProtobufUnittest.TestAllExtensions.Builder)
     {
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension(), value:Int32(101))
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalInt64Extension(), value:Int64(102))
@@ -2068,7 +2068,7 @@ class  TestUtilities {
         TestUtilities().assertExtensionsClear(message)
     }
     
-    class func setPackedFields(message:ProtobufUnittest.TestPackedTypesBuilder)
+    class func setPackedFields(message:ProtobufUnittest.TestPackedTypes.Builder)
     {
         message.packedInt32 += [601]
         message.packedInt64 += [602]
@@ -2152,7 +2152,7 @@ class  TestUtilities {
         TestUtilities().assertPackedFieldsSet(message)
     }
     
-    class func setPackedExtensions(message:ProtobufUnittest.TestPackedExtensionsBuilder)
+    class func setPackedExtensions(message:ProtobufUnittest.TestPackedExtensions.Builder)
     {
        message.addExtension(ProtobufUnittest.UnittestRoot.packedInt32Extension(), value:Int32(601))
        message.addExtension(ProtobufUnittest.UnittestRoot.packedInt64Extension(), value:Int64(602))

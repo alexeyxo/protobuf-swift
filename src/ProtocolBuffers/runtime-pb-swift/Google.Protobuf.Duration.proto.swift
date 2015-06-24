@@ -92,22 +92,22 @@ internal extension Google.Protobuf {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Duration {
       return Google.Protobuf.Duration.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Google.Protobuf.DurationBuilder {
-      return Google.Protobuf.Duration.classBuilder() as! Google.Protobuf.DurationBuilder
+    internal class func builder() -> Google.Protobuf.Duration.Builder {
+      return Google.Protobuf.Duration.classBuilder() as! Google.Protobuf.Duration.Builder
     }
-    internal func builder() -> Google.Protobuf.DurationBuilder {
-      return classBuilder() as! Google.Protobuf.DurationBuilder
+    internal func builder() -> Google.Protobuf.Duration.Builder {
+      return classBuilder() as! Google.Protobuf.Duration.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.DurationBuilder()
+      return Google.Protobuf.Duration.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Duration.builder()
     }
-    internal func toBuilder() -> Google.Protobuf.DurationBuilder {
+    internal func toBuilder() -> Google.Protobuf.Duration.Builder {
       return Google.Protobuf.Duration.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Google.Protobuf.Duration) -> Google.Protobuf.DurationBuilder {
+    internal class func builderWithPrototype(prototype:Google.Protobuf.Duration) -> Google.Protobuf.Duration.Builder {
       return Google.Protobuf.Duration.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -147,122 +147,122 @@ internal extension Google.Protobuf {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:Google.Protobuf.Duration = Google.Protobuf.Duration()
+      internal func getMessage() -> Google.Protobuf.Duration {
+          return builderResult
+      }
 
-  final internal class DurationBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Duration = Google.Protobuf.Duration()
-    internal func getMessage() -> Google.Protobuf.Duration {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasSeconds:Bool {
-         get {
-              return builderResult.hasSeconds
-         }
-    }
-    var seconds:Int64 {
-         get {
-              return builderResult.seconds
-         }
-         set (value) {
-             builderResult.hasSeconds = true
-             builderResult.seconds = value
-         }
-    }
-    func setSeconds(value:Int64) -> Google.Protobuf.DurationBuilder {
-      self.seconds = value
-      return self
-    }
-    internal func clearSeconds() -> Google.Protobuf.DurationBuilder{
-         builderResult.hasSeconds = false
-         builderResult.seconds = Int64(0)
+      required override internal init () {
+         super.init()
+      }
+      var hasSeconds:Bool {
+           get {
+                return builderResult.hasSeconds
+           }
+      }
+      var seconds:Int64 {
+           get {
+                return builderResult.seconds
+           }
+           set (value) {
+               builderResult.hasSeconds = true
+               builderResult.seconds = value
+           }
+      }
+      func setSeconds(value:Int64) -> Google.Protobuf.Duration.Builder {
+        self.seconds = value
+        return self
+      }
+      internal func clearSeconds() -> Google.Protobuf.Duration.Builder{
+           builderResult.hasSeconds = false
+           builderResult.seconds = Int64(0)
+           return self
+      }
+      var hasNanos:Bool {
+           get {
+                return builderResult.hasNanos
+           }
+      }
+      var nanos:Int32 {
+           get {
+                return builderResult.nanos
+           }
+           set (value) {
+               builderResult.hasNanos = true
+               builderResult.nanos = value
+           }
+      }
+      func setNanos(value:Int32) -> Google.Protobuf.Duration.Builder {
+        self.nanos = value
+        return self
+      }
+      internal func clearNanos() -> Google.Protobuf.Duration.Builder{
+           builderResult.hasNanos = false
+           builderResult.nanos = Int32(0)
+           return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> Google.Protobuf.Duration.Builder {
+        builderResult = Google.Protobuf.Duration()
+        return self
+      }
+      internal override func clone() -> Google.Protobuf.Duration.Builder {
+        return Google.Protobuf.Duration.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> Google.Protobuf.Duration {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> Google.Protobuf.Duration {
+        var returnMe:Google.Protobuf.Duration = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:Google.Protobuf.Duration) -> Google.Protobuf.Duration.Builder {
+        if other == Google.Protobuf.Duration() {
          return self
-    }
-    var hasNanos:Bool {
-         get {
-              return builderResult.hasNanos
-         }
-    }
-    var nanos:Int32 {
-         get {
-              return builderResult.nanos
-         }
-         set (value) {
-             builderResult.hasNanos = true
-             builderResult.nanos = value
-         }
-    }
-    func setNanos(value:Int32) -> Google.Protobuf.DurationBuilder {
-      self.nanos = value
-      return self
-    }
-    internal func clearNanos() -> Google.Protobuf.DurationBuilder{
-         builderResult.hasNanos = false
-         builderResult.nanos = Int32(0)
-         return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> Google.Protobuf.DurationBuilder {
-      builderResult = Google.Protobuf.Duration()
-      return self
-    }
-    internal override func clone() -> Google.Protobuf.DurationBuilder {
-      return Google.Protobuf.Duration.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> Google.Protobuf.Duration {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> Google.Protobuf.Duration {
-      var returnMe:Google.Protobuf.Duration = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:Google.Protobuf.Duration) -> Google.Protobuf.DurationBuilder {
-      if other == Google.Protobuf.Duration() {
-       return self
+        }
+        if other.hasSeconds {
+             seconds = other.seconds
+        }
+        if other.hasNanos {
+             nanos = other.nanos
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      if other.hasSeconds {
-           seconds = other.seconds
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Duration.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      if other.hasNanos {
-           nanos = other.nanos
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.DurationBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DurationBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Duration.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 8 :
-          seconds = input.readInt64()
+          case 8 :
+            seconds = input.readInt64()
 
-        case 16 :
-          nanos = input.readInt32()
+          case 16 :
+            nanos = input.readInt32()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

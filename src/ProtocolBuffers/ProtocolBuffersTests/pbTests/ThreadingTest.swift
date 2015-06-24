@@ -43,7 +43,7 @@ class ThreadingTest: XCTestCase {
 
     func testThreading() {
         
-        var message = ThreadingMessagesBuilder()
+        var message = ThreadingMessages.Builder()
         message.testString = "sadfasdfa"
         let threading = Threading()
         threading.send(message)

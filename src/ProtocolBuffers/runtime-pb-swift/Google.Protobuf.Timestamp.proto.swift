@@ -92,22 +92,22 @@ internal extension Google.Protobuf {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Timestamp {
       return Google.Protobuf.Timestamp.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Google.Protobuf.TimestampBuilder {
-      return Google.Protobuf.Timestamp.classBuilder() as! Google.Protobuf.TimestampBuilder
+    internal class func builder() -> Google.Protobuf.Timestamp.Builder {
+      return Google.Protobuf.Timestamp.classBuilder() as! Google.Protobuf.Timestamp.Builder
     }
-    internal func builder() -> Google.Protobuf.TimestampBuilder {
-      return classBuilder() as! Google.Protobuf.TimestampBuilder
+    internal func builder() -> Google.Protobuf.Timestamp.Builder {
+      return classBuilder() as! Google.Protobuf.Timestamp.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.TimestampBuilder()
+      return Google.Protobuf.Timestamp.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Timestamp.builder()
     }
-    internal func toBuilder() -> Google.Protobuf.TimestampBuilder {
+    internal func toBuilder() -> Google.Protobuf.Timestamp.Builder {
       return Google.Protobuf.Timestamp.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Google.Protobuf.Timestamp) -> Google.Protobuf.TimestampBuilder {
+    internal class func builderWithPrototype(prototype:Google.Protobuf.Timestamp) -> Google.Protobuf.Timestamp.Builder {
       return Google.Protobuf.Timestamp.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -147,122 +147,122 @@ internal extension Google.Protobuf {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:Google.Protobuf.Timestamp = Google.Protobuf.Timestamp()
+      internal func getMessage() -> Google.Protobuf.Timestamp {
+          return builderResult
+      }
 
-  final internal class TimestampBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Timestamp = Google.Protobuf.Timestamp()
-    internal func getMessage() -> Google.Protobuf.Timestamp {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasSeconds:Bool {
-         get {
-              return builderResult.hasSeconds
-         }
-    }
-    var seconds:Int64 {
-         get {
-              return builderResult.seconds
-         }
-         set (value) {
-             builderResult.hasSeconds = true
-             builderResult.seconds = value
-         }
-    }
-    func setSeconds(value:Int64) -> Google.Protobuf.TimestampBuilder {
-      self.seconds = value
-      return self
-    }
-    internal func clearSeconds() -> Google.Protobuf.TimestampBuilder{
-         builderResult.hasSeconds = false
-         builderResult.seconds = Int64(0)
+      required override internal init () {
+         super.init()
+      }
+      var hasSeconds:Bool {
+           get {
+                return builderResult.hasSeconds
+           }
+      }
+      var seconds:Int64 {
+           get {
+                return builderResult.seconds
+           }
+           set (value) {
+               builderResult.hasSeconds = true
+               builderResult.seconds = value
+           }
+      }
+      func setSeconds(value:Int64) -> Google.Protobuf.Timestamp.Builder {
+        self.seconds = value
+        return self
+      }
+      internal func clearSeconds() -> Google.Protobuf.Timestamp.Builder{
+           builderResult.hasSeconds = false
+           builderResult.seconds = Int64(0)
+           return self
+      }
+      var hasNanos:Bool {
+           get {
+                return builderResult.hasNanos
+           }
+      }
+      var nanos:Int32 {
+           get {
+                return builderResult.nanos
+           }
+           set (value) {
+               builderResult.hasNanos = true
+               builderResult.nanos = value
+           }
+      }
+      func setNanos(value:Int32) -> Google.Protobuf.Timestamp.Builder {
+        self.nanos = value
+        return self
+      }
+      internal func clearNanos() -> Google.Protobuf.Timestamp.Builder{
+           builderResult.hasNanos = false
+           builderResult.nanos = Int32(0)
+           return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> Google.Protobuf.Timestamp.Builder {
+        builderResult = Google.Protobuf.Timestamp()
+        return self
+      }
+      internal override func clone() -> Google.Protobuf.Timestamp.Builder {
+        return Google.Protobuf.Timestamp.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> Google.Protobuf.Timestamp {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> Google.Protobuf.Timestamp {
+        var returnMe:Google.Protobuf.Timestamp = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:Google.Protobuf.Timestamp) -> Google.Protobuf.Timestamp.Builder {
+        if other == Google.Protobuf.Timestamp() {
          return self
-    }
-    var hasNanos:Bool {
-         get {
-              return builderResult.hasNanos
-         }
-    }
-    var nanos:Int32 {
-         get {
-              return builderResult.nanos
-         }
-         set (value) {
-             builderResult.hasNanos = true
-             builderResult.nanos = value
-         }
-    }
-    func setNanos(value:Int32) -> Google.Protobuf.TimestampBuilder {
-      self.nanos = value
-      return self
-    }
-    internal func clearNanos() -> Google.Protobuf.TimestampBuilder{
-         builderResult.hasNanos = false
-         builderResult.nanos = Int32(0)
-         return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> Google.Protobuf.TimestampBuilder {
-      builderResult = Google.Protobuf.Timestamp()
-      return self
-    }
-    internal override func clone() -> Google.Protobuf.TimestampBuilder {
-      return Google.Protobuf.Timestamp.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> Google.Protobuf.Timestamp {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> Google.Protobuf.Timestamp {
-      var returnMe:Google.Protobuf.Timestamp = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:Google.Protobuf.Timestamp) -> Google.Protobuf.TimestampBuilder {
-      if other == Google.Protobuf.Timestamp() {
-       return self
+        }
+        if other.hasSeconds {
+             seconds = other.seconds
+        }
+        if other.hasNanos {
+             nanos = other.nanos
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      if other.hasSeconds {
-           seconds = other.seconds
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Timestamp.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      if other.hasNanos {
-           nanos = other.nanos
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.TimestampBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.TimestampBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Timestamp.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 8 :
-          seconds = input.readInt64()
+          case 8 :
+            seconds = input.readInt64()
 
-        case 16 :
-          nanos = input.readInt32()
+          case 16 :
+            nanos = input.readInt32()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

@@ -115,22 +115,22 @@ internal extension UnittestDropUnknownFields {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UnittestDropUnknownFields.Foo {
       return UnittestDropUnknownFields.Foo.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> UnittestDropUnknownFields.FooBuilder {
-      return UnittestDropUnknownFields.Foo.classBuilder() as! UnittestDropUnknownFields.FooBuilder
+    internal class func builder() -> UnittestDropUnknownFields.Foo.Builder {
+      return UnittestDropUnknownFields.Foo.classBuilder() as! UnittestDropUnknownFields.Foo.Builder
     }
-    internal func builder() -> UnittestDropUnknownFields.FooBuilder {
-      return classBuilder() as! UnittestDropUnknownFields.FooBuilder
+    internal func builder() -> UnittestDropUnknownFields.Foo.Builder {
+      return classBuilder() as! UnittestDropUnknownFields.Foo.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return UnittestDropUnknownFields.FooBuilder()
+      return UnittestDropUnknownFields.Foo.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return UnittestDropUnknownFields.Foo.builder()
     }
-    internal func toBuilder() -> UnittestDropUnknownFields.FooBuilder {
+    internal func toBuilder() -> UnittestDropUnknownFields.Foo.Builder {
       return UnittestDropUnknownFields.Foo.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:UnittestDropUnknownFields.Foo) -> UnittestDropUnknownFields.FooBuilder {
+    internal class func builderWithPrototype(prototype:UnittestDropUnknownFields.Foo) -> UnittestDropUnknownFields.Foo.Builder {
       return UnittestDropUnknownFields.Foo.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -170,127 +170,127 @@ internal extension UnittestDropUnknownFields {
     }
     //Meta information declaration end
 
-  }
-
-  final internal class FooBuilder : GeneratedMessageBuilder {
-    private var builderResult:UnittestDropUnknownFields.Foo = UnittestDropUnknownFields.Foo()
-    internal func getMessage() -> UnittestDropUnknownFields.Foo {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasInt32Value:Bool {
-         get {
-              return builderResult.hasInt32Value
-         }
-    }
-    var int32Value:Int32 {
-         get {
-              return builderResult.int32Value
-         }
-         set (value) {
-             builderResult.hasInt32Value = true
-             builderResult.int32Value = value
-         }
-    }
-    func setInt32Value(value:Int32) -> UnittestDropUnknownFields.FooBuilder {
-      self.int32Value = value
-      return self
-    }
-    internal func clearInt32Value() -> UnittestDropUnknownFields.FooBuilder{
-         builderResult.hasInt32Value = false
-         builderResult.int32Value = Int32(0)
-         return self
-    }
-      var hasEnumValue:Bool{
-          get {
-              return builderResult.hasEnumValue
-          }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:UnittestDropUnknownFields.Foo = UnittestDropUnknownFields.Foo()
+      internal func getMessage() -> UnittestDropUnknownFields.Foo {
+          return builderResult
       }
-      var enumValue:Foo.NestedEnum {
-          get {
-              return builderResult.enumValue
-          }
-          set (value) {
-              builderResult.hasEnumValue = true
-              builderResult.enumValue = value
-          }
+
+      required override internal init () {
+         super.init()
       }
-      internal func setEnumValue(value:Foo.NestedEnum) -> UnittestDropUnknownFields.FooBuilder {
-        self.enumValue = value
+      var hasInt32Value:Bool {
+           get {
+                return builderResult.hasInt32Value
+           }
+      }
+      var int32Value:Int32 {
+           get {
+                return builderResult.int32Value
+           }
+           set (value) {
+               builderResult.hasInt32Value = true
+               builderResult.int32Value = value
+           }
+      }
+      func setInt32Value(value:Int32) -> UnittestDropUnknownFields.Foo.Builder {
+        self.int32Value = value
         return self
       }
-      internal func clearEnumValue() -> UnittestDropUnknownFields.FooBuilder {
-         builderResult.hasEnumValue = false
-         builderResult.enumValue = .Foo
-         return self
+      internal func clearInt32Value() -> UnittestDropUnknownFields.Foo.Builder{
+           builderResult.hasInt32Value = false
+           builderResult.int32Value = Int32(0)
+           return self
       }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> UnittestDropUnknownFields.FooBuilder {
-      builderResult = UnittestDropUnknownFields.Foo()
-      return self
-    }
-    internal override func clone() -> UnittestDropUnknownFields.FooBuilder {
-      return UnittestDropUnknownFields.Foo.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> UnittestDropUnknownFields.Foo {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> UnittestDropUnknownFields.Foo {
-      var returnMe:UnittestDropUnknownFields.Foo = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:UnittestDropUnknownFields.Foo) -> UnittestDropUnknownFields.FooBuilder {
-      if other == UnittestDropUnknownFields.Foo() {
-       return self
-      }
-      if other.hasInt32Value {
-           int32Value = other.int32Value
-      }
-      if other.hasEnumValue {
-           enumValue = other.enumValue
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> UnittestDropUnknownFields.FooBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UnittestDropUnknownFields.FooBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
+        var hasEnumValue:Bool{
+            get {
+                return builderResult.hasEnumValue
+            }
+        }
+        var enumValue:Foo.NestedEnum {
+            get {
+                return builderResult.enumValue
+            }
+            set (value) {
+                builderResult.hasEnumValue = true
+                builderResult.enumValue = value
+            }
+        }
+        internal func setEnumValue(value:Foo.NestedEnum) -> UnittestDropUnknownFields.Foo.Builder {
+          self.enumValue = value
           return self
+        }
+        internal func clearEnumValue() -> UnittestDropUnknownFields.Foo.Builder {
+           builderResult.hasEnumValue = false
+           builderResult.enumValue = .Foo
+           return self
+        }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> UnittestDropUnknownFields.Foo.Builder {
+        builderResult = UnittestDropUnknownFields.Foo()
+        return self
+      }
+      internal override func clone() -> UnittestDropUnknownFields.Foo.Builder {
+        return UnittestDropUnknownFields.Foo.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> UnittestDropUnknownFields.Foo {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> UnittestDropUnknownFields.Foo {
+        var returnMe:UnittestDropUnknownFields.Foo = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:UnittestDropUnknownFields.Foo) -> UnittestDropUnknownFields.Foo.Builder {
+        if other == UnittestDropUnknownFields.Foo() {
+         return self
+        }
+        if other.hasInt32Value {
+             int32Value = other.int32Value
+        }
+        if other.hasEnumValue {
+             enumValue = other.enumValue
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> UnittestDropUnknownFields.Foo.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UnittestDropUnknownFields.Foo.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 8 :
-          int32Value = input.readInt32()
+          case 8 :
+            int32Value = input.readInt32()
 
-        case 16 :
-          let valueIntenumValue = input.readEnum()
-          if let enumsenumValue = Foo.NestedEnum(rawValue:valueIntenumValue){
-               enumValue = enumsenumValue
-          } else {
-               unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntenumValue))
-          }
+          case 16 :
+            let valueIntenumValue = input.readEnum()
+            if let enumsenumValue = Foo.NestedEnum(rawValue:valueIntenumValue){
+                 enumValue = enumsenumValue
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntenumValue))
+            }
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
   final internal class FooWithExtraFields : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -372,22 +372,22 @@ internal extension UnittestDropUnknownFields {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UnittestDropUnknownFields.FooWithExtraFields {
       return UnittestDropUnknownFields.FooWithExtraFields.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
-      return UnittestDropUnknownFields.FooWithExtraFields.classBuilder() as! UnittestDropUnknownFields.FooWithExtraFieldsBuilder
+    internal class func builder() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      return UnittestDropUnknownFields.FooWithExtraFields.classBuilder() as! UnittestDropUnknownFields.FooWithExtraFields.Builder
     }
-    internal func builder() -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
-      return classBuilder() as! UnittestDropUnknownFields.FooWithExtraFieldsBuilder
+    internal func builder() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      return classBuilder() as! UnittestDropUnknownFields.FooWithExtraFields.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return UnittestDropUnknownFields.FooWithExtraFieldsBuilder()
+      return UnittestDropUnknownFields.FooWithExtraFields.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return UnittestDropUnknownFields.FooWithExtraFields.builder()
     }
-    internal func toBuilder() -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
+    internal func toBuilder() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
       return UnittestDropUnknownFields.FooWithExtraFields.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:UnittestDropUnknownFields.FooWithExtraFields) -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
+    internal class func builderWithPrototype(prototype:UnittestDropUnknownFields.FooWithExtraFields) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
       return UnittestDropUnknownFields.FooWithExtraFields.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -433,156 +433,156 @@ internal extension UnittestDropUnknownFields {
     }
     //Meta information declaration end
 
-  }
-
-  final internal class FooWithExtraFieldsBuilder : GeneratedMessageBuilder {
-    private var builderResult:UnittestDropUnknownFields.FooWithExtraFields = UnittestDropUnknownFields.FooWithExtraFields()
-    internal func getMessage() -> UnittestDropUnknownFields.FooWithExtraFields {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasInt32Value:Bool {
-         get {
-              return builderResult.hasInt32Value
-         }
-    }
-    var int32Value:Int32 {
-         get {
-              return builderResult.int32Value
-         }
-         set (value) {
-             builderResult.hasInt32Value = true
-             builderResult.int32Value = value
-         }
-    }
-    func setInt32Value(value:Int32) -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
-      self.int32Value = value
-      return self
-    }
-    internal func clearInt32Value() -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder{
-         builderResult.hasInt32Value = false
-         builderResult.int32Value = Int32(0)
-         return self
-    }
-      var hasEnumValue:Bool{
-          get {
-              return builderResult.hasEnumValue
-          }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:UnittestDropUnknownFields.FooWithExtraFields = UnittestDropUnknownFields.FooWithExtraFields()
+      internal func getMessage() -> UnittestDropUnknownFields.FooWithExtraFields {
+          return builderResult
       }
-      var enumValue:FooWithExtraFields.NestedEnum {
-          get {
-              return builderResult.enumValue
-          }
-          set (value) {
-              builderResult.hasEnumValue = true
-              builderResult.enumValue = value
-          }
+
+      required override internal init () {
+         super.init()
       }
-      internal func setEnumValue(value:FooWithExtraFields.NestedEnum) -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
-        self.enumValue = value
+      var hasInt32Value:Bool {
+           get {
+                return builderResult.hasInt32Value
+           }
+      }
+      var int32Value:Int32 {
+           get {
+                return builderResult.int32Value
+           }
+           set (value) {
+               builderResult.hasInt32Value = true
+               builderResult.int32Value = value
+           }
+      }
+      func setInt32Value(value:Int32) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+        self.int32Value = value
         return self
       }
-      internal func clearEnumValue() -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
-         builderResult.hasEnumValue = false
-         builderResult.enumValue = .Foo
-         return self
+      internal func clearInt32Value() -> UnittestDropUnknownFields.FooWithExtraFields.Builder{
+           builderResult.hasInt32Value = false
+           builderResult.int32Value = Int32(0)
+           return self
       }
-    var hasExtraInt32Value:Bool {
-         get {
-              return builderResult.hasExtraInt32Value
-         }
-    }
-    var extraInt32Value:Int32 {
-         get {
-              return builderResult.extraInt32Value
-         }
-         set (value) {
-             builderResult.hasExtraInt32Value = true
-             builderResult.extraInt32Value = value
-         }
-    }
-    func setExtraInt32Value(value:Int32) -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
-      self.extraInt32Value = value
-      return self
-    }
-    internal func clearExtraInt32Value() -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder{
-         builderResult.hasExtraInt32Value = false
-         builderResult.extraInt32Value = Int32(0)
-         return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
-      builderResult = UnittestDropUnknownFields.FooWithExtraFields()
-      return self
-    }
-    internal override func clone() -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
-      return UnittestDropUnknownFields.FooWithExtraFields.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> UnittestDropUnknownFields.FooWithExtraFields {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> UnittestDropUnknownFields.FooWithExtraFields {
-      var returnMe:UnittestDropUnknownFields.FooWithExtraFields = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:UnittestDropUnknownFields.FooWithExtraFields) -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
-      if other == UnittestDropUnknownFields.FooWithExtraFields() {
-       return self
-      }
-      if other.hasInt32Value {
-           int32Value = other.int32Value
-      }
-      if other.hasEnumValue {
-           enumValue = other.enumValue
-      }
-      if other.hasExtraInt32Value {
-           extraInt32Value = other.extraInt32Value
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UnittestDropUnknownFields.FooWithExtraFieldsBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
+        var hasEnumValue:Bool{
+            get {
+                return builderResult.hasEnumValue
+            }
+        }
+        var enumValue:FooWithExtraFields.NestedEnum {
+            get {
+                return builderResult.enumValue
+            }
+            set (value) {
+                builderResult.hasEnumValue = true
+                builderResult.enumValue = value
+            }
+        }
+        internal func setEnumValue(value:FooWithExtraFields.NestedEnum) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+          self.enumValue = value
           return self
+        }
+        internal func clearEnumValue() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+           builderResult.hasEnumValue = false
+           builderResult.enumValue = .Foo
+           return self
+        }
+      var hasExtraInt32Value:Bool {
+           get {
+                return builderResult.hasExtraInt32Value
+           }
+      }
+      var extraInt32Value:Int32 {
+           get {
+                return builderResult.extraInt32Value
+           }
+           set (value) {
+               builderResult.hasExtraInt32Value = true
+               builderResult.extraInt32Value = value
+           }
+      }
+      func setExtraInt32Value(value:Int32) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+        self.extraInt32Value = value
+        return self
+      }
+      internal func clearExtraInt32Value() -> UnittestDropUnknownFields.FooWithExtraFields.Builder{
+           builderResult.hasExtraInt32Value = false
+           builderResult.extraInt32Value = Int32(0)
+           return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+        builderResult = UnittestDropUnknownFields.FooWithExtraFields()
+        return self
+      }
+      internal override func clone() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+        return UnittestDropUnknownFields.FooWithExtraFields.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> UnittestDropUnknownFields.FooWithExtraFields {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> UnittestDropUnknownFields.FooWithExtraFields {
+        var returnMe:UnittestDropUnknownFields.FooWithExtraFields = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:UnittestDropUnknownFields.FooWithExtraFields) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+        if other == UnittestDropUnknownFields.FooWithExtraFields() {
+         return self
+        }
+        if other.hasInt32Value {
+             int32Value = other.int32Value
+        }
+        if other.hasEnumValue {
+             enumValue = other.enumValue
+        }
+        if other.hasExtraInt32Value {
+             extraInt32Value = other.extraInt32Value
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 8 :
-          int32Value = input.readInt32()
+          case 8 :
+            int32Value = input.readInt32()
 
-        case 16 :
-          let valueIntenumValue = input.readEnum()
-          if let enumsenumValue = FooWithExtraFields.NestedEnum(rawValue:valueIntenumValue){
-               enumValue = enumsenumValue
-          } else {
-               unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntenumValue))
-          }
+          case 16 :
+            let valueIntenumValue = input.readEnum()
+            if let enumsenumValue = FooWithExtraFields.NestedEnum(rawValue:valueIntenumValue){
+                 enumValue = enumsenumValue
+            } else {
+                 unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntenumValue))
+            }
 
-        case 24 :
-          extraInt32Value = input.readInt32()
+          case 24 :
+            extraInt32Value = input.readInt32()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

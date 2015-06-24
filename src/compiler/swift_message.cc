@@ -292,22 +292,22 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         GenerateParseFromMethodsSource(printer);
     
         printer->Print(variables_,
-                       "$acontrol$ class func builder() -> $classNameReturnedType$Builder {\n"
-                       "  return $classNameReturnedType$.classBuilder() as! $classNameReturnedType$Builder\n"
+                       "$acontrol$ class func builder() -> $classNameReturnedType$.Builder {\n"
+                       "  return $classNameReturnedType$.classBuilder() as! $classNameReturnedType$.Builder\n"
                        "}\n"
-                       "$acontrol$ func builder() -> $classNameReturnedType$Builder {\n"
-                       "  return classBuilder() as! $classNameReturnedType$Builder\n"
+                       "$acontrol$ func builder() -> $classNameReturnedType$.Builder {\n"
+                       "  return classBuilder() as! $classNameReturnedType$.Builder\n"
                        "}\n"
                        "$acontrol$ override class func classBuilder() -> MessageBuilder {\n"
-                       "  return $classNameReturnedType$Builder()\n"
+                       "  return $classNameReturnedType$.Builder()\n"
                        "}\n"
                        "$acontrol$ override func classBuilder() -> MessageBuilder {\n"
                        "  return $classNameReturnedType$.builder()\n"
                        "}\n"
-                       "$acontrol$ func toBuilder() -> $classNameReturnedType$Builder {\n"
+                       "$acontrol$ func toBuilder() -> $classNameReturnedType$.Builder {\n"
                        "  return $classNameReturnedType$.builderWithPrototype(self)\n"
                        "}\n"
-                       "$acontrol$ class func builderWithPrototype(prototype:$classNameReturnedType$) -> $classNameReturnedType$Builder {\n"
+                       "$acontrol$ class func builderWithPrototype(prototype:$classNameReturnedType$) -> $classNameReturnedType$.Builder {\n"
                        "  return $classNameReturnedType$.builder().mergeFrom(prototype)\n"
                        "}\n");
         
@@ -329,10 +329,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
         
         printer->Print("//Meta information declaration end\n\n");
+        GenerateBuilderSource(printer);
         printer->Outdent();
         printer->Print("}\n\n");
         
-        GenerateBuilderSource(printer);
+        
     }
     
     
@@ -626,10 +627,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(variables_,
-                           "final $acontrol$ class $className$Builder : ExtendableMessageBuilder {\n");
+                           "final $acontrol$ class Builder : ExtendableMessageBuilder {\n");
         } else {
             printer->Print(variables_,
-                           "final $acontrol$ class $className$Builder : GeneratedMessageBuilder {\n");
+                           "final $acontrol$ class Builder : GeneratedMessageBuilder {\n");
         }
         
         printer->Indent();
@@ -675,11 +676,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         printer->Print(variables_,
-                       "$acontrol$ override func clear() -> $classNameReturnedType$Builder {\n"
+                       "$acontrol$ override func clear() -> $classNameReturnedType$.Builder {\n"
                        "  builderResult = $classNameReturnedType$()\n"
                        "  return self\n"
                        "}\n"
-                       "$acontrol$ override func clone() -> $classNameReturnedType$Builder {\n"
+                       "$acontrol$ override func clone() -> $classNameReturnedType$.Builder {\n"
                        "  return $classNameReturnedType$.builderWithPrototype(builderResult)\n"
                        "}\n");
         
@@ -702,7 +703,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
         
         printer->Print(variables_,
-                       "$acontrol$ func mergeFrom(other:$classNameReturnedType$) -> $classNameReturnedType$Builder {\n");
+                       "$acontrol$ func mergeFrom(other:$classNameReturnedType$) -> $classNameReturnedType$.Builder {\n");
 
         printer->Indent();
         printer->Print(variables_,
@@ -733,10 +734,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
         
         printer->Print(variables_,
-                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream) -> $classNameReturnedType$Builder {\n"
+                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream) -> $classNameReturnedType$.Builder {\n"
                        "     return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
-                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classNameReturnedType$Builder {\n");
+                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classNameReturnedType$.Builder {\n");
         
         printer->Indent();
         printer->Print(

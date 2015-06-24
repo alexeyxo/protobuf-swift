@@ -79,22 +79,22 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
   internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ThreadingMessages {
     return ThreadingMessages.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  internal class func builder() -> ThreadingMessagesBuilder {
-    return ThreadingMessages.classBuilder() as! ThreadingMessagesBuilder
+  internal class func builder() -> ThreadingMessages.Builder {
+    return ThreadingMessages.classBuilder() as! ThreadingMessages.Builder
   }
-  internal func builder() -> ThreadingMessagesBuilder {
-    return classBuilder() as! ThreadingMessagesBuilder
+  internal func builder() -> ThreadingMessages.Builder {
+    return classBuilder() as! ThreadingMessages.Builder
   }
   internal override class func classBuilder() -> MessageBuilder {
-    return ThreadingMessagesBuilder()
+    return ThreadingMessages.Builder()
   }
   internal override func classBuilder() -> MessageBuilder {
     return ThreadingMessages.builder()
   }
-  internal func toBuilder() -> ThreadingMessagesBuilder {
+  internal func toBuilder() -> ThreadingMessages.Builder {
     return ThreadingMessages.builderWithPrototype(self)
   }
-  internal class func builderWithPrototype(prototype:ThreadingMessages) -> ThreadingMessagesBuilder {
+  internal class func builderWithPrototype(prototype:ThreadingMessages) -> ThreadingMessages.Builder {
     return ThreadingMessages.builder().mergeFrom(prototype)
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -128,93 +128,93 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
   }
   //Meta information declaration end
 
-}
+  final internal class Builder : GeneratedMessageBuilder {
+    private var builderResult:ThreadingMessages = ThreadingMessages()
+    internal func getMessage() -> ThreadingMessages {
+        return builderResult
+    }
 
-final internal class ThreadingMessagesBuilder : GeneratedMessageBuilder {
-  private var builderResult:ThreadingMessages = ThreadingMessages()
-  internal func getMessage() -> ThreadingMessages {
-      return builderResult
-  }
-
-  required override internal init () {
-     super.init()
-  }
-  var hasTestString:Bool {
-       get {
-            return builderResult.hasTestString
-       }
-  }
-  var testString:String {
-       get {
-            return builderResult.testString
-       }
-       set (value) {
-           builderResult.hasTestString = true
-           builderResult.testString = value
-       }
-  }
-  func setTestString(value:String) -> ThreadingMessagesBuilder {
-    self.testString = value
-    return self
-  }
-  internal func clearTestString() -> ThreadingMessagesBuilder{
-       builderResult.hasTestString = false
-       builderResult.testString = ""
+    required override internal init () {
+       super.init()
+    }
+    var hasTestString:Bool {
+         get {
+              return builderResult.hasTestString
+         }
+    }
+    var testString:String {
+         get {
+              return builderResult.testString
+         }
+         set (value) {
+             builderResult.hasTestString = true
+             builderResult.testString = value
+         }
+    }
+    func setTestString(value:String) -> ThreadingMessages.Builder {
+      self.testString = value
+      return self
+    }
+    internal func clearTestString() -> ThreadingMessages.Builder{
+         builderResult.hasTestString = false
+         builderResult.testString = ""
+         return self
+    }
+    override internal var internalGetResult:GeneratedMessage {
+         get {
+            return builderResult
+         }
+    }
+    internal override func clear() -> ThreadingMessages.Builder {
+      builderResult = ThreadingMessages()
+      return self
+    }
+    internal override func clone() -> ThreadingMessages.Builder {
+      return ThreadingMessages.builderWithPrototype(builderResult)
+    }
+    internal override func build() -> ThreadingMessages {
+         checkInitialized()
+         return buildPartial()
+    }
+    internal func buildPartial() -> ThreadingMessages {
+      var returnMe:ThreadingMessages = builderResult
+      return returnMe
+    }
+    internal func mergeFrom(other:ThreadingMessages) -> ThreadingMessages.Builder {
+      if other == ThreadingMessages() {
        return self
-  }
-  override internal var internalGetResult:GeneratedMessage {
-       get {
-          return builderResult
-       }
-  }
-  internal override func clear() -> ThreadingMessagesBuilder {
-    builderResult = ThreadingMessages()
-    return self
-  }
-  internal override func clone() -> ThreadingMessagesBuilder {
-    return ThreadingMessages.builderWithPrototype(builderResult)
-  }
-  internal override func build() -> ThreadingMessages {
-       checkInitialized()
-       return buildPartial()
-  }
-  internal func buildPartial() -> ThreadingMessages {
-    var returnMe:ThreadingMessages = builderResult
-    return returnMe
-  }
-  internal func mergeFrom(other:ThreadingMessages) -> ThreadingMessagesBuilder {
-    if other == ThreadingMessages() {
-     return self
+      }
+      if other.hasTestString {
+           testString = other.testString
+      }
+      mergeUnknownFields(other.unknownFields)
+      return self
     }
-    if other.hasTestString {
-         testString = other.testString
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ThreadingMessages.Builder {
+         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    mergeUnknownFields(other.unknownFields)
-    return self
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ThreadingMessagesBuilder {
-       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-  }
-  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ThreadingMessagesBuilder {
-    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-    while (true) {
-      var tag = input.readTag()
-      switch tag {
-      case 0: 
-        self.unknownFields = unknownFieldsBuilder.build()
-        return self
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ThreadingMessages.Builder {
+      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      while (true) {
+        var tag = input.readTag()
+        switch tag {
+        case 0: 
+          self.unknownFields = unknownFieldsBuilder.build()
+          return self
 
-      case 10 :
-        testString = input.readString()
+        case 10 :
+          testString = input.readString()
 
-      default:
-        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-           unknownFields = unknownFieldsBuilder.build()
-           return self
+        default:
+          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+             unknownFields = unknownFieldsBuilder.build()
+             return self
+          }
         }
       }
     }
   }
+
 }
 
 

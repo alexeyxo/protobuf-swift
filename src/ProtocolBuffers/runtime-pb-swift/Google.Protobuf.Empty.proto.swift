@@ -72,22 +72,22 @@ internal extension Google.Protobuf {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Empty {
       return Google.Protobuf.Empty.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Google.Protobuf.EmptyBuilder {
-      return Google.Protobuf.Empty.classBuilder() as! Google.Protobuf.EmptyBuilder
+    internal class func builder() -> Google.Protobuf.Empty.Builder {
+      return Google.Protobuf.Empty.classBuilder() as! Google.Protobuf.Empty.Builder
     }
-    internal func builder() -> Google.Protobuf.EmptyBuilder {
-      return classBuilder() as! Google.Protobuf.EmptyBuilder
+    internal func builder() -> Google.Protobuf.Empty.Builder {
+      return classBuilder() as! Google.Protobuf.Empty.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.EmptyBuilder()
+      return Google.Protobuf.Empty.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Empty.builder()
     }
-    internal func toBuilder() -> Google.Protobuf.EmptyBuilder {
+    internal func toBuilder() -> Google.Protobuf.Empty.Builder {
       return Google.Protobuf.Empty.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Google.Protobuf.Empty) -> Google.Protobuf.EmptyBuilder {
+    internal class func builderWithPrototype(prototype:Google.Protobuf.Empty) -> Google.Protobuf.Empty.Builder {
       return Google.Protobuf.Empty.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -115,64 +115,64 @@ internal extension Google.Protobuf {
     }
     //Meta information declaration end
 
-  }
-
-  final internal class EmptyBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Empty = Google.Protobuf.Empty()
-    internal func getMessage() -> Google.Protobuf.Empty {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> Google.Protobuf.EmptyBuilder {
-      builderResult = Google.Protobuf.Empty()
-      return self
-    }
-    internal override func clone() -> Google.Protobuf.EmptyBuilder {
-      return Google.Protobuf.Empty.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> Google.Protobuf.Empty {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> Google.Protobuf.Empty {
-      var returnMe:Google.Protobuf.Empty = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:Google.Protobuf.Empty) -> Google.Protobuf.EmptyBuilder {
-      if other == Google.Protobuf.Empty() {
-       return self
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:Google.Protobuf.Empty = Google.Protobuf.Empty()
+      internal func getMessage() -> Google.Protobuf.Empty {
+          return builderResult
       }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.EmptyBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EmptyBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+      required override internal init () {
+         super.init()
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> Google.Protobuf.Empty.Builder {
+        builderResult = Google.Protobuf.Empty()
+        return self
+      }
+      internal override func clone() -> Google.Protobuf.Empty.Builder {
+        return Google.Protobuf.Empty.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> Google.Protobuf.Empty {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> Google.Protobuf.Empty {
+        var returnMe:Google.Protobuf.Empty = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:Google.Protobuf.Empty) -> Google.Protobuf.Empty.Builder {
+        if other == Google.Protobuf.Empty() {
+         return self
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Empty.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      }
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Empty.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
+
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }

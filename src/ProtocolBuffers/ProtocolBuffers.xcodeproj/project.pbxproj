@@ -117,8 +117,6 @@
 		3FF8D3C61B121F5F008D40C3 /* Proto2NofieldpresenceUnittest.UnittestNoFieldPresence.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8D3AB1B121F5F008D40C3 /* Proto2NofieldpresenceUnittest.UnittestNoFieldPresence.proto.swift */; };
 		3FF8D3C71B121F5F008D40C3 /* Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnum.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8D3AC1B121F5F008D40C3 /* Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnum.proto.swift */; };
 		3FF8D3C81B121F5F008D40C3 /* Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnum.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8D3AC1B121F5F008D40C3 /* Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnum.proto.swift */; };
-		3FF8D3C91B121F5F008D40C3 /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8D3AD1B121F5F008D40C3 /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift */; };
-		3FF8D3CA1B121F5F008D40C3 /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8D3AD1B121F5F008D40C3 /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift */; };
 		3FF8D3CB1B121F5F008D40C3 /* ProtobufUnittest.UnittestCustomOptions.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8D3AE1B121F5F008D40C3 /* ProtobufUnittest.UnittestCustomOptions.proto.swift */; };
 		3FF8D3CC1B121F5F008D40C3 /* ProtobufUnittest.UnittestCustomOptions.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8D3AE1B121F5F008D40C3 /* ProtobufUnittest.UnittestCustomOptions.proto.swift */; };
 		3FF8D3CD1B121F5F008D40C3 /* ProtobufUnittest.UnittestEmbedOptimizeFor.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8D3AF1B121F5F008D40C3 /* ProtobufUnittest.UnittestEmbedOptimizeFor.proto.swift */; };
@@ -250,7 +248,6 @@
 		3FF8D3AA1B121F5F008D40C3 /* Proto2ArenaUnittest.UnittestNoArenaImport.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proto2ArenaUnittest.UnittestNoArenaImport.proto.swift; sourceTree = "<group>"; };
 		3FF8D3AB1B121F5F008D40C3 /* Proto2NofieldpresenceUnittest.UnittestNoFieldPresence.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proto2NofieldpresenceUnittest.UnittestNoFieldPresence.proto.swift; sourceTree = "<group>"; };
 		3FF8D3AC1B121F5F008D40C3 /* Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnum.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnum.proto.swift; sourceTree = "<group>"; };
-		3FF8D3AD1B121F5F008D40C3 /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proto3ArenaUnittest.UnittestProto3Arena.proto.swift; sourceTree = "<group>"; };
 		3FF8D3AE1B121F5F008D40C3 /* ProtobufUnittest.UnittestCustomOptions.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufUnittest.UnittestCustomOptions.proto.swift; sourceTree = "<group>"; };
 		3FF8D3AF1B121F5F008D40C3 /* ProtobufUnittest.UnittestEmbedOptimizeFor.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufUnittest.UnittestEmbedOptimizeFor.proto.swift; sourceTree = "<group>"; };
 		3FF8D3B01B121F5F008D40C3 /* ProtobufUnittest.UnittestLite.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufUnittest.UnittestLite.proto.swift; sourceTree = "<group>"; };
@@ -311,7 +308,6 @@
 				3FF8D3AA1B121F5F008D40C3 /* Proto2ArenaUnittest.UnittestNoArenaImport.proto.swift */,
 				3FF8D3AB1B121F5F008D40C3 /* Proto2NofieldpresenceUnittest.UnittestNoFieldPresence.proto.swift */,
 				3FF8D3AC1B121F5F008D40C3 /* Proto2PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnum.proto.swift */,
-				3FF8D3AD1B121F5F008D40C3 /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift */,
 				3FF8D3AE1B121F5F008D40C3 /* ProtobufUnittest.UnittestCustomOptions.proto.swift */,
 				3FF8D3AF1B121F5F008D40C3 /* ProtobufUnittest.UnittestEmbedOptimizeFor.proto.swift */,
 				3FF8D3B01B121F5F008D40C3 /* ProtobufUnittest.UnittestLite.proto.swift */,
@@ -703,7 +699,6 @@
 			files = (
 				3FC5190F1B1C7EB100436FA6 /* ThreadingTest.swift in Sources */,
 				3FF8D3DE1B121F5F008D40C3 /* UnittestDropUnknownFields.UnittestDropUnknownFields.proto.swift in Sources */,
-				3FF8D3CA1B121F5F008D40C3 /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift in Sources */,
 				3FF8D3D21B121F5F008D40C3 /* ProtobufUnittest.UnittestLiteImportsNonlite.proto.swift in Sources */,
 				3FC519121B1C7FFA00436FA6 /* UnittestThreading.proto.swift in Sources */,
 				3FF8D3CE1B121F5F008D40C3 /* ProtobufUnittest.UnittestEmbedOptimizeFor.proto.swift in Sources */,
@@ -779,7 +774,6 @@
 			files = (
 				3FC5190E1B1C7EB100436FA6 /* ThreadingTest.swift in Sources */,
 				3FF8D3DD1B121F5F008D40C3 /* UnittestDropUnknownFields.UnittestDropUnknownFields.proto.swift in Sources */,
-				3FF8D3C91B121F5F008D40C3 /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift in Sources */,
 				3FF8D3D11B121F5F008D40C3 /* ProtobufUnittest.UnittestLiteImportsNonlite.proto.swift in Sources */,
 				3FC519111B1C7FFA00436FA6 /* UnittestThreading.proto.swift in Sources */,
 				3FF8D3CD1B121F5F008D40C3 /* ProtobufUnittest.UnittestEmbedOptimizeFor.proto.swift in Sources */,

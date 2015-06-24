@@ -135,22 +135,22 @@ internal extension Google.Protobuf {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Api {
       return Google.Protobuf.Api.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Google.Protobuf.ApiBuilder {
-      return Google.Protobuf.Api.classBuilder() as! Google.Protobuf.ApiBuilder
+    internal class func builder() -> Google.Protobuf.Api.Builder {
+      return Google.Protobuf.Api.classBuilder() as! Google.Protobuf.Api.Builder
     }
-    internal func builder() -> Google.Protobuf.ApiBuilder {
-      return classBuilder() as! Google.Protobuf.ApiBuilder
+    internal func builder() -> Google.Protobuf.Api.Builder {
+      return classBuilder() as! Google.Protobuf.Api.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.ApiBuilder()
+      return Google.Protobuf.Api.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Api.builder()
     }
-    internal func toBuilder() -> Google.Protobuf.ApiBuilder {
+    internal func toBuilder() -> Google.Protobuf.Api.Builder {
       return Google.Protobuf.Api.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Google.Protobuf.Api) -> Google.Protobuf.ApiBuilder {
+    internal class func builderWithPrototype(prototype:Google.Protobuf.Api) -> Google.Protobuf.Api.Builder {
       return Google.Protobuf.Api.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -220,232 +220,232 @@ internal extension Google.Protobuf {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:Google.Protobuf.Api = Google.Protobuf.Api()
+      internal func getMessage() -> Google.Protobuf.Api {
+          return builderResult
+      }
 
-  final internal class ApiBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Api = Google.Protobuf.Api()
-    internal func getMessage() -> Google.Protobuf.Api {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasName:Bool {
-         get {
-              return builderResult.hasName
-         }
-    }
-    var name:String {
-         get {
-              return builderResult.name
-         }
-         set (value) {
-             builderResult.hasName = true
-             builderResult.name = value
-         }
-    }
-    func setName(value:String) -> Google.Protobuf.ApiBuilder {
-      self.name = value
-      return self
-    }
-    internal func clearName() -> Google.Protobuf.ApiBuilder{
-         builderResult.hasName = false
-         builderResult.name = ""
+      required override internal init () {
+         super.init()
+      }
+      var hasName:Bool {
+           get {
+                return builderResult.hasName
+           }
+      }
+      var name:String {
+           get {
+                return builderResult.name
+           }
+           set (value) {
+               builderResult.hasName = true
+               builderResult.name = value
+           }
+      }
+      func setName(value:String) -> Google.Protobuf.Api.Builder {
+        self.name = value
+        return self
+      }
+      internal func clearName() -> Google.Protobuf.Api.Builder{
+           builderResult.hasName = false
+           builderResult.name = ""
+           return self
+      }
+      var methods:Array<Google.Protobuf.Method> {
+           get {
+               return builderResult.methods
+           }
+           set (value) {
+               builderResult.methods = value
+           }
+      }
+      func setMethods(value:Array<Google.Protobuf.Method>) -> Google.Protobuf.Api.Builder {
+        self.methods = value
+        return self
+      }
+      internal func clearMethods() -> Google.Protobuf.Api.Builder {
+        builderResult.methods.removeAll(keepCapacity: false)
+        return self
+      }
+      var options:Array<Google.Protobuf.Option> {
+           get {
+               return builderResult.options
+           }
+           set (value) {
+               builderResult.options = value
+           }
+      }
+      func setOptions(value:Array<Google.Protobuf.Option>) -> Google.Protobuf.Api.Builder {
+        self.options = value
+        return self
+      }
+      internal func clearOptions() -> Google.Protobuf.Api.Builder {
+        builderResult.options.removeAll(keepCapacity: false)
+        return self
+      }
+      var hasVersion:Bool {
+           get {
+                return builderResult.hasVersion
+           }
+      }
+      var version:String {
+           get {
+                return builderResult.version
+           }
+           set (value) {
+               builderResult.hasVersion = true
+               builderResult.version = value
+           }
+      }
+      func setVersion(value:String) -> Google.Protobuf.Api.Builder {
+        self.version = value
+        return self
+      }
+      internal func clearVersion() -> Google.Protobuf.Api.Builder{
+           builderResult.hasVersion = false
+           builderResult.version = ""
+           return self
+      }
+      var hasSourceContext:Bool {
+           get {
+               return builderResult.hasSourceContext
+           }
+      }
+      var sourceContext:Google.Protobuf.SourceContext! {
+           get {
+               if sourceContextBuilder_ != nil {
+                  builderResult.sourceContext = sourceContextBuilder_.getMessage()
+               }
+               return builderResult.sourceContext
+           }
+           set (value) {
+               builderResult.hasSourceContext = true
+               builderResult.sourceContext = value
+           }
+      }
+      private var sourceContextBuilder_:Google.Protobuf.SourceContext.Builder! {
+           didSet {
+              builderResult.hasSourceContext = true
+           }
+      }
+      internal func getSourceContextBuilder() -> Google.Protobuf.SourceContext.Builder {
+        if sourceContextBuilder_ == nil {
+           sourceContextBuilder_ = Google.Protobuf.SourceContext.Builder()
+           builderResult.sourceContext = sourceContextBuilder_.getMessage()
+           if sourceContext != nil {
+              sourceContextBuilder_.mergeFrom(sourceContext)
+           }
+        }
+        return sourceContextBuilder_
+      }
+      func setSourceContext(value:Google.Protobuf.SourceContext!) -> Google.Protobuf.Api.Builder {
+        self.sourceContext = value
+        return self
+      }
+      internal func mergeSourceContext(value:Google.Protobuf.SourceContext) -> Google.Protobuf.Api.Builder {
+        if builderResult.hasSourceContext {
+          builderResult.sourceContext = Google.Protobuf.SourceContext.builderWithPrototype(builderResult.sourceContext).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.sourceContext = value
+        }
+        builderResult.hasSourceContext = true
+        return self
+      }
+      internal func clearSourceContext() -> Google.Protobuf.Api.Builder {
+        sourceContextBuilder_ = nil
+        builderResult.hasSourceContext = false
+        builderResult.sourceContext = nil
+        return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> Google.Protobuf.Api.Builder {
+        builderResult = Google.Protobuf.Api()
+        return self
+      }
+      internal override func clone() -> Google.Protobuf.Api.Builder {
+        return Google.Protobuf.Api.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> Google.Protobuf.Api {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> Google.Protobuf.Api {
+        var returnMe:Google.Protobuf.Api = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:Google.Protobuf.Api) -> Google.Protobuf.Api.Builder {
+        if other == Google.Protobuf.Api() {
          return self
-    }
-    var methods:Array<Google.Protobuf.Method> {
-         get {
-             return builderResult.methods
-         }
-         set (value) {
-             builderResult.methods = value
-         }
-    }
-    func setMethods(value:Array<Google.Protobuf.Method>) -> Google.Protobuf.ApiBuilder {
-      self.methods = value
-      return self
-    }
-    internal func clearMethods() -> Google.Protobuf.ApiBuilder {
-      builderResult.methods.removeAll(keepCapacity: false)
-      return self
-    }
-    var options:Array<Google.Protobuf.Option> {
-         get {
-             return builderResult.options
-         }
-         set (value) {
-             builderResult.options = value
-         }
-    }
-    func setOptions(value:Array<Google.Protobuf.Option>) -> Google.Protobuf.ApiBuilder {
-      self.options = value
-      return self
-    }
-    internal func clearOptions() -> Google.Protobuf.ApiBuilder {
-      builderResult.options.removeAll(keepCapacity: false)
-      return self
-    }
-    var hasVersion:Bool {
-         get {
-              return builderResult.hasVersion
-         }
-    }
-    var version:String {
-         get {
-              return builderResult.version
-         }
-         set (value) {
-             builderResult.hasVersion = true
-             builderResult.version = value
-         }
-    }
-    func setVersion(value:String) -> Google.Protobuf.ApiBuilder {
-      self.version = value
-      return self
-    }
-    internal func clearVersion() -> Google.Protobuf.ApiBuilder{
-         builderResult.hasVersion = false
-         builderResult.version = ""
-         return self
-    }
-    var hasSourceContext:Bool {
-         get {
-             return builderResult.hasSourceContext
-         }
-    }
-    var sourceContext:Google.Protobuf.SourceContext! {
-         get {
-             if sourceContextBuilder_ != nil {
-                builderResult.sourceContext = sourceContextBuilder_.getMessage()
-             }
-             return builderResult.sourceContext
-         }
-         set (value) {
-             builderResult.hasSourceContext = true
-             builderResult.sourceContext = value
-         }
-    }
-    private var sourceContextBuilder_:Google.Protobuf.SourceContextBuilder! {
-         didSet {
-            builderResult.hasSourceContext = true
-         }
-    }
-    internal func getSourceContextBuilder() -> Google.Protobuf.SourceContextBuilder {
-      if sourceContextBuilder_ == nil {
-         sourceContextBuilder_ = Google.Protobuf.SourceContextBuilder()
-         builderResult.sourceContext = sourceContextBuilder_.getMessage()
-         if sourceContext != nil {
-            sourceContextBuilder_.mergeFrom(sourceContext)
-         }
+        }
+        if other.hasName {
+             name = other.name
+        }
+        if !other.methods.isEmpty  {
+           builderResult.methods += other.methods
+        }
+        if !other.options.isEmpty  {
+           builderResult.options += other.options
+        }
+        if other.hasVersion {
+             version = other.version
+        }
+        if (other.hasSourceContext) {
+            mergeSourceContext(other.sourceContext)
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      return sourceContextBuilder_
-    }
-    func setSourceContext(value:Google.Protobuf.SourceContext!) -> Google.Protobuf.ApiBuilder {
-      self.sourceContext = value
-      return self
-    }
-    internal func mergeSourceContext(value:Google.Protobuf.SourceContext) -> Google.Protobuf.ApiBuilder {
-      if builderResult.hasSourceContext {
-        builderResult.sourceContext = Google.Protobuf.SourceContext.builderWithPrototype(builderResult.sourceContext).mergeFrom(value).buildPartial()
-      } else {
-        builderResult.sourceContext = value
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Api.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      builderResult.hasSourceContext = true
-      return self
-    }
-    internal func clearSourceContext() -> Google.Protobuf.ApiBuilder {
-      sourceContextBuilder_ = nil
-      builderResult.hasSourceContext = false
-      builderResult.sourceContext = nil
-      return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> Google.Protobuf.ApiBuilder {
-      builderResult = Google.Protobuf.Api()
-      return self
-    }
-    internal override func clone() -> Google.Protobuf.ApiBuilder {
-      return Google.Protobuf.Api.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> Google.Protobuf.Api {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> Google.Protobuf.Api {
-      var returnMe:Google.Protobuf.Api = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:Google.Protobuf.Api) -> Google.Protobuf.ApiBuilder {
-      if other == Google.Protobuf.Api() {
-       return self
-      }
-      if other.hasName {
-           name = other.name
-      }
-      if !other.methods.isEmpty  {
-         builderResult.methods += other.methods
-      }
-      if !other.options.isEmpty  {
-         builderResult.options += other.options
-      }
-      if other.hasVersion {
-           version = other.version
-      }
-      if (other.hasSourceContext) {
-          mergeSourceContext(other.sourceContext)
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.ApiBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ApiBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Api.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 10 :
-          name = input.readString()
+          case 10 :
+            name = input.readString()
 
-        case 18 :
-          var subBuilder = Google.Protobuf.Method.builder()
-          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-          methods += [subBuilder.buildPartial()]
+          case 18 :
+            var subBuilder = Google.Protobuf.Method.builder()
+            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            methods += [subBuilder.buildPartial()]
 
-        case 26 :
-          var subBuilder = Google.Protobuf.Option.builder()
-          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-          options += [subBuilder.buildPartial()]
+          case 26 :
+            var subBuilder = Google.Protobuf.Option.builder()
+            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            options += [subBuilder.buildPartial()]
 
-        case 34 :
-          version = input.readString()
+          case 34 :
+            version = input.readString()
 
-        case 42 :
-          var subBuilder:Google.Protobuf.SourceContextBuilder = Google.Protobuf.SourceContext.builder()
-          if hasSourceContext {
-            subBuilder.mergeFrom(sourceContext)
-          }
-          input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-          sourceContext = subBuilder.buildPartial()
+          case 42 :
+            var subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.builder()
+            if hasSourceContext {
+              subBuilder.mergeFrom(sourceContext)
+            }
+            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            sourceContext = subBuilder.buildPartial()
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
   final internal class Method : GeneratedMessage, GeneratedMessageProtocol, Hashable {
@@ -539,22 +539,22 @@ internal extension Google.Protobuf {
     internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Method {
       return Google.Protobuf.Method.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func builder() -> Google.Protobuf.MethodBuilder {
-      return Google.Protobuf.Method.classBuilder() as! Google.Protobuf.MethodBuilder
+    internal class func builder() -> Google.Protobuf.Method.Builder {
+      return Google.Protobuf.Method.classBuilder() as! Google.Protobuf.Method.Builder
     }
-    internal func builder() -> Google.Protobuf.MethodBuilder {
-      return classBuilder() as! Google.Protobuf.MethodBuilder
+    internal func builder() -> Google.Protobuf.Method.Builder {
+      return classBuilder() as! Google.Protobuf.Method.Builder
     }
     internal override class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.MethodBuilder()
+      return Google.Protobuf.Method.Builder()
     }
     internal override func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Method.builder()
     }
-    internal func toBuilder() -> Google.Protobuf.MethodBuilder {
+    internal func toBuilder() -> Google.Protobuf.Method.Builder {
       return Google.Protobuf.Method.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Google.Protobuf.Method) -> Google.Protobuf.MethodBuilder {
+    internal class func builderWithPrototype(prototype:Google.Protobuf.Method) -> Google.Protobuf.Method.Builder {
       return Google.Protobuf.Method.builder().mergeFrom(prototype)
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) {
@@ -622,233 +622,233 @@ internal extension Google.Protobuf {
     }
     //Meta information declaration end
 
-  }
+    final internal class Builder : GeneratedMessageBuilder {
+      private var builderResult:Google.Protobuf.Method = Google.Protobuf.Method()
+      internal func getMessage() -> Google.Protobuf.Method {
+          return builderResult
+      }
 
-  final internal class MethodBuilder : GeneratedMessageBuilder {
-    private var builderResult:Google.Protobuf.Method = Google.Protobuf.Method()
-    internal func getMessage() -> Google.Protobuf.Method {
-        return builderResult
-    }
-
-    required override internal init () {
-       super.init()
-    }
-    var hasName:Bool {
-         get {
-              return builderResult.hasName
-         }
-    }
-    var name:String {
-         get {
-              return builderResult.name
-         }
-         set (value) {
-             builderResult.hasName = true
-             builderResult.name = value
-         }
-    }
-    func setName(value:String) -> Google.Protobuf.MethodBuilder {
-      self.name = value
-      return self
-    }
-    internal func clearName() -> Google.Protobuf.MethodBuilder{
-         builderResult.hasName = false
-         builderResult.name = ""
+      required override internal init () {
+         super.init()
+      }
+      var hasName:Bool {
+           get {
+                return builderResult.hasName
+           }
+      }
+      var name:String {
+           get {
+                return builderResult.name
+           }
+           set (value) {
+               builderResult.hasName = true
+               builderResult.name = value
+           }
+      }
+      func setName(value:String) -> Google.Protobuf.Method.Builder {
+        self.name = value
+        return self
+      }
+      internal func clearName() -> Google.Protobuf.Method.Builder{
+           builderResult.hasName = false
+           builderResult.name = ""
+           return self
+      }
+      var hasRequestTypeUrl:Bool {
+           get {
+                return builderResult.hasRequestTypeUrl
+           }
+      }
+      var requestTypeUrl:String {
+           get {
+                return builderResult.requestTypeUrl
+           }
+           set (value) {
+               builderResult.hasRequestTypeUrl = true
+               builderResult.requestTypeUrl = value
+           }
+      }
+      func setRequestTypeUrl(value:String) -> Google.Protobuf.Method.Builder {
+        self.requestTypeUrl = value
+        return self
+      }
+      internal func clearRequestTypeUrl() -> Google.Protobuf.Method.Builder{
+           builderResult.hasRequestTypeUrl = false
+           builderResult.requestTypeUrl = ""
+           return self
+      }
+      var hasRequestStreaming:Bool {
+           get {
+                return builderResult.hasRequestStreaming
+           }
+      }
+      var requestStreaming:Bool {
+           get {
+                return builderResult.requestStreaming
+           }
+           set (value) {
+               builderResult.hasRequestStreaming = true
+               builderResult.requestStreaming = value
+           }
+      }
+      func setRequestStreaming(value:Bool) -> Google.Protobuf.Method.Builder {
+        self.requestStreaming = value
+        return self
+      }
+      internal func clearRequestStreaming() -> Google.Protobuf.Method.Builder{
+           builderResult.hasRequestStreaming = false
+           builderResult.requestStreaming = false
+           return self
+      }
+      var hasResponseTypeUrl:Bool {
+           get {
+                return builderResult.hasResponseTypeUrl
+           }
+      }
+      var responseTypeUrl:String {
+           get {
+                return builderResult.responseTypeUrl
+           }
+           set (value) {
+               builderResult.hasResponseTypeUrl = true
+               builderResult.responseTypeUrl = value
+           }
+      }
+      func setResponseTypeUrl(value:String) -> Google.Protobuf.Method.Builder {
+        self.responseTypeUrl = value
+        return self
+      }
+      internal func clearResponseTypeUrl() -> Google.Protobuf.Method.Builder{
+           builderResult.hasResponseTypeUrl = false
+           builderResult.responseTypeUrl = ""
+           return self
+      }
+      var hasResponseStreaming:Bool {
+           get {
+                return builderResult.hasResponseStreaming
+           }
+      }
+      var responseStreaming:Bool {
+           get {
+                return builderResult.responseStreaming
+           }
+           set (value) {
+               builderResult.hasResponseStreaming = true
+               builderResult.responseStreaming = value
+           }
+      }
+      func setResponseStreaming(value:Bool) -> Google.Protobuf.Method.Builder {
+        self.responseStreaming = value
+        return self
+      }
+      internal func clearResponseStreaming() -> Google.Protobuf.Method.Builder{
+           builderResult.hasResponseStreaming = false
+           builderResult.responseStreaming = false
+           return self
+      }
+      var options:Array<Google.Protobuf.Option> {
+           get {
+               return builderResult.options
+           }
+           set (value) {
+               builderResult.options = value
+           }
+      }
+      func setOptions(value:Array<Google.Protobuf.Option>) -> Google.Protobuf.Method.Builder {
+        self.options = value
+        return self
+      }
+      internal func clearOptions() -> Google.Protobuf.Method.Builder {
+        builderResult.options.removeAll(keepCapacity: false)
+        return self
+      }
+      override internal var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      internal override func clear() -> Google.Protobuf.Method.Builder {
+        builderResult = Google.Protobuf.Method()
+        return self
+      }
+      internal override func clone() -> Google.Protobuf.Method.Builder {
+        return Google.Protobuf.Method.builderWithPrototype(builderResult)
+      }
+      internal override func build() -> Google.Protobuf.Method {
+           checkInitialized()
+           return buildPartial()
+      }
+      internal func buildPartial() -> Google.Protobuf.Method {
+        var returnMe:Google.Protobuf.Method = builderResult
+        return returnMe
+      }
+      internal func mergeFrom(other:Google.Protobuf.Method) -> Google.Protobuf.Method.Builder {
+        if other == Google.Protobuf.Method() {
          return self
-    }
-    var hasRequestTypeUrl:Bool {
-         get {
-              return builderResult.hasRequestTypeUrl
-         }
-    }
-    var requestTypeUrl:String {
-         get {
-              return builderResult.requestTypeUrl
-         }
-         set (value) {
-             builderResult.hasRequestTypeUrl = true
-             builderResult.requestTypeUrl = value
-         }
-    }
-    func setRequestTypeUrl(value:String) -> Google.Protobuf.MethodBuilder {
-      self.requestTypeUrl = value
-      return self
-    }
-    internal func clearRequestTypeUrl() -> Google.Protobuf.MethodBuilder{
-         builderResult.hasRequestTypeUrl = false
-         builderResult.requestTypeUrl = ""
-         return self
-    }
-    var hasRequestStreaming:Bool {
-         get {
-              return builderResult.hasRequestStreaming
-         }
-    }
-    var requestStreaming:Bool {
-         get {
-              return builderResult.requestStreaming
-         }
-         set (value) {
-             builderResult.hasRequestStreaming = true
-             builderResult.requestStreaming = value
-         }
-    }
-    func setRequestStreaming(value:Bool) -> Google.Protobuf.MethodBuilder {
-      self.requestStreaming = value
-      return self
-    }
-    internal func clearRequestStreaming() -> Google.Protobuf.MethodBuilder{
-         builderResult.hasRequestStreaming = false
-         builderResult.requestStreaming = false
-         return self
-    }
-    var hasResponseTypeUrl:Bool {
-         get {
-              return builderResult.hasResponseTypeUrl
-         }
-    }
-    var responseTypeUrl:String {
-         get {
-              return builderResult.responseTypeUrl
-         }
-         set (value) {
-             builderResult.hasResponseTypeUrl = true
-             builderResult.responseTypeUrl = value
-         }
-    }
-    func setResponseTypeUrl(value:String) -> Google.Protobuf.MethodBuilder {
-      self.responseTypeUrl = value
-      return self
-    }
-    internal func clearResponseTypeUrl() -> Google.Protobuf.MethodBuilder{
-         builderResult.hasResponseTypeUrl = false
-         builderResult.responseTypeUrl = ""
-         return self
-    }
-    var hasResponseStreaming:Bool {
-         get {
-              return builderResult.hasResponseStreaming
-         }
-    }
-    var responseStreaming:Bool {
-         get {
-              return builderResult.responseStreaming
-         }
-         set (value) {
-             builderResult.hasResponseStreaming = true
-             builderResult.responseStreaming = value
-         }
-    }
-    func setResponseStreaming(value:Bool) -> Google.Protobuf.MethodBuilder {
-      self.responseStreaming = value
-      return self
-    }
-    internal func clearResponseStreaming() -> Google.Protobuf.MethodBuilder{
-         builderResult.hasResponseStreaming = false
-         builderResult.responseStreaming = false
-         return self
-    }
-    var options:Array<Google.Protobuf.Option> {
-         get {
-             return builderResult.options
-         }
-         set (value) {
-             builderResult.options = value
-         }
-    }
-    func setOptions(value:Array<Google.Protobuf.Option>) -> Google.Protobuf.MethodBuilder {
-      self.options = value
-      return self
-    }
-    internal func clearOptions() -> Google.Protobuf.MethodBuilder {
-      builderResult.options.removeAll(keepCapacity: false)
-      return self
-    }
-    override internal var internalGetResult:GeneratedMessage {
-         get {
-            return builderResult
-         }
-    }
-    internal override func clear() -> Google.Protobuf.MethodBuilder {
-      builderResult = Google.Protobuf.Method()
-      return self
-    }
-    internal override func clone() -> Google.Protobuf.MethodBuilder {
-      return Google.Protobuf.Method.builderWithPrototype(builderResult)
-    }
-    internal override func build() -> Google.Protobuf.Method {
-         checkInitialized()
-         return buildPartial()
-    }
-    internal func buildPartial() -> Google.Protobuf.Method {
-      var returnMe:Google.Protobuf.Method = builderResult
-      return returnMe
-    }
-    internal func mergeFrom(other:Google.Protobuf.Method) -> Google.Protobuf.MethodBuilder {
-      if other == Google.Protobuf.Method() {
-       return self
+        }
+        if other.hasName {
+             name = other.name
+        }
+        if other.hasRequestTypeUrl {
+             requestTypeUrl = other.requestTypeUrl
+        }
+        if other.hasRequestStreaming {
+             requestStreaming = other.requestStreaming
+        }
+        if other.hasResponseTypeUrl {
+             responseTypeUrl = other.responseTypeUrl
+        }
+        if other.hasResponseStreaming {
+             responseStreaming = other.responseStreaming
+        }
+        if !other.options.isEmpty  {
+           builderResult.options += other.options
+        }
+        mergeUnknownFields(other.unknownFields)
+        return self
       }
-      if other.hasName {
-           name = other.name
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Method.Builder {
+           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      if other.hasRequestTypeUrl {
-           requestTypeUrl = other.requestTypeUrl
-      }
-      if other.hasRequestStreaming {
-           requestStreaming = other.requestStreaming
-      }
-      if other.hasResponseTypeUrl {
-           responseTypeUrl = other.responseTypeUrl
-      }
-      if other.hasResponseStreaming {
-           responseStreaming = other.responseStreaming
-      }
-      if !other.options.isEmpty  {
-         builderResult.options += other.options
-      }
-      mergeUnknownFields(other.unknownFields)
-      return self
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.MethodBuilder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-    }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MethodBuilder {
-      var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-      while (true) {
-        var tag = input.readTag()
-        switch tag {
-        case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
-          return self
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Method.Builder {
+        var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        while (true) {
+          var tag = input.readTag()
+          switch tag {
+          case 0: 
+            self.unknownFields = unknownFieldsBuilder.build()
+            return self
 
-        case 10 :
-          name = input.readString()
+          case 10 :
+            name = input.readString()
 
-        case 18 :
-          requestTypeUrl = input.readString()
+          case 18 :
+            requestTypeUrl = input.readString()
 
-        case 24 :
-          requestStreaming = input.readBool()
+          case 24 :
+            requestStreaming = input.readBool()
 
-        case 34 :
-          responseTypeUrl = input.readString()
+          case 34 :
+            responseTypeUrl = input.readString()
 
-        case 40 :
-          responseStreaming = input.readBool()
+          case 40 :
+            responseStreaming = input.readBool()
 
-        case 50 :
-          var subBuilder = Google.Protobuf.Option.builder()
-          input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-          options += [subBuilder.buildPartial()]
+          case 50 :
+            var subBuilder = Google.Protobuf.Option.builder()
+            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            options += [subBuilder.buildPartial()]
 
-        default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
-             return self
+          default:
+            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+               unknownFields = unknownFieldsBuilder.build()
+               return self
+            }
           }
         }
       }
     }
+
   }
 
 }
