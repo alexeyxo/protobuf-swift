@@ -37,7 +37,7 @@ internal func == (lhs: ProtobufUnittestNoArena.TestAllTypes, rhs: ProtobufUnitte
   fieldCheck = fieldCheck && (lhs.hasOptionalStringPiece == rhs.hasOptionalStringPiece) && (!lhs.hasOptionalStringPiece || lhs.optionalStringPiece == rhs.optionalStringPiece)
   fieldCheck = fieldCheck && (lhs.hasOptionalCord == rhs.hasOptionalCord) && (!lhs.hasOptionalCord || lhs.optionalCord == rhs.optionalCord)
   fieldCheck = fieldCheck && (lhs.hasOptionalPublicImportMessage == rhs.hasOptionalPublicImportMessage) && (!lhs.hasOptionalPublicImportMessage || lhs.optionalPublicImportMessage == rhs.optionalPublicImportMessage)
-  fieldCheck = fieldCheck && (lhs.hasOptionalLazyMessage == rhs.hasOptionalLazyMessage) && (!lhs.hasOptionalLazyMessage || lhs.optionalLazyMessage == rhs.optionalLazyMessage)
+  fieldCheck = fieldCheck && (lhs.hasOptionalMessage == rhs.hasOptionalMessage) && (!lhs.hasOptionalMessage || lhs.optionalMessage == rhs.optionalMessage)
   fieldCheck = fieldCheck && (lhs.repeatedInt32 == rhs.repeatedInt32)
   fieldCheck = fieldCheck && (lhs.repeatedInt64 == rhs.repeatedInt64)
   fieldCheck = fieldCheck && (lhs.repeatedUint32 == rhs.repeatedUint32)
@@ -87,6 +87,7 @@ internal func == (lhs: ProtobufUnittestNoArena.TestAllTypes, rhs: ProtobufUnitte
   fieldCheck = fieldCheck && (lhs.hasOneofNestedMessage == rhs.hasOneofNestedMessage) && (!lhs.hasOneofNestedMessage || lhs.oneofNestedMessage == rhs.oneofNestedMessage)
   fieldCheck = fieldCheck && (lhs.hasOneofString == rhs.hasOneofString) && (!lhs.hasOneofString || lhs.oneofString == rhs.oneofString)
   fieldCheck = fieldCheck && (lhs.hasOneofBytes == rhs.hasOneofBytes) && (!lhs.hasOneofBytes || lhs.oneofBytes == rhs.oneofBytes)
+  fieldCheck = fieldCheck && (lhs.hasLazyOneofNestedMessage == rhs.hasLazyOneofNestedMessage) && (!lhs.hasLazyOneofNestedMessage || lhs.lazyOneofNestedMessage == rhs.lazyOneofNestedMessage)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
@@ -800,6 +801,16 @@ internal extension ProtobufUnittestNoArena {
                 return nil
            }
       }
+      case LazyOneofNestedMessage(ProtobufUnittestNoArena.TestAllTypes.NestedMessage)
+
+      internal static func getLazyOneofNestedMessage(value:OneofField) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage? {
+           switch value {
+           case .LazyOneofNestedMessage(let enumValue):
+                return enumValue
+           default:
+                return nil
+           }
+      }
     }
     //OneOf declaration end
 
@@ -885,8 +896,8 @@ internal extension ProtobufUnittestNoArena {
 
     private(set) var hasOptionalPublicImportMessage:Bool = false
     private(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage!
-    private(set) var hasOptionalLazyMessage:Bool = false
-    private(set) var optionalLazyMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!
+    private(set) var hasOptionalMessage:Bool = false
+    private(set) var optionalMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!
     private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
     private(set) var repeatedInt64:Array<Int64> = Array<Int64>()
     private(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
@@ -1044,6 +1055,24 @@ internal extension ProtobufUnittestNoArena {
               storageOneofField = TestAllTypes.OneofField.OneofBytes(newvalue)
          }
     }
+    private(set) var hasLazyOneofNestedMessage:Bool {
+          get {
+               if TestAllTypes.OneofField.getLazyOneofNestedMessage(storageOneofField) == nil {
+                   return false
+               }
+               return true
+          }
+          set(newValue) {
+          }
+    }
+    private(set) var lazyOneofNestedMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!{
+         get {
+              return TestAllTypes.OneofField.getLazyOneofNestedMessage(storageOneofField)
+         }
+         set (newvalue) {
+              storageOneofField = TestAllTypes.OneofField.LazyOneofNestedMessage(newvalue)
+         }
+    }
     required internal init() {
          super.init()
     }
@@ -1126,8 +1155,8 @@ internal extension ProtobufUnittestNoArena {
       if hasOptionalPublicImportMessage {
         output.writeMessage(26, value:optionalPublicImportMessage)
       }
-      if hasOptionalLazyMessage {
-        output.writeMessage(27, value:optionalLazyMessage)
+      if hasOptionalMessage {
+        output.writeMessage(27, value:optionalMessage)
       }
       if !repeatedInt32.isEmpty {
         for oneValuerepeatedInt32 in repeatedInt32 {
@@ -1310,6 +1339,9 @@ internal extension ProtobufUnittestNoArena {
       if hasOneofBytes {
         output.writeData(114, value:oneofBytes)
       }
+      if hasLazyOneofNestedMessage {
+        output.writeMessage(115, value:lazyOneofNestedMessage)
+      }
       unknownFields.writeToCodedOutputStream(output)
     }
     override internal func serializedSize() -> Int32 {
@@ -1404,9 +1436,9 @@ internal extension ProtobufUnittestNoArena {
               serialize_size += varSizeoptionalPublicImportMessage
           }
       }
-      if hasOptionalLazyMessage {
-          if let varSizeoptionalLazyMessage = optionalLazyMessage?.computeMessageSize(27) {
-              serialize_size += varSizeoptionalLazyMessage
+      if hasOptionalMessage {
+          if let varSizeoptionalMessage = optionalMessage?.computeMessageSize(27) {
+              serialize_size += varSizeoptionalMessage
           }
       }
       var dataSizeRepeatedInt32:Int32 = 0
@@ -1604,6 +1636,11 @@ internal extension ProtobufUnittestNoArena {
       if hasOneofBytes {
         serialize_size += oneofBytes.computeDataSize(114)
       }
+      if hasLazyOneofNestedMessage {
+          if let varSizelazyOneofNestedMessage = lazyOneofNestedMessage?.computeMessageSize(115) {
+              serialize_size += varSizelazyOneofNestedMessage
+          }
+      }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
@@ -1730,9 +1767,9 @@ internal extension ProtobufUnittestNoArena {
         optionalPublicImportMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
-      if hasOptionalLazyMessage {
-        output += "\(indent) optionalLazyMessage {\n"
-        optionalLazyMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+      if hasOptionalMessage {
+        output += "\(indent) optionalMessage {\n"
+        optionalMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       var repeatedInt32ElementIndex:Int = 0
@@ -1944,6 +1981,11 @@ internal extension ProtobufUnittestNoArena {
       if hasOneofBytes {
         output += "\(indent) oneofBytes: \(oneofBytes) \n"
       }
+      if hasLazyOneofNestedMessage {
+        output += "\(indent) lazyOneofNestedMessage {\n"
+        lazyOneofNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        output += "\(indent) }\n"
+      }
       unknownFields.writeDescriptionTo(&output, indent:indent)
     }
     override internal var hashValue:Int {
@@ -2034,9 +2076,9 @@ internal extension ProtobufUnittestNoArena {
                     hashCode = (hashCode &* 31) &+ hashValueoptionalPublicImportMessage
                 }
             }
-            if hasOptionalLazyMessage {
-                if let hashValueoptionalLazyMessage = optionalLazyMessage?.hashValue {
-                    hashCode = (hashCode &* 31) &+ hashValueoptionalLazyMessage
+            if hasOptionalMessage {
+                if let hashValueoptionalMessage = optionalMessage?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValueoptionalMessage
                 }
             }
             for oneValuerepeatedInt32 in repeatedInt32 {
@@ -2187,6 +2229,11 @@ internal extension ProtobufUnittestNoArena {
             }
             if hasOneofBytes {
                hashCode = (hashCode &* 31) &+ oneofBytes.hashValue
+            }
+            if hasLazyOneofNestedMessage {
+                if let hashValuelazyOneofNestedMessage = lazyOneofNestedMessage?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValuelazyOneofNestedMessage
+                }
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode
@@ -2931,55 +2978,55 @@ internal extension ProtobufUnittestNoArena {
         builderResult.optionalPublicImportMessage = nil
         return self
       }
-      var hasOptionalLazyMessage:Bool {
+      var hasOptionalMessage:Bool {
            get {
-               return builderResult.hasOptionalLazyMessage
+               return builderResult.hasOptionalMessage
            }
       }
-      var optionalLazyMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
+      var optionalMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
            get {
-               if optionalLazyMessageBuilder_ != nil {
-                  builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
+               if optionalMessageBuilder_ != nil {
+                  builderResult.optionalMessage = optionalMessageBuilder_.getMessage()
                }
-               return builderResult.optionalLazyMessage
+               return builderResult.optionalMessage
            }
            set (value) {
-               builderResult.hasOptionalLazyMessage = true
-               builderResult.optionalLazyMessage = value
+               builderResult.hasOptionalMessage = true
+               builderResult.optionalMessage = value
            }
       }
-      private var optionalLazyMessageBuilder_:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder! {
+      private var optionalMessageBuilder_:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder! {
            didSet {
-              builderResult.hasOptionalLazyMessage = true
+              builderResult.hasOptionalMessage = true
            }
       }
-      internal func getOptionalLazyMessageBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
-        if optionalLazyMessageBuilder_ == nil {
-           optionalLazyMessageBuilder_ = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
-           builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
-           if optionalLazyMessage != nil {
-              optionalLazyMessageBuilder_.mergeFrom(optionalLazyMessage)
+      internal func getOptionalMessageBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+        if optionalMessageBuilder_ == nil {
+           optionalMessageBuilder_ = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
+           builderResult.optionalMessage = optionalMessageBuilder_.getMessage()
+           if optionalMessage != nil {
+              optionalMessageBuilder_.mergeFrom(optionalMessage)
            }
         }
-        return optionalLazyMessageBuilder_
+        return optionalMessageBuilder_
       }
-      func setOptionalLazyMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
-        self.optionalLazyMessage = value
+      func setOptionalMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.optionalMessage = value
         return self
       }
-      internal func mergeOptionalLazyMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
-        if builderResult.hasOptionalLazyMessage {
-          builderResult.optionalLazyMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalLazyMessage).mergeFrom(value).buildPartial()
+      internal func mergeOptionalMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        if builderResult.hasOptionalMessage {
+          builderResult.optionalMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalMessage).mergeFrom(value).buildPartial()
         } else {
-          builderResult.optionalLazyMessage = value
+          builderResult.optionalMessage = value
         }
-        builderResult.hasOptionalLazyMessage = true
+        builderResult.hasOptionalMessage = true
         return self
       }
-      internal func clearOptionalLazyMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
-        optionalLazyMessageBuilder_ = nil
-        builderResult.hasOptionalLazyMessage = false
-        builderResult.optionalLazyMessage = nil
+      internal func clearOptionalMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        optionalMessageBuilder_ = nil
+        builderResult.hasOptionalMessage = false
+        builderResult.optionalMessage = nil
         return self
       }
       var repeatedInt32:Array<Int32> {
@@ -3962,6 +4009,57 @@ internal extension ProtobufUnittestNoArena {
            builderResult.oneofBytes = NSData()
            return self
       }
+      var hasLazyOneofNestedMessage:Bool {
+           get {
+               return builderResult.hasLazyOneofNestedMessage
+           }
+      }
+      var lazyOneofNestedMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
+           get {
+               if lazyOneofNestedMessageBuilder_ != nil {
+                  builderResult.lazyOneofNestedMessage = lazyOneofNestedMessageBuilder_.getMessage()
+               }
+               return builderResult.lazyOneofNestedMessage
+           }
+           set (value) {
+               builderResult.hasLazyOneofNestedMessage = true
+               builderResult.lazyOneofNestedMessage = value
+           }
+      }
+      private var lazyOneofNestedMessageBuilder_:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder! {
+           didSet {
+              builderResult.hasLazyOneofNestedMessage = true
+           }
+      }
+      internal func getLazyOneofNestedMessageBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+        if lazyOneofNestedMessageBuilder_ == nil {
+           lazyOneofNestedMessageBuilder_ = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
+           builderResult.lazyOneofNestedMessage = lazyOneofNestedMessageBuilder_.getMessage()
+           if lazyOneofNestedMessage != nil {
+              lazyOneofNestedMessageBuilder_.mergeFrom(lazyOneofNestedMessage)
+           }
+        }
+        return lazyOneofNestedMessageBuilder_
+      }
+      func setLazyOneofNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        self.lazyOneofNestedMessage = value
+        return self
+      }
+      internal func mergeLazyOneofNestedMessage(value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        if builderResult.hasLazyOneofNestedMessage {
+          builderResult.lazyOneofNestedMessage = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.lazyOneofNestedMessage).mergeFrom(value).buildPartial()
+        } else {
+          builderResult.lazyOneofNestedMessage = value
+        }
+        builderResult.hasLazyOneofNestedMessage = true
+        return self
+      }
+      internal func clearLazyOneofNestedMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        lazyOneofNestedMessageBuilder_ = nil
+        builderResult.hasLazyOneofNestedMessage = false
+        builderResult.lazyOneofNestedMessage = nil
+        return self
+      }
       override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
@@ -4061,8 +4159,8 @@ internal extension ProtobufUnittestNoArena {
         if (other.hasOptionalPublicImportMessage) {
             mergeOptionalPublicImportMessage(other.optionalPublicImportMessage)
         }
-        if (other.hasOptionalLazyMessage) {
-            mergeOptionalLazyMessage(other.optionalLazyMessage)
+        if (other.hasOptionalMessage) {
+            mergeOptionalMessage(other.optionalMessage)
         }
         if !other.repeatedInt32.isEmpty {
             builderResult.repeatedInt32 += other.repeatedInt32
@@ -4211,6 +4309,9 @@ internal extension ProtobufUnittestNoArena {
         if other.hasOneofBytes {
              oneofBytes = other.oneofBytes
         }
+        if (other.hasLazyOneofNestedMessage) {
+            mergeLazyOneofNestedMessage(other.lazyOneofNestedMessage)
+        }
         mergeUnknownFields(other.unknownFields)
         return self
       }
@@ -4343,11 +4444,11 @@ internal extension ProtobufUnittestNoArena {
 
           case 218 :
             var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
-            if hasOptionalLazyMessage {
-              subBuilder.mergeFrom(optionalLazyMessage)
+            if hasOptionalMessage {
+              subBuilder.mergeFrom(optionalMessage)
             }
             input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-            optionalLazyMessage = subBuilder.buildPartial()
+            optionalMessage = subBuilder.buildPartial()
 
           case 248 :
             repeatedInt32 += [input.readInt32()]
@@ -4540,6 +4641,14 @@ internal extension ProtobufUnittestNoArena {
 
           case 914 :
             oneofBytes = input.readData()
+
+          case 922 :
+            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
+            if hasLazyOneofNestedMessage {
+              subBuilder.mergeFrom(lazyOneofNestedMessage)
+            }
+            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            lazyOneofNestedMessage = subBuilder.buildPartial()
 
           default:
             if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {

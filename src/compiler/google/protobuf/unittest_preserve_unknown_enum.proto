@@ -28,15 +28,44 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Author: liujisi@google.com (Pherl Liu)
+syntax = "proto3";
 
-syntax = "proto2";
+package proto3_preserve_unknown_enum_unittest;
+option objc_class_prefix = "UnknownEnums";
 
-package protobuf_unittest_import;
-
-option java_package = "com.google.protobuf.test";
 option csharp_namespace = "Google.ProtocolBuffers.TestProtos";
 
-message PublicImportMessage {
-  optional int32 e = 1;
+enum MyEnum {
+  FOO = 0;
+  BAR = 1;
+  BAZ = 2;
+}
+
+enum MyEnumPlusExtra {
+  E_FOO = 0;
+  E_BAR = 1;
+  E_BAZ = 2;
+  E_EXTRA = 3;
+}
+
+message MyMessage {
+  MyEnum e = 1;
+  repeated MyEnum repeated_e = 2;
+  repeated MyEnum repeated_packed_e = 3 [packed=true];
+  repeated MyEnumPlusExtra repeated_packed_unexpected_e = 4;  // not packed
+  oneof o {
+    MyEnum oneof_e_1 = 5;
+    MyEnum oneof_e_2 = 6;
+  }
+}
+
+message MyMessagePlusExtra {
+  MyEnumPlusExtra e = 1;
+  repeated MyEnumPlusExtra repeated_e = 2;
+  repeated MyEnumPlusExtra repeated_packed_e = 3 [packed=true];
+  repeated MyEnumPlusExtra repeated_packed_unexpected_e = 4 [packed=true];
+  oneof o {
+    MyEnumPlusExtra oneof_e_1 = 5;
+    MyEnumPlusExtra oneof_e_2 = 6;
+  }
 }

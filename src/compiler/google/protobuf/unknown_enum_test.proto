@@ -28,15 +28,35 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Author: liujisi@google.com (Pherl Liu)
-
+// Definitions of protos for testing cross-version compatibility.  The
+// UpRevision message acts as if it were a newer version of the DownRevision
+// message.  That is, UpRevision shares all the same fields as DownRevision,
+// but UpRevision can add fields and add enum values.
 syntax = "proto2";
 
-package protobuf_unittest_import;
+package google.protobuf.util;
 
-option java_package = "com.google.protobuf.test";
 option csharp_namespace = "Google.ProtocolBuffers.TestProtos";
 
-message PublicImportMessage {
-  optional int32 e = 1;
+message DownRevision {
+  enum Enum {
+    DEFAULT_VALUE = 2;
+    NONDEFAULT_VALUE = 3;
+  }
+
+  optional Enum value = 1 [default = DEFAULT_VALUE];
+  repeated Enum values = 2;
+}
+
+message UpRevision {
+  enum Enum {
+    DEFAULT_VALUE = 2;
+    NONDEFAULT_VALUE = 3;
+    NEW_VALUE = 4;
+    NEW_VALUE_2 = 5;
+    NEW_VALUE_3 = 6;
+  }
+
+  optional Enum value = 1 [default = DEFAULT_VALUE];
+  repeated Enum values = 2;
 }

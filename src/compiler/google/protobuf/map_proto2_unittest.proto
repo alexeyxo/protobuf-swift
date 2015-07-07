@@ -28,15 +28,43 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Author: liujisi@google.com (Pherl Liu)
-
 syntax = "proto2";
 
-package protobuf_unittest_import;
 
-option java_package = "com.google.protobuf.test";
+// We don't put this in a package within proto2 because we need to make sure
+// that the generated code doesn't depend on being in the proto2 namespace.
+// In map_test_util.h we do "using namespace unittest = protobuf_unittest".
+package protobuf_unittest;
+
 option csharp_namespace = "Google.ProtocolBuffers.TestProtos";
 
-message PublicImportMessage {
-  optional int32 e = 1;
+enum Proto2MapEnum {
+  PROTO2_MAP_ENUM_FOO   = 0;
+  PROTO2_MAP_ENUM_BAR   = 1;
+  PROTO2_MAP_ENUM_BAZ   = 2;
+}
+
+enum Proto2MapEnumPlusExtra {
+  E_PROTO2_MAP_ENUM_FOO   = 0;
+  E_PROTO2_MAP_ENUM_BAR   = 1;
+  E_PROTO2_MAP_ENUM_BAZ   = 2;
+  E_PROTO2_MAP_ENUM_EXTRA = 3;
+}
+
+enum Proto2MapEnumStartWithNonZero {
+  PROTO2_NON_ZERO_MAP_ENUM_FOO = 1;
+}
+
+message TestEnumMap {
+  map<int32, Proto2MapEnum> known_map_field = 101;
+  map<int32, Proto2MapEnum> unknown_map_field = 102;
+}
+
+message TestEnumMapPlusExtra {
+  map<int32, Proto2MapEnumPlusExtra> known_map_field = 101;
+  map<int32, Proto2MapEnumPlusExtra> unknown_map_field = 102;
+}
+
+message TestEnumStartWithNonZeroMap {
+  map<int32, Proto2MapEnumStartWithNonZero> map_field = 101;
 }

@@ -28,15 +28,31 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Author: liujisi@google.com (Pherl Liu)
+syntax = "proto3";
 
-syntax = "proto2";
+package unittest_drop_unknown_fields;
+option objc_class_prefix = "DropUnknowns";
 
-package protobuf_unittest_import;
-
-option java_package = "com.google.protobuf.test";
 option csharp_namespace = "Google.ProtocolBuffers.TestProtos";
 
-message PublicImportMessage {
-  optional int32 e = 1;
+message Foo {
+  enum NestedEnum {
+    FOO = 0;
+    BAR = 1;
+    BAZ = 2;
+  }
+  int32 int32_value = 1;
+  NestedEnum enum_value = 2;
+}
+
+message FooWithExtraFields {
+  enum NestedEnum {
+    FOO = 0;
+    BAR = 1;
+    BAZ = 2;
+    QUX = 3;
+  }
+  int32 int32_value = 1;
+  NestedEnum enum_value = 2;
+  int32 extra_int32_value = 3;
 }

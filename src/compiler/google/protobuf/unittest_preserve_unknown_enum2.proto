@@ -28,15 +28,25 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Author: liujisi@google.com (Pherl Liu)
-
 syntax = "proto2";
 
-package protobuf_unittest_import;
+package proto2_preserve_unknown_enum_unittest;
 
-option java_package = "com.google.protobuf.test";
 option csharp_namespace = "Google.ProtocolBuffers.TestProtos";
 
-message PublicImportMessage {
-  optional int32 e = 1;
+enum MyEnum {
+  FOO = 0;
+  BAR = 1;
+  BAZ = 2;
+}
+
+message MyMessage {
+  optional MyEnum e = 1;
+  repeated MyEnum repeated_e = 2;
+  repeated MyEnum repeated_packed_e = 3 [packed=true];
+  repeated MyEnum repeated_packed_unexpected_e = 4;  // not packed
+  oneof o {
+    MyEnum oneof_e_1 = 5;
+    MyEnum oneof_e_2 = 6;
+  }
 }
