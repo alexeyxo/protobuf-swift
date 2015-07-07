@@ -59,14 +59,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
     }  // namespace
     
-    EnumFieldGenerator::EnumFieldGenerator(const FieldDescriptor* descriptor)
-    : descriptor_(descriptor) {
+    EnumFieldGenerator::EnumFieldGenerator(const FieldDescriptor* descriptor) : descriptor_(descriptor) {
         SetEnumVariables(descriptor, &variables_);
     }
     
     
-    EnumFieldGenerator::~EnumFieldGenerator() {
-    }
+    EnumFieldGenerator::~EnumFieldGenerator() {}
     
     
     void EnumFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
@@ -77,7 +75,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     
-    void EnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
+    void EnumFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
         if (isOneOfField(descriptor_)) {
             printer->Print(variables_,
                            "$acontrol$private(set) var has$capitalized_name$:Bool {\n"
@@ -111,10 +109,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     
-    void EnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
-    }
-    
-    
+    void EnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {}
+
     void EnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "  $acontrol$var has$capitalized_name$:Bool{\n"
@@ -133,11 +129,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  }\n");
         
         printer->Print(variables_,
-                       "  $acontrolFunc$ func set$capitalized_name$(value:$type$)-> $containing_class$Builder {\n"
+                       "  $acontrolFunc$ func set$capitalized_name$(value:$type$) -> $containing_class$.Builder {\n"
                        "    self.$name$ = value\n"
                        "    return self\n"
                        "  }\n"
-                       "  $acontrolFunc$ func clear$capitalized_name$() -> $containing_class$Builder {\n"
+                       "  $acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
                        "     builderResult.has$capitalized_name$ = false\n"
                        "     builderResult.$name$ = .$default$\n"
                        "     return self\n"
@@ -154,8 +150,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     
-    void EnumFieldGenerator::GenerateBuildingCodeSource(io::Printer* printer) const {
-    }
+    void EnumFieldGenerator::GenerateBuildingCodeSource(io::Printer* printer) const {}
     
     void EnumFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
@@ -226,21 +221,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,"$acontrol$var $name$:[$type$] = [$type$]()\n");
     }
     
-    //TODO
-    void RepeatedEnumFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
-        //    printer->Print(variables_, "var $name$:$type$\n");
-    }
-    
-    
-    
-    void RepeatedEnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
-    }
-    
-    void RepeatedEnumFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
+    void RepeatedEnumFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "private var $name$MemoizedSerializedSize:Int32 = 0\n");
         printer->Print(variables_,
                        "$acontrol$private(set) var $name$:Array<$type$> = Array<$type$>()\n");
+    }
+
+    void RepeatedEnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
+    }
+    
+    void RepeatedEnumFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
     }
     
     void RepeatedEnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
@@ -254,11 +245,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "        builderResult.$name$ = value\n"
                        "    }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:Array<$type$>)-> $containing_class$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:Array<$type$>) -> $containing_class$.Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
-                       "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$Builder {\n"
+                       "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
                        "  builderResult.$name$.removeAll(keepCapacity: false)\n"
                        "  return self\n"
                        "}\n");

@@ -62,59 +62,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             return NULL;
         }
         
-        
-        const char* GetCapitalizedArrayValueTypeName(const FieldDescriptor* field) {
-            switch (field->type()) {
-                case FieldDescriptor::TYPE_INT32   : return "Int32" ;
-                case FieldDescriptor::TYPE_UINT32  : return "Uint32";
-                case FieldDescriptor::TYPE_SINT32  : return "Int32" ;
-                case FieldDescriptor::TYPE_FIXED32 : return "Uint32";
-                case FieldDescriptor::TYPE_SFIXED32: return "Int32" ;
-                case FieldDescriptor::TYPE_INT64   : return "Int64" ;
-                case FieldDescriptor::TYPE_UINT64  : return "Uint64";
-                case FieldDescriptor::TYPE_SINT64  : return "Int64" ;
-                case FieldDescriptor::TYPE_FIXED64 : return "Uint64";
-                case FieldDescriptor::TYPE_SFIXED64: return "Int64" ;
-                case FieldDescriptor::TYPE_FLOAT   : return "Float" ;
-                case FieldDescriptor::TYPE_DOUBLE  : return "Double";
-                case FieldDescriptor::TYPE_BOOL    : return "Bool"  ;
-                case FieldDescriptor::TYPE_STRING  : return "Object";
-                case FieldDescriptor::TYPE_BYTES   : return "Object";
-                case FieldDescriptor::TYPE_ENUM    : return "Object";
-                case FieldDescriptor::TYPE_GROUP   : return "Object";
-                case FieldDescriptor::TYPE_MESSAGE : return "Object";
-            }
-            
-            GOOGLE_LOG(FATAL) << "Can't get here.";
-            return NULL;
-        }
-        
-        const char* GetCapitalizedType(const FieldDescriptor* field) {
-            switch (field->type()) {
-                case FieldDescriptor::TYPE_INT32   : return "Int32"   ;
-                case FieldDescriptor::TYPE_UINT32  : return "UInt32"  ;
-                case FieldDescriptor::TYPE_SINT32  : return "SInt32"  ;
-                case FieldDescriptor::TYPE_FIXED32 : return "Fixed32" ;
-                case FieldDescriptor::TYPE_SFIXED32: return "SFixed32";
-                case FieldDescriptor::TYPE_INT64   : return "Int64"   ;
-                case FieldDescriptor::TYPE_UINT64  : return "UInt64"  ;
-                case FieldDescriptor::TYPE_SINT64  : return "SInt64"  ;
-                case FieldDescriptor::TYPE_FIXED64 : return "Fixed64" ;
-                case FieldDescriptor::TYPE_SFIXED64: return "SFixed64";
-                case FieldDescriptor::TYPE_FLOAT   : return "Float"   ;
-                case FieldDescriptor::TYPE_DOUBLE  : return "Double"  ;
-                case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
-                case FieldDescriptor::TYPE_STRING  : return "String"  ;
-                case FieldDescriptor::TYPE_BYTES   : return "Data"    ;
-                case FieldDescriptor::TYPE_ENUM    : return "Enum"    ;
-                case FieldDescriptor::TYPE_GROUP   : return "Group"   ;
-                case FieldDescriptor::TYPE_MESSAGE : return "Message" ;
-            }
-            
-            GOOGLE_LOG(FATAL) << "Can't get here.";
-            return NULL;
-        }
-        
         // For encodings with fixed sizes, returns that size in bytes.  Otherwise
         // returns -1.
         int FixedSize(FieldDescriptor::Type type) {
@@ -200,7 +147,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     
-    void PrimitiveFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
+    void PrimitiveFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
         
         if (isOneOfField(descriptor_)) {
             printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool {\n"
@@ -256,11 +203,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:$storage_type$)-> $containing_class$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:$storage_type$) -> $containing_class$.Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
-                       "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$Builder{\n"
+                       "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder{\n"
                        "     builderResult.has$capitalized_name$ = false\n"
                        "     builderResult.$name$ = $default$\n"
                        "     return self\n"
@@ -335,19 +282,19 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     
-    void RepeatedPrimitiveFieldGenerator::GenerateSynthesizeSource(io::Printer* printer) const {
+    void RepeatedPrimitiveFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
+        printer->Print(variables_, "$acontrol$private(set) var $name$:Array<$storage_type$> = Array<$storage_type$>()\n");
+        if (descriptor_->options().packed()) {
+            printer->Print(variables_,"private var $name$MemoizedSerializedSize:Int32 = -1\n");
+        }
     }
-    
     
     void RepeatedPrimitiveFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {;
     }
     
     void RepeatedPrimitiveFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
         
-        printer->Print(variables_, "$acontrol$private(set) var $name$:Array<$storage_type$> = Array<$storage_type$>()\n");
-        if (descriptor_->options().packed()) {
-            printer->Print(variables_,"private var $name$MemoizedSerializedSize:Int32 = -1\n");
-        }
+  
     }
     
     void RepeatedPrimitiveFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
@@ -363,11 +310,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = array\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:Array<$storage_type$>)-> $containing_class$Builder {\n"
+                       "$acontrol$func set$capitalized_name$(value:Array<$storage_type$>) -> $containing_class$.Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
-                       "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$Builder {\n"
+                       "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
                        "   builderResult.$name$.removeAll(keepCapacity: false)\n"
                        "   return self\n"
                        "}\n");

@@ -174,8 +174,8 @@ public extension Int32
         return fieldNumber.computeTagSize() + computeSInt32SizeNoTag()
     }
     
-
 }
+
 public extension Int64
 {
     func computeInt64SizeNoTag() -> Int32

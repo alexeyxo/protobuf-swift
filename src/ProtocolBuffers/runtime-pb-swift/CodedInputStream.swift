@@ -636,7 +636,7 @@ public class CodedInputStream
         checkLastTagWas(WireFormat.WireFormatEndGroup.wireFormatMakeTag(fieldNumber))
         --recursionDepth
     }
-    public func readUnknownGroup(fieldNumber:Int32, builder:UnknownFieldSetBuilder)
+    public func readUnknownGroup(fieldNumber:Int32, builder:UnknownFieldSet.Builder)
     {
         if (recursionDepth >= recursionLimit) {
             NSException(name:"InvalidProtocolBuffer", reason:"Recursion Limit Exceeded", userInfo: nil).raise()

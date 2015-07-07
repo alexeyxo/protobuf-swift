@@ -22,8 +22,10 @@
 #include "swift_field.h"
 #include "swift_helpers.h"
 #include "swift_primitive_field.h"
+#include "swift_map_field.h"
 #include "swift_enum_field.h"
 #include "swift_message_field.h"
+#include "swift_map_field.h"
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
     
@@ -35,7 +37,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     : descriptor_(descriptor),
     field_generators_(new scoped_ptr<FieldGenerator>[descriptor->field_count()]),
     extension_generators_(new scoped_ptr<FieldGenerator>[descriptor->extension_count()]){
-        //    oneof_generators_(new scoped_ptr<FieldGenerator>[descriptor->oneof_count()]) {
+    
         
         for (int i = 0; i < descriptor->field_count(); i++) {
             field_generators_[i].reset(MakeGenerator(descriptor->field(i)));
@@ -52,6 +54,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             switch (GetSwiftType(field)) {
                 case SWIFTTYPE_MESSAGE:
                     return new RepeatedMessageFieldGenerator(field);
+                case SWIFTTYPE_MAP:
+                    return new MapFieldGenerator(field);
                 case SWIFTTYPE_ENUM:
                     return new RepeatedEnumFieldGenerator(field);
                 default:
@@ -74,8 +78,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     
-    const FieldGenerator& FieldGeneratorMap::get(
-                                                 const FieldDescriptor* field) const {
+    const FieldGenerator& FieldGeneratorMap::get(const FieldDescriptor* field) const {
         GOOGLE_CHECK_EQ(field->containing_type(), descriptor_);
         return *field_generators_[field->index()];
     }

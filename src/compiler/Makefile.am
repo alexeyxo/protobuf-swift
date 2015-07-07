@@ -5,6 +5,7 @@ protoc_gen_swift_LDFLAGS = -lprotobuf -lprotoc
 protoc_gen_swift_SOURCES = 	\
 	main.cc					\
 	swift_enum_field.cc		\
+	swift_map_field.cc		\
 	swift_file.cc			\
 	swift_message_field.cc	\
 	swift_oneof.cc			\

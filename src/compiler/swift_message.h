@@ -19,6 +19,7 @@
 #define swift_MESSAGE_H
 
 #include <string>
+#include <map>
 #include <set>
 #include <google/protobuf/stubs/common.h>
 
@@ -81,8 +82,14 @@ namespace google {
                     
                     const Descriptor* descriptor_;
                     FieldGeneratorMap field_generators_;
+
+                    map<string, string> variables_;
                     
                     GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(MessageGenerator);
+        
+
+                    
+
                 };
             }  // namespace swift
         }  // namespace compiler

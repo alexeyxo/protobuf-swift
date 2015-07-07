@@ -29,7 +29,7 @@ class  TestUtilities {
         return goldenData
     }
     
-    class func modifyRepeatedExtensions(var message:ProtobufUnittest.TestAllExtensionsBuilder)
+    class func modifyRepeatedExtensions(var message:ProtobufUnittest.TestAllExtensions.Builder)
     {
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), index:1, value:Int32(501))
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension(), index:1, value:Int64(502))
@@ -47,18 +47,18 @@ class  TestUtilities {
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension(),index:1, value:"515")
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), index:1, value:TestUtilities.getData("516"))
 
-        var a = ProtobufUnittest.RepeatedGroupExtension.builder()
+        var a = ProtobufUnittest.RepeatedGroupExtension.Builder()
         a.a = 517
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), index:1, value:a.build())
         
-        var b = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
+        var b = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         b.bb = 518
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension(), index:1, value:b.build())
-        var foreign = ProtobufUnittest.ForeignMessage.builder()
+        var foreign = ProtobufUnittest.ForeignMessage.Builder()
         foreign.c = 519
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension(), index:1, value:foreign.build())
         
-        var importMessage = ProtobufUnittestImport.ImportMessage.builder()
+        var importMessage = ProtobufUnittestImport.ImportMessage.Builder()
         importMessage.d = 520
         message.setExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension(), index:1, value:importMessage.build())
         
@@ -1205,7 +1205,7 @@ class  TestUtilities {
         TestUtilities().assertAllFieldsSet(message)
     }
     
-    class func setAllFields(message:ProtobufUnittest.TestAllTypesBuilder)
+    class func setAllFields(message:ProtobufUnittest.TestAllTypes.Builder)
     {
         message.optionalInt32 = Int32(101)
         message.optionalInt64 = Int64(102)
@@ -1223,18 +1223,18 @@ class  TestUtilities {
         message.optionalString = "115"
         message.optionalBytes = TestUtilities.getData("116")
         
-        var gr = ProtobufUnittest.TestAllTypes.OptionalGroup.builder()
+        var gr = ProtobufUnittest.TestAllTypes.OptionalGroup.Builder()
         gr.a = 117
         message.optionalGroup = gr.build()
-        var nest = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
+        var nest = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         nest.bb = 118
         message.optionalNestedMessage = nest.build()
         
-        var foreign = ProtobufUnittest.ForeignMessage.builder()
+        var foreign = ProtobufUnittest.ForeignMessage.Builder()
         foreign.c = 119
         message.optionalForeignMessage = foreign.build()
         
-        var importMes = ProtobufUnittestImport.ImportMessage.builder()
+        var importMes = ProtobufUnittestImport.ImportMessage.Builder()
         importMes.d = 120
         message.optionalImportMessage = importMes.build()
         
@@ -1249,7 +1249,7 @@ class  TestUtilities {
 //        publicImportBuilder.e = 126
 //        message.optionalPublicImportMessage = publicImportBuilder.build()
 //
-//        var lazymes = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
+//        var lazymes = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
 //        lazymes.bb = 127
 //        message.optionalLazyMessage = lazymes.build()
 
@@ -1272,16 +1272,16 @@ class  TestUtilities {
         message.repeatedString += ["215"]
         message.repeatedBytes += [TestUtilities.getData("216")]
         
-        var testRep = ProtobufUnittest.TestAllTypes.RepeatedGroup.builder()
+        var testRep = ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
         testRep.a = 217
         message.repeatedGroup += [testRep.build()]
-        var testNest = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
+        var testNest = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         testNest.bb = 218
         message.repeatedNestedMessage += [testNest.build()]
-        var foreign2 = ProtobufUnittest.ForeignMessage.builder()
+        var foreign2 = ProtobufUnittest.ForeignMessage.Builder()
         foreign2.c = 219
         message.repeatedForeignMessage += [foreign2.build()]
-        var importmes = ProtobufUnittestImport.ImportMessage.builder()
+        var importmes = ProtobufUnittestImport.ImportMessage.Builder()
         importmes.d = 220
         message.repeatedImportMessage += [importmes.build()]
         
@@ -1308,19 +1308,19 @@ class  TestUtilities {
         message.repeatedString += ["315"]
         message.repeatedBytes += [TestUtilities.getData("316")]
         
-        var repgroups = ProtobufUnittest.TestAllTypes.RepeatedGroup.builder()
+        var repgroups = ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
         repgroups.a = 317
         message.repeatedGroup += [repgroups.build()]
         
-        var repNested = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
+        var repNested = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         repNested.bb = 318
         message.repeatedNestedMessage += [repNested.build()]
         
-        var fBuilder = ProtobufUnittest.ForeignMessage.builder()
+        var fBuilder = ProtobufUnittest.ForeignMessage.Builder()
         fBuilder.c = 319
         message.repeatedForeignMessage += [fBuilder.build()]
         
-        var impBuilder = ProtobufUnittestImport.ImportMessage.builder()
+        var impBuilder = ProtobufUnittestImport.ImportMessage.Builder()
         impBuilder.d = 320
         message.repeatedImportMessage += [impBuilder.build()]
         
@@ -1331,10 +1331,10 @@ class  TestUtilities {
         message.repeatedStringPiece += ["324"]
         message.repeatedCord += ["325"]
         
-//        var repNested2 = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
+//        var repNested2 = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
 //        repNested2.bb = 227
 //        message.repeatedLazyMessage = [repNested2.build()]
-//        var repNested3 = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
+//        var repNested3 = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
 //        repNested3.bb = 327
 //        message.repeatedLazyMessage += [repNested3.build()]
         
@@ -1366,17 +1366,17 @@ class  TestUtilities {
         
     }
     
-    class func setOneOfFields(message:ProtobufUnittest.TestAllTypesBuilder)
+    class func setOneOfFields(message:ProtobufUnittest.TestAllTypes.Builder)
     {
         message.oneofUint32 = 601
-        var builder = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
+        var builder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         builder.bb = 602
         message.oneofNestedMessage = builder.build()
         message.oneofString = "603"
         message.oneofBytes = NSData(bytes: ([UInt8]() + "604".utf8), length: 3)
     }
     
-    class func setAllExtensions(message:ProtobufUnittest.TestAllExtensionsBuilder)
+    class func setAllExtensions(message:ProtobufUnittest.TestAllExtensions.Builder)
     {
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension(), value:Int32(101))
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalInt64Extension(), value:Int64(102))
@@ -1394,19 +1394,19 @@ class  TestUtilities {
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalStringExtension(), value:"115")
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalBytesExtension(), value:TestUtilities.getData("116"))
         
-        var optgr = ProtobufUnittest.OptionalGroupExtension.builder()
+        var optgr = ProtobufUnittest.OptionalGroupExtension.Builder()
         optgr.a = 117
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension(), value:optgr.build())
         
-        var netmesb = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
+        var netmesb = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         netmesb.bb = 118
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalNestedMessageExtension(), value:netmesb.build())
         
-        var forMes = ProtobufUnittest.ForeignMessage.builder()
+        var forMes = ProtobufUnittest.ForeignMessage.Builder()
         forMes.c = 119
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalForeignMessageExtension(), value:forMes.build())
         
-        var impMes = ProtobufUnittestImport.ImportMessage.builder()
+        var impMes = ProtobufUnittestImport.ImportMessage.Builder()
         impMes.d = 120
         message.setExtension(ProtobufUnittest.UnittestRoot.optionalImportMessageExtension(), value:impMes.build())
         
@@ -1436,17 +1436,17 @@ class  TestUtilities {
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), value:TestUtilities.getData("216"))
         
         
-        var repGr = ProtobufUnittest.RepeatedGroupExtension.builder()
+        var repGr = ProtobufUnittest.RepeatedGroupExtension.Builder()
         repGr.a = 217
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), value:repGr.build())
-        var netmesrep = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
+        var netmesrep = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         netmesrep.bb = 218
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension(), value:netmesrep.build())
         
-        var msgFore = ProtobufUnittest.ForeignMessage.builder()
+        var msgFore = ProtobufUnittest.ForeignMessage.Builder()
         msgFore.c = 219
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension(), value:msgFore.build())
-        var impMes220 = ProtobufUnittestImport.ImportMessage.builder()
+        var impMes220 = ProtobufUnittestImport.ImportMessage.Builder()
         impMes220.d = 220
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension(), value:impMes220.build())
         
@@ -1474,17 +1474,17 @@ class  TestUtilities {
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), value:TestUtilities.getData("316"))
         
         
-        var repGr2 = ProtobufUnittest.RepeatedGroupExtension.builder()
+        var repGr2 = ProtobufUnittest.RepeatedGroupExtension.Builder()
         repGr2.a = 317
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), value:repGr2.build())
-        var netmesrep2 = ProtobufUnittest.TestAllTypes.NestedMessage.builder()
+        var netmesrep2 = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         netmesrep2.bb = 318
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension(), value:netmesrep2.build())
         
-        var msgFore2 = ProtobufUnittest.ForeignMessage.builder()
+        var msgFore2 = ProtobufUnittest.ForeignMessage.Builder()
         msgFore2.c = 319
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension(), value:msgFore2.build())
-        var impMes2 = ProtobufUnittestImport.ImportMessage.builder()
+        var impMes2 = ProtobufUnittestImport.ImportMessage.Builder()
         impMes2.d = 320
         message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension(), value:impMes2.build())
         
@@ -1533,28 +1533,28 @@ class  TestUtilities {
     
     
     class func allSet() -> ProtobufUnittest.TestAllTypes {
-        var builder = ProtobufUnittest.TestAllTypes.builder()
+        var builder = ProtobufUnittest.TestAllTypes.Builder()
         TestUtilities.setAllFields(builder)
         return builder.build()
     }
     
     
     class func allExtensionsSet() -> ProtobufUnittest.TestAllExtensions {
-        var builder = ProtobufUnittest.TestAllExtensions.builder()
+        var builder = ProtobufUnittest.TestAllExtensions.Builder()
         TestUtilities.setAllExtensions(builder)
         return builder.build()
     }
     
     
     class func packedSet() -> ProtobufUnittest.TestPackedTypes{
-        var builder = ProtobufUnittest.TestPackedTypes.builder()
+        var builder = ProtobufUnittest.TestPackedTypes.Builder()
         TestUtilities.setPackedFields(builder)
         return builder.build()
     }
     
     
     class func packedExtensionsSet() -> ProtobufUnittest.TestPackedExtensions {
-        var builder = ProtobufUnittest.TestPackedExtensions.builder()
+        var builder = ProtobufUnittest.TestPackedExtensions.Builder()
         TestUtilities.setPackedExtensions(builder)
         return builder.build()
     }
@@ -2068,7 +2068,7 @@ class  TestUtilities {
         TestUtilities().assertExtensionsClear(message)
     }
     
-    class func setPackedFields(message:ProtobufUnittest.TestPackedTypesBuilder)
+    class func setPackedFields(message:ProtobufUnittest.TestPackedTypes.Builder)
     {
         message.packedInt32 += [601]
         message.packedInt64 += [602]
@@ -2152,7 +2152,7 @@ class  TestUtilities {
         TestUtilities().assertPackedFieldsSet(message)
     }
     
-    class func setPackedExtensions(message:ProtobufUnittest.TestPackedExtensionsBuilder)
+    class func setPackedExtensions(message:ProtobufUnittest.TestPackedExtensions.Builder)
     {
        message.addExtension(ProtobufUnittest.UnittestRoot.packedInt32Extension(), value:Int32(601))
        message.addExtension(ProtobufUnittest.UnittestRoot.packedInt64Extension(), value:Int64(602))

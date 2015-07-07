@@ -64,9 +64,7 @@ public class AbstractMessage:Hashable, Message {
     {
         unknownFields = UnknownFieldSet(fields: Dictionary())
     }
-    
- 
-    
+
     public func data() -> NSData
     {
         var ser_size = serializedSize()

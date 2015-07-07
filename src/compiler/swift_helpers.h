@@ -68,11 +68,11 @@ namespace google {
                 
                 string GetAccessControlTypeForFields(const FileDescriptor* file);
                 
-                // Gets the name of the file we're going to generate (sans the .pb.h
+                // Gets the name of the file we're going to generate (sans the .proto.swift
                 // extension).  This does not include the path to that file.
                 string FileName(const FileDescriptor* file);
-                
-                // Gets the path of the file we're going to generate (sans the .pb.h
+                string FileNameDescription(const FileDescriptor* file);
+                // Gets the path of the file we're going to generate (sans the .proto.swift
                 // extension).  The path will be dependent on the swift package
                 // declared in the proto package.
                 string FilePath(const FileDescriptor* file);
@@ -97,6 +97,12 @@ namespace google {
                 string ClassNameReturedType(const Descriptor* descriptor);
                 //
                 
+                //Maps
+                string GetCapitalizedType(const FieldDescriptor* field);
+                string MapKeyName(const FieldDescriptor* field);
+                string MapValueName(const FieldDescriptor* field);
+                //
+                
 //                string ClassNameEnum(const EnumDescriptor* descriptor);
                 
 //                string ClassName(const EnumDescriptor* descriptor);
@@ -116,14 +122,11 @@ namespace google {
                     SWIFTTYPE_STRING,
                     SWIFTTYPE_DATA,
                     SWIFTTYPE_ENUM,
-                    SWIFTTYPE_MESSAGE
+                    SWIFTTYPE_MESSAGE,
+                    SWIFTTYPE_MAP
                 };
                 
-                SwiftType GetSwiftType(FieldDescriptor::Type field_type);
-                
-                inline SwiftType GetSwiftType(const FieldDescriptor* field) {
-                    return GetSwiftType(field->type());
-                }
+                SwiftType GetSwiftType(const FieldDescriptor *field);
                 
                 // Get the fully-qualified class name for a boxed primitive type, e.g.
                 // "NSNumber" for SWIFTTYPE_INT.  Returns NULL for enum and message

@@ -27,7 +27,7 @@ public protocol ExtensionField
     func writeValueIncludingTagToCodedOutputStream(value:Any, output:CodedOutputStream)
     func computeSerializedSizeIncludingTag(value:Any) -> Int32
     func writeDescriptionOf(value:Any, inout output:String, indent:String)
-    func mergeFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSetBuilder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32)
+    func mergeFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32)
     
 }
 

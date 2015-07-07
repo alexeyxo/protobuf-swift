@@ -30,7 +30,7 @@ class UnknowFieldsTests: XCTestCase {
     }
     
     func getBizarroData() -> NSData {
-        var bizarroFields = UnknownFieldSet.builder()
+        var bizarroFields = UnknownFieldSet.Builder()
         var varintField = Field()
         varintField += Int32(1)
         var fixed32Field = Field()
@@ -54,11 +54,11 @@ class UnknowFieldsTests: XCTestCase {
     }
     
     func testCopyFrom() {
-        var message = ProtobufUnittest.TestEmptyMessage.builder().mergeFrom(emptyMessage).build()
+        var message = ProtobufUnittest.TestEmptyMessage.Builder().mergeFrom(emptyMessage).build()
         XCTAssertTrue(emptyMessage.data() == message.data(), "")
     }
     func testMergeFrom() {
-        var set1Builder = UnknownFieldSet.builder()
+        var set1Builder = UnknownFieldSet.Builder()
         var field1 = Field()
         field1 += Int32(2)
         set1Builder.addField(field1, number: 2)
@@ -67,7 +67,7 @@ class UnknowFieldsTests: XCTestCase {
         set1Builder.addField(field2, number: 3)
         var set1 = set1Builder.build()
         
-        var set2Builder = UnknownFieldSet.builder()
+        var set2Builder = UnknownFieldSet.Builder()
         var field3 = Field()
         field3 += Int32(1)
         set2Builder.addField(field3, number: 1)
@@ -77,7 +77,7 @@ class UnknowFieldsTests: XCTestCase {
         var set2 = set2Builder.build()
         
         
-        var set3Builder = UnknownFieldSet.builder()
+        var set3Builder = UnknownFieldSet.Builder()
         var field5 = Field()
         field5 += Int32(1)
         set3Builder.addField(field5, number: 1)
@@ -86,7 +86,7 @@ class UnknowFieldsTests: XCTestCase {
         set3Builder.addField(field6, number: 3)
         var set3 = set3Builder.build()
         
-        var set4Builder = UnknownFieldSet.builder()
+        var set4Builder = UnknownFieldSet.Builder()
         var field7 = Field()
         field7 += Int32(2)
         set4Builder.addField(field7, number: 2)
@@ -96,28 +96,28 @@ class UnknowFieldsTests: XCTestCase {
         var set4 = set4Builder.build()
     
     
-        var source1Builder = ProtobufUnittest.TestEmptyMessage.builder()
+        var source1Builder = ProtobufUnittest.TestEmptyMessage.Builder()
         source1Builder.unknownFields = set1
         var source1 = source1Builder.build()
         
-        var source2Builder = ProtobufUnittest.TestEmptyMessage.builder()
+        var source2Builder = ProtobufUnittest.TestEmptyMessage.Builder()
         source2Builder.unknownFields = set2
         var source2 = source2Builder.build()
 
-        var source3Builder = ProtobufUnittest.TestEmptyMessage.builder()
+        var source3Builder = ProtobufUnittest.TestEmptyMessage.Builder()
         source3Builder.unknownFields = set3
         var source3 = source3Builder.build()
         
-        var source4Builder = ProtobufUnittest.TestEmptyMessage.builder()
+        var source4Builder = ProtobufUnittest.TestEmptyMessage.Builder()
         source4Builder.unknownFields = set4
         var source4 = source4Builder.build()
     
-        var destination1 = ProtobufUnittest.TestEmptyMessage.builder()
+        var destination1 = ProtobufUnittest.TestEmptyMessage.Builder()
         destination1.mergeFrom(source1)
         destination1.mergeFrom(source2)
         var mes1 = destination1.build()
         
-        var destination2 = ProtobufUnittest.TestEmptyMessage.builder()
+        var destination2 = ProtobufUnittest.TestEmptyMessage.Builder()
         destination2.mergeFrom(source3)
         destination2.mergeFrom(source4)
         var mes2 = destination2.build()
@@ -127,13 +127,13 @@ class UnknowFieldsTests: XCTestCase {
     }
     
     func testClear() {
-        var fields = UnknownFieldSet.builder().mergeUnknownFields(unknownFields).clear().build()
+        var fields = UnknownFieldSet.Builder().mergeUnknownFields(unknownFields).clear().build()
         XCTAssertTrue(fields.fields.count == 0,"")
     }
     
     
     func testClearMessage() {
-        var message = ProtobufUnittest.TestEmptyMessage.builder().mergeFrom(emptyMessage).clear().build()
+        var message = ProtobufUnittest.TestEmptyMessage.Builder().mergeFrom(emptyMessage).clear().build()
         XCTAssertTrue(0 == message.serializedSize(), "")
     }
     
@@ -184,11 +184,11 @@ class UnknowFieldsTests: XCTestCase {
     
     func testLargeVarint() {
         var field = Field()
-        field += Int64(0x7FF)
-        var data = UnknownFieldSet.builder().addField(field, number:1).build().data()
+        field += Int64(Int64.max)
+        var data = UnknownFieldSet.Builder().addField(field, number:1).build().data()
         var parsed = UnknownFieldSet.parseFromData(data)
         var fields = parsed.getField(1)
         XCTAssertTrue(1 == fields.variantArray.count, "")
-        XCTAssertTrue(Int64(0x7FF) == field.variantArray[0], "")
+        XCTAssertTrue(Int64(Int64.max) == field.variantArray[0], "")
     }
 }
