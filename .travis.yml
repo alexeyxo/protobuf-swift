@@ -4,7 +4,7 @@ before_install:
   - brew update
   - brew uninstall xctool
   - brew install xctool --HEAD
-  - brew install --devel protobuf
+  - brew install protobuf
 install:
   - scripts/build.sh
   - scripts/makeTests.sh

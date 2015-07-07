@@ -56,6 +56,7 @@ protoc  person.proto --swift_out="./"
 ##Serializing
 
 ```protobuf
+syntax = "proto2";
 message Person {
     required int32 id = 1;
     required string name = 2;
@@ -77,6 +78,7 @@ person.data() //return NSData
 ##Chaining
 
 ```protobuf
+syntax = "proto2";
 message Perfomance
 {
   required int32 ints = 1;
@@ -102,6 +104,7 @@ let original = originalBuilder.build()
 ##Sub Builders
 
 ```protobuf
+syntax = "proto2";
 message Foo {
   optional int32 val = 1;
   // some other fields.
@@ -126,9 +129,10 @@ baz = builder.build()
 
 ##Maps(ProtocolBuffers 3.0)
 ```protobuf
+syntax = "proto3";
 message MapMessageValue
 {
-  optional int32 valueInMapMessage = 1;
+    int32 valueInMapMessage = 1;
 }
 
 message MessageContainsMap
@@ -172,8 +176,9 @@ var person = Person.parseFromData(bytes) // from NSData
 ##Using Oneof
 
 ```protobuf
+syntax = "proto3";
 message SubMessage {
-    optional string str = 1;
+    string str = 1;
 }
 
 message SampleMessage {
@@ -195,10 +200,11 @@ println(ss.build()) //->  id: 123
 ##Nested Types
 
 ```protobuf
+syntax = "proto3";
 message SearchResponse {
     message Result {
-        required string url = 1;
-        optional string title = 2;
+        string url = 1;
+        string title = 2;
         repeated string snippets = 3;
     }
     repeated Result result = 1;
@@ -217,6 +223,7 @@ println(searchRespons.build())
 ##Packages
 
 ```protobuf
+syntax = "proto2";
 package FooBar;
 message Perfomance
 {

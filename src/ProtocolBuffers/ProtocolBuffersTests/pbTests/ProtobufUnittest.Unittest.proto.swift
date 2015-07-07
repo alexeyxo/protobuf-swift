@@ -404,17 +404,6 @@ internal func == (lhs: ProtobufUnittest.TestFieldOrderings, rhs: ProtobufUnittes
   fieldCheck = fieldCheck && (lhs.hasMyString == rhs.hasMyString) && (!lhs.hasMyString || lhs.myString == rhs.myString)
   fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(12), endExclusive:Int32(101))
   fieldCheck = fieldCheck && (lhs.hasMyFloat == rhs.hasMyFloat) && (!lhs.hasMyFloat || lhs.myFloat == rhs.myFloat)
-  fieldCheck = fieldCheck && (lhs.hasOptionalNestedMessage == rhs.hasOptionalNestedMessage) && (!lhs.hasOptionalNestedMessage || lhs.optionalNestedMessage == rhs.optionalNestedMessage)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-}
-
-internal func == (lhs: ProtobufUnittest.TestFieldOrderings.NestedMessage, rhs: ProtobufUnittest.TestFieldOrderings.NestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
-  fieldCheck = fieldCheck && (lhs.hasOo == rhs.hasOo) && (!lhs.hasOo || lhs.oo == rhs.oo)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
@@ -13808,242 +13797,6 @@ internal extension ProtobufUnittest {
   }
 
   final internal class TestFieldOrderings : ExtendableMessage, GeneratedMessageProtocol, Hashable {
-
-
-    //Nested type declaration start
-
-      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
-        private(set) var hasOo:Bool = false
-        private(set) var oo:Int64 = Int64(0)
-
-        private(set) var hasBb:Bool = false
-        private(set) var bb:Int32 = Int32(0)
-
-        required internal init() {
-             super.init()
-        }
-        override internal func isInitialized() -> Bool {
-         return true
-        }
-        override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-          if hasBb {
-            output.writeInt32(1, value:bb)
-          }
-          if hasOo {
-            output.writeInt64(2, value:oo)
-          }
-          unknownFields.writeToCodedOutputStream(output)
-        }
-        override internal func serializedSize() -> Int32 {
-          var serialize_size:Int32 = memoizedSerializedSize
-          if serialize_size != -1 {
-           return serialize_size
-          }
-
-          serialize_size = 0
-          if hasBb {
-            serialize_size += bb.computeInt32Size(1)
-          }
-          if hasOo {
-            serialize_size += oo.computeInt64Size(2)
-          }
-          serialize_size += unknownFields.serializedSize()
-          memoizedSerializedSize = serialize_size
-          return serialize_size
-        }
-        internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
-        }
-        internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-        }
-        internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder().mergeFromInputStream(input).build()
-        }
-        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-        }
-        internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder().mergeFromCodedInputStream(input).build()
-        }
-        internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
-        }
-        internal class func getBuilder() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.classBuilder() as! ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder
-        }
-        internal func getBuilder() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-          return classBuilder() as! ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder
-        }
-        internal override class func classBuilder() -> MessageBuilder {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
-        }
-        internal override func classBuilder() -> MessageBuilder {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
-        }
-        internal func toBuilder() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.builderWithPrototype(self)
-        }
-        internal class func builderWithPrototype(prototype:ProtobufUnittest.TestFieldOrderings.NestedMessage) -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder().mergeFrom(prototype)
-        }
-        override internal func writeDescriptionTo(inout output:String, indent:String) {
-          if hasBb {
-            output += "\(indent) bb: \(bb) \n"
-          }
-          if hasOo {
-            output += "\(indent) oo: \(oo) \n"
-          }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
-        }
-        override internal var hashValue:Int {
-            get {
-                var hashCode:Int = 7
-                if hasBb {
-                   hashCode = (hashCode &* 31) &+ bb.hashValue
-                }
-                if hasOo {
-                   hashCode = (hashCode &* 31) &+ oo.hashValue
-                }
-                hashCode = (hashCode &* 31) &+  unknownFields.hashValue
-                return hashCode
-            }
-        }
-
-
-        //Meta information declaration start
-
-        override internal class func className() -> String {
-            return "ProtobufUnittest.TestFieldOrderings.NestedMessage"
-        }
-        override internal func className() -> String {
-            return "ProtobufUnittest.TestFieldOrderings.NestedMessage"
-        }
-        override internal func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestFieldOrderings.NestedMessage.self
-        }
-        //Meta information declaration end
-
-        final internal class Builder : GeneratedMessageBuilder {
-          private var builderResult:ProtobufUnittest.TestFieldOrderings.NestedMessage = ProtobufUnittest.TestFieldOrderings.NestedMessage()
-          internal func getMessage() -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
-              return builderResult
-          }
-
-          required override internal init () {
-             super.init()
-          }
-          var hasOo:Bool {
-               get {
-                    return builderResult.hasOo
-               }
-          }
-          var oo:Int64 {
-               get {
-                    return builderResult.oo
-               }
-               set (value) {
-                   builderResult.hasOo = true
-                   builderResult.oo = value
-               }
-          }
-          func setOo(value:Int64) -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-            self.oo = value
-            return self
-          }
-          internal func clearOo() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder{
-               builderResult.hasOo = false
-               builderResult.oo = Int64(0)
-               return self
-          }
-          var hasBb:Bool {
-               get {
-                    return builderResult.hasBb
-               }
-          }
-          var bb:Int32 {
-               get {
-                    return builderResult.bb
-               }
-               set (value) {
-                   builderResult.hasBb = true
-                   builderResult.bb = value
-               }
-          }
-          func setBb(value:Int32) -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-            self.bb = value
-            return self
-          }
-          internal func clearBb() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder{
-               builderResult.hasBb = false
-               builderResult.bb = Int32(0)
-               return self
-          }
-          override internal var internalGetResult:GeneratedMessage {
-               get {
-                  return builderResult
-               }
-          }
-          internal override func clear() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-            builderResult = ProtobufUnittest.TestFieldOrderings.NestedMessage()
-            return self
-          }
-          internal override func clone() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-            return ProtobufUnittest.TestFieldOrderings.NestedMessage.builderWithPrototype(builderResult)
-          }
-          internal override func build() -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
-               checkInitialized()
-               return buildPartial()
-          }
-          internal func buildPartial() -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
-            var returnMe:ProtobufUnittest.TestFieldOrderings.NestedMessage = builderResult
-            return returnMe
-          }
-          internal func mergeFrom(other:ProtobufUnittest.TestFieldOrderings.NestedMessage) -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-            if other == ProtobufUnittest.TestFieldOrderings.NestedMessage() {
-             return self
-            }
-            if other.hasOo {
-                 oo = other.oo
-            }
-            if other.hasBb {
-                 bb = other.bb
-            }
-            mergeUnknownFields(other.unknownFields)
-            return self
-          }
-          internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-               return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
-          }
-          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
-            while (true) {
-              var tag = input.readTag()
-              switch tag {
-              case 0: 
-                self.unknownFields = unknownFieldsBuilder.build()
-                return self
-
-              case 8 :
-                bb = input.readInt32()
-
-              case 16 :
-                oo = input.readInt64()
-
-              default:
-                if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-                   unknownFields = unknownFieldsBuilder.build()
-                   return self
-                }
-              }
-            }
-          }
-        }
-
-      }
-
-    //Nested type declaration end
-
     private(set) var hasMyString:Bool = false
     private(set) var myString:String = ""
 
@@ -14053,8 +13806,6 @@ internal extension ProtobufUnittest {
     private(set) var hasMyFloat:Bool = false
     private(set) var myFloat:Float = Float(0)
 
-    private(set) var hasOptionalNestedMessage:Bool = false
-    private(set) var optionalNestedMessage:ProtobufUnittest.TestFieldOrderings.NestedMessage!
     required internal init() {
          super.init()
     }
@@ -14076,9 +13827,6 @@ internal extension ProtobufUnittest {
       if hasMyFloat {
         output.writeFloat(101, value:myFloat)
       }
-      if hasOptionalNestedMessage {
-        output.writeMessage(200, value:optionalNestedMessage)
-      }
       unknownFields.writeToCodedOutputStream(output)
     }
     override internal func serializedSize() -> Int32 {
@@ -14096,11 +13844,6 @@ internal extension ProtobufUnittest {
       }
       if hasMyFloat {
         serialize_size += myFloat.computeFloatSize(101)
-      }
-      if hasOptionalNestedMessage {
-          if let varSizeoptionalNestedMessage = optionalNestedMessage?.computeMessageSize(200) {
-              serialize_size += varSizeoptionalNestedMessage
-          }
       }
       serialize_size += extensionsSerializedSize()
       serialize_size += unknownFields.serializedSize()
@@ -14155,11 +13898,6 @@ internal extension ProtobufUnittest {
       if hasMyFloat {
         output += "\(indent) myFloat: \(myFloat) \n"
       }
-      if hasOptionalNestedMessage {
-        output += "\(indent) optionalNestedMessage {\n"
-        optionalNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
-        output += "\(indent) }\n"
-      }
       unknownFields.writeDescriptionTo(&output, indent:indent)
     }
     override internal var hashValue:Int {
@@ -14175,11 +13913,6 @@ internal extension ProtobufUnittest {
             hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(12), endExclusive:Int32(101)))
             if hasMyFloat {
                hashCode = (hashCode &* 31) &+ myFloat.hashValue
-            }
-            if hasOptionalNestedMessage {
-                if let hashValueoptionalNestedMessage = optionalNestedMessage?.hashValue {
-                    hashCode = (hashCode &* 31) &+ hashValueoptionalNestedMessage
-                }
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode
@@ -14278,57 +14011,6 @@ internal extension ProtobufUnittest {
            builderResult.myFloat = Float(0)
            return self
       }
-      var hasOptionalNestedMessage:Bool {
-           get {
-               return builderResult.hasOptionalNestedMessage
-           }
-      }
-      var optionalNestedMessage:ProtobufUnittest.TestFieldOrderings.NestedMessage! {
-           get {
-               if optionalNestedMessageBuilder_ != nil {
-                  builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
-               }
-               return builderResult.optionalNestedMessage
-           }
-           set (value) {
-               builderResult.hasOptionalNestedMessage = true
-               builderResult.optionalNestedMessage = value
-           }
-      }
-      private var optionalNestedMessageBuilder_:ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder! {
-           didSet {
-              builderResult.hasOptionalNestedMessage = true
-           }
-      }
-      internal func getOptionalNestedMessageBuilder() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-        if optionalNestedMessageBuilder_ == nil {
-           optionalNestedMessageBuilder_ = ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
-           builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
-           if optionalNestedMessage != nil {
-              optionalNestedMessageBuilder_.mergeFrom(optionalNestedMessage)
-           }
-        }
-        return optionalNestedMessageBuilder_
-      }
-      func setOptionalNestedMessage(value:ProtobufUnittest.TestFieldOrderings.NestedMessage!) -> ProtobufUnittest.TestFieldOrderings.Builder {
-        self.optionalNestedMessage = value
-        return self
-      }
-      internal func mergeOptionalNestedMessage(value:ProtobufUnittest.TestFieldOrderings.NestedMessage) -> ProtobufUnittest.TestFieldOrderings.Builder {
-        if builderResult.hasOptionalNestedMessage {
-          builderResult.optionalNestedMessage = ProtobufUnittest.TestFieldOrderings.NestedMessage.builderWithPrototype(builderResult.optionalNestedMessage).mergeFrom(value).buildPartial()
-        } else {
-          builderResult.optionalNestedMessage = value
-        }
-        builderResult.hasOptionalNestedMessage = true
-        return self
-      }
-      internal func clearOptionalNestedMessage() -> ProtobufUnittest.TestFieldOrderings.Builder {
-        optionalNestedMessageBuilder_ = nil
-        builderResult.hasOptionalNestedMessage = false
-        builderResult.optionalNestedMessage = nil
-        return self
-      }
       override internal var internalGetResult:ExtendableMessage {
            get {
                return builderResult
@@ -14362,9 +14044,6 @@ internal extension ProtobufUnittest {
         if other.hasMyFloat {
              myFloat = other.myFloat
         }
-        if (other.hasOptionalNestedMessage) {
-            mergeOptionalNestedMessage(other.optionalNestedMessage)
-        }
         mergeExtensionFields(other)
         mergeUnknownFields(other.unknownFields)
         return self
@@ -14390,14 +14069,6 @@ internal extension ProtobufUnittest {
           case 813 :
             myFloat = input.readFloat()
 
-          case 1602 :
-            var subBuilder:ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder = ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
-            if hasOptionalNestedMessage {
-              subBuilder.mergeFrom(optionalNestedMessage)
-            }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
-            optionalNestedMessage = subBuilder.buildPartial()
-
           default:
             if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
                unknownFields = unknownFieldsBuilder.build()
@@ -14412,28 +14083,28 @@ internal extension ProtobufUnittest {
 
   final internal class TestExtremeDefaultValues : GeneratedMessage, GeneratedMessageProtocol, Hashable {
     private(set) var hasEscapedBytes:Bool = false
-    private(set) var escapedBytes:NSData = NSData(bytes:([UInt8]() + "asdfasdfgasdfasdf".utf8), length:17)
+    private(set) var escapedBytes:NSData = NSData(bytes:([UInt8]() + "testsr".utf8), length:6)
 
     private(set) var hasLargeUint32:Bool = false
-    private(set) var largeUint32:UInt32 = UInt32(4095)
+    private(set) var largeUint32:UInt32 = UInt32(255)
 
     private(set) var hasLargeUint64:Bool = false
-    private(set) var largeUint64:UInt64 = UInt64(268435455)
+    private(set) var largeUint64:UInt64 = UInt64(4095)
 
     private(set) var hasSmallInt32:Bool = false
-    private(set) var smallInt32:Int32 = Int32(-32767)
+    private(set) var smallInt32:Int32 = Int32(-127)
 
     private(set) var hasSmallInt64:Bool = false
-    private(set) var smallInt64:Int64 = Int64(-134217727)
+    private(set) var smallInt64:Int64 = Int64(-127)
 
     private(set) var hasReallySmallInt32:Bool = false
     private(set) var reallySmallInt32:Int32 = Int32(-128)
 
     private(set) var hasReallySmallInt64:Bool = false
-    private(set) var reallySmallInt64:Int64 = Int64(-524288)
+    private(set) var reallySmallInt64:Int64 = Int64(-2048)
 
     private(set) var hasUtf8String:Bool = false
-    private(set) var utf8String:String = "abcd"
+    private(set) var utf8String:String = "tests"
 
     private(set) var hasZeroFloat:Bool = false
     private(set) var zeroFloat:Float = Float(0)
@@ -14475,7 +14146,7 @@ internal extension ProtobufUnittest {
     private(set) var nanFloat:Float = 0.0
 
     private(set) var hasCppTrigraph:Bool = false
-    private(set) var cppTrigraph:String = "adsfsadfa"
+    private(set) var cppTrigraph:String = "teststsrs"
 
     private(set) var hasStringWithZero:Bool = false
     private(set) var stringWithZero:String = "hel\000lo"
@@ -14926,7 +14597,7 @@ internal extension ProtobufUnittest {
       }
       internal func clearEscapedBytes() -> ProtobufUnittest.TestExtremeDefaultValues.Builder{
            builderResult.hasEscapedBytes = false
-           builderResult.escapedBytes = NSData(bytes:([UInt8]() + "asdfasdfgasdfasdf".utf8), length:17)
+           builderResult.escapedBytes = NSData(bytes:([UInt8]() + "testsr".utf8), length:6)
            return self
       }
       var hasLargeUint32:Bool {
@@ -14949,7 +14620,7 @@ internal extension ProtobufUnittest {
       }
       internal func clearLargeUint32() -> ProtobufUnittest.TestExtremeDefaultValues.Builder{
            builderResult.hasLargeUint32 = false
-           builderResult.largeUint32 = UInt32(4095)
+           builderResult.largeUint32 = UInt32(255)
            return self
       }
       var hasLargeUint64:Bool {
@@ -14972,7 +14643,7 @@ internal extension ProtobufUnittest {
       }
       internal func clearLargeUint64() -> ProtobufUnittest.TestExtremeDefaultValues.Builder{
            builderResult.hasLargeUint64 = false
-           builderResult.largeUint64 = UInt64(268435455)
+           builderResult.largeUint64 = UInt64(4095)
            return self
       }
       var hasSmallInt32:Bool {
@@ -14995,7 +14666,7 @@ internal extension ProtobufUnittest {
       }
       internal func clearSmallInt32() -> ProtobufUnittest.TestExtremeDefaultValues.Builder{
            builderResult.hasSmallInt32 = false
-           builderResult.smallInt32 = Int32(-32767)
+           builderResult.smallInt32 = Int32(-127)
            return self
       }
       var hasSmallInt64:Bool {
@@ -15018,7 +14689,7 @@ internal extension ProtobufUnittest {
       }
       internal func clearSmallInt64() -> ProtobufUnittest.TestExtremeDefaultValues.Builder{
            builderResult.hasSmallInt64 = false
-           builderResult.smallInt64 = Int64(-134217727)
+           builderResult.smallInt64 = Int64(-127)
            return self
       }
       var hasReallySmallInt32:Bool {
@@ -15064,7 +14735,7 @@ internal extension ProtobufUnittest {
       }
       internal func clearReallySmallInt64() -> ProtobufUnittest.TestExtremeDefaultValues.Builder{
            builderResult.hasReallySmallInt64 = false
-           builderResult.reallySmallInt64 = Int64(-524288)
+           builderResult.reallySmallInt64 = Int64(-2048)
            return self
       }
       var hasUtf8String:Bool {
@@ -15087,7 +14758,7 @@ internal extension ProtobufUnittest {
       }
       internal func clearUtf8String() -> ProtobufUnittest.TestExtremeDefaultValues.Builder{
            builderResult.hasUtf8String = false
-           builderResult.utf8String = "abcd"
+           builderResult.utf8String = "tests"
            return self
       }
       var hasZeroFloat:Bool {
@@ -15409,7 +15080,7 @@ internal extension ProtobufUnittest {
       }
       internal func clearCppTrigraph() -> ProtobufUnittest.TestExtremeDefaultValues.Builder{
            builderResult.hasCppTrigraph = false
-           builderResult.cppTrigraph = "adsfsadfa"
+           builderResult.cppTrigraph = "teststsrs"
            return self
       }
       var hasStringWithZero:Bool {
