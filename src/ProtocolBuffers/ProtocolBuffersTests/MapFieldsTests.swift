@@ -13,15 +13,15 @@ class MapFieldsTests: XCTestCase {
     
     func testMapsFields()
     {
-        var mes1Builder = SwiftProtobufUnittest.MessageContainsMap.Builder()
+        let mes1Builder = SwiftProtobufUnittest.MessageContainsMap.Builder()
         mes1Builder.mapInt32Int32 = [1:2]
         mes1Builder.mapInt64Int64 = [3:4]
         mes1Builder.mapStringString = ["a":"b"]
         mes1Builder.mapStringBytes = ["d":CodedInputStreamTests().bytesArray([1,2,3,4])]
-        var containingMessage = SwiftProtobufUnittest.MapMessageValue.Builder().setValueInMapMessage(32).build()
+        let containingMessage = SwiftProtobufUnittest.MapMessageValue.Builder().setValueInMapMessage(32).build()
         mes1Builder.mapStringMessage = ["c":containingMessage]
-        var mes1 = mes1Builder.build()
-        var mes2 = SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(mes1).build()
+        let mes1 = mes1Builder.build()
+        let mes2 = SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(mes1).build()
         XCTAssert(mes1 == mes2, "")
         XCTAssert(mes2.mapInt32Int32 == [1:2], "")
         XCTAssert(mes2.mapInt64Int64 == [3:4], "")

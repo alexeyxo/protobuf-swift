@@ -78,7 +78,7 @@ public class ExtendableMessage : GeneratedMessage
     }
     
     public func extensionsAreInitialized() -> Bool {
-        var arr = Array(extensionMap.values)
+        let arr = Array(extensionMap.values)
         return isInitialized(arr)
     }
     
@@ -91,7 +91,7 @@ public class ExtendableMessage : GeneratedMessage
     public func getExtension(extensions:ConcreateExtensionField) -> Any
     {
         ensureExtensionIsRegistered(extensions)
-        if var value = extensionMap[extensions.fieldNumber]
+        if let value = extensionMap[extensions.fieldNumber]
         {
             return value
         }
@@ -99,33 +99,33 @@ public class ExtendableMessage : GeneratedMessage
     }
     public func hasExtension(extensions:ConcreateExtensionField) -> Bool
     {
-        if let ext = extensionMap[extensions.fieldNumber]
+        guard (extensionMap[extensions.fieldNumber] != nil) else
         {
-            return true
+            return false
         }
-        return false
+        return true
     }
-    public func writeExtensionsToCodedOutputStream(output:CodedOutputStream, startInclusive:Int32, endExclusive:Int32)
+    public func writeExtensionsToCodedOutputStream(output:CodedOutputStream, startInclusive:Int32, endExclusive:Int32) throws
     {
         var keys = Array(extensionMap.keys)
-        keys.sort { $0 < $1 }
+        keys.sortInPlace { $0 < $1 }
         for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let extensions = extensionRegistry[fieldNumber]!
                 let value = extensionMap[fieldNumber]!
-                extensions.writeValueIncludingTagToCodedOutputStream(value, output: output)
+                try extensions.writeValueIncludingTagToCodedOutputStream(value, output: output)
             }
         }
     }
     
-    public func writeExtensionDescription(inout output:String, startInclusive:Int32 ,endExclusive:Int32, indent:String) {
+    public func writeExtensionDescription(inout output:String, startInclusive:Int32 ,endExclusive:Int32, indent:String) throws {
         var keys = Array(extensionMap.keys)
-        keys.sort { $0 < $1 }
+        keys.sortInPlace { $0 < $1 }
         for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let extensions = extensionRegistry[fieldNumber]!
                 let value = extensionMap[fieldNumber]!
-                extensions.writeDescriptionOf(value, output: &output, indent: indent)
+                try extensions.writeDescriptionOf(value, output: &output, indent: indent)
                 
             }
             
@@ -135,7 +135,7 @@ public class ExtendableMessage : GeneratedMessage
     public func isEqualExtensionsInOther(otherMessage:ExtendableMessage, startInclusive:Int32, endExclusive:Int32) -> Bool {
 
         var keys = Array(extensionMap.keys)
-        keys.sort { $0 < $1 }
+        keys.sortInPlace { $0 < $1 }
         for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let value = extensionMap[fieldNumber]!
@@ -262,7 +262,7 @@ public class ExtendableMessage : GeneratedMessage
     public func hashExtensionsFrom(startInclusive:Int32, endExclusive:Int32) -> Int {
         var hashCode:Int = 0
         var keys = Array(extensionMap.keys)
-        keys.sort { $0 < $1 }
+        keys.sortInPlace { $0 < $1 }
         for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let value = extensionMap[fieldNumber]!
@@ -290,28 +290,27 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
     override public var internalGetResult:ExtendableMessage {
         get
         {
-            NSException(name:"ImproperSubclassing", reason:"", userInfo: nil).raise()
             return ExtendableMessage()
         }
         
     }
     
     
-    override public func checkInitialized()
+    override public func checkInitialized() throws
     {
         let result = internalGetResult
         if (!result.isInitialized())
         {
-            NSException(name:"UninitializedMessage", reason:"", userInfo: nil).raise()
+            throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
         }
     }
     
-    override public func checkInitializedParsed()
+    override public func checkInitializedParsed() throws
     {
         let result = internalGetResult
         if (!result.isInitialized())
         {
-            NSException(name:"InvalidProtocolBuffer", reason:"", userInfo: nil).raise()
+            throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
         }
     }
     
@@ -320,28 +319,28 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         return internalGetResult.isInitialized()
     }
     
-    override public func mergeUnknownFields(unknownFields: UnknownFieldSet) -> Self
+    override public func mergeUnknownFields(unknownFields: UnknownFieldSet) throws -> Self
     {
         let result:GeneratedMessage = internalGetResult
-        result.unknownFields = UnknownFieldSet.builderWithUnknownFields(result.unknownFields).mergeUnknownFields(unknownFields).build()
+        result.unknownFields = try UnknownFieldSet.builderWithUnknownFields(result.unknownFields).mergeUnknownFields(unknownFields).build()
         return self
     }
     
-    override public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
+    override public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) throws -> Bool {
         
-        var message = internalGetResult
-        var wireType = WireFormat.wireFormatGetTagWireType(tag)
-        var fieldNumber:Int32 = WireFormat.wireFormatGetTagFieldNumber(tag)
+        let message = internalGetResult
+        let wireType = WireFormat.getTagWireType(tag)
+        let fieldNumber:Int32 = WireFormat.getTagFieldNumber(tag)
         
-        var extensions = extensionRegistry.getExtension(message.classMetaType(), fieldNumber: fieldNumber)
+        let extensions = extensionRegistry.getExtension(message.classMetaType(), fieldNumber: fieldNumber)
         
         if extensions != nil {
             if extensions!.wireType.rawValue == wireType {
-                extensions!.mergeFromCodedInputStream(input, unknownFields:unknownFields, extensionRegistry:extensionRegistry, builder:self, tag:tag)
+                try extensions!.mergeFromCodedInputStream(input, unknownFields:unknownFields, extensionRegistry:extensionRegistry, builder:self, tag:tag)
                 return true
             }
         }
-        return super.parseUnknownField(input, unknownFields: unknownFields, extensionRegistry: extensionRegistry, tag: tag)
+        return try super.parseUnknownField(input, unknownFields: unknownFields, extensionRegistry: extensionRegistry, tag: tag)
     }
     public func getExtension(extensions:ConcreateExtensionField) -> Any
     {
@@ -351,26 +350,26 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         return internalGetResult.hasExtension(extensions)
     }
     
-    public func  setExtension(extensions:ConcreateExtensionField, value:Any) -> Self  {
-        var message = internalGetResult
+    public func  setExtension(extensions:ConcreateExtensionField, value:Any) throws -> Self  {
+        let message = internalGetResult
         message.ensureExtensionIsRegistered(extensions)
-        if (extensions.isRepeated) {
-            NSException(name:"IllegalArgument", reason:"Must call addExtension() for repeated types.", userInfo: nil).raise()
+        guard !extensions.isRepeated  else {
+            throw ProtocolBuffersError.IllegalArgument("Must call addExtension() for repeated types.")
         }
         message.extensionMap[extensions.fieldNumber] = value
         return self
     }
     
-    public func addExtension<T>(extensions:ConcreateExtensionField, value:T) -> ExtendableMessageBuilder {
+    public func addExtension<T>(extensions:ConcreateExtensionField, value:T) throws -> ExtendableMessageBuilder {
         
-        var message = internalGetResult
+        let message = internalGetResult
         message.ensureExtensionIsRegistered(extensions)
         
-        if (!extensions.isRepeated) {
-            NSException(name:"IllegalArgument", reason:"Must call setExtension() for singular types.", userInfo: nil).raise()
-        }
-        
-        var fieldNumber = extensions.fieldNumber
+        guard extensions.isRepeated else
+        {
+            throw ProtocolBuffersError.IllegalArgument("Must call addExtension() for repeated types.")
+        }        
+        let fieldNumber = extensions.fieldNumber
         if let val = value as? GeneratedMessage
         {
             var list:[GeneratedMessage]! = message.extensionMap[fieldNumber] as? [GeneratedMessage] ?? []
@@ -387,13 +386,13 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         return self
     }
     
-    public func setExtension<T>(extensions:ConcreateExtensionField, index:Int32, value:T) -> Self {
-        var message = internalGetResult
+    public func setExtension<T>(extensions:ConcreateExtensionField, index:Int32, value:T) throws -> Self {
+        let message = internalGetResult
         message.ensureExtensionIsRegistered(extensions)
-        if (!extensions.isRepeated) {
-            NSException(name:"IllegalArgument", reason:"Must call setExtension() for singular types.", userInfo: nil).raise()
+        guard extensions.isRepeated else {
+            throw ProtocolBuffersError.IllegalArgument("Must call setExtension() for singular types.")
         }
-        var fieldNumber = extensions.fieldNumber
+        let fieldNumber = extensions.fieldNumber
         if let val = value as? GeneratedMessage
         {
             var list:[GeneratedMessage]! = message.extensionMap[fieldNumber] as? [GeneratedMessage] ?? []
@@ -411,13 +410,13 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
 
     
     public func  clearExtension(extensions:ConcreateExtensionField) -> Self {
-        var message = internalGetResult
+        let message = internalGetResult
         message.ensureExtensionIsRegistered(extensions)
         message.extensionMap.removeValueForKey(extensions.fieldNumber)
         return self
     }
 
-    private func mergeRepeatedExtensionFields<T where T:CollectionType>(var otherList:T, var extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Generator.Element]
+    private func mergeRepeatedExtensionFields<T where T:CollectionType>(otherList:T, var extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Generator.Element]
     {
         var list:[T.Generator.Element]! = extensionMap[fieldNumber] as? [T.Generator.Element] ?? []
         list! += otherList
@@ -425,17 +424,17 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
 
     }
     
-    public func mergeExtensionFields(other:ExtendableMessage) {
-        var thisMessage = internalGetResult
-        if (thisMessage.className() != other.className()) {
-            NSException(name:"IllegalArgument", reason:"Cannot merge extensions from a different type", userInfo: nil).raise()
+    public func mergeExtensionFields(other:ExtendableMessage) throws {
+        let thisMessage = internalGetResult
+        guard thisMessage.className() == other.className() else {
+            throw ProtocolBuffersError.IllegalArgument("Cannot merge extensions from a different type")
         }
         if other.extensionMap.count > 0 {
             var registry = other.extensionRegistry
             for fieldNumber in other.extensionMap.keys {
-                var thisField = registry[fieldNumber]!
+                let thisField = registry[fieldNumber]!
                 
-                var value = other.extensionMap[fieldNumber]!
+                let value = other.extensionMap[fieldNumber]!
                 if thisField.isRepeated {
                     switch value
                     {

@@ -46,7 +46,7 @@ internal extension UnittestDropUnknownFields {
     }
   }
 
-  final internal class Foo : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class Foo : GeneratedMessage, GeneratedMessageProtocol {
 
 
       //Enum type declaration start 
@@ -242,7 +242,7 @@ internal extension UnittestDropUnknownFields {
            return buildPartial()
       }
       internal func buildPartial() -> UnittestDropUnknownFields.Foo {
-        var returnMe:UnittestDropUnknownFields.Foo = builderResult
+        let returnMe:UnittestDropUnknownFields.Foo = builderResult
         return returnMe
       }
       internal func mergeFrom(other:UnittestDropUnknownFields.Foo) -> UnittestDropUnknownFields.Foo.Builder {
@@ -262,9 +262,9 @@ internal extension UnittestDropUnknownFields {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UnittestDropUnknownFields.Foo.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = input.readTag()
           switch tag {
           case 0: 
             self.unknownFields = unknownFieldsBuilder.build()
@@ -293,7 +293,7 @@ internal extension UnittestDropUnknownFields {
 
   }
 
-  final internal class FooWithExtraFields : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class FooWithExtraFields : GeneratedMessage, GeneratedMessageProtocol {
 
 
       //Enum type declaration start 
@@ -528,7 +528,7 @@ internal extension UnittestDropUnknownFields {
            return buildPartial()
       }
       internal func buildPartial() -> UnittestDropUnknownFields.FooWithExtraFields {
-        var returnMe:UnittestDropUnknownFields.FooWithExtraFields = builderResult
+        let returnMe:UnittestDropUnknownFields.FooWithExtraFields = builderResult
         return returnMe
       }
       internal func mergeFrom(other:UnittestDropUnknownFields.FooWithExtraFields) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
@@ -551,9 +551,9 @@ internal extension UnittestDropUnknownFields {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = input.readTag()
           switch tag {
           case 0: 
             self.unknownFields = unknownFieldsBuilder.build()

@@ -19,12 +19,12 @@ import Foundation
 
 public protocol GeneratedMessageProtocol: class, Message
 {
-    static func parseFromData(data:NSData) -> Self
-    static func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Self
-    static func parseFromInputStream(input:NSInputStream) -> Self
-    static func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Self
-    static func parseFromCodedInputStream(input:CodedInputStream) -> Self
-    static func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Self
+    static func parseFromData(data:NSData) throws -> Self
+    static func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Self
+    static func parseFromInputStream(input:NSInputStream) throws -> Self
+    static func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
+    static func parseFromCodedInputStream(input:CodedInputStream) throws -> Self
+    static func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
 }
 
 public class GeneratedMessage:AbstractMessage
@@ -60,16 +60,12 @@ public class GeneratedMessage:AbstractMessage
     //
 }
 
-
-
-
 public class GeneratedMessageBuilder:AbstractMessageBuilder
 {
     public var internalGetResult:GeneratedMessage
     {
         get
         {
-            NSException(name:"ImproperSubclassing", reason:"", userInfo: nil).raise()
             return GeneratedMessage()
         }
         
@@ -88,21 +84,22 @@ public class GeneratedMessageBuilder:AbstractMessageBuilder
         }
         
     }
-    public func checkInitialized()
+    public func checkInitialized() throws
     {
         let result = internalGetResult
-        if (!result.isInitialized())
+        
+        guard result.isInitialized() else
         {
-            NSException(name:"UninitializedMessage", reason:"", userInfo: nil).raise()
+            throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
         }
     }
     
-    public func checkInitializedParsed()
+    public func checkInitializedParsed() throws
     {
         let result = internalGetResult
-        if (!result.isInitialized())
+        guard result.isInitialized() else
         {
-            NSException(name:"InvalidProtocolBuffer", reason:"", userInfo: nil).raise()
+            throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
         }
     }
     
@@ -111,18 +108,18 @@ public class GeneratedMessageBuilder:AbstractMessageBuilder
         return internalGetResult.isInitialized()
     }
     
-    override public func mergeUnknownFields(unknownFields: UnknownFieldSet) -> Self
+    override public func mergeUnknownFields(unknownFields: UnknownFieldSet) throws -> Self
     {
         let result:GeneratedMessage = internalGetResult
-        result.unknownFields = UnknownFieldSet.builderWithUnknownFields(result.unknownFields).mergeUnknownFields(unknownFields).build()
+        result.unknownFields = try UnknownFieldSet.builderWithUnknownFields(result.unknownFields).mergeUnknownFields(unknownFields).build()
         return self
     }
-    public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) -> Bool {
-        return unknownFields.mergeFieldFrom(tag, input:input)
+    public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) throws -> Bool {
+        return try unknownFields.mergeFieldFrom(tag, input:input)
     }
 }
 
-extension GeneratedMessage:DebugPrintable
+extension GeneratedMessage:CustomDebugStringConvertible
 {
     public var debugDescription:String
         {
@@ -130,18 +127,18 @@ extension GeneratedMessage:DebugPrintable
     }
 }
 
-extension GeneratedMessage:Printable
+extension GeneratedMessage:CustomStringConvertible
 {
     public var description:String {
         get {
             var output:String = ""
-            writeDescriptionTo(&output, indent:"")
+            try! writeDescriptionTo(&output, indent:"")
             return output
         }
     }
 }
 
-extension GeneratedMessageBuilder:DebugPrintable
+extension GeneratedMessageBuilder:CustomDebugStringConvertible
 {
     public var debugDescription:String
     {

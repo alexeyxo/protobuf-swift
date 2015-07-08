@@ -228,13 +228,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void PrimitiveFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "$name$ = input.read$capitalized_type$()\n");
+                       "$name$ = try input.read$capitalized_type$()\n");
     }
     
     void PrimitiveFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  output.write$capitalized_type$($number$, value:$name$)\n"
+                       "  try output.write$capitalized_type$($number$, value:$name$)\n"
                        "}\n");
     }
     
@@ -336,17 +336,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (descriptor_->options().packed())
         {
             printer->Print(variables_,
-                           "var length:Int32 = input.readRawVarint32()\n"
-                           "var limit:Int32 = input.pushLimit(length)\n"
+                           "let length:Int32 = try input.readRawVarint32()\n"
+                           "let limit:Int32 = try input.pushLimit(length)\n"
                            "while (input.bytesUntilLimit() > 0) {\n"
-                           "  builderResult.$name$ += [input.read$capitalized_type$()]\n"
+                           "  builderResult.$name$ += [try input.read$capitalized_type$()]\n"
                            "}\n"
                            "input.popLimit(limit)\n");
         }
         else
         {
             printer->Print(variables_,
-                           "$name$ += [input.read$capitalized_type$()]\n");
+                           "$name$ += [try input.read$capitalized_type$()]\n");
         }
     }
     
@@ -358,15 +358,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->options().packed()) {
             printer->Print(variables_,
-                           "output.writeRawVarint32($tag$)\n"
-                           "output.writeRawVarint32($name$MemoizedSerializedSize)\n"
+                           "try output.writeRawVarint32($tag$)\n"
+                           "try output.writeRawVarint32($name$MemoizedSerializedSize)\n"
                            "for oneValue$name$ in $name$ {\n"
-                           "  output.write$capitalized_type$NoTag(oneValue$name$)\n"
+                           "  try output.write$capitalized_type$NoTag(oneValue$name$)\n"
                            "}\n");
         } else {
             printer->Print(variables_,
                            "for oneValue$name$ in $name$ {\n"
-                           "  output.write$capitalized_type$($number$, value:oneValue$name$)\n"
+                           "  try output.write$capitalized_type$($number$, value:oneValue$name$)\n"
                            "}\n");
         }
         printer->Outdent();

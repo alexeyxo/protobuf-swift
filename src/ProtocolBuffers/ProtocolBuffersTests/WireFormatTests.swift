@@ -20,59 +20,103 @@ class WireFormatTests: XCTestCase {
         super.tearDown()
     }
     func testSerialization() {
-        var message = TestUtilities.allSet()
-        var rawBytes = message.data()
-        XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
-        var message2 = ProtobufUnittest.TestAllTypes.parseFromData(rawBytes)
-        TestUtilities.assertAllFieldsSet(message2)
+        do {
+            let message = try TestUtilities.allSet()
+            let rawBytes = message.data()
+            XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
+            let message2 = try ProtobufUnittest.TestAllTypes.parseFromData(rawBytes)
+            TestUtilities.assertAllFieldsSet(message2)
+        }
+        catch
+        {
+            XCTFail("testSerialization")
+        }
+        
     }
     
     func testSerializationPacked() {
-        var message = TestUtilities.packedSet()
-        var rawBytes = message.data()
-        XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
-        var message2 = ProtobufUnittest.TestPackedTypes.parseFromData(rawBytes)
-        TestUtilities.assertPackedFieldsSet(message2)
+        do {
+            let message = try TestUtilities.packedSet()
+            let rawBytes = message.data()
+            XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
+            let message2 = try ProtobufUnittest.TestPackedTypes.parseFromData(rawBytes)
+            TestUtilities.assertPackedFieldsSet(message2)
+        }
+        catch {
+            XCTFail("testSerializationPacked")
+        }
+        
     }
     
     func testSerializeExtensions() {
-        var message = TestUtilities.allExtensionsSet()
-        var rawBytes = message.data()
-        XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
-        var message2 = ProtobufUnittest.TestAllTypes.parseFromData(rawBytes)
-        TestUtilities.assertAllFieldsSet(message2)
+        do {
+            let message = try TestUtilities.allExtensionsSet()
+            let rawBytes = message.data()
+            XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
+            let message2 = try ProtobufUnittest.TestAllTypes.parseFromData(rawBytes)
+            TestUtilities.assertAllFieldsSet(message2)
+        }
+        catch {
+            XCTFail("testSerializeExtensions")
+        }
     }
     func testSerializePackedExtensions() {
-        // TestPackedTypes and TestPackedExtensions should have compatible wire
-        // formats check that they serialize to the same string.
-        var message = TestUtilities.packedExtensionsSet()
-        var rawBytes = message.data()
-        var message2 = TestUtilities.packedSet()
-        var rawBytes2 = message2.data()
-        XCTAssertTrue(rawBytes == rawBytes2, "")
+        do {
+            // TestPackedTypes and TestPackedExtensions should have compatible wire
+            // formats check that they serialize to the same string.
+            let message = try TestUtilities.packedExtensionsSet()
+            let rawBytes = message.data()
+            let message2 = try TestUtilities.packedSet()
+            let rawBytes2 = message2.data()
+            XCTAssertTrue(rawBytes == rawBytes2, "")
+        }
+        catch {
+            XCTFail("testSerializePackedExtensions")
+        }
+        
     }
     
     func testParseExtensions() {
-        // TestAllTypes and TestAllExtensions should have compatible wire formats,
-        // so if we serealize a TestAllTypes then parse it as TestAllExtensions
-        // it should work.
-        var message = TestUtilities.allSet()
-        var rawBytes = message.data()
-        var registry = ExtensionRegistry()
-        TestUtilities.registerAllExtensions(registry)
-        var message2 = ProtobufUnittest.TestAllExtensions.parseFromData(rawBytes, extensionRegistry:registry)
-        TestUtilities.assertAllExtensionsSet(message2)
+        do {
+            // TestAllTypes and TestAllExtensions should have compatible wire formats,
+            // so if we serealize a TestAllTypes then parse it as TestAllExtensions
+            // it should work.
+            let message = try TestUtilities.allSet()
+            let rawBytes = message.data()
+            let registry = ExtensionRegistry()
+            TestUtilities.registerAllExtensions(registry)
+            let message2 = try ProtobufUnittest.TestAllExtensions.parseFromData(rawBytes, extensionRegistry:registry)
+            TestUtilities.assertAllExtensionsSet(message2)
+        }
+        catch {
+            XCTFail("testParseExtensions")
+        }
+        
     }
     
     func testExtensionsSerializedSize() {
-        XCTAssertTrue(TestUtilities.allSet().serializedSize() == TestUtilities.allExtensionsSet().serializedSize(), "")
+        
+        do {
+            let allset = try TestUtilities.allSet().serializedSize()
+            let extSet = try TestUtilities.allExtensionsSet().serializedSize()
+            XCTAssertTrue(allset == extSet, "")
+        }
+        catch {
+            XCTFail("testExtensionsSerializedSize")
+        }
+        
     }
     
     func testParsePackedExtensions() {
-        var message = TestUtilities.packedExtensionsSet()
-        var rawBytes = message.data()
-        var registry = TestUtilities.extensionRegistry()
-        var message2 = ProtobufUnittest.TestPackedExtensions.parseFromData(rawBytes, extensionRegistry:registry)
-        TestUtilities.assertPackedExtensionsSet(message2)
+        do {
+            let message = try TestUtilities.packedExtensionsSet()
+            let rawBytes = message.data()
+            let registry = TestUtilities.extensionRegistry()
+            let message2 = try ProtobufUnittest.TestPackedExtensions.parseFromData(rawBytes, extensionRegistry:registry)
+            TestUtilities.assertPackedExtensionsSet(message2)
+        }
+        catch {
+            XCTFail("testParsePackedExtensions")
+        }
     }
 }

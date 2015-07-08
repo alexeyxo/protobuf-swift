@@ -136,7 +136,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "     $name$Builder_ = $type$.Builder()\n"
                        "     builderResult.$name$ = $name$Builder_.getMessage()\n"
                        "     if $name$ != nil {\n"
-                       "        $name$Builder_.mergeFrom($name$)\n"
+                       "        try! $name$Builder_.mergeFrom($name$)\n"
                        "     }\n"
                        "  }\n"
                        "  return $name$Builder_\n"
@@ -145,9 +145,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
-                       "$acontrolFunc$ func merge$capitalized_name$(value:$type$) -> $containing_class$.Builder {\n"
+                       "$acontrolFunc$ func merge$capitalized_name$(value:$type$) throws -> $containing_class$.Builder {\n"
                        "  if builderResult.has$capitalized_name$ {\n"
-                       "    builderResult.$name$ = $type$.builderWithPrototype(builderResult.$name$).mergeFrom(value).buildPartial()\n"
+                       "    builderResult.$name$ = try $type$.builderWithPrototype(builderResult.$name$).mergeFrom(value).buildPartial()\n"
                        "  } else {\n"
                        "    builderResult.$name$ = value\n"
                        "  }\n"
@@ -166,7 +166,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if (other.has$capitalized_name$) {\n"
-                       "    merge$capitalized_name$(other.$name$)\n"
+                       "    try merge$capitalized_name$(other.$name$)\n"
                        "}\n");
     }
     
@@ -177,17 +177,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "var subBuilder:$type$.Builder = $type$.Builder()\n"
+                       "let subBuilder:$type$.Builder = $type$.Builder()\n"
                        "if has$capitalized_name$ {\n"
-                       "  subBuilder.mergeFrom($name$)\n"
+                       "  try subBuilder.mergeFrom($name$)\n"
                        "}\n");
         
         if (descriptor_->type() == FieldDescriptor::TYPE_GROUP) {
             printer->Print(variables_,
-                           "input.readGroup($number$, builder:subBuilder, extensionRegistry:extensionRegistry)\n");
+                           "try input.readGroup($number$, builder:subBuilder, extensionRegistry:extensionRegistry)\n");
         } else {
             printer->Print(variables_,
-                           "input.readMessage(subBuilder, extensionRegistry:extensionRegistry)\n");
+                           "try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)\n");
         }
         
         printer->Print(variables_,
@@ -198,7 +198,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  output.write$group_or_message$($number$, value:$name$)\n"
+                       "  try output.write$group_or_message$($number$, value:$name$)\n"
                        "}\n");
     }
     
@@ -217,7 +217,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
                        "  output += \"\\(indent) $name$ {\\n\"\n"
-                       "  $name$?.writeDescriptionTo(&output, indent:\"\\(indent)  \")\n"
+                       "  try $name$?.writeDescriptionTo(&output, indent:\"\\(indent)  \")\n"
                        "  output += \"\\(indent) }\\n\"\n"
                        "}\n");
     }
@@ -312,14 +312,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedMessageFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "var subBuilder = $type$.Builder()\n");
+                       "let subBuilder = $type$.Builder()\n");
         
         if (descriptor_->type() == FieldDescriptor::TYPE_GROUP) {
             printer->Print(variables_,
-                           "input.readGroup($number$,builder:subBuilder,extensionRegistry:extensionRegistry)\n");
+                           "try input.readGroup($number$,builder:subBuilder,extensionRegistry:extensionRegistry)\n");
         } else {
             printer->Print(variables_,
-                           "input.readMessage(subBuilder,extensionRegistry:extensionRegistry)\n");
+                           "try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)\n");
         }
         
         printer->Print(variables_,
@@ -329,7 +329,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedMessageFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "for oneElement$name$ in $name$ {\n"
-                       "    output.write$group_or_message$($number$, value:oneElement$name$)\n"
+                       "    try output.write$group_or_message$($number$, value:oneElement$name$)\n"
                        "}\n");
     }
     
@@ -345,7 +345,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "var $name$ElementIndex:Int = 0\n"
                        "for oneElement$name$ in $name$ {\n"
                        "    output += \"\\(indent) $name$[\\($name$ElementIndex)] {\\n\"\n"
-                       "    oneElement$name$.writeDescriptionTo(&output, indent:\"\\(indent)  \")\n"
+                       "    try oneElement$name$.writeDescriptionTo(&output, indent:\"\\(indent)  \")\n"
                        "    output += \"\\(indent)}\\n\"\n"
                        "    $name$ElementIndex++\n"
                        "}\n");

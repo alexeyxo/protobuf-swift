@@ -210,11 +210,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(variables_,
-                           "final $acontrol$ class $className$ : ExtendableMessage, GeneratedMessageProtocol, Hashable {\n"
+                           "final $acontrol$ class $className$ : ExtendableMessage, GeneratedMessageProtocol{\n"
                           );
         } else {
             printer->Print(variables_,
-                           "final $acontrol$ class $className$ : GeneratedMessage, GeneratedMessageProtocol, Hashable {\n"
+                           "final $acontrol$ class $className$ : GeneratedMessage, GeneratedMessageProtocol {\n"
                            );
         }
         printer->Indent();
@@ -304,11 +304,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrol$ override func classBuilder() -> MessageBuilder {\n"
                        "  return $classNameReturnedType$.Builder()\n"
                        "}\n"
-                       "$acontrol$ func toBuilder() -> $classNameReturnedType$.Builder {\n"
-                       "  return $classNameReturnedType$.builderWithPrototype(self)\n"
+                       "$acontrol$ func toBuilder() throws -> $classNameReturnedType$.Builder {\n"
+                       "  return try $classNameReturnedType$.builderWithPrototype(self)\n"
                        "}\n"
-                       "$acontrol$ class func builderWithPrototype(prototype:$classNameReturnedType$) -> $classNameReturnedType$.Builder {\n"
-                       "  return $classNameReturnedType$.Builder().mergeFrom(prototype)\n"
+                       "$acontrol$ class func builderWithPrototype(prototype:$classNameReturnedType$) throws -> $classNameReturnedType$.Builder {\n"
+                       "  return try $classNameReturnedType$.Builder().mergeFrom(prototype)\n"
                        "}\n");
         
         GenerateMessageDescriptionSource(printer);
@@ -347,7 +347,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         sort(sorted_extensions.begin(), sorted_extensions.end(),
              ExtensionRangeOrdering());
         
-        printer->Print(variables_,"override $acontrol$ func writeToCodedOutputStream(output:CodedOutputStream) {\n");
+        printer->Print(variables_,"override $acontrol$ func writeToCodedOutputStream(output:CodedOutputStream) throws {\n");
         printer->Indent();
         
         for (int i = 0, j = 0;
@@ -364,9 +364,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         if (descriptor_->options().message_set_wire_format()) {
-            printer->Print("unknownFields.writeAsMessageSetTo(output)\n");
+            printer->Print("try unknownFields.writeAsMessageSetTo(output)\n");
         } else {
-            printer->Print("unknownFields.writeToCodedOutputStream(output)\n");
+            printer->Print("try unknownFields.writeToCodedOutputStream(output)\n");
         }
         printer->Outdent();
         
@@ -417,7 +417,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
              ExtensionRangeOrdering());
         
         printer->Print(
-                       "override $acontrol$ func writeDescriptionTo(inout output:String, indent:String) {\n","acontrol", GetAccessControlType(descriptor_->file()));
+                       "override $acontrol$ func writeDescriptionTo(inout output:String, indent:String) throws {\n","acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Indent();
         
@@ -434,8 +434,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             }
         }
         
-        printer->Print(
-                       "unknownFields.writeDescriptionTo(&output, indent:indent)\n");
+        printer->Print("unknownFields.writeDescriptionTo(&output, indent:indent)\n");
         
         printer->Outdent();
         printer->Print(
@@ -491,8 +490,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             }
             
         }
-        
-        printer->Print("return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))\n");
+        printer->Print("fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))\n");
+        printer->Print("return fieldCheck\n");
         
         
         printer->Outdent();
@@ -553,23 +552,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateParseFromMethodsSource(io::Printer* printer) {
         printer->Print(variables_,
-                       "$acontrol$ class func parseFromData(data:NSData) -> $classNameReturnedType$ {\n"
-                       "  return $classNameReturnedType$.Builder().mergeFromData(data, extensionRegistry:$fileName$.sharedInstance.extensionRegistry).build()\n"
+                       "$acontrol$ class func parseFromData(data:NSData) throws -> $classNameReturnedType$ {\n"
+                       "  return try $classNameReturnedType$.Builder().mergeFromData(data, extensionRegistry:$fileName$.sharedInstance.extensionRegistry).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> $classNameReturnedType$ {\n"
-                       "  return $classNameReturnedType$.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()\n"
+                       "$acontrol$ class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
+                       "  return try $classNameReturnedType$.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromInputStream(input:NSInputStream) -> $classNameReturnedType$ {\n"
-                       "  return $classNameReturnedType$.Builder().mergeFromInputStream(input).build()\n"
+                       "$acontrol$ class func parseFromInputStream(input:NSInputStream) throws -> $classNameReturnedType$ {\n"
+                       "  return try $classNameReturnedType$.Builder().mergeFromInputStream(input).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> $classNameReturnedType$ {\n"
-                       "  return $classNameReturnedType$.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()\n"
+                       "$acontrol$ class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
+                       "  return try $classNameReturnedType$.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromCodedInputStream(input:CodedInputStream) -> $classNameReturnedType$ {\n"
-                       "  return $classNameReturnedType$.Builder().mergeFromCodedInputStream(input).build()\n"
+                       "$acontrol$ class func parseFromCodedInputStream(input:CodedInputStream) throws -> $classNameReturnedType$ {\n"
+                       "  return try $classNameReturnedType$.Builder().mergeFromCodedInputStream(input).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classNameReturnedType$ {\n"
-                       "  return $classNameReturnedType$.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()\n"
+                       "$acontrol$ class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
+                       "  return try $classNameReturnedType$.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n");
     }
     
@@ -581,7 +580,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateSerializeOneExtensionRangeSource(io::Printer* printer, const Descriptor::ExtensionRange* range) {
         printer->Print(
-                       "writeExtensionsToCodedOutputStream(output, startInclusive:Int32($from$), endExclusive:Int32($to$))\n",
+                       "try writeExtensionsToCodedOutputStream(output, startInclusive:Int32($from$), endExclusive:Int32($to$))\n",
                        "from", SimpleItoa(range->start),
                        "to", SimpleItoa(range->end));
     }
@@ -593,7 +592,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateDescriptionOneExtensionRangeSource(io::Printer* printer, const Descriptor::ExtensionRange* range) {
         printer->Print(
-                       "writeExtensionDescription(&output, startInclusive:Int32($from$), endExclusive:Int32($to$), indent:indent)\n",
+                       "try writeExtensionDescription(&output, startInclusive:Int32($from$), endExclusive:Int32($to$), indent:indent)\n",
                        "from", SimpleItoa(range->start),
                        "to", SimpleItoa(range->end));
     }
@@ -680,13 +679,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  builderResult = $classNameReturnedType$()\n"
                        "  return self\n"
                        "}\n"
-                       "$acontrol$ override func clone() -> $classNameReturnedType$.Builder {\n"
-                       "  return $classNameReturnedType$.builderWithPrototype(builderResult)\n"
+                       "$acontrol$ override func clone() throws -> $classNameReturnedType$.Builder {\n"
+                       "  return try $classNameReturnedType$.builderWithPrototype(builderResult)\n"
                        "}\n");
         
         printer->Print(variables_,
-                       "$acontrol$ override func build() -> $classNameReturnedType$ {\n"
-                       "     checkInitialized()\n"
+                       "$acontrol$ override func build() throws -> $classNameReturnedType$ {\n"
+                       "     try checkInitialized()\n"
                        "     return buildPartial()\n"
                        "}\n"
                        "$acontrol$ func buildPartial() -> $classNameReturnedType$ {\n");
@@ -698,12 +697,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         printer->Print(variables_,
-                       "  var returnMe:$classNameReturnedType$ = builderResult\n"
+                       "  let returnMe:$classNameReturnedType$ = builderResult\n"
                        "  return returnMe\n"
                        "}\n");
         
         printer->Print(variables_,
-                       "$acontrol$ func mergeFrom(other:$classNameReturnedType$) -> $classNameReturnedType$.Builder {\n");
+                       "$acontrol$ func mergeFrom(other:$classNameReturnedType$) throws -> $classNameReturnedType$.Builder {\n");
 
         printer->Indent();
         printer->Print(variables_,
@@ -719,10 +718,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         if (descriptor_->extension_range_count() > 0) {
-            printer->Print("mergeExtensionFields(other)\n");
+            printer->Print("try mergeExtensionFields(other)\n");
         }
         
-        printer->Print("mergeUnknownFields(other.unknownFields)\n"
+        printer->Print("try mergeUnknownFields(other.unknownFields)\n"
                        "return self\n");
         printer->Outdent();
         printer->Print("}\n");
@@ -734,25 +733,25 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
         
         printer->Print(variables_,
-                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream) -> $classNameReturnedType$.Builder {\n"
-                       "     return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())\n"
+                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
+                       "     return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
-                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> $classNameReturnedType$.Builder {\n");
+                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$.Builder {\n");
         
         printer->Indent();
         printer->Print(
-                       "var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)\n"
+                       "let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)\n"
                        "while (true) {\n");
         printer->Indent();
 
-        printer->Print("var tag = input.readTag()\n"
+        printer->Print("let tag = try input.readTag()\n"
                        "switch tag {\n");
         
         printer->Print("case 0: \n");
         
         printer->Indent();
         
-        printer->Print("self.unknownFields = unknownFieldsBuilder.build()\n"
+        printer->Print("self.unknownFields = try unknownFieldsBuilder.build()\n"
                        "return self\n"
                        "\n");
         
@@ -771,8 +770,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print("\n");
         }
         printer->Print("default:\n"
-                       "  if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {\n"
-                       "     unknownFields = unknownFieldsBuilder.build()\n"
+                       "  if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {\n"
+                       "     unknownFields = try unknownFieldsBuilder.build()\n"
                        "     return self\n"
                        "  }\n"
                        "}\n");

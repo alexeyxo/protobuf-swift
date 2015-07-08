@@ -168,12 +168,12 @@ internal extension ProtobufUnittestNoArena {
 
   //Enum type declaration end 
 
-  final internal class TestAllTypes : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class TestAllTypes : GeneratedMessage, GeneratedMessageProtocol {
 
 
     //Nested type declaration start
 
-      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+      final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
         private(set) var hasBb:Bool = false
         private(set) var bb:Int32 = Int32(0)
 
@@ -319,7 +319,7 @@ internal extension ProtobufUnittestNoArena {
                return buildPartial()
           }
           internal func buildPartial() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-            var returnMe:ProtobufUnittestNoArena.TestAllTypes.NestedMessage = builderResult
+            let returnMe:ProtobufUnittestNoArena.TestAllTypes.NestedMessage = builderResult
             return returnMe
           }
           internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
@@ -336,9 +336,9 @@ internal extension ProtobufUnittestNoArena {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
           internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
-            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
-              var tag = input.readTag()
+              let tag = input.readTag()
               switch tag {
               case 0: 
                 self.unknownFields = unknownFieldsBuilder.build()
@@ -365,7 +365,7 @@ internal extension ProtobufUnittestNoArena {
 
     //Nested type declaration start
 
-      final internal class OptionalGroup : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+      final internal class OptionalGroup : GeneratedMessage, GeneratedMessageProtocol {
         private(set) var hasA:Bool = false
         private(set) var a:Int32 = Int32(0)
 
@@ -511,7 +511,7 @@ internal extension ProtobufUnittestNoArena {
                return buildPartial()
           }
           internal func buildPartial() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-            var returnMe:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup = builderResult
+            let returnMe:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup = builderResult
             return returnMe
           }
           internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
@@ -528,9 +528,9 @@ internal extension ProtobufUnittestNoArena {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
           internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
-            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
-              var tag = input.readTag()
+              let tag = input.readTag()
               switch tag {
               case 0: 
                 self.unknownFields = unknownFieldsBuilder.build()
@@ -557,7 +557,7 @@ internal extension ProtobufUnittestNoArena {
 
     //Nested type declaration start
 
-      final internal class RepeatedGroup : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+      final internal class RepeatedGroup : GeneratedMessage, GeneratedMessageProtocol {
         private(set) var hasA:Bool = false
         private(set) var a:Int32 = Int32(0)
 
@@ -703,7 +703,7 @@ internal extension ProtobufUnittestNoArena {
                return buildPartial()
           }
           internal func buildPartial() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-            var returnMe:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup = builderResult
+            let returnMe:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup = builderResult
             return returnMe
           }
           internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
@@ -720,9 +720,9 @@ internal extension ProtobufUnittestNoArena {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
           internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
-            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
-              var tag = input.readTag()
+              let tag = input.readTag()
               switch tag {
               case 0: 
                 self.unknownFields = unknownFieldsBuilder.build()
@@ -3979,7 +3979,7 @@ internal extension ProtobufUnittestNoArena {
            return buildPartial()
       }
       internal func buildPartial() -> ProtobufUnittestNoArena.TestAllTypes {
-        var returnMe:ProtobufUnittestNoArena.TestAllTypes = builderResult
+        let returnMe:ProtobufUnittestNoArena.TestAllTypes = builderResult
         return returnMe
       }
       internal func mergeFrom(other:ProtobufUnittestNoArena.TestAllTypes) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
@@ -4218,9 +4218,9 @@ internal extension ProtobufUnittestNoArena {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = input.readTag()
           switch tag {
           case 0: 
             self.unknownFields = unknownFieldsBuilder.build()
@@ -4272,7 +4272,7 @@ internal extension ProtobufUnittestNoArena {
             optionalBytes = input.readData()
 
           case 131 :
-            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder()
+            let subBuilder:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder()
             if hasOptionalGroup {
               subBuilder.mergeFrom(optionalGroup)
             }
@@ -4280,7 +4280,7 @@ internal extension ProtobufUnittestNoArena {
             optionalGroup = subBuilder.buildPartial()
 
           case 146 :
-            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
+            let subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
             if hasOptionalNestedMessage {
               subBuilder.mergeFrom(optionalNestedMessage)
             }
@@ -4288,7 +4288,7 @@ internal extension ProtobufUnittestNoArena {
             optionalNestedMessage = subBuilder.buildPartial()
 
           case 154 :
-            var subBuilder:ProtobufUnittestNoArena.ForeignMessage.Builder = ProtobufUnittestNoArena.ForeignMessage.Builder()
+            let subBuilder:ProtobufUnittestNoArena.ForeignMessage.Builder = ProtobufUnittestNoArena.ForeignMessage.Builder()
             if hasOptionalForeignMessage {
               subBuilder.mergeFrom(optionalForeignMessage)
             }
@@ -4296,7 +4296,7 @@ internal extension ProtobufUnittestNoArena {
             optionalForeignMessage = subBuilder.buildPartial()
 
           case 162 :
-            var subBuilder:ProtobufUnittestImport.ImportMessage.Builder = ProtobufUnittestImport.ImportMessage.Builder()
+            let subBuilder:ProtobufUnittestImport.ImportMessage.Builder = ProtobufUnittestImport.ImportMessage.Builder()
             if hasOptionalImportMessage {
               subBuilder.mergeFrom(optionalImportMessage)
             }
@@ -4334,7 +4334,7 @@ internal extension ProtobufUnittestNoArena {
             optionalCord = input.readString()
 
           case 210 :
-            var subBuilder:ProtobufUnittestImport.PublicImportMessage.Builder = ProtobufUnittestImport.PublicImportMessage.Builder()
+            let subBuilder:ProtobufUnittestImport.PublicImportMessage.Builder = ProtobufUnittestImport.PublicImportMessage.Builder()
             if hasOptionalPublicImportMessage {
               subBuilder.mergeFrom(optionalPublicImportMessage)
             }
@@ -4342,7 +4342,7 @@ internal extension ProtobufUnittestNoArena {
             optionalPublicImportMessage = subBuilder.buildPartial()
 
           case 218 :
-            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
+            let subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
             if hasOptionalLazyMessage {
               subBuilder.mergeFrom(optionalLazyMessage)
             }
@@ -4395,22 +4395,22 @@ internal extension ProtobufUnittestNoArena {
             repeatedBytes += [input.readData()]
 
           case 371 :
-            var subBuilder = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder()
+            let subBuilder = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder()
             input.readGroup(46,builder:subBuilder,extensionRegistry:extensionRegistry)
             repeatedGroup += [subBuilder.buildPartial()]
 
           case 386 :
-            var subBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
+            let subBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedNestedMessage += [subBuilder.buildPartial()]
 
           case 394 :
-            var subBuilder = ProtobufUnittestNoArena.ForeignMessage.Builder()
+            let subBuilder = ProtobufUnittestNoArena.ForeignMessage.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedForeignMessage += [subBuilder.buildPartial()]
 
           case 402 :
-            var subBuilder = ProtobufUnittestImport.ImportMessage.Builder()
+            let subBuilder = ProtobufUnittestImport.ImportMessage.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedImportMessage += [subBuilder.buildPartial()]
 
@@ -4445,7 +4445,7 @@ internal extension ProtobufUnittestNoArena {
             repeatedCord += [input.readString()]
 
           case 458 :
-            var subBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
+            let subBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedLazyMessage += [subBuilder.buildPartial()]
 
@@ -4528,7 +4528,7 @@ internal extension ProtobufUnittestNoArena {
             oneofUint32 = input.readUInt32()
 
           case 898 :
-            var subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
+            let subBuilder:ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
             if hasOneofNestedMessage {
               subBuilder.mergeFrom(oneofNestedMessage)
             }
@@ -4553,7 +4553,7 @@ internal extension ProtobufUnittestNoArena {
 
   }
 
-  final internal class ForeignMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class ForeignMessage : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasC:Bool = false
     private(set) var c:Int32 = Int32(0)
 
@@ -4699,7 +4699,7 @@ internal extension ProtobufUnittestNoArena {
            return buildPartial()
       }
       internal func buildPartial() -> ProtobufUnittestNoArena.ForeignMessage {
-        var returnMe:ProtobufUnittestNoArena.ForeignMessage = builderResult
+        let returnMe:ProtobufUnittestNoArena.ForeignMessage = builderResult
         return returnMe
       }
       internal func mergeFrom(other:ProtobufUnittestNoArena.ForeignMessage) -> ProtobufUnittestNoArena.ForeignMessage.Builder {
@@ -4716,9 +4716,9 @@ internal extension ProtobufUnittestNoArena {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.ForeignMessage.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = input.readTag()
           switch tag {
           case 0: 
             self.unknownFields = unknownFieldsBuilder.build()
@@ -4739,7 +4739,7 @@ internal extension ProtobufUnittestNoArena {
 
   }
 
-  final internal class TestNoArenaMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class TestNoArenaMessage : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasArenaMessage:Bool = false
     private(set) var arenaMessage:Proto2ArenaUnittest.ArenaMessage!
     required internal init() {
@@ -4918,7 +4918,7 @@ internal extension ProtobufUnittestNoArena {
            return buildPartial()
       }
       internal func buildPartial() -> ProtobufUnittestNoArena.TestNoArenaMessage {
-        var returnMe:ProtobufUnittestNoArena.TestNoArenaMessage = builderResult
+        let returnMe:ProtobufUnittestNoArena.TestNoArenaMessage = builderResult
         return returnMe
       }
       internal func mergeFrom(other:ProtobufUnittestNoArena.TestNoArenaMessage) -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
@@ -4935,16 +4935,16 @@ internal extension ProtobufUnittestNoArena {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = input.readTag()
           switch tag {
           case 0: 
             self.unknownFields = unknownFieldsBuilder.build()
             return self
 
           case 10 :
-            var subBuilder:Proto2ArenaUnittest.ArenaMessage.Builder = Proto2ArenaUnittest.ArenaMessage.Builder()
+            let subBuilder:Proto2ArenaUnittest.ArenaMessage.Builder = Proto2ArenaUnittest.ArenaMessage.Builder()
             if hasArenaMessage {
               subBuilder.mergeFrom(arenaMessage)
             }

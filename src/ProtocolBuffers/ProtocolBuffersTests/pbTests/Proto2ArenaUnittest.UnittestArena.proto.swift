@@ -45,7 +45,7 @@ internal extension Proto2ArenaUnittest {
     }
   }
 
-  final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasD:Bool = false
     private(set) var d:Int32 = Int32(0)
 
@@ -191,7 +191,7 @@ internal extension Proto2ArenaUnittest {
            return buildPartial()
       }
       internal func buildPartial() -> Proto2ArenaUnittest.NestedMessage {
-        var returnMe:Proto2ArenaUnittest.NestedMessage = builderResult
+        let returnMe:Proto2ArenaUnittest.NestedMessage = builderResult
         return returnMe
       }
       internal func mergeFrom(other:Proto2ArenaUnittest.NestedMessage) -> Proto2ArenaUnittest.NestedMessage.Builder {
@@ -208,9 +208,9 @@ internal extension Proto2ArenaUnittest {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.NestedMessage.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = input.readTag()
           switch tag {
           case 0: 
             self.unknownFields = unknownFieldsBuilder.build()
@@ -231,7 +231,7 @@ internal extension Proto2ArenaUnittest {
 
   }
 
-  final internal class ArenaMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class ArenaMessage : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var repeatedNestedMessage:Array<Proto2ArenaUnittest.NestedMessage>  = Array<Proto2ArenaUnittest.NestedMessage>()
     private(set) var repeatedImportNoArenaMessage:Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage>  = Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage>()
     required internal init() {
@@ -405,7 +405,7 @@ internal extension Proto2ArenaUnittest {
            return buildPartial()
       }
       internal func buildPartial() -> Proto2ArenaUnittest.ArenaMessage {
-        var returnMe:Proto2ArenaUnittest.ArenaMessage = builderResult
+        let returnMe:Proto2ArenaUnittest.ArenaMessage = builderResult
         return returnMe
       }
       internal func mergeFrom(other:Proto2ArenaUnittest.ArenaMessage) -> Proto2ArenaUnittest.ArenaMessage.Builder {
@@ -425,21 +425,21 @@ internal extension Proto2ArenaUnittest {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.ArenaMessage.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = input.readTag()
           switch tag {
           case 0: 
             self.unknownFields = unknownFieldsBuilder.build()
             return self
 
           case 10 :
-            var subBuilder = Proto2ArenaUnittest.NestedMessage.Builder()
+            let subBuilder = Proto2ArenaUnittest.NestedMessage.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedNestedMessage += [subBuilder.buildPartial()]
 
           case 18 :
-            var subBuilder = Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder()
+            let subBuilder = Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedImportNoArenaMessage += [subBuilder.buildPartial()]
 
