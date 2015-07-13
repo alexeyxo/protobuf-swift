@@ -7,10 +7,12 @@ option (.google.protobuf.swift_file_options).class_prefix = "PB";
 
 message User {
   optional Group group = 1;
+  optional string groupName = 2;
 }
 
 message Group {
   optional User owner = 1;
+
 }
 
 message PerfomanceBatch {
@@ -47,4 +49,20 @@ message IceCreamCone {
   optional int32 scoops = 1;
   optional Flavor flavor = 2;
 
+}
+
+//Subuilders
+message Foo {
+  optional int32 val = 1;
+  // some other fields.
+}
+
+message Bar {
+  optional Foo foo = 1;
+  // some other fields.
+}
+
+message Baz {
+  optional Bar bar = 1;
+  // some other fields.
 }
