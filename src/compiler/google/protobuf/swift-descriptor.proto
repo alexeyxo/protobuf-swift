@@ -16,7 +16,6 @@
 // limitations under the License.
 
 syntax = "proto2";
-
 import "google/protobuf/descriptor.proto";
 
 package google.protobuf;
