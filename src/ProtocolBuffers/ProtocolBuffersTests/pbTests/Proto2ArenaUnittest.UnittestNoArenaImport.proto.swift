@@ -34,7 +34,7 @@ internal extension Proto2ArenaUnittest {
     }
   }
 
-  final internal class ImportNoArenaNestedMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class ImportNoArenaNestedMessage : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasD:Bool = false
     private(set) var d:Int32 = Int32(0)
 
@@ -180,7 +180,7 @@ internal extension Proto2ArenaUnittest {
            return buildPartial()
       }
       internal func buildPartial() -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
-        var returnMe:Proto2ArenaUnittest.ImportNoArenaNestedMessage = builderResult
+        let returnMe:Proto2ArenaUnittest.ImportNoArenaNestedMessage = builderResult
         return returnMe
       }
       internal func mergeFrom(other:Proto2ArenaUnittest.ImportNoArenaNestedMessage) -> Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder {
@@ -197,9 +197,9 @@ internal extension Proto2ArenaUnittest {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = input.readTag()
           switch tag {
           case 0: 
             self.unknownFields = unknownFieldsBuilder.build()

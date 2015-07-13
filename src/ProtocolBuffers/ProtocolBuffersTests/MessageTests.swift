@@ -30,59 +30,66 @@ class MessageTests: XCTestCase {
         super.tearDown()
     }
     
-    func mergeSource() -> ProtobufUnittest.TestAllTypes
+    func mergeSource() throws -> ProtobufUnittest.TestAllTypes
     {
-        var builder = ProtobufUnittest.TestAllTypes.Builder()
+        let builder = ProtobufUnittest.TestAllTypes.Builder()
         builder.optionalInt32 = 1
         builder.optionalString = "foo"
-        builder.optionalForeignMessage = ProtobufUnittest.ForeignMessage.Builder().build()
+        builder.optionalForeignMessage = try ProtobufUnittest.ForeignMessage.Builder().build()
         builder.repeatedString += ["bar"]
-        return builder.build()
+        return try builder.build()
     }
-    func mergeDestination() -> ProtobufUnittest.TestAllTypes
+    func mergeDestination() throws -> ProtobufUnittest.TestAllTypes
     {
-        var builder = ProtobufUnittest.TestAllTypes.Builder()
+        let builder = ProtobufUnittest.TestAllTypes.Builder()
         builder.optionalInt64 = 2
         builder.optionalString = "baz"
-        var foreign = ProtobufUnittest.ForeignMessage.Builder()
+        let foreign = ProtobufUnittest.ForeignMessage.Builder()
         foreign.c = 3
-        builder.optionalForeignMessage = foreign.build()
+        builder.optionalForeignMessage = try foreign.build()
         builder.repeatedString += ["qux"]
-        return builder.build()
+        return try builder.build()
     }
-    func mergeResult() -> ProtobufUnittest.TestAllTypes
+    func mergeResult() throws -> ProtobufUnittest.TestAllTypes
     {
-        var builder = ProtobufUnittest.TestAllTypes.Builder()
+        let builder = ProtobufUnittest.TestAllTypes.Builder()
         builder.optionalInt32 = 1
             builder.optionalInt64 = 2
         builder.optionalString = "foo"
-        var foreign = ProtobufUnittest.ForeignMessage.Builder()
+        let foreign = ProtobufUnittest.ForeignMessage.Builder()
         foreign.c = 3
-        builder.optionalForeignMessage = foreign.build()
+        builder.optionalForeignMessage = try foreign.build()
         builder.repeatedString += ["qux","bar"]
-        return builder.build()
+        return try builder.build()
     }
     
     func testMergeFrom() {
-        var result = ProtobufUnittest.TestAllTypes.builderWithPrototype(mergeDestination()).mergeFrom(mergeSource()).build()
-        XCTAssertTrue(result.data() == mergeResult().data(), "")
+        do {
+            let result = try ProtobufUnittest.TestAllTypes.builderWithPrototype(mergeDestination()).mergeFrom(mergeSource()).build()
+            let data = try mergeResult().data()
+            XCTAssertTrue(result.data() == data, "")
+        }
+        catch {
+            XCTFail("testMergeFrom")
+        }
+        
     }
     
     func testRequiredUninitialized() -> ProtobufUnittest.TestRequired {
         return ProtobufUnittest.TestRequired()
     }
     
-    func testRequiredInitialized() -> ProtobufUnittest.TestRequired {
-        var mes = ProtobufUnittest.TestRequired.Builder()
+    func testRequiredInitialized() throws -> ProtobufUnittest.TestRequired {
+        let mes = ProtobufUnittest.TestRequired.Builder()
         mes.a = 1
         mes.b = 2
         mes.c = 3
-        return mes.build()
+        return try mes.build()
     }
     
     func testRequired()
     {
-        var builder = ProtobufUnittest.TestRequired.Builder()
+        let builder = ProtobufUnittest.TestRequired.Builder()
         XCTAssertFalse(builder.isInitialized(), "")
         builder.a = 1
         XCTAssertFalse(builder.isInitialized(), "")
@@ -93,45 +100,57 @@ class MessageTests: XCTestCase {
     }
     
     func testRequiredForeign() {
-        var builder = ProtobufUnittest.TestRequiredForeign.Builder()
+        
+        let builder = ProtobufUnittest.TestRequiredForeign.Builder()
         
         XCTAssertTrue(builder.isInitialized(), "")
         
         builder.optionalMessage = testRequiredUninitialized()
         XCTAssertFalse(builder.isInitialized(), "")
         
-        builder.optionalMessage = testRequiredInitialized()
-        XCTAssertTrue(builder.isInitialized(), "")
+        do {
+            builder.optionalMessage = try testRequiredInitialized()
+            XCTAssertTrue(builder.isInitialized(), "")
+        }
+        catch
+        {
+            XCTFail("testRequiredForeign")
+        }
         
         builder.repeatedMessage += [testRequiredUninitialized()]
         XCTAssertFalse(builder.isInitialized(), "")
     }
     
     func testRequiredExtension() {
-        var builder = ProtobufUnittest.TestAllExtensions.Builder()
+        let builder = ProtobufUnittest.TestAllExtensions.Builder()
         XCTAssertTrue(builder.isInitialized(), "")
         
-        builder.setExtension(ProtobufUnittest.TestRequired.single(), value:testRequiredUninitialized())
-        XCTAssertFalse(builder.isInitialized(), "")
+        do {
+            try builder.setExtension(ProtobufUnittest.TestRequired.single(), value:testRequiredUninitialized())
+            XCTAssertFalse(builder.isInitialized(), "")
         
-        builder.setExtension(ProtobufUnittest.TestRequired.single(), value:testRequiredInitialized())
-        XCTAssertTrue(builder.isInitialized(), "")
+            try builder.setExtension(ProtobufUnittest.TestRequired.single(), value:testRequiredInitialized())
+            XCTAssertTrue(builder.isInitialized(), "")
         
-        builder.addExtension(ProtobufUnittest.TestRequired.multi(), value:testRequiredUninitialized())
-        XCTAssertFalse(builder.isInitialized(), "")
+            try builder.addExtension(ProtobufUnittest.TestRequired.multi(), value:testRequiredUninitialized())
+            XCTAssertFalse(builder.isInitialized(), "")
         
-        builder.setExtension(ProtobufUnittest.TestRequired.multi(), index:0, value:testRequiredInitialized())
-        XCTAssertTrue(builder.isInitialized(), "")
+            try builder.setExtension(ProtobufUnittest.TestRequired.multi(), index:0, value:testRequiredInitialized())
+            XCTAssertTrue(builder.isInitialized(), "")
+        }
+        catch {
+            XCTFail("testRequiredExtension")
+        }
     }
     
     func testBuildPartial() {
-        var message = ProtobufUnittest.TestRequired.Builder().buildPartial()
+        let message = ProtobufUnittest.TestRequired.Builder().buildPartial()
         XCTAssertFalse(message.isInitialized(), "")
     }
     
     func testBuildNestedPartial() {
     
-        var message = ProtobufUnittest.TestRequiredForeign.Builder()
+        let message = ProtobufUnittest.TestRequiredForeign.Builder()
         message.optionalMessage = testRequiredUninitialized()
         message.repeatedMessage += [testRequiredUninitialized()]
         message.repeatedMessage += [testRequiredUninitialized()]
@@ -141,35 +160,50 @@ class MessageTests: XCTestCase {
     
     ///Issue #61 
     func testProtoPointWorks() {
-        var point1 = PBProtoPoint.Builder().setLatitude(1.0).setLongitude(1.0).build()
-        var point2 = PBProtoPoint.Builder().setLatitude(2.0).setLongitude(2.0).build()
+        do {
+            let point1 = try PBProtoPoint.Builder().setLatitude(1.0).setLongitude(1.0).build()
+            let point2 = try PBProtoPoint.Builder().setLatitude(2.0).setLongitude(2.0).build()
+            XCTAssert(point1.latitude == 1.0, "")
+            XCTAssert(point2.latitude == 2.0, "")
+            
+            // Succeeds, calls the == function from ProtoPoint.pb.swift as expected
+            XCTAssert(!(point1 == point2), "")
+        }
+        catch
+        {
+            XCTFail("testProtoPointWorks")
+        }
         
-        XCTAssert(point1.latitude == 1.0, "")
-        XCTAssert(point2.latitude == 2.0, "")
         
-        // Succeeds, calls the == function from ProtoPoint.pb.swift as expected
-        XCTAssert(!(point1 == point2), "")
+        
     }
     
     func testProtoPointShouldWork() {
-        var point1 = PBProtoPoint.Builder().setLatitude(1.0).setLongitude(1.0).build()
-        var point2 = PBProtoPoint.Builder().setLatitude(2.0).setLongitude(2.0).build()
         
-        XCTAssert(point1.latitude == 1.0, "")
-        XCTAssert(point2.latitude == 2.0, "")
+        do {
+            let point1 = try PBProtoPoint.Builder().setLatitude(1.0).setLongitude(1.0).build()
+            let point2 = try PBProtoPoint.Builder().setLatitude(2.0).setLongitude(2.0).build()
         
-        // Fails, should call the == function from ProtoPoint.pb.swift and take the inverse just like the testRegularPoint() does. But that doesn't happen.
-        XCTAssert(point1 != point2, "")
+            XCTAssert(point1.latitude == 1.0, "")
+            XCTAssert(point2.latitude == 2.0, "")
+        
+            // Fails, should call the == function from ProtoPoint.pb.swift and take the inverse just like the testRegularPoint() does. But that doesn't happen.
+            XCTAssert(point1 != point2, "")
+        }
+        catch
+        {
+            XCTFail("testProtoPointShouldWork")
+        }
     }
 }
 
 class RegularPointEqualityTest: XCTestCase {
     func testRegularPoint() {
-        var point1 = RegularPoint()
+        let point1 = RegularPoint()
         point1.latitude = 1.0
         point1.longitude = 1.0
         
-        var point2 = RegularPoint()
+        let point2 = RegularPoint()
         point2.latitude = 2.0
         point2.longitude = 2.0
         

@@ -533,9 +533,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
             case FieldDescriptor::TYPE_GROUP:
             case FieldDescriptor::TYPE_MESSAGE: {
-                if (field->is_map()) {
-                    return SWIFTTYPE_MAP;
-                }
+//                if (field->is_map()) {
+//                    return SWIFTTYPE_MAP;
+//                }
                 return SWIFTTYPE_MESSAGE;
             }
             
@@ -771,12 +771,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             
             case FieldDescriptor::CPPTYPE_MESSAGE:
             {
-                if (field->is_map()) {
-                 
-                    const FieldDescriptor* key_descriptor = field->message_type()->FindFieldByName("key");
-                    const FieldDescriptor* value_descriptor = field->message_type()->FindFieldByName("value");
-                    return "Dictionary<" + MapKeyName(key_descriptor) + "," + MapValueName(value_descriptor) + ">()";
-                }
+//                if (field->is_map()) {
+//                 
+//                    const FieldDescriptor* key_descriptor = field->message_type()->FindFieldByName("key");
+//                    const FieldDescriptor* value_descriptor = field->message_type()->FindFieldByName("value");
+//                    return "Dictionary<" + MapKeyName(key_descriptor) + "," + MapValueName(value_descriptor) + ">()";
+//                }
                 
                 return ClassNameReturedType(field->message_type()) + "()";
             }

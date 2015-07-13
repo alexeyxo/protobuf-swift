@@ -78,7 +78,7 @@ internal extension Proto2PreserveUnknownEnumUnittest {
 
   //Enum type declaration end 
 
-  final internal class MyMessage : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class MyMessage : GeneratedMessage, GeneratedMessageProtocol {
 
 
     //OneOf declaration start
@@ -446,7 +446,7 @@ internal extension Proto2PreserveUnknownEnumUnittest {
            return buildPartial()
       }
       internal func buildPartial() -> Proto2PreserveUnknownEnumUnittest.MyMessage {
-        var returnMe:Proto2PreserveUnknownEnumUnittest.MyMessage = builderResult
+        let returnMe:Proto2PreserveUnknownEnumUnittest.MyMessage = builderResult
         return returnMe
       }
       internal func mergeFrom(other:Proto2PreserveUnknownEnumUnittest.MyMessage) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
@@ -475,9 +475,9 @@ internal extension Proto2PreserveUnknownEnumUnittest {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = input.readTag()
           switch tag {
           case 0: 
             self.unknownFields = unknownFieldsBuilder.build()
@@ -500,8 +500,8 @@ internal extension Proto2PreserveUnknownEnumUnittest {
             }
 
           case 26 :
-            var length:Int32 = input.readRawVarint32()
-            var oldLimit:Int32 = input.pushLimit(length)
+            let length:Int32 = input.readRawVarint32()
+            let oldLimit:Int32 = input.pushLimit(length)
             while input.bytesUntilLimit() > 0 {
             let valueIntrepeatedPackedE = input.readEnum()
             if let enumsrepeatedPackedE = Proto2PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntrepeatedPackedE) {
@@ -540,7 +540,7 @@ internal extension Proto2PreserveUnknownEnumUnittest {
 
   }
 
-  final internal class MyMessagePlusExtra : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class MyMessagePlusExtra : GeneratedMessage, GeneratedMessageProtocol {
 
 
     //OneOf declaration start
@@ -908,7 +908,7 @@ internal extension Proto2PreserveUnknownEnumUnittest {
            return buildPartial()
       }
       internal func buildPartial() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-        var returnMe:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra = builderResult
+        let returnMe:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra = builderResult
         return returnMe
       }
       internal func mergeFrom(other:Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
@@ -937,9 +937,9 @@ internal extension Proto2PreserveUnknownEnumUnittest {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = input.readTag()
           switch tag {
           case 0: 
             self.unknownFields = unknownFieldsBuilder.build()
@@ -962,8 +962,8 @@ internal extension Proto2PreserveUnknownEnumUnittest {
             }
 
           case 26 :
-            var length:Int32 = input.readRawVarint32()
-            var oldLimit:Int32 = input.pushLimit(length)
+            let length:Int32 = input.readRawVarint32()
+            let oldLimit:Int32 = input.pushLimit(length)
             while input.bytesUntilLimit() > 0 {
             let valueIntrepeatedPackedE = input.readEnum()
             if let enumsrepeatedPackedE = Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedPackedE) {

@@ -155,18 +155,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        
-                       "let valueInt$name$ = input.readEnum()\n"
+                       "let valueInt$name$ = try input.readEnum()\n"
                        "if let enums$name$ = $type$(rawValue:valueInt$name$){\n"
                        "     $name$ = enums$name$\n"
                        "} else {\n"
-                       "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(valueInt$name$))\n"
+                       "     try unknownFieldsBuilder.mergeVarintField($number$, value:Int64(valueInt$name$))\n"
                        "}\n");
     }
     
     void EnumFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  output.writeEnum($number$, value:$name$.rawValue)\n"
+                       "  try output.writeEnum($number$, value:$name$.rawValue)\n"
                        "}\n");
     }
     
@@ -270,18 +270,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         // If packed, set up the while loop
         if (descriptor_->options().packed()) {
             printer->Print(variables_,
-                           "var length:Int32 = input.readRawVarint32()\n"
-                           "var oldLimit:Int32 = input.pushLimit(length)\n"
+                           "let length:Int32 = try input.readRawVarint32()\n"
+                           "let oldLimit:Int32 = try input.pushLimit(length)\n"
                            "while input.bytesUntilLimit() > 0 {\n");
             
         }
         
         printer->Print(variables_,
-                       "let valueInt$name$ = input.readEnum()\n"
+                       "let valueInt$name$ = try input.readEnum()\n"
                        "if let enums$name$ = $type$(rawValue:valueInt$name$) {\n"
                        "     builderResult.$name$ += [enums$name$]\n"
                        "} else {\n"
-                       "     unknownFieldsBuilder.mergeVarintField($number$, value:Int64(valueInt$name$))\n"
+                       "     try unknownFieldsBuilder.mergeVarintField($number$, value:Int64(valueInt$name$))\n"
                        "}\n");
         
         if (descriptor_->options().packed()) {
@@ -297,16 +297,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (descriptor_->options().packed()) {
             printer->Print(variables_,
                            "if !$name$.isEmpty {\n"
-                           "  output.writeRawVarint32($tag$)\n"
-                           "  output.writeRawVarint32($name$MemoizedSerializedSize)\n"
+                           "  try output.writeRawVarint32($tag$)\n"
+                           "  try output.writeRawVarint32($name$MemoizedSerializedSize)\n"
                            "}\n"
                            "for oneValueOf$name$ in $name$ {\n"
-                           "    output.writeEnumNoTag(oneValueOf$name$.rawValue)\n"
+                           "    try output.writeEnumNoTag(oneValueOf$name$.rawValue)\n"
                            "}\n");
         } else {
             printer->Print(variables_,
                            "for oneValueOf$name$ in $name$ {\n"
-                           "    output.writeEnum($number$, value:oneValueOf$name$.rawValue)\n"
+                           "    try output.writeEnum($number$, value:oneValueOf$name$.rawValue)\n"
                            "}\n");
         }
     }

@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// https://developers.google.com/protocol-buffers/
+// http://code.google.com/p/protobuf/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -36,7 +36,6 @@
 // descriptors over 64k don't break language-specific limits in generated code,
 // such as the string literal length limit in Java.
 
-syntax = "proto2";
 
 package google.protobuf;
 option java_package = "com.google.protobuf";

@@ -108,7 +108,7 @@ internal extension SwiftProtobufUnittest {
     }
   }
 
-  final internal class MapMessageValue : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class MapMessageValue : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasValueInMapMessage:Bool = false
     private(set) var valueInMapMessage:Int32 = Int32(0)
 
@@ -254,7 +254,7 @@ internal extension SwiftProtobufUnittest {
            return buildPartial()
       }
       internal func buildPartial() -> SwiftProtobufUnittest.MapMessageValue {
-        var returnMe:SwiftProtobufUnittest.MapMessageValue = builderResult
+        let returnMe:SwiftProtobufUnittest.MapMessageValue = builderResult
         return returnMe
       }
       internal func mergeFrom(other:SwiftProtobufUnittest.MapMessageValue) -> SwiftProtobufUnittest.MapMessageValue.Builder {
@@ -271,9 +271,9 @@ internal extension SwiftProtobufUnittest {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SwiftProtobufUnittest.MapMessageValue.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = input.readTag()
           switch tag {
           case 0: 
             self.unknownFields = unknownFieldsBuilder.build()
@@ -294,12 +294,12 @@ internal extension SwiftProtobufUnittest {
 
   }
 
-  final internal class MessageContainsMap : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class MessageContainsMap : GeneratedMessage, GeneratedMessageProtocol {
 
 
     //Nested type declaration start
 
-      final internal class MapInt32Int32Entry : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+      final internal class MapInt32Int32Entry : GeneratedMessage, GeneratedMessageProtocol {
         private(set) var hasKey:Bool = false
         private(set) var key:Int32 = Int32(0)
 
@@ -483,7 +483,7 @@ internal extension SwiftProtobufUnittest {
                return buildPartial()
           }
           internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
-            var returnMe:SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry = builderResult
+            let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry = builderResult
             return returnMe
           }
           internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
@@ -503,9 +503,9 @@ internal extension SwiftProtobufUnittest {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
           internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
-            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
-              var tag = input.readTag()
+              let tag = input.readTag()
               switch tag {
               case 0: 
                 self.unknownFields = unknownFieldsBuilder.build()
@@ -535,7 +535,7 @@ internal extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class MapInt64Int64Entry : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+      final internal class MapInt64Int64Entry : GeneratedMessage, GeneratedMessageProtocol {
         private(set) var hasKey:Bool = false
         private(set) var key:Int64 = Int64(0)
 
@@ -719,7 +719,7 @@ internal extension SwiftProtobufUnittest {
                return buildPartial()
           }
           internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
-            var returnMe:SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry = builderResult
+            let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry = builderResult
             return returnMe
           }
           internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry) -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
@@ -739,9 +739,9 @@ internal extension SwiftProtobufUnittest {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
           internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
-            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
-              var tag = input.readTag()
+              let tag = input.readTag()
               switch tag {
               case 0: 
                 self.unknownFields = unknownFieldsBuilder.build()
@@ -771,7 +771,7 @@ internal extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class MapStringStringEntry : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+      final internal class MapStringStringEntry : GeneratedMessage, GeneratedMessageProtocol {
         private(set) var hasKey:Bool = false
         private(set) var key:String = ""
 
@@ -955,7 +955,7 @@ internal extension SwiftProtobufUnittest {
                return buildPartial()
           }
           internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
-            var returnMe:SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry = builderResult
+            let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry = builderResult
             return returnMe
           }
           internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry) -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
@@ -975,9 +975,9 @@ internal extension SwiftProtobufUnittest {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
           internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
-            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
-              var tag = input.readTag()
+              let tag = input.readTag()
               switch tag {
               case 0: 
                 self.unknownFields = unknownFieldsBuilder.build()
@@ -1007,7 +1007,7 @@ internal extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class MapStringBytesEntry : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+      final internal class MapStringBytesEntry : GeneratedMessage, GeneratedMessageProtocol {
         private(set) var hasKey:Bool = false
         private(set) var key:String = ""
 
@@ -1191,7 +1191,7 @@ internal extension SwiftProtobufUnittest {
                return buildPartial()
           }
           internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
-            var returnMe:SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry = builderResult
+            let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry = builderResult
             return returnMe
           }
           internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry) -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
@@ -1211,9 +1211,9 @@ internal extension SwiftProtobufUnittest {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
           internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
-            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
-              var tag = input.readTag()
+              let tag = input.readTag()
               switch tag {
               case 0: 
                 self.unknownFields = unknownFieldsBuilder.build()
@@ -1243,7 +1243,7 @@ internal extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class MapStringMessageEntry : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+      final internal class MapStringMessageEntry : GeneratedMessage, GeneratedMessageProtocol {
         private(set) var hasKey:Bool = false
         private(set) var key:String = ""
 
@@ -1460,7 +1460,7 @@ internal extension SwiftProtobufUnittest {
                return buildPartial()
           }
           internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
-            var returnMe:SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry = builderResult
+            let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry = builderResult
             return returnMe
           }
           internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry) -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
@@ -1480,9 +1480,9 @@ internal extension SwiftProtobufUnittest {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
           internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
-            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
-              var tag = input.readTag()
+              let tag = input.readTag()
               switch tag {
               case 0: 
                 self.unknownFields = unknownFieldsBuilder.build()
@@ -1492,7 +1492,7 @@ internal extension SwiftProtobufUnittest {
                 key = input.readString()
 
               case 18 :
-                var subBuilder:SwiftProtobufUnittest.MapMessageValue.Builder = SwiftProtobufUnittest.MapMessageValue.Builder()
+                let subBuilder:SwiftProtobufUnittest.MapMessageValue.Builder = SwiftProtobufUnittest.MapMessageValue.Builder()
                 if hasValue {
                   subBuilder.mergeFrom(value)
                 }
@@ -1517,7 +1517,7 @@ internal extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class MapInt32EnumEntry : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+      final internal class MapInt32EnumEntry : GeneratedMessage, GeneratedMessageProtocol {
         private(set) var hasKey:Bool = false
         private(set) var key:Int32 = Int32(0)
 
@@ -1700,7 +1700,7 @@ internal extension SwiftProtobufUnittest {
                return buildPartial()
           }
           internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
-            var returnMe:SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry = builderResult
+            let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry = builderResult
             return returnMe
           }
           internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
@@ -1720,9 +1720,9 @@ internal extension SwiftProtobufUnittest {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
           internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
-            var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
-              var tag = input.readTag()
+              let tag = input.readTag()
               switch tag {
               case 0: 
                 self.unknownFields = unknownFieldsBuilder.build()
@@ -1792,37 +1792,37 @@ internal extension SwiftProtobufUnittest {
     override internal func writeToCodedOutputStream(output:CodedOutputStream) {
       if hasMapInt32Int32 {
           for (keyMapInt32Int32, valueMapInt32Int32) in mapInt32Int32 {
-              var valueOfMapInt32Int32 = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().setKey(keyMapInt32Int32).setValue(valueMapInt32Int32).build()
+              let valueOfMapInt32Int32 = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().setKey(keyMapInt32Int32).setValue(valueMapInt32Int32).build()
               output.writeMessage(1, value:valueOfMapInt32Int32)
           }
       }
       if hasMapInt64Int64 {
           for (keyMapInt64Int64, valueMapInt64Int64) in mapInt64Int64 {
-              var valueOfMapInt64Int64 = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().setKey(keyMapInt64Int64).setValue(valueMapInt64Int64).build()
+              let valueOfMapInt64Int64 = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().setKey(keyMapInt64Int64).setValue(valueMapInt64Int64).build()
               output.writeMessage(2, value:valueOfMapInt64Int64)
           }
       }
       if hasMapStringString {
           for (keyMapStringString, valueMapStringString) in mapStringString {
-              var valueOfMapStringString = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().setKey(keyMapStringString).setValue(valueMapStringString).build()
+              let valueOfMapStringString = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().setKey(keyMapStringString).setValue(valueMapStringString).build()
               output.writeMessage(3, value:valueOfMapStringString)
           }
       }
       if hasMapStringBytes {
           for (keyMapStringBytes, valueMapStringBytes) in mapStringBytes {
-              var valueOfMapStringBytes = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().setKey(keyMapStringBytes).setValue(valueMapStringBytes).build()
+              let valueOfMapStringBytes = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().setKey(keyMapStringBytes).setValue(valueMapStringBytes).build()
               output.writeMessage(4, value:valueOfMapStringBytes)
           }
       }
       if hasMapStringMessage {
           for (keyMapStringMessage, valueMapStringMessage) in mapStringMessage {
-              var valueOfMapStringMessage = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().setKey(keyMapStringMessage).setValue(valueMapStringMessage).build()
+              let valueOfMapStringMessage = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().setKey(keyMapStringMessage).setValue(valueMapStringMessage).build()
               output.writeMessage(5, value:valueOfMapStringMessage)
           }
       }
       if hasMapInt32Enum {
           for (keyMapInt32Enum, valueMapInt32Enum) in mapInt32Enum {
-              var valueOfMapInt32Enum = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().setKey(keyMapInt32Enum).setValue(valueMapInt32Enum).build()
+              let valueOfMapInt32Enum = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().setKey(keyMapInt32Enum).setValue(valueMapInt32Enum).build()
               output.writeMessage(6, value:valueOfMapInt32Enum)
           }
       }
@@ -1837,37 +1837,37 @@ internal extension SwiftProtobufUnittest {
       serialize_size = 0
       if hasMapInt32Int32 {
           for (keyMapInt32Int32, valueMapInt32Int32) in mapInt32Int32 {
-              var valueOfMapInt32Int32 = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().setKey(keyMapInt32Int32).setValue(valueMapInt32Int32).build()
+              let valueOfMapInt32Int32 = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().setKey(keyMapInt32Int32).setValue(valueMapInt32Int32).build()
               serialize_size += valueOfMapInt32Int32.computeMessageSize(1)
           }
       }
       if hasMapInt64Int64 {
           for (keyMapInt64Int64, valueMapInt64Int64) in mapInt64Int64 {
-              var valueOfMapInt64Int64 = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().setKey(keyMapInt64Int64).setValue(valueMapInt64Int64).build()
+              let valueOfMapInt64Int64 = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().setKey(keyMapInt64Int64).setValue(valueMapInt64Int64).build()
               serialize_size += valueOfMapInt64Int64.computeMessageSize(2)
           }
       }
       if hasMapStringString {
           for (keyMapStringString, valueMapStringString) in mapStringString {
-              var valueOfMapStringString = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().setKey(keyMapStringString).setValue(valueMapStringString).build()
+              let valueOfMapStringString = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().setKey(keyMapStringString).setValue(valueMapStringString).build()
               serialize_size += valueOfMapStringString.computeMessageSize(3)
           }
       }
       if hasMapStringBytes {
           for (keyMapStringBytes, valueMapStringBytes) in mapStringBytes {
-              var valueOfMapStringBytes = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().setKey(keyMapStringBytes).setValue(valueMapStringBytes).build()
+              let valueOfMapStringBytes = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().setKey(keyMapStringBytes).setValue(valueMapStringBytes).build()
               serialize_size += valueOfMapStringBytes.computeMessageSize(4)
           }
       }
       if hasMapStringMessage {
           for (keyMapStringMessage, valueMapStringMessage) in mapStringMessage {
-              var valueOfMapStringMessage = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().setKey(keyMapStringMessage).setValue(valueMapStringMessage).build()
+              let valueOfMapStringMessage = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().setKey(keyMapStringMessage).setValue(valueMapStringMessage).build()
               serialize_size += valueOfMapStringMessage.computeMessageSize(5)
           }
       }
       if hasMapInt32Enum {
           for (keyMapInt32Enum, valueMapInt32Enum) in mapInt32Enum {
-              var valueOfMapInt32Enum = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().setKey(keyMapInt32Enum).setValue(valueMapInt32Enum).build()
+              let valueOfMapInt32Enum = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().setKey(keyMapInt32Enum).setValue(valueMapInt32Enum).build()
               serialize_size += valueOfMapInt32Enum.computeMessageSize(6)
           }
       }
@@ -2154,7 +2154,7 @@ internal extension SwiftProtobufUnittest {
            return buildPartial()
       }
       internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap {
-        var returnMe:SwiftProtobufUnittest.MessageContainsMap = builderResult
+        let returnMe:SwiftProtobufUnittest.MessageContainsMap = builderResult
         return returnMe
       }
       internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
@@ -2186,46 +2186,46 @@ internal extension SwiftProtobufUnittest {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
       internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = input.readTag()
           switch tag {
           case 0: 
             self.unknownFields = unknownFieldsBuilder.build()
             return self
 
           case 10 :
-            var subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder()
+            let subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfMapInt32Int32 = subBuilder.buildPartial()
             mapInt32Int32[buildOfMapInt32Int32.key] = buildOfMapInt32Int32.value
 
           case 18 :
-            var subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder()
+            let subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfMapInt64Int64 = subBuilder.buildPartial()
             mapInt64Int64[buildOfMapInt64Int64.key] = buildOfMapInt64Int64.value
 
           case 26 :
-            var subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder()
+            let subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfMapStringString = subBuilder.buildPartial()
             mapStringString[buildOfMapStringString.key] = buildOfMapStringString.value
 
           case 34 :
-            var subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder()
+            let subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfMapStringBytes = subBuilder.buildPartial()
             mapStringBytes[buildOfMapStringBytes.key] = buildOfMapStringBytes.value
 
           case 42 :
-            var subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder()
+            let subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfMapStringMessage = subBuilder.buildPartial()
             mapStringMessage[buildOfMapStringMessage.key] = buildOfMapStringMessage.value
 
           case 50 :
-            var subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder()
+            let subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder()
             input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfMapInt32Enum = subBuilder.buildPartial()
             mapInt32Enum[buildOfMapInt32Enum.key] = buildOfMapInt32Enum.value

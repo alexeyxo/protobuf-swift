@@ -142,9 +142,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MapFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
 
         printer->Print(variables_,
-                       "var subBuilder = $backward_class$.Builder()\n");
+                       "let subBuilder = $backward_class$.Builder()\n");
         printer->Print(variables_,
-                       "input.readMessage(subBuilder,extensionRegistry:extensionRegistry)\n");
+                       "try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)\n");
         printer->Print(variables_,
                        "let buildOf$capitalized_name$ = subBuilder.buildPartial()\n"
                        "$name$[buildOf$capitalized_name$.key] = buildOf$capitalized_name$.value\n");
@@ -154,8 +154,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
                        "    for (key$capitalized_name$, value$capitalized_name$) in $name$ {\n"
-                       "        var valueOf$capitalized_name$ = $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
-                       "        output.writeMessage($number$, value:valueOf$capitalized_name$)\n"
+                       "        let valueOf$capitalized_name$ = $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
+                       "        try output.writeMessage($number$, value:valueOf$capitalized_name$)\n"
                        "    }\n"
                        "}\n");
     }

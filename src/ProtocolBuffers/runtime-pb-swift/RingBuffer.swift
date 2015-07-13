@@ -24,7 +24,7 @@ internal class RingBuffer
     
     init(data:NSMutableData)
     {
-        buffer = data
+        buffer = NSMutableData(data: data)
     }
     func freeSpace() ->UInt32
     {
@@ -53,13 +53,13 @@ internal class RingBuffer
         {
             return false
         }
-        var pointer = UnsafeMutablePointer<UInt8>(buffer.mutableBytes)
-        var bpointer = UnsafeMutableBufferPointer(start: pointer, count: buffer.length)
+        let pointer = UnsafeMutablePointer<UInt8>(buffer.mutableBytes)
+        let bpointer = UnsafeMutableBufferPointer(start: pointer, count: buffer.length)
         bpointer[Int(position++)] = aByte
         return true
     }
     
-    func appendData(var input:NSData, offset:Int32, length:Int32) -> Int32
+    func appendData(input:NSData, offset:Int32, length:Int32) -> Int32
     {
         var totalWritten:Int32 = 0
         var aLength = length
@@ -101,12 +101,12 @@ internal class RingBuffer
     {
         var totalWritten:Int32 = 0
         
-        var data = buffer
-        var pointer = UnsafeMutablePointer<UInt8>(data.mutableBytes)
+        let data = buffer
+        let pointer = UnsafeMutablePointer<UInt8>(data.mutableBytes)
         if tail > position
         {
             
-            var written:Int = stream.write(pointer + Int(tail), maxLength:Int(buffer.length - Int(tail)))
+            let written:Int = stream.write(pointer + Int(tail), maxLength:Int(buffer.length - Int(tail)))
             if written <= 0
             {
                 return totalWritten
@@ -120,7 +120,7 @@ internal class RingBuffer
         
         if (tail < position) {
             
-            var written:Int = stream.write(pointer + Int(tail), maxLength:Int(position - tail))
+            let written:Int = stream.write(pointer + Int(tail), maxLength:Int(position - tail))
             if (written <= 0)
             {
                 return totalWritten
