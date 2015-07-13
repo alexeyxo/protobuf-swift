@@ -11,7 +11,8 @@ internal func == (lhs: ThreadingMessages, rhs: ThreadingMessages) -> Bool {
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasTestString == rhs.hasTestString) && (!lhs.hasTestString || lhs.testString == rhs.testString)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  return fieldCheck
 }
 
 internal struct UnittestThreadingRoot {
@@ -41,11 +42,11 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
   override internal func isInitialized() -> Bool {
    return true
   }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
     if hasTestString {
-      output.writeString(1, value:testString)
+      try output.writeString(1, value:testString)
     }
-    unknownFields.writeToCodedOutputStream(output)
+    try unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
@@ -61,23 +62,23 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
     memoizedSerializedSize = serialize_size
     return serialize_size
   }
-  internal class func parseFromData(data:NSData) -> ThreadingMessages {
-    return ThreadingMessages.Builder().mergeFromData(data, extensionRegistry:UnittestThreadingRoot.sharedInstance.extensionRegistry).build()
+  internal class func parseFromData(data:NSData) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFromData(data, extensionRegistry:UnittestThreadingRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ThreadingMessages {
-    return ThreadingMessages.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  internal class func parseFromInputStream(input:NSInputStream) -> ThreadingMessages {
-    return ThreadingMessages.Builder().mergeFromInputStream(input).build()
+  internal class func parseFromInputStream(input:NSInputStream) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFromInputStream(input).build()
   }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ThreadingMessages {
-    return ThreadingMessages.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ThreadingMessages {
-    return ThreadingMessages.Builder().mergeFromCodedInputStream(input).build()
+  internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFromCodedInputStream(input).build()
   }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ThreadingMessages {
-    return ThreadingMessages.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
   internal class func getBuilder() -> ThreadingMessages.Builder {
     return ThreadingMessages.classBuilder() as! ThreadingMessages.Builder
@@ -91,13 +92,13 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
   internal override func classBuilder() -> MessageBuilder {
     return ThreadingMessages.Builder()
   }
-  internal func toBuilder() -> ThreadingMessages.Builder {
-    return ThreadingMessages.builderWithPrototype(self)
+  internal func toBuilder() throws -> ThreadingMessages.Builder {
+    return try ThreadingMessages.builderWithPrototype(self)
   }
-  internal class func builderWithPrototype(prototype:ThreadingMessages) -> ThreadingMessages.Builder {
-    return ThreadingMessages.Builder().mergeFrom(prototype)
+  internal class func builderWithPrototype(prototype:ThreadingMessages) throws -> ThreadingMessages.Builder {
+    return try ThreadingMessages.Builder().mergeFrom(prototype)
   }
-  override internal func writeDescriptionTo(inout output:String, indent:String) {
+  override internal func writeDescriptionTo(inout output:String, indent:String) throws {
     if hasTestString {
       output += "\(indent) testString: \(testString) \n"
     }
@@ -169,45 +170,45 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
       builderResult = ThreadingMessages()
       return self
     }
-    internal override func clone() -> ThreadingMessages.Builder {
-      return ThreadingMessages.builderWithPrototype(builderResult)
+    internal override func clone() throws -> ThreadingMessages.Builder {
+      return try ThreadingMessages.builderWithPrototype(builderResult)
     }
-    internal override func build() -> ThreadingMessages {
-         checkInitialized()
+    internal override func build() throws -> ThreadingMessages {
+         try checkInitialized()
          return buildPartial()
     }
     internal func buildPartial() -> ThreadingMessages {
       let returnMe:ThreadingMessages = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:ThreadingMessages) -> ThreadingMessages.Builder {
+    internal func mergeFrom(other:ThreadingMessages) throws -> ThreadingMessages.Builder {
       if other == ThreadingMessages() {
        return self
       }
       if other.hasTestString {
            testString = other.testString
       }
-      mergeUnknownFields(other.unknownFields)
+      try mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ThreadingMessages.Builder {
-         return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ThreadingMessages.Builder {
+         return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ThreadingMessages.Builder {
-      let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages.Builder {
+      let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
-        let tag = input.readTag()
+        let tag = try input.readTag()
         switch tag {
         case 0: 
-          self.unknownFields = unknownFieldsBuilder.build()
+          self.unknownFields = try unknownFieldsBuilder.build()
           return self
 
         case 10 :
-          testString = input.readString()
+          testString = try input.readString()
 
         default:
-          if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-             unknownFields = unknownFieldsBuilder.build()
+          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+             unknownFields = try unknownFieldsBuilder.build()
              return self
           }
         }

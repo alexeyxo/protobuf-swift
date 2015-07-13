@@ -2,48 +2,48 @@
 // Source file empty.proto
 
 import Foundation
-import ProtocolBuffers
 
+public extension Google.Protobuf{}
 
-internal extension Google.Protobuf{}
-
-internal func == (lhs: Google.Protobuf.Empty, rhs: Google.Protobuf.Empty) -> Bool {
+public func == (lhs: Google.Protobuf.Empty, rhs: Google.Protobuf.Empty) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  return fieldCheck
 }
 
-internal extension Google.Protobuf {
-  internal struct EmptyRoot {
-    internal static var sharedInstance : EmptyRoot {
+public extension Google.Protobuf {
+  public struct EmptyRoot {
+    public static var sharedInstance : EmptyRoot {
      struct Static {
          static let instance : EmptyRoot = EmptyRoot()
      }
      return Static.instance
     }
-    internal var extensionRegistry:ExtensionRegistry
+    public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
+      Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
     }
-    internal func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(registry:ExtensionRegistry) {
     }
   }
 
-  final internal class Empty : GeneratedMessage, GeneratedMessageProtocol, Hashable {
-    required internal init() {
+  final public class Empty : GeneratedMessage, GeneratedMessageProtocol {
+    required public init() {
          super.init()
     }
-    override internal func isInitialized() -> Bool {
+    override public func isInitialized() -> Bool {
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
-      unknownFields.writeToCodedOutputStream(output)
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+      try unknownFields.writeToCodedOutputStream(output)
     }
-    override internal func serializedSize() -> Int32 {
+    override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -54,46 +54,46 @@ internal extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseFromData(data:NSData) -> Google.Protobuf.Empty {
-      return Google.Protobuf.Empty.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.EmptyRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) throws -> Google.Protobuf.Empty {
+      return try Google.Protobuf.Empty.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.EmptyRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Empty {
-      return Google.Protobuf.Empty.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Empty {
+      return try Google.Protobuf.Empty.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.Empty {
-      return Google.Protobuf.Empty.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Empty {
+      return try Google.Protobuf.Empty.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Empty {
-      return Google.Protobuf.Empty.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Empty {
+      return try Google.Protobuf.Empty.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Empty {
-      return Google.Protobuf.Empty.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Empty {
+      return try Google.Protobuf.Empty.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Empty {
-      return Google.Protobuf.Empty.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Empty {
+      return try Google.Protobuf.Empty.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func getBuilder() -> Google.Protobuf.Empty.Builder {
+    public class func getBuilder() -> Google.Protobuf.Empty.Builder {
       return Google.Protobuf.Empty.classBuilder() as! Google.Protobuf.Empty.Builder
     }
-    internal func getBuilder() -> Google.Protobuf.Empty.Builder {
+    public func getBuilder() -> Google.Protobuf.Empty.Builder {
       return classBuilder() as! Google.Protobuf.Empty.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Empty.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    public override func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Empty.Builder()
     }
-    internal func toBuilder() -> Google.Protobuf.Empty.Builder {
-      return Google.Protobuf.Empty.builderWithPrototype(self)
+    public func toBuilder() throws -> Google.Protobuf.Empty.Builder {
+      return try Google.Protobuf.Empty.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Google.Protobuf.Empty) -> Google.Protobuf.Empty.Builder {
-      return Google.Protobuf.Empty.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:Google.Protobuf.Empty) throws -> Google.Protobuf.Empty.Builder {
+      return try Google.Protobuf.Empty.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) {
+    override public func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
     }
-    override internal var hashValue:Int {
+    override public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -104,68 +104,68 @@ internal extension Google.Protobuf {
 
     //Meta information declaration start
 
-    override internal class func className() -> String {
+    override public class func className() -> String {
         return "Google.Protobuf.Empty"
     }
-    override internal func className() -> String {
+    override public func className() -> String {
         return "Google.Protobuf.Empty"
     }
-    override internal func classMetaType() -> GeneratedMessage.Type {
+    override public func classMetaType() -> GeneratedMessage.Type {
         return Google.Protobuf.Empty.self
     }
     //Meta information declaration end
 
-    final internal class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilder {
       private var builderResult:Google.Protobuf.Empty = Google.Protobuf.Empty()
-      internal func getMessage() -> Google.Protobuf.Empty {
+      public func getMessage() -> Google.Protobuf.Empty {
           return builderResult
       }
 
-      required override internal init () {
+      required override public init () {
          super.init()
       }
-      override internal var internalGetResult:GeneratedMessage {
+      override public var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      internal override func clear() -> Google.Protobuf.Empty.Builder {
+      public override func clear() -> Google.Protobuf.Empty.Builder {
         builderResult = Google.Protobuf.Empty()
         return self
       }
-      internal override func clone() -> Google.Protobuf.Empty.Builder {
-        return Google.Protobuf.Empty.builderWithPrototype(builderResult)
+      public override func clone() throws -> Google.Protobuf.Empty.Builder {
+        return try Google.Protobuf.Empty.builderWithPrototype(builderResult)
       }
-      internal override func build() -> Google.Protobuf.Empty {
-           checkInitialized()
+      public override func build() throws -> Google.Protobuf.Empty {
+           try checkInitialized()
            return buildPartial()
       }
-      internal func buildPartial() -> Google.Protobuf.Empty {
-        var returnMe:Google.Protobuf.Empty = builderResult
+      public func buildPartial() -> Google.Protobuf.Empty {
+        let returnMe:Google.Protobuf.Empty = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:Google.Protobuf.Empty) -> Google.Protobuf.Empty.Builder {
+      public func mergeFrom(other:Google.Protobuf.Empty) throws -> Google.Protobuf.Empty.Builder {
         if other == Google.Protobuf.Empty() {
          return self
         }
-        mergeUnknownFields(other.unknownFields)
+        try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.Empty.Builder {
-           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Empty.Builder {
+           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.Empty.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Empty.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = try input.readTag()
           switch tag {
           case 0: 
-            self.unknownFields = unknownFieldsBuilder.build()
+            self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           default:
-            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-               unknownFields = unknownFieldsBuilder.build()
+            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+               unknownFields = try unknownFieldsBuilder.build()
                return self
             }
           }

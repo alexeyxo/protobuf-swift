@@ -20,39 +20,50 @@ class ProtocolBuffersTests: XCTestCase {
     }
     
     func testPerformance() {
-        var originalBuilder = PBPerfomance.Builder()
-        originalBuilder.setInts(Int32(-32))
-                       .setInts64(Int64(-64))
-                       .setDoubles(Double(12.12))
-                       .setFloats(Float(123.123))
-                       .setStr("string")
-        let original = originalBuilder.build()
+        
+        do {
+            let originalBuilder = PBPerfomance.Builder()
+            originalBuilder.setInts(Int32(-32))
+                           .setInts64(Int64(-64))
+                           .setDoubles(Double(12.12))
+                           .setFloats(Float(123.123))
+                           .setStr("string")
+            let original = try originalBuilder.build()
 
-        let original2 = PBPerfomance.parseFromData(original.data())
-        var builder = PBPerfomanceBatch.Builder()
-        
-        for _ in 0...2 {
-            builder.batch += [original]
+            
+            let builder = PBPerfomanceBatch.Builder()
+            
+            for _ in 0...2 {
+                builder.batch += [original]
+            }
+            
+            let group = PBGroup.Builder()
+            group.getOwnerBuilder().setGroupName("asdfasdf")
+            
+            let bazBuilder = PBBaz.Builder()
+            bazBuilder.getBarBuilder().getFooBuilder().setVal(10)
+            
+            self.measureBlock() {
+                do {
+                    let baz = try bazBuilder.build()
+                    let gg = try group.build()
+                    print(baz)
+                    print(gg)
+                }
+                catch
+                {
+                    
+                }
+            }
+        }
+        catch {
+            XCTFail("testPerformance")
         }
         
-        var user:PBUser! = nil
-        var group = PBGroup.Builder()
         
-//        group.getOwnerBuilder().setGroupName("asdfasdf")
-//        
-//        var bazBuilder = PBBaz.Builder()
-//        bazBuilder.getBarBuilder().getFooBuilder().setVal(10)
-        
-        
-        
-//        let build = builder.build()
-//        
-        self.measureBlock() {
-//            var baz = bazBuilder.build()
-//            var gg = group.build()
-//            println(baz)
-//            println(gg)
-        }
+    
+//
+  
     }
 //
 //    func testPerformanceJson()

@@ -22,7 +22,8 @@ internal func == (lhs: ProtobufUnittest.TestWellKnownTypes, rhs: ProtobufUnittes
   fieldCheck = fieldCheck && (lhs.hasTimestampField == rhs.hasTimestampField) && (!lhs.hasTimestampField || lhs.timestampField == rhs.timestampField)
   fieldCheck = fieldCheck && (lhs.hasTypeField == rhs.hasTypeField) && (!lhs.hasTypeField || lhs.typeField == rhs.typeField)
   fieldCheck = fieldCheck && (lhs.hasInt32Field == rhs.hasInt32Field) && (!lhs.hasInt32Field || lhs.int32Field == rhs.int32Field)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  return fieldCheck
 }
 
 internal extension ProtobufUnittest {
@@ -53,7 +54,7 @@ internal extension ProtobufUnittest {
     }
   }
 
-  final internal class TestWellKnownTypes : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class TestWellKnownTypes : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasAnyField:Bool = false
     private(set) var anyField:Google.Protobuf.Any!
     private(set) var hasApiField:Bool = false
@@ -80,38 +81,38 @@ internal extension ProtobufUnittest {
     override internal func isInitialized() -> Bool {
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasAnyField {
-        output.writeMessage(1, value:anyField)
+        try output.writeMessage(1, value:anyField)
       }
       if hasApiField {
-        output.writeMessage(2, value:apiField)
+        try output.writeMessage(2, value:apiField)
       }
       if hasDurationField {
-        output.writeMessage(3, value:durationField)
+        try output.writeMessage(3, value:durationField)
       }
       if hasEmptyField {
-        output.writeMessage(4, value:emptyField)
+        try output.writeMessage(4, value:emptyField)
       }
       if hasFieldMaskField {
-        output.writeMessage(5, value:fieldMaskField)
+        try output.writeMessage(5, value:fieldMaskField)
       }
       if hasSourceContextField {
-        output.writeMessage(6, value:sourceContextField)
+        try output.writeMessage(6, value:sourceContextField)
       }
       if hasStructField {
-        output.writeMessage(7, value:structField)
+        try output.writeMessage(7, value:structField)
       }
       if hasTimestampField {
-        output.writeMessage(8, value:timestampField)
+        try output.writeMessage(8, value:timestampField)
       }
       if hasTypeField {
-        output.writeMessage(9, value:typeField)
+        try output.writeMessage(9, value:typeField)
       }
       if hasInt32Field {
-        output.writeMessage(10, value:int32Field)
+        try output.writeMessage(10, value:int32Field)
       }
-      unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeToCodedOutputStream(output)
     }
     override internal func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -174,23 +175,23 @@ internal extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseFromData(data:NSData) -> ProtobufUnittest.TestWellKnownTypes {
-      return ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestWellKnownTypesRoot.sharedInstance.extensionRegistry).build()
+    internal class func parseFromData(data:NSData) throws -> ProtobufUnittest.TestWellKnownTypes {
+      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestWellKnownTypesRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestWellKnownTypes {
-      return ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes {
+      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittest.TestWellKnownTypes {
-      return ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromInputStream(input).build()
+    internal class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.TestWellKnownTypes {
+      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestWellKnownTypes {
-      return ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes {
+      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestWellKnownTypes {
-      return ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromCodedInputStream(input).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestWellKnownTypes {
+      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestWellKnownTypes {
-      return ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes {
+      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func getBuilder() -> ProtobufUnittest.TestWellKnownTypes.Builder {
       return ProtobufUnittest.TestWellKnownTypes.classBuilder() as! ProtobufUnittest.TestWellKnownTypes.Builder
@@ -204,61 +205,61 @@ internal extension ProtobufUnittest {
     internal override func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestWellKnownTypes.Builder()
     }
-    internal func toBuilder() -> ProtobufUnittest.TestWellKnownTypes.Builder {
-      return ProtobufUnittest.TestWellKnownTypes.builderWithPrototype(self)
+    internal func toBuilder() throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      return try ProtobufUnittest.TestWellKnownTypes.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestWellKnownTypes) -> ProtobufUnittest.TestWellKnownTypes.Builder {
-      return ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(prototype)
+    internal class func builderWithPrototype(prototype:ProtobufUnittest.TestWellKnownTypes) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) {
+    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasAnyField {
         output += "\(indent) anyField {\n"
-        anyField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try anyField?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasApiField {
         output += "\(indent) apiField {\n"
-        apiField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try apiField?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasDurationField {
         output += "\(indent) durationField {\n"
-        durationField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try durationField?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasEmptyField {
         output += "\(indent) emptyField {\n"
-        emptyField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try emptyField?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasFieldMaskField {
         output += "\(indent) fieldMaskField {\n"
-        fieldMaskField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try fieldMaskField?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasSourceContextField {
         output += "\(indent) sourceContextField {\n"
-        sourceContextField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try sourceContextField?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasStructField {
         output += "\(indent) structField {\n"
-        structField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try structField?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasTimestampField {
         output += "\(indent) timestampField {\n"
-        timestampField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try timestampField?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasTypeField {
         output += "\(indent) typeField {\n"
-        typeField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try typeField?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasInt32Field {
         output += "\(indent) int32Field {\n"
-        int32Field?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try int32Field?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -371,7 +372,7 @@ internal extension ProtobufUnittest {
            anyFieldBuilder_ = Google.Protobuf.Any.Builder()
            builderResult.anyField = anyFieldBuilder_.getMessage()
            if anyField != nil {
-              anyFieldBuilder_.mergeFrom(anyField)
+              try! anyFieldBuilder_.mergeFrom(anyField)
            }
         }
         return anyFieldBuilder_
@@ -380,9 +381,9 @@ internal extension ProtobufUnittest {
         self.anyField = value
         return self
       }
-      internal func mergeAnyField(value:Google.Protobuf.Any) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      internal func mergeAnyField(value:Google.Protobuf.Any) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasAnyField {
-          builderResult.anyField = Google.Protobuf.Any.builderWithPrototype(builderResult.anyField).mergeFrom(value).buildPartial()
+          builderResult.anyField = try Google.Protobuf.Any.builderWithPrototype(builderResult.anyField).mergeFrom(value).buildPartial()
         } else {
           builderResult.anyField = value
         }
@@ -422,7 +423,7 @@ internal extension ProtobufUnittest {
            apiFieldBuilder_ = Google.Protobuf.Api.Builder()
            builderResult.apiField = apiFieldBuilder_.getMessage()
            if apiField != nil {
-              apiFieldBuilder_.mergeFrom(apiField)
+              try! apiFieldBuilder_.mergeFrom(apiField)
            }
         }
         return apiFieldBuilder_
@@ -431,9 +432,9 @@ internal extension ProtobufUnittest {
         self.apiField = value
         return self
       }
-      internal func mergeApiField(value:Google.Protobuf.Api) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      internal func mergeApiField(value:Google.Protobuf.Api) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasApiField {
-          builderResult.apiField = Google.Protobuf.Api.builderWithPrototype(builderResult.apiField).mergeFrom(value).buildPartial()
+          builderResult.apiField = try Google.Protobuf.Api.builderWithPrototype(builderResult.apiField).mergeFrom(value).buildPartial()
         } else {
           builderResult.apiField = value
         }
@@ -473,7 +474,7 @@ internal extension ProtobufUnittest {
            durationFieldBuilder_ = Google.Protobuf.Duration.Builder()
            builderResult.durationField = durationFieldBuilder_.getMessage()
            if durationField != nil {
-              durationFieldBuilder_.mergeFrom(durationField)
+              try! durationFieldBuilder_.mergeFrom(durationField)
            }
         }
         return durationFieldBuilder_
@@ -482,9 +483,9 @@ internal extension ProtobufUnittest {
         self.durationField = value
         return self
       }
-      internal func mergeDurationField(value:Google.Protobuf.Duration) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      internal func mergeDurationField(value:Google.Protobuf.Duration) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasDurationField {
-          builderResult.durationField = Google.Protobuf.Duration.builderWithPrototype(builderResult.durationField).mergeFrom(value).buildPartial()
+          builderResult.durationField = try Google.Protobuf.Duration.builderWithPrototype(builderResult.durationField).mergeFrom(value).buildPartial()
         } else {
           builderResult.durationField = value
         }
@@ -524,7 +525,7 @@ internal extension ProtobufUnittest {
            emptyFieldBuilder_ = Google.Protobuf.Empty.Builder()
            builderResult.emptyField = emptyFieldBuilder_.getMessage()
            if emptyField != nil {
-              emptyFieldBuilder_.mergeFrom(emptyField)
+              try! emptyFieldBuilder_.mergeFrom(emptyField)
            }
         }
         return emptyFieldBuilder_
@@ -533,9 +534,9 @@ internal extension ProtobufUnittest {
         self.emptyField = value
         return self
       }
-      internal func mergeEmptyField(value:Google.Protobuf.Empty) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      internal func mergeEmptyField(value:Google.Protobuf.Empty) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasEmptyField {
-          builderResult.emptyField = Google.Protobuf.Empty.builderWithPrototype(builderResult.emptyField).mergeFrom(value).buildPartial()
+          builderResult.emptyField = try Google.Protobuf.Empty.builderWithPrototype(builderResult.emptyField).mergeFrom(value).buildPartial()
         } else {
           builderResult.emptyField = value
         }
@@ -575,7 +576,7 @@ internal extension ProtobufUnittest {
            fieldMaskFieldBuilder_ = Google.Protobuf.FieldMask.Builder()
            builderResult.fieldMaskField = fieldMaskFieldBuilder_.getMessage()
            if fieldMaskField != nil {
-              fieldMaskFieldBuilder_.mergeFrom(fieldMaskField)
+              try! fieldMaskFieldBuilder_.mergeFrom(fieldMaskField)
            }
         }
         return fieldMaskFieldBuilder_
@@ -584,9 +585,9 @@ internal extension ProtobufUnittest {
         self.fieldMaskField = value
         return self
       }
-      internal func mergeFieldMaskField(value:Google.Protobuf.FieldMask) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      internal func mergeFieldMaskField(value:Google.Protobuf.FieldMask) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasFieldMaskField {
-          builderResult.fieldMaskField = Google.Protobuf.FieldMask.builderWithPrototype(builderResult.fieldMaskField).mergeFrom(value).buildPartial()
+          builderResult.fieldMaskField = try Google.Protobuf.FieldMask.builderWithPrototype(builderResult.fieldMaskField).mergeFrom(value).buildPartial()
         } else {
           builderResult.fieldMaskField = value
         }
@@ -626,7 +627,7 @@ internal extension ProtobufUnittest {
            sourceContextFieldBuilder_ = Google.Protobuf.SourceContext.Builder()
            builderResult.sourceContextField = sourceContextFieldBuilder_.getMessage()
            if sourceContextField != nil {
-              sourceContextFieldBuilder_.mergeFrom(sourceContextField)
+              try! sourceContextFieldBuilder_.mergeFrom(sourceContextField)
            }
         }
         return sourceContextFieldBuilder_
@@ -635,9 +636,9 @@ internal extension ProtobufUnittest {
         self.sourceContextField = value
         return self
       }
-      internal func mergeSourceContextField(value:Google.Protobuf.SourceContext) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      internal func mergeSourceContextField(value:Google.Protobuf.SourceContext) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasSourceContextField {
-          builderResult.sourceContextField = Google.Protobuf.SourceContext.builderWithPrototype(builderResult.sourceContextField).mergeFrom(value).buildPartial()
+          builderResult.sourceContextField = try Google.Protobuf.SourceContext.builderWithPrototype(builderResult.sourceContextField).mergeFrom(value).buildPartial()
         } else {
           builderResult.sourceContextField = value
         }
@@ -677,7 +678,7 @@ internal extension ProtobufUnittest {
            structFieldBuilder_ = Google.Protobuf.Struct.Builder()
            builderResult.structField = structFieldBuilder_.getMessage()
            if structField != nil {
-              structFieldBuilder_.mergeFrom(structField)
+              try! structFieldBuilder_.mergeFrom(structField)
            }
         }
         return structFieldBuilder_
@@ -686,9 +687,9 @@ internal extension ProtobufUnittest {
         self.structField = value
         return self
       }
-      internal func mergeStructField(value:Google.Protobuf.Struct) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      internal func mergeStructField(value:Google.Protobuf.Struct) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasStructField {
-          builderResult.structField = Google.Protobuf.Struct.builderWithPrototype(builderResult.structField).mergeFrom(value).buildPartial()
+          builderResult.structField = try Google.Protobuf.Struct.builderWithPrototype(builderResult.structField).mergeFrom(value).buildPartial()
         } else {
           builderResult.structField = value
         }
@@ -728,7 +729,7 @@ internal extension ProtobufUnittest {
            timestampFieldBuilder_ = Google.Protobuf.Timestamp.Builder()
            builderResult.timestampField = timestampFieldBuilder_.getMessage()
            if timestampField != nil {
-              timestampFieldBuilder_.mergeFrom(timestampField)
+              try! timestampFieldBuilder_.mergeFrom(timestampField)
            }
         }
         return timestampFieldBuilder_
@@ -737,9 +738,9 @@ internal extension ProtobufUnittest {
         self.timestampField = value
         return self
       }
-      internal func mergeTimestampField(value:Google.Protobuf.Timestamp) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      internal func mergeTimestampField(value:Google.Protobuf.Timestamp) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasTimestampField {
-          builderResult.timestampField = Google.Protobuf.Timestamp.builderWithPrototype(builderResult.timestampField).mergeFrom(value).buildPartial()
+          builderResult.timestampField = try Google.Protobuf.Timestamp.builderWithPrototype(builderResult.timestampField).mergeFrom(value).buildPartial()
         } else {
           builderResult.timestampField = value
         }
@@ -779,7 +780,7 @@ internal extension ProtobufUnittest {
            typeFieldBuilder_ = Google.Protobuf.Types.Builder()
            builderResult.typeField = typeFieldBuilder_.getMessage()
            if typeField != nil {
-              typeFieldBuilder_.mergeFrom(typeField)
+              try! typeFieldBuilder_.mergeFrom(typeField)
            }
         }
         return typeFieldBuilder_
@@ -788,9 +789,9 @@ internal extension ProtobufUnittest {
         self.typeField = value
         return self
       }
-      internal func mergeTypeField(value:Google.Protobuf.Types) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      internal func mergeTypeField(value:Google.Protobuf.Types) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasTypeField {
-          builderResult.typeField = Google.Protobuf.Types.builderWithPrototype(builderResult.typeField).mergeFrom(value).buildPartial()
+          builderResult.typeField = try Google.Protobuf.Types.builderWithPrototype(builderResult.typeField).mergeFrom(value).buildPartial()
         } else {
           builderResult.typeField = value
         }
@@ -830,7 +831,7 @@ internal extension ProtobufUnittest {
            int32FieldBuilder_ = Google.Protobuf.Int32Value.Builder()
            builderResult.int32Field = int32FieldBuilder_.getMessage()
            if int32Field != nil {
-              int32FieldBuilder_.mergeFrom(int32Field)
+              try! int32FieldBuilder_.mergeFrom(int32Field)
            }
         }
         return int32FieldBuilder_
@@ -839,9 +840,9 @@ internal extension ProtobufUnittest {
         self.int32Field = value
         return self
       }
-      internal func mergeInt32Field(value:Google.Protobuf.Int32Value) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      internal func mergeInt32Field(value:Google.Protobuf.Int32Value) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasInt32Field {
-          builderResult.int32Field = Google.Protobuf.Int32Value.builderWithPrototype(builderResult.int32Field).mergeFrom(value).buildPartial()
+          builderResult.int32Field = try Google.Protobuf.Int32Value.builderWithPrototype(builderResult.int32Field).mergeFrom(value).buildPartial()
         } else {
           builderResult.int32Field = value
         }
@@ -863,149 +864,149 @@ internal extension ProtobufUnittest {
         builderResult = ProtobufUnittest.TestWellKnownTypes()
         return self
       }
-      internal override func clone() -> ProtobufUnittest.TestWellKnownTypes.Builder {
-        return ProtobufUnittest.TestWellKnownTypes.builderWithPrototype(builderResult)
+      internal override func clone() throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+        return try ProtobufUnittest.TestWellKnownTypes.builderWithPrototype(builderResult)
       }
-      internal override func build() -> ProtobufUnittest.TestWellKnownTypes {
-           checkInitialized()
+      internal override func build() throws -> ProtobufUnittest.TestWellKnownTypes {
+           try checkInitialized()
            return buildPartial()
       }
       internal func buildPartial() -> ProtobufUnittest.TestWellKnownTypes {
-        var returnMe:ProtobufUnittest.TestWellKnownTypes = builderResult
+        let returnMe:ProtobufUnittest.TestWellKnownTypes = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:ProtobufUnittest.TestWellKnownTypes) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      internal func mergeFrom(other:ProtobufUnittest.TestWellKnownTypes) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if other == ProtobufUnittest.TestWellKnownTypes() {
          return self
         }
         if (other.hasAnyField) {
-            mergeAnyField(other.anyField)
+            try mergeAnyField(other.anyField)
         }
         if (other.hasApiField) {
-            mergeApiField(other.apiField)
+            try mergeApiField(other.apiField)
         }
         if (other.hasDurationField) {
-            mergeDurationField(other.durationField)
+            try mergeDurationField(other.durationField)
         }
         if (other.hasEmptyField) {
-            mergeEmptyField(other.emptyField)
+            try mergeEmptyField(other.emptyField)
         }
         if (other.hasFieldMaskField) {
-            mergeFieldMaskField(other.fieldMaskField)
+            try mergeFieldMaskField(other.fieldMaskField)
         }
         if (other.hasSourceContextField) {
-            mergeSourceContextField(other.sourceContextField)
+            try mergeSourceContextField(other.sourceContextField)
         }
         if (other.hasStructField) {
-            mergeStructField(other.structField)
+            try mergeStructField(other.structField)
         }
         if (other.hasTimestampField) {
-            mergeTimestampField(other.timestampField)
+            try mergeTimestampField(other.timestampField)
         }
         if (other.hasTypeField) {
-            mergeTypeField(other.typeField)
+            try mergeTypeField(other.typeField)
         }
         if (other.hasInt32Field) {
-            mergeInt32Field(other.int32Field)
+            try mergeInt32Field(other.int32Field)
         }
-        mergeUnknownFields(other.unknownFields)
+        try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> ProtobufUnittest.TestWellKnownTypes.Builder {
-           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittest.TestWellKnownTypes.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = try input.readTag()
           switch tag {
           case 0: 
-            self.unknownFields = unknownFieldsBuilder.build()
+            self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 10 :
-            var subBuilder:Google.Protobuf.Any.Builder = Google.Protobuf.Any.Builder()
+            let subBuilder:Google.Protobuf.Any.Builder = Google.Protobuf.Any.Builder()
             if hasAnyField {
-              subBuilder.mergeFrom(anyField)
+              try subBuilder.mergeFrom(anyField)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             anyField = subBuilder.buildPartial()
 
           case 18 :
-            var subBuilder:Google.Protobuf.Api.Builder = Google.Protobuf.Api.Builder()
+            let subBuilder:Google.Protobuf.Api.Builder = Google.Protobuf.Api.Builder()
             if hasApiField {
-              subBuilder.mergeFrom(apiField)
+              try subBuilder.mergeFrom(apiField)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             apiField = subBuilder.buildPartial()
 
           case 26 :
-            var subBuilder:Google.Protobuf.Duration.Builder = Google.Protobuf.Duration.Builder()
+            let subBuilder:Google.Protobuf.Duration.Builder = Google.Protobuf.Duration.Builder()
             if hasDurationField {
-              subBuilder.mergeFrom(durationField)
+              try subBuilder.mergeFrom(durationField)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             durationField = subBuilder.buildPartial()
 
           case 34 :
-            var subBuilder:Google.Protobuf.Empty.Builder = Google.Protobuf.Empty.Builder()
+            let subBuilder:Google.Protobuf.Empty.Builder = Google.Protobuf.Empty.Builder()
             if hasEmptyField {
-              subBuilder.mergeFrom(emptyField)
+              try subBuilder.mergeFrom(emptyField)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             emptyField = subBuilder.buildPartial()
 
           case 42 :
-            var subBuilder:Google.Protobuf.FieldMask.Builder = Google.Protobuf.FieldMask.Builder()
+            let subBuilder:Google.Protobuf.FieldMask.Builder = Google.Protobuf.FieldMask.Builder()
             if hasFieldMaskField {
-              subBuilder.mergeFrom(fieldMaskField)
+              try subBuilder.mergeFrom(fieldMaskField)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             fieldMaskField = subBuilder.buildPartial()
 
           case 50 :
-            var subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
+            let subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
             if hasSourceContextField {
-              subBuilder.mergeFrom(sourceContextField)
+              try subBuilder.mergeFrom(sourceContextField)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             sourceContextField = subBuilder.buildPartial()
 
           case 58 :
-            var subBuilder:Google.Protobuf.Struct.Builder = Google.Protobuf.Struct.Builder()
+            let subBuilder:Google.Protobuf.Struct.Builder = Google.Protobuf.Struct.Builder()
             if hasStructField {
-              subBuilder.mergeFrom(structField)
+              try subBuilder.mergeFrom(structField)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             structField = subBuilder.buildPartial()
 
           case 66 :
-            var subBuilder:Google.Protobuf.Timestamp.Builder = Google.Protobuf.Timestamp.Builder()
+            let subBuilder:Google.Protobuf.Timestamp.Builder = Google.Protobuf.Timestamp.Builder()
             if hasTimestampField {
-              subBuilder.mergeFrom(timestampField)
+              try subBuilder.mergeFrom(timestampField)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             timestampField = subBuilder.buildPartial()
 
           case 74 :
-            var subBuilder:Google.Protobuf.Types.Builder = Google.Protobuf.Types.Builder()
+            let subBuilder:Google.Protobuf.Types.Builder = Google.Protobuf.Types.Builder()
             if hasTypeField {
-              subBuilder.mergeFrom(typeField)
+              try subBuilder.mergeFrom(typeField)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             typeField = subBuilder.buildPartial()
 
           case 82 :
-            var subBuilder:Google.Protobuf.Int32Value.Builder = Google.Protobuf.Int32Value.Builder()
+            let subBuilder:Google.Protobuf.Int32Value.Builder = Google.Protobuf.Int32Value.Builder()
             if hasInt32Field {
-              subBuilder.mergeFrom(int32Field)
+              try subBuilder.mergeFrom(int32Field)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             int32Field = subBuilder.buildPartial()
 
           default:
-            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-               unknownFields = unknownFieldsBuilder.build()
+            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+               unknownFields = try unknownFieldsBuilder.build()
                return self
             }
           }

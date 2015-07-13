@@ -62,7 +62,8 @@ internal func == (lhs: Proto2NofieldpresenceUnittest.TestAllTypes, rhs: Proto2No
   fieldCheck = fieldCheck && (lhs.hasOneofNestedMessage == rhs.hasOneofNestedMessage) && (!lhs.hasOneofNestedMessage || lhs.oneofNestedMessage == rhs.oneofNestedMessage)
   fieldCheck = fieldCheck && (lhs.hasOneofString == rhs.hasOneofString) && (!lhs.hasOneofString || lhs.oneofString == rhs.oneofString)
   fieldCheck = fieldCheck && (lhs.hasOneofEnum == rhs.hasOneofEnum) && (!lhs.hasOneofEnum || lhs.oneofEnum == rhs.oneofEnum)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  return fieldCheck
 }
 
 internal func == (lhs: Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage, rhs: Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) -> Bool {
@@ -71,7 +72,8 @@ internal func == (lhs: Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage,
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  return fieldCheck
 }
 
 internal func == (lhs: Proto2NofieldpresenceUnittest.TestProto2Required, rhs: Proto2NofieldpresenceUnittest.TestProto2Required) -> Bool {
@@ -80,7 +82,8 @@ internal func == (lhs: Proto2NofieldpresenceUnittest.TestProto2Required, rhs: Pr
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasProto2 == rhs.hasProto2) && (!lhs.hasProto2 || lhs.proto2 == rhs.proto2)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  return fieldCheck
 }
 
 internal func == (lhs: Proto2NofieldpresenceUnittest.ForeignMessage, rhs: Proto2NofieldpresenceUnittest.ForeignMessage) -> Bool {
@@ -89,7 +92,8 @@ internal func == (lhs: Proto2NofieldpresenceUnittest.ForeignMessage, rhs: Proto2
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasC == rhs.hasC) && (!lhs.hasC || lhs.c == rhs.c)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  return fieldCheck
 }
 
 internal extension Proto2NofieldpresenceUnittest {
@@ -139,11 +143,11 @@ internal extension Proto2NofieldpresenceUnittest {
         override internal func isInitialized() -> Bool {
          return true
         }
-        override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+        override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
           if hasBb {
-            output.writeInt32(1, value:bb)
+            try output.writeInt32(1, value:bb)
           }
-          unknownFields.writeToCodedOutputStream(output)
+          try unknownFields.writeToCodedOutputStream(output)
         }
         override internal func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
@@ -159,23 +163,23 @@ internal extension Proto2NofieldpresenceUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        internal class func parseFromData(data:NSData) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
+        internal class func parseFromData(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
         }
-        internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromInputStream(input).build()
+        internal class func parseFromInputStream(input:NSInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromInputStream(input).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromCodedInputStream(input).build()
+        internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromCodedInputStream(input).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         internal class func getBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
           return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.classBuilder() as! Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder
@@ -189,13 +193,13 @@ internal extension Proto2NofieldpresenceUnittest {
         internal override func classBuilder() -> MessageBuilder {
           return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
         }
-        internal func toBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
-          return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(self)
+        internal func toBuilder() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
+          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(self)
         }
-        internal class func builderWithPrototype(prototype:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
-          return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(prototype)
+        internal class func builderWithPrototype(prototype:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
+          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) {
+        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
           if hasBb {
             output += "\(indent) bb: \(bb) \n"
           }
@@ -267,45 +271,45 @@ internal extension Proto2NofieldpresenceUnittest {
             builderResult = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage()
             return self
           }
-          internal override func clone() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
-            return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult)
+          internal override func clone() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
+            return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult)
           }
-          internal override func build() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-               checkInitialized()
+          internal override func build() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+               try checkInitialized()
                return buildPartial()
           }
           internal func buildPartial() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
             let returnMe:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage = builderResult
             return returnMe
           }
-          internal func mergeFrom(other:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
+          internal func mergeFrom(other:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
             if other == Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage() {
              return self
             }
             if other.hasBb {
                  bb = other.bb
             }
-            mergeUnknownFields(other.unknownFields)
+            try mergeUnknownFields(other.unknownFields)
             return self
           }
-          internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
-               return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+          internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
+               return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
-            let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
-              let tag = input.readTag()
+              let tag = try input.readTag()
               switch tag {
               case 0: 
-                self.unknownFields = unknownFieldsBuilder.build()
+                self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
               case 8 :
-                bb = input.readInt32()
+                bb = try input.readInt32()
 
               default:
-                if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-                   unknownFields = unknownFieldsBuilder.build()
+                if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+                   unknownFields = try unknownFieldsBuilder.build()
                    return self
                 }
               }
@@ -555,192 +559,192 @@ internal extension Proto2NofieldpresenceUnittest {
     override internal func isInitialized() -> Bool {
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasOptionalInt32 {
-        output.writeInt32(1, value:optionalInt32)
+        try output.writeInt32(1, value:optionalInt32)
       }
       if hasOptionalInt64 {
-        output.writeInt64(2, value:optionalInt64)
+        try output.writeInt64(2, value:optionalInt64)
       }
       if hasOptionalUint32 {
-        output.writeUInt32(3, value:optionalUint32)
+        try output.writeUInt32(3, value:optionalUint32)
       }
       if hasOptionalUint64 {
-        output.writeUInt64(4, value:optionalUint64)
+        try output.writeUInt64(4, value:optionalUint64)
       }
       if hasOptionalSint32 {
-        output.writeSInt32(5, value:optionalSint32)
+        try output.writeSInt32(5, value:optionalSint32)
       }
       if hasOptionalSint64 {
-        output.writeSInt64(6, value:optionalSint64)
+        try output.writeSInt64(6, value:optionalSint64)
       }
       if hasOptionalFixed32 {
-        output.writeFixed32(7, value:optionalFixed32)
+        try output.writeFixed32(7, value:optionalFixed32)
       }
       if hasOptionalFixed64 {
-        output.writeFixed64(8, value:optionalFixed64)
+        try output.writeFixed64(8, value:optionalFixed64)
       }
       if hasOptionalSfixed32 {
-        output.writeSFixed32(9, value:optionalSfixed32)
+        try output.writeSFixed32(9, value:optionalSfixed32)
       }
       if hasOptionalSfixed64 {
-        output.writeSFixed64(10, value:optionalSfixed64)
+        try output.writeSFixed64(10, value:optionalSfixed64)
       }
       if hasOptionalFloat {
-        output.writeFloat(11, value:optionalFloat)
+        try output.writeFloat(11, value:optionalFloat)
       }
       if hasOptionalDouble {
-        output.writeDouble(12, value:optionalDouble)
+        try output.writeDouble(12, value:optionalDouble)
       }
       if hasOptionalBool {
-        output.writeBool(13, value:optionalBool)
+        try output.writeBool(13, value:optionalBool)
       }
       if hasOptionalString {
-        output.writeString(14, value:optionalString)
+        try output.writeString(14, value:optionalString)
       }
       if hasOptionalBytes {
-        output.writeData(15, value:optionalBytes)
+        try output.writeData(15, value:optionalBytes)
       }
       if hasOptionalNestedMessage {
-        output.writeMessage(18, value:optionalNestedMessage)
+        try output.writeMessage(18, value:optionalNestedMessage)
       }
       if hasOptionalForeignMessage {
-        output.writeMessage(19, value:optionalForeignMessage)
+        try output.writeMessage(19, value:optionalForeignMessage)
       }
       if hasOptionalProto2Message {
-        output.writeMessage(20, value:optionalProto2Message)
+        try output.writeMessage(20, value:optionalProto2Message)
       }
       if hasOptionalNestedEnum {
-        output.writeEnum(21, value:optionalNestedEnum.rawValue)
+        try output.writeEnum(21, value:optionalNestedEnum.rawValue)
       }
       if hasOptionalForeignEnum {
-        output.writeEnum(22, value:optionalForeignEnum.rawValue)
+        try output.writeEnum(22, value:optionalForeignEnum.rawValue)
       }
       if hasOptionalStringPiece {
-        output.writeString(24, value:optionalStringPiece)
+        try output.writeString(24, value:optionalStringPiece)
       }
       if hasOptionalCord {
-        output.writeString(25, value:optionalCord)
+        try output.writeString(25, value:optionalCord)
       }
       if hasOptionalLazyMessage {
-        output.writeMessage(30, value:optionalLazyMessage)
+        try output.writeMessage(30, value:optionalLazyMessage)
       }
       if !repeatedInt32.isEmpty {
         for oneValuerepeatedInt32 in repeatedInt32 {
-          output.writeInt32(31, value:oneValuerepeatedInt32)
+          try output.writeInt32(31, value:oneValuerepeatedInt32)
         }
       }
       if !repeatedInt64.isEmpty {
         for oneValuerepeatedInt64 in repeatedInt64 {
-          output.writeInt64(32, value:oneValuerepeatedInt64)
+          try output.writeInt64(32, value:oneValuerepeatedInt64)
         }
       }
       if !repeatedUint32.isEmpty {
         for oneValuerepeatedUint32 in repeatedUint32 {
-          output.writeUInt32(33, value:oneValuerepeatedUint32)
+          try output.writeUInt32(33, value:oneValuerepeatedUint32)
         }
       }
       if !repeatedUint64.isEmpty {
         for oneValuerepeatedUint64 in repeatedUint64 {
-          output.writeUInt64(34, value:oneValuerepeatedUint64)
+          try output.writeUInt64(34, value:oneValuerepeatedUint64)
         }
       }
       if !repeatedSint32.isEmpty {
         for oneValuerepeatedSint32 in repeatedSint32 {
-          output.writeSInt32(35, value:oneValuerepeatedSint32)
+          try output.writeSInt32(35, value:oneValuerepeatedSint32)
         }
       }
       if !repeatedSint64.isEmpty {
         for oneValuerepeatedSint64 in repeatedSint64 {
-          output.writeSInt64(36, value:oneValuerepeatedSint64)
+          try output.writeSInt64(36, value:oneValuerepeatedSint64)
         }
       }
       if !repeatedFixed32.isEmpty {
         for oneValuerepeatedFixed32 in repeatedFixed32 {
-          output.writeFixed32(37, value:oneValuerepeatedFixed32)
+          try output.writeFixed32(37, value:oneValuerepeatedFixed32)
         }
       }
       if !repeatedFixed64.isEmpty {
         for oneValuerepeatedFixed64 in repeatedFixed64 {
-          output.writeFixed64(38, value:oneValuerepeatedFixed64)
+          try output.writeFixed64(38, value:oneValuerepeatedFixed64)
         }
       }
       if !repeatedSfixed32.isEmpty {
         for oneValuerepeatedSfixed32 in repeatedSfixed32 {
-          output.writeSFixed32(39, value:oneValuerepeatedSfixed32)
+          try output.writeSFixed32(39, value:oneValuerepeatedSfixed32)
         }
       }
       if !repeatedSfixed64.isEmpty {
         for oneValuerepeatedSfixed64 in repeatedSfixed64 {
-          output.writeSFixed64(40, value:oneValuerepeatedSfixed64)
+          try output.writeSFixed64(40, value:oneValuerepeatedSfixed64)
         }
       }
       if !repeatedFloat.isEmpty {
         for oneValuerepeatedFloat in repeatedFloat {
-          output.writeFloat(41, value:oneValuerepeatedFloat)
+          try output.writeFloat(41, value:oneValuerepeatedFloat)
         }
       }
       if !repeatedDouble.isEmpty {
         for oneValuerepeatedDouble in repeatedDouble {
-          output.writeDouble(42, value:oneValuerepeatedDouble)
+          try output.writeDouble(42, value:oneValuerepeatedDouble)
         }
       }
       if !repeatedBool.isEmpty {
         for oneValuerepeatedBool in repeatedBool {
-          output.writeBool(43, value:oneValuerepeatedBool)
+          try output.writeBool(43, value:oneValuerepeatedBool)
         }
       }
       if !repeatedString.isEmpty {
         for oneValuerepeatedString in repeatedString {
-          output.writeString(44, value:oneValuerepeatedString)
+          try output.writeString(44, value:oneValuerepeatedString)
         }
       }
       if !repeatedBytes.isEmpty {
         for oneValuerepeatedBytes in repeatedBytes {
-          output.writeData(45, value:oneValuerepeatedBytes)
+          try output.writeData(45, value:oneValuerepeatedBytes)
         }
       }
       for oneElementrepeatedNestedMessage in repeatedNestedMessage {
-          output.writeMessage(48, value:oneElementrepeatedNestedMessage)
+          try output.writeMessage(48, value:oneElementrepeatedNestedMessage)
       }
       for oneElementrepeatedForeignMessage in repeatedForeignMessage {
-          output.writeMessage(49, value:oneElementrepeatedForeignMessage)
+          try output.writeMessage(49, value:oneElementrepeatedForeignMessage)
       }
       for oneElementrepeatedProto2Message in repeatedProto2Message {
-          output.writeMessage(50, value:oneElementrepeatedProto2Message)
+          try output.writeMessage(50, value:oneElementrepeatedProto2Message)
       }
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
-          output.writeEnum(51, value:oneValueOfrepeatedNestedEnum.rawValue)
+          try output.writeEnum(51, value:oneValueOfrepeatedNestedEnum.rawValue)
       }
       for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
-          output.writeEnum(52, value:oneValueOfrepeatedForeignEnum.rawValue)
+          try output.writeEnum(52, value:oneValueOfrepeatedForeignEnum.rawValue)
       }
       if !repeatedStringPiece.isEmpty {
         for oneValuerepeatedStringPiece in repeatedStringPiece {
-          output.writeString(54, value:oneValuerepeatedStringPiece)
+          try output.writeString(54, value:oneValuerepeatedStringPiece)
         }
       }
       if !repeatedCord.isEmpty {
         for oneValuerepeatedCord in repeatedCord {
-          output.writeString(55, value:oneValuerepeatedCord)
+          try output.writeString(55, value:oneValuerepeatedCord)
         }
       }
       for oneElementrepeatedLazyMessage in repeatedLazyMessage {
-          output.writeMessage(57, value:oneElementrepeatedLazyMessage)
+          try output.writeMessage(57, value:oneElementrepeatedLazyMessage)
       }
       if hasOneofUint32 {
-        output.writeUInt32(111, value:oneofUint32)
+        try output.writeUInt32(111, value:oneofUint32)
       }
       if hasOneofNestedMessage {
-        output.writeMessage(112, value:oneofNestedMessage)
+        try output.writeMessage(112, value:oneofNestedMessage)
       }
       if hasOneofString {
-        output.writeString(113, value:oneofString)
+        try output.writeString(113, value:oneofString)
       }
       if hasOneofEnum {
-        output.writeEnum(114, value:oneofEnum.rawValue)
+        try output.writeEnum(114, value:oneofEnum.rawValue)
       }
-      unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeToCodedOutputStream(output)
     }
     override internal func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -956,23 +960,23 @@ internal extension Proto2NofieldpresenceUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseFromData(data:NSData) -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
+    internal class func parseFromData(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromInputStream(input).build()
+    internal class func parseFromInputStream(input:NSInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromCodedInputStream(input).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func getBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
       return Proto2NofieldpresenceUnittest.TestAllTypes.classBuilder() as! Proto2NofieldpresenceUnittest.TestAllTypes.Builder
@@ -986,13 +990,13 @@ internal extension Proto2NofieldpresenceUnittest {
     internal override func classBuilder() -> MessageBuilder {
       return Proto2NofieldpresenceUnittest.TestAllTypes.Builder()
     }
-    internal func toBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-      return Proto2NofieldpresenceUnittest.TestAllTypes.builderWithPrototype(self)
+    internal func toBuilder() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      return try Proto2NofieldpresenceUnittest.TestAllTypes.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Proto2NofieldpresenceUnittest.TestAllTypes) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-      return Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(prototype)
+    internal class func builderWithPrototype(prototype:Proto2NofieldpresenceUnittest.TestAllTypes) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) {
+    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasOptionalInt32 {
         output += "\(indent) optionalInt32: \(optionalInt32) \n"
       }
@@ -1040,17 +1044,17 @@ internal extension Proto2NofieldpresenceUnittest {
       }
       if hasOptionalNestedMessage {
         output += "\(indent) optionalNestedMessage {\n"
-        optionalNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try optionalNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasOptionalForeignMessage {
         output += "\(indent) optionalForeignMessage {\n"
-        optionalForeignMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try optionalForeignMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasOptionalProto2Message {
         output += "\(indent) optionalProto2Message {\n"
-        optionalProto2Message?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try optionalProto2Message?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if (hasOptionalNestedEnum) {
@@ -1067,7 +1071,7 @@ internal extension Proto2NofieldpresenceUnittest {
       }
       if hasOptionalLazyMessage {
         output += "\(indent) optionalLazyMessage {\n"
-        optionalLazyMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try optionalLazyMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       var repeatedInt32ElementIndex:Int = 0
@@ -1148,21 +1152,21 @@ internal extension Proto2NofieldpresenceUnittest {
       var repeatedNestedMessageElementIndex:Int = 0
       for oneElementrepeatedNestedMessage in repeatedNestedMessage {
           output += "\(indent) repeatedNestedMessage[\(repeatedNestedMessageElementIndex)] {\n"
-          oneElementrepeatedNestedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          try oneElementrepeatedNestedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
           output += "\(indent)}\n"
           repeatedNestedMessageElementIndex++
       }
       var repeatedForeignMessageElementIndex:Int = 0
       for oneElementrepeatedForeignMessage in repeatedForeignMessage {
           output += "\(indent) repeatedForeignMessage[\(repeatedForeignMessageElementIndex)] {\n"
-          oneElementrepeatedForeignMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          try oneElementrepeatedForeignMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
           output += "\(indent)}\n"
           repeatedForeignMessageElementIndex++
       }
       var repeatedProto2MessageElementIndex:Int = 0
       for oneElementrepeatedProto2Message in repeatedProto2Message {
           output += "\(indent) repeatedProto2Message[\(repeatedProto2MessageElementIndex)] {\n"
-          oneElementrepeatedProto2Message.writeDescriptionTo(&output, indent:"\(indent)  ")
+          try oneElementrepeatedProto2Message.writeDescriptionTo(&output, indent:"\(indent)  ")
           output += "\(indent)}\n"
           repeatedProto2MessageElementIndex++
       }
@@ -1189,7 +1193,7 @@ internal extension Proto2NofieldpresenceUnittest {
       var repeatedLazyMessageElementIndex:Int = 0
       for oneElementrepeatedLazyMessage in repeatedLazyMessage {
           output += "\(indent) repeatedLazyMessage[\(repeatedLazyMessageElementIndex)] {\n"
-          oneElementrepeatedLazyMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          try oneElementrepeatedLazyMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
           output += "\(indent)}\n"
           repeatedLazyMessageElementIndex++
       }
@@ -1198,7 +1202,7 @@ internal extension Proto2NofieldpresenceUnittest {
       }
       if hasOneofNestedMessage {
         output += "\(indent) oneofNestedMessage {\n"
-        oneofNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try oneofNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       if hasOneofString {
@@ -1772,7 +1776,7 @@ internal extension Proto2NofieldpresenceUnittest {
            optionalNestedMessageBuilder_ = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
            if optionalNestedMessage != nil {
-              optionalNestedMessageBuilder_.mergeFrom(optionalNestedMessage)
+              try! optionalNestedMessageBuilder_.mergeFrom(optionalNestedMessage)
            }
         }
         return optionalNestedMessageBuilder_
@@ -1781,9 +1785,9 @@ internal extension Proto2NofieldpresenceUnittest {
         self.optionalNestedMessage = value
         return self
       }
-      internal func mergeOptionalNestedMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      internal func mergeOptionalNestedMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalNestedMessage {
-          builderResult.optionalNestedMessage = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalNestedMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalNestedMessage = try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalNestedMessage).mergeFrom(value).buildPartial()
         } else {
           builderResult.optionalNestedMessage = value
         }
@@ -1823,7 +1827,7 @@ internal extension Proto2NofieldpresenceUnittest {
            optionalForeignMessageBuilder_ = Proto2NofieldpresenceUnittest.ForeignMessage.Builder()
            builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
            if optionalForeignMessage != nil {
-              optionalForeignMessageBuilder_.mergeFrom(optionalForeignMessage)
+              try! optionalForeignMessageBuilder_.mergeFrom(optionalForeignMessage)
            }
         }
         return optionalForeignMessageBuilder_
@@ -1832,9 +1836,9 @@ internal extension Proto2NofieldpresenceUnittest {
         self.optionalForeignMessage = value
         return self
       }
-      internal func mergeOptionalForeignMessage(value:Proto2NofieldpresenceUnittest.ForeignMessage) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      internal func mergeOptionalForeignMessage(value:Proto2NofieldpresenceUnittest.ForeignMessage) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalForeignMessage {
-          builderResult.optionalForeignMessage = Proto2NofieldpresenceUnittest.ForeignMessage.builderWithPrototype(builderResult.optionalForeignMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalForeignMessage = try Proto2NofieldpresenceUnittest.ForeignMessage.builderWithPrototype(builderResult.optionalForeignMessage).mergeFrom(value).buildPartial()
         } else {
           builderResult.optionalForeignMessage = value
         }
@@ -1874,7 +1878,7 @@ internal extension Proto2NofieldpresenceUnittest {
            optionalProto2MessageBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
            builderResult.optionalProto2Message = optionalProto2MessageBuilder_.getMessage()
            if optionalProto2Message != nil {
-              optionalProto2MessageBuilder_.mergeFrom(optionalProto2Message)
+              try! optionalProto2MessageBuilder_.mergeFrom(optionalProto2Message)
            }
         }
         return optionalProto2MessageBuilder_
@@ -1883,9 +1887,9 @@ internal extension Proto2NofieldpresenceUnittest {
         self.optionalProto2Message = value
         return self
       }
-      internal func mergeOptionalProto2Message(value:ProtobufUnittest.TestAllTypes) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      internal func mergeOptionalProto2Message(value:ProtobufUnittest.TestAllTypes) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalProto2Message {
-          builderResult.optionalProto2Message = ProtobufUnittest.TestAllTypes.builderWithPrototype(builderResult.optionalProto2Message).mergeFrom(value).buildPartial()
+          builderResult.optionalProto2Message = try ProtobufUnittest.TestAllTypes.builderWithPrototype(builderResult.optionalProto2Message).mergeFrom(value).buildPartial()
         } else {
           builderResult.optionalProto2Message = value
         }
@@ -2017,7 +2021,7 @@ internal extension Proto2NofieldpresenceUnittest {
            optionalLazyMessageBuilder_ = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
            if optionalLazyMessage != nil {
-              optionalLazyMessageBuilder_.mergeFrom(optionalLazyMessage)
+              try! optionalLazyMessageBuilder_.mergeFrom(optionalLazyMessage)
            }
         }
         return optionalLazyMessageBuilder_
@@ -2026,9 +2030,9 @@ internal extension Proto2NofieldpresenceUnittest {
         self.optionalLazyMessage = value
         return self
       }
-      internal func mergeOptionalLazyMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      internal func mergeOptionalLazyMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalLazyMessage {
-          builderResult.optionalLazyMessage = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalLazyMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalLazyMessage = try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalLazyMessage).mergeFrom(value).buildPartial()
         } else {
           builderResult.optionalLazyMessage = value
         }
@@ -2459,7 +2463,7 @@ internal extension Proto2NofieldpresenceUnittest {
            oneofNestedMessageBuilder_ = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
            if oneofNestedMessage != nil {
-              oneofNestedMessageBuilder_.mergeFrom(oneofNestedMessage)
+              try! oneofNestedMessageBuilder_.mergeFrom(oneofNestedMessage)
            }
         }
         return oneofNestedMessageBuilder_
@@ -2468,9 +2472,9 @@ internal extension Proto2NofieldpresenceUnittest {
         self.oneofNestedMessage = value
         return self
       }
-      internal func mergeOneofNestedMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      internal func mergeOneofNestedMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         if builderResult.hasOneofNestedMessage {
-          builderResult.oneofNestedMessage = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.oneofNestedMessage).mergeFrom(value).buildPartial()
+          builderResult.oneofNestedMessage = try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.oneofNestedMessage).mergeFrom(value).buildPartial()
         } else {
           builderResult.oneofNestedMessage = value
         }
@@ -2538,18 +2542,18 @@ internal extension Proto2NofieldpresenceUnittest {
         builderResult = Proto2NofieldpresenceUnittest.TestAllTypes()
         return self
       }
-      internal override func clone() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-        return Proto2NofieldpresenceUnittest.TestAllTypes.builderWithPrototype(builderResult)
+      internal override func clone() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+        return try Proto2NofieldpresenceUnittest.TestAllTypes.builderWithPrototype(builderResult)
       }
-      internal override func build() -> Proto2NofieldpresenceUnittest.TestAllTypes {
-           checkInitialized()
+      internal override func build() throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+           try checkInitialized()
            return buildPartial()
       }
       internal func buildPartial() -> Proto2NofieldpresenceUnittest.TestAllTypes {
         let returnMe:Proto2NofieldpresenceUnittest.TestAllTypes = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:Proto2NofieldpresenceUnittest.TestAllTypes) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      internal func mergeFrom(other:Proto2NofieldpresenceUnittest.TestAllTypes) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         if other == Proto2NofieldpresenceUnittest.TestAllTypes() {
          return self
         }
@@ -2599,13 +2603,13 @@ internal extension Proto2NofieldpresenceUnittest {
              optionalBytes = other.optionalBytes
         }
         if (other.hasOptionalNestedMessage) {
-            mergeOptionalNestedMessage(other.optionalNestedMessage)
+            try mergeOptionalNestedMessage(other.optionalNestedMessage)
         }
         if (other.hasOptionalForeignMessage) {
-            mergeOptionalForeignMessage(other.optionalForeignMessage)
+            try mergeOptionalForeignMessage(other.optionalForeignMessage)
         }
         if (other.hasOptionalProto2Message) {
-            mergeOptionalProto2Message(other.optionalProto2Message)
+            try mergeOptionalProto2Message(other.optionalProto2Message)
         }
         if other.hasOptionalNestedEnum {
              optionalNestedEnum = other.optionalNestedEnum
@@ -2620,7 +2624,7 @@ internal extension Proto2NofieldpresenceUnittest {
              optionalCord = other.optionalCord
         }
         if (other.hasOptionalLazyMessage) {
-            mergeOptionalLazyMessage(other.optionalLazyMessage)
+            try mergeOptionalLazyMessage(other.optionalLazyMessage)
         }
         if !other.repeatedInt32.isEmpty {
             builderResult.repeatedInt32 += other.repeatedInt32
@@ -2695,7 +2699,7 @@ internal extension Proto2NofieldpresenceUnittest {
              oneofUint32 = other.oneofUint32
         }
         if (other.hasOneofNestedMessage) {
-            mergeOneofNestedMessage(other.oneofNestedMessage)
+            try mergeOneofNestedMessage(other.oneofNestedMessage)
         }
         if other.hasOneofString {
              oneofString = other.oneofString
@@ -2703,232 +2707,232 @@ internal extension Proto2NofieldpresenceUnittest {
         if other.hasOneofEnum {
              oneofEnum = other.oneofEnum
         }
-        mergeUnknownFields(other.unknownFields)
+        try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          let tag = input.readTag()
+          let tag = try input.readTag()
           switch tag {
           case 0: 
-            self.unknownFields = unknownFieldsBuilder.build()
+            self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 8 :
-            optionalInt32 = input.readInt32()
+            optionalInt32 = try input.readInt32()
 
           case 16 :
-            optionalInt64 = input.readInt64()
+            optionalInt64 = try input.readInt64()
 
           case 24 :
-            optionalUint32 = input.readUInt32()
+            optionalUint32 = try input.readUInt32()
 
           case 32 :
-            optionalUint64 = input.readUInt64()
+            optionalUint64 = try input.readUInt64()
 
           case 40 :
-            optionalSint32 = input.readSInt32()
+            optionalSint32 = try input.readSInt32()
 
           case 48 :
-            optionalSint64 = input.readSInt64()
+            optionalSint64 = try input.readSInt64()
 
           case 61 :
-            optionalFixed32 = input.readFixed32()
+            optionalFixed32 = try input.readFixed32()
 
           case 65 :
-            optionalFixed64 = input.readFixed64()
+            optionalFixed64 = try input.readFixed64()
 
           case 77 :
-            optionalSfixed32 = input.readSFixed32()
+            optionalSfixed32 = try input.readSFixed32()
 
           case 81 :
-            optionalSfixed64 = input.readSFixed64()
+            optionalSfixed64 = try input.readSFixed64()
 
           case 93 :
-            optionalFloat = input.readFloat()
+            optionalFloat = try input.readFloat()
 
           case 97 :
-            optionalDouble = input.readDouble()
+            optionalDouble = try input.readDouble()
 
           case 104 :
-            optionalBool = input.readBool()
+            optionalBool = try input.readBool()
 
           case 114 :
-            optionalString = input.readString()
+            optionalString = try input.readString()
 
           case 122 :
-            optionalBytes = input.readData()
+            optionalBytes = try input.readData()
 
           case 146 :
             let subBuilder:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalNestedMessage {
-              subBuilder.mergeFrom(optionalNestedMessage)
+              try subBuilder.mergeFrom(optionalNestedMessage)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalNestedMessage = subBuilder.buildPartial()
 
           case 154 :
             let subBuilder:Proto2NofieldpresenceUnittest.ForeignMessage.Builder = Proto2NofieldpresenceUnittest.ForeignMessage.Builder()
             if hasOptionalForeignMessage {
-              subBuilder.mergeFrom(optionalForeignMessage)
+              try subBuilder.mergeFrom(optionalForeignMessage)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalForeignMessage = subBuilder.buildPartial()
 
           case 162 :
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasOptionalProto2Message {
-              subBuilder.mergeFrom(optionalProto2Message)
+              try subBuilder.mergeFrom(optionalProto2Message)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalProto2Message = subBuilder.buildPartial()
 
           case 168 :
-            let valueIntoptionalNestedEnum = input.readEnum()
+            let valueIntoptionalNestedEnum = try input.readEnum()
             if let enumsoptionalNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
                  optionalNestedEnum = enumsoptionalNestedEnum
             } else {
-                 unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
             }
 
           case 176 :
-            let valueIntoptionalForeignEnum = input.readEnum()
+            let valueIntoptionalForeignEnum = try input.readEnum()
             if let enumsoptionalForeignEnum = Proto2NofieldpresenceUnittest.ForeignEnum(rawValue:valueIntoptionalForeignEnum){
                  optionalForeignEnum = enumsoptionalForeignEnum
             } else {
-                 unknownFieldsBuilder.mergeVarintField(22, value:Int64(valueIntoptionalForeignEnum))
+                 try unknownFieldsBuilder.mergeVarintField(22, value:Int64(valueIntoptionalForeignEnum))
             }
 
           case 194 :
-            optionalStringPiece = input.readString()
+            optionalStringPiece = try input.readString()
 
           case 202 :
-            optionalCord = input.readString()
+            optionalCord = try input.readString()
 
           case 242 :
             let subBuilder:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalLazyMessage {
-              subBuilder.mergeFrom(optionalLazyMessage)
+              try subBuilder.mergeFrom(optionalLazyMessage)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalLazyMessage = subBuilder.buildPartial()
 
           case 248 :
-            repeatedInt32 += [input.readInt32()]
+            repeatedInt32 += [try input.readInt32()]
 
           case 256 :
-            repeatedInt64 += [input.readInt64()]
+            repeatedInt64 += [try input.readInt64()]
 
           case 264 :
-            repeatedUint32 += [input.readUInt32()]
+            repeatedUint32 += [try input.readUInt32()]
 
           case 272 :
-            repeatedUint64 += [input.readUInt64()]
+            repeatedUint64 += [try input.readUInt64()]
 
           case 280 :
-            repeatedSint32 += [input.readSInt32()]
+            repeatedSint32 += [try input.readSInt32()]
 
           case 288 :
-            repeatedSint64 += [input.readSInt64()]
+            repeatedSint64 += [try input.readSInt64()]
 
           case 301 :
-            repeatedFixed32 += [input.readFixed32()]
+            repeatedFixed32 += [try input.readFixed32()]
 
           case 305 :
-            repeatedFixed64 += [input.readFixed64()]
+            repeatedFixed64 += [try input.readFixed64()]
 
           case 317 :
-            repeatedSfixed32 += [input.readSFixed32()]
+            repeatedSfixed32 += [try input.readSFixed32()]
 
           case 321 :
-            repeatedSfixed64 += [input.readSFixed64()]
+            repeatedSfixed64 += [try input.readSFixed64()]
 
           case 333 :
-            repeatedFloat += [input.readFloat()]
+            repeatedFloat += [try input.readFloat()]
 
           case 337 :
-            repeatedDouble += [input.readDouble()]
+            repeatedDouble += [try input.readDouble()]
 
           case 344 :
-            repeatedBool += [input.readBool()]
+            repeatedBool += [try input.readBool()]
 
           case 354 :
-            repeatedString += [input.readString()]
+            repeatedString += [try input.readString()]
 
           case 362 :
-            repeatedBytes += [input.readData()]
+            repeatedBytes += [try input.readData()]
 
           case 386 :
             let subBuilder = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
-            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedNestedMessage += [subBuilder.buildPartial()]
 
           case 394 :
             let subBuilder = Proto2NofieldpresenceUnittest.ForeignMessage.Builder()
-            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedForeignMessage += [subBuilder.buildPartial()]
 
           case 402 :
             let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
-            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedProto2Message += [subBuilder.buildPartial()]
 
           case 408 :
-            let valueIntrepeatedNestedEnum = input.readEnum()
+            let valueIntrepeatedNestedEnum = try input.readEnum()
             if let enumsrepeatedNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
             } else {
-                 unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
             }
 
           case 416 :
-            let valueIntrepeatedForeignEnum = input.readEnum()
+            let valueIntrepeatedForeignEnum = try input.readEnum()
             if let enumsrepeatedForeignEnum = Proto2NofieldpresenceUnittest.ForeignEnum(rawValue:valueIntrepeatedForeignEnum) {
                  builderResult.repeatedForeignEnum += [enumsrepeatedForeignEnum]
             } else {
-                 unknownFieldsBuilder.mergeVarintField(52, value:Int64(valueIntrepeatedForeignEnum))
+                 try unknownFieldsBuilder.mergeVarintField(52, value:Int64(valueIntrepeatedForeignEnum))
             }
 
           case 434 :
-            repeatedStringPiece += [input.readString()]
+            repeatedStringPiece += [try input.readString()]
 
           case 442 :
-            repeatedCord += [input.readString()]
+            repeatedCord += [try input.readString()]
 
           case 458 :
             let subBuilder = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
-            input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedLazyMessage += [subBuilder.buildPartial()]
 
           case 888 :
-            oneofUint32 = input.readUInt32()
+            oneofUint32 = try input.readUInt32()
 
           case 898 :
             let subBuilder:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOneofNestedMessage {
-              subBuilder.mergeFrom(oneofNestedMessage)
+              try subBuilder.mergeFrom(oneofNestedMessage)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             oneofNestedMessage = subBuilder.buildPartial()
 
           case 906 :
-            oneofString = input.readString()
+            oneofString = try input.readString()
 
           case 912 :
-            let valueIntoneofEnum = input.readEnum()
+            let valueIntoneofEnum = try input.readEnum()
             if let enumsoneofEnum = TestAllTypes.NestedEnum(rawValue:valueIntoneofEnum){
                  oneofEnum = enumsoneofEnum
             } else {
-                 unknownFieldsBuilder.mergeVarintField(114, value:Int64(valueIntoneofEnum))
+                 try unknownFieldsBuilder.mergeVarintField(114, value:Int64(valueIntoneofEnum))
             }
 
           default:
-            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-               unknownFields = unknownFieldsBuilder.build()
+            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+               unknownFields = try unknownFieldsBuilder.build()
                return self
             }
           }
@@ -2952,11 +2956,11 @@ internal extension Proto2NofieldpresenceUnittest {
       }
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasProto2 {
-        output.writeMessage(1, value:proto2)
+        try output.writeMessage(1, value:proto2)
       }
-      unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeToCodedOutputStream(output)
     }
     override internal func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -2974,23 +2978,23 @@ internal extension Proto2NofieldpresenceUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseFromData(data:NSData) -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
+    internal class func parseFromData(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromInputStream(input).build()
+    internal class func parseFromInputStream(input:NSInputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromCodedInputStream(input).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func getBuilder() -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
       return Proto2NofieldpresenceUnittest.TestProto2Required.classBuilder() as! Proto2NofieldpresenceUnittest.TestProto2Required.Builder
@@ -3004,16 +3008,16 @@ internal extension Proto2NofieldpresenceUnittest {
     internal override func classBuilder() -> MessageBuilder {
       return Proto2NofieldpresenceUnittest.TestProto2Required.Builder()
     }
-    internal func toBuilder() -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
-      return Proto2NofieldpresenceUnittest.TestProto2Required.builderWithPrototype(self)
+    internal func toBuilder() throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+      return try Proto2NofieldpresenceUnittest.TestProto2Required.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Proto2NofieldpresenceUnittest.TestProto2Required) -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
-      return Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(prototype)
+    internal class func builderWithPrototype(prototype:Proto2NofieldpresenceUnittest.TestProto2Required) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) {
+    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasProto2 {
         output += "\(indent) proto2 {\n"
-        proto2?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        try proto2?.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent) }\n"
       }
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -3081,7 +3085,7 @@ internal extension Proto2NofieldpresenceUnittest {
            proto2Builder_ = ProtobufUnittest.TestRequired.Builder()
            builderResult.proto2 = proto2Builder_.getMessage()
            if proto2 != nil {
-              proto2Builder_.mergeFrom(proto2)
+              try! proto2Builder_.mergeFrom(proto2)
            }
         }
         return proto2Builder_
@@ -3090,9 +3094,9 @@ internal extension Proto2NofieldpresenceUnittest {
         self.proto2 = value
         return self
       }
-      internal func mergeProto2(value:ProtobufUnittest.TestRequired) -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+      internal func mergeProto2(value:ProtobufUnittest.TestRequired) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
         if builderResult.hasProto2 {
-          builderResult.proto2 = ProtobufUnittest.TestRequired.builderWithPrototype(builderResult.proto2).mergeFrom(value).buildPartial()
+          builderResult.proto2 = try ProtobufUnittest.TestRequired.builderWithPrototype(builderResult.proto2).mergeFrom(value).buildPartial()
         } else {
           builderResult.proto2 = value
         }
@@ -3114,50 +3118,50 @@ internal extension Proto2NofieldpresenceUnittest {
         builderResult = Proto2NofieldpresenceUnittest.TestProto2Required()
         return self
       }
-      internal override func clone() -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
-        return Proto2NofieldpresenceUnittest.TestProto2Required.builderWithPrototype(builderResult)
+      internal override func clone() throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+        return try Proto2NofieldpresenceUnittest.TestProto2Required.builderWithPrototype(builderResult)
       }
-      internal override func build() -> Proto2NofieldpresenceUnittest.TestProto2Required {
-           checkInitialized()
+      internal override func build() throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+           try checkInitialized()
            return buildPartial()
       }
       internal func buildPartial() -> Proto2NofieldpresenceUnittest.TestProto2Required {
         let returnMe:Proto2NofieldpresenceUnittest.TestProto2Required = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:Proto2NofieldpresenceUnittest.TestProto2Required) -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+      internal func mergeFrom(other:Proto2NofieldpresenceUnittest.TestProto2Required) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
         if other == Proto2NofieldpresenceUnittest.TestProto2Required() {
          return self
         }
         if (other.hasProto2) {
-            mergeProto2(other.proto2)
+            try mergeProto2(other.proto2)
         }
-        mergeUnknownFields(other.unknownFields)
+        try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
-           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          let tag = input.readTag()
+          let tag = try input.readTag()
           switch tag {
           case 0: 
-            self.unknownFields = unknownFieldsBuilder.build()
+            self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 10 :
             let subBuilder:ProtobufUnittest.TestRequired.Builder = ProtobufUnittest.TestRequired.Builder()
             if hasProto2 {
-              subBuilder.mergeFrom(proto2)
+              try subBuilder.mergeFrom(proto2)
             }
-            input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             proto2 = subBuilder.buildPartial()
 
           default:
-            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-               unknownFields = unknownFieldsBuilder.build()
+            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+               unknownFields = try unknownFieldsBuilder.build()
                return self
             }
           }
@@ -3177,11 +3181,11 @@ internal extension Proto2NofieldpresenceUnittest {
     override internal func isInitialized() -> Bool {
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasC {
-        output.writeInt32(1, value:c)
+        try output.writeInt32(1, value:c)
       }
-      unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeToCodedOutputStream(output)
     }
     override internal func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -3197,23 +3201,23 @@ internal extension Proto2NofieldpresenceUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseFromData(data:NSData) -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
+    internal class func parseFromData(data:NSData) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromInputStream(input).build()
+    internal class func parseFromInputStream(input:NSInputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromCodedInputStream(input).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func getBuilder() -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
       return Proto2NofieldpresenceUnittest.ForeignMessage.classBuilder() as! Proto2NofieldpresenceUnittest.ForeignMessage.Builder
@@ -3227,13 +3231,13 @@ internal extension Proto2NofieldpresenceUnittest {
     internal override func classBuilder() -> MessageBuilder {
       return Proto2NofieldpresenceUnittest.ForeignMessage.Builder()
     }
-    internal func toBuilder() -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
-      return Proto2NofieldpresenceUnittest.ForeignMessage.builderWithPrototype(self)
+    internal func toBuilder() throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
+      return try Proto2NofieldpresenceUnittest.ForeignMessage.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Proto2NofieldpresenceUnittest.ForeignMessage) -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
-      return Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(prototype)
+    internal class func builderWithPrototype(prototype:Proto2NofieldpresenceUnittest.ForeignMessage) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
+      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) {
+    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasC {
         output += "\(indent) c: \(c) \n"
       }
@@ -3305,45 +3309,45 @@ internal extension Proto2NofieldpresenceUnittest {
         builderResult = Proto2NofieldpresenceUnittest.ForeignMessage()
         return self
       }
-      internal override func clone() -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
-        return Proto2NofieldpresenceUnittest.ForeignMessage.builderWithPrototype(builderResult)
+      internal override func clone() throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
+        return try Proto2NofieldpresenceUnittest.ForeignMessage.builderWithPrototype(builderResult)
       }
-      internal override func build() -> Proto2NofieldpresenceUnittest.ForeignMessage {
-           checkInitialized()
+      internal override func build() throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+           try checkInitialized()
            return buildPartial()
       }
       internal func buildPartial() -> Proto2NofieldpresenceUnittest.ForeignMessage {
         let returnMe:Proto2NofieldpresenceUnittest.ForeignMessage = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:Proto2NofieldpresenceUnittest.ForeignMessage) -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
+      internal func mergeFrom(other:Proto2NofieldpresenceUnittest.ForeignMessage) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
         if other == Proto2NofieldpresenceUnittest.ForeignMessage() {
          return self
         }
         if other.hasC {
              c = other.c
         }
-        mergeUnknownFields(other.unknownFields)
+        try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
-           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
+           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          let tag = input.readTag()
+          let tag = try input.readTag()
           switch tag {
           case 0: 
-            self.unknownFields = unknownFieldsBuilder.build()
+            self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 8 :
-            c = input.readInt32()
+            c = try input.readInt32()
 
           default:
-            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-               unknownFields = unknownFieldsBuilder.build()
+            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+               unknownFields = try unknownFieldsBuilder.build()
                return self
             }
           }

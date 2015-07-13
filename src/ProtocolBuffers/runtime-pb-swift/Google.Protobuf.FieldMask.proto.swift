@@ -2,55 +2,55 @@
 // Source file field_mask.proto
 
 import Foundation
-import ProtocolBuffers
 
+public extension Google.Protobuf{}
 
-internal extension Google.Protobuf{}
-
-internal func == (lhs: Google.Protobuf.FieldMask, rhs: Google.Protobuf.FieldMask) -> Bool {
+public func == (lhs: Google.Protobuf.FieldMask, rhs: Google.Protobuf.FieldMask) -> Bool {
   if (lhs === rhs) {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.paths == rhs.paths)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  return fieldCheck
 }
 
-internal extension Google.Protobuf {
-  internal struct FieldMaskRoot {
-    internal static var sharedInstance : FieldMaskRoot {
+public extension Google.Protobuf {
+  public struct FieldMaskRoot {
+    public static var sharedInstance : FieldMaskRoot {
      struct Static {
          static let instance : FieldMaskRoot = FieldMaskRoot()
      }
      return Static.instance
     }
-    internal var extensionRegistry:ExtensionRegistry
+    public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
+      Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
     }
-    internal func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(registry:ExtensionRegistry) {
     }
   }
 
-  final internal class FieldMask : GeneratedMessage, GeneratedMessageProtocol, Hashable {
-    private(set) var paths:Array<String> = Array<String>()
-    required internal init() {
+  final public class FieldMask : GeneratedMessage, GeneratedMessageProtocol {
+    public private(set) var paths:Array<String> = Array<String>()
+    required public init() {
          super.init()
     }
-    override internal func isInitialized() -> Bool {
+    override public func isInitialized() -> Bool {
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if !paths.isEmpty {
         for oneValuepaths in paths {
-          output.writeString(1, value:oneValuepaths)
+          try output.writeString(1, value:oneValuepaths)
         }
       }
-      unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeToCodedOutputStream(output)
     }
-    override internal func serializedSize() -> Int32 {
+    override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -67,43 +67,43 @@ internal extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseFromData(data:NSData) -> Google.Protobuf.FieldMask {
-      return Google.Protobuf.FieldMask.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.FieldMaskRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:NSData) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.FieldMaskRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldMask {
-      return Google.Protobuf.FieldMask.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FieldMask {
-      return Google.Protobuf.FieldMask.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:NSInputStream) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldMask {
-      return Google.Protobuf.FieldMask.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.FieldMask {
-      return Google.Protobuf.FieldMask.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldMask {
-      return Google.Protobuf.FieldMask.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func getBuilder() -> Google.Protobuf.FieldMask.Builder {
+    public class func getBuilder() -> Google.Protobuf.FieldMask.Builder {
       return Google.Protobuf.FieldMask.classBuilder() as! Google.Protobuf.FieldMask.Builder
     }
-    internal func getBuilder() -> Google.Protobuf.FieldMask.Builder {
+    public func getBuilder() -> Google.Protobuf.FieldMask.Builder {
       return classBuilder() as! Google.Protobuf.FieldMask.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    public override class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.FieldMask.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    public override func classBuilder() -> MessageBuilder {
       return Google.Protobuf.FieldMask.Builder()
     }
-    internal func toBuilder() -> Google.Protobuf.FieldMask.Builder {
-      return Google.Protobuf.FieldMask.builderWithPrototype(self)
+    public func toBuilder() throws -> Google.Protobuf.FieldMask.Builder {
+      return try Google.Protobuf.FieldMask.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Google.Protobuf.FieldMask) -> Google.Protobuf.FieldMask.Builder {
-      return Google.Protobuf.FieldMask.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:Google.Protobuf.FieldMask) throws -> Google.Protobuf.FieldMask.Builder {
+      return try Google.Protobuf.FieldMask.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) {
+    override public func writeDescriptionTo(inout output:String, indent:String) throws {
       var pathsElementIndex:Int = 0
       for oneValuepaths in paths  {
           output += "\(indent) paths[\(pathsElementIndex)]: \(oneValuepaths)\n"
@@ -111,7 +111,7 @@ internal extension Google.Protobuf {
       }
       unknownFields.writeDescriptionTo(&output, indent:indent)
     }
-    override internal var hashValue:Int {
+    override public var hashValue:Int {
         get {
             var hashCode:Int = 7
             for oneValuepaths in paths {
@@ -125,27 +125,27 @@ internal extension Google.Protobuf {
 
     //Meta information declaration start
 
-    override internal class func className() -> String {
+    override public class func className() -> String {
         return "Google.Protobuf.FieldMask"
     }
-    override internal func className() -> String {
+    override public func className() -> String {
         return "Google.Protobuf.FieldMask"
     }
-    override internal func classMetaType() -> GeneratedMessage.Type {
+    override public func classMetaType() -> GeneratedMessage.Type {
         return Google.Protobuf.FieldMask.self
     }
     //Meta information declaration end
 
-    final internal class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilder {
       private var builderResult:Google.Protobuf.FieldMask = Google.Protobuf.FieldMask()
-      internal func getMessage() -> Google.Protobuf.FieldMask {
+      public func getMessage() -> Google.Protobuf.FieldMask {
           return builderResult
       }
 
-      required override internal init () {
+      required override public init () {
          super.init()
       }
-      var paths:Array<String> {
+      public var paths:Array<String> {
            get {
                return builderResult.paths
            }
@@ -153,62 +153,62 @@ internal extension Google.Protobuf {
                builderResult.paths = array
            }
       }
-      func setPaths(value:Array<String>) -> Google.Protobuf.FieldMask.Builder {
+      public func setPaths(value:Array<String>) -> Google.Protobuf.FieldMask.Builder {
         self.paths = value
         return self
       }
-      internal func clearPaths() -> Google.Protobuf.FieldMask.Builder {
+      public func clearPaths() -> Google.Protobuf.FieldMask.Builder {
          builderResult.paths.removeAll(keepCapacity: false)
          return self
       }
-      override internal var internalGetResult:GeneratedMessage {
+      override public var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      internal override func clear() -> Google.Protobuf.FieldMask.Builder {
+      public override func clear() -> Google.Protobuf.FieldMask.Builder {
         builderResult = Google.Protobuf.FieldMask()
         return self
       }
-      internal override func clone() -> Google.Protobuf.FieldMask.Builder {
-        return Google.Protobuf.FieldMask.builderWithPrototype(builderResult)
+      public override func clone() throws -> Google.Protobuf.FieldMask.Builder {
+        return try Google.Protobuf.FieldMask.builderWithPrototype(builderResult)
       }
-      internal override func build() -> Google.Protobuf.FieldMask {
-           checkInitialized()
+      public override func build() throws -> Google.Protobuf.FieldMask {
+           try checkInitialized()
            return buildPartial()
       }
-      internal func buildPartial() -> Google.Protobuf.FieldMask {
-        var returnMe:Google.Protobuf.FieldMask = builderResult
+      public func buildPartial() -> Google.Protobuf.FieldMask {
+        let returnMe:Google.Protobuf.FieldMask = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:Google.Protobuf.FieldMask) -> Google.Protobuf.FieldMask.Builder {
+      public func mergeFrom(other:Google.Protobuf.FieldMask) throws -> Google.Protobuf.FieldMask.Builder {
         if other == Google.Protobuf.FieldMask() {
          return self
         }
         if !other.paths.isEmpty {
             builderResult.paths += other.paths
         }
-        mergeUnknownFields(other.unknownFields)
+        try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Google.Protobuf.FieldMask.Builder {
-           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.FieldMask.Builder {
+           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldMask.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = try input.readTag()
           switch tag {
           case 0: 
-            self.unknownFields = unknownFieldsBuilder.build()
+            self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 10 :
-            paths += [input.readString()]
+            paths += [try input.readString()]
 
           default:
-            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-               unknownFields = unknownFieldsBuilder.build()
+            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+               unknownFields = try unknownFieldsBuilder.build()
                return self
             }
           }
