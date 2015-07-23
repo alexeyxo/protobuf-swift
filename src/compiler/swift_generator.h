@@ -20,6 +20,7 @@
 
 #include <string>
 #include <google/protobuf/compiler/code_generator.h>
+#include <google/protobuf/io/printer.h>
 
 namespace google {
     namespace protobuf {
@@ -35,8 +36,9 @@ namespace google {
                                   const string& parameter,
                                   OutputDirectory* output_directory,
                                   string* error) const;
-                    
                 private:
+                    void GenerateSourcePackages(io::Printer* printer,
+                                                const FileDescriptor* file) const;
                     GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(SwiftGenerator);
                 };
             }  // namespace swift
