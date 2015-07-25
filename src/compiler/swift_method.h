@@ -15,17 +15,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef swift_FILE_H__
-#define swift_FILE_H__
+#ifndef swift_METHOD_H
+#define swift_METHOD_H
 
 #include <string>
+#include <map>
 #include <set>
-#include <vector>
 #include <google/protobuf/stubs/common.h>
+#include <google/protobuf/descriptor.pb.h>
 
 namespace google {
     namespace protobuf {
-        class FileDescriptor;        // descriptor.h
         namespace io {
             class Printer;             // printer.h
         }
@@ -35,25 +35,23 @@ namespace google {
         namespace compiler {
             namespace swift {
                 
-                class FileGenerator {
+                class MethodGenerator {
                 public:
-                    explicit FileGenerator(const FileDescriptor* file);
-                    ~FileGenerator();
-                    
+                    explicit MethodGenerator(const MethodDescriptor* descriptor);
+                    ~MethodGenerator();
                     void GenerateSource(io::Printer* printer);
-                    void GenerateServiceSource(io::Printer* printer);
-                    
-                    const string& classname()    { return classname_;    }
-                    
                 private:
-                    const FileDescriptor* file_;
-                    string classname_;
                     
-                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(FileGenerator);
+                    
+                    const MethodDescriptor* descriptor_;
+                    map<string, string> variables_;
+                    
+                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(MethodGenerator);
+
                 };
             }  // namespace swift
         }  // namespace compiler
     }  // namespace protobuf
 }  // namespace google
 
-#endif // swift_FILE_H__
+#endif // swift_Method_H

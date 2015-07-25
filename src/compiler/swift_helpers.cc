@@ -175,12 +175,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return UnderscoresToCapitalizedCamelCase(FieldName(field));
     }
 
-
-    string UnderscoresToCamelCase(const MethodDescriptor* method) {
-        return UnderscoresToCamelCase(method->name());
-    }
-
-
     string FilenameToCamelCase(const string& filename) {
         string result;
         bool need_uppercase = true;
@@ -442,7 +436,25 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         return name;
     }
-    ////
+    
+    
+    ///Services And Methods
+    string ClassName(const ServiceDescriptor* descriptor) {
+        string name;
+        name += FileClassPrefix(descriptor->file());
+        name += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return CheckReservedNames(name);
+    }
+    
+    string MethodName(const MethodDescriptor* descriptor) {
+        
+        return UnderscoresToCamelCase(descriptor);
+    }
+    
+    string UnderscoresToCamelCase(const MethodDescriptor* method) {
+        return UnderscoresToCamelCase(method->name());
+    }
+    ///
     
     string ClassNameWorkerExtensions(const Descriptor* descriptor) {
         string name;
@@ -480,12 +492,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return false;
     }
 
-    string ClassName(const ServiceDescriptor* descriptor) {
-        string name;
-        name += FileClassPrefix(descriptor->file());
-        name += descriptor->name();
-        return CheckReservedNames(name);
-    }
+   
 
     //Swift bug: when enumName == enaumFieldName
     string EnumValueName(const EnumValueDescriptor* descriptor) {

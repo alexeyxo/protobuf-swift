@@ -82,7 +82,7 @@ public class CodedInputStream
             }
             return false
         }
-        
+
         totalBytesRetired += bufferSize
         
         bufferPos = 0

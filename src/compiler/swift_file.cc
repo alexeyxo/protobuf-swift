@@ -30,6 +30,7 @@
 #include "swift_extension.h"
 #include "swift_helpers.h"
 #include "swift_message.h"
+#include "swift_service.h"
 
 namespace google { namespace protobuf { namespace compiler {namespace swift {
     
@@ -164,10 +165,43 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
             printer->Print("}\n");
         }
 
-        printer->Print(
-                       "\n"
+        printer->Print("\n// @@protoc_insertion_point(global_scope)\n");
+    }
+    
+    void FileGenerator::GenerateServiceSource(io::Printer* printer) {
+        FileGenerator file_generator(file_);
+        
+        vector<string> tokens = FullNameSplit(file_);
+        
+        
+        //Generate Service with packages
+        
+        
+        if (tokens.size() > 0) {
+            printer->Print("$acontrol$ extension $package$ {\n",
+                           "acontrol", GetAccessControlType(file_),
+                           "package", PackageExtensionName(tokens));
+            printer->Indent();
+        }
+        
+        //Service
+        
+        for (int i = 0; i < file_->service_count(); i++) {
+            ServiceGenerator(file_->service(i)).GenerateSource(printer);
+        }
+        
+
+        //
+        if (tokens.size() > 0) {
+            printer->Outdent();
+            printer->Print("}\n");
+        }
+        
+        printer->Print("\n"
                        "// @@protoc_insertion_point(global_scope)\n");
     }
+    
+    
     
     
 }  // namespace swift

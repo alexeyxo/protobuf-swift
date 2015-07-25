@@ -65,6 +65,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 scoped_ptr<io::ZeroCopyOutputStream> output_service(generator_context->Open(package_name + UnderscoresToCapitalizedCamelCase(UnderscoresToCapitalizedCamelCase(filepath)) + ".rpcproto.swift"));
                 io::Printer printerService(output_service.get(), '$');
                 this->GenerateSourcePackages(&printerService, file);
+                file_generator.GenerateServiceSource(&printerService);
+                
             }
             
         }

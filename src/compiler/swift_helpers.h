@@ -101,12 +101,16 @@ namespace google {
                 string GetCapitalizedType(const FieldDescriptor* field);
                 string MapKeyName(const FieldDescriptor* field);
                 string MapValueName(const FieldDescriptor* field);
+
+                //Services And Methods
+                string ClassName(const ServiceDescriptor* descriptor);
+                string MethodName(const MethodDescriptor* descriptor);
                 //
                 
 //                string ClassNameEnum(const EnumDescriptor* descriptor);
                 
 //                string ClassName(const EnumDescriptor* descriptor);
-                string ClassName(const ServiceDescriptor* descriptor);
+
                 string ClassNameExtensions(const Descriptor* descriptor);
                 string ClassNameOneof(const OneofDescriptor* descriptor);
                 string EnumValueName(const EnumValueDescriptor* descriptor);
