@@ -421,7 +421,7 @@ public class CodedInputStream
         {
             try refillBuffer(true)
         }
-        var pointer = UnsafeMutablePointer<Int8>(buffer.mutableBytes)
+        let pointer = UnsafeMutablePointer<Int8>(buffer.mutableBytes)
         let res = pointer[Int(bufferPos++)]
         return res
     }
