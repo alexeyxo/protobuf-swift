@@ -327,6 +327,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.FileDescriptorSet> {
+      var mergedArray = Array<Google.Protobuf.FileDescriptorSet>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.FileDescriptorSet {
       return Google.Protobuf.FileDescriptorSet.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -335,6 +342,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FileDescriptorSet {
       return Google.Protobuf.FileDescriptorSet.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.FileDescriptorSet? {
+      return Google.Protobuf.FileDescriptorSet.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileDescriptorSet {
       return Google.Protobuf.FileDescriptorSet.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -650,6 +660,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.FileDescriptorProto> {
+      var mergedArray = Array<Google.Protobuf.FileDescriptorProto>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.FileDescriptorProto {
       return Google.Protobuf.FileDescriptorProto.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -658,6 +675,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FileDescriptorProto {
       return Google.Protobuf.FileDescriptorProto.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.FileDescriptorProto? {
+      return Google.Protobuf.FileDescriptorProto.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileDescriptorProto {
       return Google.Protobuf.FileDescriptorProto.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -1255,6 +1275,13 @@ public extension Google.Protobuf {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
+        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.DescriptorProto.ExtensionRange> {
+          var mergedArray = Array<Google.Protobuf.DescriptorProto.ExtensionRange>()
+          while let value = parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
         public class func parseFromData(data:NSData) -> Google.Protobuf.DescriptorProto.ExtensionRange {
           return Google.Protobuf.DescriptorProto.ExtensionRange.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
         }
@@ -1263,6 +1290,9 @@ public extension Google.Protobuf {
         }
         public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.DescriptorProto.ExtensionRange {
           return Google.Protobuf.DescriptorProto.ExtensionRange.Builder().mergeFromInputStream(input).build()
+        }
+        public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.DescriptorProto.ExtensionRange? {
+          return Google.Protobuf.DescriptorProto.ExtensionRange.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
         public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto.ExtensionRange {
           return Google.Protobuf.DescriptorProto.ExtensionRange.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -1574,6 +1604,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.DescriptorProto> {
+      var mergedArray = Array<Google.Protobuf.DescriptorProto>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.DescriptorProto {
       return Google.Protobuf.DescriptorProto.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -1582,6 +1619,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.DescriptorProto {
       return Google.Protobuf.DescriptorProto.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.DescriptorProto? {
+      return Google.Protobuf.DescriptorProto.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.DescriptorProto {
       return Google.Protobuf.DescriptorProto.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -2153,6 +2193,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.FieldDescriptorProto> {
+      var mergedArray = Array<Google.Protobuf.FieldDescriptorProto>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.FieldDescriptorProto {
       return Google.Protobuf.FieldDescriptorProto.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -2161,6 +2208,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FieldDescriptorProto {
       return Google.Protobuf.FieldDescriptorProto.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.FieldDescriptorProto? {
+      return Google.Protobuf.FieldDescriptorProto.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldDescriptorProto {
       return Google.Protobuf.FieldDescriptorProto.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -2666,6 +2716,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.OneofDescriptorProto> {
+      var mergedArray = Array<Google.Protobuf.OneofDescriptorProto>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.OneofDescriptorProto {
       return Google.Protobuf.OneofDescriptorProto.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -2674,6 +2731,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.OneofDescriptorProto {
       return Google.Protobuf.OneofDescriptorProto.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.OneofDescriptorProto? {
+      return Google.Protobuf.OneofDescriptorProto.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.OneofDescriptorProto {
       return Google.Protobuf.OneofDescriptorProto.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -2884,6 +2944,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.EnumDescriptorProto> {
+      var mergedArray = Array<Google.Protobuf.EnumDescriptorProto>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.EnumDescriptorProto {
       return Google.Protobuf.EnumDescriptorProto.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -2892,6 +2959,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.EnumDescriptorProto {
       return Google.Protobuf.EnumDescriptorProto.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.EnumDescriptorProto? {
+      return Google.Protobuf.EnumDescriptorProto.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumDescriptorProto {
       return Google.Protobuf.EnumDescriptorProto.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -3200,6 +3270,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.EnumValueDescriptorProto> {
+      var mergedArray = Array<Google.Protobuf.EnumValueDescriptorProto>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.EnumValueDescriptorProto {
       return Google.Protobuf.EnumValueDescriptorProto.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -3208,6 +3285,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.EnumValueDescriptorProto {
       return Google.Protobuf.EnumValueDescriptorProto.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.EnumValueDescriptorProto? {
+      return Google.Protobuf.EnumValueDescriptorProto.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumValueDescriptorProto {
       return Google.Protobuf.EnumValueDescriptorProto.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -3525,6 +3605,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.ServiceDescriptorProto> {
+      var mergedArray = Array<Google.Protobuf.ServiceDescriptorProto>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.ServiceDescriptorProto {
       return Google.Protobuf.ServiceDescriptorProto.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -3533,6 +3620,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.ServiceDescriptorProto {
       return Google.Protobuf.ServiceDescriptorProto.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.ServiceDescriptorProto? {
+      return Google.Protobuf.ServiceDescriptorProto.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ServiceDescriptorProto {
       return Google.Protobuf.ServiceDescriptorProto.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -3850,6 +3940,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.MethodDescriptorProto> {
+      var mergedArray = Array<Google.Protobuf.MethodDescriptorProto>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.MethodDescriptorProto {
       return Google.Protobuf.MethodDescriptorProto.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -3858,6 +3955,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.MethodDescriptorProto {
       return Google.Protobuf.MethodDescriptorProto.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.MethodDescriptorProto? {
+      return Google.Protobuf.MethodDescriptorProto.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MethodDescriptorProto {
       return Google.Protobuf.MethodDescriptorProto.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -4302,6 +4402,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.FileOptions> {
+      var mergedArray = Array<Google.Protobuf.FileOptions>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.FileOptions {
       return Google.Protobuf.FileOptions.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -4310,6 +4417,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FileOptions {
       return Google.Protobuf.FileOptions.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.FileOptions? {
+      return Google.Protobuf.FileOptions.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FileOptions {
       return Google.Protobuf.FileOptions.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -4920,6 +5030,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.MessageOptions> {
+      var mergedArray = Array<Google.Protobuf.MessageOptions>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.MessageOptions {
       return Google.Protobuf.MessageOptions.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -4928,6 +5045,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.MessageOptions {
       return Google.Protobuf.MessageOptions.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.MessageOptions? {
+      return Google.Protobuf.MessageOptions.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MessageOptions {
       return Google.Protobuf.MessageOptions.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -5292,6 +5412,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.FieldOptions> {
+      var mergedArray = Array<Google.Protobuf.FieldOptions>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.FieldOptions {
       return Google.Protobuf.FieldOptions.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -5300,6 +5427,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.FieldOptions {
       return Google.Protobuf.FieldOptions.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.FieldOptions? {
+      return Google.Protobuf.FieldOptions.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.FieldOptions {
       return Google.Protobuf.FieldOptions.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -5726,6 +5856,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.EnumOptions> {
+      var mergedArray = Array<Google.Protobuf.EnumOptions>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.EnumOptions {
       return Google.Protobuf.EnumOptions.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -5734,6 +5871,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.EnumOptions {
       return Google.Protobuf.EnumOptions.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.EnumOptions? {
+      return Google.Protobuf.EnumOptions.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumOptions {
       return Google.Protobuf.EnumOptions.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -6006,6 +6146,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.EnumValueOptions> {
+      var mergedArray = Array<Google.Protobuf.EnumValueOptions>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.EnumValueOptions {
       return Google.Protobuf.EnumValueOptions.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -6014,6 +6161,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.EnumValueOptions {
       return Google.Protobuf.EnumValueOptions.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.EnumValueOptions? {
+      return Google.Protobuf.EnumValueOptions.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.EnumValueOptions {
       return Google.Protobuf.EnumValueOptions.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -6251,6 +6401,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.ServiceOptions> {
+      var mergedArray = Array<Google.Protobuf.ServiceOptions>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.ServiceOptions {
       return Google.Protobuf.ServiceOptions.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -6259,6 +6416,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.ServiceOptions {
       return Google.Protobuf.ServiceOptions.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.ServiceOptions? {
+      return Google.Protobuf.ServiceOptions.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.ServiceOptions {
       return Google.Protobuf.ServiceOptions.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -6496,6 +6656,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.MethodOptions> {
+      var mergedArray = Array<Google.Protobuf.MethodOptions>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.MethodOptions {
       return Google.Protobuf.MethodOptions.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -6504,6 +6671,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.MethodOptions {
       return Google.Protobuf.MethodOptions.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.MethodOptions? {
+      return Google.Protobuf.MethodOptions.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.MethodOptions {
       return Google.Protobuf.MethodOptions.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -6739,6 +6909,13 @@ public extension Google.Protobuf {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
+        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.UninterpretedOption.NamePart> {
+          var mergedArray = Array<Google.Protobuf.UninterpretedOption.NamePart>()
+          while let value = parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
         public class func parseFromData(data:NSData) -> Google.Protobuf.UninterpretedOption.NamePart {
           return Google.Protobuf.UninterpretedOption.NamePart.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
         }
@@ -6747,6 +6924,9 @@ public extension Google.Protobuf {
         }
         public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.UninterpretedOption.NamePart {
           return Google.Protobuf.UninterpretedOption.NamePart.Builder().mergeFromInputStream(input).build()
+        }
+        public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.UninterpretedOption.NamePart? {
+          return Google.Protobuf.UninterpretedOption.NamePart.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
         public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOption.NamePart {
           return Google.Protobuf.UninterpretedOption.NamePart.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -7023,6 +7203,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.UninterpretedOption> {
+      var mergedArray = Array<Google.Protobuf.UninterpretedOption>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.UninterpretedOption {
       return Google.Protobuf.UninterpretedOption.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -7031,6 +7218,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.UninterpretedOption {
       return Google.Protobuf.UninterpretedOption.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.UninterpretedOption? {
+      return Google.Protobuf.UninterpretedOption.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.UninterpretedOption {
       return Google.Protobuf.UninterpretedOption.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -7470,6 +7660,13 @@ public extension Google.Protobuf {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
+        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.SourceCodeInfo.Location> {
+          var mergedArray = Array<Google.Protobuf.SourceCodeInfo.Location>()
+          while let value = parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
         public class func parseFromData(data:NSData) -> Google.Protobuf.SourceCodeInfo.Location {
           return Google.Protobuf.SourceCodeInfo.Location.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
         }
@@ -7478,6 +7675,9 @@ public extension Google.Protobuf {
         }
         public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.SourceCodeInfo.Location {
           return Google.Protobuf.SourceCodeInfo.Location.Builder().mergeFromInputStream(input).build()
+        }
+        public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.SourceCodeInfo.Location? {
+          return Google.Protobuf.SourceCodeInfo.Location.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
         public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfo.Location {
           return Google.Protobuf.SourceCodeInfo.Location.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
@@ -7760,6 +7960,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Google.Protobuf.SourceCodeInfo> {
+      var mergedArray = Array<Google.Protobuf.SourceCodeInfo>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     public class func parseFromData(data:NSData) -> Google.Protobuf.SourceCodeInfo {
       return Google.Protobuf.SourceCodeInfo.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DescriptorRoot.sharedInstance.extensionRegistry).build()
     }
@@ -7768,6 +7975,9 @@ public extension Google.Protobuf {
     }
     public class func parseFromInputStream(input:NSInputStream) -> Google.Protobuf.SourceCodeInfo {
       return Google.Protobuf.SourceCodeInfo.Builder().mergeFromInputStream(input).build()
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Google.Protobuf.SourceCodeInfo? {
+      return Google.Protobuf.SourceCodeInfo.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Google.Protobuf.SourceCodeInfo {
       return Google.Protobuf.SourceCodeInfo.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()

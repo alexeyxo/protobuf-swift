@@ -78,6 +78,13 @@ internal extension ProtobufUnittestImport {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<ProtobufUnittestImport.ImportMessageLite> {
+      var mergedArray = Array<ProtobufUnittestImport.ImportMessageLite>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     internal class func parseFromData(data:NSData) -> ProtobufUnittestImport.ImportMessageLite {
       return ProtobufUnittestImport.ImportMessageLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittestImport.UnittestImportLiteRoot.sharedInstance.extensionRegistry).build()
     }
@@ -86,6 +93,9 @@ internal extension ProtobufUnittestImport {
     }
     internal class func parseFromInputStream(input:NSInputStream) -> ProtobufUnittestImport.ImportMessageLite {
       return ProtobufUnittestImport.ImportMessageLite.Builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) -> ProtobufUnittestImport.ImportMessageLite? {
+      return ProtobufUnittestImport.ImportMessageLite.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> ProtobufUnittestImport.ImportMessageLite {
       return ProtobufUnittestImport.ImportMessageLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()

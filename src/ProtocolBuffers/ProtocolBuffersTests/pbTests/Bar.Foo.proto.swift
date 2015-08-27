@@ -64,6 +64,13 @@ internal extension Bar {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Bar.Foo> {
+      var mergedArray = Array<Bar.Foo>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     internal class func parseFromData(data:NSData) -> Bar.Foo {
       return Bar.Foo.Builder().mergeFromData(data, extensionRegistry:Bar.FooRoot.sharedInstance.extensionRegistry).build()
     }
@@ -72,6 +79,9 @@ internal extension Bar {
     }
     internal class func parseFromInputStream(input:NSInputStream) -> Bar.Foo {
       return Bar.Foo.Builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Bar.Foo? {
+      return Bar.Foo.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Bar.Foo {
       return Bar.Foo.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()

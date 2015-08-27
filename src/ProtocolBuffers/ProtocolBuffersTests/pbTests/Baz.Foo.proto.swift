@@ -64,6 +64,13 @@ internal extension Baz {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Baz.Foo> {
+      var mergedArray = Array<Baz.Foo>()
+      while let value = parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
     internal class func parseFromData(data:NSData) -> Baz.Foo {
       return Baz.Foo.Builder().mergeFromData(data, extensionRegistry:Baz.FooRoot.sharedInstance.extensionRegistry).build()
     }
@@ -72,6 +79,9 @@ internal extension Baz {
     }
     internal class func parseFromInputStream(input:NSInputStream) -> Baz.Foo {
       return Baz.Foo.Builder().mergeFromInputStream(input).build()
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Baz.Foo? {
+      return Baz.Foo.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Baz.Foo {
       return Baz.Foo.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
