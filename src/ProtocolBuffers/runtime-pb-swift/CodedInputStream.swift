@@ -431,35 +431,69 @@ public class CodedInputStream
         return res
     }
     
+    public class func readRawVarint32(firstByte:UInt8, inputStream:NSInputStream) -> Int32
+    {
+        if ((Int32(firstByte) & 0x80) == 0) {
+            return Int32(firstByte)
+        }
+        var result:Int32 = Int32(firstByte) & 0x7f
+        var offset:Int32 = 7
+        for (; offset < 32; offset += 7) {
+            var b:UInt8 = UInt8()
+            if (inputStream.read(&b, maxLength: 1) <= 0) {
+                NSException(name:"InvalidProtocolBuffer", reason:"truncatedMessage", userInfo: nil).raise()
+            }
+            
+            result |= (Int32(b) & 0x7f) << offset
+            if ((b & 0x80) == 0) {
+                return result
+            }
+        }
+        
+        for (; offset < 64; offset += 7) {
+            var b:UInt8 = UInt8()
+            if (inputStream.read(&b, maxLength:1) <= 0) {
+                NSException(name:"InvalidProtocolBuffer", reason:"truncatedMessage", userInfo: nil).raise()
+            }
+            
+            if ((b & 0x80) == 0) {
+                return result
+            }
+        }
+        
+        NSException(name:"InvalidProtocolBuffer", reason:"truncatedMessage", userInfo: nil).raise()
+        return 0
+    }
+    
     public func readRawVarint32() -> Int32
     {
-        var tmp : Int8 = readRawByte();
+        var tmp : Int8 = readRawByte()
         if (tmp >= 0) {
             return Int32(tmp);
         }
-        var result : Int32 = Int32(tmp) & 0x7f;
+        var result : Int32 = Int32(tmp) & 0x7f
         tmp = readRawByte()
         if (tmp >= 0) {
-            result |= Int32(tmp) << 7;
+            result |= Int32(tmp) << 7
         } else {
-            result |= (Int32(tmp) & 0x7f) << 7;
+            result |= (Int32(tmp) & 0x7f) << 7
             tmp = readRawByte()
             if (tmp >= 0) {
-                result |= Int32(tmp) << 14;
+                result |= Int32(tmp) << 14
             } else {
-                result |= (Int32(tmp) & 0x7f) << 14;
+                result |= (Int32(tmp) & 0x7f) << 14
                 tmp = readRawByte()
                 if (tmp >= 0) {
-                    result |= Int32(tmp) << 21;
+                    result |= Int32(tmp) << 21
                 } else {
-                    result |= (Int32(tmp) & 0x7f) << 21;
+                    result |= (Int32(tmp) & 0x7f) << 21
                     tmp = readRawByte()
-                    result |= (Int32(tmp) << 28);
+                    result |= (Int32(tmp) << 28)
                     if (tmp < 0) {
                         // Discard upper 32 bits.
                         for (var i : Int = 0; i < 5; i++) {
                             if (readRawByte() >= 0) {
-                                return result;
+                                return result
                             }
                         }
                         

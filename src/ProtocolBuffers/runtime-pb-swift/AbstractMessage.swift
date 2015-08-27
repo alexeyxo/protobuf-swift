@@ -51,6 +51,8 @@ public protocol MessageBuilder: class
      func mergeFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Self
      func mergeFromInputStream(input:NSInputStream) -> Self
      func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Self
+     //Delimited Encoding/Decoding
+     func mergeDelimitedFromInputStream(input:NSInputStream) -> Self?
 }
 
 public func == (lhs: AbstractMessage, rhs: AbstractMessage) -> Bool
@@ -80,6 +82,15 @@ public class AbstractMessage:Hashable, Message {
     public func serializedSize() -> Int32
     {
         return 0
+    }
+    
+    public func writeDelimitedToOutputStream(outputStream:NSOutputStream)
+    {
+        let serializedDataSize = serializedSize()
+        let codedOutputStream = CodedOutputStream(output: outputStream)
+        codedOutputStream.writeRawVarint32(serializedDataSize)
+        writeToCodedOutputStream(codedOutputStream)
+        codedOutputStream.flush()
     }
     
     public func writeDescriptionTo(inout output:String, indent:String)
@@ -196,6 +207,20 @@ public class AbstractMessageBuilder:MessageBuilder
         mergeFromCodedInputStream(codedInput, extensionRegistry:extensionRegistry)
         codedInput.checkLastTagWas(0)
         return self
+    }
+    
+    //Delimited Encoding/Decoding
+    public func mergeDelimitedFromInputStream(input: NSInputStream) -> Self? {
+        var firstByte:UInt8 = 0
+        if input.read(&firstByte, maxLength: 1) != 1
+        {
+            return nil
+        }
+        let rSize = CodedInputStream.readRawVarint32(firstByte, inputStream: input)
+        var data  = NSMutableData(length: Int(rSize))
+        var pointer = UnsafeMutablePointer<UInt8>(data!.mutableBytes)
+        input.read(pointer, maxLength: Int(rSize))
+        return mergeFromData(data!)
     }
 
 }

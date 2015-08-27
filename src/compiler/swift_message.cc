@@ -552,7 +552,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void MessageGenerator::GenerateParseFromMethodsSource(io::Printer* printer) {
+                    
         printer->Print(variables_,
+                       "$acontrol$ class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<$classNameReturnedType$> {\n"
+                       "  var mergedArray = Array<$classNameReturnedType$>()\n"
+                       "  while let value = parseFromDelimitedFromInputStream(input) {\n"
+                       "    mergedArray += [value]\n"
+                       "  }\n"
+                       "  return mergedArray\n"
+                       "}\n"
                        "$acontrol$ class func parseFromData(data:NSData) -> $classNameReturnedType$ {\n"
                        "  return $classNameReturnedType$.Builder().mergeFromData(data, extensionRegistry:$fileName$.sharedInstance.extensionRegistry).build()\n"
                        "}\n"
@@ -561,6 +569,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n"
                        "$acontrol$ class func parseFromInputStream(input:NSInputStream) -> $classNameReturnedType$ {\n"
                        "  return $classNameReturnedType$.Builder().mergeFromInputStream(input).build()\n"
+                       "}\n"
+                       "$acontrol$ class func parseFromDelimitedFromInputStream(input:NSInputStream) -> $classNameReturnedType$? {\n"
+                       "  return $classNameReturnedType$.Builder().mergeDelimitedFromInputStream(input)?.build()\n"
                        "}\n"
                        "$acontrol$ class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> $classNameReturnedType$ {\n"
                        "  return $classNameReturnedType$.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()\n"
