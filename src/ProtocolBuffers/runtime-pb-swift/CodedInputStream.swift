@@ -426,6 +426,40 @@ public class CodedInputStream
         return res
     }
     
+    public class func readRawVarint32(firstByte:UInt8, inputStream:NSInputStream) throws -> Int32
+    {
+        if ((Int32(firstByte) & 0x80) == 0) {
+            return Int32(firstByte)
+        }
+        var result:Int32 = Int32(firstByte) & 0x7f
+        var offset:Int32 = 7
+        for (; offset < 32; offset += 7) {
+            var b:UInt8 = UInt8()
+            guard inputStream.read(&b, maxLength: 1) > 0 else {
+                throw ProtocolBuffersError.InvalidProtocolBuffer("Truncated Message")
+            }
+            
+            result |= (Int32(b) & 0x7f) << offset
+            if ((b & 0x80) == 0) {
+                return result
+            }
+        }
+        
+        for (; offset < 64; offset += 7) {
+            var b:UInt8 = UInt8()
+            guard inputStream.read(&b, maxLength: 1) > 0 else {
+                throw ProtocolBuffersError.InvalidProtocolBuffer("Truncated Message")
+            }
+            
+            if ((b & 0x80) == 0) {
+                return result
+            }
+        }
+        
+        throw ProtocolBuffersError.InvalidProtocolBuffer("Truncated Message")
+    }
+
+    
     public func readRawVarint32() throws -> Int32
     {
         var tmp : Int8 = try readRawByte();

@@ -60,6 +60,8 @@ public protocol MessageBuilder: class
      func mergeFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Self
      func mergeFromInputStream(input:NSInputStream) throws -> Self
      func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
+     //Delimited Encoding/Decoding
+     func mergeDelimitedFromInputStream(input:NSInputStream) throws -> Self?
 }
 
 public func == (lhs: AbstractMessage, rhs: AbstractMessage) -> Bool
@@ -109,6 +111,15 @@ public class AbstractMessage:Hashable, Message {
         let codedOutput:CodedOutputStream = CodedOutputStream(output:output)
         try! writeToCodedOutputStream(codedOutput)
         try codedOutput.flush()
+    }
+    
+    public func writeDelimitedToOutputStream(outputStream:NSOutputStream) throws
+    {
+        let serializedDataSize = serializedSize()
+        let codedOutputStream = CodedOutputStream(output: outputStream)
+        try codedOutputStream.writeRawVarint32(serializedDataSize)
+        try writeToCodedOutputStream(codedOutputStream)
+        try codedOutputStream.flush()
     }
     
     public class func classBuilder() -> MessageBuilder
@@ -206,6 +217,20 @@ public class AbstractMessageBuilder:MessageBuilder
         try mergeFromCodedInputStream(codedInput, extensionRegistry:extensionRegistry)
         try codedInput.checkLastTagWas(0)
         return self
+    }
+    
+    //Delimited Encoding/Decoding
+    public func mergeDelimitedFromInputStream(input: NSInputStream) throws -> Self? {
+        var firstByte:UInt8 = 0
+        if input.read(&firstByte, maxLength: 1) != 1
+        {
+            return nil
+        }
+        let rSize = try CodedInputStream.readRawVarint32(firstByte, inputStream: input)
+        let data  = NSMutableData(length: Int(rSize))
+        let pointer = UnsafeMutablePointer<UInt8>(data!.mutableBytes)
+        input.read(pointer, maxLength: Int(rSize))
+        return  try mergeFromData(data!)
     }
 
 }
