@@ -74,6 +74,16 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Duration> {
+      var mergedArray = Array<Google.Protobuf.Duration>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Duration? {
+      return try Google.Protobuf.Duration.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Duration {
       return try Google.Protobuf.Duration.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DurationRoot.sharedInstance.extensionRegistry).build()
     }

@@ -221,6 +221,16 @@ internal extension Proto3ArenaUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
+        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage> {
+          var mergedArray = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
+          while let value = try parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
+        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage? {
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
+        }
         internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
           return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
         }
@@ -1029,6 +1039,16 @@ internal extension Proto3ArenaUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestAllTypes> {
+      var mergedArray = Array<Proto3ArenaUnittest.TestAllTypes>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestAllTypes? {
+      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestAllTypes {
       return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
@@ -3352,6 +3372,16 @@ internal extension Proto3ArenaUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestPackedTypes> {
+      var mergedArray = Array<Proto3ArenaUnittest.TestPackedTypes>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestPackedTypes? {
+      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestPackedTypes {
       return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
@@ -4142,6 +4172,16 @@ internal extension Proto3ArenaUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestUnpackedTypes> {
+      var mergedArray = Array<Proto3ArenaUnittest.TestUnpackedTypes>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestUnpackedTypes? {
+      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
       return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
@@ -4729,6 +4769,16 @@ internal extension Proto3ArenaUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.NestedTestAllTypes> {
+      var mergedArray = Array<Proto3ArenaUnittest.NestedTestAllTypes>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.NestedTestAllTypes? {
+      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
       return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
@@ -5024,6 +5074,16 @@ internal extension Proto3ArenaUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.ForeignMessage> {
+      var mergedArray = Array<Proto3ArenaUnittest.ForeignMessage>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.ForeignMessage? {
+      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.ForeignMessage {
       return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
@@ -5200,6 +5260,16 @@ internal extension Proto3ArenaUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestEmptyMessage> {
+      var mergedArray = Array<Proto3ArenaUnittest.TestEmptyMessage>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestEmptyMessage? {
+      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestEmptyMessage {
       return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()

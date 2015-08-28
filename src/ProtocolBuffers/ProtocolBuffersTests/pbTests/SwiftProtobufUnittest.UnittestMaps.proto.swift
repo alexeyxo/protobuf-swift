@@ -146,6 +146,16 @@ internal extension SwiftProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MapMessageValue> {
+      var mergedArray = Array<SwiftProtobufUnittest.MapMessageValue>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MapMessageValue? {
+      return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MapMessageValue {
       return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
     }
@@ -345,6 +355,16 @@ internal extension SwiftProtobufUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
+        }
+        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry> {
+          var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry>()
+          while let value = try parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
+        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry? {
+          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
         internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
@@ -582,6 +602,16 @@ internal extension SwiftProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
+        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry> {
+          var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry>()
+          while let value = try parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
+        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry? {
+          return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeDelimitedFromInputStream(input)?.build()
+        }
         internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
         }
@@ -817,6 +847,16 @@ internal extension SwiftProtobufUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
+        }
+        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry> {
+          var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry>()
+          while let value = try parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
+        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry? {
+          return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
         internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
@@ -1054,6 +1094,16 @@ internal extension SwiftProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
+        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry> {
+          var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry>()
+          while let value = try parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
+        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry? {
+          return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeDelimitedFromInputStream(input)?.build()
+        }
         internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
         }
@@ -1290,6 +1340,16 @@ internal extension SwiftProtobufUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
+        }
+        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry> {
+          var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry>()
+          while let value = try parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
+        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry? {
+          return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
         internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
@@ -1562,6 +1622,16 @@ internal extension SwiftProtobufUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
+        }
+        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry> {
+          var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry>()
+          while let value = try parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
+        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry? {
+          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
         internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
@@ -1882,6 +1952,16 @@ internal extension SwiftProtobufUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap> {
+      var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap? {
+      return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap {
       return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()

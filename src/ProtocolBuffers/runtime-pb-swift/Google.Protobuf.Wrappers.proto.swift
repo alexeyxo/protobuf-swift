@@ -144,6 +144,16 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.DoubleValue> {
+      var mergedArray = Array<Google.Protobuf.DoubleValue>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.DoubleValue? {
+      return try Google.Protobuf.DoubleValue.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.DoubleValue {
       return try Google.Protobuf.DoubleValue.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
     }
@@ -329,6 +339,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.FloatValue> {
+      var mergedArray = Array<Google.Protobuf.FloatValue>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.FloatValue? {
+      return try Google.Protobuf.FloatValue.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.FloatValue {
       return try Google.Protobuf.FloatValue.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
@@ -516,6 +536,16 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Int64Value> {
+      var mergedArray = Array<Google.Protobuf.Int64Value>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Int64Value? {
+      return try Google.Protobuf.Int64Value.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Int64Value {
       return try Google.Protobuf.Int64Value.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
     }
@@ -701,6 +731,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Uint64Value> {
+      var mergedArray = Array<Google.Protobuf.Uint64Value>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Uint64Value? {
+      return try Google.Protobuf.Uint64Value.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Uint64Value {
       return try Google.Protobuf.Uint64Value.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
@@ -888,6 +928,16 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Int32Value> {
+      var mergedArray = Array<Google.Protobuf.Int32Value>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Int32Value? {
+      return try Google.Protobuf.Int32Value.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Int32Value {
       return try Google.Protobuf.Int32Value.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
     }
@@ -1073,6 +1123,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Uint32Value> {
+      var mergedArray = Array<Google.Protobuf.Uint32Value>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Uint32Value? {
+      return try Google.Protobuf.Uint32Value.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Uint32Value {
       return try Google.Protobuf.Uint32Value.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
@@ -1260,6 +1320,16 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.BoolValue> {
+      var mergedArray = Array<Google.Protobuf.BoolValue>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.BoolValue? {
+      return try Google.Protobuf.BoolValue.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.BoolValue {
       return try Google.Protobuf.BoolValue.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
     }
@@ -1446,6 +1516,16 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.StringValue> {
+      var mergedArray = Array<Google.Protobuf.StringValue>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.StringValue? {
+      return try Google.Protobuf.StringValue.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.StringValue {
       return try Google.Protobuf.StringValue.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
     }
@@ -1631,6 +1711,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.BytesValue> {
+      var mergedArray = Array<Google.Protobuf.BytesValue>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.BytesValue? {
+      return try Google.Protobuf.BytesValue.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.BytesValue {
       return try Google.Protobuf.BytesValue.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
