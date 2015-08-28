@@ -122,6 +122,16 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
     memoizedSerializedSize = serialize_size
     return serialize_size
   }
+  public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<PBUser> {
+    var mergedArray = Array<PBUser>()
+    while let value = try parseFromDelimitedFromInputStream(input) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> PBUser? {
+    return try PBUser.Builder().mergeDelimitedFromInputStream(input)?.build()
+  }
   public class func parseFromData(data:NSData) throws -> PBUser {
     return try PBUser.Builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
   }
@@ -345,6 +355,16 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
     return serialize_size
+  }
+  public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<PBGroup> {
+    var mergedArray = Array<PBGroup>()
+    while let value = try parseFromDelimitedFromInputStream(input) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> PBGroup? {
+    return try PBGroup.Builder().mergeDelimitedFromInputStream(input)?.build()
   }
   public class func parseFromData(data:NSData) throws -> PBGroup {
     return try PBGroup.Builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
@@ -576,6 +596,16 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
     return serialize_size
+  }
+  public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<PBPerfomanceBatch> {
+    var mergedArray = Array<PBPerfomanceBatch>()
+    while let value = try parseFromDelimitedFromInputStream(input) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> PBPerfomanceBatch? {
+    return try PBPerfomanceBatch.Builder().mergeDelimitedFromInputStream(input)?.build()
   }
   public class func parseFromData(data:NSData) throws -> PBPerfomanceBatch {
     return try PBPerfomanceBatch.Builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
@@ -827,6 +857,16 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
     return serialize_size
+  }
+  public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<PBPerfomance> {
+    var mergedArray = Array<PBPerfomance>()
+    while let value = try parseFromDelimitedFromInputStream(input) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> PBPerfomance? {
+    return try PBPerfomance.Builder().mergeDelimitedFromInputStream(input)?.build()
   }
   public class func parseFromData(data:NSData) throws -> PBPerfomance {
     return try PBPerfomance.Builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
@@ -1239,6 +1279,16 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
     memoizedSerializedSize = serialize_size
     return serialize_size
   }
+  public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<PBProtoPoint> {
+    var mergedArray = Array<PBProtoPoint>()
+    while let value = try parseFromDelimitedFromInputStream(input) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> PBProtoPoint? {
+    return try PBProtoPoint.Builder().mergeDelimitedFromInputStream(input)?.build()
+  }
   public class func parseFromData(data:NSData) throws -> PBProtoPoint {
     return try PBProtoPoint.Builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
   }
@@ -1479,6 +1529,16 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
     return serialize_size
+  }
+  public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<PBIceCreamCone> {
+    var mergedArray = Array<PBIceCreamCone>()
+    while let value = try parseFromDelimitedFromInputStream(input) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> PBIceCreamCone? {
+    return try PBIceCreamCone.Builder().mergeDelimitedFromInputStream(input)?.build()
   }
   public class func parseFromData(data:NSData) throws -> PBIceCreamCone {
     return try PBIceCreamCone.Builder().mergeFromData(data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()

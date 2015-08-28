@@ -90,6 +90,16 @@ internal extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.TestEmbedOptimizedForSize> {
+      var mergedArray = Array<ProtobufUnittest.TestEmbedOptimizedForSize>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.TestEmbedOptimizedForSize? {
+      return try ProtobufUnittest.TestEmbedOptimizedForSize.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     internal class func parseFromData(data:NSData) throws -> ProtobufUnittest.TestEmbedOptimizedForSize {
       return try ProtobufUnittest.TestEmbedOptimizedForSize.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestEmbedOptimizeForRoot.sharedInstance.extensionRegistry).build()
     }
