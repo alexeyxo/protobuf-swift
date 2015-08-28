@@ -336,5 +336,28 @@ internal class CodedOuputStreamTests: XCTestCase
         }
   
     }
+    
+    func testDelimitedEncodingEncoding()
+    {
+         do {
+            let str =  (NSBundle(forClass:TestUtilities.self).resourcePath! as NSString).stringByAppendingPathComponent("delimitedFile.dat")
+            let stream = NSOutputStream(toFileAtPath: str, append: false)
+            stream?.open()
+            for i in 1...100 {
+                let mes = try PBProtoPoint.Builder().setLatitude(1.0).setLongitude(Float(i)).build()
+                try mes.writeDelimitedToOutputStream(stream!)
+            }
+            stream?.close()
+            
+            let input = NSInputStream(fileAtPath: str)
+            input?.open()
+            let message = try PBProtoPoint.parseArrayDelimitedFromInputStream(input!)
+            XCTAssertTrue(message[1].longitude == 2.0, "")
+        }
+        catch
+        {
+            XCTFail("Fail testDelimitedEncodingEncoding")
+        }
+    }
 
 }
