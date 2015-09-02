@@ -24,7 +24,7 @@ class  TestUtilities {
     }
     class func goldenData() -> NSData {
         
-        let str =  NSBundle(forClass:TestUtilities.self).resourcePath!.stringByAppendingPathComponent("golden_message")
+        let str =  (NSBundle(forClass:TestUtilities.self).resourcePath! as NSString).stringByAppendingPathComponent("golden_message")
         let goldenData = NSData(contentsOfFile:str)!
         return goldenData
     }
