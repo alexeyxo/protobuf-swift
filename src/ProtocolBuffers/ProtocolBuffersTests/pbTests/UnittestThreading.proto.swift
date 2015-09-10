@@ -31,7 +31,7 @@ internal struct UnittestThreadingRoot {
   }
 }
 
-final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProtocol {
   private(set) var hasTestString:Bool = false
   private(set) var testString:String = ""
 
@@ -177,7 +177,7 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
          return buildPartial()
     }
     internal func buildPartial() -> ThreadingMessages {
-      var returnMe:ThreadingMessages = builderResult
+      let returnMe:ThreadingMessages = builderResult
       return returnMe
     }
     internal func mergeFrom(other:ThreadingMessages) -> ThreadingMessages.Builder {
@@ -194,9 +194,9 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
          return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ThreadingMessages.Builder {
-      var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      let unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
-        var tag = input.readTag()
+        let tag = input.readTag()
         switch tag {
         case 0: 
           self.unknownFields = unknownFieldsBuilder.build()

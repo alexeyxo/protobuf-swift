@@ -24,10 +24,10 @@ public protocol ExtensionField
     var fieldNumber:Int32 {get set}
     var extendedClass:AnyClassType {get}
     var wireType:WireFormat {get}
-    func writeValueIncludingTagToCodedOutputStream(value:Any, output:CodedOutputStream)
-    func computeSerializedSizeIncludingTag(value:Any) -> Int32
-    func writeDescriptionOf(value:Any, inout output:String, indent:String)
-    func mergeFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32)
+    func writeValueIncludingTagToCodedOutputStream(value:Any, output:CodedOutputStream) throws
+    func computeSerializedSizeIncludingTag(value:Any) throws -> Int32
+    func writeDescriptionOf(value:Any, inout output:String, indent:String) throws
+    func mergeFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) throws
     
 }
 

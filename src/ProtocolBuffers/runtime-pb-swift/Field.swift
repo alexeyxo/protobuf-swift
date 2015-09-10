@@ -167,28 +167,28 @@ final public class Field:Equatable,Hashable
         return result
     }
     
-    public func writeTo(fieldNumber:Int32, output:CodedOutputStream)
+    public func writeTo(fieldNumber:Int32, output:CodedOutputStream) throws
     {
 
         for value in variantArray
         {
-            output.writeInt64(fieldNumber, value:value)
+            try output.writeInt64(fieldNumber, value:value)
         }
         for value in fixed32Array
         {
-            output.writeFixed32(fieldNumber, value: value)
+            try output.writeFixed32(fieldNumber, value: value)
         }
         for value in fixed64Array
         {
-            output.writeFixed64(fieldNumber, value:value)
+            try output.writeFixed64(fieldNumber, value:value)
         }
         for value in lengthDelimited
         {
-            output.writeData(fieldNumber, value: value)
+            try output.writeData(fieldNumber, value: value)
         }
         for value in groupArray
         {
-            output.writeUnknownGroup(fieldNumber, value:value)
+            try output.writeUnknownGroup(fieldNumber, value:value)
         }
 
     }
@@ -225,11 +225,11 @@ final public class Field:Equatable,Hashable
 
     }
     
-    public func writeAsMessageSetExtensionTo(fieldNumber:Int32, output:CodedOutputStream)
+    public func writeAsMessageSetExtensionTo(fieldNumber:Int32, output:CodedOutputStream) throws
     {
         for value in lengthDelimited
         {
-            output.writeRawMessageSetExtension(fieldNumber, value: value)
+            try output.writeRawMessageSetExtension(fieldNumber, value: value)
         }
     }
     

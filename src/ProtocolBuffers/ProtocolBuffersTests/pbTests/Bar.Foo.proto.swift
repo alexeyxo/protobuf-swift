@@ -13,7 +13,8 @@ internal func == (lhs: Bar.Foo, rhs: Bar.Foo) -> Bool {
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasHello == rhs.hasHello) && (!lhs.hasHello || lhs.hello == rhs.hello)
-  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  return fieldCheck
 }
 
 internal extension Bar {
@@ -34,7 +35,7 @@ internal extension Bar {
     }
   }
 
-  final internal class Foo : GeneratedMessage, GeneratedMessageProtocol, Hashable {
+  final internal class Foo : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasHello:Bool = false
     private(set) var hello:String = ""
 
@@ -44,11 +45,11 @@ internal extension Bar {
     override internal func isInitialized() -> Bool {
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasHello {
-        output.writeString(1, value:hello)
+        try output.writeString(1, value:hello)
       }
-      unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeToCodedOutputStream(output)
     }
     override internal func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -64,33 +65,33 @@ internal extension Bar {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) -> Array<Bar.Foo> {
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Bar.Foo> {
       var mergedArray = Array<Bar.Foo>()
-      while let value = parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    internal class func parseFromData(data:NSData) -> Bar.Foo {
-      return Bar.Foo.Builder().mergeFromData(data, extensionRegistry:Bar.FooRoot.sharedInstance.extensionRegistry).build()
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Bar.Foo? {
+      return try Bar.Foo.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) -> Bar.Foo {
-      return Bar.Foo.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromData(data:NSData) throws -> Bar.Foo {
+      return try Bar.Foo.Builder().mergeFromData(data, extensionRegistry:Bar.FooRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) -> Bar.Foo {
-      return Bar.Foo.Builder().mergeFromInputStream(input).build()
+    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+      return try Bar.Foo.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) -> Bar.Foo? {
-      return Bar.Foo.Builder().mergeDelimitedFromInputStream(input)?.build()
+    internal class func parseFromInputStream(input:NSInputStream) throws -> Bar.Foo {
+      return try Bar.Foo.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) -> Bar.Foo {
-      return Bar.Foo.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+      return try Bar.Foo.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) -> Bar.Foo {
-      return Bar.Foo.Builder().mergeFromCodedInputStream(input).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> Bar.Foo {
+      return try Bar.Foo.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Bar.Foo {
-      return Bar.Foo.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+      return try Bar.Foo.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     internal class func getBuilder() -> Bar.Foo.Builder {
       return Bar.Foo.classBuilder() as! Bar.Foo.Builder
@@ -104,13 +105,13 @@ internal extension Bar {
     internal override func classBuilder() -> MessageBuilder {
       return Bar.Foo.Builder()
     }
-    internal func toBuilder() -> Bar.Foo.Builder {
-      return Bar.Foo.builderWithPrototype(self)
+    internal func toBuilder() throws -> Bar.Foo.Builder {
+      return try Bar.Foo.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Bar.Foo) -> Bar.Foo.Builder {
-      return Bar.Foo.Builder().mergeFrom(prototype)
+    internal class func builderWithPrototype(prototype:Bar.Foo) throws -> Bar.Foo.Builder {
+      return try Bar.Foo.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) {
+    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasHello {
         output += "\(indent) hello: \(hello) \n"
       }
@@ -182,45 +183,45 @@ internal extension Bar {
         builderResult = Bar.Foo()
         return self
       }
-      internal override func clone() -> Bar.Foo.Builder {
-        return Bar.Foo.builderWithPrototype(builderResult)
+      internal override func clone() throws -> Bar.Foo.Builder {
+        return try Bar.Foo.builderWithPrototype(builderResult)
       }
-      internal override func build() -> Bar.Foo {
-           checkInitialized()
+      internal override func build() throws -> Bar.Foo {
+           try checkInitialized()
            return buildPartial()
       }
       internal func buildPartial() -> Bar.Foo {
-        var returnMe:Bar.Foo = builderResult
+        let returnMe:Bar.Foo = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:Bar.Foo) -> Bar.Foo.Builder {
+      internal func mergeFrom(other:Bar.Foo) throws -> Bar.Foo.Builder {
         if other == Bar.Foo() {
          return self
         }
         if other.hasHello {
              hello = other.hello
         }
-        mergeUnknownFields(other.unknownFields)
+        try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) -> Bar.Foo.Builder {
-           return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Bar.Foo.Builder {
+           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Bar.Foo.Builder {
-        var unknownFieldsBuilder:UnknownFieldSet.Builder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
-          var tag = input.readTag()
+          let tag = try input.readTag()
           switch tag {
           case 0: 
-            self.unknownFields = unknownFieldsBuilder.build()
+            self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 10 :
-            hello = input.readString()
+            hello = try input.readString()
 
           default:
-            if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
-               unknownFields = unknownFieldsBuilder.build()
+            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+               unknownFields = try unknownFieldsBuilder.build()
                return self
             }
           }

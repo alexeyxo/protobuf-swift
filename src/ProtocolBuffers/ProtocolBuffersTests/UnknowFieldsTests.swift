@@ -11,14 +11,35 @@ import XCTest
 import ProtocolBuffers
 class UnknowFieldsTests: XCTestCase {
     
-    var allFields:ProtobufUnittest.TestAllTypes =  TestUtilities.allSet()
-    var emptyMessage:ProtobufUnittest.TestEmptyMessage = ProtobufUnittest.TestEmptyMessage.parseFromData(TestUtilities.allSet().data())
+    var allFields:ProtobufUnittest.TestAllTypes = ProtobufUnittest.TestAllTypes()
+    var emptyMessage:ProtobufUnittest.TestEmptyMessage = ProtobufUnittest.TestEmptyMessage()
     var unknownFields:UnknownFieldSet {
         return emptyMessage.unknownFields
     }
-
+    
     override func setUp() {
         super.setUp()
+        do {
+            allFields = try TestUtilities.allSet()
+        }
+        catch {
+            XCTFail("Fail set up data")
+        }
+        do {
+            let data = try TestUtilities.allSet().data()
+            do {
+                emptyMessage = try ProtobufUnittest.TestEmptyMessage.parseFromData(data)
+            }
+            catch
+            {
+                XCTFail("Fail set up data")
+            }
+
+        }
+        catch
+        {
+            XCTFail("Fail set up data")
+        }
     }
     
     override func tearDown() {
@@ -29,166 +50,221 @@ class UnknowFieldsTests: XCTestCase {
         return unknownFields.getField(number)
     }
     
-    func getBizarroData() -> NSData {
-        var bizarroFields = UnknownFieldSet.Builder()
-        var varintField = Field()
-        varintField += Int32(1)
+    func getBizarroData() throws -> NSData {
+        let bizarroFields = UnknownFieldSet.Builder()
+        var letintField = Field()
+        letintField += Int32(1)
         var fixed32Field = Field()
         fixed32Field += UInt32(2)
     
         for key in unknownFields.fields.keys {
-            var field = unknownFields.fields[key]!
+            
+            let field = unknownFields.fields[key]!
             if (field.variantArray.count == 0) {
-                bizarroFields.addField(varintField, number: key)
+                try bizarroFields.addField(letintField, number: key)
             } else {
-                bizarroFields.addField(fixed32Field, number: key)
+                try bizarroFields.addField(fixed32Field, number: key)
             }
         }
-        return bizarroFields.build().data()
+        return try bizarroFields.build().data()
     }
     
     func testSerialize() {
-        var data = emptyMessage.data()
-        var allFieldsData = allFields.data()
+        let data = emptyMessage.data()
+        let allFieldsData = allFields.data()
         XCTAssertTrue(allFieldsData == data, "")
     }
     
     func testCopyFrom() {
-        var message = ProtobufUnittest.TestEmptyMessage.Builder().mergeFrom(emptyMessage).build()
-        XCTAssertTrue(emptyMessage.data() == message.data(), "")
+        do {
+            let message = try ProtobufUnittest.TestEmptyMessage.Builder().mergeFrom(emptyMessage).build()
+            XCTAssertTrue(emptyMessage.data() == message.data(), "")
+        }
+        catch
+        {
+            XCTFail("testCopyFrom")
+        }
     }
     func testMergeFrom() {
-        var set1Builder = UnknownFieldSet.Builder()
-        var field1 = Field()
-        field1 += Int32(2)
-        set1Builder.addField(field1, number: 2)
-        var field2 = Field()
-        field2 += Int32(4)
-        set1Builder.addField(field2, number: 3)
-        var set1 = set1Builder.build()
         
-        var set2Builder = UnknownFieldSet.Builder()
-        var field3 = Field()
-        field3 += Int32(1)
-        set2Builder.addField(field3, number: 1)
-        var field4 = Field()
-        field4 += Int32(3)
-        set2Builder.addField(field4, number: 3)
-        var set2 = set2Builder.build()
+        do {
+            let set1Builder = UnknownFieldSet.Builder()
+            var field1 = Field()
+            field1 += Int32(2)
+            try set1Builder.addField(field1, number: 2)
+            var field2 = Field()
+            field2 += Int32(4)
+            try set1Builder.addField(field2, number: 3)
+            let set1 = try set1Builder.build()
+            
+            let set2Builder = UnknownFieldSet.Builder()
+            var field3 = Field()
+            field3 += Int32(1)
+            try set2Builder.addField(field3, number: 1)
+            var field4 = Field()
+            field4 += Int32(3)
+            try set2Builder.addField(field4, number: 3)
+            let set2 = try set2Builder.build()
+            
+            
+            let set3Builder = UnknownFieldSet.Builder()
+            var field5 = Field()
+            field5 += Int32(1)
+            try set3Builder.addField(field5, number: 1)
+            var field6 = Field()
+            field6 += Int32(4)
+            try set3Builder.addField(field6, number: 3)
+            let set3 = try set3Builder.build()
+            
+            let set4Builder = UnknownFieldSet.Builder()
+            var field7 = Field()
+            field7 += Int32(2)
+            try set4Builder.addField(field7, number: 2)
+            var field8 = Field()
+            field8 += Int32(3)
+            try set4Builder.addField(field8, number: 3)
+            let set4 = try set4Builder.build()
+            
+            
+            let source1Builder = ProtobufUnittest.TestEmptyMessage.Builder()
+            source1Builder.unknownFields = set1
+            let source1 = try source1Builder.build()
+            
+            let source2Builder = ProtobufUnittest.TestEmptyMessage.Builder()
+            source2Builder.unknownFields = set2
+            let source2 = try source2Builder.build()
+            
+            let source3Builder = ProtobufUnittest.TestEmptyMessage.Builder()
+            source3Builder.unknownFields = set3
+            let source3 = try source3Builder.build()
+            
+            let source4Builder = ProtobufUnittest.TestEmptyMessage.Builder()
+            source4Builder.unknownFields = set4
+            let source4 = try source4Builder.build()
+            
+            let destination1 = ProtobufUnittest.TestEmptyMessage.Builder()
+            try destination1.mergeFrom(source1)
+            try destination1.mergeFrom(source2)
+            let mes1 = try destination1.build()
+            
+            let destination2 = ProtobufUnittest.TestEmptyMessage.Builder()
+            try destination2.mergeFrom(source3)
+            try destination2.mergeFrom(source4)
+            let mes2 = try destination2.build()
+            let rawData1 = mes1.data()
+            let rawData2 = mes2.data()
+            XCTAssertTrue(rawData1 == rawData2, "")
+        }
+        catch
+        {
+            XCTFail("testMergeFrom")
+        }
         
-        
-        var set3Builder = UnknownFieldSet.Builder()
-        var field5 = Field()
-        field5 += Int32(1)
-        set3Builder.addField(field5, number: 1)
-        var field6 = Field()
-        field6 += Int32(4)
-        set3Builder.addField(field6, number: 3)
-        var set3 = set3Builder.build()
-        
-        var set4Builder = UnknownFieldSet.Builder()
-        var field7 = Field()
-        field7 += Int32(2)
-        set4Builder.addField(field7, number: 2)
-        var field8 = Field()
-        field8 += Int32(3)
-        set4Builder.addField(field8, number: 3)
-        var set4 = set4Builder.build()
-    
-    
-        var source1Builder = ProtobufUnittest.TestEmptyMessage.Builder()
-        source1Builder.unknownFields = set1
-        var source1 = source1Builder.build()
-        
-        var source2Builder = ProtobufUnittest.TestEmptyMessage.Builder()
-        source2Builder.unknownFields = set2
-        var source2 = source2Builder.build()
-
-        var source3Builder = ProtobufUnittest.TestEmptyMessage.Builder()
-        source3Builder.unknownFields = set3
-        var source3 = source3Builder.build()
-        
-        var source4Builder = ProtobufUnittest.TestEmptyMessage.Builder()
-        source4Builder.unknownFields = set4
-        var source4 = source4Builder.build()
-    
-        var destination1 = ProtobufUnittest.TestEmptyMessage.Builder()
-        destination1.mergeFrom(source1)
-        destination1.mergeFrom(source2)
-        var mes1 = destination1.build()
-        
-        var destination2 = ProtobufUnittest.TestEmptyMessage.Builder()
-        destination2.mergeFrom(source3)
-        destination2.mergeFrom(source4)
-        var mes2 = destination2.build()
-        let rawData1 = mes1.data()
-        let rawData2 = mes2.data()
-        XCTAssertTrue(rawData1 == rawData2, "")
     }
     
     func testClear() {
-        var fields = UnknownFieldSet.Builder().mergeUnknownFields(unknownFields).clear().build()
-        XCTAssertTrue(fields.fields.count == 0,"")
+        do {
+            let fields = try UnknownFieldSet.Builder().mergeUnknownFields(unknownFields).clear().build()
+            XCTAssertTrue(fields.fields.count == 0,"")
+        }
+        catch {
+            XCTFail("testClear")
+        }
     }
     
     
     func testClearMessage() {
-        var message = ProtobufUnittest.TestEmptyMessage.Builder().mergeFrom(emptyMessage).clear().build()
-        XCTAssertTrue(0 == message.serializedSize(), "")
+        do {
+            let message = try ProtobufUnittest.TestEmptyMessage.Builder().mergeFrom(emptyMessage).clear().build()
+            XCTAssertTrue(0 == message.serializedSize(), "")
+        }
+        catch {
+            XCTFail("testClearMessage")
+        }
+        
     }
     
     func testParseKnownAndUnknown() {
-        // Test mixing known and unknown fields when parsing.
-        var field = Field()
-        field += Int32(654321)
-        var fields = UnknownFieldSet.builderWithUnknownFields(unknownFields).addField(field, number:123456).build()
-        var data = fields.data()
-        var destination = ProtobufUnittest.TestAllTypes.parseFromData(data)
-        TestUtilities.assertAllFieldsSet(destination)
-        XCTAssertTrue(1 == destination.unknownFields.fields.count, "")
-        var uField = destination.unknownFields.getField(123456)
-        XCTAssertTrue(1 == uField.variantArray.count, "")
-        XCTAssertTrue(654321 == field.variantArray[0], "")
+        do {
+            // Test mixing known and unknown fields when parsing.
+            var field = Field()
+            field += Int32(654321)
+            let fields = try UnknownFieldSet.builderWithUnknownFields(unknownFields).addField(field, number:123456).build()
+            let data = try fields.data()
+            let destination = try ProtobufUnittest.TestAllTypes.parseFromData(data)
+            TestUtilities.assertAllFieldsSet(destination)
+            XCTAssertTrue(1 == destination.unknownFields.fields.count, "")
+            let uField = destination.unknownFields.getField(123456)
+            XCTAssertTrue(1 == uField.variantArray.count, "")
+            XCTAssertTrue(654321 == field.variantArray[0], "")
+        }
+        catch {
+            XCTFail("testParseKnownAndUnknown")
+        }
+        
         
     }
     func testWrongTypeTreatedAsUnknown() {
-        // Test that fields of the wrong wire type are treated like unknown fields
-        // when parsing.
-        var bizarroDatas = getBizarroData()
-        var allTypesMessage = ProtobufUnittest.TestAllTypes.parseFromData(bizarroDatas)
-        var emptyMessage_ = ProtobufUnittest.TestEmptyMessage.parseFromData(bizarroDatas)
-        // All fields should have been interpreted as unknown, so the debug strings
-        // should be the same.
-        XCTAssertTrue(emptyMessage_.data() == allTypesMessage.data(), "")
+        do {
+            // Test that fields of the wrong wire type are treated like unknown fields
+            // when parsing.
+            let bizarroDatas = try getBizarroData()
+            let allTypesMessage = try  ProtobufUnittest.TestAllTypes.parseFromData(bizarroDatas)
+            let emptyMessage_ = try ProtobufUnittest.TestEmptyMessage.parseFromData(bizarroDatas)
+            // All fields should have been interpreted as unknown, so the debug strings
+            // should be the same.
+            XCTAssertTrue(emptyMessage_.data() == allTypesMessage.data(), "")
+        }
+        catch {
+            XCTFail("testWrongTypeTreatedAsUnknown")
+        }
+        
     }
 
     func testUnknownExtensions() {
-        // Make sure fields are properly parsed to the UnknownFieldSet even when
-        // they are declared as extension numbers.
-        var message = ProtobufUnittest.TestEmptyMessageWithExtensions.parseFromData(TestUtilities.allSet().data())
-        XCTAssertTrue(unknownFields.fields.count ==  message.unknownFields.fields.count, "")
-        XCTAssertTrue(TestUtilities.allSet().data() == message.data(), "")
+        do {
+            // Make sure fields are properly parsed to the UnknownFieldSet even when
+            // they are declared as extension numbers.
+            let message = try ProtobufUnittest.TestEmptyMessageWithExtensions.parseFromData(TestUtilities.allSet().data())
+            XCTAssertTrue(unknownFields.fields.count ==  message.unknownFields.fields.count, "")
+            let data = try TestUtilities.allSet().data()
+            XCTAssertTrue(data == message.data(), "")
+        }
+        catch {
+            XCTFail("testUnknownExtensions")
+        }
+        
     }
     
     func testWrongExtensionTypeTreatedAsUnknown() {
-        // Test that fields of the wrong wire type are treated like unknown fields
-        // when parsing extensions.
-        var bizarroData = getBizarroData()
-        var allExtensionsMessage = ProtobufUnittest.TestAllExtensions.parseFromData(bizarroData)
-        var emptyMessage_ = ProtobufUnittest.TestEmptyMessage.parseFromData(bizarroData)
-        // All fields should have been interpreted as unknown, so the debug strings
-        // should be the same.
-        XCTAssertTrue(emptyMessage_.data() == allExtensionsMessage.data(), "")
+        do {
+            // Test that fields of the wrong wire type are treated like unknown fields
+            // when parsing extensions.
+            let bizarroData = try getBizarroData()
+            let allExtensionsMessage = try ProtobufUnittest.TestAllExtensions.parseFromData(bizarroData)
+            let emptyMessage_ = try ProtobufUnittest.TestEmptyMessage.parseFromData(bizarroData)
+            // All fields should have been interpreted as unknown, so the debug strings
+            // should be the same.
+            XCTAssertTrue(emptyMessage_.data() == allExtensionsMessage.data(), "")
+        }
+        catch {
+            XCTFail("testWrongExtensionTypeTreatedAsUnknown")
+        }
     }
     
     
-    func testLargeVarint() {
-        var field = Field()
-        field += Int64(Int64.max)
-        var data = UnknownFieldSet.Builder().addField(field, number:1).build().data()
-        var parsed = UnknownFieldSet.parseFromData(data)
-        var fields = parsed.getField(1)
-        XCTAssertTrue(1 == fields.variantArray.count, "")
-        XCTAssertTrue(Int64(Int64.max) == field.variantArray[0], "")
+    func testLargeletint() {
+        do {
+            var field = Field()
+            field += Int64(Int64.max)
+            let data = try UnknownFieldSet.Builder().addField(field, number:1).build().data()
+            let parsed = try UnknownFieldSet.parseFromData(data)
+            let fields = parsed.getField(1)
+            XCTAssertTrue(1 == fields.variantArray.count, "")
+            XCTAssertTrue(Int64(Int64.max) == field.variantArray[0], "")
+        }
+        catch {
+            XCTFail("testLargeletint")
+        }
     }
 }

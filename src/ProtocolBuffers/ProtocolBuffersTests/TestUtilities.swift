@@ -24,55 +24,55 @@ class  TestUtilities {
     }
     class func goldenData() -> NSData {
         
-        var str =  NSBundle(forClass:TestUtilities.self).resourcePath!.stringByAppendingPathComponent("golden_message")
+        let str =  (NSBundle(forClass:TestUtilities.self).resourcePath! as NSString).stringByAppendingPathComponent("golden_message")
         let goldenData = NSData(contentsOfFile:str)!
         return goldenData
     }
     
-    class func modifyRepeatedExtensions(var message:ProtobufUnittest.TestAllExtensions.Builder)
+    class func modifyRepeatedExtensions(message:ProtobufUnittest.TestAllExtensions.Builder) throws
     {
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), index:1, value:Int32(501))
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension(), index:1, value:Int64(502))
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension(), index:1, value:UInt32(503))
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension(), index:1, value:UInt64(504))
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension(), index:1, value:Int32(505))
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension(), index:1, value:Int64(506))
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension(), index:1, value:UInt32(507))
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension(), index:1, value:UInt64(508))
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension(), index:1, value:Int32(509))
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension(), index:1, value:Int64(510))
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension(), index:1, value:Float(511.0))
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension(), index:1, value:Double(512.0))
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension(), index:1, value:true)
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension(),index:1, value:"515")
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), index:1, value:TestUtilities.getData("516"))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), index:1, value:Int32(501))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension(), index:1, value:Int64(502))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension(), index:1, value:UInt32(503))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension(), index:1, value:UInt64(504))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension(), index:1, value:Int32(505))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension(), index:1, value:Int64(506))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension(), index:1, value:UInt32(507))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension(), index:1, value:UInt64(508))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension(), index:1, value:Int32(509))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension(), index:1, value:Int64(510))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension(), index:1, value:Float(511.0))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension(), index:1, value:Double(512.0))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension(), index:1, value:true)
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension(),index:1, value:"515")
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), index:1, value:TestUtilities.getData("516"))
 
-        var a = ProtobufUnittest.RepeatedGroupExtension.Builder()
+        let a = ProtobufUnittest.RepeatedGroupExtension.Builder()
         a.a = 517
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), index:1, value:a.build())
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), index:1, value:a.build())
         
-        var b = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
+        let b = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         b.bb = 518
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension(), index:1, value:b.build())
-        var foreign = ProtobufUnittest.ForeignMessage.Builder()
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension(), index:1, value:b.build())
+        let foreign = ProtobufUnittest.ForeignMessage.Builder()
         foreign.c = 519
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension(), index:1, value:foreign.build())
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension(), index:1, value:foreign.build())
         
-        var importMessage = ProtobufUnittestImport.ImportMessage.Builder()
+        let importMessage = ProtobufUnittestImport.ImportMessage.Builder()
         importMessage.d = 520
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension(), index:1, value:importMessage.build())
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension(), index:1, value:importMessage.build())
         
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension(), index:1, value:ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue)
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension(), index:1, value:ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue)
         
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension(), index:1, value:ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue)
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension(), index:1, value:ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue)
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension(), index:1, value:ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue)
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension(), index:1, value:ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue)
         
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension(),index:1, value:"524")
-        message.setExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension(), index:1, value:"525")
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension(),index:1, value:"524")
+        try message.setExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension(), index:1, value:"525")
 
     }
     
-    func assertAllExtensionsSet(var message:ProtobufUnittest.TestAllExtensions)
+    func assertAllExtensionsSet(message:ProtobufUnittest.TestAllExtensions)
     {
         
         XCTAssertTrue(message.hasExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension()), "")
@@ -1050,7 +1050,7 @@ class  TestUtilities {
         XCTAssertTrue(Double(112.0) == message.optionalDouble, "")
         XCTAssertTrue(true == message.optionalBool, "")
         XCTAssertTrue("115" == message.optionalString, "")
-        var data = TestUtilities.getData("116")
+        let data = TestUtilities.getData("116")
         XCTAssertTrue(data == message.optionalBytes, "")
         
         XCTAssertTrue(117 == message.optionalGroup.a, "")
@@ -1205,7 +1205,7 @@ class  TestUtilities {
         TestUtilities().assertAllFieldsSet(message)
     }
     
-    class func setAllFields(message:ProtobufUnittest.TestAllTypes.Builder)
+    class func setAllFields(message:ProtobufUnittest.TestAllTypes.Builder) throws
     {
         message.optionalInt32 = Int32(101)
         message.optionalInt64 = Int64(102)
@@ -1223,20 +1223,20 @@ class  TestUtilities {
         message.optionalString = "115"
         message.optionalBytes = TestUtilities.getData("116")
         
-        var gr = ProtobufUnittest.TestAllTypes.OptionalGroup.Builder()
+        let gr = ProtobufUnittest.TestAllTypes.OptionalGroup.Builder()
         gr.a = 117
-        message.optionalGroup = gr.build()
-        var nest = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
+        message.optionalGroup = try gr.build()
+        let nest = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         nest.bb = 118
-        message.optionalNestedMessage = nest.build()
+        message.optionalNestedMessage = try nest.build()
         
-        var foreign = ProtobufUnittest.ForeignMessage.Builder()
+        let foreign = ProtobufUnittest.ForeignMessage.Builder()
         foreign.c = 119
-        message.optionalForeignMessage = foreign.build()
+        message.optionalForeignMessage = try foreign.build()
         
-        var importMes = ProtobufUnittestImport.ImportMessage.Builder()
+        let importMes = ProtobufUnittestImport.ImportMessage.Builder()
         importMes.d = 120
-        message.optionalImportMessage = importMes.build()
+        message.optionalImportMessage = try importMes.build()
         
         message.optionalNestedEnum = ProtobufUnittest.TestAllTypes.NestedEnum.Baz
         message.optionalForeignEnum = ProtobufUnittest.ForeignEnum.ForeignBaz
@@ -1245,11 +1245,11 @@ class  TestUtilities {
         message.optionalStringPiece = "124"
         message.optionalCord = "125"
         
-//        var publicImportBuilder = PublicImportMessageBuilder()
+//        let publicImportBuilder = PublicImportMessageBuilder()
 //        publicImportBuilder.e = 126
 //        message.optionalPublicImportMessage = publicImportBuilder.build()
 //
-//        var lazymes = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
+//        let lazymes = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
 //        lazymes.bb = 127
 //        message.optionalLazyMessage = lazymes.build()
 
@@ -1272,18 +1272,18 @@ class  TestUtilities {
         message.repeatedString += ["215"]
         message.repeatedBytes += [TestUtilities.getData("216")]
         
-        var testRep = ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
+        let testRep = ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
         testRep.a = 217
-        message.repeatedGroup += [testRep.build()]
-        var testNest = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
+        message.repeatedGroup += [try testRep.build()]
+        let testNest = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         testNest.bb = 218
-        message.repeatedNestedMessage += [testNest.build()]
-        var foreign2 = ProtobufUnittest.ForeignMessage.Builder()
+        message.repeatedNestedMessage += [try testNest.build()]
+        let foreign2 = ProtobufUnittest.ForeignMessage.Builder()
         foreign2.c = 219
-        message.repeatedForeignMessage += [foreign2.build()]
-        var importmes = ProtobufUnittestImport.ImportMessage.Builder()
+        message.repeatedForeignMessage += [try foreign2.build()]
+        let importmes = ProtobufUnittestImport.ImportMessage.Builder()
         importmes.d = 220
-        message.repeatedImportMessage += [importmes.build()]
+        message.repeatedImportMessage += [try importmes.build()]
         
         message.repeatedNestedEnum += [ProtobufUnittest.TestAllTypes.NestedEnum.Bar]
         message.repeatedForeignEnum += [ProtobufUnittest.ForeignEnum.ForeignBar]
@@ -1308,21 +1308,21 @@ class  TestUtilities {
         message.repeatedString += ["315"]
         message.repeatedBytes += [TestUtilities.getData("316")]
         
-        var repgroups = ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
+        let repgroups = ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
         repgroups.a = 317
-        message.repeatedGroup += [repgroups.build()]
+        message.repeatedGroup += [try repgroups.build()]
         
-        var repNested = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
+        let repNested = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         repNested.bb = 318
-        message.repeatedNestedMessage += [repNested.build()]
+        message.repeatedNestedMessage += [try repNested.build()]
         
-        var fBuilder = ProtobufUnittest.ForeignMessage.Builder()
+        let fBuilder = ProtobufUnittest.ForeignMessage.Builder()
         fBuilder.c = 319
-        message.repeatedForeignMessage += [fBuilder.build()]
+        message.repeatedForeignMessage += [try fBuilder.build()]
         
-        var impBuilder = ProtobufUnittestImport.ImportMessage.Builder()
+        let impBuilder = ProtobufUnittestImport.ImportMessage.Builder()
         impBuilder.d = 320
-        message.repeatedImportMessage += [impBuilder.build()]
+        message.repeatedImportMessage += [try impBuilder.build()]
         
         message.repeatedNestedEnum += [ProtobufUnittest.TestAllTypes.NestedEnum.Baz]
         message.repeatedForeignEnum += [ProtobufUnittest.ForeignEnum.ForeignBaz]
@@ -1331,10 +1331,10 @@ class  TestUtilities {
         message.repeatedStringPiece += ["324"]
         message.repeatedCord += ["325"]
         
-//        var repNested2 = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
+//        let repNested2 = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
 //        repNested2.bb = 227
 //        message.repeatedLazyMessage = [repNested2.build()]
-//        var repNested3 = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
+//        let repNested3 = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
 //        repNested3.bb = 327
 //        message.repeatedLazyMessage += [repNested3.build()]
         
@@ -1366,158 +1366,158 @@ class  TestUtilities {
         
     }
     
-    class func setOneOfFields(message:ProtobufUnittest.TestAllTypes.Builder)
+    class func setOneOfFields(message:ProtobufUnittest.TestAllTypes.Builder) throws
     {
         message.oneofUint32 = 601
-        var builder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
+        let builder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         builder.bb = 602
-        message.oneofNestedMessage = builder.build()
+        message.oneofNestedMessage = try builder.build()
         message.oneofString = "603"
         message.oneofBytes = NSData(bytes: ([UInt8]() + "604".utf8), length: 3)
     }
     
-    class func setAllExtensions(message:ProtobufUnittest.TestAllExtensions.Builder)
+    class func setAllExtensions(message:ProtobufUnittest.TestAllExtensions.Builder) throws
     {
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension(), value:Int32(101))
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalInt64Extension(), value:Int64(102))
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalUint32Extension(), value:UInt32(103))
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalUint64Extension(), value:UInt64(104))
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalSint32Extension(), value:Int32(105))
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalSint64Extension(), value:Int64(106))
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalFixed32Extension(), value:UInt32(107))
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalFixed64Extension(), value:UInt64(108))
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalSfixed32Extension(), value:Int32(109))
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalSfixed64Extension(), value:Int64(110))
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalFloatExtension(), value:Float(111.0))
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalDoubleExtension(), value:Double(112.0))
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalBoolExtension(), value:true)
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalStringExtension(), value:"115")
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalBytesExtension(), value:TestUtilities.getData("116"))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension(), value:Int32(101))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalInt64Extension(), value:Int64(102))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalUint32Extension(), value:UInt32(103))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalUint64Extension(), value:UInt64(104))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalSint32Extension(), value:Int32(105))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalSint64Extension(), value:Int64(106))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalFixed32Extension(), value:UInt32(107))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalFixed64Extension(), value:UInt64(108))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalSfixed32Extension(), value:Int32(109))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalSfixed64Extension(), value:Int64(110))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalFloatExtension(), value:Float(111.0))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalDoubleExtension(), value:Double(112.0))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalBoolExtension(), value:true)
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalStringExtension(), value:"115")
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalBytesExtension(), value:TestUtilities.getData("116"))
         
-        var optgr = ProtobufUnittest.OptionalGroupExtension.Builder()
+        let optgr = ProtobufUnittest.OptionalGroupExtension.Builder()
         optgr.a = 117
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension(), value:optgr.build())
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalGroupExtension(), value:optgr.build())
         
-        var netmesb = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
+        let netmesb = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         netmesb.bb = 118
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalNestedMessageExtension(), value:netmesb.build())
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalNestedMessageExtension(), value:netmesb.build())
         
-        var forMes = ProtobufUnittest.ForeignMessage.Builder()
+        let forMes = ProtobufUnittest.ForeignMessage.Builder()
         forMes.c = 119
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalForeignMessageExtension(), value:forMes.build())
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalForeignMessageExtension(), value:forMes.build())
         
-        var impMes = ProtobufUnittestImport.ImportMessage.Builder()
+        let impMes = ProtobufUnittestImport.ImportMessage.Builder()
         impMes.d = 120
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalImportMessageExtension(), value:impMes.build())
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalImportMessageExtension(), value:impMes.build())
         
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue)
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue)
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue)
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue)
         
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalStringPieceExtension(),  value:"124")
-        message.setExtension(ProtobufUnittest.UnittestRoot.optionalCordExtension(), value:"125")
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalStringPieceExtension(),  value:"124")
+        try message.setExtension(ProtobufUnittest.UnittestRoot.optionalCordExtension(), value:"125")
         
         // -----------------------------------------------------------------
         
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), value:Int32(201))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension(), value:Int64(202))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension(), value:UInt32(203))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension(), value:UInt64(204))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension(), value:Int32(205))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension(), value:Int64(206))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension(), value:UInt32(207))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension(), value:UInt64(208))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension(), value:Int32(209))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension(), value:Int64(210))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension(), value:Float(211.0))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension(), value:Double(212.0))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension(), value:true)
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension(), value:"215")
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), value:TestUtilities.getData("216"))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), value:Int32(201))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension(), value:Int64(202))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension(), value:UInt32(203))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension(), value:UInt64(204))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension(), value:Int32(205))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension(), value:Int64(206))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension(), value:UInt32(207))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension(), value:UInt64(208))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension(), value:Int32(209))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension(), value:Int64(210))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension(), value:Float(211.0))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension(), value:Double(212.0))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension(), value:true)
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension(), value:"215")
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), value:TestUtilities.getData("216"))
         
         
-        var repGr = ProtobufUnittest.RepeatedGroupExtension.Builder()
+        let repGr = ProtobufUnittest.RepeatedGroupExtension.Builder()
         repGr.a = 217
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), value:repGr.build())
-        var netmesrep = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), value:repGr.build())
+        let netmesrep = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         netmesrep.bb = 218
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension(), value:netmesrep.build())
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension(), value:netmesrep.build())
         
-        var msgFore = ProtobufUnittest.ForeignMessage.Builder()
+        let msgFore = ProtobufUnittest.ForeignMessage.Builder()
         msgFore.c = 219
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension(), value:msgFore.build())
-        var impMes220 = ProtobufUnittestImport.ImportMessage.Builder()
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension(), value:msgFore.build())
+        let impMes220 = ProtobufUnittestImport.ImportMessage.Builder()
         impMes220.d = 220
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension(), value:impMes220.build())
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension(), value:impMes220.build())
         
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Bar.rawValue)
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBar.rawValue)
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBar.rawValue)
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension(), value:"224")
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension(), value:"225")
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Bar.rawValue)
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBar.rawValue)
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBar.rawValue)
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension(), value:"224")
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension(), value:"225")
         
         // Add a second one of each field.
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), value:Int32(301))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension(), value:Int64(302))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension(), value:UInt32(303))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension(), value:UInt64(304))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension(), value:Int32(305))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension(), value:Int64(306))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension(), value:UInt32(307))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension(), value:UInt64(308))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension(), value:Int32(309))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension(), value:Int64(310))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension(), value:Float(311.0))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension(), value:Double(312.0))
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension(), value:false)
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension(), value:"315")
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), value:TestUtilities.getData("316"))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), value:Int32(301))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt64Extension(), value:Int64(302))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedUint32Extension(), value:UInt32(303))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedUint64Extension(), value:UInt64(304))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSint32Extension(), value:Int32(305))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSint64Extension(), value:Int64(306))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFixed32Extension(), value:UInt32(307))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFixed64Extension(), value:UInt64(308))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed32Extension(), value:Int32(309))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedSfixed64Extension(), value:Int64(310))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedFloatExtension(), value:Float(311.0))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedDoubleExtension(), value:Double(312.0))
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBoolExtension(), value:false)
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedStringExtension(), value:"315")
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedBytesExtension(), value:TestUtilities.getData("316"))
         
         
-        var repGr2 = ProtobufUnittest.RepeatedGroupExtension.Builder()
+        let repGr2 = ProtobufUnittest.RepeatedGroupExtension.Builder()
         repGr2.a = 317
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), value:repGr2.build())
-        var netmesrep2 = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedGroupExtension(), value:repGr2.build())
+        let netmesrep2 = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         netmesrep2.bb = 318
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension(), value:netmesrep2.build())
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedMessageExtension(), value:netmesrep2.build())
         
-        var msgFore2 = ProtobufUnittest.ForeignMessage.Builder()
+        let msgFore2 = ProtobufUnittest.ForeignMessage.Builder()
         msgFore2.c = 319
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension(), value:msgFore2.build())
-        var impMes2 = ProtobufUnittestImport.ImportMessage.Builder()
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignMessageExtension(), value:msgFore2.build())
+        let impMes2 = ProtobufUnittestImport.ImportMessage.Builder()
         impMes2.d = 320
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension(), value:impMes2.build())
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportMessageExtension(), value:impMes2.build())
         
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue)
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue)
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension(), value:"324")
-        message.addExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension(), value:"325")
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Baz.rawValue)
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportBaz.rawValue)
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedStringPieceExtension(), value:"324")
+        try message.addExtension(ProtobufUnittest.UnittestRoot.repeatedCordExtension(), value:"325")
         
         // -----------------------------------------------------------------
         
         
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultInt32Extension(), value:Int32(401))
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultInt64Extension(), value:Int64(402))
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultUint32Extension(), value:UInt32(403))
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultUint64Extension(), value:UInt64(404))
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultSint32Extension(), value:Int32(405))
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultSint64Extension(), value:Int64(406))
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultFixed32Extension(), value:UInt32(407))
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultFixed64Extension(), value:UInt64(408))
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultSfixed32Extension(), value:Int32(409))
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultSfixed64Extension(), value:Int64(410))
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultFloatExtension(), value:Float(411.0))
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultDoubleExtension(), value:Double(412.0))
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultBoolExtension(), value:false)
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultStringExtension(), value:"415")
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultBytesExtension(), value:TestUtilities.getData("416"))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultInt32Extension(), value:Int32(401))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultInt64Extension(), value:Int64(402))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultUint32Extension(), value:UInt32(403))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultUint64Extension(), value:UInt64(404))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultSint32Extension(), value:Int32(405))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultSint64Extension(), value:Int64(406))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultFixed32Extension(), value:UInt32(407))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultFixed64Extension(), value:UInt64(408))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultSfixed32Extension(), value:Int32(409))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultSfixed64Extension(), value:Int64(410))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultFloatExtension(), value:Float(411.0))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultDoubleExtension(), value:Double(412.0))
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultBoolExtension(), value:false)
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultStringExtension(), value:"415")
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultBytesExtension(), value:TestUtilities.getData("416"))
         
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue)
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue)
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue)
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultStringPieceExtension(), value:"424")
-        message.setExtension(ProtobufUnittest.UnittestRoot.defaultCordExtension(), value:"425")
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultNestedEnumExtension(), value:ProtobufUnittest.TestAllTypes.NestedEnum.Foo.rawValue)
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultForeignEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignFoo.rawValue)
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultImportEnumExtension(), value:ProtobufUnittestImport.ImportEnum.ImportFoo.rawValue)
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultStringPieceExtension(), value:"424")
+        try message.setExtension(ProtobufUnittest.UnittestRoot.defaultCordExtension(), value:"425")
         
     }
     class func registerAllExtensions(registry:ExtensionRegistry)
@@ -1526,37 +1526,37 @@ class  TestUtilities {
     }
     
     class func extensionRegistry() -> ExtensionRegistry {
-        var registry:ExtensionRegistry = ExtensionRegistry()
+        let registry:ExtensionRegistry = ExtensionRegistry()
         TestUtilities.registerAllExtensions(registry)
         return registry
     }
     
     
-    class func allSet() -> ProtobufUnittest.TestAllTypes {
-        var builder = ProtobufUnittest.TestAllTypes.Builder()
-        TestUtilities.setAllFields(builder)
-        return builder.build()
+    class func allSet() throws -> ProtobufUnittest.TestAllTypes {
+        let builder = ProtobufUnittest.TestAllTypes.Builder()
+        try TestUtilities.setAllFields(builder)
+        return try builder.build()
     }
     
     
-    class func allExtensionsSet() -> ProtobufUnittest.TestAllExtensions {
-        var builder = ProtobufUnittest.TestAllExtensions.Builder()
-        TestUtilities.setAllExtensions(builder)
-        return builder.build()
+    class func allExtensionsSet() throws -> ProtobufUnittest.TestAllExtensions {
+        let builder = ProtobufUnittest.TestAllExtensions.Builder()
+        try TestUtilities.setAllExtensions(builder)
+        return try builder.build()
     }
     
     
-    class func packedSet() -> ProtobufUnittest.TestPackedTypes{
-        var builder = ProtobufUnittest.TestPackedTypes.Builder()
+    class func packedSet() throws -> ProtobufUnittest.TestPackedTypes{
+        let builder = ProtobufUnittest.TestPackedTypes.Builder()
         TestUtilities.setPackedFields(builder)
-        return builder.build()
+        return try builder.build()
     }
     
     
-    class func packedExtensionsSet() -> ProtobufUnittest.TestPackedExtensions {
-        var builder = ProtobufUnittest.TestPackedExtensions.Builder()
-        TestUtilities.setPackedExtensions(builder)
-        return builder.build()
+    class func packedExtensionsSet() throws -> ProtobufUnittest.TestPackedExtensions {
+        let builder = ProtobufUnittest.TestPackedExtensions.Builder()
+        try TestUtilities.setPackedExtensions(builder)
+        return try builder.build()
     }
     
     func assertClear(message:ProtobufUnittest.TestAllTypes)
@@ -2152,37 +2152,37 @@ class  TestUtilities {
         TestUtilities().assertPackedFieldsSet(message)
     }
     
-    class func setPackedExtensions(message:ProtobufUnittest.TestPackedExtensions.Builder)
+    class func setPackedExtensions(message:ProtobufUnittest.TestPackedExtensions.Builder) throws
     {
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedInt32Extension(), value:Int32(601))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedInt64Extension(), value:Int64(602))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedUint32Extension(), value:UInt32(603))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedUint64Extension(), value:UInt64(604))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedSint32Extension(), value:Int32(605))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedSint64Extension(), value:Int64(606))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedFixed32Extension(), value:UInt32(607))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedFixed64Extension(), value:UInt64(608))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedSfixed32Extension(), value:Int32(609))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedSfixed64Extension(), value:Int64(610))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedFloatExtension(), value:Float(611.0))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedDoubleExtension(),  value:Double(612.0))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedBoolExtension(), value:true)
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBar.rawValue)
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedInt32Extension(), value:Int32(601))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedInt64Extension(), value:Int64(602))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedUint32Extension(), value:UInt32(603))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedUint64Extension(), value:UInt64(604))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedSint32Extension(), value:Int32(605))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedSint64Extension(), value:Int64(606))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedFixed32Extension(), value:UInt32(607))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedFixed64Extension(), value:UInt64(608))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedSfixed32Extension(), value:Int32(609))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedSfixed64Extension(), value:Int64(610))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedFloatExtension(), value:Float(611.0))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedDoubleExtension(),  value:Double(612.0))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedBoolExtension(), value:true)
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBar.rawValue)
         // Add a second one of each field.
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedInt32Extension(), value:Int32(701))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedInt64Extension(), value:Int64(702))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedUint32Extension(), value:UInt32(703))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedUint64Extension(), value:UInt64(704))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedSint32Extension(), value:Int32(705))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedSint64Extension(), value:Int64(706))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedFixed32Extension(), value:UInt32(707))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedFixed64Extension(), value:UInt64(708))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedSfixed32Extension(), value:Int32(709))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedSfixed64Extension(), value:Int64(710))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedFloatExtension(), value:Float(711.0))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedDoubleExtension(), value:Double(712.0))
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedBoolExtension(), value:false)
-       message.addExtension(ProtobufUnittest.UnittestRoot.packedEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedInt32Extension(), value:Int32(701))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedInt64Extension(), value:Int64(702))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedUint32Extension(), value:UInt32(703))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedUint64Extension(), value:UInt64(704))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedSint32Extension(), value:Int32(705))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedSint64Extension(), value:Int64(706))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedFixed32Extension(), value:UInt32(707))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedFixed64Extension(), value:UInt64(708))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedSfixed32Extension(), value:Int32(709))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedSfixed64Extension(), value:Int64(710))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedFloatExtension(), value:Float(711.0))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedDoubleExtension(), value:Double(712.0))
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedBoolExtension(), value:false)
+       try message.addExtension(ProtobufUnittest.UnittestRoot.packedEnumExtension(), value:ProtobufUnittest.ForeignEnum.ForeignBaz.rawValue)
     }
     
     

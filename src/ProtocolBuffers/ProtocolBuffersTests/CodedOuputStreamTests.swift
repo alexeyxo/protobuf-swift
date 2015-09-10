@@ -12,14 +12,14 @@ import ProtocolBuffers
 internal class CodedOuputStreamTests: XCTestCase
 {
     func openMemoryStream() ->NSOutputStream {
-        var stream:NSOutputStream = NSOutputStream.outputStreamToMemory()
+        let stream:NSOutputStream = NSOutputStream.outputStreamToMemory()
         stream.open()
         return stream
     }
     
     func bytes(from:UInt8...) -> NSData
     {
-        var returnData:NSMutableData = NSMutableData()
+        let returnData:NSMutableData = NSMutableData()
         var bytesArray = [UInt8](count:Int(from.count), repeatedValue: 0)
         var i:Int = 0
         for index:UInt8 in from
@@ -31,46 +31,47 @@ internal class CodedOuputStreamTests: XCTestCase
         return returnData
     }
     
-    func assertWriteLittleEndian32(data:NSData, value:Int32) {
-        var rawOutput:NSOutputStream = openMemoryStream()
-        var output:CodedOutputStream = CodedOutputStream(output: rawOutput)
-        output.writeRawLittleEndian32(value)
-        output.flush()
+    func assertWriteLittleEndian32(data:NSData, value:Int32) throws {
+        let rawOutput:NSOutputStream = openMemoryStream()
+        let output:CodedOutputStream = CodedOutputStream(output: rawOutput)
+
+        try output.writeRawLittleEndian32(value)
+        try output.flush()
     
-        var actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
+        let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
         
         XCTAssertTrue(data.isEqualToData(actual), "Test32")
     
         for var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2 {
             
-            var rawOutput:NSOutputStream = openMemoryStream()
-            var output:CodedOutputStream = CodedOutputStream(output: rawOutput, bufferSize: blockSize)
+            let rawOutput:NSOutputStream = openMemoryStream()
+            let output:CodedOutputStream = CodedOutputStream(output: rawOutput, bufferSize: blockSize)
             
-            output.writeRawLittleEndian32(value)
-            output.flush()
+            try output.writeRawLittleEndian32(value)
+            try output.flush()
     
             let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
             XCTAssertTrue(data.isEqualToData(actual), "Test32")
         }
     }
     
-    func assertWriteLittleEndian64(data:NSData, value:Int64) {
-        var rawOutput:NSOutputStream = openMemoryStream()
-        var output:CodedOutputStream = CodedOutputStream(output: rawOutput)
-        output.writeRawLittleEndian64(value)
-        output.flush()
+    func assertWriteLittleEndian64(data:NSData, value:Int64) throws {
+        let rawOutput:NSOutputStream = openMemoryStream()
+        let output:CodedOutputStream = CodedOutputStream(output: rawOutput)
+        try output.writeRawLittleEndian64(value)
+        try output.flush()
         
-        var actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
+        let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
 
         XCTAssertTrue(data.isEqualToData(actual), "Test64")
         
         for var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2 {
             
-            var rawOutput:NSOutputStream = openMemoryStream()
-            var output:CodedOutputStream = CodedOutputStream(output: rawOutput, bufferSize: blockSize)
+            let rawOutput:NSOutputStream = openMemoryStream()
+            let output:CodedOutputStream = CodedOutputStream(output: rawOutput, bufferSize: blockSize)
             
-            output.writeRawLittleEndian64(value)
-            output.flush()
+            try output.writeRawLittleEndian64(value)
+            try output.flush()
             
             let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
             
@@ -78,29 +79,29 @@ internal class CodedOuputStreamTests: XCTestCase
         }
     }
     
-    func assertWriteVarint(data:NSData, value:Int64)
+    func assertWriteVarint(data:NSData, value:Int64) throws
     {
-        var shift = WireFormat.logicalRightShift64(value:value, spaces: 31)
+        let shift = WireFormat.logicalRightShift64(value:value, spaces: 31)
         if (shift == 0)
         {
-            var rawOutput1:NSOutputStream = openMemoryStream()
-            var output1:CodedOutputStream = CodedOutputStream(output: rawOutput1)
-            var invalue = Int32(value)
-            output1.writeRawVarint32(invalue)
-            output1.flush()
+            let rawOutput1:NSOutputStream = openMemoryStream()
+            let output1:CodedOutputStream = CodedOutputStream(output: rawOutput1)
+            let invalue = Int32(value)
+            try output1.writeRawVarint32(invalue)
+            try output1.flush()
     
-            var actual1:NSData = rawOutput1.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
+            let actual1:NSData = rawOutput1.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
             XCTAssertTrue(data.isEqualToData(actual1), "")
 
             XCTAssertTrue(Int32(data.length) == Int32(value).computeRawVarint32Size(), "")
         }
     
-        var rawOutput2:NSOutputStream = openMemoryStream()
-        var output2:CodedOutputStream = CodedOutputStream(output:rawOutput2)
-        output2.writeRawVarint64(value)
-        output2.flush()
+        let rawOutput2:NSOutputStream = openMemoryStream()
+        let output2:CodedOutputStream = CodedOutputStream(output:rawOutput2)
+        try output2.writeRawVarint64(value)
+        try output2.flush()
     
-        var actual2:NSData = rawOutput2.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
+        let actual2:NSData = rawOutput2.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
         XCTAssertTrue(data.isEqualToData(actual2), "")
     
     
@@ -111,23 +112,23 @@ internal class CodedOuputStreamTests: XCTestCase
     
             if (WireFormat.logicalRightShift64(value:value, spaces: 31) == 0)
             {
-                var rawOutput3:NSOutputStream = openMemoryStream()
-                var output3:CodedOutputStream = CodedOutputStream(output: rawOutput3, bufferSize: Int32(blockSize))
+                let rawOutput3:NSOutputStream = openMemoryStream()
+                let output3:CodedOutputStream = CodedOutputStream(output: rawOutput3, bufferSize: Int32(blockSize))
     
-                output3.writeRawVarint32(Int32(value))
-                output3.flush()
+                try output3.writeRawVarint32(Int32(value))
+                try output3.flush()
     
-                var actual3:NSData = rawOutput3.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
+                let actual3:NSData = rawOutput3.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
                 XCTAssertTrue(data.isEqualToData(actual3), "")
             }
     
 
-            var rawOutput4:NSOutputStream = openMemoryStream()
-            var output4:CodedOutputStream = CodedOutputStream(output: rawOutput4, bufferSize: Int32(blockSize))
-            output4.writeRawVarint64(value)
-            output4.flush()
+            let rawOutput4:NSOutputStream = openMemoryStream()
+            let output4:CodedOutputStream = CodedOutputStream(output: rawOutput4, bufferSize: Int32(blockSize))
+            try output4.writeRawVarint64(value)
+            try output4.flush()
     
-            var actual4:NSData = rawOutput4.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
+            let actual4:NSData = rawOutput4.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
             XCTAssertTrue(data.isEqualToData(actual4), "")
         }
     }
@@ -135,23 +136,50 @@ internal class CodedOuputStreamTests: XCTestCase
     
     func testWriteVarintOne()
     {
-        assertWriteVarint(bytes(UInt8(0x00)), value:0)
+        do {
+            try assertWriteVarint(bytes(UInt8(0x00)), value:0)
+        }
+        catch
+        {
+            XCTFail("testWriteVarintOne")
+        }
     }
     
     func testWriteVarintTwo()
     {
-        assertWriteVarint(bytes(UInt8(0x01)), value:1)
+        do {
+            try assertWriteVarint(bytes(UInt8(0x01)), value:1)
+        }
+        catch
+        {
+            XCTFail("testWriteVarintTwo")
+        }
+        
     }
     
     func testWriteVarintThree()
     {
-        assertWriteVarint(bytes(UInt8(0x7f)), value:127)
+        do {
+            try assertWriteVarint(bytes(UInt8(0x7f)), value:127)
+        }
+        catch
+        {
+            XCTFail("testWriteVarintThree")
+        }
+        
     }
     
     func testWriteVarintFour()
     {
     //14882
-        assertWriteVarint(bytes(0xa2, 0x74), value:(0x22 << 0) | (0x74 << 7))
+        
+        do {
+            try assertWriteVarint(bytes(0xa2, 0x74), value:(0x22 << 0) | (0x74 << 7))
+        }
+        catch
+        {
+            XCTFail("Fail testWriteVarintFour")
+        }
     }
 
     func testWriteVarintFive()
@@ -165,7 +193,13 @@ internal class CodedOuputStreamTests: XCTestCase
         value |= (0x12 << 14)
         value |= (0x04 << 21)
         value |= (0x0b << 28)
-        assertWriteVarint(bytes(0xbe, 0xf7, 0x92, 0x84, 0x0b), value:value)
+        do {
+            try assertWriteVarint(bytes(0xbe, 0xf7, 0x92, 0x84, 0x0b), value:value)
+        }
+        catch
+        {
+             XCTFail("Fail testWriteVarintFive")
+        }
     }
 
     func testWriteVarintSix()
@@ -177,7 +211,13 @@ internal class CodedOuputStreamTests: XCTestCase
         value |= (0x12 << 14)
         value |= (0x04 << 21)
         value |= (0x1b << 28)
-        assertWriteVarint(bytes(0xbe, 0xf7, 0x92, 0x84, 0x1b), value:value)
+        do {
+            try assertWriteVarint(bytes(0xbe, 0xf7, 0x92, 0x84, 0x1b), value:value)
+        }
+        catch
+        {
+            XCTFail("Fail testWriteVarintSix")
+        }
     }
 //
     func testWriteVarintSeven()
@@ -191,7 +231,13 @@ internal class CodedOuputStreamTests: XCTestCase
         value |= (0x49 << 35)
         value |= (0x24 << 42)
         value |= (0x49 << 49)
-        assertWriteVarint(bytes(0x80, 0xe6, 0xeb, 0x9c, 0xc3, 0xc9, 0xa4, 0x49), value:value)
+        do {
+            try assertWriteVarint(bytes(0x80, 0xe6, 0xeb, 0x9c, 0xc3, 0xc9, 0xa4, 0x49), value:value)
+        }
+        catch
+        {
+            XCTFail("Fail testWriteVarintSeven")
+        }
     }
 //
     func testWriteVarintEight()
@@ -207,7 +253,13 @@ internal class CodedOuputStreamTests: XCTestCase
         value |= (0x05 << 49)
         value |= (0x26 << 56)
         value |= (0x01 << 63)
-        assertWriteVarint(bytes(0x9b, 0xa8, 0xf9, 0xc2, 0xbb, 0xd6, 0x80, 0x85, 0xa6, 0x01), value:value)
+        do {
+            try assertWriteVarint(bytes(0x9b, 0xa8, 0xf9, 0xc2, 0xbb, 0xd6, 0x80, 0x85, 0xa6, 0x01), value:value)
+        }
+        catch
+        {
+            XCTFail("Fail testWriteVarintEight")
+        }
     }
 
 
@@ -215,10 +267,16 @@ internal class CodedOuputStreamTests: XCTestCase
     func testWriteLittleEndian()
     {
         
-        assertWriteLittleEndian32(bytes(0x78, 0x56, 0x34, 0x12) , value:0x12345678)
-        assertWriteLittleEndian32(bytes(0xde, 0xbc, 0xac, 0x11), value:0x11acbcde)
-        assertWriteLittleEndian64(bytes(0xf0, 0xde, 0xbc, 0x9a, 0x78, 0x56, 0x34, 0x12), value:0x123456789abcdef0)
-        assertWriteLittleEndian64(bytes(0x78, 0x56, 0x34, 0x12, 0xf0, 0xde, 0xbc, 0x11), value:0x11bcdef012345678)
+        do {
+            try assertWriteLittleEndian32(bytes(0x78, 0x56, 0x34, 0x12) , value:0x12345678)
+            try assertWriteLittleEndian32(bytes(0xde, 0xbc, 0xac, 0x11), value:0x11acbcde)
+            try assertWriteLittleEndian64(bytes(0xf0, 0xde, 0xbc, 0x9a, 0x78, 0x56, 0x34, 0x12), value:0x123456789abcdef0)
+            try assertWriteLittleEndian64(bytes(0x78, 0x56, 0x34, 0x12, 0xf0, 0xde, 0xbc, 0x11), value:0x11bcdef012345678)
+        }
+        catch
+        {
+            XCTFail("Fail testWriteLittleEndian")
+        }
     }
     
     func testEncodeZigZag()
@@ -255,39 +313,51 @@ internal class CodedOuputStreamTests: XCTestCase
     
     func testWriteWholeMessage()
     {
-        var message = TestUtilities.allSet()
+        do {
+            let message = try TestUtilities.allSet()
         
-        var rawBytes = message.data()
-        var goldenData = TestUtilities.goldenData()
-        XCTAssertTrue(rawBytes == goldenData, "")
+            let rawBytes = message.data()
+            let goldenData = TestUtilities.goldenData()
+            XCTAssertTrue(rawBytes == goldenData, "")
         
         // Try different block sizes.
-        for (var blockSize:Int = 1; blockSize < 256; blockSize *= 2) {
-            var rawOutput = openMemoryStream()
-            var output:CodedOutputStream = CodedOutputStream(output:rawOutput, bufferSize:Int32(blockSize))
-            message.writeToCodedOutputStream(output)
-            output.flush()
-            var actual = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
-            XCTAssertTrue(rawBytes == actual, "")
+            for (var blockSize:Int = 1; blockSize < 256; blockSize *= 2) {
+                let rawOutput = openMemoryStream()
+                let output:CodedOutputStream = CodedOutputStream(output:rawOutput, bufferSize:Int32(blockSize))
+                try message.writeToCodedOutputStream(output)
+                try output.flush()
+                let actual = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
+                XCTAssertTrue(rawBytes == actual, "")
+            }
+        }
+        catch
+        {
+            XCTFail("Fail testWriteLittleEndian")
         }
   
     }
     
     func testDelimitedEncodingEncoding()
     {
-        let str =  NSBundle(forClass:TestUtilities.self).resourcePath!.stringByAppendingPathComponent("delimitedFile.dat")
-        let stream = NSOutputStream(toFileAtPath: str, append: false)
-        stream?.open()
-        for i in 1...100 {
-            let mes = PBProtoPoint.Builder().setLatitude(1.0).setLongitude(Float(i)).build()
-            mes.writeDelimitedToOutputStream(stream!)
+         do {
+            let str =  (NSBundle(forClass:TestUtilities.self).resourcePath! as NSString).stringByAppendingPathComponent("delimitedFile.dat")
+            let stream = NSOutputStream(toFileAtPath: str, append: false)
+            stream?.open()
+            for i in 1...100 {
+                let mes = try PBProtoPoint.Builder().setLatitude(1.0).setLongitude(Float(i)).build()
+                try mes.writeDelimitedToOutputStream(stream!)
+            }
+            stream?.close()
+            
+            let input = NSInputStream(fileAtPath: str)
+            input?.open()
+            let message = try PBProtoPoint.parseArrayDelimitedFromInputStream(input!)
+            XCTAssertTrue(message[1].longitude == 2.0, "")
         }
-        stream?.close()
-        
-        let input = NSInputStream(fileAtPath: str)
-        input?.open()
-        let message = PBProtoPoint.parseArrayDelimitedFromInputStream(input!)
-        XCTAssertTrue(message[1].longitude == 2.0, "")
+        catch
+        {
+            XCTFail("Fail testDelimitedEncodingEncoding")
+        }
     }
 
 }
