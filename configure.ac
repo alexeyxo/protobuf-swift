@@ -7,7 +7,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
 AC_CANONICAL_TARGET
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([subdir-objects])
 
 # Check for programs
 AC_PROG_CC
