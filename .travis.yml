@@ -11,3 +11,4 @@ install:
 script:
   - xctool -project ./src/ProtocolBuffers/ProtocolBuffers.xcodeproj -sdk iphonesimulator -scheme ProtocolBuffers build test
   - xctool -project ./src/ProtocolBuffers/ProtocolBuffers.xcodeproj -scheme "ProtocolBuffers(OSX)" build test
+#  - xctool -project ./src/ProtocolBuffers/ProtocolBuffers.xcodeproj -sdk appletvsimulator -scheme "ProtocolBuffers(tvOS)" build test

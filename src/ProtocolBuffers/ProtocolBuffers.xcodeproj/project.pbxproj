@@ -126,6 +126,7 @@
 		3FCF29831A4CD01000133274 /* WireFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29661A4CD01000133274 /* WireFormat.swift */; };
 		3FCF29841A4CD01000133274 /* WireFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29661A4CD01000133274 /* WireFormat.swift */; };
 		3FCF29851A4CD2B300133274 /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FCF29611A4CD01000133274 /* ProtocolBuffers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3FEE1F3C1BEACA8400594868 /* ProtocolBuffers.framework in Copy Framework */ = {isa = PBXBuildFile; fileRef = 3FA7DAC71BE68F600067108E /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3FEFE99F1A12612E005DEAF3 /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEFE99E1A12612E005DEAF3 /* MessageTests.swift */; };
 		3FF2DCBD1A1A681A00226761 /* golden_message in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013B1A0964ED00F7A20B /* golden_message */; };
 		3FF2DCBE1A1A681A00226761 /* golden_packed_fields_message in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */; };
@@ -216,13 +217,15 @@
 			name = CopyFramework;
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3FA7DB0D1BE690E30067108E /* CopyFiles */ = {
+		3FEE1F3B1BEACA7F00594868 /* Copy Framework */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 7;
+			dstSubfolderSpec = 10;
 			files = (
+				3FEE1F3C1BEACA8400594868 /* ProtocolBuffers.framework in Copy Framework */,
 			);
+			name = "Copy Framework";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -676,10 +679,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FA7DADD1BE68F600067108E /* Build configuration list for PBXNativeTarget "UnitTesting(tvOS)" */;
 			buildPhases = (
+				3FEE1F3B1BEACA7F00594868 /* Copy Framework */,
 				3FA7DACC1BE68F600067108E /* Sources */,
 				3FA7DACD1BE68F600067108E /* Frameworks */,
 				3FA7DACE1BE68F600067108E /* Resources */,
-				3FA7DB0D1BE690E30067108E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1339,7 +1342,7 @@
 		3FA7DAD81BE68F600067108E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -1362,7 +1365,7 @@
 		3FA7DAD91BE68F600067108E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
