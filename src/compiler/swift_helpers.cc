@@ -386,7 +386,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string name = PackageName(descriptor);
 
         if (descriptor->containing_type() != NULL) {
-            name = ClassNameWorker(descriptor->containing_type());
+            name += ClassNameWorker(descriptor->containing_type());
             name += ".";
         }
    
