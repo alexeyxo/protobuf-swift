@@ -58,7 +58,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         vars["extended_type"] = ClassName(descriptor_->containing_type());
         vars["acontrol"] = GetAccessControlType(descriptor_->file());
-        
+
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
+
         printer->Print(vars,"$acontrol$ var $containing_type$$name$:ConcreateExtensionField {\n"
                        "   get {\n"
                        "       return $root_name$.sharedInstance.$containing_type$$name$Static\n"

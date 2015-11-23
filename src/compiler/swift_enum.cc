@@ -54,14 +54,30 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void EnumGenerator::GenerateSource(io::Printer* printer) {
-        
         printer->Print("\n\n//Enum type declaration start \n\n");
+
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
+
         printer->Print("$acontrol$ enum $classname$:Int32 {\n",
                        "classname",ClassName(descriptor_),
                        "acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Indent();
         for (int i = 0; i < canonical_values_.size(); i++) {
+            SourceLocation location;
+            if (canonical_values_[i]->GetSourceLocation(&location)) {
+                string comments = BuildCommentsString(location);
+                if (comments.length() > 0) {
+                    if (i > 0)
+                        printer->Print("\n");
+                    printer->Print(comments.c_str());
+                }
+            }
+
             printer->Print("case $name$ = $value$\n",
                            "name", EnumValueName(canonical_values_[i]),
                            "value", SimpleItoa(canonical_values_[i]->number()));
