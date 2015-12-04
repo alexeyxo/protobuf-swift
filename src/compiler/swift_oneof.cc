@@ -67,7 +67,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void OneofGenerator::GenerateSource(io::Printer* printer) {
         printer->Print("\n\n//OneOf declaration start\n\n");
-        
+
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
+
         string acControl = GetAccessControlType(descriptor_->containing_type()->file());
 
         printer->Print("$acontrol$ enum $classname$ {\n",
