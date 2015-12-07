@@ -272,6 +272,8 @@ internal var UnittestCustomOptionsRootfieldOpt1:ConcreateExtensionField {
        return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt1Static
    }
 }
+// This is useful for testing that we correctly register default values for
+// extension options.
 internal var UnittestCustomOptionsRootfieldOpt2:ConcreateExtensionField {
    get {
        return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt2Static
@@ -555,7 +557,7 @@ internal extension ProtobufUnittest {
       UnittestCustomOptionsRootdoubleOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7673293, defaultValue:Double(0), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootstringOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7673285, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootbytesOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7673238, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestCustomOptionsRootenumOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7673233, defaultValue:DummyMessageContainingEnum.TestEnumType.TestOptionEnumType1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestCustomOptionsRootenumOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7673233, defaultValue:ProtobufUnittest.DummyMessageContainingEnum.TestEnumType.TestOptionEnumType1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootmessageTypeOptStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7665967, defaultValue:ProtobufUnittest.DummyMessageInvalidAsOptionType(), messageOrGroupClass:ProtobufUnittest.DummyMessageInvalidAsOptionType.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootquuxStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.ComplexOptionType1.self, fieldNumber: 7663707, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestCustomOptionsRootcorgeStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.ComplexOptionType1.self, fieldNumber: 7663442, defaultValue:ProtobufUnittest.ComplexOptionType3(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType3.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -771,6 +773,8 @@ internal extension ProtobufUnittest {
 
   //Enum type declaration end 
 
+  // A test message with custom options at all possible locations (and also some
+  // regular options, to make sure they interact nicely).
   final internal class TestMessageWithCustomOptions : GeneratedMessage, GeneratedMessageProtocol {
 
 
@@ -979,6 +983,8 @@ internal extension ProtobufUnittest {
 
   }
 
+  // A test RPC service with custom options at all possible locations (and also
+  // some regular options, to make sure they interact nicely).
   final internal class CustomOptionFooRequest : GeneratedMessage, GeneratedMessageProtocol {
     required internal init() {
          super.init()
@@ -4292,6 +4298,7 @@ internal extension ProtobufUnittest {
 
   }
 
+  // Note that we try various different ways of naming the same extension.
   final internal class VariousComplexOptions : GeneratedMessage, GeneratedMessageProtocol {
     required internal init() {
          super.init()
@@ -4803,6 +4810,7 @@ internal extension ProtobufUnittest {
 
   }
 
+  // A helper type used to test aggregate option parsing
   final internal class Aggregate : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasI:Bool = false
     private(set) var i:Int32 = Int32(0)
@@ -5503,6 +5511,7 @@ internal extension ProtobufUnittest {
 
   }
 
+  // Test custom options for nested type.
   final internal class NestedOptionType : GeneratedMessage, GeneratedMessageProtocol {
 
 
