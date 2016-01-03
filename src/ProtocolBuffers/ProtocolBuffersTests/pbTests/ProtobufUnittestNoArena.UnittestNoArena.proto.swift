@@ -175,12 +175,17 @@ internal extension ProtobufUnittestNoArena {
 
   //Enum type declaration end 
 
+  // This proto includes every type of field in both singular and repeated
+  // forms.
   final internal class TestAllTypes : GeneratedMessage, GeneratedMessageProtocol {
 
 
     //Nested type declaration start
 
       final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
+        // The field name "b" fails to compile in proto1 because it conflicts with
+        // a local variable named "b" in one of the generated methods.  Doh.
+        // This file needs to compile in proto1 to test backwards-compatibility.
         private(set) var hasBb:Bool = false
         private(set) var bb:Int32 = Int32(0)
 
@@ -786,6 +791,7 @@ internal extension ProtobufUnittestNoArena {
 
     //OneOf declaration start
 
+    // For oneof test
     internal enum OneofField {
       case OneofFieldOneOfNotSet
 
@@ -859,12 +865,15 @@ internal extension ProtobufUnittestNoArena {
         case Foo = 1
         case Bar = 2
         case Baz = 3
+
+        // Intentionally negative.
         case Neg = -1
 
       }
 
       //Enum type declaration end 
 
+    // Singular
     private(set) var hasOptionalInt32:Bool = false
     private(set) var optionalInt32:Int32 = Int32(0)
 
@@ -918,7 +927,7 @@ internal extension ProtobufUnittestNoArena {
     private(set) var optionalForeignMessage:ProtobufUnittestNoArena.ForeignMessage!
     private(set) var hasOptionalImportMessage:Bool = false
     private(set) var optionalImportMessage:ProtobufUnittestImport.ImportMessage!
-    private(set) var optionalNestedEnum:TestAllTypes.NestedEnum = TestAllTypes.NestedEnum.Foo
+    private(set) var optionalNestedEnum:ProtobufUnittestNoArena.TestAllTypes.NestedEnum = ProtobufUnittestNoArena.TestAllTypes.NestedEnum.Foo
     private(set) var hasOptionalNestedEnum:Bool = false
     private(set) var optionalForeignEnum:ProtobufUnittestNoArena.ForeignEnum = ProtobufUnittestNoArena.ForeignEnum.ForeignFoo
     private(set) var hasOptionalForeignEnum:Bool = false
@@ -934,6 +943,7 @@ internal extension ProtobufUnittestNoArena {
     private(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage!
     private(set) var hasOptionalMessage:Bool = false
     private(set) var optionalMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!
+    // Repeated
     private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
     private(set) var repeatedInt64:Array<Int64> = Array<Int64>()
     private(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
@@ -954,7 +964,7 @@ internal extension ProtobufUnittestNoArena {
     private(set) var repeatedForeignMessage:Array<ProtobufUnittestNoArena.ForeignMessage>  = Array<ProtobufUnittestNoArena.ForeignMessage>()
     private(set) var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessage>  = Array<ProtobufUnittestImport.ImportMessage>()
     private var repeatedNestedEnumMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> = Array<TestAllTypes.NestedEnum>()
+    private(set) var repeatedNestedEnum:Array<ProtobufUnittestNoArena.TestAllTypes.NestedEnum> = Array<ProtobufUnittestNoArena.TestAllTypes.NestedEnum>()
     private var repeatedForeignEnumMemoizedSerializedSize:Int32 = 0
     private(set) var repeatedForeignEnum:Array<ProtobufUnittestNoArena.ForeignEnum> = Array<ProtobufUnittestNoArena.ForeignEnum>()
     private var repeatedImportEnumMemoizedSerializedSize:Int32 = 0
@@ -962,6 +972,7 @@ internal extension ProtobufUnittestNoArena {
     private(set) var repeatedStringPiece:Array<String> = Array<String>()
     private(set) var repeatedCord:Array<String> = Array<String>()
     private(set) var repeatedLazyMessage:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>  = Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>()
+    // Singular with defaults
     private(set) var hasDefaultInt32:Bool = false
     private(set) var defaultInt32:Int32 = Int32(41)
 
@@ -1007,7 +1018,7 @@ internal extension ProtobufUnittestNoArena {
     private(set) var hasDefaultBytes:Bool = false
     private(set) var defaultBytes:NSData = NSData(bytes:([UInt8]() + "world".utf8), length:5)
 
-    private(set) var defaultNestedEnum:TestAllTypes.NestedEnum = TestAllTypes.NestedEnum.Bar
+    private(set) var defaultNestedEnum:ProtobufUnittestNoArena.TestAllTypes.NestedEnum = ProtobufUnittestNoArena.TestAllTypes.NestedEnum.Bar
     private(set) var hasDefaultNestedEnum:Bool = false
     private(set) var defaultForeignEnum:ProtobufUnittestNoArena.ForeignEnum = ProtobufUnittestNoArena.ForeignEnum.ForeignBar
     private(set) var hasDefaultForeignEnum:Bool = false
@@ -2863,7 +2874,7 @@ internal extension ProtobufUnittestNoArena {
                 return builderResult.hasOptionalNestedEnum
             }
         }
-        var optionalNestedEnum:TestAllTypes.NestedEnum {
+        var optionalNestedEnum:ProtobufUnittestNoArena.TestAllTypes.NestedEnum {
             get {
                 return builderResult.optionalNestedEnum
             }
@@ -2872,7 +2883,7 @@ internal extension ProtobufUnittestNoArena {
                 builderResult.optionalNestedEnum = value
             }
         }
-        internal func setOptionalNestedEnum(value:TestAllTypes.NestedEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        internal func setOptionalNestedEnum(value:ProtobufUnittestNoArena.TestAllTypes.NestedEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
           self.optionalNestedEnum = value
           return self
         }
@@ -3379,7 +3390,7 @@ internal extension ProtobufUnittestNoArena {
         builderResult.repeatedImportMessage.removeAll(keepCapacity: false)
         return self
       }
-      var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> {
+      var repeatedNestedEnum:Array<ProtobufUnittestNoArena.TestAllTypes.NestedEnum> {
           get {
               return builderResult.repeatedNestedEnum
           }
@@ -3387,7 +3398,7 @@ internal extension ProtobufUnittestNoArena {
               builderResult.repeatedNestedEnum = value
           }
       }
-      func setRepeatedNestedEnum(value:Array<TestAllTypes.NestedEnum>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+      func setRepeatedNestedEnum(value:Array<ProtobufUnittestNoArena.TestAllTypes.NestedEnum>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedNestedEnum = value
         return self
       }
@@ -3825,7 +3836,7 @@ internal extension ProtobufUnittestNoArena {
                 return builderResult.hasDefaultNestedEnum
             }
         }
-        var defaultNestedEnum:TestAllTypes.NestedEnum {
+        var defaultNestedEnum:ProtobufUnittestNoArena.TestAllTypes.NestedEnum {
             get {
                 return builderResult.defaultNestedEnum
             }
@@ -3834,7 +3845,7 @@ internal extension ProtobufUnittestNoArena {
                 builderResult.defaultNestedEnum = value
             }
         }
-        internal func setDefaultNestedEnum(value:TestAllTypes.NestedEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+        internal func setDefaultNestedEnum(value:ProtobufUnittestNoArena.TestAllTypes.NestedEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
           self.defaultNestedEnum = value
           return self
         }
@@ -4452,7 +4463,7 @@ internal extension ProtobufUnittestNoArena {
 
           case 168 :
             let valueIntoptionalNestedEnum = try input.readEnum()
-            if let enumsoptionalNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
+            if let enumsoptionalNestedEnum = ProtobufUnittestNoArena.TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
                  optionalNestedEnum = enumsoptionalNestedEnum
             } else {
                  try unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
@@ -4563,7 +4574,7 @@ internal extension ProtobufUnittestNoArena {
 
           case 408 :
             let valueIntrepeatedNestedEnum = try input.readEnum()
-            if let enumsrepeatedNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
+            if let enumsrepeatedNestedEnum = ProtobufUnittestNoArena.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
             } else {
                  try unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
@@ -4643,7 +4654,7 @@ internal extension ProtobufUnittestNoArena {
 
           case 648 :
             let valueIntdefaultNestedEnum = try input.readEnum()
-            if let enumsdefaultNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntdefaultNestedEnum){
+            if let enumsdefaultNestedEnum = ProtobufUnittestNoArena.TestAllTypes.NestedEnum(rawValue:valueIntdefaultNestedEnum){
                  defaultNestedEnum = enumsdefaultNestedEnum
             } else {
                  try unknownFieldsBuilder.mergeVarintField(81, value:Int64(valueIntdefaultNestedEnum))
@@ -4708,6 +4719,8 @@ internal extension ProtobufUnittestNoArena {
 
   }
 
+  // Define these after TestAllTypes to make sure the compiler can handle
+  // that.
   final internal class ForeignMessage : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasC:Bool = false
     private(set) var c:Int32 = Int32(0)

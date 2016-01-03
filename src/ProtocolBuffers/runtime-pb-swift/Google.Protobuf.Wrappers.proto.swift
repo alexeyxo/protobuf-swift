@@ -114,7 +114,9 @@ public extension Google.Protobuf {
     }
   }
 
+  // Wrapper message for double.
   final public class DoubleValue : GeneratedMessage, GeneratedMessageProtocol {
+    // The double value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:Double = Double(0)
 
@@ -310,7 +312,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for float.
   final public class FloatValue : GeneratedMessage, GeneratedMessageProtocol {
+    // The float value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:Float = Float(0)
 
@@ -506,7 +510,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for int64.
   final public class Int64Value : GeneratedMessage, GeneratedMessageProtocol {
+    // The int64 value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:Int64 = Int64(0)
 
@@ -702,7 +708,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for uint64.
   final public class Uint64Value : GeneratedMessage, GeneratedMessageProtocol {
+    // The uint64 value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:UInt64 = UInt64(0)
 
@@ -898,7 +906,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for int32.
   final public class Int32Value : GeneratedMessage, GeneratedMessageProtocol {
+    // The int32 value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:Int32 = Int32(0)
 
@@ -1094,7 +1104,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for uint32.
   final public class Uint32Value : GeneratedMessage, GeneratedMessageProtocol {
+    // The uint32 value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:UInt32 = UInt32(0)
 
@@ -1290,7 +1302,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for bool.
   final public class BoolValue : GeneratedMessage, GeneratedMessageProtocol {
+    // The bool value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:Bool = false
 
@@ -1486,7 +1500,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for string.
   final public class StringValue : GeneratedMessage, GeneratedMessageProtocol {
+    // The string value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:String = ""
 
@@ -1682,7 +1698,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for bytes.
   final public class BytesValue : GeneratedMessage, GeneratedMessageProtocol {
+    // The bytes value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:NSData = NSData()
 

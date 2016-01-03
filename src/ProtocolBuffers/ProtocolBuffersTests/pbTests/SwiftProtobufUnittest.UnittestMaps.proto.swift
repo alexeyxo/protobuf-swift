@@ -1589,7 +1589,7 @@ internal extension SwiftProtobufUnittest {
         private(set) var hasKey:Bool = false
         private(set) var key:Int32 = Int32(0)
 
-        private(set) var value:MessageContainsMap.EnumMapValue = MessageContainsMap.EnumMapValue.FirstValueEnum
+        private(set) var value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue = SwiftProtobufUnittest.MessageContainsMap.EnumMapValue.FirstValueEnum
         private(set) var hasValue:Bool = false
         required internal init() {
              super.init()
@@ -1743,7 +1743,7 @@ internal extension SwiftProtobufUnittest {
                     return builderResult.hasValue
                 }
             }
-            var value:MessageContainsMap.EnumMapValue {
+            var value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue {
                 get {
                     return builderResult.value
                 }
@@ -1752,7 +1752,7 @@ internal extension SwiftProtobufUnittest {
                     builderResult.value = value
                 }
             }
-            internal func setValue(value:MessageContainsMap.EnumMapValue) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+            internal func setValue(value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
               self.value = value
               return self
             }
@@ -1811,7 +1811,7 @@ internal extension SwiftProtobufUnittest {
 
               case 16 :
                 let valueIntvalue = try input.readEnum()
-                if let enumsvalue = MessageContainsMap.EnumMapValue(rawValue:valueIntvalue){
+                if let enumsvalue = SwiftProtobufUnittest.MessageContainsMap.EnumMapValue(rawValue:valueIntvalue){
                      value = enumsvalue
                 } else {
                      try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntvalue))
@@ -1859,7 +1859,7 @@ internal extension SwiftProtobufUnittest {
     private(set) var mapStringMessage:Dictionary<String,SwiftProtobufUnittest.MapMessageValue> = Dictionary<String,SwiftProtobufUnittest.MapMessageValue>()
 
     private(set) var hasMapInt32Enum:Bool = false
-    private(set) var mapInt32Enum:Dictionary<Int32,MessageContainsMap.EnumMapValue> = Dictionary<Int32,MessageContainsMap.EnumMapValue>()
+    private(set) var mapInt32Enum:Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue> = Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue>()
 
     required internal init() {
          super.init()
@@ -2207,7 +2207,7 @@ internal extension SwiftProtobufUnittest {
                 return builderResult.hasMapInt32Enum
            }
       }
-      var mapInt32Enum:Dictionary<Int32,MessageContainsMap.EnumMapValue> {
+      var mapInt32Enum:Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue> {
            get {
                 return builderResult.mapInt32Enum
            }
@@ -2216,13 +2216,13 @@ internal extension SwiftProtobufUnittest {
                builderResult.mapInt32Enum = value
            }
       }
-      func setMapInt32Enum(value:Dictionary<Int32,MessageContainsMap.EnumMapValue>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      func setMapInt32Enum(value:Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapInt32Enum = value
         return self
       }
       internal func clearMapInt32Enum() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapInt32Enum = false
-           builderResult.mapInt32Enum = Dictionary<Int32,MessageContainsMap.EnumMapValue>()
+           builderResult.mapInt32Enum = Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue>()
            return self
       }
       override internal var internalGetResult:GeneratedMessage {

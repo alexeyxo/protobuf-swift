@@ -1811,7 +1811,9 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
 
 }
 
+//Subuilders
 final public class PBFoo : GeneratedMessage, GeneratedMessageProtocol {
+  // some other fields.
   public private(set) var hasVal:Bool = false
   public private(set) var val:Int32 = Int32(0)
 

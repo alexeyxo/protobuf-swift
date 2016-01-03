@@ -93,11 +93,15 @@ public extension Google.Protobuf {
     }
   }
 
+  // A light-weight descriptor for a proto message type.
   final public class Types : GeneratedMessage, GeneratedMessageProtocol {
+    // The fully qualified message name.
     public private(set) var hasName:Bool = false
     public private(set) var name:String = ""
 
     public private(set) var fields:Array<Google.Protobuf.Field>  = Array<Google.Protobuf.Field>()
+    // The list of oneof definitions.
+    // The list of oneofs declared in this Type
     public private(set) var oneofs:Array<String> = Array<String>()
     public private(set) var options:Array<Google.Protobuf.Option>  = Array<Google.Protobuf.Option>()
     public private(set) var hasSourceContext:Bool = false
@@ -495,29 +499,66 @@ public extension Google.Protobuf {
 
   }
 
+  // Field represents a single field of a message type.
   final public class Field : GeneratedMessage, GeneratedMessageProtocol {
 
 
       //Enum type declaration start 
 
+      // Kind represents a basic field type.
       public enum Kind:Int32 {
+        // Field type unknown.
         case TypeUnknown = 0
+
+        // Field type double.
         case TypeDouble = 1
+
+        // Field type float.
         case TypeFloat = 2
+
+        // Field type int64.
         case TypeInt64 = 3
+
+        // Field type uint64.
         case TypeUint64 = 4
+
+        // Field type int32.
         case TypeInt32 = 5
+
+        // Field type fixed64.
         case TypeFixed64 = 6
+
+        // Field type fixed32.
         case TypeFixed32 = 7
+
+        // Field type bool.
         case TypeBool = 8
+
+        // Field type string.
         case TypeString = 9
+
+        // Field type message.
         case TypeMessage = 11
+
+        // Field type bytes.
         case TypeBytes = 12
+
+        // Field type uint32.
         case TypeUint32 = 13
+
+        // Field type enum.
         case TypeEnum = 14
+
+        // Field type sfixed32.
         case TypeSfixed32 = 15
+
+        // Field type sfixed64.
         case TypeSfixed64 = 16
+
+        // Field type sint32.
         case TypeSint32 = 17
+
+        // Field type sint64.
         case TypeSint64 = 18
 
       }
@@ -528,32 +569,47 @@ public extension Google.Protobuf {
 
       //Enum type declaration start 
 
+      // Cardinality represents whether a field is optional, required, or
+      // repeated.
       public enum Cardinality:Int32 {
+        // The field cardinality is unknown. Typically an error condition.
         case CardinalityUnknown = 0
+
+        // For optional fields.
         case CardinalityOptional = 1
+
+        // For required fields. Not used for proto3.
         case CardinalityRequired = 2
+
+        // For repeated fields.
         case CardinalityRepeated = 3
 
       }
 
       //Enum type declaration end 
 
-    public private(set) var kind:Field.Kind = Field.Kind.TypeUnknown
+    public private(set) var kind:Google.Protobuf.Field.Kind = Google.Protobuf.Field.Kind.TypeUnknown
     public private(set) var hasKind:Bool = false
-    public private(set) var cardinality:Field.Cardinality = Field.Cardinality.CardinalityUnknown
+    public private(set) var cardinality:Google.Protobuf.Field.Cardinality = Google.Protobuf.Field.Cardinality.CardinalityUnknown
     public private(set) var hasCardinality:Bool = false
+    // The proto field number.
     public private(set) var hasNumber:Bool = false
     public private(set) var number:Int32 = Int32(0)
 
+    // The field name.
     public private(set) var hasName:Bool = false
     public private(set) var name:String = ""
 
+    // The type URL (without the scheme) when the type is MESSAGE or ENUM,
+    // such as `type.googleapis.com/google.protobuf.Empty`.
     public private(set) var hasTypeUrl:Bool = false
     public private(set) var typeUrl:String = ""
 
+    // Index in Type.oneofs. Starts at 1. Zero means no oneof mapping.
     public private(set) var hasOneofIndex:Bool = false
     public private(set) var oneofIndex:Int32 = Int32(0)
 
+    // Whether to use alternative packed wire representation.
     public private(set) var hasPacked:Bool = false
     public private(set) var packed:Bool = false
 
@@ -763,7 +819,7 @@ public extension Google.Protobuf {
                 return builderResult.hasKind
             }
         }
-        public var kind:Field.Kind {
+        public var kind:Google.Protobuf.Field.Kind {
             get {
                 return builderResult.kind
             }
@@ -772,7 +828,7 @@ public extension Google.Protobuf {
                 builderResult.kind = value
             }
         }
-        public func setKind(value:Field.Kind) -> Google.Protobuf.Field.Builder {
+        public func setKind(value:Google.Protobuf.Field.Kind) -> Google.Protobuf.Field.Builder {
           self.kind = value
           return self
         }
@@ -786,7 +842,7 @@ public extension Google.Protobuf {
                 return builderResult.hasCardinality
             }
         }
-        public var cardinality:Field.Cardinality {
+        public var cardinality:Google.Protobuf.Field.Cardinality {
             get {
                 return builderResult.cardinality
             }
@@ -795,7 +851,7 @@ public extension Google.Protobuf {
                 builderResult.cardinality = value
             }
         }
-        public func setCardinality(value:Field.Cardinality) -> Google.Protobuf.Field.Builder {
+        public func setCardinality(value:Google.Protobuf.Field.Cardinality) -> Google.Protobuf.Field.Builder {
           self.cardinality = value
           return self
         }
@@ -1000,7 +1056,7 @@ public extension Google.Protobuf {
 
           case 8 :
             let valueIntkind = try input.readEnum()
-            if let enumskind = Field.Kind(rawValue:valueIntkind){
+            if let enumskind = Google.Protobuf.Field.Kind(rawValue:valueIntkind){
                  kind = enumskind
             } else {
                  try unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueIntkind))
@@ -1008,7 +1064,7 @@ public extension Google.Protobuf {
 
           case 16 :
             let valueIntcardinality = try input.readEnum()
-            if let enumscardinality = Field.Cardinality(rawValue:valueIntcardinality){
+            if let enumscardinality = Google.Protobuf.Field.Cardinality(rawValue:valueIntcardinality){
                  cardinality = enumscardinality
             } else {
                  try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntcardinality))
@@ -1046,7 +1102,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Enum type definition.
   final public class Enum : GeneratedMessage, GeneratedMessageProtocol {
+    // Enum type name.
     public private(set) var hasName:Bool = false
     public private(set) var name:String = ""
 
@@ -1406,10 +1464,13 @@ public extension Google.Protobuf {
 
   }
 
+  // Enum value definition.
   final public class EnumValue : GeneratedMessage, GeneratedMessageProtocol {
+    // Enum value name.
     public private(set) var hasName:Bool = false
     public private(set) var name:String = ""
 
+    // Enum value number.
     public private(set) var hasNumber:Bool = false
     public private(set) var number:Int32 = Int32(0)
 
@@ -1687,7 +1748,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Proto option attached to messages/fields/enums etc.
   final public class Option : GeneratedMessage, GeneratedMessageProtocol {
+    // Proto option name.
     public private(set) var hasName:Bool = false
     public private(set) var name:String = ""
 

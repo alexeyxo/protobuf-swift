@@ -65,7 +65,7 @@ internal extension UnittestDropUnknownFields {
     private(set) var hasInt32Value:Bool = false
     private(set) var int32Value:Int32 = Int32(0)
 
-    private(set) var enumValue:Foo.NestedEnum = Foo.NestedEnum.Foo
+    private(set) var enumValue:UnittestDropUnknownFields.Foo.NestedEnum = UnittestDropUnknownFields.Foo.NestedEnum.Foo
     private(set) var hasEnumValue:Bool = false
     required internal init() {
          super.init()
@@ -219,7 +219,7 @@ internal extension UnittestDropUnknownFields {
                 return builderResult.hasEnumValue
             }
         }
-        var enumValue:Foo.NestedEnum {
+        var enumValue:UnittestDropUnknownFields.Foo.NestedEnum {
             get {
                 return builderResult.enumValue
             }
@@ -228,7 +228,7 @@ internal extension UnittestDropUnknownFields {
                 builderResult.enumValue = value
             }
         }
-        internal func setEnumValue(value:Foo.NestedEnum) -> UnittestDropUnknownFields.Foo.Builder {
+        internal func setEnumValue(value:UnittestDropUnknownFields.Foo.NestedEnum) -> UnittestDropUnknownFields.Foo.Builder {
           self.enumValue = value
           return self
         }
@@ -287,7 +287,7 @@ internal extension UnittestDropUnknownFields {
 
           case 16 :
             let valueIntenumValue = try input.readEnum()
-            if let enumsenumValue = Foo.NestedEnum(rawValue:valueIntenumValue){
+            if let enumsenumValue = UnittestDropUnknownFields.Foo.NestedEnum(rawValue:valueIntenumValue){
                  enumValue = enumsenumValue
             } else {
                  try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntenumValue))
@@ -323,7 +323,7 @@ internal extension UnittestDropUnknownFields {
     private(set) var hasInt32Value:Bool = false
     private(set) var int32Value:Int32 = Int32(0)
 
-    private(set) var enumValue:FooWithExtraFields.NestedEnum = FooWithExtraFields.NestedEnum.Foo
+    private(set) var enumValue:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum = UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.Foo
     private(set) var hasEnumValue:Bool = false
     private(set) var hasExtraInt32Value:Bool = false
     private(set) var extraInt32Value:Int32 = Int32(0)
@@ -492,7 +492,7 @@ internal extension UnittestDropUnknownFields {
                 return builderResult.hasEnumValue
             }
         }
-        var enumValue:FooWithExtraFields.NestedEnum {
+        var enumValue:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum {
             get {
                 return builderResult.enumValue
             }
@@ -501,7 +501,7 @@ internal extension UnittestDropUnknownFields {
                 builderResult.enumValue = value
             }
         }
-        internal func setEnumValue(value:FooWithExtraFields.NestedEnum) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+        internal func setEnumValue(value:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
           self.enumValue = value
           return self
         }
@@ -586,7 +586,7 @@ internal extension UnittestDropUnknownFields {
 
           case 16 :
             let valueIntenumValue = try input.readEnum()
-            if let enumsenumValue = FooWithExtraFields.NestedEnum(rawValue:valueIntenumValue){
+            if let enumsenumValue = UnittestDropUnknownFields.FooWithExtraFields.NestedEnum(rawValue:valueIntenumValue){
                  enumValue = enumsenumValue
             } else {
                  try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntenumValue))

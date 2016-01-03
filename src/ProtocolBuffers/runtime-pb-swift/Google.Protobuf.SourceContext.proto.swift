@@ -34,7 +34,11 @@ public extension Google.Protobuf {
     }
   }
 
+  // `SourceContext` represents information about the source of a
+  // protobuf element, like the file in which it is defined.
   final public class SourceContext : GeneratedMessage, GeneratedMessageProtocol {
+    // The path-qualified name of the .proto file that contained the associated
+    // protobuf element.  For example: `"google/protobuf/source.proto"`.
     public private(set) var hasFileName:Bool = false
     public private(set) var fileName:String = ""
 

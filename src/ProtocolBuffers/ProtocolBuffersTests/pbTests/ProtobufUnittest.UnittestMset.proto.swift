@@ -102,6 +102,7 @@ internal extension ProtobufUnittest {
     }
   }
 
+  // A message with message_set_wire_format.
   final internal class TestMessageSet : ExtendableMessage, GeneratedMessageProtocol{
     required internal init() {
          super.init()
@@ -899,6 +900,7 @@ internal extension ProtobufUnittest {
 
   }
 
+  // MessageSet wire format is equivalent to this.
   final internal class RawMessageSet : GeneratedMessage, GeneratedMessageProtocol {
 
 

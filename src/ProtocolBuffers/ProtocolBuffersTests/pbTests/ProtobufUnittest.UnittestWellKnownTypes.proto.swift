@@ -54,6 +54,7 @@ internal extension ProtobufUnittest {
     }
   }
 
+  // Test that we can include all well-known types.
   final internal class TestWellKnownTypes : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasAnyField:Bool = false
     private(set) var anyField:Google.Protobuf.Any!
