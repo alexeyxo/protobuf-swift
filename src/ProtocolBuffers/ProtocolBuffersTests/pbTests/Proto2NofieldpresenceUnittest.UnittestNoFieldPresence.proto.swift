@@ -128,6 +128,8 @@ internal extension Proto2NofieldpresenceUnittest {
 
   //Enum type declaration end 
 
+  // This proto includes every type of field in both singular and repeated
+  // forms.
   final internal class TestAllTypes : GeneratedMessage, GeneratedMessageProtocol {
 
 
@@ -162,6 +164,16 @@ internal extension Proto2NofieldpresenceUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
+        }
+        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage> {
+          var mergedArray = Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage>()
+          while let value = try parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
+        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage? {
+          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
         internal class func parseFromData(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
           return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
@@ -366,9 +378,9 @@ internal extension Proto2NofieldpresenceUnittest {
                 return nil
            }
       }
-      case OneofEnum(TestAllTypes.NestedEnum)
+      case OneofEnum(Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum)
 
-      internal static func getOneofEnum(value:OneofField) -> TestAllTypes.NestedEnum? {
+      internal static func getOneofEnum(value:OneofField) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum? {
            switch value {
            case .OneofEnum(let enumValue):
                 return enumValue
@@ -393,6 +405,9 @@ internal extension Proto2NofieldpresenceUnittest {
 
       //Enum type declaration end 
 
+    // Singular
+    // TODO: remove 'optional' labels as soon as CL 69188077 is LGTM'd to make
+    // 'optional' optional.
     private(set) var hasOptionalInt32:Bool = false
     private(set) var optionalInt32:Int32 = Int32(0)
 
@@ -444,7 +459,7 @@ internal extension Proto2NofieldpresenceUnittest {
     private(set) var optionalForeignMessage:Proto2NofieldpresenceUnittest.ForeignMessage!
     private(set) var hasOptionalProto2Message:Bool = false
     private(set) var optionalProto2Message:ProtobufUnittest.TestAllTypes!
-    private(set) var optionalNestedEnum:TestAllTypes.NestedEnum = TestAllTypes.NestedEnum.Foo
+    private(set) var optionalNestedEnum:Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum = Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum.Foo
     private(set) var hasOptionalNestedEnum:Bool = false
     private(set) var optionalForeignEnum:Proto2NofieldpresenceUnittest.ForeignEnum = Proto2NofieldpresenceUnittest.ForeignEnum.ForeignFoo
     private(set) var hasOptionalForeignEnum:Bool = false
@@ -456,6 +471,7 @@ internal extension Proto2NofieldpresenceUnittest {
 
     private(set) var hasOptionalLazyMessage:Bool = false
     private(set) var optionalLazyMessage:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage!
+    // Repeated
     private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
     private(set) var repeatedInt64:Array<Int64> = Array<Int64>()
     private(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
@@ -475,7 +491,7 @@ internal extension Proto2NofieldpresenceUnittest {
     private(set) var repeatedForeignMessage:Array<Proto2NofieldpresenceUnittest.ForeignMessage>  = Array<Proto2NofieldpresenceUnittest.ForeignMessage>()
     private(set) var repeatedProto2Message:Array<ProtobufUnittest.TestAllTypes>  = Array<ProtobufUnittest.TestAllTypes>()
     private var repeatedNestedEnumMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> = Array<TestAllTypes.NestedEnum>()
+    private(set) var repeatedNestedEnum:Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum> = Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum>()
     private var repeatedForeignEnumMemoizedSerializedSize:Int32 = 0
     private(set) var repeatedForeignEnum:Array<Proto2NofieldpresenceUnittest.ForeignEnum> = Array<Proto2NofieldpresenceUnittest.ForeignEnum>()
     private(set) var repeatedStringPiece:Array<String> = Array<String>()
@@ -545,7 +561,7 @@ internal extension Proto2NofieldpresenceUnittest {
           set(newValue) {
           }
     }
-    private(set) var oneofEnum:TestAllTypes.NestedEnum!{
+    private(set) var oneofEnum:Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum!{
          get {
               return TestAllTypes.OneofField.getOneofEnum(storageOneofField)
          }
@@ -959,6 +975,16 @@ internal extension Proto2NofieldpresenceUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto2NofieldpresenceUnittest.TestAllTypes> {
+      var mergedArray = Array<Proto2NofieldpresenceUnittest.TestAllTypes>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes? {
+      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
       return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
@@ -1907,7 +1933,7 @@ internal extension Proto2NofieldpresenceUnittest {
                 return builderResult.hasOptionalNestedEnum
             }
         }
-        var optionalNestedEnum:TestAllTypes.NestedEnum {
+        var optionalNestedEnum:Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum {
             get {
                 return builderResult.optionalNestedEnum
             }
@@ -1916,7 +1942,7 @@ internal extension Proto2NofieldpresenceUnittest {
                 builderResult.optionalNestedEnum = value
             }
         }
-        internal func setOptionalNestedEnum(value:TestAllTypes.NestedEnum) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+        internal func setOptionalNestedEnum(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
           self.optionalNestedEnum = value
           return self
         }
@@ -2333,7 +2359,7 @@ internal extension Proto2NofieldpresenceUnittest {
         builderResult.repeatedProto2Message.removeAll(keepCapacity: false)
         return self
       }
-      var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> {
+      var repeatedNestedEnum:Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum> {
           get {
               return builderResult.repeatedNestedEnum
           }
@@ -2341,7 +2367,7 @@ internal extension Proto2NofieldpresenceUnittest {
               builderResult.repeatedNestedEnum = value
           }
       }
-      func setRepeatedNestedEnum(value:Array<TestAllTypes.NestedEnum>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      func setRepeatedNestedEnum(value:Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedNestedEnum = value
         return self
       }
@@ -2515,7 +2541,7 @@ internal extension Proto2NofieldpresenceUnittest {
                 return builderResult.hasOneofEnum
             }
         }
-        var oneofEnum:TestAllTypes.NestedEnum {
+        var oneofEnum:Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum {
             get {
                 return builderResult.oneofEnum
             }
@@ -2524,7 +2550,7 @@ internal extension Proto2NofieldpresenceUnittest {
                 builderResult.oneofEnum = value
             }
         }
-        internal func setOneofEnum(value:TestAllTypes.NestedEnum) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+        internal func setOneofEnum(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
           self.oneofEnum = value
           return self
         }
@@ -2793,7 +2819,7 @@ internal extension Proto2NofieldpresenceUnittest {
 
           case 168 :
             let valueIntoptionalNestedEnum = try input.readEnum()
-            if let enumsoptionalNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
+            if let enumsoptionalNestedEnum = Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
                  optionalNestedEnum = enumsoptionalNestedEnum
             } else {
                  try unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
@@ -2883,7 +2909,7 @@ internal extension Proto2NofieldpresenceUnittest {
 
           case 408 :
             let valueIntrepeatedNestedEnum = try input.readEnum()
-            if let enumsrepeatedNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
+            if let enumsrepeatedNestedEnum = Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
             } else {
                  try unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
@@ -2924,7 +2950,7 @@ internal extension Proto2NofieldpresenceUnittest {
 
           case 912 :
             let valueIntoneofEnum = try input.readEnum()
-            if let enumsoneofEnum = TestAllTypes.NestedEnum(rawValue:valueIntoneofEnum){
+            if let enumsoneofEnum = Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum(rawValue:valueIntoneofEnum){
                  oneofEnum = enumsoneofEnum
             } else {
                  try unknownFieldsBuilder.mergeVarintField(114, value:Int64(valueIntoneofEnum))
@@ -2977,6 +3003,16 @@ internal extension Proto2NofieldpresenceUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto2NofieldpresenceUnittest.TestProto2Required> {
+      var mergedArray = Array<Proto2NofieldpresenceUnittest.TestProto2Required>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required? {
+      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
       return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
@@ -3171,6 +3207,8 @@ internal extension Proto2NofieldpresenceUnittest {
 
   }
 
+  // Define these after TestAllTypes to make sure the compiler can handle
+  // that.
   final internal class ForeignMessage : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasC:Bool = false
     private(set) var c:Int32 = Int32(0)
@@ -3200,6 +3238,16 @@ internal extension Proto2NofieldpresenceUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto2NofieldpresenceUnittest.ForeignMessage> {
+      var mergedArray = Array<Proto2NofieldpresenceUnittest.ForeignMessage>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage? {
+      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
       return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFromData(data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()

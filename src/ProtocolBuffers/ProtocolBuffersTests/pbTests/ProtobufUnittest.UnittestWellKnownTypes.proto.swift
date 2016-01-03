@@ -54,6 +54,7 @@ internal extension ProtobufUnittest {
     }
   }
 
+  // Test that we can include all well-known types.
   final internal class TestWellKnownTypes : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasAnyField:Bool = false
     private(set) var anyField:Google.Protobuf.Any!
@@ -174,6 +175,16 @@ internal extension ProtobufUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.TestWellKnownTypes> {
+      var mergedArray = Array<ProtobufUnittest.TestWellKnownTypes>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.TestWellKnownTypes? {
+      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> ProtobufUnittest.TestWellKnownTypes {
       return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestWellKnownTypesRoot.sharedInstance.extensionRegistry).build()

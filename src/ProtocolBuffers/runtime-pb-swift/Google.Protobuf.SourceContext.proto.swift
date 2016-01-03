@@ -34,7 +34,11 @@ public extension Google.Protobuf {
     }
   }
 
+  // `SourceContext` represents information about the source of a
+  // protobuf element, like the file in which it is defined.
   final public class SourceContext : GeneratedMessage, GeneratedMessageProtocol {
+    // The path-qualified name of the .proto file that contained the associated
+    // protobuf element.  For example: `"google/protobuf/source.proto"`.
     public private(set) var hasFileName:Bool = false
     public private(set) var fileName:String = ""
 
@@ -63,6 +67,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.SourceContext> {
+      var mergedArray = Array<Google.Protobuf.SourceContext>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.SourceContext? {
+      return try Google.Protobuf.SourceContext.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.SourceContext {
       return try Google.Protobuf.SourceContext.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.SourceContextRoot.sharedInstance.extensionRegistry).build()

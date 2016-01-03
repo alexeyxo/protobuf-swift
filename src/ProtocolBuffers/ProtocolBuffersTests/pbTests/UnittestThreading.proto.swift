@@ -62,6 +62,16 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
     memoizedSerializedSize = serialize_size
     return serialize_size
   }
+  internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ThreadingMessages> {
+    var mergedArray = Array<ThreadingMessages>()
+    while let value = try parseFromDelimitedFromInputStream(input) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ThreadingMessages? {
+    return try ThreadingMessages.Builder().mergeDelimitedFromInputStream(input)?.build()
+  }
   internal class func parseFromData(data:NSData) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder().mergeFromData(data, extensionRegistry:UnittestThreadingRoot.sharedInstance.extensionRegistry).build()
   }

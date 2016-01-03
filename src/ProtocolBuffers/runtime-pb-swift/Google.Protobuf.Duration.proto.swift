@@ -35,10 +35,50 @@ public extension Google.Protobuf {
     }
   }
 
+  // A Duration represents a signed, fixed-length span of time represented
+  // as a count of seconds and fractions of seconds at nanosecond
+  // resolution. It is independent of any calendar and concepts like "day"
+  // or "month". It is related to Timestamp in that the difference between
+  // two Timestamp values is a Duration and it can be added or subtracted
+  // from a Timestamp. Range is approximately +-10,000 years.
+  // Example 1: Compute Duration from two Timestamps in pseudo code.
+  //     Timestamp start = ...;
+  //     Timestamp end = ...;
+  //     Duration duration = ...;
+  //     duration.seconds = end.seconds - start.seconds;
+  //     duration.nanos = end.nanos - start.nanos;
+  //     if (duration.seconds < 0 && duration.nanos > 0) {
+  //       duration.seconds += 1;
+  //       duration.nanos -= 1000000000;
+  //     } else if (durations.seconds > 0 && duration.nanos < 0) {
+  //       duration.seconds -= 1;
+  //       duration.nanos += 1000000000;
+  //     }
+  // Example 2: Compute Timestamp from Timestamp + Duration in pseudo code.
+  //     Timestamp start = ...;
+  //     Duration duration = ...;
+  //     Timestamp end = ...;
+  //     end.seconds = start.seconds + duration.seconds;
+  //     end.nanos = start.nanos + duration.nanos;
+  //     if (end.nanos < 0) {
+  //       end.seconds -= 1;
+  //       end.nanos += 1000000000;
+  //     } else if (end.nanos >= 1000000000) {
+  //       end.seconds += 1;
+  //       end.nanos -= 1000000000;
+  //     }
   final public class Duration : GeneratedMessage, GeneratedMessageProtocol {
+    // Signed seconds of the span of time. Must be from -315,576,000,000
+    // to +315,576,000,000 inclusive.
     public private(set) var hasSeconds:Bool = false
     public private(set) var seconds:Int64 = Int64(0)
 
+    // Signed fractions of a second at nanosecond resolution of the span
+    // of time. Durations less than one second are represented with a 0
+    // `seconds` field and a positive or negative `nanos` field. For durations
+    // of one second or more, a non-zero value for the `nanos` field must be
+    // of the same sign as the `seconds` field. Must be from -999,999,999
+    // to +999,999,999 inclusive.
     public private(set) var hasNanos:Bool = false
     public private(set) var nanos:Int32 = Int32(0)
 
@@ -73,6 +113,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Duration> {
+      var mergedArray = Array<Google.Protobuf.Duration>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Duration? {
+      return try Google.Protobuf.Duration.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Duration {
       return try Google.Protobuf.Duration.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.DurationRoot.sharedInstance.extensionRegistry).build()

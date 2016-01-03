@@ -145,6 +145,8 @@ namespace google {
                 bool ReturnsReferenceType(const FieldDescriptor* field);
                 
                 string DefaultValue(const FieldDescriptor* field);
+
+                string BuildCommentsString(const SourceLocation& location);
                 
                 //const char* GetArrayValueType(const FieldDescriptor* field);
                 

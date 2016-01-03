@@ -55,12 +55,34 @@ public extension Google.Protobuf {
     }
   }
 
+  // Api is a light-weight descriptor for a protocol buffer service.
   final public class Api : GeneratedMessage, GeneratedMessageProtocol {
+    // The fully qualified name of this api, including package name
+    // followed by the api's simple name.
     public private(set) var hasName:Bool = false
     public private(set) var name:String = ""
 
     public private(set) var methods:Array<Google.Protobuf.Method>  = Array<Google.Protobuf.Method>()
     public private(set) var options:Array<Google.Protobuf.Option>  = Array<Google.Protobuf.Option>()
+    // A version string for this api. If specified, must have the form
+    // `major-version.minor-version`, as in `1.10`. If the minor version
+    // is omitted, it defaults to zero. If the entire version field is
+    // empty, the major version is derived from the package name, as
+    // outlined below. If the field is not empty, the version in the
+    // package name will be verified to be consistent with what is
+    // provided here.
+    // The versioning schema uses [semantic
+    // versioning](http://semver.org) where the major version number
+    // indicates a breaking change and the minor version an additive,
+    // non-breaking change. Both version numbers are signals to users
+    // what to expect from different versions, and should be carefully
+    // chosen based on the product plan.
+    // The major version is also reflected in the package name of the
+    // API, which must end in `v<major-version>`, as in
+    // `google.feature.v1`. For major versions 0 and 1, the suffix can
+    // be omitted. Zero major versions must only be used for
+    // experimental, none-GA apis.
+    // See also: [design doc](http://go/api-versioning).
     public private(set) var hasVersion:Bool = false
     public private(set) var version:String = ""
 
@@ -117,6 +139,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Api> {
+      var mergedArray = Array<Google.Protobuf.Api>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Api? {
+      return try Google.Protobuf.Api.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Api {
       return try Google.Protobuf.Api.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.ApiRoot.sharedInstance.extensionRegistry).build()
@@ -449,19 +481,25 @@ public extension Google.Protobuf {
 
   }
 
+  // Method represents a method of an api.
   final public class Method : GeneratedMessage, GeneratedMessageProtocol {
+    // The simple name of this method.
     public private(set) var hasName:Bool = false
     public private(set) var name:String = ""
 
+    // A URL of the input message type.
     public private(set) var hasRequestTypeUrl:Bool = false
     public private(set) var requestTypeUrl:String = ""
 
+    // If true, the request is streamed.
     public private(set) var hasRequestStreaming:Bool = false
     public private(set) var requestStreaming:Bool = false
 
+    // The URL of the output message type.
     public private(set) var hasResponseTypeUrl:Bool = false
     public private(set) var responseTypeUrl:String = ""
 
+    // If true, the response is streamed.
     public private(set) var hasResponseStreaming:Bool = false
     public private(set) var responseStreaming:Bool = false
 
@@ -521,6 +559,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Method> {
+      var mergedArray = Array<Google.Protobuf.Method>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Method? {
+      return try Google.Protobuf.Method.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Method {
       return try Google.Protobuf.Method.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.ApiRoot.sharedInstance.extensionRegistry).build()

@@ -65,7 +65,7 @@ internal extension UnittestDropUnknownFields {
     private(set) var hasInt32Value:Bool = false
     private(set) var int32Value:Int32 = Int32(0)
 
-    private(set) var enumValue:Foo.NestedEnum = Foo.NestedEnum.Foo
+    private(set) var enumValue:UnittestDropUnknownFields.Foo.NestedEnum = UnittestDropUnknownFields.Foo.NestedEnum.Foo
     private(set) var hasEnumValue:Bool = false
     required internal init() {
          super.init()
@@ -98,6 +98,16 @@ internal extension UnittestDropUnknownFields {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<UnittestDropUnknownFields.Foo> {
+      var mergedArray = Array<UnittestDropUnknownFields.Foo>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> UnittestDropUnknownFields.Foo? {
+      return try UnittestDropUnknownFields.Foo.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> UnittestDropUnknownFields.Foo {
       return try UnittestDropUnknownFields.Foo.Builder().mergeFromData(data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.sharedInstance.extensionRegistry).build()
@@ -209,7 +219,7 @@ internal extension UnittestDropUnknownFields {
                 return builderResult.hasEnumValue
             }
         }
-        var enumValue:Foo.NestedEnum {
+        var enumValue:UnittestDropUnknownFields.Foo.NestedEnum {
             get {
                 return builderResult.enumValue
             }
@@ -218,7 +228,7 @@ internal extension UnittestDropUnknownFields {
                 builderResult.enumValue = value
             }
         }
-        internal func setEnumValue(value:Foo.NestedEnum) -> UnittestDropUnknownFields.Foo.Builder {
+        internal func setEnumValue(value:UnittestDropUnknownFields.Foo.NestedEnum) -> UnittestDropUnknownFields.Foo.Builder {
           self.enumValue = value
           return self
         }
@@ -277,7 +287,7 @@ internal extension UnittestDropUnknownFields {
 
           case 16 :
             let valueIntenumValue = try input.readEnum()
-            if let enumsenumValue = Foo.NestedEnum(rawValue:valueIntenumValue){
+            if let enumsenumValue = UnittestDropUnknownFields.Foo.NestedEnum(rawValue:valueIntenumValue){
                  enumValue = enumsenumValue
             } else {
                  try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntenumValue))
@@ -313,7 +323,7 @@ internal extension UnittestDropUnknownFields {
     private(set) var hasInt32Value:Bool = false
     private(set) var int32Value:Int32 = Int32(0)
 
-    private(set) var enumValue:FooWithExtraFields.NestedEnum = FooWithExtraFields.NestedEnum.Foo
+    private(set) var enumValue:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum = UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.Foo
     private(set) var hasEnumValue:Bool = false
     private(set) var hasExtraInt32Value:Bool = false
     private(set) var extraInt32Value:Int32 = Int32(0)
@@ -355,6 +365,16 @@ internal extension UnittestDropUnknownFields {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<UnittestDropUnknownFields.FooWithExtraFields> {
+      var mergedArray = Array<UnittestDropUnknownFields.FooWithExtraFields>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields? {
+      return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> UnittestDropUnknownFields.FooWithExtraFields {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFromData(data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.sharedInstance.extensionRegistry).build()
@@ -472,7 +492,7 @@ internal extension UnittestDropUnknownFields {
                 return builderResult.hasEnumValue
             }
         }
-        var enumValue:FooWithExtraFields.NestedEnum {
+        var enumValue:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum {
             get {
                 return builderResult.enumValue
             }
@@ -481,7 +501,7 @@ internal extension UnittestDropUnknownFields {
                 builderResult.enumValue = value
             }
         }
-        internal func setEnumValue(value:FooWithExtraFields.NestedEnum) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+        internal func setEnumValue(value:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
           self.enumValue = value
           return self
         }
@@ -566,7 +586,7 @@ internal extension UnittestDropUnknownFields {
 
           case 16 :
             let valueIntenumValue = try input.readEnum()
-            if let enumsenumValue = FooWithExtraFields.NestedEnum(rawValue:valueIntenumValue){
+            if let enumsenumValue = UnittestDropUnknownFields.FooWithExtraFields.NestedEnum(rawValue:valueIntenumValue){
                  enumValue = enumsenumValue
             } else {
                  try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntenumValue))

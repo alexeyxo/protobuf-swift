@@ -114,7 +114,9 @@ public extension Google.Protobuf {
     }
   }
 
+  // Wrapper message for double.
   final public class DoubleValue : GeneratedMessage, GeneratedMessageProtocol {
+    // The double value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:Double = Double(0)
 
@@ -143,6 +145,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.DoubleValue> {
+      var mergedArray = Array<Google.Protobuf.DoubleValue>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.DoubleValue? {
+      return try Google.Protobuf.DoubleValue.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.DoubleValue {
       return try Google.Protobuf.DoubleValue.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
@@ -300,7 +312,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for float.
   final public class FloatValue : GeneratedMessage, GeneratedMessageProtocol {
+    // The float value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:Float = Float(0)
 
@@ -329,6 +343,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.FloatValue> {
+      var mergedArray = Array<Google.Protobuf.FloatValue>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.FloatValue? {
+      return try Google.Protobuf.FloatValue.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.FloatValue {
       return try Google.Protobuf.FloatValue.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
@@ -486,7 +510,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for int64.
   final public class Int64Value : GeneratedMessage, GeneratedMessageProtocol {
+    // The int64 value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:Int64 = Int64(0)
 
@@ -515,6 +541,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Int64Value> {
+      var mergedArray = Array<Google.Protobuf.Int64Value>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Int64Value? {
+      return try Google.Protobuf.Int64Value.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Int64Value {
       return try Google.Protobuf.Int64Value.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
@@ -672,7 +708,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for uint64.
   final public class Uint64Value : GeneratedMessage, GeneratedMessageProtocol {
+    // The uint64 value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:UInt64 = UInt64(0)
 
@@ -701,6 +739,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Uint64Value> {
+      var mergedArray = Array<Google.Protobuf.Uint64Value>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Uint64Value? {
+      return try Google.Protobuf.Uint64Value.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Uint64Value {
       return try Google.Protobuf.Uint64Value.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
@@ -858,7 +906,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for int32.
   final public class Int32Value : GeneratedMessage, GeneratedMessageProtocol {
+    // The int32 value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:Int32 = Int32(0)
 
@@ -887,6 +937,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Int32Value> {
+      var mergedArray = Array<Google.Protobuf.Int32Value>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Int32Value? {
+      return try Google.Protobuf.Int32Value.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Int32Value {
       return try Google.Protobuf.Int32Value.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
@@ -1044,7 +1104,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for uint32.
   final public class Uint32Value : GeneratedMessage, GeneratedMessageProtocol {
+    // The uint32 value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:UInt32 = UInt32(0)
 
@@ -1073,6 +1135,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Uint32Value> {
+      var mergedArray = Array<Google.Protobuf.Uint32Value>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Uint32Value? {
+      return try Google.Protobuf.Uint32Value.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Uint32Value {
       return try Google.Protobuf.Uint32Value.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
@@ -1230,7 +1302,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for bool.
   final public class BoolValue : GeneratedMessage, GeneratedMessageProtocol {
+    // The bool value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:Bool = false
 
@@ -1259,6 +1333,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.BoolValue> {
+      var mergedArray = Array<Google.Protobuf.BoolValue>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.BoolValue? {
+      return try Google.Protobuf.BoolValue.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.BoolValue {
       return try Google.Protobuf.BoolValue.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
@@ -1416,7 +1500,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for string.
   final public class StringValue : GeneratedMessage, GeneratedMessageProtocol {
+    // The string value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:String = ""
 
@@ -1445,6 +1531,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.StringValue> {
+      var mergedArray = Array<Google.Protobuf.StringValue>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.StringValue? {
+      return try Google.Protobuf.StringValue.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.StringValue {
       return try Google.Protobuf.StringValue.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()
@@ -1602,7 +1698,9 @@ public extension Google.Protobuf {
 
   }
 
+  // Wrapper message for bytes.
   final public class BytesValue : GeneratedMessage, GeneratedMessageProtocol {
+    // The bytes value.
     public private(set) var hasValue:Bool = false
     public private(set) var value:NSData = NSData()
 
@@ -1631,6 +1729,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.BytesValue> {
+      var mergedArray = Array<Google.Protobuf.BytesValue>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.BytesValue? {
+      return try Google.Protobuf.BytesValue.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.BytesValue {
       return try Google.Protobuf.BytesValue.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.WrappersRoot.sharedInstance.extensionRegistry).build()

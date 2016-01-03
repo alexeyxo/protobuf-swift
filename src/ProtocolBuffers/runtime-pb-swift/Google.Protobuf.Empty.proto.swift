@@ -33,6 +33,12 @@ public extension Google.Protobuf {
     }
   }
 
+  // A generic empty message that you can re-use to avoid defining duplicated
+  // empty messages in your APIs. A typical example is to use it as the request
+  // or the response type of an API method. For instance:
+  //     service Foo {
+  //       rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+  //     }
   final public class Empty : GeneratedMessage, GeneratedMessageProtocol {
     required public init() {
          super.init()
@@ -53,6 +59,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Empty> {
+      var mergedArray = Array<Google.Protobuf.Empty>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Empty? {
+      return try Google.Protobuf.Empty.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Empty {
       return try Google.Protobuf.Empty.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.EmptyRoot.sharedInstance.extensionRegistry).build()

@@ -207,7 +207,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageGenerator::GenerateSource(io::Printer* printer) {
         
         scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByType(descriptor_));
-        
+
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments;
+            comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
+
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(variables_,
                            "final $acontrol$ class $className$ : ExtendableMessage, GeneratedMessageProtocol{\n"
@@ -552,6 +559,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateParseFromMethodsSource(io::Printer* printer) {
         printer->Print(variables_,
+                       "$acontrol$ class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<$classNameReturnedType$> {\n"
+                       "  var mergedArray = Array<$classNameReturnedType$>()\n"
+                       "  while let value = try parseFromDelimitedFromInputStream(input) {\n"
+                       "    mergedArray += [value]\n"
+                       "  }\n"
+                       "  return mergedArray\n"
+                       "}\n"
+                       "$acontrol$ class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> $classNameReturnedType$? {\n"
+                       "  return try $classNameReturnedType$.Builder().mergeDelimitedFromInputStream(input)?.build()\n"
+                       "}\n"
                        "$acontrol$ class func parseFromData(data:NSData) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFromData(data, extensionRegistry:$fileName$.sharedInstance.extensionRegistry).build()\n"
                        "}\n"

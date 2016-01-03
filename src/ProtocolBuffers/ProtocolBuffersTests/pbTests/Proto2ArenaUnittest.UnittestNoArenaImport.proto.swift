@@ -65,6 +65,16 @@ internal extension Proto2ArenaUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage> {
+      var mergedArray = Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage? {
+      return try Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     internal class func parseFromData(data:NSData) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
       return try Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder().mergeFromData(data, extensionRegistry:Proto2ArenaUnittest.UnittestNoArenaImportRoot.sharedInstance.extensionRegistry).build()
     }

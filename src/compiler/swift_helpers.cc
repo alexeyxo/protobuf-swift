@@ -380,7 +380,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string name = PackageName(descriptor);
 
         if (descriptor->containing_type() != NULL) {
-            name = ClassNameWorker(descriptor->containing_type());
+            name += ClassNameWorker(descriptor->containing_type());
             name += ".";
         }
    
@@ -793,6 +793,24 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return "";
     }
 
+    string BuildCommentsString(const SourceLocation& location) {
+        const string& comments = location.leading_comments.empty() ?
+            location.trailing_comments :
+            location.leading_comments;
+        if (comments.empty())
+            return comments;
+
+        vector<string> lines;
+        SplitStringUsing(comments, "\n", &lines);
+        while (!lines.empty() && lines.back().empty())
+            lines.pop_back();
+        string prefix("//");
+        string suffix("\n");
+        string final_comments;
+        for (unsigned i = 0; i < lines.size(); i++)
+            final_comments += prefix + lines[i] + suffix;
+        return final_comments;
+    }
 
     string EscapeTrigraphs(const string& to_escape) {
         return StringReplace(to_escape, "?", "\\?", true);

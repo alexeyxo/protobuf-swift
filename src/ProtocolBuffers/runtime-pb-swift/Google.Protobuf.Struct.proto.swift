@@ -74,13 +74,22 @@ public extension Google.Protobuf {
 
   //Enum type declaration start 
 
+  // `NullValue` is a singleton enumeration to represent the null
+  // value for the `Value` type union.
   public enum NullValue:Int32 {
+    // Null value.
     case NullValueField = 0
 
   }
 
   //Enum type declaration end 
 
+  // `Struct` represents a structured data value, consisting of fields
+  // which map to dynamically typed values. In some languages, `Struct`
+  // might be supported by a native representation. For example, in
+  // scripting languages like JS a struct is represented as an
+  // object. The details of that representation are described together
+  // with the proto support for the language.
   final public class Struct : GeneratedMessage, GeneratedMessageProtocol {
 
 
@@ -125,6 +134,16 @@ public extension Google.Protobuf {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
+        }
+        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Struct.FieldsEntry> {
+          var mergedArray = Array<Google.Protobuf.Struct.FieldsEntry>()
+          while let value = try parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
+        public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Struct.FieldsEntry? {
+          return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
         public class func parseFromData(data:NSData) throws -> Google.Protobuf.Struct.FieldsEntry {
           return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.StructRoot.sharedInstance.extensionRegistry).build()
@@ -391,6 +410,16 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Struct> {
+      var mergedArray = Array<Google.Protobuf.Struct>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Struct? {
+      return try Google.Protobuf.Struct.Builder().mergeDelimitedFromInputStream(input)?.build()
+    }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Struct {
       return try Google.Protobuf.Struct.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.StructRoot.sharedInstance.extensionRegistry).build()
     }
@@ -553,6 +582,10 @@ public extension Google.Protobuf {
 
   }
 
+  // `Value` represents a dynamically typed value which can be either
+  // null, a number, a string, a boolean, a recursive struct value, or a
+  // list of values. A producer of value is expected to set one of that
+  // variants, absence of any variant indicates an error.
   final public class Value : GeneratedMessage, GeneratedMessageProtocol {
 
 
@@ -651,6 +684,7 @@ public extension Google.Protobuf {
               storageKind = Value.Kind.NullValue(newvalue)
          }
     }
+    // Represents a double value.
     public private(set) var hasNumberValue:Bool {
           get {
                if Value.Kind.getNumberValue(storageKind) == nil {
@@ -669,6 +703,7 @@ public extension Google.Protobuf {
               storageKind = Value.Kind.NumberValue(newvalue)
          }
     }
+    // Represents a string value.
     public private(set) var hasStringValue:Bool {
           get {
                if Value.Kind.getStringValue(storageKind) == nil {
@@ -687,6 +722,7 @@ public extension Google.Protobuf {
               storageKind = Value.Kind.StringValue(newvalue)
          }
     }
+    // Represents a boolean value.
     public private(set) var hasBoolValue:Bool {
           get {
                if Value.Kind.getBoolValue(storageKind) == nil {
@@ -800,6 +836,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Value> {
+      var mergedArray = Array<Google.Protobuf.Value>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Value? {
+      return try Google.Protobuf.Value.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.Value {
       return try Google.Protobuf.Value.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.StructRoot.sharedInstance.extensionRegistry).build()
@@ -1211,6 +1257,7 @@ public extension Google.Protobuf {
 
   }
 
+  // `ListValue` is a wrapper around a repeated field of values.
   final public class ListValue : GeneratedMessage, GeneratedMessageProtocol {
     public private(set) var values:Array<Google.Protobuf.Value>  = Array<Google.Protobuf.Value>()
     required public init() {
@@ -1238,6 +1285,16 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.ListValue> {
+      var mergedArray = Array<Google.Protobuf.ListValue>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.ListValue? {
+      return try Google.Protobuf.ListValue.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     public class func parseFromData(data:NSData) throws -> Google.Protobuf.ListValue {
       return try Google.Protobuf.ListValue.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.StructRoot.sharedInstance.extensionRegistry).build()

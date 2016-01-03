@@ -8,6 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		3F1422981A07FDBF0090CEE9 /* ProtocolBuffers.framework in Copy Framework */ = {isa = PBXBuildFile; fileRef = 3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3F26F7471B909AD300428569 /* delimitedFile.dat in Resources */ = {isa = PBXBuildFile; fileRef = 3F26F7461B909AD300428569 /* delimitedFile.dat */; };
+		3F26F7481B909AD300428569 /* delimitedFile.dat in Resources */ = {isa = PBXBuildFile; fileRef = 3F26F7461B909AD300428569 /* delimitedFile.dat */; };
+		3F31A1B11BA19A9B00F477C1 /* Google.Protobuf.Descriptor.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8D3E11B121FF7008D40C3 /* Google.Protobuf.Descriptor.proto.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1B21BA19A9B00F477C1 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8D3E21B121FF7008D40C3 /* Google.Protobuf.SwiftDescriptor.proto.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1B31BA19A9B00F477C1 /* AbstractMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29581A4CD00F00133274 /* AbstractMessage.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1B41BA19A9B00F477C1 /* CodedInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29591A4CD00F00133274 /* CodedInputStream.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1B51BA19A9B00F477C1 /* CodedOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF295A1A4CD00F00133274 /* CodedOutputStream.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1B61BA19A9B00F477C1 /* ConcreateExtensionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF295B1A4CD00F00133274 /* ConcreateExtensionField.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1B71BA19A9B00F477C1 /* ExtendableMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF295D1A4CD00F00133274 /* ExtendableMessage.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1B81BA19A9B00F477C1 /* ExtensionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF295E1A4CD01000133274 /* ExtensionRegistry.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1B91BA19A9B00F477C1 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF295F1A4CD01000133274 /* Field.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1BA1BA19A9B00F477C1 /* GeneratedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29601A4CD01000133274 /* GeneratedMessage.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1BB1BA19A9B00F477C1 /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FCF29611A4CD01000133274 /* ProtocolBuffers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F31A1BC1BA19A9B00F477C1 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29621A4CD01000133274 /* RingBuffer.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1BD1BA19A9B00F477C1 /* UnknownFieldSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29641A4CD01000133274 /* UnknownFieldSet.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1BE1BA19A9B00F477C1 /* WireFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF29661A4CD01000133274 /* WireFormat.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1D71BA1A17D00F477C1 /* Google.Protobuf.Any.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519141B1C913A00436FA6 /* Google.Protobuf.Any.proto.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1D81BA1A17D00F477C1 /* Google.Protobuf.Api.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519151B1C913A00436FA6 /* Google.Protobuf.Api.proto.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1D91BA1A17D00F477C1 /* Google.Protobuf.Duration.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519161B1C913A00436FA6 /* Google.Protobuf.Duration.proto.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1DA1BA1A17D00F477C1 /* Google.Protobuf.Empty.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519171B1C913A00436FA6 /* Google.Protobuf.Empty.proto.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1DB1BA1A17D00F477C1 /* Google.Protobuf.FieldMask.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519181B1C913A00436FA6 /* Google.Protobuf.FieldMask.proto.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1DC1BA1A17D00F477C1 /* Google.Protobuf.SourceContext.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519191B1C913A00436FA6 /* Google.Protobuf.SourceContext.proto.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1DD1BA1A17D00F477C1 /* Google.Protobuf.Struct.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5191A1B1C913A00436FA6 /* Google.Protobuf.Struct.proto.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1DE1BA1A17D00F477C1 /* Google.Protobuf.Timestamp.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5191B1B1C913A00436FA6 /* Google.Protobuf.Timestamp.proto.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1DF1BA1A17D00F477C1 /* Google.Protobuf.Types.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5191C1B1C913A00436FA6 /* Google.Protobuf.Types.proto.swift */; settings = {ASSET_TAGS = (); }; };
+		3F31A1E01BA1A17D00F477C1 /* Google.Protobuf.Wrappers.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5191D1B1C913A00436FA6 /* Google.Protobuf.Wrappers.proto.swift */; settings = {ASSET_TAGS = (); }; };
 		3F4106271A1A667800742090 /* ProtocolBuffers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F41061C1A1A667700742090 /* ProtocolBuffers.framework */; };
 		3F4106471A1A677A00742090 /* CodedInputStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */; };
 		3F4106481A1A677A00742090 /* CodedOuputStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8556CF19C71C05003802F2 /* CodedOuputStreamTests.swift */; };
@@ -190,6 +216,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F26F7461B909AD300428569 /* delimitedFile.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = delimitedFile.dat; sourceTree = "<group>"; };
+		3F31A19E1BA1993200F477C1 /* PBW.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBW.h; sourceTree = "<group>"; };
+		3F31A1A01BA1993200F477C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F31A1A91BA199C000F477C1 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41061C1A1A667700742090 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4106261A1A667800742090 /* UnitTesting(OSX).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UnitTesting(OSX).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41062C1A1A667800742090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -267,6 +297,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3F31A1A51BA199C000F477C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F4106181A1A667700742090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -341,6 +378,15 @@
 			path = pbTests;
 			sourceTree = "<group>";
 		};
+		3F31A19D1BA1993200F477C1 /* PBW */ = {
+			isa = PBXGroup;
+			children = (
+				3F31A19E1BA1993200F477C1 /* PBW.h */,
+				3F31A1A01BA1993200F477C1 /* Info.plist */,
+			);
+			path = PBW;
+			sourceTree = "<group>";
+		};
 		3F41061E1A1A667800742090 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +409,7 @@
 			children = (
 				3F85569B19C71BCF003802F2 /* ProtocolBuffers */,
 				3F8556A519C71BCF003802F2 /* ProtocolBuffersTests */,
+				3F31A19D1BA1993200F477C1 /* PBW */,
 				3F85569A19C71BCF003802F2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -374,6 +421,7 @@
 				3F8556A419C71BCF003802F2 /* ProtocolBuffersTests.xctest */,
 				3F41061C1A1A667700742090 /* ProtocolBuffers.framework */,
 				3F4106261A1A667800742090 /* UnitTesting(OSX).xctest */,
+				3F31A1A91BA199C000F477C1 /* ProtocolBuffers.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -422,6 +470,7 @@
 		3F93013A1A0964ED00F7A20B /* testdata */ = {
 			isa = PBXGroup;
 			children = (
+				3F26F7461B909AD300428569 /* delimitedFile.dat */,
 				3F93013B1A0964ED00F7A20B /* golden_message */,
 				3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */,
 				3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */,
@@ -490,6 +539,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		3F31A1A61BA199C000F477C1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F31A1BB1BA19A9B00F477C1 /* ProtocolBuffers.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F4106191A1A667700742090 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -509,6 +566,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3F31A1A81BA199C000F477C1 /* ProtocolBuffers(watchOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F31A1AE1BA199C000F477C1 /* Build configuration list for PBXNativeTarget "ProtocolBuffers(watchOS)" */;
+			buildPhases = (
+				3F31A1A41BA199C000F477C1 /* Sources */,
+				3F31A1A51BA199C000F477C1 /* Frameworks */,
+				3F31A1A61BA199C000F477C1 /* Headers */,
+				3F31A1A71BA199C000F477C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ProtocolBuffers(watchOS)";
+			productName = "ProtocolBuffers(watchOS)";
+			productReference = 3F31A1A91BA199C000F477C1 /* ProtocolBuffers.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		3F41061B1A1A667700742090 /* ProtocolBuffers(OSX) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F41062F1A1A667800742090 /* Build configuration list for PBXNativeTarget "ProtocolBuffers(OSX)" */;
@@ -593,6 +668,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = alexeyxo;
 				TargetAttributes = {
+					3F31A1A81BA199C000F477C1 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 					3F41061B1A1A667700742090 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -623,11 +701,19 @@
 				3F8556A319C71BCF003802F2 /* UnitTesting */,
 				3F41061B1A1A667700742090 /* ProtocolBuffers(OSX) */,
 				3F4106251A1A667800742090 /* UnitTesting(OSX) */,
+				3F31A1A81BA199C000F477C1 /* ProtocolBuffers(watchOS) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3F31A1A71BA199C000F477C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F41061A1A1A667700742090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -641,6 +727,7 @@
 			files = (
 				3FF2DCBD1A1A681A00226761 /* golden_message in Resources */,
 				3FF2DCBE1A1A681A00226761 /* golden_packed_fields_message in Resources */,
+				3F26F7481B909AD300428569 /* delimitedFile.dat in Resources */,
 				3FF2DCBF1A1A681A00226761 /* text_format_unittest_data.txt in Resources */,
 				3FF2DCC01A1A681A00226761 /* text_format_unittest_extensions_data.txt in Resources */,
 			);
@@ -659,6 +746,7 @@
 			files = (
 				3F9301401A0964ED00F7A20B /* golden_packed_fields_message in Resources */,
 				3F9301411A0964ED00F7A20B /* text_format_unittest_data.txt in Resources */,
+				3F26F7471B909AD300428569 /* delimitedFile.dat in Resources */,
 				3F9301421A0964ED00F7A20B /* text_format_unittest_extensions_data.txt in Resources */,
 				3F93013F1A0964ED00F7A20B /* golden_message in Resources */,
 			);
@@ -667,6 +755,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3F31A1A41BA199C000F477C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F31A1D71BA1A17D00F477C1 /* Google.Protobuf.Any.proto.swift in Sources */,
+				3F31A1D91BA1A17D00F477C1 /* Google.Protobuf.Duration.proto.swift in Sources */,
+				3F31A1B81BA19A9B00F477C1 /* ExtensionRegistry.swift in Sources */,
+				3F31A1DF1BA1A17D00F477C1 /* Google.Protobuf.Types.proto.swift in Sources */,
+				3F31A1B71BA19A9B00F477C1 /* ExtendableMessage.swift in Sources */,
+				3F31A1DA1BA1A17D00F477C1 /* Google.Protobuf.Empty.proto.swift in Sources */,
+				3F31A1B51BA19A9B00F477C1 /* CodedOutputStream.swift in Sources */,
+				3F31A1B41BA19A9B00F477C1 /* CodedInputStream.swift in Sources */,
+				3F31A1BD1BA19A9B00F477C1 /* UnknownFieldSet.swift in Sources */,
+				3F31A1BC1BA19A9B00F477C1 /* RingBuffer.swift in Sources */,
+				3F31A1D81BA1A17D00F477C1 /* Google.Protobuf.Api.proto.swift in Sources */,
+				3F31A1DD1BA1A17D00F477C1 /* Google.Protobuf.Struct.proto.swift in Sources */,
+				3F31A1DB1BA1A17D00F477C1 /* Google.Protobuf.FieldMask.proto.swift in Sources */,
+				3F31A1DC1BA1A17D00F477C1 /* Google.Protobuf.SourceContext.proto.swift in Sources */,
+				3F31A1B31BA19A9B00F477C1 /* AbstractMessage.swift in Sources */,
+				3F31A1BA1BA19A9B00F477C1 /* GeneratedMessage.swift in Sources */,
+				3F31A1BE1BA19A9B00F477C1 /* WireFormat.swift in Sources */,
+				3F31A1DE1BA1A17D00F477C1 /* Google.Protobuf.Timestamp.proto.swift in Sources */,
+				3F31A1B91BA19A9B00F477C1 /* Field.swift in Sources */,
+				3F31A1B21BA19A9B00F477C1 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */,
+				3F31A1B11BA19A9B00F477C1 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
+				3F31A1B61BA19A9B00F477C1 /* ConcreateExtensionField.swift in Sources */,
+				3F31A1E01BA1A17D00F477C1 /* Google.Protobuf.Wrappers.proto.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F4106171A1A667700742090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -835,6 +953,49 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3F31A1AF1BA199C000F477C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = ProtocolBuffers/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexeyxo.ProtocolBuffers;
+				PRODUCT_NAME = ProtocolBuffers;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		3F31A1B01BA199C000F477C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = ProtocolBuffers/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexeyxo.ProtocolBuffers;
+				PRODUCT_NAME = ProtocolBuffers;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 		3F4106301A1A667800742090 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -972,6 +1133,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1012,6 +1174,7 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -1033,6 +1196,7 @@
 				PRODUCT_NAME = ProtocolBuffers;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1054,6 +1218,7 @@
 				PRODUCT_NAME = ProtocolBuffers;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -1106,6 +1271,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3F31A1AE1BA199C000F477C1 /* Build configuration list for PBXNativeTarget "ProtocolBuffers(watchOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F31A1AF1BA199C000F477C1 /* Debug */,
+				3F31A1B01BA199C000F477C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3F41062F1A1A667800742090 /* Build configuration list for PBXNativeTarget "ProtocolBuffers(OSX)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -186,12 +186,17 @@ internal extension Proto3ArenaUnittest {
 
   //Enum type declaration end 
 
+  // This proto includes every type of field in both singular and repeated
+  // forms.
   final internal class TestAllTypes : GeneratedMessage, GeneratedMessageProtocol {
 
 
     //Nested type declaration start
 
       final internal class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
+        // The field name "b" fails to compile in proto1 because it conflicts with
+        // a local variable named "b" in one of the generated methods.  Doh.
+        // This file needs to compile in proto1 to test backwards-compatibility.
         private(set) var hasBb:Bool = false
         private(set) var bb:Int32 = Int32(0)
 
@@ -220,6 +225,16 @@ internal extension Proto3ArenaUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
+        }
+        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage> {
+          var mergedArray = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
+          while let value = try parseFromDelimitedFromInputStream(input) {
+            mergedArray += [value]
+          }
+          return mergedArray
+        }
+        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage? {
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
         internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
           return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
@@ -447,12 +462,15 @@ internal extension Proto3ArenaUnittest {
         case Foo = 1
         case Bar = 2
         case Baz = 3
+
+        // Intentionally negative.
         case Neg = -1
 
       }
 
       //Enum type declaration end 
 
+    // Singular
     private(set) var hasOptionalInt32:Bool = false
     private(set) var optionalInt32:Int32 = Int32(0)
 
@@ -504,7 +522,7 @@ internal extension Proto3ArenaUnittest {
     private(set) var optionalForeignMessage:Proto3ArenaUnittest.ForeignMessage!
     private(set) var hasOptionalImportMessage:Bool = false
     private(set) var optionalImportMessage:ProtobufUnittestImport.ImportMessage!
-    private(set) var optionalNestedEnum:TestAllTypes.NestedEnum = TestAllTypes.NestedEnum.Zero
+    private(set) var optionalNestedEnum:Proto3ArenaUnittest.TestAllTypes.NestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum.Zero
     private(set) var hasOptionalNestedEnum:Bool = false
     private(set) var optionalForeignEnum:Proto3ArenaUnittest.ForeignEnum = Proto3ArenaUnittest.ForeignEnum.ForeignZero
     private(set) var hasOptionalForeignEnum:Bool = false
@@ -518,6 +536,7 @@ internal extension Proto3ArenaUnittest {
     private(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage!
     private(set) var hasOptionalLazyMessage:Bool = false
     private(set) var optionalLazyMessage:Proto3ArenaUnittest.TestAllTypes.NestedMessage!
+    // Repeated
     private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
     private(set) var repeatedInt64:Array<Int64> = Array<Int64>()
     private(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
@@ -537,7 +556,7 @@ internal extension Proto3ArenaUnittest {
     private(set) var repeatedForeignMessage:Array<Proto3ArenaUnittest.ForeignMessage>  = Array<Proto3ArenaUnittest.ForeignMessage>()
     private(set) var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessage>  = Array<ProtobufUnittestImport.ImportMessage>()
     private var repeatedNestedEnumMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> = Array<TestAllTypes.NestedEnum>()
+    private(set) var repeatedNestedEnum:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum> = Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum>()
     private var repeatedForeignEnumMemoizedSerializedSize:Int32 = 0
     private(set) var repeatedForeignEnum:Array<Proto3ArenaUnittest.ForeignEnum> = Array<Proto3ArenaUnittest.ForeignEnum>()
     private(set) var repeatedStringPiece:Array<String> = Array<String>()
@@ -1029,6 +1048,16 @@ internal extension Proto3ArenaUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestAllTypes> {
+      var mergedArray = Array<Proto3ArenaUnittest.TestAllTypes>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestAllTypes? {
+      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestAllTypes {
       return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
@@ -1987,7 +2016,7 @@ internal extension Proto3ArenaUnittest {
                 return builderResult.hasOptionalNestedEnum
             }
         }
-        var optionalNestedEnum:TestAllTypes.NestedEnum {
+        var optionalNestedEnum:Proto3ArenaUnittest.TestAllTypes.NestedEnum {
             get {
                 return builderResult.optionalNestedEnum
             }
@@ -1996,7 +2025,7 @@ internal extension Proto3ArenaUnittest {
                 builderResult.optionalNestedEnum = value
             }
         }
-        internal func setOptionalNestedEnum(value:TestAllTypes.NestedEnum) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+        internal func setOptionalNestedEnum(value:Proto3ArenaUnittest.TestAllTypes.NestedEnum) -> Proto3ArenaUnittest.TestAllTypes.Builder {
           self.optionalNestedEnum = value
           return self
         }
@@ -2464,7 +2493,7 @@ internal extension Proto3ArenaUnittest {
         builderResult.repeatedImportMessage.removeAll(keepCapacity: false)
         return self
       }
-      var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> {
+      var repeatedNestedEnum:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum> {
           get {
               return builderResult.repeatedNestedEnum
           }
@@ -2472,7 +2501,7 @@ internal extension Proto3ArenaUnittest {
               builderResult.repeatedNestedEnum = value
           }
       }
-      func setRepeatedNestedEnum(value:Array<TestAllTypes.NestedEnum>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      func setRepeatedNestedEnum(value:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedNestedEnum = value
         return self
       }
@@ -2927,7 +2956,7 @@ internal extension Proto3ArenaUnittest {
 
           case 168 :
             let valueIntoptionalNestedEnum = try input.readEnum()
-            if let enumsoptionalNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
+            if let enumsoptionalNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
                  optionalNestedEnum = enumsoptionalNestedEnum
             } else {
                  try unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
@@ -3025,7 +3054,7 @@ internal extension Proto3ArenaUnittest {
 
           case 408 :
             let valueIntrepeatedNestedEnum = try input.readEnum()
-            if let enumsrepeatedNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
+            if let enumsrepeatedNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
             } else {
                  try unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
@@ -3351,6 +3380,16 @@ internal extension Proto3ArenaUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestPackedTypes> {
+      var mergedArray = Array<Proto3ArenaUnittest.TestPackedTypes>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestPackedTypes? {
+      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestPackedTypes {
       return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
@@ -3968,6 +4007,7 @@ internal extension Proto3ArenaUnittest {
 
   }
 
+  // Explicitly set packed to false
   final internal class TestUnpackedTypes : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
     private(set) var repeatedInt64:Array<Int64> = Array<Int64>()
@@ -3983,7 +4023,7 @@ internal extension Proto3ArenaUnittest {
     private(set) var repeatedDouble:Array<Double> = Array<Double>()
     private(set) var repeatedBool:Array<Bool> = Array<Bool>()
     private var repeatedNestedEnumMemoizedSerializedSize:Int32 = 0
-    private(set) var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> = Array<TestAllTypes.NestedEnum>()
+    private(set) var repeatedNestedEnum:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum> = Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum>()
     required internal init() {
          super.init()
     }
@@ -4141,6 +4181,16 @@ internal extension Proto3ArenaUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestUnpackedTypes> {
+      var mergedArray = Array<Proto3ArenaUnittest.TestUnpackedTypes>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestUnpackedTypes? {
+      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
       return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
@@ -4532,7 +4582,7 @@ internal extension Proto3ArenaUnittest {
          builderResult.repeatedBool.removeAll(keepCapacity: false)
          return self
       }
-      var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> {
+      var repeatedNestedEnum:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum> {
           get {
               return builderResult.repeatedNestedEnum
           }
@@ -4540,7 +4590,7 @@ internal extension Proto3ArenaUnittest {
               builderResult.repeatedNestedEnum = value
           }
       }
-      func setRepeatedNestedEnum(value:Array<TestAllTypes.NestedEnum>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      func setRepeatedNestedEnum(value:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedNestedEnum = value
         return self
       }
@@ -4670,7 +4720,7 @@ internal extension Proto3ArenaUnittest {
 
           case 112 :
             let valueIntrepeatedNestedEnum = try input.readEnum()
-            if let enumsrepeatedNestedEnum = TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
+            if let enumsrepeatedNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
             } else {
                  try unknownFieldsBuilder.mergeVarintField(14, value:Int64(valueIntrepeatedNestedEnum))
@@ -4688,6 +4738,7 @@ internal extension Proto3ArenaUnittest {
 
   }
 
+  // This proto includes a recusively nested message.
   final internal class NestedTestAllTypes : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasChild:Bool = false
     private(set) var child:Proto3ArenaUnittest.NestedTestAllTypes!
@@ -4728,6 +4779,16 @@ internal extension Proto3ArenaUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.NestedTestAllTypes> {
+      var mergedArray = Array<Proto3ArenaUnittest.NestedTestAllTypes>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.NestedTestAllTypes? {
+      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
       return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
@@ -4994,6 +5055,8 @@ internal extension Proto3ArenaUnittest {
 
   }
 
+  // Define these after TestAllTypes to make sure the compiler can handle
+  // that.
   final internal class ForeignMessage : GeneratedMessage, GeneratedMessageProtocol {
     private(set) var hasC:Bool = false
     private(set) var c:Int32 = Int32(0)
@@ -5023,6 +5086,16 @@ internal extension Proto3ArenaUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.ForeignMessage> {
+      var mergedArray = Array<Proto3ArenaUnittest.ForeignMessage>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.ForeignMessage? {
+      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.ForeignMessage {
       return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
@@ -5180,6 +5253,7 @@ internal extension Proto3ArenaUnittest {
 
   }
 
+  // TestEmptyMessage is used to test behavior of unknown fields.
   final internal class TestEmptyMessage : GeneratedMessage, GeneratedMessageProtocol {
     required internal init() {
          super.init()
@@ -5200,6 +5274,16 @@ internal extension Proto3ArenaUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
+    }
+    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestEmptyMessage> {
+      var mergedArray = Array<Proto3ArenaUnittest.TestEmptyMessage>()
+      while let value = try parseFromDelimitedFromInputStream(input) {
+        mergedArray += [value]
+      }
+      return mergedArray
+    }
+    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestEmptyMessage? {
+      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
     internal class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestEmptyMessage {
       return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
