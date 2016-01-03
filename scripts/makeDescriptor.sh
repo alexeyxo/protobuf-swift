@@ -2,7 +2,7 @@
 
 set -ex
 
-compiler_root=src/compiler
+compiler_root=plugin/compiler
 
 PATH=$PATH:$compiler_root
 
@@ -13,7 +13,7 @@ protoc -I$compiler_root $compiler_root/google/protobuf/{,swift-}descriptor.proto
 scripts/build.sh
 
 # compile the swift descriptors and utils into the runtime library
-protoc -I$compiler_root $compiler_root/google/protobuf/{,swift-}descriptor.proto --swift_out=src/ProtocolBuffers/runtime-pb-swift/
+protoc -I$compiler_root $compiler_root/google/protobuf/{,swift-}descriptor.proto --swift_out=Source/
 # protoc -I$compiler_root $compiler_root/google/protobuf/Utilities/*.proto --swift_out=src/ProtocolBuffers/runtime-pb-swift/
 # protoc -I$compiler_root $compiler_root/google/protobuf/api.proto --swift_out=src/ProtocolBuffers/runtime-pb-swift/
 # protoc -I$compiler_root $compiler_root/google/protobuf/duration.proto --swift_out=src/ProtocolBuffers/runtime-pb-swift/

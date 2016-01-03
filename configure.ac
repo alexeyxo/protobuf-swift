@@ -2,7 +2,7 @@ AC_PREREQ(2.61)
 
 AC_INIT([protobuf-plugin-swift],[1.0],[alexeyxo.gmail.com],[protobuf-plugin-swift])
 
-AC_CONFIG_SRCDIR(src/compiler/main.cc)
+AC_CONFIG_SRCDIR(plugin/compiler/main.cc)
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
@@ -62,5 +62,5 @@ protobuf test program failed to link:
 perhaps you need to add -Llibdir to your LDFLAGS.])])
 LIBS="$pbc_savelibs"
 
-AC_CONFIG_FILES([Makefile src/compiler/Makefile])
+AC_CONFIG_FILES([Makefile plugin/compiler/Makefile])
 AC_OUTPUT
