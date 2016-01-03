@@ -207,7 +207,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageGenerator::GenerateSource(io::Printer* printer) {
         
         scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByType(descriptor_));
-        
+
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments;
+            comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
+
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(variables_,
                            "final $acontrol$ class $className$ : ExtendableMessage, GeneratedMessageProtocol{\n"

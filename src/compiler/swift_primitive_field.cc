@@ -148,7 +148,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void PrimitiveFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
-        
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
+
         if (isOneOfField(descriptor_)) {
             printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
@@ -283,6 +288,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void RepeatedPrimitiveFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
+
         printer->Print(variables_, "$acontrol$private(set) var $name$:Array<$storage_type$> = Array<$storage_type$>()\n");
         if (descriptor_->options().packed()) {
             printer->Print(variables_,"private var $name$MemoizedSerializedSize:Int32 = -1\n");
