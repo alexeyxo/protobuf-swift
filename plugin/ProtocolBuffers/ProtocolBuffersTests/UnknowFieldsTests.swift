@@ -204,7 +204,7 @@ class UnknowFieldsTests: XCTestCase {
         
         
     }
-    func testWrongTypeTreatedAsUnknown() {
+    func testWrongTypeCreatedAsUnknown() {
         do {
             // Test that fields of the wrong wire type are treated like unknown fields
             // when parsing.
@@ -216,7 +216,7 @@ class UnknowFieldsTests: XCTestCase {
             XCTAssertTrue(emptyMessage_.data() == allTypesMessage.data(), "")
         }
         catch {
-            XCTFail("testWrongTypeTreatedAsUnknown")
+            XCTFail("testWrongTypeCreatedAsUnknown")
         }
         
     }

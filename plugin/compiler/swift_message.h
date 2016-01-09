@@ -58,6 +58,11 @@ namespace google {
                                                                   io::Printer* printer, const Descriptor::ExtensionRange* range);
                     
                     void GenerateMessageDescriptionSource(io::Printer* printer);
+                    
+                    void GenerateMessageJSONSource(io::Printer* printer);
+                    
+                    void GenerateMessageBuilderJSONSource(io::Printer* printer);
+                    
                     void GenerateDescriptionOneFieldSource(io::Printer* printer,
                                                            const FieldDescriptor* field);
                     void GenerateDescriptionOneExtensionRangeSource(

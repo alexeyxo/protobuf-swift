@@ -371,7 +371,7 @@ void SwiftFileOptions::SerializeWithCachedSizes(
 int SwiftFileOptions::ByteSize() const {
   int total_size = 0;
 
-  if (_has_bits_[0 / 32] & 7) {
+  if (_has_bits_[0 / 32] & 7u) {
     // optional string class_prefix = 1;
     if (has_class_prefix()) {
       total_size += 1 +

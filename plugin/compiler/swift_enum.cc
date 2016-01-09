@@ -82,7 +82,35 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "name", EnumValueName(canonical_values_[i]),
                            "value", SimpleItoa(canonical_values_[i]->number()));
         }
-        printer->Print("\n");
+       
+        
+        //JSON
+        printer->Print("$acontrol$ func toString() -> String {\n"
+                       "  switch self {\n",
+                       "acontrol", GetAccessControlType(descriptor_->file()));
+        for (int i = 0; i < canonical_values_.size(); i++) {
+            printer->Print("  case .$canonical$: ","canonical",EnumValueName(canonical_values_[i]));
+            printer->Print("return \"$name$\"\n", "name", canonical_values_[i]->name());
+            
+        }
+//        printer->Print("  default: throw ProtocolBuffersError.InvalidProtocolBuffer(\"Invalid enum value\")\n");
+        printer->Print("  }\n");
+        printer->Print("}\n");
+        
+        
+        printer->Print("$acontrol$ static func fromString(str:String) throws -> $className$ {\n"
+                       "  switch str {\n",
+                       "acontrol", GetAccessControlType(descriptor_->file()),
+                       "className", ClassNameReturedType(descriptor_));
+        for (int i = 0; i < canonical_values_.size(); i++) {
+            printer->Print("  case \"$name$\":", "name", canonical_values_[i]->name());
+            printer->Print("  return .$canonical$\n","canonical",EnumValueName(canonical_values_[i]));
+        }
+        printer->Print("  default: throw ProtocolBuffersError.InvalidProtocolBuffer(\"Conversion String to Enum has failed.\")\n");
+        printer->Print("  }\n");
+        printer->Print("}\n");
+        
+        //
         
         printer->Outdent();
         printer->Print(

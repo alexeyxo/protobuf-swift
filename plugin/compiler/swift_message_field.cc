@@ -32,8 +32,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         void SetMessageVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
 
             std::string name = UnderscoresToCamelCase(descriptor);
+            std::string capname = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["name"] = name;
-            (*variables)["capitalized_name"] = UnderscoresToCapitalizedCamelCase(descriptor);
+            (*variables)["capitalized_name"] = capname;
             (*variables)["number"] = SimpleItoa(descriptor->number());
             
             string containing_class = ClassNameReturedType(descriptor->containing_type());
@@ -43,6 +44,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["containing_class"] = containing_class;
             (*variables)["storage_attribute"] = "";
             
+            //JSON
+            (*variables)["json_name"] = descriptor->json_name();
+            (*variables)["to_json_value"] = ToJSONValue(descriptor, name);
+            (*variables)["to_json_value_repeated_storage_type"] = ToJSONValueRepeatedStorageType(descriptor);
+            (*variables)["to_json_value_repeated"] = ToJSONValue(descriptor, "oneValue" + capname);
+            (*variables)["from_json_value"] = FromJSONValue(descriptor, "jsonValue" + capname);
+            (*variables)["from_json_value_repeated"] = FromJSONValue(descriptor, "oneValue" + capname);
+            (*variables)["json_casting_type"] = JSONCastingValue(descriptor);
+            
+            
+            //
             (*variables)["group_or_message"] = (descriptor->type() == FieldDescriptor::TYPE_GROUP) ? "Group" : "Message";
             
             (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->file());
@@ -221,7 +233,24 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  output += \"\\(indent) }\\n\"\n"
                        "}\n");
     }
+
     
+    void MessageFieldGenerator::GenerateJSONEncodeCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if has$capitalized_name$ {\n"
+                       "  jsonMap[\"$json_name$\"] = try $name$.encode()\n");
+        printer->Print(variables_,
+                       "}\n");
+    }
+    
+    void MessageFieldGenerator::GenerateJSONDecodeCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? $json_casting_type$ {\n"
+                       "  resultDecodedBuilder.$name$ = $from_json_value$\n");
+        printer->Print(variables_,
+                       "}\n");
+    }
+
     
     void MessageFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
@@ -328,27 +357,55 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedMessageFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "for oneElement$name$ in $name$ {\n"
-                       "    try output.write$group_or_message$($number$, value:oneElement$name$)\n"
+                       "for oneElement$capitalized_name$ in $name$ {\n"
+                       "    try output.write$group_or_message$($number$, value:oneElement$capitalized_name$)\n"
                        "}\n");
     }
     
     void RepeatedMessageFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "for oneElement$name$ in $name$ {\n"
-                       "    serialize_size += oneElement$name$.compute$group_or_message$Size($number$)\n"
+                       "for oneElement$capitalized_name$ in $name$ {\n"
+                       "    serialize_size += oneElement$capitalized_name$.compute$group_or_message$Size($number$)\n"
                        "}\n");
     }
     
     void RepeatedMessageFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "var $name$ElementIndex:Int = 0\n"
-                       "for oneElement$name$ in $name$ {\n"
+                       "for oneElement$capitalized_name$ in $name$ {\n"
                        "    output += \"\\(indent) $name$[\\($name$ElementIndex)] {\\n\"\n"
-                       "    try oneElement$name$.writeDescriptionTo(&output, indent:\"\\(indent)  \")\n"
+                       "    try oneElement$capitalized_name$.writeDescriptionTo(&output, indent:\"\\(indent)  \")\n"
                        "    output += \"\\(indent)}\\n\"\n"
                        "    $name$ElementIndex++\n"
                        "}\n");
+    }
+    
+    void RepeatedMessageFieldGenerator::GenerateJSONEncodeCodeSource(io::Printer* printer) const {
+        
+        printer->Print(variables_,
+                       "if !$name$.isEmpty {\n"
+                       "  var jsonArray$capitalized_name$:Array<$json_casting_type$> = []\n"
+                       "    for oneValue$capitalized_name$ in $name$ {\n"
+                       "      let ecodedMessage$capitalized_name$ = $to_json_value_repeated$\n"
+                       "      jsonArray$capitalized_name$ += [ecodedMessage$capitalized_name$]\n"
+                       "    }\n"
+                       "  jsonMap[\"$json_name$\"] = jsonArray$capitalized_name$\n"
+                       "}\n");
+        
+    }
+    
+    void RepeatedMessageFieldGenerator::GenerateJSONDecodeCodeSource(io::Printer* printer) const {
+        
+        printer->Print(variables_,
+                       "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? Array<$json_casting_type$> {\n"
+                       "  var jsonArray$capitalized_name$:Array<$type$> = []\n"
+                       "  for oneValue$capitalized_name$ in jsonValue$capitalized_name$ {\n"
+                       "    let messageFromString$capitalized_name$ = $from_json_value_repeated$\n"
+                       "    jsonArray$capitalized_name$ += [messageFromString$capitalized_name$]\n"
+                       "  }\n"
+                       "  resultDecodedBuilder.$name$ = jsonArray$capitalized_name$\n"
+                       "}\n");
+        
     }
     
     void RepeatedMessageFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
@@ -357,8 +414,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedMessageFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "for oneElement$name$ in $name$ {\n"
-                       "    hashCode = (hashCode &* 31) &+ oneElement$name$.hashValue\n"
+                       "for oneElement$capitalized_name$ in $name$ {\n"
+                       "    hashCode = (hashCode &* 31) &+ oneElement$capitalized_name$.hashValue\n"
                        "}\n");
     }
     

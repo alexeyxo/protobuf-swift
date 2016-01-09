@@ -166,6 +166,13 @@ namespace google {
                     return file->options().optimize_for() != FileOptions::LITE_RUNTIME;
                 }
                 
+                //JSON
+                string JSONCastingValue(const FieldDescriptor* field);
+                string FromJSONValue(const FieldDescriptor* field, string value);
+                string FromJSONMapKeyValue(const FieldDescriptor* field, string value);
+                string ToJSONValue(const FieldDescriptor* field, string value);
+                string ToJSONValueRepeatedStorageType(const FieldDescriptor* field);
+                
             }  // namespace swift
         }  // namespace compiler
     }  // namespace protobuf

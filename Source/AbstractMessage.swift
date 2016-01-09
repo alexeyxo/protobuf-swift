@@ -45,6 +45,9 @@ public protocol Message:class,MessageInit
     static func classBuilder()-> MessageBuilder
     func classBuilder()-> MessageBuilder
     
+    //JSON
+    func encode() throws -> Dictionary<String,AnyObject>
+    static func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Self
 }
 
 public protocol MessageBuilder: class
@@ -62,6 +65,7 @@ public protocol MessageBuilder: class
      func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
      //Delimited Encoding/Decoding
      func mergeDelimitedFromInputStream(input:NSInputStream) throws -> Self?
+     static func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Self
 }
 
 public func == (lhs: AbstractMessage, rhs: AbstractMessage) -> Bool
@@ -101,7 +105,7 @@ public class AbstractMessage:Hashable, Message {
     public func writeDescriptionTo(inout output:String, indent:String) throws {
         throw ProtocolBuffersError.Obvious("Override")
     }
-    
+        
     public func writeToCodedOutputStream(output: CodedOutputStream) throws {
         throw ProtocolBuffersError.Obvious("Override")
     }
@@ -136,6 +140,16 @@ public class AbstractMessage:Hashable, Message {
         get {
             return unknownFields.hashValue
         }
+    }
+    
+    
+    //JSON
+    public func encode() throws -> Dictionary<String, AnyObject> {
+        throw ProtocolBuffersError.Obvious("Override")
+    }
+    
+    public class func decode(jsonMap: Dictionary<String, AnyObject>) throws -> Self {
+        throw ProtocolBuffersError.Obvious("Override")
     }
     
 }
@@ -195,7 +209,6 @@ public class AbstractMessageBuilder:MessageBuilder
         return self
     }
     
-    
     public func mergeFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws ->  Self
     {
         let input:CodedInputStream = CodedInputStream(data:data)
@@ -231,6 +244,11 @@ public class AbstractMessageBuilder:MessageBuilder
         let pointer = UnsafeMutablePointer<UInt8>(data!.mutableBytes)
         input.read(pointer, maxLength: Int(rSize))
         return  try mergeFromData(data!)
+    }
+    
+    //JSON
+    class public func decodeToBuilder(jsonMap: Dictionary<String, AnyObject>) throws -> Self {
+        throw ProtocolBuffersError.Obvious("Override")
     }
 
 }

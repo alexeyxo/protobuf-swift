@@ -34,16 +34,29 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             
             const EnumValueDescriptor* default_value;
             default_value = descriptor->default_value_enum();
-           
+            
+            std::string capname = UnderscoresToCapitalizedCamelCase(descriptor);
+            std::string name = UnderscoresToCamelCase(descriptor);
+            
             string type = ClassNameReturedType(descriptor->enum_type());
             string containing_class = ClassNameReturedType(descriptor->containing_type());
             
-            (*variables)["name"]                  = UnderscoresToCamelCase(descriptor);
-            (*variables)["capitalized_name"]      = UnderscoresToCapitalizedCamelCase(descriptor);
+            (*variables)["name"]                  = name;
+            (*variables)["capitalized_name"]      = capname;
             (*variables)["number"] = SimpleItoa(descriptor->number());
             
             (*variables)["type"] = type;
             (*variables)["containing_class"] = containing_class;
+            
+            //JSON
+            (*variables)["json_name"] = descriptor->json_name();
+            (*variables)["to_json_value"] = ToJSONValue(descriptor, name);
+            (*variables)["to_json_value_repeated_storage_type"] = ToJSONValueRepeatedStorageType(descriptor);
+            (*variables)["to_json_value_repeated"] = ToJSONValue(descriptor, "oneValue" + capname);
+            (*variables)["from_json_value"] = FromJSONValue(descriptor, "jsonValue" + capname);
+            (*variables)["from_json_value_repeated"] = FromJSONValue(descriptor, "oneValue" + capname);
+            (*variables)["json_casting_type"] = JSONCastingValue(descriptor);
+            ///
             
             (*variables)["default"] = EnumValueName(default_value);
             (*variables)["tag"] = SimpleItoa(internal::WireFormat::MakeTag(descriptor));
@@ -110,7 +123,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void EnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {}
-
+    
     void EnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "  $acontrol$var has$capitalized_name$:Bool{\n"
@@ -186,6 +199,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
     }
     
+    void EnumFieldGenerator::GenerateJSONEncodeCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if has$capitalized_name$ {\n"
+                       "  jsonMap[\"$json_name$\"] = $to_json_value$\n"
+                       "}\n");
+    }
+    
+    void EnumFieldGenerator::GenerateJSONDecodeCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? $json_casting_type$ {\n"
+                       "  resultDecodedBuilder.$name$ = $from_json_value$\n"
+                       "}\n");
+    }
+    
     
     void EnumFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
@@ -227,7 +254,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "$acontrol$private(set) var $name$:Array<$type$> = Array<$type$>()\n");
     }
-
+    
     void RepeatedEnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
     }
     
@@ -352,6 +379,33 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(oneValueOf$name$.rawValue)\\n\"\n"
                        "    $name$ElementIndex++\n"
                        "}\n");
+    }
+    
+    void RepeatedEnumFieldGenerator::GenerateJSONEncodeCodeSource(io::Printer* printer) const {
+        
+        printer->Print(variables_,
+                           "if !$name$.isEmpty {\n"
+                           "  var jsonArray$capitalized_name$:Array<$to_json_value_repeated_storage_type$> = []\n"
+                           "    for oneValue$capitalized_name$ in $name$ {\n"
+                           "      jsonArray$capitalized_name$ += [$to_json_value_repeated$]\n"
+                           "    }\n"
+                           "  jsonMap[\"$json_name$\"] = jsonArray$capitalized_name$\n"
+                           "}\n");
+        
+    }
+    
+    void RepeatedEnumFieldGenerator::GenerateJSONDecodeCodeSource(io::Printer* printer) const {
+        
+            printer->Print(variables_,
+                           "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? Array<$json_casting_type$> {\n"
+                           "  var jsonArray$capitalized_name$:Array<$type$> = []\n"
+                           "  for oneValue$capitalized_name$ in jsonValue$capitalized_name$ {\n"
+                           "    let enumFromString$capitalized_name$ = $from_json_value_repeated$\n"
+                           "    jsonArray$capitalized_name$ += [enumFromString$capitalized_name$]\n"
+                           "  }\n"
+                           "  resultDecodedBuilder.$name$ = jsonArray$capitalized_name$\n"
+                           "}\n");
+      
     }
     
     

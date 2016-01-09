@@ -317,7 +317,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrol$ class func builderWithPrototype(prototype:$classNameReturnedType$) throws -> $classNameReturnedType$.Builder {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFrom(prototype)\n"
                        "}\n");
-        
+
+        //JSON
+        GenerateMessageJSONSource(printer);
         GenerateMessageDescriptionSource(printer);
         
         
@@ -420,11 +422,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         for (int i = 0; i < descriptor_->extension_range_count(); ++i) {
             sorted_extensions.push_back(descriptor_->extension_range(i));
         }
-        sort(sorted_extensions.begin(), sorted_extensions.end(),
-             ExtensionRangeOrdering());
+        sort(sorted_extensions.begin(), sorted_extensions.end(), ExtensionRangeOrdering());
         
-        printer->Print(
-                       "override $acontrol$ func writeDescriptionTo(inout output:String, indent:String) throws {\n","acontrol", GetAccessControlType(descriptor_->file()));
+        printer->Print("override $acontrol$ func writeDescriptionTo(inout output:String, indent:String) throws {\n","acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Indent();
         
@@ -448,6 +448,57 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
     }
     
+    void MessageGenerator::GenerateMessageJSONSource(io::Printer* printer) {
+        
+        //
+        
+        printer->Print(variables_,"override $acontrol$ func encode() throws -> Dictionary<String,AnyObject> {\n");
+        
+        printer->Indent();
+        
+        printer->Print("guard isInitialized() else {\n"
+                       "  throw ProtocolBuffersError.InvalidProtocolBuffer(\"Uninitialized Message\")\n"
+                       "}\n\n");
+        
+        if (descriptor_->field_count() == 0) {
+            printer->Print("let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()\n");
+        }
+        else {
+            printer->Print("var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()\n");
+        }
+        
+        
+        for (int i = 0; i < descriptor_->field_count(); i++) {
+            field_generators_.get(descriptor_->field(i)).GenerateJSONEncodeCodeSource(printer);
+        }
+    
+        printer->Outdent();
+        printer->Print("  return jsonMap\n"
+                       "}\n");
+        
+        printer->Print(variables_,"override $acontrol$ class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> $classNameReturnedType$ {\n"
+                       "  return try $classNameReturnedType$.Builder.decodeToBuilder(jsonMap).build()\n"
+                       "}\n");
+        
+    }
+    
+    void MessageGenerator::GenerateMessageBuilderJSONSource(io::Printer* printer) {
+        //
+        printer->Print(variables_, "override class $acontrol$ func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> $classNameReturnedType$.Builder {\n");
+        
+        printer->Indent();
+        printer->Print(variables_,"let resultDecodedBuilder = $classNameReturnedType$.Builder()\n");
+        
+        for (int i = 0; i < descriptor_->field_count(); i++) {
+            field_generators_.get(descriptor_->field(i)).GenerateJSONDecodeCodeSource(printer);
+        }
+        
+        printer->Print("return resultDecodedBuilder\n");
+        //
+        printer->Outdent();
+        printer->Print(
+                       "}\n");
+    }
     
     
 
@@ -665,6 +716,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         GenerateCommonBuilderMethodsSource(printer);
         GenerateBuilderParsingMethodsSource(printer);
+        GenerateMessageBuilderJSONSource(printer);
         printer->Outdent();
         
         
@@ -845,14 +897,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                         break;
                     case FieldDescriptor::LABEL_REPEATED:
                         printer->Print(vars,
-                                       "var isInit$name$:Bool = true\n"
-                                       "for oneElement$name$ in $name$ {\n"
-                                       "    if (!oneElement$name$.isInitialized()) {\n"
-                                       "        isInit$name$ = false\n"
-                                       "        break \n"
-                                       "    }\n"
+                                       "var isInit$capitalized_name$:Bool = true\n"
+                                       "for oneElement$capitalized_name$ in $name$ {\n"
+                                       "  if !oneElement$capitalized_name$.isInitialized() {\n"
+                                       "    isInit$capitalized_name$ = false\n"
+                                       "    break \n"
+                                       "  }\n"
                                        "}\n"
-                                       "if !isInit$name$ {\n return isInit$name$\n }\n"
+                                       "if !isInit$capitalized_name$ {\n"
+                                       "  return isInit$capitalized_name$\n"
+                                       "}\n"
                                        );
                         break;
                 }
@@ -862,7 +916,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(
                            "if !extensionsAreInitialized() {\n"
-                           " return false\n"
+                           "  return false\n"
                            "}\n");
         }
         

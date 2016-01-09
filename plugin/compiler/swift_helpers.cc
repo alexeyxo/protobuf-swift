@@ -48,6 +48,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         else if (input == "Type") {
             result = input + "s";
         }
+        else if (input == "Any" || input == "any") {
+            result = "AnyType";
+        }
         else
         {
             result = input;
@@ -490,7 +493,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     //Swift bug: when enumName == enaumFieldName
     string EnumValueName(const EnumValueDescriptor* descriptor) {
         string name = UnderscoresToCapitalizedCamelCase(SafeName(descriptor->name()));
-        if (name == UnderscoresToCapitalizedCamelCase(descriptor->type()->name())) {
+        if (name == UnderscoresToCapitalizedCamelCase(descriptor->type()->name()) || name == "String") {
             name += "Field";
         }
         return name;
@@ -812,6 +815,147 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string EscapeUnicode(const string& to_escape) {
         return to_escape;
 
+    }
+    
+    
+    //JSON
+    string JSONCastingValue(const FieldDescriptor* field) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "NSNumber" ;
+            case FieldDescriptor::TYPE_UINT32  : return "NSNumber" ;
+            case FieldDescriptor::TYPE_SINT32  : return "NSNumber" ;
+            case FieldDescriptor::TYPE_FIXED32 : return "NSNumber" ;
+            case FieldDescriptor::TYPE_SFIXED32: return "NSNumber" ;
+                
+            case FieldDescriptor::TYPE_INT64   : return "String";
+            case FieldDescriptor::TYPE_UINT64  : return "String";
+            case FieldDescriptor::TYPE_SINT64  : return "String";
+            case FieldDescriptor::TYPE_FIXED64 : return "String";
+            case FieldDescriptor::TYPE_SFIXED64: return "String";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return "NSNumber";
+            case FieldDescriptor::TYPE_DOUBLE  : return "NSNumber";
+            case FieldDescriptor::TYPE_BOOL    : return "Bool";
+            case FieldDescriptor::TYPE_STRING  : return "String";
+            case FieldDescriptor::TYPE_BYTES   : return "String";
+            case FieldDescriptor::TYPE_ENUM: return "String";
+            case FieldDescriptor::TYPE_GROUP:
+            case FieldDescriptor::TYPE_MESSAGE: return "Dictionary<String,AnyObject>";
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+    }
+
+    
+    string FromJSONValue(const FieldDescriptor* field, string value) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return value + ".intValue";
+            case FieldDescriptor::TYPE_UINT32  : return value + ".unsignedIntValue";
+            case FieldDescriptor::TYPE_SINT32  : return value + ".intValue";
+            case FieldDescriptor::TYPE_FIXED32 : return value + ".unsignedIntValue";
+            case FieldDescriptor::TYPE_SFIXED32: return value + ".intValue";
+                
+            case FieldDescriptor::TYPE_INT64   : return "Int64(" + value + ")!";
+            case FieldDescriptor::TYPE_UINT64  : return "UInt64(" + value + ")!";
+            case FieldDescriptor::TYPE_SINT64  : return "Int64(" + value + ")!";
+            case FieldDescriptor::TYPE_FIXED64 : return "UInt64(" + value + ")!";
+            case FieldDescriptor::TYPE_SFIXED64: return "Int64(" + value + ")!";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return value + ".floatValue";
+            case FieldDescriptor::TYPE_DOUBLE  : return value + ".doubleValue";
+            case FieldDescriptor::TYPE_BOOL    : return value;
+            case FieldDescriptor::TYPE_STRING  : return value;
+            case FieldDescriptor::TYPE_BYTES   : return "NSData(base64EncodedString:" + value  +", options: NSDataBase64DecodingOptions(rawValue:0))!";
+            case FieldDescriptor::TYPE_ENUM: return "try " + ClassNameReturedType(field->enum_type()) + ".fromString(" + value + ")";
+            case FieldDescriptor::TYPE_GROUP:
+            case FieldDescriptor::TYPE_MESSAGE: return "try " + ClassNameReturedType(field->message_type()) +  ".Builder.decodeToBuilder(" + value + ").build()\n";
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+    }
+    string FromJSONMapKeyValue(const FieldDescriptor* field, string value) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "Int32(" + value + ")!";
+            case FieldDescriptor::TYPE_UINT32  : return "UInt32(" + value + ")!";
+            case FieldDescriptor::TYPE_SINT32  : return "Int32(" + value + ")!";
+            case FieldDescriptor::TYPE_FIXED32 : return "UInt32(" + value + ")!";
+            case FieldDescriptor::TYPE_SFIXED32: return "Int32(" + value + ")!";
+                
+            case FieldDescriptor::TYPE_INT64   : return "Int64(" + value + ")!";
+            case FieldDescriptor::TYPE_UINT64  : return "UInt64(" + value + ")!";
+            case FieldDescriptor::TYPE_SINT64  : return "Int64(" + value + ")!";
+            case FieldDescriptor::TYPE_FIXED64 : return "UInt64(" + value + ")!";
+            case FieldDescriptor::TYPE_SFIXED64: return "Int64(" + value + ")!";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return value + ".floatValue";
+            case FieldDescriptor::TYPE_DOUBLE  : return value + ".doubleValue";
+            case FieldDescriptor::TYPE_BOOL    : return value;
+            case FieldDescriptor::TYPE_STRING  : return value;
+            case FieldDescriptor::TYPE_BYTES   : return "NSData(base64EncodedString:" + value  +", options: NSDataBase64DecodingOptions(rawValue:0))!";
+            case FieldDescriptor::TYPE_ENUM: return "try " + ClassNameReturedType(field->enum_type()) + ".fromString(" + value + ")";
+            case FieldDescriptor::TYPE_GROUP:
+            case FieldDescriptor::TYPE_MESSAGE: return "try " + ClassNameReturedType(field->message_type()) +  ".Builder.decodeToBuilder(" + value + ").build()\n";
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+    }
+    
+    string ToJSONValueRepeatedStorageType(const FieldDescriptor* field) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "NSNumber";
+            case FieldDescriptor::TYPE_UINT32  : return "NSNumber";
+            case FieldDescriptor::TYPE_SINT32  : return "NSNumber";
+            case FieldDescriptor::TYPE_FIXED32 : return "NSNumber";
+            case FieldDescriptor::TYPE_SFIXED32: return "NSNumber";
+            case FieldDescriptor::TYPE_BOOL    :
+            case FieldDescriptor::TYPE_STRING  : return "";
+
+                
+            case FieldDescriptor::TYPE_INT64   :
+            case FieldDescriptor::TYPE_UINT64  :
+            case FieldDescriptor::TYPE_SINT64  :
+            case FieldDescriptor::TYPE_FIXED64 :
+            case FieldDescriptor::TYPE_BYTES   :
+            case FieldDescriptor::TYPE_SFIXED64: return "String";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return "NSNumber";
+            case FieldDescriptor::TYPE_DOUBLE  : return "NSNumber";
+            case FieldDescriptor::TYPE_ENUM: return "String";
+            case FieldDescriptor::TYPE_GROUP:
+            case FieldDescriptor::TYPE_MESSAGE: return ".encode()";
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+
+        
+    }
+    
+    string ToJSONValue(const FieldDescriptor* field, string value) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "NSNumber(int:" + value + ")";
+            case FieldDescriptor::TYPE_UINT32  : return "NSNumber(unsignedInt:" + value + ")";
+            case FieldDescriptor::TYPE_SINT32  : return "NSNumber(int:" + value + ")";
+            case FieldDescriptor::TYPE_FIXED32 : return "NSNumber(unsignedInt:" + value + ")";
+            case FieldDescriptor::TYPE_SFIXED32: return "NSNumber(int:" + value + ")";
+                
+            case FieldDescriptor::TYPE_INT64   : return "\"\\(" + value + ")\"";
+            case FieldDescriptor::TYPE_UINT64  : return "\"\\(" + value + ")\"";
+            case FieldDescriptor::TYPE_SINT64  : return "\"\\(" + value + ")\"";
+            case FieldDescriptor::TYPE_FIXED64 : return "\"\\(" + value + ")\"";
+            case FieldDescriptor::TYPE_SFIXED64: return "\"\\(" + value + ")\"";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return "NSNumber(float:" + value + ")";
+            case FieldDescriptor::TYPE_DOUBLE  : return "NSNumber(double:" + value + ")";
+            case FieldDescriptor::TYPE_BOOL    : return value;
+            case FieldDescriptor::TYPE_STRING  : return value;
+            case FieldDescriptor::TYPE_BYTES   : return value + ".base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))";
+            case FieldDescriptor::TYPE_ENUM: return value + ".toString()";
+            case FieldDescriptor::TYPE_GROUP:
+            case FieldDescriptor::TYPE_MESSAGE: return "try " + value + ".encode()";
+
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
     }
 
 }  // namespace swift

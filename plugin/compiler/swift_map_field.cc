@@ -40,28 +40,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             
             
             std::string name = UnderscoresToCamelCase(descriptor);
-            
-          
-//
-
-//
-//            (*variables)["storage_type"] = MapKeyName(descriptor);
-//            (*variables)["storage_attribute"] = "";
-//            if (isOneOfField(descriptor)) {
-//                const OneofDescriptor* oneof = descriptor->containing_oneof();
-//                (*variables)["oneof_name"] = UnderscoresToCapitalizedCamelCase(oneof->name());
-//                (*variables)["oneof_class_name"] = ClassNameOneof(oneof);
-//            }
-//            
-            
-
-//
-      
+            std::string capname = UnderscoresToCapitalizedCamelCase(descriptor);
             
             const FieldDescriptor* key_descriptor = descriptor->message_type()->FindFieldByName("key");
             const FieldDescriptor* value_descriptor = descriptor->message_type()->FindFieldByName("value");
             
-            (*variables)["capitalized_name"] = UnderscoresToCapitalizedCamelCase(descriptor);
+            (*variables)["capitalized_name"] = capname;
             (*variables)["keyType"] = MapKeyName(key_descriptor);
             (*variables)["valueType"] = MapValueName(value_descriptor);
             (*variables)["containing_class"] = ClassNameReturedType(descriptor->containing_type());
@@ -74,10 +58,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->containing_type()->file());
             (* variables)["acontrolFunc"] = GetAccessControlType(descriptor->containing_type()->file());
             (* variables)["type"] =  "Dictionary<" + MapKeyName(key_descriptor) + "," + MapValueName(value_descriptor) + ">";
+            
+            //JSON
+            (*variables)["json_name"] = descriptor->json_name();
+//            (*variables)["to_json_value_key"] = ToJSONValue(key_descriptor, name);
+            (*variables)["to_json_value_value"] = ToJSONValue(value_descriptor, "value" + capname);
+            (*variables)["from_json_value"] = FromJSONValue(value_descriptor, "value" + capname);
+            (*variables)["from_json_key_value"] = FromJSONMapKeyValue(key_descriptor, "key" + capname);
+            (*variables)["json_casting_type_value"] = JSONCastingValue(value_descriptor);
+            ///
            
-//            (*variables)["tag"] = SimpleItoa(WireFormat::MakeTag(descriptor));
-//            (*variables)["tag_size"] = SimpleItoa(WireFormat::TagSize(descriptor->number(), descriptor->type()));
-
         }
     }  // namespace
     
@@ -176,6 +166,30 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  output += \"\\(indent) $name$: \\($name$) \\n\"\n"
                        "}\n");
     }
+    
+    void MapFieldGenerator::GenerateJSONEncodeCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if has$capitalized_name$ {\n"
+                       "    var map$capitalized_name$ = Dictionary<String, $json_casting_type_value$>()\n"
+                       "    for (key$capitalized_name$, value$capitalized_name$) in $name$ {\n"
+                       "        map$capitalized_name$[\"\\(key$capitalized_name$)\"] = $to_json_value_value$\n"
+                       "    }\n"
+                       "    jsonMap[\"$json_name$\"] = map$capitalized_name$\n"
+                       "}\n");
+    }
+    
+    void MapFieldGenerator::GenerateJSONDecodeCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? Dictionary<String, $json_casting_type_value$> {\n"
+                       "    var map$capitalized_name$ = Dictionary<$keyType$, $valueType$>()\n"
+                       "    for (key$capitalized_name$, value$capitalized_name$) in jsonValue$capitalized_name$ {\n"
+                       "        let keyFrom$capitalized_name$ = $from_json_key_value$\n"
+                       "        map$capitalized_name$[keyFrom$capitalized_name$] = $from_json_value$\n"
+                       "    }\n"
+                       "    resultDecodedBuilder.$name$ = map$capitalized_name$\n"
+                       "}\n");
+    }
+    
     
     void MapFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
