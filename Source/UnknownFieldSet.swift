@@ -80,15 +80,17 @@ public class UnknownFieldSet:Hashable,Equatable
         try codedOutput.flush()
     }
     
-    public func writeDescriptionTo(inout output:String, indent:String)
+    public func getDescription(indent:String) -> String
     {
+        var output = ""
         var sortedKeys = Array(fields.keys)
         sortedKeys.sortInPlace { $0 < $1 }
         for number in sortedKeys
         {
             let value:Field = fields[number]!
-            value.writeDescriptionFor(number, outputString: &output, indent: indent)
+            output += value.getDescription(number, indent: indent)
         }
+        return output
     }
     
     public class func builder() -> UnknownFieldSet.Builder {

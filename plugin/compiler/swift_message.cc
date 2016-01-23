@@ -424,9 +424,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
              ExtensionRangeOrdering());
         
         printer->Print(
-                       "override $acontrol$ func writeDescriptionTo(inout output:String, indent:String) throws {\n","acontrol", GetAccessControlType(descriptor_->file()));
-        
+                       "override $acontrol$ func getDescription(indent:String) throws -> String {\n","acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
+        printer->Print("var output:String = \"\"\n");
         
         for (int i = 0, j = 0;
              i < descriptor_->field_count() || j < sorted_extensions.size(); ) {
@@ -441,11 +441,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             }
         }
         
-        printer->Print("unknownFields.writeDescriptionTo(&output, indent:indent)\n");
-        
+        printer->Print("output += unknownFields.getDescription(indent)\n");
+        printer->Print("return output\n");
         printer->Outdent();
-        printer->Print(
-                       "}\n");
+        printer->Print("}\n");
     }
     
     
@@ -609,7 +608,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateDescriptionOneExtensionRangeSource(io::Printer* printer, const Descriptor::ExtensionRange* range) {
         printer->Print(
-                       "try writeExtensionDescription(&output, startInclusive:Int32($from$), endExclusive:Int32($to$), indent:indent)\n",
+                       "output += try getExtensionDescription(Int32($from$), endExclusive:Int32($to$), indent:indent)\n",
                        "from", SimpleItoa(range->start),
                        "to", SimpleItoa(range->end));
     }

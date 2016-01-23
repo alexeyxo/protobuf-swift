@@ -132,7 +132,7 @@ extension GeneratedMessage:CustomStringConvertible
     public var description:String {
         get {
             var output:String = ""
-            try! writeDescriptionTo(&output, indent:"")
+            output += try! getDescription("")
             return output
         }
     }

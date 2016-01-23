@@ -88,7 +88,7 @@ public class CodedOutputStream
     public func writeDoubleNoTag(value:Double) throws
     {
         var returnValue:Int64 = 0
-        WireFormat.convertTypes(convertValue: value, retValue: &returnValue)
+        returnValue = WireFormat.convertTypes(convertValue: value, defaultValue:returnValue)
         try writeRawLittleEndian64(returnValue)
     }
     
@@ -100,9 +100,8 @@ public class CodedOutputStream
     
     public func writeFloatNoTag(value:Float) throws
     {
-        let convertValue = value
         var returnValue:Int32 = 0
-        WireFormat.convertTypes(convertValue: convertValue, retValue: &returnValue)
+        returnValue = WireFormat.convertTypes(convertValue: value, defaultValue:returnValue)
         try writeRawLittleEndian32(returnValue)
     }
     
@@ -115,7 +114,7 @@ public class CodedOutputStream
     public func writeUInt64NoTag(value:UInt64) throws
     {
         var retvalue:Int64 = 0
-        WireFormat.convertTypes(convertValue: value, retValue: &retvalue)
+        retvalue = WireFormat.convertTypes(convertValue: value, defaultValue:retvalue)
         try writeRawVarint64(retvalue)
     }
     
@@ -155,7 +154,7 @@ public class CodedOutputStream
     public func writeFixed64NoTag(value:UInt64) throws
     {
         var retvalue:Int64 = 0
-        WireFormat.convertTypes(convertValue: value, retValue: &retvalue)
+        retvalue = WireFormat.convertTypes(convertValue: value, defaultValue:retvalue)
         try writeRawLittleEndian64(retvalue)
     }
     
@@ -168,7 +167,7 @@ public class CodedOutputStream
     public func writeFixed32NoTag(value:UInt32) throws
     {
         var retvalue:Int32 = 0
-        WireFormat.convertTypes(convertValue: value, retValue: &retvalue)
+        retvalue = WireFormat.convertTypes(convertValue: value, defaultValue:retvalue)
         try writeRawLittleEndian32(retvalue)
     }
     
@@ -253,7 +252,7 @@ public class CodedOutputStream
     public func writeUInt32NoTag(value:UInt32) throws
     {
         var retvalue:Int32 = 0
-        WireFormat.convertTypes(convertValue: value, retValue: &retvalue)
+        retvalue = WireFormat.convertTypes(convertValue: value, defaultValue:retvalue)
         try writeRawVarint32(retvalue)
     }
     

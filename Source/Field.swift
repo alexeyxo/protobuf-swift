@@ -85,24 +85,24 @@ public func ==(lhs:Field, rhs:Field) -> Bool
 //    func +=(inout left:Field, right:UInt32)
 //}
 
-public func +=(inout left:Field, right:Int64)
+public func +=(left:Field, right:Int64)
 {
     left.variantArray += [right]
 }
 
-public func +=(inout left:Field, right:Int32)
+public func +=(left:Field, right:Int32)
 {
     var result:Int64  = 0
-    WireFormat.convertTypes(convertValue: right, retValue: &result)
+    result = WireFormat.convertTypes(convertValue: right, defaultValue:result)
     left.variantArray += [result]
 }
 
-public func +=(inout left:Field, right:UInt32)
+public func +=(left:Field, right:UInt32)
 {
     left.fixed32Array += [UInt32(right)]
 }
 
-public func +=(inout left:Field, right:UInt64)
+public func +=(left:Field, right:UInt64)
 {
     left.fixed64Array += [UInt64(right)]
 }
@@ -193,9 +193,9 @@ final public class Field:Equatable,Hashable
 
     }
     
-    public func writeDescriptionFor(fieldNumber:Int32,  inout outputString:String, indent:String)
+    public func getDescription(fieldNumber:Int32, indent:String) -> String
     {
-        
+        var outputString = ""
         for value in variantArray
         {
             outputString += "\(indent)\(fieldNumber): \(value)\n"
@@ -219,9 +219,10 @@ final public class Field:Equatable,Hashable
         for value in groupArray
         {
             outputString += "\(indent)\(fieldNumber)[\n"
-            value.writeDescriptionTo(&outputString, indent: indent)
+            outputString += value.getDescription(indent)
             outputString += "\(indent)]"
         }
+        return outputString
 
     }
     
