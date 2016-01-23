@@ -95,10 +95,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Empty.Builder {
       return classBuilder() as! Google.Protobuf.Empty.Builder
     }
-    public override class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Empty.Builder()
     }
-    public override func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Empty.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Empty.Builder {
@@ -115,8 +115,11 @@ public extension Google.Protobuf {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override public class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Empty {
+    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Empty {
       return try Google.Protobuf.Empty.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class public func fromJSON(data:NSData) throws -> Google.Protobuf.Empty {
+      return try Google.Protobuf.Empty.Builder.fromJSONToBuilder(data).build()
     }
     override public func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -157,14 +160,14 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
-      public override func clear() -> Google.Protobuf.Empty.Builder {
+      override public func clear() -> Google.Protobuf.Empty.Builder {
         builderResult = Google.Protobuf.Empty()
         return self
       }
-      public override func clone() throws -> Google.Protobuf.Empty.Builder {
+      override public func clone() throws -> Google.Protobuf.Empty.Builder {
         return try Google.Protobuf.Empty.builderWithPrototype(builderResult)
       }
-      public override func build() throws -> Google.Protobuf.Empty {
+      override public func build() throws -> Google.Protobuf.Empty {
            try checkInitialized()
            return buildPartial()
       }
@@ -179,10 +182,10 @@ public extension Google.Protobuf {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Empty.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Empty.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Empty.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Empty.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -202,6 +205,13 @@ public extension Google.Protobuf {
       override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Empty.Builder {
         let resultDecodedBuilder = Google.Protobuf.Empty.Builder()
         return resultDecodedBuilder
+      }
+      override class public func fromJSONToBuilder(data:NSData) throws -> Google.Protobuf.Empty.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try Google.Protobuf.Empty.Builder.decodeToBuilder(jsDataCast)
       }
     }
 

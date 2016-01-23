@@ -100,10 +100,10 @@ internal extension Baz {
     internal func getBuilder() -> Baz.Foo.Builder {
       return classBuilder() as! Baz.Foo.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return Baz.Foo.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return Baz.Foo.Builder()
     }
     internal func toBuilder() throws -> Baz.Foo.Builder {
@@ -123,8 +123,11 @@ internal extension Baz {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Baz.Foo {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Baz.Foo {
       return try Baz.Foo.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> Baz.Foo {
+      return try Baz.Foo.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasHello {
@@ -194,14 +197,14 @@ internal extension Baz {
               return builderResult
            }
       }
-      internal override func clear() -> Baz.Foo.Builder {
+      override internal func clear() -> Baz.Foo.Builder {
         builderResult = Baz.Foo()
         return self
       }
-      internal override func clone() throws -> Baz.Foo.Builder {
+      override internal func clone() throws -> Baz.Foo.Builder {
         return try Baz.Foo.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> Baz.Foo {
+      override internal func build() throws -> Baz.Foo {
            try checkInitialized()
            return buildPartial()
       }
@@ -219,10 +222,10 @@ internal extension Baz {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Baz.Foo.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> Baz.Foo.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -248,6 +251,13 @@ internal extension Baz {
           resultDecodedBuilder.hello = jsonValueHello
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> Baz.Foo.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try Baz.Foo.Builder.decodeToBuilder(jsDataCast)
       }
     }
 

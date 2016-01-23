@@ -97,10 +97,10 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
   internal func getBuilder() -> ThreadingMessages.Builder {
     return classBuilder() as! ThreadingMessages.Builder
   }
-  internal override class func classBuilder() -> MessageBuilder {
+  override internal class func classBuilder() -> MessageBuilder {
     return ThreadingMessages.Builder()
   }
-  internal override func classBuilder() -> MessageBuilder {
+  override internal func classBuilder() -> MessageBuilder {
     return ThreadingMessages.Builder()
   }
   internal func toBuilder() throws -> ThreadingMessages.Builder {
@@ -120,8 +120,11 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
     }
     return jsonMap
   }
-  override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ThreadingMessages {
+  override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder.decodeToBuilder(jsonMap).build()
+  }
+  override class internal func fromJSON(data:NSData) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder.fromJSONToBuilder(data).build()
   }
   override internal func writeDescriptionTo(inout output:String, indent:String) throws {
     if hasTestString {
@@ -191,14 +194,14 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
             return builderResult
          }
     }
-    internal override func clear() -> ThreadingMessages.Builder {
+    override internal func clear() -> ThreadingMessages.Builder {
       builderResult = ThreadingMessages()
       return self
     }
-    internal override func clone() throws -> ThreadingMessages.Builder {
+    override internal func clone() throws -> ThreadingMessages.Builder {
       return try ThreadingMessages.builderWithPrototype(builderResult)
     }
-    internal override func build() throws -> ThreadingMessages {
+    override internal func build() throws -> ThreadingMessages {
          try checkInitialized()
          return buildPartial()
     }
@@ -216,10 +219,10 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
       try mergeUnknownFields(other.unknownFields)
       return self
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ThreadingMessages.Builder {
+    override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ThreadingMessages.Builder {
          return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages.Builder {
+    override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         let tag = try input.readTag()
@@ -245,6 +248,13 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
         resultDecodedBuilder.testString = jsonValueTestString
       }
       return resultDecodedBuilder
+    }
+    override class internal func fromJSONToBuilder(data:NSData) throws -> ThreadingMessages.Builder {
+      let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+      }
+      return try ThreadingMessages.Builder.decodeToBuilder(jsDataCast)
     }
   }
 

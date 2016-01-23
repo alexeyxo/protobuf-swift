@@ -100,10 +100,10 @@ internal extension Bar {
     internal func getBuilder() -> Bar.Foo.Builder {
       return classBuilder() as! Bar.Foo.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return Bar.Foo.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return Bar.Foo.Builder()
     }
     internal func toBuilder() throws -> Bar.Foo.Builder {
@@ -123,8 +123,11 @@ internal extension Bar {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Bar.Foo {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Bar.Foo {
       return try Bar.Foo.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> Bar.Foo {
+      return try Bar.Foo.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasHello {
@@ -194,14 +197,14 @@ internal extension Bar {
               return builderResult
            }
       }
-      internal override func clear() -> Bar.Foo.Builder {
+      override internal func clear() -> Bar.Foo.Builder {
         builderResult = Bar.Foo()
         return self
       }
-      internal override func clone() throws -> Bar.Foo.Builder {
+      override internal func clone() throws -> Bar.Foo.Builder {
         return try Bar.Foo.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> Bar.Foo {
+      override internal func build() throws -> Bar.Foo {
            try checkInitialized()
            return buildPartial()
       }
@@ -219,10 +222,10 @@ internal extension Bar {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Bar.Foo.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> Bar.Foo.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -248,6 +251,13 @@ internal extension Bar {
           resultDecodedBuilder.hello = jsonValueHello
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> Bar.Foo.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try Bar.Foo.Builder.decodeToBuilder(jsDataCast)
       }
     }
 

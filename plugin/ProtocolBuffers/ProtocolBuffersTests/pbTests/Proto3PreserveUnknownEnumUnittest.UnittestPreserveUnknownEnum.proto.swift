@@ -304,10 +304,10 @@ internal extension Proto3PreserveUnknownEnumUnittest {
     internal func getBuilder() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
       return classBuilder() as! Proto3PreserveUnknownEnumUnittest.MyMessage.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return Proto3PreserveUnknownEnumUnittest.MyMessage.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return Proto3PreserveUnknownEnumUnittest.MyMessage.Builder()
     }
     internal func toBuilder() throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
@@ -354,8 +354,11 @@ internal extension Proto3PreserveUnknownEnumUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
       return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if (hasE) {
@@ -555,14 +558,14 @@ internal extension Proto3PreserveUnknownEnumUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+      override internal func clear() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         builderResult = Proto3PreserveUnknownEnumUnittest.MyMessage()
         return self
       }
-      internal override func clone() throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+      override internal func clone() throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         return try Proto3PreserveUnknownEnumUnittest.MyMessage.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+      override internal func build() throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -595,10 +598,10 @@ internal extension Proto3PreserveUnknownEnumUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -704,6 +707,13 @@ internal extension Proto3PreserveUnknownEnumUnittest {
           resultDecodedBuilder.oneofE2 = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(jsonValueOneofE2)
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -908,10 +918,10 @@ internal extension Proto3PreserveUnknownEnumUnittest {
     internal func getBuilder() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
       return classBuilder() as! Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder()
     }
     internal func toBuilder() throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
@@ -958,8 +968,11 @@ internal extension Proto3PreserveUnknownEnumUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
       return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if (hasE) {
@@ -1159,14 +1172,14 @@ internal extension Proto3PreserveUnknownEnumUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+      override internal func clear() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         builderResult = Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra()
         return self
       }
-      internal override func clone() throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+      override internal func clone() throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+      override internal func build() throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
            try checkInitialized()
            return buildPartial()
       }
@@ -1199,10 +1212,10 @@ internal extension Proto3PreserveUnknownEnumUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -1313,6 +1326,13 @@ internal extension Proto3PreserveUnknownEnumUnittest {
           resultDecodedBuilder.oneofE2 = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(jsonValueOneofE2)
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder.decodeToBuilder(jsDataCast)
       }
     }
 

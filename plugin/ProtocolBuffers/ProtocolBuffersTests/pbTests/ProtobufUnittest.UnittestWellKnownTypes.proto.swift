@@ -211,10 +211,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.TestWellKnownTypes.Builder {
       return classBuilder() as! ProtobufUnittest.TestWellKnownTypes.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestWellKnownTypes.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestWellKnownTypes.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
@@ -261,8 +261,11 @@ internal extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestWellKnownTypes {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestWellKnownTypes {
       return try ProtobufUnittest.TestWellKnownTypes.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.TestWellKnownTypes {
+      return try ProtobufUnittest.TestWellKnownTypes.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasAnyField {
@@ -913,14 +916,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      override internal func clear() -> ProtobufUnittest.TestWellKnownTypes.Builder {
         builderResult = ProtobufUnittest.TestWellKnownTypes()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      override internal func clone() throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         return try ProtobufUnittest.TestWellKnownTypes.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.TestWellKnownTypes {
+      override internal func build() throws -> ProtobufUnittest.TestWellKnownTypes {
            try checkInitialized()
            return buildPartial()
       }
@@ -965,10 +968,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -1108,6 +1111,13 @@ internal extension ProtobufUnittest {
 
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.TestWellKnownTypes.Builder.decodeToBuilder(jsDataCast)
       }
     }
 

@@ -155,10 +155,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Timestamp.Builder {
       return classBuilder() as! Google.Protobuf.Timestamp.Builder
     }
-    public override class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Timestamp.Builder()
     }
-    public override func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> MessageBuilder {
       return Google.Protobuf.Timestamp.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Timestamp.Builder {
@@ -181,8 +181,11 @@ public extension Google.Protobuf {
       }
       return jsonMap
     }
-    override public class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Timestamp {
+    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Timestamp {
       return try Google.Protobuf.Timestamp.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class public func fromJSON(data:NSData) throws -> Google.Protobuf.Timestamp {
+      return try Google.Protobuf.Timestamp.Builder.fromJSONToBuilder(data).build()
     }
     override public func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasSeconds {
@@ -281,14 +284,14 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
-      public override func clear() -> Google.Protobuf.Timestamp.Builder {
+      override public func clear() -> Google.Protobuf.Timestamp.Builder {
         builderResult = Google.Protobuf.Timestamp()
         return self
       }
-      public override func clone() throws -> Google.Protobuf.Timestamp.Builder {
+      override public func clone() throws -> Google.Protobuf.Timestamp.Builder {
         return try Google.Protobuf.Timestamp.builderWithPrototype(builderResult)
       }
-      public override func build() throws -> Google.Protobuf.Timestamp {
+      override public func build() throws -> Google.Protobuf.Timestamp {
            try checkInitialized()
            return buildPartial()
       }
@@ -309,10 +312,10 @@ public extension Google.Protobuf {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Timestamp.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Timestamp.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -344,6 +347,13 @@ public extension Google.Protobuf {
           resultDecodedBuilder.nanos = jsonValueNanos.intValue
         }
         return resultDecodedBuilder
+      }
+      override class public func fromJSONToBuilder(data:NSData) throws -> Google.Protobuf.Timestamp.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try Google.Protobuf.Timestamp.Builder.decodeToBuilder(jsDataCast)
       }
     }
 

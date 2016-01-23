@@ -41,6 +41,22 @@ class GeneratedMessageTests: XCTestCase {
         
     }
     
+    func testAccessorsJSON()
+    {
+        let builder = ProtobufUnittest.TestAllTypes.Builder()
+        do {
+            try TestUtilities.setAllFields(builder)
+            let message = try builder.build()
+            let messageData = try message.toJSON()
+            let message2 = try ProtobufUnittest.TestAllTypes.fromJSON(messageData)
+            TestUtilities.assertAllFieldsSet(message2)
+        }
+        catch {
+            XCTFail("testAccessorsJSON")
+        }
+        
+    }
+    
     func testRepeatedAppend()
     {
         

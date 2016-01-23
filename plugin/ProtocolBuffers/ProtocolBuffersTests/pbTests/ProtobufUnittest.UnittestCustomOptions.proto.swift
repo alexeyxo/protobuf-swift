@@ -886,10 +886,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
       return classBuilder() as! ProtobufUnittest.TestMessageWithCustomOptions.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestMessageWithCustomOptions.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestMessageWithCustomOptions.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
@@ -909,8 +909,11 @@ internal extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
       return try ProtobufUnittest.TestMessageWithCustomOptions.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
+      return try ProtobufUnittest.TestMessageWithCustomOptions.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasField1 {
@@ -980,14 +983,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
+      override internal func clear() -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
         builderResult = ProtobufUnittest.TestMessageWithCustomOptions()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
+      override internal func clone() throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
         return try ProtobufUnittest.TestMessageWithCustomOptions.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.TestMessageWithCustomOptions {
+      override internal func build() throws -> ProtobufUnittest.TestMessageWithCustomOptions {
            try checkInitialized()
            return buildPartial()
       }
@@ -1005,10 +1008,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -1034,6 +1037,13 @@ internal extension ProtobufUnittest {
           resultDecodedBuilder.field1 = jsonValueField1
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.TestMessageWithCustomOptions.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -1096,10 +1106,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.CustomOptionFooRequest.Builder {
       return classBuilder() as! ProtobufUnittest.CustomOptionFooRequest.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionFooRequest.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionFooRequest.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
@@ -1116,8 +1126,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooRequest {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooRequest {
       return try ProtobufUnittest.CustomOptionFooRequest.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionFooRequest {
+      return try ProtobufUnittest.CustomOptionFooRequest.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -1158,14 +1171,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.CustomOptionFooRequest.Builder {
+      override internal func clear() -> ProtobufUnittest.CustomOptionFooRequest.Builder {
         builderResult = ProtobufUnittest.CustomOptionFooRequest()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
+      override internal func clone() throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
         return try ProtobufUnittest.CustomOptionFooRequest.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.CustomOptionFooRequest {
+      override internal func build() throws -> ProtobufUnittest.CustomOptionFooRequest {
            try checkInitialized()
            return buildPartial()
       }
@@ -1180,10 +1193,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -1203,6 +1216,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionFooRequest.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.CustomOptionFooRequest.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -1263,10 +1283,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.CustomOptionFooResponse.Builder {
       return classBuilder() as! ProtobufUnittest.CustomOptionFooResponse.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionFooResponse.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionFooResponse.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
@@ -1283,8 +1303,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooResponse {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooResponse {
       return try ProtobufUnittest.CustomOptionFooResponse.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionFooResponse {
+      return try ProtobufUnittest.CustomOptionFooResponse.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -1325,14 +1348,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.CustomOptionFooResponse.Builder {
+      override internal func clear() -> ProtobufUnittest.CustomOptionFooResponse.Builder {
         builderResult = ProtobufUnittest.CustomOptionFooResponse()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
+      override internal func clone() throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
         return try ProtobufUnittest.CustomOptionFooResponse.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.CustomOptionFooResponse {
+      override internal func build() throws -> ProtobufUnittest.CustomOptionFooResponse {
            try checkInitialized()
            return buildPartial()
       }
@@ -1347,10 +1370,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -1370,6 +1393,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionFooResponse.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.CustomOptionFooResponse.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -1430,10 +1460,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
       return classBuilder() as! ProtobufUnittest.CustomOptionFooClientMessage.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionFooClientMessage.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionFooClientMessage.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
@@ -1450,8 +1480,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
       return try ProtobufUnittest.CustomOptionFooClientMessage.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
+      return try ProtobufUnittest.CustomOptionFooClientMessage.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -1492,14 +1525,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
+      override internal func clear() -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
         builderResult = ProtobufUnittest.CustomOptionFooClientMessage()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
+      override internal func clone() throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
         return try ProtobufUnittest.CustomOptionFooClientMessage.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.CustomOptionFooClientMessage {
+      override internal func build() throws -> ProtobufUnittest.CustomOptionFooClientMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -1514,10 +1547,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -1537,6 +1570,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionFooClientMessage.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.CustomOptionFooClientMessage.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -1597,10 +1637,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
       return classBuilder() as! ProtobufUnittest.CustomOptionFooServerMessage.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionFooServerMessage.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionFooServerMessage.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
@@ -1617,8 +1657,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
       return try ProtobufUnittest.CustomOptionFooServerMessage.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
+      return try ProtobufUnittest.CustomOptionFooServerMessage.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -1659,14 +1702,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
+      override internal func clear() -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
         builderResult = ProtobufUnittest.CustomOptionFooServerMessage()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
+      override internal func clone() throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
         return try ProtobufUnittest.CustomOptionFooServerMessage.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.CustomOptionFooServerMessage {
+      override internal func build() throws -> ProtobufUnittest.CustomOptionFooServerMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -1681,10 +1724,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -1704,6 +1747,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionFooServerMessage.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.CustomOptionFooServerMessage.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -1788,10 +1838,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
       return classBuilder() as! ProtobufUnittest.DummyMessageContainingEnum.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.DummyMessageContainingEnum.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.DummyMessageContainingEnum.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
@@ -1808,8 +1858,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.DummyMessageContainingEnum {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.DummyMessageContainingEnum {
       return try ProtobufUnittest.DummyMessageContainingEnum.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.DummyMessageContainingEnum {
+      return try ProtobufUnittest.DummyMessageContainingEnum.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -1850,14 +1903,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
+      override internal func clear() -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
         builderResult = ProtobufUnittest.DummyMessageContainingEnum()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
+      override internal func clone() throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
         return try ProtobufUnittest.DummyMessageContainingEnum.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.DummyMessageContainingEnum {
+      override internal func build() throws -> ProtobufUnittest.DummyMessageContainingEnum {
            try checkInitialized()
            return buildPartial()
       }
@@ -1872,10 +1925,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -1895,6 +1948,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
         let resultDecodedBuilder = ProtobufUnittest.DummyMessageContainingEnum.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.DummyMessageContainingEnum.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -1955,10 +2015,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
       return classBuilder() as! ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
@@ -1975,8 +2035,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+      return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -2017,14 +2080,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
+      override internal func clear() -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
         builderResult = ProtobufUnittest.DummyMessageInvalidAsOptionType()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
+      override internal func clone() throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
         return try ProtobufUnittest.DummyMessageInvalidAsOptionType.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+      override internal func build() throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
            try checkInitialized()
            return buildPartial()
       }
@@ -2039,10 +2102,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -2062,6 +2125,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
         let resultDecodedBuilder = ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -2122,10 +2192,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
       return classBuilder() as! ProtobufUnittest.CustomOptionMinIntegerValues.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionMinIntegerValues.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionMinIntegerValues.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
@@ -2142,8 +2212,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
+      return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -2184,14 +2257,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
+      override internal func clear() -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
         builderResult = ProtobufUnittest.CustomOptionMinIntegerValues()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
+      override internal func clone() throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
         return try ProtobufUnittest.CustomOptionMinIntegerValues.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
+      override internal func build() throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
            try checkInitialized()
            return buildPartial()
       }
@@ -2206,10 +2279,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -2229,6 +2302,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionMinIntegerValues.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -2289,10 +2369,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
       return classBuilder() as! ProtobufUnittest.CustomOptionMaxIntegerValues.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionMaxIntegerValues.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionMaxIntegerValues.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
@@ -2309,8 +2389,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+      return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -2351,14 +2434,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
+      override internal func clear() -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
         builderResult = ProtobufUnittest.CustomOptionMaxIntegerValues()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
+      override internal func clone() throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
         return try ProtobufUnittest.CustomOptionMaxIntegerValues.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+      override internal func build() throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
            try checkInitialized()
            return buildPartial()
       }
@@ -2373,10 +2456,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -2396,6 +2479,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionMaxIntegerValues.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -2456,10 +2546,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.CustomOptionOtherValues.Builder {
       return classBuilder() as! ProtobufUnittest.CustomOptionOtherValues.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionOtherValues.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.CustomOptionOtherValues.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
@@ -2476,8 +2566,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionOtherValues {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionOtherValues {
       return try ProtobufUnittest.CustomOptionOtherValues.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionOtherValues {
+      return try ProtobufUnittest.CustomOptionOtherValues.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -2518,14 +2611,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.CustomOptionOtherValues.Builder {
+      override internal func clear() -> ProtobufUnittest.CustomOptionOtherValues.Builder {
         builderResult = ProtobufUnittest.CustomOptionOtherValues()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
+      override internal func clone() throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
         return try ProtobufUnittest.CustomOptionOtherValues.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.CustomOptionOtherValues {
+      override internal func build() throws -> ProtobufUnittest.CustomOptionOtherValues {
            try checkInitialized()
            return buildPartial()
       }
@@ -2540,10 +2633,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -2563,6 +2656,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionOtherValues.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.CustomOptionOtherValues.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -2623,10 +2723,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
       return classBuilder() as! ProtobufUnittest.SettingRealsFromPositiveInts.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.SettingRealsFromPositiveInts.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.SettingRealsFromPositiveInts.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
@@ -2643,8 +2743,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
+      return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -2685,14 +2788,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
+      override internal func clear() -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
         builderResult = ProtobufUnittest.SettingRealsFromPositiveInts()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
+      override internal func clone() throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
         return try ProtobufUnittest.SettingRealsFromPositiveInts.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
+      override internal func build() throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
            try checkInitialized()
            return buildPartial()
       }
@@ -2707,10 +2810,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -2730,6 +2833,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
         let resultDecodedBuilder = ProtobufUnittest.SettingRealsFromPositiveInts.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -2790,10 +2900,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
       return classBuilder() as! ProtobufUnittest.SettingRealsFromNegativeInts.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.SettingRealsFromNegativeInts.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.SettingRealsFromNegativeInts.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
@@ -2810,8 +2920,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
+      return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -2852,14 +2965,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
+      override internal func clear() -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
         builderResult = ProtobufUnittest.SettingRealsFromNegativeInts()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
+      override internal func clone() throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
         return try ProtobufUnittest.SettingRealsFromNegativeInts.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
+      override internal func build() throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
            try checkInitialized()
            return buildPartial()
       }
@@ -2874,10 +2987,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -2897,6 +3010,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
         let resultDecodedBuilder = ProtobufUnittest.SettingRealsFromNegativeInts.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -3001,10 +3121,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.ComplexOptionType1.Builder {
       return classBuilder() as! ProtobufUnittest.ComplexOptionType1.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.ComplexOptionType1.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.ComplexOptionType1.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.ComplexOptionType1.Builder {
@@ -3037,8 +3157,11 @@ internal extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType1 {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType1 {
       return try ProtobufUnittest.ComplexOptionType1.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.ComplexOptionType1 {
+      return try ProtobufUnittest.ComplexOptionType1.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasFoo {
@@ -3192,14 +3315,14 @@ internal extension ProtobufUnittest {
                return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.ComplexOptionType1.Builder {
+      override internal func clear() -> ProtobufUnittest.ComplexOptionType1.Builder {
         builderResult = ProtobufUnittest.ComplexOptionType1()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.ComplexOptionType1.Builder {
+      override internal func clone() throws -> ProtobufUnittest.ComplexOptionType1.Builder {
         return try ProtobufUnittest.ComplexOptionType1.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.ComplexOptionType1 {
+      override internal func build() throws -> ProtobufUnittest.ComplexOptionType1 {
            try checkInitialized()
            return buildPartial()
       }
@@ -3227,10 +3350,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -3278,6 +3401,13 @@ internal extension ProtobufUnittest {
           resultDecodedBuilder.foo4 = jsonArrayFoo4
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.ComplexOptionType1.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -3355,10 +3485,10 @@ internal extension ProtobufUnittest {
         internal func getBuilder() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
           return classBuilder() as! ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder
         }
-        internal override class func classBuilder() -> MessageBuilder {
+        override internal class func classBuilder() -> MessageBuilder {
           return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder()
         }
-        internal override func classBuilder() -> MessageBuilder {
+        override internal func classBuilder() -> MessageBuilder {
           return ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder()
         }
         internal func toBuilder() throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
@@ -3378,8 +3508,11 @@ internal extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+        override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder.decodeToBuilder(jsonMap).build()
+        }
+        override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+          return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder.fromJSONToBuilder(data).build()
         }
         override internal func writeDescriptionTo(inout output:String, indent:String) throws {
           if hasWaldo {
@@ -3449,14 +3582,14 @@ internal extension ProtobufUnittest {
                   return builderResult
                }
           }
-          internal override func clear() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
+          override internal func clear() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
             builderResult = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4()
             return self
           }
-          internal override func clone() throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
+          override internal func clone() throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
             return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builderWithPrototype(builderResult)
           }
-          internal override func build() throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+          override internal func build() throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
                try checkInitialized()
                return buildPartial()
           }
@@ -3474,10 +3607,10 @@ internal extension ProtobufUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
+          override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
+          override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let tag = try input.readTag()
@@ -3503,6 +3636,13 @@ internal extension ProtobufUnittest {
               resultDecodedBuilder.waldo = jsonValueWaldo.intValue
             }
             return resultDecodedBuilder
+          }
+          override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
+            let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+            guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+              throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+            }
+            return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder.decodeToBuilder(jsDataCast)
           }
         }
 
@@ -3610,10 +3750,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.ComplexOptionType2.Builder {
       return classBuilder() as! ProtobufUnittest.ComplexOptionType2.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.ComplexOptionType2.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.ComplexOptionType2.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.ComplexOptionType2.Builder {
@@ -3647,8 +3787,11 @@ internal extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType2 {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType2 {
       return try ProtobufUnittest.ComplexOptionType2.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.ComplexOptionType2 {
+      return try ProtobufUnittest.ComplexOptionType2.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasBar {
@@ -3868,14 +4011,14 @@ internal extension ProtobufUnittest {
                return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.ComplexOptionType2.Builder {
+      override internal func clear() -> ProtobufUnittest.ComplexOptionType2.Builder {
         builderResult = ProtobufUnittest.ComplexOptionType2()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.ComplexOptionType2.Builder {
+      override internal func clone() throws -> ProtobufUnittest.ComplexOptionType2.Builder {
         return try ProtobufUnittest.ComplexOptionType2.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.ComplexOptionType2 {
+      override internal func build() throws -> ProtobufUnittest.ComplexOptionType2 {
            try checkInitialized()
            return buildPartial()
       }
@@ -3903,10 +4046,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -3970,6 +4113,13 @@ internal extension ProtobufUnittest {
           resultDecodedBuilder.barney = jsonArrayBarney
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.ComplexOptionType2.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -4044,10 +4194,10 @@ internal extension ProtobufUnittest {
         internal func getBuilder() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
           return classBuilder() as! ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder
         }
-        internal override class func classBuilder() -> MessageBuilder {
+        override internal class func classBuilder() -> MessageBuilder {
           return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder()
         }
-        internal override func classBuilder() -> MessageBuilder {
+        override internal func classBuilder() -> MessageBuilder {
           return ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder()
         }
         internal func toBuilder() throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
@@ -4067,8 +4217,11 @@ internal extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+        override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder.decodeToBuilder(jsonMap).build()
+        }
+        override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+          return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder.fromJSONToBuilder(data).build()
         }
         override internal func writeDescriptionTo(inout output:String, indent:String) throws {
           if hasPlugh {
@@ -4138,14 +4291,14 @@ internal extension ProtobufUnittest {
                   return builderResult
                }
           }
-          internal override func clear() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
+          override internal func clear() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
             builderResult = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5()
             return self
           }
-          internal override func clone() throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
+          override internal func clone() throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
             return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builderWithPrototype(builderResult)
           }
-          internal override func build() throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+          override internal func build() throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
                try checkInitialized()
                return buildPartial()
           }
@@ -4163,10 +4316,10 @@ internal extension ProtobufUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
+          override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
+          override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let tag = try input.readTag()
@@ -4192,6 +4345,13 @@ internal extension ProtobufUnittest {
               resultDecodedBuilder.plugh = jsonValuePlugh.intValue
             }
             return resultDecodedBuilder
+          }
+          override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
+            let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+            guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+              throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+            }
+            return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder.decodeToBuilder(jsDataCast)
           }
         }
 
@@ -4272,10 +4432,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.ComplexOptionType3.Builder {
       return classBuilder() as! ProtobufUnittest.ComplexOptionType3.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.ComplexOptionType3.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.ComplexOptionType3.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.ComplexOptionType3.Builder {
@@ -4298,8 +4458,11 @@ internal extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType3 {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType3 {
       return try ProtobufUnittest.ComplexOptionType3.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.ComplexOptionType3 {
+      return try ProtobufUnittest.ComplexOptionType3.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasQux {
@@ -4430,14 +4593,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.ComplexOptionType3.Builder {
+      override internal func clear() -> ProtobufUnittest.ComplexOptionType3.Builder {
         builderResult = ProtobufUnittest.ComplexOptionType3()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.ComplexOptionType3.Builder {
+      override internal func clone() throws -> ProtobufUnittest.ComplexOptionType3.Builder {
         return try ProtobufUnittest.ComplexOptionType3.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.ComplexOptionType3 {
+      override internal func build() throws -> ProtobufUnittest.ComplexOptionType3 {
            try checkInitialized()
            return buildPartial()
       }
@@ -4458,10 +4621,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -4499,6 +4662,13 @@ internal extension ProtobufUnittest {
 
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.ComplexOptionType3.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -4568,10 +4738,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.ComplexOpt6.Builder {
       return classBuilder() as! ProtobufUnittest.ComplexOpt6.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.ComplexOpt6.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.ComplexOpt6.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.ComplexOpt6.Builder {
@@ -4591,8 +4761,11 @@ internal extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOpt6 {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOpt6 {
       return try ProtobufUnittest.ComplexOpt6.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.ComplexOpt6 {
+      return try ProtobufUnittest.ComplexOpt6.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasXyzzy {
@@ -4662,14 +4835,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.ComplexOpt6.Builder {
+      override internal func clear() -> ProtobufUnittest.ComplexOpt6.Builder {
         builderResult = ProtobufUnittest.ComplexOpt6()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.ComplexOpt6.Builder {
+      override internal func clone() throws -> ProtobufUnittest.ComplexOpt6.Builder {
         return try ProtobufUnittest.ComplexOpt6.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.ComplexOpt6 {
+      override internal func build() throws -> ProtobufUnittest.ComplexOpt6 {
            try checkInitialized()
            return buildPartial()
       }
@@ -4687,10 +4860,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOpt6.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOpt6.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOpt6.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOpt6.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -4716,6 +4889,13 @@ internal extension ProtobufUnittest {
           resultDecodedBuilder.xyzzy = jsonValueXyzzy.intValue
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.ComplexOpt6.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.ComplexOpt6.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -4777,10 +4957,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.VariousComplexOptions.Builder {
       return classBuilder() as! ProtobufUnittest.VariousComplexOptions.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.VariousComplexOptions.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.VariousComplexOptions.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.VariousComplexOptions.Builder {
@@ -4797,8 +4977,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.VariousComplexOptions {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.VariousComplexOptions {
       return try ProtobufUnittest.VariousComplexOptions.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.VariousComplexOptions {
+      return try ProtobufUnittest.VariousComplexOptions.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -4839,14 +5022,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.VariousComplexOptions.Builder {
+      override internal func clear() -> ProtobufUnittest.VariousComplexOptions.Builder {
         builderResult = ProtobufUnittest.VariousComplexOptions()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.VariousComplexOptions.Builder {
+      override internal func clone() throws -> ProtobufUnittest.VariousComplexOptions.Builder {
         return try ProtobufUnittest.VariousComplexOptions.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.VariousComplexOptions {
+      override internal func build() throws -> ProtobufUnittest.VariousComplexOptions {
            try checkInitialized()
            return buildPartial()
       }
@@ -4861,10 +5044,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -4884,6 +5067,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
         let resultDecodedBuilder = ProtobufUnittest.VariousComplexOptions.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.VariousComplexOptions.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -4949,10 +5139,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.AggregateMessageSet.Builder {
       return classBuilder() as! ProtobufUnittest.AggregateMessageSet.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.AggregateMessageSet.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.AggregateMessageSet.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.AggregateMessageSet.Builder {
@@ -4969,8 +5159,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessageSet {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessageSet {
       return try ProtobufUnittest.AggregateMessageSet.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.AggregateMessageSet {
+      return try ProtobufUnittest.AggregateMessageSet.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       try writeExtensionDescription(&output, startInclusive:Int32(4), endExclusive:Int32(2147483647), indent:indent)
@@ -5013,14 +5206,14 @@ internal extension ProtobufUnittest {
                return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.AggregateMessageSet.Builder {
+      override internal func clear() -> ProtobufUnittest.AggregateMessageSet.Builder {
         builderResult = ProtobufUnittest.AggregateMessageSet()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.AggregateMessageSet.Builder {
+      override internal func clone() throws -> ProtobufUnittest.AggregateMessageSet.Builder {
         return try ProtobufUnittest.AggregateMessageSet.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.AggregateMessageSet {
+      override internal func build() throws -> ProtobufUnittest.AggregateMessageSet {
            try checkInitialized()
            return buildPartial()
       }
@@ -5036,10 +5229,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -5059,6 +5252,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
         let resultDecodedBuilder = ProtobufUnittest.AggregateMessageSet.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.AggregateMessageSet.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -5131,10 +5331,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.AggregateMessageSetElement.Builder {
       return classBuilder() as! ProtobufUnittest.AggregateMessageSetElement.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.AggregateMessageSetElement.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.AggregateMessageSetElement.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
@@ -5154,8 +5354,11 @@ internal extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessageSetElement {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessageSetElement {
       return try ProtobufUnittest.AggregateMessageSetElement.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.AggregateMessageSetElement {
+      return try ProtobufUnittest.AggregateMessageSetElement.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasS {
@@ -5225,14 +5428,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.AggregateMessageSetElement.Builder {
+      override internal func clear() -> ProtobufUnittest.AggregateMessageSetElement.Builder {
         builderResult = ProtobufUnittest.AggregateMessageSetElement()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
+      override internal func clone() throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
         return try ProtobufUnittest.AggregateMessageSetElement.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.AggregateMessageSetElement {
+      override internal func build() throws -> ProtobufUnittest.AggregateMessageSetElement {
            try checkInitialized()
            return buildPartial()
       }
@@ -5250,10 +5453,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -5279,6 +5482,13 @@ internal extension ProtobufUnittest {
           resultDecodedBuilder.s = jsonValueS
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.AggregateMessageSetElement.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -5406,10 +5616,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.Aggregate.Builder {
       return classBuilder() as! ProtobufUnittest.Aggregate.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.Aggregate.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.Aggregate.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.Aggregate.Builder {
@@ -5441,8 +5651,11 @@ internal extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.Aggregate {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.Aggregate {
       return try ProtobufUnittest.Aggregate.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.Aggregate {
+      return try ProtobufUnittest.Aggregate.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasI {
@@ -5724,14 +5937,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.Aggregate.Builder {
+      override internal func clear() -> ProtobufUnittest.Aggregate.Builder {
         builderResult = ProtobufUnittest.Aggregate()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.Aggregate.Builder {
+      override internal func clone() throws -> ProtobufUnittest.Aggregate.Builder {
         return try ProtobufUnittest.Aggregate.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.Aggregate {
+      override internal func build() throws -> ProtobufUnittest.Aggregate {
            try checkInitialized()
            return buildPartial()
       }
@@ -5761,10 +5974,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.Aggregate.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.Aggregate.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Aggregate.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Aggregate.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -5832,6 +6045,13 @@ internal extension ProtobufUnittest {
 
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.Aggregate.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.Aggregate.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -5901,10 +6121,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.AggregateMessage.Builder {
       return classBuilder() as! ProtobufUnittest.AggregateMessage.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.AggregateMessage.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.AggregateMessage.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.AggregateMessage.Builder {
@@ -5924,8 +6144,11 @@ internal extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessage {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessage {
       return try ProtobufUnittest.AggregateMessage.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.AggregateMessage {
+      return try ProtobufUnittest.AggregateMessage.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasFieldname {
@@ -5995,14 +6218,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.AggregateMessage.Builder {
+      override internal func clear() -> ProtobufUnittest.AggregateMessage.Builder {
         builderResult = ProtobufUnittest.AggregateMessage()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.AggregateMessage.Builder {
+      override internal func clone() throws -> ProtobufUnittest.AggregateMessage.Builder {
         return try ProtobufUnittest.AggregateMessage.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.AggregateMessage {
+      override internal func build() throws -> ProtobufUnittest.AggregateMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -6020,10 +6243,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessage.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -6049,6 +6272,13 @@ internal extension ProtobufUnittest {
           resultDecodedBuilder.fieldname = jsonValueFieldname.intValue
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.AggregateMessage.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.AggregateMessage.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -6124,10 +6354,10 @@ internal extension ProtobufUnittest {
         internal func getBuilder() -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
           return classBuilder() as! ProtobufUnittest.NestedOptionType.NestedMessage.Builder
         }
-        internal override class func classBuilder() -> MessageBuilder {
+        override internal class func classBuilder() -> MessageBuilder {
           return ProtobufUnittest.NestedOptionType.NestedMessage.Builder()
         }
-        internal override func classBuilder() -> MessageBuilder {
+        override internal func classBuilder() -> MessageBuilder {
           return ProtobufUnittest.NestedOptionType.NestedMessage.Builder()
         }
         internal func toBuilder() throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
@@ -6147,8 +6377,11 @@ internal extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
+        override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder.decodeToBuilder(jsonMap).build()
+        }
+        override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
+          return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder.fromJSONToBuilder(data).build()
         }
         override internal func writeDescriptionTo(inout output:String, indent:String) throws {
           if hasNestedField {
@@ -6218,14 +6451,14 @@ internal extension ProtobufUnittest {
                   return builderResult
                }
           }
-          internal override func clear() -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
+          override internal func clear() -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
             builderResult = ProtobufUnittest.NestedOptionType.NestedMessage()
             return self
           }
-          internal override func clone() throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
+          override internal func clone() throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
             return try ProtobufUnittest.NestedOptionType.NestedMessage.builderWithPrototype(builderResult)
           }
-          internal override func build() throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
+          override internal func build() throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
                try checkInitialized()
                return buildPartial()
           }
@@ -6243,10 +6476,10 @@ internal extension ProtobufUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
+          override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
+          override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let tag = try input.readTag()
@@ -6272,6 +6505,13 @@ internal extension ProtobufUnittest {
               resultDecodedBuilder.nestedField = jsonValueNestedField.intValue
             }
             return resultDecodedBuilder
+          }
+          override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
+            let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+            guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+              throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+            }
+            return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder.decodeToBuilder(jsDataCast)
           }
         }
 
@@ -6357,10 +6597,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.NestedOptionType.Builder {
       return classBuilder() as! ProtobufUnittest.NestedOptionType.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.NestedOptionType.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.NestedOptionType.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.NestedOptionType.Builder {
@@ -6377,8 +6617,11 @@ internal extension ProtobufUnittest {
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.NestedOptionType {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.NestedOptionType {
       return try ProtobufUnittest.NestedOptionType.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.NestedOptionType {
+      return try ProtobufUnittest.NestedOptionType.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       unknownFields.writeDescriptionTo(&output, indent:indent)
@@ -6419,14 +6662,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.NestedOptionType.Builder {
+      override internal func clear() -> ProtobufUnittest.NestedOptionType.Builder {
         builderResult = ProtobufUnittest.NestedOptionType()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.NestedOptionType.Builder {
+      override internal func clone() throws -> ProtobufUnittest.NestedOptionType.Builder {
         return try ProtobufUnittest.NestedOptionType.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.NestedOptionType {
+      override internal func build() throws -> ProtobufUnittest.NestedOptionType {
            try checkInitialized()
            return buildPartial()
       }
@@ -6441,10 +6684,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.NestedOptionType.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.NestedOptionType.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -6464,6 +6707,13 @@ internal extension ProtobufUnittest {
       override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.NestedOptionType.Builder {
         let resultDecodedBuilder = ProtobufUnittest.NestedOptionType.Builder()
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.NestedOptionType.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.NestedOptionType.Builder.decodeToBuilder(jsDataCast)
       }
     }
 

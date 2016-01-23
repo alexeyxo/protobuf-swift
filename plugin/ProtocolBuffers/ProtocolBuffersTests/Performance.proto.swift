@@ -197,10 +197,10 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
   public func getBuilder() -> PBUser.Builder {
     return classBuilder() as! PBUser.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  override public class func classBuilder() -> MessageBuilder {
     return PBUser.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  override public func classBuilder() -> MessageBuilder {
     return PBUser.Builder()
   }
   public func toBuilder() throws -> PBUser.Builder {
@@ -223,8 +223,11 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
     }
     return jsonMap
   }
-  override public class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBUser {
+  override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBUser {
     return try PBUser.Builder.decodeToBuilder(jsonMap).build()
+  }
+  override class public func fromJSON(data:NSData) throws -> PBUser {
+    return try PBUser.Builder.fromJSONToBuilder(data).build()
   }
   override public func writeDescriptionTo(inout output:String, indent:String) throws {
     if hasGroup {
@@ -355,14 +358,14 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
             return builderResult
          }
     }
-    public override func clear() -> PBUser.Builder {
+    override public func clear() -> PBUser.Builder {
       builderResult = PBUser()
       return self
     }
-    public override func clone() throws -> PBUser.Builder {
+    override public func clone() throws -> PBUser.Builder {
       return try PBUser.builderWithPrototype(builderResult)
     }
-    public override func build() throws -> PBUser {
+    override public func build() throws -> PBUser {
          try checkInitialized()
          return buildPartial()
     }
@@ -383,10 +386,10 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
       try mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBUser.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBUser.Builder {
          return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBUser.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBUser.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         let tag = try input.readTag()
@@ -424,6 +427,13 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
         resultDecodedBuilder.groupName = jsonValueGroupName
       }
       return resultDecodedBuilder
+    }
+    override class public func fromJSONToBuilder(data:NSData) throws -> PBUser.Builder {
+      let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+      }
+      return try PBUser.Builder.decodeToBuilder(jsDataCast)
     }
   }
 
@@ -494,10 +504,10 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
   public func getBuilder() -> PBGroup.Builder {
     return classBuilder() as! PBGroup.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  override public class func classBuilder() -> MessageBuilder {
     return PBGroup.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  override public func classBuilder() -> MessageBuilder {
     return PBGroup.Builder()
   }
   public func toBuilder() throws -> PBGroup.Builder {
@@ -517,8 +527,11 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
     }
     return jsonMap
   }
-  override public class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBGroup {
+  override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBGroup {
     return try PBGroup.Builder.decodeToBuilder(jsonMap).build()
+  }
+  override class public func fromJSON(data:NSData) throws -> PBGroup {
+    return try PBGroup.Builder.fromJSONToBuilder(data).build()
   }
   override public func writeDescriptionTo(inout output:String, indent:String) throws {
     if hasOwner {
@@ -620,14 +633,14 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
             return builderResult
          }
     }
-    public override func clear() -> PBGroup.Builder {
+    override public func clear() -> PBGroup.Builder {
       builderResult = PBGroup()
       return self
     }
-    public override func clone() throws -> PBGroup.Builder {
+    override public func clone() throws -> PBGroup.Builder {
       return try PBGroup.builderWithPrototype(builderResult)
     }
-    public override func build() throws -> PBGroup {
+    override public func build() throws -> PBGroup {
          try checkInitialized()
          return buildPartial()
     }
@@ -645,10 +658,10 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
       try mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBGroup.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBGroup.Builder {
          return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBGroup.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBGroup.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         let tag = try input.readTag()
@@ -680,6 +693,13 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
 
       }
       return resultDecodedBuilder
+    }
+    override class public func fromJSONToBuilder(data:NSData) throws -> PBGroup.Builder {
+      let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+      }
+      return try PBGroup.Builder.decodeToBuilder(jsDataCast)
     }
   }
 
@@ -757,10 +777,10 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
   public func getBuilder() -> PBPerfomanceBatch.Builder {
     return classBuilder() as! PBPerfomanceBatch.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  override public class func classBuilder() -> MessageBuilder {
     return PBPerfomanceBatch.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  override public func classBuilder() -> MessageBuilder {
     return PBPerfomanceBatch.Builder()
   }
   public func toBuilder() throws -> PBPerfomanceBatch.Builder {
@@ -785,8 +805,11 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
     }
     return jsonMap
   }
-  override public class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBPerfomanceBatch {
+  override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBPerfomanceBatch {
     return try PBPerfomanceBatch.Builder.decodeToBuilder(jsonMap).build()
+  }
+  override class public func fromJSON(data:NSData) throws -> PBPerfomanceBatch {
+    return try PBPerfomanceBatch.Builder.fromJSONToBuilder(data).build()
   }
   override public func writeDescriptionTo(inout output:String, indent:String) throws {
     var batchElementIndex:Int = 0
@@ -853,14 +876,14 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
             return builderResult
          }
     }
-    public override func clear() -> PBPerfomanceBatch.Builder {
+    override public func clear() -> PBPerfomanceBatch.Builder {
       builderResult = PBPerfomanceBatch()
       return self
     }
-    public override func clone() throws -> PBPerfomanceBatch.Builder {
+    override public func clone() throws -> PBPerfomanceBatch.Builder {
       return try PBPerfomanceBatch.builderWithPrototype(builderResult)
     }
-    public override func build() throws -> PBPerfomanceBatch {
+    override public func build() throws -> PBPerfomanceBatch {
          try checkInitialized()
          return buildPartial()
     }
@@ -878,10 +901,10 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
       try mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBPerfomanceBatch.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBPerfomanceBatch.Builder {
          return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         let tag = try input.readTag()
@@ -915,6 +938,13 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
         resultDecodedBuilder.batch = jsonArrayBatch
       }
       return resultDecodedBuilder
+    }
+    override class public func fromJSONToBuilder(data:NSData) throws -> PBPerfomanceBatch.Builder {
+      let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+      }
+      return try PBPerfomanceBatch.Builder.decodeToBuilder(jsDataCast)
     }
   }
 
@@ -1050,10 +1080,10 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
   public func getBuilder() -> PBPerfomance.Builder {
     return classBuilder() as! PBPerfomance.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  override public class func classBuilder() -> MessageBuilder {
     return PBPerfomance.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  override public func classBuilder() -> MessageBuilder {
     return PBPerfomance.Builder()
   }
   public func toBuilder() throws -> PBPerfomance.Builder {
@@ -1091,8 +1121,11 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
     }
     return jsonMap
   }
-  override public class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBPerfomance {
+  override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBPerfomance {
     return try PBPerfomance.Builder.decodeToBuilder(jsonMap).build()
+  }
+  override class public func fromJSON(data:NSData) throws -> PBPerfomance {
+    return try PBPerfomance.Builder.fromJSONToBuilder(data).build()
   }
   override public func writeDescriptionTo(inout output:String, indent:String) throws {
     if hasInts {
@@ -1336,14 +1369,14 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
             return builderResult
          }
     }
-    public override func clear() -> PBPerfomance.Builder {
+    override public func clear() -> PBPerfomance.Builder {
       builderResult = PBPerfomance()
       return self
     }
-    public override func clone() throws -> PBPerfomance.Builder {
+    override public func clone() throws -> PBPerfomance.Builder {
       return try PBPerfomance.builderWithPrototype(builderResult)
     }
-    public override func build() throws -> PBPerfomance {
+    override public func build() throws -> PBPerfomance {
          try checkInitialized()
          return buildPartial()
     }
@@ -1379,10 +1412,10 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
       try mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBPerfomance.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBPerfomance.Builder {
          return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         let tag = try input.readTag()
@@ -1444,6 +1477,13 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
         resultDecodedBuilder.description_ = jsonValueDescription
       }
       return resultDecodedBuilder
+    }
+    override class public func fromJSONToBuilder(data:NSData) throws -> PBPerfomance.Builder {
+      let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+      }
+      return try PBPerfomance.Builder.decodeToBuilder(jsDataCast)
     }
   }
 
@@ -1528,10 +1568,10 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
   public func getBuilder() -> PBProtoPoint.Builder {
     return classBuilder() as! PBProtoPoint.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  override public class func classBuilder() -> MessageBuilder {
     return PBProtoPoint.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  override public func classBuilder() -> MessageBuilder {
     return PBProtoPoint.Builder()
   }
   public func toBuilder() throws -> PBProtoPoint.Builder {
@@ -1554,8 +1594,11 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
     }
     return jsonMap
   }
-  override public class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBProtoPoint {
+  override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBProtoPoint {
     return try PBProtoPoint.Builder.decodeToBuilder(jsonMap).build()
+  }
+  override class public func fromJSON(data:NSData) throws -> PBProtoPoint {
+    return try PBProtoPoint.Builder.fromJSONToBuilder(data).build()
   }
   override public func writeDescriptionTo(inout output:String, indent:String) throws {
     if hasLatitude {
@@ -1654,14 +1697,14 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
             return builderResult
          }
     }
-    public override func clear() -> PBProtoPoint.Builder {
+    override public func clear() -> PBProtoPoint.Builder {
       builderResult = PBProtoPoint()
       return self
     }
-    public override func clone() throws -> PBProtoPoint.Builder {
+    override public func clone() throws -> PBProtoPoint.Builder {
       return try PBProtoPoint.builderWithPrototype(builderResult)
     }
-    public override func build() throws -> PBProtoPoint {
+    override public func build() throws -> PBProtoPoint {
          try checkInitialized()
          return buildPartial()
     }
@@ -1682,10 +1725,10 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
       try mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBProtoPoint.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBProtoPoint.Builder {
          return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         let tag = try input.readTag()
@@ -1717,6 +1760,13 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
         resultDecodedBuilder.longitude = jsonValueLongitude.floatValue
       }
       return resultDecodedBuilder
+    }
+    override class public func fromJSONToBuilder(data:NSData) throws -> PBProtoPoint.Builder {
+      let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+      }
+      return try PBProtoPoint.Builder.decodeToBuilder(jsDataCast)
     }
   }
 
@@ -1818,10 +1868,10 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
   public func getBuilder() -> PBIceCreamCone.Builder {
     return classBuilder() as! PBIceCreamCone.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  override public class func classBuilder() -> MessageBuilder {
     return PBIceCreamCone.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  override public func classBuilder() -> MessageBuilder {
     return PBIceCreamCone.Builder()
   }
   public func toBuilder() throws -> PBIceCreamCone.Builder {
@@ -1844,8 +1894,11 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
     }
     return jsonMap
   }
-  override public class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBIceCreamCone {
+  override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBIceCreamCone {
     return try PBIceCreamCone.Builder.decodeToBuilder(jsonMap).build()
+  }
+  override class public func fromJSON(data:NSData) throws -> PBIceCreamCone {
+    return try PBIceCreamCone.Builder.fromJSONToBuilder(data).build()
   }
   override public func writeDescriptionTo(inout output:String, indent:String) throws {
     if hasScoops {
@@ -1944,14 +1997,14 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
             return builderResult
          }
     }
-    public override func clear() -> PBIceCreamCone.Builder {
+    override public func clear() -> PBIceCreamCone.Builder {
       builderResult = PBIceCreamCone()
       return self
     }
-    public override func clone() throws -> PBIceCreamCone.Builder {
+    override public func clone() throws -> PBIceCreamCone.Builder {
       return try PBIceCreamCone.builderWithPrototype(builderResult)
     }
-    public override func build() throws -> PBIceCreamCone {
+    override public func build() throws -> PBIceCreamCone {
          try checkInitialized()
          return buildPartial()
     }
@@ -1972,10 +2025,10 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
       try mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBIceCreamCone.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBIceCreamCone.Builder {
          return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         let tag = try input.readTag()
@@ -2012,6 +2065,13 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
         resultDecodedBuilder.flavor = try PBIceCreamCone.PBFlavor.fromString(jsonValueFlavor)
       }
       return resultDecodedBuilder
+    }
+    override class public func fromJSONToBuilder(data:NSData) throws -> PBIceCreamCone.Builder {
+      let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+      }
+      return try PBIceCreamCone.Builder.decodeToBuilder(jsDataCast)
     }
   }
 
@@ -2083,10 +2143,10 @@ final public class PBFoo : GeneratedMessage, GeneratedMessageProtocol {
   public func getBuilder() -> PBFoo.Builder {
     return classBuilder() as! PBFoo.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  override public class func classBuilder() -> MessageBuilder {
     return PBFoo.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  override public func classBuilder() -> MessageBuilder {
     return PBFoo.Builder()
   }
   public func toBuilder() throws -> PBFoo.Builder {
@@ -2106,8 +2166,11 @@ final public class PBFoo : GeneratedMessage, GeneratedMessageProtocol {
     }
     return jsonMap
   }
-  override public class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBFoo {
+  override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBFoo {
     return try PBFoo.Builder.decodeToBuilder(jsonMap).build()
+  }
+  override class public func fromJSON(data:NSData) throws -> PBFoo {
+    return try PBFoo.Builder.fromJSONToBuilder(data).build()
   }
   override public func writeDescriptionTo(inout output:String, indent:String) throws {
     if hasVal {
@@ -2177,14 +2240,14 @@ final public class PBFoo : GeneratedMessage, GeneratedMessageProtocol {
             return builderResult
          }
     }
-    public override func clear() -> PBFoo.Builder {
+    override public func clear() -> PBFoo.Builder {
       builderResult = PBFoo()
       return self
     }
-    public override func clone() throws -> PBFoo.Builder {
+    override public func clone() throws -> PBFoo.Builder {
       return try PBFoo.builderWithPrototype(builderResult)
     }
-    public override func build() throws -> PBFoo {
+    override public func build() throws -> PBFoo {
          try checkInitialized()
          return buildPartial()
     }
@@ -2202,10 +2265,10 @@ final public class PBFoo : GeneratedMessage, GeneratedMessageProtocol {
       try mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBFoo.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBFoo.Builder {
          return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBFoo.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBFoo.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         let tag = try input.readTag()
@@ -2231,6 +2294,13 @@ final public class PBFoo : GeneratedMessage, GeneratedMessageProtocol {
         resultDecodedBuilder.val = jsonValueVal.intValue
       }
       return resultDecodedBuilder
+    }
+    override class public func fromJSONToBuilder(data:NSData) throws -> PBFoo.Builder {
+      let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+      }
+      return try PBFoo.Builder.decodeToBuilder(jsDataCast)
     }
   }
 
@@ -2301,10 +2371,10 @@ final public class PBBar : GeneratedMessage, GeneratedMessageProtocol {
   public func getBuilder() -> PBBar.Builder {
     return classBuilder() as! PBBar.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  override public class func classBuilder() -> MessageBuilder {
     return PBBar.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  override public func classBuilder() -> MessageBuilder {
     return PBBar.Builder()
   }
   public func toBuilder() throws -> PBBar.Builder {
@@ -2324,8 +2394,11 @@ final public class PBBar : GeneratedMessage, GeneratedMessageProtocol {
     }
     return jsonMap
   }
-  override public class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBBar {
+  override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBBar {
     return try PBBar.Builder.decodeToBuilder(jsonMap).build()
+  }
+  override class public func fromJSON(data:NSData) throws -> PBBar {
+    return try PBBar.Builder.fromJSONToBuilder(data).build()
   }
   override public func writeDescriptionTo(inout output:String, indent:String) throws {
     if hasFoo {
@@ -2427,14 +2500,14 @@ final public class PBBar : GeneratedMessage, GeneratedMessageProtocol {
             return builderResult
          }
     }
-    public override func clear() -> PBBar.Builder {
+    override public func clear() -> PBBar.Builder {
       builderResult = PBBar()
       return self
     }
-    public override func clone() throws -> PBBar.Builder {
+    override public func clone() throws -> PBBar.Builder {
       return try PBBar.builderWithPrototype(builderResult)
     }
-    public override func build() throws -> PBBar {
+    override public func build() throws -> PBBar {
          try checkInitialized()
          return buildPartial()
     }
@@ -2452,10 +2525,10 @@ final public class PBBar : GeneratedMessage, GeneratedMessageProtocol {
       try mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBBar.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBBar.Builder {
          return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBBar.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBBar.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         let tag = try input.readTag()
@@ -2487,6 +2560,13 @@ final public class PBBar : GeneratedMessage, GeneratedMessageProtocol {
 
       }
       return resultDecodedBuilder
+    }
+    override class public func fromJSONToBuilder(data:NSData) throws -> PBBar.Builder {
+      let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+      }
+      return try PBBar.Builder.decodeToBuilder(jsDataCast)
     }
   }
 
@@ -2557,10 +2637,10 @@ final public class PBBaz : GeneratedMessage, GeneratedMessageProtocol {
   public func getBuilder() -> PBBaz.Builder {
     return classBuilder() as! PBBaz.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  override public class func classBuilder() -> MessageBuilder {
     return PBBaz.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  override public func classBuilder() -> MessageBuilder {
     return PBBaz.Builder()
   }
   public func toBuilder() throws -> PBBaz.Builder {
@@ -2580,8 +2660,11 @@ final public class PBBaz : GeneratedMessage, GeneratedMessageProtocol {
     }
     return jsonMap
   }
-  override public class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBBaz {
+  override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> PBBaz {
     return try PBBaz.Builder.decodeToBuilder(jsonMap).build()
+  }
+  override class public func fromJSON(data:NSData) throws -> PBBaz {
+    return try PBBaz.Builder.fromJSONToBuilder(data).build()
   }
   override public func writeDescriptionTo(inout output:String, indent:String) throws {
     if hasBar {
@@ -2683,14 +2766,14 @@ final public class PBBaz : GeneratedMessage, GeneratedMessageProtocol {
             return builderResult
          }
     }
-    public override func clear() -> PBBaz.Builder {
+    override public func clear() -> PBBaz.Builder {
       builderResult = PBBaz()
       return self
     }
-    public override func clone() throws -> PBBaz.Builder {
+    override public func clone() throws -> PBBaz.Builder {
       return try PBBaz.builderWithPrototype(builderResult)
     }
-    public override func build() throws -> PBBaz {
+    override public func build() throws -> PBBaz {
          try checkInitialized()
          return buildPartial()
     }
@@ -2708,10 +2791,10 @@ final public class PBBaz : GeneratedMessage, GeneratedMessageProtocol {
       try mergeUnknownFields(other.unknownFields)
       return self
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBBaz.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> PBBaz.Builder {
          return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBBaz.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBBaz.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         let tag = try input.readTag()
@@ -2743,6 +2826,13 @@ final public class PBBaz : GeneratedMessage, GeneratedMessageProtocol {
 
       }
       return resultDecodedBuilder
+    }
+    override class public func fromJSONToBuilder(data:NSData) throws -> PBBaz.Builder {
+      let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+      }
+      return try PBBaz.Builder.decodeToBuilder(jsDataCast)
     }
   }
 

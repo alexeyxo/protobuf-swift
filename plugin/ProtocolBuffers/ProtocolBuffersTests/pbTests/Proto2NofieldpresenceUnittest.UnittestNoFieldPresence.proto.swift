@@ -214,10 +214,10 @@ internal extension Proto2NofieldpresenceUnittest {
         internal func getBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
           return classBuilder() as! Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder
         }
-        internal override class func classBuilder() -> MessageBuilder {
+        override internal class func classBuilder() -> MessageBuilder {
           return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
         }
-        internal override func classBuilder() -> MessageBuilder {
+        override internal func classBuilder() -> MessageBuilder {
           return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
         }
         internal func toBuilder() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
@@ -237,8 +237,11 @@ internal extension Proto2NofieldpresenceUnittest {
           }
           return jsonMap
         }
-        override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+        override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
           return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap).build()
+        }
+        override class internal func fromJSON(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder.fromJSONToBuilder(data).build()
         }
         override internal func writeDescriptionTo(inout output:String, indent:String) throws {
           if hasBb {
@@ -308,14 +311,14 @@ internal extension Proto2NofieldpresenceUnittest {
                   return builderResult
                }
           }
-          internal override func clear() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
+          override internal func clear() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
             builderResult = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage()
             return self
           }
-          internal override func clone() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
+          override internal func clone() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
             return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult)
           }
-          internal override func build() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+          override internal func build() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
                try checkInitialized()
                return buildPartial()
           }
@@ -333,10 +336,10 @@ internal extension Proto2NofieldpresenceUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
+          override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
+          override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let tag = try input.readTag()
@@ -362,6 +365,13 @@ internal extension Proto2NofieldpresenceUnittest {
               resultDecodedBuilder.bb = jsonValueBb.intValue
             }
             return resultDecodedBuilder
+          }
+          override class internal func fromJSONToBuilder(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
+            let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+            guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+              throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+            }
+            return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsDataCast)
           }
         }
 
@@ -1060,10 +1070,10 @@ internal extension Proto2NofieldpresenceUnittest {
     internal func getBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
       return classBuilder() as! Proto2NofieldpresenceUnittest.TestAllTypes.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return Proto2NofieldpresenceUnittest.TestAllTypes.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return Proto2NofieldpresenceUnittest.TestAllTypes.Builder()
     }
     internal func toBuilder() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
@@ -1310,8 +1320,11 @@ internal extension Proto2NofieldpresenceUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
       return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasOptionalInt32 {
@@ -2855,14 +2868,14 @@ internal extension Proto2NofieldpresenceUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      override internal func clear() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         builderResult = Proto2NofieldpresenceUnittest.TestAllTypes()
         return self
       }
-      internal override func clone() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      override internal func clone() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         return try Proto2NofieldpresenceUnittest.TestAllTypes.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+      override internal func build() throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
            try checkInitialized()
            return buildPartial()
       }
@@ -3027,10 +3040,10 @@ internal extension Proto2NofieldpresenceUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -3500,6 +3513,13 @@ internal extension Proto2NofieldpresenceUnittest {
         }
         return resultDecodedBuilder
       }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder.decodeToBuilder(jsDataCast)
+      }
     }
 
   }
@@ -3574,10 +3594,10 @@ internal extension Proto2NofieldpresenceUnittest {
     internal func getBuilder() -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
       return classBuilder() as! Proto2NofieldpresenceUnittest.TestProto2Required.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return Proto2NofieldpresenceUnittest.TestProto2Required.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return Proto2NofieldpresenceUnittest.TestProto2Required.Builder()
     }
     internal func toBuilder() throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
@@ -3597,8 +3617,11 @@ internal extension Proto2NofieldpresenceUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
       return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasProto2 {
@@ -3700,14 +3723,14 @@ internal extension Proto2NofieldpresenceUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+      override internal func clear() -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
         builderResult = Proto2NofieldpresenceUnittest.TestProto2Required()
         return self
       }
-      internal override func clone() throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+      override internal func clone() throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
         return try Proto2NofieldpresenceUnittest.TestProto2Required.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+      override internal func build() throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
            try checkInitialized()
            return buildPartial()
       }
@@ -3725,10 +3748,10 @@ internal extension Proto2NofieldpresenceUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -3760,6 +3783,13 @@ internal extension Proto2NofieldpresenceUnittest {
 
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -3831,10 +3861,10 @@ internal extension Proto2NofieldpresenceUnittest {
     internal func getBuilder() -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
       return classBuilder() as! Proto2NofieldpresenceUnittest.ForeignMessage.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return Proto2NofieldpresenceUnittest.ForeignMessage.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return Proto2NofieldpresenceUnittest.ForeignMessage.Builder()
     }
     internal func toBuilder() throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
@@ -3854,8 +3884,11 @@ internal extension Proto2NofieldpresenceUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
       return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasC {
@@ -3925,14 +3958,14 @@ internal extension Proto2NofieldpresenceUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
+      override internal func clear() -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
         builderResult = Proto2NofieldpresenceUnittest.ForeignMessage()
         return self
       }
-      internal override func clone() throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
+      override internal func clone() throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
         return try Proto2NofieldpresenceUnittest.ForeignMessage.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+      override internal func build() throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -3950,10 +3983,10 @@ internal extension Proto2NofieldpresenceUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -3979,6 +4012,13 @@ internal extension Proto2NofieldpresenceUnittest {
           resultDecodedBuilder.c = jsonValueC.intValue
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder.decodeToBuilder(jsDataCast)
       }
     }
 

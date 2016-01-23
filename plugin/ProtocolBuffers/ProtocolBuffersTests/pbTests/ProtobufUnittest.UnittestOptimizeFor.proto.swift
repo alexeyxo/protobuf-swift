@@ -249,10 +249,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.TestOptimizedForSize.Builder {
       return classBuilder() as! ProtobufUnittest.TestOptimizedForSize.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestOptimizedForSize.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestOptimizedForSize.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
@@ -281,8 +281,11 @@ internal extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestOptimizedForSize {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestOptimizedForSize {
       return try ProtobufUnittest.TestOptimizedForSize.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.TestOptimizedForSize {
+      return try ProtobufUnittest.TestOptimizedForSize.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasI {
@@ -473,14 +476,14 @@ internal extension ProtobufUnittest {
                return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.TestOptimizedForSize.Builder {
+      override internal func clear() -> ProtobufUnittest.TestOptimizedForSize.Builder {
         builderResult = ProtobufUnittest.TestOptimizedForSize()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
+      override internal func clone() throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
         return try ProtobufUnittest.TestOptimizedForSize.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.TestOptimizedForSize {
+      override internal func build() throws -> ProtobufUnittest.TestOptimizedForSize {
            try checkInitialized()
            return buildPartial()
       }
@@ -508,10 +511,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -561,6 +564,13 @@ internal extension ProtobufUnittest {
           resultDecodedBuilder.stringField = jsonValueStringField
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.TestOptimizedForSize.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -633,10 +643,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
       return classBuilder() as! ProtobufUnittest.TestRequiredOptimizedForSize.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestRequiredOptimizedForSize.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestRequiredOptimizedForSize.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
@@ -656,8 +666,11 @@ internal extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
       return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
+      return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasX {
@@ -727,14 +740,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+      override internal func clear() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
         builderResult = ProtobufUnittest.TestRequiredOptimizedForSize()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+      override internal func clone() throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
         return try ProtobufUnittest.TestRequiredOptimizedForSize.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
+      override internal func build() throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
            try checkInitialized()
            return buildPartial()
       }
@@ -752,10 +765,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -781,6 +794,13 @@ internal extension ProtobufUnittest {
           resultDecodedBuilder.x = jsonValueX.intValue
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -856,10 +876,10 @@ internal extension ProtobufUnittest {
     internal func getBuilder() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
       return classBuilder() as! ProtobufUnittest.TestOptionalOptimizedForSize.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestOptionalOptimizedForSize.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittest.TestOptionalOptimizedForSize.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
@@ -879,8 +899,11 @@ internal extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
       return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
+      return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasO {
@@ -982,14 +1005,14 @@ internal extension ProtobufUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+      override internal func clear() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
         builderResult = ProtobufUnittest.TestOptionalOptimizedForSize()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+      override internal func clone() throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
         return try ProtobufUnittest.TestOptionalOptimizedForSize.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
+      override internal func build() throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
            try checkInitialized()
            return buildPartial()
       }
@@ -1007,10 +1030,10 @@ internal extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -1042,6 +1065,13 @@ internal extension ProtobufUnittest {
 
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder.decodeToBuilder(jsDataCast)
       }
     }
 

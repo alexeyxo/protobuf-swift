@@ -128,10 +128,10 @@ internal extension ProtobufUnittestImport {
     internal func getBuilder() -> ProtobufUnittestImport.ImportMessageLite.Builder {
       return classBuilder() as! ProtobufUnittestImport.ImportMessageLite.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return ProtobufUnittestImport.ImportMessageLite.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return ProtobufUnittestImport.ImportMessageLite.Builder()
     }
     internal func toBuilder() throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
@@ -151,8 +151,11 @@ internal extension ProtobufUnittestImport {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittestImport.ImportMessageLite {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittestImport.ImportMessageLite {
       return try ProtobufUnittestImport.ImportMessageLite.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> ProtobufUnittestImport.ImportMessageLite {
+      return try ProtobufUnittestImport.ImportMessageLite.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasD {
@@ -222,14 +225,14 @@ internal extension ProtobufUnittestImport {
               return builderResult
            }
       }
-      internal override func clear() -> ProtobufUnittestImport.ImportMessageLite.Builder {
+      override internal func clear() -> ProtobufUnittestImport.ImportMessageLite.Builder {
         builderResult = ProtobufUnittestImport.ImportMessageLite()
         return self
       }
-      internal override func clone() throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
+      override internal func clone() throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
         return try ProtobufUnittestImport.ImportMessageLite.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> ProtobufUnittestImport.ImportMessageLite {
+      override internal func build() throws -> ProtobufUnittestImport.ImportMessageLite {
            try checkInitialized()
            return buildPartial()
       }
@@ -247,10 +250,10 @@ internal extension ProtobufUnittestImport {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -276,6 +279,13 @@ internal extension ProtobufUnittestImport {
           resultDecodedBuilder.d = jsonValueD.intValue
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try ProtobufUnittestImport.ImportMessageLite.Builder.decodeToBuilder(jsDataCast)
       }
     }
 

@@ -148,10 +148,10 @@ internal extension UnittestDropUnknownFields {
     internal func getBuilder() -> UnittestDropUnknownFields.Foo.Builder {
       return classBuilder() as! UnittestDropUnknownFields.Foo.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return UnittestDropUnknownFields.Foo.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return UnittestDropUnknownFields.Foo.Builder()
     }
     internal func toBuilder() throws -> UnittestDropUnknownFields.Foo.Builder {
@@ -174,8 +174,11 @@ internal extension UnittestDropUnknownFields {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.Foo {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.Foo {
       return try UnittestDropUnknownFields.Foo.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> UnittestDropUnknownFields.Foo {
+      return try UnittestDropUnknownFields.Foo.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasInt32Value {
@@ -274,14 +277,14 @@ internal extension UnittestDropUnknownFields {
               return builderResult
            }
       }
-      internal override func clear() -> UnittestDropUnknownFields.Foo.Builder {
+      override internal func clear() -> UnittestDropUnknownFields.Foo.Builder {
         builderResult = UnittestDropUnknownFields.Foo()
         return self
       }
-      internal override func clone() throws -> UnittestDropUnknownFields.Foo.Builder {
+      override internal func clone() throws -> UnittestDropUnknownFields.Foo.Builder {
         return try UnittestDropUnknownFields.Foo.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> UnittestDropUnknownFields.Foo {
+      override internal func build() throws -> UnittestDropUnknownFields.Foo {
            try checkInitialized()
            return buildPartial()
       }
@@ -302,10 +305,10 @@ internal extension UnittestDropUnknownFields {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> UnittestDropUnknownFields.Foo.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> UnittestDropUnknownFields.Foo.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -342,6 +345,13 @@ internal extension UnittestDropUnknownFields {
           resultDecodedBuilder.enumValue = try UnittestDropUnknownFields.Foo.NestedEnum.fromString(jsonValueEnumValue)
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> UnittestDropUnknownFields.Foo.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try UnittestDropUnknownFields.Foo.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -458,10 +468,10 @@ internal extension UnittestDropUnknownFields {
     internal func getBuilder() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
       return classBuilder() as! UnittestDropUnknownFields.FooWithExtraFields.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return UnittestDropUnknownFields.FooWithExtraFields.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return UnittestDropUnknownFields.FooWithExtraFields.Builder()
     }
     internal func toBuilder() throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
@@ -487,8 +497,11 @@ internal extension UnittestDropUnknownFields {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.FooWithExtraFields {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+      return try UnittestDropUnknownFields.FooWithExtraFields.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasInt32Value {
@@ -616,14 +629,14 @@ internal extension UnittestDropUnknownFields {
               return builderResult
            }
       }
-      internal override func clear() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      override internal func clear() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         builderResult = UnittestDropUnknownFields.FooWithExtraFields()
         return self
       }
-      internal override func clone() throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      override internal func clone() throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         return try UnittestDropUnknownFields.FooWithExtraFields.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> UnittestDropUnknownFields.FooWithExtraFields {
+      override internal func build() throws -> UnittestDropUnknownFields.FooWithExtraFields {
            try checkInitialized()
            return buildPartial()
       }
@@ -647,10 +660,10 @@ internal extension UnittestDropUnknownFields {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -693,6 +706,13 @@ internal extension UnittestDropUnknownFields {
           resultDecodedBuilder.extraInt32Value = jsonValueExtraInt32Value.intValue
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try UnittestDropUnknownFields.FooWithExtraFields.Builder.decodeToBuilder(jsDataCast)
       }
     }
 

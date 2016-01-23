@@ -48,6 +48,8 @@ public protocol Message:class,MessageInit
     //JSON
     func encode() throws -> Dictionary<String,AnyObject>
     static func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Self
+    func toJSON() throws -> NSData
+    static func fromJSON(data:NSData) throws -> Self
 }
 
 public protocol MessageBuilder: class
@@ -66,6 +68,7 @@ public protocol MessageBuilder: class
      //Delimited Encoding/Decoding
      func mergeDelimitedFromInputStream(input:NSInputStream) throws -> Self?
      static func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Self
+     static func fromJSONToBuilder(data:NSData) throws -> Self
 }
 
 public func == (lhs: AbstractMessage, rhs: AbstractMessage) -> Bool
@@ -95,6 +98,7 @@ public class AbstractMessage:Hashable, Message {
         
         return stream.buffer.buffer
     }
+    
     public func isInitialized() -> Bool {
         return false
     }
@@ -145,11 +149,20 @@ public class AbstractMessage:Hashable, Message {
     
     //JSON
     public func encode() throws -> Dictionary<String, AnyObject> {
-        throw ProtocolBuffersError.Obvious("Override")
+        throw ProtocolBuffersError.Obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
     
     public class func decode(jsonMap: Dictionary<String, AnyObject>) throws -> Self {
-        throw ProtocolBuffersError.Obvious("Override")
+        throw ProtocolBuffersError.Obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
+    }
+    
+    public func toJSON() throws -> NSData {
+        let json = try NSJSONSerialization.dataWithJSONObject(encode(), options: NSJSONWritingOptions(rawValue:0))
+        return json
+    }
+    
+    public class func fromJSON(data:NSData) throws -> Self {
+        throw ProtocolBuffersError.Obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
     
 }
@@ -248,7 +261,11 @@ public class AbstractMessageBuilder:MessageBuilder
     
     //JSON
     class public func decodeToBuilder(jsonMap: Dictionary<String, AnyObject>) throws -> Self {
-        throw ProtocolBuffersError.Obvious("Override")
+        throw ProtocolBuffersError.Obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
+    }
+    
+    public class func fromJSONToBuilder(data: NSData) throws -> Self {
+        throw ProtocolBuffersError.Obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
 
 }

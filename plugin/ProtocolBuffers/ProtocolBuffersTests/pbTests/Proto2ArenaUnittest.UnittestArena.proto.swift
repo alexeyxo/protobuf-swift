@@ -112,10 +112,10 @@ internal extension Proto2ArenaUnittest {
     internal func getBuilder() -> Proto2ArenaUnittest.NestedMessage.Builder {
       return classBuilder() as! Proto2ArenaUnittest.NestedMessage.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return Proto2ArenaUnittest.NestedMessage.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return Proto2ArenaUnittest.NestedMessage.Builder()
     }
     internal func toBuilder() throws -> Proto2ArenaUnittest.NestedMessage.Builder {
@@ -135,8 +135,11 @@ internal extension Proto2ArenaUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2ArenaUnittest.NestedMessage {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2ArenaUnittest.NestedMessage {
       return try Proto2ArenaUnittest.NestedMessage.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> Proto2ArenaUnittest.NestedMessage {
+      return try Proto2ArenaUnittest.NestedMessage.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       if hasD {
@@ -206,14 +209,14 @@ internal extension Proto2ArenaUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> Proto2ArenaUnittest.NestedMessage.Builder {
+      override internal func clear() -> Proto2ArenaUnittest.NestedMessage.Builder {
         builderResult = Proto2ArenaUnittest.NestedMessage()
         return self
       }
-      internal override func clone() throws -> Proto2ArenaUnittest.NestedMessage.Builder {
+      override internal func clone() throws -> Proto2ArenaUnittest.NestedMessage.Builder {
         return try Proto2ArenaUnittest.NestedMessage.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> Proto2ArenaUnittest.NestedMessage {
+      override internal func build() throws -> Proto2ArenaUnittest.NestedMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -231,10 +234,10 @@ internal extension Proto2ArenaUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -260,6 +263,13 @@ internal extension Proto2ArenaUnittest {
           resultDecodedBuilder.d = jsonValueD.intValue
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try Proto2ArenaUnittest.NestedMessage.Builder.decodeToBuilder(jsDataCast)
       }
     }
 
@@ -334,10 +344,10 @@ internal extension Proto2ArenaUnittest {
     internal func getBuilder() -> Proto2ArenaUnittest.ArenaMessage.Builder {
       return classBuilder() as! Proto2ArenaUnittest.ArenaMessage.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    override internal class func classBuilder() -> MessageBuilder {
       return Proto2ArenaUnittest.ArenaMessage.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    override internal func classBuilder() -> MessageBuilder {
       return Proto2ArenaUnittest.ArenaMessage.Builder()
     }
     internal func toBuilder() throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
@@ -370,8 +380,11 @@ internal extension Proto2ArenaUnittest {
       }
       return jsonMap
     }
-    override internal class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2ArenaUnittest.ArenaMessage {
+    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2ArenaUnittest.ArenaMessage {
       return try Proto2ArenaUnittest.ArenaMessage.Builder.decodeToBuilder(jsonMap).build()
+    }
+    override class internal func fromJSON(data:NSData) throws -> Proto2ArenaUnittest.ArenaMessage {
+      return try Proto2ArenaUnittest.ArenaMessage.Builder.fromJSONToBuilder(data).build()
     }
     override internal func writeDescriptionTo(inout output:String, indent:String) throws {
       var repeatedNestedMessageElementIndex:Int = 0
@@ -464,14 +477,14 @@ internal extension Proto2ArenaUnittest {
               return builderResult
            }
       }
-      internal override func clear() -> Proto2ArenaUnittest.ArenaMessage.Builder {
+      override internal func clear() -> Proto2ArenaUnittest.ArenaMessage.Builder {
         builderResult = Proto2ArenaUnittest.ArenaMessage()
         return self
       }
-      internal override func clone() throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
+      override internal func clone() throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
         return try Proto2ArenaUnittest.ArenaMessage.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> Proto2ArenaUnittest.ArenaMessage {
+      override internal func build() throws -> Proto2ArenaUnittest.ArenaMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -492,10 +505,10 @@ internal extension Proto2ArenaUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
+      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let tag = try input.readTag()
@@ -543,6 +556,13 @@ internal extension Proto2ArenaUnittest {
           resultDecodedBuilder.repeatedImportNoArenaMessage = jsonArrayRepeatedImportNoArenaMessage
         }
         return resultDecodedBuilder
+      }
+      override class internal func fromJSONToBuilder(data:NSData) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
+        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        }
+        return try Proto2ArenaUnittest.ArenaMessage.Builder.decodeToBuilder(jsDataCast)
       }
     }
 

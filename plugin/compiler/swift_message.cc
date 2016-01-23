@@ -305,10 +305,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrol$ func getBuilder() -> $classNameReturnedType$.Builder {\n"
                        "  return classBuilder() as! $classNameReturnedType$.Builder\n"
                        "}\n"
-                       "$acontrol$ override class func classBuilder() -> MessageBuilder {\n"
+                       "override $acontrol$ class func classBuilder() -> MessageBuilder {\n"
                        "  return $classNameReturnedType$.Builder()\n"
                        "}\n"
-                       "$acontrol$ override func classBuilder() -> MessageBuilder {\n"
+                       "override $acontrol$ func classBuilder() -> MessageBuilder {\n"
                        "  return $classNameReturnedType$.Builder()\n"
                        "}\n"
                        "$acontrol$ func toBuilder() throws -> $classNameReturnedType$.Builder {\n"
@@ -476,10 +476,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print("  return jsonMap\n"
                        "}\n");
         
-        printer->Print(variables_,"override $acontrol$ class func decode(jsonMap:Dictionary<String,AnyObject>) throws -> $classNameReturnedType$ {\n"
+        printer->Print(variables_,"override class $acontrol$ func decode(jsonMap:Dictionary<String,AnyObject>) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder.decodeToBuilder(jsonMap).build()\n"
                        "}\n");
         
+        printer->Print(variables_,"override class $acontrol$ func fromJSON(data:NSData) throws -> $classNameReturnedType$ {\n"
+                       "  return try $classNameReturnedType$.Builder.fromJSONToBuilder(data).build()\n"
+                       "}\n");
     }
     
     void MessageGenerator::GenerateMessageBuilderJSONSource(io::Printer* printer) {
@@ -497,6 +500,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         //
         printer->Outdent();
         printer->Print(
+                       "}\n");
+        
+        printer->Print(variables_,"override class $acontrol$ func fromJSONToBuilder(data:NSData) throws -> $classNameReturnedType$.Builder {\n"
+                       "  let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))\n"
+                       "  guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {\n"
+                       "    throw ProtocolBuffersError.InvalidProtocolBuffer(\"Invalid JSON data\")\n"
+                       "  }\n"
+                       "  return try $classNameReturnedType$.Builder.decodeToBuilder(jsDataCast)\n"
                        "}\n");
     }
     
@@ -716,7 +727,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         GenerateCommonBuilderMethodsSource(printer);
         GenerateBuilderParsingMethodsSource(printer);
-        GenerateMessageBuilderJSONSource(printer);
+//        if (file->syntax() == FileDescriptor::SYNTAX_PROTO3) {
+            GenerateMessageBuilderJSONSource(printer);
+//        }
         printer->Outdent();
         
         
@@ -744,16 +757,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         printer->Print(variables_,
-                       "$acontrol$ override func clear() -> $classNameReturnedType$.Builder {\n"
+                       "override $acontrol$ func clear() -> $classNameReturnedType$.Builder {\n"
                        "  builderResult = $classNameReturnedType$()\n"
                        "  return self\n"
                        "}\n"
-                       "$acontrol$ override func clone() throws -> $classNameReturnedType$.Builder {\n"
+                       "override $acontrol$ func clone() throws -> $classNameReturnedType$.Builder {\n"
                        "  return try $classNameReturnedType$.builderWithPrototype(builderResult)\n"
                        "}\n");
         
         printer->Print(variables_,
-                       "$acontrol$ override func build() throws -> $classNameReturnedType$ {\n"
+                       "override $acontrol$ func build() throws -> $classNameReturnedType$ {\n"
                        "     try checkInitialized()\n"
                        "     return buildPartial()\n"
                        "}\n"
@@ -802,10 +815,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
         
         printer->Print(variables_,
-                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
+                       "override $acontrol$ func mergeFromCodedInputStream(input:CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
                        "     return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
-                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$.Builder {\n");
+                       "override $acontrol$ func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$.Builder {\n");
         
         printer->Indent();
         printer->Print(
