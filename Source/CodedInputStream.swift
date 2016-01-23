@@ -365,23 +365,23 @@ public class CodedInputStream
     public func readDouble() throws -> Double
     {
         let convert:Int64 = try readRawLittleEndian64()
-        var result:Double = 0
-        WireFormat.convertTypes(convertValue: convert, retValue: &result)
+        var result:Double = 0.0
+        result = WireFormat.convertTypes(convertValue: convert, defaultValue: result)
         return result
     }
     
     public func readFloat() throws -> Float
     {
         let convert:Int32 = try readRawLittleEndian32()
-        var result:Float = 0
-        WireFormat.convertTypes(convertValue: convert, retValue: &result)
+        var result:Float = 0.0
+        result = WireFormat.convertTypes(convertValue: convert, defaultValue: result)
         return result
     }
     
     public func readUInt64() throws -> UInt64
     {
         var retvalue:UInt64 = 0
-        WireFormat.convertTypes(convertValue: try readRawVarint64(), retValue: &retvalue)
+        retvalue = WireFormat.convertTypes(convertValue: try readRawVarint64(), defaultValue:retvalue)
         return retvalue
     }
     
@@ -399,14 +399,14 @@ public class CodedInputStream
     public func readFixed64() throws -> UInt64
     {
         var retvalue:UInt64 = 0
-        WireFormat.convertTypes(convertValue: try readRawLittleEndian64(), retValue: &retvalue)
+        retvalue = WireFormat.convertTypes(convertValue: try readRawLittleEndian64(), defaultValue:retvalue)
         return retvalue
     }
     
     public func readFixed32() throws -> UInt32
     {
         var retvalue:UInt32 = 0
-        WireFormat.convertTypes(convertValue: try readRawLittleEndian32(), retValue: &retvalue)
+        retvalue = WireFormat.convertTypes(convertValue: try readRawLittleEndian32(), defaultValue:retvalue)
         return retvalue
     }
     
@@ -552,7 +552,7 @@ public class CodedInputStream
         
         let value:Int32 = try readRawVarint32()
         var retvalue:UInt32 = 0
-        WireFormat.convertTypes(convertValue: value, retValue: &retvalue)
+        retvalue = WireFormat.convertTypes(convertValue: value, defaultValue:retvalue)
         return retvalue
     }
     

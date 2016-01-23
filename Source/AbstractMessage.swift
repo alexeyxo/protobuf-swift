@@ -106,7 +106,7 @@ public class AbstractMessage:Hashable, Message {
         return 0
     }
     
-    public func writeDescriptionTo(inout output:String, indent:String) throws {
+    public func getDescription(indent:String) throws -> String {
         throw ProtocolBuffersError.Obvious("Override")
     }
         

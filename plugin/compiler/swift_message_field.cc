@@ -229,7 +229,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
                        "  output += \"\\(indent) $name$ {\\n\"\n"
-                       "  try $name$?.writeDescriptionTo(&output, indent:\"\\(indent)  \")\n"
+                       "  if let outDesc$capitalized_name$ = $name$ {\n"
+                       "    output += try outDesc$capitalized_name$.getDescription(\"\\(indent)  \")\n"
+                       "  }\n"
                        "  output += \"\\(indent) }\\n\"\n"
                        "}\n");
     }
@@ -374,7 +376,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "var $name$ElementIndex:Int = 0\n"
                        "for oneElement$capitalized_name$ in $name$ {\n"
                        "    output += \"\\(indent) $name$[\\($name$ElementIndex)] {\\n\"\n"
-                       "    try oneElement$capitalized_name$.writeDescriptionTo(&output, indent:\"\\(indent)  \")\n"
+                       "    output += try oneElement$capitalized_name$.getDescription(\"\\(indent)  \")\n"
                        "    output += \"\\(indent)}\\n\"\n"
                        "    $name$ElementIndex++\n"
                        "}\n");

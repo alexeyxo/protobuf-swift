@@ -471,22 +471,19 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    func writeDescriptionOfSingleValue(value:Any, inout output:String, indent:String) throws
+    func writeDescriptionOfSingleValue(value:Any, indent:String) throws -> String
     {
-
-        if typeIsPrimitive(type)
-        {
+        var output = ""
+        if typeIsPrimitive(type) {
             output += "\(indent)\(value)\n"
         }
-        else if let values = value as? GeneratedMessage
-        {
-            try values.writeDescriptionTo(&output, indent: indent)
+        else if let values = value as? GeneratedMessage {
+            output += try values.getDescription(indent)
         }
-        else
-        {
+        else {
             throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid Extensions Type")
         }
-        
+        return output
     }
     
     func writeRepeatedValuesIncludingTags<T>(values:Array<T>, output:CodedOutputStream) throws {
@@ -624,42 +621,44 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    private func iterationRepetedValuesForDescription<T>(values:Array<T>, inout output:String, indent:String) throws
+    private func iterationRepetedValuesForDescription<T>(values:Array<T>, indent:String) throws -> String
     {
+        var output = ""
         for singleValue in values
         {
-            try writeDescriptionOfSingleValue(singleValue, output: &output, indent: indent)
+            output += try writeDescriptionOfSingleValue(singleValue, indent: indent)
         }
+        return output
     }
     
-    public func writeDescriptionOf(value:Any, inout output:String, indent:String) throws
+    public func getDescription(value:Any, indent:String) throws -> String
     {
   
-        
+        var output = ""
         if isRepeated
         {
             switch value
             {
             case let values as [Int32]:
-                try iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+                output += try iterationRepetedValuesForDescription(values, indent: indent)
             case let values as [Int64]:
-                try iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+                output += try iterationRepetedValuesForDescription(values, indent: indent)
             case let values as [UInt64]:
-                try iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+                output += try iterationRepetedValuesForDescription(values, indent: indent)
             case let values as [UInt32]:
-                try iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+                output += try iterationRepetedValuesForDescription(values, indent: indent)
             case let values as [Bool]:
-                try iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+                output += try iterationRepetedValuesForDescription(values, indent: indent)
             case let values as [Float]:
-                try iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+                output += try iterationRepetedValuesForDescription(values, indent: indent)
             case let values as [Double]:
-                try iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+                output += try iterationRepetedValuesForDescription(values, indent: indent)
             case let values as [String]:
-                try iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+                output += try iterationRepetedValuesForDescription(values, indent: indent)
             case let values as Array<NSData>:
-                try iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+                output += try iterationRepetedValuesForDescription(values, indent: indent)
             case let values as [GeneratedMessage]:
-                try iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+                output += try iterationRepetedValuesForDescription(values, indent: indent)
             default:
                 break
             }
@@ -667,8 +666,9 @@ messageOrGroupClass:Any.Type,
         }
         else
         {
-            try writeDescriptionOfSingleValue(value, output:&output, indent:indent)
+            output += try writeDescriptionOfSingleValue(value, indent:indent)
         }
+        return output
     }
     
   

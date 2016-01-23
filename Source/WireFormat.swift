@@ -57,28 +57,31 @@ public enum WireFormat:Int32
     
     ///Utilities
     
-    public static func convertTypes<Type, ReturnType>(var convertValue value:Type, inout retValue:ReturnType)
+    public static func convertTypes<Type, ReturnType>(convertValue value:Type, defaultValue:ReturnType) -> ReturnType
     {
-        memcpy(&retValue, &value, sizeof(Type))
+        var retValue = defaultValue
+        var curValue = value
+        memcpy(&retValue, &curValue, sizeof(Type))
+        return retValue
     }
     
     public static func logicalRightShift32(value aValue:Int32, spaces aSpaces:Int32) ->Int32
     {
         var result:UInt32 = 0
-        convertTypes(convertValue: aValue, retValue: &result)
+        result = convertTypes(convertValue: aValue, defaultValue: result)
         let bytes:UInt32 = (result >> UInt32(aSpaces))
         var res:Int32 = 0
-        convertTypes(convertValue: bytes, retValue: &res)
+        res = convertTypes(convertValue: bytes, defaultValue: res)
         return res
     }
     
     public static func logicalRightShift64(value aValue:Int64, spaces aSpaces:Int64) ->Int64
     {
         var result:UInt64 = 0
-        convertTypes(convertValue: aValue, retValue: &result)
+        result = convertTypes(convertValue: aValue, defaultValue: result)
         let bytes:UInt64 = (result >> UInt64(aSpaces))
         var res:Int64 = 0
-        convertTypes(convertValue: bytes, retValue: &res)
+        res = convertTypes(convertValue: bytes, defaultValue: res)
         return res
     }
     public static func  decodeZigZag32(n:Int32) -> Int32
@@ -260,7 +263,7 @@ public extension UInt64
     func computeUInt64SizeNoTag() -> Int32
     {
         var retvalue:Int64 = 0
-        WireFormat.convertTypes(convertValue: self, retValue: &retvalue)
+        retvalue = WireFormat.convertTypes(convertValue: self, defaultValue:retvalue)
         return retvalue.computeRawVarint64Size()
     }
     
@@ -286,7 +289,7 @@ public extension UInt32
     func computeUInt32SizeNoTag() -> Int32
     {
         var retvalue:Int32 = 0
-        WireFormat.convertTypes(convertValue: self, retValue: &retvalue)
+        retvalue = WireFormat.convertTypes(convertValue: self, defaultValue: retvalue)
         return retvalue.computeRawVarint32Size()
     }
     

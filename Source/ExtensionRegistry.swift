@@ -26,7 +26,7 @@ public protocol ExtensionField
     var wireType:WireFormat {get}
     func writeValueIncludingTagToCodedOutputStream(value:Any, output:CodedOutputStream) throws
     func computeSerializedSizeIncludingTag(value:Any) throws -> Int32
-    func writeDescriptionOf(value:Any, inout output:String, indent:String) throws
+    func getDescription(value:Any, indent:String) throws -> String
     func mergeFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) throws
     
 }
