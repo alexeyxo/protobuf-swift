@@ -111,11 +111,13 @@ internal extension Baz {
     internal class func builderWithPrototype(prototype:Baz.Foo) throws -> Baz.Foo.Builder {
       return try Baz.Foo.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasHello {
         output += "\(indent) hello: \(hello) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

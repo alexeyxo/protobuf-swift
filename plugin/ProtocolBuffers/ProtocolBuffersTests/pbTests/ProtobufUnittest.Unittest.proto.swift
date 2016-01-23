@@ -2294,11 +2294,13 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestAllTypes.NestedMessage) throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
           return try ProtobufUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasBb {
             output += "\(indent) bb: \(bb) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -2496,11 +2498,13 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestAllTypes.OptionalGroup) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
           return try ProtobufUnittest.TestAllTypes.OptionalGroup.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -2698,11 +2702,13 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestAllTypes.RepeatedGroup) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
           return try ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -3735,7 +3741,8 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestAllTypes.Builder {
       return try ProtobufUnittest.TestAllTypes.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasOptionalInt32 {
         output += "\(indent) optionalInt32: \(optionalInt32) \n"
       }
@@ -3783,22 +3790,30 @@ internal extension ProtobufUnittest {
       }
       if hasOptionalGroup {
         output += "\(indent) optionalGroup {\n"
-        try optionalGroup?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalGroup = optionalGroup {
+          output += try outDescOptionalGroup.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasOptionalNestedMessage {
         output += "\(indent) optionalNestedMessage {\n"
-        try optionalNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalNestedMessage = optionalNestedMessage {
+          output += try outDescOptionalNestedMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasOptionalForeignMessage {
         output += "\(indent) optionalForeignMessage {\n"
-        try optionalForeignMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalForeignMessage = optionalForeignMessage {
+          output += try outDescOptionalForeignMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasOptionalImportMessage {
         output += "\(indent) optionalImportMessage {\n"
-        try optionalImportMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalImportMessage = optionalImportMessage {
+          output += try outDescOptionalImportMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if (hasOptionalNestedEnum) {
@@ -3818,12 +3833,16 @@ internal extension ProtobufUnittest {
       }
       if hasOptionalPublicImportMessage {
         output += "\(indent) optionalPublicImportMessage {\n"
-        try optionalPublicImportMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalPublicImportMessage = optionalPublicImportMessage {
+          output += try outDescOptionalPublicImportMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasOptionalLazyMessage {
         output += "\(indent) optionalLazyMessage {\n"
-        try optionalLazyMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalLazyMessage = optionalLazyMessage {
+          output += try outDescOptionalLazyMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       var repeatedInt32ElementIndex:Int = 0
@@ -3904,28 +3923,28 @@ internal extension ProtobufUnittest {
       var repeatedGroupElementIndex:Int = 0
       for oneElementrepeatedGroup in repeatedGroup {
           output += "\(indent) repeatedGroup[\(repeatedGroupElementIndex)] {\n"
-          try oneElementrepeatedGroup.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementrepeatedGroup.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedGroupElementIndex++
       }
       var repeatedNestedMessageElementIndex:Int = 0
       for oneElementrepeatedNestedMessage in repeatedNestedMessage {
           output += "\(indent) repeatedNestedMessage[\(repeatedNestedMessageElementIndex)] {\n"
-          try oneElementrepeatedNestedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementrepeatedNestedMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedNestedMessageElementIndex++
       }
       var repeatedForeignMessageElementIndex:Int = 0
       for oneElementrepeatedForeignMessage in repeatedForeignMessage {
           output += "\(indent) repeatedForeignMessage[\(repeatedForeignMessageElementIndex)] {\n"
-          try oneElementrepeatedForeignMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementrepeatedForeignMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedForeignMessageElementIndex++
       }
       var repeatedImportMessageElementIndex:Int = 0
       for oneElementrepeatedImportMessage in repeatedImportMessage {
           output += "\(indent) repeatedImportMessage[\(repeatedImportMessageElementIndex)] {\n"
-          try oneElementrepeatedImportMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementrepeatedImportMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedImportMessageElementIndex++
       }
@@ -3957,7 +3976,7 @@ internal extension ProtobufUnittest {
       var repeatedLazyMessageElementIndex:Int = 0
       for oneElementrepeatedLazyMessage in repeatedLazyMessage {
           output += "\(indent) repeatedLazyMessage[\(repeatedLazyMessageElementIndex)] {\n"
-          try oneElementrepeatedLazyMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementrepeatedLazyMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedLazyMessageElementIndex++
       }
@@ -4026,7 +4045,9 @@ internal extension ProtobufUnittest {
       }
       if hasOneofNestedMessage {
         output += "\(indent) oneofNestedMessage {\n"
-        try oneofNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOneofNestedMessage = oneofNestedMessage {
+          output += try outDescOneofNestedMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasOneofString {
@@ -4035,7 +4056,8 @@ internal extension ProtobufUnittest {
       if hasOneofBytes {
         output += "\(indent) oneofBytes: \(oneofBytes) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -6732,18 +6754,24 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.NestedTestAllTypes) throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
       return try ProtobufUnittest.NestedTestAllTypes.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasChild {
         output += "\(indent) child {\n"
-        try child?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescChild = child {
+          output += try outDescChild.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasPayload {
         output += "\(indent) payload {\n"
-        try payload?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescPayload = payload {
+          output += try outDescPayload.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -7037,11 +7065,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestDeprecatedFields) throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
       return try ProtobufUnittest.TestDeprecatedFields.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasDeprecatedInt32 {
         output += "\(indent) deprecatedInt32: \(deprecatedInt32) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -7235,11 +7265,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.ForeignMessage) throws -> ProtobufUnittest.ForeignMessage.Builder {
       return try ProtobufUnittest.ForeignMessage.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasC {
         output += "\(indent) c: \(c) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -7427,9 +7459,11 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestAllExtensions) throws -> ProtobufUnittest.TestAllExtensions.Builder {
       return try ProtobufUnittest.TestAllExtensions.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      try writeExtensionDescription(&output, startInclusive:Int32(1), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += try getExtensionDescription(Int32(1), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -7591,11 +7625,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.OptionalGroupExtension) throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
       return try ProtobufUnittest.OptionalGroupExtension.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -7787,11 +7823,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.RepeatedGroupExtension) throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
       return try ProtobufUnittest.RepeatedGroupExtension.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -7980,8 +8018,10 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestNestedExtension) throws -> ProtobufUnittest.TestNestedExtension.Builder {
       return try ProtobufUnittest.TestNestedExtension.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -8451,7 +8491,8 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestRequired) throws -> ProtobufUnittest.TestRequired.Builder {
       return try ProtobufUnittest.TestRequired.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
       }
@@ -8551,7 +8592,8 @@ internal extension ProtobufUnittest {
       if hasC {
         output += "\(indent) c: \(c) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -9799,23 +9841,27 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestRequiredForeign) throws -> ProtobufUnittest.TestRequiredForeign.Builder {
       return try ProtobufUnittest.TestRequiredForeign.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasOptionalMessage {
         output += "\(indent) optionalMessage {\n"
-        try optionalMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalMessage = optionalMessage {
+          output += try outDescOptionalMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       var repeatedMessageElementIndex:Int = 0
       for oneElementrepeatedMessage in repeatedMessage {
           output += "\(indent) repeatedMessage[\(repeatedMessageElementIndex)] {\n"
-          try oneElementrepeatedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementrepeatedMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedMessageElementIndex++
       }
       if hasDummy {
         output += "\(indent) dummy: \(dummy) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -10103,13 +10149,17 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestForeignNested) throws -> ProtobufUnittest.TestForeignNested.Builder {
       return try ProtobufUnittest.TestForeignNested.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasForeignNested {
         output += "\(indent) foreignNested {\n"
-        try foreignNested?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescForeignNested = foreignNested {
+          output += try outDescForeignNested.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -10328,8 +10378,10 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestEmptyMessage) throws -> ProtobufUnittest.TestEmptyMessage.Builder {
       return try ProtobufUnittest.TestEmptyMessage.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -10487,9 +10539,11 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestEmptyMessageWithExtensions) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
       return try ProtobufUnittest.TestEmptyMessageWithExtensions.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      try writeExtensionDescription(&output, startInclusive:Int32(1), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += try getExtensionDescription(Int32(1), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -10649,11 +10703,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestMultipleExtensionRanges) throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
       return try ProtobufUnittest.TestMultipleExtensionRanges.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      try writeExtensionDescription(&output, startInclusive:Int32(42), endExclusive:Int32(43), indent:indent)
-      try writeExtensionDescription(&output, startInclusive:Int32(4143), endExclusive:Int32(4244), indent:indent)
-      try writeExtensionDescription(&output, startInclusive:Int32(65536), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += try getExtensionDescription(Int32(42), endExclusive:Int32(43), indent:indent)
+      output += try getExtensionDescription(Int32(4143), endExclusive:Int32(4244), indent:indent)
+      output += try getExtensionDescription(Int32(65536), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -10829,14 +10885,16 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestReallyLargeTagNumber) throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
       return try ProtobufUnittest.TestReallyLargeTagNumber.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
       }
       if hasBb {
         output += "\(indent) bb: \(bb) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -11070,16 +11128,20 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestRecursiveMessage) throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
       return try ProtobufUnittest.TestRecursiveMessage.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasA {
         output += "\(indent) a {\n"
-        try a?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescA = a {
+          output += try outDescA.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasI {
         output += "\(indent) i: \(i) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -11340,13 +11402,17 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestMutualRecursionA) throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
       return try ProtobufUnittest.TestMutualRecursionA.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasBb {
         output += "\(indent) bb {\n"
-        try bb?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescBb = bb {
+          output += try outDescBb.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -11583,16 +11649,20 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestMutualRecursionB) throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
       return try ProtobufUnittest.TestMutualRecursionB.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasA {
         output += "\(indent) a {\n"
-        try a?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescA = a {
+          output += try outDescA.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasOptionalInt32 {
         output += "\(indent) optionalInt32: \(optionalInt32) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -11860,11 +11930,13 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestDupFieldNumber.Foo) throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
           return try ProtobufUnittest.TestDupFieldNumber.Foo.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -12062,11 +12134,13 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestDupFieldNumber.Bar) throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
           return try ProtobufUnittest.TestDupFieldNumber.Bar.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -12280,21 +12354,27 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestDupFieldNumber) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
       return try ProtobufUnittest.TestDupFieldNumber.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
       }
       if hasFoo {
         output += "\(indent) foo {\n"
-        try foo?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescFoo = foo {
+          output += try outDescFoo.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasBar {
         output += "\(indent) bar {\n"
-        try bar?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescBar = bar {
+          output += try outDescBar.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -12622,13 +12702,17 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestEagerMessage) throws -> ProtobufUnittest.TestEagerMessage.Builder {
       return try ProtobufUnittest.TestEagerMessage.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasSubMessage {
         output += "\(indent) subMessage {\n"
-        try subMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescSubMessage = subMessage {
+          output += try outDescSubMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -12856,13 +12940,17 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestLazyMessage) throws -> ProtobufUnittest.TestLazyMessage.Builder {
       return try ProtobufUnittest.TestLazyMessage.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasSubMessage {
         output += "\(indent) subMessage {\n"
-        try subMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescSubMessage = subMessage {
+          output += try outDescSubMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -13105,7 +13193,8 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
           return try ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           var nestedmessageRepeatedInt32ElementIndex:Int = 0
           for oneValuenestedmessageRepeatedInt32 in nestedmessageRepeatedInt32  {
               output += "\(indent) nestedmessageRepeatedInt32[\(nestedmessageRepeatedInt32ElementIndex)]: \(oneValuenestedmessageRepeatedInt32)\n"
@@ -13114,11 +13203,12 @@ internal extension ProtobufUnittest {
           var nestedmessageRepeatedForeignmessageElementIndex:Int = 0
           for oneElementnestedmessageRepeatedForeignmessage in nestedmessageRepeatedForeignmessage {
               output += "\(indent) nestedmessageRepeatedForeignmessage[\(nestedmessageRepeatedForeignmessageElementIndex)] {\n"
-              try oneElementnestedmessageRepeatedForeignmessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+              output += try oneElementnestedmessageRepeatedForeignmessage.getDescription("\(indent)  ")
               output += "\(indent)}\n"
               nestedmessageRepeatedForeignmessageElementIndex++
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -13332,13 +13422,17 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestNestedMessageHasBits) throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
       return try ProtobufUnittest.TestNestedMessageHasBits.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasOptionalNestedMessage {
         output += "\(indent) optionalNestedMessage {\n"
-        try optionalNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalNestedMessage = optionalNestedMessage {
+          output += try outDescOptionalNestedMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -13678,7 +13772,8 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestCamelCaseFieldNames) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
       return try ProtobufUnittest.TestCamelCaseFieldNames.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasPrimitiveField {
         output += "\(indent) primitiveField: \(primitiveField) \n"
       }
@@ -13690,7 +13785,9 @@ internal extension ProtobufUnittest {
       }
       if hasMessageField {
         output += "\(indent) messageField {\n"
-        try messageField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescMessageField = messageField {
+          output += try outDescMessageField.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasStringPieceField {
@@ -13717,7 +13814,7 @@ internal extension ProtobufUnittest {
       var repeatedMessageFieldElementIndex:Int = 0
       for oneElementrepeatedMessageField in repeatedMessageField {
           output += "\(indent) repeatedMessageField[\(repeatedMessageFieldElementIndex)] {\n"
-          try oneElementrepeatedMessageField.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementrepeatedMessageField.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedMessageFieldElementIndex++
       }
@@ -13731,7 +13828,8 @@ internal extension ProtobufUnittest {
           output += "\(indent) repeatedCordField[\(repeatedCordFieldElementIndex)]: \(oneValuerepeatedCordField)\n"
           repeatedCordFieldElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -14306,19 +14404,21 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestFieldOrderings) throws -> ProtobufUnittest.TestFieldOrderings.Builder {
       return try ProtobufUnittest.TestFieldOrderings.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasMyInt {
         output += "\(indent) myInt: \(myInt) \n"
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(2), endExclusive:Int32(11), indent:indent)
+      output += try getExtensionDescription(Int32(2), endExclusive:Int32(11), indent:indent)
       if hasMyString {
         output += "\(indent) myString: \(myString) \n"
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(12), endExclusive:Int32(101), indent:indent)
+      output += try getExtensionDescription(Int32(12), endExclusive:Int32(101), indent:indent)
       if hasMyFloat {
         output += "\(indent) myFloat: \(myFloat) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -14823,7 +14923,8 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestExtremeDefaultValues) throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
       return try ProtobufUnittest.TestExtremeDefaultValues.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasEscapedBytes {
         output += "\(indent) escapedBytes: \(escapedBytes) \n"
       }
@@ -14905,7 +15006,8 @@ internal extension ProtobufUnittest {
       if hasReplacementString {
         output += "\(indent) replacementString: \(replacementString) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -15928,11 +16030,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.SparseEnumMessage) throws -> ProtobufUnittest.SparseEnumMessage.Builder {
       return try ProtobufUnittest.SparseEnumMessage.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if (hasSparseEnum) {
         output += "\(indent) sparseEnum: \(sparseEnum.rawValue)\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -16130,11 +16234,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.OneString) throws -> ProtobufUnittest.OneString.Builder {
       return try ProtobufUnittest.OneString.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -16329,13 +16435,15 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.MoreString) throws -> ProtobufUnittest.MoreString.Builder {
       return try ProtobufUnittest.MoreString.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       var dataElementIndex:Int = 0
       for oneValuedata in data  {
           output += "\(indent) data[\(dataElementIndex)]: \(oneValuedata)\n"
           dataElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -16520,11 +16628,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.OneBytes) throws -> ProtobufUnittest.OneBytes.Builder {
       return try ProtobufUnittest.OneBytes.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -16719,13 +16829,15 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.MoreBytes) throws -> ProtobufUnittest.MoreBytes.Builder {
       return try ProtobufUnittest.MoreBytes.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       var dataElementIndex:Int = 0
       for oneValuedata in data  {
           output += "\(indent) data[\(dataElementIndex)]: \(oneValuedata)\n"
           dataElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -16911,11 +17023,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.Int32Message) throws -> ProtobufUnittest.Int32Message.Builder {
       return try ProtobufUnittest.Int32Message.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -17107,11 +17221,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.Uint32Message) throws -> ProtobufUnittest.Uint32Message.Builder {
       return try ProtobufUnittest.Uint32Message.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -17303,11 +17419,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.Int64Message) throws -> ProtobufUnittest.Int64Message.Builder {
       return try ProtobufUnittest.Int64Message.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -17499,11 +17617,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.Uint64Message) throws -> ProtobufUnittest.Uint64Message.Builder {
       return try ProtobufUnittest.Uint64Message.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -17695,11 +17815,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.BoolMessage) throws -> ProtobufUnittest.BoolMessage.Builder {
       return try ProtobufUnittest.BoolMessage.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -17906,14 +18028,16 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestOneof.FooGroup) throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
           return try ProtobufUnittest.TestOneof.FooGroup.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
           }
           if hasB {
             output += "\(indent) b: \(b) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -18288,7 +18412,8 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestOneof) throws -> ProtobufUnittest.TestOneof.Builder {
       return try ProtobufUnittest.TestOneof.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasFooInt {
         output += "\(indent) fooInt: \(fooInt) \n"
       }
@@ -18297,15 +18422,20 @@ internal extension ProtobufUnittest {
       }
       if hasFooMessage {
         output += "\(indent) fooMessage {\n"
-        try fooMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescFooMessage = fooMessage {
+          output += try outDescFooMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasFooGroup {
         output += "\(indent) fooGroup {\n"
-        try fooGroup?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescFooGroup = fooGroup {
+          output += try outDescFooGroup.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -18677,14 +18807,16 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
           return try ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
           }
           if hasB {
             output += "\(indent) b: \(b) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -18938,7 +19070,8 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestOneofBackwardsCompatible) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
       return try ProtobufUnittest.TestOneofBackwardsCompatible.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasFooInt {
         output += "\(indent) fooInt: \(fooInt) \n"
       }
@@ -18947,15 +19080,20 @@ internal extension ProtobufUnittest {
       }
       if hasFooMessage {
         output += "\(indent) fooMessage {\n"
-        try fooMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescFooMessage = fooMessage {
+          output += try outDescFooMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasFooGroup {
         output += "\(indent) fooGroup {\n"
-        try fooGroup?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescFooGroup = fooGroup {
+          output += try outDescFooGroup.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -19327,14 +19465,16 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestOneof2.FooGroup) throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
           return try ProtobufUnittest.TestOneof2.FooGroup.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
           }
           if hasB {
             output += "\(indent) b: \(b) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -19576,7 +19716,8 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestOneof2.NestedMessage) throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
           return try ProtobufUnittest.TestOneof2.NestedMessage.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasQuxInt {
             output += "\(indent) quxInt: \(quxInt) \n"
           }
@@ -19585,7 +19726,8 @@ internal extension ProtobufUnittest {
               output += "\(indent) corgeInt[\(corgeIntElementIndex)]: \(oneValuecorgeInt)\n"
               corgeIntElementIndex++
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -20379,7 +20521,8 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestOneof2) throws -> ProtobufUnittest.TestOneof2.Builder {
       return try ProtobufUnittest.TestOneof2.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasFooInt {
         output += "\(indent) fooInt: \(fooInt) \n"
       }
@@ -20400,17 +20543,23 @@ internal extension ProtobufUnittest {
       }
       if hasFooMessage {
         output += "\(indent) fooMessage {\n"
-        try fooMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescFooMessage = fooMessage {
+          output += try outDescFooMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasFooGroup {
         output += "\(indent) fooGroup {\n"
-        try fooGroup?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescFooGroup = fooGroup {
+          output += try outDescFooGroup.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasFooLazyMessage {
         output += "\(indent) fooLazyMessage {\n"
-        try fooLazyMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescFooLazyMessage = fooLazyMessage {
+          output += try outDescFooLazyMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasBarInt {
@@ -20437,7 +20586,8 @@ internal extension ProtobufUnittest {
       if hasBazString {
         output += "\(indent) bazString: \(bazString) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -21264,11 +21414,13 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestRequiredOneof.NestedMessage) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
           return try ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasRequiredDouble {
             output += "\(indent) requiredDouble: \(requiredDouble) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -21580,7 +21732,8 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestRequiredOneof) throws -> ProtobufUnittest.TestRequiredOneof.Builder {
       return try ProtobufUnittest.TestRequiredOneof.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasFooInt {
         output += "\(indent) fooInt: \(fooInt) \n"
       }
@@ -21589,10 +21742,13 @@ internal extension ProtobufUnittest {
       }
       if hasFooMessage {
         output += "\(indent) fooMessage {\n"
-        try fooMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescFooMessage = fooMessage {
+          output += try outDescFooMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -22126,7 +22282,8 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestPackedTypes) throws -> ProtobufUnittest.TestPackedTypes.Builder {
       return try ProtobufUnittest.TestPackedTypes.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       var packedInt32ElementIndex:Int = 0
       for oneValuepackedInt32 in packedInt32  {
           output += "\(indent) packedInt32[\(packedInt32ElementIndex)]: \(oneValuepackedInt32)\n"
@@ -22197,7 +22354,8 @@ internal extension ProtobufUnittest {
           output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(oneValueOfpackedEnum.rawValue)\n"
           packedEnumElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -22928,7 +23086,8 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestUnpackedTypes) throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
       return try ProtobufUnittest.TestUnpackedTypes.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       var unpackedInt32ElementIndex:Int = 0
       for oneValueunpackedInt32 in unpackedInt32  {
           output += "\(indent) unpackedInt32[\(unpackedInt32ElementIndex)]: \(oneValueunpackedInt32)\n"
@@ -22999,7 +23158,8 @@ internal extension ProtobufUnittest {
           output += "\(indent) unpackedEnum[\(unpackedEnumElementIndex)]: \(oneValueOfunpackedEnum.rawValue)\n"
           unpackedEnumElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -23510,9 +23670,11 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestPackedExtensions) throws -> ProtobufUnittest.TestPackedExtensions.Builder {
       return try ProtobufUnittest.TestPackedExtensions.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      try writeExtensionDescription(&output, startInclusive:Int32(1), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += try getExtensionDescription(Int32(1), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -23670,9 +23832,11 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestUnpackedExtensions) throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
       return try ProtobufUnittest.TestUnpackedExtensions.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      try writeExtensionDescription(&output, startInclusive:Int32(1), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += try getExtensionDescription(Int32(1), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -23842,11 +24006,13 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
           return try ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasDynamicField {
             output += "\(indent) dynamicField: \(dynamicField) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -24119,7 +24285,8 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestDynamicExtensions) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
       return try ProtobufUnittest.TestDynamicExtensions.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasScalarExtension {
         output += "\(indent) scalarExtension: \(scalarExtension) \n"
       }
@@ -24131,12 +24298,16 @@ internal extension ProtobufUnittest {
       }
       if hasMessageExtension {
         output += "\(indent) messageExtension {\n"
-        try messageExtension?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescMessageExtension = messageExtension {
+          output += try outDescMessageExtension.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasDynamicMessageExtension {
         output += "\(indent) dynamicMessageExtension {\n"
-        try dynamicMessageExtension?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescDynamicMessageExtension = dynamicMessageExtension {
+          output += try outDescDynamicMessageExtension.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       var repeatedExtensionElementIndex:Int = 0
@@ -24149,7 +24320,8 @@ internal extension ProtobufUnittest {
           output += "\(indent) packedExtension[\(packedExtensionElementIndex)]: \(oneValuepackedExtension)\n"
           packedExtensionElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -24667,7 +24839,8 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestRepeatedScalarDifferentTagSizes) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
       return try ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       var repeatedFixed32ElementIndex:Int = 0
       for oneValuerepeatedFixed32 in repeatedFixed32  {
           output += "\(indent) repeatedFixed32[\(repeatedFixed32ElementIndex)]: \(oneValuerepeatedFixed32)\n"
@@ -24698,7 +24871,8 @@ internal extension ProtobufUnittest {
           output += "\(indent) repeatedUint64[\(repeatedUint64ElementIndex)]: \(oneValuerepeatedUint64)\n"
           repeatedUint64ElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -25026,13 +25200,17 @@ internal extension ProtobufUnittest {
             internal class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
               return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder().mergeFrom(prototype)
             }
-            override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+            override internal func getDescription(indent:String) throws -> String {
+              var output:String = ""
               if hasField1 {
                 output += "\(indent) field1 {\n"
-                try field1?.writeDescriptionTo(&output, indent:"\(indent)  ")
+                if let outDescField1 = field1 {
+                  output += try outDescField1.getDescription("\(indent)  ")
+                }
                 output += "\(indent) }\n"
               }
-              unknownFields.writeDescriptionTo(&output, indent:indent)
+              output += unknownFields.getDescription(indent)
+              return output
             }
             override internal var hashValue:Int {
                 get {
@@ -25266,13 +25444,17 @@ internal extension ProtobufUnittest {
             internal class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
               return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder().mergeFrom(prototype)
             }
-            override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+            override internal func getDescription(indent:String) throws -> String {
+              var output:String = ""
               if hasField1 {
                 output += "\(indent) field1 {\n"
-                try field1?.writeDescriptionTo(&output, indent:"\(indent)  ")
+                if let outDescField1 = field1 {
+                  output += try outDescField1.getDescription("\(indent)  ")
+                }
                 output += "\(indent) }\n"
               }
-              unknownFields.writeDescriptionTo(&output, indent:indent)
+              output += unknownFields.getDescription(indent)
+              return output
             }
             override internal var hashValue:Int {
                 get {
@@ -25540,57 +25722,59 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
           return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           var field1ElementIndex:Int = 0
           for oneElementfield1 in field1 {
               output += "\(indent) field1[\(field1ElementIndex)] {\n"
-              try oneElementfield1.writeDescriptionTo(&output, indent:"\(indent)  ")
+              output += try oneElementfield1.getDescription("\(indent)  ")
               output += "\(indent)}\n"
               field1ElementIndex++
           }
           var field2ElementIndex:Int = 0
           for oneElementfield2 in field2 {
               output += "\(indent) field2[\(field2ElementIndex)] {\n"
-              try oneElementfield2.writeDescriptionTo(&output, indent:"\(indent)  ")
+              output += try oneElementfield2.getDescription("\(indent)  ")
               output += "\(indent)}\n"
               field2ElementIndex++
           }
           var field3ElementIndex:Int = 0
           for oneElementfield3 in field3 {
               output += "\(indent) field3[\(field3ElementIndex)] {\n"
-              try oneElementfield3.writeDescriptionTo(&output, indent:"\(indent)  ")
+              output += try oneElementfield3.getDescription("\(indent)  ")
               output += "\(indent)}\n"
               field3ElementIndex++
           }
           var group1ElementIndex:Int = 0
           for oneElementgroup1 in group1 {
               output += "\(indent) group1[\(group1ElementIndex)] {\n"
-              try oneElementgroup1.writeDescriptionTo(&output, indent:"\(indent)  ")
+              output += try oneElementgroup1.getDescription("\(indent)  ")
               output += "\(indent)}\n"
               group1ElementIndex++
           }
           var group2ElementIndex:Int = 0
           for oneElementgroup2 in group2 {
               output += "\(indent) group2[\(group2ElementIndex)] {\n"
-              try oneElementgroup2.writeDescriptionTo(&output, indent:"\(indent)  ")
+              output += try oneElementgroup2.getDescription("\(indent)  ")
               output += "\(indent)}\n"
               group2ElementIndex++
           }
           var ext1ElementIndex:Int = 0
           for oneElementext1 in ext1 {
               output += "\(indent) ext1[\(ext1ElementIndex)] {\n"
-              try oneElementext1.writeDescriptionTo(&output, indent:"\(indent)  ")
+              output += try oneElementext1.getDescription("\(indent)  ")
               output += "\(indent)}\n"
               ext1ElementIndex++
           }
           var ext2ElementIndex:Int = 0
           for oneElementext2 in ext2 {
               output += "\(indent) ext2[\(ext2ElementIndex)] {\n"
-              try oneElementext2.writeDescriptionTo(&output, indent:"\(indent)  ")
+              output += try oneElementext2.getDescription("\(indent)  ")
               output += "\(indent)}\n"
               ext2ElementIndex++
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -25946,13 +26130,17 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMerge.OptionalGroup) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
           return try ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasOptionalGroupAllTypes {
             output += "\(indent) optionalGroupAllTypes {\n"
-            try optionalGroupAllTypes?.writeDescriptionTo(&output, indent:"\(indent)  ")
+            if let outDescOptionalGroupAllTypes = optionalGroupAllTypes {
+              output += try outDescOptionalGroupAllTypes.getDescription("\(indent)  ")
+            }
             output += "\(indent) }\n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -26186,13 +26374,17 @@ internal extension ProtobufUnittest {
         internal class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMerge.RepeatedGroup) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
           return try ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder().mergeFrom(prototype)
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasRepeatedGroupAllTypes {
             output += "\(indent) repeatedGroupAllTypes {\n"
-            try repeatedGroupAllTypes?.writeDescriptionTo(&output, indent:"\(indent)  ")
+            if let outDescRepeatedGroupAllTypes = repeatedGroupAllTypes {
+              output += try outDescRepeatedGroupAllTypes.getDescription("\(indent)  ")
+            }
             output += "\(indent) }\n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -26469,38 +26661,46 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMerge) throws -> ProtobufUnittest.TestParsingMerge.Builder {
       return try ProtobufUnittest.TestParsingMerge.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasRequiredAllTypes {
         output += "\(indent) requiredAllTypes {\n"
-        try requiredAllTypes?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescRequiredAllTypes = requiredAllTypes {
+          output += try outDescRequiredAllTypes.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasOptionalAllTypes {
         output += "\(indent) optionalAllTypes {\n"
-        try optionalAllTypes?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalAllTypes = optionalAllTypes {
+          output += try outDescOptionalAllTypes.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       var repeatedAllTypesElementIndex:Int = 0
       for oneElementrepeatedAllTypes in repeatedAllTypes {
           output += "\(indent) repeatedAllTypes[\(repeatedAllTypesElementIndex)] {\n"
-          try oneElementrepeatedAllTypes.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementrepeatedAllTypes.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedAllTypesElementIndex++
       }
       if hasOptionalGroup {
         output += "\(indent) optionalGroup {\n"
-        try optionalGroup?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalGroup = optionalGroup {
+          output += try outDescOptionalGroup.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       var repeatedGroupElementIndex:Int = 0
       for oneElementrepeatedGroup in repeatedGroup {
           output += "\(indent) repeatedGroup[\(repeatedGroupElementIndex)] {\n"
-          try oneElementrepeatedGroup.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementrepeatedGroup.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedGroupElementIndex++
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -26918,11 +27118,13 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestCommentInjectionMessage) throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
       return try ProtobufUnittest.TestCommentInjectionMessage.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -27106,8 +27308,10 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.FooRequest) throws -> ProtobufUnittest.FooRequest.Builder {
       return try ProtobufUnittest.FooRequest.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -27258,8 +27462,10 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.FooResponse) throws -> ProtobufUnittest.FooResponse.Builder {
       return try ProtobufUnittest.FooResponse.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -27410,8 +27616,10 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.FooClientMessage) throws -> ProtobufUnittest.FooClientMessage.Builder {
       return try ProtobufUnittest.FooClientMessage.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -27562,8 +27770,10 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.FooServerMessage) throws -> ProtobufUnittest.FooServerMessage.Builder {
       return try ProtobufUnittest.FooServerMessage.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -27714,8 +27924,10 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.BarRequest) throws -> ProtobufUnittest.BarRequest.Builder {
       return try ProtobufUnittest.BarRequest.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -27866,8 +28078,10 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.BarResponse) throws -> ProtobufUnittest.BarResponse.Builder {
       return try ProtobufUnittest.BarResponse.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

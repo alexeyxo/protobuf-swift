@@ -152,7 +152,8 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.SwiftFileOptions) throws -> Google.Protobuf.SwiftFileOptions.Builder {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasClassPrefix {
         output += "\(indent) classPrefix: \(classPrefix) \n"
       }
@@ -162,7 +163,8 @@ public extension Google.Protobuf {
       if hasCompileForFramework {
         output += "\(indent) compileForFramework: \(compileForFramework) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {

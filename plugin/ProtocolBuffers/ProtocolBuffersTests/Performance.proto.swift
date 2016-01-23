@@ -168,13 +168,17 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
   public class func builderWithPrototype(prototype:PBUser) throws -> PBUser.Builder {
     return try PBUser.Builder().mergeFrom(prototype)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output:String = ""
     if hasGroup {
       output += "\(indent) group {\n"
-      try group?.writeDescriptionTo(&output, indent:"\(indent)  ")
+      if let outDescGroup = group {
+        output += try outDescGroup.getDescription("\(indent)  ")
+      }
       output += "\(indent) }\n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -402,13 +406,17 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
   public class func builderWithPrototype(prototype:PBGroup) throws -> PBGroup.Builder {
     return try PBGroup.Builder().mergeFrom(prototype)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output:String = ""
     if hasOwner {
       output += "\(indent) owner {\n"
-      try owner?.writeDescriptionTo(&output, indent:"\(indent)  ")
+      if let outDescOwner = owner {
+        output += try outDescOwner.getDescription("\(indent)  ")
+      }
       output += "\(indent) }\n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -643,15 +651,17 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
   public class func builderWithPrototype(prototype:PBPerfomanceBatch) throws -> PBPerfomanceBatch.Builder {
     return try PBPerfomanceBatch.Builder().mergeFrom(prototype)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output:String = ""
     var batchElementIndex:Int = 0
     for oneElementbatch in batch {
         output += "\(indent) batch[\(batchElementIndex)] {\n"
-        try oneElementbatch.writeDescriptionTo(&output, indent:"\(indent)  ")
+        output += try oneElementbatch.getDescription("\(indent)  ")
         output += "\(indent)}\n"
         batchElementIndex++
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -904,7 +914,8 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
   public class func builderWithPrototype(prototype:PBPerfomance) throws -> PBPerfomance.Builder {
     return try PBPerfomance.Builder().mergeFrom(prototype)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output:String = ""
     if hasInts {
       output += "\(indent) ints: \(ints) \n"
     }
@@ -926,7 +937,8 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
     if hasDescription {
       output += "\(indent) description_: \(description_) \n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -1325,14 +1337,16 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
   public class func builderWithPrototype(prototype:PBProtoPoint) throws -> PBProtoPoint.Builder {
     return try PBProtoPoint.Builder().mergeFrom(prototype)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output:String = ""
     if hasLatitude {
       output += "\(indent) latitude: \(latitude) \n"
     }
     if hasLongitude {
       output += "\(indent) longitude: \(longitude) \n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -1576,14 +1590,16 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
   public class func builderWithPrototype(prototype:PBIceCreamCone) throws -> PBIceCreamCone.Builder {
     return try PBIceCreamCone.Builder().mergeFrom(prototype)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output:String = ""
     if hasScoops {
       output += "\(indent) scoops: \(scoops) \n"
     }
     if (hasFlavor) {
       output += "\(indent) flavor: \(flavor.rawValue)\n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {

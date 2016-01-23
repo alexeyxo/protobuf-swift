@@ -113,13 +113,17 @@ internal extension ProtobufUnittest {
     internal class func builderWithPrototype(prototype:ProtobufUnittest.TestLiteImportsNonlite) throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
       return try ProtobufUnittest.TestLiteImportsNonlite.Builder().mergeFrom(prototype)
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasMessage_ {
         output += "\(indent) message_ {\n"
-        try message_?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescMessage_ = message_ {
+          output += try outDescMessage_.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

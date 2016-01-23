@@ -396,15 +396,17 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.FileDescriptorSet) throws -> Google.Protobuf.FileDescriptorSet.Builder {
       return try Google.Protobuf.FileDescriptorSet.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       var fileElementIndex:Int = 0
       for oneElementfile in file {
           output += "\(indent) file[\(fileElementIndex)] {\n"
-          try oneElementfile.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementfile.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           fileElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -736,7 +738,8 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.FileDescriptorProto) throws -> Google.Protobuf.FileDescriptorProto.Builder {
       return try Google.Protobuf.FileDescriptorProto.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasName {
         output += "\(indent) name: \(name) \n"
       }
@@ -751,39 +754,43 @@ public extension Google.Protobuf {
       var messageTypeElementIndex:Int = 0
       for oneElementmessageType in messageType {
           output += "\(indent) messageType[\(messageTypeElementIndex)] {\n"
-          try oneElementmessageType.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementmessageType.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           messageTypeElementIndex++
       }
       var enumTypeElementIndex:Int = 0
       for oneElementenumType in enumType {
           output += "\(indent) enumType[\(enumTypeElementIndex)] {\n"
-          try oneElementenumType.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementenumType.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           enumTypeElementIndex++
       }
       var serviceElementIndex:Int = 0
       for oneElementservice in service {
           output += "\(indent) service[\(serviceElementIndex)] {\n"
-          try oneElementservice.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementservice.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           serviceElementIndex++
       }
       var extension_ElementIndex:Int = 0
       for oneElementextension_ in extension_ {
           output += "\(indent) extension_[\(extension_ElementIndex)] {\n"
-          try oneElementextension_.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementextension_.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           extension_ElementIndex++
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        try options?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptions = options {
+          output += try outDescOptions.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasSourceCodeInfo {
         output += "\(indent) sourceCodeInfo {\n"
-        try sourceCodeInfo?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescSourceCodeInfo = sourceCodeInfo {
+          output += try outDescSourceCodeInfo.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       var publicDependencyElementIndex:Int = 0
@@ -796,7 +803,8 @@ public extension Google.Protobuf {
           output += "\(indent) weakDependency[\(weakDependencyElementIndex)]: \(oneValueweakDependency)\n"
           weakDependencyElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -1352,14 +1360,16 @@ public extension Google.Protobuf {
         public class func builderWithPrototype(prototype:Google.Protobuf.DescriptorProto.ExtensionRange) throws -> Google.Protobuf.DescriptorProto.ExtensionRange.Builder {
           return try Google.Protobuf.DescriptorProto.ExtensionRange.Builder().mergeFrom(prototype)
         }
-        override public func writeDescriptionTo(inout output:String, indent:String) throws {
+        override public func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasStart {
             output += "\(indent) start: \(start) \n"
           }
           if hasEnd {
             output += "\(indent) end: \(end) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override public var hashValue:Int {
             get {
@@ -1681,58 +1691,62 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.DescriptorProto) throws -> Google.Protobuf.DescriptorProto.Builder {
       return try Google.Protobuf.DescriptorProto.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasName {
         output += "\(indent) name: \(name) \n"
       }
       var fieldElementIndex:Int = 0
       for oneElementfield in field {
           output += "\(indent) field[\(fieldElementIndex)] {\n"
-          try oneElementfield.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementfield.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           fieldElementIndex++
       }
       var nestedTypeElementIndex:Int = 0
       for oneElementnestedType in nestedType {
           output += "\(indent) nestedType[\(nestedTypeElementIndex)] {\n"
-          try oneElementnestedType.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementnestedType.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           nestedTypeElementIndex++
       }
       var enumTypeElementIndex:Int = 0
       for oneElementenumType in enumType {
           output += "\(indent) enumType[\(enumTypeElementIndex)] {\n"
-          try oneElementenumType.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementenumType.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           enumTypeElementIndex++
       }
       var extensionRangeElementIndex:Int = 0
       for oneElementextensionRange in extensionRange {
           output += "\(indent) extensionRange[\(extensionRangeElementIndex)] {\n"
-          try oneElementextensionRange.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementextensionRange.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           extensionRangeElementIndex++
       }
       var extension_ElementIndex:Int = 0
       for oneElementextension_ in extension_ {
           output += "\(indent) extension_[\(extension_ElementIndex)] {\n"
-          try oneElementextension_.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementextension_.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           extension_ElementIndex++
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        try options?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptions = options {
+          output += try outDescOptions.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       var oneofDeclElementIndex:Int = 0
       for oneElementoneofDecl in oneofDecl {
           output += "\(indent) oneofDecl[\(oneofDeclElementIndex)] {\n"
-          try oneElementoneofDecl.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementoneofDecl.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           oneofDeclElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -2308,7 +2322,8 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.FieldDescriptorProto) throws -> Google.Protobuf.FieldDescriptorProto.Builder {
       return try Google.Protobuf.FieldDescriptorProto.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasName {
         output += "\(indent) name: \(name) \n"
       }
@@ -2332,13 +2347,16 @@ public extension Google.Protobuf {
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        try options?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptions = options {
+          output += try outDescOptions.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasOneofIndex {
         output += "\(indent) oneofIndex: \(oneofIndex) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -2832,11 +2850,13 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.OneofDescriptorProto) throws -> Google.Protobuf.OneofDescriptorProto.Builder {
       return try Google.Protobuf.OneofDescriptorProto.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasName {
         output += "\(indent) name: \(name) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -3061,23 +3081,27 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.EnumDescriptorProto) throws -> Google.Protobuf.EnumDescriptorProto.Builder {
       return try Google.Protobuf.EnumDescriptorProto.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasName {
         output += "\(indent) name: \(name) \n"
       }
       var valueElementIndex:Int = 0
       for oneElementvalue in value {
           output += "\(indent) value[\(valueElementIndex)] {\n"
-          try oneElementvalue.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementvalue.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           valueElementIndex++
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        try options?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptions = options {
+          output += try outDescOptions.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -3388,7 +3412,8 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.EnumValueDescriptorProto) throws -> Google.Protobuf.EnumValueDescriptorProto.Builder {
       return try Google.Protobuf.EnumValueDescriptorProto.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasName {
         output += "\(indent) name: \(name) \n"
       }
@@ -3397,10 +3422,13 @@ public extension Google.Protobuf {
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        try options?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptions = options {
+          output += try outDescOptions.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -3724,23 +3752,27 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.ServiceDescriptorProto) throws -> Google.Protobuf.ServiceDescriptorProto.Builder {
       return try Google.Protobuf.ServiceDescriptorProto.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasName {
         output += "\(indent) name: \(name) \n"
       }
       var methodElementIndex:Int = 0
       for oneElementmethod in method {
           output += "\(indent) method[\(methodElementIndex)] {\n"
-          try oneElementmethod.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementmethod.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           methodElementIndex++
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        try options?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptions = options {
+          output += try outDescOptions.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -4062,7 +4094,8 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.MethodDescriptorProto) throws -> Google.Protobuf.MethodDescriptorProto.Builder {
       return try Google.Protobuf.MethodDescriptorProto.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasName {
         output += "\(indent) name: \(name) \n"
       }
@@ -4074,10 +4107,13 @@ public extension Google.Protobuf {
       }
       if hasOptions {
         output += "\(indent) options {\n"
-        try options?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptions = options {
+          output += try outDescOptions.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -4576,7 +4612,8 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.FileOptions) throws -> Google.Protobuf.FileOptions.Builder {
       return try Google.Protobuf.FileOptions.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasJavaPackage {
         output += "\(indent) javaPackage: \(javaPackage) \n"
       }
@@ -4613,12 +4650,13 @@ public extension Google.Protobuf {
       var uninterpretedOptionElementIndex:Int = 0
       for oneElementuninterpretedOption in uninterpretedOption {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-          try oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementuninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           uninterpretedOptionElementIndex++
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -5226,7 +5264,8 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.MessageOptions) throws -> Google.Protobuf.MessageOptions.Builder {
       return try Google.Protobuf.MessageOptions.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasMessageSetWireFormat {
         output += "\(indent) messageSetWireFormat: \(messageSetWireFormat) \n"
       }
@@ -5239,12 +5278,13 @@ public extension Google.Protobuf {
       var uninterpretedOptionElementIndex:Int = 0
       for oneElementuninterpretedOption in uninterpretedOption {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-          try oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementuninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           uninterpretedOptionElementIndex++
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -5654,7 +5694,8 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.FieldOptions) throws -> Google.Protobuf.FieldOptions.Builder {
       return try Google.Protobuf.FieldOptions.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if (hasCtype) {
         output += "\(indent) ctype: \(ctype.rawValue)\n"
       }
@@ -5676,12 +5717,13 @@ public extension Google.Protobuf {
       var uninterpretedOptionElementIndex:Int = 0
       for oneElementuninterpretedOption in uninterpretedOption {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-          try oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementuninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           uninterpretedOptionElementIndex++
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -6104,7 +6146,8 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.EnumOptions) throws -> Google.Protobuf.EnumOptions.Builder {
       return try Google.Protobuf.EnumOptions.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasAllowAlias {
         output += "\(indent) allowAlias: \(allowAlias) \n"
       }
@@ -6114,12 +6157,13 @@ public extension Google.Protobuf {
       var uninterpretedOptionElementIndex:Int = 0
       for oneElementuninterpretedOption in uninterpretedOption {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-          try oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementuninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           uninterpretedOptionElementIndex++
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -6398,19 +6442,21 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.EnumValueOptions) throws -> Google.Protobuf.EnumValueOptions.Builder {
       return try Google.Protobuf.EnumValueOptions.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasDeprecated {
         output += "\(indent) deprecated: \(deprecated) \n"
       }
       var uninterpretedOptionElementIndex:Int = 0
       for oneElementuninterpretedOption in uninterpretedOption {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-          try oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementuninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           uninterpretedOptionElementIndex++
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -6657,19 +6703,21 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.ServiceOptions) throws -> Google.Protobuf.ServiceOptions.Builder {
       return try Google.Protobuf.ServiceOptions.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasDeprecated {
         output += "\(indent) deprecated: \(deprecated) \n"
       }
       var uninterpretedOptionElementIndex:Int = 0
       for oneElementuninterpretedOption in uninterpretedOption {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-          try oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementuninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           uninterpretedOptionElementIndex++
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -6916,19 +6964,21 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.MethodOptions) throws -> Google.Protobuf.MethodOptions.Builder {
       return try Google.Protobuf.MethodOptions.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       if hasDeprecated {
         output += "\(indent) deprecated: \(deprecated) \n"
       }
       var uninterpretedOptionElementIndex:Int = 0
       for oneElementuninterpretedOption in uninterpretedOption {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
-          try oneElementuninterpretedOption.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementuninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           uninterpretedOptionElementIndex++
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -7180,14 +7230,16 @@ public extension Google.Protobuf {
         public class func builderWithPrototype(prototype:Google.Protobuf.UninterpretedOption.NamePart) throws -> Google.Protobuf.UninterpretedOption.NamePart.Builder {
           return try Google.Protobuf.UninterpretedOption.NamePart.Builder().mergeFrom(prototype)
         }
-        override public func writeDescriptionTo(inout output:String, indent:String) throws {
+        override public func getDescription(indent:String) throws -> String {
+          var output:String = ""
           if hasNamePart {
             output += "\(indent) namePart: \(namePart) \n"
           }
           if hasIsExtension {
             output += "\(indent) isExtension: \(isExtension) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override public var hashValue:Int {
             get {
@@ -7476,11 +7528,12 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.UninterpretedOption) throws -> Google.Protobuf.UninterpretedOption.Builder {
       return try Google.Protobuf.UninterpretedOption.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       var nameElementIndex:Int = 0
       for oneElementname in name {
           output += "\(indent) name[\(nameElementIndex)] {\n"
-          try oneElementname.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementname.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           nameElementIndex++
       }
@@ -7502,7 +7555,8 @@ public extension Google.Protobuf {
       if hasAggregateValue {
         output += "\(indent) aggregateValue: \(aggregateValue) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -7988,7 +8042,8 @@ public extension Google.Protobuf {
         public class func builderWithPrototype(prototype:Google.Protobuf.SourceCodeInfo.Location) throws -> Google.Protobuf.SourceCodeInfo.Location.Builder {
           return try Google.Protobuf.SourceCodeInfo.Location.Builder().mergeFrom(prototype)
         }
-        override public func writeDescriptionTo(inout output:String, indent:String) throws {
+        override public func getDescription(indent:String) throws -> String {
+          var output:String = ""
           var pathElementIndex:Int = 0
           for oneValuepath in path  {
               output += "\(indent) path[\(pathElementIndex)]: \(oneValuepath)\n"
@@ -8005,7 +8060,8 @@ public extension Google.Protobuf {
           if hasTrailingComments {
             output += "\(indent) trailingComments: \(trailingComments) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override public var hashValue:Int {
             get {
@@ -8288,15 +8344,17 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.SourceCodeInfo) throws -> Google.Protobuf.SourceCodeInfo.Builder {
       return try Google.Protobuf.SourceCodeInfo.Builder().mergeFrom(prototype)
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
       var locationElementIndex:Int = 0
       for oneElementlocation in location {
           output += "\(indent) location[\(locationElementIndex)] {\n"
-          try oneElementlocation.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementlocation.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           locationElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
