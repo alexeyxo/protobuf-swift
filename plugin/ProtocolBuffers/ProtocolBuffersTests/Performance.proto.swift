@@ -229,16 +229,20 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
   override class public func fromJSON(data:NSData) throws -> PBUser {
     return try PBUser.Builder.fromJSONToBuilder(data).build()
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output = ""
     if hasGroup {
       output += "\(indent) group {\n"
-      try group?.writeDescriptionTo(&output, indent:"\(indent)  ")
+      if let outDescGroup = group {
+        output += try outDescGroup.getDescription("\(indent)  ")
+      }
       output += "\(indent) }\n"
     }
     if hasGroupName {
       output += "\(indent) groupName: \(groupName) \n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -533,13 +537,17 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
   override class public func fromJSON(data:NSData) throws -> PBGroup {
     return try PBGroup.Builder.fromJSONToBuilder(data).build()
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output = ""
     if hasOwner {
       output += "\(indent) owner {\n"
-      try owner?.writeDescriptionTo(&output, indent:"\(indent)  ")
+      if let outDescOwner = owner {
+        output += try outDescOwner.getDescription("\(indent)  ")
+      }
       output += "\(indent) }\n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -811,15 +819,17 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
   override class public func fromJSON(data:NSData) throws -> PBPerfomanceBatch {
     return try PBPerfomanceBatch.Builder.fromJSONToBuilder(data).build()
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output = ""
     var batchElementIndex:Int = 0
     for oneElementBatch in batch {
         output += "\(indent) batch[\(batchElementIndex)] {\n"
-        try oneElementBatch.writeDescriptionTo(&output, indent:"\(indent)  ")
+        output += try oneElementBatch.getDescription("\(indent)  ")
         output += "\(indent)}\n"
         batchElementIndex++
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -1127,7 +1137,8 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
   override class public func fromJSON(data:NSData) throws -> PBPerfomance {
     return try PBPerfomance.Builder.fromJSONToBuilder(data).build()
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output = ""
     if hasInts {
       output += "\(indent) ints: \(ints) \n"
     }
@@ -1149,7 +1160,8 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
     if hasDescription {
       output += "\(indent) description_: \(description_) \n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -1600,14 +1612,16 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
   override class public func fromJSON(data:NSData) throws -> PBProtoPoint {
     return try PBProtoPoint.Builder.fromJSONToBuilder(data).build()
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output = ""
     if hasLatitude {
       output += "\(indent) latitude: \(latitude) \n"
     }
     if hasLongitude {
       output += "\(indent) longitude: \(longitude) \n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -1900,14 +1914,16 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
   override class public func fromJSON(data:NSData) throws -> PBIceCreamCone {
     return try PBIceCreamCone.Builder.fromJSONToBuilder(data).build()
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output = ""
     if hasScoops {
       output += "\(indent) scoops: \(scoops) \n"
     }
     if (hasFlavor) {
       output += "\(indent) flavor: \(flavor.rawValue)\n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -2172,11 +2188,13 @@ final public class PBFoo : GeneratedMessage, GeneratedMessageProtocol {
   override class public func fromJSON(data:NSData) throws -> PBFoo {
     return try PBFoo.Builder.fromJSONToBuilder(data).build()
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output = ""
     if hasVal {
       output += "\(indent) val: \(val) \n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -2400,13 +2418,17 @@ final public class PBBar : GeneratedMessage, GeneratedMessageProtocol {
   override class public func fromJSON(data:NSData) throws -> PBBar {
     return try PBBar.Builder.fromJSONToBuilder(data).build()
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output = ""
     if hasFoo {
       output += "\(indent) foo {\n"
-      try foo?.writeDescriptionTo(&output, indent:"\(indent)  ")
+      if let outDescFoo = foo {
+        output += try outDescFoo.getDescription("\(indent)  ")
+      }
       output += "\(indent) }\n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {
@@ -2666,13 +2688,17 @@ final public class PBBaz : GeneratedMessage, GeneratedMessageProtocol {
   override class public func fromJSON(data:NSData) throws -> PBBaz {
     return try PBBaz.Builder.fromJSONToBuilder(data).build()
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) throws {
+  override public func getDescription(indent:String) throws -> String {
+    var output = ""
     if hasBar {
       output += "\(indent) bar {\n"
-      try bar?.writeDescriptionTo(&output, indent:"\(indent)  ")
+      if let outDescBar = bar {
+        output += try outDescBar.getDescription("\(indent)  ")
+      }
       output += "\(indent) }\n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override public var hashValue:Int {
       get {

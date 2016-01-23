@@ -157,11 +157,13 @@ internal extension ProtobufUnittestImport {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittestImport.ImportMessageLite {
       return try ProtobufUnittestImport.ImportMessageLite.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasD {
         output += "\(indent) d: \(d) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

@@ -141,11 +141,13 @@ internal extension Proto2ArenaUnittest {
     override class internal func fromJSON(data:NSData) throws -> Proto2ArenaUnittest.NestedMessage {
       return try Proto2ArenaUnittest.NestedMessage.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasD {
         output += "\(indent) d: \(d) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -386,22 +388,24 @@ internal extension Proto2ArenaUnittest {
     override class internal func fromJSON(data:NSData) throws -> Proto2ArenaUnittest.ArenaMessage {
       return try Proto2ArenaUnittest.ArenaMessage.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       var repeatedNestedMessageElementIndex:Int = 0
       for oneElementRepeatedNestedMessage in repeatedNestedMessage {
           output += "\(indent) repeatedNestedMessage[\(repeatedNestedMessageElementIndex)] {\n"
-          try oneElementRepeatedNestedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementRepeatedNestedMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedNestedMessageElementIndex++
       }
       var repeatedImportNoArenaMessageElementIndex:Int = 0
       for oneElementRepeatedImportNoArenaMessage in repeatedImportNoArenaMessage {
           output += "\(indent) repeatedImportNoArenaMessage[\(repeatedImportNoArenaMessageElementIndex)] {\n"
-          try oneElementRepeatedImportNoArenaMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementRepeatedImportNoArenaMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedImportNoArenaMessageElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

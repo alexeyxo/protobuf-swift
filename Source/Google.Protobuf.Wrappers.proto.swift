@@ -210,11 +210,13 @@ public extension Google.Protobuf {
     override class public func fromJSON(data:NSData) throws -> Google.Protobuf.DoubleValue {
       return try Google.Protobuf.DoubleValue.Builder.fromJSONToBuilder(data).build()
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasValue {
         output += "\(indent) value: \(value) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -439,11 +441,13 @@ public extension Google.Protobuf {
     override class public func fromJSON(data:NSData) throws -> Google.Protobuf.FloatValue {
       return try Google.Protobuf.FloatValue.Builder.fromJSONToBuilder(data).build()
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasValue {
         output += "\(indent) value: \(value) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -668,11 +672,13 @@ public extension Google.Protobuf {
     override class public func fromJSON(data:NSData) throws -> Google.Protobuf.Int64Value {
       return try Google.Protobuf.Int64Value.Builder.fromJSONToBuilder(data).build()
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasValue {
         output += "\(indent) value: \(value) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -897,11 +903,13 @@ public extension Google.Protobuf {
     override class public func fromJSON(data:NSData) throws -> Google.Protobuf.Uint64Value {
       return try Google.Protobuf.Uint64Value.Builder.fromJSONToBuilder(data).build()
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasValue {
         output += "\(indent) value: \(value) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -1126,11 +1134,13 @@ public extension Google.Protobuf {
     override class public func fromJSON(data:NSData) throws -> Google.Protobuf.Int32Value {
       return try Google.Protobuf.Int32Value.Builder.fromJSONToBuilder(data).build()
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasValue {
         output += "\(indent) value: \(value) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -1355,11 +1365,13 @@ public extension Google.Protobuf {
     override class public func fromJSON(data:NSData) throws -> Google.Protobuf.Uint32Value {
       return try Google.Protobuf.Uint32Value.Builder.fromJSONToBuilder(data).build()
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasValue {
         output += "\(indent) value: \(value) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -1584,11 +1596,13 @@ public extension Google.Protobuf {
     override class public func fromJSON(data:NSData) throws -> Google.Protobuf.BoolValue {
       return try Google.Protobuf.BoolValue.Builder.fromJSONToBuilder(data).build()
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasValue {
         output += "\(indent) value: \(value) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -1813,11 +1827,13 @@ public extension Google.Protobuf {
     override class public func fromJSON(data:NSData) throws -> Google.Protobuf.StringValue {
       return try Google.Protobuf.StringValue.Builder.fromJSONToBuilder(data).build()
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasValue {
         output += "\(indent) value: \(value) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -2042,11 +2058,13 @@ public extension Google.Protobuf {
     override class public func fromJSON(data:NSData) throws -> Google.Protobuf.BytesValue {
       return try Google.Protobuf.BytesValue.Builder.fromJSONToBuilder(data).build()
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasValue {
         output += "\(indent) value: \(value) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {

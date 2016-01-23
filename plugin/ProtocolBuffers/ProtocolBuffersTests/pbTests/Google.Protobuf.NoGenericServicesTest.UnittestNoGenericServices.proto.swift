@@ -167,12 +167,14 @@ internal extension Google.Protobuf.NoGenericServicesTest {
     override class internal func fromJSON(data:NSData) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
       return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

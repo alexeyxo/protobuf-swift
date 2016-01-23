@@ -243,11 +243,13 @@ internal extension Proto2NofieldpresenceUnittest {
         override class internal func fromJSON(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
           return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output = ""
           if hasBb {
             output += "\(indent) bb: \(bb) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -1326,7 +1328,8 @@ internal extension Proto2NofieldpresenceUnittest {
     override class internal func fromJSON(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
       return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasOptionalInt32 {
         output += "\(indent) optionalInt32: \(optionalInt32) \n"
       }
@@ -1374,17 +1377,23 @@ internal extension Proto2NofieldpresenceUnittest {
       }
       if hasOptionalNestedMessage {
         output += "\(indent) optionalNestedMessage {\n"
-        try optionalNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalNestedMessage = optionalNestedMessage {
+          output += try outDescOptionalNestedMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasOptionalForeignMessage {
         output += "\(indent) optionalForeignMessage {\n"
-        try optionalForeignMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalForeignMessage = optionalForeignMessage {
+          output += try outDescOptionalForeignMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasOptionalProto2Message {
         output += "\(indent) optionalProto2Message {\n"
-        try optionalProto2Message?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalProto2Message = optionalProto2Message {
+          output += try outDescOptionalProto2Message.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if (hasOptionalNestedEnum) {
@@ -1401,7 +1410,9 @@ internal extension Proto2NofieldpresenceUnittest {
       }
       if hasOptionalLazyMessage {
         output += "\(indent) optionalLazyMessage {\n"
-        try optionalLazyMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalLazyMessage = optionalLazyMessage {
+          output += try outDescOptionalLazyMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       var repeatedInt32ElementIndex:Int = 0
@@ -1482,21 +1493,21 @@ internal extension Proto2NofieldpresenceUnittest {
       var repeatedNestedMessageElementIndex:Int = 0
       for oneElementRepeatedNestedMessage in repeatedNestedMessage {
           output += "\(indent) repeatedNestedMessage[\(repeatedNestedMessageElementIndex)] {\n"
-          try oneElementRepeatedNestedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementRepeatedNestedMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedNestedMessageElementIndex++
       }
       var repeatedForeignMessageElementIndex:Int = 0
       for oneElementRepeatedForeignMessage in repeatedForeignMessage {
           output += "\(indent) repeatedForeignMessage[\(repeatedForeignMessageElementIndex)] {\n"
-          try oneElementRepeatedForeignMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementRepeatedForeignMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedForeignMessageElementIndex++
       }
       var repeatedProto2MessageElementIndex:Int = 0
       for oneElementRepeatedProto2Message in repeatedProto2Message {
           output += "\(indent) repeatedProto2Message[\(repeatedProto2MessageElementIndex)] {\n"
-          try oneElementRepeatedProto2Message.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementRepeatedProto2Message.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedProto2MessageElementIndex++
       }
@@ -1523,7 +1534,7 @@ internal extension Proto2NofieldpresenceUnittest {
       var repeatedLazyMessageElementIndex:Int = 0
       for oneElementRepeatedLazyMessage in repeatedLazyMessage {
           output += "\(indent) repeatedLazyMessage[\(repeatedLazyMessageElementIndex)] {\n"
-          try oneElementRepeatedLazyMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementRepeatedLazyMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedLazyMessageElementIndex++
       }
@@ -1532,7 +1543,9 @@ internal extension Proto2NofieldpresenceUnittest {
       }
       if hasOneofNestedMessage {
         output += "\(indent) oneofNestedMessage {\n"
-        try oneofNestedMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOneofNestedMessage = oneofNestedMessage {
+          output += try outDescOneofNestedMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasOneofString {
@@ -1541,7 +1554,8 @@ internal extension Proto2NofieldpresenceUnittest {
       if (hasOneofEnum) {
         output += "\(indent) oneofEnum: \(oneofEnum.rawValue)\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -3623,13 +3637,17 @@ internal extension Proto2NofieldpresenceUnittest {
     override class internal func fromJSON(data:NSData) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
       return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasProto2 {
         output += "\(indent) proto2 {\n"
-        try proto2?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescProto2 = proto2 {
+          output += try outDescProto2.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -3890,11 +3908,13 @@ internal extension Proto2NofieldpresenceUnittest {
     override class internal func fromJSON(data:NSData) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
       return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasC {
         output += "\(indent) c: \(c) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

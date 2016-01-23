@@ -126,11 +126,13 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
   override class internal func fromJSON(data:NSData) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder.fromJSONToBuilder(data).build()
   }
-  override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+  override internal func getDescription(indent:String) throws -> String {
+    var output = ""
     if hasTestString {
       output += "\(indent) testString: \(testString) \n"
     }
-    unknownFields.writeDescriptionTo(&output, indent:indent)
+    output += unknownFields.getDescription(indent)
+    return output
   }
   override internal var hashValue:Int {
       get {

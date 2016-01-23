@@ -226,21 +226,22 @@ public extension Google.Protobuf {
     override class public func fromJSON(data:NSData) throws -> Google.Protobuf.Api {
       return try Google.Protobuf.Api.Builder.fromJSONToBuilder(data).build()
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasName {
         output += "\(indent) name: \(name) \n"
       }
       var methodsElementIndex:Int = 0
       for oneElementMethods in methods {
           output += "\(indent) methods[\(methodsElementIndex)] {\n"
-          try oneElementMethods.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementMethods.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           methodsElementIndex++
       }
       var optionsElementIndex:Int = 0
       for oneElementOptions in options {
           output += "\(indent) options[\(optionsElementIndex)] {\n"
-          try oneElementOptions.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementOptions.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           optionsElementIndex++
       }
@@ -249,10 +250,13 @@ public extension Google.Protobuf {
       }
       if hasSourceContext {
         output += "\(indent) sourceContext {\n"
-        try sourceContext?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescSourceContext = sourceContext {
+          output += try outDescSourceContext.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {
@@ -722,7 +726,8 @@ public extension Google.Protobuf {
     override class public func fromJSON(data:NSData) throws -> Google.Protobuf.Method {
       return try Google.Protobuf.Method.Builder.fromJSONToBuilder(data).build()
     }
-    override public func writeDescriptionTo(inout output:String, indent:String) throws {
+    override public func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasName {
         output += "\(indent) name: \(name) \n"
       }
@@ -741,11 +746,12 @@ public extension Google.Protobuf {
       var optionsElementIndex:Int = 0
       for oneElementOptions in options {
           output += "\(indent) options[\(optionsElementIndex)] {\n"
-          try oneElementOptions.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementOptions.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           optionsElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override public var hashValue:Int {
         get {

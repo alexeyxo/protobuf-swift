@@ -360,7 +360,8 @@ internal extension Proto3PreserveUnknownEnumUnittest {
     override class internal func fromJSON(data:NSData) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
       return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if (hasE) {
         output += "\(indent) e: \(e.rawValue)\n"
       }
@@ -385,7 +386,8 @@ internal extension Proto3PreserveUnknownEnumUnittest {
       if (hasOneofE2) {
         output += "\(indent) oneofE2: \(oneofE2.rawValue)\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -974,7 +976,8 @@ internal extension Proto3PreserveUnknownEnumUnittest {
     override class internal func fromJSON(data:NSData) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
       return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if (hasE) {
         output += "\(indent) e: \(e.rawValue)\n"
       }
@@ -999,7 +1002,8 @@ internal extension Proto3PreserveUnknownEnumUnittest {
       if (hasOneofE2) {
         output += "\(indent) oneofE2: \(oneofE2.rawValue)\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

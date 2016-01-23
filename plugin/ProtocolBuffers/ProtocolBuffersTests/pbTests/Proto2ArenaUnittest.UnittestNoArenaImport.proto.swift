@@ -129,11 +129,13 @@ internal extension Proto2ArenaUnittest {
     override class internal func fromJSON(data:NSData) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
       return try Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasD {
         output += "\(indent) d: \(d) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

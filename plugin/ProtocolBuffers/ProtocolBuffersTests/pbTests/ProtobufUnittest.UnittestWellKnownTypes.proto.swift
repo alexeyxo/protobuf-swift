@@ -267,58 +267,80 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.TestWellKnownTypes {
       return try ProtobufUnittest.TestWellKnownTypes.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasAnyField {
         output += "\(indent) anyField {\n"
-        try anyField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescAnyField = anyField {
+          output += try outDescAnyField.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasApiField {
         output += "\(indent) apiField {\n"
-        try apiField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescApiField = apiField {
+          output += try outDescApiField.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasDurationField {
         output += "\(indent) durationField {\n"
-        try durationField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescDurationField = durationField {
+          output += try outDescDurationField.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasEmptyField {
         output += "\(indent) emptyField {\n"
-        try emptyField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescEmptyField = emptyField {
+          output += try outDescEmptyField.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasFieldMaskField {
         output += "\(indent) fieldMaskField {\n"
-        try fieldMaskField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescFieldMaskField = fieldMaskField {
+          output += try outDescFieldMaskField.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasSourceContextField {
         output += "\(indent) sourceContextField {\n"
-        try sourceContextField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescSourceContextField = sourceContextField {
+          output += try outDescSourceContextField.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasStructField {
         output += "\(indent) structField {\n"
-        try structField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescStructField = structField {
+          output += try outDescStructField.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasTimestampField {
         output += "\(indent) timestampField {\n"
-        try timestampField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescTimestampField = timestampField {
+          output += try outDescTimestampField.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasTypeField {
         output += "\(indent) typeField {\n"
-        try typeField?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescTypeField = typeField {
+          output += try outDescTypeField.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasInt32Field {
         output += "\(indent) int32Field {\n"
-        try int32Field?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescInt32Field = int32Field {
+          output += try outDescInt32Field.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

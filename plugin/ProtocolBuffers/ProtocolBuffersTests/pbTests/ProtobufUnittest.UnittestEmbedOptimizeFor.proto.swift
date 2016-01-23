@@ -162,20 +162,24 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.TestEmbedOptimizedForSize {
       return try ProtobufUnittest.TestEmbedOptimizedForSize.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasOptionalMessage {
         output += "\(indent) optionalMessage {\n"
-        try optionalMessage?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescOptionalMessage = optionalMessage {
+          output += try outDescOptionalMessage.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       var repeatedMessageElementIndex:Int = 0
       for oneElementRepeatedMessage in repeatedMessage {
           output += "\(indent) repeatedMessage[\(repeatedMessageElementIndex)] {\n"
-          try oneElementRepeatedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementRepeatedMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           repeatedMessageElementIndex++
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

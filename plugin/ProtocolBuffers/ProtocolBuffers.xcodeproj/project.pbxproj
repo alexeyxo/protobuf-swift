@@ -218,8 +218,6 @@
 /* Begin PBXFileReference section */
 		3F1747FB1C4160B70051A9DF /* Google.Protobuf.AnyType.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.AnyType.proto.swift; sourceTree = "<group>"; };
 		3F26F7461B909AD300428569 /* delimitedFile.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = delimitedFile.dat; sourceTree = "<group>"; };
-		3F31A19E1BA1993200F477C1 /* PBW.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBW.h; sourceTree = "<group>"; };
-		3F31A1A01BA1993200F477C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F31A1A91BA199C000F477C1 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41061C1A1A667700742090 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4106261A1A667800742090 /* UnitTesting(OSX).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UnitTesting(OSX).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -378,15 +376,6 @@
 			path = pbTests;
 			sourceTree = "<group>";
 		};
-		3F31A19D1BA1993200F477C1 /* PBW */ = {
-			isa = PBXGroup;
-			children = (
-				3F31A19E1BA1993200F477C1 /* PBW.h */,
-				3F31A1A01BA1993200F477C1 /* Info.plist */,
-			);
-			path = PBW;
-			sourceTree = "<group>";
-		};
 		3F41061E1A1A667800742090 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,7 +398,6 @@
 			children = (
 				3F85569B19C71BCF003802F2 /* ProtocolBuffers */,
 				3F8556A519C71BCF003802F2 /* ProtocolBuffersTests */,
-				3F31A19D1BA1993200F477C1 /* PBW */,
 				3F85569A19C71BCF003802F2 /* Products */,
 			);
 			sourceTree = "<group>";

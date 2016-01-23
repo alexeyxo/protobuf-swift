@@ -210,11 +210,13 @@ internal extension SwiftProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MapMessageValue {
       return try SwiftProtobufUnittest.MapMessageValue.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasValueInMapMessage {
         output += "\(indent) valueInMapMessage: \(valueInMapMessage) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -454,14 +456,16 @@ internal extension SwiftProtobufUnittest {
         override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
           }
           if hasValue {
             output += "\(indent) value: \(value) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -737,14 +741,16 @@ internal extension SwiftProtobufUnittest {
         override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
           }
           if hasValue {
             output += "\(indent) value: \(value) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -1020,14 +1026,16 @@ internal extension SwiftProtobufUnittest {
         override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
           }
           if hasValue {
             output += "\(indent) value: \(value) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -1303,14 +1311,16 @@ internal extension SwiftProtobufUnittest {
         override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
           }
           if hasValue {
             output += "\(indent) value: \(value) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -1587,16 +1597,20 @@ internal extension SwiftProtobufUnittest {
         override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
           }
           if hasValue {
             output += "\(indent) value {\n"
-            try value?.writeDescriptionTo(&output, indent:"\(indent)  ")
+            if let outDescValue = value {
+              output += try outDescValue.getDescription("\(indent)  ")
+            }
             output += "\(indent) }\n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -1907,14 +1921,16 @@ internal extension SwiftProtobufUnittest {
         override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
           }
           if (hasValue) {
             output += "\(indent) value: \(value.rawValue)\n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -2322,7 +2338,8 @@ internal extension SwiftProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap {
       return try SwiftProtobufUnittest.MessageContainsMap.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasMapInt32Int32 {
         output += "\(indent) mapInt32Int32: \(mapInt32Int32) \n"
       }
@@ -2341,7 +2358,8 @@ internal extension SwiftProtobufUnittest {
       if hasMapInt32Enum {
         output += "\(indent) mapInt32Enum: \(mapInt32Enum) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

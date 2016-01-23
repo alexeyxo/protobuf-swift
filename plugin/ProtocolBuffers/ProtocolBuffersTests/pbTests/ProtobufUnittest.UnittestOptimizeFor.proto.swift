@@ -287,7 +287,8 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.TestOptimizedForSize {
       return try ProtobufUnittest.TestOptimizedForSize.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasI {
         output += "\(indent) i: \(i) \n"
       }
@@ -299,11 +300,14 @@ internal extension ProtobufUnittest {
       }
       if hasMsg {
         output += "\(indent) msg {\n"
-        try msg?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescMsg = msg {
+          output += try outDescMsg.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -672,11 +676,13 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
       return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasX {
         output += "\(indent) x: \(x) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -905,13 +911,17 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
       return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasO {
         output += "\(indent) o {\n"
-        try o?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescO = o {
+          output += try outDescO.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

@@ -915,11 +915,13 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
       return try ProtobufUnittest.TestMessageWithCustomOptions.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasField1 {
         output += "\(indent) field1: \(field1) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -1132,8 +1134,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionFooRequest {
       return try ProtobufUnittest.CustomOptionFooRequest.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -1309,8 +1313,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionFooResponse {
       return try ProtobufUnittest.CustomOptionFooResponse.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -1486,8 +1492,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
       return try ProtobufUnittest.CustomOptionFooClientMessage.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -1663,8 +1671,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
       return try ProtobufUnittest.CustomOptionFooServerMessage.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -1864,8 +1874,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.DummyMessageContainingEnum {
       return try ProtobufUnittest.DummyMessageContainingEnum.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -2041,8 +2053,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -2218,8 +2232,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -2395,8 +2411,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -2572,8 +2590,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.CustomOptionOtherValues {
       return try ProtobufUnittest.CustomOptionOtherValues.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -2749,8 +2769,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -2926,8 +2948,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -3163,7 +3187,8 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.ComplexOptionType1 {
       return try ProtobufUnittest.ComplexOptionType1.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasFoo {
         output += "\(indent) foo: \(foo) \n"
       }
@@ -3178,8 +3203,9 @@ internal extension ProtobufUnittest {
           output += "\(indent) foo4[\(foo4ElementIndex)]: \(oneValueFoo4)\n"
           foo4ElementIndex++
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(100), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += try getExtensionDescription(Int32(100), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -3514,11 +3540,13 @@ internal extension ProtobufUnittest {
         override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output = ""
           if hasWaldo {
             output += "\(indent) waldo: \(waldo) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -3793,10 +3821,13 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.ComplexOptionType2 {
       return try ProtobufUnittest.ComplexOptionType2.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasBar {
         output += "\(indent) bar {\n"
-        try bar?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescBar = bar {
+          output += try outDescBar.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasBaz {
@@ -3804,18 +3835,21 @@ internal extension ProtobufUnittest {
       }
       if hasFred {
         output += "\(indent) fred {\n"
-        try fred?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescFred = fred {
+          output += try outDescFred.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       var barneyElementIndex:Int = 0
       for oneElementBarney in barney {
           output += "\(indent) barney[\(barneyElementIndex)] {\n"
-          try oneElementBarney.writeDescriptionTo(&output, indent:"\(indent)  ")
+          output += try oneElementBarney.getDescription("\(indent)  ")
           output += "\(indent)}\n"
           barneyElementIndex++
       }
-      try writeExtensionDescription(&output, startInclusive:Int32(100), endExclusive:Int32(536870912), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += try getExtensionDescription(Int32(100), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -4223,11 +4257,13 @@ internal extension ProtobufUnittest {
         override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output = ""
           if hasPlugh {
             output += "\(indent) plugh: \(plugh) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -4464,16 +4500,20 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.ComplexOptionType3 {
       return try ProtobufUnittest.ComplexOptionType3.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasQux {
         output += "\(indent) qux: \(qux) \n"
       }
       if hasComplexOptionType5 {
         output += "\(indent) complexOptionType5 {\n"
-        try complexOptionType5?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescComplexOptionType5 = complexOptionType5 {
+          output += try outDescComplexOptionType5.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -4767,11 +4807,13 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.ComplexOpt6 {
       return try ProtobufUnittest.ComplexOpt6.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasXyzzy {
         output += "\(indent) xyzzy: \(xyzzy) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -4983,8 +5025,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.VariousComplexOptions {
       return try ProtobufUnittest.VariousComplexOptions.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -5165,9 +5209,11 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.AggregateMessageSet {
       return try ProtobufUnittest.AggregateMessageSet.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      try writeExtensionDescription(&output, startInclusive:Int32(4), endExclusive:Int32(2147483647), indent:indent)
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += try getExtensionDescription(Int32(4), endExclusive:Int32(2147483647), indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -5360,11 +5406,13 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.AggregateMessageSetElement {
       return try ProtobufUnittest.AggregateMessageSetElement.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasS {
         output += "\(indent) s: \(s) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -5657,7 +5705,8 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.Aggregate {
       return try ProtobufUnittest.Aggregate.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasI {
         output += "\(indent) i: \(i) \n"
       }
@@ -5666,20 +5715,27 @@ internal extension ProtobufUnittest {
       }
       if hasSub {
         output += "\(indent) sub {\n"
-        try sub?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescSub = sub {
+          output += try outDescSub.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasFile {
         output += "\(indent) file {\n"
-        try file?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescFile = file {
+          output += try outDescFile.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
       if hasMset {
         output += "\(indent) mset {\n"
-        try mset?.writeDescriptionTo(&output, indent:"\(indent)  ")
+        if let outDescMset = mset {
+          output += try outDescMset.getDescription("\(indent)  ")
+        }
         output += "\(indent) }\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -6150,11 +6206,13 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.AggregateMessage {
       return try ProtobufUnittest.AggregateMessage.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasFieldname {
         output += "\(indent) fieldname: \(fieldname) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -6383,11 +6441,13 @@ internal extension ProtobufUnittest {
         override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+        override internal func getDescription(indent:String) throws -> String {
+          var output = ""
           if hasNestedField {
             output += "\(indent) nestedField: \(nestedField) \n"
           }
-          unknownFields.writeDescriptionTo(&output, indent:indent)
+          output += unknownFields.getDescription(indent)
+          return output
         }
         override internal var hashValue:Int {
             get {
@@ -6623,8 +6683,10 @@ internal extension ProtobufUnittest {
     override class internal func fromJSON(data:NSData) throws -> ProtobufUnittest.NestedOptionType {
       return try ProtobufUnittest.NestedOptionType.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {

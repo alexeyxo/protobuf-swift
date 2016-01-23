@@ -180,14 +180,16 @@ internal extension UnittestDropUnknownFields {
     override class internal func fromJSON(data:NSData) throws -> UnittestDropUnknownFields.Foo {
       return try UnittestDropUnknownFields.Foo.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasInt32Value {
         output += "\(indent) int32Value: \(int32Value) \n"
       }
       if (hasEnumValue) {
         output += "\(indent) enumValue: \(enumValue.rawValue)\n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
@@ -503,7 +505,8 @@ internal extension UnittestDropUnknownFields {
     override class internal func fromJSON(data:NSData) throws -> UnittestDropUnknownFields.FooWithExtraFields {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func writeDescriptionTo(inout output:String, indent:String) throws {
+    override internal func getDescription(indent:String) throws -> String {
+      var output = ""
       if hasInt32Value {
         output += "\(indent) int32Value: \(int32Value) \n"
       }
@@ -513,7 +516,8 @@ internal extension UnittestDropUnknownFields {
       if hasExtraInt32Value {
         output += "\(indent) extraInt32Value: \(extraInt32Value) \n"
       }
-      unknownFields.writeDescriptionTo(&output, indent:indent)
+      output += unknownFields.getDescription(indent)
+      return output
     }
     override internal var hashValue:Int {
         get {
