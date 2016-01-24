@@ -826,8 +826,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "while (true) {\n");
         printer->Indent();
 
-        printer->Print("let tag = try input.readTag()\n"
-                       "switch tag {\n");
+        printer->Print("let protobufTag = try input.readTag()\n"
+                       "switch protobufTag {\n");
         
         printer->Print("case 0: \n");
         
@@ -852,7 +852,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print("\n");
         }
         printer->Print("default:\n"
-                       "  if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {\n"
+                       "  if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {\n"
                        "     unknownFields = try unknownFieldsBuilder.build()\n"
                        "     return self\n"
                        "  }\n"
