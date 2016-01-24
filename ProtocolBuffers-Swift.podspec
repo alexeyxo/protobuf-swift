@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ProtocolBuffers-Swift"
-  s.version      = "2.4"
+  s.version      = "2.4.1"
   s.summary      = "Protocol Buffers for Swift"
   s.homepage     = "http://protobuf.io#swift"
   s.license      = "Apache 2.0"
@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
 
   s.module_name = "ProtocolBuffers"
   s.source       = { :git => "https://github.com/alexeyxo/protobuf-swift.git", :tag => s.version }
-  s.source_files = 'src/ProtocolBuffers/runtime-pb-swift/*.{swift}'
+  s.source_files = 'Source/*.{swift}'
   s.requires_arc = true
   s.frameworks   = 'Foundation'
 end

@@ -303,8 +303,8 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
     public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBUser.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
-        let tag = try input.readTag()
-        switch tag {
+        let protobufTag = try input.readTag()
+        switch protobufTag {
         case 0: 
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
@@ -318,7 +318,7 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
           group = subBuilder.buildPartial()
 
         default:
-          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
              unknownFields = try unknownFieldsBuilder.build()
              return self
           }
@@ -541,8 +541,8 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
     public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBGroup.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
-        let tag = try input.readTag()
-        switch tag {
+        let protobufTag = try input.readTag()
+        switch protobufTag {
         case 0: 
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
@@ -556,7 +556,7 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
           owner = subBuilder.buildPartial()
 
         default:
-          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
              unknownFields = try unknownFieldsBuilder.build()
              return self
           }
@@ -749,8 +749,8 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
     public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
-        let tag = try input.readTag()
-        switch tag {
+        let protobufTag = try input.readTag()
+        switch protobufTag {
         case 0: 
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
@@ -761,7 +761,7 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
           batch += [subBuilder.buildPartial()]
 
         default:
-          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
              unknownFields = try unknownFieldsBuilder.build()
              return self
           }
@@ -1207,8 +1207,8 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
     public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
-        let tag = try input.readTag()
-        switch tag {
+        let protobufTag = try input.readTag()
+        switch protobufTag {
         case 0: 
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
@@ -1235,7 +1235,7 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
           description_ = try input.readString()
 
         default:
-          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
              unknownFields = try unknownFieldsBuilder.build()
              return self
           }
@@ -1470,8 +1470,8 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
     public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
-        let tag = try input.readTag()
-        switch tag {
+        let protobufTag = try input.readTag()
+        switch protobufTag {
         case 0: 
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
@@ -1483,7 +1483,7 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
           longitude = try input.readFloat()
 
         default:
-          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
              unknownFields = try unknownFieldsBuilder.build()
              return self
           }
@@ -1723,8 +1723,8 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
     public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
-        let tag = try input.readTag()
-        switch tag {
+        let protobufTag = try input.readTag()
+        switch protobufTag {
         case 0: 
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
@@ -1741,7 +1741,7 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
           }
 
         default:
-          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag))) {
+          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
              unknownFields = try unknownFieldsBuilder.build()
              return self
           }
