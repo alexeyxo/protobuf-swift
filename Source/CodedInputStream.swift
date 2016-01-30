@@ -521,14 +521,15 @@ public class CodedInputStream
         let size:Int32 = try readRawVarint32()
         if (size <= (bufferSize - bufferPos) && size > 0)
         {
-            let result:String = NSString(bytes: (buffer.mutableBytes + Int(bufferPos)), length: Int(size), encoding:  NSUTF8StringEncoding)! as String
+            let result = String(bytesNoCopy: (buffer.mutableBytes + Int(bufferPos)), length: Int(size), encoding: NSUTF8StringEncoding, freeWhenDone: false)
             bufferPos += size
-            return result
+            return result!
         }
         else
         {
             let data = try readRawData(size)
-            return NSString(data: data, encoding: NSUTF8StringEncoding)! as String
+            
+            return String(data: data, encoding: NSUTF8StringEncoding)!
         }
     }
     
