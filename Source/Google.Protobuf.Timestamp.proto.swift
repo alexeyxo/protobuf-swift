@@ -3,7 +3,6 @@
 // Syntax "Proto3"
 
 import Foundation
-
 public extension Google.Protobuf{}
 
 public func == (lhs: Google.Protobuf.Timestamp, rhs: Google.Protobuf.Timestamp) -> Bool {

@@ -3,7 +3,6 @@
 // Syntax "Proto2"
 
 import Foundation
-
 public extension Google.Protobuf{}
 
 public func == (lhs: Google.Protobuf.SwiftFileOptions, rhs: Google.Protobuf.SwiftFileOptions) -> Bool {

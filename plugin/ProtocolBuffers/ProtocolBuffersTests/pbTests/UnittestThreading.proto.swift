@@ -5,8 +5,7 @@
 import Foundation
 import ProtocolBuffers
 
-
-internal func == (lhs: ThreadingMessages, rhs: ThreadingMessages) -> Bool {
+public func == (lhs: ThreadingMessages, rhs: ThreadingMessages) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -16,40 +15,40 @@ internal func == (lhs: ThreadingMessages, rhs: ThreadingMessages) -> Bool {
   return fieldCheck
 }
 
-internal struct UnittestThreadingRoot {
-  internal static var sharedInstance : UnittestThreadingRoot {
+public struct UnittestThreadingRoot {
+  public static var sharedInstance : UnittestThreadingRoot {
    struct Static {
        static let instance : UnittestThreadingRoot = UnittestThreadingRoot()
    }
    return Static.instance
   }
-  internal var extensionRegistry:ExtensionRegistry
+  public var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
   }
-  internal func registerAllExtensions(registry:ExtensionRegistry) {
+  public func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
-final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProtocol {
-  private(set) var hasTestString:Bool = false
-  private(set) var testString:String = ""
+final public class ThreadingMessages : GeneratedMessage, GeneratedMessageProtocol {
+  public private(set) var hasTestString:Bool = false
+  public private(set) var testString:String = ""
 
-  required internal init() {
+  required public init() {
        super.init()
   }
-  override internal func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
    return true
   }
-  override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
     if hasTestString {
       try output.writeString(1, value:testString)
     }
     try unknownFields.writeToCodedOutputStream(output)
   }
-  override internal func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -63,53 +62,53 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
     memoizedSerializedSize = serialize_size
     return serialize_size
   }
-  internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ThreadingMessages> {
+  public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ThreadingMessages> {
     var mergedArray = Array<ThreadingMessages>()
     while let value = try parseFromDelimitedFromInputStream(input) {
       mergedArray += [value]
     }
     return mergedArray
   }
-  internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ThreadingMessages? {
+  public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ThreadingMessages? {
     return try ThreadingMessages.Builder().mergeDelimitedFromInputStream(input)?.build()
   }
-  internal class func parseFromData(data:NSData) throws -> ThreadingMessages {
+  public class func parseFromData(data:NSData) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder().mergeFromData(data, extensionRegistry:UnittestThreadingRoot.sharedInstance.extensionRegistry).build()
   }
-  internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+  public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  internal class func parseFromInputStream(input:NSInputStream) throws -> ThreadingMessages {
+  public class func parseFromInputStream(input:NSInputStream) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder().mergeFromInputStream(input).build()
   }
-  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+  public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> ThreadingMessages {
+  public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder().mergeFromCodedInputStream(input).build()
   }
-  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+  public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  internal class func getBuilder() -> ThreadingMessages.Builder {
+  public class func getBuilder() -> ThreadingMessages.Builder {
     return ThreadingMessages.classBuilder() as! ThreadingMessages.Builder
   }
-  internal func getBuilder() -> ThreadingMessages.Builder {
+  public func getBuilder() -> ThreadingMessages.Builder {
     return classBuilder() as! ThreadingMessages.Builder
   }
-  override internal class func classBuilder() -> MessageBuilder {
+  override public class func classBuilder() -> MessageBuilder {
     return ThreadingMessages.Builder()
   }
-  override internal func classBuilder() -> MessageBuilder {
+  override public func classBuilder() -> MessageBuilder {
     return ThreadingMessages.Builder()
   }
-  internal func toBuilder() throws -> ThreadingMessages.Builder {
+  public func toBuilder() throws -> ThreadingMessages.Builder {
     return try ThreadingMessages.builderWithPrototype(self)
   }
-  internal class func builderWithPrototype(prototype:ThreadingMessages) throws -> ThreadingMessages.Builder {
+  public class func builderWithPrototype(prototype:ThreadingMessages) throws -> ThreadingMessages.Builder {
     return try ThreadingMessages.Builder().mergeFrom(prototype)
   }
-  override internal func encode() throws -> Dictionary<String,AnyObject> {
+  override public func encode() throws -> Dictionary<String,AnyObject> {
     guard isInitialized() else {
       throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
     }
@@ -120,13 +119,13 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
     }
     return jsonMap
   }
-  override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ThreadingMessages {
+  override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder.decodeToBuilder(jsonMap).build()
   }
-  override class internal func fromJSON(data:NSData) throws -> ThreadingMessages {
+  override class public func fromJSON(data:NSData) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder.fromJSONToBuilder(data).build()
   }
-  override internal func getDescription(indent:String) throws -> String {
+  override public func getDescription(indent:String) throws -> String {
     var output = ""
     if hasTestString {
       output += "\(indent) testString: \(testString) \n"
@@ -134,7 +133,7 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
     output += unknownFields.getDescription(indent)
     return output
   }
-  override internal var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasTestString {
@@ -148,32 +147,32 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
 
   //Meta information declaration start
 
-  override internal class func className() -> String {
+  override public class func className() -> String {
       return "ThreadingMessages"
   }
-  override internal func className() -> String {
+  override public func className() -> String {
       return "ThreadingMessages"
   }
-  override internal func classMetaType() -> GeneratedMessage.Type {
+  override public func classMetaType() -> GeneratedMessage.Type {
       return ThreadingMessages.self
   }
   //Meta information declaration end
 
-  final internal class Builder : GeneratedMessageBuilder {
+  final public class Builder : GeneratedMessageBuilder {
     private var builderResult:ThreadingMessages = ThreadingMessages()
-    internal func getMessage() -> ThreadingMessages {
+    public func getMessage() -> ThreadingMessages {
         return builderResult
     }
 
-    required override internal init () {
+    required override public init () {
        super.init()
     }
-    var hasTestString:Bool {
+    public var hasTestString:Bool {
          get {
               return builderResult.hasTestString
          }
     }
-    var testString:String {
+    public var testString:String {
          get {
               return builderResult.testString
          }
@@ -182,36 +181,36 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
              builderResult.testString = value
          }
     }
-    func setTestString(value:String) -> ThreadingMessages.Builder {
+    public func setTestString(value:String) -> ThreadingMessages.Builder {
       self.testString = value
       return self
     }
-    internal func clearTestString() -> ThreadingMessages.Builder{
+    public func clearTestString() -> ThreadingMessages.Builder{
          builderResult.hasTestString = false
          builderResult.testString = ""
          return self
     }
-    override internal var internalGetResult:GeneratedMessage {
+    override public var internalGetResult:GeneratedMessage {
          get {
             return builderResult
          }
     }
-    override internal func clear() -> ThreadingMessages.Builder {
+    override public func clear() -> ThreadingMessages.Builder {
       builderResult = ThreadingMessages()
       return self
     }
-    override internal func clone() throws -> ThreadingMessages.Builder {
+    override public func clone() throws -> ThreadingMessages.Builder {
       return try ThreadingMessages.builderWithPrototype(builderResult)
     }
-    override internal func build() throws -> ThreadingMessages {
+    override public func build() throws -> ThreadingMessages {
          try checkInitialized()
          return buildPartial()
     }
-    internal func buildPartial() -> ThreadingMessages {
+    public func buildPartial() -> ThreadingMessages {
       let returnMe:ThreadingMessages = builderResult
       return returnMe
     }
-    internal func mergeFrom(other:ThreadingMessages) throws -> ThreadingMessages.Builder {
+    public func mergeFrom(other:ThreadingMessages) throws -> ThreadingMessages.Builder {
       if other == ThreadingMessages() {
        return self
       }
@@ -221,10 +220,10 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
       try mergeUnknownFields(other.unknownFields)
       return self
     }
-    override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> ThreadingMessages.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> ThreadingMessages.Builder {
          return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
-    override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages.Builder {
+    override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
       while (true) {
         let protobufTag = try input.readTag()
@@ -244,14 +243,14 @@ final internal class ThreadingMessages : GeneratedMessage, GeneratedMessageProto
         }
       }
     }
-    override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ThreadingMessages.Builder {
+    override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ThreadingMessages.Builder {
       let resultDecodedBuilder = ThreadingMessages.Builder()
       if let jsonValueTestString = jsonMap["testString"] as? String {
         resultDecodedBuilder.testString = jsonValueTestString
       }
       return resultDecodedBuilder
     }
-    override class internal func fromJSONToBuilder(data:NSData) throws -> ThreadingMessages.Builder {
+    override class public func fromJSONToBuilder(data:NSData) throws -> ThreadingMessages.Builder {
       let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
       guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
         throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")

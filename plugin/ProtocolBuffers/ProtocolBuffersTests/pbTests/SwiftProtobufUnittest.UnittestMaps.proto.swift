@@ -5,10 +5,9 @@
 import Foundation
 import ProtocolBuffers
 
+public struct SwiftProtobufUnittest { }
 
-internal struct SwiftProtobufUnittest { }
-
-internal func == (lhs: SwiftProtobufUnittest.MapMessageValue, rhs: SwiftProtobufUnittest.MapMessageValue) -> Bool {
+public func == (lhs: SwiftProtobufUnittest.MapMessageValue, rhs: SwiftProtobufUnittest.MapMessageValue) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -18,7 +17,7 @@ internal func == (lhs: SwiftProtobufUnittest.MapMessageValue, rhs: SwiftProtobuf
   return fieldCheck
 }
 
-internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap, rhs: SwiftProtobufUnittest.MessageContainsMap) -> Bool {
+public func == (lhs: SwiftProtobufUnittest.MessageContainsMap, rhs: SwiftProtobufUnittest.MessageContainsMap) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -33,7 +32,7 @@ internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap, rhs: SwiftProto
   return fieldCheck
 }
 
-internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry) -> Bool {
+public func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -44,7 +43,7 @@ internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Ent
   return fieldCheck
 }
 
-internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry) -> Bool {
+public func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -55,7 +54,7 @@ internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Ent
   return fieldCheck
 }
 
-internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry) -> Bool {
+public func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -66,7 +65,7 @@ internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapStringStringE
   return fieldCheck
 }
 
-internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry) -> Bool {
+public func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -77,7 +76,7 @@ internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEn
   return fieldCheck
 }
 
-internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry) -> Bool {
+public func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -88,7 +87,7 @@ internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapStringMessage
   return fieldCheck
 }
 
-internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry) -> Bool {
+public func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -99,41 +98,41 @@ internal func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntr
   return fieldCheck
 }
 
-internal extension SwiftProtobufUnittest {
-  internal struct UnittestMapsRoot {
-    internal static var sharedInstance : UnittestMapsRoot {
+public extension SwiftProtobufUnittest {
+  public struct UnittestMapsRoot {
+    public static var sharedInstance : UnittestMapsRoot {
      struct Static {
          static let instance : UnittestMapsRoot = UnittestMapsRoot()
      }
      return Static.instance
     }
-    internal var extensionRegistry:ExtensionRegistry
+    public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
     }
-    internal func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(registry:ExtensionRegistry) {
     }
   }
 
-  final internal class MapMessageValue : GeneratedMessage, GeneratedMessageProtocol {
-    private(set) var hasValueInMapMessage:Bool = false
-    private(set) var valueInMapMessage:Int32 = Int32(0)
+  final public class MapMessageValue : GeneratedMessage, GeneratedMessageProtocol {
+    public private(set) var hasValueInMapMessage:Bool = false
+    public private(set) var valueInMapMessage:Int32 = Int32(0)
 
-    required internal init() {
+    required public init() {
          super.init()
     }
-    override internal func isInitialized() -> Bool {
+    override public func isInitialized() -> Bool {
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasValueInMapMessage {
         try output.writeInt32(1, value:valueInMapMessage)
       }
       try unknownFields.writeToCodedOutputStream(output)
     }
-    override internal func serializedSize() -> Int32 {
+    override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -147,53 +146,53 @@ internal extension SwiftProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MapMessageValue> {
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MapMessageValue> {
       var mergedArray = Array<SwiftProtobufUnittest.MapMessageValue>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MapMessageValue? {
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MapMessageValue? {
       return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MapMessageValue {
+    public class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MapMessageValue {
       return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue {
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue {
       return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MapMessageValue {
+    public class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MapMessageValue {
       return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue {
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue {
       return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MapMessageValue {
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MapMessageValue {
       return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue {
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue {
       return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func getBuilder() -> SwiftProtobufUnittest.MapMessageValue.Builder {
+    public class func getBuilder() -> SwiftProtobufUnittest.MapMessageValue.Builder {
       return SwiftProtobufUnittest.MapMessageValue.classBuilder() as! SwiftProtobufUnittest.MapMessageValue.Builder
     }
-    internal func getBuilder() -> SwiftProtobufUnittest.MapMessageValue.Builder {
+    public func getBuilder() -> SwiftProtobufUnittest.MapMessageValue.Builder {
       return classBuilder() as! SwiftProtobufUnittest.MapMessageValue.Builder
     }
-    override internal class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> MessageBuilder {
       return SwiftProtobufUnittest.MapMessageValue.Builder()
     }
-    override internal func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> MessageBuilder {
       return SwiftProtobufUnittest.MapMessageValue.Builder()
     }
-    internal func toBuilder() throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
+    public func toBuilder() throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
       return try SwiftProtobufUnittest.MapMessageValue.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:SwiftProtobufUnittest.MapMessageValue) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
+    public class func builderWithPrototype(prototype:SwiftProtobufUnittest.MapMessageValue) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
       return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(prototype)
     }
-    override internal func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
         throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
       }
@@ -204,13 +203,13 @@ internal extension SwiftProtobufUnittest {
       }
       return jsonMap
     }
-    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MapMessageValue {
+    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MapMessageValue {
       return try SwiftProtobufUnittest.MapMessageValue.Builder.decodeToBuilder(jsonMap).build()
     }
-    override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MapMessageValue {
+    override class public func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MapMessageValue {
       return try SwiftProtobufUnittest.MapMessageValue.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func getDescription(indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasValueInMapMessage {
         output += "\(indent) valueInMapMessage: \(valueInMapMessage) \n"
@@ -218,7 +217,7 @@ internal extension SwiftProtobufUnittest {
       output += unknownFields.getDescription(indent)
       return output
     }
-    override internal var hashValue:Int {
+    override public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasValueInMapMessage {
@@ -232,32 +231,32 @@ internal extension SwiftProtobufUnittest {
 
     //Meta information declaration start
 
-    override internal class func className() -> String {
+    override public class func className() -> String {
         return "SwiftProtobufUnittest.MapMessageValue"
     }
-    override internal func className() -> String {
+    override public func className() -> String {
         return "SwiftProtobufUnittest.MapMessageValue"
     }
-    override internal func classMetaType() -> GeneratedMessage.Type {
+    override public func classMetaType() -> GeneratedMessage.Type {
         return SwiftProtobufUnittest.MapMessageValue.self
     }
     //Meta information declaration end
 
-    final internal class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilder {
       private var builderResult:SwiftProtobufUnittest.MapMessageValue = SwiftProtobufUnittest.MapMessageValue()
-      internal func getMessage() -> SwiftProtobufUnittest.MapMessageValue {
+      public func getMessage() -> SwiftProtobufUnittest.MapMessageValue {
           return builderResult
       }
 
-      required override internal init () {
+      required override public init () {
          super.init()
       }
-      var hasValueInMapMessage:Bool {
+      public var hasValueInMapMessage:Bool {
            get {
                 return builderResult.hasValueInMapMessage
            }
       }
-      var valueInMapMessage:Int32 {
+      public var valueInMapMessage:Int32 {
            get {
                 return builderResult.valueInMapMessage
            }
@@ -266,36 +265,36 @@ internal extension SwiftProtobufUnittest {
                builderResult.valueInMapMessage = value
            }
       }
-      func setValueInMapMessage(value:Int32) -> SwiftProtobufUnittest.MapMessageValue.Builder {
+      public func setValueInMapMessage(value:Int32) -> SwiftProtobufUnittest.MapMessageValue.Builder {
         self.valueInMapMessage = value
         return self
       }
-      internal func clearValueInMapMessage() -> SwiftProtobufUnittest.MapMessageValue.Builder{
+      public func clearValueInMapMessage() -> SwiftProtobufUnittest.MapMessageValue.Builder{
            builderResult.hasValueInMapMessage = false
            builderResult.valueInMapMessage = Int32(0)
            return self
       }
-      override internal var internalGetResult:GeneratedMessage {
+      override public var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override internal func clear() -> SwiftProtobufUnittest.MapMessageValue.Builder {
+      override public func clear() -> SwiftProtobufUnittest.MapMessageValue.Builder {
         builderResult = SwiftProtobufUnittest.MapMessageValue()
         return self
       }
-      override internal func clone() throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
+      override public func clone() throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
         return try SwiftProtobufUnittest.MapMessageValue.builderWithPrototype(builderResult)
       }
-      override internal func build() throws -> SwiftProtobufUnittest.MapMessageValue {
+      override public func build() throws -> SwiftProtobufUnittest.MapMessageValue {
            try checkInitialized()
            return buildPartial()
       }
-      internal func buildPartial() -> SwiftProtobufUnittest.MapMessageValue {
+      public func buildPartial() -> SwiftProtobufUnittest.MapMessageValue {
         let returnMe:SwiftProtobufUnittest.MapMessageValue = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:SwiftProtobufUnittest.MapMessageValue) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
+      public func mergeFrom(other:SwiftProtobufUnittest.MapMessageValue) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
         if other == SwiftProtobufUnittest.MapMessageValue() {
          return self
         }
@@ -305,10 +304,10 @@ internal extension SwiftProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -328,14 +327,14 @@ internal extension SwiftProtobufUnittest {
           }
         }
       }
-      override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
+      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
         let resultDecodedBuilder = SwiftProtobufUnittest.MapMessageValue.Builder()
         if let jsonValueValueInMapMessage = jsonMap["valueInMapMessage"] as? NSNumber {
           resultDecodedBuilder.valueInMapMessage = jsonValueValueInMapMessage.intValue
         }
         return resultDecodedBuilder
       }
-      override class internal func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
+      override class public func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
         let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
           throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
@@ -346,25 +345,25 @@ internal extension SwiftProtobufUnittest {
 
   }
 
-  final internal class MessageContainsMap : GeneratedMessage, GeneratedMessageProtocol {
+  final public class MessageContainsMap : GeneratedMessage, GeneratedMessageProtocol {
 
 
     //Nested type declaration start
 
-      final internal class MapInt32Int32Entry : GeneratedMessage, GeneratedMessageProtocol {
-        private(set) var hasKey:Bool = false
-        private(set) var key:Int32 = Int32(0)
+      final public class MapInt32Int32Entry : GeneratedMessage, GeneratedMessageProtocol {
+        public private(set) var hasKey:Bool = false
+        public private(set) var key:Int32 = Int32(0)
 
-        private(set) var hasValue:Bool = false
-        private(set) var value:Int32 = Int32(0)
+        public private(set) var hasValue:Bool = false
+        public private(set) var value:Int32 = Int32(0)
 
-        required internal init() {
+        required public init() {
              super.init()
         }
-        override internal func isInitialized() -> Bool {
+        override public func isInitialized() -> Bool {
          return true
         }
-        override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
           if hasKey {
             try output.writeInt32(1, value:key)
           }
@@ -373,7 +372,7 @@ internal extension SwiftProtobufUnittest {
           }
           try unknownFields.writeToCodedOutputStream(output)
         }
-        override internal func serializedSize() -> Int32 {
+        override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -390,53 +389,53 @@ internal extension SwiftProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry> {
+        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry> {
           var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry>()
           while let value = try parseFromDelimitedFromInputStream(input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry? {
+        public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry? {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
-        internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+        public class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
         }
-        internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+        public class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFromInputStream(input).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFromCodedInputStream(input).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+        public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder
         }
-        internal func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+        public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
           return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder
         }
-        override internal class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> MessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder()
         }
-        override internal func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> MessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder()
         }
-        internal func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+        public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.builderWithPrototype(self)
         }
-        internal class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+        public class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(prototype)
         }
-        override internal func encode() throws -> Dictionary<String,AnyObject> {
+        override public func encode() throws -> Dictionary<String,AnyObject> {
           guard isInitialized() else {
             throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
           }
@@ -450,13 +449,13 @@ internal extension SwiftProtobufUnittest {
           }
           return jsonMap
         }
-        override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+        override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder.decodeToBuilder(jsonMap).build()
         }
-        override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+        override class public func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func getDescription(indent:String) throws -> String {
+        override public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
@@ -467,7 +466,7 @@ internal extension SwiftProtobufUnittest {
           output += unknownFields.getDescription(indent)
           return output
         }
-        override internal var hashValue:Int {
+        override public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasKey {
@@ -484,32 +483,32 @@ internal extension SwiftProtobufUnittest {
 
         //Meta information declaration start
 
-        override internal class func className() -> String {
+        override public class func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry"
         }
-        override internal func className() -> String {
+        override public func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry"
         }
-        override internal func classMetaType() -> GeneratedMessage.Type {
+        override public func classMetaType() -> GeneratedMessage.Type {
             return SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.self
         }
         //Meta information declaration end
 
-        final internal class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilder {
           private var builderResult:SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry()
-          internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+          public func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
               return builderResult
           }
 
-          required override internal init () {
+          required override public init () {
              super.init()
           }
-          var hasKey:Bool {
+          public var hasKey:Bool {
                get {
                     return builderResult.hasKey
                }
           }
-          var key:Int32 {
+          public var key:Int32 {
                get {
                     return builderResult.key
                }
@@ -518,21 +517,21 @@ internal extension SwiftProtobufUnittest {
                    builderResult.key = value
                }
           }
-          func setKey(value:Int32) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+          public func setKey(value:Int32) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             self.key = value
             return self
           }
-          internal func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder{
+          public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder{
                builderResult.hasKey = false
                builderResult.key = Int32(0)
                return self
           }
-          var hasValue:Bool {
+          public var hasValue:Bool {
                get {
                     return builderResult.hasValue
                }
           }
-          var value:Int32 {
+          public var value:Int32 {
                get {
                     return builderResult.value
                }
@@ -541,36 +540,36 @@ internal extension SwiftProtobufUnittest {
                    builderResult.value = value
                }
           }
-          func setValue(value:Int32) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+          public func setValue(value:Int32) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             self.value = value
             return self
           }
-          internal func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder{
+          public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder{
                builderResult.hasValue = false
                builderResult.value = Int32(0)
                return self
           }
-          override internal var internalGetResult:GeneratedMessage {
+          override public var internalGetResult:GeneratedMessage {
                get {
                   return builderResult
                }
           }
-          override internal func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+          override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             builderResult = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry()
             return self
           }
-          override internal func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+          override public func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.builderWithPrototype(builderResult)
           }
-          override internal func build() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+          override public func build() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
                try checkInitialized()
                return buildPartial()
           }
-          internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+          public func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
             let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry = builderResult
             return returnMe
           }
-          internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+          public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             if other == SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry() {
              return self
             }
@@ -583,10 +582,10 @@ internal extension SwiftProtobufUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+          override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+          override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
@@ -609,7 +608,7 @@ internal extension SwiftProtobufUnittest {
               }
             }
           }
-          override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+          override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder()
             if let jsonValueKey = jsonMap["key"] as? NSNumber {
               resultDecodedBuilder.key = jsonValueKey.intValue
@@ -619,7 +618,7 @@ internal extension SwiftProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class internal func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+          override class public func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
               throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
@@ -636,20 +635,20 @@ internal extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class MapInt64Int64Entry : GeneratedMessage, GeneratedMessageProtocol {
-        private(set) var hasKey:Bool = false
-        private(set) var key:Int64 = Int64(0)
+      final public class MapInt64Int64Entry : GeneratedMessage, GeneratedMessageProtocol {
+        public private(set) var hasKey:Bool = false
+        public private(set) var key:Int64 = Int64(0)
 
-        private(set) var hasValue:Bool = false
-        private(set) var value:Int64 = Int64(0)
+        public private(set) var hasValue:Bool = false
+        public private(set) var value:Int64 = Int64(0)
 
-        required internal init() {
+        required public init() {
              super.init()
         }
-        override internal func isInitialized() -> Bool {
+        override public func isInitialized() -> Bool {
          return true
         }
-        override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
           if hasKey {
             try output.writeInt64(1, value:key)
           }
@@ -658,7 +657,7 @@ internal extension SwiftProtobufUnittest {
           }
           try unknownFields.writeToCodedOutputStream(output)
         }
-        override internal func serializedSize() -> Int32 {
+        override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -675,53 +674,53 @@ internal extension SwiftProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry> {
+        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry> {
           var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry>()
           while let value = try parseFromDelimitedFromInputStream(input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry? {
+        public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry? {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
-        internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+        public class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
         }
-        internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+        public class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFromInputStream(input).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFromCodedInputStream(input).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+        public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder
         }
-        internal func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+        public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
           return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder
         }
-        override internal class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> MessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder()
         }
-        override internal func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> MessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder()
         }
-        internal func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+        public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.builderWithPrototype(self)
         }
-        internal class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+        public class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(prototype)
         }
-        override internal func encode() throws -> Dictionary<String,AnyObject> {
+        override public func encode() throws -> Dictionary<String,AnyObject> {
           guard isInitialized() else {
             throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
           }
@@ -735,13 +734,13 @@ internal extension SwiftProtobufUnittest {
           }
           return jsonMap
         }
-        override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+        override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder.decodeToBuilder(jsonMap).build()
         }
-        override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+        override class public func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func getDescription(indent:String) throws -> String {
+        override public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
@@ -752,7 +751,7 @@ internal extension SwiftProtobufUnittest {
           output += unknownFields.getDescription(indent)
           return output
         }
-        override internal var hashValue:Int {
+        override public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasKey {
@@ -769,32 +768,32 @@ internal extension SwiftProtobufUnittest {
 
         //Meta information declaration start
 
-        override internal class func className() -> String {
+        override public class func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry"
         }
-        override internal func className() -> String {
+        override public func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry"
         }
-        override internal func classMetaType() -> GeneratedMessage.Type {
+        override public func classMetaType() -> GeneratedMessage.Type {
             return SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.self
         }
         //Meta information declaration end
 
-        final internal class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilder {
           private var builderResult:SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry()
-          internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+          public func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
               return builderResult
           }
 
-          required override internal init () {
+          required override public init () {
              super.init()
           }
-          var hasKey:Bool {
+          public var hasKey:Bool {
                get {
                     return builderResult.hasKey
                }
           }
-          var key:Int64 {
+          public var key:Int64 {
                get {
                     return builderResult.key
                }
@@ -803,21 +802,21 @@ internal extension SwiftProtobufUnittest {
                    builderResult.key = value
                }
           }
-          func setKey(value:Int64) -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+          public func setKey(value:Int64) -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             self.key = value
             return self
           }
-          internal func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder{
+          public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder{
                builderResult.hasKey = false
                builderResult.key = Int64(0)
                return self
           }
-          var hasValue:Bool {
+          public var hasValue:Bool {
                get {
                     return builderResult.hasValue
                }
           }
-          var value:Int64 {
+          public var value:Int64 {
                get {
                     return builderResult.value
                }
@@ -826,36 +825,36 @@ internal extension SwiftProtobufUnittest {
                    builderResult.value = value
                }
           }
-          func setValue(value:Int64) -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+          public func setValue(value:Int64) -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             self.value = value
             return self
           }
-          internal func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder{
+          public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder{
                builderResult.hasValue = false
                builderResult.value = Int64(0)
                return self
           }
-          override internal var internalGetResult:GeneratedMessage {
+          override public var internalGetResult:GeneratedMessage {
                get {
                   return builderResult
                }
           }
-          override internal func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+          override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             builderResult = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry()
             return self
           }
-          override internal func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+          override public func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.builderWithPrototype(builderResult)
           }
-          override internal func build() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+          override public func build() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
                try checkInitialized()
                return buildPartial()
           }
-          internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+          public func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
             let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry = builderResult
             return returnMe
           }
-          internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+          public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             if other == SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry() {
              return self
             }
@@ -868,10 +867,10 @@ internal extension SwiftProtobufUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+          override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+          override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
@@ -894,7 +893,7 @@ internal extension SwiftProtobufUnittest {
               }
             }
           }
-          override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+          override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder()
             if let jsonValueKey = jsonMap["key"] as? String {
               resultDecodedBuilder.key = Int64(jsonValueKey)!
@@ -904,7 +903,7 @@ internal extension SwiftProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class internal func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+          override class public func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
               throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
@@ -921,20 +920,20 @@ internal extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class MapStringStringEntry : GeneratedMessage, GeneratedMessageProtocol {
-        private(set) var hasKey:Bool = false
-        private(set) var key:String = ""
+      final public class MapStringStringEntry : GeneratedMessage, GeneratedMessageProtocol {
+        public private(set) var hasKey:Bool = false
+        public private(set) var key:String = ""
 
-        private(set) var hasValue:Bool = false
-        private(set) var value:String = ""
+        public private(set) var hasValue:Bool = false
+        public private(set) var value:String = ""
 
-        required internal init() {
+        required public init() {
              super.init()
         }
-        override internal func isInitialized() -> Bool {
+        override public func isInitialized() -> Bool {
          return true
         }
-        override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
           if hasKey {
             try output.writeString(1, value:key)
           }
@@ -943,7 +942,7 @@ internal extension SwiftProtobufUnittest {
           }
           try unknownFields.writeToCodedOutputStream(output)
         }
-        override internal func serializedSize() -> Int32 {
+        override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -960,53 +959,53 @@ internal extension SwiftProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry> {
+        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry> {
           var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry>()
           while let value = try parseFromDelimitedFromInputStream(input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry? {
+        public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry? {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
-        internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+        public class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
         }
-        internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+        public class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFromInputStream(input).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFromCodedInputStream(input).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+        public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder
         }
-        internal func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+        public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
           return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder
         }
-        override internal class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> MessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder()
         }
-        override internal func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> MessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder()
         }
-        internal func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+        public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.builderWithPrototype(self)
         }
-        internal class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+        public class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(prototype)
         }
-        override internal func encode() throws -> Dictionary<String,AnyObject> {
+        override public func encode() throws -> Dictionary<String,AnyObject> {
           guard isInitialized() else {
             throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
           }
@@ -1020,13 +1019,13 @@ internal extension SwiftProtobufUnittest {
           }
           return jsonMap
         }
-        override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+        override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder.decodeToBuilder(jsonMap).build()
         }
-        override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+        override class public func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func getDescription(indent:String) throws -> String {
+        override public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
@@ -1037,7 +1036,7 @@ internal extension SwiftProtobufUnittest {
           output += unknownFields.getDescription(indent)
           return output
         }
-        override internal var hashValue:Int {
+        override public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasKey {
@@ -1054,32 +1053,32 @@ internal extension SwiftProtobufUnittest {
 
         //Meta information declaration start
 
-        override internal class func className() -> String {
+        override public class func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry"
         }
-        override internal func className() -> String {
+        override public func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry"
         }
-        override internal func classMetaType() -> GeneratedMessage.Type {
+        override public func classMetaType() -> GeneratedMessage.Type {
             return SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.self
         }
         //Meta information declaration end
 
-        final internal class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilder {
           private var builderResult:SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry()
-          internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+          public func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
               return builderResult
           }
 
-          required override internal init () {
+          required override public init () {
              super.init()
           }
-          var hasKey:Bool {
+          public var hasKey:Bool {
                get {
                     return builderResult.hasKey
                }
           }
-          var key:String {
+          public var key:String {
                get {
                     return builderResult.key
                }
@@ -1088,21 +1087,21 @@ internal extension SwiftProtobufUnittest {
                    builderResult.key = value
                }
           }
-          func setKey(value:String) -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+          public func setKey(value:String) -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             self.key = value
             return self
           }
-          internal func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder{
+          public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder{
                builderResult.hasKey = false
                builderResult.key = ""
                return self
           }
-          var hasValue:Bool {
+          public var hasValue:Bool {
                get {
                     return builderResult.hasValue
                }
           }
-          var value:String {
+          public var value:String {
                get {
                     return builderResult.value
                }
@@ -1111,36 +1110,36 @@ internal extension SwiftProtobufUnittest {
                    builderResult.value = value
                }
           }
-          func setValue(value:String) -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+          public func setValue(value:String) -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             self.value = value
             return self
           }
-          internal func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder{
+          public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder{
                builderResult.hasValue = false
                builderResult.value = ""
                return self
           }
-          override internal var internalGetResult:GeneratedMessage {
+          override public var internalGetResult:GeneratedMessage {
                get {
                   return builderResult
                }
           }
-          override internal func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+          override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             builderResult = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry()
             return self
           }
-          override internal func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+          override public func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.builderWithPrototype(builderResult)
           }
-          override internal func build() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+          override public func build() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
                try checkInitialized()
                return buildPartial()
           }
-          internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+          public func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
             let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry = builderResult
             return returnMe
           }
-          internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+          public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             if other == SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry() {
              return self
             }
@@ -1153,10 +1152,10 @@ internal extension SwiftProtobufUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+          override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+          override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
@@ -1179,7 +1178,7 @@ internal extension SwiftProtobufUnittest {
               }
             }
           }
-          override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+          override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder()
             if let jsonValueKey = jsonMap["key"] as? String {
               resultDecodedBuilder.key = jsonValueKey
@@ -1189,7 +1188,7 @@ internal extension SwiftProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class internal func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+          override class public func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
               throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
@@ -1206,20 +1205,20 @@ internal extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class MapStringBytesEntry : GeneratedMessage, GeneratedMessageProtocol {
-        private(set) var hasKey:Bool = false
-        private(set) var key:String = ""
+      final public class MapStringBytesEntry : GeneratedMessage, GeneratedMessageProtocol {
+        public private(set) var hasKey:Bool = false
+        public private(set) var key:String = ""
 
-        private(set) var hasValue:Bool = false
-        private(set) var value:NSData = NSData()
+        public private(set) var hasValue:Bool = false
+        public private(set) var value:NSData = NSData()
 
-        required internal init() {
+        required public init() {
              super.init()
         }
-        override internal func isInitialized() -> Bool {
+        override public func isInitialized() -> Bool {
          return true
         }
-        override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
           if hasKey {
             try output.writeString(1, value:key)
           }
@@ -1228,7 +1227,7 @@ internal extension SwiftProtobufUnittest {
           }
           try unknownFields.writeToCodedOutputStream(output)
         }
-        override internal func serializedSize() -> Int32 {
+        override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -1245,53 +1244,53 @@ internal extension SwiftProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry> {
+        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry> {
           var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry>()
           while let value = try parseFromDelimitedFromInputStream(input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry? {
+        public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry? {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
-        internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+        public class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
         }
-        internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+        public class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFromInputStream(input).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFromCodedInputStream(input).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+        public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder
         }
-        internal func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+        public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
           return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder
         }
-        override internal class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> MessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder()
         }
-        override internal func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> MessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder()
         }
-        internal func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+        public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.builderWithPrototype(self)
         }
-        internal class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+        public class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(prototype)
         }
-        override internal func encode() throws -> Dictionary<String,AnyObject> {
+        override public func encode() throws -> Dictionary<String,AnyObject> {
           guard isInitialized() else {
             throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
           }
@@ -1305,13 +1304,13 @@ internal extension SwiftProtobufUnittest {
           }
           return jsonMap
         }
-        override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+        override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder.decodeToBuilder(jsonMap).build()
         }
-        override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+        override class public func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func getDescription(indent:String) throws -> String {
+        override public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
@@ -1322,7 +1321,7 @@ internal extension SwiftProtobufUnittest {
           output += unknownFields.getDescription(indent)
           return output
         }
-        override internal var hashValue:Int {
+        override public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasKey {
@@ -1339,32 +1338,32 @@ internal extension SwiftProtobufUnittest {
 
         //Meta information declaration start
 
-        override internal class func className() -> String {
+        override public class func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry"
         }
-        override internal func className() -> String {
+        override public func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry"
         }
-        override internal func classMetaType() -> GeneratedMessage.Type {
+        override public func classMetaType() -> GeneratedMessage.Type {
             return SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.self
         }
         //Meta information declaration end
 
-        final internal class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilder {
           private var builderResult:SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry()
-          internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+          public func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
               return builderResult
           }
 
-          required override internal init () {
+          required override public init () {
              super.init()
           }
-          var hasKey:Bool {
+          public var hasKey:Bool {
                get {
                     return builderResult.hasKey
                }
           }
-          var key:String {
+          public var key:String {
                get {
                     return builderResult.key
                }
@@ -1373,21 +1372,21 @@ internal extension SwiftProtobufUnittest {
                    builderResult.key = value
                }
           }
-          func setKey(value:String) -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+          public func setKey(value:String) -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             self.key = value
             return self
           }
-          internal func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder{
+          public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder{
                builderResult.hasKey = false
                builderResult.key = ""
                return self
           }
-          var hasValue:Bool {
+          public var hasValue:Bool {
                get {
                     return builderResult.hasValue
                }
           }
-          var value:NSData {
+          public var value:NSData {
                get {
                     return builderResult.value
                }
@@ -1396,36 +1395,36 @@ internal extension SwiftProtobufUnittest {
                    builderResult.value = value
                }
           }
-          func setValue(value:NSData) -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+          public func setValue(value:NSData) -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             self.value = value
             return self
           }
-          internal func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder{
+          public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder{
                builderResult.hasValue = false
                builderResult.value = NSData()
                return self
           }
-          override internal var internalGetResult:GeneratedMessage {
+          override public var internalGetResult:GeneratedMessage {
                get {
                   return builderResult
                }
           }
-          override internal func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+          override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             builderResult = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry()
             return self
           }
-          override internal func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+          override public func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.builderWithPrototype(builderResult)
           }
-          override internal func build() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+          override public func build() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
                try checkInitialized()
                return buildPartial()
           }
-          internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+          public func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
             let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry = builderResult
             return returnMe
           }
-          internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+          public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             if other == SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry() {
              return self
             }
@@ -1438,10 +1437,10 @@ internal extension SwiftProtobufUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+          override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+          override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
@@ -1464,7 +1463,7 @@ internal extension SwiftProtobufUnittest {
               }
             }
           }
-          override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+          override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder()
             if let jsonValueKey = jsonMap["key"] as? String {
               resultDecodedBuilder.key = jsonValueKey
@@ -1474,7 +1473,7 @@ internal extension SwiftProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class internal func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+          override class public func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
               throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
@@ -1491,19 +1490,19 @@ internal extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class MapStringMessageEntry : GeneratedMessage, GeneratedMessageProtocol {
-        private(set) var hasKey:Bool = false
-        private(set) var key:String = ""
+      final public class MapStringMessageEntry : GeneratedMessage, GeneratedMessageProtocol {
+        public private(set) var hasKey:Bool = false
+        public private(set) var key:String = ""
 
-        private(set) var hasValue:Bool = false
-        private(set) var value:SwiftProtobufUnittest.MapMessageValue!
-        required internal init() {
+        public private(set) var hasValue:Bool = false
+        public private(set) var value:SwiftProtobufUnittest.MapMessageValue!
+        required public init() {
              super.init()
         }
-        override internal func isInitialized() -> Bool {
+        override public func isInitialized() -> Bool {
          return true
         }
-        override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
           if hasKey {
             try output.writeString(1, value:key)
           }
@@ -1512,7 +1511,7 @@ internal extension SwiftProtobufUnittest {
           }
           try unknownFields.writeToCodedOutputStream(output)
         }
-        override internal func serializedSize() -> Int32 {
+        override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -1531,53 +1530,53 @@ internal extension SwiftProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry> {
+        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry> {
           var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry>()
           while let value = try parseFromDelimitedFromInputStream(input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry? {
+        public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry? {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
-        internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+        public class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
         }
-        internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+        public class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFromInputStream(input).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFromCodedInputStream(input).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+        public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder
         }
-        internal func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+        public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
           return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder
         }
-        override internal class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> MessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder()
         }
-        override internal func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> MessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder()
         }
-        internal func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+        public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.builderWithPrototype(self)
         }
-        internal class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+        public class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(prototype)
         }
-        override internal func encode() throws -> Dictionary<String,AnyObject> {
+        override public func encode() throws -> Dictionary<String,AnyObject> {
           guard isInitialized() else {
             throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
           }
@@ -1591,13 +1590,13 @@ internal extension SwiftProtobufUnittest {
           }
           return jsonMap
         }
-        override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+        override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder.decodeToBuilder(jsonMap).build()
         }
-        override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+        override class public func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func getDescription(indent:String) throws -> String {
+        override public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
@@ -1612,7 +1611,7 @@ internal extension SwiftProtobufUnittest {
           output += unknownFields.getDescription(indent)
           return output
         }
-        override internal var hashValue:Int {
+        override public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasKey {
@@ -1631,32 +1630,32 @@ internal extension SwiftProtobufUnittest {
 
         //Meta information declaration start
 
-        override internal class func className() -> String {
+        override public class func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry"
         }
-        override internal func className() -> String {
+        override public func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry"
         }
-        override internal func classMetaType() -> GeneratedMessage.Type {
+        override public func classMetaType() -> GeneratedMessage.Type {
             return SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.self
         }
         //Meta information declaration end
 
-        final internal class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilder {
           private var builderResult:SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry()
-          internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+          public func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
               return builderResult
           }
 
-          required override internal init () {
+          required override public init () {
              super.init()
           }
-          var hasKey:Bool {
+          public var hasKey:Bool {
                get {
                     return builderResult.hasKey
                }
           }
-          var key:String {
+          public var key:String {
                get {
                     return builderResult.key
                }
@@ -1665,21 +1664,21 @@ internal extension SwiftProtobufUnittest {
                    builderResult.key = value
                }
           }
-          func setKey(value:String) -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+          public func setKey(value:String) -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             self.key = value
             return self
           }
-          internal func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder{
+          public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder{
                builderResult.hasKey = false
                builderResult.key = ""
                return self
           }
-          var hasValue:Bool {
+          public var hasValue:Bool {
                get {
                    return builderResult.hasValue
                }
           }
-          var value:SwiftProtobufUnittest.MapMessageValue! {
+          public var value:SwiftProtobufUnittest.MapMessageValue! {
                get {
                    if valueBuilder_ != nil {
                       builderResult.value = valueBuilder_.getMessage()
@@ -1696,7 +1695,7 @@ internal extension SwiftProtobufUnittest {
                   builderResult.hasValue = true
                }
           }
-          internal func getValueBuilder() -> SwiftProtobufUnittest.MapMessageValue.Builder {
+          public func getValueBuilder() -> SwiftProtobufUnittest.MapMessageValue.Builder {
             if valueBuilder_ == nil {
                valueBuilder_ = SwiftProtobufUnittest.MapMessageValue.Builder()
                builderResult.value = valueBuilder_.getMessage()
@@ -1706,11 +1705,11 @@ internal extension SwiftProtobufUnittest {
             }
             return valueBuilder_
           }
-          func setValue(value:SwiftProtobufUnittest.MapMessageValue!) -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+          public func setValue(value:SwiftProtobufUnittest.MapMessageValue!) -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             self.value = value
             return self
           }
-          internal func mergeValue(value:SwiftProtobufUnittest.MapMessageValue) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+          public func mergeValue(value:SwiftProtobufUnittest.MapMessageValue) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             if builderResult.hasValue {
               builderResult.value = try SwiftProtobufUnittest.MapMessageValue.builderWithPrototype(builderResult.value).mergeFrom(value).buildPartial()
             } else {
@@ -1719,33 +1718,33 @@ internal extension SwiftProtobufUnittest {
             builderResult.hasValue = true
             return self
           }
-          internal func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+          public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             valueBuilder_ = nil
             builderResult.hasValue = false
             builderResult.value = nil
             return self
           }
-          override internal var internalGetResult:GeneratedMessage {
+          override public var internalGetResult:GeneratedMessage {
                get {
                   return builderResult
                }
           }
-          override internal func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+          override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             builderResult = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry()
             return self
           }
-          override internal func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+          override public func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.builderWithPrototype(builderResult)
           }
-          override internal func build() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+          override public func build() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
                try checkInitialized()
                return buildPartial()
           }
-          internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+          public func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
             let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry = builderResult
             return returnMe
           }
-          internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+          public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             if other == SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry() {
              return self
             }
@@ -1758,10 +1757,10 @@ internal extension SwiftProtobufUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+          override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+          override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
@@ -1789,7 +1788,7 @@ internal extension SwiftProtobufUnittest {
               }
             }
           }
-          override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+          override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder()
             if let jsonValueKey = jsonMap["key"] as? String {
               resultDecodedBuilder.key = jsonValueKey
@@ -1800,7 +1799,7 @@ internal extension SwiftProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class internal func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+          override class public func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
               throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
@@ -1817,19 +1816,19 @@ internal extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final internal class MapInt32EnumEntry : GeneratedMessage, GeneratedMessageProtocol {
-        private(set) var hasKey:Bool = false
-        private(set) var key:Int32 = Int32(0)
+      final public class MapInt32EnumEntry : GeneratedMessage, GeneratedMessageProtocol {
+        public private(set) var hasKey:Bool = false
+        public private(set) var key:Int32 = Int32(0)
 
-        private(set) var value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue = SwiftProtobufUnittest.MessageContainsMap.EnumMapValue.FirstValueEnum
-        private(set) var hasValue:Bool = false
-        required internal init() {
+        public private(set) var value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue = SwiftProtobufUnittest.MessageContainsMap.EnumMapValue.FirstValueEnum
+        public private(set) var hasValue:Bool = false
+        required public init() {
              super.init()
         }
-        override internal func isInitialized() -> Bool {
+        override public func isInitialized() -> Bool {
          return true
         }
-        override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
           if hasKey {
             try output.writeInt32(1, value:key)
           }
@@ -1838,7 +1837,7 @@ internal extension SwiftProtobufUnittest {
           }
           try unknownFields.writeToCodedOutputStream(output)
         }
-        override internal func serializedSize() -> Int32 {
+        override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -1855,53 +1854,53 @@ internal extension SwiftProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry> {
+        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry> {
           var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry>()
           while let value = try parseFromDelimitedFromInputStream(input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry? {
+        public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry? {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
-        internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+        public class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
         }
-        internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+        public class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFromInputStream(input).build()
         }
-        internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFromCodedInputStream(input).build()
         }
-        internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        internal class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+        public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder
         }
-        internal func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+        public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
           return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder
         }
-        override internal class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> MessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder()
         }
-        override internal func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> MessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder()
         }
-        internal func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+        public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.builderWithPrototype(self)
         }
-        internal class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+        public class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(prototype)
         }
-        override internal func encode() throws -> Dictionary<String,AnyObject> {
+        override public func encode() throws -> Dictionary<String,AnyObject> {
           guard isInitialized() else {
             throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
           }
@@ -1915,13 +1914,13 @@ internal extension SwiftProtobufUnittest {
           }
           return jsonMap
         }
-        override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+        override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder.decodeToBuilder(jsonMap).build()
         }
-        override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+        override class public func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
           return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder.fromJSONToBuilder(data).build()
         }
-        override internal func getDescription(indent:String) throws -> String {
+        override public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
@@ -1932,7 +1931,7 @@ internal extension SwiftProtobufUnittest {
           output += unknownFields.getDescription(indent)
           return output
         }
-        override internal var hashValue:Int {
+        override public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasKey {
@@ -1949,32 +1948,32 @@ internal extension SwiftProtobufUnittest {
 
         //Meta information declaration start
 
-        override internal class func className() -> String {
+        override public class func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry"
         }
-        override internal func className() -> String {
+        override public func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry"
         }
-        override internal func classMetaType() -> GeneratedMessage.Type {
+        override public func classMetaType() -> GeneratedMessage.Type {
             return SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.self
         }
         //Meta information declaration end
 
-        final internal class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilder {
           private var builderResult:SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry()
-          internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+          public func getMessage() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
               return builderResult
           }
 
-          required override internal init () {
+          required override public init () {
              super.init()
           }
-          var hasKey:Bool {
+          public var hasKey:Bool {
                get {
                     return builderResult.hasKey
                }
           }
-          var key:Int32 {
+          public var key:Int32 {
                get {
                     return builderResult.key
                }
@@ -1983,21 +1982,21 @@ internal extension SwiftProtobufUnittest {
                    builderResult.key = value
                }
           }
-          func setKey(value:Int32) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+          public func setKey(value:Int32) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             self.key = value
             return self
           }
-          internal func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder{
+          public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder{
                builderResult.hasKey = false
                builderResult.key = Int32(0)
                return self
           }
-            var hasValue:Bool{
+            public var hasValue:Bool{
                 get {
                     return builderResult.hasValue
                 }
             }
-            var value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue {
+            public var value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue {
                 get {
                     return builderResult.value
                 }
@@ -2006,36 +2005,36 @@ internal extension SwiftProtobufUnittest {
                     builderResult.value = value
                 }
             }
-            internal func setValue(value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+            public func setValue(value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
               self.value = value
               return self
             }
-            internal func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+            public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
                builderResult.hasValue = false
                builderResult.value = .FirstValueEnum
                return self
             }
-          override internal var internalGetResult:GeneratedMessage {
+          override public var internalGetResult:GeneratedMessage {
                get {
                   return builderResult
                }
           }
-          override internal func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+          override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             builderResult = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry()
             return self
           }
-          override internal func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+          override public func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.builderWithPrototype(builderResult)
           }
-          override internal func build() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+          override public func build() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
                try checkInitialized()
                return buildPartial()
           }
-          internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+          public func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
             let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry = builderResult
             return returnMe
           }
-          internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+          public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             if other == SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry() {
              return self
             }
@@ -2048,10 +2047,10 @@ internal extension SwiftProtobufUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+          override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+          override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
@@ -2079,7 +2078,7 @@ internal extension SwiftProtobufUnittest {
               }
             }
           }
-          override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+          override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder()
             if let jsonValueKey = jsonMap["key"] as? NSNumber {
               resultDecodedBuilder.key = jsonValueKey.intValue
@@ -2089,7 +2088,7 @@ internal extension SwiftProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class internal func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+          override class public func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
               throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
@@ -2106,16 +2105,16 @@ internal extension SwiftProtobufUnittest {
 
       //Enum type declaration start 
 
-      internal enum EnumMapValue:Int32 {
+      public enum EnumMapValue:Int32 {
         case FirstValueEnum = 0
         case SecondValueEnum = 1
-        internal func toString() -> String {
+        public func toString() -> String {
           switch self {
           case .FirstValueEnum: return "FirstValueEnum"
           case .SecondValueEnum: return "SecondValueEnum"
           }
         }
-        internal static func fromString(str:String) throws -> SwiftProtobufUnittest.MessageContainsMap.EnumMapValue {
+        public static func fromString(str:String) throws -> SwiftProtobufUnittest.MessageContainsMap.EnumMapValue {
           switch str {
           case "FirstValueEnum":  return .FirstValueEnum
           case "SecondValueEnum":  return .SecondValueEnum
@@ -2126,31 +2125,31 @@ internal extension SwiftProtobufUnittest {
 
       //Enum type declaration end 
 
-    private(set) var hasMapInt32Int32:Bool = false
-    private(set) var mapInt32Int32:Dictionary<Int32,Int32> = Dictionary<Int32,Int32>()
+    public private(set) var hasMapInt32Int32:Bool = false
+    public private(set) var mapInt32Int32:Dictionary<Int32,Int32> = Dictionary<Int32,Int32>()
 
-    private(set) var hasMapInt64Int64:Bool = false
-    private(set) var mapInt64Int64:Dictionary<Int64,Int64> = Dictionary<Int64,Int64>()
+    public private(set) var hasMapInt64Int64:Bool = false
+    public private(set) var mapInt64Int64:Dictionary<Int64,Int64> = Dictionary<Int64,Int64>()
 
-    private(set) var hasMapStringString:Bool = false
-    private(set) var mapStringString:Dictionary<String,String> = Dictionary<String,String>()
+    public private(set) var hasMapStringString:Bool = false
+    public private(set) var mapStringString:Dictionary<String,String> = Dictionary<String,String>()
 
-    private(set) var hasMapStringBytes:Bool = false
-    private(set) var mapStringBytes:Dictionary<String,NSData> = Dictionary<String,NSData>()
+    public private(set) var hasMapStringBytes:Bool = false
+    public private(set) var mapStringBytes:Dictionary<String,NSData> = Dictionary<String,NSData>()
 
-    private(set) var hasMapStringMessage:Bool = false
-    private(set) var mapStringMessage:Dictionary<String,SwiftProtobufUnittest.MapMessageValue> = Dictionary<String,SwiftProtobufUnittest.MapMessageValue>()
+    public private(set) var hasMapStringMessage:Bool = false
+    public private(set) var mapStringMessage:Dictionary<String,SwiftProtobufUnittest.MapMessageValue> = Dictionary<String,SwiftProtobufUnittest.MapMessageValue>()
 
-    private(set) var hasMapInt32Enum:Bool = false
-    private(set) var mapInt32Enum:Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue> = Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue>()
+    public private(set) var hasMapInt32Enum:Bool = false
+    public private(set) var mapInt32Enum:Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue> = Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue>()
 
-    required internal init() {
+    required public init() {
          super.init()
     }
-    override internal func isInitialized() -> Bool {
+    override public func isInitialized() -> Bool {
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasMapInt32Int32 {
           for (keyMapInt32Int32, valueMapInt32Int32) in mapInt32Int32 {
               let valueOfMapInt32Int32 = try! SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().setKey(keyMapInt32Int32).setValue(valueMapInt32Int32).build()
@@ -2189,7 +2188,7 @@ internal extension SwiftProtobufUnittest {
       }
       try unknownFields.writeToCodedOutputStream(output)
     }
-    override internal func serializedSize() -> Int32 {
+    override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -2236,53 +2235,53 @@ internal extension SwiftProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap> {
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap> {
       var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap? {
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap? {
       return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    internal class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    public class func parseFromData(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap {
       return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFromData(data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap {
       return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    public class func parseFromInputStream(input:NSInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap {
       return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap {
       return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap {
       return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap {
       return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+    public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.Builder {
       return SwiftProtobufUnittest.MessageContainsMap.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.Builder
     }
-    internal func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+    public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.Builder {
       return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.Builder
     }
-    override internal class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> MessageBuilder {
       return SwiftProtobufUnittest.MessageContainsMap.Builder()
     }
-    override internal func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> MessageBuilder {
       return SwiftProtobufUnittest.MessageContainsMap.Builder()
     }
-    internal func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+    public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
       return try SwiftProtobufUnittest.MessageContainsMap.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+    public class func builderWithPrototype(prototype:SwiftProtobufUnittest.MessageContainsMap) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
       return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(prototype)
     }
-    override internal func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
         throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
       }
@@ -2332,13 +2331,13 @@ internal extension SwiftProtobufUnittest {
       }
       return jsonMap
     }
-    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap {
       return try SwiftProtobufUnittest.MessageContainsMap.Builder.decodeToBuilder(jsonMap).build()
     }
-    override class internal func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    override class public func fromJSON(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap {
       return try SwiftProtobufUnittest.MessageContainsMap.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func getDescription(indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasMapInt32Int32 {
         output += "\(indent) mapInt32Int32: \(mapInt32Int32) \n"
@@ -2361,7 +2360,7 @@ internal extension SwiftProtobufUnittest {
       output += unknownFields.getDescription(indent)
       return output
     }
-    override internal var hashValue:Int {
+    override public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasMapInt32Int32 {
@@ -2408,32 +2407,32 @@ internal extension SwiftProtobufUnittest {
 
     //Meta information declaration start
 
-    override internal class func className() -> String {
+    override public class func className() -> String {
         return "SwiftProtobufUnittest.MessageContainsMap"
     }
-    override internal func className() -> String {
+    override public func className() -> String {
         return "SwiftProtobufUnittest.MessageContainsMap"
     }
-    override internal func classMetaType() -> GeneratedMessage.Type {
+    override public func classMetaType() -> GeneratedMessage.Type {
         return SwiftProtobufUnittest.MessageContainsMap.self
     }
     //Meta information declaration end
 
-    final internal class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilder {
       private var builderResult:SwiftProtobufUnittest.MessageContainsMap = SwiftProtobufUnittest.MessageContainsMap()
-      internal func getMessage() -> SwiftProtobufUnittest.MessageContainsMap {
+      public func getMessage() -> SwiftProtobufUnittest.MessageContainsMap {
           return builderResult
       }
 
-      required override internal init () {
+      required override public init () {
          super.init()
       }
-      var hasMapInt32Int32:Bool {
+      public var hasMapInt32Int32:Bool {
            get {
                 return builderResult.hasMapInt32Int32
            }
       }
-      var mapInt32Int32:Dictionary<Int32,Int32> {
+      public var mapInt32Int32:Dictionary<Int32,Int32> {
            get {
                 return builderResult.mapInt32Int32
            }
@@ -2442,21 +2441,21 @@ internal extension SwiftProtobufUnittest {
                builderResult.mapInt32Int32 = value
            }
       }
-      func setMapInt32Int32(value:Dictionary<Int32,Int32>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      public func setMapInt32Int32(value:Dictionary<Int32,Int32>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapInt32Int32 = value
         return self
       }
-      internal func clearMapInt32Int32() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
+      public func clearMapInt32Int32() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapInt32Int32 = false
            builderResult.mapInt32Int32 = Dictionary<Int32,Int32>()
            return self
       }
-      var hasMapInt64Int64:Bool {
+      public var hasMapInt64Int64:Bool {
            get {
                 return builderResult.hasMapInt64Int64
            }
       }
-      var mapInt64Int64:Dictionary<Int64,Int64> {
+      public var mapInt64Int64:Dictionary<Int64,Int64> {
            get {
                 return builderResult.mapInt64Int64
            }
@@ -2465,21 +2464,21 @@ internal extension SwiftProtobufUnittest {
                builderResult.mapInt64Int64 = value
            }
       }
-      func setMapInt64Int64(value:Dictionary<Int64,Int64>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      public func setMapInt64Int64(value:Dictionary<Int64,Int64>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapInt64Int64 = value
         return self
       }
-      internal func clearMapInt64Int64() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
+      public func clearMapInt64Int64() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapInt64Int64 = false
            builderResult.mapInt64Int64 = Dictionary<Int64,Int64>()
            return self
       }
-      var hasMapStringString:Bool {
+      public var hasMapStringString:Bool {
            get {
                 return builderResult.hasMapStringString
            }
       }
-      var mapStringString:Dictionary<String,String> {
+      public var mapStringString:Dictionary<String,String> {
            get {
                 return builderResult.mapStringString
            }
@@ -2488,21 +2487,21 @@ internal extension SwiftProtobufUnittest {
                builderResult.mapStringString = value
            }
       }
-      func setMapStringString(value:Dictionary<String,String>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      public func setMapStringString(value:Dictionary<String,String>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapStringString = value
         return self
       }
-      internal func clearMapStringString() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
+      public func clearMapStringString() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapStringString = false
            builderResult.mapStringString = Dictionary<String,String>()
            return self
       }
-      var hasMapStringBytes:Bool {
+      public var hasMapStringBytes:Bool {
            get {
                 return builderResult.hasMapStringBytes
            }
       }
-      var mapStringBytes:Dictionary<String,NSData> {
+      public var mapStringBytes:Dictionary<String,NSData> {
            get {
                 return builderResult.mapStringBytes
            }
@@ -2511,21 +2510,21 @@ internal extension SwiftProtobufUnittest {
                builderResult.mapStringBytes = value
            }
       }
-      func setMapStringBytes(value:Dictionary<String,NSData>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      public func setMapStringBytes(value:Dictionary<String,NSData>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapStringBytes = value
         return self
       }
-      internal func clearMapStringBytes() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
+      public func clearMapStringBytes() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapStringBytes = false
            builderResult.mapStringBytes = Dictionary<String,NSData>()
            return self
       }
-      var hasMapStringMessage:Bool {
+      public var hasMapStringMessage:Bool {
            get {
                 return builderResult.hasMapStringMessage
            }
       }
-      var mapStringMessage:Dictionary<String,SwiftProtobufUnittest.MapMessageValue> {
+      public var mapStringMessage:Dictionary<String,SwiftProtobufUnittest.MapMessageValue> {
            get {
                 return builderResult.mapStringMessage
            }
@@ -2534,21 +2533,21 @@ internal extension SwiftProtobufUnittest {
                builderResult.mapStringMessage = value
            }
       }
-      func setMapStringMessage(value:Dictionary<String,SwiftProtobufUnittest.MapMessageValue>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      public func setMapStringMessage(value:Dictionary<String,SwiftProtobufUnittest.MapMessageValue>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapStringMessage = value
         return self
       }
-      internal func clearMapStringMessage() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
+      public func clearMapStringMessage() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapStringMessage = false
            builderResult.mapStringMessage = Dictionary<String,SwiftProtobufUnittest.MapMessageValue>()
            return self
       }
-      var hasMapInt32Enum:Bool {
+      public var hasMapInt32Enum:Bool {
            get {
                 return builderResult.hasMapInt32Enum
            }
       }
-      var mapInt32Enum:Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue> {
+      public var mapInt32Enum:Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue> {
            get {
                 return builderResult.mapInt32Enum
            }
@@ -2557,36 +2556,36 @@ internal extension SwiftProtobufUnittest {
                builderResult.mapInt32Enum = value
            }
       }
-      func setMapInt32Enum(value:Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      public func setMapInt32Enum(value:Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapInt32Enum = value
         return self
       }
-      internal func clearMapInt32Enum() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
+      public func clearMapInt32Enum() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapInt32Enum = false
            builderResult.mapInt32Enum = Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue>()
            return self
       }
-      override internal var internalGetResult:GeneratedMessage {
+      override public var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override internal func clear() -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         builderResult = SwiftProtobufUnittest.MessageContainsMap()
         return self
       }
-      override internal func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      override public func clone() throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         return try SwiftProtobufUnittest.MessageContainsMap.builderWithPrototype(builderResult)
       }
-      override internal func build() throws -> SwiftProtobufUnittest.MessageContainsMap {
+      override public func build() throws -> SwiftProtobufUnittest.MessageContainsMap {
            try checkInitialized()
            return buildPartial()
       }
-      internal func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap {
+      public func buildPartial() -> SwiftProtobufUnittest.MessageContainsMap {
         let returnMe:SwiftProtobufUnittest.MessageContainsMap = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         if other == SwiftProtobufUnittest.MessageContainsMap() {
          return self
         }
@@ -2611,10 +2610,10 @@ internal extension SwiftProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -2667,7 +2666,7 @@ internal extension SwiftProtobufUnittest {
           }
         }
       }
-      override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.Builder()
         if let jsonValueMapInt32Int32 = jsonMap["mapInt32Int32"] as? Dictionary<String, NSNumber> {
             var mapMapInt32Int32 = Dictionary<Int32, Int32>()
@@ -2720,7 +2719,7 @@ internal extension SwiftProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class internal func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      override class public func fromJSONToBuilder(data:NSData) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
           throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")

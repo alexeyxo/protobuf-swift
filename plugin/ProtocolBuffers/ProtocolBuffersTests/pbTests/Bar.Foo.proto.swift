@@ -5,10 +5,9 @@
 import Foundation
 import ProtocolBuffers
 
+public struct Bar { }
 
-internal struct Bar { }
-
-internal func == (lhs: Bar.Foo, rhs: Bar.Foo) -> Bool {
+public func == (lhs: Bar.Foo, rhs: Bar.Foo) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -18,41 +17,41 @@ internal func == (lhs: Bar.Foo, rhs: Bar.Foo) -> Bool {
   return fieldCheck
 }
 
-internal extension Bar {
-  internal struct FooRoot {
-    internal static var sharedInstance : FooRoot {
+public extension Bar {
+  public struct FooRoot {
+    public static var sharedInstance : FooRoot {
      struct Static {
          static let instance : FooRoot = FooRoot()
      }
      return Static.instance
     }
-    internal var extensionRegistry:ExtensionRegistry
+    public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
     }
-    internal func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(registry:ExtensionRegistry) {
     }
   }
 
-  final internal class Foo : GeneratedMessage, GeneratedMessageProtocol {
-    private(set) var hasHello:Bool = false
-    private(set) var hello:String = ""
+  final public class Foo : GeneratedMessage, GeneratedMessageProtocol {
+    public private(set) var hasHello:Bool = false
+    public private(set) var hello:String = ""
 
-    required internal init() {
+    required public init() {
          super.init()
     }
-    override internal func isInitialized() -> Bool {
+    override public func isInitialized() -> Bool {
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasHello {
         try output.writeString(1, value:hello)
       }
       try unknownFields.writeToCodedOutputStream(output)
     }
-    override internal func serializedSize() -> Int32 {
+    override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -66,53 +65,53 @@ internal extension Bar {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Bar.Foo> {
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Bar.Foo> {
       var mergedArray = Array<Bar.Foo>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Bar.Foo? {
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Bar.Foo? {
       return try Bar.Foo.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    internal class func parseFromData(data:NSData) throws -> Bar.Foo {
+    public class func parseFromData(data:NSData) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromData(data, extensionRegistry:Bar.FooRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) throws -> Bar.Foo {
+    public class func parseFromInputStream(input:NSInputStream) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> Bar.Foo {
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func getBuilder() -> Bar.Foo.Builder {
+    public class func getBuilder() -> Bar.Foo.Builder {
       return Bar.Foo.classBuilder() as! Bar.Foo.Builder
     }
-    internal func getBuilder() -> Bar.Foo.Builder {
+    public func getBuilder() -> Bar.Foo.Builder {
       return classBuilder() as! Bar.Foo.Builder
     }
-    override internal class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> MessageBuilder {
       return Bar.Foo.Builder()
     }
-    override internal func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> MessageBuilder {
       return Bar.Foo.Builder()
     }
-    internal func toBuilder() throws -> Bar.Foo.Builder {
+    public func toBuilder() throws -> Bar.Foo.Builder {
       return try Bar.Foo.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Bar.Foo) throws -> Bar.Foo.Builder {
+    public class func builderWithPrototype(prototype:Bar.Foo) throws -> Bar.Foo.Builder {
       return try Bar.Foo.Builder().mergeFrom(prototype)
     }
-    override internal func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
         throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
       }
@@ -123,13 +122,13 @@ internal extension Bar {
       }
       return jsonMap
     }
-    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Bar.Foo {
+    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Bar.Foo {
       return try Bar.Foo.Builder.decodeToBuilder(jsonMap).build()
     }
-    override class internal func fromJSON(data:NSData) throws -> Bar.Foo {
+    override class public func fromJSON(data:NSData) throws -> Bar.Foo {
       return try Bar.Foo.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func getDescription(indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasHello {
         output += "\(indent) hello: \(hello) \n"
@@ -137,7 +136,7 @@ internal extension Bar {
       output += unknownFields.getDescription(indent)
       return output
     }
-    override internal var hashValue:Int {
+    override public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasHello {
@@ -151,32 +150,32 @@ internal extension Bar {
 
     //Meta information declaration start
 
-    override internal class func className() -> String {
+    override public class func className() -> String {
         return "Bar.Foo"
     }
-    override internal func className() -> String {
+    override public func className() -> String {
         return "Bar.Foo"
     }
-    override internal func classMetaType() -> GeneratedMessage.Type {
+    override public func classMetaType() -> GeneratedMessage.Type {
         return Bar.Foo.self
     }
     //Meta information declaration end
 
-    final internal class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilder {
       private var builderResult:Bar.Foo = Bar.Foo()
-      internal func getMessage() -> Bar.Foo {
+      public func getMessage() -> Bar.Foo {
           return builderResult
       }
 
-      required override internal init () {
+      required override public init () {
          super.init()
       }
-      var hasHello:Bool {
+      public var hasHello:Bool {
            get {
                 return builderResult.hasHello
            }
       }
-      var hello:String {
+      public var hello:String {
            get {
                 return builderResult.hello
            }
@@ -185,36 +184,36 @@ internal extension Bar {
                builderResult.hello = value
            }
       }
-      func setHello(value:String) -> Bar.Foo.Builder {
+      public func setHello(value:String) -> Bar.Foo.Builder {
         self.hello = value
         return self
       }
-      internal func clearHello() -> Bar.Foo.Builder{
+      public func clearHello() -> Bar.Foo.Builder{
            builderResult.hasHello = false
            builderResult.hello = ""
            return self
       }
-      override internal var internalGetResult:GeneratedMessage {
+      override public var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override internal func clear() -> Bar.Foo.Builder {
+      override public func clear() -> Bar.Foo.Builder {
         builderResult = Bar.Foo()
         return self
       }
-      override internal func clone() throws -> Bar.Foo.Builder {
+      override public func clone() throws -> Bar.Foo.Builder {
         return try Bar.Foo.builderWithPrototype(builderResult)
       }
-      override internal func build() throws -> Bar.Foo {
+      override public func build() throws -> Bar.Foo {
            try checkInitialized()
            return buildPartial()
       }
-      internal func buildPartial() -> Bar.Foo {
+      public func buildPartial() -> Bar.Foo {
         let returnMe:Bar.Foo = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:Bar.Foo) throws -> Bar.Foo.Builder {
+      public func mergeFrom(other:Bar.Foo) throws -> Bar.Foo.Builder {
         if other == Bar.Foo() {
          return self
         }
@@ -224,10 +223,10 @@ internal extension Bar {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> Bar.Foo.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Bar.Foo.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -247,14 +246,14 @@ internal extension Bar {
           }
         }
       }
-      override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Bar.Foo.Builder {
+      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Bar.Foo.Builder {
         let resultDecodedBuilder = Bar.Foo.Builder()
         if let jsonValueHello = jsonMap["hello"] as? String {
           resultDecodedBuilder.hello = jsonValueHello
         }
         return resultDecodedBuilder
       }
-      override class internal func fromJSONToBuilder(data:NSData) throws -> Bar.Foo.Builder {
+      override class public func fromJSONToBuilder(data:NSData) throws -> Bar.Foo.Builder {
         let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
           throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")

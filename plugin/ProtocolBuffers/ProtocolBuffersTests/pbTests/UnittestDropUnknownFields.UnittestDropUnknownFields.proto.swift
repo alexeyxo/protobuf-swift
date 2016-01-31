@@ -5,10 +5,9 @@
 import Foundation
 import ProtocolBuffers
 
+public struct UnittestDropUnknownFields { }
 
-internal struct UnittestDropUnknownFields { }
-
-internal func == (lhs: UnittestDropUnknownFields.Foo, rhs: UnittestDropUnknownFields.Foo) -> Bool {
+public func == (lhs: UnittestDropUnknownFields.Foo, rhs: UnittestDropUnknownFields.Foo) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -19,7 +18,7 @@ internal func == (lhs: UnittestDropUnknownFields.Foo, rhs: UnittestDropUnknownFi
   return fieldCheck
 }
 
-internal func == (lhs: UnittestDropUnknownFields.FooWithExtraFields, rhs: UnittestDropUnknownFields.FooWithExtraFields) -> Bool {
+public func == (lhs: UnittestDropUnknownFields.FooWithExtraFields, rhs: UnittestDropUnknownFields.FooWithExtraFields) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -31,41 +30,41 @@ internal func == (lhs: UnittestDropUnknownFields.FooWithExtraFields, rhs: Unitte
   return fieldCheck
 }
 
-internal extension UnittestDropUnknownFields {
-  internal struct UnittestDropUnknownFieldsRoot {
-    internal static var sharedInstance : UnittestDropUnknownFieldsRoot {
+public extension UnittestDropUnknownFields {
+  public struct UnittestDropUnknownFieldsRoot {
+    public static var sharedInstance : UnittestDropUnknownFieldsRoot {
      struct Static {
          static let instance : UnittestDropUnknownFieldsRoot = UnittestDropUnknownFieldsRoot()
      }
      return Static.instance
     }
-    internal var extensionRegistry:ExtensionRegistry
+    public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
     }
-    internal func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(registry:ExtensionRegistry) {
     }
   }
 
-  final internal class Foo : GeneratedMessage, GeneratedMessageProtocol {
+  final public class Foo : GeneratedMessage, GeneratedMessageProtocol {
 
 
       //Enum type declaration start 
 
-      internal enum NestedEnum:Int32 {
+      public enum NestedEnum:Int32 {
         case Foo = 0
         case Bar = 1
         case Baz = 2
-        internal func toString() -> String {
+        public func toString() -> String {
           switch self {
           case .Foo: return "FOO"
           case .Bar: return "BAR"
           case .Baz: return "BAZ"
           }
         }
-        internal static func fromString(str:String) throws -> UnittestDropUnknownFields.Foo.NestedEnum {
+        public static func fromString(str:String) throws -> UnittestDropUnknownFields.Foo.NestedEnum {
           switch str {
           case "FOO":  return .Foo
           case "BAR":  return .Bar
@@ -77,18 +76,18 @@ internal extension UnittestDropUnknownFields {
 
       //Enum type declaration end 
 
-    private(set) var hasInt32Value:Bool = false
-    private(set) var int32Value:Int32 = Int32(0)
+    public private(set) var hasInt32Value:Bool = false
+    public private(set) var int32Value:Int32 = Int32(0)
 
-    private(set) var enumValue:UnittestDropUnknownFields.Foo.NestedEnum = UnittestDropUnknownFields.Foo.NestedEnum.Foo
-    private(set) var hasEnumValue:Bool = false
-    required internal init() {
+    public private(set) var enumValue:UnittestDropUnknownFields.Foo.NestedEnum = UnittestDropUnknownFields.Foo.NestedEnum.Foo
+    public private(set) var hasEnumValue:Bool = false
+    required public init() {
          super.init()
     }
-    override internal func isInitialized() -> Bool {
+    override public func isInitialized() -> Bool {
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasInt32Value {
         try output.writeInt32(1, value:int32Value)
       }
@@ -97,7 +96,7 @@ internal extension UnittestDropUnknownFields {
       }
       try unknownFields.writeToCodedOutputStream(output)
     }
-    override internal func serializedSize() -> Int32 {
+    override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -114,53 +113,53 @@ internal extension UnittestDropUnknownFields {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<UnittestDropUnknownFields.Foo> {
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<UnittestDropUnknownFields.Foo> {
       var mergedArray = Array<UnittestDropUnknownFields.Foo>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> UnittestDropUnknownFields.Foo? {
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> UnittestDropUnknownFields.Foo? {
       return try UnittestDropUnknownFields.Foo.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    internal class func parseFromData(data:NSData) throws -> UnittestDropUnknownFields.Foo {
+    public class func parseFromData(data:NSData) throws -> UnittestDropUnknownFields.Foo {
       return try UnittestDropUnknownFields.Foo.Builder().mergeFromData(data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
       return try UnittestDropUnknownFields.Foo.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) throws -> UnittestDropUnknownFields.Foo {
+    public class func parseFromInputStream(input:NSInputStream) throws -> UnittestDropUnknownFields.Foo {
       return try UnittestDropUnknownFields.Foo.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
       return try UnittestDropUnknownFields.Foo.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> UnittestDropUnknownFields.Foo {
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> UnittestDropUnknownFields.Foo {
       return try UnittestDropUnknownFields.Foo.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
       return try UnittestDropUnknownFields.Foo.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func getBuilder() -> UnittestDropUnknownFields.Foo.Builder {
+    public class func getBuilder() -> UnittestDropUnknownFields.Foo.Builder {
       return UnittestDropUnknownFields.Foo.classBuilder() as! UnittestDropUnknownFields.Foo.Builder
     }
-    internal func getBuilder() -> UnittestDropUnknownFields.Foo.Builder {
+    public func getBuilder() -> UnittestDropUnknownFields.Foo.Builder {
       return classBuilder() as! UnittestDropUnknownFields.Foo.Builder
     }
-    override internal class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> MessageBuilder {
       return UnittestDropUnknownFields.Foo.Builder()
     }
-    override internal func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> MessageBuilder {
       return UnittestDropUnknownFields.Foo.Builder()
     }
-    internal func toBuilder() throws -> UnittestDropUnknownFields.Foo.Builder {
+    public func toBuilder() throws -> UnittestDropUnknownFields.Foo.Builder {
       return try UnittestDropUnknownFields.Foo.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:UnittestDropUnknownFields.Foo) throws -> UnittestDropUnknownFields.Foo.Builder {
+    public class func builderWithPrototype(prototype:UnittestDropUnknownFields.Foo) throws -> UnittestDropUnknownFields.Foo.Builder {
       return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(prototype)
     }
-    override internal func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
         throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
       }
@@ -174,13 +173,13 @@ internal extension UnittestDropUnknownFields {
       }
       return jsonMap
     }
-    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.Foo {
+    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.Foo {
       return try UnittestDropUnknownFields.Foo.Builder.decodeToBuilder(jsonMap).build()
     }
-    override class internal func fromJSON(data:NSData) throws -> UnittestDropUnknownFields.Foo {
+    override class public func fromJSON(data:NSData) throws -> UnittestDropUnknownFields.Foo {
       return try UnittestDropUnknownFields.Foo.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func getDescription(indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasInt32Value {
         output += "\(indent) int32Value: \(int32Value) \n"
@@ -191,7 +190,7 @@ internal extension UnittestDropUnknownFields {
       output += unknownFields.getDescription(indent)
       return output
     }
-    override internal var hashValue:Int {
+    override public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasInt32Value {
@@ -208,32 +207,32 @@ internal extension UnittestDropUnknownFields {
 
     //Meta information declaration start
 
-    override internal class func className() -> String {
+    override public class func className() -> String {
         return "UnittestDropUnknownFields.Foo"
     }
-    override internal func className() -> String {
+    override public func className() -> String {
         return "UnittestDropUnknownFields.Foo"
     }
-    override internal func classMetaType() -> GeneratedMessage.Type {
+    override public func classMetaType() -> GeneratedMessage.Type {
         return UnittestDropUnknownFields.Foo.self
     }
     //Meta information declaration end
 
-    final internal class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilder {
       private var builderResult:UnittestDropUnknownFields.Foo = UnittestDropUnknownFields.Foo()
-      internal func getMessage() -> UnittestDropUnknownFields.Foo {
+      public func getMessage() -> UnittestDropUnknownFields.Foo {
           return builderResult
       }
 
-      required override internal init () {
+      required override public init () {
          super.init()
       }
-      var hasInt32Value:Bool {
+      public var hasInt32Value:Bool {
            get {
                 return builderResult.hasInt32Value
            }
       }
-      var int32Value:Int32 {
+      public var int32Value:Int32 {
            get {
                 return builderResult.int32Value
            }
@@ -242,21 +241,21 @@ internal extension UnittestDropUnknownFields {
                builderResult.int32Value = value
            }
       }
-      func setInt32Value(value:Int32) -> UnittestDropUnknownFields.Foo.Builder {
+      public func setInt32Value(value:Int32) -> UnittestDropUnknownFields.Foo.Builder {
         self.int32Value = value
         return self
       }
-      internal func clearInt32Value() -> UnittestDropUnknownFields.Foo.Builder{
+      public func clearInt32Value() -> UnittestDropUnknownFields.Foo.Builder{
            builderResult.hasInt32Value = false
            builderResult.int32Value = Int32(0)
            return self
       }
-        var hasEnumValue:Bool{
+        public var hasEnumValue:Bool{
             get {
                 return builderResult.hasEnumValue
             }
         }
-        var enumValue:UnittestDropUnknownFields.Foo.NestedEnum {
+        public var enumValue:UnittestDropUnknownFields.Foo.NestedEnum {
             get {
                 return builderResult.enumValue
             }
@@ -265,36 +264,36 @@ internal extension UnittestDropUnknownFields {
                 builderResult.enumValue = value
             }
         }
-        internal func setEnumValue(value:UnittestDropUnknownFields.Foo.NestedEnum) -> UnittestDropUnknownFields.Foo.Builder {
+        public func setEnumValue(value:UnittestDropUnknownFields.Foo.NestedEnum) -> UnittestDropUnknownFields.Foo.Builder {
           self.enumValue = value
           return self
         }
-        internal func clearEnumValue() -> UnittestDropUnknownFields.Foo.Builder {
+        public func clearEnumValue() -> UnittestDropUnknownFields.Foo.Builder {
            builderResult.hasEnumValue = false
            builderResult.enumValue = .Foo
            return self
         }
-      override internal var internalGetResult:GeneratedMessage {
+      override public var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override internal func clear() -> UnittestDropUnknownFields.Foo.Builder {
+      override public func clear() -> UnittestDropUnknownFields.Foo.Builder {
         builderResult = UnittestDropUnknownFields.Foo()
         return self
       }
-      override internal func clone() throws -> UnittestDropUnknownFields.Foo.Builder {
+      override public func clone() throws -> UnittestDropUnknownFields.Foo.Builder {
         return try UnittestDropUnknownFields.Foo.builderWithPrototype(builderResult)
       }
-      override internal func build() throws -> UnittestDropUnknownFields.Foo {
+      override public func build() throws -> UnittestDropUnknownFields.Foo {
            try checkInitialized()
            return buildPartial()
       }
-      internal func buildPartial() -> UnittestDropUnknownFields.Foo {
+      public func buildPartial() -> UnittestDropUnknownFields.Foo {
         let returnMe:UnittestDropUnknownFields.Foo = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:UnittestDropUnknownFields.Foo) throws -> UnittestDropUnknownFields.Foo.Builder {
+      public func mergeFrom(other:UnittestDropUnknownFields.Foo) throws -> UnittestDropUnknownFields.Foo.Builder {
         if other == UnittestDropUnknownFields.Foo() {
          return self
         }
@@ -307,10 +306,10 @@ internal extension UnittestDropUnknownFields {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> UnittestDropUnknownFields.Foo.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> UnittestDropUnknownFields.Foo.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -338,7 +337,7 @@ internal extension UnittestDropUnknownFields {
           }
         }
       }
-      override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.Foo.Builder {
+      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.Foo.Builder {
         let resultDecodedBuilder = UnittestDropUnknownFields.Foo.Builder()
         if let jsonValueInt32Value = jsonMap["int32Value"] as? NSNumber {
           resultDecodedBuilder.int32Value = jsonValueInt32Value.intValue
@@ -348,7 +347,7 @@ internal extension UnittestDropUnknownFields {
         }
         return resultDecodedBuilder
       }
-      override class internal func fromJSONToBuilder(data:NSData) throws -> UnittestDropUnknownFields.Foo.Builder {
+      override class public func fromJSONToBuilder(data:NSData) throws -> UnittestDropUnknownFields.Foo.Builder {
         let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
           throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
@@ -359,17 +358,17 @@ internal extension UnittestDropUnknownFields {
 
   }
 
-  final internal class FooWithExtraFields : GeneratedMessage, GeneratedMessageProtocol {
+  final public class FooWithExtraFields : GeneratedMessage, GeneratedMessageProtocol {
 
 
       //Enum type declaration start 
 
-      internal enum NestedEnum:Int32 {
+      public enum NestedEnum:Int32 {
         case Foo = 0
         case Bar = 1
         case Baz = 2
         case Qux = 3
-        internal func toString() -> String {
+        public func toString() -> String {
           switch self {
           case .Foo: return "FOO"
           case .Bar: return "BAR"
@@ -377,7 +376,7 @@ internal extension UnittestDropUnknownFields {
           case .Qux: return "QUX"
           }
         }
-        internal static func fromString(str:String) throws -> UnittestDropUnknownFields.FooWithExtraFields.NestedEnum {
+        public static func fromString(str:String) throws -> UnittestDropUnknownFields.FooWithExtraFields.NestedEnum {
           switch str {
           case "FOO":  return .Foo
           case "BAR":  return .Bar
@@ -390,21 +389,21 @@ internal extension UnittestDropUnknownFields {
 
       //Enum type declaration end 
 
-    private(set) var hasInt32Value:Bool = false
-    private(set) var int32Value:Int32 = Int32(0)
+    public private(set) var hasInt32Value:Bool = false
+    public private(set) var int32Value:Int32 = Int32(0)
 
-    private(set) var enumValue:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum = UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.Foo
-    private(set) var hasEnumValue:Bool = false
-    private(set) var hasExtraInt32Value:Bool = false
-    private(set) var extraInt32Value:Int32 = Int32(0)
+    public private(set) var enumValue:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum = UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.Foo
+    public private(set) var hasEnumValue:Bool = false
+    public private(set) var hasExtraInt32Value:Bool = false
+    public private(set) var extraInt32Value:Int32 = Int32(0)
 
-    required internal init() {
+    required public init() {
          super.init()
     }
-    override internal func isInitialized() -> Bool {
+    override public func isInitialized() -> Bool {
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasInt32Value {
         try output.writeInt32(1, value:int32Value)
       }
@@ -416,7 +415,7 @@ internal extension UnittestDropUnknownFields {
       }
       try unknownFields.writeToCodedOutputStream(output)
     }
-    override internal func serializedSize() -> Int32 {
+    override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -436,53 +435,53 @@ internal extension UnittestDropUnknownFields {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<UnittestDropUnknownFields.FooWithExtraFields> {
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<UnittestDropUnknownFields.FooWithExtraFields> {
       var mergedArray = Array<UnittestDropUnknownFields.FooWithExtraFields>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields? {
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields? {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    internal class func parseFromData(data:NSData) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    public class func parseFromData(data:NSData) throws -> UnittestDropUnknownFields.FooWithExtraFields {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFromData(data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    public class func parseFromInputStream(input:NSInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func getBuilder() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+    public class func getBuilder() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
       return UnittestDropUnknownFields.FooWithExtraFields.classBuilder() as! UnittestDropUnknownFields.FooWithExtraFields.Builder
     }
-    internal func getBuilder() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+    public func getBuilder() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
       return classBuilder() as! UnittestDropUnknownFields.FooWithExtraFields.Builder
     }
-    override internal class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> MessageBuilder {
       return UnittestDropUnknownFields.FooWithExtraFields.Builder()
     }
-    override internal func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> MessageBuilder {
       return UnittestDropUnknownFields.FooWithExtraFields.Builder()
     }
-    internal func toBuilder() throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+    public func toBuilder() throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
       return try UnittestDropUnknownFields.FooWithExtraFields.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:UnittestDropUnknownFields.FooWithExtraFields) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+    public class func builderWithPrototype(prototype:UnittestDropUnknownFields.FooWithExtraFields) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(prototype)
     }
-    override internal func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
         throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
       }
@@ -499,13 +498,13 @@ internal extension UnittestDropUnknownFields {
       }
       return jsonMap
     }
-    override class internal func decode(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.FooWithExtraFields {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder.decodeToBuilder(jsonMap).build()
     }
-    override class internal func fromJSON(data:NSData) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    override class public func fromJSON(data:NSData) throws -> UnittestDropUnknownFields.FooWithExtraFields {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder.fromJSONToBuilder(data).build()
     }
-    override internal func getDescription(indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasInt32Value {
         output += "\(indent) int32Value: \(int32Value) \n"
@@ -519,7 +518,7 @@ internal extension UnittestDropUnknownFields {
       output += unknownFields.getDescription(indent)
       return output
     }
-    override internal var hashValue:Int {
+    override public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasInt32Value {
@@ -539,32 +538,32 @@ internal extension UnittestDropUnknownFields {
 
     //Meta information declaration start
 
-    override internal class func className() -> String {
+    override public class func className() -> String {
         return "UnittestDropUnknownFields.FooWithExtraFields"
     }
-    override internal func className() -> String {
+    override public func className() -> String {
         return "UnittestDropUnknownFields.FooWithExtraFields"
     }
-    override internal func classMetaType() -> GeneratedMessage.Type {
+    override public func classMetaType() -> GeneratedMessage.Type {
         return UnittestDropUnknownFields.FooWithExtraFields.self
     }
     //Meta information declaration end
 
-    final internal class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilder {
       private var builderResult:UnittestDropUnknownFields.FooWithExtraFields = UnittestDropUnknownFields.FooWithExtraFields()
-      internal func getMessage() -> UnittestDropUnknownFields.FooWithExtraFields {
+      public func getMessage() -> UnittestDropUnknownFields.FooWithExtraFields {
           return builderResult
       }
 
-      required override internal init () {
+      required override public init () {
          super.init()
       }
-      var hasInt32Value:Bool {
+      public var hasInt32Value:Bool {
            get {
                 return builderResult.hasInt32Value
            }
       }
-      var int32Value:Int32 {
+      public var int32Value:Int32 {
            get {
                 return builderResult.int32Value
            }
@@ -573,21 +572,21 @@ internal extension UnittestDropUnknownFields {
                builderResult.int32Value = value
            }
       }
-      func setInt32Value(value:Int32) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      public func setInt32Value(value:Int32) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         self.int32Value = value
         return self
       }
-      internal func clearInt32Value() -> UnittestDropUnknownFields.FooWithExtraFields.Builder{
+      public func clearInt32Value() -> UnittestDropUnknownFields.FooWithExtraFields.Builder{
            builderResult.hasInt32Value = false
            builderResult.int32Value = Int32(0)
            return self
       }
-        var hasEnumValue:Bool{
+        public var hasEnumValue:Bool{
             get {
                 return builderResult.hasEnumValue
             }
         }
-        var enumValue:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum {
+        public var enumValue:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum {
             get {
                 return builderResult.enumValue
             }
@@ -596,21 +595,21 @@ internal extension UnittestDropUnknownFields {
                 builderResult.enumValue = value
             }
         }
-        internal func setEnumValue(value:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+        public func setEnumValue(value:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
           self.enumValue = value
           return self
         }
-        internal func clearEnumValue() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+        public func clearEnumValue() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
            builderResult.hasEnumValue = false
            builderResult.enumValue = .Foo
            return self
         }
-      var hasExtraInt32Value:Bool {
+      public var hasExtraInt32Value:Bool {
            get {
                 return builderResult.hasExtraInt32Value
            }
       }
-      var extraInt32Value:Int32 {
+      public var extraInt32Value:Int32 {
            get {
                 return builderResult.extraInt32Value
            }
@@ -619,36 +618,36 @@ internal extension UnittestDropUnknownFields {
                builderResult.extraInt32Value = value
            }
       }
-      func setExtraInt32Value(value:Int32) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      public func setExtraInt32Value(value:Int32) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         self.extraInt32Value = value
         return self
       }
-      internal func clearExtraInt32Value() -> UnittestDropUnknownFields.FooWithExtraFields.Builder{
+      public func clearExtraInt32Value() -> UnittestDropUnknownFields.FooWithExtraFields.Builder{
            builderResult.hasExtraInt32Value = false
            builderResult.extraInt32Value = Int32(0)
            return self
       }
-      override internal var internalGetResult:GeneratedMessage {
+      override public var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override internal func clear() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      override public func clear() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         builderResult = UnittestDropUnknownFields.FooWithExtraFields()
         return self
       }
-      override internal func clone() throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      override public func clone() throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         return try UnittestDropUnknownFields.FooWithExtraFields.builderWithPrototype(builderResult)
       }
-      override internal func build() throws -> UnittestDropUnknownFields.FooWithExtraFields {
+      override public func build() throws -> UnittestDropUnknownFields.FooWithExtraFields {
            try checkInitialized()
            return buildPartial()
       }
-      internal func buildPartial() -> UnittestDropUnknownFields.FooWithExtraFields {
+      public func buildPartial() -> UnittestDropUnknownFields.FooWithExtraFields {
         let returnMe:UnittestDropUnknownFields.FooWithExtraFields = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:UnittestDropUnknownFields.FooWithExtraFields) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      public func mergeFrom(other:UnittestDropUnknownFields.FooWithExtraFields) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         if other == UnittestDropUnknownFields.FooWithExtraFields() {
          return self
         }
@@ -664,10 +663,10 @@ internal extension UnittestDropUnknownFields {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      override internal func mergeFromCodedInputStream(input:CodedInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override internal func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -698,7 +697,7 @@ internal extension UnittestDropUnknownFields {
           }
         }
       }
-      override class internal func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         let resultDecodedBuilder = UnittestDropUnknownFields.FooWithExtraFields.Builder()
         if let jsonValueInt32Value = jsonMap["int32Value"] as? NSNumber {
           resultDecodedBuilder.int32Value = jsonValueInt32Value.intValue
@@ -711,7 +710,7 @@ internal extension UnittestDropUnknownFields {
         }
         return resultDecodedBuilder
       }
-      override class internal func fromJSONToBuilder(data:NSData) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      override class public func fromJSONToBuilder(data:NSData) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
           throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
