@@ -1,6 +1,0 @@
-syntax = "proto2";
-package baz;
-
-message Foo {
-  optional string hello = 1;
-}

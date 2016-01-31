@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode7
+osx_image: xcode7.2
 before_install:
   - brew update
   - brew uninstall xctool
@@ -9,5 +9,5 @@ install:
   - scripts/build.sh
   - scripts/makeTests.sh
 script:
-  - xctool -project ./src/ProtocolBuffers/ProtocolBuffers.xcodeproj -sdk iphonesimulator -scheme ProtocolBuffers build test
-  - xctool -project ./src/ProtocolBuffers/ProtocolBuffers.xcodeproj -scheme "ProtocolBuffers(OSX)" build test
+  - xctool -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -sdk iphonesimulator -scheme ProtocolBuffers build test
+  - xctool -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -scheme "ProtocolBuffers(OSX)" build test
