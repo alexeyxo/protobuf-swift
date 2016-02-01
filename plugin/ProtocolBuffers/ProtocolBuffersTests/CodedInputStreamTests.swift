@@ -19,7 +19,7 @@ class CodedInputStreamTests: XCTestCase
         for index:UInt8 in from
         {
             bytesArray[i] = index
-            i++
+            i += 1
         }
         returnData.appendBytes(&bytesArray, length: bytesArray.count)
         return returnData
@@ -79,8 +79,8 @@ class CodedInputStreamTests: XCTestCase
         XCTAssertTrue(value == result4, "")
     
     // Try different block sizes.
-        for (var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2)
-        {
+        var blockSize: Int32 = 1
+        while blockSize <= 16 {
             if (shift == 0)
             {
                 let smallblock:SmallBlockInputStream = SmallBlockInputStream()
@@ -89,13 +89,13 @@ class CodedInputStreamTests: XCTestCase
                 let result2 = try inputs.readRawVarint32()
                 XCTAssertTrue(Int32(value) == result2, "")
             }
-        
+            
             let smallblock2:SmallBlockInputStream = SmallBlockInputStream()
             smallblock2.setup(data: data, blocksSize: blockSize)
             let inputs2:CodedInputStream = CodedInputStream(inputStream:smallblock2)
             let varin64 = try inputs2.readRawVarint64()
             XCTAssertTrue(value == varin64, "")
-
+            blockSize *= 2
         }
     }
     
@@ -107,14 +107,15 @@ class CodedInputStreamTests: XCTestCase
         let input:CodedInputStream = CodedInputStream(data:data)
         let readRes = try input.readRawLittleEndian32()
         XCTAssertTrue(value == readRes, "")
-        for (var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2)
-        {
+        var blockSize: Int32 = 1
+        while blockSize <= 16 {
             let smallblock:SmallBlockInputStream = SmallBlockInputStream()
             smallblock.setup(data: data, blocksSize: blockSize)
             
             let input2:CodedInputStream = CodedInputStream(inputStream:smallblock)
             let readRes2 = try input2.readRawLittleEndian32()
             XCTAssertTrue(value == readRes2, "")
+            blockSize *= 2
         }
     }
     
@@ -127,8 +128,8 @@ class CodedInputStreamTests: XCTestCase
         let input:CodedInputStream = CodedInputStream(data:data)
         let inputValue = try input.readRawLittleEndian64()
         XCTAssertTrue(value == inputValue, "")
-        for (var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2)
-        {
+        var blockSize: Int32 = 1
+        while blockSize <= 16 {
             let smallblock:SmallBlockInputStream = SmallBlockInputStream()
             smallblock.setup(data: data, blocksSize: blockSize)
             
@@ -136,6 +137,8 @@ class CodedInputStreamTests: XCTestCase
             
             let input2Value = try input2.readRawLittleEndian64()
             XCTAssertTrue(value == input2Value, "")
+            
+            blockSize *= 2
         }
     }
     
@@ -289,11 +292,14 @@ class CodedInputStreamTests: XCTestCase
             TestUtilities.assertAllFieldsSet(message3)
             XCTAssertTrue(message3 == message2, "")
             
-            for (var blockSize:Int32 = 1; blockSize < 256; blockSize *= 2) {
+            var blockSize: Int32 = 1
+            while blockSize < 256 {
                 let smallblock:SmallBlockInputStream = SmallBlockInputStream()
                 smallblock.setup(data: rawBytes, blocksSize: blockSize)
                 message2 = try ProtobufUnittest.TestAllTypes.parseFromInputStream(smallblock)
                 TestUtilities.assertAllFieldsSet(message2)
+                
+                blockSize *= 2
             }
         }
         catch
@@ -336,7 +342,7 @@ class CodedInputStreamTests: XCTestCase
         do {
             // Allocate and initialize a 1MB blob.
             let blob = NSMutableData(length:1 << 20)!
-            for (var i:Int = 0; i < blob.length; i++) {
+            for i in 0 ..< blob.length {
                 let pointer = UnsafeMutablePointer<UInt8>(blob.mutableBytes)
                 let bpointer = UnsafeMutableBufferPointer(start: pointer, count: blob.length)
                 bpointer[i] = UInt8(1)

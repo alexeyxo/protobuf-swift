@@ -150,7 +150,7 @@ internal extension ProtobufUnittest {
           output += "\(indent) repeatedMessage[\(repeatedMessageElementIndex)] {\n"
           output += try oneElementrepeatedMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          repeatedMessageElementIndex++
+          repeatedMessageElementIndex += 1
       }
       output += unknownFields.getDescription(indent)
       return output

@@ -2818,7 +2818,7 @@ internal extension ProtobufUnittest {
       var foo4ElementIndex:Int = 0
       for oneValuefoo4 in foo4  {
           output += "\(indent) foo4[\(foo4ElementIndex)]: \(oneValuefoo4)\n"
-          foo4ElementIndex++
+          foo4ElementIndex += 1
       }
       output += try getExtensionDescription(Int32(100), endExclusive:Int32(536870912), indent:indent)
       output += unknownFields.getDescription(indent)
@@ -3373,7 +3373,7 @@ internal extension ProtobufUnittest {
           output += "\(indent) barney[\(barneyElementIndex)] {\n"
           output += try oneElementbarney.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          barneyElementIndex++
+          barneyElementIndex += 1
       }
       output += try getExtensionDescription(Int32(100), endExclusive:Int32(536870912), indent:indent)
       output += unknownFields.getDescription(indent)
