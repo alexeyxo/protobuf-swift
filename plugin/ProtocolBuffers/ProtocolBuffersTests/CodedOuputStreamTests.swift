@@ -25,7 +25,7 @@ internal class CodedOuputStreamTests: XCTestCase
         for index:UInt8 in from
         {
             bytesArray[i] = index
-            i++
+            i += 1
         }
         returnData.appendBytes(&bytesArray, length: bytesArray.count)
         return returnData
@@ -42,16 +42,18 @@ internal class CodedOuputStreamTests: XCTestCase
         
         XCTAssertTrue(data.isEqualToData(actual), "Test32")
     
-        for var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2 {
-            
+        var blockSize:Int32 = 1
+        while blockSize <= 16 {
             let rawOutput:NSOutputStream = openMemoryStream()
             let output:CodedOutputStream = CodedOutputStream(output: rawOutput, bufferSize: blockSize)
             
             try output.writeRawLittleEndian32(value)
             try output.flush()
-    
+            
             let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
             XCTAssertTrue(data.isEqualToData(actual), "Test32")
+            
+            blockSize *= 2
         }
     }
     
@@ -65,8 +67,8 @@ internal class CodedOuputStreamTests: XCTestCase
 
         XCTAssertTrue(data.isEqualToData(actual), "Test64")
         
-        for var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2 {
-            
+        var blockSize:Int32 = 1
+        while blockSize <= 16 {
             let rawOutput:NSOutputStream = openMemoryStream()
             let output:CodedOutputStream = CodedOutputStream(output: rawOutput, bufferSize: blockSize)
             
@@ -76,6 +78,8 @@ internal class CodedOuputStreamTests: XCTestCase
             let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
             
             XCTAssertTrue(data.isEqualToData(actual),"Test64")
+
+            blockSize *= 2
         }
     }
     
@@ -106,30 +110,31 @@ internal class CodedOuputStreamTests: XCTestCase
     
     
         XCTAssertTrue(Int32(data.length) == value.computeRawVarint64Size(), "")
-    
-        for var blockSize:Int = 1; blockSize <= 16; blockSize *= 2
-        {
-    
+
+        var blockSize:Int32 = 1
+        while blockSize <= 16 {
             if (WireFormat.logicalRightShift64(value:value, spaces: 31) == 0)
             {
                 let rawOutput3:NSOutputStream = openMemoryStream()
                 let output3:CodedOutputStream = CodedOutputStream(output: rawOutput3, bufferSize: Int32(blockSize))
-    
+                
                 try output3.writeRawVarint32(Int32(value))
                 try output3.flush()
-    
+                
                 let actual3:NSData = rawOutput3.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
                 XCTAssertTrue(data.isEqualToData(actual3), "")
             }
-    
-
+            
+            
             let rawOutput4:NSOutputStream = openMemoryStream()
             let output4:CodedOutputStream = CodedOutputStream(output: rawOutput4, bufferSize: Int32(blockSize))
             try output4.writeRawVarint64(value)
             try output4.flush()
-    
+            
             let actual4:NSData = rawOutput4.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
             XCTAssertTrue(data.isEqualToData(actual4), "")
+
+            blockSize *= 2
         }
     }
     
@@ -321,13 +326,15 @@ internal class CodedOuputStreamTests: XCTestCase
             XCTAssertTrue(rawBytes == goldenData, "")
         
         // Try different block sizes.
-            for (var blockSize:Int = 1; blockSize < 256; blockSize *= 2) {
+            var blockSize = 1
+            while blockSize < 256 {
                 let rawOutput = openMemoryStream()
                 let output:CodedOutputStream = CodedOutputStream(output:rawOutput, bufferSize:Int32(blockSize))
                 try message.writeToCodedOutputStream(output)
                 try output.flush()
                 let actual = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
                 XCTAssertTrue(rawBytes == actual, "")
+                blockSize *= 2
             }
         }
         catch

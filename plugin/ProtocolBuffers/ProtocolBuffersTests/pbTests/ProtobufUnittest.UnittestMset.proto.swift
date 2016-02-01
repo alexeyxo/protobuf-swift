@@ -1256,7 +1256,7 @@ internal extension ProtobufUnittest {
           output += "\(indent) item[\(itemElementIndex)] {\n"
           output += try oneElementitem.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          itemElementIndex++
+          itemElementIndex += 1
       }
       output += unknownFields.getDescription(indent)
       return output
