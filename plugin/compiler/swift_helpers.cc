@@ -131,12 +131,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         else if (file->options().HasExtension(swift_file_options)) {
             SwiftFileOptions options = file->options().GetExtension(swift_file_options);
-            if (options.entities_access_control() == PublicEntities)
+            if (options.entities_access_control() == InternalEntities)
             {
-                return "public";
+                return "internal";
             }
         }
-        return "internal";
+        return "public";
     }
 
     string GetAccessControlTypeForFields(const FileDescriptor* file) {
@@ -145,12 +145,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         else if (file->options().HasExtension(swift_file_options)) {
             SwiftFileOptions options = file->options().GetExtension(swift_file_options);
-            if (options.entities_access_control() == PublicEntities)
+            if (options.entities_access_control() == InternalEntities)
             {
-                return "public ";
+                return "internal ";
             }
         }
-        return "";
+        return "public ";
     }
 
 

@@ -5,9 +5,9 @@ import Foundation
 import ProtocolBuffers
 
 
-internal struct Baz { }
+public struct Baz { }
 
-internal func == (lhs: Baz.Foo, rhs: Baz.Foo) -> Bool {
+public func == (lhs: Baz.Foo, rhs: Baz.Foo) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -17,41 +17,41 @@ internal func == (lhs: Baz.Foo, rhs: Baz.Foo) -> Bool {
   return fieldCheck
 }
 
-internal extension Baz {
-  internal struct FooRoot {
-    internal static var sharedInstance : FooRoot {
+public extension Baz {
+  public struct FooRoot {
+    public static var sharedInstance : FooRoot {
      struct Static {
          static let instance : FooRoot = FooRoot()
      }
      return Static.instance
     }
-    internal var extensionRegistry:ExtensionRegistry
+    public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
     }
-    internal func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(registry:ExtensionRegistry) {
     }
   }
 
-  final internal class Foo : GeneratedMessage, GeneratedMessageProtocol {
-    private(set) var hasHello:Bool = false
-    private(set) var hello:String = ""
+  final public class Foo : GeneratedMessage, GeneratedMessageProtocol {
+    public private(set) var hasHello:Bool = false
+    public private(set) var hello:String = ""
 
-    required internal init() {
+    required public init() {
          super.init()
     }
-    override internal func isInitialized() -> Bool {
+    override public func isInitialized() -> Bool {
      return true
     }
-    override internal func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasHello {
         try output.writeString(1, value:hello)
       }
       try unknownFields.writeToCodedOutputStream(output)
     }
-    override internal func serializedSize() -> Int32 {
+    override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -65,53 +65,53 @@ internal extension Baz {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    internal class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Baz.Foo> {
+    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Baz.Foo> {
       var mergedArray = Array<Baz.Foo>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    internal class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Baz.Foo? {
+    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Baz.Foo? {
       return try Baz.Foo.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    internal class func parseFromData(data:NSData) throws -> Baz.Foo {
+    public class func parseFromData(data:NSData) throws -> Baz.Foo {
       return try Baz.Foo.Builder().mergeFromData(data, extensionRegistry:Baz.FooRoot.sharedInstance.extensionRegistry).build()
     }
-    internal class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo {
+    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo {
       return try Baz.Foo.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream) throws -> Baz.Foo {
+    public class func parseFromInputStream(input:NSInputStream) throws -> Baz.Foo {
       return try Baz.Foo.Builder().mergeFromInputStream(input).build()
     }
-    internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo {
+    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo {
       return try Baz.Foo.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream) throws -> Baz.Foo {
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Baz.Foo {
       return try Baz.Foo.Builder().mergeFromCodedInputStream(input).build()
     }
-    internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo {
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo {
       return try Baz.Foo.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    internal class func getBuilder() -> Baz.Foo.Builder {
+    public class func getBuilder() -> Baz.Foo.Builder {
       return Baz.Foo.classBuilder() as! Baz.Foo.Builder
     }
-    internal func getBuilder() -> Baz.Foo.Builder {
+    public func getBuilder() -> Baz.Foo.Builder {
       return classBuilder() as! Baz.Foo.Builder
     }
-    internal override class func classBuilder() -> MessageBuilder {
+    public override class func classBuilder() -> MessageBuilder {
       return Baz.Foo.Builder()
     }
-    internal override func classBuilder() -> MessageBuilder {
+    public override func classBuilder() -> MessageBuilder {
       return Baz.Foo.Builder()
     }
-    internal func toBuilder() throws -> Baz.Foo.Builder {
+    public func toBuilder() throws -> Baz.Foo.Builder {
       return try Baz.Foo.builderWithPrototype(self)
     }
-    internal class func builderWithPrototype(prototype:Baz.Foo) throws -> Baz.Foo.Builder {
+    public class func builderWithPrototype(prototype:Baz.Foo) throws -> Baz.Foo.Builder {
       return try Baz.Foo.Builder().mergeFrom(prototype)
     }
-    override internal func getDescription(indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
       if hasHello {
         output += "\(indent) hello: \(hello) \n"
@@ -119,7 +119,7 @@ internal extension Baz {
       output += unknownFields.getDescription(indent)
       return output
     }
-    override internal var hashValue:Int {
+    override public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasHello {
@@ -133,32 +133,32 @@ internal extension Baz {
 
     //Meta information declaration start
 
-    override internal class func className() -> String {
+    override public class func className() -> String {
         return "Baz.Foo"
     }
-    override internal func className() -> String {
+    override public func className() -> String {
         return "Baz.Foo"
     }
-    override internal func classMetaType() -> GeneratedMessage.Type {
+    override public func classMetaType() -> GeneratedMessage.Type {
         return Baz.Foo.self
     }
     //Meta information declaration end
 
-    final internal class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilder {
       private var builderResult:Baz.Foo = Baz.Foo()
-      internal func getMessage() -> Baz.Foo {
+      public func getMessage() -> Baz.Foo {
           return builderResult
       }
 
-      required override internal init () {
+      required override public init () {
          super.init()
       }
-      var hasHello:Bool {
+      public var hasHello:Bool {
            get {
                 return builderResult.hasHello
            }
       }
-      var hello:String {
+      public var hello:String {
            get {
                 return builderResult.hello
            }
@@ -167,36 +167,36 @@ internal extension Baz {
                builderResult.hello = value
            }
       }
-      func setHello(value:String) -> Baz.Foo.Builder {
+      public func setHello(value:String) -> Baz.Foo.Builder {
         self.hello = value
         return self
       }
-      internal func clearHello() -> Baz.Foo.Builder{
+      public func clearHello() -> Baz.Foo.Builder{
            builderResult.hasHello = false
            builderResult.hello = ""
            return self
       }
-      override internal var internalGetResult:GeneratedMessage {
+      override public var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      internal override func clear() -> Baz.Foo.Builder {
+      public override func clear() -> Baz.Foo.Builder {
         builderResult = Baz.Foo()
         return self
       }
-      internal override func clone() throws -> Baz.Foo.Builder {
+      public override func clone() throws -> Baz.Foo.Builder {
         return try Baz.Foo.builderWithPrototype(builderResult)
       }
-      internal override func build() throws -> Baz.Foo {
+      public override func build() throws -> Baz.Foo {
            try checkInitialized()
            return buildPartial()
       }
-      internal func buildPartial() -> Baz.Foo {
+      public func buildPartial() -> Baz.Foo {
         let returnMe:Baz.Foo = builderResult
         return returnMe
       }
-      internal func mergeFrom(other:Baz.Foo) throws -> Baz.Foo.Builder {
+      public func mergeFrom(other:Baz.Foo) throws -> Baz.Foo.Builder {
         if other == Baz.Foo() {
          return self
         }
@@ -206,10 +206,10 @@ internal extension Baz {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Baz.Foo.Builder {
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Baz.Foo.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo.Builder {
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
