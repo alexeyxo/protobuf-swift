@@ -59,7 +59,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
 
   //Enum type declaration start 
 
-  public enum MyEnum:Int32 {
+  public enum MyEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case Foo = 0
     case Bar = 1
     case Baz = 2
@@ -78,6 +78,15 @@ public extension Proto3PreserveUnknownEnumUnittest {
       default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
       }
     }
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .Foo: return ".Foo"
+            case .Bar: return ".Bar"
+            case .Baz: return ".Baz"
+        }
+    }
   }
 
   //Enum type declaration end 
@@ -86,7 +95,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
 
   //Enum type declaration start 
 
-  public enum MyEnumPlusExtra:Int32 {
+  public enum MyEnumPlusExtra:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case EFoo = 0
     case EBar = 1
     case EBaz = 2
@@ -107,6 +116,16 @@ public extension Proto3PreserveUnknownEnumUnittest {
       case "E_EXTRA":  return .EExtra
       default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
       }
+    }
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .EFoo: return ".EFoo"
+            case .EBar: return ".EBar"
+            case .EBaz: return ".EBaz"
+            case .EExtra: return ".EExtra"
+        }
     }
   }
 
@@ -362,28 +381,28 @@ public extension Proto3PreserveUnknownEnumUnittest {
     override public func getDescription(indent:String) throws -> String {
       var output = ""
       if (hasE) {
-        output += "\(indent) e: \(e.rawValue)\n"
+        output += "\(indent) e: \(e.description)\n"
       }
       var repeatedEElementIndex:Int = 0
       for oneValueOfrepeatedE in repeatedE {
-          output += "\(indent) repeatedE[\(repeatedEElementIndex)]: \(oneValueOfrepeatedE.rawValue)\n"
+          output += "\(indent) repeatedE[\(repeatedEElementIndex)]: \(oneValueOfrepeatedE.description)\n"
           repeatedEElementIndex++
       }
       var repeatedPackedEElementIndex:Int = 0
       for oneValueOfrepeatedPackedE in repeatedPackedE {
-          output += "\(indent) repeatedPackedE[\(repeatedPackedEElementIndex)]: \(oneValueOfrepeatedPackedE.rawValue)\n"
+          output += "\(indent) repeatedPackedE[\(repeatedPackedEElementIndex)]: \(oneValueOfrepeatedPackedE.description)\n"
           repeatedPackedEElementIndex++
       }
       var repeatedPackedUnexpectedEElementIndex:Int = 0
       for oneValueOfrepeatedPackedUnexpectedE in repeatedPackedUnexpectedE {
-          output += "\(indent) repeatedPackedUnexpectedE[\(repeatedPackedUnexpectedEElementIndex)]: \(oneValueOfrepeatedPackedUnexpectedE.rawValue)\n"
+          output += "\(indent) repeatedPackedUnexpectedE[\(repeatedPackedUnexpectedEElementIndex)]: \(oneValueOfrepeatedPackedUnexpectedE.description)\n"
           repeatedPackedUnexpectedEElementIndex++
       }
       if (hasOneofE1) {
-        output += "\(indent) oneofE1: \(oneofE1.rawValue)\n"
+        output += "\(indent) oneofE1: \(oneofE1.description)\n"
       }
       if (hasOneofE2) {
-        output += "\(indent) oneofE2: \(oneofE2.rawValue)\n"
+        output += "\(indent) oneofE2: \(oneofE2.description)\n"
       }
       output += unknownFields.getDescription(indent)
       return output
@@ -978,28 +997,28 @@ public extension Proto3PreserveUnknownEnumUnittest {
     override public func getDescription(indent:String) throws -> String {
       var output = ""
       if (hasE) {
-        output += "\(indent) e: \(e.rawValue)\n"
+        output += "\(indent) e: \(e.description)\n"
       }
       var repeatedEElementIndex:Int = 0
       for oneValueOfrepeatedE in repeatedE {
-          output += "\(indent) repeatedE[\(repeatedEElementIndex)]: \(oneValueOfrepeatedE.rawValue)\n"
+          output += "\(indent) repeatedE[\(repeatedEElementIndex)]: \(oneValueOfrepeatedE.description)\n"
           repeatedEElementIndex++
       }
       var repeatedPackedEElementIndex:Int = 0
       for oneValueOfrepeatedPackedE in repeatedPackedE {
-          output += "\(indent) repeatedPackedE[\(repeatedPackedEElementIndex)]: \(oneValueOfrepeatedPackedE.rawValue)\n"
+          output += "\(indent) repeatedPackedE[\(repeatedPackedEElementIndex)]: \(oneValueOfrepeatedPackedE.description)\n"
           repeatedPackedEElementIndex++
       }
       var repeatedPackedUnexpectedEElementIndex:Int = 0
       for oneValueOfrepeatedPackedUnexpectedE in repeatedPackedUnexpectedE {
-          output += "\(indent) repeatedPackedUnexpectedE[\(repeatedPackedUnexpectedEElementIndex)]: \(oneValueOfrepeatedPackedUnexpectedE.rawValue)\n"
+          output += "\(indent) repeatedPackedUnexpectedE[\(repeatedPackedUnexpectedEElementIndex)]: \(oneValueOfrepeatedPackedUnexpectedE.description)\n"
           repeatedPackedUnexpectedEElementIndex++
       }
       if (hasOneofE1) {
-        output += "\(indent) oneofE1: \(oneofE1.rawValue)\n"
+        output += "\(indent) oneofE1: \(oneofE1.description)\n"
       }
       if (hasOneofE2) {
-        output += "\(indent) oneofE2: \(oneofE2.rawValue)\n"
+        output += "\(indent) oneofE2: \(oneofE2.description)\n"
       }
       output += unknownFields.getDescription(indent)
       return output

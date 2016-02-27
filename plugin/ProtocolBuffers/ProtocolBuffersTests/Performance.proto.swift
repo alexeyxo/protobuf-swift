@@ -1790,7 +1790,7 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
 
     //Enum type declaration start 
 
-    public enum PBFlavor:Int32 {
+    public enum PBFlavor:Int32, CustomDebugStringConvertible, CustomStringConvertible {
       case Chocolate = 1
       case Vanilla = 2
       public func toString() -> String {
@@ -1805,6 +1805,14 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
         case "VANILLA":  return .Vanilla
         default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
         }
+      }
+      public var debugDescription:String { return getDescription() }
+      public var description:String { return getDescription() }
+      private func getDescription() -> String { 
+          switch self {
+              case .Chocolate: return ".Chocolate"
+              case .Vanilla: return ".Vanilla"
+          }
       }
     }
 
@@ -1919,7 +1927,7 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
       output += "\(indent) scoops: \(scoops) \n"
     }
     if (hasFlavor) {
-      output += "\(indent) flavor: \(flavor.rawValue)\n"
+      output += "\(indent) flavor: \(flavor.description)\n"
     }
     output += unknownFields.getDescription(indent)
     return output

@@ -119,7 +119,7 @@ public extension Proto2NofieldpresenceUnittest {
 
   //Enum type declaration start 
 
-  public enum ForeignEnum:Int32 {
+  public enum ForeignEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case ForeignFoo = 0
     case ForeignBar = 1
     case ForeignBaz = 2
@@ -137,6 +137,15 @@ public extension Proto2NofieldpresenceUnittest {
       case "FOREIGN_BAZ":  return .ForeignBaz
       default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
       }
+    }
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .ForeignFoo: return ".ForeignFoo"
+            case .ForeignBar: return ".ForeignBar"
+            case .ForeignBaz: return ".ForeignBaz"
+        }
     }
   }
 
@@ -443,7 +452,7 @@ public extension Proto2NofieldpresenceUnittest {
 
       //Enum type declaration start 
 
-      public enum NestedEnum:Int32 {
+      public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case Foo = 0
         case Bar = 1
         case Baz = 2
@@ -461,6 +470,15 @@ public extension Proto2NofieldpresenceUnittest {
           case "BAZ":  return .Baz
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
           }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .Foo: return ".Foo"
+                case .Bar: return ".Bar"
+                case .Baz: return ".Baz"
+            }
         }
       }
 
@@ -1396,10 +1414,10 @@ public extension Proto2NofieldpresenceUnittest {
         output += "\(indent) }\n"
       }
       if (hasOptionalNestedEnum) {
-        output += "\(indent) optionalNestedEnum: \(optionalNestedEnum.rawValue)\n"
+        output += "\(indent) optionalNestedEnum: \(optionalNestedEnum.description)\n"
       }
       if (hasOptionalForeignEnum) {
-        output += "\(indent) optionalForeignEnum: \(optionalForeignEnum.rawValue)\n"
+        output += "\(indent) optionalForeignEnum: \(optionalForeignEnum.description)\n"
       }
       if hasOptionalStringPiece {
         output += "\(indent) optionalStringPiece: \(optionalStringPiece) \n"
@@ -1512,12 +1530,12 @@ public extension Proto2NofieldpresenceUnittest {
       }
       var repeatedNestedEnumElementIndex:Int = 0
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
-          output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(oneValueOfrepeatedNestedEnum.rawValue)\n"
+          output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(oneValueOfrepeatedNestedEnum.description)\n"
           repeatedNestedEnumElementIndex++
       }
       var repeatedForeignEnumElementIndex:Int = 0
       for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
-          output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(oneValueOfrepeatedForeignEnum.rawValue)\n"
+          output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(oneValueOfrepeatedForeignEnum.description)\n"
           repeatedForeignEnumElementIndex++
       }
       var repeatedStringPieceElementIndex:Int = 0
@@ -1551,7 +1569,7 @@ public extension Proto2NofieldpresenceUnittest {
         output += "\(indent) oneofString: \(oneofString) \n"
       }
       if (hasOneofEnum) {
-        output += "\(indent) oneofEnum: \(oneofEnum.rawValue)\n"
+        output += "\(indent) oneofEnum: \(oneofEnum.description)\n"
       }
       output += unknownFields.getDescription(indent)
       return output

@@ -1926,7 +1926,7 @@ public extension SwiftProtobufUnittest {
             output += "\(indent) key: \(key) \n"
           }
           if (hasValue) {
-            output += "\(indent) value: \(value.rawValue)\n"
+            output += "\(indent) value: \(value.description)\n"
           }
           output += unknownFields.getDescription(indent)
           return output
@@ -2105,7 +2105,7 @@ public extension SwiftProtobufUnittest {
 
       //Enum type declaration start 
 
-      public enum EnumMapValue:Int32 {
+      public enum EnumMapValue:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case FirstValueEnum = 0
         case SecondValueEnum = 1
         public func toString() -> String {
@@ -2120,6 +2120,14 @@ public extension SwiftProtobufUnittest {
           case "SecondValueEnum":  return .SecondValueEnum
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
           }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .FirstValueEnum: return ".FirstValueEnum"
+                case .SecondValueEnum: return ".SecondValueEnum"
+            }
         }
       }
 

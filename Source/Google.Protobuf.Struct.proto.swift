@@ -76,7 +76,7 @@ public extension Google.Protobuf {
 
   // `NullValue` is a singleton enumeration to represent the null
   // value for the `Value` type union.
-  public enum NullValue:Int32 {
+  public enum NullValue:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     // Null value.
     case NullValueField = 0
     public func toString() -> String {
@@ -89,6 +89,13 @@ public extension Google.Protobuf {
       case "NULL_VALUE":  return .NullValueField
       default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
       }
+    }
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .NullValueField: return ".NullValueField"
+        }
     }
   }
 
@@ -1013,7 +1020,7 @@ public extension Google.Protobuf {
     override public func getDescription(indent:String) throws -> String {
       var output = ""
       if (hasNullValue) {
-        output += "\(indent) nullValue: \(nullValue.rawValue)\n"
+        output += "\(indent) nullValue: \(nullValue.description)\n"
       }
       if hasNumberValue {
         output += "\(indent) numberValue: \(numberValue) \n"

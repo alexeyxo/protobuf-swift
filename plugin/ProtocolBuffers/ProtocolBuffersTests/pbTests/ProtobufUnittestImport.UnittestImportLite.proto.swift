@@ -40,7 +40,7 @@ public extension ProtobufUnittestImport {
 
   //Enum type declaration start 
 
-  public enum ImportEnumLite:Int32 {
+  public enum ImportEnumLite:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case ImportLiteFoo = 7
     case ImportLiteBar = 8
     case ImportLiteBaz = 9
@@ -58,6 +58,15 @@ public extension ProtobufUnittestImport {
       case "IMPORT_LITE_BAZ":  return .ImportLiteBaz
       default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
       }
+    }
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .ImportLiteFoo: return ".ImportLiteFoo"
+            case .ImportLiteBar: return ".ImportLiteBar"
+            case .ImportLiteBaz: return ".ImportLiteBaz"
+        }
     }
   }
 

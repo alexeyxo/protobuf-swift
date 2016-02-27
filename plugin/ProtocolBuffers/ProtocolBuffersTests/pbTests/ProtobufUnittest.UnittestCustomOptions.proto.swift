@@ -754,7 +754,7 @@ public extension ProtobufUnittest {
 
   //Enum type declaration start 
 
-  public enum MethodOpt1:Int32 {
+  public enum MethodOpt1:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case Methodopt1Val1 = 1
     case Methodopt1Val2 = 2
     public func toString() -> String {
@@ -770,6 +770,14 @@ public extension ProtobufUnittest {
       default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
       }
     }
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .Methodopt1Val1: return ".Methodopt1Val1"
+            case .Methodopt1Val2: return ".Methodopt1Val2"
+        }
+    }
   }
 
   //Enum type declaration end 
@@ -778,7 +786,7 @@ public extension ProtobufUnittest {
 
   //Enum type declaration start 
 
-  public enum AggregateEnum:Int32 {
+  public enum AggregateEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case Value = 1
     public func toString() -> String {
       switch self {
@@ -791,6 +799,13 @@ public extension ProtobufUnittest {
       default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
       }
     }
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .Value: return ".Value"
+        }
+    }
   }
 
   //Enum type declaration end 
@@ -802,7 +817,7 @@ public extension ProtobufUnittest {
 
       //Enum type declaration start 
 
-      public enum AnEnum:Int32 {
+      public enum AnEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case AnenumVal1 = 1
         case AnenumVal2 = 2
         public func toString() -> String {
@@ -817,6 +832,14 @@ public extension ProtobufUnittest {
           case "ANENUM_VAL2":  return .AnenumVal2
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
           }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .AnenumVal1: return ".AnenumVal1"
+                case .AnenumVal2: return ".AnenumVal2"
+            }
         }
       }
 
@@ -1773,7 +1796,7 @@ public extension ProtobufUnittest {
 
       //Enum type declaration start 
 
-      public enum TestEnumType:Int32 {
+      public enum TestEnumType:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case TestOptionEnumType1 = 22
         case TestOptionEnumType2 = -23
         public func toString() -> String {
@@ -1788,6 +1811,14 @@ public extension ProtobufUnittest {
           case "TEST_OPTION_ENUM_TYPE2":  return .TestOptionEnumType2
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
           }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .TestOptionEnumType1: return ".TestOptionEnumType1"
+                case .TestOptionEnumType2: return ".TestOptionEnumType2"
+            }
         }
       }
 
@@ -6582,7 +6613,7 @@ public extension ProtobufUnittest {
 
       //Enum type declaration start 
 
-      public enum NestedEnum:Int32 {
+      public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case NestedEnumValue = 1
         public func toString() -> String {
           switch self {
@@ -6594,6 +6625,13 @@ public extension ProtobufUnittest {
           case "NESTED_ENUM_VALUE":  return .NestedEnumValue
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
           }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .NestedEnumValue: return ".NestedEnumValue"
+            }
         }
       }
 

@@ -2189,7 +2189,7 @@ public extension ProtobufUnittest {
 
   //Enum type declaration start 
 
-  public enum ForeignEnum:Int32 {
+  public enum ForeignEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case ForeignFoo = 4
     case ForeignBar = 5
     case ForeignBaz = 6
@@ -2208,6 +2208,15 @@ public extension ProtobufUnittest {
       default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
       }
     }
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .ForeignFoo: return ".ForeignFoo"
+            case .ForeignBar: return ".ForeignBar"
+            case .ForeignBaz: return ".ForeignBaz"
+        }
+    }
   }
 
   //Enum type declaration end 
@@ -2217,7 +2226,7 @@ public extension ProtobufUnittest {
   //Enum type declaration start 
 
   // Test an enum that has multiple values with the same number.
-  public enum TestEnumWithDupValue:Int32 {
+  public enum TestEnumWithDupValue:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case Foo1 = 1
     case Bar1 = 2
     case Baz = 3
@@ -2236,6 +2245,15 @@ public extension ProtobufUnittest {
       default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
       }
     }
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .Foo1: return ".Foo1"
+            case .Bar1: return ".Bar1"
+            case .Baz: return ".Baz"
+        }
+    }
   }
 
   //Enum type declaration end 
@@ -2245,7 +2263,7 @@ public extension ProtobufUnittest {
   //Enum type declaration start 
 
   // Test an enum with large, unordered values.
-  public enum TestSparseEnum:Int32 {
+  public enum TestSparseEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case SparseA = 123
     case SparseB = 62374
     case SparseC = 12589234
@@ -2275,6 +2293,19 @@ public extension ProtobufUnittest {
       case "SPARSE_G":  return .SparseG
       default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
       }
+    }
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .SparseA: return ".SparseA"
+            case .SparseB: return ".SparseB"
+            case .SparseC: return ".SparseC"
+            case .SparseD: return ".SparseD"
+            case .SparseE: return ".SparseE"
+            case .SparseF: return ".SparseF"
+            case .SparseG: return ".SparseG"
+        }
     }
   }
 
@@ -3055,7 +3086,7 @@ public extension ProtobufUnittest {
 
       //Enum type declaration start 
 
-      public enum NestedEnum:Int32 {
+      public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case Foo = 1
         case Bar = 2
         case Baz = 3
@@ -3078,6 +3109,16 @@ public extension ProtobufUnittest {
           case "NEG":  return .Neg
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
           }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .Foo: return ".Foo"
+                case .Bar: return ".Bar"
+                case .Baz: return ".Baz"
+                case .Neg: return ".Neg"
+            }
         }
       }
 
@@ -4326,13 +4367,13 @@ public extension ProtobufUnittest {
         output += "\(indent) }\n"
       }
       if (hasOptionalNestedEnum) {
-        output += "\(indent) optionalNestedEnum: \(optionalNestedEnum.rawValue)\n"
+        output += "\(indent) optionalNestedEnum: \(optionalNestedEnum.description)\n"
       }
       if (hasOptionalForeignEnum) {
-        output += "\(indent) optionalForeignEnum: \(optionalForeignEnum.rawValue)\n"
+        output += "\(indent) optionalForeignEnum: \(optionalForeignEnum.description)\n"
       }
       if (hasOptionalImportEnum) {
-        output += "\(indent) optionalImportEnum: \(optionalImportEnum.rawValue)\n"
+        output += "\(indent) optionalImportEnum: \(optionalImportEnum.description)\n"
       }
       if hasOptionalStringPiece {
         output += "\(indent) optionalStringPiece: \(optionalStringPiece) \n"
@@ -4459,17 +4500,17 @@ public extension ProtobufUnittest {
       }
       var repeatedNestedEnumElementIndex:Int = 0
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
-          output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(oneValueOfrepeatedNestedEnum.rawValue)\n"
+          output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(oneValueOfrepeatedNestedEnum.description)\n"
           repeatedNestedEnumElementIndex++
       }
       var repeatedForeignEnumElementIndex:Int = 0
       for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
-          output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(oneValueOfrepeatedForeignEnum.rawValue)\n"
+          output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(oneValueOfrepeatedForeignEnum.description)\n"
           repeatedForeignEnumElementIndex++
       }
       var repeatedImportEnumElementIndex:Int = 0
       for oneValueOfrepeatedImportEnum in repeatedImportEnum {
-          output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(oneValueOfrepeatedImportEnum.rawValue)\n"
+          output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(oneValueOfrepeatedImportEnum.description)\n"
           repeatedImportEnumElementIndex++
       }
       var repeatedStringPieceElementIndex:Int = 0
@@ -4535,13 +4576,13 @@ public extension ProtobufUnittest {
         output += "\(indent) defaultBytes: \(defaultBytes) \n"
       }
       if (hasDefaultNestedEnum) {
-        output += "\(indent) defaultNestedEnum: \(defaultNestedEnum.rawValue)\n"
+        output += "\(indent) defaultNestedEnum: \(defaultNestedEnum.description)\n"
       }
       if (hasDefaultForeignEnum) {
-        output += "\(indent) defaultForeignEnum: \(defaultForeignEnum.rawValue)\n"
+        output += "\(indent) defaultForeignEnum: \(defaultForeignEnum.description)\n"
       }
       if (hasDefaultImportEnum) {
-        output += "\(indent) defaultImportEnum: \(defaultImportEnum.rawValue)\n"
+        output += "\(indent) defaultImportEnum: \(defaultImportEnum.description)\n"
       }
       if hasDefaultStringPiece {
         output += "\(indent) defaultStringPiece: \(defaultStringPiece) \n"
@@ -15932,7 +15973,7 @@ public extension ProtobufUnittest {
         output += "\(indent) stringField: \(stringField) \n"
       }
       if (hasEnumField) {
-        output += "\(indent) enumField: \(enumField.rawValue)\n"
+        output += "\(indent) enumField: \(enumField.description)\n"
       }
       if hasMessageField {
         output += "\(indent) messageField {\n"
@@ -15959,7 +16000,7 @@ public extension ProtobufUnittest {
       }
       var repeatedEnumFieldElementIndex:Int = 0
       for oneValueOfrepeatedEnumField in repeatedEnumField {
-          output += "\(indent) repeatedEnumField[\(repeatedEnumFieldElementIndex)]: \(oneValueOfrepeatedEnumField.rawValue)\n"
+          output += "\(indent) repeatedEnumField[\(repeatedEnumFieldElementIndex)]: \(oneValueOfrepeatedEnumField.description)\n"
           repeatedEnumFieldElementIndex++
       }
       var repeatedMessageFieldElementIndex:Int = 0
@@ -18873,7 +18914,7 @@ public extension ProtobufUnittest {
     override public func getDescription(indent:String) throws -> String {
       var output = ""
       if (hasSparseEnum) {
-        output += "\(indent) sparseEnum: \(sparseEnum.rawValue)\n"
+        output += "\(indent) sparseEnum: \(sparseEnum.description)\n"
       }
       output += unknownFields.getDescription(indent)
       return output
@@ -23461,7 +23502,7 @@ public extension ProtobufUnittest {
 
       //Enum type declaration start 
 
-      public enum NestedEnum:Int32 {
+      public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case Foo = 1
         case Bar = 2
         case Baz = 3
@@ -23479,6 +23520,15 @@ public extension ProtobufUnittest {
           case "BAZ":  return .Baz
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
           }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .Foo: return ".Foo"
+                case .Bar: return ".Bar"
+                case .Baz: return ".Baz"
+            }
         }
       }
 
@@ -24017,7 +24067,7 @@ public extension ProtobufUnittest {
         output += "\(indent) fooBytes: \(fooBytes) \n"
       }
       if (hasFooEnum) {
-        output += "\(indent) fooEnum: \(fooEnum.rawValue)\n"
+        output += "\(indent) fooEnum: \(fooEnum.description)\n"
       }
       if hasFooMessage {
         output += "\(indent) fooMessage {\n"
@@ -24056,7 +24106,7 @@ public extension ProtobufUnittest {
         output += "\(indent) barBytes: \(barBytes) \n"
       }
       if (hasBarEnum) {
-        output += "\(indent) barEnum: \(barEnum.rawValue)\n"
+        output += "\(indent) barEnum: \(barEnum.description)\n"
       }
       if hasBazInt {
         output += "\(indent) bazInt: \(bazInt) \n"
@@ -26077,7 +26127,7 @@ public extension ProtobufUnittest {
       }
       var packedEnumElementIndex:Int = 0
       for oneValueOfpackedEnum in packedEnum {
-          output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(oneValueOfpackedEnum.rawValue)\n"
+          output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(oneValueOfpackedEnum.description)\n"
           packedEnumElementIndex++
       }
       output += unknownFields.getDescription(indent)
@@ -27095,7 +27145,7 @@ public extension ProtobufUnittest {
       }
       var unpackedEnumElementIndex:Int = 0
       for oneValueOfunpackedEnum in unpackedEnum {
-          output += "\(indent) unpackedEnum[\(unpackedEnumElementIndex)]: \(oneValueOfunpackedEnum.rawValue)\n"
+          output += "\(indent) unpackedEnum[\(unpackedEnumElementIndex)]: \(oneValueOfunpackedEnum.description)\n"
           unpackedEnumElementIndex++
       }
       output += unknownFields.getDescription(indent)
@@ -28261,7 +28311,7 @@ public extension ProtobufUnittest {
 
       //Enum type declaration start 
 
-      public enum DynamicEnumType:Int32 {
+      public enum DynamicEnumType:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case DynamicFoo = 2200
         case DynamicBar = 2201
         case DynamicBaz = 2202
@@ -28279,6 +28329,15 @@ public extension ProtobufUnittest {
           case "DYNAMIC_BAZ":  return .DynamicBaz
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
           }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .DynamicFoo: return ".DynamicFoo"
+                case .DynamicBar: return ".DynamicBar"
+                case .DynamicBaz: return ".DynamicBaz"
+            }
         }
       }
 
@@ -28471,10 +28530,10 @@ public extension ProtobufUnittest {
         output += "\(indent) scalarExtension: \(scalarExtension) \n"
       }
       if (hasEnumExtension) {
-        output += "\(indent) enumExtension: \(enumExtension.rawValue)\n"
+        output += "\(indent) enumExtension: \(enumExtension.description)\n"
       }
       if (hasDynamicEnumExtension) {
-        output += "\(indent) dynamicEnumExtension: \(dynamicEnumExtension.rawValue)\n"
+        output += "\(indent) dynamicEnumExtension: \(dynamicEnumExtension.description)\n"
       }
       if hasMessageExtension {
         output += "\(indent) messageExtension {\n"

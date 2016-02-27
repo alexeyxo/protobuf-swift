@@ -53,7 +53,7 @@ public extension UnittestDropUnknownFields {
 
       //Enum type declaration start 
 
-      public enum NestedEnum:Int32 {
+      public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case Foo = 0
         case Bar = 1
         case Baz = 2
@@ -71,6 +71,15 @@ public extension UnittestDropUnknownFields {
           case "BAZ":  return .Baz
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
           }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .Foo: return ".Foo"
+                case .Bar: return ".Bar"
+                case .Baz: return ".Baz"
+            }
         }
       }
 
@@ -185,7 +194,7 @@ public extension UnittestDropUnknownFields {
         output += "\(indent) int32Value: \(int32Value) \n"
       }
       if (hasEnumValue) {
-        output += "\(indent) enumValue: \(enumValue.rawValue)\n"
+        output += "\(indent) enumValue: \(enumValue.description)\n"
       }
       output += unknownFields.getDescription(indent)
       return output
@@ -363,7 +372,7 @@ public extension UnittestDropUnknownFields {
 
       //Enum type declaration start 
 
-      public enum NestedEnum:Int32 {
+      public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case Foo = 0
         case Bar = 1
         case Baz = 2
@@ -384,6 +393,16 @@ public extension UnittestDropUnknownFields {
           case "QUX":  return .Qux
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
           }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .Foo: return ".Foo"
+                case .Bar: return ".Bar"
+                case .Baz: return ".Baz"
+                case .Qux: return ".Qux"
+            }
         }
       }
 
@@ -510,7 +529,7 @@ public extension UnittestDropUnknownFields {
         output += "\(indent) int32Value: \(int32Value) \n"
       }
       if (hasEnumValue) {
-        output += "\(indent) enumValue: \(enumValue.rawValue)\n"
+        output += "\(indent) enumValue: \(enumValue.description)\n"
       }
       if hasExtraInt32Value {
         output += "\(indent) extraInt32Value: \(extraInt32Value) \n"

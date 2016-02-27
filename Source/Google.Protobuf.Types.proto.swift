@@ -588,7 +588,7 @@ public extension Google.Protobuf {
       //Enum type declaration start 
 
       // Kind represents a basic field type.
-      public enum Kind:Int32 {
+      public enum Kind:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         // Field type unknown.
         case TypeUnknown = 0
 
@@ -687,6 +687,30 @@ public extension Google.Protobuf {
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
           }
         }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .TypeUnknown: return ".TypeUnknown"
+                case .TypeDouble: return ".TypeDouble"
+                case .TypeFloat: return ".TypeFloat"
+                case .TypeInt64: return ".TypeInt64"
+                case .TypeUint64: return ".TypeUint64"
+                case .TypeInt32: return ".TypeInt32"
+                case .TypeFixed64: return ".TypeFixed64"
+                case .TypeFixed32: return ".TypeFixed32"
+                case .TypeBool: return ".TypeBool"
+                case .TypeString: return ".TypeString"
+                case .TypeMessage: return ".TypeMessage"
+                case .TypeBytes: return ".TypeBytes"
+                case .TypeUint32: return ".TypeUint32"
+                case .TypeEnum: return ".TypeEnum"
+                case .TypeSfixed32: return ".TypeSfixed32"
+                case .TypeSfixed64: return ".TypeSfixed64"
+                case .TypeSint32: return ".TypeSint32"
+                case .TypeSint64: return ".TypeSint64"
+            }
+        }
       }
 
       //Enum type declaration end 
@@ -697,7 +721,7 @@ public extension Google.Protobuf {
 
       // Cardinality represents whether a field is optional, required, or
       // repeated.
-      public enum Cardinality:Int32 {
+      public enum Cardinality:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         // The field cardinality is unknown. Typically an error condition.
         case CardinalityUnknown = 0
 
@@ -725,6 +749,16 @@ public extension Google.Protobuf {
           case "CARDINALITY_REPEATED":  return .CardinalityRepeated
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
           }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .CardinalityUnknown: return ".CardinalityUnknown"
+                case .CardinalityOptional: return ".CardinalityOptional"
+                case .CardinalityRequired: return ".CardinalityRequired"
+                case .CardinalityRepeated: return ".CardinalityRepeated"
+            }
         }
       }
 
@@ -916,10 +950,10 @@ public extension Google.Protobuf {
     override public func getDescription(indent:String) throws -> String {
       var output = ""
       if (hasKind) {
-        output += "\(indent) kind: \(kind.rawValue)\n"
+        output += "\(indent) kind: \(kind.description)\n"
       }
       if (hasCardinality) {
-        output += "\(indent) cardinality: \(cardinality.rawValue)\n"
+        output += "\(indent) cardinality: \(cardinality.description)\n"
       }
       if hasNumber {
         output += "\(indent) number: \(number) \n"

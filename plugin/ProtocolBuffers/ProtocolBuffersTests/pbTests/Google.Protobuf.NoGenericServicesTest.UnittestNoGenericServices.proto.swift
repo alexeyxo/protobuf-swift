@@ -51,7 +51,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
 
   //Enum type declaration start 
 
-  public enum TestEnum:Int32 {
+  public enum TestEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case Foo = 1
     public func toString() -> String {
       switch self {
@@ -63,6 +63,13 @@ public extension Google.Protobuf.NoGenericServicesTest {
       case "FOO":  return .Foo
       default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
       }
+    }
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .Foo: return ".Foo"
+        }
     }
   }
 
