@@ -754,10 +754,18 @@ public extension ProtobufUnittest {
 
   //Enum type declaration start 
 
-  public enum MethodOpt1:Int32 {
+  public enum MethodOpt1:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case Methodopt1Val1 = 1
     case Methodopt1Val2 = 2
 
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .Methodopt1Val1: return ".Methodopt1Val1"
+            case .Methodopt1Val2: return ".Methodopt1Val2"
+        }
+    }
   }
 
   //Enum type declaration end 
@@ -766,9 +774,16 @@ public extension ProtobufUnittest {
 
   //Enum type declaration start 
 
-  public enum AggregateEnum:Int32 {
+  public enum AggregateEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case Value = 1
 
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .Value: return ".Value"
+        }
+    }
   }
 
   //Enum type declaration end 
@@ -780,17 +795,25 @@ public extension ProtobufUnittest {
 
       //Enum type declaration start 
 
-      public enum AnEnum:Int32 {
+      public enum AnEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case AnenumVal1 = 1
         case AnenumVal2 = 2
 
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .AnenumVal1: return ".AnenumVal1"
+                case .AnenumVal2: return ".AnenumVal2"
+            }
+        }
       }
 
       //Enum type declaration end 
 
-    public private(set) var hasField1:Bool = false
     public private(set) var field1:String = ""
 
+    public private(set) var hasField1:Bool = false
     required public init() {
          super.init()
     }
@@ -1608,10 +1631,18 @@ public extension ProtobufUnittest {
 
       //Enum type declaration start 
 
-      public enum TestEnumType:Int32 {
+      public enum TestEnumType:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case TestOptionEnumType1 = 22
         case TestOptionEnumType2 = -23
 
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .TestOptionEnumType1: return ".TestOptionEnumType1"
+                case .TestOptionEnumType2: return ".TestOptionEnumType2"
+            }
+        }
       }
 
       //Enum type declaration end 
@@ -2694,15 +2725,15 @@ public extension ProtobufUnittest {
   }
 
   final public class ComplexOptionType1 : ExtendableMessage, GeneratedMessageProtocol{
-    public private(set) var hasFoo:Bool = false
     public private(set) var foo:Int32 = Int32(0)
 
-    public private(set) var hasFoo2:Bool = false
+    public private(set) var hasFoo:Bool = false
     public private(set) var foo2:Int32 = Int32(0)
 
-    public private(set) var hasFoo3:Bool = false
+    public private(set) var hasFoo2:Bool = false
     public private(set) var foo3:Int32 = Int32(0)
 
+    public private(set) var hasFoo3:Bool = false
     public private(set) var foo4:Array<Int32> = Array<Int32>()
     required public init() {
          super.init()
@@ -3035,9 +3066,9 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class ComplexOptionType4 : GeneratedMessage, GeneratedMessageProtocol {
-        public private(set) var hasWaldo:Bool = false
         public private(set) var waldo:Int32 = Int32(0)
 
+        public private(set) var hasWaldo:Bool = false
         public class func complexOpt4() -> ConcreateExtensionField {
              return ComplexOptionType2ComplexOptionType4complexOpt4
         }
@@ -3237,13 +3268,13 @@ public extension ProtobufUnittest {
 
     //Nested type declaration end
 
-    public private(set) var hasBar:Bool = false
     public private(set) var bar:ProtobufUnittest.ComplexOptionType1!
-    public private(set) var hasBaz:Bool = false
+    public private(set) var hasBar:Bool = false
     public private(set) var baz:Int32 = Int32(0)
 
-    public private(set) var hasFred:Bool = false
+    public private(set) var hasBaz:Bool = false
     public private(set) var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4!
+    public private(set) var hasFred:Bool = false
     public private(set) var barney:Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4>  = Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4>()
     required public init() {
          super.init()
@@ -3662,9 +3693,9 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class ComplexOptionType5 : GeneratedMessage, GeneratedMessageProtocol {
-        public private(set) var hasPlugh:Bool = false
         public private(set) var plugh:Int32 = Int32(0)
 
+        public private(set) var hasPlugh:Bool = false
         required public init() {
              super.init()
         }
@@ -3861,11 +3892,11 @@ public extension ProtobufUnittest {
 
     //Nested type declaration end
 
-    public private(set) var hasQux:Bool = false
     public private(set) var qux:Int32 = Int32(0)
 
-    public private(set) var hasComplexOptionType5:Bool = false
+    public private(set) var hasQux:Bool = false
     public private(set) var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5!
+    public private(set) var hasComplexOptionType5:Bool = false
     required public init() {
          super.init()
     }
@@ -4143,9 +4174,9 @@ public extension ProtobufUnittest {
   }
 
   final public class ComplexOpt6 : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasXyzzy:Bool = false
     public private(set) var xyzzy:Int32 = Int32(0)
 
+    public private(set) var hasXyzzy:Bool = false
     required public init() {
          super.init()
     }
@@ -4658,9 +4689,9 @@ public extension ProtobufUnittest {
   }
 
   final public class AggregateMessageSetElement : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasS:Bool = false
     public private(set) var s:String = ""
 
+    public private(set) var hasS:Bool = false
     public class func messageSetExtension() -> ConcreateExtensionField {
          return AggregateMessageSetElementmessageSetExtension
     }
@@ -4860,18 +4891,18 @@ public extension ProtobufUnittest {
 
   // A helper type used to test aggregate option parsing
   final public class Aggregate : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasI:Bool = false
     public private(set) var i:Int32 = Int32(0)
 
-    public private(set) var hasS:Bool = false
+    public private(set) var hasI:Bool = false
     public private(set) var s:String = ""
 
-    public private(set) var hasSub:Bool = false
+    public private(set) var hasS:Bool = false
     public private(set) var sub:ProtobufUnittest.Aggregate!
-    public private(set) var hasFile:Bool = false
+    public private(set) var hasSub:Bool = false
     public private(set) var file:Google.Protobuf.FileOptions!
-    public private(set) var hasMset:Bool = false
+    public private(set) var hasFile:Bool = false
     public private(set) var mset:ProtobufUnittest.AggregateMessageSet!
+    public private(set) var hasMset:Bool = false
     public class func nested() -> ConcreateExtensionField {
          return Aggregatenested
     }
@@ -5372,9 +5403,9 @@ public extension ProtobufUnittest {
   }
 
   final public class AggregateMessage : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasFieldname:Bool = false
     public private(set) var fieldname:Int32 = Int32(0)
 
+    public private(set) var hasFieldname:Bool = false
     required public init() {
          super.init()
     }
@@ -5576,9 +5607,9 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
-        public private(set) var hasNestedField:Bool = false
         public private(set) var nestedField:Int32 = Int32(0)
 
+        public private(set) var hasNestedField:Bool = false
         required public init() {
              super.init()
         }
@@ -5779,9 +5810,16 @@ public extension ProtobufUnittest {
 
       //Enum type declaration start 
 
-      public enum NestedEnum:Int32 {
+      public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case NestedEnumValue = 1
 
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+                case .NestedEnumValue: return ".NestedEnumValue"
+            }
+        }
       }
 
       //Enum type declaration end 

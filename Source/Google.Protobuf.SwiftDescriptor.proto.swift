@@ -51,23 +51,31 @@ public extension Google.Protobuf {
 
   //Enum type declaration start 
 
-  public enum AccessControl:Int32 {
+  public enum AccessControl:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case InternalEntities = 0
     case PublicEntities = 1
 
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .InternalEntities: return ".InternalEntities"
+            case .PublicEntities: return ".PublicEntities"
+        }
+    }
   }
 
   //Enum type declaration end 
 
   final public class SwiftFileOptions : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasClassPrefix:Bool = false
     public private(set) var classPrefix:String = ""
 
+    public private(set) var hasClassPrefix:Bool = false
     public private(set) var entitiesAccessControl:Google.Protobuf.AccessControl = Google.Protobuf.AccessControl.InternalEntities
     public private(set) var hasEntitiesAccessControl:Bool = false
-    public private(set) var hasCompileForFramework:Bool = false
     public private(set) var compileForFramework:Bool = true
 
+    public private(set) var hasCompileForFramework:Bool = false
     required public init() {
          super.init()
     }
@@ -158,7 +166,7 @@ public extension Google.Protobuf {
         output += "\(indent) classPrefix: \(classPrefix) \n"
       }
       if (hasEntitiesAccessControl) {
-        output += "\(indent) entitiesAccessControl: \(entitiesAccessControl.rawValue)\n"
+        output += "\(indent) entitiesAccessControl: \(entitiesAccessControl.description)\n"
       }
       if hasCompileForFramework {
         output += "\(indent) compileForFramework: \(compileForFramework) \n"

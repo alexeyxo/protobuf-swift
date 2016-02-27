@@ -62,7 +62,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print(comments.c_str());
         }
 
-        printer->Print("$acontrol$ enum $classname$:Int32 {\n",
+        printer->Print("$acontrol$ enum $classname$:Int32, CustomDebugStringConvertible, CustomStringConvertible {\n",
                        "classname",ClassName(descriptor_),
                        "acontrol", GetAccessControlType(descriptor_->file()));
         
@@ -82,13 +82,33 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "name", EnumValueName(canonical_values_[i]),
                            "value", SimpleItoa(canonical_values_[i]->number()));
         }
-        printer->Print("\n");
         
+        printer->Print("\n");
+        GenerateDescription(printer);
         printer->Outdent();
         printer->Print(
                        "}\n"
                        "\n");
         printer->Print("//Enum type declaration end \n\n");
+    }
+    void EnumGenerator::GenerateDescription(io::Printer* printer) {
+        
+        printer->Print("$acontrol$ var debugDescription:String { return getDescription() }\n",
+                       "acontrol", GetAccessControlType(descriptor_->file()));
+        
+        printer->Print("$acontrol$ var description:String { return getDescription() }\n",
+                       "acontrol", GetAccessControlType(descriptor_->file()));
+        
+        printer->Print("private func getDescription() -> String { \n");
+        printer->Print("    switch self {\n");
+        for (int i = 0; i < canonical_values_.size(); i++) {
+            printer->Print("        case .$name$: return \".$name$\"\n",
+                           "name", EnumValueName(canonical_values_[i])
+                           );
+        }
+        printer->Print("    }\n");
+        printer->Print("}\n");
+        
     }
 }  // namespace swift
 }  // namespace compiler

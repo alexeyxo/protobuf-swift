@@ -51,17 +51,24 @@ public extension Google.Protobuf.NoGenericServicesTest {
 
   //Enum type declaration start 
 
-  public enum TestEnum:Int32 {
+  public enum TestEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case Foo = 1
 
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .Foo: return ".Foo"
+        }
+    }
   }
 
   //Enum type declaration end 
 
   final public class TestMessage : ExtendableMessage, GeneratedMessageProtocol{
-    public private(set) var hasA:Bool = false
     public private(set) var a:Int32 = Int32(0)
 
+    public private(set) var hasA:Bool = false
     required public init() {
          super.init()
     }

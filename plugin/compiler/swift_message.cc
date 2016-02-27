@@ -269,6 +269,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
+            if (descriptor_->field(i)->options().deprecated()) {
+                printer->Print("@available(*, deprecated=0.1, message=\"The field is marked as \\\"Deprecated\\\"\")\n");
+            }
             field_generators_.get(descriptor_->field(i)).GenerateVariablesSource(printer);
         }
         

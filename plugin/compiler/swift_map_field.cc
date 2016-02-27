@@ -92,8 +92,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MapFieldGenerator::GenerateVariablesSource(io::Printer* printer) const
     {
-        printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
         printer->Print(variables_,"$acontrol$private(set) var $name$:$type$ = $default$\n\n");
+        printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
     }
     
     void MapFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {}

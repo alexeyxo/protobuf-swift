@@ -92,8 +92,8 @@ public struct PerformanceRoot {
 }
 
 final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
-  public private(set) var hasGroup:Bool = false
   public private(set) var group:PBGroup!
+  public private(set) var hasGroup:Bool = false
   required public init() {
        super.init()
   }
@@ -330,8 +330,8 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
 }
 
 final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
-  public private(set) var hasOwner:Bool = false
   public private(set) var owner:PBUser!
+  public private(set) var hasOwner:Bool = false
   required public init() {
        super.init()
   }
@@ -773,27 +773,27 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
 }
 
 final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
-  public private(set) var hasInts:Bool = false
   public private(set) var ints:Int32 = Int32(0)
 
-  public private(set) var hasInts64:Bool = false
+  public private(set) var hasInts:Bool = false
   public private(set) var ints64:Int64 = Int64(0)
 
-  public private(set) var hasDoubles:Bool = false
+  public private(set) var hasInts64:Bool = false
   public private(set) var doubles:Double = Double(0)
 
-  public private(set) var hasFloats:Bool = false
+  public private(set) var hasDoubles:Bool = false
   public private(set) var floats:Float = Float(0)
 
-  public private(set) var hasStr:Bool = false
+  public private(set) var hasFloats:Bool = false
   public private(set) var str:String = ""
 
-  public private(set) var hasBytes:Bool = false
+  public private(set) var hasStr:Bool = false
   public private(set) var bytes:NSData = NSData()
 
-  public private(set) var hasDescription:Bool = false
+  public private(set) var hasBytes:Bool = false
   public private(set) var description_:String = ""
 
+  public private(set) var hasDescription:Bool = false
   required public init() {
        super.init()
   }
@@ -1247,12 +1247,12 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
 }
 
 final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
-  public private(set) var hasLatitude:Bool = false
   public private(set) var latitude:Float = Float(0)
 
-  public private(set) var hasLongitude:Bool = false
+  public private(set) var hasLatitude:Bool = false
   public private(set) var longitude:Float = Float(0)
 
+  public private(set) var hasLongitude:Bool = false
   required public init() {
        super.init()
   }
@@ -1499,17 +1499,25 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
 
     //Enum type declaration start 
 
-    public enum PBFlavor:Int32 {
+    public enum PBFlavor:Int32, CustomDebugStringConvertible, CustomStringConvertible {
       case Chocolate = 1
       case Vanilla = 2
 
+      public var debugDescription:String { return getDescription() }
+      public var description:String { return getDescription() }
+      private func getDescription() -> String { 
+          switch self {
+              case .Chocolate: return ".Chocolate"
+              case .Vanilla: return ".Vanilla"
+          }
+      }
     }
 
     //Enum type declaration end 
 
-  public private(set) var hasScoops:Bool = false
   public private(set) var scoops:Int32 = Int32(0)
 
+  public private(set) var hasScoops:Bool = false
   public private(set) var flavor:PBIceCreamCone.PBFlavor = PBIceCreamCone.PBFlavor.Chocolate
   public private(set) var hasFlavor:Bool = false
   required public init() {
@@ -1596,7 +1604,7 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
       output += "\(indent) scoops: \(scoops) \n"
     }
     if (hasFlavor) {
-      output += "\(indent) flavor: \(flavor.rawValue)\n"
+      output += "\(indent) flavor: \(flavor.description)\n"
     }
     output += unknownFields.getDescription(indent)
     return output

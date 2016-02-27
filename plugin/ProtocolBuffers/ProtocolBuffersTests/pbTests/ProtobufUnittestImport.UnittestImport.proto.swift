@@ -40,19 +40,28 @@ public extension ProtobufUnittestImport {
 
   //Enum type declaration start 
 
-  public enum ImportEnum:Int32 {
+  public enum ImportEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case ImportFoo = 7
     case ImportBar = 8
     case ImportBaz = 9
 
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .ImportFoo: return ".ImportFoo"
+            case .ImportBar: return ".ImportBar"
+            case .ImportBaz: return ".ImportBaz"
+        }
+    }
   }
 
   //Enum type declaration end 
 
   final public class ImportMessage : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasD:Bool = false
     public private(set) var d:Int32 = Int32(0)
 
+    public private(set) var hasD:Bool = false
     required public init() {
          super.init()
     }

@@ -36,9 +36,9 @@ public extension Baz {
   }
 
   final public class Foo : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasHello:Bool = false
     public private(set) var hello:String = ""
 
+    public private(set) var hasHello:Bool = false
     required public init() {
          super.init()
     }

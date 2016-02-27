@@ -77,6 +77,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void EnumFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
         if (isOneOfField(descriptor_)) {
+            
+            printer->Print(variables_,
+                           "$acontrol$private(set) var $name$:$type$!{\n"
+                           "     get {\n"
+                           "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
+                           "     }\n"
+                           "     set (newvalue) {\n"
+                           "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
+                           "     }\n"
+                           "}\n");
+            
             printer->Print(variables_,
                            "$acontrol$private(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
@@ -89,15 +100,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "      }\n"
                            "}\n");
             
-            printer->Print(variables_,
-                           "$acontrol$private(set) var $name$:$type$!{\n"
-                           "     get {\n"
-                           "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
-                           "     }\n"
-                           "     set (newvalue) {\n"
-                           "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
-                           "     }\n"
-                           "}\n");
         }
         else
         {
@@ -182,7 +184,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if (has$capitalized_name$) {\n"
-                       "  output += \"\\(indent) $name$: \\($name$.rawValue)\\n\"\n"
+                       "  output += \"\\(indent) $name$: \\($name$.description)\\n\"\n"
                        "}\n");
     }
     
@@ -349,7 +351,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "var $name$ElementIndex:Int = 0\n"
                        "for oneValueOf$name$ in $name$ {\n"
-                       "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(oneValueOf$name$.rawValue)\\n\"\n"
+                       "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(oneValueOf$name$.description)\\n\"\n"
                        "    $name$ElementIndex++\n"
                        "}\n");
     }

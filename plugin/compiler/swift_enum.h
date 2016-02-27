@@ -40,6 +40,7 @@ namespace google {
                     ~EnumGenerator();
                     
                     void GenerateSource(io::Printer* printer);
+                    void GenerateDescription(io::Printer* printer);
                     
                 private:
                     const EnumDescriptor* descriptor_;

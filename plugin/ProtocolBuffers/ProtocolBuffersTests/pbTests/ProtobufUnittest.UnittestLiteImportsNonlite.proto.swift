@@ -37,8 +37,8 @@ public extension ProtobufUnittest {
   }
 
   final public class TestLiteImportsNonlite : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasMessage_:Bool = false
     public private(set) var message_:ProtobufUnittest.TestAllTypes!
+    public private(set) var hasMessage_:Bool = false
     required public init() {
          super.init()
     }

@@ -266,8 +266,8 @@ public extension ProtobufUnittest {
   }
 
   final public class TestMessageSetContainer : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasMessageSet:Bool = false
     public private(set) var messageSet:ProtobufUnittest.TestMessageSet!
+    public private(set) var hasMessageSet:Bool = false
     required public init() {
          super.init()
     }
@@ -509,9 +509,9 @@ public extension ProtobufUnittest {
   }
 
   final public class TestMessageSetExtension1 : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasI:Bool = false
     public private(set) var i:Int32 = Int32(0)
 
+    public private(set) var hasI:Bool = false
     public class func messageSetExtension() -> ConcreateExtensionField {
          return TestMessageSetExtension1messageSetExtension
     }
@@ -710,9 +710,9 @@ public extension ProtobufUnittest {
   }
 
   final public class TestMessageSetExtension2 : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasStr:Bool = false
     public private(set) var str:String = ""
 
+    public private(set) var hasStr:Bool = false
     public class func messageSetExtension() -> ConcreateExtensionField {
          return TestMessageSetExtension2messageSetExtension
     }
@@ -917,12 +917,12 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class Item : GeneratedMessage, GeneratedMessageProtocol {
-        public private(set) var hasTypeId:Bool = false
         public private(set) var typeId:Int32 = Int32(0)
 
-        public private(set) var hasMessage_:Bool = false
+        public private(set) var hasTypeId:Bool = false
         public private(set) var message_:NSData = NSData()
 
+        public private(set) var hasMessage_:Bool = false
         required public init() {
              super.init()
         }
