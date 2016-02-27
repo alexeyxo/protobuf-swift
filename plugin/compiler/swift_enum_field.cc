@@ -195,7 +195,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if (has$capitalized_name$) {\n"
-                       "  output += \"\\(indent) $name$: \\($name$.rawValue)\\n\"\n"
+                       "  output += \"\\(indent) $name$: \\($name$.description)\\n\"\n"
                        "}\n");
     }
     
@@ -376,7 +376,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "var $name$ElementIndex:Int = 0\n"
                        "for oneValueOf$name$ in $name$ {\n"
-                       "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(oneValueOf$name$.rawValue)\\n\"\n"
+                       "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(oneValueOf$name$.description)\\n\"\n"
                        "    $name$ElementIndex++\n"
                        "}\n");
     }
