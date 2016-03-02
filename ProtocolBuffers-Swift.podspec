@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ProtocolBuffers-Swift"
-  s.version      = "2.4.1"
+  s.version      = "2.4.2"
   s.summary      = "Protocol Buffers for Swift"
   s.homepage     = "http://protobuf.io#swift"
   s.license      = "Apache 2.0"
