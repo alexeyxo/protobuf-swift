@@ -55,7 +55,8 @@ internal class RingBuffer
         }
         let pointer = UnsafeMutablePointer<UInt8>(buffer.mutableBytes)
         let bpointer = UnsafeMutableBufferPointer(start: pointer, count: buffer.length)
-        bpointer[Int(position++)] = aByte
+        bpointer[Int(position)] = aByte
+        position+=1
         return true
     }
     
