@@ -425,7 +425,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "var $name$ElementIndex:Int = 0\n"
                        "for oneValue$name$ in $name$  {\n"
                        "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(oneValue$name$)\\n\"\n"
-                       "    $name$ElementIndex++\n"
+                       "    $name$ElementIndex += 1\n"
                        "}\n");
     }
     
