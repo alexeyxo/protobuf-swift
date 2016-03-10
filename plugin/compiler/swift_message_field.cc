@@ -378,7 +378,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "    output += \"\\(indent) $name$[\\($name$ElementIndex)] {\\n\"\n"
                        "    output += try oneElement$capitalized_name$.getDescription(\"\\(indent)  \")\n"
                        "    output += \"\\(indent)}\\n\"\n"
-                       "    $name$ElementIndex++\n"
+                       "    $name$ElementIndex += 1\n"
                        "}\n");
     }
     
