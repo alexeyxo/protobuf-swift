@@ -25,7 +25,7 @@ public protocol MessageInit:class
     init()
 }
 
-public enum ProtocolBuffersError: ErrorType {
+public enum ProtocolBuffersError: ErrorProtocol {
     case Obvious(String)
     //Streams
     case InvalidProtocolBuffer(String)

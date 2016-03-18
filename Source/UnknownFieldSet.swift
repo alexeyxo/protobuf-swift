@@ -65,7 +65,7 @@ public class UnknownFieldSet:Hashable,Equatable
     public func writeToCodedOutputStream(output:CodedOutputStream) throws
     {
         var sortedKeys = Array(fields.keys)
-        sortedKeys.sortInPlace { $0 < $1 }
+        sortedKeys.sort(isOrderedBefore: { $0 < $1 })
         for number in sortedKeys
         {
             let value:Field = fields[number]!
@@ -84,7 +84,7 @@ public class UnknownFieldSet:Hashable,Equatable
     {
         var output = ""
         var sortedKeys = Array(fields.keys)
-        sortedKeys.sortInPlace { $0 < $1 }
+        sortedKeys.sort(isOrderedBefore: { $0 < $1 })
         for number in sortedKeys
         {
             let value:Field = fields[number]!
@@ -220,7 +220,7 @@ public class UnknownFieldSet:Hashable,Equatable
                 result = UnknownFieldSet(fields: fields)
                 
             }
-            fields.removeAll(keepCapacity: false)
+            fields.removeAll(keepingCapacity: false)
             return result
         }
         

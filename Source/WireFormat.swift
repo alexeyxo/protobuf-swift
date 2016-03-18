@@ -316,7 +316,7 @@ public extension Bool
 public extension String
 {
     func computeStringSizeNoTag() -> Int32 {
-        let length:UInt32  = UInt32(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        let length:UInt32  = UInt32(self.lengthOfBytes(usingEncoding: NSUTF8StringEncoding))
         return Int32(length).computeRawVarint32Size() + Int32(length)
     }
     

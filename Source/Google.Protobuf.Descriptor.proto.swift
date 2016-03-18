@@ -455,7 +455,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearFile() -> Google.Protobuf.FileDescriptorSet.Builder {
-        builderResult.file.removeAll(keepCapacity: false)
+        builderResult.file.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:GeneratedMessage {
@@ -933,7 +933,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearDependency() -> Google.Protobuf.FileDescriptorProto.Builder {
-         builderResult.dependency.removeAll(keepCapacity: false)
+         builderResult.dependency.removeAll(keepingCapacity: false)
          return self
       }
       public var publicDependency:Array<Int32> {
@@ -949,7 +949,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearPublicDependency() -> Google.Protobuf.FileDescriptorProto.Builder {
-         builderResult.publicDependency.removeAll(keepCapacity: false)
+         builderResult.publicDependency.removeAll(keepingCapacity: false)
          return self
       }
       public var weakDependency:Array<Int32> {
@@ -965,7 +965,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearWeakDependency() -> Google.Protobuf.FileDescriptorProto.Builder {
-         builderResult.weakDependency.removeAll(keepCapacity: false)
+         builderResult.weakDependency.removeAll(keepingCapacity: false)
          return self
       }
       public var messageType:Array<Google.Protobuf.DescriptorProto> {
@@ -981,7 +981,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearMessageType() -> Google.Protobuf.FileDescriptorProto.Builder {
-        builderResult.messageType.removeAll(keepCapacity: false)
+        builderResult.messageType.removeAll(keepingCapacity: false)
         return self
       }
       public var enumType:Array<Google.Protobuf.EnumDescriptorProto> {
@@ -997,7 +997,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearEnumType() -> Google.Protobuf.FileDescriptorProto.Builder {
-        builderResult.enumType.removeAll(keepCapacity: false)
+        builderResult.enumType.removeAll(keepingCapacity: false)
         return self
       }
       public var service:Array<Google.Protobuf.ServiceDescriptorProto> {
@@ -1013,7 +1013,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearService() -> Google.Protobuf.FileDescriptorProto.Builder {
-        builderResult.service.removeAll(keepCapacity: false)
+        builderResult.service.removeAll(keepingCapacity: false)
         return self
       }
       public var extension_:Array<Google.Protobuf.FieldDescriptorProto> {
@@ -1029,7 +1029,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearExtension() -> Google.Protobuf.FileDescriptorProto.Builder {
-        builderResult.extension_.removeAll(keepCapacity: false)
+        builderResult.extension_.removeAll(keepingCapacity: false)
         return self
       }
       public var hasOptions:Bool {
@@ -1841,7 +1841,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearField() -> Google.Protobuf.DescriptorProto.Builder {
-        builderResult.field.removeAll(keepCapacity: false)
+        builderResult.field.removeAll(keepingCapacity: false)
         return self
       }
       public var extension_:Array<Google.Protobuf.FieldDescriptorProto> {
@@ -1857,7 +1857,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearExtension() -> Google.Protobuf.DescriptorProto.Builder {
-        builderResult.extension_.removeAll(keepCapacity: false)
+        builderResult.extension_.removeAll(keepingCapacity: false)
         return self
       }
       public var nestedType:Array<Google.Protobuf.DescriptorProto> {
@@ -1873,7 +1873,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearNestedType() -> Google.Protobuf.DescriptorProto.Builder {
-        builderResult.nestedType.removeAll(keepCapacity: false)
+        builderResult.nestedType.removeAll(keepingCapacity: false)
         return self
       }
       public var enumType:Array<Google.Protobuf.EnumDescriptorProto> {
@@ -1889,7 +1889,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearEnumType() -> Google.Protobuf.DescriptorProto.Builder {
-        builderResult.enumType.removeAll(keepCapacity: false)
+        builderResult.enumType.removeAll(keepingCapacity: false)
         return self
       }
       public var extensionRange:Array<Google.Protobuf.DescriptorProto.ExtensionRange> {
@@ -1905,7 +1905,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearExtensionRange() -> Google.Protobuf.DescriptorProto.Builder {
-        builderResult.extensionRange.removeAll(keepCapacity: false)
+        builderResult.extensionRange.removeAll(keepingCapacity: false)
         return self
       }
       public var oneofDecl:Array<Google.Protobuf.OneofDescriptorProto> {
@@ -1921,7 +1921,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearOneofDecl() -> Google.Protobuf.DescriptorProto.Builder {
-        builderResult.oneofDecl.removeAll(keepCapacity: false)
+        builderResult.oneofDecl.removeAll(keepingCapacity: false)
         return self
       }
       public var hasOptions:Bool {
@@ -3214,7 +3214,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearValue() -> Google.Protobuf.EnumDescriptorProto.Builder {
-        builderResult.value.removeAll(keepCapacity: false)
+        builderResult.value.removeAll(keepingCapacity: false)
         return self
       }
       public var hasOptions:Bool {
@@ -3885,7 +3885,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearMethod() -> Google.Protobuf.ServiceDescriptorProto.Builder {
-        builderResult.method.removeAll(keepCapacity: false)
+        builderResult.method.removeAll(keepingCapacity: false)
         return self
       }
       public var hasOptions:Bool {
@@ -5034,7 +5034,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearUninterpretedOption() -> Google.Protobuf.FileOptions.Builder {
-        builderResult.uninterpretedOption.removeAll(keepCapacity: false)
+        builderResult.uninterpretedOption.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:ExtendableMessage {
@@ -5454,7 +5454,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearUninterpretedOption() -> Google.Protobuf.MessageOptions.Builder {
-        builderResult.uninterpretedOption.removeAll(keepCapacity: false)
+        builderResult.uninterpretedOption.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:ExtendableMessage {
@@ -5980,7 +5980,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearUninterpretedOption() -> Google.Protobuf.FieldOptions.Builder {
-        builderResult.uninterpretedOption.removeAll(keepCapacity: false)
+        builderResult.uninterpretedOption.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:ExtendableMessage {
@@ -6316,7 +6316,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearUninterpretedOption() -> Google.Protobuf.EnumOptions.Builder {
-        builderResult.uninterpretedOption.removeAll(keepCapacity: false)
+        builderResult.uninterpretedOption.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:ExtendableMessage {
@@ -6583,7 +6583,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearUninterpretedOption() -> Google.Protobuf.EnumValueOptions.Builder {
-        builderResult.uninterpretedOption.removeAll(keepCapacity: false)
+        builderResult.uninterpretedOption.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:ExtendableMessage {
@@ -6844,7 +6844,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearUninterpretedOption() -> Google.Protobuf.ServiceOptions.Builder {
-        builderResult.uninterpretedOption.removeAll(keepCapacity: false)
+        builderResult.uninterpretedOption.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:ExtendableMessage {
@@ -7105,7 +7105,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearUninterpretedOption() -> Google.Protobuf.MethodOptions.Builder {
-        builderResult.uninterpretedOption.removeAll(keepCapacity: false)
+        builderResult.uninterpretedOption.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:ExtendableMessage {
@@ -7674,7 +7674,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearName() -> Google.Protobuf.UninterpretedOption.Builder {
-        builderResult.name.removeAll(keepCapacity: false)
+        builderResult.name.removeAll(keepingCapacity: false)
         return self
       }
       public var hasIdentifierValue:Bool {
@@ -8170,7 +8170,7 @@ public extension Google.Protobuf {
             return self
           }
           public func clearPath() -> Google.Protobuf.SourceCodeInfo.Location.Builder {
-             builderResult.path.removeAll(keepCapacity: false)
+             builderResult.path.removeAll(keepingCapacity: false)
              return self
           }
           public var span:Array<Int32> {
@@ -8186,7 +8186,7 @@ public extension Google.Protobuf {
             return self
           }
           public func clearSpan() -> Google.Protobuf.SourceCodeInfo.Location.Builder {
-             builderResult.span.removeAll(keepCapacity: false)
+             builderResult.span.removeAll(keepingCapacity: false)
              return self
           }
           public var hasLeadingComments:Bool {
@@ -8454,7 +8454,7 @@ public extension Google.Protobuf {
         return self
       }
       public func clearLocation() -> Google.Protobuf.SourceCodeInfo.Builder {
-        builderResult.location.removeAll(keepCapacity: false)
+        builderResult.location.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:GeneratedMessage {

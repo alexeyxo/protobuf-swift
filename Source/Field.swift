@@ -120,9 +120,9 @@ final public class Field:Equatable,Hashable
     public init()
     {
         
-        variantArray = [Int64](count: 0, repeatedValue: 0)
-        fixed32Array = [UInt32](count: 0, repeatedValue: 0)
-        fixed64Array = [UInt64](count: 0, repeatedValue: 0)
+        variantArray = [Int64](repeating: 0, count: 0)
+        fixed32Array = [UInt32](repeating: 0, count: 0)
+        fixed64Array = [UInt64](repeating: 0, count: 0)
         lengthDelimited = Array<NSData>()
         groupArray = Array<UnknownFieldSet>()
     }
@@ -270,11 +270,11 @@ public extension Field
 {
     public func clear()
     {
-        variantArray.removeAll(keepCapacity: false)
-        fixed32Array.removeAll(keepCapacity: false)
-        fixed64Array.removeAll(keepCapacity: false)
-        groupArray.removeAll(keepCapacity: false)
-        lengthDelimited.removeAll(keepCapacity: false)
+        variantArray.removeAll(keepingCapacity: false)
+        fixed32Array.removeAll(keepingCapacity: false)
+        fixed64Array.removeAll(keepingCapacity: false)
+        groupArray.removeAll(keepingCapacity: false)
+        lengthDelimited.removeAll(keepingCapacity: false)
     }
     
     public func mergeFromField(other:Field) -> Field

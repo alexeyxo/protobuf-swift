@@ -710,7 +710,7 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
       return self
     }
     public func clearBatch() -> PBPerfomanceBatch.Builder {
-      builderResult.batch.removeAll(keepCapacity: false)
+      builderResult.batch.removeAll(keepingCapacity: false)
       return self
     }
     override public var internalGetResult:GeneratedMessage {

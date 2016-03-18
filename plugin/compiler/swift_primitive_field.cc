@@ -327,7 +327,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  return self\n"
                        "}\n"
                        "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
-                       "   builderResult.$name$.removeAll(keepCapacity: false)\n"
+                       "   builderResult.$name$.removeAll(keepingCapacity: false)\n"
                        "   return self\n"
                        "}\n");
     }

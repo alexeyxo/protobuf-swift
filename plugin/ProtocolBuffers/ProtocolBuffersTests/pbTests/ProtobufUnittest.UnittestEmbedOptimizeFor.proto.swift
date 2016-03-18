@@ -258,7 +258,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedMessage() -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
-        builderResult.repeatedMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedMessage.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:GeneratedMessage {

@@ -108,7 +108,7 @@ public class ExtendableMessage : GeneratedMessage
     public func writeExtensionsToCodedOutputStream(output:CodedOutputStream, startInclusive:Int32, endExclusive:Int32) throws
     {
         var keys = Array(extensionMap.keys)
-        keys.sortInPlace { $0 < $1 }
+        keys.sort(isOrderedBefore: { $0 < $1 })
         for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let extensions = extensionRegistry[fieldNumber]!
@@ -121,7 +121,7 @@ public class ExtendableMessage : GeneratedMessage
     public func getExtensionDescription(startInclusive:Int32 ,endExclusive:Int32, indent:String) throws -> String {
         var output = ""
         var keys = Array(extensionMap.keys)
-        keys.sortInPlace { $0 < $1 }
+        keys.sort(isOrderedBefore: { $0 < $1 })
         for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let extensions = extensionRegistry[fieldNumber]!
@@ -136,7 +136,7 @@ public class ExtendableMessage : GeneratedMessage
     public func isEqualExtensionsInOther(otherMessage:ExtendableMessage, startInclusive:Int32, endExclusive:Int32) -> Bool {
 
         var keys = Array(extensionMap.keys)
-        keys.sortInPlace { $0 < $1 }
+        keys.sort(isOrderedBefore: { $0 < $1 })
         for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let value = extensionMap[fieldNumber]!
@@ -245,7 +245,7 @@ public class ExtendableMessage : GeneratedMessage
         }
     }
 
-    private func getHashValueRepeated<T where T:CollectionType, T.Generator.Element:protocol<Hashable,Equatable>>(lhs:T) -> Int!
+    private func getHashValueRepeated<T where T:Collection, T.Iterator.Element:protocol<Hashable,Equatable>>(lhs:T) -> Int!
     {
         var hashCode:Int = 0
         for vv in lhs
@@ -263,7 +263,7 @@ public class ExtendableMessage : GeneratedMessage
     public func hashExtensionsFrom(startInclusive:Int32, endExclusive:Int32) -> Int {
         var hashCode:Int = 0
         var keys = Array(extensionMap.keys)
-        keys.sortInPlace { $0 < $1 }
+        keys.sort(isOrderedBefore: { $0 < $1 })
         for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let value = extensionMap[fieldNumber]!
@@ -413,13 +413,13 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
     public func  clearExtension(extensions:ConcreateExtensionField) -> Self {
         let message = internalGetResult
         message.ensureExtensionIsRegistered(extensions)
-        message.extensionMap.removeValueForKey(extensions.fieldNumber)
+        message.extensionMap.removeValue(forKey: extensions.fieldNumber)
         return self
     }
 
-    private func mergeRepeatedExtensionFields<T where T:CollectionType>(otherList:T, extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Generator.Element]
+    private func mergeRepeatedExtensionFields<T where T:Collection>(otherList:T, extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Iterator.Element]
     {
-        var list:[T.Generator.Element]! = extensionMap[fieldNumber] as? [T.Generator.Element] ?? []
+        var list:[T.Iterator.Element]! = extensionMap[fieldNumber] as? [T.Iterator.Element] ?? []
         list! += otherList
         return list!
 
