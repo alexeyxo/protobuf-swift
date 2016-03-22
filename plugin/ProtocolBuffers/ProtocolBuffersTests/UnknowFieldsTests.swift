@@ -52,9 +52,9 @@ class UnknowFieldsTests: XCTestCase {
     
     func getBizarroData() throws -> NSData {
         let bizarroFields = UnknownFieldSet.Builder()
-        var letintField = Field()
+        let letintField = Field()
         letintField += Int32(1)
-        var fixed32Field = Field()
+        let fixed32Field = Field()
         fixed32Field += UInt32(2)
     
         for key in unknownFields.fields.keys {
@@ -89,38 +89,38 @@ class UnknowFieldsTests: XCTestCase {
         
         do {
             let set1Builder = UnknownFieldSet.Builder()
-            var field1 = Field()
+            let field1 = Field()
             field1 += Int32(2)
             try set1Builder.addField(field1, number: 2)
-            var field2 = Field()
+            let field2 = Field()
             field2 += Int32(4)
             try set1Builder.addField(field2, number: 3)
             let set1 = try set1Builder.build()
             
             let set2Builder = UnknownFieldSet.Builder()
-            var field3 = Field()
+            let field3 = Field()
             field3 += Int32(1)
             try set2Builder.addField(field3, number: 1)
-            var field4 = Field()
+            let field4 = Field()
             field4 += Int32(3)
             try set2Builder.addField(field4, number: 3)
             let set2 = try set2Builder.build()
             
             
             let set3Builder = UnknownFieldSet.Builder()
-            var field5 = Field()
+            let field5 = Field()
             field5 += Int32(1)
             try set3Builder.addField(field5, number: 1)
-            var field6 = Field()
+            let field6 = Field()
             field6 += Int32(4)
             try set3Builder.addField(field6, number: 3)
             let set3 = try set3Builder.build()
             
             let set4Builder = UnknownFieldSet.Builder()
-            var field7 = Field()
+            let field7 = Field()
             field7 += Int32(2)
             try set4Builder.addField(field7, number: 2)
-            var field8 = Field()
+            let field8 = Field()
             field8 += Int32(3)
             try set4Builder.addField(field8, number: 3)
             let set4 = try set4Builder.build()
@@ -187,7 +187,7 @@ class UnknowFieldsTests: XCTestCase {
     func testParseKnownAndUnknown() {
         do {
             // Test mixing known and unknown fields when parsing.
-            var field = Field()
+            let field = Field()
             field += Int32(654321)
             let fields = try UnknownFieldSet.builderWithUnknownFields(unknownFields).addField(field, number:123456).build()
             let data = try fields.data()
@@ -255,7 +255,7 @@ class UnknowFieldsTests: XCTestCase {
     
     func testLargeletint() {
         do {
-            var field = Field()
+            let field = Field()
             field += Int64(Int64.max)
             let data = try UnknownFieldSet.Builder().addField(field, number:1).build().data()
             let parsed = try UnknownFieldSet.parseFromData(data)
