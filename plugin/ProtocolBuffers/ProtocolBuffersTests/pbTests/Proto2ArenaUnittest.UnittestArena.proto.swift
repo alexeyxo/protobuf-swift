@@ -394,14 +394,14 @@ public extension Proto2ArenaUnittest {
           output += "\(indent) repeatedNestedMessage[\(repeatedNestedMessageElementIndex)] {\n"
           output += try oneElementRepeatedNestedMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          repeatedNestedMessageElementIndex++
+          repeatedNestedMessageElementIndex += 1
       }
       var repeatedImportNoArenaMessageElementIndex:Int = 0
       for oneElementRepeatedImportNoArenaMessage in repeatedImportNoArenaMessage {
           output += "\(indent) repeatedImportNoArenaMessage[\(repeatedImportNoArenaMessageElementIndex)] {\n"
           output += try oneElementRepeatedImportNoArenaMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          repeatedImportNoArenaMessageElementIndex++
+          repeatedImportNoArenaMessageElementIndex += 1
       }
       output += unknownFields.getDescription(indent)
       return output

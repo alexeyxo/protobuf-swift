@@ -7288,11 +7288,7 @@ public extension Google.Protobuf {
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
             switch self {
-<<<<<<< HEAD
-                case .StringField: return ".StringField"
-=======
                 case .String_: return ".String_"
->>>>>>> origin/ProtoBuf3.0-Swift2.0
                 case .Cord: return ".Cord"
                 case .StringPiece: return ".StringPiece"
             }

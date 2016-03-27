@@ -1435,125 +1435,125 @@ public extension Proto2NofieldpresenceUnittest {
       var repeatedInt32ElementIndex:Int = 0
       for oneValueRepeatedInt32 in repeatedInt32  {
           output += "\(indent) repeatedInt32[\(repeatedInt32ElementIndex)]: \(oneValueRepeatedInt32)\n"
-          repeatedInt32ElementIndex++
+          repeatedInt32ElementIndex += 1
       }
       var repeatedInt64ElementIndex:Int = 0
       for oneValueRepeatedInt64 in repeatedInt64  {
           output += "\(indent) repeatedInt64[\(repeatedInt64ElementIndex)]: \(oneValueRepeatedInt64)\n"
-          repeatedInt64ElementIndex++
+          repeatedInt64ElementIndex += 1
       }
       var repeatedUint32ElementIndex:Int = 0
       for oneValueRepeatedUint32 in repeatedUint32  {
           output += "\(indent) repeatedUint32[\(repeatedUint32ElementIndex)]: \(oneValueRepeatedUint32)\n"
-          repeatedUint32ElementIndex++
+          repeatedUint32ElementIndex += 1
       }
       var repeatedUint64ElementIndex:Int = 0
       for oneValueRepeatedUint64 in repeatedUint64  {
           output += "\(indent) repeatedUint64[\(repeatedUint64ElementIndex)]: \(oneValueRepeatedUint64)\n"
-          repeatedUint64ElementIndex++
+          repeatedUint64ElementIndex += 1
       }
       var repeatedSint32ElementIndex:Int = 0
       for oneValueRepeatedSint32 in repeatedSint32  {
           output += "\(indent) repeatedSint32[\(repeatedSint32ElementIndex)]: \(oneValueRepeatedSint32)\n"
-          repeatedSint32ElementIndex++
+          repeatedSint32ElementIndex += 1
       }
       var repeatedSint64ElementIndex:Int = 0
       for oneValueRepeatedSint64 in repeatedSint64  {
           output += "\(indent) repeatedSint64[\(repeatedSint64ElementIndex)]: \(oneValueRepeatedSint64)\n"
-          repeatedSint64ElementIndex++
+          repeatedSint64ElementIndex += 1
       }
       var repeatedFixed32ElementIndex:Int = 0
       for oneValueRepeatedFixed32 in repeatedFixed32  {
           output += "\(indent) repeatedFixed32[\(repeatedFixed32ElementIndex)]: \(oneValueRepeatedFixed32)\n"
-          repeatedFixed32ElementIndex++
+          repeatedFixed32ElementIndex += 1
       }
       var repeatedFixed64ElementIndex:Int = 0
       for oneValueRepeatedFixed64 in repeatedFixed64  {
           output += "\(indent) repeatedFixed64[\(repeatedFixed64ElementIndex)]: \(oneValueRepeatedFixed64)\n"
-          repeatedFixed64ElementIndex++
+          repeatedFixed64ElementIndex += 1
       }
       var repeatedSfixed32ElementIndex:Int = 0
       for oneValueRepeatedSfixed32 in repeatedSfixed32  {
           output += "\(indent) repeatedSfixed32[\(repeatedSfixed32ElementIndex)]: \(oneValueRepeatedSfixed32)\n"
-          repeatedSfixed32ElementIndex++
+          repeatedSfixed32ElementIndex += 1
       }
       var repeatedSfixed64ElementIndex:Int = 0
       for oneValueRepeatedSfixed64 in repeatedSfixed64  {
           output += "\(indent) repeatedSfixed64[\(repeatedSfixed64ElementIndex)]: \(oneValueRepeatedSfixed64)\n"
-          repeatedSfixed64ElementIndex++
+          repeatedSfixed64ElementIndex += 1
       }
       var repeatedFloatElementIndex:Int = 0
       for oneValueRepeatedFloat in repeatedFloat  {
           output += "\(indent) repeatedFloat[\(repeatedFloatElementIndex)]: \(oneValueRepeatedFloat)\n"
-          repeatedFloatElementIndex++
+          repeatedFloatElementIndex += 1
       }
       var repeatedDoubleElementIndex:Int = 0
       for oneValueRepeatedDouble in repeatedDouble  {
           output += "\(indent) repeatedDouble[\(repeatedDoubleElementIndex)]: \(oneValueRepeatedDouble)\n"
-          repeatedDoubleElementIndex++
+          repeatedDoubleElementIndex += 1
       }
       var repeatedBoolElementIndex:Int = 0
       for oneValueRepeatedBool in repeatedBool  {
           output += "\(indent) repeatedBool[\(repeatedBoolElementIndex)]: \(oneValueRepeatedBool)\n"
-          repeatedBoolElementIndex++
+          repeatedBoolElementIndex += 1
       }
       var repeatedStringElementIndex:Int = 0
       for oneValueRepeatedString in repeatedString  {
           output += "\(indent) repeatedString[\(repeatedStringElementIndex)]: \(oneValueRepeatedString)\n"
-          repeatedStringElementIndex++
+          repeatedStringElementIndex += 1
       }
       var repeatedBytesElementIndex:Int = 0
       for oneValueRepeatedBytes in repeatedBytes  {
           output += "\(indent) repeatedBytes[\(repeatedBytesElementIndex)]: \(oneValueRepeatedBytes)\n"
-          repeatedBytesElementIndex++
+          repeatedBytesElementIndex += 1
       }
       var repeatedNestedMessageElementIndex:Int = 0
       for oneElementRepeatedNestedMessage in repeatedNestedMessage {
           output += "\(indent) repeatedNestedMessage[\(repeatedNestedMessageElementIndex)] {\n"
           output += try oneElementRepeatedNestedMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          repeatedNestedMessageElementIndex++
+          repeatedNestedMessageElementIndex += 1
       }
       var repeatedForeignMessageElementIndex:Int = 0
       for oneElementRepeatedForeignMessage in repeatedForeignMessage {
           output += "\(indent) repeatedForeignMessage[\(repeatedForeignMessageElementIndex)] {\n"
           output += try oneElementRepeatedForeignMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          repeatedForeignMessageElementIndex++
+          repeatedForeignMessageElementIndex += 1
       }
       var repeatedProto2MessageElementIndex:Int = 0
       for oneElementRepeatedProto2Message in repeatedProto2Message {
           output += "\(indent) repeatedProto2Message[\(repeatedProto2MessageElementIndex)] {\n"
           output += try oneElementRepeatedProto2Message.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          repeatedProto2MessageElementIndex++
+          repeatedProto2MessageElementIndex += 1
       }
       var repeatedNestedEnumElementIndex:Int = 0
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
           output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(oneValueOfrepeatedNestedEnum.description)\n"
-          repeatedNestedEnumElementIndex++
+          repeatedNestedEnumElementIndex += 1
       }
       var repeatedForeignEnumElementIndex:Int = 0
       for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
           output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(oneValueOfrepeatedForeignEnum.description)\n"
-          repeatedForeignEnumElementIndex++
+          repeatedForeignEnumElementIndex += 1
       }
       var repeatedStringPieceElementIndex:Int = 0
       for oneValueRepeatedStringPiece in repeatedStringPiece  {
           output += "\(indent) repeatedStringPiece[\(repeatedStringPieceElementIndex)]: \(oneValueRepeatedStringPiece)\n"
-          repeatedStringPieceElementIndex++
+          repeatedStringPieceElementIndex += 1
       }
       var repeatedCordElementIndex:Int = 0
       for oneValueRepeatedCord in repeatedCord  {
           output += "\(indent) repeatedCord[\(repeatedCordElementIndex)]: \(oneValueRepeatedCord)\n"
-          repeatedCordElementIndex++
+          repeatedCordElementIndex += 1
       }
       var repeatedLazyMessageElementIndex:Int = 0
       for oneElementRepeatedLazyMessage in repeatedLazyMessage {
           output += "\(indent) repeatedLazyMessage[\(repeatedLazyMessageElementIndex)] {\n"
           output += try oneElementRepeatedLazyMessage.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          repeatedLazyMessageElementIndex++
+          repeatedLazyMessageElementIndex += 1
       }
       if hasOneofUint32 {
         output += "\(indent) oneofUint32: \(oneofUint32) \n"

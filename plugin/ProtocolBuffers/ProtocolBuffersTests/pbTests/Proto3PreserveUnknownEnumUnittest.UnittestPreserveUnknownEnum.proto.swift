@@ -386,17 +386,17 @@ public extension Proto3PreserveUnknownEnumUnittest {
       var repeatedEElementIndex:Int = 0
       for oneValueOfrepeatedE in repeatedE {
           output += "\(indent) repeatedE[\(repeatedEElementIndex)]: \(oneValueOfrepeatedE.description)\n"
-          repeatedEElementIndex++
+          repeatedEElementIndex += 1
       }
       var repeatedPackedEElementIndex:Int = 0
       for oneValueOfrepeatedPackedE in repeatedPackedE {
           output += "\(indent) repeatedPackedE[\(repeatedPackedEElementIndex)]: \(oneValueOfrepeatedPackedE.description)\n"
-          repeatedPackedEElementIndex++
+          repeatedPackedEElementIndex += 1
       }
       var repeatedPackedUnexpectedEElementIndex:Int = 0
       for oneValueOfrepeatedPackedUnexpectedE in repeatedPackedUnexpectedE {
           output += "\(indent) repeatedPackedUnexpectedE[\(repeatedPackedUnexpectedEElementIndex)]: \(oneValueOfrepeatedPackedUnexpectedE.description)\n"
-          repeatedPackedUnexpectedEElementIndex++
+          repeatedPackedUnexpectedEElementIndex += 1
       }
       if (hasOneofE1) {
         output += "\(indent) oneofE1: \(oneofE1.description)\n"
@@ -1002,17 +1002,17 @@ public extension Proto3PreserveUnknownEnumUnittest {
       var repeatedEElementIndex:Int = 0
       for oneValueOfrepeatedE in repeatedE {
           output += "\(indent) repeatedE[\(repeatedEElementIndex)]: \(oneValueOfrepeatedE.description)\n"
-          repeatedEElementIndex++
+          repeatedEElementIndex += 1
       }
       var repeatedPackedEElementIndex:Int = 0
       for oneValueOfrepeatedPackedE in repeatedPackedE {
           output += "\(indent) repeatedPackedE[\(repeatedPackedEElementIndex)]: \(oneValueOfrepeatedPackedE.description)\n"
-          repeatedPackedEElementIndex++
+          repeatedPackedEElementIndex += 1
       }
       var repeatedPackedUnexpectedEElementIndex:Int = 0
       for oneValueOfrepeatedPackedUnexpectedE in repeatedPackedUnexpectedE {
           output += "\(indent) repeatedPackedUnexpectedE[\(repeatedPackedUnexpectedEElementIndex)]: \(oneValueOfrepeatedPackedUnexpectedE.description)\n"
-          repeatedPackedUnexpectedEElementIndex++
+          repeatedPackedUnexpectedEElementIndex += 1
       }
       if (hasOneofE1) {
         output += "\(indent) oneofE1: \(oneofE1.description)\n"
