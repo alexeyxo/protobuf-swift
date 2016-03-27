@@ -6,20 +6,20 @@ import Foundation
 import ProtocolBuffers
 
 
-internal struct UnittestEmptyRoot {
-  internal static var sharedInstance : UnittestEmptyRoot {
+public struct UnittestEmptyRoot {
+  public static var sharedInstance : UnittestEmptyRoot {
    struct Static {
        static let instance : UnittestEmptyRoot = UnittestEmptyRoot()
    }
    return Static.instance
   }
-  internal var extensionRegistry:ExtensionRegistry
+  public var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
   }
-  internal func registerAllExtensions(registry:ExtensionRegistry) {
+  public func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 

@@ -52,7 +52,7 @@ public extension Google.Protobuf {
 
   //Enum type declaration start 
 
-  public enum AccessControl:Int32 {
+  public enum AccessControl:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     case InternalEntities = 0
     case PublicEntities = 1
     public func toString() -> String {
@@ -67,6 +67,14 @@ public extension Google.Protobuf {
       case "PublicEntities":  return .PublicEntities
       default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
       }
+    }
+    public var debugDescription:String { return getDescription() }
+    public var description:String { return getDescription() }
+    private func getDescription() -> String { 
+        switch self {
+            case .InternalEntities: return ".InternalEntities"
+            case .PublicEntities: return ".PublicEntities"
+        }
     }
   }
 
@@ -194,7 +202,7 @@ public extension Google.Protobuf {
         output += "\(indent) classPrefix: \(classPrefix) \n"
       }
       if (hasEntitiesAccessControl) {
-        output += "\(indent) entitiesAccessControl: \(entitiesAccessControl.rawValue)\n"
+        output += "\(indent) entitiesAccessControl: \(entitiesAccessControl.description)\n"
       }
       if hasCompileForFramework {
         output += "\(indent) compileForFramework: \(compileForFramework) \n"

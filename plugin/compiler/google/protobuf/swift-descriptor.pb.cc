@@ -2,11 +2,12 @@
 // source: google/protobuf/swift-descriptor.proto
 
 #define INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION
-#include "google/protobuf/swift-descriptor.pb.h"
+#include <google/protobuf/swift-descriptor.pb.h>
 
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
+#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -139,11 +140,11 @@ static void MergeFromFail(int line) {
 
 // ===================================================================
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SwiftFileOptions::kClassPrefixFieldNumber;
 const int SwiftFileOptions::kEntitiesAccessControlFieldNumber;
 const int SwiftFileOptions::kCompileForFrameworkFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SwiftFileOptions::SwiftFileOptions()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {

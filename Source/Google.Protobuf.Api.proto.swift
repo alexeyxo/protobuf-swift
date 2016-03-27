@@ -236,14 +236,14 @@ public extension Google.Protobuf {
           output += "\(indent) methods[\(methodsElementIndex)] {\n"
           output += try oneElementMethods.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          methodsElementIndex++
+          methodsElementIndex += 1
       }
       var optionsElementIndex:Int = 0
       for oneElementOptions in options {
           output += "\(indent) options[\(optionsElementIndex)] {\n"
           output += try oneElementOptions.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          optionsElementIndex++
+          optionsElementIndex += 1
       }
       if hasVersion {
         output += "\(indent) version: \(version) \n"
@@ -748,7 +748,7 @@ public extension Google.Protobuf {
           output += "\(indent) options[\(optionsElementIndex)] {\n"
           output += try oneElementOptions.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          optionsElementIndex++
+          optionsElementIndex += 1
       }
       output += unknownFields.getDescription(indent)
       return output

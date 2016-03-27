@@ -232,7 +232,7 @@ public extension Google.Protobuf {
       var pathsElementIndex:Int = 0
       for oneValuePaths in paths  {
           output += "\(indent) paths[\(pathsElementIndex)]: \(oneValuePaths)\n"
-          pathsElementIndex++
+          pathsElementIndex += 1
       }
       output += unknownFields.getDescription(indent)
       return output
