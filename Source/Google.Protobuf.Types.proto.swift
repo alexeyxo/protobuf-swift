@@ -258,19 +258,19 @@ public extension Google.Protobuf {
           output += "\(indent) fields[\(fieldsElementIndex)] {\n"
           output += try oneElementFields.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          fieldsElementIndex++
+          fieldsElementIndex += 1
       }
       var oneofsElementIndex:Int = 0
       for oneValueOneofs in oneofs  {
           output += "\(indent) oneofs[\(oneofsElementIndex)]: \(oneValueOneofs)\n"
-          oneofsElementIndex++
+          oneofsElementIndex += 1
       }
       var optionsElementIndex:Int = 0
       for oneElementOptions in options {
           output += "\(indent) options[\(optionsElementIndex)] {\n"
           output += try oneElementOptions.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          optionsElementIndex++
+          optionsElementIndex += 1
       }
       if hasSourceContext {
         output += "\(indent) sourceContext {\n"
@@ -975,7 +975,7 @@ public extension Google.Protobuf {
           output += "\(indent) options[\(optionsElementIndex)] {\n"
           output += try oneElementOptions.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          optionsElementIndex++
+          optionsElementIndex += 1
       }
       output += unknownFields.getDescription(indent)
       return output
@@ -1512,14 +1512,14 @@ public extension Google.Protobuf {
           output += "\(indent) enumvalue[\(enumvalueElementIndex)] {\n"
           output += try oneElementEnumvalue.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          enumvalueElementIndex++
+          enumvalueElementIndex += 1
       }
       var optionsElementIndex:Int = 0
       for oneElementOptions in options {
           output += "\(indent) options[\(optionsElementIndex)] {\n"
           output += try oneElementOptions.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          optionsElementIndex++
+          optionsElementIndex += 1
       }
       if hasSourceContext {
         output += "\(indent) sourceContext {\n"
@@ -1938,7 +1938,7 @@ public extension Google.Protobuf {
           output += "\(indent) options[\(optionsElementIndex)] {\n"
           output += try oneElementOptions.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          optionsElementIndex++
+          optionsElementIndex += 1
       }
       output += unknownFields.getDescription(indent)
       return output

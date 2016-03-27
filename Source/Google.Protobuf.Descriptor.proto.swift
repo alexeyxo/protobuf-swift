@@ -446,7 +446,7 @@ public extension Google.Protobuf {
           output += "\(indent) file[\(fileElementIndex)] {\n"
           output += try oneElementFile.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          fileElementIndex++
+          fileElementIndex += 1
       }
       output += unknownFields.getDescription(indent)
       return output
@@ -901,35 +901,35 @@ public extension Google.Protobuf {
       var dependencyElementIndex:Int = 0
       for oneValueDependency in dependency  {
           output += "\(indent) dependency[\(dependencyElementIndex)]: \(oneValueDependency)\n"
-          dependencyElementIndex++
+          dependencyElementIndex += 1
       }
       var messageTypeElementIndex:Int = 0
       for oneElementMessageType in messageType {
           output += "\(indent) messageType[\(messageTypeElementIndex)] {\n"
           output += try oneElementMessageType.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          messageTypeElementIndex++
+          messageTypeElementIndex += 1
       }
       var enumTypeElementIndex:Int = 0
       for oneElementEnumType in enumType {
           output += "\(indent) enumType[\(enumTypeElementIndex)] {\n"
           output += try oneElementEnumType.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          enumTypeElementIndex++
+          enumTypeElementIndex += 1
       }
       var serviceElementIndex:Int = 0
       for oneElementService in service {
           output += "\(indent) service[\(serviceElementIndex)] {\n"
           output += try oneElementService.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          serviceElementIndex++
+          serviceElementIndex += 1
       }
       var extension_ElementIndex:Int = 0
       for oneElementExtension in extension_ {
           output += "\(indent) extension_[\(extension_ElementIndex)] {\n"
           output += try oneElementExtension.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          extension_ElementIndex++
+          extension_ElementIndex += 1
       }
       if hasOptions {
         output += "\(indent) options {\n"
@@ -948,12 +948,12 @@ public extension Google.Protobuf {
       var publicDependencyElementIndex:Int = 0
       for oneValuePublicDependency in publicDependency  {
           output += "\(indent) publicDependency[\(publicDependencyElementIndex)]: \(oneValuePublicDependency)\n"
-          publicDependencyElementIndex++
+          publicDependencyElementIndex += 1
       }
       var weakDependencyElementIndex:Int = 0
       for oneValueWeakDependency in weakDependency  {
           output += "\(indent) weakDependency[\(weakDependencyElementIndex)]: \(oneValueWeakDependency)\n"
-          weakDependencyElementIndex++
+          weakDependencyElementIndex += 1
       }
       if hasSyntax {
         output += "\(indent) syntax: \(syntax) \n"
@@ -2396,35 +2396,35 @@ public extension Google.Protobuf {
           output += "\(indent) field[\(fieldElementIndex)] {\n"
           output += try oneElementField.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          fieldElementIndex++
+          fieldElementIndex += 1
       }
       var nestedTypeElementIndex:Int = 0
       for oneElementNestedType in nestedType {
           output += "\(indent) nestedType[\(nestedTypeElementIndex)] {\n"
           output += try oneElementNestedType.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          nestedTypeElementIndex++
+          nestedTypeElementIndex += 1
       }
       var enumTypeElementIndex:Int = 0
       for oneElementEnumType in enumType {
           output += "\(indent) enumType[\(enumTypeElementIndex)] {\n"
           output += try oneElementEnumType.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          enumTypeElementIndex++
+          enumTypeElementIndex += 1
       }
       var extensionRangeElementIndex:Int = 0
       for oneElementExtensionRange in extensionRange {
           output += "\(indent) extensionRange[\(extensionRangeElementIndex)] {\n"
           output += try oneElementExtensionRange.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          extensionRangeElementIndex++
+          extensionRangeElementIndex += 1
       }
       var extension_ElementIndex:Int = 0
       for oneElementExtension in extension_ {
           output += "\(indent) extension_[\(extension_ElementIndex)] {\n"
           output += try oneElementExtension.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          extension_ElementIndex++
+          extension_ElementIndex += 1
       }
       if hasOptions {
         output += "\(indent) options {\n"
@@ -2438,19 +2438,19 @@ public extension Google.Protobuf {
           output += "\(indent) oneofDecl[\(oneofDeclElementIndex)] {\n"
           output += try oneElementOneofDecl.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          oneofDeclElementIndex++
+          oneofDeclElementIndex += 1
       }
       var reservedRangeElementIndex:Int = 0
       for oneElementReservedRange in reservedRange {
           output += "\(indent) reservedRange[\(reservedRangeElementIndex)] {\n"
           output += try oneElementReservedRange.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          reservedRangeElementIndex++
+          reservedRangeElementIndex += 1
       }
       var reservedNameElementIndex:Int = 0
       for oneValueReservedName in reservedName  {
           output += "\(indent) reservedName[\(reservedNameElementIndex)]: \(oneValueReservedName)\n"
-          reservedNameElementIndex++
+          reservedNameElementIndex += 1
       }
       output += unknownFields.getDescription(indent)
       return output
@@ -4162,7 +4162,7 @@ public extension Google.Protobuf {
           output += "\(indent) value[\(valueElementIndex)] {\n"
           output += try oneElementValue.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          valueElementIndex++
+          valueElementIndex += 1
       }
       if hasOptions {
         output += "\(indent) options {\n"
@@ -4932,7 +4932,7 @@ public extension Google.Protobuf {
           output += "\(indent) method[\(methodElementIndex)] {\n"
           output += try oneElementMethod.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          methodElementIndex++
+          methodElementIndex += 1
       }
       if hasOptions {
         output += "\(indent) options {\n"
@@ -6132,7 +6132,7 @@ public extension Google.Protobuf {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
           output += try oneElementUninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          uninterpretedOptionElementIndex++
+          uninterpretedOptionElementIndex += 1
       }
       output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
       output += unknownFields.getDescription(indent)
@@ -6982,7 +6982,7 @@ public extension Google.Protobuf {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
           output += try oneElementUninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          uninterpretedOptionElementIndex++
+          uninterpretedOptionElementIndex += 1
       }
       output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
       output += unknownFields.getDescription(indent)
@@ -7266,19 +7266,19 @@ public extension Google.Protobuf {
 
       public enum Ctype:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         // Default mode.
-        case StringField = 0
+        case String_ = 0
         case Cord = 1
         case StringPiece = 2
         public func toString() -> String {
           switch self {
-          case .StringField: return "STRING"
+          case .String_: return "STRING"
           case .Cord: return "CORD"
           case .StringPiece: return "STRING_PIECE"
           }
         }
         public static func fromString(str:String) throws -> Google.Protobuf.FieldOptions.Ctype {
           switch str {
-          case "STRING":  return .StringField
+          case "STRING":  return .String_
           case "CORD":  return .Cord
           case "STRING_PIECE":  return .StringPiece
           default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
@@ -7288,7 +7288,11 @@ public extension Google.Protobuf {
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
             switch self {
+<<<<<<< HEAD
                 case .StringField: return ".StringField"
+=======
+                case .String_: return ".String_"
+>>>>>>> origin/ProtoBuf3.0-Swift2.0
                 case .Cord: return ".Cord"
                 case .StringPiece: return ".StringPiece"
             }
@@ -7338,7 +7342,7 @@ public extension Google.Protobuf {
 
       //Enum type declaration end 
 
-    public private(set) var ctype:Google.Protobuf.FieldOptions.Ctype = Google.Protobuf.FieldOptions.Ctype.StringField
+    public private(set) var ctype:Google.Protobuf.FieldOptions.Ctype = Google.Protobuf.FieldOptions.Ctype.String_
     public private(set) var hasCtype:Bool = false
     // The packed option can be enabled for repeated primitive fields to enable
     // a more efficient representation on the wire. Rather than repeatedly
@@ -7577,7 +7581,7 @@ public extension Google.Protobuf {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
           output += try oneElementUninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          uninterpretedOptionElementIndex++
+          uninterpretedOptionElementIndex += 1
       }
       output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
       output += unknownFields.getDescription(indent)
@@ -7656,7 +7660,7 @@ public extension Google.Protobuf {
         }
         public func clearCtype() -> Google.Protobuf.FieldOptions.Builder {
            builderResult.hasCtype = false
-           builderResult.ctype = .StringField
+           builderResult.ctype = .String_
            return self
         }
       public var hasPacked:Bool {
@@ -8088,7 +8092,7 @@ public extension Google.Protobuf {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
           output += try oneElementUninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          uninterpretedOptionElementIndex++
+          uninterpretedOptionElementIndex += 1
       }
       output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
       output += unknownFields.getDescription(indent)
@@ -8432,7 +8436,7 @@ public extension Google.Protobuf {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
           output += try oneElementUninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          uninterpretedOptionElementIndex++
+          uninterpretedOptionElementIndex += 1
       }
       output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
       output += unknownFields.getDescription(indent)
@@ -8741,7 +8745,7 @@ public extension Google.Protobuf {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
           output += try oneElementUninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          uninterpretedOptionElementIndex++
+          uninterpretedOptionElementIndex += 1
       }
       output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
       output += unknownFields.getDescription(indent)
@@ -9050,7 +9054,7 @@ public extension Google.Protobuf {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
           output += try oneElementUninterpretedOption.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          uninterpretedOptionElementIndex++
+          uninterpretedOptionElementIndex += 1
       }
       output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
       output += unknownFields.getDescription(indent)
@@ -9711,7 +9715,7 @@ public extension Google.Protobuf {
           output += "\(indent) name[\(nameElementIndex)] {\n"
           output += try oneElementName.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          nameElementIndex++
+          nameElementIndex += 1
       }
       if hasIdentifierValue {
         output += "\(indent) identifierValue: \(identifierValue) \n"
@@ -10319,12 +10323,12 @@ public extension Google.Protobuf {
           var pathElementIndex:Int = 0
           for oneValuePath in path  {
               output += "\(indent) path[\(pathElementIndex)]: \(oneValuePath)\n"
-              pathElementIndex++
+              pathElementIndex += 1
           }
           var spanElementIndex:Int = 0
           for oneValueSpan in span  {
               output += "\(indent) span[\(spanElementIndex)]: \(oneValueSpan)\n"
-              spanElementIndex++
+              spanElementIndex += 1
           }
           if hasLeadingComments {
             output += "\(indent) leadingComments: \(leadingComments) \n"
@@ -10335,7 +10339,7 @@ public extension Google.Protobuf {
           var leadingDetachedCommentsElementIndex:Int = 0
           for oneValueLeadingDetachedComments in leadingDetachedComments  {
               output += "\(indent) leadingDetachedComments[\(leadingDetachedCommentsElementIndex)]: \(oneValueLeadingDetachedComments)\n"
-              leadingDetachedCommentsElementIndex++
+              leadingDetachedCommentsElementIndex += 1
           }
           output += unknownFields.getDescription(indent)
           return output
@@ -10709,7 +10713,7 @@ public extension Google.Protobuf {
           output += "\(indent) location[\(locationElementIndex)] {\n"
           output += try oneElementLocation.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          locationElementIndex++
+          locationElementIndex += 1
       }
       output += unknownFields.getDescription(indent)
       return output

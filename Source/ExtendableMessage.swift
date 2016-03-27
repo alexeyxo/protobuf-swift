@@ -417,7 +417,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         return self
     }
 
-    private func mergeRepeatedExtensionFields<T where T:CollectionType>(otherList:T, var extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Generator.Element]
+    private func mergeRepeatedExtensionFields<T where T:CollectionType>(otherList:T, extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Generator.Element]
     {
         var list:[T.Generator.Element]! = extensionMap[fieldNumber] as? [T.Generator.Element] ?? []
         list! += otherList

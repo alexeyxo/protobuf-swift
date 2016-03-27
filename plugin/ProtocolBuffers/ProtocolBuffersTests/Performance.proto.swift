@@ -825,7 +825,7 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
         output += "\(indent) batch[\(batchElementIndex)] {\n"
         output += try oneElementBatch.getDescription("\(indent)  ")
         output += "\(indent)}\n"
-        batchElementIndex++
+        batchElementIndex += 1
     }
     output += unknownFields.getDescription(indent)
     return output

@@ -1532,7 +1532,7 @@ public extension Google.Protobuf {
           output += "\(indent) values[\(valuesElementIndex)] {\n"
           output += try oneElementValues.getDescription("\(indent)  ")
           output += "\(indent)}\n"
-          valuesElementIndex++
+          valuesElementIndex += 1
       }
       output += unknownFields.getDescription(indent)
       return output
