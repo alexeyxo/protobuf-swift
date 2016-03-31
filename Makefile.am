@@ -2,7 +2,7 @@
 
 ACLOCAL_AMFLAGS = -I m4
 AUTOMAKE_OPTIONS = foreign
-SUBDIRS = src/compiler
+SUBDIRS = plugin/compiler
 
 EXTRA_DIST = 				\
 	autogen.sh 

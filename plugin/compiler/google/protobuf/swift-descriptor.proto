@@ -1,0 +1,38 @@
+// Protocol Buffers for Swift
+//
+// Copyright 2014 AlexeyXo.
+// Copyright 2008 Google Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import "google/protobuf/descriptor.proto";
+
+package google.protobuf;
+
+enum AccessControl {
+  InternalEntities = 0;
+  PublicEntities = 1;
+}
+message SwiftFileOptions {
+
+  optional string class_prefix = 1;
+  optional AccessControl entities_access_control = 2 [default = InternalEntities];
+  optional bool compile_for_framework = 3 [default = true];
+}
+
+extend google.protobuf.FileOptions {
+  optional SwiftFileOptions swift_file_options = 5092014;
+}
+
+option (.google.protobuf.swift_file_options).compile_for_framework = false;
+option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;

@@ -1,0 +1,12 @@
+#### Version of protoc (```protoc --version```)
+###### 3.0
+
+#### Version of ProtocolBuffers.framework
+###### 2.4.1
+
+#### ```.proto``` file to reproduce
+```protobuf
+
+```
+
+#### Description
