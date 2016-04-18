@@ -582,7 +582,7 @@ public extension ProtobufUnittest {
       registerAllExtensions(extensionRegistry)
       Google.Protobuf.DescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
     }
-    public func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(_ registry:ExtensionRegistry) {
       registry.addExtension(UnittestCustomOptionsRootfileOpt1Static)
       registry.addExtension(UnittestCustomOptionsRootmessageOpt1Static)
       registry.addExtension(UnittestCustomOptionsRootfieldOpt1Static)
@@ -820,7 +820,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasField1 {
         try output.writeString(1, value:field1)
       }
@@ -840,32 +840,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.TestMessageWithCustomOptions> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestMessageWithCustomOptions> {
       var mergedArray = Array<ProtobufUnittest.TestMessageWithCustomOptions>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.TestMessageWithCustomOptions? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestMessageWithCustomOptions? {
       return try ProtobufUnittest.TestMessageWithCustomOptions.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
       return try ProtobufUnittest.TestMessageWithCustomOptions.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
       return try ProtobufUnittest.TestMessageWithCustomOptions.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
       return try ProtobufUnittest.TestMessageWithCustomOptions.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
       return try ProtobufUnittest.TestMessageWithCustomOptions.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
       return try ProtobufUnittest.TestMessageWithCustomOptions.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
       return try ProtobufUnittest.TestMessageWithCustomOptions.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
@@ -883,10 +883,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
       return try ProtobufUnittest.TestMessageWithCustomOptions.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.TestMessageWithCustomOptions) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestMessageWithCustomOptions) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
       return try ProtobufUnittest.TestMessageWithCustomOptions.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       if hasField1 {
         output += "\(indent) field1: \(field1) \n"
@@ -942,7 +942,7 @@ public extension ProtobufUnittest {
                builderResult.field1 = value
            }
       }
-      public func setField1(value:String) -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
+      public func setField1(_ value:String) -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
         self.field1 = value
         return self
       }
@@ -971,7 +971,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestMessageWithCustomOptions = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.TestMessageWithCustomOptions) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.TestMessageWithCustomOptions) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
         if other == ProtobufUnittest.TestMessageWithCustomOptions() {
          return self
         }
@@ -981,10 +981,10 @@ public extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -1017,7 +1017,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -1031,32 +1031,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionFooRequest> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionFooRequest> {
       var mergedArray = Array<ProtobufUnittest.CustomOptionFooRequest>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooRequest? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooRequest? {
       return try ProtobufUnittest.CustomOptionFooRequest.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.CustomOptionFooRequest {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.CustomOptionFooRequest {
       return try ProtobufUnittest.CustomOptionFooRequest.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooRequest {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooRequest {
       return try ProtobufUnittest.CustomOptionFooRequest.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooRequest {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooRequest {
       return try ProtobufUnittest.CustomOptionFooRequest.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooRequest {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooRequest {
       return try ProtobufUnittest.CustomOptionFooRequest.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooRequest {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooRequest {
       return try ProtobufUnittest.CustomOptionFooRequest.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooRequest {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooRequest {
       return try ProtobufUnittest.CustomOptionFooRequest.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.CustomOptionFooRequest.Builder {
@@ -1074,10 +1074,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
       return try ProtobufUnittest.CustomOptionFooRequest.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionFooRequest) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.CustomOptionFooRequest) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
       return try ProtobufUnittest.CustomOptionFooRequest.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -1133,17 +1133,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.CustomOptionFooRequest = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.CustomOptionFooRequest) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.CustomOptionFooRequest) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
         if other == ProtobufUnittest.CustomOptionFooRequest() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -1171,7 +1171,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -1185,32 +1185,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionFooResponse> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionFooResponse> {
       var mergedArray = Array<ProtobufUnittest.CustomOptionFooResponse>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooResponse? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooResponse? {
       return try ProtobufUnittest.CustomOptionFooResponse.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.CustomOptionFooResponse {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.CustomOptionFooResponse {
       return try ProtobufUnittest.CustomOptionFooResponse.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooResponse {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooResponse {
       return try ProtobufUnittest.CustomOptionFooResponse.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooResponse {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooResponse {
       return try ProtobufUnittest.CustomOptionFooResponse.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooResponse {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooResponse {
       return try ProtobufUnittest.CustomOptionFooResponse.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooResponse {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooResponse {
       return try ProtobufUnittest.CustomOptionFooResponse.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooResponse {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooResponse {
       return try ProtobufUnittest.CustomOptionFooResponse.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.CustomOptionFooResponse.Builder {
@@ -1228,10 +1228,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
       return try ProtobufUnittest.CustomOptionFooResponse.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionFooResponse) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.CustomOptionFooResponse) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
       return try ProtobufUnittest.CustomOptionFooResponse.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -1287,17 +1287,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.CustomOptionFooResponse = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.CustomOptionFooResponse) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.CustomOptionFooResponse) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
         if other == ProtobufUnittest.CustomOptionFooResponse() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -1325,7 +1325,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -1339,32 +1339,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionFooClientMessage> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionFooClientMessage> {
       var mergedArray = Array<ProtobufUnittest.CustomOptionFooClientMessage>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooClientMessage? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooClientMessage? {
       return try ProtobufUnittest.CustomOptionFooClientMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
       return try ProtobufUnittest.CustomOptionFooClientMessage.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
       return try ProtobufUnittest.CustomOptionFooClientMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
       return try ProtobufUnittest.CustomOptionFooClientMessage.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
       return try ProtobufUnittest.CustomOptionFooClientMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
       return try ProtobufUnittest.CustomOptionFooClientMessage.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
       return try ProtobufUnittest.CustomOptionFooClientMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
@@ -1382,10 +1382,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
       return try ProtobufUnittest.CustomOptionFooClientMessage.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionFooClientMessage) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.CustomOptionFooClientMessage) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
       return try ProtobufUnittest.CustomOptionFooClientMessage.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -1441,17 +1441,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.CustomOptionFooClientMessage = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.CustomOptionFooClientMessage) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.CustomOptionFooClientMessage) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
         if other == ProtobufUnittest.CustomOptionFooClientMessage() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -1479,7 +1479,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -1493,32 +1493,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionFooServerMessage> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionFooServerMessage> {
       var mergedArray = Array<ProtobufUnittest.CustomOptionFooServerMessage>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooServerMessage? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooServerMessage? {
       return try ProtobufUnittest.CustomOptionFooServerMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
       return try ProtobufUnittest.CustomOptionFooServerMessage.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
       return try ProtobufUnittest.CustomOptionFooServerMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
       return try ProtobufUnittest.CustomOptionFooServerMessage.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
       return try ProtobufUnittest.CustomOptionFooServerMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
       return try ProtobufUnittest.CustomOptionFooServerMessage.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
       return try ProtobufUnittest.CustomOptionFooServerMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
@@ -1536,10 +1536,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
       return try ProtobufUnittest.CustomOptionFooServerMessage.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionFooServerMessage) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.CustomOptionFooServerMessage) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
       return try ProtobufUnittest.CustomOptionFooServerMessage.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -1595,17 +1595,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.CustomOptionFooServerMessage = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.CustomOptionFooServerMessage) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.CustomOptionFooServerMessage) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
         if other == ProtobufUnittest.CustomOptionFooServerMessage() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -1653,7 +1653,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -1667,32 +1667,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.DummyMessageContainingEnum> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.DummyMessageContainingEnum> {
       var mergedArray = Array<ProtobufUnittest.DummyMessageContainingEnum>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.DummyMessageContainingEnum? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.DummyMessageContainingEnum? {
       return try ProtobufUnittest.DummyMessageContainingEnum.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.DummyMessageContainingEnum {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.DummyMessageContainingEnum {
       return try ProtobufUnittest.DummyMessageContainingEnum.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageContainingEnum {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageContainingEnum {
       return try ProtobufUnittest.DummyMessageContainingEnum.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.DummyMessageContainingEnum {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.DummyMessageContainingEnum {
       return try ProtobufUnittest.DummyMessageContainingEnum.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageContainingEnum {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageContainingEnum {
       return try ProtobufUnittest.DummyMessageContainingEnum.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.DummyMessageContainingEnum {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.DummyMessageContainingEnum {
       return try ProtobufUnittest.DummyMessageContainingEnum.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageContainingEnum {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageContainingEnum {
       return try ProtobufUnittest.DummyMessageContainingEnum.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
@@ -1710,10 +1710,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
       return try ProtobufUnittest.DummyMessageContainingEnum.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.DummyMessageContainingEnum) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.DummyMessageContainingEnum) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
       return try ProtobufUnittest.DummyMessageContainingEnum.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -1769,17 +1769,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.DummyMessageContainingEnum = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.DummyMessageContainingEnum) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.DummyMessageContainingEnum) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
         if other == ProtobufUnittest.DummyMessageContainingEnum() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -1807,7 +1807,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -1821,32 +1821,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.DummyMessageInvalidAsOptionType> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.DummyMessageInvalidAsOptionType> {
       var mergedArray = Array<ProtobufUnittest.DummyMessageInvalidAsOptionType>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType? {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
@@ -1864,10 +1864,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.DummyMessageInvalidAsOptionType) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.DummyMessageInvalidAsOptionType) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -1923,17 +1923,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.DummyMessageInvalidAsOptionType = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.DummyMessageInvalidAsOptionType) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.DummyMessageInvalidAsOptionType) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
         if other == ProtobufUnittest.DummyMessageInvalidAsOptionType() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -1961,7 +1961,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -1975,32 +1975,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionMinIntegerValues> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionMinIntegerValues> {
       var mergedArray = Array<ProtobufUnittest.CustomOptionMinIntegerValues>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionMinIntegerValues? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionMinIntegerValues? {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
@@ -2018,10 +2018,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionMinIntegerValues) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.CustomOptionMinIntegerValues) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -2077,17 +2077,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.CustomOptionMinIntegerValues = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.CustomOptionMinIntegerValues) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.CustomOptionMinIntegerValues) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
         if other == ProtobufUnittest.CustomOptionMinIntegerValues() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -2115,7 +2115,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -2129,32 +2129,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionMaxIntegerValues> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionMaxIntegerValues> {
       var mergedArray = Array<ProtobufUnittest.CustomOptionMaxIntegerValues>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues? {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
@@ -2172,10 +2172,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionMaxIntegerValues) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.CustomOptionMaxIntegerValues) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -2231,17 +2231,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.CustomOptionMaxIntegerValues = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.CustomOptionMaxIntegerValues) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.CustomOptionMaxIntegerValues) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
         if other == ProtobufUnittest.CustomOptionMaxIntegerValues() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -2269,7 +2269,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -2283,32 +2283,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionOtherValues> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.CustomOptionOtherValues> {
       var mergedArray = Array<ProtobufUnittest.CustomOptionOtherValues>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionOtherValues? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionOtherValues? {
       return try ProtobufUnittest.CustomOptionOtherValues.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.CustomOptionOtherValues {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.CustomOptionOtherValues {
       return try ProtobufUnittest.CustomOptionOtherValues.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionOtherValues {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionOtherValues {
       return try ProtobufUnittest.CustomOptionOtherValues.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.CustomOptionOtherValues {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.CustomOptionOtherValues {
       return try ProtobufUnittest.CustomOptionOtherValues.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionOtherValues {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionOtherValues {
       return try ProtobufUnittest.CustomOptionOtherValues.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionOtherValues {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionOtherValues {
       return try ProtobufUnittest.CustomOptionOtherValues.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionOtherValues {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionOtherValues {
       return try ProtobufUnittest.CustomOptionOtherValues.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.CustomOptionOtherValues.Builder {
@@ -2326,10 +2326,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
       return try ProtobufUnittest.CustomOptionOtherValues.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionOtherValues) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.CustomOptionOtherValues) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
       return try ProtobufUnittest.CustomOptionOtherValues.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -2385,17 +2385,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.CustomOptionOtherValues = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.CustomOptionOtherValues) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.CustomOptionOtherValues) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
         if other == ProtobufUnittest.CustomOptionOtherValues() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -2423,7 +2423,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -2437,32 +2437,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.SettingRealsFromPositiveInts> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.SettingRealsFromPositiveInts> {
       var mergedArray = Array<ProtobufUnittest.SettingRealsFromPositiveInts>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.SettingRealsFromPositiveInts? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.SettingRealsFromPositiveInts? {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
@@ -2480,10 +2480,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.SettingRealsFromPositiveInts) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.SettingRealsFromPositiveInts) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -2539,17 +2539,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.SettingRealsFromPositiveInts = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.SettingRealsFromPositiveInts) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.SettingRealsFromPositiveInts) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
         if other == ProtobufUnittest.SettingRealsFromPositiveInts() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -2577,7 +2577,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -2591,32 +2591,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.SettingRealsFromNegativeInts> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.SettingRealsFromNegativeInts> {
       var mergedArray = Array<ProtobufUnittest.SettingRealsFromNegativeInts>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.SettingRealsFromNegativeInts? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.SettingRealsFromNegativeInts? {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
@@ -2634,10 +2634,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.SettingRealsFromNegativeInts) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.SettingRealsFromNegativeInts) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -2693,17 +2693,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.SettingRealsFromNegativeInts = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.SettingRealsFromNegativeInts) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.SettingRealsFromNegativeInts) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
         if other == ProtobufUnittest.SettingRealsFromNegativeInts() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -2744,7 +2744,7 @@ public extension ProtobufUnittest {
       }
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasFoo {
         try output.writeInt32(1, value:foo)
       }
@@ -2789,32 +2789,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.ComplexOptionType1> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.ComplexOptionType1> {
       var mergedArray = Array<ProtobufUnittest.ComplexOptionType1>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType1? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType1? {
       return try ProtobufUnittest.ComplexOptionType1.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.ComplexOptionType1 {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.ComplexOptionType1 {
       return try ProtobufUnittest.ComplexOptionType1.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType1 {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType1 {
       return try ProtobufUnittest.ComplexOptionType1.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType1 {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType1 {
       return try ProtobufUnittest.ComplexOptionType1.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType1 {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType1 {
       return try ProtobufUnittest.ComplexOptionType1.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType1 {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType1 {
       return try ProtobufUnittest.ComplexOptionType1.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType1 {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType1 {
       return try ProtobufUnittest.ComplexOptionType1.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.ComplexOptionType1.Builder {
@@ -2832,10 +2832,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.ComplexOptionType1.Builder {
       return try ProtobufUnittest.ComplexOptionType1.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType1) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.ComplexOptionType1) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
       return try ProtobufUnittest.ComplexOptionType1.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       if hasFoo {
         output += "\(indent) foo: \(foo) \n"
@@ -2913,7 +2913,7 @@ public extension ProtobufUnittest {
                builderResult.foo = value
            }
       }
-      public func setFoo(value:Int32) -> ProtobufUnittest.ComplexOptionType1.Builder {
+      public func setFoo(_ value:Int32) -> ProtobufUnittest.ComplexOptionType1.Builder {
         self.foo = value
         return self
       }
@@ -2936,7 +2936,7 @@ public extension ProtobufUnittest {
                builderResult.foo2 = value
            }
       }
-      public func setFoo2(value:Int32) -> ProtobufUnittest.ComplexOptionType1.Builder {
+      public func setFoo2(_ value:Int32) -> ProtobufUnittest.ComplexOptionType1.Builder {
         self.foo2 = value
         return self
       }
@@ -2959,7 +2959,7 @@ public extension ProtobufUnittest {
                builderResult.foo3 = value
            }
       }
-      public func setFoo3(value:Int32) -> ProtobufUnittest.ComplexOptionType1.Builder {
+      public func setFoo3(_ value:Int32) -> ProtobufUnittest.ComplexOptionType1.Builder {
         self.foo3 = value
         return self
       }
@@ -2976,7 +2976,7 @@ public extension ProtobufUnittest {
                builderResult.foo4 = array
            }
       }
-      public func setFoo4(value:Array<Int32>) -> ProtobufUnittest.ComplexOptionType1.Builder {
+      public func setFoo4(_ value:Array<Int32>) -> ProtobufUnittest.ComplexOptionType1.Builder {
         self.foo4 = value
         return self
       }
@@ -3004,7 +3004,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.ComplexOptionType1 = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.ComplexOptionType1) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.ComplexOptionType1) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
         if other == ProtobufUnittest.ComplexOptionType1() {
          return self
         }
@@ -3024,10 +3024,10 @@ public extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -3078,7 +3078,7 @@ public extension ProtobufUnittest {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
           if hasWaldo {
             try output.writeInt32(1, value:waldo)
           }
@@ -3098,32 +3098,32 @@ public extension ProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4> {
+        public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4> {
           var mergedArray = Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4>()
           while let value = try parseFromDelimitedFromInputStream(input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4? {
+        public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4? {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
-        public class func parseFromData(data:NSData) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+        public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+        public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+        public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder().mergeFromInputStream(input).build()
         }
-        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+        public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+        public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder().mergeFromCodedInputStream(input).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+        public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
@@ -3141,10 +3141,10 @@ public extension ProtobufUnittest {
         public func toBuilder() throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builderWithPrototype(self)
         }
-        public class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
+        public class func builderWithPrototype(_ prototype:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder().mergeFrom(prototype)
         }
-        override public func getDescription(indent:String) throws -> String {
+        override public func getDescription(_ indent:String) throws -> String {
           var output:String = ""
           if hasWaldo {
             output += "\(indent) waldo: \(waldo) \n"
@@ -3200,7 +3200,7 @@ public extension ProtobufUnittest {
                    builderResult.waldo = value
                }
           }
-          public func setWaldo(value:Int32) -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
+          public func setWaldo(_ value:Int32) -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
             self.waldo = value
             return self
           }
@@ -3229,7 +3229,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 = builderResult
             return returnMe
           }
-          public func mergeFrom(other:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
+          public func mergeFrom(_ other:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
             if other == ProtobufUnittest.ComplexOptionType2.ComplexOptionType4() {
              return self
             }
@@ -3239,10 +3239,10 @@ public extension ProtobufUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
+          public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
+          public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
@@ -3290,7 +3290,7 @@ public extension ProtobufUnittest {
       }
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasBar {
         try output.writeMessage(1, value:bar)
       }
@@ -3334,32 +3334,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.ComplexOptionType2> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.ComplexOptionType2> {
       var mergedArray = Array<ProtobufUnittest.ComplexOptionType2>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType2? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType2? {
       return try ProtobufUnittest.ComplexOptionType2.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.ComplexOptionType2 {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.ComplexOptionType2 {
       return try ProtobufUnittest.ComplexOptionType2.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2 {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2 {
       return try ProtobufUnittest.ComplexOptionType2.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType2 {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType2 {
       return try ProtobufUnittest.ComplexOptionType2.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2 {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2 {
       return try ProtobufUnittest.ComplexOptionType2.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType2 {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType2 {
       return try ProtobufUnittest.ComplexOptionType2.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2 {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2 {
       return try ProtobufUnittest.ComplexOptionType2.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.ComplexOptionType2.Builder {
@@ -3377,10 +3377,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.ComplexOptionType2.Builder {
       return try ProtobufUnittest.ComplexOptionType2.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType2) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.ComplexOptionType2) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
       return try ProtobufUnittest.ComplexOptionType2.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       if hasBar {
         output += "\(indent) bar {\n"
@@ -3490,11 +3490,11 @@ public extension ProtobufUnittest {
         }
         return barBuilder_
       }
-      public func setBar(value:ProtobufUnittest.ComplexOptionType1!) -> ProtobufUnittest.ComplexOptionType2.Builder {
+      public func setBar(_ value:ProtobufUnittest.ComplexOptionType1!) -> ProtobufUnittest.ComplexOptionType2.Builder {
         self.bar = value
         return self
       }
-      public func mergeBar(value:ProtobufUnittest.ComplexOptionType1) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
+      public func mergeBar(_ value:ProtobufUnittest.ComplexOptionType1) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
         if builderResult.hasBar {
           builderResult.bar = try ProtobufUnittest.ComplexOptionType1.builderWithPrototype(builderResult.bar).mergeFrom(value).buildPartial()
         } else {
@@ -3523,7 +3523,7 @@ public extension ProtobufUnittest {
                builderResult.baz = value
            }
       }
-      public func setBaz(value:Int32) -> ProtobufUnittest.ComplexOptionType2.Builder {
+      public func setBaz(_ value:Int32) -> ProtobufUnittest.ComplexOptionType2.Builder {
         self.baz = value
         return self
       }
@@ -3564,11 +3564,11 @@ public extension ProtobufUnittest {
         }
         return fredBuilder_
       }
-      public func setFred(value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4!) -> ProtobufUnittest.ComplexOptionType2.Builder {
+      public func setFred(_ value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4!) -> ProtobufUnittest.ComplexOptionType2.Builder {
         self.fred = value
         return self
       }
-      public func mergeFred(value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
+      public func mergeFred(_ value:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
         if builderResult.hasFred {
           builderResult.fred = try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.builderWithPrototype(builderResult.fred).mergeFrom(value).buildPartial()
         } else {
@@ -3591,7 +3591,7 @@ public extension ProtobufUnittest {
                builderResult.barney = value
            }
       }
-      public func setBarney(value:Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4>) -> ProtobufUnittest.ComplexOptionType2.Builder {
+      public func setBarney(_ value:Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4>) -> ProtobufUnittest.ComplexOptionType2.Builder {
         self.barney = value
         return self
       }
@@ -3619,7 +3619,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.ComplexOptionType2 = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.ComplexOptionType2) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.ComplexOptionType2) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
         if other == ProtobufUnittest.ComplexOptionType2() {
          return self
         }
@@ -3639,10 +3639,10 @@ public extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -3702,7 +3702,7 @@ public extension ProtobufUnittest {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
           if hasPlugh {
             try output.writeInt32(3, value:plugh)
           }
@@ -3722,32 +3722,32 @@ public extension ProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.ComplexOptionType3.ComplexOptionType5> {
+        public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.ComplexOptionType3.ComplexOptionType5> {
           var mergedArray = Array<ProtobufUnittest.ComplexOptionType3.ComplexOptionType5>()
           while let value = try parseFromDelimitedFromInputStream(input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5? {
+        public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5? {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
-        public class func parseFromData(data:NSData) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+        public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+        public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+        public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder().mergeFromInputStream(input).build()
         }
-        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+        public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+        public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder().mergeFromCodedInputStream(input).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+        public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
@@ -3765,10 +3765,10 @@ public extension ProtobufUnittest {
         public func toBuilder() throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builderWithPrototype(self)
         }
-        public class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
+        public class func builderWithPrototype(_ prototype:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder().mergeFrom(prototype)
         }
-        override public func getDescription(indent:String) throws -> String {
+        override public func getDescription(_ indent:String) throws -> String {
           var output:String = ""
           if hasPlugh {
             output += "\(indent) plugh: \(plugh) \n"
@@ -3824,7 +3824,7 @@ public extension ProtobufUnittest {
                    builderResult.plugh = value
                }
           }
-          public func setPlugh(value:Int32) -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
+          public func setPlugh(_ value:Int32) -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
             self.plugh = value
             return self
           }
@@ -3853,7 +3853,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 = builderResult
             return returnMe
           }
-          public func mergeFrom(other:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
+          public func mergeFrom(_ other:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
             if other == ProtobufUnittest.ComplexOptionType3.ComplexOptionType5() {
              return self
             }
@@ -3863,10 +3863,10 @@ public extension ProtobufUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
+          public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
+          public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
@@ -3903,7 +3903,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasQux {
         try output.writeInt32(1, value:qux)
       }
@@ -3931,32 +3931,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.ComplexOptionType3> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.ComplexOptionType3> {
       var mergedArray = Array<ProtobufUnittest.ComplexOptionType3>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType3? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType3? {
       return try ProtobufUnittest.ComplexOptionType3.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.ComplexOptionType3 {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.ComplexOptionType3 {
       return try ProtobufUnittest.ComplexOptionType3.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3 {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3 {
       return try ProtobufUnittest.ComplexOptionType3.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType3 {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ComplexOptionType3 {
       return try ProtobufUnittest.ComplexOptionType3.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3 {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3 {
       return try ProtobufUnittest.ComplexOptionType3.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType3 {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType3 {
       return try ProtobufUnittest.ComplexOptionType3.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3 {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3 {
       return try ProtobufUnittest.ComplexOptionType3.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.ComplexOptionType3.Builder {
@@ -3974,10 +3974,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.ComplexOptionType3.Builder {
       return try ProtobufUnittest.ComplexOptionType3.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType3) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.ComplexOptionType3) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
       return try ProtobufUnittest.ComplexOptionType3.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       if hasQux {
         output += "\(indent) qux: \(qux) \n"
@@ -4045,7 +4045,7 @@ public extension ProtobufUnittest {
                builderResult.qux = value
            }
       }
-      public func setQux(value:Int32) -> ProtobufUnittest.ComplexOptionType3.Builder {
+      public func setQux(_ value:Int32) -> ProtobufUnittest.ComplexOptionType3.Builder {
         self.qux = value
         return self
       }
@@ -4086,11 +4086,11 @@ public extension ProtobufUnittest {
         }
         return complexOptionType5Builder_
       }
-      public func setComplexOptionType5(value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5!) -> ProtobufUnittest.ComplexOptionType3.Builder {
+      public func setComplexOptionType5(_ value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5!) -> ProtobufUnittest.ComplexOptionType3.Builder {
         self.complexOptionType5 = value
         return self
       }
-      public func mergeComplexOptionType5(value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
+      public func mergeComplexOptionType5(_ value:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
         if builderResult.hasComplexOptionType5 {
           builderResult.complexOptionType5 = try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.builderWithPrototype(builderResult.complexOptionType5).mergeFrom(value).buildPartial()
         } else {
@@ -4125,7 +4125,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.ComplexOptionType3 = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.ComplexOptionType3) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.ComplexOptionType3) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
         if other == ProtobufUnittest.ComplexOptionType3() {
          return self
         }
@@ -4138,10 +4138,10 @@ public extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -4183,7 +4183,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasXyzzy {
         try output.writeInt32(7593951, value:xyzzy)
       }
@@ -4203,32 +4203,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.ComplexOpt6> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.ComplexOpt6> {
       var mergedArray = Array<ProtobufUnittest.ComplexOpt6>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.ComplexOpt6? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ComplexOpt6? {
       return try ProtobufUnittest.ComplexOpt6.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.ComplexOpt6 {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.ComplexOpt6 {
       return try ProtobufUnittest.ComplexOpt6.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOpt6 {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOpt6 {
       return try ProtobufUnittest.ComplexOpt6.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.ComplexOpt6 {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ComplexOpt6 {
       return try ProtobufUnittest.ComplexOpt6.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOpt6 {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOpt6 {
       return try ProtobufUnittest.ComplexOpt6.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOpt6 {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ComplexOpt6 {
       return try ProtobufUnittest.ComplexOpt6.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOpt6 {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOpt6 {
       return try ProtobufUnittest.ComplexOpt6.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.ComplexOpt6.Builder {
@@ -4246,10 +4246,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.ComplexOpt6.Builder {
       return try ProtobufUnittest.ComplexOpt6.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOpt6) throws -> ProtobufUnittest.ComplexOpt6.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.ComplexOpt6) throws -> ProtobufUnittest.ComplexOpt6.Builder {
       return try ProtobufUnittest.ComplexOpt6.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       if hasXyzzy {
         output += "\(indent) xyzzy: \(xyzzy) \n"
@@ -4305,7 +4305,7 @@ public extension ProtobufUnittest {
                builderResult.xyzzy = value
            }
       }
-      public func setXyzzy(value:Int32) -> ProtobufUnittest.ComplexOpt6.Builder {
+      public func setXyzzy(_ value:Int32) -> ProtobufUnittest.ComplexOpt6.Builder {
         self.xyzzy = value
         return self
       }
@@ -4334,7 +4334,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.ComplexOpt6 = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.ComplexOpt6) throws -> ProtobufUnittest.ComplexOpt6.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.ComplexOpt6) throws -> ProtobufUnittest.ComplexOpt6.Builder {
         if other == ProtobufUnittest.ComplexOpt6() {
          return self
         }
@@ -4344,10 +4344,10 @@ public extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ComplexOpt6.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ComplexOpt6.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOpt6.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ComplexOpt6.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -4379,7 +4379,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -4393,32 +4393,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.VariousComplexOptions> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.VariousComplexOptions> {
       var mergedArray = Array<ProtobufUnittest.VariousComplexOptions>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.VariousComplexOptions? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.VariousComplexOptions? {
       return try ProtobufUnittest.VariousComplexOptions.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.VariousComplexOptions {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.VariousComplexOptions {
       return try ProtobufUnittest.VariousComplexOptions.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.VariousComplexOptions {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.VariousComplexOptions {
       return try ProtobufUnittest.VariousComplexOptions.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.VariousComplexOptions {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.VariousComplexOptions {
       return try ProtobufUnittest.VariousComplexOptions.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.VariousComplexOptions {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.VariousComplexOptions {
       return try ProtobufUnittest.VariousComplexOptions.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.VariousComplexOptions {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.VariousComplexOptions {
       return try ProtobufUnittest.VariousComplexOptions.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.VariousComplexOptions {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.VariousComplexOptions {
       return try ProtobufUnittest.VariousComplexOptions.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.VariousComplexOptions.Builder {
@@ -4436,10 +4436,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.VariousComplexOptions.Builder {
       return try ProtobufUnittest.VariousComplexOptions.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.VariousComplexOptions) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.VariousComplexOptions) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
       return try ProtobufUnittest.VariousComplexOptions.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -4495,17 +4495,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.VariousComplexOptions = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.VariousComplexOptions) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.VariousComplexOptions) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
         if other == ProtobufUnittest.VariousComplexOptions() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -4536,7 +4536,7 @@ public extension ProtobufUnittest {
       }
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try writeExtensionsToCodedOutputStream(output, startInclusive:Int32(4), endExclusive:Int32(2147483647))
       try unknownFields.writeAsMessageSetTo(output)
     }
@@ -4552,32 +4552,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.AggregateMessageSet> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.AggregateMessageSet> {
       var mergedArray = Array<ProtobufUnittest.AggregateMessageSet>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.AggregateMessageSet? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.AggregateMessageSet? {
       return try ProtobufUnittest.AggregateMessageSet.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.AggregateMessageSet {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.AggregateMessageSet {
       return try ProtobufUnittest.AggregateMessageSet.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSet {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSet {
       return try ProtobufUnittest.AggregateMessageSet.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.AggregateMessageSet {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.AggregateMessageSet {
       return try ProtobufUnittest.AggregateMessageSet.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSet {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSet {
       return try ProtobufUnittest.AggregateMessageSet.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessageSet {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessageSet {
       return try ProtobufUnittest.AggregateMessageSet.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSet {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSet {
       return try ProtobufUnittest.AggregateMessageSet.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.AggregateMessageSet.Builder {
@@ -4595,10 +4595,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.AggregateMessageSet.Builder {
       return try ProtobufUnittest.AggregateMessageSet.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.AggregateMessageSet) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.AggregateMessageSet) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
       return try ProtobufUnittest.AggregateMessageSet.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += try getExtensionDescription(Int32(4), endExclusive:Int32(2147483647), indent:indent)
       output += unknownFields.getDescription(indent)
@@ -4656,7 +4656,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.AggregateMessageSet = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.AggregateMessageSet) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.AggregateMessageSet) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
         if other == ProtobufUnittest.AggregateMessageSet() {
          return self
         }
@@ -4664,10 +4664,10 @@ public extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -4701,7 +4701,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasS {
         try output.writeString(1, value:s)
       }
@@ -4721,32 +4721,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.AggregateMessageSetElement> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.AggregateMessageSetElement> {
       var mergedArray = Array<ProtobufUnittest.AggregateMessageSetElement>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.AggregateMessageSetElement? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.AggregateMessageSetElement? {
       return try ProtobufUnittest.AggregateMessageSetElement.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.AggregateMessageSetElement {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.AggregateMessageSetElement {
       return try ProtobufUnittest.AggregateMessageSetElement.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSetElement {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSetElement {
       return try ProtobufUnittest.AggregateMessageSetElement.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.AggregateMessageSetElement {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.AggregateMessageSetElement {
       return try ProtobufUnittest.AggregateMessageSetElement.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSetElement {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSetElement {
       return try ProtobufUnittest.AggregateMessageSetElement.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessageSetElement {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessageSetElement {
       return try ProtobufUnittest.AggregateMessageSetElement.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSetElement {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSetElement {
       return try ProtobufUnittest.AggregateMessageSetElement.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.AggregateMessageSetElement.Builder {
@@ -4764,10 +4764,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
       return try ProtobufUnittest.AggregateMessageSetElement.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.AggregateMessageSetElement) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.AggregateMessageSetElement) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
       return try ProtobufUnittest.AggregateMessageSetElement.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       if hasS {
         output += "\(indent) s: \(s) \n"
@@ -4823,7 +4823,7 @@ public extension ProtobufUnittest {
                builderResult.s = value
            }
       }
-      public func setS(value:String) -> ProtobufUnittest.AggregateMessageSetElement.Builder {
+      public func setS(_ value:String) -> ProtobufUnittest.AggregateMessageSetElement.Builder {
         self.s = value
         return self
       }
@@ -4852,7 +4852,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.AggregateMessageSetElement = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.AggregateMessageSetElement) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.AggregateMessageSetElement) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
         if other == ProtobufUnittest.AggregateMessageSetElement() {
          return self
         }
@@ -4862,10 +4862,10 @@ public extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -4927,7 +4927,7 @@ public extension ProtobufUnittest {
       }
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasI {
         try output.writeInt32(1, value:i)
       }
@@ -4977,32 +4977,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.Aggregate> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.Aggregate> {
       var mergedArray = Array<ProtobufUnittest.Aggregate>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.Aggregate? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.Aggregate? {
       return try ProtobufUnittest.Aggregate.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.Aggregate {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.Aggregate {
       return try ProtobufUnittest.Aggregate.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Aggregate {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Aggregate {
       return try ProtobufUnittest.Aggregate.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.Aggregate {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.Aggregate {
       return try ProtobufUnittest.Aggregate.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Aggregate {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Aggregate {
       return try ProtobufUnittest.Aggregate.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.Aggregate {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.Aggregate {
       return try ProtobufUnittest.Aggregate.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Aggregate {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Aggregate {
       return try ProtobufUnittest.Aggregate.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.Aggregate.Builder {
@@ -5020,10 +5020,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.Aggregate.Builder {
       return try ProtobufUnittest.Aggregate.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.Aggregate) throws -> ProtobufUnittest.Aggregate.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.Aggregate) throws -> ProtobufUnittest.Aggregate.Builder {
       return try ProtobufUnittest.Aggregate.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       if hasI {
         output += "\(indent) i: \(i) \n"
@@ -5121,7 +5121,7 @@ public extension ProtobufUnittest {
                builderResult.i = value
            }
       }
-      public func setI(value:Int32) -> ProtobufUnittest.Aggregate.Builder {
+      public func setI(_ value:Int32) -> ProtobufUnittest.Aggregate.Builder {
         self.i = value
         return self
       }
@@ -5144,7 +5144,7 @@ public extension ProtobufUnittest {
                builderResult.s = value
            }
       }
-      public func setS(value:String) -> ProtobufUnittest.Aggregate.Builder {
+      public func setS(_ value:String) -> ProtobufUnittest.Aggregate.Builder {
         self.s = value
         return self
       }
@@ -5185,11 +5185,11 @@ public extension ProtobufUnittest {
         }
         return subBuilder_
       }
-      public func setSub(value:ProtobufUnittest.Aggregate!) -> ProtobufUnittest.Aggregate.Builder {
+      public func setSub(_ value:ProtobufUnittest.Aggregate!) -> ProtobufUnittest.Aggregate.Builder {
         self.sub = value
         return self
       }
-      public func mergeSub(value:ProtobufUnittest.Aggregate) throws -> ProtobufUnittest.Aggregate.Builder {
+      public func mergeSub(_ value:ProtobufUnittest.Aggregate) throws -> ProtobufUnittest.Aggregate.Builder {
         if builderResult.hasSub {
           builderResult.sub = try ProtobufUnittest.Aggregate.builderWithPrototype(builderResult.sub).mergeFrom(value).buildPartial()
         } else {
@@ -5236,11 +5236,11 @@ public extension ProtobufUnittest {
         }
         return fileBuilder_
       }
-      public func setFile(value:Google.Protobuf.FileOptions!) -> ProtobufUnittest.Aggregate.Builder {
+      public func setFile(_ value:Google.Protobuf.FileOptions!) -> ProtobufUnittest.Aggregate.Builder {
         self.file = value
         return self
       }
-      public func mergeFile(value:Google.Protobuf.FileOptions) throws -> ProtobufUnittest.Aggregate.Builder {
+      public func mergeFile(_ value:Google.Protobuf.FileOptions) throws -> ProtobufUnittest.Aggregate.Builder {
         if builderResult.hasFile {
           builderResult.file = try Google.Protobuf.FileOptions.builderWithPrototype(builderResult.file).mergeFrom(value).buildPartial()
         } else {
@@ -5287,11 +5287,11 @@ public extension ProtobufUnittest {
         }
         return msetBuilder_
       }
-      public func setMset(value:ProtobufUnittest.AggregateMessageSet!) -> ProtobufUnittest.Aggregate.Builder {
+      public func setMset(_ value:ProtobufUnittest.AggregateMessageSet!) -> ProtobufUnittest.Aggregate.Builder {
         self.mset = value
         return self
       }
-      public func mergeMset(value:ProtobufUnittest.AggregateMessageSet) throws -> ProtobufUnittest.Aggregate.Builder {
+      public func mergeMset(_ value:ProtobufUnittest.AggregateMessageSet) throws -> ProtobufUnittest.Aggregate.Builder {
         if builderResult.hasMset {
           builderResult.mset = try ProtobufUnittest.AggregateMessageSet.builderWithPrototype(builderResult.mset).mergeFrom(value).buildPartial()
         } else {
@@ -5326,7 +5326,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.Aggregate = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.Aggregate) throws -> ProtobufUnittest.Aggregate.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.Aggregate) throws -> ProtobufUnittest.Aggregate.Builder {
         if other == ProtobufUnittest.Aggregate() {
          return self
         }
@@ -5348,10 +5348,10 @@ public extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.Aggregate.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.Aggregate.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Aggregate.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Aggregate.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -5412,7 +5412,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasFieldname {
         try output.writeInt32(1, value:fieldname)
       }
@@ -5432,32 +5432,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.AggregateMessage> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.AggregateMessage> {
       var mergedArray = Array<ProtobufUnittest.AggregateMessage>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.AggregateMessage? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.AggregateMessage? {
       return try ProtobufUnittest.AggregateMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.AggregateMessage {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.AggregateMessage {
       return try ProtobufUnittest.AggregateMessage.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessage {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessage {
       return try ProtobufUnittest.AggregateMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.AggregateMessage {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.AggregateMessage {
       return try ProtobufUnittest.AggregateMessage.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessage {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessage {
       return try ProtobufUnittest.AggregateMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessage {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessage {
       return try ProtobufUnittest.AggregateMessage.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessage {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessage {
       return try ProtobufUnittest.AggregateMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.AggregateMessage.Builder {
@@ -5475,10 +5475,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.AggregateMessage.Builder {
       return try ProtobufUnittest.AggregateMessage.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.AggregateMessage) throws -> ProtobufUnittest.AggregateMessage.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.AggregateMessage) throws -> ProtobufUnittest.AggregateMessage.Builder {
       return try ProtobufUnittest.AggregateMessage.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       if hasFieldname {
         output += "\(indent) fieldname: \(fieldname) \n"
@@ -5534,7 +5534,7 @@ public extension ProtobufUnittest {
                builderResult.fieldname = value
            }
       }
-      public func setFieldname(value:Int32) -> ProtobufUnittest.AggregateMessage.Builder {
+      public func setFieldname(_ value:Int32) -> ProtobufUnittest.AggregateMessage.Builder {
         self.fieldname = value
         return self
       }
@@ -5563,7 +5563,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.AggregateMessage = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.AggregateMessage) throws -> ProtobufUnittest.AggregateMessage.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.AggregateMessage) throws -> ProtobufUnittest.AggregateMessage.Builder {
         if other == ProtobufUnittest.AggregateMessage() {
          return self
         }
@@ -5573,10 +5573,10 @@ public extension ProtobufUnittest {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessage.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.AggregateMessage.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessage.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.AggregateMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -5616,7 +5616,7 @@ public extension ProtobufUnittest {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
           if hasNestedField {
             try output.writeInt32(1, value:nestedField)
           }
@@ -5636,32 +5636,32 @@ public extension ProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.NestedOptionType.NestedMessage> {
+        public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.NestedOptionType.NestedMessage> {
           var mergedArray = Array<ProtobufUnittest.NestedOptionType.NestedMessage>()
           while let value = try parseFromDelimitedFromInputStream(input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.NestedOptionType.NestedMessage? {
+        public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.NestedOptionType.NestedMessage? {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
-        public class func parseFromData(data:NSData) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
+        public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
+        public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
+        public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder().mergeFromInputStream(input).build()
         }
-        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
+        public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
+        public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder().mergeFromCodedInputStream(input).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
+        public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
@@ -5679,10 +5679,10 @@ public extension ProtobufUnittest {
         public func toBuilder() throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.builderWithPrototype(self)
         }
-        public class func builderWithPrototype(prototype:ProtobufUnittest.NestedOptionType.NestedMessage) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
+        public class func builderWithPrototype(_ prototype:ProtobufUnittest.NestedOptionType.NestedMessage) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder().mergeFrom(prototype)
         }
-        override public func getDescription(indent:String) throws -> String {
+        override public func getDescription(_ indent:String) throws -> String {
           var output:String = ""
           if hasNestedField {
             output += "\(indent) nestedField: \(nestedField) \n"
@@ -5738,7 +5738,7 @@ public extension ProtobufUnittest {
                    builderResult.nestedField = value
                }
           }
-          public func setNestedField(value:Int32) -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
+          public func setNestedField(_ value:Int32) -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
             self.nestedField = value
             return self
           }
@@ -5767,7 +5767,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.NestedOptionType.NestedMessage = builderResult
             return returnMe
           }
-          public func mergeFrom(other:ProtobufUnittest.NestedOptionType.NestedMessage) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
+          public func mergeFrom(_ other:ProtobufUnittest.NestedOptionType.NestedMessage) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
             if other == ProtobufUnittest.NestedOptionType.NestedMessage() {
              return self
             }
@@ -5777,10 +5777,10 @@ public extension ProtobufUnittest {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
+          public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
+          public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
@@ -5833,7 +5833,7 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       try unknownFields.writeToCodedOutputStream(output)
     }
     override public func serializedSize() -> Int32 {
@@ -5847,32 +5847,32 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittest.NestedOptionType> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.NestedOptionType> {
       var mergedArray = Array<ProtobufUnittest.NestedOptionType>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.NestedOptionType? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.NestedOptionType? {
       return try ProtobufUnittest.NestedOptionType.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittest.NestedOptionType {
+    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.NestedOptionType {
       return try ProtobufUnittest.NestedOptionType.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType {
       return try ProtobufUnittest.NestedOptionType.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittest.NestedOptionType {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.NestedOptionType {
       return try ProtobufUnittest.NestedOptionType.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType {
       return try ProtobufUnittest.NestedOptionType.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.NestedOptionType {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.NestedOptionType {
       return try ProtobufUnittest.NestedOptionType.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType {
       return try ProtobufUnittest.NestedOptionType.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.NestedOptionType.Builder {
@@ -5890,10 +5890,10 @@ public extension ProtobufUnittest {
     public func toBuilder() throws -> ProtobufUnittest.NestedOptionType.Builder {
       return try ProtobufUnittest.NestedOptionType.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:ProtobufUnittest.NestedOptionType) throws -> ProtobufUnittest.NestedOptionType.Builder {
+    public class func builderWithPrototype(_ prototype:ProtobufUnittest.NestedOptionType) throws -> ProtobufUnittest.NestedOptionType.Builder {
       return try ProtobufUnittest.NestedOptionType.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       output += unknownFields.getDescription(indent)
       return output
@@ -5949,17 +5949,17 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.NestedOptionType = builderResult
         return returnMe
       }
-      public func mergeFrom(other:ProtobufUnittest.NestedOptionType) throws -> ProtobufUnittest.NestedOptionType.Builder {
+      public func mergeFrom(_ other:ProtobufUnittest.NestedOptionType) throws -> ProtobufUnittest.NestedOptionType.Builder {
         if other == ProtobufUnittest.NestedOptionType() {
          return self
         }
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.NestedOptionType.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.NestedOptionType.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedOptionType.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()

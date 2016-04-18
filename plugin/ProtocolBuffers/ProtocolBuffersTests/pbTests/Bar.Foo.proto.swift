@@ -31,7 +31,7 @@ public extension Bar {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
     }
-    public func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(_ registry:ExtensionRegistry) {
     }
   }
 
@@ -45,7 +45,7 @@ public extension Bar {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasHello {
         try output.writeString(1, value:hello)
       }
@@ -65,32 +65,32 @@ public extension Bar {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Bar.Foo> {
+    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<Bar.Foo> {
       var mergedArray = Array<Bar.Foo>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Bar.Foo? {
+    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> Bar.Foo? {
       return try Bar.Foo.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Bar.Foo {
+    public class func parseFromData(_ data:NSData) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromData(data, extensionRegistry:Bar.FooRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Bar.Foo {
+    public class func parseFromInputStream(_ input:NSInputStream) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Bar.Foo {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Bar.Foo.Builder {
@@ -108,10 +108,10 @@ public extension Bar {
     public func toBuilder() throws -> Bar.Foo.Builder {
       return try Bar.Foo.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Bar.Foo) throws -> Bar.Foo.Builder {
+    public class func builderWithPrototype(_ prototype:Bar.Foo) throws -> Bar.Foo.Builder {
       return try Bar.Foo.Builder().mergeFrom(prototype)
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output:String = ""
       if hasHello {
         output += "\(indent) hello: \(hello) \n"
@@ -167,7 +167,7 @@ public extension Bar {
                builderResult.hello = value
            }
       }
-      public func setHello(value:String) -> Bar.Foo.Builder {
+      public func setHello(_ value:String) -> Bar.Foo.Builder {
         self.hello = value
         return self
       }
@@ -196,7 +196,7 @@ public extension Bar {
         let returnMe:Bar.Foo = builderResult
         return returnMe
       }
-      public func mergeFrom(other:Bar.Foo) throws -> Bar.Foo.Builder {
+      public func mergeFrom(_ other:Bar.Foo) throws -> Bar.Foo.Builder {
         if other == Bar.Foo() {
          return self
         }
@@ -206,10 +206,10 @@ public extension Bar {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Bar.Foo.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> Bar.Foo.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo.Builder {
+      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
