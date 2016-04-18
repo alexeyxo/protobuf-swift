@@ -1308,7 +1308,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearItem() -> ProtobufUnittest.RawMessageSet.Builder {
-        builderResult.item.removeAll(keepCapacity: false)
+        builderResult.item.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:GeneratedMessage {

@@ -209,7 +209,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:$storage_type$) -> $containing_class$.Builder {\n"
+                       "$acontrol$func set$capitalized_name$(_ value:$storage_type$) -> $containing_class$.Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
@@ -322,12 +322,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = array\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:Array<$storage_type$>) -> $containing_class$.Builder {\n"
+                       "$acontrol$func set$capitalized_name$(_ value:Array<$storage_type$>) -> $containing_class$.Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
                        "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
-                       "   builderResult.$name$.removeAll(keepCapacity: false)\n"
+                       "   builderResult.$name$.removeAll(keepingCapacity: false)\n"
                        "   return self\n"
                        "}\n");
     }

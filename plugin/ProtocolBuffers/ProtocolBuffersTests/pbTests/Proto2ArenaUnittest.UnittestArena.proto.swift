@@ -369,7 +369,7 @@ internal extension Proto2ArenaUnittest {
         return self
       }
       internal func clearRepeatedNestedMessage() -> Proto2ArenaUnittest.ArenaMessage.Builder {
-        builderResult.repeatedNestedMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedNestedMessage.removeAll(keepingCapacity: false)
         return self
       }
       var repeatedImportNoArenaMessage:Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage> {
@@ -385,7 +385,7 @@ internal extension Proto2ArenaUnittest {
         return self
       }
       internal func clearRepeatedImportNoArenaMessage() -> Proto2ArenaUnittest.ArenaMessage.Builder {
-        builderResult.repeatedImportNoArenaMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedImportNoArenaMessage.removeAll(keepingCapacity: false)
         return self
       }
       override internal var internalGetResult:GeneratedMessage {

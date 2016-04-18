@@ -2981,7 +2981,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearFoo4() -> ProtobufUnittest.ComplexOptionType1.Builder {
-         builderResult.foo4.removeAll(keepCapacity: false)
+         builderResult.foo4.removeAll(keepingCapacity: false)
          return self
       }
       override public var internalGetResult:ExtendableMessage {
@@ -3596,7 +3596,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearBarney() -> ProtobufUnittest.ComplexOptionType2.Builder {
-        builderResult.barney.removeAll(keepCapacity: false)
+        builderResult.barney.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:ExtendableMessage {

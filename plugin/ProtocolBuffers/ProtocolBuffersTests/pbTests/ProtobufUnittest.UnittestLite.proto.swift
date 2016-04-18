@@ -4253,7 +4253,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedInt32() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedInt32.removeAll(keepCapacity: false)
+         builderResult.repeatedInt32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedInt64:Array<Int64> {
@@ -4269,7 +4269,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedInt64() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedInt64.removeAll(keepCapacity: false)
+         builderResult.repeatedInt64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedUint32:Array<UInt32> {
@@ -4285,7 +4285,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedUint32() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedUint32.removeAll(keepCapacity: false)
+         builderResult.repeatedUint32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedUint64:Array<UInt64> {
@@ -4301,7 +4301,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedUint64() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedUint64.removeAll(keepCapacity: false)
+         builderResult.repeatedUint64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedSint32:Array<Int32> {
@@ -4317,7 +4317,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedSint32() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedSint32.removeAll(keepCapacity: false)
+         builderResult.repeatedSint32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedSint64:Array<Int64> {
@@ -4333,7 +4333,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedSint64() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedSint64.removeAll(keepCapacity: false)
+         builderResult.repeatedSint64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedFixed32:Array<UInt32> {
@@ -4349,7 +4349,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedFixed32() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedFixed32.removeAll(keepCapacity: false)
+         builderResult.repeatedFixed32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedFixed64:Array<UInt64> {
@@ -4365,7 +4365,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedFixed64() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedFixed64.removeAll(keepCapacity: false)
+         builderResult.repeatedFixed64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedSfixed32:Array<Int32> {
@@ -4381,7 +4381,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedSfixed32() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedSfixed32.removeAll(keepCapacity: false)
+         builderResult.repeatedSfixed32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedSfixed64:Array<Int64> {
@@ -4397,7 +4397,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedSfixed64() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedSfixed64.removeAll(keepCapacity: false)
+         builderResult.repeatedSfixed64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedFloat:Array<Float> {
@@ -4413,7 +4413,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedFloat() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedFloat.removeAll(keepCapacity: false)
+         builderResult.repeatedFloat.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedDouble:Array<Double> {
@@ -4429,7 +4429,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedDouble() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedDouble.removeAll(keepCapacity: false)
+         builderResult.repeatedDouble.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedBool:Array<Bool> {
@@ -4445,7 +4445,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedBool() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedBool.removeAll(keepCapacity: false)
+         builderResult.repeatedBool.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedString:Array<String> {
@@ -4461,7 +4461,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedString() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedString.removeAll(keepCapacity: false)
+         builderResult.repeatedString.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedBytes:Array<NSData> {
@@ -4477,7 +4477,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedBytes() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedBytes.removeAll(keepCapacity: false)
+         builderResult.repeatedBytes.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedGroup:Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup> {
@@ -4493,7 +4493,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedGroup() -> ProtobufUnittest.TestAllTypesLite.Builder {
-        builderResult.repeatedGroup.removeAll(keepCapacity: false)
+        builderResult.repeatedGroup.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedNestedMessage:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage> {
@@ -4509,7 +4509,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedNestedMessage() -> ProtobufUnittest.TestAllTypesLite.Builder {
-        builderResult.repeatedNestedMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedNestedMessage.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedForeignMessage:Array<ProtobufUnittest.ForeignMessageLite> {
@@ -4525,7 +4525,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedForeignMessage() -> ProtobufUnittest.TestAllTypesLite.Builder {
-        builderResult.repeatedForeignMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedForeignMessage.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessageLite> {
@@ -4541,7 +4541,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedImportMessage() -> ProtobufUnittest.TestAllTypesLite.Builder {
-        builderResult.repeatedImportMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedImportMessage.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedNestedEnum:Array<ProtobufUnittest.TestAllTypesLite.NestedEnum> {
@@ -4557,7 +4557,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedNestedEnum() -> ProtobufUnittest.TestAllTypesLite.Builder {
-        builderResult.repeatedNestedEnum.removeAll(keepCapacity: false)
+        builderResult.repeatedNestedEnum.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedForeignEnum:Array<ProtobufUnittest.ForeignEnumLite> {
@@ -4573,7 +4573,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedForeignEnum() -> ProtobufUnittest.TestAllTypesLite.Builder {
-        builderResult.repeatedForeignEnum.removeAll(keepCapacity: false)
+        builderResult.repeatedForeignEnum.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedImportEnum:Array<ProtobufUnittestImport.ImportEnumLite> {
@@ -4589,7 +4589,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedImportEnum() -> ProtobufUnittest.TestAllTypesLite.Builder {
-        builderResult.repeatedImportEnum.removeAll(keepCapacity: false)
+        builderResult.repeatedImportEnum.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedStringPiece:Array<String> {
@@ -4605,7 +4605,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedStringPiece() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedStringPiece.removeAll(keepCapacity: false)
+         builderResult.repeatedStringPiece.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedCord:Array<String> {
@@ -4621,7 +4621,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedCord() -> ProtobufUnittest.TestAllTypesLite.Builder {
-         builderResult.repeatedCord.removeAll(keepCapacity: false)
+         builderResult.repeatedCord.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedLazyMessage:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage> {
@@ -4637,7 +4637,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedLazyMessage() -> ProtobufUnittest.TestAllTypesLite.Builder {
-        builderResult.repeatedLazyMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedLazyMessage.removeAll(keepingCapacity: false)
         return self
       }
       public var hasDefaultInt32:Bool {
@@ -6489,7 +6489,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedInt32() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedInt32.removeAll(keepCapacity: false)
+         builderResult.packedInt32.removeAll(keepingCapacity: false)
          return self
       }
       public var packedInt64:Array<Int64> {
@@ -6505,7 +6505,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedInt64() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedInt64.removeAll(keepCapacity: false)
+         builderResult.packedInt64.removeAll(keepingCapacity: false)
          return self
       }
       public var packedUint32:Array<UInt32> {
@@ -6521,7 +6521,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedUint32() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedUint32.removeAll(keepCapacity: false)
+         builderResult.packedUint32.removeAll(keepingCapacity: false)
          return self
       }
       public var packedUint64:Array<UInt64> {
@@ -6537,7 +6537,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedUint64() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedUint64.removeAll(keepCapacity: false)
+         builderResult.packedUint64.removeAll(keepingCapacity: false)
          return self
       }
       public var packedSint32:Array<Int32> {
@@ -6553,7 +6553,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedSint32() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedSint32.removeAll(keepCapacity: false)
+         builderResult.packedSint32.removeAll(keepingCapacity: false)
          return self
       }
       public var packedSint64:Array<Int64> {
@@ -6569,7 +6569,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedSint64() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedSint64.removeAll(keepCapacity: false)
+         builderResult.packedSint64.removeAll(keepingCapacity: false)
          return self
       }
       public var packedFixed32:Array<UInt32> {
@@ -6585,7 +6585,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedFixed32() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedFixed32.removeAll(keepCapacity: false)
+         builderResult.packedFixed32.removeAll(keepingCapacity: false)
          return self
       }
       public var packedFixed64:Array<UInt64> {
@@ -6601,7 +6601,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedFixed64() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedFixed64.removeAll(keepCapacity: false)
+         builderResult.packedFixed64.removeAll(keepingCapacity: false)
          return self
       }
       public var packedSfixed32:Array<Int32> {
@@ -6617,7 +6617,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedSfixed32() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedSfixed32.removeAll(keepCapacity: false)
+         builderResult.packedSfixed32.removeAll(keepingCapacity: false)
          return self
       }
       public var packedSfixed64:Array<Int64> {
@@ -6633,7 +6633,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedSfixed64() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedSfixed64.removeAll(keepCapacity: false)
+         builderResult.packedSfixed64.removeAll(keepingCapacity: false)
          return self
       }
       public var packedFloat:Array<Float> {
@@ -6649,7 +6649,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedFloat() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedFloat.removeAll(keepCapacity: false)
+         builderResult.packedFloat.removeAll(keepingCapacity: false)
          return self
       }
       public var packedDouble:Array<Double> {
@@ -6665,7 +6665,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedDouble() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedDouble.removeAll(keepCapacity: false)
+         builderResult.packedDouble.removeAll(keepingCapacity: false)
          return self
       }
       public var packedBool:Array<Bool> {
@@ -6681,7 +6681,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedBool() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-         builderResult.packedBool.removeAll(keepCapacity: false)
+         builderResult.packedBool.removeAll(keepingCapacity: false)
          return self
       }
       public var packedEnum:Array<ProtobufUnittest.ForeignEnumLite> {
@@ -6697,7 +6697,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearPackedEnum() -> ProtobufUnittest.TestPackedTypesLite.Builder {
-        builderResult.packedEnum.removeAll(keepCapacity: false)
+        builderResult.packedEnum.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:GeneratedMessage {
@@ -8717,7 +8717,7 @@ public extension ProtobufUnittest {
             return self
           }
           public func clearField1() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
-            builderResult.field1.removeAll(keepCapacity: false)
+            builderResult.field1.removeAll(keepingCapacity: false)
             return self
           }
           public var field2:Array<ProtobufUnittest.TestAllTypesLite> {
@@ -8733,7 +8733,7 @@ public extension ProtobufUnittest {
             return self
           }
           public func clearField2() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
-            builderResult.field2.removeAll(keepCapacity: false)
+            builderResult.field2.removeAll(keepingCapacity: false)
             return self
           }
           public var field3:Array<ProtobufUnittest.TestAllTypesLite> {
@@ -8749,7 +8749,7 @@ public extension ProtobufUnittest {
             return self
           }
           public func clearField3() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
-            builderResult.field3.removeAll(keepCapacity: false)
+            builderResult.field3.removeAll(keepingCapacity: false)
             return self
           }
           public var group1:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1> {
@@ -8765,7 +8765,7 @@ public extension ProtobufUnittest {
             return self
           }
           public func clearGroup1() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
-            builderResult.group1.removeAll(keepCapacity: false)
+            builderResult.group1.removeAll(keepingCapacity: false)
             return self
           }
           public var group2:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2> {
@@ -8781,7 +8781,7 @@ public extension ProtobufUnittest {
             return self
           }
           public func clearGroup2() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
-            builderResult.group2.removeAll(keepCapacity: false)
+            builderResult.group2.removeAll(keepingCapacity: false)
             return self
           }
           public var ext1:Array<ProtobufUnittest.TestAllTypesLite> {
@@ -8797,7 +8797,7 @@ public extension ProtobufUnittest {
             return self
           }
           public func clearExt1() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
-            builderResult.ext1.removeAll(keepCapacity: false)
+            builderResult.ext1.removeAll(keepingCapacity: false)
             return self
           }
           public var ext2:Array<ProtobufUnittest.TestAllTypesLite> {
@@ -8813,7 +8813,7 @@ public extension ProtobufUnittest {
             return self
           }
           public func clearExt2() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
-            builderResult.ext2.removeAll(keepCapacity: false)
+            builderResult.ext2.removeAll(keepingCapacity: false)
             return self
           }
           override public var internalGetResult:GeneratedMessage {
@@ -9746,7 +9746,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedAllTypes() -> ProtobufUnittest.TestParsingMergeLite.Builder {
-        builderResult.repeatedAllTypes.removeAll(keepCapacity: false)
+        builderResult.repeatedAllTypes.removeAll(keepingCapacity: false)
         return self
       }
       public var hasOptionalGroup:Bool {
@@ -9813,7 +9813,7 @@ public extension ProtobufUnittest {
         return self
       }
       public func clearRepeatedGroup() -> ProtobufUnittest.TestParsingMergeLite.Builder {
-        builderResult.repeatedGroup.removeAll(keepCapacity: false)
+        builderResult.repeatedGroup.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:ExtendableMessage {
