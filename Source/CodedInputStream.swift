@@ -68,7 +68,7 @@ public class CodedInputStream
         return false
     }
     
-    private func refillBuffer(mustSucceed:Bool) throws -> Bool
+    private func refillBuffer(_ mustSucceed:Bool) throws -> Bool
     {
         guard bufferPos >= bufferSize else
         {
@@ -120,7 +120,7 @@ public class CodedInputStream
     }
     
     
-    public func readRawData(size:Int32) throws -> NSData {
+    public func readRawData(_ size:Int32) throws -> NSData {
         
         guard size >= 0 else {
             throw ProtocolBuffersError.InvalidProtocolBuffer("Negative Size")
@@ -212,7 +212,7 @@ public class CodedInputStream
 
     
     
-    public func skipRawData(size:Int32) throws
+    public func skipRawData(_ size:Int32) throws
     {
         
         guard size >= 0 else {
@@ -309,7 +309,7 @@ public class CodedInputStream
         return lastTag
     }
     
-    public func checkLastTagWas(value:Int32) throws
+    public func checkLastTagWas(_ value:Int32) throws
     {
         guard lastTag == value else
         {
@@ -317,7 +317,7 @@ public class CodedInputStream
         }
     }
     
-    public func skipField(tag:Int32) throws ->  Bool
+    public func skipField(_ tag:Int32) throws ->  Bool
     {
         let wireFormat = WireFormat.getTagWireType(tag)
         let format:WireFormat? = WireFormat(rawValue: wireFormat)
@@ -427,7 +427,7 @@ public class CodedInputStream
         return res
     }
     
-    public class func readRawVarint32(firstByte:UInt8, inputStream:NSInputStream) throws -> Int32
+    public class func readRawVarint32(_ firstByte:UInt8, inputStream:NSInputStream) throws -> Int32
     {
         if ((Int32(firstByte) & 0x80) == 0) {
             return Int32(firstByte)
@@ -581,7 +581,7 @@ public class CodedInputStream
     {
         return WireFormat.decodeZigZag64(try readRawVarint64())
     }
-    public func setRecursionLimit(limit:Int32) throws -> Int32 {
+    public func setRecursionLimit(_ limit:Int32) throws -> Int32 {
         
         guard limit >= 0 else {
             throw ProtocolBuffersError.IllegalArgument("Recursion limit cannot be negative")
@@ -590,7 +590,7 @@ public class CodedInputStream
         recursionLimit = limit
         return oldLimit
     }
-    public func setSizeLimit(limit:Int32) throws -> Int32
+    public func setSizeLimit(_ limit:Int32) throws -> Int32
     {
         guard limit >= 0 else {
             throw ProtocolBuffersError.IllegalArgument("Recursion limit cannot be negative")
@@ -620,7 +620,7 @@ public class CodedInputStream
         }
     }
     
-    public func pushLimit(byteLimit:Int32) throws -> Int32
+    public func pushLimit(_ byteLimit:Int32) throws -> Int32
     {
         guard byteLimit >= 0 else {
             throw ProtocolBuffersError.InvalidProtocolBuffer("Negative Size")
@@ -637,7 +637,7 @@ public class CodedInputStream
     
     
     
-    public func popLimit(oldLimit:Int32)
+    public func popLimit(_ oldLimit:Int32)
     {
         currentLimit = oldLimit
         recomputeBufferSizeAfterLimit()
@@ -655,7 +655,7 @@ public class CodedInputStream
     }
     
     
-    public func readGroup(fieldNumber:Int32, builder:MessageBuilder, extensionRegistry:ExtensionRegistry) throws
+    public func readGroup(_ fieldNumber:Int32, builder:MessageBuilder, extensionRegistry:ExtensionRegistry) throws
     {
         
         guard recursionDepth < recursionLimit else {
@@ -666,7 +666,7 @@ public class CodedInputStream
         try checkLastTagWas(WireFormat.EndGroup.makeTag(fieldNumber))
         recursionDepth-=1
     }
-    public func readUnknownGroup(fieldNumber:Int32, builder:UnknownFieldSet.Builder) throws
+    public func readUnknownGroup(_ fieldNumber:Int32, builder:UnknownFieldSet.Builder) throws
     {
         guard recursionDepth < recursionLimit else {
             throw ProtocolBuffersError.InvalidProtocolBuffer("Recursion Limit Exceeded")
@@ -677,7 +677,7 @@ public class CodedInputStream
         recursionDepth-=1
     }
 
-    public func readMessage(builder:MessageBuilder, extensionRegistry:ExtensionRegistry) throws {
+    public func readMessage(_ builder:MessageBuilder, extensionRegistry:ExtensionRegistry) throws {
         let length = try readRawVarint32()
         guard recursionDepth < recursionLimit else {
             throw ProtocolBuffersError.InvalidProtocolBuffer("Recursion Limit Exceeded")

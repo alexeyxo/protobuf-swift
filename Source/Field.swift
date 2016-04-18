@@ -127,7 +127,7 @@ final public class Field:Equatable,Hashable
         groupArray = Array<UnknownFieldSet>()
     }
     
-    public func getSerializedSize(fieldNumber:Int32) -> Int32
+    public func getSerializedSize(_ fieldNumber:Int32) -> Int32
     {
         var result:Int32 = 0
     
@@ -159,7 +159,7 @@ final public class Field:Equatable,Hashable
         return result
     }
     
-    public func getSerializedSizeAsMessageSetExtension(fieldNumber:Int32) -> Int32 {
+    public func getSerializedSizeAsMessageSetExtension(_ fieldNumber:Int32) -> Int32 {
         var result:Int32 = 0
         for value in lengthDelimited {
             result += value.computeRawMessageSetExtensionSize(fieldNumber)
@@ -167,7 +167,7 @@ final public class Field:Equatable,Hashable
         return result
     }
     
-    public func writeTo(fieldNumber:Int32, output:CodedOutputStream) throws
+    public func writeTo(_ fieldNumber:Int32, output:CodedOutputStream) throws
     {
 
         for value in variantArray
@@ -193,7 +193,7 @@ final public class Field:Equatable,Hashable
 
     }
     
-    public func getDescription(fieldNumber:Int32, indent:String) -> String
+    public func getDescription(_ fieldNumber:Int32, indent:String) -> String
     {
         var outputString = ""
         for value in variantArray
@@ -226,7 +226,7 @@ final public class Field:Equatable,Hashable
 
     }
     
-    public func writeAsMessageSetExtensionTo(fieldNumber:Int32, output:CodedOutputStream) throws
+    public func writeAsMessageSetExtensionTo(_ fieldNumber:Int32, output:CodedOutputStream) throws
     {
         for value in lengthDelimited
         {
@@ -277,7 +277,7 @@ public extension Field
         lengthDelimited.removeAll(keepingCapacity: false)
     }
     
-    public func mergeFromField(other:Field) -> Field
+    public func mergeFromField(_ other:Field) -> Field
     {
         if (other.variantArray.count > 0)
         {

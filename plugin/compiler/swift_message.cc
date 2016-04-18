@@ -317,7 +317,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrol$ func toBuilder() throws -> $classNameReturnedType$.Builder {\n"
                        "  return try $classNameReturnedType$.builderWithPrototype(self)\n"
                        "}\n"
-                       "$acontrol$ class func builderWithPrototype(prototype:$classNameReturnedType$) throws -> $classNameReturnedType$.Builder {\n"
+                       "$acontrol$ class func builderWithPrototype(_ prototype:$classNameReturnedType$) throws -> $classNameReturnedType$.Builder {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFrom(prototype)\n"
                        "}\n");
         
@@ -357,7 +357,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         sort(sorted_extensions.begin(), sorted_extensions.end(),
              ExtensionRangeOrdering());
         
-        printer->Print(variables_,"override $acontrol$ func writeToCodedOutputStream(output:CodedOutputStream) throws {\n");
+        printer->Print(variables_,"override $acontrol$ func writeToCodedOutputStream(_ output:CodedOutputStream) throws {\n");
         printer->Indent();
         
         for (int i = 0, j = 0;
@@ -427,7 +427,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
              ExtensionRangeOrdering());
         
         printer->Print(
-                       "override $acontrol$ func getDescription(indent:String) throws -> String {\n","acontrol", GetAccessControlType(descriptor_->file()));
+                       "override $acontrol$ func getDescription(_ indent:String) throws -> String {\n","acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
         printer->Print("var output:String = \"\"\n");
         
@@ -561,32 +561,32 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateParseFromMethodsSource(io::Printer* printer) {
         printer->Print(variables_,
-                       "$acontrol$ class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<$classNameReturnedType$> {\n"
+                       "$acontrol$ class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<$classNameReturnedType$> {\n"
                        "  var mergedArray = Array<$classNameReturnedType$>()\n"
                        "  while let value = try parseFromDelimitedFromInputStream(input) {\n"
                        "    mergedArray += [value]\n"
                        "  }\n"
                        "  return mergedArray\n"
                        "}\n"
-                       "$acontrol$ class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> $classNameReturnedType$? {\n"
+                       "$acontrol$ class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> $classNameReturnedType$? {\n"
                        "  return try $classNameReturnedType$.Builder().mergeDelimitedFromInputStream(input)?.build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromData(data:NSData) throws -> $classNameReturnedType$ {\n"
+                       "$acontrol$ class func parseFromData(_ data:NSData) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFromData(data, extensionRegistry:$fileName$.sharedInstance.extensionRegistry).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
+                       "$acontrol$ class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromInputStream(input:NSInputStream) throws -> $classNameReturnedType$ {\n"
+                       "$acontrol$ class func parseFromInputStream(_ input:NSInputStream) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFromInputStream(input).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
+                       "$acontrol$ class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromCodedInputStream(input:CodedInputStream) throws -> $classNameReturnedType$ {\n"
+                       "$acontrol$ class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFromCodedInputStream(input).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
+                       "$acontrol$ class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n");
     }
@@ -721,7 +721,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
         
         printer->Print(variables_,
-                       "$acontrol$ func mergeFrom(other:$classNameReturnedType$) throws -> $classNameReturnedType$.Builder {\n");
+                       "$acontrol$ func mergeFrom(_ other:$classNameReturnedType$) throws -> $classNameReturnedType$.Builder {\n");
 
         printer->Indent();
         printer->Print(variables_,
@@ -752,10 +752,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
         
         printer->Print(variables_,
-                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
+                       "$acontrol$ override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
                        "     return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
-                       "$acontrol$ override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$.Builder {\n");
+                       "$acontrol$ override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$.Builder {\n");
         
         printer->Indent();
         printer->Print(

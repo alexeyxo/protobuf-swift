@@ -39,8 +39,8 @@ public protocol Message:class,MessageInit
     var unknownFields:UnknownFieldSet{get}
     func serializedSize() -> Int32
     func isInitialized() -> Bool
-    func writeToCodedOutputStream(output:CodedOutputStream) throws
-    func writeToOutputStream(output:NSOutputStream) throws
+    func writeToCodedOutputStream(_ output:CodedOutputStream) throws
+    func writeToOutputStream(_ output:NSOutputStream) throws
     func data() throws -> NSData
     static func classBuilder()-> MessageBuilder
     func classBuilder()-> MessageBuilder
@@ -53,15 +53,15 @@ public protocol MessageBuilder: class
      func clear() -> Self
      func isInitialized()-> Bool
      func build() throws -> AbstractMessage
-     func mergeUnknownFields(unknownField:UnknownFieldSet) throws -> Self
-     func mergeFromCodedInputStream(input:CodedInputStream) throws ->  Self
-     func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
-     func mergeFromData(data:NSData) throws -> Self
-     func mergeFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Self
-     func mergeFromInputStream(input:NSInputStream) throws -> Self
-     func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
+     func mergeUnknownFields(_ unknownField:UnknownFieldSet) throws -> Self
+     func mergeFromCodedInputStream(_ input:CodedInputStream) throws ->  Self
+     func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
+     func mergeFromData(_ data:NSData) throws -> Self
+     func mergeFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> Self
+     func mergeFromInputStream(_ input:NSInputStream) throws -> Self
+     func mergeFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
      //Delimited Encoding/Decoding
-     func mergeDelimitedFromInputStream(input:NSInputStream) throws -> Self?
+     func mergeDelimitedFromInputStream(_ input:NSInputStream) throws -> Self?
 }
 
 public func == (lhs: AbstractMessage, rhs: AbstractMessage) -> Bool
@@ -98,22 +98,22 @@ public class AbstractMessage:Hashable, Message {
         return 0
     }
     
-    public func getDescription(indent:String) throws -> String {
+    public func getDescription(_ indent:String) throws -> String {
         throw ProtocolBuffersError.Obvious("Override")
     }
     
-    public func writeToCodedOutputStream(output: CodedOutputStream) throws {
+    public func writeToCodedOutputStream(_ output: CodedOutputStream) throws {
         throw ProtocolBuffersError.Obvious("Override")
     }
     
-    public func writeToOutputStream(output: NSOutputStream) throws
+    public func writeToOutputStream(_ output: NSOutputStream) throws
     {
         let codedOutput:CodedOutputStream = CodedOutputStream(output:output)
         try! writeToCodedOutputStream(codedOutput)
         try codedOutput.flush()
     }
     
-    public func writeDelimitedToOutputStream(outputStream:NSOutputStream) throws
+    public func writeDelimitedToOutputStream(_ outputStream: NSOutputStream) throws
     {
         let serializedDataSize = serializedSize()
         let codedOutputStream = CodedOutputStream(output: outputStream)
@@ -170,24 +170,24 @@ public class AbstractMessageBuilder:MessageBuilder
         return false
     }
     
-    public func mergeFromCodedInputStream(input:CodedInputStream) throws ->  Self
+    public func mergeFromCodedInputStream(_ input:CodedInputStream) throws ->  Self
     {
         return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
     }
     
-    public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws ->  Self
+    public func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws ->  Self
     {
         throw ProtocolBuffersError.Obvious("Override")
     }
     
-    public func mergeUnknownFields(unknownField:UnknownFieldSet) throws ->  Self
+    public func mergeUnknownFields(_ unknownField: UnknownFieldSet) throws ->  Self
     {
         let merged:UnknownFieldSet = try UnknownFieldSet.builderWithUnknownFields(unknownFields).mergeUnknownFields(unknownField).build()
         unknownFields = merged
         return self
     }
     
-    public func mergeFromData(data:NSData) throws ->  Self
+    public func mergeFromData(_ data:NSData) throws ->  Self
     {
         let input:CodedInputStream = CodedInputStream(data:data)
         try mergeFromCodedInputStream(input)
@@ -196,7 +196,7 @@ public class AbstractMessageBuilder:MessageBuilder
     }
     
     
-    public func mergeFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws ->  Self
+    public func mergeFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws ->  Self
     {
         let input:CodedInputStream = CodedInputStream(data:data)
         try mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry)
@@ -204,14 +204,14 @@ public class AbstractMessageBuilder:MessageBuilder
         return self
     }
     
-    public func mergeFromInputStream(input:NSInputStream) throws -> Self
+    public func mergeFromInputStream(_ input: NSInputStream) throws -> Self
     {
         let codedInput:CodedInputStream = CodedInputStream(inputStream: input)
         try mergeFromCodedInputStream(codedInput)
         try codedInput.checkLastTagWas(0)
         return self
     }
-    public func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
+    public func mergeFromInputStream(_ input: NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
     {
         let codedInput:CodedInputStream = CodedInputStream(inputStream: input)
         try mergeFromCodedInputStream(codedInput, extensionRegistry:extensionRegistry)
@@ -220,7 +220,7 @@ public class AbstractMessageBuilder:MessageBuilder
     }
     
     //Delimited Encoding/Decoding
-    public func mergeDelimitedFromInputStream(input: NSInputStream) throws -> Self? {
+    public func mergeDelimitedFromInputStream(_ input: NSInputStream) throws -> Self? {
         var firstByte:UInt8 = 0
         if input.read(&firstByte, maxLength: 1) != 1
         {
