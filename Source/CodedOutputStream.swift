@@ -65,11 +65,11 @@ public class CodedOutputStream
         }
     }
     
-    public func writeRawData(data:NSData) throws
+    public func writeRawData(_ data:NSData) throws
     {
         try writeRawData(data, offset:0, length: Int32(data.length))
     }
-    public func writeRawData(data:NSData, offset:Int32, length:Int32) throws
+    public func writeRawData(_ data:NSData, offset:Int32, length:Int32) throws
     {
         var aLength = length
         var aOffset = offset
@@ -85,57 +85,57 @@ public class CodedOutputStream
         }
     }
     
-    public func writeDoubleNoTag(value:Double) throws
+    public func writeDoubleNoTag(_ value:Double) throws
     {
         var returnValue:Int64 = 0
         returnValue = WireFormat.convertTypes(convertValue: value, defaultValue:returnValue)
         try writeRawLittleEndian64(returnValue)
     }
     
-    public func writeDouble(fieldNumber:Int32, value aValue:Double) throws
+    public func writeDouble(_ fieldNumber:Int32, value aValue:Double) throws
     {
         try writeTag(fieldNumber, format: WireFormat.Fixed64)
         try writeDoubleNoTag(aValue)
     }
     
-    public func writeFloatNoTag(value:Float) throws
+    public func writeFloatNoTag(_ value:Float) throws
     {
         var returnValue:Int32 = 0
         returnValue = WireFormat.convertTypes(convertValue: value, defaultValue:returnValue)
         try writeRawLittleEndian32(returnValue)
     }
     
-    public func writeFloat(fieldNumber:Int32, value aValue:Float) throws
+    public func writeFloat(_ fieldNumber:Int32, value aValue:Float) throws
     {
         try writeTag(fieldNumber, format: WireFormat.Fixed32)
         try writeFloatNoTag(aValue)
     }
     
-    public func writeUInt64NoTag(value:UInt64) throws
+    public func writeUInt64NoTag(_ value:UInt64) throws
     {
         var retvalue:Int64 = 0
         retvalue = WireFormat.convertTypes(convertValue: value, defaultValue:retvalue)
         try writeRawVarint64(retvalue)
     }
     
-    public func writeUInt64(fieldNumber:Int32, value:UInt64) throws
+    public func writeUInt64(_ fieldNumber:Int32, value:UInt64) throws
     {
         try writeTag(fieldNumber, format:WireFormat.Varint)
         try writeUInt64NoTag(value)
     }
     
-    public func writeInt64NoTag(value:Int64) throws
+    public func writeInt64NoTag(_ value:Int64) throws
     {
         try writeRawVarint64(value)
     }
     
-    public func writeInt64(fieldNumber:Int32, value aValue:Int64) throws
+    public func writeInt64(_ fieldNumber:Int32, value aValue:Int64) throws
     {
         try writeTag(fieldNumber, format: WireFormat.Varint)
         try writeInt64NoTag(aValue)
     }
     
-    public func writeInt32NoTag(value:Int32) throws
+    public func writeInt32NoTag(_ value:Int32) throws
     {
         if (value >= 0) {
             try writeRawVarint32(value)
@@ -145,179 +145,179 @@ public class CodedOutputStream
         }
     }
     
-    public func writeInt32(fieldNumber:Int32, value:Int32) throws
+    public func writeInt32(_ fieldNumber:Int32, value:Int32) throws
     {
         try writeTag(fieldNumber, format: WireFormat.Varint)
         try writeInt32NoTag(value)
     }
     
-    public func writeFixed64NoTag(value:UInt64) throws
+    public func writeFixed64NoTag(_ value:UInt64) throws
     {
         var retvalue:Int64 = 0
         retvalue = WireFormat.convertTypes(convertValue: value, defaultValue:retvalue)
         try writeRawLittleEndian64(retvalue)
     }
     
-    public func writeFixed64(fieldNumber:Int32, value:UInt64) throws
+    public func writeFixed64(_ fieldNumber:Int32, value:UInt64) throws
     {
         try writeTag(fieldNumber, format: WireFormat.Fixed64)
         try writeFixed64NoTag(value)
     }
     
-    public func writeFixed32NoTag(value:UInt32) throws
+    public func writeFixed32NoTag(_ value:UInt32) throws
     {
         var retvalue:Int32 = 0
         retvalue = WireFormat.convertTypes(convertValue: value, defaultValue:retvalue)
         try writeRawLittleEndian32(retvalue)
     }
     
-    public func writeFixed32(fieldNumber:Int32, value:UInt32) throws
+    public func writeFixed32(_ fieldNumber:Int32, value:UInt32) throws
     {
         try writeTag(fieldNumber, format:WireFormat.Fixed32)
         try writeFixed32NoTag(value)
     }
     
-    public func writeBoolNoTag(value:Bool) throws
+    public func writeBoolNoTag(_ value:Bool) throws
     {
         try writeRawByte(byte: value ? 1 : 0)
     }
     
-    public func writeBool(fieldNumber:Int32, value:Bool) throws
+    public func writeBool(_ fieldNumber:Int32, value:Bool) throws
     {
         try writeTag(fieldNumber, format:WireFormat.Varint)
         try writeBoolNoTag(value)
     }
     
-    public func writeStringNoTag(value:String) throws
+    public func writeStringNoTag(_ value:String) throws
     {        
         let data = value.utf8ToNSData()
         try writeRawVarint32(Int32(data.length))
         try writeRawData(data)
     }
     
-    public func writeString(fieldNumber:Int32, value:String) throws
+    public func writeString(_ fieldNumber:Int32, value:String) throws
     {
         try writeTag(fieldNumber, format: WireFormat.LengthDelimited)
         try writeStringNoTag(value)
     }
     
-    public func writeGroupNoTag(fieldNumber:Int32, value:Message) throws
+    public func writeGroupNoTag(_ fieldNumber:Int32, value:Message) throws
     {
         try value.writeToCodedOutputStream(self)
         try writeTag(fieldNumber, format: WireFormat.EndGroup)
     }
     
-    public func writeGroup(fieldNumber:Int32, value:Message) throws
+    public func writeGroup(_ fieldNumber:Int32, value:Message) throws
     {
         try writeTag(fieldNumber, format: WireFormat.StartGroup)
         try writeGroupNoTag(fieldNumber, value: value)
     }
     
-    public func writeUnknownGroupNoTag(fieldNumber:Int32, value:UnknownFieldSet) throws
+    public func writeUnknownGroupNoTag(_ fieldNumber:Int32, value:UnknownFieldSet) throws
     {
         try value.writeToCodedOutputStream(self)
         try writeTag(fieldNumber, format:WireFormat.EndGroup)
     }
     
-    public func writeUnknownGroup(fieldNumber:Int32, value:UnknownFieldSet) throws
+    public func writeUnknownGroup(_ fieldNumber:Int32, value:UnknownFieldSet) throws
     {
         try writeTag(fieldNumber, format:WireFormat.StartGroup)
         try writeUnknownGroupNoTag(fieldNumber, value:value)
     }
     
-    public func writeMessageNoTag(value:Message) throws
+    public func writeMessageNoTag(_ value:Message) throws
     {
         try writeRawVarint32(value.serializedSize())
         try value.writeToCodedOutputStream(self)
     }
     
-    public func writeMessage(fieldNumber:Int32, value:Message) throws
+    public func writeMessage(_ fieldNumber:Int32, value:Message) throws
     {
         try writeTag(fieldNumber, format: WireFormat.LengthDelimited)
         try writeMessageNoTag(value)
     }
     
-    public func writeDataNoTag(data:NSData) throws
+    public func writeDataNoTag(_ data:NSData) throws
     {
         try writeRawVarint32(Int32(data.length))
         try writeRawData(data)
     }
     
-    public func writeData(fieldNumber:Int32, value:NSData) throws
+    public func writeData(_ fieldNumber:Int32, value:NSData) throws
     {
         try writeTag(fieldNumber, format: WireFormat.LengthDelimited)
         try writeDataNoTag(value)
     }
     
-    public func writeUInt32NoTag(value:UInt32) throws
+    public func writeUInt32NoTag(_ value:UInt32) throws
     {
         var retvalue:Int32 = 0
         retvalue = WireFormat.convertTypes(convertValue: value, defaultValue:retvalue)
         try writeRawVarint32(retvalue)
     }
     
-    public func writeUInt32(fieldNumber:Int32, value:UInt32) throws
+    public func writeUInt32(_ fieldNumber:Int32, value:UInt32) throws
     {
         try writeTag(fieldNumber, format: WireFormat.Varint)
         try writeUInt32NoTag(value)
     }
     
-    public func writeEnumNoTag(value:Int32) throws
+    public func writeEnumNoTag(_ value:Int32) throws
     {
         try writeRawVarint32(value)
     }
     
-    public func writeEnum(fieldNumber:Int32, value:Int32) throws
+    public func writeEnum(_ fieldNumber:Int32, value:Int32) throws
     {
         try writeTag(fieldNumber, format:WireFormat.Varint)
         try writeEnumNoTag(value)
     }
     
-    public func writeSFixed32NoTag(value:Int32) throws
+    public func writeSFixed32NoTag(_ value:Int32) throws
     {
         try writeRawLittleEndian32(value)
     }
     
-    public func writeSFixed32(fieldNumber:Int32, value:Int32) throws
+    public func writeSFixed32(_ fieldNumber:Int32, value:Int32) throws
     {
         try writeTag(fieldNumber, format:WireFormat.Fixed32)
         try writeSFixed32NoTag(value)
     }
 
-    public func writeSFixed64NoTag(value:Int64) throws
+    public func writeSFixed64NoTag(_ value:Int64) throws
     {
          try writeRawLittleEndian64(value)
     }
     
-    public func writeSFixed64(fieldNumber:Int32, value:Int64) throws
+    public func writeSFixed64(_ fieldNumber:Int32, value:Int64) throws
     {
         try writeTag(fieldNumber, format:WireFormat.Fixed64)
         try writeSFixed64NoTag(value)
     }
     
-    public func writeSInt32NoTag(value:Int32) throws
+    public func writeSInt32NoTag(_ value:Int32) throws
     {
         try writeRawVarint32(WireFormat.encodeZigZag32(value))
     }
     
-    public func writeSInt32(fieldNumber:Int32, value:Int32) throws
+    public func writeSInt32(_ fieldNumber:Int32, value:Int32) throws
     {
         try writeTag(fieldNumber, format:WireFormat.Varint)
         try writeSInt32NoTag(value)
     }
     
-    public func writeSInt64NoTag(value:Int64) throws
+    public func writeSInt64NoTag(_ value:Int64) throws
     {
         try writeRawVarint64(WireFormat.encodeZigZag64(value))
     }
     
-    public func writeSInt64(fieldNumber:Int32, value:Int64) throws
+    public func writeSInt64(_ fieldNumber:Int32, value:Int64) throws
     {
         try writeTag(fieldNumber, format:WireFormat.Varint)
         try writeSInt64NoTag(value)
     }
     
-    public func writeMessageSetExtension(fieldNumber:Int32, value:Message) throws
+    public func writeMessageSetExtension(_ fieldNumber:Int32, value:Message) throws
     {
         try writeTag(WireFormatMessage.SetItem.rawValue, format:WireFormat.StartGroup)
         try writeUInt32(WireFormatMessage.SetTypeId.rawValue, value:UInt32(fieldNumber))
@@ -325,7 +325,7 @@ public class CodedOutputStream
         try writeTag(WireFormatMessage.SetItem.rawValue, format:WireFormat.EndGroup)
     }
     
-    public func writeRawMessageSetExtension(fieldNumber:Int32, value:NSData) throws
+    public func writeRawMessageSetExtension(_ fieldNumber:Int32, value:NSData) throws
     {
         try writeTag(WireFormatMessage.SetItem.rawValue, format:WireFormat.StartGroup)
         try writeUInt32(WireFormatMessage.SetTypeId.rawValue, value:UInt32(fieldNumber))
@@ -333,12 +333,12 @@ public class CodedOutputStream
         try writeTag(WireFormatMessage.SetItem.rawValue, format:WireFormat.EndGroup)
     }
     
-    public func writeTag(fieldNumber:Int32, format:WireFormat) throws
+    public func writeTag(_ fieldNumber:Int32, format:WireFormat) throws
     {
         try writeRawVarint32(format.makeTag(fieldNumber))
     }
     
-    public func writeRawLittleEndian32(value:Int32) throws
+    public func writeRawLittleEndian32(_ value:Int32) throws
     {
         try writeRawByte(byte:UInt8(value & 0xFF))
         try writeRawByte(byte:UInt8((value >> 8) & 0xFF))
@@ -346,7 +346,7 @@ public class CodedOutputStream
         try writeRawByte(byte:UInt8((value >> 24) & 0xFF))
     }
     
-    public func writeRawLittleEndian64(value:Int64) throws
+    public func writeRawLittleEndian64(_ value:Int64) throws
     {
         try writeRawByte(byte:UInt8(value & 0xFF))
         try writeRawByte(byte:UInt8((value >> 8) & 0xFF))
@@ -359,7 +359,7 @@ public class CodedOutputStream
     }
     
     
-    public func writeRawVarint32(value:Int32) throws {
+    public func writeRawVarint32(_ value:Int32) throws {
         var valueToWrite = value
         while (true) {
             if ((valueToWrite & ~0x7F) == 0) {
@@ -373,7 +373,7 @@ public class CodedOutputStream
         }
     }
     
-    public func writeRawVarint64(value:Int64) throws {
+    public func writeRawVarint64(_ value:Int64) throws {
         var valueToWrite = value
         while (true) {
             if ((valueToWrite & ~0x7F) == 0) {

@@ -113,7 +113,7 @@ messageOrGroupClass:Any.Type,
        
     }
     
-    func typeIsPrimitive(type:ExtensionType) ->Bool
+    func typeIsPrimitive(_ type:ExtensionType) ->Bool
     {
         switch type {
         case .ExtensionTypeBool, .ExtensionTypeFixed32, .ExtensionTypeSFixed32, .ExtensionTypeFloat, .ExtensionTypeFixed64, .ExtensionTypeSFixed64, .ExtensionTypeDouble, .ExtensionTypeInt32, .ExtensionTypeInt64, .ExtensionTypeSInt32, .ExtensionTypeSInt64, .ExtensionTypeUInt32, .ExtensionTypeUInt64, .ExtensionTypeBytes, .ExtensionTypeString, .ExtensionTypeEnum:
@@ -125,7 +125,7 @@ messageOrGroupClass:Any.Type,
 
     }
     
-    func typeIsFixedSize(type:ExtensionType) -> Bool
+    func typeIsFixedSize(_ type:ExtensionType) -> Bool
     {
         switch (type) {
             case .ExtensionTypeBool,.ExtensionTypeFixed32,.ExtensionTypeSFixed32,.ExtensionTypeFloat,.ExtensionTypeFixed64,.ExtensionTypeSFixed64,.ExtensionTypeDouble: return true
@@ -135,7 +135,7 @@ messageOrGroupClass:Any.Type,
     }
     
     
-    func typeSize(type:ExtensionType) -> Int32
+    func typeSize(_ type:ExtensionType) -> Int32
     {
         switch type {
             case .ExtensionTypeBool: return 1
@@ -146,7 +146,7 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    func  writeSingleValueIncludingTag(value:Any, output:CodedOutputStream) throws
+    func  writeSingleValueIncludingTag(_ value:Any, output:CodedOutputStream) throws
     {
         switch type {
 
@@ -231,7 +231,7 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    func  writeSingleValueNoTag(value:Any, output:CodedOutputStream) throws
+    func  writeSingleValueNoTag(_ value:Any, output:CodedOutputStream) throws
     {
         switch type {
 
@@ -310,7 +310,7 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    func  computeSingleSerializedSizeIncludingTag(value:Any) -> Int32
+    func  computeSingleSerializedSizeIncludingTag(_ value:Any) -> Int32
     {
         switch type {
         
@@ -393,7 +393,7 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    func  computeSingleSerializedSizeNoTag(value:Any) -> Int32
+    func  computeSingleSerializedSizeNoTag(_ value:Any) -> Int32
     {
         switch type {
 
@@ -471,7 +471,7 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    func writeDescriptionOfSingleValue(value:Any, indent:String) throws -> String
+    func writeDescriptionOfSingleValue(_ value:Any, indent:String) throws -> String
     {
         var output = ""
         if typeIsPrimitive(type) {
@@ -486,7 +486,7 @@ messageOrGroupClass:Any.Type,
         return output
     }
     
-    func writeRepeatedValuesIncludingTags<T>(values:Array<T>, output:CodedOutputStream) throws {
+    func writeRepeatedValuesIncludingTags<T>(_ values:Array<T>, output:CodedOutputStream) throws {
         if (isPacked) {
             try output.writeTag(fieldNumber, format: WireFormat.LengthDelimited)
             var dataSize:Int32 = 0
@@ -518,7 +518,7 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    func computeRepeatedSerializedSizeIncludingTags<T>(values:Array<T>) -> Int32
+    func computeRepeatedSerializedSizeIncludingTags<T>(_ values:Array<T>) -> Int32
     {
         if (isPacked) {
             var size:Int32 = 0
@@ -546,7 +546,7 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    public func computeSerializedSizeIncludingTag(value:Any) -> Int32
+    public func computeSerializedSizeIncludingTag(_ value:Any) -> Int32
     {
         if isRepeated
         {
@@ -583,7 +583,7 @@ messageOrGroupClass:Any.Type,
     }
 
     
-    public func writeValueIncludingTagToCodedOutputStream(value:Any, output:CodedOutputStream) throws
+    public func writeValueIncludingTagToCodedOutputStream(_ value:Any, output:CodedOutputStream) throws
     {
         
         if isRepeated
@@ -621,7 +621,7 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    private func iterationRepetedValuesForDescription<T>(values:Array<T>, indent:String) throws -> String
+    private func iterationRepetedValuesForDescription<T>(_ values:Array<T>, indent:String) throws -> String
     {
         var output = ""
         for singleValue in values
@@ -631,7 +631,7 @@ messageOrGroupClass:Any.Type,
         return output
     }
     
-    public func getDescription(value:Any, indent:String) throws -> String
+    public func getDescription(_ value:Any, indent:String) throws -> String
     {
   
         var output = ""
@@ -673,12 +673,12 @@ messageOrGroupClass:Any.Type,
     
   
     
-    func mergeMessageSetExtentionFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSet.Builder) throws
+    func mergeMessageSetExtentionFromCodedInputStream(_ input:CodedInputStream, unknownFields:UnknownFieldSet.Builder) throws
     {
          throw ProtocolBuffersError.IllegalState("Method Not Supported")
     }
     
-    func readSingleValueFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Any
+    func readSingleValueFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Any
     {
         switch type {
         case .ExtensionTypeBool:
@@ -733,7 +733,7 @@ messageOrGroupClass:Any.Type,
         return ""
     }
     
-    public func mergeFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) throws {
+    public func mergeFromCodedInputStream(_ input:CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) throws {
         if (isPacked) {
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)

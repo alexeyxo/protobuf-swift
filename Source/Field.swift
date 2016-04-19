@@ -120,14 +120,14 @@ final public class Field:Equatable,Hashable
     public init()
     {
         
-        variantArray = [Int64](count: 0, repeatedValue: 0)
-        fixed32Array = [UInt32](count: 0, repeatedValue: 0)
-        fixed64Array = [UInt64](count: 0, repeatedValue: 0)
+        variantArray = [Int64](repeating: 0, count: 0)
+        fixed32Array = [UInt32](repeating: 0, count: 0)
+        fixed64Array = [UInt64](repeating: 0, count: 0)
         lengthDelimited = Array<NSData>()
         groupArray = Array<UnknownFieldSet>()
     }
     
-    public func getSerializedSize(fieldNumber:Int32) -> Int32
+    public func getSerializedSize(_ fieldNumber:Int32) -> Int32
     {
         var result:Int32 = 0
     
@@ -159,7 +159,7 @@ final public class Field:Equatable,Hashable
         return result
     }
     
-    public func getSerializedSizeAsMessageSetExtension(fieldNumber:Int32) -> Int32 {
+    public func getSerializedSizeAsMessageSetExtension(_ fieldNumber:Int32) -> Int32 {
         var result:Int32 = 0
         for value in lengthDelimited {
             result += value.computeRawMessageSetExtensionSize(fieldNumber)
@@ -167,7 +167,7 @@ final public class Field:Equatable,Hashable
         return result
     }
     
-    public func writeTo(fieldNumber:Int32, output:CodedOutputStream) throws
+    public func writeTo(_ fieldNumber:Int32, output:CodedOutputStream) throws
     {
 
         for value in variantArray
@@ -193,7 +193,7 @@ final public class Field:Equatable,Hashable
 
     }
     
-    public func getDescription(fieldNumber:Int32, indent:String) -> String
+    public func getDescription(_ fieldNumber:Int32, indent:String) -> String
     {
         var outputString = ""
         for value in variantArray
@@ -226,7 +226,7 @@ final public class Field:Equatable,Hashable
 
     }
     
-    public func writeAsMessageSetExtensionTo(fieldNumber:Int32, output:CodedOutputStream) throws
+    public func writeAsMessageSetExtensionTo(_ fieldNumber:Int32, output:CodedOutputStream) throws
     {
         for value in lengthDelimited
         {
@@ -270,14 +270,14 @@ public extension Field
 {
     public func clear()
     {
-        variantArray.removeAll(keepCapacity: false)
-        fixed32Array.removeAll(keepCapacity: false)
-        fixed64Array.removeAll(keepCapacity: false)
-        groupArray.removeAll(keepCapacity: false)
-        lengthDelimited.removeAll(keepCapacity: false)
+        variantArray.removeAll(keepingCapacity: false)
+        fixed32Array.removeAll(keepingCapacity: false)
+        fixed64Array.removeAll(keepingCapacity: false)
+        groupArray.removeAll(keepingCapacity: false)
+        lengthDelimited.removeAll(keepingCapacity: false)
     }
     
-    public func mergeFromField(other:Field) -> Field
+    public func mergeFromField(_ other:Field) -> Field
     {
         if (other.variantArray.count > 0)
         {

@@ -60,7 +60,7 @@ internal class RingBuffer
         return true
     }
     
-    func appendData(input:NSData, offset:Int32, length:Int32) -> Int32
+    func appendData(_ input:NSData, offset:Int32, length:Int32) -> Int32
     {
         var totalWritten:Int32 = 0
         var aLength = length
@@ -98,7 +98,7 @@ internal class RingBuffer
         return totalWritten
     }
     
-    func flushToOutputStream(stream:NSOutputStream) ->Int32
+    func flushToOutputStream(_ stream:NSOutputStream) ->Int32
     {
         var totalWritten:Int32 = 0
         
