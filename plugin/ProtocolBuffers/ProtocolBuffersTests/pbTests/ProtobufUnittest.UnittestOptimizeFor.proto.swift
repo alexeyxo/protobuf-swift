@@ -82,11 +82,11 @@ public extension ProtobufUnittest {
     //OneOf declaration start
 
     public enum Foo {
-      case FooOneOfNotSet
+      case OneOfFooNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .FooOneOfNotSet:
+           case .OneOfFooNotSet:
                 return false
            default:
                 return true
@@ -115,7 +115,11 @@ public extension ProtobufUnittest {
     }
     //OneOf declaration end
 
-    private var storageFoo:TestOptimizedForSize.Foo =  TestOptimizedForSize.Foo.FooOneOfNotSet
+    private var storageFoo:TestOptimizedForSize.Foo =  TestOptimizedForSize.Foo.OneOfFooNotSet
+    public func getOneOfFoo() ->  TestOptimizedForSize.Foo {
+        let copyObjectFoo = storageFoo
+        return copyObjectFoo
+    }
     public private(set) var i:Int32 = Int32(0)
 
     public private(set) var hasI:Bool = false
@@ -131,10 +135,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasIntegerField:Bool {
           get {
-               if TestOptimizedForSize.Foo.getIntegerField(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOptimizedForSize.Foo.getIntegerField(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -149,10 +153,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasStringField:Bool {
           get {
-               if TestOptimizedForSize.Foo.getStringField(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOptimizedForSize.Foo.getStringField(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }

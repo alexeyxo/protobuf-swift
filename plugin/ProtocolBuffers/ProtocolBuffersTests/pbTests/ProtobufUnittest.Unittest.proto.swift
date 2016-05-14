@@ -2863,11 +2863,11 @@ public extension ProtobufUnittest {
 
     // For oneof test
     public enum OneofField {
-      case OneofFieldOneOfNotSet
+      case OneOfOneofFieldNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .OneofFieldOneOfNotSet:
+           case .OneOfOneofFieldNotSet:
                 return false
            default:
                 return true
@@ -2916,7 +2916,11 @@ public extension ProtobufUnittest {
     }
     //OneOf declaration end
 
-    private var storageOneofField:TestAllTypes.OneofField =  TestAllTypes.OneofField.OneofFieldOneOfNotSet
+    private var storageOneofField:TestAllTypes.OneofField =  TestAllTypes.OneofField.OneOfOneofFieldNotSet
+    public func getOneOfOneofField() ->  TestAllTypes.OneofField {
+        let copyObjectOneofField = storageOneofField
+        return copyObjectOneofField
+    }
 
 
       //Enum type declaration start 
@@ -3110,10 +3114,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasOneofUint32:Bool {
           get {
-               if TestAllTypes.OneofField.getOneofUint32(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypes.OneofField.getOneofUint32(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -3128,10 +3132,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasOneofNestedMessage:Bool {
           get {
-               if TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -3146,10 +3150,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasOneofString:Bool {
           get {
-               if TestAllTypes.OneofField.getOneofString(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypes.OneofField.getOneofString(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -3164,10 +3168,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasOneofBytes:Bool {
           get {
-               if TestAllTypes.OneofField.getOneofBytes(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypes.OneofField.getOneofBytes(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -18234,11 +18238,11 @@ public extension ProtobufUnittest {
     //OneOf declaration start
 
     public enum Foo {
-      case FooOneOfNotSet
+      case OneOfFooNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .FooOneOfNotSet:
+           case .OneOfFooNotSet:
                 return false
            default:
                 return true
@@ -18287,7 +18291,11 @@ public extension ProtobufUnittest {
     }
     //OneOf declaration end
 
-    private var storageFoo:TestOneof.Foo =  TestOneof.Foo.FooOneOfNotSet
+    private var storageFoo:TestOneof.Foo =  TestOneof.Foo.OneOfFooNotSet
+    public func getOneOfFoo() ->  TestOneof.Foo {
+        let copyObjectFoo = storageFoo
+        return copyObjectFoo
+    }
     public private(set) var fooInt:Int32!{
          get {
               return TestOneof.Foo.getFooInt(storageFoo)
@@ -18298,10 +18306,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooInt:Bool {
           get {
-               if TestOneof.Foo.getFooInt(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof.Foo.getFooInt(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -18316,10 +18324,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooString:Bool {
           get {
-               if TestOneof.Foo.getFooString(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof.Foo.getFooString(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -18334,10 +18342,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooMessage:Bool {
           get {
-               if TestOneof.Foo.getFooMessage(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof.Foo.getFooMessage(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -18352,10 +18360,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooGroup:Bool {
           get {
-               if TestOneof.Foo.getFooGroup(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof.Foo.getFooGroup(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -19917,11 +19925,11 @@ public extension ProtobufUnittest {
     //OneOf declaration start
 
     public enum Foo {
-      case FooOneOfNotSet
+      case OneOfFooNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .FooOneOfNotSet:
+           case .OneOfFooNotSet:
                 return false
            default:
                 return true
@@ -20020,17 +20028,21 @@ public extension ProtobufUnittest {
     }
     //OneOf declaration end
 
-    private var storageFoo:TestOneof2.Foo =  TestOneof2.Foo.FooOneOfNotSet
+    private var storageFoo:TestOneof2.Foo =  TestOneof2.Foo.OneOfFooNotSet
+    public func getOneOfFoo() ->  TestOneof2.Foo {
+        let copyObjectFoo = storageFoo
+        return copyObjectFoo
+    }
 
 
     //OneOf declaration start
 
     public enum Bar {
-      case BarOneOfNotSet
+      case OneOfBarNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .BarOneOfNotSet:
+           case .OneOfBarNotSet:
                 return false
            default:
                 return true
@@ -20099,7 +20111,11 @@ public extension ProtobufUnittest {
     }
     //OneOf declaration end
 
-    private var storageBar:TestOneof2.Bar =  TestOneof2.Bar.BarOneOfNotSet
+    private var storageBar:TestOneof2.Bar =  TestOneof2.Bar.OneOfBarNotSet
+    public func getOneOfBar() ->  TestOneof2.Bar {
+        let copyObjectBar = storageBar
+        return copyObjectBar
+    }
 
 
       //Enum type declaration start 
@@ -20132,10 +20148,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooInt:Bool {
           get {
-               if TestOneof2.Foo.getFooInt(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooInt(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20150,10 +20166,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooString:Bool {
           get {
-               if TestOneof2.Foo.getFooString(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooString(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20168,10 +20184,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooCord:Bool {
           get {
-               if TestOneof2.Foo.getFooCord(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooCord(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20186,10 +20202,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooStringPiece:Bool {
           get {
-               if TestOneof2.Foo.getFooStringPiece(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooStringPiece(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20204,10 +20220,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooBytes:Bool {
           get {
-               if TestOneof2.Foo.getFooBytes(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooBytes(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20222,10 +20238,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooEnum:Bool {
           get {
-               if TestOneof2.Foo.getFooEnum(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooEnum(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20240,10 +20256,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooMessage:Bool {
           get {
-               if TestOneof2.Foo.getFooMessage(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooMessage(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20258,10 +20274,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooGroup:Bool {
           get {
-               if TestOneof2.Foo.getFooGroup(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooGroup(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20276,10 +20292,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooLazyMessage:Bool {
           get {
-               if TestOneof2.Foo.getFooLazyMessage(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooLazyMessage(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20294,10 +20310,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasBarInt:Bool {
           get {
-               if TestOneof2.Bar.getBarInt(storageBar) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Bar.getBarInt(storageBar) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20312,10 +20328,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasBarString:Bool {
           get {
-               if TestOneof2.Bar.getBarString(storageBar) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Bar.getBarString(storageBar) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20330,10 +20346,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasBarCord:Bool {
           get {
-               if TestOneof2.Bar.getBarCord(storageBar) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Bar.getBarCord(storageBar) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20348,10 +20364,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasBarStringPiece:Bool {
           get {
-               if TestOneof2.Bar.getBarStringPiece(storageBar) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Bar.getBarStringPiece(storageBar) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20366,10 +20382,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasBarBytes:Bool {
           get {
-               if TestOneof2.Bar.getBarBytes(storageBar) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Bar.getBarBytes(storageBar) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -20384,10 +20400,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasBarEnum:Bool {
           get {
-               if TestOneof2.Bar.getBarEnum(storageBar) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Bar.getBarEnum(storageBar) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -21594,11 +21610,11 @@ public extension ProtobufUnittest {
     //OneOf declaration start
 
     public enum Foo {
-      case FooOneOfNotSet
+      case OneOfFooNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .FooOneOfNotSet:
+           case .OneOfFooNotSet:
                 return false
            default:
                 return true
@@ -21637,7 +21653,11 @@ public extension ProtobufUnittest {
     }
     //OneOf declaration end
 
-    private var storageFoo:TestRequiredOneof.Foo =  TestRequiredOneof.Foo.FooOneOfNotSet
+    private var storageFoo:TestRequiredOneof.Foo =  TestRequiredOneof.Foo.OneOfFooNotSet
+    public func getOneOfFoo() ->  TestRequiredOneof.Foo {
+        let copyObjectFoo = storageFoo
+        return copyObjectFoo
+    }
     public private(set) var fooInt:Int32!{
          get {
               return TestRequiredOneof.Foo.getFooInt(storageFoo)
@@ -21648,10 +21668,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooInt:Bool {
           get {
-               if TestRequiredOneof.Foo.getFooInt(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestRequiredOneof.Foo.getFooInt(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -21666,10 +21686,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooString:Bool {
           get {
-               if TestRequiredOneof.Foo.getFooString(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestRequiredOneof.Foo.getFooString(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -21684,10 +21704,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooMessage:Bool {
           get {
-               if TestRequiredOneof.Foo.getFooMessage(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestRequiredOneof.Foo.getFooMessage(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
