@@ -1971,11 +1971,11 @@ public extension ProtobufUnittest {
 
     // For oneof test
     public enum OneofField {
-      case OneofFieldOneOfNotSet
+      case OneOfOneofFieldNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .OneofFieldOneOfNotSet:
+           case .OneOfOneofFieldNotSet:
                 return false
            default:
                 return true
@@ -2024,7 +2024,11 @@ public extension ProtobufUnittest {
     }
     //OneOf declaration end
 
-    private var storageOneofField:TestAllTypesLite.OneofField =  TestAllTypesLite.OneofField.OneofFieldOneOfNotSet
+    private var storageOneofField:TestAllTypesLite.OneofField =  TestAllTypesLite.OneofField.OneOfOneofFieldNotSet
+    public func getOneOfOneofField() ->  TestAllTypesLite.OneofField {
+        let copyObjectOneofField = storageOneofField
+        return copyObjectOneofField
+    }
 
 
       //Enum type declaration start 
@@ -2214,10 +2218,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasOneofUint32:Bool {
           get {
-               if TestAllTypesLite.OneofField.getOneofUint32(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypesLite.OneofField.getOneofUint32(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -2232,10 +2236,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasOneofNestedMessage:Bool {
           get {
-               if TestAllTypesLite.OneofField.getOneofNestedMessage(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypesLite.OneofField.getOneofNestedMessage(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -2250,10 +2254,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasOneofString:Bool {
           get {
-               if TestAllTypesLite.OneofField.getOneofString(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypesLite.OneofField.getOneofString(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -2268,10 +2272,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasOneofBytes:Bool {
           get {
-               if TestAllTypesLite.OneofField.getOneofBytes(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypesLite.OneofField.getOneofBytes(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
