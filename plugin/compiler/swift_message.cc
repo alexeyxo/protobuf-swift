@@ -778,9 +778,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         for (int i = 0; i < descriptor_->field_count(); i++) {
             const FieldDescriptor* field = sorted_fields[i];
             uint32 tag = WireFormatLite::MakeTag(field->number(),
-                                                 WireFormat::WireTypeForField(field));
-            
-            printer->Print("case $tag$ :\n",
+                                                 WireFormat::WireTypeForFieldType(field->type()));
+            printer->Print("case $tag$:\n",
                            "tag", SimpleItoa(tag));
             
             printer->Indent();
