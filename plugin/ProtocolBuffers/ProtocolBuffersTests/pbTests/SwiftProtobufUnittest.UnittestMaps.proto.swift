@@ -317,7 +317,7 @@ public extension SwiftProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             valueInMapMessage = try input.readInt32()
 
           default:
@@ -595,10 +595,10 @@ public extension SwiftProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 key = try input.readInt32()
 
-              case 16 :
+              case 16:
                 value = try input.readInt32()
 
               default:
@@ -880,10 +880,10 @@ public extension SwiftProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 key = try input.readInt64()
 
-              case 16 :
+              case 16:
                 value = try input.readInt64()
 
               default:
@@ -1165,10 +1165,10 @@ public extension SwiftProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 10 :
+              case 10:
                 key = try input.readString()
 
-              case 18 :
+              case 18:
                 value = try input.readString()
 
               default:
@@ -1450,10 +1450,10 @@ public extension SwiftProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 10 :
+              case 10:
                 key = try input.readString()
 
-              case 18 :
+              case 18:
                 value = try input.readData()
 
               default:
@@ -1770,10 +1770,10 @@ public extension SwiftProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 10 :
+              case 10:
                 key = try input.readString()
 
-              case 18 :
+              case 18:
                 let subBuilder:SwiftProtobufUnittest.MapMessageValue.Builder = SwiftProtobufUnittest.MapMessageValue.Builder()
                 if hasValue {
                   try subBuilder.mergeFrom(value)
@@ -2060,10 +2060,10 @@ public extension SwiftProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 key = try input.readInt32()
 
-              case 16 :
+              case 16:
                 let valueIntvalue = try input.readEnum()
                 if let enumsvalue = SwiftProtobufUnittest.MessageContainsMap.EnumMapValue(rawValue:valueIntvalue){
                      value = enumsvalue
@@ -2631,37 +2631,37 @@ public extension SwiftProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfMapInt32Int32 = subBuilder.buildPartial()
             mapInt32Int32[buildOfMapInt32Int32.key] = buildOfMapInt32Int32.value
 
-          case 18 :
+          case 18:
             let subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfMapInt64Int64 = subBuilder.buildPartial()
             mapInt64Int64[buildOfMapInt64Int64.key] = buildOfMapInt64Int64.value
 
-          case 26 :
+          case 26:
             let subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfMapStringString = subBuilder.buildPartial()
             mapStringString[buildOfMapStringString.key] = buildOfMapStringString.value
 
-          case 34 :
+          case 34:
             let subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfMapStringBytes = subBuilder.buildPartial()
             mapStringBytes[buildOfMapStringBytes.key] = buildOfMapStringBytes.value
 
-          case 42 :
+          case 42:
             let subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfMapStringMessage = subBuilder.buildPartial()
             mapStringMessage[buildOfMapStringMessage.key] = buildOfMapStringMessage.value
 
-          case 50 :
+          case 50:
             let subBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfMapInt32Enum = subBuilder.buildPartial()

@@ -526,6 +526,9 @@ public class CodedInputStream
         {
             let result = String(bytesNoCopy: (buffer.mutableBytes + Int(bufferPos)), length: Int(size), encoding: NSUTF8StringEncoding, freeWhenDone: false)
             bufferPos += size
+            guard result != nil else {
+                throw ProtocolBuffersError.InvalidProtocolBuffer("InvalidUTF8StringData")
+            }
             return result!
         }
         else

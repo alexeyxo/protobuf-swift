@@ -248,7 +248,7 @@ public extension Proto2ArenaUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             d = try input.readInt32()
 
           default:
@@ -521,12 +521,12 @@ public extension Proto2ArenaUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder = Proto2ArenaUnittest.NestedMessage.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedNestedMessage += [subBuilder.buildPartial()]
 
-          case 18 :
+          case 18:
             let subBuilder = Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedImportNoArenaMessage += [subBuilder.buildPartial()]

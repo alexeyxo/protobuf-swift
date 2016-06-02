@@ -317,7 +317,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 9 :
+          case 9:
             value = try input.readDouble()
 
           default:
@@ -548,7 +548,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 13 :
+          case 13:
             value = try input.readFloat()
 
           default:
@@ -779,7 +779,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             value = try input.readInt64()
 
           default:
@@ -1010,7 +1010,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             value = try input.readUInt64()
 
           default:
@@ -1241,7 +1241,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             value = try input.readInt32()
 
           default:
@@ -1472,7 +1472,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             value = try input.readUInt32()
 
           default:
@@ -1703,7 +1703,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             value = try input.readBool()
 
           default:
@@ -1934,7 +1934,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             value = try input.readString()
 
           default:
@@ -2165,7 +2165,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             value = try input.readData()
 
           default:

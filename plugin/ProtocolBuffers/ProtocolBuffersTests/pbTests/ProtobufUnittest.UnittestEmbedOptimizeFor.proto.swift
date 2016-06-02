@@ -332,7 +332,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestOptimizedForSize.Builder = ProtobufUnittest.TestOptimizedForSize.Builder()
             if hasOptionalMessage {
               try subBuilder.mergeFrom(optionalMessage)
@@ -340,7 +340,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalMessage = subBuilder.buildPartial()
 
-          case 18 :
+          case 18:
             let subBuilder = ProtobufUnittest.TestOptimizedForSize.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedMessage += [subBuilder.buildPartial()]

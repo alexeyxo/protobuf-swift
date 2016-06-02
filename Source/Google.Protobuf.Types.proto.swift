@@ -104,6 +104,7 @@ public extension Google.Protobuf {
     // The list of oneof definitions.
     // The list of oneofs declared in this Type
     public private(set) var oneofs:Array<String> = Array<String>()
+    private var oneofsMemoizedSerializedSize:Int32 = -1
     public private(set) var options:Array<Google.Protobuf.Option>  = Array<Google.Protobuf.Option>()
     public private(set) var hasSourceContext:Bool = false
     public private(set) var sourceContext:Google.Protobuf.SourceContext!
@@ -121,8 +122,10 @@ public extension Google.Protobuf {
           try output.writeMessage(2, value:oneElementFields)
       }
       if !oneofs.isEmpty {
+        try output.writeRawVarint32(26)
+        try output.writeRawVarint32(oneofsMemoizedSerializedSize)
         for oneValueoneofs in oneofs {
-          try output.writeString(3, value:oneValueoneofs)
+          try output.writeStringNoTag(oneValueoneofs)
         }
       }
       for oneElementOptions in options {
@@ -151,7 +154,11 @@ public extension Google.Protobuf {
           dataSizeOneofs += oneValueoneofs.computeStringSizeNoTag()
       }
       serialize_size += dataSizeOneofs
-      serialize_size += 1 * Int32(oneofs.count)
+      if !oneofs.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeOneofs.computeInt32SizeNoTag()
+      }
+      oneofsMemoizedSerializedSize = dataSizeOneofs
       for oneElementOptions in options {
           serialize_size += oneElementOptions.computeMessageSize(4)
       }
@@ -507,23 +514,28 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             let subBuilder = Google.Protobuf.Field.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             fields += [subBuilder.buildPartial()]
 
-          case 26 :
-            oneofs += [try input.readString()]
+          case 26:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.oneofs += [try input.readString()]
+            }
+            input.popLimit(limit)
 
-          case 34 :
+          case 34:
             let subBuilder = Google.Protobuf.Option.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             options += [subBuilder.buildPartial()]
 
-          case 42 :
+          case 42:
             let subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
             if hasSourceContext {
               try subBuilder.mergeFrom(sourceContext)
@@ -1276,7 +1288,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             let valueIntkind = try input.readEnum()
             if let enumskind = Google.Protobuf.Field.Kind(rawValue:valueIntkind){
                  kind = enumskind
@@ -1284,7 +1296,7 @@ public extension Google.Protobuf {
                  try unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueIntkind))
             }
 
-          case 16 :
+          case 16:
             let valueIntcardinality = try input.readEnum()
             if let enumscardinality = Google.Protobuf.Field.Cardinality(rawValue:valueIntcardinality){
                  cardinality = enumscardinality
@@ -1292,22 +1304,22 @@ public extension Google.Protobuf {
                  try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntcardinality))
             }
 
-          case 24 :
+          case 24:
             number = try input.readInt32()
 
-          case 34 :
+          case 34:
             name = try input.readString()
 
-          case 50 :
+          case 50:
             typeUrl = try input.readString()
 
-          case 56 :
+          case 56:
             oneofIndex = try input.readInt32()
 
-          case 64 :
+          case 64:
             packed = try input.readBool()
 
-          case 74 :
+          case 74:
             let subBuilder = Google.Protobuf.Option.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             options += [subBuilder.buildPartial()]
@@ -1734,20 +1746,20 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             let subBuilder = Google.Protobuf.EnumValue.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             enumvalue += [subBuilder.buildPartial()]
 
-          case 26 :
+          case 26:
             let subBuilder = Google.Protobuf.Option.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             options += [subBuilder.buildPartial()]
 
-          case 34 :
+          case 34:
             let subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
             if hasSourceContext {
               try subBuilder.mergeFrom(sourceContext)
@@ -2094,13 +2106,13 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 16 :
+          case 16:
             number = try input.readInt32()
 
-          case 26 :
+          case 26:
             let subBuilder = Google.Protobuf.Option.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             options += [subBuilder.buildPartial()]
@@ -2424,10 +2436,10 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             let subBuilder:Google.Protobuf.AnyType.Builder = Google.Protobuf.AnyType.Builder()
             if hasValue {
               try subBuilder.mergeFrom(value)

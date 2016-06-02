@@ -93,10 +93,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print(variables_,
                            "$acontrol$private(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
-                           "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
-                           "               return false\n"
-                           "           }\n"
-                           "           return true\n"
+                           "            guard let _ = $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) else {\n"
+                           "                return false\n"
+                           "            }\n"
+                           "            return true\n"
                            "      }\n"
                            "      set(newValue) {\n"
                            "      }\n"
@@ -295,7 +295,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedEnumFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         // If packed, set up the while loop
-        if (descriptor_->options().packed()) {
+        if (descriptor_->options().packed() || descriptor_->file()->syntax() == FileDescriptor::SYNTAX_PROTO3) {
             printer->Print(variables_,
                            "let length:Int32 = try input.readRawVarint32()\n"
                            "let oldLimit:Int32 = try input.pushLimit(length)\n"
@@ -311,7 +311,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "     try unknownFieldsBuilder.mergeVarintField($number$, value:Int64(valueInt$name$))\n"
                        "}\n");
         
-        if (descriptor_->options().packed()) {
+        if (descriptor_->options().packed() || descriptor_->file()->syntax() == FileDescriptor::SYNTAX_PROTO3) {
             
             printer->Print(variables_,
                            "}\n"
@@ -321,7 +321,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedEnumFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         
-        if (descriptor_->options().packed()) {
+        if (descriptor_->options().packed() || descriptor_->file()->syntax() == FileDescriptor::SYNTAX_PROTO3) {
             printer->Print(variables_,
                            "if !$name$.isEmpty {\n"
                            "  try output.writeRawVarint32($tag$)\n"
@@ -351,7 +351,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print(variables_,"serialize_size += dataSize$name$\n");
         
-        if (descriptor_->options().packed()) {
+        if (descriptor_->options().packed() || descriptor_->file()->syntax() == FileDescriptor::SYNTAX_PROTO3) {
             
             printer->Print(variables_,
                            "if !$name$.isEmpty {\n"
@@ -364,7 +364,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "serialize_size += ($tag_size$ * Int32($name$.count))\n");
         }
         
-        if (descriptor_->options().packed()) {
+        if (descriptor_->options().packed() || descriptor_->file()->syntax() == FileDescriptor::SYNTAX_PROTO3) {
             printer->Print(variables_,
                            "$name$MemoizedSerializedSize = dataSize$name$\n");
         }

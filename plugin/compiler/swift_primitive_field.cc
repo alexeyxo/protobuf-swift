@@ -172,10 +172,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (isOneOfField(descriptor_)) {
             printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
-                           "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
-                           "               return false\n"
-                           "           }\n"
-                           "           return true\n"
+                           "            guard let _ = $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) else {\n"
+                           "                return false\n"
+                           "            }\n"
+                           "            return true\n"
                            "      }\n"
                            "      set(newValue) {\n"
                            "      }\n"
@@ -324,7 +324,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
 
         printer->Print(variables_, "$acontrol$private(set) var $name$:Array<$storage_type$> = Array<$storage_type$>()\n");
-        if (descriptor_->options().packed()) {
+        if (descriptor_->options().packed() || descriptor_->file()->syntax() == FileDescriptor::SYNTAX_PROTO3) {
             printer->Print(variables_,"private var $name$MemoizedSerializedSize:Int32 = -1\n");
         }
     }
@@ -370,7 +370,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void RepeatedPrimitiveFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
-        if (descriptor_->options().packed())
+        if (descriptor_->options().packed() || descriptor_->file()->syntax() == FileDescriptor::SYNTAX_PROTO3)
         {
             printer->Print(variables_,
                            "let length:Int32 = try input.readRawVarint32()\n"
@@ -393,7 +393,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,"if !$name$.isEmpty {\n");
         printer->Indent();
         
-        if (descriptor_->options().packed()) {
+        if (descriptor_->options().packed() || descriptor_->file()->syntax() == FileDescriptor::SYNTAX_PROTO3) {
             printer->Print(variables_,
                            "try output.writeRawVarint32($tag$)\n"
                            "try output.writeRawVarint32($name$MemoizedSerializedSize)\n"
@@ -428,7 +428,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print(variables_,"serialize_size += dataSize$capitalized_name$\n");
         
-        if (descriptor_->options().packed()) {
+        if (descriptor_->options().packed() || descriptor_->file()->syntax() == FileDescriptor::SYNTAX_PROTO3) {
             printer->Print(variables_,
                            "if !$name$.isEmpty {\n"
                            "  serialize_size += $tag_size$\n"

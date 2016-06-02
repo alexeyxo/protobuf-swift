@@ -272,7 +272,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasMessage_ {
               try subBuilder.mergeFrom(message_)

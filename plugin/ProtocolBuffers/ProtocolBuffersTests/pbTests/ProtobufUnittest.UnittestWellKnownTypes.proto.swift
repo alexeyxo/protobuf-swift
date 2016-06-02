@@ -1002,7 +1002,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:Google.Protobuf.AnyType.Builder = Google.Protobuf.AnyType.Builder()
             if hasAnyField {
               try subBuilder.mergeFrom(anyField)
@@ -1010,7 +1010,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             anyField = subBuilder.buildPartial()
 
-          case 18 :
+          case 18:
             let subBuilder:Google.Protobuf.Api.Builder = Google.Protobuf.Api.Builder()
             if hasApiField {
               try subBuilder.mergeFrom(apiField)
@@ -1018,7 +1018,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             apiField = subBuilder.buildPartial()
 
-          case 26 :
+          case 26:
             let subBuilder:Google.Protobuf.Duration.Builder = Google.Protobuf.Duration.Builder()
             if hasDurationField {
               try subBuilder.mergeFrom(durationField)
@@ -1026,7 +1026,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             durationField = subBuilder.buildPartial()
 
-          case 34 :
+          case 34:
             let subBuilder:Google.Protobuf.Empty.Builder = Google.Protobuf.Empty.Builder()
             if hasEmptyField {
               try subBuilder.mergeFrom(emptyField)
@@ -1034,7 +1034,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             emptyField = subBuilder.buildPartial()
 
-          case 42 :
+          case 42:
             let subBuilder:Google.Protobuf.FieldMask.Builder = Google.Protobuf.FieldMask.Builder()
             if hasFieldMaskField {
               try subBuilder.mergeFrom(fieldMaskField)
@@ -1042,7 +1042,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             fieldMaskField = subBuilder.buildPartial()
 
-          case 50 :
+          case 50:
             let subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
             if hasSourceContextField {
               try subBuilder.mergeFrom(sourceContextField)
@@ -1050,7 +1050,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             sourceContextField = subBuilder.buildPartial()
 
-          case 58 :
+          case 58:
             let subBuilder:Google.Protobuf.Struct.Builder = Google.Protobuf.Struct.Builder()
             if hasStructField {
               try subBuilder.mergeFrom(structField)
@@ -1058,7 +1058,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             structField = subBuilder.buildPartial()
 
-          case 66 :
+          case 66:
             let subBuilder:Google.Protobuf.Timestamp.Builder = Google.Protobuf.Timestamp.Builder()
             if hasTimestampField {
               try subBuilder.mergeFrom(timestampField)
@@ -1066,7 +1066,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             timestampField = subBuilder.buildPartial()
 
-          case 74 :
+          case 74:
             let subBuilder:Google.Protobuf.Types.Builder = Google.Protobuf.Types.Builder()
             if hasTypeField {
               try subBuilder.mergeFrom(typeField)
@@ -1074,7 +1074,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             typeField = subBuilder.buildPartial()
 
-          case 82 :
+          case 82:
             let subBuilder:Google.Protobuf.Int32Value.Builder = Google.Protobuf.Int32Value.Builder()
             if hasInt32Field {
               try subBuilder.mergeFrom(int32Field)
