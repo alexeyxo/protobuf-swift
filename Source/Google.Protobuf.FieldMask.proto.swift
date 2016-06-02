@@ -336,7 +336,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {

@@ -514,15 +514,15 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             let subBuilder = Google.Protobuf.Field.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             fields += [subBuilder.buildPartial()]
 
-          case 26 :
+          case 26:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -530,12 +530,12 @@ public extension Google.Protobuf {
             }
             input.popLimit(limit)
 
-          case 34 :
+          case 34:
             let subBuilder = Google.Protobuf.Option.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             options += [subBuilder.buildPartial()]
 
-          case 42 :
+          case 42:
             let subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
             if hasSourceContext {
               try subBuilder.mergeFrom(sourceContext)
@@ -1288,7 +1288,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             let valueIntkind = try input.readEnum()
             if let enumskind = Google.Protobuf.Field.Kind(rawValue:valueIntkind){
                  kind = enumskind
@@ -1296,7 +1296,7 @@ public extension Google.Protobuf {
                  try unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueIntkind))
             }
 
-          case 16 :
+          case 16:
             let valueIntcardinality = try input.readEnum()
             if let enumscardinality = Google.Protobuf.Field.Cardinality(rawValue:valueIntcardinality){
                  cardinality = enumscardinality
@@ -1304,22 +1304,22 @@ public extension Google.Protobuf {
                  try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntcardinality))
             }
 
-          case 24 :
+          case 24:
             number = try input.readInt32()
 
-          case 34 :
+          case 34:
             name = try input.readString()
 
-          case 50 :
+          case 50:
             typeUrl = try input.readString()
 
-          case 56 :
+          case 56:
             oneofIndex = try input.readInt32()
 
-          case 64 :
+          case 64:
             packed = try input.readBool()
 
-          case 74 :
+          case 74:
             let subBuilder = Google.Protobuf.Option.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             options += [subBuilder.buildPartial()]
@@ -1746,20 +1746,20 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             let subBuilder = Google.Protobuf.EnumValue.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             enumvalue += [subBuilder.buildPartial()]
 
-          case 26 :
+          case 26:
             let subBuilder = Google.Protobuf.Option.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             options += [subBuilder.buildPartial()]
 
-          case 34 :
+          case 34:
             let subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
             if hasSourceContext {
               try subBuilder.mergeFrom(sourceContext)
@@ -2106,13 +2106,13 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 16 :
+          case 16:
             number = try input.readInt32()
 
-          case 26 :
+          case 26:
             let subBuilder = Google.Protobuf.Option.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             options += [subBuilder.buildPartial()]
@@ -2436,10 +2436,10 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             let subBuilder:Google.Protobuf.AnyType.Builder = Google.Protobuf.AnyType.Builder()
             if hasValue {
               try subBuilder.mergeFrom(value)

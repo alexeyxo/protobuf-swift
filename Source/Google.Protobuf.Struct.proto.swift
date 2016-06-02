@@ -392,10 +392,10 @@ public extension Google.Protobuf {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 10 :
+              case 10:
                 key = try input.readString()
 
-              case 18 :
+              case 18:
                 let subBuilder:Google.Protobuf.Value.Builder = Google.Protobuf.Value.Builder()
                 if hasValue {
                   try subBuilder.mergeFrom(value)
@@ -647,7 +647,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder = Google.Protobuf.Struct.FieldsEntry.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             let buildOfFields = subBuilder.buildPartial()
@@ -1357,7 +1357,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             let valueIntnullValue = try input.readEnum()
             if let enumsnullValue = Google.Protobuf.NullValue(rawValue:valueIntnullValue){
                  nullValue = enumsnullValue
@@ -1365,16 +1365,16 @@ public extension Google.Protobuf {
                  try unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueIntnullValue))
             }
 
-          case 17 :
+          case 17:
             numberValue = try input.readDouble()
 
-          case 26 :
+          case 26:
             stringValue = try input.readString()
 
-          case 32 :
+          case 32:
             boolValue = try input.readBool()
 
-          case 42 :
+          case 42:
             let subBuilder:Google.Protobuf.Struct.Builder = Google.Protobuf.Struct.Builder()
             if hasStructValue {
               try subBuilder.mergeFrom(structValue)
@@ -1382,7 +1382,7 @@ public extension Google.Protobuf {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             structValue = subBuilder.buildPartial()
 
-          case 50 :
+          case 50:
             let subBuilder:Google.Protobuf.ListValue.Builder = Google.Protobuf.ListValue.Builder()
             if hasListValue {
               try subBuilder.mergeFrom(listValue)
@@ -1634,7 +1634,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder = Google.Protobuf.Value.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             values += [subBuilder.buildPartial()]

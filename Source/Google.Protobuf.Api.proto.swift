@@ -489,23 +489,23 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             let subBuilder = Google.Protobuf.Method.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             methods += [subBuilder.buildPartial()]
 
-          case 26 :
+          case 26:
             let subBuilder = Google.Protobuf.Option.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             options += [subBuilder.buildPartial()]
 
-          case 34 :
+          case 34:
             version = try input.readString()
 
-          case 42 :
+          case 42:
             let subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
             if hasSourceContext {
               try subBuilder.mergeFrom(sourceContext)
@@ -990,22 +990,22 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             requestTypeUrl = try input.readString()
 
-          case 24 :
+          case 24:
             requestStreaming = try input.readBool()
 
-          case 34 :
+          case 34:
             responseTypeUrl = try input.readString()
 
-          case 40 :
+          case 40:
             responseStreaming = try input.readBool()
 
-          case 50 :
+          case 50:
             let subBuilder = Google.Protobuf.Option.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             options += [subBuilder.buildPartial()]

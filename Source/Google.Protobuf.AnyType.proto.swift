@@ -327,10 +327,10 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             typeUrl = try input.readString()
 
-          case 18 :
+          case 18:
             value = try input.readData()
 
           default:

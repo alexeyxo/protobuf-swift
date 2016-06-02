@@ -236,7 +236,7 @@ public extension Bar {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             hello = try input.readString()
 
           default:
