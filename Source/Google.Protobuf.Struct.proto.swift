@@ -695,11 +695,11 @@ public extension Google.Protobuf {
     //OneOf declaration start
 
     public enum Kind {
-      case KindOneOfNotSet
+      case OneOfKindNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .KindOneOfNotSet:
+           case .OneOfKindNotSet:
                 return false
            default:
                 return true
@@ -768,13 +768,17 @@ public extension Google.Protobuf {
     }
     //OneOf declaration end
 
-    private var storageKind:Value.Kind =  Value.Kind.KindOneOfNotSet
+    private var storageKind:Value.Kind =  Value.Kind.OneOfKindNotSet
+    public func getOneOfKind() ->  Value.Kind {
+        let copyObjectKind = storageKind
+        return copyObjectKind
+    }
     public private(set) var hasNullValue:Bool {
           get {
-               if Value.Kind.getNullValue(storageKind) == nil {
-                   return false
-               }
-               return true
+                guard let _ = Value.Kind.getNullValue(storageKind) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -790,10 +794,10 @@ public extension Google.Protobuf {
     // Represents a double value.
     public private(set) var hasNumberValue:Bool {
           get {
-               if Value.Kind.getNumberValue(storageKind) == nil {
-                   return false
-               }
-               return true
+                guard let _ = Value.Kind.getNumberValue(storageKind) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -809,10 +813,10 @@ public extension Google.Protobuf {
     // Represents a string value.
     public private(set) var hasStringValue:Bool {
           get {
-               if Value.Kind.getStringValue(storageKind) == nil {
-                   return false
-               }
-               return true
+                guard let _ = Value.Kind.getStringValue(storageKind) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -828,10 +832,10 @@ public extension Google.Protobuf {
     // Represents a boolean value.
     public private(set) var hasBoolValue:Bool {
           get {
-               if Value.Kind.getBoolValue(storageKind) == nil {
-                   return false
-               }
-               return true
+                guard let _ = Value.Kind.getBoolValue(storageKind) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -846,10 +850,10 @@ public extension Google.Protobuf {
     }
     public private(set) var hasStructValue:Bool {
           get {
-               if Value.Kind.getStructValue(storageKind) == nil {
-                   return false
-               }
-               return true
+                guard let _ = Value.Kind.getStructValue(storageKind) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -864,10 +868,10 @@ public extension Google.Protobuf {
     }
     public private(set) var hasListValue:Bool {
           get {
-               if Value.Kind.getListValue(storageKind) == nil {
-                   return false
-               }
-               return true
+                guard let _ = Value.Kind.getListValue(storageKind) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }

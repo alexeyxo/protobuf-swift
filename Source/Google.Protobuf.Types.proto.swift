@@ -104,6 +104,7 @@ public extension Google.Protobuf {
     // The list of oneof definitions.
     // The list of oneofs declared in this Type
     public private(set) var oneofs:Array<String> = Array<String>()
+    private var oneofsMemoizedSerializedSize:Int32 = -1
     public private(set) var options:Array<Google.Protobuf.Option>  = Array<Google.Protobuf.Option>()
     public private(set) var hasSourceContext:Bool = false
     public private(set) var sourceContext:Google.Protobuf.SourceContext!
@@ -121,8 +122,10 @@ public extension Google.Protobuf {
           try output.writeMessage(2, value:oneElementFields)
       }
       if !oneofs.isEmpty {
+        try output.writeRawVarint32(26)
+        try output.writeRawVarint32(oneofsMemoizedSerializedSize)
         for oneValueoneofs in oneofs {
-          try output.writeString(3, value:oneValueoneofs)
+          try output.writeStringNoTag(oneValueoneofs)
         }
       }
       for oneElementOptions in options {
@@ -151,7 +154,11 @@ public extension Google.Protobuf {
           dataSizeOneofs += oneValueoneofs.computeStringSizeNoTag()
       }
       serialize_size += dataSizeOneofs
-      serialize_size += 1 * Int32(oneofs.count)
+      if !oneofs.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeOneofs.computeInt32SizeNoTag()
+      }
+      oneofsMemoizedSerializedSize = dataSizeOneofs
       for oneElementOptions in options {
           serialize_size += oneElementOptions.computeMessageSize(4)
       }
@@ -516,7 +523,12 @@ public extension Google.Protobuf {
             fields += [subBuilder.buildPartial()]
 
           case 26 :
-            oneofs += [try input.readString()]
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.oneofs += [try input.readString()]
+            }
+            input.popLimit(limit)
 
           case 34 :
             let subBuilder = Google.Protobuf.Option.Builder()
