@@ -222,6 +222,31 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
         return result;
     }
+    
+    bool isPackedTypeProto3(const FieldDescriptor* field) {
+        
+        if (field->file()->syntax() != FileDescriptor::SYNTAX_PROTO3) {
+            return  false;
+        }
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   :
+            case FieldDescriptor::TYPE_UINT32  :
+            case FieldDescriptor::TYPE_SINT32  :
+            case FieldDescriptor::TYPE_FIXED32 :
+            case FieldDescriptor::TYPE_SFIXED32:
+                
+            case FieldDescriptor::TYPE_INT64   :
+            case FieldDescriptor::TYPE_UINT64  :
+            case FieldDescriptor::TYPE_SINT64  :
+            case FieldDescriptor::TYPE_FIXED64 :
+            case FieldDescriptor::TYPE_SFIXED64:
+                
+            case FieldDescriptor::TYPE_FLOAT   :
+            case FieldDescriptor::TYPE_DOUBLE  :
+            case FieldDescriptor::TYPE_BOOL    : return true;
+            default                            : return false;
+        }
+    }
 
 
     string StripProto(const string& filename) {
