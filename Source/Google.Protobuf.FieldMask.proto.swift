@@ -133,7 +133,6 @@ public extension Google.Protobuf {
   final public class FieldMask : GeneratedMessage, GeneratedMessageProtocol {
     // The set of field mask paths.
     public private(set) var paths:Array<String> = Array<String>()
-    private var pathsMemoizedSerializedSize:Int32 = -1
     required public init() {
          super.init()
     }
@@ -142,10 +141,8 @@ public extension Google.Protobuf {
     }
     override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if !paths.isEmpty {
-        try output.writeRawVarint32(10)
-        try output.writeRawVarint32(pathsMemoizedSerializedSize)
         for oneValuepaths in paths {
-          try output.writeStringNoTag(oneValuepaths)
+          try output.writeString(1, value:oneValuepaths)
         }
       }
       try unknownFields.writeToCodedOutputStream(output)
@@ -162,11 +159,7 @@ public extension Google.Protobuf {
           dataSizePaths += oneValuepaths.computeStringSizeNoTag()
       }
       serialize_size += dataSizePaths
-      if !paths.isEmpty {
-        serialize_size += 1
-        serialize_size += dataSizePaths.computeInt32SizeNoTag()
-      }
-      pathsMemoizedSerializedSize = dataSizePaths
+      serialize_size += 1 * Int32(paths.count)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
@@ -337,12 +330,7 @@ public extension Google.Protobuf {
             return self
 
           case 10:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.paths += [try input.readString()]
-            }
-            input.popLimit(limit)
+            paths += [try input.readString()]
 
           default:
             if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
