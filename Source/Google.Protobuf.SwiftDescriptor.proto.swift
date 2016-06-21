@@ -35,12 +35,12 @@ public extension Google.Protobuf {
     public var extensionRegistry:ExtensionRegistry
 
     init() {
-      SwiftDescriptorRootswiftFileOptionsStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 5092014, defaultValue:Google.Protobuf.SwiftFileOptions(), messageOrGroupClass:Google.Protobuf.SwiftFileOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      SwiftDescriptorRootswiftFileOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 5092014, defaultValue:Google.Protobuf.SwiftFileOptions(), messageOrGroupClass:Google.Protobuf.SwiftFileOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
       Google.Protobuf.DescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
     }
-    public func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(_ registry:ExtensionRegistry) {
       registry.addExtension(SwiftDescriptorRootswiftFileOptionsStatic)
     }
     public static func swiftFileOptions() -> ConcreateExtensionField {
@@ -53,27 +53,27 @@ public extension Google.Protobuf {
   //Enum type declaration start 
 
   public enum AccessControl:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-    case InternalEntities = 0
-    case PublicEntities = 1
+    case internalEntities = 0
+    case publicEntities = 1
     public func toString() -> String {
       switch self {
-      case .InternalEntities: return "InternalEntities"
-      case .PublicEntities: return "PublicEntities"
+      case .internalEntities: return "InternalEntities"
+      case .publicEntities: return "PublicEntities"
       }
     }
-    public static func fromString(str:String) throws -> Google.Protobuf.AccessControl {
+    public static func fromString(_ str:String) throws -> Google.Protobuf.AccessControl {
       switch str {
-      case "InternalEntities":  return .InternalEntities
-      case "PublicEntities":  return .PublicEntities
-      default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
+      case "InternalEntities":  return .internalEntities
+      case "PublicEntities":  return .publicEntities
+      default: throw ProtocolBuffersError.invalidProtocolBuffer("Conversion String to Enum has failed.")
       }
     }
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
         switch self {
-            case .InternalEntities: return ".InternalEntities"
-            case .PublicEntities: return ".PublicEntities"
+            case .internalEntities: return ".InternalEntities"
+            case .publicEntities: return ".PublicEntities"
         }
     }
   }
@@ -84,7 +84,7 @@ public extension Google.Protobuf {
     public private(set) var hasClassPrefix:Bool = false
     public private(set) var classPrefix:String = ""
 
-    public private(set) var entitiesAccessControl:Google.Protobuf.AccessControl = Google.Protobuf.AccessControl.InternalEntities
+    public private(set) var entitiesAccessControl:Google.Protobuf.AccessControl = Google.Protobuf.AccessControl.internalEntities
     public private(set) var hasEntitiesAccessControl:Bool = false
     public private(set) var hasCompileForFramework:Bool = false
     public private(set) var compileForFramework:Bool = true
@@ -95,7 +95,7 @@ public extension Google.Protobuf {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasClassPrefix {
         try output.writeString(1, value:classPrefix)
       }
@@ -127,32 +127,32 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.SwiftFileOptions> {
+    public class func parseArrayDelimitedFromInputStream(_ input:InputStream) throws -> Array<Google.Protobuf.SwiftFileOptions> {
       var mergedArray = Array<Google.Protobuf.SwiftFileOptions>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.SwiftFileOptions? {
+    public class func parseFromDelimitedFromInputStream(_ input:InputStream) throws -> Google.Protobuf.SwiftFileOptions? {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Google.Protobuf.SwiftFileOptions {
+    public class func parseFromData(_ data:Data) throws -> Google.Protobuf.SwiftFileOptions {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
+    public class func parseFromData(_ data:Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Google.Protobuf.SwiftFileOptions {
+    public class func parseFromInputStream(_ input:InputStream) throws -> Google.Protobuf.SwiftFileOptions {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
+    public class func parseFromInputStream(_ input:InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Google.Protobuf.SwiftFileOptions.Builder {
@@ -170,12 +170,12 @@ public extension Google.Protobuf {
     public func toBuilder() throws -> Google.Protobuf.SwiftFileOptions.Builder {
       return try Google.Protobuf.SwiftFileOptions.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.SwiftFileOptions) throws -> Google.Protobuf.SwiftFileOptions.Builder {
+    public class func builderWithPrototype(_ prototype:Google.Protobuf.SwiftFileOptions) throws -> Google.Protobuf.SwiftFileOptions.Builder {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
@@ -190,13 +190,13 @@ public extension Google.Protobuf {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.SwiftFileOptions {
+    override class public func decode(_ jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.SwiftFileOptions {
       return try Google.Protobuf.SwiftFileOptions.Builder.decodeToBuilder(jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Google.Protobuf.SwiftFileOptions {
+    override class public func fromJSON(_ data:Data) throws -> Google.Protobuf.SwiftFileOptions {
       return try Google.Protobuf.SwiftFileOptions.Builder.fromJSONToBuilder(data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output = ""
       if hasClassPrefix {
         output += "\(indent) classPrefix: \(classPrefix) \n"
@@ -264,7 +264,7 @@ public extension Google.Protobuf {
                builderResult.classPrefix = value
            }
       }
-      public func setClassPrefix(value:String) -> Google.Protobuf.SwiftFileOptions.Builder {
+      public func setClassPrefix(_ value:String) -> Google.Protobuf.SwiftFileOptions.Builder {
         self.classPrefix = value
         return self
       }
@@ -287,13 +287,13 @@ public extension Google.Protobuf {
                 builderResult.entitiesAccessControl = value
             }
         }
-        public func setEntitiesAccessControl(value:Google.Protobuf.AccessControl) -> Google.Protobuf.SwiftFileOptions.Builder {
+        public func setEntitiesAccessControl(_ value:Google.Protobuf.AccessControl) -> Google.Protobuf.SwiftFileOptions.Builder {
           self.entitiesAccessControl = value
           return self
         }
         public func clearEntitiesAccessControl() -> Google.Protobuf.SwiftFileOptions.Builder {
            builderResult.hasEntitiesAccessControl = false
-           builderResult.entitiesAccessControl = .InternalEntities
+           builderResult.entitiesAccessControl = .internalEntities
            return self
         }
       public var hasCompileForFramework:Bool {
@@ -310,7 +310,7 @@ public extension Google.Protobuf {
                builderResult.compileForFramework = value
            }
       }
-      public func setCompileForFramework(value:Bool) -> Google.Protobuf.SwiftFileOptions.Builder {
+      public func setCompileForFramework(_ value:Bool) -> Google.Protobuf.SwiftFileOptions.Builder {
         self.compileForFramework = value
         return self
       }
@@ -339,7 +339,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.SwiftFileOptions = builderResult
         return returnMe
       }
-      public func mergeFrom(other:Google.Protobuf.SwiftFileOptions) throws -> Google.Protobuf.SwiftFileOptions.Builder {
+      public func mergeFrom(_ other:Google.Protobuf.SwiftFileOptions) throws -> Google.Protobuf.SwiftFileOptions.Builder {
         if other == Google.Protobuf.SwiftFileOptions() {
          return self
         }
@@ -355,10 +355,10 @@ public extension Google.Protobuf {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions.Builder {
+      override public func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions.Builder {
+      override public func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -389,7 +389,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.SwiftFileOptions.Builder {
+      override class public func decodeToBuilder(_ jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.SwiftFileOptions.Builder {
         let resultDecodedBuilder = Google.Protobuf.SwiftFileOptions.Builder()
         if let jsonValueClassPrefix = jsonMap["classPrefix"] as? String {
           resultDecodedBuilder.classPrefix = jsonValueClassPrefix
@@ -402,10 +402,10 @@ public extension Google.Protobuf {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Google.Protobuf.SwiftFileOptions.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(_ data:Data) throws -> Google.Protobuf.SwiftFileOptions.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.SwiftFileOptions.Builder.decodeToBuilder(jsDataCast)
       }
