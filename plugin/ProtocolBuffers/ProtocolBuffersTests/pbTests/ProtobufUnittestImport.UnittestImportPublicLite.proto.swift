@@ -65,26 +65,26 @@ public extension ProtobufUnittestImport {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittestImport.PublicImportMessageLite> {
+    public class func parseArrayDelimitedFromInputStream(_ input:InputStream) throws -> Array<ProtobufUnittestImport.PublicImportMessageLite> {
       var mergedArray = Array<ProtobufUnittestImport.PublicImportMessageLite>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite? {
+    public class func parseFromDelimitedFromInputStream(_ input:InputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite? {
       return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittestImport.PublicImportMessageLite {
+    public class func parseFromData(_ data: Data) throws -> ProtobufUnittestImport.PublicImportMessageLite {
       return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite {
+    public class func parseFromData(_ data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite {
       return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite {
+    public class func parseFromInputStream(_ input:InputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite {
       return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite {
+    public class func parseFromInputStream(_ input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite {
       return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite {
@@ -218,7 +218,7 @@ public extension ProtobufUnittestImport {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             e = try input.readInt32()
 
           default:

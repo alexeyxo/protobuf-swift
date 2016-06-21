@@ -555,7 +555,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case SWIFTTYPE_DOUBLE : return "Double";
             case SWIFTTYPE_BOOLEAN: return "Bool";
             case SWIFTTYPE_STRING : return "String";
-            case SWIFTTYPE_DATA   : return "NSData";
+            case SWIFTTYPE_DATA   : return "Data";
             case SWIFTTYPE_ENUM   : return "Int32";
             case SWIFTTYPE_MESSAGE: return NULL;
             case SWIFTTYPE_MAP: return NULL;
@@ -648,7 +648,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_SFIXED64: return "Int64" ;
             case FieldDescriptor::TYPE_BOOL    : return "Bool"  ;
             case FieldDescriptor::TYPE_STRING  : return "String";
-            case FieldDescriptor::TYPE_BYTES   : return "NSData";
+            case FieldDescriptor::TYPE_BYTES   : return "Data";
             case FieldDescriptor::TYPE_GROUP   :
             case FieldDescriptor::TYPE_MESSAGE :
             {
@@ -756,9 +756,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 if (field->type() == FieldDescriptor::TYPE_BYTES) {
                     if (field->has_default_value()) {
                         return
-                        "NSData(bytes:([UInt8]() + \"" + CEscape(field->default_value_string()) + "\".utf8), length:" + SimpleItoa(field->default_value_string().length()) + ")";
+                        "Data(bytes:([UInt8]() + \"" + CEscape(field->default_value_string()) + "\".utf8), length:" + SimpleItoa(field->default_value_string().length()) + ")";
                     } else {
-                        return "NSData()";
+                        return "Data()";
                     }
                 } else {
                     if (AllAscii(field->default_value_string())) {
