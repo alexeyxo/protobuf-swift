@@ -270,7 +270,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
             if (descriptor_->field(i)->options().deprecated()) {
-                printer->Print("@available(*, deprecated=0.1, message=\"The field is marked as \\\"Deprecated\\\"\")\n");
+                printer->Print("@available(*, deprecated: 0.1, message: \"The field is marked as \\\"Deprecated\\\"\")\n");
             }
             field_generators_.get(descriptor_->field(i)).GenerateVariablesSource(printer);
         }
@@ -561,26 +561,26 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateParseFromMethodsSource(io::Printer* printer) {
         printer->Print(variables_,
-                       "$acontrol$ class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<$classNameReturnedType$> {\n"
+                       "$acontrol$ class func parseArrayDelimitedFromInputStream(_ input:InputStream) throws -> Array<$classNameReturnedType$> {\n"
                        "  var mergedArray = Array<$classNameReturnedType$>()\n"
                        "  while let value = try parseFromDelimitedFromInputStream(input) {\n"
                        "    mergedArray += [value]\n"
                        "  }\n"
                        "  return mergedArray\n"
                        "}\n"
-                       "$acontrol$ class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> $classNameReturnedType$? {\n"
+                       "$acontrol$ class func parseFromDelimitedFromInputStream(_ input:InputStream) throws -> $classNameReturnedType$? {\n"
                        "  return try $classNameReturnedType$.Builder().mergeDelimitedFromInputStream(input)?.build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromData(_ data:NSData) throws -> $classNameReturnedType$ {\n"
+                       "$acontrol$ class func parseFromData(_ data: Data) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFromData(data, extensionRegistry:$fileName$.sharedInstance.extensionRegistry).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
+                       "$acontrol$ class func parseFromData(_ data: Data, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromInputStream(_ input:NSInputStream) throws -> $classNameReturnedType$ {\n"
+                       "$acontrol$ class func parseFromInputStream(_ input:InputStream) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFromInputStream(input).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
+                       "$acontrol$ class func parseFromInputStream(_ input:InputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> $classNameReturnedType$ {\n"

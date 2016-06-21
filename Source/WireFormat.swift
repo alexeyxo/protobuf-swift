@@ -23,35 +23,35 @@ let LITTLE_ENDIAN_64_SIZE:Int32 = 8
 
 public enum WireFormatMessage:Int32
 {
-    case SetItem = 1
-    case SetTypeId = 2
-    case SetMessage = 3
+    case setItem = 1
+    case setTypeId = 2
+    case setMessage = 3
 }
 
 public enum WireFormat:Int32
 {
-    case Varint = 0
-    case Fixed64 = 1
-    case LengthDelimited = 2
-    case StartGroup = 3
-    case EndGroup = 4
-    case Fixed32 = 5
-    case TagTypeMask = 7
+    case varint = 0
+    case fixed64 = 1
+    case lengthDelimited = 2
+    case startGroup = 3
+    case endGroup = 4
+    case fixed32 = 5
+    case tagTypeMask = 7
     
     public func makeTag(_ fieldNumber:Int32) -> Int32
     {
-        let res:Int32 = fieldNumber << StartGroup.rawValue
+        let res:Int32 = fieldNumber << startGroup.rawValue
         return res | self.rawValue
     }
     
     public static func getTagWireType(_ tag:Int32) -> Int32
     {
-        return tag &  WireFormat.TagTypeMask.rawValue
+        return tag &  WireFormat.tagTypeMask.rawValue
     }
     
     public static func getTagFieldNumber(_ tag:Int32) -> Int32
     {
-        return WireFormat.logicalRightShift32(value: tag ,spaces: StartGroup.rawValue)
+        return WireFormat.logicalRightShift32(value: tag ,spaces: startGroup.rawValue)
     }
     
     
@@ -144,7 +144,7 @@ public extension Int32
     
     func computeTagSize() ->Int32
     {
-        return WireFormat.Varint.makeTag(self).computeRawVarint32Size()
+        return WireFormat.varint.makeTag(self).computeRawVarint32Size()
     }
     
     func computeEnumSizeNoTag() -> Int32
@@ -316,7 +316,7 @@ public extension Bool
 public extension String
 {
     func computeStringSizeNoTag() -> Int32 {
-        let length:UInt32  = UInt32(self.lengthOfBytes(using: NSUTF8StringEncoding))
+        let length:UInt32  = UInt32(self.lengthOfBytes(using: String.Encoding.utf8))
         return Int32(length).computeRawVarint32Size() + Int32(length)
     }
     
@@ -324,10 +324,10 @@ public extension String
     {
         return fieldNumber.computeTagSize() + computeStringSizeNoTag()
     }
-    func utf8ToNSData()-> NSData
+    func utf8ToNSData()-> Data
     {
         let bytes = [UInt8]() + self.utf8
-        let data = NSData(bytes: bytes, length:bytes.count)
+        let data = Data(bytes: UnsafePointer<UInt8>(bytes), count:bytes.count)
         return data
     }
 }
@@ -357,15 +357,15 @@ public extension AbstractMessage
     
     func computeMessageSetExtensionSize(_ fieldNumber:Int32) -> Int32
     {
-        return WireFormatMessage.SetItem.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(WireFormatMessage.SetTypeId.rawValue) + computeMessageSize(WireFormatMessage.SetMessage.rawValue)
+        return WireFormatMessage.setItem.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(WireFormatMessage.setTypeId.rawValue) + computeMessageSize(WireFormatMessage.setMessage.rawValue)
     }
 }
 
-public extension NSData
+public extension Data
 {
     func computeDataSizeNoTag() -> Int32
     {
-        return Int32(self.length).computeRawVarint32Size() + Int32(self.length)
+        return Int32(self.count).computeRawVarint32Size() + Int32(self.count)
     }
     
     func computeDataSize(_ fieldNumber:Int32) -> Int32
@@ -375,7 +375,7 @@ public extension NSData
     
     func computeRawMessageSetExtensionSize(_ fieldNumber:Int32) -> Int32
     {
-        return WireFormatMessage.SetItem.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(WireFormatMessage.SetTypeId.rawValue) + computeDataSize(WireFormatMessage.SetMessage.rawValue)
+        return WireFormatMessage.setItem.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(WireFormatMessage.setTypeId.rawValue) + computeDataSize(WireFormatMessage.setMessage.rawValue)
     }
 
 }

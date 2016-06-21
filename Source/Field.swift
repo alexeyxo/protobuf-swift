@@ -112,7 +112,7 @@ final public class Field:Equatable,Hashable
     public var variantArray:Array<Int64>
     public var fixed32Array:Array<UInt32>
     public var fixed64Array:Array<UInt64>
-    public var lengthDelimited:Array<NSData>
+    public var lengthDelimited:Array<Data>
     public var groupArray:Array<UnknownFieldSet>
     
   
@@ -123,7 +123,7 @@ final public class Field:Equatable,Hashable
         variantArray = [Int64](repeating: 0, count: 0)
         fixed32Array = [UInt32](repeating: 0, count: 0)
         fixed64Array = [UInt64](repeating: 0, count: 0)
-        lengthDelimited = Array<NSData>()
+        lengthDelimited = Array<Data>()
         groupArray = Array<UnknownFieldSet>()
     }
     

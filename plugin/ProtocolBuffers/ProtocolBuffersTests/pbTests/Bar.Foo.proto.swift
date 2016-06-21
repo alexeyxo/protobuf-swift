@@ -65,26 +65,26 @@ public extension Bar {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<Bar.Foo> {
+    public class func parseArrayDelimitedFromInputStream(_ input:InputStream) throws -> Array<Bar.Foo> {
       var mergedArray = Array<Bar.Foo>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> Bar.Foo? {
+    public class func parseFromDelimitedFromInputStream(_ input:InputStream) throws -> Bar.Foo? {
       return try Bar.Foo.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> Bar.Foo {
+    public class func parseFromData(_ data: Data) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromData(data, extensionRegistry:Bar.FooRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    public class func parseFromData(_ data: Data, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> Bar.Foo {
+    public class func parseFromInputStream(_ input:InputStream) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    public class func parseFromInputStream(_ input:InputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
       return try Bar.Foo.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> Bar.Foo {
@@ -218,7 +218,7 @@ public extension Bar {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             hello = try input.readString()
 
           default:
