@@ -163,7 +163,7 @@ public class ExtendableMessage : GeneratedMessage
             return value == value2
         case (let value as String, let value2 as String):
             return value == value2
-        case (let value as NSData, let value2 as NSData):
+        case (let value as Data, let value2 as Data):
             return value == value2
         case (let value as UInt32, let value2 as UInt32):
             return value == value2
@@ -183,7 +183,7 @@ public class ExtendableMessage : GeneratedMessage
             return value == value2
         case (let value as [String], let value2 as [String]):
             return value == value2
-        case (let value as Array<NSData>, let value2 as Array<NSData>):
+        case (let value as Array<Data>, let value2 as Array<Data>):
             return value == value2
         case (let value as [UInt32], let value2 as [UInt32]):
             return value == value2
@@ -218,7 +218,7 @@ public class ExtendableMessage : GeneratedMessage
             return getHashValue(value)
         case let value as GeneratedMessage:
             return getHashValue(value)
-        case let value as NSData:
+        case let value as Data:
             return value.hashValue
         case let value as [Int32]:
             return getHashValueRepeated(value)
@@ -236,7 +236,7 @@ public class ExtendableMessage : GeneratedMessage
             return getHashValueRepeated(value)
         case let value as [String]:
             return getHashValueRepeated(value)
-        case let value as Array<NSData>:
+        case let value as Array<Data>:
             return getHashValueRepeated(value)
         case let value as [GeneratedMessage]:
             return getHashValueRepeated(value)
@@ -302,7 +302,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         let result = internalGetResult
         if (!result.isInitialized())
         {
-            throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+            throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
         }
     }
     
@@ -311,7 +311,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         let result = internalGetResult
         if (!result.isInitialized())
         {
-            throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+            throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
         }
     }
     
@@ -355,7 +355,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         let message = internalGetResult
         message.ensureExtensionIsRegistered(extensions)
         guard !extensions.isRepeated  else {
-            throw ProtocolBuffersError.IllegalArgument("Must call addExtension() for repeated types.")
+            throw ProtocolBuffersError.illegalArgument("Must call addExtension() for repeated types.")
         }
         message.extensionMap[extensions.fieldNumber] = value
         return self
@@ -368,7 +368,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         
         guard extensions.isRepeated else
         {
-            throw ProtocolBuffersError.IllegalArgument("Must call addExtension() for repeated types.")
+            throw ProtocolBuffersError.illegalArgument("Must call addExtension() for repeated types.")
         }        
         let fieldNumber = extensions.fieldNumber
         if let val = value as? GeneratedMessage
@@ -391,7 +391,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         let message = internalGetResult
         message.ensureExtensionIsRegistered(extensions)
         guard extensions.isRepeated else {
-            throw ProtocolBuffersError.IllegalArgument("Must call setExtension() for singular types.")
+            throw ProtocolBuffersError.illegalArgument("Must call setExtension() for singular types.")
         }
         let fieldNumber = extensions.fieldNumber
         if let val = value as? GeneratedMessage
@@ -428,7 +428,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
     public func mergeExtensionFields(_ other:ExtendableMessage) throws {
         let thisMessage = internalGetResult
         guard thisMessage.className() == other.className() else {
-            throw ProtocolBuffersError.IllegalArgument("Cannot merge extensions from a different type")
+            throw ProtocolBuffersError.illegalArgument("Cannot merge extensions from a different type")
         }
         if other.extensionMap.count > 0 {
             var registry = other.extensionRegistry
@@ -455,7 +455,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
                         thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as [String]:
                         thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
-                    case let values as Array<NSData>:
+                    case let values as Array<Data>:
                         thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as [GeneratedMessage]:
                         thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)

@@ -19,10 +19,10 @@ import Foundation
 
 public protocol GeneratedMessageProtocol: class, Message
 {
-    static func parseFromData(_ data:NSData) throws -> Self
-    static func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> Self
-    static func parseFromInputStream(_ input:NSInputStream) throws -> Self
-    static func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
+    static func parseFromData(_ data:Data) throws -> Self
+    static func parseFromData(_ data:Data, extensionRegistry:ExtensionRegistry) throws -> Self
+    static func parseFromInputStream(_ input:InputStream) throws -> Self
+    static func parseFromInputStream(_ input:InputStream, extensionRegistry:ExtensionRegistry) throws -> Self
     static func parseFromCodedInputStream(_ input:CodedInputStream) throws -> Self
     static func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
 }
@@ -90,7 +90,7 @@ public class GeneratedMessageBuilder:AbstractMessageBuilder
         
         guard result.isInitialized() else
         {
-            throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+            throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
         }
     }
     
@@ -99,7 +99,7 @@ public class GeneratedMessageBuilder:AbstractMessageBuilder
         let result = internalGetResult
         guard result.isInitialized() else
         {
-            throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+            throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
         }
     }
     

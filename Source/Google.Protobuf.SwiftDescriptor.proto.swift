@@ -34,7 +34,7 @@ public extension Google.Protobuf {
     public var extensionRegistry:ExtensionRegistry
 
     init() {
-      SwiftDescriptorRootswiftFileOptionsStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 5092014, defaultValue:Google.Protobuf.SwiftFileOptions(), messageOrGroupClass:Google.Protobuf.SwiftFileOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      SwiftDescriptorRootswiftFileOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 5092014, defaultValue:Google.Protobuf.SwiftFileOptions(), messageOrGroupClass:Google.Protobuf.SwiftFileOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(extensionRegistry)
       Google.Protobuf.DescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
@@ -52,15 +52,15 @@ public extension Google.Protobuf {
   //Enum type declaration start 
 
   public enum AccessControl:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-    case InternalEntities = 0
-    case PublicEntities = 1
+    case internalEntities = 0
+    case publicEntities = 1
 
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
         switch self {
-            case .InternalEntities: return ".InternalEntities"
-            case .PublicEntities: return ".PublicEntities"
+            case .internalEntities: return ".InternalEntities"
+            case .publicEntities: return ".PublicEntities"
         }
     }
   }
@@ -71,7 +71,7 @@ public extension Google.Protobuf {
     public private(set) var classPrefix:String = ""
 
     public private(set) var hasClassPrefix:Bool = false
-    public private(set) var entitiesAccessControl:Google.Protobuf.AccessControl = Google.Protobuf.AccessControl.InternalEntities
+    public private(set) var entitiesAccessControl:Google.Protobuf.AccessControl = Google.Protobuf.AccessControl.internalEntities
     public private(set) var hasEntitiesAccessControl:Bool = false
     public private(set) var compileForFramework:Bool = true
 
@@ -114,26 +114,26 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<Google.Protobuf.SwiftFileOptions> {
+    public class func parseArrayDelimitedFromInputStream(_ input:InputStream) throws -> Array<Google.Protobuf.SwiftFileOptions> {
       var mergedArray = Array<Google.Protobuf.SwiftFileOptions>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> Google.Protobuf.SwiftFileOptions? {
+    public class func parseFromDelimitedFromInputStream(_ input:InputStream) throws -> Google.Protobuf.SwiftFileOptions? {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> Google.Protobuf.SwiftFileOptions {
+    public class func parseFromData(_ data:Data) throws -> Google.Protobuf.SwiftFileOptions {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
+    public class func parseFromData(_ data:Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> Google.Protobuf.SwiftFileOptions {
+    public class func parseFromInputStream(_ input:InputStream) throws -> Google.Protobuf.SwiftFileOptions {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
+    public class func parseFromInputStream(_ input:InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
       return try Google.Protobuf.SwiftFileOptions.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions {
@@ -257,7 +257,7 @@ public extension Google.Protobuf {
         }
         public func clearEntitiesAccessControl() -> Google.Protobuf.SwiftFileOptions.Builder {
            builderResult.hasEntitiesAccessControl = false
-           builderResult.entitiesAccessControl = .InternalEntities
+           builderResult.entitiesAccessControl = .internalEntities
            return self
         }
       public var hasCompileForFramework:Bool {

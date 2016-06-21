@@ -24,7 +24,7 @@ internal class RingBuffer
     
     init(data:NSMutableData)
     {
-        buffer = NSMutableData(data: data)
+        buffer = NSMutableData(data: data as Data)
     }
     func freeSpace() ->UInt32
     {
@@ -60,7 +60,7 @@ internal class RingBuffer
         return true
     }
     
-    func appendData(_ input:NSData, offset:Int32, length:Int32) -> Int32
+    func appendData(_ input:Data, offset:Int32, length:Int32) -> Int32
     {
         var totalWritten:Int32 = 0
         var aLength = length
@@ -68,7 +68,7 @@ internal class RingBuffer
         if (position >= tail)
         {
             totalWritten = min(Int32(buffer.length) - Int32(position), Int32(aLength))
-            memcpy(buffer.mutableBytes + Int(position), input.bytes + Int(aOffset), Int(totalWritten))
+            memcpy(buffer.mutableBytes + Int(position), (input as NSData).bytes + Int(aOffset), Int(totalWritten))
             position += totalWritten
             if totalWritten == aLength
             {
@@ -91,7 +91,7 @@ internal class RingBuffer
         }
         
         let written:Int32 = min(Int32(freeSpaces), aLength)
-        memcpy(buffer.mutableBytes + Int(position), input.bytes + Int(aOffset), Int(written))
+        memcpy(buffer.mutableBytes + Int(position), (input as NSData).bytes + Int(aOffset), Int(written))
         position += written
         totalWritten += written
         
