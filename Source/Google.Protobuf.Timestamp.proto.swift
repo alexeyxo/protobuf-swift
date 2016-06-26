@@ -32,7 +32,7 @@ public extension Google.Protobuf {
       registerAllExtensions(extensionRegistry)
       Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
     }
-    public func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(_ registry:ExtensionRegistry) {
     }
   }
 
@@ -95,7 +95,7 @@ public extension Google.Protobuf {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasSeconds {
         try output.writeInt64(1, value:seconds)
       }
@@ -121,32 +121,32 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Timestamp> {
+    public class func parseArrayDelimitedFromInputStream(_ input:InputStream) throws -> Array<Google.Protobuf.Timestamp> {
       var mergedArray = Array<Google.Protobuf.Timestamp>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Timestamp? {
+    public class func parseFromDelimitedFromInputStream(_ input:InputStream) throws -> Google.Protobuf.Timestamp? {
       return try Google.Protobuf.Timestamp.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Google.Protobuf.Timestamp {
+    public class func parseFromData(_ data:Data) throws -> Google.Protobuf.Timestamp {
       return try Google.Protobuf.Timestamp.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.TimestampRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
+    public class func parseFromData(_ data:Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
       return try Google.Protobuf.Timestamp.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Timestamp {
+    public class func parseFromInputStream(_ input:InputStream) throws -> Google.Protobuf.Timestamp {
       return try Google.Protobuf.Timestamp.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
+    public class func parseFromInputStream(_ input:InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
       return try Google.Protobuf.Timestamp.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Timestamp {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.Timestamp {
       return try Google.Protobuf.Timestamp.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
       return try Google.Protobuf.Timestamp.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Google.Protobuf.Timestamp.Builder {
@@ -164,12 +164,12 @@ public extension Google.Protobuf {
     public func toBuilder() throws -> Google.Protobuf.Timestamp.Builder {
       return try Google.Protobuf.Timestamp.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.Timestamp) throws -> Google.Protobuf.Timestamp.Builder {
+    public class func builderWithPrototype(_ prototype:Google.Protobuf.Timestamp) throws -> Google.Protobuf.Timestamp.Builder {
       return try Google.Protobuf.Timestamp.Builder().mergeFrom(prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
@@ -177,17 +177,17 @@ public extension Google.Protobuf {
         jsonMap["seconds"] = "\(seconds)"
       }
       if hasNanos {
-        jsonMap["nanos"] = NSNumber(int:nanos)
+        jsonMap["nanos"] = NSNumber(value:nanos)
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Timestamp {
+    override class public func decode(_ jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Timestamp {
       return try Google.Protobuf.Timestamp.Builder.decodeToBuilder(jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Google.Protobuf.Timestamp {
+    override class public func fromJSON(_ data:Data) throws -> Google.Protobuf.Timestamp {
       return try Google.Protobuf.Timestamp.Builder.fromJSONToBuilder(data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output = ""
       if hasSeconds {
         output += "\(indent) seconds: \(seconds) \n"
@@ -249,7 +249,7 @@ public extension Google.Protobuf {
                builderResult.seconds = value
            }
       }
-      public func setSeconds(value:Int64) -> Google.Protobuf.Timestamp.Builder {
+      public func setSeconds(_ value:Int64) -> Google.Protobuf.Timestamp.Builder {
         self.seconds = value
         return self
       }
@@ -272,7 +272,7 @@ public extension Google.Protobuf {
                builderResult.nanos = value
            }
       }
-      public func setNanos(value:Int32) -> Google.Protobuf.Timestamp.Builder {
+      public func setNanos(_ value:Int32) -> Google.Protobuf.Timestamp.Builder {
         self.nanos = value
         return self
       }
@@ -301,7 +301,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Timestamp = builderResult
         return returnMe
       }
-      public func mergeFrom(other:Google.Protobuf.Timestamp) throws -> Google.Protobuf.Timestamp.Builder {
+      public func mergeFrom(_ other:Google.Protobuf.Timestamp) throws -> Google.Protobuf.Timestamp.Builder {
         if other == Google.Protobuf.Timestamp() {
          return self
         }
@@ -314,10 +314,10 @@ public extension Google.Protobuf {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Timestamp.Builder {
+      override public func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.Timestamp.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp.Builder {
+      override public func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -340,20 +340,20 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Timestamp.Builder {
+      override class public func decodeToBuilder(_ jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Timestamp.Builder {
         let resultDecodedBuilder = Google.Protobuf.Timestamp.Builder()
         if let jsonValueSeconds = jsonMap["seconds"] as? String {
           resultDecodedBuilder.seconds = Int64(jsonValueSeconds)!
         }
         if let jsonValueNanos = jsonMap["nanos"] as? NSNumber {
-          resultDecodedBuilder.nanos = jsonValueNanos.intValue
+          resultDecodedBuilder.nanos = jsonValueNanos.int32Value
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Google.Protobuf.Timestamp.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(_ data:Data) throws -> Google.Protobuf.Timestamp.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.Timestamp.Builder.decodeToBuilder(jsDataCast)
       }

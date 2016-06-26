@@ -46,7 +46,7 @@ public class UnknownFieldSet:Hashable,Equatable
             return hashCode
         }
     }
-    public func hasField(number:Int32) -> Bool
+    public func hasField(_ number:Int32) -> Bool
     {
         guard fields[number] != nil else
         {
@@ -54,7 +54,7 @@ public class UnknownFieldSet:Hashable,Equatable
         }
         return true        
     }
-    public func getField(number:Int32) -> Field
+    public func getField(_ number:Int32) -> Field
     {
         if let field = fields[number]
         {
@@ -62,10 +62,10 @@ public class UnknownFieldSet:Hashable,Equatable
         }
         return Field()
     }
-    public func writeToCodedOutputStream(output:CodedOutputStream) throws
+    public func writeToCodedOutputStream(_ output:CodedOutputStream) throws
     {
         var sortedKeys = Array(fields.keys)
-        sortedKeys.sortInPlace { $0 < $1 }
+        sortedKeys.sort { $0 < $1 }
         for number in sortedKeys
         {
             let value:Field = fields[number]!
@@ -73,18 +73,18 @@ public class UnknownFieldSet:Hashable,Equatable
         }
     }
     
-    public func writeToOutputStream(output:NSOutputStream) throws
+    public func writeToOutputStream(_ output:NSOutputStream) throws
     {
         let codedOutput:CodedOutputStream = CodedOutputStream(output: output)
         try writeToCodedOutputStream(codedOutput)
         try codedOutput.flush()
     }
     
-    public func getDescription(indent:String) -> String
+    public func getDescription(_ indent:String) -> String
     {
         var output = ""
         var sortedKeys = Array(fields.keys)
-        sortedKeys.sortInPlace { $0 < $1 }
+        sortedKeys.sort { $0 < $1 }
         for number in sortedKeys
         {
             let value:Field = fields[number]!
@@ -97,22 +97,22 @@ public class UnknownFieldSet:Hashable,Equatable
         return UnknownFieldSet.Builder()
     }
     
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> UnknownFieldSet {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> UnknownFieldSet {
         return try UnknownFieldSet.Builder().mergeFromCodedInputStream(input).build()
     }
     
     
-    public class func parseFromData(data:NSData) throws -> UnknownFieldSet {
+    public class func parseFromData(_ data:Data) throws -> UnknownFieldSet {
         return try UnknownFieldSet.Builder().mergeFromData(data).build()
     }
     
     
-    public class func parseFromInputStream(input:NSInputStream) throws -> UnknownFieldSet
+    public class func parseFromInputStream(_ input:InputStream) throws -> UnknownFieldSet
     {
         return try UnknownFieldSet.Builder().mergeFromInputStream(input).build()
     }
 
-    public class func builderWithUnknownFields(copyFrom:UnknownFieldSet) throws -> UnknownFieldSet.Builder
+    public class func builderWithUnknownFields(_ copyFrom:UnknownFieldSet) throws -> UnknownFieldSet.Builder
     {
         return try UnknownFieldSet.Builder().mergeUnknownFields(copyFrom)
     }
@@ -128,7 +128,7 @@ public class UnknownFieldSet:Hashable,Equatable
         return result
     }
     
-    public func writeAsMessageSetTo(output:CodedOutputStream) throws
+    public func writeAsMessageSetTo(_ output:CodedOutputStream) throws
     {
         for number in fields.keys
         {
@@ -148,13 +148,13 @@ public class UnknownFieldSet:Hashable,Equatable
         return result
     }
     
-    public func data() throws -> NSData
+    public func data() throws -> Data
     {
         let size = serializedSize()
         let data = NSMutableData(length: Int(size))!
         let stream:CodedOutputStream = CodedOutputStream(data: data)
         try writeToCodedOutputStream(stream)
-        return stream.buffer.buffer
+        return stream.buffer.buffer as Data
     }
     
     public class Builder
@@ -168,11 +168,11 @@ public class UnknownFieldSet:Hashable,Equatable
             lastFieldNumber = 0
         }
         
-        public func addField(field:Field, number:Int32) throws -> UnknownFieldSet.Builder {
+        public func addField(_ field:Field, number:Int32) throws -> UnknownFieldSet.Builder {
             
             guard number != 0 else
             {
-                throw ProtocolBuffersError.IllegalArgument("Illegal Field Number")
+                throw ProtocolBuffersError.illegalArgument("Illegal Field Number")
             }
             if (lastField != nil && lastFieldNumber == number) {
                 lastField = nil
@@ -181,7 +181,7 @@ public class UnknownFieldSet:Hashable,Equatable
             fields[number]=field
             return self
         }
-        public func getFieldBuilder(number:Int32) throws -> Field?
+        public func getFieldBuilder(_ number:Int32) throws -> Field?
         {
             if (lastField != nil) {
                 if (number == lastFieldNumber) {
@@ -220,18 +220,18 @@ public class UnknownFieldSet:Hashable,Equatable
                 result = UnknownFieldSet(fields: fields)
                 
             }
-            fields.removeAll(keepCapacity: false)
+            fields.removeAll(keepingCapacity: false)
             return result
         }
         
         public func buildPartial() throws -> UnknownFieldSet?
         {
-            throw ProtocolBuffersError.Obvious("UnsupportedMethod")
+            throw ProtocolBuffersError.obvious("UnsupportedMethod")
         }
         
         public func clone() throws -> UnknownFieldSet?
         {
-            throw ProtocolBuffersError.Obvious("UnsupportedMethod")
+            throw ProtocolBuffersError.obvious("UnsupportedMethod")
         }
         
         public func isInitialized() -> Bool
@@ -241,25 +241,25 @@ public class UnknownFieldSet:Hashable,Equatable
         public func unknownFields() throws -> UnknownFieldSet {
             return try build()
         }
-        public func setUnknownFields(unknownFields:UnknownFieldSet) throws -> UnknownFieldSet.Builder?
+        public func setUnknownFields(_ unknownFields:UnknownFieldSet) throws -> UnknownFieldSet.Builder?
         {
-            throw ProtocolBuffersError.Obvious("UnsupportedMethod")
+            throw ProtocolBuffersError.obvious("UnsupportedMethod")
         }
-        public func hasField(number:Int32) throws -> Bool
+        public func hasField(_ number:Int32) throws -> Bool
         {
             guard number != 0 else
             {
-                throw ProtocolBuffersError.IllegalArgument("Illegal Field Number")
+                throw ProtocolBuffersError.illegalArgument("Illegal Field Number")
             }
             
             return number == lastFieldNumber || (fields[number] != nil)
         }
         
-        public func mergeField(field:Field, number:Int32) throws -> UnknownFieldSet.Builder
+        public func mergeField(_ field:Field, number:Int32) throws -> UnknownFieldSet.Builder
         {
             guard number != 0 else
             {
-                throw ProtocolBuffersError.IllegalArgument("Illegal Field Number")
+                throw ProtocolBuffersError.illegalArgument("Illegal Field Number")
             }
             if (try hasField(number)) {
                 try getFieldBuilder(number)?.mergeFromField(field)
@@ -271,7 +271,7 @@ public class UnknownFieldSet:Hashable,Equatable
             return self
         }
         
-        public func mergeUnknownFields(other:UnknownFieldSet) throws -> UnknownFieldSet.Builder
+        public func mergeUnknownFields(_ other:UnknownFieldSet) throws -> UnknownFieldSet.Builder
         {
             for number in other.fields.keys
             {
@@ -282,7 +282,7 @@ public class UnknownFieldSet:Hashable,Equatable
         }
         
         
-        public func mergeFromData(data:NSData) throws -> UnknownFieldSet.Builder
+        public func mergeFromData(_ data:Data) throws -> UnknownFieldSet.Builder
         {
             let input:CodedInputStream = CodedInputStream(data: data)
             try mergeFromCodedInputStream(input)
@@ -290,26 +290,26 @@ public class UnknownFieldSet:Hashable,Equatable
             return self
         }
         
-        public func mergeFromInputStream(input:NSInputStream) throws -> UnknownFieldSet.Builder
+        public func mergeFromInputStream(_ input:InputStream) throws -> UnknownFieldSet.Builder
         {
-            throw ProtocolBuffersError.Obvious("UnsupportedMethod")
+            throw ProtocolBuffersError.obvious("UnsupportedMethod")
         }
-        public func mergeFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> UnknownFieldSet.Builder
+        public func mergeFromInputStream(_ input:InputStream, extensionRegistry:ExtensionRegistry) throws -> UnknownFieldSet.Builder
         {
-            throw ProtocolBuffersError.Obvious("UnsupportedMethod")
+            throw ProtocolBuffersError.obvious("UnsupportedMethod")
         }
         
-        public func mergeVarintField(number:Int32, value:Int64) throws -> UnknownFieldSet.Builder
+        public func mergeVarintField(_ number:Int32, value:Int64) throws -> UnknownFieldSet.Builder
         {
             guard number != 0 else
             {
-                throw ProtocolBuffersError.IllegalArgument("Illegal Field Number: Zero is not a valid field number.")
+                throw ProtocolBuffersError.illegalArgument("Illegal Field Number: Zero is not a valid field number.")
             }
             try getFieldBuilder(number)?.variantArray.append(value)
             return self
         }
         
-        public func mergeFieldFrom(tag:Int32, input:CodedInputStream) throws -> Bool
+        public func mergeFieldFrom(_ tag:Int32, input:CodedInputStream) throws -> Bool
         {
             
             let number = WireFormat.getTagFieldNumber(tag)
@@ -317,37 +317,37 @@ public class UnknownFieldSet:Hashable,Equatable
             let format:WireFormat? = WireFormat(rawValue: tags)
             
             guard let _ = format else {
-                 throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid Wire Type")
+                 throw ProtocolBuffersError.invalidProtocolBuffer("Invalid Wire Type")
             }
             switch format! {
-            case .Varint:
+            case .varint:
                 try getFieldBuilder(number)?.variantArray.append(try input.readInt64())
                 return true
-            case .Fixed32:
+            case .fixed32:
                 let value = try input.readFixed32()
                 try getFieldBuilder(number)?.fixed32Array.append(value)
                 return true
-            case .Fixed64:
+            case .fixed64:
                 let value = try input.readFixed64()
                 try getFieldBuilder(number)?.fixed64Array.append(value)
                 return true
-            case .LengthDelimited:
+            case .lengthDelimited:
                 try getFieldBuilder(number)?.lengthDelimited.append(try input.readData())
                 return true
-            case .StartGroup:
+            case .startGroup:
                 let subBuilder:UnknownFieldSet.Builder = UnknownFieldSet.Builder()
                 try input.readUnknownGroup(number, builder:subBuilder)
                 try getFieldBuilder(number)?.groupArray.append(subBuilder.build())
                 return true
-            case .EndGroup:
+            case .endGroup:
                 return false
             default:
-                throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid Wire Type")
+                throw ProtocolBuffersError.invalidProtocolBuffer("Invalid Wire Type")
             }
         }
         
         
-        public func mergeFromCodedInputStream(input:CodedInputStream) throws -> UnknownFieldSet.Builder {
+        public func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> UnknownFieldSet.Builder {
             while (true) {
                 let tag:Int32 = try input.readTag()
                 let mergeField = try mergeFieldFrom(tag, input:input)
@@ -359,12 +359,12 @@ public class UnknownFieldSet:Hashable,Equatable
             return self
         }
         
-        public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnknownFieldSet.Builder
+        public func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnknownFieldSet.Builder
         {
-            throw ProtocolBuffersError.Obvious("UnsupportedMethod")
+            throw ProtocolBuffersError.obvious("UnsupportedMethod")
         }
         
-        public func mergeFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> UnknownFieldSet.Builder
+        public func mergeFromData(_ data:Data, extensionRegistry:ExtensionRegistry) throws -> UnknownFieldSet.Builder
         {
             let input = CodedInputStream(data: data)
             try mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry)

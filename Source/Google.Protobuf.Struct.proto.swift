@@ -67,7 +67,7 @@ public extension Google.Protobuf {
       registerAllExtensions(extensionRegistry)
       Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
     }
-    public func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(_ registry:ExtensionRegistry) {
     }
   }
 
@@ -79,23 +79,23 @@ public extension Google.Protobuf {
   // value for the `Value` type union.
   public enum NullValue:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     // Null value.
-    case NullValueField = 0
+    case nullValueField = 0
     public func toString() -> String {
       switch self {
-      case .NullValueField: return "NULL_VALUE"
+      case .nullValueField: return "NULL_VALUE"
       }
     }
-    public static func fromString(str:String) throws -> Google.Protobuf.NullValue {
+    public static func fromString(_ str:String) throws -> Google.Protobuf.NullValue {
       switch str {
-      case "NULL_VALUE":  return .NullValueField
-      default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
+      case "NULL_VALUE":  return .nullValueField
+      default: throw ProtocolBuffersError.invalidProtocolBuffer("Conversion String to Enum has failed.")
       }
     }
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
         switch self {
-            case .NullValueField: return ".NullValueField"
+            case .nullValueField: return ".NullValueField"
         }
     }
   }
@@ -125,7 +125,7 @@ public extension Google.Protobuf {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
           if hasKey {
             try output.writeString(1, value:key)
           }
@@ -153,32 +153,32 @@ public extension Google.Protobuf {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Struct.FieldsEntry> {
+        public class func parseArrayDelimitedFromInputStream(_ input:InputStream) throws -> Array<Google.Protobuf.Struct.FieldsEntry> {
           var mergedArray = Array<Google.Protobuf.Struct.FieldsEntry>()
           while let value = try parseFromDelimitedFromInputStream(input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Struct.FieldsEntry? {
+        public class func parseFromDelimitedFromInputStream(_ input:InputStream) throws -> Google.Protobuf.Struct.FieldsEntry? {
           return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeDelimitedFromInputStream(input)?.build()
         }
-        public class func parseFromData(data:NSData) throws -> Google.Protobuf.Struct.FieldsEntry {
+        public class func parseFromData(_ data:Data) throws -> Google.Protobuf.Struct.FieldsEntry {
           return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.StructRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct.FieldsEntry {
+        public class func parseFromData(_ data:Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct.FieldsEntry {
           return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Struct.FieldsEntry {
+        public class func parseFromInputStream(_ input:InputStream) throws -> Google.Protobuf.Struct.FieldsEntry {
           return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeFromInputStream(input).build()
         }
-        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct.FieldsEntry {
+        public class func parseFromInputStream(_ input:InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct.FieldsEntry {
           return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Struct.FieldsEntry {
+        public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.Struct.FieldsEntry {
           return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeFromCodedInputStream(input).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct.FieldsEntry {
+        public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct.FieldsEntry {
           return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> Google.Protobuf.Struct.FieldsEntry.Builder {
@@ -196,12 +196,12 @@ public extension Google.Protobuf {
         public func toBuilder() throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
           return try Google.Protobuf.Struct.FieldsEntry.builderWithPrototype(self)
         }
-        public class func builderWithPrototype(prototype:Google.Protobuf.Struct.FieldsEntry) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
+        public class func builderWithPrototype(_ prototype:Google.Protobuf.Struct.FieldsEntry) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
           return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeFrom(prototype)
         }
         override public func encode() throws -> Dictionary<String,AnyObject> {
           guard isInitialized() else {
-            throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+            throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
 
           var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
@@ -213,13 +213,13 @@ public extension Google.Protobuf {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Struct.FieldsEntry {
+        override class public func decode(_ jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Struct.FieldsEntry {
           return try Google.Protobuf.Struct.FieldsEntry.Builder.decodeToBuilder(jsonMap).build()
         }
-        override class public func fromJSON(data:NSData) throws -> Google.Protobuf.Struct.FieldsEntry {
+        override class public func fromJSON(_ data:Data) throws -> Google.Protobuf.Struct.FieldsEntry {
           return try Google.Protobuf.Struct.FieldsEntry.Builder.fromJSONToBuilder(data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        override public func getDescription(_ indent:String) throws -> String {
           var output = ""
           if hasKey {
             output += "\(indent) key: \(key) \n"
@@ -287,7 +287,7 @@ public extension Google.Protobuf {
                    builderResult.key = value
                }
           }
-          public func setKey(value:String) -> Google.Protobuf.Struct.FieldsEntry.Builder {
+          public func setKey(_ value:String) -> Google.Protobuf.Struct.FieldsEntry.Builder {
             self.key = value
             return self
           }
@@ -328,11 +328,11 @@ public extension Google.Protobuf {
             }
             return valueBuilder_
           }
-          public func setValue(value:Google.Protobuf.Value!) -> Google.Protobuf.Struct.FieldsEntry.Builder {
+          public func setValue(_ value:Google.Protobuf.Value!) -> Google.Protobuf.Struct.FieldsEntry.Builder {
             self.value = value
             return self
           }
-          public func mergeValue(value:Google.Protobuf.Value) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
+          public func mergeValue(_ value:Google.Protobuf.Value) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
             if builderResult.hasValue {
               builderResult.value = try Google.Protobuf.Value.builderWithPrototype(builderResult.value).mergeFrom(value).buildPartial()
             } else {
@@ -367,7 +367,7 @@ public extension Google.Protobuf {
             let returnMe:Google.Protobuf.Struct.FieldsEntry = builderResult
             return returnMe
           }
-          public func mergeFrom(other:Google.Protobuf.Struct.FieldsEntry) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
+          public func mergeFrom(_ other:Google.Protobuf.Struct.FieldsEntry) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
             if other == Google.Protobuf.Struct.FieldsEntry() {
              return self
             }
@@ -380,10 +380,10 @@ public extension Google.Protobuf {
             try mergeUnknownFields(other.unknownFields)
             return self
           }
-          override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
+          override public func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
                return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
+          override public func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
@@ -411,7 +411,7 @@ public extension Google.Protobuf {
               }
             }
           }
-          override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
+          override class public func decodeToBuilder(_ jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
             let resultDecodedBuilder = Google.Protobuf.Struct.FieldsEntry.Builder()
             if let jsonValueKey = jsonMap["key"] as? String {
               resultDecodedBuilder.key = jsonValueKey
@@ -422,10 +422,10 @@ public extension Google.Protobuf {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:NSData) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
-            let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+          override class public func fromJSONToBuilder(_ data:Data) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
+            let jsonData = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-              throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+              throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
             return try Google.Protobuf.Struct.FieldsEntry.Builder.decodeToBuilder(jsDataCast)
           }
@@ -444,7 +444,7 @@ public extension Google.Protobuf {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasFields {
           for (keyFields, valueFields) in fields {
               let valueOfFields = try! Google.Protobuf.Struct.FieldsEntry.Builder().setKey(keyFields).setValue(valueFields).build()
@@ -470,32 +470,32 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Struct> {
+    public class func parseArrayDelimitedFromInputStream(_ input:InputStream) throws -> Array<Google.Protobuf.Struct> {
       var mergedArray = Array<Google.Protobuf.Struct>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Struct? {
+    public class func parseFromDelimitedFromInputStream(_ input:InputStream) throws -> Google.Protobuf.Struct? {
       return try Google.Protobuf.Struct.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Google.Protobuf.Struct {
+    public class func parseFromData(_ data:Data) throws -> Google.Protobuf.Struct {
       return try Google.Protobuf.Struct.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.StructRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct {
+    public class func parseFromData(_ data:Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct {
       return try Google.Protobuf.Struct.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Struct {
+    public class func parseFromInputStream(_ input:InputStream) throws -> Google.Protobuf.Struct {
       return try Google.Protobuf.Struct.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct {
+    public class func parseFromInputStream(_ input:InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct {
       return try Google.Protobuf.Struct.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Struct {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.Struct {
       return try Google.Protobuf.Struct.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct {
       return try Google.Protobuf.Struct.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Google.Protobuf.Struct.Builder {
@@ -513,12 +513,12 @@ public extension Google.Protobuf {
     public func toBuilder() throws -> Google.Protobuf.Struct.Builder {
       return try Google.Protobuf.Struct.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.Struct) throws -> Google.Protobuf.Struct.Builder {
+    public class func builderWithPrototype(_ prototype:Google.Protobuf.Struct) throws -> Google.Protobuf.Struct.Builder {
       return try Google.Protobuf.Struct.Builder().mergeFrom(prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
@@ -531,13 +531,13 @@ public extension Google.Protobuf {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Struct {
+    override class public func decode(_ jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Struct {
       return try Google.Protobuf.Struct.Builder.decodeToBuilder(jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Google.Protobuf.Struct {
+    override class public func fromJSON(_ data:Data) throws -> Google.Protobuf.Struct {
       return try Google.Protobuf.Struct.Builder.fromJSONToBuilder(data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output = ""
       if hasFields {
         output += "\(indent) fields: \(fields) \n"
@@ -596,7 +596,7 @@ public extension Google.Protobuf {
                builderResult.fields = value
            }
       }
-      public func setFields(value:Dictionary<String,Google.Protobuf.Value>) -> Google.Protobuf.Struct.Builder {
+      public func setFields(_ value:Dictionary<String,Google.Protobuf.Value>) -> Google.Protobuf.Struct.Builder {
         self.fields = value
         return self
       }
@@ -625,7 +625,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Struct = builderResult
         return returnMe
       }
-      public func mergeFrom(other:Google.Protobuf.Struct) throws -> Google.Protobuf.Struct.Builder {
+      public func mergeFrom(_ other:Google.Protobuf.Struct) throws -> Google.Protobuf.Struct.Builder {
         if other == Google.Protobuf.Struct() {
          return self
         }
@@ -635,10 +635,10 @@ public extension Google.Protobuf {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Struct.Builder {
+      override public func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.Struct.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct.Builder {
+      override public func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -661,7 +661,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Struct.Builder {
+      override class public func decodeToBuilder(_ jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Struct.Builder {
         let resultDecodedBuilder = Google.Protobuf.Struct.Builder()
         if let jsonValueFields = jsonMap["fields"] as? Dictionary<String, Dictionary<String,AnyObject>> {
             var mapFields = Dictionary<String, Google.Protobuf.Value>()
@@ -674,10 +674,10 @@ public extension Google.Protobuf {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Google.Protobuf.Struct.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(_ data:Data) throws -> Google.Protobuf.Struct.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.Struct.Builder.decodeToBuilder(jsDataCast)
       }
@@ -695,71 +695,71 @@ public extension Google.Protobuf {
     //OneOf declaration start
 
     public enum Kind {
-      case OneOfKindNotSet
+      case oneOfKindNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .OneOfKindNotSet:
+           case .oneOfKindNotSet:
                 return false
            default:
                 return true
            }
       }
-      case NullValue(Google.Protobuf.NullValue)
+      case nullValue(Google.Protobuf.NullValue)
 
-      public static func getNullValue(value:Kind) -> Google.Protobuf.NullValue? {
+      public static func getNullValue(_ value:Kind) -> Google.Protobuf.NullValue? {
            switch value {
-           case .NullValue(let enumValue):
+           case .nullValue(let enumValue):
                 return enumValue
            default:
                 return nil
            }
       }
-      case NumberValue(Double)
+      case numberValue(Double)
 
-      public static func getNumberValue(value:Kind) -> Double? {
+      public static func getNumberValue(_ value:Kind) -> Double? {
            switch value {
-           case .NumberValue(let enumValue):
+           case .numberValue(let enumValue):
                 return enumValue
            default:
                 return nil
            }
       }
-      case StringValue(String)
+      case stringValue(String)
 
-      public static func getStringValue(value:Kind) -> String? {
+      public static func getStringValue(_ value:Kind) -> String? {
            switch value {
-           case .StringValue(let enumValue):
+           case .stringValue(let enumValue):
                 return enumValue
            default:
                 return nil
            }
       }
-      case BoolValue(Bool)
+      case boolValue(Bool)
 
-      public static func getBoolValue(value:Kind) -> Bool? {
+      public static func getBoolValue(_ value:Kind) -> Bool? {
            switch value {
-           case .BoolValue(let enumValue):
+           case .boolValue(let enumValue):
                 return enumValue
            default:
                 return nil
            }
       }
-      case StructValue(Google.Protobuf.Struct)
+      case structValue(Google.Protobuf.Struct)
 
-      public static func getStructValue(value:Kind) -> Google.Protobuf.Struct? {
+      public static func getStructValue(_ value:Kind) -> Google.Protobuf.Struct? {
            switch value {
-           case .StructValue(let enumValue):
+           case .structValue(let enumValue):
                 return enumValue
            default:
                 return nil
            }
       }
-      case ListValue(Google.Protobuf.ListValue)
+      case listValue(Google.Protobuf.ListValue)
 
-      public static func getListValue(value:Kind) -> Google.Protobuf.ListValue? {
+      public static func getListValue(_ value:Kind) -> Google.Protobuf.ListValue? {
            switch value {
-           case .ListValue(let enumValue):
+           case .listValue(let enumValue):
                 return enumValue
            default:
                 return nil
@@ -768,7 +768,7 @@ public extension Google.Protobuf {
     }
     //OneOf declaration end
 
-    private var storageKind:Value.Kind =  Value.Kind.OneOfKindNotSet
+    private var storageKind:Kind =  Value.Kind.oneOfKindNotSet
     public func getOneOfKind() ->  Value.Kind {
         let copyObjectKind = storageKind
         return copyObjectKind
@@ -788,7 +788,7 @@ public extension Google.Protobuf {
               return Value.Kind.getNullValue(storageKind)
          }
          set (newvalue) {
-              storageKind = Value.Kind.NullValue(newvalue)
+              storageKind = Value.Kind.nullValue(newvalue)
          }
     }
     // Represents a double value.
@@ -807,7 +807,7 @@ public extension Google.Protobuf {
               return Value.Kind.getNumberValue(storageKind)
          }
          set (newvalue) {
-              storageKind = Value.Kind.NumberValue(newvalue)
+              storageKind = Value.Kind.numberValue(newvalue)
          }
     }
     // Represents a string value.
@@ -826,7 +826,7 @@ public extension Google.Protobuf {
               return Value.Kind.getStringValue(storageKind)
          }
          set (newvalue) {
-              storageKind = Value.Kind.StringValue(newvalue)
+              storageKind = Value.Kind.stringValue(newvalue)
          }
     }
     // Represents a boolean value.
@@ -845,7 +845,7 @@ public extension Google.Protobuf {
               return Value.Kind.getBoolValue(storageKind)
          }
          set (newvalue) {
-              storageKind = Value.Kind.BoolValue(newvalue)
+              storageKind = Value.Kind.boolValue(newvalue)
          }
     }
     public private(set) var hasStructValue:Bool {
@@ -863,7 +863,7 @@ public extension Google.Protobuf {
               return Value.Kind.getStructValue(storageKind)
          }
          set (newvalue) {
-              storageKind = Value.Kind.StructValue(newvalue)
+              storageKind = Value.Kind.structValue(newvalue)
          }
     }
     public private(set) var hasListValue:Bool {
@@ -881,7 +881,7 @@ public extension Google.Protobuf {
               return Value.Kind.getListValue(storageKind)
          }
          set (newvalue) {
-              storageKind = Value.Kind.ListValue(newvalue)
+              storageKind = Value.Kind.listValue(newvalue)
          }
     }
     required public init() {
@@ -890,7 +890,7 @@ public extension Google.Protobuf {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       if hasNullValue {
         try output.writeEnum(1, value:nullValue.rawValue)
       }
@@ -944,32 +944,32 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.Value> {
+    public class func parseArrayDelimitedFromInputStream(_ input:InputStream) throws -> Array<Google.Protobuf.Value> {
       var mergedArray = Array<Google.Protobuf.Value>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Value? {
+    public class func parseFromDelimitedFromInputStream(_ input:InputStream) throws -> Google.Protobuf.Value? {
       return try Google.Protobuf.Value.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Google.Protobuf.Value {
+    public class func parseFromData(_ data:Data) throws -> Google.Protobuf.Value {
       return try Google.Protobuf.Value.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.StructRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Value {
+    public class func parseFromData(_ data:Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Value {
       return try Google.Protobuf.Value.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Google.Protobuf.Value {
+    public class func parseFromInputStream(_ input:InputStream) throws -> Google.Protobuf.Value {
       return try Google.Protobuf.Value.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Value {
+    public class func parseFromInputStream(_ input:InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Value {
       return try Google.Protobuf.Value.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Value {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.Value {
       return try Google.Protobuf.Value.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Value {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Value {
       return try Google.Protobuf.Value.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Google.Protobuf.Value.Builder {
@@ -987,12 +987,12 @@ public extension Google.Protobuf {
     public func toBuilder() throws -> Google.Protobuf.Value.Builder {
       return try Google.Protobuf.Value.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.Value) throws -> Google.Protobuf.Value.Builder {
+    public class func builderWithPrototype(_ prototype:Google.Protobuf.Value) throws -> Google.Protobuf.Value.Builder {
       return try Google.Protobuf.Value.Builder().mergeFrom(prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
@@ -1000,7 +1000,7 @@ public extension Google.Protobuf {
         jsonMap["nullValue"] = nullValue.toString()
       }
       if hasNumberValue {
-        jsonMap["numberValue"] = NSNumber(double:numberValue)
+        jsonMap["numberValue"] = NSNumber(value:numberValue)
       }
       if hasStringValue {
         jsonMap["stringValue"] = stringValue
@@ -1016,13 +1016,13 @@ public extension Google.Protobuf {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Value {
+    override class public func decode(_ jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Value {
       return try Google.Protobuf.Value.Builder.decodeToBuilder(jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Google.Protobuf.Value {
+    override class public func fromJSON(_ data:Data) throws -> Google.Protobuf.Value {
       return try Google.Protobuf.Value.Builder.fromJSONToBuilder(data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output = ""
       if (hasNullValue) {
         output += "\(indent) nullValue: \(nullValue.description)\n"
@@ -1120,13 +1120,13 @@ public extension Google.Protobuf {
                 builderResult.nullValue = value
             }
         }
-        public func setNullValue(value:Google.Protobuf.NullValue) -> Google.Protobuf.Value.Builder {
+        public func setNullValue(_ value:Google.Protobuf.NullValue) -> Google.Protobuf.Value.Builder {
           self.nullValue = value
           return self
         }
         public func clearNullValue() -> Google.Protobuf.Value.Builder {
            builderResult.hasNullValue = false
-           builderResult.nullValue = .NullValueField
+           builderResult.nullValue = .nullValueField
            return self
         }
       public var hasNumberValue:Bool {
@@ -1143,7 +1143,7 @@ public extension Google.Protobuf {
                builderResult.numberValue = value
            }
       }
-      public func setNumberValue(value:Double) -> Google.Protobuf.Value.Builder {
+      public func setNumberValue(_ value:Double) -> Google.Protobuf.Value.Builder {
         self.numberValue = value
         return self
       }
@@ -1166,7 +1166,7 @@ public extension Google.Protobuf {
                builderResult.stringValue = value
            }
       }
-      public func setStringValue(value:String) -> Google.Protobuf.Value.Builder {
+      public func setStringValue(_ value:String) -> Google.Protobuf.Value.Builder {
         self.stringValue = value
         return self
       }
@@ -1189,7 +1189,7 @@ public extension Google.Protobuf {
                builderResult.boolValue = value
            }
       }
-      public func setBoolValue(value:Bool) -> Google.Protobuf.Value.Builder {
+      public func setBoolValue(_ value:Bool) -> Google.Protobuf.Value.Builder {
         self.boolValue = value
         return self
       }
@@ -1230,11 +1230,11 @@ public extension Google.Protobuf {
         }
         return structValueBuilder_
       }
-      public func setStructValue(value:Google.Protobuf.Struct!) -> Google.Protobuf.Value.Builder {
+      public func setStructValue(_ value:Google.Protobuf.Struct!) -> Google.Protobuf.Value.Builder {
         self.structValue = value
         return self
       }
-      public func mergeStructValue(value:Google.Protobuf.Struct) throws -> Google.Protobuf.Value.Builder {
+      public func mergeStructValue(_ value:Google.Protobuf.Struct) throws -> Google.Protobuf.Value.Builder {
         if builderResult.hasStructValue {
           builderResult.structValue = try Google.Protobuf.Struct.builderWithPrototype(builderResult.structValue).mergeFrom(value).buildPartial()
         } else {
@@ -1281,11 +1281,11 @@ public extension Google.Protobuf {
         }
         return listValueBuilder_
       }
-      public func setListValue(value:Google.Protobuf.ListValue!) -> Google.Protobuf.Value.Builder {
+      public func setListValue(_ value:Google.Protobuf.ListValue!) -> Google.Protobuf.Value.Builder {
         self.listValue = value
         return self
       }
-      public func mergeListValue(value:Google.Protobuf.ListValue) throws -> Google.Protobuf.Value.Builder {
+      public func mergeListValue(_ value:Google.Protobuf.ListValue) throws -> Google.Protobuf.Value.Builder {
         if builderResult.hasListValue {
           builderResult.listValue = try Google.Protobuf.ListValue.builderWithPrototype(builderResult.listValue).mergeFrom(value).buildPartial()
         } else {
@@ -1320,7 +1320,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Value = builderResult
         return returnMe
       }
-      public func mergeFrom(other:Google.Protobuf.Value) throws -> Google.Protobuf.Value.Builder {
+      public func mergeFrom(_ other:Google.Protobuf.Value) throws -> Google.Protobuf.Value.Builder {
         if other == Google.Protobuf.Value() {
          return self
         }
@@ -1345,10 +1345,10 @@ public extension Google.Protobuf {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.Value.Builder {
+      override public func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.Value.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Value.Builder {
+      override public func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Value.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -1398,7 +1398,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Value.Builder {
+      override class public func decodeToBuilder(_ jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Value.Builder {
         let resultDecodedBuilder = Google.Protobuf.Value.Builder()
         if let jsonValueNullValue = jsonMap["nullValue"] as? String {
           resultDecodedBuilder.nullValue = try Google.Protobuf.NullValue.fromString(jsonValueNullValue)
@@ -1422,10 +1422,10 @@ public extension Google.Protobuf {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Google.Protobuf.Value.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(_ data:Data) throws -> Google.Protobuf.Value.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.Value.Builder.decodeToBuilder(jsDataCast)
       }
@@ -1442,7 +1442,7 @@ public extension Google.Protobuf {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
       for oneElementValues in values {
           try output.writeMessage(1, value:oneElementValues)
       }
@@ -1462,32 +1462,32 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.ListValue> {
+    public class func parseArrayDelimitedFromInputStream(_ input:InputStream) throws -> Array<Google.Protobuf.ListValue> {
       var mergedArray = Array<Google.Protobuf.ListValue>()
       while let value = try parseFromDelimitedFromInputStream(input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.ListValue? {
+    public class func parseFromDelimitedFromInputStream(_ input:InputStream) throws -> Google.Protobuf.ListValue? {
       return try Google.Protobuf.ListValue.Builder().mergeDelimitedFromInputStream(input)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Google.Protobuf.ListValue {
+    public class func parseFromData(_ data:Data) throws -> Google.Protobuf.ListValue {
       return try Google.Protobuf.ListValue.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.StructRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ListValue {
+    public class func parseFromData(_ data:Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ListValue {
       return try Google.Protobuf.ListValue.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Google.Protobuf.ListValue {
+    public class func parseFromInputStream(_ input:InputStream) throws -> Google.Protobuf.ListValue {
       return try Google.Protobuf.ListValue.Builder().mergeFromInputStream(input).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ListValue {
+    public class func parseFromInputStream(_ input:InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ListValue {
       return try Google.Protobuf.ListValue.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.ListValue {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.ListValue {
       return try Google.Protobuf.ListValue.Builder().mergeFromCodedInputStream(input).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ListValue {
+    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ListValue {
       return try Google.Protobuf.ListValue.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Google.Protobuf.ListValue.Builder {
@@ -1505,12 +1505,12 @@ public extension Google.Protobuf {
     public func toBuilder() throws -> Google.Protobuf.ListValue.Builder {
       return try Google.Protobuf.ListValue.builderWithPrototype(self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.ListValue) throws -> Google.Protobuf.ListValue.Builder {
+    public class func builderWithPrototype(_ prototype:Google.Protobuf.ListValue) throws -> Google.Protobuf.ListValue.Builder {
       return try Google.Protobuf.ListValue.Builder().mergeFrom(prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
@@ -1524,13 +1524,13 @@ public extension Google.Protobuf {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.ListValue {
+    override class public func decode(_ jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.ListValue {
       return try Google.Protobuf.ListValue.Builder.decodeToBuilder(jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Google.Protobuf.ListValue {
+    override class public func fromJSON(_ data:Data) throws -> Google.Protobuf.ListValue {
       return try Google.Protobuf.ListValue.Builder.fromJSONToBuilder(data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    override public func getDescription(_ indent:String) throws -> String {
       var output = ""
       var valuesElementIndex:Int = 0
       for oneElementValues in values {
@@ -1584,12 +1584,12 @@ public extension Google.Protobuf {
                builderResult.values = value
            }
       }
-      public func setValues(value:Array<Google.Protobuf.Value>) -> Google.Protobuf.ListValue.Builder {
+      public func setValues(_ value:Array<Google.Protobuf.Value>) -> Google.Protobuf.ListValue.Builder {
         self.values = value
         return self
       }
       public func clearValues() -> Google.Protobuf.ListValue.Builder {
-        builderResult.values.removeAll(keepCapacity: false)
+        builderResult.values.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:GeneratedMessage {
@@ -1612,7 +1612,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.ListValue = builderResult
         return returnMe
       }
-      public func mergeFrom(other:Google.Protobuf.ListValue) throws -> Google.Protobuf.ListValue.Builder {
+      public func mergeFrom(_ other:Google.Protobuf.ListValue) throws -> Google.Protobuf.ListValue.Builder {
         if other == Google.Protobuf.ListValue() {
          return self
         }
@@ -1622,10 +1622,10 @@ public extension Google.Protobuf {
         try mergeUnknownFields(other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.ListValue.Builder {
+      override public func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> Google.Protobuf.ListValue.Builder {
            return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ListValue.Builder {
+      override public func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ListValue.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
@@ -1647,7 +1647,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.ListValue.Builder {
+      override class public func decodeToBuilder(_ jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.ListValue.Builder {
         let resultDecodedBuilder = Google.Protobuf.ListValue.Builder()
         if let jsonValueValues = jsonMap["values"] as? Array<Dictionary<String,AnyObject>> {
           var jsonArrayValues:Array<Google.Protobuf.Value> = []
@@ -1660,10 +1660,10 @@ public extension Google.Protobuf {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Google.Protobuf.ListValue.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(_ data:Data) throws -> Google.Protobuf.ListValue.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.ListValue.Builder.decodeToBuilder(jsDataCast)
       }
