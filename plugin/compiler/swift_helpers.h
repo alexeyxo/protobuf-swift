@@ -49,6 +49,7 @@ namespace google {
                 // Returns true if the name requires a ns_returns_not_retained attribute applied
                 // to it.
                 
+                bool isPackedTypeProto3(const FieldDescriptor* field);
                 
                 //Packages
                 vector<string> FullNameSplit(const FileDescriptor* file);

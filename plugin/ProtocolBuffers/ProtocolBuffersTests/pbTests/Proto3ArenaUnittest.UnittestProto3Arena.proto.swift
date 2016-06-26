@@ -657,9 +657,7 @@ public extension Proto3ArenaUnittest {
     public private(set) var repeatedBool:Array<Bool> = Array<Bool>()
     private var repeatedBoolMemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedString:Array<String> = Array<String>()
-    private var repeatedStringMemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedBytes:Array<NSData> = Array<NSData>()
-    private var repeatedBytesMemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedNestedMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>  = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
     public private(set) var repeatedForeignMessage:Array<Proto3ArenaUnittest.ForeignMessage>  = Array<Proto3ArenaUnittest.ForeignMessage>()
     public private(set) var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessage>  = Array<ProtobufUnittestImport.ImportMessage>()
@@ -668,9 +666,7 @@ public extension Proto3ArenaUnittest {
     private var repeatedForeignEnumMemoizedSerializedSize:Int32 = 0
     public private(set) var repeatedForeignEnum:Array<Proto3ArenaUnittest.ForeignEnum> = Array<Proto3ArenaUnittest.ForeignEnum>()
     public private(set) var repeatedStringPiece:Array<String> = Array<String>()
-    private var repeatedStringPieceMemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedCord:Array<String> = Array<String>()
-    private var repeatedCordMemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedLazyMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>  = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
     public private(set) var hasOneofUint32:Bool {
           get {
@@ -915,17 +911,13 @@ public extension Proto3ArenaUnittest {
         }
       }
       if !repeatedString.isEmpty {
-        try output.writeRawVarint32(354)
-        try output.writeRawVarint32(repeatedStringMemoizedSerializedSize)
         for oneValuerepeatedString in repeatedString {
-          try output.writeStringNoTag(oneValuerepeatedString)
+          try output.writeString(44, value:oneValuerepeatedString)
         }
       }
       if !repeatedBytes.isEmpty {
-        try output.writeRawVarint32(362)
-        try output.writeRawVarint32(repeatedBytesMemoizedSerializedSize)
         for oneValuerepeatedBytes in repeatedBytes {
-          try output.writeDataNoTag(oneValuerepeatedBytes)
+          try output.writeData(45, value:oneValuerepeatedBytes)
         }
       }
       for oneElementRepeatedNestedMessage in repeatedNestedMessage {
@@ -937,32 +929,20 @@ public extension Proto3ArenaUnittest {
       for oneElementRepeatedImportMessage in repeatedImportMessage {
           try output.writeMessage(50, value:oneElementRepeatedImportMessage)
       }
-      if !repeatedNestedEnum.isEmpty {
-        try output.writeRawVarint32(410)
-        try output.writeRawVarint32(repeatedNestedEnumMemoizedSerializedSize)
-      }
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
-          try output.writeEnumNoTag(oneValueOfrepeatedNestedEnum.rawValue)
-      }
-      if !repeatedForeignEnum.isEmpty {
-        try output.writeRawVarint32(418)
-        try output.writeRawVarint32(repeatedForeignEnumMemoizedSerializedSize)
+          try output.writeEnum(51, value:oneValueOfrepeatedNestedEnum.rawValue)
       }
       for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
-          try output.writeEnumNoTag(oneValueOfrepeatedForeignEnum.rawValue)
+          try output.writeEnum(52, value:oneValueOfrepeatedForeignEnum.rawValue)
       }
       if !repeatedStringPiece.isEmpty {
-        try output.writeRawVarint32(434)
-        try output.writeRawVarint32(repeatedStringPieceMemoizedSerializedSize)
         for oneValuerepeatedStringPiece in repeatedStringPiece {
-          try output.writeStringNoTag(oneValuerepeatedStringPiece)
+          try output.writeString(54, value:oneValuerepeatedStringPiece)
         }
       }
       if !repeatedCord.isEmpty {
-        try output.writeRawVarint32(442)
-        try output.writeRawVarint32(repeatedCordMemoizedSerializedSize)
         for oneValuerepeatedCord in repeatedCord {
-          try output.writeStringNoTag(oneValuerepeatedCord)
+          try output.writeString(55, value:oneValuerepeatedCord)
         }
       }
       for oneElementRepeatedLazyMessage in repeatedLazyMessage {
@@ -1192,21 +1172,13 @@ public extension Proto3ArenaUnittest {
           dataSizeRepeatedString += oneValuerepeatedString.computeStringSizeNoTag()
       }
       serialize_size += dataSizeRepeatedString
-      if !repeatedString.isEmpty {
-        serialize_size += 2
-        serialize_size += dataSizeRepeatedString.computeInt32SizeNoTag()
-      }
-      repeatedStringMemoizedSerializedSize = dataSizeRepeatedString
+      serialize_size += 2 * Int32(repeatedString.count)
       var dataSizeRepeatedBytes:Int32 = 0
       for oneValuerepeatedBytes in repeatedBytes {
           dataSizeRepeatedBytes += oneValuerepeatedBytes.computeDataSizeNoTag()
       }
       serialize_size += dataSizeRepeatedBytes
-      if !repeatedBytes.isEmpty {
-        serialize_size += 2
-        serialize_size += dataSizeRepeatedBytes.computeInt32SizeNoTag()
-      }
-      repeatedBytesMemoizedSerializedSize = dataSizeRepeatedBytes
+      serialize_size += 2 * Int32(repeatedBytes.count)
       for oneElementRepeatedNestedMessage in repeatedNestedMessage {
           serialize_size += oneElementRepeatedNestedMessage.computeMessageSize(48)
       }
@@ -1221,41 +1193,25 @@ public extension Proto3ArenaUnittest {
           dataSizerepeatedNestedEnum += oneValueOfrepeatedNestedEnum.rawValue.computeEnumSizeNoTag()
       }
       serialize_size += dataSizerepeatedNestedEnum
-      if !repeatedNestedEnum.isEmpty {
-        serialize_size += 2
-        serialize_size += dataSizerepeatedNestedEnum.computeRawVarint32Size()
-      }
-      repeatedNestedEnumMemoizedSerializedSize = dataSizerepeatedNestedEnum
+      serialize_size += (2 * Int32(repeatedNestedEnum.count))
       var dataSizerepeatedForeignEnum:Int32 = 0
       for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
           dataSizerepeatedForeignEnum += oneValueOfrepeatedForeignEnum.rawValue.computeEnumSizeNoTag()
       }
       serialize_size += dataSizerepeatedForeignEnum
-      if !repeatedForeignEnum.isEmpty {
-        serialize_size += 2
-        serialize_size += dataSizerepeatedForeignEnum.computeRawVarint32Size()
-      }
-      repeatedForeignEnumMemoizedSerializedSize = dataSizerepeatedForeignEnum
+      serialize_size += (2 * Int32(repeatedForeignEnum.count))
       var dataSizeRepeatedStringPiece:Int32 = 0
       for oneValuerepeatedStringPiece in repeatedStringPiece {
           dataSizeRepeatedStringPiece += oneValuerepeatedStringPiece.computeStringSizeNoTag()
       }
       serialize_size += dataSizeRepeatedStringPiece
-      if !repeatedStringPiece.isEmpty {
-        serialize_size += 2
-        serialize_size += dataSizeRepeatedStringPiece.computeInt32SizeNoTag()
-      }
-      repeatedStringPieceMemoizedSerializedSize = dataSizeRepeatedStringPiece
+      serialize_size += 2 * Int32(repeatedStringPiece.count)
       var dataSizeRepeatedCord:Int32 = 0
       for oneValuerepeatedCord in repeatedCord {
           dataSizeRepeatedCord += oneValuerepeatedCord.computeStringSizeNoTag()
       }
       serialize_size += dataSizeRepeatedCord
-      if !repeatedCord.isEmpty {
-        serialize_size += 2
-        serialize_size += dataSizeRepeatedCord.computeInt32SizeNoTag()
-      }
-      repeatedCordMemoizedSerializedSize = dataSizeRepeatedCord
+      serialize_size += 2 * Int32(repeatedCord.count)
       for oneElementRepeatedLazyMessage in repeatedLazyMessage {
           serialize_size += oneElementRepeatedLazyMessage.computeMessageSize(57)
       }
@@ -3586,20 +3542,10 @@ public extension Proto3ArenaUnittest {
             input.popLimit(limit)
 
           case 354:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedString += [try input.readString()]
-            }
-            input.popLimit(limit)
+            repeatedString += [try input.readString()]
 
           case 362:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedBytes += [try input.readData()]
-            }
-            input.popLimit(limit)
+            repeatedBytes += [try input.readData()]
 
           case 386:
             let subBuilder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
@@ -3616,47 +3562,27 @@ public extension Proto3ArenaUnittest {
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedImportMessage += [subBuilder.buildPartial()]
 
-          case 410:
-            let length:Int32 = try input.readRawVarint32()
-            let oldLimit:Int32 = try input.pushLimit(length)
-            while input.bytesUntilLimit() > 0 {
+          case 408:
             let valueIntrepeatedNestedEnum = try input.readEnum()
             if let enumsrepeatedNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
             } else {
                  try unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
             }
-            }
-            input.popLimit(oldLimit)
 
-          case 418:
-            let length:Int32 = try input.readRawVarint32()
-            let oldLimit:Int32 = try input.pushLimit(length)
-            while input.bytesUntilLimit() > 0 {
+          case 416:
             let valueIntrepeatedForeignEnum = try input.readEnum()
             if let enumsrepeatedForeignEnum = Proto3ArenaUnittest.ForeignEnum(rawValue:valueIntrepeatedForeignEnum) {
                  builderResult.repeatedForeignEnum += [enumsrepeatedForeignEnum]
             } else {
                  try unknownFieldsBuilder.mergeVarintField(52, value:Int64(valueIntrepeatedForeignEnum))
             }
-            }
-            input.popLimit(oldLimit)
 
           case 434:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedStringPiece += [try input.readString()]
-            }
-            input.popLimit(limit)
+            repeatedStringPiece += [try input.readString()]
 
           case 442:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedCord += [try input.readString()]
-            }
-            input.popLimit(limit)
+            repeatedCord += [try input.readString()]
 
           case 458:
             let subBuilder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
@@ -5191,12 +5117,8 @@ public extension Proto3ArenaUnittest {
           try output.writeBoolNoTag(oneValuerepeatedBool)
         }
       }
-      if !repeatedNestedEnum.isEmpty {
-        try output.writeRawVarint32(112)
-        try output.writeRawVarint32(repeatedNestedEnumMemoizedSerializedSize)
-      }
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
-          try output.writeEnumNoTag(oneValueOfrepeatedNestedEnum.rawValue)
+          try output.writeEnum(14, value:oneValueOfrepeatedNestedEnum.rawValue)
       }
       try unknownFields.writeToCodedOutputStream(output)
     }
@@ -5328,11 +5250,7 @@ public extension Proto3ArenaUnittest {
           dataSizerepeatedNestedEnum += oneValueOfrepeatedNestedEnum.rawValue.computeEnumSizeNoTag()
       }
       serialize_size += dataSizerepeatedNestedEnum
-      if !repeatedNestedEnum.isEmpty {
-        serialize_size += 1
-        serialize_size += dataSizerepeatedNestedEnum.computeRawVarint32Size()
-      }
-      repeatedNestedEnumMemoizedSerializedSize = dataSizerepeatedNestedEnum
+      serialize_size += (1 * Int32(repeatedNestedEnum.count))
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
@@ -6048,18 +5966,13 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 114:
-            let length:Int32 = try input.readRawVarint32()
-            let oldLimit:Int32 = try input.pushLimit(length)
-            while input.bytesUntilLimit() > 0 {
+          case 112:
             let valueIntrepeatedNestedEnum = try input.readEnum()
             if let enumsrepeatedNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
             } else {
                  try unknownFieldsBuilder.mergeVarintField(14, value:Int64(valueIntrepeatedNestedEnum))
             }
-            }
-            input.popLimit(oldLimit)
 
           default:
             if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

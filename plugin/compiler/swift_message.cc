@@ -850,7 +850,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             uint32 tag = WireFormatLite::MakeTag(field->number(),
                                                  WireFormat::WireTypeForFieldType(field->type()));
             
-            if (field->options().packed() || (descriptor_->file()->syntax() == FileDescriptor::SYNTAX_PROTO3 && field->is_repeated())) {
+            if (field->options().packed() || (isPackedTypeProto3(field) && field->is_repeated())) {
                 tag = WireFormatLite::MakeTag(field->number(),
                                               WireFormatLite::WIRETYPE_LENGTH_DELIMITED);
             }
