@@ -116,10 +116,10 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         }
         
         printer->Print("extensionRegistry = ExtensionRegistry()\n"
-                       "registerAllExtensions(extensionRegistry)\n");
+                       "registerAllExtensions(registry: extensionRegistry)\n");
         
         for (int i = 0; i < file_->dependency_count(); i++) {
-            printer->Print("$dependency$.sharedInstance.registerAllExtensions(extensionRegistry)\n",
+            printer->Print("$dependency$.sharedInstance.registerAllExtensions(registry: extensionRegistry)\n",
                            "dependency", FileClassName(file_->dependency(i)));
         }
         
@@ -127,7 +127,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         printer->Print("}\n");
         
         
-        printer->Print("$acontrol$ func registerAllExtensions(_ registry:ExtensionRegistry) {\n",
+        printer->Print("$acontrol$ func registerAllExtensions(registry:ExtensionRegistry) {\n",
                        "acontrol", GetAccessControlType(file_));
         
         printer->Indent();

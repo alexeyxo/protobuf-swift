@@ -83,8 +83,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "     get {\n"
                            "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "     }\n"
-                           "     set (newvalue) {\n"
-                           "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
+                           "     set (newValue) {\n"
+                           "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newValue)\n"
                            "     }\n"
                            "}\n");
             
@@ -96,14 +96,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "           }\n"
                            "           return true\n"
                            "      }\n"
-                           "      set(newValue) {\n"
-                           "      }\n"
+                           "      set(newValue) {}\n"
                            "}\n");
             
         }
         else
         {
-            printer->Print(variables_, "$acontrol$private(set) var $name$:$type$ = $type$.$default$\n");
+            printer->Print(variables_,"$acontrol$private(set) var $name$:$type$ = $type$.$default$\n");
             printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
         }
     }
@@ -157,18 +156,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        
-                       "let valueInt$name$ = try input.readEnum()\n"
+                       "let valueInt$name$ = try codedInputStream.readEnum()\n"
                        "if let enums$name$ = $type$(rawValue:valueInt$name$){\n"
                        "     $name$ = enums$name$\n"
                        "} else {\n"
-                       "     try unknownFieldsBuilder.mergeVarintField($number$, value:Int64(valueInt$name$))\n"
+                       "     _ = try unknownFieldsBuilder.mergeVarintField(number: $number$, value:Int64(valueInt$name$))\n"
                        "}\n");
     }
     
     void EnumFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  try output.writeEnum($number$, value:$name$.rawValue)\n"
+                       "  try codedOutputStream.writeEnum(fieldNumber:$number$, value:$name$.rawValue)\n"
                        "}\n");
     }
     
@@ -176,7 +175,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if (has$capitalized_name$) {\n"
-                       "  serialize_size += $name$.rawValue.computeEnumSize($number$)\n"
+                       "  serialize_size += $name$.rawValue.computeEnumSize(fieldNumber: $number$)\n"
                        "}\n");
     }
     
@@ -272,25 +271,25 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         // If packed, set up the while loop
         if (descriptor_->options().packed()) {
             printer->Print(variables_,
-                           "let length:Int32 = try input.readRawVarint32()\n"
-                           "let oldLimit:Int32 = try input.pushLimit(length)\n"
-                           "while input.bytesUntilLimit() > 0 {\n");
+                           "let length = try codedInputStream.readRawVarint32()\n"
+                           "let oldLimit = try codedInputStream.pushLimit(byteLimit: Int(length))\n"
+                           "while codedInputStream.bytesUntilLimit() > 0 {\n");
             
         }
         
         printer->Print(variables_,
-                       "let valueInt$name$ = try input.readEnum()\n"
+                       "let valueInt$name$ = try codedInputStream.readEnum()\n"
                        "if let enums$name$ = $type$(rawValue:valueInt$name$) {\n"
                        "     builderResult.$name$ += [enums$name$]\n"
                        "} else {\n"
-                       "     try unknownFieldsBuilder.mergeVarintField($number$, value:Int64(valueInt$name$))\n"
+                       "     _ = try unknownFieldsBuilder.mergeVarintField(number: $number$, value:Int64(valueInt$name$))\n"
                        "}\n");
         
         if (descriptor_->options().packed()) {
             
             printer->Print(variables_,
                            "}\n"
-                           "input.popLimit(oldLimit)\n");
+                           "codedInputStream.popLimit(oldLimit: Int(oldLimit))\n");
         }
     }
     
@@ -299,16 +298,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (descriptor_->options().packed()) {
             printer->Print(variables_,
                            "if !$name$.isEmpty {\n"
-                           "  try output.writeRawVarint32($tag$)\n"
-                           "  try output.writeRawVarint32($name$MemoizedSerializedSize)\n"
+                           "  try codedOutputStream.writeRawVarint32(value:$tag$)\n"
+                           "  try codedOutputStream.writeRawVarint32(value:$name$MemoizedSerializedSize)\n"
                            "}\n"
                            "for oneValueOf$name$ in $name$ {\n"
-                           "    try output.writeEnumNoTag(oneValueOf$name$.rawValue)\n"
+                           "    try codedOutputStream.writeEnumNoTag(value:oneValueOf$name$.rawValue)\n"
                            "}\n");
         } else {
             printer->Print(variables_,
                            "for oneValueOf$name$ in $name$ {\n"
-                           "    try output.writeEnum($number$, value:oneValueOf$name$.rawValue)\n"
+                           "    try codedOutputStream.writeEnum(fieldNumber:$number$, value:oneValueOf$name$.rawValue)\n"
                            "}\n");
         }
     }

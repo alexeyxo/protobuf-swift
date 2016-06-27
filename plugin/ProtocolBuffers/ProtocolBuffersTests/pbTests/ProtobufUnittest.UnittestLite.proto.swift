@@ -159,7 +159,7 @@ public func == (lhs: ProtobufUnittest.TestAllExtensionsLite, rhs: ProtobufUnitte
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1), endExclusive:Int32(536870912))
+  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:Int32(1), endExclusive:Int32(536870912))
   fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
   return fieldCheck
 }
@@ -189,7 +189,7 @@ public func == (lhs: ProtobufUnittest.TestPackedExtensionsLite, rhs: ProtobufUni
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1), endExclusive:Int32(536870912))
+  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:Int32(1), endExclusive:Int32(536870912))
   fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
   return fieldCheck
 }
@@ -223,7 +223,7 @@ public func == (lhs: ProtobufUnittest.TestParsingMergeLite, rhs: ProtobufUnittes
   fieldCheck = fieldCheck && (lhs.repeatedAllTypes == rhs.repeatedAllTypes)
   fieldCheck = fieldCheck && (lhs.hasOptionalGroup == rhs.hasOptionalGroup) && (!lhs.hasOptionalGroup || lhs.optionalGroup == rhs.optionalGroup)
   fieldCheck = fieldCheck && (lhs.repeatedGroup == rhs.repeatedGroup)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1000), endExclusive:Int32(536870912))
+  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:Int32(1000), endExclusive:Int32(536870912))
   fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
   return fieldCheck
 }
@@ -298,7 +298,7 @@ public func == (lhs: ProtobufUnittest.TestEmptyMessageWithExtensionsLite, rhs: P
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(rhs, startInclusive:Int32(1), endExclusive:Int32(536870912))
+  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:Int32(1), endExclusive:Int32(536870912))
   fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
   return fieldCheck
 }
@@ -884,7 +884,7 @@ public extension ProtobufUnittest {
       UnittestLiteRootoptionalDoubleExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 12, defaultValue:Double(0), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootoptionalBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 13, defaultValue:false, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootoptionalStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 14, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteRootoptionalBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 15, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteRootoptionalBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 15, defaultValue:Data(), messageOrGroupClass:Data.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootoptionalGroupExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 16, defaultValue:ProtobufUnittest.OptionalGroupExtensionLite(), messageOrGroupClass:ProtobufUnittest.OptionalGroupExtensionLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootoptionalNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 18, defaultValue:ProtobufUnittest.TestAllTypesLite.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootoptionalForeignMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 19, defaultValue:ProtobufUnittest.ForeignMessageLite(), messageOrGroupClass:ProtobufUnittest.ForeignMessageLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -910,7 +910,7 @@ public extension ProtobufUnittest {
       UnittestLiteRootrepeatedDoubleExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 42, defaultValue:Array<Double>(), messageOrGroupClass:Double.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootrepeatedBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 43, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootrepeatedStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 44, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteRootrepeatedBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 45, defaultValue:Array<NSData>(), messageOrGroupClass:NSData.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteRootrepeatedBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 45, defaultValue:Array<Data>(), messageOrGroupClass:Data.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootrepeatedGroupExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 46, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.RepeatedGroupExtensionLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootrepeatedNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 48, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootrepeatedForeignMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 49, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.ForeignMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
@@ -935,7 +935,7 @@ public extension ProtobufUnittest {
       UnittestLiteRootdefaultDoubleExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 72, defaultValue:Double(52000), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootdefaultBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 73, defaultValue:true, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootdefaultStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 74, defaultValue:"hello", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteRootdefaultBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 75, defaultValue:NSData(bytes:([UInt8]() + "world".utf8), length:5), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteRootdefaultBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 75, defaultValue:Data(bytes:([UInt8]() + "world".utf8), length:5), messageOrGroupClass:Data.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootdefaultNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 81, defaultValue:ProtobufUnittest.TestAllTypesLite.NestedEnum.Bar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootdefaultForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 82, defaultValue:ProtobufUnittest.ForeignEnumLite.ForeignLiteBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootdefaultImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 83, defaultValue:ProtobufUnittestImport.ImportEnumLite.ImportLiteBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -944,7 +944,7 @@ public extension ProtobufUnittest {
       UnittestLiteRootoneofUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 111, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootoneofNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 112, defaultValue:ProtobufUnittest.TestAllTypesLite.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootoneofStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 113, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-      UnittestLiteRootoneofBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 114, defaultValue:NSData(), messageOrGroupClass:NSData.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      UnittestLiteRootoneofBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensionsLite.self, fieldNumber: 114, defaultValue:Data(), messageOrGroupClass:Data.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       UnittestLiteRootpackedInt32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 90, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
       UnittestLiteRootpackedInt64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 91, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
       UnittestLiteRootpackedUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:ProtobufUnittest.TestPackedExtensionsLite.self, fieldNumber: 92, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
@@ -963,10 +963,10 @@ public extension ProtobufUnittest {
       TestParsingMergeLiteoptionalExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestParsingMergeLite.self, fieldNumber: 1000, defaultValue:ProtobufUnittest.TestAllTypesLite(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       TestParsingMergeLiterepeatedExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:ProtobufUnittest.TestParsingMergeLite.self, fieldNumber: 1001, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestAllTypesLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
-      registerAllExtensions(extensionRegistry)
-      ProtobufUnittestImport.UnittestImportLiteRoot.sharedInstance.registerAllExtensions(extensionRegistry)
+      registerAllExtensions(registry: extensionRegistry)
+      ProtobufUnittestImport.UnittestImportLiteRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
     }
-    public func registerAllExtensions(_ registry:ExtensionRegistry) {
+    public func registerAllExtensions(registry:ExtensionRegistry) {
       registry.addExtension(UnittestLiteRootoptionalInt32ExtensionLiteStatic)
       registry.addExtension(UnittestLiteRootoptionalInt64ExtensionLiteStatic)
       registry.addExtension(UnittestLiteRootoptionalUint32ExtensionLiteStatic)
@@ -1367,11 +1367,11 @@ public extension ProtobufUnittest {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
           if hasBb {
-            try output.writeInt32(1, value:bb)
+            try output.writeInt32(fieldNumber:1, value:bb)
           }
-          try unknownFields.writeToCodedOutputStream(output)
+          try unknownFields.writeToCodedOutputStream(output:output)
         }
         override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
@@ -1381,39 +1381,39 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasBb {
-            serialize_size += bb.computeInt32Size(1)
+            serialize_size += bb.computeInt32Size(fieldNumber: 1)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestAllTypesLite.NestedMessage> {
+        public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestAllTypesLite.NestedMessage> {
           var mergedArray = Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>()
-          while let value = try parseFromDelimitedFromInputStream(input) {
+          while let value = try parseFromDelimitedFromInputStream(input: input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage? {
-          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
+        public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage? {
+          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeDelimitedFromInputStream(input: input)?.build()
         }
-        public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
-          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+        public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
+          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
-          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
+          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
-          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFromInputStream(input).build()
+        public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
+          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFromInputStream(input: input).build()
         }
-        public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
-          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
+          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
-          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFromCodedInputStream(input).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
+          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFromCodedInputStream(input: input).build()
         }
-        public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
-          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
+          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
           return ProtobufUnittest.TestAllTypesLite.NestedMessage.classBuilder() as! ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder
@@ -1428,17 +1428,17 @@ public extension ProtobufUnittest {
           return ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
-          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(self)
+          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(prototype: self)
         }
-        public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
-          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFrom(prototype)
+        public class func builderWithPrototype(prototype:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
+          return try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder().mergeFrom(other: prototype)
         }
-        override public func getDescription(_ indent:String) throws -> String {
+        override public func getDescription(indent:String) throws -> String {
           var output:String = ""
           if hasBb {
             output += "\(indent) bb: \(bb) \n"
           }
-          output += unknownFields.getDescription(indent)
+          output += unknownFields.getDescription(indent: indent)
           return output
         }
         override public var hashValue:Int {
@@ -1489,7 +1489,7 @@ public extension ProtobufUnittest {
                    builderResult.bb = value
                }
           }
-          public func setBb(_ value:Int32) -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
+          public func setBb(value:Int32) -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
             self.bb = value
             return self
           }
@@ -1508,7 +1508,7 @@ public extension ProtobufUnittest {
             return self
           }
           public override func clone() throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
-            return try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(builderResult)
+            return try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(prototype: builderResult)
           }
           public override func build() throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage {
                try checkInitialized()
@@ -1518,21 +1518,21 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestAllTypesLite.NestedMessage = builderResult
             return returnMe
           }
-          public func mergeFrom(_ other:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
+          public func mergeFrom(other:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
             if other == ProtobufUnittest.TestAllTypesLite.NestedMessage() {
              return self
             }
             if other.hasBb {
                  bb = other.bb
             }
-            try mergeUnknownFields(other.unknownFields)
+            _ = try mergeUnknownFields(unknownField: other.unknownFields)
             return self
           }
-          public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
-               return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+          public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
+               return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
           }
-          public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
-            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
               switch protobufTag {
@@ -1540,11 +1540,11 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 bb = try input.readInt32()
 
               default:
-                if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                    unknownFields = try unknownFieldsBuilder.build()
                    return self
                 }
@@ -1571,11 +1571,11 @@ public extension ProtobufUnittest {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
           if hasA {
-            try output.writeInt32(17, value:a)
+            try output.writeInt32(fieldNumber:17, value:a)
           }
-          try unknownFields.writeToCodedOutputStream(output)
+          try unknownFields.writeToCodedOutputStream(output:output)
         }
         override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
@@ -1585,39 +1585,39 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += a.computeInt32Size(17)
+            serialize_size += a.computeInt32Size(fieldNumber: 17)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestAllTypesLite.OptionalGroup> {
+        public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestAllTypesLite.OptionalGroup> {
           var mergedArray = Array<ProtobufUnittest.TestAllTypesLite.OptionalGroup>()
-          while let value = try parseFromDelimitedFromInputStream(input) {
+          while let value = try parseFromDelimitedFromInputStream(input: input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup? {
-          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeDelimitedFromInputStream(input)?.build()
+        public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup? {
+          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeDelimitedFromInputStream(input: input)?.build()
         }
-        public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
-          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+        public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
+          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
-          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
+          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
-          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFromInputStream(input).build()
+        public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
+          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFromInputStream(input: input).build()
         }
-        public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
-          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
+          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
-          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFromCodedInputStream(input).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
+          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFromCodedInputStream(input: input).build()
         }
-        public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
-          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
+          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
           return ProtobufUnittest.TestAllTypesLite.OptionalGroup.classBuilder() as! ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder
@@ -1632,17 +1632,17 @@ public extension ProtobufUnittest {
           return ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
-          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.builderWithPrototype(self)
+          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.builderWithPrototype(prototype: self)
         }
-        public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestAllTypesLite.OptionalGroup) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
-          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFrom(prototype)
+        public class func builderWithPrototype(prototype:ProtobufUnittest.TestAllTypesLite.OptionalGroup) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
+          return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder().mergeFrom(other: prototype)
         }
-        override public func getDescription(_ indent:String) throws -> String {
+        override public func getDescription(indent:String) throws -> String {
           var output:String = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
           }
-          output += unknownFields.getDescription(indent)
+          output += unknownFields.getDescription(indent: indent)
           return output
         }
         override public var hashValue:Int {
@@ -1693,7 +1693,7 @@ public extension ProtobufUnittest {
                    builderResult.a = value
                }
           }
-          public func setA(_ value:Int32) -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
+          public func setA(value:Int32) -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
             self.a = value
             return self
           }
@@ -1712,7 +1712,7 @@ public extension ProtobufUnittest {
             return self
           }
           public override func clone() throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
-            return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.builderWithPrototype(builderResult)
+            return try ProtobufUnittest.TestAllTypesLite.OptionalGroup.builderWithPrototype(prototype: builderResult)
           }
           public override func build() throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup {
                try checkInitialized()
@@ -1722,21 +1722,21 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestAllTypesLite.OptionalGroup = builderResult
             return returnMe
           }
-          public func mergeFrom(_ other:ProtobufUnittest.TestAllTypesLite.OptionalGroup) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
+          public func mergeFrom(other:ProtobufUnittest.TestAllTypesLite.OptionalGroup) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
             if other == ProtobufUnittest.TestAllTypesLite.OptionalGroup() {
              return self
             }
             if other.hasA {
                  a = other.a
             }
-            try mergeUnknownFields(other.unknownFields)
+            _ = try mergeUnknownFields(unknownField: other.unknownFields)
             return self
           }
-          public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
-               return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+          public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
+               return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
           }
-          public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
-            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
               switch protobufTag {
@@ -1744,11 +1744,11 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 136 :
+              case 136:
                 a = try input.readInt32()
 
               default:
-                if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                    unknownFields = try unknownFieldsBuilder.build()
                    return self
                 }
@@ -1775,11 +1775,11 @@ public extension ProtobufUnittest {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
           if hasA {
-            try output.writeInt32(47, value:a)
+            try output.writeInt32(fieldNumber:47, value:a)
           }
-          try unknownFields.writeToCodedOutputStream(output)
+          try unknownFields.writeToCodedOutputStream(output:output)
         }
         override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
@@ -1789,39 +1789,39 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += a.computeInt32Size(47)
+            serialize_size += a.computeInt32Size(fieldNumber: 47)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup> {
+        public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup> {
           var mergedArray = Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup>()
-          while let value = try parseFromDelimitedFromInputStream(input) {
+          while let value = try parseFromDelimitedFromInputStream(input: input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup? {
-          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeDelimitedFromInputStream(input)?.build()
+        public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup? {
+          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeDelimitedFromInputStream(input: input)?.build()
         }
-        public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
-          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+        public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
+          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
-          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
+          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
-          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFromInputStream(input).build()
+        public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
+          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFromInputStream(input: input).build()
         }
-        public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
-          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
+          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
-          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFromCodedInputStream(input).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
+          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFromCodedInputStream(input: input).build()
         }
-        public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
-          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
+          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
           return ProtobufUnittest.TestAllTypesLite.RepeatedGroup.classBuilder() as! ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder
@@ -1836,17 +1836,17 @@ public extension ProtobufUnittest {
           return ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
-          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.builderWithPrototype(self)
+          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.builderWithPrototype(prototype: self)
         }
-        public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestAllTypesLite.RepeatedGroup) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
-          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFrom(prototype)
+        public class func builderWithPrototype(prototype:ProtobufUnittest.TestAllTypesLite.RepeatedGroup) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
+          return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder().mergeFrom(other: prototype)
         }
-        override public func getDescription(_ indent:String) throws -> String {
+        override public func getDescription(indent:String) throws -> String {
           var output:String = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
           }
-          output += unknownFields.getDescription(indent)
+          output += unknownFields.getDescription(indent: indent)
           return output
         }
         override public var hashValue:Int {
@@ -1897,7 +1897,7 @@ public extension ProtobufUnittest {
                    builderResult.a = value
                }
           }
-          public func setA(_ value:Int32) -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
+          public func setA(value:Int32) -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
             self.a = value
             return self
           }
@@ -1916,7 +1916,7 @@ public extension ProtobufUnittest {
             return self
           }
           public override func clone() throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
-            return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.builderWithPrototype(builderResult)
+            return try ProtobufUnittest.TestAllTypesLite.RepeatedGroup.builderWithPrototype(prototype: builderResult)
           }
           public override func build() throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup {
                try checkInitialized()
@@ -1926,21 +1926,21 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestAllTypesLite.RepeatedGroup = builderResult
             return returnMe
           }
-          public func mergeFrom(_ other:ProtobufUnittest.TestAllTypesLite.RepeatedGroup) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
+          public func mergeFrom(other:ProtobufUnittest.TestAllTypesLite.RepeatedGroup) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
             if other == ProtobufUnittest.TestAllTypesLite.RepeatedGroup() {
              return self
             }
             if other.hasA {
                  a = other.a
             }
-            try mergeUnknownFields(other.unknownFields)
+            _ = try mergeUnknownFields(unknownField: other.unknownFields)
             return self
           }
-          public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
-               return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+          public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
+               return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
           }
-          public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
-            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
               switch protobufTag {
@@ -1948,11 +1948,11 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 376 :
+              case 376:
                 a = try input.readInt32()
 
               default:
-                if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                    unknownFields = try unknownFieldsBuilder.build()
                    return self
                 }
@@ -1983,7 +1983,7 @@ public extension ProtobufUnittest {
       }
       case OneofUint32(UInt32)
 
-      public static func getOneofUint32(_ value:OneofField) -> UInt32? {
+      public static func getOneofUint32(value:OneofField) -> UInt32? {
            switch value {
            case .OneofUint32(let enumValue):
                 return enumValue
@@ -1993,7 +1993,7 @@ public extension ProtobufUnittest {
       }
       case OneofNestedMessage(ProtobufUnittest.TestAllTypesLite.NestedMessage)
 
-      public static func getOneofNestedMessage(_ value:OneofField) -> ProtobufUnittest.TestAllTypesLite.NestedMessage? {
+      public static func getOneofNestedMessage(value:OneofField) -> ProtobufUnittest.TestAllTypesLite.NestedMessage? {
            switch value {
            case .OneofNestedMessage(let enumValue):
                 return enumValue
@@ -2003,7 +2003,7 @@ public extension ProtobufUnittest {
       }
       case OneofString(String)
 
-      public static func getOneofString(_ value:OneofField) -> String? {
+      public static func getOneofString(value:OneofField) -> String? {
            switch value {
            case .OneofString(let enumValue):
                 return enumValue
@@ -2011,9 +2011,9 @@ public extension ProtobufUnittest {
                 return nil
            }
       }
-      case OneofBytes(NSData)
+      case OneofBytes(Data)
 
-      public static func getOneofBytes(_ value:OneofField) -> NSData? {
+      public static func getOneofBytes(value:OneofField) -> Data? {
            switch value {
            case .OneofBytes(let enumValue):
                 return enumValue
@@ -2090,7 +2090,7 @@ public extension ProtobufUnittest {
     public private(set) var optionalString:String = ""
 
     public private(set) var hasOptionalString:Bool = false
-    public private(set) var optionalBytes:NSData = NSData()
+    public private(set) var optionalBytes:Data = Data()
 
     public private(set) var hasOptionalBytes:Bool = false
     public private(set) var optionalGroup:ProtobufUnittest.TestAllTypesLite.OptionalGroup!
@@ -2132,7 +2132,7 @@ public extension ProtobufUnittest {
     public private(set) var repeatedDouble:Array<Double> = Array<Double>()
     public private(set) var repeatedBool:Array<Bool> = Array<Bool>()
     public private(set) var repeatedString:Array<String> = Array<String>()
-    public private(set) var repeatedBytes:Array<NSData> = Array<NSData>()
+    public private(set) var repeatedBytes:Array<Data> = Array<Data>()
     public private(set) var repeatedGroup:Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup>  = Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup>()
     public private(set) var repeatedNestedMessage:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>  = Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>()
     public private(set) var repeatedForeignMessage:Array<ProtobufUnittest.ForeignMessageLite>  = Array<ProtobufUnittest.ForeignMessageLite>()
@@ -2189,7 +2189,7 @@ public extension ProtobufUnittest {
     public private(set) var defaultString:String = "hello"
 
     public private(set) var hasDefaultString:Bool = false
-    public private(set) var defaultBytes:NSData = NSData(bytes:([UInt8]() + "world".utf8), length:5)
+    public private(set) var defaultBytes:Data = Data(bytes:([UInt8]() + "world".utf8), length:5)
 
     public private(set) var hasDefaultBytes:Bool = false
     public private(set) var defaultNestedEnum:ProtobufUnittest.TestAllTypesLite.NestedEnum = ProtobufUnittest.TestAllTypesLite.NestedEnum.Bar
@@ -2258,7 +2258,7 @@ public extension ProtobufUnittest {
           set(newValue) {
           }
     }
-    public private(set) var oneofBytes:NSData!{
+    public private(set) var oneofBytes:Data!{
          get {
               return TestAllTypesLite.OneofField.getOneofBytes(storageOneofField)
          }
@@ -2282,267 +2282,267 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasOptionalInt32 {
-        try output.writeInt32(1, value:optionalInt32)
+        try output.writeInt32(fieldNumber:1, value:optionalInt32)
       }
       if hasOptionalInt64 {
-        try output.writeInt64(2, value:optionalInt64)
+        try output.writeInt64(fieldNumber:2, value:optionalInt64)
       }
       if hasOptionalUint32 {
-        try output.writeUInt32(3, value:optionalUint32)
+        try output.writeUInt32(fieldNumber:3, value:optionalUint32)
       }
       if hasOptionalUint64 {
-        try output.writeUInt64(4, value:optionalUint64)
+        try output.writeUInt64(fieldNumber:4, value:optionalUint64)
       }
       if hasOptionalSint32 {
-        try output.writeSInt32(5, value:optionalSint32)
+        try output.writeSInt32(fieldNumber:5, value:optionalSint32)
       }
       if hasOptionalSint64 {
-        try output.writeSInt64(6, value:optionalSint64)
+        try output.writeSInt64(fieldNumber:6, value:optionalSint64)
       }
       if hasOptionalFixed32 {
-        try output.writeFixed32(7, value:optionalFixed32)
+        try output.writeFixed32(fieldNumber:7, value:optionalFixed32)
       }
       if hasOptionalFixed64 {
-        try output.writeFixed64(8, value:optionalFixed64)
+        try output.writeFixed64(fieldNumber:8, value:optionalFixed64)
       }
       if hasOptionalSfixed32 {
-        try output.writeSFixed32(9, value:optionalSfixed32)
+        try output.writeSFixed32(fieldNumber:9, value:optionalSfixed32)
       }
       if hasOptionalSfixed64 {
-        try output.writeSFixed64(10, value:optionalSfixed64)
+        try output.writeSFixed64(fieldNumber:10, value:optionalSfixed64)
       }
       if hasOptionalFloat {
-        try output.writeFloat(11, value:optionalFloat)
+        try output.writeFloat(fieldNumber:11, value:optionalFloat)
       }
       if hasOptionalDouble {
-        try output.writeDouble(12, value:optionalDouble)
+        try output.writeDouble(fieldNumber:12, value:optionalDouble)
       }
       if hasOptionalBool {
-        try output.writeBool(13, value:optionalBool)
+        try output.writeBool(fieldNumber:13, value:optionalBool)
       }
       if hasOptionalString {
-        try output.writeString(14, value:optionalString)
+        try output.writeString(fieldNumber:14, value:optionalString)
       }
       if hasOptionalBytes {
-        try output.writeData(15, value:optionalBytes)
+        try output.writeData(fieldNumber:15, value:optionalBytes)
       }
       if hasOptionalGroup {
-        try output.writeGroup(16, value:optionalGroup)
+        try output.writeGroup(fieldNumber:16, value:optionalGroup)
       }
       if hasOptionalNestedMessage {
-        try output.writeMessage(18, value:optionalNestedMessage)
+        try output.writeMessage(fieldNumber:18, value:optionalNestedMessage)
       }
       if hasOptionalForeignMessage {
-        try output.writeMessage(19, value:optionalForeignMessage)
+        try output.writeMessage(fieldNumber:19, value:optionalForeignMessage)
       }
       if hasOptionalImportMessage {
-        try output.writeMessage(20, value:optionalImportMessage)
+        try output.writeMessage(fieldNumber:20, value:optionalImportMessage)
       }
       if hasOptionalNestedEnum {
-        try output.writeEnum(21, value:optionalNestedEnum.rawValue)
+        try output.writeEnum(fieldNumber:21, value:optionalNestedEnum.rawValue)
       }
       if hasOptionalForeignEnum {
-        try output.writeEnum(22, value:optionalForeignEnum.rawValue)
+        try output.writeEnum(fieldNumber:22, value:optionalForeignEnum.rawValue)
       }
       if hasOptionalImportEnum {
-        try output.writeEnum(23, value:optionalImportEnum.rawValue)
+        try output.writeEnum(fieldNumber:23, value:optionalImportEnum.rawValue)
       }
       if hasOptionalStringPiece {
-        try output.writeString(24, value:optionalStringPiece)
+        try output.writeString(fieldNumber:24, value:optionalStringPiece)
       }
       if hasOptionalCord {
-        try output.writeString(25, value:optionalCord)
+        try output.writeString(fieldNumber:25, value:optionalCord)
       }
       if hasOptionalPublicImportMessage {
-        try output.writeMessage(26, value:optionalPublicImportMessage)
+        try output.writeMessage(fieldNumber:26, value:optionalPublicImportMessage)
       }
       if hasOptionalLazyMessage {
-        try output.writeMessage(27, value:optionalLazyMessage)
+        try output.writeMessage(fieldNumber:27, value:optionalLazyMessage)
       }
       if !repeatedInt32.isEmpty {
         for oneValuerepeatedInt32 in repeatedInt32 {
-          try output.writeInt32(31, value:oneValuerepeatedInt32)
+          try output.writeInt32(fieldNumber:31, value:oneValuerepeatedInt32)
         }
       }
       if !repeatedInt64.isEmpty {
         for oneValuerepeatedInt64 in repeatedInt64 {
-          try output.writeInt64(32, value:oneValuerepeatedInt64)
+          try output.writeInt64(fieldNumber:32, value:oneValuerepeatedInt64)
         }
       }
       if !repeatedUint32.isEmpty {
         for oneValuerepeatedUint32 in repeatedUint32 {
-          try output.writeUInt32(33, value:oneValuerepeatedUint32)
+          try output.writeUInt32(fieldNumber:33, value:oneValuerepeatedUint32)
         }
       }
       if !repeatedUint64.isEmpty {
         for oneValuerepeatedUint64 in repeatedUint64 {
-          try output.writeUInt64(34, value:oneValuerepeatedUint64)
+          try output.writeUInt64(fieldNumber:34, value:oneValuerepeatedUint64)
         }
       }
       if !repeatedSint32.isEmpty {
         for oneValuerepeatedSint32 in repeatedSint32 {
-          try output.writeSInt32(35, value:oneValuerepeatedSint32)
+          try output.writeSInt32(fieldNumber:35, value:oneValuerepeatedSint32)
         }
       }
       if !repeatedSint64.isEmpty {
         for oneValuerepeatedSint64 in repeatedSint64 {
-          try output.writeSInt64(36, value:oneValuerepeatedSint64)
+          try output.writeSInt64(fieldNumber:36, value:oneValuerepeatedSint64)
         }
       }
       if !repeatedFixed32.isEmpty {
         for oneValuerepeatedFixed32 in repeatedFixed32 {
-          try output.writeFixed32(37, value:oneValuerepeatedFixed32)
+          try output.writeFixed32(fieldNumber:37, value:oneValuerepeatedFixed32)
         }
       }
       if !repeatedFixed64.isEmpty {
         for oneValuerepeatedFixed64 in repeatedFixed64 {
-          try output.writeFixed64(38, value:oneValuerepeatedFixed64)
+          try output.writeFixed64(fieldNumber:38, value:oneValuerepeatedFixed64)
         }
       }
       if !repeatedSfixed32.isEmpty {
         for oneValuerepeatedSfixed32 in repeatedSfixed32 {
-          try output.writeSFixed32(39, value:oneValuerepeatedSfixed32)
+          try output.writeSFixed32(fieldNumber:39, value:oneValuerepeatedSfixed32)
         }
       }
       if !repeatedSfixed64.isEmpty {
         for oneValuerepeatedSfixed64 in repeatedSfixed64 {
-          try output.writeSFixed64(40, value:oneValuerepeatedSfixed64)
+          try output.writeSFixed64(fieldNumber:40, value:oneValuerepeatedSfixed64)
         }
       }
       if !repeatedFloat.isEmpty {
         for oneValuerepeatedFloat in repeatedFloat {
-          try output.writeFloat(41, value:oneValuerepeatedFloat)
+          try output.writeFloat(fieldNumber:41, value:oneValuerepeatedFloat)
         }
       }
       if !repeatedDouble.isEmpty {
         for oneValuerepeatedDouble in repeatedDouble {
-          try output.writeDouble(42, value:oneValuerepeatedDouble)
+          try output.writeDouble(fieldNumber:42, value:oneValuerepeatedDouble)
         }
       }
       if !repeatedBool.isEmpty {
         for oneValuerepeatedBool in repeatedBool {
-          try output.writeBool(43, value:oneValuerepeatedBool)
+          try output.writeBool(fieldNumber:43, value:oneValuerepeatedBool)
         }
       }
       if !repeatedString.isEmpty {
         for oneValuerepeatedString in repeatedString {
-          try output.writeString(44, value:oneValuerepeatedString)
+          try output.writeString(fieldNumber:44, value:oneValuerepeatedString)
         }
       }
       if !repeatedBytes.isEmpty {
         for oneValuerepeatedBytes in repeatedBytes {
-          try output.writeData(45, value:oneValuerepeatedBytes)
+          try output.writeData(fieldNumber:45, value:oneValuerepeatedBytes)
         }
       }
       for oneElementrepeatedGroup in repeatedGroup {
-          try output.writeGroup(46, value:oneElementrepeatedGroup)
+          try output.writeGroup(fieldNumber:46, value:oneElementrepeatedGroup)
       }
       for oneElementrepeatedNestedMessage in repeatedNestedMessage {
-          try output.writeMessage(48, value:oneElementrepeatedNestedMessage)
+          try output.writeMessage(fieldNumber:48, value:oneElementrepeatedNestedMessage)
       }
       for oneElementrepeatedForeignMessage in repeatedForeignMessage {
-          try output.writeMessage(49, value:oneElementrepeatedForeignMessage)
+          try output.writeMessage(fieldNumber:49, value:oneElementrepeatedForeignMessage)
       }
       for oneElementrepeatedImportMessage in repeatedImportMessage {
-          try output.writeMessage(50, value:oneElementrepeatedImportMessage)
+          try output.writeMessage(fieldNumber:50, value:oneElementrepeatedImportMessage)
       }
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
-          try output.writeEnum(51, value:oneValueOfrepeatedNestedEnum.rawValue)
+          try output.writeEnum(fieldNumber:51, value:oneValueOfrepeatedNestedEnum.rawValue)
       }
       for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
-          try output.writeEnum(52, value:oneValueOfrepeatedForeignEnum.rawValue)
+          try output.writeEnum(fieldNumber:52, value:oneValueOfrepeatedForeignEnum.rawValue)
       }
       for oneValueOfrepeatedImportEnum in repeatedImportEnum {
-          try output.writeEnum(53, value:oneValueOfrepeatedImportEnum.rawValue)
+          try output.writeEnum(fieldNumber:53, value:oneValueOfrepeatedImportEnum.rawValue)
       }
       if !repeatedStringPiece.isEmpty {
         for oneValuerepeatedStringPiece in repeatedStringPiece {
-          try output.writeString(54, value:oneValuerepeatedStringPiece)
+          try output.writeString(fieldNumber:54, value:oneValuerepeatedStringPiece)
         }
       }
       if !repeatedCord.isEmpty {
         for oneValuerepeatedCord in repeatedCord {
-          try output.writeString(55, value:oneValuerepeatedCord)
+          try output.writeString(fieldNumber:55, value:oneValuerepeatedCord)
         }
       }
       for oneElementrepeatedLazyMessage in repeatedLazyMessage {
-          try output.writeMessage(57, value:oneElementrepeatedLazyMessage)
+          try output.writeMessage(fieldNumber:57, value:oneElementrepeatedLazyMessage)
       }
       if hasDefaultInt32 {
-        try output.writeInt32(61, value:defaultInt32)
+        try output.writeInt32(fieldNumber:61, value:defaultInt32)
       }
       if hasDefaultInt64 {
-        try output.writeInt64(62, value:defaultInt64)
+        try output.writeInt64(fieldNumber:62, value:defaultInt64)
       }
       if hasDefaultUint32 {
-        try output.writeUInt32(63, value:defaultUint32)
+        try output.writeUInt32(fieldNumber:63, value:defaultUint32)
       }
       if hasDefaultUint64 {
-        try output.writeUInt64(64, value:defaultUint64)
+        try output.writeUInt64(fieldNumber:64, value:defaultUint64)
       }
       if hasDefaultSint32 {
-        try output.writeSInt32(65, value:defaultSint32)
+        try output.writeSInt32(fieldNumber:65, value:defaultSint32)
       }
       if hasDefaultSint64 {
-        try output.writeSInt64(66, value:defaultSint64)
+        try output.writeSInt64(fieldNumber:66, value:defaultSint64)
       }
       if hasDefaultFixed32 {
-        try output.writeFixed32(67, value:defaultFixed32)
+        try output.writeFixed32(fieldNumber:67, value:defaultFixed32)
       }
       if hasDefaultFixed64 {
-        try output.writeFixed64(68, value:defaultFixed64)
+        try output.writeFixed64(fieldNumber:68, value:defaultFixed64)
       }
       if hasDefaultSfixed32 {
-        try output.writeSFixed32(69, value:defaultSfixed32)
+        try output.writeSFixed32(fieldNumber:69, value:defaultSfixed32)
       }
       if hasDefaultSfixed64 {
-        try output.writeSFixed64(70, value:defaultSfixed64)
+        try output.writeSFixed64(fieldNumber:70, value:defaultSfixed64)
       }
       if hasDefaultFloat {
-        try output.writeFloat(71, value:defaultFloat)
+        try output.writeFloat(fieldNumber:71, value:defaultFloat)
       }
       if hasDefaultDouble {
-        try output.writeDouble(72, value:defaultDouble)
+        try output.writeDouble(fieldNumber:72, value:defaultDouble)
       }
       if hasDefaultBool {
-        try output.writeBool(73, value:defaultBool)
+        try output.writeBool(fieldNumber:73, value:defaultBool)
       }
       if hasDefaultString {
-        try output.writeString(74, value:defaultString)
+        try output.writeString(fieldNumber:74, value:defaultString)
       }
       if hasDefaultBytes {
-        try output.writeData(75, value:defaultBytes)
+        try output.writeData(fieldNumber:75, value:defaultBytes)
       }
       if hasDefaultNestedEnum {
-        try output.writeEnum(81, value:defaultNestedEnum.rawValue)
+        try output.writeEnum(fieldNumber:81, value:defaultNestedEnum.rawValue)
       }
       if hasDefaultForeignEnum {
-        try output.writeEnum(82, value:defaultForeignEnum.rawValue)
+        try output.writeEnum(fieldNumber:82, value:defaultForeignEnum.rawValue)
       }
       if hasDefaultImportEnum {
-        try output.writeEnum(83, value:defaultImportEnum.rawValue)
+        try output.writeEnum(fieldNumber:83, value:defaultImportEnum.rawValue)
       }
       if hasDefaultStringPiece {
-        try output.writeString(84, value:defaultStringPiece)
+        try output.writeString(fieldNumber:84, value:defaultStringPiece)
       }
       if hasDefaultCord {
-        try output.writeString(85, value:defaultCord)
+        try output.writeString(fieldNumber:85, value:defaultCord)
       }
       if hasOneofUint32 {
-        try output.writeUInt32(111, value:oneofUint32)
+        try output.writeUInt32(fieldNumber:111, value:oneofUint32)
       }
       if hasOneofNestedMessage {
-        try output.writeMessage(112, value:oneofNestedMessage)
+        try output.writeMessage(fieldNumber:112, value:oneofNestedMessage)
       }
       if hasOneofString {
-        try output.writeString(113, value:oneofString)
+        try output.writeString(fieldNumber:113, value:oneofString)
       }
       if hasOneofBytes {
-        try output.writeData(114, value:oneofBytes)
+        try output.writeData(fieldNumber:114, value:oneofBytes)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeToCodedOutputStream(output:output)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -2552,92 +2552,92 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasOptionalInt32 {
-        serialize_size += optionalInt32.computeInt32Size(1)
+        serialize_size += optionalInt32.computeInt32Size(fieldNumber: 1)
       }
       if hasOptionalInt64 {
-        serialize_size += optionalInt64.computeInt64Size(2)
+        serialize_size += optionalInt64.computeInt64Size(fieldNumber: 2)
       }
       if hasOptionalUint32 {
-        serialize_size += optionalUint32.computeUInt32Size(3)
+        serialize_size += optionalUint32.computeUInt32Size(fieldNumber: 3)
       }
       if hasOptionalUint64 {
-        serialize_size += optionalUint64.computeUInt64Size(4)
+        serialize_size += optionalUint64.computeUInt64Size(fieldNumber: 4)
       }
       if hasOptionalSint32 {
-        serialize_size += optionalSint32.computeSInt32Size(5)
+        serialize_size += optionalSint32.computeSInt32Size(fieldNumber: 5)
       }
       if hasOptionalSint64 {
-        serialize_size += optionalSint64.computeSInt64Size(6)
+        serialize_size += optionalSint64.computeSInt64Size(fieldNumber: 6)
       }
       if hasOptionalFixed32 {
-        serialize_size += optionalFixed32.computeFixed32Size(7)
+        serialize_size += optionalFixed32.computeFixed32Size(fieldNumber: 7)
       }
       if hasOptionalFixed64 {
-        serialize_size += optionalFixed64.computeFixed64Size(8)
+        serialize_size += optionalFixed64.computeFixed64Size(fieldNumber: 8)
       }
       if hasOptionalSfixed32 {
-        serialize_size += optionalSfixed32.computeSFixed32Size(9)
+        serialize_size += optionalSfixed32.computeSFixed32Size(fieldNumber: 9)
       }
       if hasOptionalSfixed64 {
-        serialize_size += optionalSfixed64.computeSFixed64Size(10)
+        serialize_size += optionalSfixed64.computeSFixed64Size(fieldNumber: 10)
       }
       if hasOptionalFloat {
-        serialize_size += optionalFloat.computeFloatSize(11)
+        serialize_size += optionalFloat.computeFloatSize(fieldNumber: 11)
       }
       if hasOptionalDouble {
-        serialize_size += optionalDouble.computeDoubleSize(12)
+        serialize_size += optionalDouble.computeDoubleSize(fieldNumber: 12)
       }
       if hasOptionalBool {
-        serialize_size += optionalBool.computeBoolSize(13)
+        serialize_size += optionalBool.computeBoolSize(fieldNumber: 13)
       }
       if hasOptionalString {
-        serialize_size += optionalString.computeStringSize(14)
+        serialize_size += optionalString.computeStringSize(fieldNumber: 14)
       }
       if hasOptionalBytes {
-        serialize_size += optionalBytes.computeDataSize(15)
+        serialize_size += optionalBytes.computeDataSize(fieldNumber: 15)
       }
       if hasOptionalGroup {
-          if let varSizeoptionalGroup = optionalGroup?.computeGroupSize(16) {
+          if let varSizeoptionalGroup = optionalGroup?.computeGroupSize(fieldNumber: 16) {
               serialize_size += varSizeoptionalGroup
           }
       }
       if hasOptionalNestedMessage {
-          if let varSizeoptionalNestedMessage = optionalNestedMessage?.computeMessageSize(18) {
+          if let varSizeoptionalNestedMessage = optionalNestedMessage?.computeMessageSize(fieldNumber: 18) {
               serialize_size += varSizeoptionalNestedMessage
           }
       }
       if hasOptionalForeignMessage {
-          if let varSizeoptionalForeignMessage = optionalForeignMessage?.computeMessageSize(19) {
+          if let varSizeoptionalForeignMessage = optionalForeignMessage?.computeMessageSize(fieldNumber: 19) {
               serialize_size += varSizeoptionalForeignMessage
           }
       }
       if hasOptionalImportMessage {
-          if let varSizeoptionalImportMessage = optionalImportMessage?.computeMessageSize(20) {
+          if let varSizeoptionalImportMessage = optionalImportMessage?.computeMessageSize(fieldNumber: 20) {
               serialize_size += varSizeoptionalImportMessage
           }
       }
       if (hasOptionalNestedEnum) {
-        serialize_size += optionalNestedEnum.rawValue.computeEnumSize(21)
+        serialize_size += optionalNestedEnum.rawValue.computeEnumSize(fieldNumber: 21)
       }
       if (hasOptionalForeignEnum) {
-        serialize_size += optionalForeignEnum.rawValue.computeEnumSize(22)
+        serialize_size += optionalForeignEnum.rawValue.computeEnumSize(fieldNumber: 22)
       }
       if (hasOptionalImportEnum) {
-        serialize_size += optionalImportEnum.rawValue.computeEnumSize(23)
+        serialize_size += optionalImportEnum.rawValue.computeEnumSize(fieldNumber: 23)
       }
       if hasOptionalStringPiece {
-        serialize_size += optionalStringPiece.computeStringSize(24)
+        serialize_size += optionalStringPiece.computeStringSize(fieldNumber: 24)
       }
       if hasOptionalCord {
-        serialize_size += optionalCord.computeStringSize(25)
+        serialize_size += optionalCord.computeStringSize(fieldNumber: 25)
       }
       if hasOptionalPublicImportMessage {
-          if let varSizeoptionalPublicImportMessage = optionalPublicImportMessage?.computeMessageSize(26) {
+          if let varSizeoptionalPublicImportMessage = optionalPublicImportMessage?.computeMessageSize(fieldNumber: 26) {
               serialize_size += varSizeoptionalPublicImportMessage
           }
       }
       if hasOptionalLazyMessage {
-          if let varSizeoptionalLazyMessage = optionalLazyMessage?.computeMessageSize(27) {
+          if let varSizeoptionalLazyMessage = optionalLazyMessage?.computeMessageSize(fieldNumber: 27) {
               serialize_size += varSizeoptionalLazyMessage
           }
       }
@@ -2718,16 +2718,16 @@ public extension ProtobufUnittest {
       serialize_size += dataSizeRepeatedBytes
       serialize_size += 2 * Int32(repeatedBytes.count)
       for oneElementrepeatedGroup in repeatedGroup {
-          serialize_size += oneElementrepeatedGroup.computeGroupSize(46)
+          serialize_size += oneElementrepeatedGroup.computeGroupSize(fieldNumber: 46)
       }
       for oneElementrepeatedNestedMessage in repeatedNestedMessage {
-          serialize_size += oneElementrepeatedNestedMessage.computeMessageSize(48)
+          serialize_size += oneElementrepeatedNestedMessage.computeMessageSize(fieldNumber: 48)
       }
       for oneElementrepeatedForeignMessage in repeatedForeignMessage {
-          serialize_size += oneElementrepeatedForeignMessage.computeMessageSize(49)
+          serialize_size += oneElementrepeatedForeignMessage.computeMessageSize(fieldNumber: 49)
       }
       for oneElementrepeatedImportMessage in repeatedImportMessage {
-          serialize_size += oneElementrepeatedImportMessage.computeMessageSize(50)
+          serialize_size += oneElementrepeatedImportMessage.computeMessageSize(fieldNumber: 50)
       }
       var dataSizerepeatedNestedEnum:Int32 = 0
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
@@ -2760,113 +2760,113 @@ public extension ProtobufUnittest {
       serialize_size += dataSizeRepeatedCord
       serialize_size += 2 * Int32(repeatedCord.count)
       for oneElementrepeatedLazyMessage in repeatedLazyMessage {
-          serialize_size += oneElementrepeatedLazyMessage.computeMessageSize(57)
+          serialize_size += oneElementrepeatedLazyMessage.computeMessageSize(fieldNumber: 57)
       }
       if hasDefaultInt32 {
-        serialize_size += defaultInt32.computeInt32Size(61)
+        serialize_size += defaultInt32.computeInt32Size(fieldNumber: 61)
       }
       if hasDefaultInt64 {
-        serialize_size += defaultInt64.computeInt64Size(62)
+        serialize_size += defaultInt64.computeInt64Size(fieldNumber: 62)
       }
       if hasDefaultUint32 {
-        serialize_size += defaultUint32.computeUInt32Size(63)
+        serialize_size += defaultUint32.computeUInt32Size(fieldNumber: 63)
       }
       if hasDefaultUint64 {
-        serialize_size += defaultUint64.computeUInt64Size(64)
+        serialize_size += defaultUint64.computeUInt64Size(fieldNumber: 64)
       }
       if hasDefaultSint32 {
-        serialize_size += defaultSint32.computeSInt32Size(65)
+        serialize_size += defaultSint32.computeSInt32Size(fieldNumber: 65)
       }
       if hasDefaultSint64 {
-        serialize_size += defaultSint64.computeSInt64Size(66)
+        serialize_size += defaultSint64.computeSInt64Size(fieldNumber: 66)
       }
       if hasDefaultFixed32 {
-        serialize_size += defaultFixed32.computeFixed32Size(67)
+        serialize_size += defaultFixed32.computeFixed32Size(fieldNumber: 67)
       }
       if hasDefaultFixed64 {
-        serialize_size += defaultFixed64.computeFixed64Size(68)
+        serialize_size += defaultFixed64.computeFixed64Size(fieldNumber: 68)
       }
       if hasDefaultSfixed32 {
-        serialize_size += defaultSfixed32.computeSFixed32Size(69)
+        serialize_size += defaultSfixed32.computeSFixed32Size(fieldNumber: 69)
       }
       if hasDefaultSfixed64 {
-        serialize_size += defaultSfixed64.computeSFixed64Size(70)
+        serialize_size += defaultSfixed64.computeSFixed64Size(fieldNumber: 70)
       }
       if hasDefaultFloat {
-        serialize_size += defaultFloat.computeFloatSize(71)
+        serialize_size += defaultFloat.computeFloatSize(fieldNumber: 71)
       }
       if hasDefaultDouble {
-        serialize_size += defaultDouble.computeDoubleSize(72)
+        serialize_size += defaultDouble.computeDoubleSize(fieldNumber: 72)
       }
       if hasDefaultBool {
-        serialize_size += defaultBool.computeBoolSize(73)
+        serialize_size += defaultBool.computeBoolSize(fieldNumber: 73)
       }
       if hasDefaultString {
-        serialize_size += defaultString.computeStringSize(74)
+        serialize_size += defaultString.computeStringSize(fieldNumber: 74)
       }
       if hasDefaultBytes {
-        serialize_size += defaultBytes.computeDataSize(75)
+        serialize_size += defaultBytes.computeDataSize(fieldNumber: 75)
       }
       if (hasDefaultNestedEnum) {
-        serialize_size += defaultNestedEnum.rawValue.computeEnumSize(81)
+        serialize_size += defaultNestedEnum.rawValue.computeEnumSize(fieldNumber: 81)
       }
       if (hasDefaultForeignEnum) {
-        serialize_size += defaultForeignEnum.rawValue.computeEnumSize(82)
+        serialize_size += defaultForeignEnum.rawValue.computeEnumSize(fieldNumber: 82)
       }
       if (hasDefaultImportEnum) {
-        serialize_size += defaultImportEnum.rawValue.computeEnumSize(83)
+        serialize_size += defaultImportEnum.rawValue.computeEnumSize(fieldNumber: 83)
       }
       if hasDefaultStringPiece {
-        serialize_size += defaultStringPiece.computeStringSize(84)
+        serialize_size += defaultStringPiece.computeStringSize(fieldNumber: 84)
       }
       if hasDefaultCord {
-        serialize_size += defaultCord.computeStringSize(85)
+        serialize_size += defaultCord.computeStringSize(fieldNumber: 85)
       }
       if hasOneofUint32 {
-        serialize_size += oneofUint32.computeUInt32Size(111)
+        serialize_size += oneofUint32.computeUInt32Size(fieldNumber: 111)
       }
       if hasOneofNestedMessage {
-          if let varSizeoneofNestedMessage = oneofNestedMessage?.computeMessageSize(112) {
+          if let varSizeoneofNestedMessage = oneofNestedMessage?.computeMessageSize(fieldNumber: 112) {
               serialize_size += varSizeoneofNestedMessage
           }
       }
       if hasOneofString {
-        serialize_size += oneofString.computeStringSize(113)
+        serialize_size += oneofString.computeStringSize(fieldNumber: 113)
       }
       if hasOneofBytes {
-        serialize_size += oneofBytes.computeDataSize(114)
+        serialize_size += oneofBytes.computeDataSize(fieldNumber: 114)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestAllTypesLite> {
+    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestAllTypesLite> {
       var mergedArray = Array<ProtobufUnittest.TestAllTypesLite>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input: input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestAllTypesLite? {
-      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestAllTypesLite? {
+      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestAllTypesLite {
-      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestAllTypesLite {
+      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite {
-      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite {
+      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestAllTypesLite {
-      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestAllTypesLite {
+      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFromInputStream(input: input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite {
-      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite {
+      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite {
-      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite {
+      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFromCodedInputStream(input: input).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite {
-      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite {
+      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestAllTypesLite.Builder {
       return ProtobufUnittest.TestAllTypesLite.classBuilder() as! ProtobufUnittest.TestAllTypesLite.Builder
@@ -2881,12 +2881,12 @@ public extension ProtobufUnittest {
       return ProtobufUnittest.TestAllTypesLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestAllTypesLite.Builder {
-      return try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(self)
+      return try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype: self)
     }
-    public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
-      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
+      return try ProtobufUnittest.TestAllTypesLite.Builder().mergeFrom(other: prototype)
     }
-    override public func getDescription(_ indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
       if hasOptionalInt32 {
         output += "\(indent) optionalInt32: \(optionalInt32) \n"
@@ -2936,28 +2936,28 @@ public extension ProtobufUnittest {
       if hasOptionalGroup {
         output += "\(indent) optionalGroup {\n"
         if let outDescOptionalGroup = optionalGroup {
-          output += try outDescOptionalGroup.getDescription("\(indent)  ")
+          output += try outDescOptionalGroup.getDescription(indent:"\(indent)  ")
         }
         output += "\(indent) }\n"
       }
       if hasOptionalNestedMessage {
         output += "\(indent) optionalNestedMessage {\n"
         if let outDescOptionalNestedMessage = optionalNestedMessage {
-          output += try outDescOptionalNestedMessage.getDescription("\(indent)  ")
+          output += try outDescOptionalNestedMessage.getDescription(indent:"\(indent)  ")
         }
         output += "\(indent) }\n"
       }
       if hasOptionalForeignMessage {
         output += "\(indent) optionalForeignMessage {\n"
         if let outDescOptionalForeignMessage = optionalForeignMessage {
-          output += try outDescOptionalForeignMessage.getDescription("\(indent)  ")
+          output += try outDescOptionalForeignMessage.getDescription(indent:"\(indent)  ")
         }
         output += "\(indent) }\n"
       }
       if hasOptionalImportMessage {
         output += "\(indent) optionalImportMessage {\n"
         if let outDescOptionalImportMessage = optionalImportMessage {
-          output += try outDescOptionalImportMessage.getDescription("\(indent)  ")
+          output += try outDescOptionalImportMessage.getDescription(indent:"\(indent)  ")
         }
         output += "\(indent) }\n"
       }
@@ -2979,14 +2979,14 @@ public extension ProtobufUnittest {
       if hasOptionalPublicImportMessage {
         output += "\(indent) optionalPublicImportMessage {\n"
         if let outDescOptionalPublicImportMessage = optionalPublicImportMessage {
-          output += try outDescOptionalPublicImportMessage.getDescription("\(indent)  ")
+          output += try outDescOptionalPublicImportMessage.getDescription(indent:"\(indent)  ")
         }
         output += "\(indent) }\n"
       }
       if hasOptionalLazyMessage {
         output += "\(indent) optionalLazyMessage {\n"
         if let outDescOptionalLazyMessage = optionalLazyMessage {
-          output += try outDescOptionalLazyMessage.getDescription("\(indent)  ")
+          output += try outDescOptionalLazyMessage.getDescription(indent:"\(indent)  ")
         }
         output += "\(indent) }\n"
       }
@@ -3068,28 +3068,28 @@ public extension ProtobufUnittest {
       var repeatedGroupElementIndex:Int = 0
       for oneElementrepeatedGroup in repeatedGroup {
           output += "\(indent) repeatedGroup[\(repeatedGroupElementIndex)] {\n"
-          output += try oneElementrepeatedGroup.getDescription("\(indent)  ")
+          output += try oneElementrepeatedGroup.getDescription(indent:"\(indent)  ")
           output += "\(indent)}\n"
           repeatedGroupElementIndex += 1
       }
       var repeatedNestedMessageElementIndex:Int = 0
       for oneElementrepeatedNestedMessage in repeatedNestedMessage {
           output += "\(indent) repeatedNestedMessage[\(repeatedNestedMessageElementIndex)] {\n"
-          output += try oneElementrepeatedNestedMessage.getDescription("\(indent)  ")
+          output += try oneElementrepeatedNestedMessage.getDescription(indent:"\(indent)  ")
           output += "\(indent)}\n"
           repeatedNestedMessageElementIndex += 1
       }
       var repeatedForeignMessageElementIndex:Int = 0
       for oneElementrepeatedForeignMessage in repeatedForeignMessage {
           output += "\(indent) repeatedForeignMessage[\(repeatedForeignMessageElementIndex)] {\n"
-          output += try oneElementrepeatedForeignMessage.getDescription("\(indent)  ")
+          output += try oneElementrepeatedForeignMessage.getDescription(indent:"\(indent)  ")
           output += "\(indent)}\n"
           repeatedForeignMessageElementIndex += 1
       }
       var repeatedImportMessageElementIndex:Int = 0
       for oneElementrepeatedImportMessage in repeatedImportMessage {
           output += "\(indent) repeatedImportMessage[\(repeatedImportMessageElementIndex)] {\n"
-          output += try oneElementrepeatedImportMessage.getDescription("\(indent)  ")
+          output += try oneElementrepeatedImportMessage.getDescription(indent:"\(indent)  ")
           output += "\(indent)}\n"
           repeatedImportMessageElementIndex += 1
       }
@@ -3121,7 +3121,7 @@ public extension ProtobufUnittest {
       var repeatedLazyMessageElementIndex:Int = 0
       for oneElementrepeatedLazyMessage in repeatedLazyMessage {
           output += "\(indent) repeatedLazyMessage[\(repeatedLazyMessageElementIndex)] {\n"
-          output += try oneElementrepeatedLazyMessage.getDescription("\(indent)  ")
+          output += try oneElementrepeatedLazyMessage.getDescription(indent:"\(indent)  ")
           output += "\(indent)}\n"
           repeatedLazyMessageElementIndex += 1
       }
@@ -3191,7 +3191,7 @@ public extension ProtobufUnittest {
       if hasOneofNestedMessage {
         output += "\(indent) oneofNestedMessage {\n"
         if let outDescOneofNestedMessage = oneofNestedMessage {
-          output += try outDescOneofNestedMessage.getDescription("\(indent)  ")
+          output += try outDescOneofNestedMessage.getDescription(indent:"\(indent)  ")
         }
         output += "\(indent) }\n"
       }
@@ -3201,7 +3201,7 @@ public extension ProtobufUnittest {
       if hasOneofBytes {
         output += "\(indent) oneofBytes: \(oneofBytes) \n"
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -3488,7 +3488,7 @@ public extension ProtobufUnittest {
                builderResult.optionalInt32 = value
            }
       }
-      public func setOptionalInt32(_ value:Int32) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalInt32(value:Int32) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalInt32 = value
         return self
       }
@@ -3511,7 +3511,7 @@ public extension ProtobufUnittest {
                builderResult.optionalInt64 = value
            }
       }
-      public func setOptionalInt64(_ value:Int64) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalInt64(value:Int64) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalInt64 = value
         return self
       }
@@ -3534,7 +3534,7 @@ public extension ProtobufUnittest {
                builderResult.optionalUint32 = value
            }
       }
-      public func setOptionalUint32(_ value:UInt32) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalUint32(value:UInt32) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalUint32 = value
         return self
       }
@@ -3557,7 +3557,7 @@ public extension ProtobufUnittest {
                builderResult.optionalUint64 = value
            }
       }
-      public func setOptionalUint64(_ value:UInt64) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalUint64(value:UInt64) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalUint64 = value
         return self
       }
@@ -3580,7 +3580,7 @@ public extension ProtobufUnittest {
                builderResult.optionalSint32 = value
            }
       }
-      public func setOptionalSint32(_ value:Int32) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalSint32(value:Int32) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalSint32 = value
         return self
       }
@@ -3603,7 +3603,7 @@ public extension ProtobufUnittest {
                builderResult.optionalSint64 = value
            }
       }
-      public func setOptionalSint64(_ value:Int64) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalSint64(value:Int64) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalSint64 = value
         return self
       }
@@ -3626,7 +3626,7 @@ public extension ProtobufUnittest {
                builderResult.optionalFixed32 = value
            }
       }
-      public func setOptionalFixed32(_ value:UInt32) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalFixed32(value:UInt32) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalFixed32 = value
         return self
       }
@@ -3649,7 +3649,7 @@ public extension ProtobufUnittest {
                builderResult.optionalFixed64 = value
            }
       }
-      public func setOptionalFixed64(_ value:UInt64) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalFixed64(value:UInt64) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalFixed64 = value
         return self
       }
@@ -3672,7 +3672,7 @@ public extension ProtobufUnittest {
                builderResult.optionalSfixed32 = value
            }
       }
-      public func setOptionalSfixed32(_ value:Int32) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalSfixed32(value:Int32) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalSfixed32 = value
         return self
       }
@@ -3695,7 +3695,7 @@ public extension ProtobufUnittest {
                builderResult.optionalSfixed64 = value
            }
       }
-      public func setOptionalSfixed64(_ value:Int64) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalSfixed64(value:Int64) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalSfixed64 = value
         return self
       }
@@ -3718,7 +3718,7 @@ public extension ProtobufUnittest {
                builderResult.optionalFloat = value
            }
       }
-      public func setOptionalFloat(_ value:Float) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalFloat(value:Float) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalFloat = value
         return self
       }
@@ -3741,7 +3741,7 @@ public extension ProtobufUnittest {
                builderResult.optionalDouble = value
            }
       }
-      public func setOptionalDouble(_ value:Double) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalDouble(value:Double) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalDouble = value
         return self
       }
@@ -3764,7 +3764,7 @@ public extension ProtobufUnittest {
                builderResult.optionalBool = value
            }
       }
-      public func setOptionalBool(_ value:Bool) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalBool(value:Bool) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalBool = value
         return self
       }
@@ -3787,7 +3787,7 @@ public extension ProtobufUnittest {
                builderResult.optionalString = value
            }
       }
-      public func setOptionalString(_ value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalString(value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalString = value
         return self
       }
@@ -3801,7 +3801,7 @@ public extension ProtobufUnittest {
                 return builderResult.hasOptionalBytes
            }
       }
-      public var optionalBytes:NSData {
+      public var optionalBytes:Data {
            get {
                 return builderResult.optionalBytes
            }
@@ -3810,13 +3810,13 @@ public extension ProtobufUnittest {
                builderResult.optionalBytes = value
            }
       }
-      public func setOptionalBytes(_ value:NSData) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalBytes(value:Data) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalBytes = value
         return self
       }
       public func clearOptionalBytes() -> ProtobufUnittest.TestAllTypesLite.Builder{
            builderResult.hasOptionalBytes = false
-           builderResult.optionalBytes = NSData()
+           builderResult.optionalBytes = Data()
            return self
       }
       public var hasOptionalGroup:Bool {
@@ -3846,18 +3846,18 @@ public extension ProtobufUnittest {
            optionalGroupBuilder_ = ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder()
            builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
            if optionalGroup != nil {
-              try! optionalGroupBuilder_.mergeFrom(optionalGroup)
+              _ = try! optionalGroupBuilder_.mergeFrom(other: optionalGroup)
            }
         }
         return optionalGroupBuilder_
       }
-      public func setOptionalGroup(_ value:ProtobufUnittest.TestAllTypesLite.OptionalGroup!) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalGroup(value:ProtobufUnittest.TestAllTypesLite.OptionalGroup!) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalGroup = value
         return self
       }
-      public func mergeOptionalGroup(_ value:ProtobufUnittest.TestAllTypesLite.OptionalGroup) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func mergeOptionalGroup(value:ProtobufUnittest.TestAllTypesLite.OptionalGroup) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOptionalGroup {
-          builderResult.optionalGroup = try ProtobufUnittest.TestAllTypesLite.OptionalGroup.builderWithPrototype(builderResult.optionalGroup).mergeFrom(value).buildPartial()
+          builderResult.optionalGroup = try ProtobufUnittest.TestAllTypesLite.OptionalGroup.builderWithPrototype(prototype: builderResult.optionalGroup).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalGroup = value
         }
@@ -3897,18 +3897,18 @@ public extension ProtobufUnittest {
            optionalNestedMessageBuilder_ = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
            builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
            if optionalNestedMessage != nil {
-              try! optionalNestedMessageBuilder_.mergeFrom(optionalNestedMessage)
+              _ = try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
            }
         }
         return optionalNestedMessageBuilder_
       }
-      public func setOptionalNestedMessage(_ value:ProtobufUnittest.TestAllTypesLite.NestedMessage!) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage!) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalNestedMessage = value
         return self
       }
-      public func mergeOptionalNestedMessage(_ value:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func mergeOptionalNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOptionalNestedMessage {
-          builderResult.optionalNestedMessage = try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(builderResult.optionalNestedMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalNestedMessage = try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(prototype: builderResult.optionalNestedMessage).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalNestedMessage = value
         }
@@ -3948,18 +3948,18 @@ public extension ProtobufUnittest {
            optionalForeignMessageBuilder_ = ProtobufUnittest.ForeignMessageLite.Builder()
            builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
            if optionalForeignMessage != nil {
-              try! optionalForeignMessageBuilder_.mergeFrom(optionalForeignMessage)
+              _ = try! optionalForeignMessageBuilder_.mergeFrom(other: optionalForeignMessage)
            }
         }
         return optionalForeignMessageBuilder_
       }
-      public func setOptionalForeignMessage(_ value:ProtobufUnittest.ForeignMessageLite!) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalForeignMessage(value:ProtobufUnittest.ForeignMessageLite!) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalForeignMessage = value
         return self
       }
-      public func mergeOptionalForeignMessage(_ value:ProtobufUnittest.ForeignMessageLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func mergeOptionalForeignMessage(value:ProtobufUnittest.ForeignMessageLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOptionalForeignMessage {
-          builderResult.optionalForeignMessage = try ProtobufUnittest.ForeignMessageLite.builderWithPrototype(builderResult.optionalForeignMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalForeignMessage = try ProtobufUnittest.ForeignMessageLite.builderWithPrototype(prototype: builderResult.optionalForeignMessage).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalForeignMessage = value
         }
@@ -3999,18 +3999,18 @@ public extension ProtobufUnittest {
            optionalImportMessageBuilder_ = ProtobufUnittestImport.ImportMessageLite.Builder()
            builderResult.optionalImportMessage = optionalImportMessageBuilder_.getMessage()
            if optionalImportMessage != nil {
-              try! optionalImportMessageBuilder_.mergeFrom(optionalImportMessage)
+              _ = try! optionalImportMessageBuilder_.mergeFrom(other: optionalImportMessage)
            }
         }
         return optionalImportMessageBuilder_
       }
-      public func setOptionalImportMessage(_ value:ProtobufUnittestImport.ImportMessageLite!) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalImportMessage(value:ProtobufUnittestImport.ImportMessageLite!) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalImportMessage = value
         return self
       }
-      public func mergeOptionalImportMessage(_ value:ProtobufUnittestImport.ImportMessageLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func mergeOptionalImportMessage(value:ProtobufUnittestImport.ImportMessageLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOptionalImportMessage {
-          builderResult.optionalImportMessage = try ProtobufUnittestImport.ImportMessageLite.builderWithPrototype(builderResult.optionalImportMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalImportMessage = try ProtobufUnittestImport.ImportMessageLite.builderWithPrototype(prototype: builderResult.optionalImportMessage).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalImportMessage = value
         }
@@ -4037,7 +4037,7 @@ public extension ProtobufUnittest {
                 builderResult.optionalNestedEnum = value
             }
         }
-        public func setOptionalNestedEnum(_ value:ProtobufUnittest.TestAllTypesLite.NestedEnum) -> ProtobufUnittest.TestAllTypesLite.Builder {
+        public func setOptionalNestedEnum(value:ProtobufUnittest.TestAllTypesLite.NestedEnum) -> ProtobufUnittest.TestAllTypesLite.Builder {
           self.optionalNestedEnum = value
           return self
         }
@@ -4060,7 +4060,7 @@ public extension ProtobufUnittest {
                 builderResult.optionalForeignEnum = value
             }
         }
-        public func setOptionalForeignEnum(_ value:ProtobufUnittest.ForeignEnumLite) -> ProtobufUnittest.TestAllTypesLite.Builder {
+        public func setOptionalForeignEnum(value:ProtobufUnittest.ForeignEnumLite) -> ProtobufUnittest.TestAllTypesLite.Builder {
           self.optionalForeignEnum = value
           return self
         }
@@ -4083,7 +4083,7 @@ public extension ProtobufUnittest {
                 builderResult.optionalImportEnum = value
             }
         }
-        public func setOptionalImportEnum(_ value:ProtobufUnittestImport.ImportEnumLite) -> ProtobufUnittest.TestAllTypesLite.Builder {
+        public func setOptionalImportEnum(value:ProtobufUnittestImport.ImportEnumLite) -> ProtobufUnittest.TestAllTypesLite.Builder {
           self.optionalImportEnum = value
           return self
         }
@@ -4106,7 +4106,7 @@ public extension ProtobufUnittest {
                builderResult.optionalStringPiece = value
            }
       }
-      public func setOptionalStringPiece(_ value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalStringPiece(value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalStringPiece = value
         return self
       }
@@ -4129,7 +4129,7 @@ public extension ProtobufUnittest {
                builderResult.optionalCord = value
            }
       }
-      public func setOptionalCord(_ value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalCord(value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalCord = value
         return self
       }
@@ -4165,18 +4165,18 @@ public extension ProtobufUnittest {
            optionalPublicImportMessageBuilder_ = ProtobufUnittestImport.PublicImportMessageLite.Builder()
            builderResult.optionalPublicImportMessage = optionalPublicImportMessageBuilder_.getMessage()
            if optionalPublicImportMessage != nil {
-              try! optionalPublicImportMessageBuilder_.mergeFrom(optionalPublicImportMessage)
+              _ = try! optionalPublicImportMessageBuilder_.mergeFrom(other: optionalPublicImportMessage)
            }
         }
         return optionalPublicImportMessageBuilder_
       }
-      public func setOptionalPublicImportMessage(_ value:ProtobufUnittestImport.PublicImportMessageLite!) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessageLite!) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalPublicImportMessage = value
         return self
       }
-      public func mergeOptionalPublicImportMessage(_ value:ProtobufUnittestImport.PublicImportMessageLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func mergeOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessageLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOptionalPublicImportMessage {
-          builderResult.optionalPublicImportMessage = try ProtobufUnittestImport.PublicImportMessageLite.builderWithPrototype(builderResult.optionalPublicImportMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalPublicImportMessage = try ProtobufUnittestImport.PublicImportMessageLite.builderWithPrototype(prototype: builderResult.optionalPublicImportMessage).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalPublicImportMessage = value
         }
@@ -4216,18 +4216,18 @@ public extension ProtobufUnittest {
            optionalLazyMessageBuilder_ = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
            builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
            if optionalLazyMessage != nil {
-              try! optionalLazyMessageBuilder_.mergeFrom(optionalLazyMessage)
+              _ = try! optionalLazyMessageBuilder_.mergeFrom(other: optionalLazyMessage)
            }
         }
         return optionalLazyMessageBuilder_
       }
-      public func setOptionalLazyMessage(_ value:ProtobufUnittest.TestAllTypesLite.NestedMessage!) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOptionalLazyMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage!) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.optionalLazyMessage = value
         return self
       }
-      public func mergeOptionalLazyMessage(_ value:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func mergeOptionalLazyMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOptionalLazyMessage {
-          builderResult.optionalLazyMessage = try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(builderResult.optionalLazyMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalLazyMessage = try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(prototype: builderResult.optionalLazyMessage).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalLazyMessage = value
         }
@@ -4248,7 +4248,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedInt32 = array
            }
       }
-      public func setRepeatedInt32(_ value:Array<Int32>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedInt32(value:Array<Int32>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedInt32 = value
         return self
       }
@@ -4264,7 +4264,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedInt64 = array
            }
       }
-      public func setRepeatedInt64(_ value:Array<Int64>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedInt64(value:Array<Int64>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedInt64 = value
         return self
       }
@@ -4280,7 +4280,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedUint32 = array
            }
       }
-      public func setRepeatedUint32(_ value:Array<UInt32>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedUint32(value:Array<UInt32>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedUint32 = value
         return self
       }
@@ -4296,7 +4296,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedUint64 = array
            }
       }
-      public func setRepeatedUint64(_ value:Array<UInt64>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedUint64(value:Array<UInt64>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedUint64 = value
         return self
       }
@@ -4312,7 +4312,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedSint32 = array
            }
       }
-      public func setRepeatedSint32(_ value:Array<Int32>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedSint32(value:Array<Int32>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedSint32 = value
         return self
       }
@@ -4328,7 +4328,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedSint64 = array
            }
       }
-      public func setRepeatedSint64(_ value:Array<Int64>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedSint64(value:Array<Int64>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedSint64 = value
         return self
       }
@@ -4344,7 +4344,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedFixed32 = array
            }
       }
-      public func setRepeatedFixed32(_ value:Array<UInt32>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedFixed32(value:Array<UInt32>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedFixed32 = value
         return self
       }
@@ -4360,7 +4360,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedFixed64 = array
            }
       }
-      public func setRepeatedFixed64(_ value:Array<UInt64>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedFixed64(value:Array<UInt64>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedFixed64 = value
         return self
       }
@@ -4376,7 +4376,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedSfixed32 = array
            }
       }
-      public func setRepeatedSfixed32(_ value:Array<Int32>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedSfixed32(value:Array<Int32>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedSfixed32 = value
         return self
       }
@@ -4392,7 +4392,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedSfixed64 = array
            }
       }
-      public func setRepeatedSfixed64(_ value:Array<Int64>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedSfixed64(value:Array<Int64>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedSfixed64 = value
         return self
       }
@@ -4408,7 +4408,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedFloat = array
            }
       }
-      public func setRepeatedFloat(_ value:Array<Float>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedFloat(value:Array<Float>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedFloat = value
         return self
       }
@@ -4424,7 +4424,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedDouble = array
            }
       }
-      public func setRepeatedDouble(_ value:Array<Double>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedDouble(value:Array<Double>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedDouble = value
         return self
       }
@@ -4440,7 +4440,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedBool = array
            }
       }
-      public func setRepeatedBool(_ value:Array<Bool>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedBool(value:Array<Bool>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedBool = value
         return self
       }
@@ -4456,7 +4456,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedString = array
            }
       }
-      public func setRepeatedString(_ value:Array<String>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedString(value:Array<String>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedString = value
         return self
       }
@@ -4464,7 +4464,7 @@ public extension ProtobufUnittest {
          builderResult.repeatedString.removeAll(keepingCapacity: false)
          return self
       }
-      public var repeatedBytes:Array<NSData> {
+      public var repeatedBytes:Array<Data> {
            get {
                return builderResult.repeatedBytes
            }
@@ -4472,7 +4472,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedBytes = array
            }
       }
-      public func setRepeatedBytes(_ value:Array<NSData>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedBytes(value:Array<Data>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedBytes = value
         return self
       }
@@ -4488,7 +4488,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedGroup = value
            }
       }
-      public func setRepeatedGroup(_ value:Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedGroup(value:Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedGroup = value
         return self
       }
@@ -4504,7 +4504,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedNestedMessage = value
            }
       }
-      public func setRepeatedNestedMessage(_ value:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedNestedMessage(value:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedNestedMessage = value
         return self
       }
@@ -4520,7 +4520,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedForeignMessage = value
            }
       }
-      public func setRepeatedForeignMessage(_ value:Array<ProtobufUnittest.ForeignMessageLite>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedForeignMessage(value:Array<ProtobufUnittest.ForeignMessageLite>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedForeignMessage = value
         return self
       }
@@ -4536,7 +4536,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedImportMessage = value
            }
       }
-      public func setRepeatedImportMessage(_ value:Array<ProtobufUnittestImport.ImportMessageLite>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedImportMessage(value:Array<ProtobufUnittestImport.ImportMessageLite>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedImportMessage = value
         return self
       }
@@ -4552,7 +4552,7 @@ public extension ProtobufUnittest {
               builderResult.repeatedNestedEnum = value
           }
       }
-      public func setRepeatedNestedEnum(_ value:Array<ProtobufUnittest.TestAllTypesLite.NestedEnum>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedNestedEnum(value:Array<ProtobufUnittest.TestAllTypesLite.NestedEnum>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedNestedEnum = value
         return self
       }
@@ -4568,7 +4568,7 @@ public extension ProtobufUnittest {
               builderResult.repeatedForeignEnum = value
           }
       }
-      public func setRepeatedForeignEnum(_ value:Array<ProtobufUnittest.ForeignEnumLite>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedForeignEnum(value:Array<ProtobufUnittest.ForeignEnumLite>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedForeignEnum = value
         return self
       }
@@ -4584,7 +4584,7 @@ public extension ProtobufUnittest {
               builderResult.repeatedImportEnum = value
           }
       }
-      public func setRepeatedImportEnum(_ value:Array<ProtobufUnittestImport.ImportEnumLite>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedImportEnum(value:Array<ProtobufUnittestImport.ImportEnumLite>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedImportEnum = value
         return self
       }
@@ -4600,7 +4600,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedStringPiece = array
            }
       }
-      public func setRepeatedStringPiece(_ value:Array<String>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedStringPiece(value:Array<String>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedStringPiece = value
         return self
       }
@@ -4616,7 +4616,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedCord = array
            }
       }
-      public func setRepeatedCord(_ value:Array<String>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedCord(value:Array<String>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedCord = value
         return self
       }
@@ -4632,7 +4632,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedLazyMessage = value
            }
       }
-      public func setRepeatedLazyMessage(_ value:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setRepeatedLazyMessage(value:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.repeatedLazyMessage = value
         return self
       }
@@ -4654,7 +4654,7 @@ public extension ProtobufUnittest {
                builderResult.defaultInt32 = value
            }
       }
-      public func setDefaultInt32(_ value:Int32) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultInt32(value:Int32) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultInt32 = value
         return self
       }
@@ -4677,7 +4677,7 @@ public extension ProtobufUnittest {
                builderResult.defaultInt64 = value
            }
       }
-      public func setDefaultInt64(_ value:Int64) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultInt64(value:Int64) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultInt64 = value
         return self
       }
@@ -4700,7 +4700,7 @@ public extension ProtobufUnittest {
                builderResult.defaultUint32 = value
            }
       }
-      public func setDefaultUint32(_ value:UInt32) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultUint32(value:UInt32) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultUint32 = value
         return self
       }
@@ -4723,7 +4723,7 @@ public extension ProtobufUnittest {
                builderResult.defaultUint64 = value
            }
       }
-      public func setDefaultUint64(_ value:UInt64) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultUint64(value:UInt64) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultUint64 = value
         return self
       }
@@ -4746,7 +4746,7 @@ public extension ProtobufUnittest {
                builderResult.defaultSint32 = value
            }
       }
-      public func setDefaultSint32(_ value:Int32) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultSint32(value:Int32) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultSint32 = value
         return self
       }
@@ -4769,7 +4769,7 @@ public extension ProtobufUnittest {
                builderResult.defaultSint64 = value
            }
       }
-      public func setDefaultSint64(_ value:Int64) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultSint64(value:Int64) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultSint64 = value
         return self
       }
@@ -4792,7 +4792,7 @@ public extension ProtobufUnittest {
                builderResult.defaultFixed32 = value
            }
       }
-      public func setDefaultFixed32(_ value:UInt32) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultFixed32(value:UInt32) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultFixed32 = value
         return self
       }
@@ -4815,7 +4815,7 @@ public extension ProtobufUnittest {
                builderResult.defaultFixed64 = value
            }
       }
-      public func setDefaultFixed64(_ value:UInt64) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultFixed64(value:UInt64) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultFixed64 = value
         return self
       }
@@ -4838,7 +4838,7 @@ public extension ProtobufUnittest {
                builderResult.defaultSfixed32 = value
            }
       }
-      public func setDefaultSfixed32(_ value:Int32) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultSfixed32(value:Int32) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultSfixed32 = value
         return self
       }
@@ -4861,7 +4861,7 @@ public extension ProtobufUnittest {
                builderResult.defaultSfixed64 = value
            }
       }
-      public func setDefaultSfixed64(_ value:Int64) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultSfixed64(value:Int64) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultSfixed64 = value
         return self
       }
@@ -4884,7 +4884,7 @@ public extension ProtobufUnittest {
                builderResult.defaultFloat = value
            }
       }
-      public func setDefaultFloat(_ value:Float) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultFloat(value:Float) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultFloat = value
         return self
       }
@@ -4907,7 +4907,7 @@ public extension ProtobufUnittest {
                builderResult.defaultDouble = value
            }
       }
-      public func setDefaultDouble(_ value:Double) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultDouble(value:Double) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultDouble = value
         return self
       }
@@ -4930,7 +4930,7 @@ public extension ProtobufUnittest {
                builderResult.defaultBool = value
            }
       }
-      public func setDefaultBool(_ value:Bool) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultBool(value:Bool) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultBool = value
         return self
       }
@@ -4953,7 +4953,7 @@ public extension ProtobufUnittest {
                builderResult.defaultString = value
            }
       }
-      public func setDefaultString(_ value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultString(value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultString = value
         return self
       }
@@ -4967,7 +4967,7 @@ public extension ProtobufUnittest {
                 return builderResult.hasDefaultBytes
            }
       }
-      public var defaultBytes:NSData {
+      public var defaultBytes:Data {
            get {
                 return builderResult.defaultBytes
            }
@@ -4976,13 +4976,13 @@ public extension ProtobufUnittest {
                builderResult.defaultBytes = value
            }
       }
-      public func setDefaultBytes(_ value:NSData) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultBytes(value:Data) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultBytes = value
         return self
       }
       public func clearDefaultBytes() -> ProtobufUnittest.TestAllTypesLite.Builder{
            builderResult.hasDefaultBytes = false
-           builderResult.defaultBytes = NSData(bytes:([UInt8]() + "world".utf8), length:5)
+           builderResult.defaultBytes = Data(bytes:([UInt8]() + "world".utf8), length:5)
            return self
       }
         public var hasDefaultNestedEnum:Bool{
@@ -4999,7 +4999,7 @@ public extension ProtobufUnittest {
                 builderResult.defaultNestedEnum = value
             }
         }
-        public func setDefaultNestedEnum(_ value:ProtobufUnittest.TestAllTypesLite.NestedEnum) -> ProtobufUnittest.TestAllTypesLite.Builder {
+        public func setDefaultNestedEnum(value:ProtobufUnittest.TestAllTypesLite.NestedEnum) -> ProtobufUnittest.TestAllTypesLite.Builder {
           self.defaultNestedEnum = value
           return self
         }
@@ -5022,7 +5022,7 @@ public extension ProtobufUnittest {
                 builderResult.defaultForeignEnum = value
             }
         }
-        public func setDefaultForeignEnum(_ value:ProtobufUnittest.ForeignEnumLite) -> ProtobufUnittest.TestAllTypesLite.Builder {
+        public func setDefaultForeignEnum(value:ProtobufUnittest.ForeignEnumLite) -> ProtobufUnittest.TestAllTypesLite.Builder {
           self.defaultForeignEnum = value
           return self
         }
@@ -5045,7 +5045,7 @@ public extension ProtobufUnittest {
                 builderResult.defaultImportEnum = value
             }
         }
-        public func setDefaultImportEnum(_ value:ProtobufUnittestImport.ImportEnumLite) -> ProtobufUnittest.TestAllTypesLite.Builder {
+        public func setDefaultImportEnum(value:ProtobufUnittestImport.ImportEnumLite) -> ProtobufUnittest.TestAllTypesLite.Builder {
           self.defaultImportEnum = value
           return self
         }
@@ -5068,7 +5068,7 @@ public extension ProtobufUnittest {
                builderResult.defaultStringPiece = value
            }
       }
-      public func setDefaultStringPiece(_ value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultStringPiece(value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultStringPiece = value
         return self
       }
@@ -5091,7 +5091,7 @@ public extension ProtobufUnittest {
                builderResult.defaultCord = value
            }
       }
-      public func setDefaultCord(_ value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setDefaultCord(value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.defaultCord = value
         return self
       }
@@ -5114,7 +5114,7 @@ public extension ProtobufUnittest {
                builderResult.oneofUint32 = value
            }
       }
-      public func setOneofUint32(_ value:UInt32) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOneofUint32(value:UInt32) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.oneofUint32 = value
         return self
       }
@@ -5150,18 +5150,18 @@ public extension ProtobufUnittest {
            oneofNestedMessageBuilder_ = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
            builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
            if oneofNestedMessage != nil {
-              try! oneofNestedMessageBuilder_.mergeFrom(oneofNestedMessage)
+              _ = try! oneofNestedMessageBuilder_.mergeFrom(other: oneofNestedMessage)
            }
         }
         return oneofNestedMessageBuilder_
       }
-      public func setOneofNestedMessage(_ value:ProtobufUnittest.TestAllTypesLite.NestedMessage!) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOneofNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage!) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.oneofNestedMessage = value
         return self
       }
-      public func mergeOneofNestedMessage(_ value:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func mergeOneofNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOneofNestedMessage {
-          builderResult.oneofNestedMessage = try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(builderResult.oneofNestedMessage).mergeFrom(value).buildPartial()
+          builderResult.oneofNestedMessage = try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(prototype: builderResult.oneofNestedMessage).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.oneofNestedMessage = value
         }
@@ -5188,7 +5188,7 @@ public extension ProtobufUnittest {
                builderResult.oneofString = value
            }
       }
-      public func setOneofString(_ value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOneofString(value:String) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.oneofString = value
         return self
       }
@@ -5202,7 +5202,7 @@ public extension ProtobufUnittest {
                 return builderResult.hasOneofBytes
            }
       }
-      public var oneofBytes:NSData {
+      public var oneofBytes:Data {
            get {
                 return builderResult.oneofBytes
            }
@@ -5211,13 +5211,13 @@ public extension ProtobufUnittest {
                builderResult.oneofBytes = value
            }
       }
-      public func setOneofBytes(_ value:NSData) -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func setOneofBytes(value:Data) -> ProtobufUnittest.TestAllTypesLite.Builder {
         self.oneofBytes = value
         return self
       }
       public func clearOneofBytes() -> ProtobufUnittest.TestAllTypesLite.Builder{
            builderResult.hasOneofBytes = false
-           builderResult.oneofBytes = NSData()
+           builderResult.oneofBytes = Data()
            return self
       }
       override public var internalGetResult:GeneratedMessage {
@@ -5230,7 +5230,7 @@ public extension ProtobufUnittest {
         return self
       }
       public override func clone() throws -> ProtobufUnittest.TestAllTypesLite.Builder {
-        return try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(builderResult)
+        return try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> ProtobufUnittest.TestAllTypesLite {
            try checkInitialized()
@@ -5240,7 +5240,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestAllTypesLite = builderResult
         return returnMe
       }
-      public func mergeFrom(_ other:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
+      public func mergeFrom(other:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if other == ProtobufUnittest.TestAllTypesLite() {
          return self
         }
@@ -5289,17 +5289,17 @@ public extension ProtobufUnittest {
         if other.hasOptionalBytes {
              optionalBytes = other.optionalBytes
         }
-        if (other.hasOptionalGroup) {
-            try mergeOptionalGroup(other.optionalGroup)
+        if other.hasOptionalGroup {
+            _ = try mergeOptionalGroup(value: other.optionalGroup)
         }
-        if (other.hasOptionalNestedMessage) {
-            try mergeOptionalNestedMessage(other.optionalNestedMessage)
+        if other.hasOptionalNestedMessage {
+            _ = try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
         }
-        if (other.hasOptionalForeignMessage) {
-            try mergeOptionalForeignMessage(other.optionalForeignMessage)
+        if other.hasOptionalForeignMessage {
+            _ = try mergeOptionalForeignMessage(value: other.optionalForeignMessage)
         }
-        if (other.hasOptionalImportMessage) {
-            try mergeOptionalImportMessage(other.optionalImportMessage)
+        if other.hasOptionalImportMessage {
+            _ = try mergeOptionalImportMessage(value: other.optionalImportMessage)
         }
         if other.hasOptionalNestedEnum {
              optionalNestedEnum = other.optionalNestedEnum
@@ -5316,11 +5316,11 @@ public extension ProtobufUnittest {
         if other.hasOptionalCord {
              optionalCord = other.optionalCord
         }
-        if (other.hasOptionalPublicImportMessage) {
-            try mergeOptionalPublicImportMessage(other.optionalPublicImportMessage)
+        if other.hasOptionalPublicImportMessage {
+            _ = try mergeOptionalPublicImportMessage(value: other.optionalPublicImportMessage)
         }
-        if (other.hasOptionalLazyMessage) {
-            try mergeOptionalLazyMessage(other.optionalLazyMessage)
+        if other.hasOptionalLazyMessage {
+            _ = try mergeOptionalLazyMessage(value: other.optionalLazyMessage)
         }
         if !other.repeatedInt32.isEmpty {
             builderResult.repeatedInt32 += other.repeatedInt32
@@ -5460,8 +5460,8 @@ public extension ProtobufUnittest {
         if other.hasOneofUint32 {
              oneofUint32 = other.oneofUint32
         }
-        if (other.hasOneofNestedMessage) {
-            try mergeOneofNestedMessage(other.oneofNestedMessage)
+        if other.hasOneofNestedMessage {
+            _ = try mergeOneofNestedMessage(value: other.oneofNestedMessage)
         }
         if other.hasOneofString {
              oneofString = other.oneofString
@@ -5469,14 +5469,14 @@ public extension ProtobufUnittest {
         if other.hasOneofBytes {
              oneofBytes = other.oneofBytes
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try mergeUnknownFields(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
+           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
           switch protobufTag {
@@ -5484,323 +5484,323 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             optionalInt32 = try input.readInt32()
 
-          case 16 :
+          case 16:
             optionalInt64 = try input.readInt64()
 
-          case 24 :
+          case 24:
             optionalUint32 = try input.readUInt32()
 
-          case 32 :
+          case 32:
             optionalUint64 = try input.readUInt64()
 
-          case 40 :
+          case 40:
             optionalSint32 = try input.readSInt32()
 
-          case 48 :
+          case 48:
             optionalSint64 = try input.readSInt64()
 
-          case 61 :
+          case 61:
             optionalFixed32 = try input.readFixed32()
 
-          case 65 :
+          case 65:
             optionalFixed64 = try input.readFixed64()
 
-          case 77 :
+          case 77:
             optionalSfixed32 = try input.readSFixed32()
 
-          case 81 :
+          case 81:
             optionalSfixed64 = try input.readSFixed64()
 
-          case 93 :
+          case 93:
             optionalFloat = try input.readFloat()
 
-          case 97 :
+          case 97:
             optionalDouble = try input.readDouble()
 
-          case 104 :
+          case 104:
             optionalBool = try input.readBool()
 
-          case 114 :
+          case 114:
             optionalString = try input.readString()
 
-          case 122 :
+          case 122:
             optionalBytes = try input.readData()
 
-          case 131 :
+          case 131:
             let subBuilder:ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder = ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder()
             if hasOptionalGroup {
-              try subBuilder.mergeFrom(optionalGroup)
+             _ = try subBuilder.mergeFrom(other: optionalGroup)
             }
             try input.readGroup(16, builder:subBuilder, extensionRegistry:extensionRegistry)
             optionalGroup = subBuilder.buildPartial()
 
-          case 146 :
+          case 146:
             let subBuilder:ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
             if hasOptionalNestedMessage {
-              try subBuilder.mergeFrom(optionalNestedMessage)
+             _ = try subBuilder.mergeFrom(other: optionalNestedMessage)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalNestedMessage = subBuilder.buildPartial()
 
-          case 154 :
+          case 154:
             let subBuilder:ProtobufUnittest.ForeignMessageLite.Builder = ProtobufUnittest.ForeignMessageLite.Builder()
             if hasOptionalForeignMessage {
-              try subBuilder.mergeFrom(optionalForeignMessage)
+             _ = try subBuilder.mergeFrom(other: optionalForeignMessage)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalForeignMessage = subBuilder.buildPartial()
 
-          case 162 :
+          case 162:
             let subBuilder:ProtobufUnittestImport.ImportMessageLite.Builder = ProtobufUnittestImport.ImportMessageLite.Builder()
             if hasOptionalImportMessage {
-              try subBuilder.mergeFrom(optionalImportMessage)
+             _ = try subBuilder.mergeFrom(other: optionalImportMessage)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalImportMessage = subBuilder.buildPartial()
 
-          case 168 :
+          case 168:
             let valueIntoptionalNestedEnum = try input.readEnum()
             if let enumsoptionalNestedEnum = ProtobufUnittest.TestAllTypesLite.NestedEnum(rawValue:valueIntoptionalNestedEnum){
                  optionalNestedEnum = enumsoptionalNestedEnum
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(number: 21, value:Int64(valueIntoptionalNestedEnum))
             }
 
-          case 176 :
+          case 176:
             let valueIntoptionalForeignEnum = try input.readEnum()
             if let enumsoptionalForeignEnum = ProtobufUnittest.ForeignEnumLite(rawValue:valueIntoptionalForeignEnum){
                  optionalForeignEnum = enumsoptionalForeignEnum
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(22, value:Int64(valueIntoptionalForeignEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(number: 22, value:Int64(valueIntoptionalForeignEnum))
             }
 
-          case 184 :
+          case 184:
             let valueIntoptionalImportEnum = try input.readEnum()
             if let enumsoptionalImportEnum = ProtobufUnittestImport.ImportEnumLite(rawValue:valueIntoptionalImportEnum){
                  optionalImportEnum = enumsoptionalImportEnum
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(23, value:Int64(valueIntoptionalImportEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(number: 23, value:Int64(valueIntoptionalImportEnum))
             }
 
-          case 194 :
+          case 194:
             optionalStringPiece = try input.readString()
 
-          case 202 :
+          case 202:
             optionalCord = try input.readString()
 
-          case 210 :
+          case 210:
             let subBuilder:ProtobufUnittestImport.PublicImportMessageLite.Builder = ProtobufUnittestImport.PublicImportMessageLite.Builder()
             if hasOptionalPublicImportMessage {
-              try subBuilder.mergeFrom(optionalPublicImportMessage)
+             _ = try subBuilder.mergeFrom(other: optionalPublicImportMessage)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalPublicImportMessage = subBuilder.buildPartial()
 
-          case 218 :
+          case 218:
             let subBuilder:ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
             if hasOptionalLazyMessage {
-              try subBuilder.mergeFrom(optionalLazyMessage)
+             _ = try subBuilder.mergeFrom(other: optionalLazyMessage)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalLazyMessage = subBuilder.buildPartial()
 
-          case 248 :
+          case 248:
             repeatedInt32 += [try input.readInt32()]
 
-          case 256 :
+          case 256:
             repeatedInt64 += [try input.readInt64()]
 
-          case 264 :
+          case 264:
             repeatedUint32 += [try input.readUInt32()]
 
-          case 272 :
+          case 272:
             repeatedUint64 += [try input.readUInt64()]
 
-          case 280 :
+          case 280:
             repeatedSint32 += [try input.readSInt32()]
 
-          case 288 :
+          case 288:
             repeatedSint64 += [try input.readSInt64()]
 
-          case 301 :
+          case 301:
             repeatedFixed32 += [try input.readFixed32()]
 
-          case 305 :
+          case 305:
             repeatedFixed64 += [try input.readFixed64()]
 
-          case 317 :
+          case 317:
             repeatedSfixed32 += [try input.readSFixed32()]
 
-          case 321 :
+          case 321:
             repeatedSfixed64 += [try input.readSFixed64()]
 
-          case 333 :
+          case 333:
             repeatedFloat += [try input.readFloat()]
 
-          case 337 :
+          case 337:
             repeatedDouble += [try input.readDouble()]
 
-          case 344 :
+          case 344:
             repeatedBool += [try input.readBool()]
 
-          case 354 :
+          case 354:
             repeatedString += [try input.readString()]
 
-          case 362 :
+          case 362:
             repeatedBytes += [try input.readData()]
 
-          case 371 :
+          case 371:
             let subBuilder = ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder()
             try input.readGroup(46,builder:subBuilder,extensionRegistry:extensionRegistry)
             repeatedGroup += [subBuilder.buildPartial()]
 
-          case 386 :
+          case 386:
             let subBuilder = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
-            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
             repeatedNestedMessage += [subBuilder.buildPartial()]
 
-          case 394 :
+          case 394:
             let subBuilder = ProtobufUnittest.ForeignMessageLite.Builder()
-            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
             repeatedForeignMessage += [subBuilder.buildPartial()]
 
-          case 402 :
+          case 402:
             let subBuilder = ProtobufUnittestImport.ImportMessageLite.Builder()
-            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
             repeatedImportMessage += [subBuilder.buildPartial()]
 
-          case 408 :
+          case 408:
             let valueIntrepeatedNestedEnum = try input.readEnum()
             if let enumsrepeatedNestedEnum = ProtobufUnittest.TestAllTypesLite.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(number: 51, value:Int64(valueIntrepeatedNestedEnum))
             }
 
-          case 416 :
+          case 416:
             let valueIntrepeatedForeignEnum = try input.readEnum()
             if let enumsrepeatedForeignEnum = ProtobufUnittest.ForeignEnumLite(rawValue:valueIntrepeatedForeignEnum) {
                  builderResult.repeatedForeignEnum += [enumsrepeatedForeignEnum]
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(52, value:Int64(valueIntrepeatedForeignEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(number: 52, value:Int64(valueIntrepeatedForeignEnum))
             }
 
-          case 424 :
+          case 424:
             let valueIntrepeatedImportEnum = try input.readEnum()
             if let enumsrepeatedImportEnum = ProtobufUnittestImport.ImportEnumLite(rawValue:valueIntrepeatedImportEnum) {
                  builderResult.repeatedImportEnum += [enumsrepeatedImportEnum]
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(53, value:Int64(valueIntrepeatedImportEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(number: 53, value:Int64(valueIntrepeatedImportEnum))
             }
 
-          case 434 :
+          case 434:
             repeatedStringPiece += [try input.readString()]
 
-          case 442 :
+          case 442:
             repeatedCord += [try input.readString()]
 
-          case 458 :
+          case 458:
             let subBuilder = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
-            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
             repeatedLazyMessage += [subBuilder.buildPartial()]
 
-          case 488 :
+          case 488:
             defaultInt32 = try input.readInt32()
 
-          case 496 :
+          case 496:
             defaultInt64 = try input.readInt64()
 
-          case 504 :
+          case 504:
             defaultUint32 = try input.readUInt32()
 
-          case 512 :
+          case 512:
             defaultUint64 = try input.readUInt64()
 
-          case 520 :
+          case 520:
             defaultSint32 = try input.readSInt32()
 
-          case 528 :
+          case 528:
             defaultSint64 = try input.readSInt64()
 
-          case 541 :
+          case 541:
             defaultFixed32 = try input.readFixed32()
 
-          case 545 :
+          case 545:
             defaultFixed64 = try input.readFixed64()
 
-          case 557 :
+          case 557:
             defaultSfixed32 = try input.readSFixed32()
 
-          case 561 :
+          case 561:
             defaultSfixed64 = try input.readSFixed64()
 
-          case 573 :
+          case 573:
             defaultFloat = try input.readFloat()
 
-          case 577 :
+          case 577:
             defaultDouble = try input.readDouble()
 
-          case 584 :
+          case 584:
             defaultBool = try input.readBool()
 
-          case 594 :
+          case 594:
             defaultString = try input.readString()
 
-          case 602 :
+          case 602:
             defaultBytes = try input.readData()
 
-          case 648 :
+          case 648:
             let valueIntdefaultNestedEnum = try input.readEnum()
             if let enumsdefaultNestedEnum = ProtobufUnittest.TestAllTypesLite.NestedEnum(rawValue:valueIntdefaultNestedEnum){
                  defaultNestedEnum = enumsdefaultNestedEnum
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(81, value:Int64(valueIntdefaultNestedEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(number: 81, value:Int64(valueIntdefaultNestedEnum))
             }
 
-          case 656 :
+          case 656:
             let valueIntdefaultForeignEnum = try input.readEnum()
             if let enumsdefaultForeignEnum = ProtobufUnittest.ForeignEnumLite(rawValue:valueIntdefaultForeignEnum){
                  defaultForeignEnum = enumsdefaultForeignEnum
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(82, value:Int64(valueIntdefaultForeignEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(number: 82, value:Int64(valueIntdefaultForeignEnum))
             }
 
-          case 664 :
+          case 664:
             let valueIntdefaultImportEnum = try input.readEnum()
             if let enumsdefaultImportEnum = ProtobufUnittestImport.ImportEnumLite(rawValue:valueIntdefaultImportEnum){
                  defaultImportEnum = enumsdefaultImportEnum
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(83, value:Int64(valueIntdefaultImportEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(number: 83, value:Int64(valueIntdefaultImportEnum))
             }
 
-          case 674 :
+          case 674:
             defaultStringPiece = try input.readString()
 
-          case 682 :
+          case 682:
             defaultCord = try input.readString()
 
-          case 888 :
+          case 888:
             oneofUint32 = try input.readUInt32()
 
-          case 898 :
+          case 898:
             let subBuilder:ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
             if hasOneofNestedMessage {
-              try subBuilder.mergeFrom(oneofNestedMessage)
+             _ = try subBuilder.mergeFrom(other: oneofNestedMessage)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             oneofNestedMessage = subBuilder.buildPartial()
 
-          case 906 :
+          case 906:
             oneofString = try input.readString()
 
-          case 914 :
+          case 914:
             oneofBytes = try input.readData()
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -5821,11 +5821,11 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasC {
-        try output.writeInt32(1, value:c)
+        try output.writeInt32(fieldNumber:1, value:c)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeToCodedOutputStream(output:output)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -5835,39 +5835,39 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasC {
-        serialize_size += c.computeInt32Size(1)
+        serialize_size += c.computeInt32Size(fieldNumber: 1)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.ForeignMessageLite> {
+    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.ForeignMessageLite> {
       var mergedArray = Array<ProtobufUnittest.ForeignMessageLite>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input: input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ForeignMessageLite? {
-      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.ForeignMessageLite? {
+      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.ForeignMessageLite {
-      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:Data) throws -> ProtobufUnittest.ForeignMessageLite {
+      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ForeignMessageLite {
-      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ForeignMessageLite {
+      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.ForeignMessageLite {
-      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.ForeignMessageLite {
+      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFromInputStream(input: input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ForeignMessageLite {
-      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ForeignMessageLite {
+      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ForeignMessageLite {
-      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ForeignMessageLite {
+      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFromCodedInputStream(input: input).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ForeignMessageLite {
-      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ForeignMessageLite {
+      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.ForeignMessageLite.Builder {
       return ProtobufUnittest.ForeignMessageLite.classBuilder() as! ProtobufUnittest.ForeignMessageLite.Builder
@@ -5882,17 +5882,17 @@ public extension ProtobufUnittest {
       return ProtobufUnittest.ForeignMessageLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.ForeignMessageLite.Builder {
-      return try ProtobufUnittest.ForeignMessageLite.builderWithPrototype(self)
+      return try ProtobufUnittest.ForeignMessageLite.builderWithPrototype(prototype: self)
     }
-    public class func builderWithPrototype(_ prototype:ProtobufUnittest.ForeignMessageLite) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
-      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ProtobufUnittest.ForeignMessageLite) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
+      return try ProtobufUnittest.ForeignMessageLite.Builder().mergeFrom(other: prototype)
     }
-    override public func getDescription(_ indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
       if hasC {
         output += "\(indent) c: \(c) \n"
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -5943,7 +5943,7 @@ public extension ProtobufUnittest {
                builderResult.c = value
            }
       }
-      public func setC(_ value:Int32) -> ProtobufUnittest.ForeignMessageLite.Builder {
+      public func setC(value:Int32) -> ProtobufUnittest.ForeignMessageLite.Builder {
         self.c = value
         return self
       }
@@ -5962,7 +5962,7 @@ public extension ProtobufUnittest {
         return self
       }
       public override func clone() throws -> ProtobufUnittest.ForeignMessageLite.Builder {
-        return try ProtobufUnittest.ForeignMessageLite.builderWithPrototype(builderResult)
+        return try ProtobufUnittest.ForeignMessageLite.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> ProtobufUnittest.ForeignMessageLite {
            try checkInitialized()
@@ -5972,21 +5972,21 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.ForeignMessageLite = builderResult
         return returnMe
       }
-      public func mergeFrom(_ other:ProtobufUnittest.ForeignMessageLite) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
+      public func mergeFrom(other:ProtobufUnittest.ForeignMessageLite) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
         if other == ProtobufUnittest.ForeignMessageLite() {
          return self
         }
         if other.hasC {
              c = other.c
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try mergeUnknownFields(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
+           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
           switch protobufTag {
@@ -5994,11 +5994,11 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             c = try input.readInt32()
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -6044,106 +6044,106 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if !packedInt32.isEmpty {
-        try output.writeRawVarint32(722)
-        try output.writeRawVarint32(packedInt32MemoizedSerializedSize)
+        try output.writeRawVarint32(value:722)
+        try output.writeRawVarint32(value:packedInt32MemoizedSerializedSize)
         for oneValuepackedInt32 in packedInt32 {
-          try output.writeInt32NoTag(oneValuepackedInt32)
+          try output.writeInt32NoTag(value:oneValuepackedInt32)
         }
       }
       if !packedInt64.isEmpty {
-        try output.writeRawVarint32(730)
-        try output.writeRawVarint32(packedInt64MemoizedSerializedSize)
+        try output.writeRawVarint32(value:730)
+        try output.writeRawVarint32(value:packedInt64MemoizedSerializedSize)
         for oneValuepackedInt64 in packedInt64 {
-          try output.writeInt64NoTag(oneValuepackedInt64)
+          try output.writeInt64NoTag(value:oneValuepackedInt64)
         }
       }
       if !packedUint32.isEmpty {
-        try output.writeRawVarint32(738)
-        try output.writeRawVarint32(packedUint32MemoizedSerializedSize)
+        try output.writeRawVarint32(value:738)
+        try output.writeRawVarint32(value:packedUint32MemoizedSerializedSize)
         for oneValuepackedUint32 in packedUint32 {
-          try output.writeUInt32NoTag(oneValuepackedUint32)
+          try output.writeUInt32NoTag(value:oneValuepackedUint32)
         }
       }
       if !packedUint64.isEmpty {
-        try output.writeRawVarint32(746)
-        try output.writeRawVarint32(packedUint64MemoizedSerializedSize)
+        try output.writeRawVarint32(value:746)
+        try output.writeRawVarint32(value:packedUint64MemoizedSerializedSize)
         for oneValuepackedUint64 in packedUint64 {
-          try output.writeUInt64NoTag(oneValuepackedUint64)
+          try output.writeUInt64NoTag(value:oneValuepackedUint64)
         }
       }
       if !packedSint32.isEmpty {
-        try output.writeRawVarint32(754)
-        try output.writeRawVarint32(packedSint32MemoizedSerializedSize)
+        try output.writeRawVarint32(value:754)
+        try output.writeRawVarint32(value:packedSint32MemoizedSerializedSize)
         for oneValuepackedSint32 in packedSint32 {
-          try output.writeSInt32NoTag(oneValuepackedSint32)
+          try output.writeSInt32NoTag(value:oneValuepackedSint32)
         }
       }
       if !packedSint64.isEmpty {
-        try output.writeRawVarint32(762)
-        try output.writeRawVarint32(packedSint64MemoizedSerializedSize)
+        try output.writeRawVarint32(value:762)
+        try output.writeRawVarint32(value:packedSint64MemoizedSerializedSize)
         for oneValuepackedSint64 in packedSint64 {
-          try output.writeSInt64NoTag(oneValuepackedSint64)
+          try output.writeSInt64NoTag(value:oneValuepackedSint64)
         }
       }
       if !packedFixed32.isEmpty {
-        try output.writeRawVarint32(770)
-        try output.writeRawVarint32(packedFixed32MemoizedSerializedSize)
+        try output.writeRawVarint32(value:770)
+        try output.writeRawVarint32(value:packedFixed32MemoizedSerializedSize)
         for oneValuepackedFixed32 in packedFixed32 {
-          try output.writeFixed32NoTag(oneValuepackedFixed32)
+          try output.writeFixed32NoTag(value:oneValuepackedFixed32)
         }
       }
       if !packedFixed64.isEmpty {
-        try output.writeRawVarint32(778)
-        try output.writeRawVarint32(packedFixed64MemoizedSerializedSize)
+        try output.writeRawVarint32(value:778)
+        try output.writeRawVarint32(value:packedFixed64MemoizedSerializedSize)
         for oneValuepackedFixed64 in packedFixed64 {
-          try output.writeFixed64NoTag(oneValuepackedFixed64)
+          try output.writeFixed64NoTag(value:oneValuepackedFixed64)
         }
       }
       if !packedSfixed32.isEmpty {
-        try output.writeRawVarint32(786)
-        try output.writeRawVarint32(packedSfixed32MemoizedSerializedSize)
+        try output.writeRawVarint32(value:786)
+        try output.writeRawVarint32(value:packedSfixed32MemoizedSerializedSize)
         for oneValuepackedSfixed32 in packedSfixed32 {
-          try output.writeSFixed32NoTag(oneValuepackedSfixed32)
+          try output.writeSFixed32NoTag(value:oneValuepackedSfixed32)
         }
       }
       if !packedSfixed64.isEmpty {
-        try output.writeRawVarint32(794)
-        try output.writeRawVarint32(packedSfixed64MemoizedSerializedSize)
+        try output.writeRawVarint32(value:794)
+        try output.writeRawVarint32(value:packedSfixed64MemoizedSerializedSize)
         for oneValuepackedSfixed64 in packedSfixed64 {
-          try output.writeSFixed64NoTag(oneValuepackedSfixed64)
+          try output.writeSFixed64NoTag(value:oneValuepackedSfixed64)
         }
       }
       if !packedFloat.isEmpty {
-        try output.writeRawVarint32(802)
-        try output.writeRawVarint32(packedFloatMemoizedSerializedSize)
+        try output.writeRawVarint32(value:802)
+        try output.writeRawVarint32(value:packedFloatMemoizedSerializedSize)
         for oneValuepackedFloat in packedFloat {
-          try output.writeFloatNoTag(oneValuepackedFloat)
+          try output.writeFloatNoTag(value:oneValuepackedFloat)
         }
       }
       if !packedDouble.isEmpty {
-        try output.writeRawVarint32(810)
-        try output.writeRawVarint32(packedDoubleMemoizedSerializedSize)
+        try output.writeRawVarint32(value:810)
+        try output.writeRawVarint32(value:packedDoubleMemoizedSerializedSize)
         for oneValuepackedDouble in packedDouble {
-          try output.writeDoubleNoTag(oneValuepackedDouble)
+          try output.writeDoubleNoTag(value:oneValuepackedDouble)
         }
       }
       if !packedBool.isEmpty {
-        try output.writeRawVarint32(818)
-        try output.writeRawVarint32(packedBoolMemoizedSerializedSize)
+        try output.writeRawVarint32(value:818)
+        try output.writeRawVarint32(value:packedBoolMemoizedSerializedSize)
         for oneValuepackedBool in packedBool {
-          try output.writeBoolNoTag(oneValuepackedBool)
+          try output.writeBoolNoTag(value:oneValuepackedBool)
         }
       }
       if !packedEnum.isEmpty {
-        try output.writeRawVarint32(826)
-        try output.writeRawVarint32(packedEnumMemoizedSerializedSize)
+        try output.writeRawVarint32(value:826)
+        try output.writeRawVarint32(value:packedEnumMemoizedSerializedSize)
       }
       for oneValueOfpackedEnum in packedEnum {
-          try output.writeEnumNoTag(oneValueOfpackedEnum.rawValue)
+          try output.writeEnumNoTag(value:packedEnum.rawValue)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeToCodedOutputStream(output:output)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -6282,33 +6282,33 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestPackedTypesLite> {
+    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestPackedTypesLite> {
       var mergedArray = Array<ProtobufUnittest.TestPackedTypesLite>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input: input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestPackedTypesLite? {
-      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestPackedTypesLite? {
+      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestPackedTypesLite {
-      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestPackedTypesLite {
+      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedTypesLite {
-      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedTypesLite {
+      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestPackedTypesLite {
-      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestPackedTypesLite {
+      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFromInputStream(input: input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedTypesLite {
-      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedTypesLite {
+      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestPackedTypesLite {
-      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestPackedTypesLite {
+      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFromCodedInputStream(input: input).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedTypesLite {
-      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedTypesLite {
+      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestPackedTypesLite.Builder {
       return ProtobufUnittest.TestPackedTypesLite.classBuilder() as! ProtobufUnittest.TestPackedTypesLite.Builder
@@ -6323,12 +6323,12 @@ public extension ProtobufUnittest {
       return ProtobufUnittest.TestPackedTypesLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
-      return try ProtobufUnittest.TestPackedTypesLite.builderWithPrototype(self)
+      return try ProtobufUnittest.TestPackedTypesLite.builderWithPrototype(prototype: self)
     }
-    public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestPackedTypesLite) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
-      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ProtobufUnittest.TestPackedTypesLite) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      return try ProtobufUnittest.TestPackedTypesLite.Builder().mergeFrom(other: prototype)
     }
-    override public func getDescription(_ indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
       var packedInt32ElementIndex:Int = 0
       for oneValuepackedInt32 in packedInt32  {
@@ -6400,7 +6400,7 @@ public extension ProtobufUnittest {
           output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(oneValueOfpackedEnum.description)\n"
           packedEnumElementIndex += 1
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -6484,7 +6484,7 @@ public extension ProtobufUnittest {
                builderResult.packedInt32 = array
            }
       }
-      public func setPackedInt32(_ value:Array<Int32>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedInt32(value:Array<Int32>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedInt32 = value
         return self
       }
@@ -6500,7 +6500,7 @@ public extension ProtobufUnittest {
                builderResult.packedInt64 = array
            }
       }
-      public func setPackedInt64(_ value:Array<Int64>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedInt64(value:Array<Int64>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedInt64 = value
         return self
       }
@@ -6516,7 +6516,7 @@ public extension ProtobufUnittest {
                builderResult.packedUint32 = array
            }
       }
-      public func setPackedUint32(_ value:Array<UInt32>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedUint32(value:Array<UInt32>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedUint32 = value
         return self
       }
@@ -6532,7 +6532,7 @@ public extension ProtobufUnittest {
                builderResult.packedUint64 = array
            }
       }
-      public func setPackedUint64(_ value:Array<UInt64>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedUint64(value:Array<UInt64>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedUint64 = value
         return self
       }
@@ -6548,7 +6548,7 @@ public extension ProtobufUnittest {
                builderResult.packedSint32 = array
            }
       }
-      public func setPackedSint32(_ value:Array<Int32>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedSint32(value:Array<Int32>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedSint32 = value
         return self
       }
@@ -6564,7 +6564,7 @@ public extension ProtobufUnittest {
                builderResult.packedSint64 = array
            }
       }
-      public func setPackedSint64(_ value:Array<Int64>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedSint64(value:Array<Int64>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedSint64 = value
         return self
       }
@@ -6580,7 +6580,7 @@ public extension ProtobufUnittest {
                builderResult.packedFixed32 = array
            }
       }
-      public func setPackedFixed32(_ value:Array<UInt32>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedFixed32(value:Array<UInt32>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedFixed32 = value
         return self
       }
@@ -6596,7 +6596,7 @@ public extension ProtobufUnittest {
                builderResult.packedFixed64 = array
            }
       }
-      public func setPackedFixed64(_ value:Array<UInt64>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedFixed64(value:Array<UInt64>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedFixed64 = value
         return self
       }
@@ -6612,7 +6612,7 @@ public extension ProtobufUnittest {
                builderResult.packedSfixed32 = array
            }
       }
-      public func setPackedSfixed32(_ value:Array<Int32>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedSfixed32(value:Array<Int32>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedSfixed32 = value
         return self
       }
@@ -6628,7 +6628,7 @@ public extension ProtobufUnittest {
                builderResult.packedSfixed64 = array
            }
       }
-      public func setPackedSfixed64(_ value:Array<Int64>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedSfixed64(value:Array<Int64>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedSfixed64 = value
         return self
       }
@@ -6644,7 +6644,7 @@ public extension ProtobufUnittest {
                builderResult.packedFloat = array
            }
       }
-      public func setPackedFloat(_ value:Array<Float>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedFloat(value:Array<Float>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedFloat = value
         return self
       }
@@ -6660,7 +6660,7 @@ public extension ProtobufUnittest {
                builderResult.packedDouble = array
            }
       }
-      public func setPackedDouble(_ value:Array<Double>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedDouble(value:Array<Double>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedDouble = value
         return self
       }
@@ -6676,7 +6676,7 @@ public extension ProtobufUnittest {
                builderResult.packedBool = array
            }
       }
-      public func setPackedBool(_ value:Array<Bool>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedBool(value:Array<Bool>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedBool = value
         return self
       }
@@ -6692,7 +6692,7 @@ public extension ProtobufUnittest {
               builderResult.packedEnum = value
           }
       }
-      public func setPackedEnum(_ value:Array<ProtobufUnittest.ForeignEnumLite>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func setPackedEnum(value:Array<ProtobufUnittest.ForeignEnumLite>) -> ProtobufUnittest.TestPackedTypesLite.Builder {
         self.packedEnum = value
         return self
       }
@@ -6710,7 +6710,7 @@ public extension ProtobufUnittest {
         return self
       }
       public override func clone() throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
-        return try ProtobufUnittest.TestPackedTypesLite.builderWithPrototype(builderResult)
+        return try ProtobufUnittest.TestPackedTypesLite.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> ProtobufUnittest.TestPackedTypesLite {
            try checkInitialized()
@@ -6720,7 +6720,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestPackedTypesLite = builderResult
         return returnMe
       }
-      public func mergeFrom(_ other:ProtobufUnittest.TestPackedTypesLite) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      public func mergeFrom(other:ProtobufUnittest.TestPackedTypesLite) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
         if other == ProtobufUnittest.TestPackedTypesLite() {
          return self
         }
@@ -6766,14 +6766,14 @@ public extension ProtobufUnittest {
         if !other.packedEnum.isEmpty {
            builderResult.packedEnum += other.packedEnum
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try mergeUnknownFields(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
+           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
           switch protobufTag {
@@ -6781,125 +6781,125 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 722 :
+          case 720:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedInt32 += [try input.readInt32()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 730 :
+          case 728:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedInt64 += [try input.readInt64()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 738 :
+          case 736:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedUint32 += [try input.readUInt32()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 746 :
+          case 744:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedUint64 += [try input.readUInt64()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 754 :
+          case 752:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedSint32 += [try input.readSInt32()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 762 :
+          case 760:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedSint64 += [try input.readSInt64()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 770 :
+          case 773:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedFixed32 += [try input.readFixed32()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 778 :
+          case 777:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedFixed64 += [try input.readFixed64()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 786 :
+          case 789:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedSfixed32 += [try input.readSFixed32()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 794 :
+          case 793:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedSfixed64 += [try input.readSFixed64()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 802 :
+          case 805:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedFloat += [try input.readFloat()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 810 :
+          case 809:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedDouble += [try input.readDouble()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 818 :
+          case 816:
             let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
+            let limit:Int32 = try input.pushLimit(byteLimit: length)
             while (input.bytesUntilLimit() > 0) {
               builderResult.packedBool += [try input.readBool()]
             }
-            input.popLimit(limit)
+            input.popLimit(oldLimit: limit)
 
-          case 826 :
+          case 824:
             let length:Int32 = try input.readRawVarint32()
-            let oldLimit:Int32 = try input.pushLimit(length)
+            let oldLimit:Int32 = try input.pushLimit(byteLimit: length)
             while input.bytesUntilLimit() > 0 {
             let valueIntpackedEnum = try input.readEnum()
             if let enumspackedEnum = ProtobufUnittest.ForeignEnumLite(rawValue:valueIntpackedEnum) {
                  builderResult.packedEnum += [enumspackedEnum]
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(103, value:Int64(valueIntpackedEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(number: 103, value:Int64(valueIntpackedEnum))
             }
             }
-            input.popLimit(oldLimit)
+            input.popLimit(oldLimit: oldLimit)
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -6920,9 +6920,9 @@ public extension ProtobufUnittest {
       }
      return true
     }
-    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
-      try writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1), endExclusive:Int32(536870912))
-      try unknownFields.writeToCodedOutputStream(output)
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+      try writeExtensionsToCodedOutputStream(output: output, startInclusive:Int32(1), endExclusive:Int32(536870912))
+      try unknownFields.writeToCodedOutputStream(output:output)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -6936,33 +6936,33 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestAllExtensionsLite> {
+    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestAllExtensionsLite> {
       var mergedArray = Array<ProtobufUnittest.TestAllExtensionsLite>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input: input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestAllExtensionsLite? {
-      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestAllExtensionsLite? {
+      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestAllExtensionsLite {
-      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestAllExtensionsLite {
+      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllExtensionsLite {
-      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllExtensionsLite {
+      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestAllExtensionsLite {
-      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestAllExtensionsLite {
+      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFromInputStream(input: input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllExtensionsLite {
-      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllExtensionsLite {
+      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestAllExtensionsLite {
-      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestAllExtensionsLite {
+      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFromCodedInputStream(input: input).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllExtensionsLite {
-      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllExtensionsLite {
+      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestAllExtensionsLite.Builder {
       return ProtobufUnittest.TestAllExtensionsLite.classBuilder() as! ProtobufUnittest.TestAllExtensionsLite.Builder
@@ -6977,21 +6977,21 @@ public extension ProtobufUnittest {
       return ProtobufUnittest.TestAllExtensionsLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
-      return try ProtobufUnittest.TestAllExtensionsLite.builderWithPrototype(self)
+      return try ProtobufUnittest.TestAllExtensionsLite.builderWithPrototype(prototype: self)
     }
-    public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestAllExtensionsLite) throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
-      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ProtobufUnittest.TestAllExtensionsLite) throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
+      return try ProtobufUnittest.TestAllExtensionsLite.Builder().mergeFrom(other: prototype)
     }
-    override public func getDescription(_ indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
-      output += try getExtensionDescription(Int32(1), endExclusive:Int32(536870912), indent:indent)
-      output += unknownFields.getDescription(indent)
+      output += try getExtensionDescription(startInclusive: Int32(1), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
         get {
             var hashCode:Int = 7
-            hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1), endExclusive:Int32(536870912)))
+            hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(startInclusive: Int32(1), endExclusive:Int32(536870912)))
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode
         }
@@ -7030,7 +7030,7 @@ public extension ProtobufUnittest {
         return self
       }
       public override func clone() throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
-        return try ProtobufUnittest.TestAllExtensionsLite.builderWithPrototype(builderResult)
+        return try ProtobufUnittest.TestAllExtensionsLite.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> ProtobufUnittest.TestAllExtensionsLite {
            try checkInitialized()
@@ -7040,19 +7040,19 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestAllExtensionsLite = builderResult
         return returnMe
       }
-      public func mergeFrom(_ other:ProtobufUnittest.TestAllExtensionsLite) throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
+      public func mergeFrom(other:ProtobufUnittest.TestAllExtensionsLite) throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
         if other == ProtobufUnittest.TestAllExtensionsLite() {
          return self
         }
-        try mergeExtensionFields(other)
-        try mergeUnknownFields(other.unknownFields)
+        _ = try mergeExtensionFields(other: other)
+        _ = try mergeUnknownFields(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
+           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
           switch protobufTag {
@@ -7061,7 +7061,7 @@ public extension ProtobufUnittest {
             return self
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -7082,11 +7082,11 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasA {
-        try output.writeInt32(17, value:a)
+        try output.writeInt32(fieldNumber:17, value:a)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeToCodedOutputStream(output:output)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -7096,39 +7096,39 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += a.computeInt32Size(17)
+        serialize_size += a.computeInt32Size(fieldNumber: 17)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.OptionalGroupExtensionLite> {
+    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.OptionalGroupExtensionLite> {
       var mergedArray = Array<ProtobufUnittest.OptionalGroupExtensionLite>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input: input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.OptionalGroupExtensionLite? {
-      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.OptionalGroupExtensionLite? {
+      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.OptionalGroupExtensionLite {
-      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:Data) throws -> ProtobufUnittest.OptionalGroupExtensionLite {
+      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OptionalGroupExtensionLite {
-      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OptionalGroupExtensionLite {
+      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.OptionalGroupExtensionLite {
-      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.OptionalGroupExtensionLite {
+      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFromInputStream(input: input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OptionalGroupExtensionLite {
-      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OptionalGroupExtensionLite {
+      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.OptionalGroupExtensionLite {
-      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.OptionalGroupExtensionLite {
+      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFromCodedInputStream(input: input).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OptionalGroupExtensionLite {
-      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OptionalGroupExtensionLite {
+      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
       return ProtobufUnittest.OptionalGroupExtensionLite.classBuilder() as! ProtobufUnittest.OptionalGroupExtensionLite.Builder
@@ -7143,17 +7143,17 @@ public extension ProtobufUnittest {
       return ProtobufUnittest.OptionalGroupExtensionLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
-      return try ProtobufUnittest.OptionalGroupExtensionLite.builderWithPrototype(self)
+      return try ProtobufUnittest.OptionalGroupExtensionLite.builderWithPrototype(prototype: self)
     }
-    public class func builderWithPrototype(_ prototype:ProtobufUnittest.OptionalGroupExtensionLite) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
-      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ProtobufUnittest.OptionalGroupExtensionLite) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
+      return try ProtobufUnittest.OptionalGroupExtensionLite.Builder().mergeFrom(other: prototype)
     }
-    override public func getDescription(_ indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -7204,7 +7204,7 @@ public extension ProtobufUnittest {
                builderResult.a = value
            }
       }
-      public func setA(_ value:Int32) -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
+      public func setA(value:Int32) -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
         self.a = value
         return self
       }
@@ -7223,7 +7223,7 @@ public extension ProtobufUnittest {
         return self
       }
       public override func clone() throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
-        return try ProtobufUnittest.OptionalGroupExtensionLite.builderWithPrototype(builderResult)
+        return try ProtobufUnittest.OptionalGroupExtensionLite.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> ProtobufUnittest.OptionalGroupExtensionLite {
            try checkInitialized()
@@ -7233,21 +7233,21 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.OptionalGroupExtensionLite = builderResult
         return returnMe
       }
-      public func mergeFrom(_ other:ProtobufUnittest.OptionalGroupExtensionLite) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
+      public func mergeFrom(other:ProtobufUnittest.OptionalGroupExtensionLite) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
         if other == ProtobufUnittest.OptionalGroupExtensionLite() {
          return self
         }
         if other.hasA {
              a = other.a
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try mergeUnknownFields(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
+           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
           switch protobufTag {
@@ -7255,11 +7255,11 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 136 :
+          case 136:
             a = try input.readInt32()
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -7280,11 +7280,11 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasA {
-        try output.writeInt32(47, value:a)
+        try output.writeInt32(fieldNumber:47, value:a)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeToCodedOutputStream(output:output)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -7294,39 +7294,39 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += a.computeInt32Size(47)
+        serialize_size += a.computeInt32Size(fieldNumber: 47)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.RepeatedGroupExtensionLite> {
+    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.RepeatedGroupExtensionLite> {
       var mergedArray = Array<ProtobufUnittest.RepeatedGroupExtensionLite>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input: input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.RepeatedGroupExtensionLite? {
-      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.RepeatedGroupExtensionLite? {
+      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
-      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:Data) throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
+      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
-      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
+      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
-      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
+      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFromInputStream(input: input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
-      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
+      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
-      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
+      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFromCodedInputStream(input: input).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
-      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
+      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
       return ProtobufUnittest.RepeatedGroupExtensionLite.classBuilder() as! ProtobufUnittest.RepeatedGroupExtensionLite.Builder
@@ -7341,17 +7341,17 @@ public extension ProtobufUnittest {
       return ProtobufUnittest.RepeatedGroupExtensionLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
-      return try ProtobufUnittest.RepeatedGroupExtensionLite.builderWithPrototype(self)
+      return try ProtobufUnittest.RepeatedGroupExtensionLite.builderWithPrototype(prototype: self)
     }
-    public class func builderWithPrototype(_ prototype:ProtobufUnittest.RepeatedGroupExtensionLite) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
-      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ProtobufUnittest.RepeatedGroupExtensionLite) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
+      return try ProtobufUnittest.RepeatedGroupExtensionLite.Builder().mergeFrom(other: prototype)
     }
-    override public func getDescription(_ indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -7402,7 +7402,7 @@ public extension ProtobufUnittest {
                builderResult.a = value
            }
       }
-      public func setA(_ value:Int32) -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
+      public func setA(value:Int32) -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
         self.a = value
         return self
       }
@@ -7421,7 +7421,7 @@ public extension ProtobufUnittest {
         return self
       }
       public override func clone() throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
-        return try ProtobufUnittest.RepeatedGroupExtensionLite.builderWithPrototype(builderResult)
+        return try ProtobufUnittest.RepeatedGroupExtensionLite.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> ProtobufUnittest.RepeatedGroupExtensionLite {
            try checkInitialized()
@@ -7431,21 +7431,21 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.RepeatedGroupExtensionLite = builderResult
         return returnMe
       }
-      public func mergeFrom(_ other:ProtobufUnittest.RepeatedGroupExtensionLite) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
+      public func mergeFrom(other:ProtobufUnittest.RepeatedGroupExtensionLite) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
         if other == ProtobufUnittest.RepeatedGroupExtensionLite() {
          return self
         }
         if other.hasA {
              a = other.a
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try mergeUnknownFields(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
+           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
           switch protobufTag {
@@ -7453,11 +7453,11 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 376 :
+          case 376:
             a = try input.readInt32()
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -7478,9 +7478,9 @@ public extension ProtobufUnittest {
       }
      return true
     }
-    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
-      try writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1), endExclusive:Int32(536870912))
-      try unknownFields.writeToCodedOutputStream(output)
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+      try writeExtensionsToCodedOutputStream(output: output, startInclusive:Int32(1), endExclusive:Int32(536870912))
+      try unknownFields.writeToCodedOutputStream(output:output)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -7494,33 +7494,33 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestPackedExtensionsLite> {
+    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestPackedExtensionsLite> {
       var mergedArray = Array<ProtobufUnittest.TestPackedExtensionsLite>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input: input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestPackedExtensionsLite? {
-      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestPackedExtensionsLite? {
+      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestPackedExtensionsLite {
-      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestPackedExtensionsLite {
+      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedExtensionsLite {
-      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedExtensionsLite {
+      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestPackedExtensionsLite {
-      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestPackedExtensionsLite {
+      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFromInputStream(input: input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedExtensionsLite {
-      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedExtensionsLite {
+      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestPackedExtensionsLite {
-      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestPackedExtensionsLite {
+      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFromCodedInputStream(input: input).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedExtensionsLite {
-      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedExtensionsLite {
+      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
       return ProtobufUnittest.TestPackedExtensionsLite.classBuilder() as! ProtobufUnittest.TestPackedExtensionsLite.Builder
@@ -7535,21 +7535,21 @@ public extension ProtobufUnittest {
       return ProtobufUnittest.TestPackedExtensionsLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
-      return try ProtobufUnittest.TestPackedExtensionsLite.builderWithPrototype(self)
+      return try ProtobufUnittest.TestPackedExtensionsLite.builderWithPrototype(prototype: self)
     }
-    public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestPackedExtensionsLite) throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
-      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ProtobufUnittest.TestPackedExtensionsLite) throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
+      return try ProtobufUnittest.TestPackedExtensionsLite.Builder().mergeFrom(other: prototype)
     }
-    override public func getDescription(_ indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
-      output += try getExtensionDescription(Int32(1), endExclusive:Int32(536870912), indent:indent)
-      output += unknownFields.getDescription(indent)
+      output += try getExtensionDescription(startInclusive: Int32(1), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
         get {
             var hashCode:Int = 7
-            hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1), endExclusive:Int32(536870912)))
+            hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(startInclusive: Int32(1), endExclusive:Int32(536870912)))
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode
         }
@@ -7588,7 +7588,7 @@ public extension ProtobufUnittest {
         return self
       }
       public override func clone() throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
-        return try ProtobufUnittest.TestPackedExtensionsLite.builderWithPrototype(builderResult)
+        return try ProtobufUnittest.TestPackedExtensionsLite.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> ProtobufUnittest.TestPackedExtensionsLite {
            try checkInitialized()
@@ -7598,19 +7598,19 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestPackedExtensionsLite = builderResult
         return returnMe
       }
-      public func mergeFrom(_ other:ProtobufUnittest.TestPackedExtensionsLite) throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
+      public func mergeFrom(other:ProtobufUnittest.TestPackedExtensionsLite) throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
         if other == ProtobufUnittest.TestPackedExtensionsLite() {
          return self
         }
-        try mergeExtensionFields(other)
-        try mergeUnknownFields(other.unknownFields)
+        _ = try mergeExtensionFields(other: other)
+        _ = try mergeUnknownFields(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
+           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
           switch protobufTag {
@@ -7619,7 +7619,7 @@ public extension ProtobufUnittest {
             return self
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -7640,8 +7640,8 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
-      try unknownFields.writeToCodedOutputStream(output)
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+      try unknownFields.writeToCodedOutputStream(output:output)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -7654,33 +7654,33 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestNestedExtensionLite> {
+    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestNestedExtensionLite> {
       var mergedArray = Array<ProtobufUnittest.TestNestedExtensionLite>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input: input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestNestedExtensionLite? {
-      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestNestedExtensionLite? {
+      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestNestedExtensionLite {
-      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestNestedExtensionLite {
+      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedExtensionLite {
-      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedExtensionLite {
+      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestNestedExtensionLite {
-      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestNestedExtensionLite {
+      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFromInputStream(input: input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedExtensionLite {
-      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedExtensionLite {
+      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestNestedExtensionLite {
-      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestNestedExtensionLite {
+      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFromCodedInputStream(input: input).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedExtensionLite {
-      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedExtensionLite {
+      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestNestedExtensionLite.Builder {
       return ProtobufUnittest.TestNestedExtensionLite.classBuilder() as! ProtobufUnittest.TestNestedExtensionLite.Builder
@@ -7695,14 +7695,14 @@ public extension ProtobufUnittest {
       return ProtobufUnittest.TestNestedExtensionLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
-      return try ProtobufUnittest.TestNestedExtensionLite.builderWithPrototype(self)
+      return try ProtobufUnittest.TestNestedExtensionLite.builderWithPrototype(prototype: self)
     }
-    public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestNestedExtensionLite) throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
-      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ProtobufUnittest.TestNestedExtensionLite) throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
+      return try ProtobufUnittest.TestNestedExtensionLite.Builder().mergeFrom(other: prototype)
     }
-    override public func getDescription(_ indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -7746,7 +7746,7 @@ public extension ProtobufUnittest {
         return self
       }
       public override func clone() throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
-        return try ProtobufUnittest.TestNestedExtensionLite.builderWithPrototype(builderResult)
+        return try ProtobufUnittest.TestNestedExtensionLite.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> ProtobufUnittest.TestNestedExtensionLite {
            try checkInitialized()
@@ -7756,18 +7756,18 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestNestedExtensionLite = builderResult
         return returnMe
       }
-      public func mergeFrom(_ other:ProtobufUnittest.TestNestedExtensionLite) throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
+      public func mergeFrom(other:ProtobufUnittest.TestNestedExtensionLite) throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
         if other == ProtobufUnittest.TestNestedExtensionLite() {
          return self
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try mergeUnknownFields(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
+           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
           switch protobufTag {
@@ -7776,7 +7776,7 @@ public extension ProtobufUnittest {
             return self
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -7800,11 +7800,11 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasDeprecatedField {
-        try output.writeInt32(1, value:deprecatedField)
+        try output.writeInt32(fieldNumber:1, value:deprecatedField)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeToCodedOutputStream(output:output)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -7814,39 +7814,39 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasDeprecatedField {
-        serialize_size += deprecatedField.computeInt32Size(1)
+        serialize_size += deprecatedField.computeInt32Size(fieldNumber: 1)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestDeprecatedLite> {
+    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestDeprecatedLite> {
       var mergedArray = Array<ProtobufUnittest.TestDeprecatedLite>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input: input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestDeprecatedLite? {
-      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestDeprecatedLite? {
+      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestDeprecatedLite {
-      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestDeprecatedLite {
+      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDeprecatedLite {
-      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDeprecatedLite {
+      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestDeprecatedLite {
-      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestDeprecatedLite {
+      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFromInputStream(input: input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDeprecatedLite {
-      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDeprecatedLite {
+      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestDeprecatedLite {
-      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestDeprecatedLite {
+      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFromCodedInputStream(input: input).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDeprecatedLite {
-      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDeprecatedLite {
+      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestDeprecatedLite.Builder {
       return ProtobufUnittest.TestDeprecatedLite.classBuilder() as! ProtobufUnittest.TestDeprecatedLite.Builder
@@ -7861,17 +7861,17 @@ public extension ProtobufUnittest {
       return ProtobufUnittest.TestDeprecatedLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
-      return try ProtobufUnittest.TestDeprecatedLite.builderWithPrototype(self)
+      return try ProtobufUnittest.TestDeprecatedLite.builderWithPrototype(prototype: self)
     }
-    public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestDeprecatedLite) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
-      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ProtobufUnittest.TestDeprecatedLite) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
+      return try ProtobufUnittest.TestDeprecatedLite.Builder().mergeFrom(other: prototype)
     }
-    override public func getDescription(_ indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
       if hasDeprecatedField {
         output += "\(indent) deprecatedField: \(deprecatedField) \n"
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -7922,7 +7922,7 @@ public extension ProtobufUnittest {
                builderResult.deprecatedField = value
            }
       }
-      public func setDeprecatedField(_ value:Int32) -> ProtobufUnittest.TestDeprecatedLite.Builder {
+      public func setDeprecatedField(value:Int32) -> ProtobufUnittest.TestDeprecatedLite.Builder {
         self.deprecatedField = value
         return self
       }
@@ -7941,7 +7941,7 @@ public extension ProtobufUnittest {
         return self
       }
       public override func clone() throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
-        return try ProtobufUnittest.TestDeprecatedLite.builderWithPrototype(builderResult)
+        return try ProtobufUnittest.TestDeprecatedLite.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> ProtobufUnittest.TestDeprecatedLite {
            try checkInitialized()
@@ -7951,21 +7951,21 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestDeprecatedLite = builderResult
         return returnMe
       }
-      public func mergeFrom(_ other:ProtobufUnittest.TestDeprecatedLite) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
+      public func mergeFrom(other:ProtobufUnittest.TestDeprecatedLite) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
         if other == ProtobufUnittest.TestDeprecatedLite() {
          return self
         }
         if other.hasDeprecatedField {
              deprecatedField = other.deprecatedField
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try mergeUnknownFields(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
+           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
           switch protobufTag {
@@ -7973,11 +7973,11 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             deprecatedField = try input.readInt32()
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -8008,11 +8008,11 @@ public extension ProtobufUnittest {
             override public func isInitialized() -> Bool {
              return true
             }
-            override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+            override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
               if hasField1 {
-                try output.writeMessage(11, value:field1)
+                try output.writeMessage(fieldNumber:11, value:field1)
               }
-              try unknownFields.writeToCodedOutputStream(output)
+              try unknownFields.writeToCodedOutputStream(output:output)
             }
             override public func serializedSize() -> Int32 {
               var serialize_size:Int32 = memoizedSerializedSize
@@ -8022,7 +8022,7 @@ public extension ProtobufUnittest {
 
               serialize_size = 0
               if hasField1 {
-                  if let varSizefield1 = field1?.computeMessageSize(11) {
+                  if let varSizefield1 = field1?.computeMessageSize(fieldNumber: 11) {
                       serialize_size += varSizefield1
                   }
               }
@@ -8030,33 +8030,33 @@ public extension ProtobufUnittest {
               memoizedSerializedSize = serialize_size
               return serialize_size
             }
-            public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1> {
+            public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1> {
               var mergedArray = Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1>()
-              while let value = try parseFromDelimitedFromInputStream(input) {
+              while let value = try parseFromDelimitedFromInputStream(input: input) {
                 mergedArray += [value]
               }
               return mergedArray
             }
-            public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1? {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeDelimitedFromInputStream(input)?.build()
+            public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1? {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeDelimitedFromInputStream(input: input)?.build()
             }
-            public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+            public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
             }
-            public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+            public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
             }
-            public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFromInputStream(input).build()
+            public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFromInputStream(input: input).build()
             }
-            public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+            public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
             }
-            public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFromCodedInputStream(input).build()
+            public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFromCodedInputStream(input: input).build()
             }
-            public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+            public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
             }
             public class func getBuilder() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
               return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.classBuilder() as! ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder
@@ -8071,21 +8071,21 @@ public extension ProtobufUnittest {
               return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder()
             }
             public func toBuilder() throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builderWithPrototype(self)
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builderWithPrototype(prototype: self)
             }
-            public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFrom(prototype)
+            public class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder().mergeFrom(other: prototype)
             }
-            override public func getDescription(_ indent:String) throws -> String {
+            override public func getDescription(indent:String) throws -> String {
               var output:String = ""
               if hasField1 {
                 output += "\(indent) field1 {\n"
                 if let outDescField1 = field1 {
-                  output += try outDescField1.getDescription("\(indent)  ")
+                  output += try outDescField1.getDescription(indent:"\(indent)  ")
                 }
                 output += "\(indent) }\n"
               }
-              output += unknownFields.getDescription(indent)
+              output += unknownFields.getDescription(indent: indent)
               return output
             }
             override public var hashValue:Int {
@@ -8151,18 +8151,18 @@ public extension ProtobufUnittest {
                    field1Builder_ = ProtobufUnittest.TestAllTypesLite.Builder()
                    builderResult.field1 = field1Builder_.getMessage()
                    if field1 != nil {
-                      try! field1Builder_.mergeFrom(field1)
+                      _ = try! field1Builder_.mergeFrom(other: field1)
                    }
                 }
                 return field1Builder_
               }
-              public func setField1(_ value:ProtobufUnittest.TestAllTypesLite!) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
+              public func setField1(value:ProtobufUnittest.TestAllTypesLite!) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
                 self.field1 = value
                 return self
               }
-              public func mergeField1(_ value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
+              public func mergeField1(value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
                 if builderResult.hasField1 {
-                  builderResult.field1 = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(builderResult.field1).mergeFrom(value).buildPartial()
+                  builderResult.field1 = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype: builderResult.field1).mergeFrom(other: value).buildPartial()
                 } else {
                   builderResult.field1 = value
                 }
@@ -8185,7 +8185,7 @@ public extension ProtobufUnittest {
                 return self
               }
               public override func clone() throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
-                return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builderWithPrototype(builderResult)
+                return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builderWithPrototype(prototype: builderResult)
               }
               public override func build() throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
                    try checkInitialized()
@@ -8195,21 +8195,21 @@ public extension ProtobufUnittest {
                 let returnMe:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 = builderResult
                 return returnMe
               }
-              public func mergeFrom(_ other:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
+              public func mergeFrom(other:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
                 if other == ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1() {
                  return self
                 }
-                if (other.hasField1) {
-                    try mergeField1(other.field1)
+                if other.hasField1 {
+                    _ = try mergeField1(value: other.field1)
                 }
-                try mergeUnknownFields(other.unknownFields)
+                _ = try mergeUnknownFields(unknownField: other.unknownFields)
                 return self
               }
-              public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
-                   return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+              public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
+                   return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
               }
-              public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
-                let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+              public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
+                let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
                 while (true) {
                   let protobufTag = try input.readTag()
                   switch protobufTag {
@@ -8217,16 +8217,16 @@ public extension ProtobufUnittest {
                     self.unknownFields = try unknownFieldsBuilder.build()
                     return self
 
-                  case 90 :
+                  case 90:
                     let subBuilder:ProtobufUnittest.TestAllTypesLite.Builder = ProtobufUnittest.TestAllTypesLite.Builder()
                     if hasField1 {
-                      try subBuilder.mergeFrom(field1)
+                     _ = try subBuilder.mergeFrom(other: field1)
                     }
-                    try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+                    try input.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                     field1 = subBuilder.buildPartial()
 
                   default:
-                    if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                    if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                        unknownFields = try unknownFieldsBuilder.build()
                        return self
                     }
@@ -8252,11 +8252,11 @@ public extension ProtobufUnittest {
             override public func isInitialized() -> Bool {
              return true
             }
-            override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+            override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
               if hasField1 {
-                try output.writeMessage(21, value:field1)
+                try output.writeMessage(fieldNumber:21, value:field1)
               }
-              try unknownFields.writeToCodedOutputStream(output)
+              try unknownFields.writeToCodedOutputStream(output:output)
             }
             override public func serializedSize() -> Int32 {
               var serialize_size:Int32 = memoizedSerializedSize
@@ -8266,7 +8266,7 @@ public extension ProtobufUnittest {
 
               serialize_size = 0
               if hasField1 {
-                  if let varSizefield1 = field1?.computeMessageSize(21) {
+                  if let varSizefield1 = field1?.computeMessageSize(fieldNumber: 21) {
                       serialize_size += varSizefield1
                   }
               }
@@ -8274,33 +8274,33 @@ public extension ProtobufUnittest {
               memoizedSerializedSize = serialize_size
               return serialize_size
             }
-            public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2> {
+            public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2> {
               var mergedArray = Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2>()
-              while let value = try parseFromDelimitedFromInputStream(input) {
+              while let value = try parseFromDelimitedFromInputStream(input: input) {
                 mergedArray += [value]
               }
               return mergedArray
             }
-            public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2? {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeDelimitedFromInputStream(input)?.build()
+            public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2? {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeDelimitedFromInputStream(input: input)?.build()
             }
-            public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+            public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
             }
-            public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+            public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
             }
-            public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFromInputStream(input).build()
+            public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFromInputStream(input: input).build()
             }
-            public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+            public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
             }
-            public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFromCodedInputStream(input).build()
+            public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFromCodedInputStream(input: input).build()
             }
-            public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+            public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
             }
             public class func getBuilder() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
               return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.classBuilder() as! ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder
@@ -8315,21 +8315,21 @@ public extension ProtobufUnittest {
               return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder()
             }
             public func toBuilder() throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builderWithPrototype(self)
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builderWithPrototype(prototype: self)
             }
-            public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
-              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFrom(prototype)
+            public class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
+              return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder().mergeFrom(other: prototype)
             }
-            override public func getDescription(_ indent:String) throws -> String {
+            override public func getDescription(indent:String) throws -> String {
               var output:String = ""
               if hasField1 {
                 output += "\(indent) field1 {\n"
                 if let outDescField1 = field1 {
-                  output += try outDescField1.getDescription("\(indent)  ")
+                  output += try outDescField1.getDescription(indent:"\(indent)  ")
                 }
                 output += "\(indent) }\n"
               }
-              output += unknownFields.getDescription(indent)
+              output += unknownFields.getDescription(indent: indent)
               return output
             }
             override public var hashValue:Int {
@@ -8395,18 +8395,18 @@ public extension ProtobufUnittest {
                    field1Builder_ = ProtobufUnittest.TestAllTypesLite.Builder()
                    builderResult.field1 = field1Builder_.getMessage()
                    if field1 != nil {
-                      try! field1Builder_.mergeFrom(field1)
+                      _ = try! field1Builder_.mergeFrom(other: field1)
                    }
                 }
                 return field1Builder_
               }
-              public func setField1(_ value:ProtobufUnittest.TestAllTypesLite!) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
+              public func setField1(value:ProtobufUnittest.TestAllTypesLite!) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
                 self.field1 = value
                 return self
               }
-              public func mergeField1(_ value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
+              public func mergeField1(value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
                 if builderResult.hasField1 {
-                  builderResult.field1 = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(builderResult.field1).mergeFrom(value).buildPartial()
+                  builderResult.field1 = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype: builderResult.field1).mergeFrom(other: value).buildPartial()
                 } else {
                   builderResult.field1 = value
                 }
@@ -8429,7 +8429,7 @@ public extension ProtobufUnittest {
                 return self
               }
               public override func clone() throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
-                return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builderWithPrototype(builderResult)
+                return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builderWithPrototype(prototype: builderResult)
               }
               public override func build() throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
                    try checkInitialized()
@@ -8439,21 +8439,21 @@ public extension ProtobufUnittest {
                 let returnMe:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 = builderResult
                 return returnMe
               }
-              public func mergeFrom(_ other:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
+              public func mergeFrom(other:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
                 if other == ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2() {
                  return self
                 }
-                if (other.hasField1) {
-                    try mergeField1(other.field1)
+                if other.hasField1 {
+                    _ = try mergeField1(value: other.field1)
                 }
-                try mergeUnknownFields(other.unknownFields)
+                _ = try mergeUnknownFields(unknownField: other.unknownFields)
                 return self
               }
-              public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
-                   return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+              public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
+                   return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
               }
-              public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
-                let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+              public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
+                let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
                 while (true) {
                   let protobufTag = try input.readTag()
                   switch protobufTag {
@@ -8461,16 +8461,16 @@ public extension ProtobufUnittest {
                     self.unknownFields = try unknownFieldsBuilder.build()
                     return self
 
-                  case 170 :
+                  case 170:
                     let subBuilder:ProtobufUnittest.TestAllTypesLite.Builder = ProtobufUnittest.TestAllTypesLite.Builder()
                     if hasField1 {
-                      try subBuilder.mergeFrom(field1)
+                     _ = try subBuilder.mergeFrom(other: field1)
                     }
-                    try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+                    try input.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                     field1 = subBuilder.buildPartial()
 
                   default:
-                    if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                    if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                        unknownFields = try unknownFieldsBuilder.build()
                        return self
                     }
@@ -8496,29 +8496,29 @@ public extension ProtobufUnittest {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
           for oneElementfield1 in field1 {
-              try output.writeMessage(1, value:oneElementfield1)
+              try output.writeMessage(fieldNumber:1, value:oneElementfield1)
           }
           for oneElementfield2 in field2 {
-              try output.writeMessage(2, value:oneElementfield2)
+              try output.writeMessage(fieldNumber:2, value:oneElementfield2)
           }
           for oneElementfield3 in field3 {
-              try output.writeMessage(3, value:oneElementfield3)
+              try output.writeMessage(fieldNumber:3, value:oneElementfield3)
           }
           for oneElementgroup1 in group1 {
-              try output.writeGroup(10, value:oneElementgroup1)
+              try output.writeGroup(fieldNumber:10, value:oneElementgroup1)
           }
           for oneElementgroup2 in group2 {
-              try output.writeGroup(20, value:oneElementgroup2)
+              try output.writeGroup(fieldNumber:20, value:oneElementgroup2)
           }
           for oneElementext1 in ext1 {
-              try output.writeMessage(1000, value:oneElementext1)
+              try output.writeMessage(fieldNumber:1000, value:oneElementext1)
           }
           for oneElementext2 in ext2 {
-              try output.writeMessage(1001, value:oneElementext2)
+              try output.writeMessage(fieldNumber:1001, value:oneElementext2)
           }
-          try unknownFields.writeToCodedOutputStream(output)
+          try unknownFields.writeToCodedOutputStream(output:output)
         }
         override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
@@ -8528,57 +8528,57 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           for oneElementfield1 in field1 {
-              serialize_size += oneElementfield1.computeMessageSize(1)
+              serialize_size += oneElementfield1.computeMessageSize(fieldNumber: 1)
           }
           for oneElementfield2 in field2 {
-              serialize_size += oneElementfield2.computeMessageSize(2)
+              serialize_size += oneElementfield2.computeMessageSize(fieldNumber: 2)
           }
           for oneElementfield3 in field3 {
-              serialize_size += oneElementfield3.computeMessageSize(3)
+              serialize_size += oneElementfield3.computeMessageSize(fieldNumber: 3)
           }
           for oneElementgroup1 in group1 {
-              serialize_size += oneElementgroup1.computeGroupSize(10)
+              serialize_size += oneElementgroup1.computeGroupSize(fieldNumber: 10)
           }
           for oneElementgroup2 in group2 {
-              serialize_size += oneElementgroup2.computeGroupSize(20)
+              serialize_size += oneElementgroup2.computeGroupSize(fieldNumber: 20)
           }
           for oneElementext1 in ext1 {
-              serialize_size += oneElementext1.computeMessageSize(1000)
+              serialize_size += oneElementext1.computeMessageSize(fieldNumber: 1000)
           }
           for oneElementext2 in ext2 {
-              serialize_size += oneElementext2.computeMessageSize(1001)
+              serialize_size += oneElementext2.computeMessageSize(fieldNumber: 1001)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator> {
+        public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator> {
           var mergedArray = Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator>()
-          while let value = try parseFromDelimitedFromInputStream(input) {
+          while let value = try parseFromDelimitedFromInputStream(input: input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator? {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeDelimitedFromInputStream(input)?.build()
+        public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator? {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeDelimitedFromInputStream(input: input)?.build()
         }
-        public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+        public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFromInputStream(input).build()
+        public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFromInputStream(input: input).build()
         }
-        public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFromCodedInputStream(input).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFromCodedInputStream(input: input).build()
         }
-        public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
           return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.classBuilder() as! ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder
@@ -8593,63 +8593,63 @@ public extension ProtobufUnittest {
           return ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.builderWithPrototype(self)
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.builderWithPrototype(prototype: self)
         }
-        public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFrom(prototype)
+        public class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder().mergeFrom(other: prototype)
         }
-        override public func getDescription(_ indent:String) throws -> String {
+        override public func getDescription(indent:String) throws -> String {
           var output:String = ""
           var field1ElementIndex:Int = 0
           for oneElementfield1 in field1 {
               output += "\(indent) field1[\(field1ElementIndex)] {\n"
-              output += try oneElementfield1.getDescription("\(indent)  ")
+              output += try oneElementfield1.getDescription(indent:"\(indent)  ")
               output += "\(indent)}\n"
               field1ElementIndex += 1
           }
           var field2ElementIndex:Int = 0
           for oneElementfield2 in field2 {
               output += "\(indent) field2[\(field2ElementIndex)] {\n"
-              output += try oneElementfield2.getDescription("\(indent)  ")
+              output += try oneElementfield2.getDescription(indent:"\(indent)  ")
               output += "\(indent)}\n"
               field2ElementIndex += 1
           }
           var field3ElementIndex:Int = 0
           for oneElementfield3 in field3 {
               output += "\(indent) field3[\(field3ElementIndex)] {\n"
-              output += try oneElementfield3.getDescription("\(indent)  ")
+              output += try oneElementfield3.getDescription(indent:"\(indent)  ")
               output += "\(indent)}\n"
               field3ElementIndex += 1
           }
           var group1ElementIndex:Int = 0
           for oneElementgroup1 in group1 {
               output += "\(indent) group1[\(group1ElementIndex)] {\n"
-              output += try oneElementgroup1.getDescription("\(indent)  ")
+              output += try oneElementgroup1.getDescription(indent:"\(indent)  ")
               output += "\(indent)}\n"
               group1ElementIndex += 1
           }
           var group2ElementIndex:Int = 0
           for oneElementgroup2 in group2 {
               output += "\(indent) group2[\(group2ElementIndex)] {\n"
-              output += try oneElementgroup2.getDescription("\(indent)  ")
+              output += try oneElementgroup2.getDescription(indent:"\(indent)  ")
               output += "\(indent)}\n"
               group2ElementIndex += 1
           }
           var ext1ElementIndex:Int = 0
           for oneElementext1 in ext1 {
               output += "\(indent) ext1[\(ext1ElementIndex)] {\n"
-              output += try oneElementext1.getDescription("\(indent)  ")
+              output += try oneElementext1.getDescription(indent:"\(indent)  ")
               output += "\(indent)}\n"
               ext1ElementIndex += 1
           }
           var ext2ElementIndex:Int = 0
           for oneElementext2 in ext2 {
               output += "\(indent) ext2[\(ext2ElementIndex)] {\n"
-              output += try oneElementext2.getDescription("\(indent)  ")
+              output += try oneElementext2.getDescription(indent:"\(indent)  ")
               output += "\(indent)}\n"
               ext2ElementIndex += 1
           }
-          output += unknownFields.getDescription(indent)
+          output += unknownFields.getDescription(indent: indent)
           return output
         }
         override public var hashValue:Int {
@@ -8712,7 +8712,7 @@ public extension ProtobufUnittest {
                    builderResult.field1 = value
                }
           }
-          public func setField1(_ value:Array<ProtobufUnittest.TestAllTypesLite>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
+          public func setField1(value:Array<ProtobufUnittest.TestAllTypesLite>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
             self.field1 = value
             return self
           }
@@ -8728,7 +8728,7 @@ public extension ProtobufUnittest {
                    builderResult.field2 = value
                }
           }
-          public func setField2(_ value:Array<ProtobufUnittest.TestAllTypesLite>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
+          public func setField2(value:Array<ProtobufUnittest.TestAllTypesLite>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
             self.field2 = value
             return self
           }
@@ -8744,7 +8744,7 @@ public extension ProtobufUnittest {
                    builderResult.field3 = value
                }
           }
-          public func setField3(_ value:Array<ProtobufUnittest.TestAllTypesLite>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
+          public func setField3(value:Array<ProtobufUnittest.TestAllTypesLite>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
             self.field3 = value
             return self
           }
@@ -8760,7 +8760,7 @@ public extension ProtobufUnittest {
                    builderResult.group1 = value
                }
           }
-          public func setGroup1(_ value:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
+          public func setGroup1(value:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
             self.group1 = value
             return self
           }
@@ -8776,7 +8776,7 @@ public extension ProtobufUnittest {
                    builderResult.group2 = value
                }
           }
-          public func setGroup2(_ value:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
+          public func setGroup2(value:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
             self.group2 = value
             return self
           }
@@ -8792,7 +8792,7 @@ public extension ProtobufUnittest {
                    builderResult.ext1 = value
                }
           }
-          public func setExt1(_ value:Array<ProtobufUnittest.TestAllTypesLite>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
+          public func setExt1(value:Array<ProtobufUnittest.TestAllTypesLite>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
             self.ext1 = value
             return self
           }
@@ -8808,7 +8808,7 @@ public extension ProtobufUnittest {
                    builderResult.ext2 = value
                }
           }
-          public func setExt2(_ value:Array<ProtobufUnittest.TestAllTypesLite>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
+          public func setExt2(value:Array<ProtobufUnittest.TestAllTypesLite>) -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
             self.ext2 = value
             return self
           }
@@ -8826,7 +8826,7 @@ public extension ProtobufUnittest {
             return self
           }
           public override func clone() throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
-            return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.builderWithPrototype(builderResult)
+            return try ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.builderWithPrototype(prototype: builderResult)
           }
           public override func build() throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator {
                try checkInitialized()
@@ -8836,7 +8836,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator = builderResult
             return returnMe
           }
-          public func mergeFrom(_ other:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
+          public func mergeFrom(other:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
             if other == ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator() {
              return self
             }
@@ -8861,14 +8861,14 @@ public extension ProtobufUnittest {
             if !other.ext2.isEmpty  {
                builderResult.ext2 += other.ext2
             }
-            try mergeUnknownFields(other.unknownFields)
+            _ = try mergeUnknownFields(unknownField: other.unknownFields)
             return self
           }
-          public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
-               return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+          public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
+               return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
           }
-          public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
-            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
               switch protobufTag {
@@ -8876,43 +8876,43 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 10 :
+              case 10:
                 let subBuilder = ProtobufUnittest.TestAllTypesLite.Builder()
-                try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+                try input.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
                 field1 += [subBuilder.buildPartial()]
 
-              case 18 :
+              case 18:
                 let subBuilder = ProtobufUnittest.TestAllTypesLite.Builder()
-                try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+                try input.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
                 field2 += [subBuilder.buildPartial()]
 
-              case 26 :
+              case 26:
                 let subBuilder = ProtobufUnittest.TestAllTypesLite.Builder()
-                try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+                try input.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
                 field3 += [subBuilder.buildPartial()]
 
-              case 83 :
+              case 83:
                 let subBuilder = ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder()
                 try input.readGroup(10,builder:subBuilder,extensionRegistry:extensionRegistry)
                 group1 += [subBuilder.buildPartial()]
 
-              case 163 :
+              case 163:
                 let subBuilder = ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder()
                 try input.readGroup(20,builder:subBuilder,extensionRegistry:extensionRegistry)
                 group2 += [subBuilder.buildPartial()]
 
-              case 8002 :
+              case 8002:
                 let subBuilder = ProtobufUnittest.TestAllTypesLite.Builder()
-                try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+                try input.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
                 ext1 += [subBuilder.buildPartial()]
 
-              case 8010 :
+              case 8010:
                 let subBuilder = ProtobufUnittest.TestAllTypesLite.Builder()
-                try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+                try input.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
                 ext2 += [subBuilder.buildPartial()]
 
               default:
-                if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                    unknownFields = try unknownFieldsBuilder.build()
                    return self
                 }
@@ -8938,11 +8938,11 @@ public extension ProtobufUnittest {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
           if hasOptionalGroupAllTypes {
-            try output.writeMessage(11, value:optionalGroupAllTypes)
+            try output.writeMessage(fieldNumber:11, value:optionalGroupAllTypes)
           }
-          try unknownFields.writeToCodedOutputStream(output)
+          try unknownFields.writeToCodedOutputStream(output:output)
         }
         override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
@@ -8952,7 +8952,7 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasOptionalGroupAllTypes {
-              if let varSizeoptionalGroupAllTypes = optionalGroupAllTypes?.computeMessageSize(11) {
+              if let varSizeoptionalGroupAllTypes = optionalGroupAllTypes?.computeMessageSize(fieldNumber: 11) {
                   serialize_size += varSizeoptionalGroupAllTypes
               }
           }
@@ -8960,33 +8960,33 @@ public extension ProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestParsingMergeLite.OptionalGroup> {
+        public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestParsingMergeLite.OptionalGroup> {
           var mergedArray = Array<ProtobufUnittest.TestParsingMergeLite.OptionalGroup>()
-          while let value = try parseFromDelimitedFromInputStream(input) {
+          while let value = try parseFromDelimitedFromInputStream(input: input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup? {
-          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeDelimitedFromInputStream(input)?.build()
+        public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup? {
+          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeDelimitedFromInputStream(input: input)?.build()
         }
-        public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
-          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+        public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
+          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
-          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
+          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
-          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFromInputStream(input).build()
+        public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
+          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFromInputStream(input: input).build()
         }
-        public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
-          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
+          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
-          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFromCodedInputStream(input).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
+          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFromCodedInputStream(input: input).build()
         }
-        public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
-          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
+          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
           return ProtobufUnittest.TestParsingMergeLite.OptionalGroup.classBuilder() as! ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder
@@ -9001,21 +9001,21 @@ public extension ProtobufUnittest {
           return ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
-          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.builderWithPrototype(self)
+          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.builderWithPrototype(prototype: self)
         }
-        public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestParsingMergeLite.OptionalGroup) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
-          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFrom(prototype)
+        public class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMergeLite.OptionalGroup) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
+          return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder().mergeFrom(other: prototype)
         }
-        override public func getDescription(_ indent:String) throws -> String {
+        override public func getDescription(indent:String) throws -> String {
           var output:String = ""
           if hasOptionalGroupAllTypes {
             output += "\(indent) optionalGroupAllTypes {\n"
             if let outDescOptionalGroupAllTypes = optionalGroupAllTypes {
-              output += try outDescOptionalGroupAllTypes.getDescription("\(indent)  ")
+              output += try outDescOptionalGroupAllTypes.getDescription(indent:"\(indent)  ")
             }
             output += "\(indent) }\n"
           }
-          output += unknownFields.getDescription(indent)
+          output += unknownFields.getDescription(indent: indent)
           return output
         }
         override public var hashValue:Int {
@@ -9081,18 +9081,18 @@ public extension ProtobufUnittest {
                optionalGroupAllTypesBuilder_ = ProtobufUnittest.TestAllTypesLite.Builder()
                builderResult.optionalGroupAllTypes = optionalGroupAllTypesBuilder_.getMessage()
                if optionalGroupAllTypes != nil {
-                  try! optionalGroupAllTypesBuilder_.mergeFrom(optionalGroupAllTypes)
+                  _ = try! optionalGroupAllTypesBuilder_.mergeFrom(other: optionalGroupAllTypes)
                }
             }
             return optionalGroupAllTypesBuilder_
           }
-          public func setOptionalGroupAllTypes(_ value:ProtobufUnittest.TestAllTypesLite!) -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
+          public func setOptionalGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite!) -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
             self.optionalGroupAllTypes = value
             return self
           }
-          public func mergeOptionalGroupAllTypes(_ value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
+          public func mergeOptionalGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
             if builderResult.hasOptionalGroupAllTypes {
-              builderResult.optionalGroupAllTypes = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(builderResult.optionalGroupAllTypes).mergeFrom(value).buildPartial()
+              builderResult.optionalGroupAllTypes = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype: builderResult.optionalGroupAllTypes).mergeFrom(other: value).buildPartial()
             } else {
               builderResult.optionalGroupAllTypes = value
             }
@@ -9115,7 +9115,7 @@ public extension ProtobufUnittest {
             return self
           }
           public override func clone() throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
-            return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.builderWithPrototype(builderResult)
+            return try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.builderWithPrototype(prototype: builderResult)
           }
           public override func build() throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup {
                try checkInitialized()
@@ -9125,21 +9125,21 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestParsingMergeLite.OptionalGroup = builderResult
             return returnMe
           }
-          public func mergeFrom(_ other:ProtobufUnittest.TestParsingMergeLite.OptionalGroup) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
+          public func mergeFrom(other:ProtobufUnittest.TestParsingMergeLite.OptionalGroup) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
             if other == ProtobufUnittest.TestParsingMergeLite.OptionalGroup() {
              return self
             }
-            if (other.hasOptionalGroupAllTypes) {
-                try mergeOptionalGroupAllTypes(other.optionalGroupAllTypes)
+            if other.hasOptionalGroupAllTypes {
+                _ = try mergeOptionalGroupAllTypes(value: other.optionalGroupAllTypes)
             }
-            try mergeUnknownFields(other.unknownFields)
+            _ = try mergeUnknownFields(unknownField: other.unknownFields)
             return self
           }
-          public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
-               return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+          public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
+               return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
           }
-          public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
-            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
               switch protobufTag {
@@ -9147,16 +9147,16 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 90 :
+              case 90:
                 let subBuilder:ProtobufUnittest.TestAllTypesLite.Builder = ProtobufUnittest.TestAllTypesLite.Builder()
                 if hasOptionalGroupAllTypes {
-                  try subBuilder.mergeFrom(optionalGroupAllTypes)
+                 _ = try subBuilder.mergeFrom(other: optionalGroupAllTypes)
                 }
-                try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+                try input.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 optionalGroupAllTypes = subBuilder.buildPartial()
 
               default:
-                if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                    unknownFields = try unknownFieldsBuilder.build()
                    return self
                 }
@@ -9182,11 +9182,11 @@ public extension ProtobufUnittest {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
           if hasRepeatedGroupAllTypes {
-            try output.writeMessage(21, value:repeatedGroupAllTypes)
+            try output.writeMessage(fieldNumber:21, value:repeatedGroupAllTypes)
           }
-          try unknownFields.writeToCodedOutputStream(output)
+          try unknownFields.writeToCodedOutputStream(output:output)
         }
         override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
@@ -9196,7 +9196,7 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasRepeatedGroupAllTypes {
-              if let varSizerepeatedGroupAllTypes = repeatedGroupAllTypes?.computeMessageSize(21) {
+              if let varSizerepeatedGroupAllTypes = repeatedGroupAllTypes?.computeMessageSize(fieldNumber: 21) {
                   serialize_size += varSizerepeatedGroupAllTypes
               }
           }
@@ -9204,33 +9204,33 @@ public extension ProtobufUnittest {
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup> {
+        public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup> {
           var mergedArray = Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup>()
-          while let value = try parseFromDelimitedFromInputStream(input) {
+          while let value = try parseFromDelimitedFromInputStream(input: input) {
             mergedArray += [value]
           }
           return mergedArray
         }
-        public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup? {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeDelimitedFromInputStream(input)?.build()
+        public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup? {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeDelimitedFromInputStream(input: input)?.build()
         }
-        public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+        public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFromInputStream(input).build()
+        public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFromInputStream(input: input).build()
         }
-        public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFromCodedInputStream(input).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFromCodedInputStream(input: input).build()
         }
-        public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
           return ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.classBuilder() as! ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder
@@ -9245,21 +9245,21 @@ public extension ProtobufUnittest {
           return ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.builderWithPrototype(self)
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.builderWithPrototype(prototype: self)
         }
-        public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestParsingMergeLite.RepeatedGroup) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
-          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFrom(prototype)
+        public class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMergeLite.RepeatedGroup) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
+          return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder().mergeFrom(other: prototype)
         }
-        override public func getDescription(_ indent:String) throws -> String {
+        override public func getDescription(indent:String) throws -> String {
           var output:String = ""
           if hasRepeatedGroupAllTypes {
             output += "\(indent) repeatedGroupAllTypes {\n"
             if let outDescRepeatedGroupAllTypes = repeatedGroupAllTypes {
-              output += try outDescRepeatedGroupAllTypes.getDescription("\(indent)  ")
+              output += try outDescRepeatedGroupAllTypes.getDescription(indent:"\(indent)  ")
             }
             output += "\(indent) }\n"
           }
-          output += unknownFields.getDescription(indent)
+          output += unknownFields.getDescription(indent: indent)
           return output
         }
         override public var hashValue:Int {
@@ -9325,18 +9325,18 @@ public extension ProtobufUnittest {
                repeatedGroupAllTypesBuilder_ = ProtobufUnittest.TestAllTypesLite.Builder()
                builderResult.repeatedGroupAllTypes = repeatedGroupAllTypesBuilder_.getMessage()
                if repeatedGroupAllTypes != nil {
-                  try! repeatedGroupAllTypesBuilder_.mergeFrom(repeatedGroupAllTypes)
+                  _ = try! repeatedGroupAllTypesBuilder_.mergeFrom(other: repeatedGroupAllTypes)
                }
             }
             return repeatedGroupAllTypesBuilder_
           }
-          public func setRepeatedGroupAllTypes(_ value:ProtobufUnittest.TestAllTypesLite!) -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
+          public func setRepeatedGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite!) -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
             self.repeatedGroupAllTypes = value
             return self
           }
-          public func mergeRepeatedGroupAllTypes(_ value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
+          public func mergeRepeatedGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
             if builderResult.hasRepeatedGroupAllTypes {
-              builderResult.repeatedGroupAllTypes = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(builderResult.repeatedGroupAllTypes).mergeFrom(value).buildPartial()
+              builderResult.repeatedGroupAllTypes = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype: builderResult.repeatedGroupAllTypes).mergeFrom(other: value).buildPartial()
             } else {
               builderResult.repeatedGroupAllTypes = value
             }
@@ -9359,7 +9359,7 @@ public extension ProtobufUnittest {
             return self
           }
           public override func clone() throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
-            return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.builderWithPrototype(builderResult)
+            return try ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.builderWithPrototype(prototype: builderResult)
           }
           public override func build() throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup {
                try checkInitialized()
@@ -9369,21 +9369,21 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestParsingMergeLite.RepeatedGroup = builderResult
             return returnMe
           }
-          public func mergeFrom(_ other:ProtobufUnittest.TestParsingMergeLite.RepeatedGroup) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
+          public func mergeFrom(other:ProtobufUnittest.TestParsingMergeLite.RepeatedGroup) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
             if other == ProtobufUnittest.TestParsingMergeLite.RepeatedGroup() {
              return self
             }
-            if (other.hasRepeatedGroupAllTypes) {
-                try mergeRepeatedGroupAllTypes(other.repeatedGroupAllTypes)
+            if other.hasRepeatedGroupAllTypes {
+                _ = try mergeRepeatedGroupAllTypes(value: other.repeatedGroupAllTypes)
             }
-            try mergeUnknownFields(other.unknownFields)
+            _ = try mergeUnknownFields(unknownField: other.unknownFields)
             return self
           }
-          public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
-               return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+          public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
+               return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
           }
-          public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
-            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
             while (true) {
               let protobufTag = try input.readTag()
               switch protobufTag {
@@ -9391,16 +9391,16 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 170 :
+              case 170:
                 let subBuilder:ProtobufUnittest.TestAllTypesLite.Builder = ProtobufUnittest.TestAllTypesLite.Builder()
                 if hasRepeatedGroupAllTypes {
-                  try subBuilder.mergeFrom(repeatedGroupAllTypes)
+                 _ = try subBuilder.mergeFrom(other: repeatedGroupAllTypes)
                 }
-                try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+                try input.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 repeatedGroupAllTypes = subBuilder.buildPartial()
 
               default:
-                if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                    unknownFields = try unknownFieldsBuilder.build()
                    return self
                 }
@@ -9439,24 +9439,24 @@ public extension ProtobufUnittest {
       }
      return true
     }
-    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if hasRequiredAllTypes {
-        try output.writeMessage(1, value:requiredAllTypes)
+        try output.writeMessage(fieldNumber:1, value:requiredAllTypes)
       }
       if hasOptionalAllTypes {
-        try output.writeMessage(2, value:optionalAllTypes)
+        try output.writeMessage(fieldNumber:2, value:optionalAllTypes)
       }
       for oneElementrepeatedAllTypes in repeatedAllTypes {
-          try output.writeMessage(3, value:oneElementrepeatedAllTypes)
+          try output.writeMessage(fieldNumber:3, value:oneElementrepeatedAllTypes)
       }
       if hasOptionalGroup {
-        try output.writeGroup(10, value:optionalGroup)
+        try output.writeGroup(fieldNumber:10, value:optionalGroup)
       }
       for oneElementrepeatedGroup in repeatedGroup {
-          try output.writeGroup(20, value:oneElementrepeatedGroup)
+          try output.writeGroup(fieldNumber:20, value:oneElementrepeatedGroup)
       }
-      try writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
-      try unknownFields.writeToCodedOutputStream(output)
+      try writeExtensionsToCodedOutputStream(output: output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
+      try unknownFields.writeToCodedOutputStream(output:output)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -9466,58 +9466,58 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasRequiredAllTypes {
-          if let varSizerequiredAllTypes = requiredAllTypes?.computeMessageSize(1) {
+          if let varSizerequiredAllTypes = requiredAllTypes?.computeMessageSize(fieldNumber: 1) {
               serialize_size += varSizerequiredAllTypes
           }
       }
       if hasOptionalAllTypes {
-          if let varSizeoptionalAllTypes = optionalAllTypes?.computeMessageSize(2) {
+          if let varSizeoptionalAllTypes = optionalAllTypes?.computeMessageSize(fieldNumber: 2) {
               serialize_size += varSizeoptionalAllTypes
           }
       }
       for oneElementrepeatedAllTypes in repeatedAllTypes {
-          serialize_size += oneElementrepeatedAllTypes.computeMessageSize(3)
+          serialize_size += oneElementrepeatedAllTypes.computeMessageSize(fieldNumber: 3)
       }
       if hasOptionalGroup {
-          if let varSizeoptionalGroup = optionalGroup?.computeGroupSize(10) {
+          if let varSizeoptionalGroup = optionalGroup?.computeGroupSize(fieldNumber: 10) {
               serialize_size += varSizeoptionalGroup
           }
       }
       for oneElementrepeatedGroup in repeatedGroup {
-          serialize_size += oneElementrepeatedGroup.computeGroupSize(20)
+          serialize_size += oneElementrepeatedGroup.computeGroupSize(fieldNumber: 20)
       }
       serialize_size += extensionsSerializedSize()
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestParsingMergeLite> {
+    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestParsingMergeLite> {
       var mergedArray = Array<ProtobufUnittest.TestParsingMergeLite>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input: input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestParsingMergeLite? {
-      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestParsingMergeLite? {
+      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestParsingMergeLite {
-      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestParsingMergeLite {
+      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite {
-      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite {
+      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestParsingMergeLite {
-      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestParsingMergeLite {
+      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFromInputStream(input: input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite {
-      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite {
+      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite {
-      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite {
+      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFromCodedInputStream(input: input).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite {
-      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite {
+      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestParsingMergeLite.Builder {
       return ProtobufUnittest.TestParsingMergeLite.classBuilder() as! ProtobufUnittest.TestParsingMergeLite.Builder
@@ -9532,50 +9532,50 @@ public extension ProtobufUnittest {
       return ProtobufUnittest.TestParsingMergeLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
-      return try ProtobufUnittest.TestParsingMergeLite.builderWithPrototype(self)
+      return try ProtobufUnittest.TestParsingMergeLite.builderWithPrototype(prototype: self)
     }
-    public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestParsingMergeLite) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
-      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMergeLite) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
+      return try ProtobufUnittest.TestParsingMergeLite.Builder().mergeFrom(other: prototype)
     }
-    override public func getDescription(_ indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
       if hasRequiredAllTypes {
         output += "\(indent) requiredAllTypes {\n"
         if let outDescRequiredAllTypes = requiredAllTypes {
-          output += try outDescRequiredAllTypes.getDescription("\(indent)  ")
+          output += try outDescRequiredAllTypes.getDescription(indent:"\(indent)  ")
         }
         output += "\(indent) }\n"
       }
       if hasOptionalAllTypes {
         output += "\(indent) optionalAllTypes {\n"
         if let outDescOptionalAllTypes = optionalAllTypes {
-          output += try outDescOptionalAllTypes.getDescription("\(indent)  ")
+          output += try outDescOptionalAllTypes.getDescription(indent:"\(indent)  ")
         }
         output += "\(indent) }\n"
       }
       var repeatedAllTypesElementIndex:Int = 0
       for oneElementrepeatedAllTypes in repeatedAllTypes {
           output += "\(indent) repeatedAllTypes[\(repeatedAllTypesElementIndex)] {\n"
-          output += try oneElementrepeatedAllTypes.getDescription("\(indent)  ")
+          output += try oneElementrepeatedAllTypes.getDescription(indent:"\(indent)  ")
           output += "\(indent)}\n"
           repeatedAllTypesElementIndex += 1
       }
       if hasOptionalGroup {
         output += "\(indent) optionalGroup {\n"
         if let outDescOptionalGroup = optionalGroup {
-          output += try outDescOptionalGroup.getDescription("\(indent)  ")
+          output += try outDescOptionalGroup.getDescription(indent:"\(indent)  ")
         }
         output += "\(indent) }\n"
       }
       var repeatedGroupElementIndex:Int = 0
       for oneElementrepeatedGroup in repeatedGroup {
           output += "\(indent) repeatedGroup[\(repeatedGroupElementIndex)] {\n"
-          output += try oneElementrepeatedGroup.getDescription("\(indent)  ")
+          output += try oneElementrepeatedGroup.getDescription(indent:"\(indent)  ")
           output += "\(indent)}\n"
           repeatedGroupElementIndex += 1
       }
-      output += try getExtensionDescription(Int32(1000), endExclusive:Int32(536870912), indent:indent)
-      output += unknownFields.getDescription(indent)
+      output += try getExtensionDescription(startInclusive: Int32(1000), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -9602,7 +9602,7 @@ public extension ProtobufUnittest {
             for oneElementrepeatedGroup in repeatedGroup {
                 hashCode = (hashCode &* 31) &+ oneElementrepeatedGroup.hashValue
             }
-            hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1000), endExclusive:Int32(536870912)))
+            hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(startInclusive: Int32(1000), endExclusive:Int32(536870912)))
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode
         }
@@ -9658,18 +9658,18 @@ public extension ProtobufUnittest {
            requiredAllTypesBuilder_ = ProtobufUnittest.TestAllTypesLite.Builder()
            builderResult.requiredAllTypes = requiredAllTypesBuilder_.getMessage()
            if requiredAllTypes != nil {
-              try! requiredAllTypesBuilder_.mergeFrom(requiredAllTypes)
+              _ = try! requiredAllTypesBuilder_.mergeFrom(other: requiredAllTypes)
            }
         }
         return requiredAllTypesBuilder_
       }
-      public func setRequiredAllTypes(_ value:ProtobufUnittest.TestAllTypesLite!) -> ProtobufUnittest.TestParsingMergeLite.Builder {
+      public func setRequiredAllTypes(value:ProtobufUnittest.TestAllTypesLite!) -> ProtobufUnittest.TestParsingMergeLite.Builder {
         self.requiredAllTypes = value
         return self
       }
-      public func mergeRequiredAllTypes(_ value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
+      public func mergeRequiredAllTypes(value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
         if builderResult.hasRequiredAllTypes {
-          builderResult.requiredAllTypes = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(builderResult.requiredAllTypes).mergeFrom(value).buildPartial()
+          builderResult.requiredAllTypes = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype: builderResult.requiredAllTypes).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.requiredAllTypes = value
         }
@@ -9709,18 +9709,18 @@ public extension ProtobufUnittest {
            optionalAllTypesBuilder_ = ProtobufUnittest.TestAllTypesLite.Builder()
            builderResult.optionalAllTypes = optionalAllTypesBuilder_.getMessage()
            if optionalAllTypes != nil {
-              try! optionalAllTypesBuilder_.mergeFrom(optionalAllTypes)
+              _ = try! optionalAllTypesBuilder_.mergeFrom(other: optionalAllTypes)
            }
         }
         return optionalAllTypesBuilder_
       }
-      public func setOptionalAllTypes(_ value:ProtobufUnittest.TestAllTypesLite!) -> ProtobufUnittest.TestParsingMergeLite.Builder {
+      public func setOptionalAllTypes(value:ProtobufUnittest.TestAllTypesLite!) -> ProtobufUnittest.TestParsingMergeLite.Builder {
         self.optionalAllTypes = value
         return self
       }
-      public func mergeOptionalAllTypes(_ value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
+      public func mergeOptionalAllTypes(value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
         if builderResult.hasOptionalAllTypes {
-          builderResult.optionalAllTypes = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(builderResult.optionalAllTypes).mergeFrom(value).buildPartial()
+          builderResult.optionalAllTypes = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype: builderResult.optionalAllTypes).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalAllTypes = value
         }
@@ -9741,7 +9741,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedAllTypes = value
            }
       }
-      public func setRepeatedAllTypes(_ value:Array<ProtobufUnittest.TestAllTypesLite>) -> ProtobufUnittest.TestParsingMergeLite.Builder {
+      public func setRepeatedAllTypes(value:Array<ProtobufUnittest.TestAllTypesLite>) -> ProtobufUnittest.TestParsingMergeLite.Builder {
         self.repeatedAllTypes = value
         return self
       }
@@ -9776,18 +9776,18 @@ public extension ProtobufUnittest {
            optionalGroupBuilder_ = ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder()
            builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
            if optionalGroup != nil {
-              try! optionalGroupBuilder_.mergeFrom(optionalGroup)
+              _ = try! optionalGroupBuilder_.mergeFrom(other: optionalGroup)
            }
         }
         return optionalGroupBuilder_
       }
-      public func setOptionalGroup(_ value:ProtobufUnittest.TestParsingMergeLite.OptionalGroup!) -> ProtobufUnittest.TestParsingMergeLite.Builder {
+      public func setOptionalGroup(value:ProtobufUnittest.TestParsingMergeLite.OptionalGroup!) -> ProtobufUnittest.TestParsingMergeLite.Builder {
         self.optionalGroup = value
         return self
       }
-      public func mergeOptionalGroup(_ value:ProtobufUnittest.TestParsingMergeLite.OptionalGroup) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
+      public func mergeOptionalGroup(value:ProtobufUnittest.TestParsingMergeLite.OptionalGroup) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
         if builderResult.hasOptionalGroup {
-          builderResult.optionalGroup = try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.builderWithPrototype(builderResult.optionalGroup).mergeFrom(value).buildPartial()
+          builderResult.optionalGroup = try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.builderWithPrototype(prototype: builderResult.optionalGroup).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalGroup = value
         }
@@ -9808,7 +9808,7 @@ public extension ProtobufUnittest {
                builderResult.repeatedGroup = value
            }
       }
-      public func setRepeatedGroup(_ value:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup>) -> ProtobufUnittest.TestParsingMergeLite.Builder {
+      public func setRepeatedGroup(value:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup>) -> ProtobufUnittest.TestParsingMergeLite.Builder {
         self.repeatedGroup = value
         return self
       }
@@ -9826,7 +9826,7 @@ public extension ProtobufUnittest {
         return self
       }
       public override func clone() throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
-        return try ProtobufUnittest.TestParsingMergeLite.builderWithPrototype(builderResult)
+        return try ProtobufUnittest.TestParsingMergeLite.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> ProtobufUnittest.TestParsingMergeLite {
            try checkInitialized()
@@ -9836,34 +9836,34 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestParsingMergeLite = builderResult
         return returnMe
       }
-      public func mergeFrom(_ other:ProtobufUnittest.TestParsingMergeLite) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
+      public func mergeFrom(other:ProtobufUnittest.TestParsingMergeLite) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
         if other == ProtobufUnittest.TestParsingMergeLite() {
          return self
         }
-        if (other.hasRequiredAllTypes) {
-            try mergeRequiredAllTypes(other.requiredAllTypes)
+        if other.hasRequiredAllTypes {
+            _ = try mergeRequiredAllTypes(value: other.requiredAllTypes)
         }
-        if (other.hasOptionalAllTypes) {
-            try mergeOptionalAllTypes(other.optionalAllTypes)
+        if other.hasOptionalAllTypes {
+            _ = try mergeOptionalAllTypes(value: other.optionalAllTypes)
         }
         if !other.repeatedAllTypes.isEmpty  {
            builderResult.repeatedAllTypes += other.repeatedAllTypes
         }
-        if (other.hasOptionalGroup) {
-            try mergeOptionalGroup(other.optionalGroup)
+        if other.hasOptionalGroup {
+            _ = try mergeOptionalGroup(value: other.optionalGroup)
         }
         if !other.repeatedGroup.isEmpty  {
            builderResult.repeatedGroup += other.repeatedGroup
         }
-        try mergeExtensionFields(other)
-        try mergeUnknownFields(other.unknownFields)
+        _ = try mergeExtensionFields(other: other)
+        _ = try mergeUnknownFields(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
+           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
           switch protobufTag {
@@ -9871,42 +9871,42 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestAllTypesLite.Builder = ProtobufUnittest.TestAllTypesLite.Builder()
             if hasRequiredAllTypes {
-              try subBuilder.mergeFrom(requiredAllTypes)
+             _ = try subBuilder.mergeFrom(other: requiredAllTypes)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             requiredAllTypes = subBuilder.buildPartial()
 
-          case 18 :
+          case 18:
             let subBuilder:ProtobufUnittest.TestAllTypesLite.Builder = ProtobufUnittest.TestAllTypesLite.Builder()
             if hasOptionalAllTypes {
-              try subBuilder.mergeFrom(optionalAllTypes)
+             _ = try subBuilder.mergeFrom(other: optionalAllTypes)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalAllTypes = subBuilder.buildPartial()
 
-          case 26 :
+          case 26:
             let subBuilder = ProtobufUnittest.TestAllTypesLite.Builder()
-            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
+            try input.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
             repeatedAllTypes += [subBuilder.buildPartial()]
 
-          case 83 :
+          case 83:
             let subBuilder:ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder = ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder()
             if hasOptionalGroup {
-              try subBuilder.mergeFrom(optionalGroup)
+             _ = try subBuilder.mergeFrom(other: optionalGroup)
             }
             try input.readGroup(10, builder:subBuilder, extensionRegistry:extensionRegistry)
             optionalGroup = subBuilder.buildPartial()
 
-          case 163 :
+          case 163:
             let subBuilder = ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder()
             try input.readGroup(20,builder:subBuilder,extensionRegistry:extensionRegistry)
             repeatedGroup += [subBuilder.buildPartial()]
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -9925,8 +9925,8 @@ public extension ProtobufUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
-      try unknownFields.writeToCodedOutputStream(output)
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+      try unknownFields.writeToCodedOutputStream(output:output)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -9939,33 +9939,33 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestEmptyMessageLite> {
+    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestEmptyMessageLite> {
       var mergedArray = Array<ProtobufUnittest.TestEmptyMessageLite>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input: input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestEmptyMessageLite? {
-      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestEmptyMessageLite? {
+      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestEmptyMessageLite {
-      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestEmptyMessageLite {
+      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageLite {
-      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageLite {
+      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestEmptyMessageLite {
-      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestEmptyMessageLite {
+      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFromInputStream(input: input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageLite {
-      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageLite {
+      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageLite {
-      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageLite {
+      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFromCodedInputStream(input: input).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageLite {
-      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageLite {
+      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestEmptyMessageLite.Builder {
       return ProtobufUnittest.TestEmptyMessageLite.classBuilder() as! ProtobufUnittest.TestEmptyMessageLite.Builder
@@ -9980,14 +9980,14 @@ public extension ProtobufUnittest {
       return ProtobufUnittest.TestEmptyMessageLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
-      return try ProtobufUnittest.TestEmptyMessageLite.builderWithPrototype(self)
+      return try ProtobufUnittest.TestEmptyMessageLite.builderWithPrototype(prototype: self)
     }
-    public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestEmptyMessageLite) throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
-      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ProtobufUnittest.TestEmptyMessageLite) throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
+      return try ProtobufUnittest.TestEmptyMessageLite.Builder().mergeFrom(other: prototype)
     }
-    override public func getDescription(_ indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -10031,7 +10031,7 @@ public extension ProtobufUnittest {
         return self
       }
       public override func clone() throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
-        return try ProtobufUnittest.TestEmptyMessageLite.builderWithPrototype(builderResult)
+        return try ProtobufUnittest.TestEmptyMessageLite.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> ProtobufUnittest.TestEmptyMessageLite {
            try checkInitialized()
@@ -10041,18 +10041,18 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestEmptyMessageLite = builderResult
         return returnMe
       }
-      public func mergeFrom(_ other:ProtobufUnittest.TestEmptyMessageLite) throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
+      public func mergeFrom(other:ProtobufUnittest.TestEmptyMessageLite) throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
         if other == ProtobufUnittest.TestEmptyMessageLite() {
          return self
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try mergeUnknownFields(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
+           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
           switch protobufTag {
@@ -10061,7 +10061,7 @@ public extension ProtobufUnittest {
             return self
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -10084,9 +10084,9 @@ public extension ProtobufUnittest {
       }
      return true
     }
-    override public func writeToCodedOutputStream(_ output:CodedOutputStream) throws {
-      try writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1), endExclusive:Int32(536870912))
-      try unknownFields.writeToCodedOutputStream(output)
+    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+      try writeExtensionsToCodedOutputStream(output: output, startInclusive:Int32(1), endExclusive:Int32(536870912))
+      try unknownFields.writeToCodedOutputStream(output:output)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -10100,33 +10100,33 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(_ input:NSInputStream) throws -> Array<ProtobufUnittest.TestEmptyMessageWithExtensionsLite> {
+    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittest.TestEmptyMessageWithExtensionsLite> {
       var mergedArray = Array<ProtobufUnittest.TestEmptyMessageWithExtensionsLite>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
+      while let value = try parseFromDelimitedFromInputStream(input: input) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite? {
-      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite? {
+      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
     }
-    public class func parseFromData(_ data:NSData) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
-      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFromData(data:Data) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
+      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(_ data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
-      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
+      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
-      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFromInputStream(input).build()
+    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
+      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFromInputStream(input: input).build()
     }
-    public class func parseFromInputStream(_ input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
-      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
+      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
-      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
+      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFromCodedInputStream(input: input).build()
     }
-    public class func parseFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
-      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
+      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
       return ProtobufUnittest.TestEmptyMessageWithExtensionsLite.classBuilder() as! ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder
@@ -10141,21 +10141,21 @@ public extension ProtobufUnittest {
       return ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
-      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.builderWithPrototype(self)
+      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.builderWithPrototype(prototype: self)
     }
-    public class func builderWithPrototype(_ prototype:ProtobufUnittest.TestEmptyMessageWithExtensionsLite) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
-      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFrom(prototype)
+    public class func builderWithPrototype(prototype:ProtobufUnittest.TestEmptyMessageWithExtensionsLite) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
+      return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder().mergeFrom(other: prototype)
     }
-    override public func getDescription(_ indent:String) throws -> String {
+    override public func getDescription(indent:String) throws -> String {
       var output:String = ""
-      output += try getExtensionDescription(Int32(1), endExclusive:Int32(536870912), indent:indent)
-      output += unknownFields.getDescription(indent)
+      output += try getExtensionDescription(startInclusive: Int32(1), endExclusive:Int32(536870912), indent:indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
         get {
             var hashCode:Int = 7
-            hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1), endExclusive:Int32(536870912)))
+            hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(startInclusive: Int32(1), endExclusive:Int32(536870912)))
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode
         }
@@ -10194,7 +10194,7 @@ public extension ProtobufUnittest {
         return self
       }
       public override func clone() throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
-        return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.builderWithPrototype(builderResult)
+        return try ProtobufUnittest.TestEmptyMessageWithExtensionsLite.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite {
            try checkInitialized()
@@ -10204,19 +10204,19 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestEmptyMessageWithExtensionsLite = builderResult
         return returnMe
       }
-      public func mergeFrom(_ other:ProtobufUnittest.TestEmptyMessageWithExtensionsLite) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
+      public func mergeFrom(other:ProtobufUnittest.TestEmptyMessageWithExtensionsLite) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
         if other == ProtobufUnittest.TestEmptyMessageWithExtensionsLite() {
          return self
         }
-        try mergeExtensionFields(other)
-        try mergeUnknownFields(other.unknownFields)
+        _ = try mergeExtensionFields(other: other)
+        _ = try mergeUnknownFields(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
+           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(_ input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
           let protobufTag = try input.readTag()
           switch protobufTag {
@@ -10225,7 +10225,7 @@ public extension ProtobufUnittest {
             return self
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }

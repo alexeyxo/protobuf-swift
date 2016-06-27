@@ -80,8 +80,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "     get {\n"
                            "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "     }\n"
-                           "     set (newvalue) {\n"
-                           "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
+                           "     set (newValue) {\n"
+                           "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newValue)\n"
                            "     }\n"
                            "}\n");
             
@@ -93,8 +93,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "           }\n"
                            "           return true\n"
                            "      }\n"
-                           "      set(newValue) {\n"
-                           "      }\n"
+                           "      set(newValue) {}\n"
                            "}\n");
             
        
@@ -138,7 +137,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "     $name$Builder_ = $type$.Builder()\n"
                        "     builderResult.$name$ = $name$Builder_.getMessage()\n"
                        "     if $name$ != nil {\n"
-                       "        try! $name$Builder_.mergeFrom($name$)\n"
+                       "        _ = try! $name$Builder_.mergeFrom(other: $name$)\n"
                        "     }\n"
                        "  }\n"
                        "  return $name$Builder_\n"
@@ -147,9 +146,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
-                       "$acontrolFunc$ func merge$capitalized_name$(_ value:$type$) throws -> $containing_class$.Builder {\n"
+                       "$acontrolFunc$ func merge$capitalized_name$(value:$type$) throws -> $containing_class$.Builder {\n"
                        "  if builderResult.has$capitalized_name$ {\n"
-                       "    builderResult.$name$ = try $type$.builderWithPrototype(builderResult.$name$).mergeFrom(value).buildPartial()\n"
+                       "    builderResult.$name$ = try $type$.builderWithPrototype(prototype: builderResult.$name$).mergeFrom(other: value).buildPartial()\n"
                        "  } else {\n"
                        "    builderResult.$name$ = value\n"
                        "  }\n"
@@ -167,8 +166,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "if (other.has$capitalized_name$) {\n"
-                       "    try merge$capitalized_name$(other.$name$)\n"
+                       "if other.has$capitalized_name$ {\n"
+                       "    _ = try merge$capitalized_name$(value: other.$name$)\n"
                        "}\n");
     }
     
@@ -181,15 +180,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "let subBuilder:$type$.Builder = $type$.Builder()\n"
                        "if has$capitalized_name$ {\n"
-                       "  try subBuilder.mergeFrom($name$)\n"
+                       " _ = try subBuilder.mergeFrom(other: $name$)\n"
                        "}\n");
         
         if (descriptor_->type() == FieldDescriptor::TYPE_GROUP) {
             printer->Print(variables_,
-                           "try input.readGroup($number$, builder:subBuilder, extensionRegistry:extensionRegistry)\n");
+                           "try codedInputStream.readGroup(fieldNumber:$number$, builder:subBuilder, extensionRegistry:extensionRegistry)\n");
         } else {
             printer->Print(variables_,
-                           "try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)\n");
+                           "try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)\n");
         }
         
         printer->Print(variables_,
@@ -200,7 +199,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  try output.write$group_or_message$($number$, value:$name$)\n"
+                       "  try codedOutputStream.write$group_or_message$(fieldNumber:$number$, value:$name$)\n"
                        "}\n");
     }
     
@@ -208,7 +207,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "    if let varSize$name$ = $name$?.compute$group_or_message$Size($number$) {\n"
+                       "    if let varSize$name$ = $name$?.compute$group_or_message$Size(fieldNumber: $number$) {\n"
                        "        serialize_size += varSize$name$\n"
                        "    }\n"
                        "}\n");
@@ -220,7 +219,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "if has$capitalized_name$ {\n"
                        "  output += \"\\(indent) $name$ {\\n\"\n"
                        "  if let outDesc$capitalized_name$ = $name$ {\n"
-                       "    output += try outDesc$capitalized_name$.getDescription(\"\\(indent)  \")\n"
+                       "    output += try outDesc$capitalized_name$.getDescription(indent:\"\\(indent)  \")\n"
                        "  }\n"
                        "  output += \"\\(indent) }\\n\"\n"
                        "}\n");
@@ -267,7 +266,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void RepeatedMessageFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
-           printer->Print(variables_, "$acontrol$private(set) var $name$:Array<$type$>  = Array<$type$>()\n");
+           printer->Print(variables_, "$acontrol$private(set) var $name$:Array<$type$> = Array<$type$>()\n");
     }
     
     
@@ -320,10 +319,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->type() == FieldDescriptor::TYPE_GROUP) {
             printer->Print(variables_,
-                           "try input.readGroup($number$,builder:subBuilder,extensionRegistry:extensionRegistry)\n");
+                           "try codedInputStream.readGroup(fieldNumber:$number$,builder:subBuilder,extensionRegistry:extensionRegistry)\n");
         } else {
             printer->Print(variables_,
-                           "try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)\n");
+                           "try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)\n");
         }
         
         printer->Print(variables_,
@@ -333,14 +332,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedMessageFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "for oneElement$name$ in $name$ {\n"
-                       "    try output.write$group_or_message$($number$, value:oneElement$name$)\n"
+                       "    try codedOutputStream.write$group_or_message$(fieldNumber:$number$, value:oneElement$name$)\n"
                        "}\n");
     }
     
     void RepeatedMessageFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "for oneElement$name$ in $name$ {\n"
-                       "    serialize_size += oneElement$name$.compute$group_or_message$Size($number$)\n"
+                       "    serialize_size += oneElement$name$.compute$group_or_message$Size(fieldNumber: $number$)\n"
                        "}\n");
     }
     
@@ -349,7 +348,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "var $name$ElementIndex:Int = 0\n"
                        "for oneElement$name$ in $name$ {\n"
                        "    output += \"\\(indent) $name$[\\($name$ElementIndex)] {\\n\"\n"
-                       "    output += try oneElement$name$.getDescription(\"\\(indent)  \")\n"
+                       "    output += try oneElement$name$.getDescription(indent:\"\\(indent)  \")\n"
                        "    output += \"\\(indent)}\\n\"\n"
                        "    $name$ElementIndex += 1\n"
                        "}\n");

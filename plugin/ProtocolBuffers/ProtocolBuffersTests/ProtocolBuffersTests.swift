@@ -31,7 +31,7 @@ class ProtocolBuffersTests: XCTestCase {
 //        let original2 = PBPerfomance.parseFromData(original.data())
 //        var builder = PBPerfomanceBatch.Builder()
 //        
-//        for _ in 0...2 {
+//        for in 0...2 {
 //            builder.batch += [original]
 //        }
 //        
@@ -72,7 +72,7 @@ class ProtocolBuffersTests: XCTestCase {
 //        dict.setObject("string", forKey: "string")
 //        
 //        var arr:Array<NSMutableDictionary> = []
-//        for _ in 0...10000
+//        for in 0...10000
 //        {
 //            arr += [dict]
 //        }
@@ -87,7 +87,7 @@ class ProtocolBuffersTests: XCTestCase {
 //        
 //        self.measureBlock() {
 //            
-//            for _ in 0...1 {
+//            for in 0...1 {
 //                
 //                var jsonErrorOptional:NSError?
 //                let clone2: AnyObject! = NSJSONSerialization.JSONObjectWithData(jsonobject!, options: NSJSONReadingOptions(0), error: &jsonErrorOptional)

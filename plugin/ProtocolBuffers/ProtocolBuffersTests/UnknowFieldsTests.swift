@@ -210,7 +210,7 @@ class UnknowFieldsTests: XCTestCase {
             // when parsing.
             let bizarroDatas = try getBizarroData()
             let allTypesMessage = try  ProtobufUnittest.TestAllTypes.parseFromData(bizarroDatas)
-            let emptyMessage_ = try ProtobufUnittest.TestEmptyMessage.parseFromData(bizarroDatas)
+            let emptyMessage= try ProtobufUnittest.TestEmptyMessage.parseFromData(bizarroDatas)
             // All fields should have been interpreted as unknown, so the debug strings
             // should be the same.
             XCTAssertTrue(emptyMessage_.data() == allTypesMessage.data(), "")
@@ -242,7 +242,7 @@ class UnknowFieldsTests: XCTestCase {
             // when parsing extensions.
             let bizarroData = try getBizarroData()
             let allExtensionsMessage = try ProtobufUnittest.TestAllExtensions.parseFromData(bizarroData)
-            let emptyMessage_ = try ProtobufUnittest.TestEmptyMessage.parseFromData(bizarroData)
+            let emptyMessage= try ProtobufUnittest.TestEmptyMessage.parseFromData(bizarroData)
             // All fields should have been interpreted as unknown, so the debug strings
             // should be the same.
             XCTAssertTrue(emptyMessage_.data() == allExtensionsMessage.data(), "")
