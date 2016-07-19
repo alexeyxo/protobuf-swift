@@ -327,10 +327,10 @@ public extension UnittestDropUnknownFields {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             int32Value = try input.readInt32()
 
-          case 16 :
+          case 16:
             let valueIntenumValue = try input.readEnum()
             if let enumsenumValue = UnittestDropUnknownFields.Foo.NestedEnum(rawValue:valueIntenumValue){
                  enumValue = enumsenumValue
@@ -694,10 +694,10 @@ public extension UnittestDropUnknownFields {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             int32Value = try input.readInt32()
 
-          case 16 :
+          case 16:
             let valueIntenumValue = try input.readEnum()
             if let enumsenumValue = UnittestDropUnknownFields.FooWithExtraFields.NestedEnum(rawValue:valueIntenumValue){
                  enumValue = enumsenumValue
@@ -705,7 +705,7 @@ public extension UnittestDropUnknownFields {
                  try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntenumValue))
             }
 
-          case 24 :
+          case 24:
             extraInt32Value = try input.readInt32()
 
           default:

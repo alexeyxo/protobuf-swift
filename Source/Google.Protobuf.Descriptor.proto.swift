@@ -543,7 +543,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder = Google.Protobuf.FileDescriptorProto.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             file += [subBuilder.buildPartial()]
@@ -1390,36 +1390,36 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             package = try input.readString()
 
-          case 26 :
+          case 26:
             dependency += [try input.readString()]
 
-          case 34 :
+          case 34:
             let subBuilder = Google.Protobuf.DescriptorProto.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             messageType += [subBuilder.buildPartial()]
 
-          case 42 :
+          case 42:
             let subBuilder = Google.Protobuf.EnumDescriptorProto.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             enumType += [subBuilder.buildPartial()]
 
-          case 50 :
+          case 50:
             let subBuilder = Google.Protobuf.ServiceDescriptorProto.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             service += [subBuilder.buildPartial()]
 
-          case 58 :
+          case 58:
             let subBuilder = Google.Protobuf.FieldDescriptorProto.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             extension_ += [subBuilder.buildPartial()]
 
-          case 66 :
+          case 66:
             let subBuilder:Google.Protobuf.FileOptions.Builder = Google.Protobuf.FileOptions.Builder()
             if hasOptions {
               try subBuilder.mergeFrom(options)
@@ -1427,7 +1427,7 @@ public extension Google.Protobuf {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             options = subBuilder.buildPartial()
 
-          case 74 :
+          case 74:
             let subBuilder:Google.Protobuf.SourceCodeInfo.Builder = Google.Protobuf.SourceCodeInfo.Builder()
             if hasSourceCodeInfo {
               try subBuilder.mergeFrom(sourceCodeInfo)
@@ -1435,13 +1435,13 @@ public extension Google.Protobuf {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             sourceCodeInfo = subBuilder.buildPartial()
 
-          case 80 :
+          case 80:
             publicDependency += [try input.readInt32()]
 
-          case 88 :
+          case 88:
             weakDependency += [try input.readInt32()]
 
-          case 98 :
+          case 98:
             syntax = try input.readString()
 
           default:
@@ -1787,10 +1787,10 @@ public extension Google.Protobuf {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 start = try input.readInt32()
 
-              case 16 :
+              case 16:
                 end = try input.readInt32()
 
               default:
@@ -2077,10 +2077,10 @@ public extension Google.Protobuf {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 start = try input.readInt32()
 
-              case 16 :
+              case 16:
                 end = try input.readInt32()
 
               default:
@@ -2789,35 +2789,35 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             let subBuilder = Google.Protobuf.FieldDescriptorProto.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             field += [subBuilder.buildPartial()]
 
-          case 26 :
+          case 26:
             let subBuilder = Google.Protobuf.DescriptorProto.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             nestedType += [subBuilder.buildPartial()]
 
-          case 34 :
+          case 34:
             let subBuilder = Google.Protobuf.EnumDescriptorProto.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             enumType += [subBuilder.buildPartial()]
 
-          case 42 :
+          case 42:
             let subBuilder = Google.Protobuf.DescriptorProto.ExtensionRange.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             extensionRange += [subBuilder.buildPartial()]
 
-          case 50 :
+          case 50:
             let subBuilder = Google.Protobuf.FieldDescriptorProto.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             extension_ += [subBuilder.buildPartial()]
 
-          case 58 :
+          case 58:
             let subBuilder:Google.Protobuf.MessageOptions.Builder = Google.Protobuf.MessageOptions.Builder()
             if hasOptions {
               try subBuilder.mergeFrom(options)
@@ -2825,17 +2825,17 @@ public extension Google.Protobuf {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             options = subBuilder.buildPartial()
 
-          case 66 :
+          case 66:
             let subBuilder = Google.Protobuf.OneofDescriptorProto.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             oneofDecl += [subBuilder.buildPartial()]
 
-          case 74 :
+          case 74:
             let subBuilder = Google.Protobuf.DescriptorProto.ReservedRange.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             reservedRange += [subBuilder.buildPartial()]
 
-          case 82 :
+          case 82:
             reservedName += [try input.readString()]
 
           default:
@@ -3692,16 +3692,16 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             extendee = try input.readString()
 
-          case 24 :
+          case 24:
             number = try input.readInt32()
 
-          case 32 :
+          case 32:
             let valueIntlabel = try input.readEnum()
             if let enumslabel = Google.Protobuf.FieldDescriptorProto.Label(rawValue:valueIntlabel){
                  label = enumslabel
@@ -3709,7 +3709,7 @@ public extension Google.Protobuf {
                  try unknownFieldsBuilder.mergeVarintField(4, value:Int64(valueIntlabel))
             }
 
-          case 40 :
+          case 40:
             let valueInttypes = try input.readEnum()
             if let enumstypes = Google.Protobuf.FieldDescriptorProto.Types(rawValue:valueInttypes){
                  types = enumstypes
@@ -3717,13 +3717,13 @@ public extension Google.Protobuf {
                  try unknownFieldsBuilder.mergeVarintField(5, value:Int64(valueInttypes))
             }
 
-          case 50 :
+          case 50:
             typeName = try input.readString()
 
-          case 58 :
+          case 58:
             defaultValue = try input.readString()
 
-          case 66 :
+          case 66:
             let subBuilder:Google.Protobuf.FieldOptions.Builder = Google.Protobuf.FieldOptions.Builder()
             if hasOptions {
               try subBuilder.mergeFrom(options)
@@ -3731,7 +3731,7 @@ public extension Google.Protobuf {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             options = subBuilder.buildPartial()
 
-          case 72 :
+          case 72:
             oneofIndex = try input.readInt32()
 
           default:
@@ -3986,7 +3986,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
           default:
@@ -4354,15 +4354,15 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             let subBuilder = Google.Protobuf.EnumValueDescriptorProto.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             value += [subBuilder.buildPartial()]
 
-          case 26 :
+          case 26:
             let subBuilder:Google.Protobuf.EnumOptions.Builder = Google.Protobuf.EnumOptions.Builder()
             if hasOptions {
               try subBuilder.mergeFrom(options)
@@ -4738,13 +4738,13 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 16 :
+          case 16:
             number = try input.readInt32()
 
-          case 26 :
+          case 26:
             let subBuilder:Google.Protobuf.EnumValueOptions.Builder = Google.Protobuf.EnumValueOptions.Builder()
             if hasOptions {
               try subBuilder.mergeFrom(options)
@@ -5124,15 +5124,15 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             let subBuilder = Google.Protobuf.MethodDescriptorProto.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             method += [subBuilder.buildPartial()]
 
-          case 26 :
+          case 26:
             let subBuilder:Google.Protobuf.ServiceOptions.Builder = Google.Protobuf.ServiceOptions.Builder()
             if hasOptions {
               try subBuilder.mergeFrom(options)
@@ -5644,16 +5644,16 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             name = try input.readString()
 
-          case 18 :
+          case 18:
             inputType = try input.readString()
 
-          case 26 :
+          case 26:
             outputType = try input.readString()
 
-          case 34 :
+          case 34:
             let subBuilder:Google.Protobuf.MethodOptions.Builder = Google.Protobuf.MethodOptions.Builder()
             if hasOptions {
               try subBuilder.mergeFrom(options)
@@ -5661,10 +5661,10 @@ public extension Google.Protobuf {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             options = subBuilder.buildPartial()
 
-          case 40 :
+          case 40:
             clientStreaming = try input.readBool()
 
-          case 48 :
+          case 48:
             serverStreaming = try input.readBool()
 
           default:
@@ -6638,13 +6638,13 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             javaPackage = try input.readString()
 
-          case 66 :
+          case 66:
             javaOuterClassname = try input.readString()
 
-          case 72 :
+          case 72:
             let valueIntoptimizeFor = try input.readEnum()
             if let enumsoptimizeFor = Google.Protobuf.FileOptions.OptimizeMode(rawValue:valueIntoptimizeFor){
                  optimizeFor = enumsoptimizeFor
@@ -6652,40 +6652,40 @@ public extension Google.Protobuf {
                  try unknownFieldsBuilder.mergeVarintField(9, value:Int64(valueIntoptimizeFor))
             }
 
-          case 80 :
+          case 80:
             javaMultipleFiles = try input.readBool()
 
-          case 90 :
+          case 90:
             goPackage = try input.readString()
 
-          case 128 :
+          case 128:
             ccGenericServices = try input.readBool()
 
-          case 136 :
+          case 136:
             javaGenericServices = try input.readBool()
 
-          case 144 :
+          case 144:
             pyGenericServices = try input.readBool()
 
-          case 160 :
+          case 160:
             javaGenerateEqualsAndHash = try input.readBool()
 
-          case 184 :
+          case 184:
             deprecated = try input.readBool()
 
-          case 216 :
+          case 216:
             javaStringCheckUtf8 = try input.readBool()
 
-          case 248 :
+          case 248:
             ccEnableArenas = try input.readBool()
 
-          case 290 :
+          case 290:
             objcClassPrefix = try input.readString()
 
-          case 298 :
+          case 298:
             csharpNamespace = try input.readString()
 
-          case 7994 :
+          case 7994:
             let subBuilder = Google.Protobuf.UninterpretedOption.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             uninterpretedOption += [subBuilder.buildPartial()]
@@ -7198,19 +7198,19 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             messageSetWireFormat = try input.readBool()
 
-          case 16 :
+          case 16:
             noStandardDescriptorAccessor = try input.readBool()
 
-          case 24 :
+          case 24:
             deprecated = try input.readBool()
 
-          case 56 :
+          case 56:
             mapEntry = try input.readBool()
 
-          case 7994 :
+          case 7994:
             let subBuilder = Google.Protobuf.UninterpretedOption.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             uninterpretedOption += [subBuilder.buildPartial()]
@@ -7851,7 +7851,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             let valueIntctype = try input.readEnum()
             if let enumsctype = Google.Protobuf.FieldOptions.Ctype(rawValue:valueIntctype){
                  ctype = enumsctype
@@ -7859,16 +7859,16 @@ public extension Google.Protobuf {
                  try unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueIntctype))
             }
 
-          case 16 :
+          case 16:
             packed = try input.readBool()
 
-          case 24 :
+          case 24:
             deprecated = try input.readBool()
 
-          case 40 :
+          case 40:
             lazy = try input.readBool()
 
-          case 48 :
+          case 48:
             let valueIntjstype = try input.readEnum()
             if let enumsjstype = Google.Protobuf.FieldOptions.Jstype(rawValue:valueIntjstype){
                  jstype = enumsjstype
@@ -7876,10 +7876,10 @@ public extension Google.Protobuf {
                  try unknownFieldsBuilder.mergeVarintField(6, value:Int64(valueIntjstype))
             }
 
-          case 80 :
+          case 80:
             weak = try input.readBool()
 
-          case 7994 :
+          case 7994:
             let subBuilder = Google.Protobuf.UninterpretedOption.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             uninterpretedOption += [subBuilder.buildPartial()]
@@ -8246,13 +8246,13 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 16 :
+          case 16:
             allowAlias = try input.readBool()
 
-          case 24 :
+          case 24:
             deprecated = try input.readBool()
 
-          case 7994 :
+          case 7994:
             let subBuilder = Google.Protobuf.UninterpretedOption.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             uninterpretedOption += [subBuilder.buildPartial()]
@@ -8561,10 +8561,10 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             deprecated = try input.readBool()
 
-          case 7994 :
+          case 7994:
             let subBuilder = Google.Protobuf.UninterpretedOption.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             uninterpretedOption += [subBuilder.buildPartial()]
@@ -8870,10 +8870,10 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 264 :
+          case 264:
             deprecated = try input.readBool()
 
-          case 7994 :
+          case 7994:
             let subBuilder = Google.Protobuf.UninterpretedOption.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             uninterpretedOption += [subBuilder.buildPartial()]
@@ -9179,10 +9179,10 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 264 :
+          case 264:
             deprecated = try input.readBool()
 
-          case 7994 :
+          case 7994:
             let subBuilder = Google.Protobuf.UninterpretedOption.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             uninterpretedOption += [subBuilder.buildPartial()]
@@ -9488,10 +9488,10 @@ public extension Google.Protobuf {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 10 :
+              case 10:
                 namePart = try input.readString()
 
-              case 16 :
+              case 16:
                 isExtension = try input.readBool()
 
               default:
@@ -10000,27 +10000,27 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 18 :
+          case 18:
             let subBuilder = Google.Protobuf.UninterpretedOption.NamePart.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             name += [subBuilder.buildPartial()]
 
-          case 26 :
+          case 26:
             identifierValue = try input.readString()
 
-          case 32 :
+          case 32:
             positiveIntValue = try input.readUInt64()
 
-          case 40 :
+          case 40:
             negativeIntValue = try input.readInt64()
 
-          case 49 :
+          case 49:
             doubleValue = try input.readDouble()
 
-          case 58 :
+          case 58:
             stringValue = try input.readData()
 
-          case 66 :
+          case 66:
             aggregateValue = try input.readString()
 
           default:
@@ -10534,7 +10534,7 @@ public extension Google.Protobuf {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 10 :
+              case 10:
                 let length:Int32 = try input.readRawVarint32()
                 let limit:Int32 = try input.pushLimit(length)
                 while (input.bytesUntilLimit() > 0) {
@@ -10542,7 +10542,7 @@ public extension Google.Protobuf {
                 }
                 input.popLimit(limit)
 
-              case 18 :
+              case 18:
                 let length:Int32 = try input.readRawVarint32()
                 let limit:Int32 = try input.pushLimit(length)
                 while (input.bytesUntilLimit() > 0) {
@@ -10550,13 +10550,13 @@ public extension Google.Protobuf {
                 }
                 input.popLimit(limit)
 
-              case 26 :
+              case 26:
                 leadingComments = try input.readString()
 
-              case 34 :
+              case 34:
                 trailingComments = try input.readString()
 
-              case 50 :
+              case 50:
                 leadingDetachedComments += [try input.readString()]
 
               default:
@@ -10806,7 +10806,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder = Google.Protobuf.SourceCodeInfo.Location.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             location += [subBuilder.buildPartial()]

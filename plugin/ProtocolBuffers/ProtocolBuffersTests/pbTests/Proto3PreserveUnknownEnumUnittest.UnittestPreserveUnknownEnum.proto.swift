@@ -137,11 +137,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
     //OneOf declaration start
 
     public enum O {
-      case OOneOfNotSet
+      case OneOfONotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .OOneOfNotSet:
+           case .OneOfONotSet:
                 return false
            default:
                 return true
@@ -170,7 +170,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
     }
     //OneOf declaration end
 
-    private var storageO:MyMessage.O =  MyMessage.O.OOneOfNotSet
+    private var storageO:MyMessage.O =  MyMessage.O.OneOfONotSet
+    public func getOneOfO() ->  MyMessage.O {
+        let copyObjectO = storageO
+        return copyObjectO
+    }
     public private(set) var e:Proto3PreserveUnknownEnumUnittest.MyEnum = Proto3PreserveUnknownEnumUnittest.MyEnum.Foo
     public private(set) var hasE:Bool = false
     private var repeatedEMemoizedSerializedSize:Int32 = 0
@@ -181,10 +185,10 @@ public extension Proto3PreserveUnknownEnumUnittest {
     public private(set) var repeatedPackedUnexpectedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> = Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>()
     public private(set) var hasOneofE1:Bool {
           get {
-               if MyMessage.O.getOneofE1(storageO) == nil {
-                   return false
-               }
-               return true
+                guard let _ = MyMessage.O.getOneofE1(storageO) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -199,10 +203,10 @@ public extension Proto3PreserveUnknownEnumUnittest {
     }
     public private(set) var hasOneofE2:Bool {
           get {
-               if MyMessage.O.getOneofE2(storageO) == nil {
-                   return false
-               }
-               return true
+                guard let _ = MyMessage.O.getOneofE2(storageO) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -630,7 +634,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             let valueInte = try input.readEnum()
             if let enumse = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueInte){
                  e = enumse
@@ -638,7 +642,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
                  try unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueInte))
             }
 
-          case 18 :
+          case 16:
             let valueIntrepeatedE = try input.readEnum()
             if let enumsrepeatedE = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntrepeatedE) {
                  builderResult.repeatedE += [enumsrepeatedE]
@@ -646,7 +650,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
                  try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntrepeatedE))
             }
 
-          case 26 :
+          case 26:
             let length:Int32 = try input.readRawVarint32()
             let oldLimit:Int32 = try input.pushLimit(length)
             while input.bytesUntilLimit() > 0 {
@@ -659,7 +663,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
             }
             input.popLimit(oldLimit)
 
-          case 34 :
+          case 32:
             let valueIntrepeatedPackedUnexpectedE = try input.readEnum()
             if let enumsrepeatedPackedUnexpectedE = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedPackedUnexpectedE) {
                  builderResult.repeatedPackedUnexpectedE += [enumsrepeatedPackedUnexpectedE]
@@ -667,7 +671,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
                  try unknownFieldsBuilder.mergeVarintField(4, value:Int64(valueIntrepeatedPackedUnexpectedE))
             }
 
-          case 40 :
+          case 40:
             let valueIntoneofE1 = try input.readEnum()
             if let enumsoneofE1 = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntoneofE1){
                  oneofE1 = enumsoneofE1
@@ -675,7 +679,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
                  try unknownFieldsBuilder.mergeVarintField(5, value:Int64(valueIntoneofE1))
             }
 
-          case 48 :
+          case 48:
             let valueIntoneofE2 = try input.readEnum()
             if let enumsoneofE2 = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntoneofE2){
                  oneofE2 = enumsoneofE2
@@ -745,11 +749,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
     //OneOf declaration start
 
     public enum O {
-      case OOneOfNotSet
+      case OneOfONotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .OOneOfNotSet:
+           case .OneOfONotSet:
                 return false
            default:
                 return true
@@ -778,7 +782,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
     }
     //OneOf declaration end
 
-    private var storageO:MyMessagePlusExtra.O =  MyMessagePlusExtra.O.OOneOfNotSet
+    private var storageO:MyMessagePlusExtra.O =  MyMessagePlusExtra.O.OneOfONotSet
+    public func getOneOfO() ->  MyMessagePlusExtra.O {
+        let copyObjectO = storageO
+        return copyObjectO
+    }
     public private(set) var e:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.EFoo
     public private(set) var hasE:Bool = false
     private var repeatedEMemoizedSerializedSize:Int32 = 0
@@ -789,10 +797,10 @@ public extension Proto3PreserveUnknownEnumUnittest {
     public private(set) var repeatedPackedUnexpectedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> = Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>()
     public private(set) var hasOneofE1:Bool {
           get {
-               if MyMessagePlusExtra.O.getOneofE1(storageO) == nil {
-                   return false
-               }
-               return true
+                guard let _ = MyMessagePlusExtra.O.getOneofE1(storageO) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -807,10 +815,10 @@ public extension Proto3PreserveUnknownEnumUnittest {
     }
     public private(set) var hasOneofE2:Bool {
           get {
-               if MyMessagePlusExtra.O.getOneofE2(storageO) == nil {
-                   return false
-               }
-               return true
+                guard let _ = MyMessagePlusExtra.O.getOneofE2(storageO) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -1246,7 +1254,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             let valueInte = try input.readEnum()
             if let enumse = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueInte){
                  e = enumse
@@ -1254,7 +1262,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
                  try unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueInte))
             }
 
-          case 18 :
+          case 16:
             let valueIntrepeatedE = try input.readEnum()
             if let enumsrepeatedE = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedE) {
                  builderResult.repeatedE += [enumsrepeatedE]
@@ -1262,7 +1270,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
                  try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntrepeatedE))
             }
 
-          case 26 :
+          case 26:
             let length:Int32 = try input.readRawVarint32()
             let oldLimit:Int32 = try input.pushLimit(length)
             while input.bytesUntilLimit() > 0 {
@@ -1275,7 +1283,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
             }
             input.popLimit(oldLimit)
 
-          case 34 :
+          case 34:
             let length:Int32 = try input.readRawVarint32()
             let oldLimit:Int32 = try input.pushLimit(length)
             while input.bytesUntilLimit() > 0 {
@@ -1288,7 +1296,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
             }
             input.popLimit(oldLimit)
 
-          case 40 :
+          case 40:
             let valueIntoneofE1 = try input.readEnum()
             if let enumsoneofE1 = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntoneofE1){
                  oneofE1 = enumsoneofE1
@@ -1296,7 +1304,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
                  try unknownFieldsBuilder.mergeVarintField(5, value:Int64(valueIntoneofE1))
             }
 
-          case 48 :
+          case 48:
             let valueIntoneofE2 = try input.readEnum()
             if let enumsoneofE2 = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntoneofE2){
                  oneofE2 = enumsoneofE2

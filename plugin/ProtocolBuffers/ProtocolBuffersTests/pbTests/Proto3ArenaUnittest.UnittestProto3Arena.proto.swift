@@ -422,7 +422,7 @@ public extension Proto3ArenaUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 bb = try input.readInt32()
 
               default:
@@ -458,11 +458,11 @@ public extension Proto3ArenaUnittest {
     //OneOf declaration start
 
     public enum OneofField {
-      case OneofFieldOneOfNotSet
+      case OneOfOneofFieldNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .OneofFieldOneOfNotSet:
+           case .OneOfOneofFieldNotSet:
                 return false
            default:
                 return true
@@ -511,7 +511,11 @@ public extension Proto3ArenaUnittest {
     }
     //OneOf declaration end
 
-    private var storageOneofField:TestAllTypes.OneofField =  TestAllTypes.OneofField.OneofFieldOneOfNotSet
+    private var storageOneofField:TestAllTypes.OneofField =  TestAllTypes.OneofField.OneOfOneofFieldNotSet
+    public func getOneOfOneofField() ->  TestAllTypes.OneofField {
+        let copyObjectOneofField = storageOneofField
+        return copyObjectOneofField
+    }
 
 
       //Enum type declaration start 
@@ -626,18 +630,31 @@ public extension Proto3ArenaUnittest {
     public private(set) var optionalLazyMessage:Proto3ArenaUnittest.TestAllTypes.NestedMessage!
     // Repeated
     public private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
+    private var repeatedInt32MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedInt64:Array<Int64> = Array<Int64>()
+    private var repeatedInt64MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
+    private var repeatedUint32MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedUint64:Array<UInt64> = Array<UInt64>()
+    private var repeatedUint64MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedSint32:Array<Int32> = Array<Int32>()
+    private var repeatedSint32MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedSint64:Array<Int64> = Array<Int64>()
+    private var repeatedSint64MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedFixed32:Array<UInt32> = Array<UInt32>()
+    private var repeatedFixed32MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedFixed64:Array<UInt64> = Array<UInt64>()
+    private var repeatedFixed64MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedSfixed32:Array<Int32> = Array<Int32>()
+    private var repeatedSfixed32MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedSfixed64:Array<Int64> = Array<Int64>()
+    private var repeatedSfixed64MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedFloat:Array<Float> = Array<Float>()
+    private var repeatedFloatMemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedDouble:Array<Double> = Array<Double>()
+    private var repeatedDoubleMemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedBool:Array<Bool> = Array<Bool>()
+    private var repeatedBoolMemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedString:Array<String> = Array<String>()
     public private(set) var repeatedBytes:Array<NSData> = Array<NSData>()
     public private(set) var repeatedNestedMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>  = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
@@ -652,10 +669,10 @@ public extension Proto3ArenaUnittest {
     public private(set) var repeatedLazyMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>  = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
     public private(set) var hasOneofUint32:Bool {
           get {
-               if TestAllTypes.OneofField.getOneofUint32(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypes.OneofField.getOneofUint32(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -670,10 +687,10 @@ public extension Proto3ArenaUnittest {
     }
     public private(set) var hasOneofNestedMessage:Bool {
           get {
-               if TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -688,10 +705,10 @@ public extension Proto3ArenaUnittest {
     }
     public private(set) var hasOneofString:Bool {
           get {
-               if TestAllTypes.OneofField.getOneofString(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypes.OneofField.getOneofString(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -706,10 +723,10 @@ public extension Proto3ArenaUnittest {
     }
     public private(set) var hasOneofBytes:Bool {
           get {
-               if TestAllTypes.OneofField.getOneofBytes(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypes.OneofField.getOneofBytes(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -802,68 +819,94 @@ public extension Proto3ArenaUnittest {
         try output.writeMessage(27, value:optionalLazyMessage)
       }
       if !repeatedInt32.isEmpty {
+        try output.writeRawVarint32(250)
+        try output.writeRawVarint32(repeatedInt32MemoizedSerializedSize)
         for oneValuerepeatedInt32 in repeatedInt32 {
-          try output.writeInt32(31, value:oneValuerepeatedInt32)
+          try output.writeInt32NoTag(oneValuerepeatedInt32)
         }
       }
       if !repeatedInt64.isEmpty {
+        try output.writeRawVarint32(258)
+        try output.writeRawVarint32(repeatedInt64MemoizedSerializedSize)
         for oneValuerepeatedInt64 in repeatedInt64 {
-          try output.writeInt64(32, value:oneValuerepeatedInt64)
+          try output.writeInt64NoTag(oneValuerepeatedInt64)
         }
       }
       if !repeatedUint32.isEmpty {
+        try output.writeRawVarint32(266)
+        try output.writeRawVarint32(repeatedUint32MemoizedSerializedSize)
         for oneValuerepeatedUint32 in repeatedUint32 {
-          try output.writeUInt32(33, value:oneValuerepeatedUint32)
+          try output.writeUInt32NoTag(oneValuerepeatedUint32)
         }
       }
       if !repeatedUint64.isEmpty {
+        try output.writeRawVarint32(274)
+        try output.writeRawVarint32(repeatedUint64MemoizedSerializedSize)
         for oneValuerepeatedUint64 in repeatedUint64 {
-          try output.writeUInt64(34, value:oneValuerepeatedUint64)
+          try output.writeUInt64NoTag(oneValuerepeatedUint64)
         }
       }
       if !repeatedSint32.isEmpty {
+        try output.writeRawVarint32(282)
+        try output.writeRawVarint32(repeatedSint32MemoizedSerializedSize)
         for oneValuerepeatedSint32 in repeatedSint32 {
-          try output.writeSInt32(35, value:oneValuerepeatedSint32)
+          try output.writeSInt32NoTag(oneValuerepeatedSint32)
         }
       }
       if !repeatedSint64.isEmpty {
+        try output.writeRawVarint32(290)
+        try output.writeRawVarint32(repeatedSint64MemoizedSerializedSize)
         for oneValuerepeatedSint64 in repeatedSint64 {
-          try output.writeSInt64(36, value:oneValuerepeatedSint64)
+          try output.writeSInt64NoTag(oneValuerepeatedSint64)
         }
       }
       if !repeatedFixed32.isEmpty {
+        try output.writeRawVarint32(298)
+        try output.writeRawVarint32(repeatedFixed32MemoizedSerializedSize)
         for oneValuerepeatedFixed32 in repeatedFixed32 {
-          try output.writeFixed32(37, value:oneValuerepeatedFixed32)
+          try output.writeFixed32NoTag(oneValuerepeatedFixed32)
         }
       }
       if !repeatedFixed64.isEmpty {
+        try output.writeRawVarint32(306)
+        try output.writeRawVarint32(repeatedFixed64MemoizedSerializedSize)
         for oneValuerepeatedFixed64 in repeatedFixed64 {
-          try output.writeFixed64(38, value:oneValuerepeatedFixed64)
+          try output.writeFixed64NoTag(oneValuerepeatedFixed64)
         }
       }
       if !repeatedSfixed32.isEmpty {
+        try output.writeRawVarint32(314)
+        try output.writeRawVarint32(repeatedSfixed32MemoizedSerializedSize)
         for oneValuerepeatedSfixed32 in repeatedSfixed32 {
-          try output.writeSFixed32(39, value:oneValuerepeatedSfixed32)
+          try output.writeSFixed32NoTag(oneValuerepeatedSfixed32)
         }
       }
       if !repeatedSfixed64.isEmpty {
+        try output.writeRawVarint32(322)
+        try output.writeRawVarint32(repeatedSfixed64MemoizedSerializedSize)
         for oneValuerepeatedSfixed64 in repeatedSfixed64 {
-          try output.writeSFixed64(40, value:oneValuerepeatedSfixed64)
+          try output.writeSFixed64NoTag(oneValuerepeatedSfixed64)
         }
       }
       if !repeatedFloat.isEmpty {
+        try output.writeRawVarint32(330)
+        try output.writeRawVarint32(repeatedFloatMemoizedSerializedSize)
         for oneValuerepeatedFloat in repeatedFloat {
-          try output.writeFloat(41, value:oneValuerepeatedFloat)
+          try output.writeFloatNoTag(oneValuerepeatedFloat)
         }
       }
       if !repeatedDouble.isEmpty {
+        try output.writeRawVarint32(338)
+        try output.writeRawVarint32(repeatedDoubleMemoizedSerializedSize)
         for oneValuerepeatedDouble in repeatedDouble {
-          try output.writeDouble(42, value:oneValuerepeatedDouble)
+          try output.writeDoubleNoTag(oneValuerepeatedDouble)
         }
       }
       if !repeatedBool.isEmpty {
+        try output.writeRawVarint32(346)
+        try output.writeRawVarint32(repeatedBoolMemoizedSerializedSize)
         for oneValuerepeatedBool in repeatedBool {
-          try output.writeBool(43, value:oneValuerepeatedBool)
+          try output.writeBoolNoTag(oneValuerepeatedBool)
         }
       }
       if !repeatedString.isEmpty {
@@ -1012,65 +1055,117 @@ public extension Proto3ArenaUnittest {
           dataSizeRepeatedInt32 += oneValuerepeatedInt32.computeInt32SizeNoTag()
       }
       serialize_size += dataSizeRepeatedInt32
-      serialize_size += 2 * Int32(repeatedInt32.count)
+      if !repeatedInt32.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedInt32.computeInt32SizeNoTag()
+      }
+      repeatedInt32MemoizedSerializedSize = dataSizeRepeatedInt32
       var dataSizeRepeatedInt64:Int32 = 0
       for oneValuerepeatedInt64 in repeatedInt64 {
           dataSizeRepeatedInt64 += oneValuerepeatedInt64.computeInt64SizeNoTag()
       }
       serialize_size += dataSizeRepeatedInt64
-      serialize_size += 2 * Int32(repeatedInt64.count)
+      if !repeatedInt64.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedInt64.computeInt32SizeNoTag()
+      }
+      repeatedInt64MemoizedSerializedSize = dataSizeRepeatedInt64
       var dataSizeRepeatedUint32:Int32 = 0
       for oneValuerepeatedUint32 in repeatedUint32 {
           dataSizeRepeatedUint32 += oneValuerepeatedUint32.computeUInt32SizeNoTag()
       }
       serialize_size += dataSizeRepeatedUint32
-      serialize_size += 2 * Int32(repeatedUint32.count)
+      if !repeatedUint32.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedUint32.computeInt32SizeNoTag()
+      }
+      repeatedUint32MemoizedSerializedSize = dataSizeRepeatedUint32
       var dataSizeRepeatedUint64:Int32 = 0
       for oneValuerepeatedUint64 in repeatedUint64 {
           dataSizeRepeatedUint64 += oneValuerepeatedUint64.computeUInt64SizeNoTag()
       }
       serialize_size += dataSizeRepeatedUint64
-      serialize_size += 2 * Int32(repeatedUint64.count)
+      if !repeatedUint64.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedUint64.computeInt32SizeNoTag()
+      }
+      repeatedUint64MemoizedSerializedSize = dataSizeRepeatedUint64
       var dataSizeRepeatedSint32:Int32 = 0
       for oneValuerepeatedSint32 in repeatedSint32 {
           dataSizeRepeatedSint32 += oneValuerepeatedSint32.computeSInt32SizeNoTag()
       }
       serialize_size += dataSizeRepeatedSint32
-      serialize_size += 2 * Int32(repeatedSint32.count)
+      if !repeatedSint32.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedSint32.computeInt32SizeNoTag()
+      }
+      repeatedSint32MemoizedSerializedSize = dataSizeRepeatedSint32
       var dataSizeRepeatedSint64:Int32 = 0
       for oneValuerepeatedSint64 in repeatedSint64 {
           dataSizeRepeatedSint64 += oneValuerepeatedSint64.computeSInt64SizeNoTag()
       }
       serialize_size += dataSizeRepeatedSint64
-      serialize_size += 2 * Int32(repeatedSint64.count)
+      if !repeatedSint64.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedSint64.computeInt32SizeNoTag()
+      }
+      repeatedSint64MemoizedSerializedSize = dataSizeRepeatedSint64
       var dataSizeRepeatedFixed32:Int32 = 0
       dataSizeRepeatedFixed32 = 4 * Int32(repeatedFixed32.count)
       serialize_size += dataSizeRepeatedFixed32
-      serialize_size += 2 * Int32(repeatedFixed32.count)
+      if !repeatedFixed32.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedFixed32.computeInt32SizeNoTag()
+      }
+      repeatedFixed32MemoizedSerializedSize = dataSizeRepeatedFixed32
       var dataSizeRepeatedFixed64:Int32 = 0
       dataSizeRepeatedFixed64 = 8 * Int32(repeatedFixed64.count)
       serialize_size += dataSizeRepeatedFixed64
-      serialize_size += 2 * Int32(repeatedFixed64.count)
+      if !repeatedFixed64.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedFixed64.computeInt32SizeNoTag()
+      }
+      repeatedFixed64MemoizedSerializedSize = dataSizeRepeatedFixed64
       var dataSizeRepeatedSfixed32:Int32 = 0
       dataSizeRepeatedSfixed32 = 4 * Int32(repeatedSfixed32.count)
       serialize_size += dataSizeRepeatedSfixed32
-      serialize_size += 2 * Int32(repeatedSfixed32.count)
+      if !repeatedSfixed32.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedSfixed32.computeInt32SizeNoTag()
+      }
+      repeatedSfixed32MemoizedSerializedSize = dataSizeRepeatedSfixed32
       var dataSizeRepeatedSfixed64:Int32 = 0
       dataSizeRepeatedSfixed64 = 8 * Int32(repeatedSfixed64.count)
       serialize_size += dataSizeRepeatedSfixed64
-      serialize_size += 2 * Int32(repeatedSfixed64.count)
+      if !repeatedSfixed64.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedSfixed64.computeInt32SizeNoTag()
+      }
+      repeatedSfixed64MemoizedSerializedSize = dataSizeRepeatedSfixed64
       var dataSizeRepeatedFloat:Int32 = 0
       dataSizeRepeatedFloat = 4 * Int32(repeatedFloat.count)
       serialize_size += dataSizeRepeatedFloat
-      serialize_size += 2 * Int32(repeatedFloat.count)
+      if !repeatedFloat.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedFloat.computeInt32SizeNoTag()
+      }
+      repeatedFloatMemoizedSerializedSize = dataSizeRepeatedFloat
       var dataSizeRepeatedDouble:Int32 = 0
       dataSizeRepeatedDouble = 8 * Int32(repeatedDouble.count)
       serialize_size += dataSizeRepeatedDouble
-      serialize_size += 2 * Int32(repeatedDouble.count)
+      if !repeatedDouble.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedDouble.computeInt32SizeNoTag()
+      }
+      repeatedDoubleMemoizedSerializedSize = dataSizeRepeatedDouble
       var dataSizeRepeatedBool:Int32 = 0
       dataSizeRepeatedBool = 1 * Int32(repeatedBool.count)
       serialize_size += dataSizeRepeatedBool
-      serialize_size += 2 * Int32(repeatedBool.count)
+      if !repeatedBool.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizeRepeatedBool.computeInt32SizeNoTag()
+      }
+      repeatedBoolMemoizedSerializedSize = dataSizeRepeatedBool
       var dataSizeRepeatedString:Int32 = 0
       for oneValuerepeatedString in repeatedString {
           dataSizeRepeatedString += oneValuerepeatedString.computeStringSizeNoTag()
@@ -3234,52 +3329,52 @@ public extension Proto3ArenaUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             optionalInt32 = try input.readInt32()
 
-          case 16 :
+          case 16:
             optionalInt64 = try input.readInt64()
 
-          case 24 :
+          case 24:
             optionalUint32 = try input.readUInt32()
 
-          case 32 :
+          case 32:
             optionalUint64 = try input.readUInt64()
 
-          case 40 :
+          case 40:
             optionalSint32 = try input.readSInt32()
 
-          case 48 :
+          case 48:
             optionalSint64 = try input.readSInt64()
 
-          case 61 :
+          case 61:
             optionalFixed32 = try input.readFixed32()
 
-          case 65 :
+          case 65:
             optionalFixed64 = try input.readFixed64()
 
-          case 77 :
+          case 77:
             optionalSfixed32 = try input.readSFixed32()
 
-          case 81 :
+          case 81:
             optionalSfixed64 = try input.readSFixed64()
 
-          case 93 :
+          case 93:
             optionalFloat = try input.readFloat()
 
-          case 97 :
+          case 97:
             optionalDouble = try input.readDouble()
 
-          case 104 :
+          case 104:
             optionalBool = try input.readBool()
 
-          case 114 :
+          case 114:
             optionalString = try input.readString()
 
-          case 122 :
+          case 122:
             optionalBytes = try input.readData()
 
-          case 146 :
+          case 146:
             let subBuilder:Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalNestedMessage {
               try subBuilder.mergeFrom(optionalNestedMessage)
@@ -3287,7 +3382,7 @@ public extension Proto3ArenaUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalNestedMessage = subBuilder.buildPartial()
 
-          case 154 :
+          case 154:
             let subBuilder:Proto3ArenaUnittest.ForeignMessage.Builder = Proto3ArenaUnittest.ForeignMessage.Builder()
             if hasOptionalForeignMessage {
               try subBuilder.mergeFrom(optionalForeignMessage)
@@ -3295,7 +3390,7 @@ public extension Proto3ArenaUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalForeignMessage = subBuilder.buildPartial()
 
-          case 162 :
+          case 162:
             let subBuilder:ProtobufUnittestImport.ImportMessage.Builder = ProtobufUnittestImport.ImportMessage.Builder()
             if hasOptionalImportMessage {
               try subBuilder.mergeFrom(optionalImportMessage)
@@ -3303,7 +3398,7 @@ public extension Proto3ArenaUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalImportMessage = subBuilder.buildPartial()
 
-          case 168 :
+          case 168:
             let valueIntoptionalNestedEnum = try input.readEnum()
             if let enumsoptionalNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
                  optionalNestedEnum = enumsoptionalNestedEnum
@@ -3311,7 +3406,7 @@ public extension Proto3ArenaUnittest {
                  try unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
             }
 
-          case 176 :
+          case 176:
             let valueIntoptionalForeignEnum = try input.readEnum()
             if let enumsoptionalForeignEnum = Proto3ArenaUnittest.ForeignEnum(rawValue:valueIntoptionalForeignEnum){
                  optionalForeignEnum = enumsoptionalForeignEnum
@@ -3319,13 +3414,13 @@ public extension Proto3ArenaUnittest {
                  try unknownFieldsBuilder.mergeVarintField(22, value:Int64(valueIntoptionalForeignEnum))
             }
 
-          case 194 :
+          case 194:
             optionalStringPiece = try input.readString()
 
-          case 202 :
+          case 202:
             optionalCord = try input.readString()
 
-          case 210 :
+          case 210:
             let subBuilder:ProtobufUnittestImport.PublicImportMessage.Builder = ProtobufUnittestImport.PublicImportMessage.Builder()
             if hasOptionalPublicImportMessage {
               try subBuilder.mergeFrom(optionalPublicImportMessage)
@@ -3333,7 +3428,7 @@ public extension Proto3ArenaUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalPublicImportMessage = subBuilder.buildPartial()
 
-          case 218 :
+          case 218:
             let subBuilder:Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalLazyMessage {
               try subBuilder.mergeFrom(optionalLazyMessage)
@@ -3341,67 +3436,132 @@ public extension Proto3ArenaUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalLazyMessage = subBuilder.buildPartial()
 
-          case 250 :
-            repeatedInt32 += [try input.readInt32()]
+          case 250:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedInt32 += [try input.readInt32()]
+            }
+            input.popLimit(limit)
 
-          case 258 :
-            repeatedInt64 += [try input.readInt64()]
+          case 258:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedInt64 += [try input.readInt64()]
+            }
+            input.popLimit(limit)
 
-          case 266 :
-            repeatedUint32 += [try input.readUInt32()]
+          case 266:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedUint32 += [try input.readUInt32()]
+            }
+            input.popLimit(limit)
 
-          case 274 :
-            repeatedUint64 += [try input.readUInt64()]
+          case 274:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedUint64 += [try input.readUInt64()]
+            }
+            input.popLimit(limit)
 
-          case 282 :
-            repeatedSint32 += [try input.readSInt32()]
+          case 282:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedSint32 += [try input.readSInt32()]
+            }
+            input.popLimit(limit)
 
-          case 290 :
-            repeatedSint64 += [try input.readSInt64()]
+          case 290:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedSint64 += [try input.readSInt64()]
+            }
+            input.popLimit(limit)
 
-          case 298 :
-            repeatedFixed32 += [try input.readFixed32()]
+          case 298:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedFixed32 += [try input.readFixed32()]
+            }
+            input.popLimit(limit)
 
-          case 306 :
-            repeatedFixed64 += [try input.readFixed64()]
+          case 306:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedFixed64 += [try input.readFixed64()]
+            }
+            input.popLimit(limit)
 
-          case 314 :
-            repeatedSfixed32 += [try input.readSFixed32()]
+          case 314:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedSfixed32 += [try input.readSFixed32()]
+            }
+            input.popLimit(limit)
 
-          case 322 :
-            repeatedSfixed64 += [try input.readSFixed64()]
+          case 322:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedSfixed64 += [try input.readSFixed64()]
+            }
+            input.popLimit(limit)
 
-          case 330 :
-            repeatedFloat += [try input.readFloat()]
+          case 330:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedFloat += [try input.readFloat()]
+            }
+            input.popLimit(limit)
 
-          case 338 :
-            repeatedDouble += [try input.readDouble()]
+          case 338:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedDouble += [try input.readDouble()]
+            }
+            input.popLimit(limit)
 
-          case 346 :
-            repeatedBool += [try input.readBool()]
+          case 346:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedBool += [try input.readBool()]
+            }
+            input.popLimit(limit)
 
-          case 354 :
+          case 354:
             repeatedString += [try input.readString()]
 
-          case 362 :
+          case 362:
             repeatedBytes += [try input.readData()]
 
-          case 386 :
+          case 386:
             let subBuilder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedNestedMessage += [subBuilder.buildPartial()]
 
-          case 394 :
+          case 394:
             let subBuilder = Proto3ArenaUnittest.ForeignMessage.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedForeignMessage += [subBuilder.buildPartial()]
 
-          case 402 :
+          case 402:
             let subBuilder = ProtobufUnittestImport.ImportMessage.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedImportMessage += [subBuilder.buildPartial()]
 
-          case 410 :
+          case 408:
             let valueIntrepeatedNestedEnum = try input.readEnum()
             if let enumsrepeatedNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
@@ -3409,7 +3569,7 @@ public extension Proto3ArenaUnittest {
                  try unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
             }
 
-          case 418 :
+          case 416:
             let valueIntrepeatedForeignEnum = try input.readEnum()
             if let enumsrepeatedForeignEnum = Proto3ArenaUnittest.ForeignEnum(rawValue:valueIntrepeatedForeignEnum) {
                  builderResult.repeatedForeignEnum += [enumsrepeatedForeignEnum]
@@ -3417,21 +3577,21 @@ public extension Proto3ArenaUnittest {
                  try unknownFieldsBuilder.mergeVarintField(52, value:Int64(valueIntrepeatedForeignEnum))
             }
 
-          case 434 :
+          case 434:
             repeatedStringPiece += [try input.readString()]
 
-          case 442 :
+          case 442:
             repeatedCord += [try input.readString()]
 
-          case 458 :
+          case 458:
             let subBuilder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedLazyMessage += [subBuilder.buildPartial()]
 
-          case 888 :
+          case 888:
             oneofUint32 = try input.readUInt32()
 
-          case 898 :
+          case 898:
             let subBuilder:Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOneofNestedMessage {
               try subBuilder.mergeFrom(oneofNestedMessage)
@@ -3439,10 +3599,10 @@ public extension Proto3ArenaUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             oneofNestedMessage = subBuilder.buildPartial()
 
-          case 906 :
+          case 906:
             oneofString = try input.readString()
 
-          case 914 :
+          case 914:
             oneofBytes = try input.readData()
 
           default:
@@ -4593,7 +4753,7 @@ public extension Proto3ArenaUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 722 :
+          case 722:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4601,7 +4761,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 730 :
+          case 730:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4609,7 +4769,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 738 :
+          case 738:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4617,7 +4777,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 746 :
+          case 746:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4625,7 +4785,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 754 :
+          case 754:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4633,7 +4793,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 762 :
+          case 762:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4641,7 +4801,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 770 :
+          case 770:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4649,7 +4809,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 778 :
+          case 778:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4657,7 +4817,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 786 :
+          case 786:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4665,7 +4825,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 794 :
+          case 794:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4673,7 +4833,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 802 :
+          case 802:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4681,7 +4841,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 810 :
+          case 810:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4689,7 +4849,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 818 :
+          case 818:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -4697,7 +4857,7 @@ public extension Proto3ArenaUnittest {
             }
             input.popLimit(limit)
 
-          case 826 :
+          case 826:
             let length:Int32 = try input.readRawVarint32()
             let oldLimit:Int32 = try input.pushLimit(length)
             while input.bytesUntilLimit() > 0 {
@@ -4831,18 +4991,31 @@ public extension Proto3ArenaUnittest {
   // Explicitly set packed to false
   final public class TestUnpackedTypes : GeneratedMessage, GeneratedMessageProtocol {
     public private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
+    private var repeatedInt32MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedInt64:Array<Int64> = Array<Int64>()
+    private var repeatedInt64MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
+    private var repeatedUint32MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedUint64:Array<UInt64> = Array<UInt64>()
+    private var repeatedUint64MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedSint32:Array<Int32> = Array<Int32>()
+    private var repeatedSint32MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedSint64:Array<Int64> = Array<Int64>()
+    private var repeatedSint64MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedFixed32:Array<UInt32> = Array<UInt32>()
+    private var repeatedFixed32MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedFixed64:Array<UInt64> = Array<UInt64>()
+    private var repeatedFixed64MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedSfixed32:Array<Int32> = Array<Int32>()
+    private var repeatedSfixed32MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedSfixed64:Array<Int64> = Array<Int64>()
+    private var repeatedSfixed64MemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedFloat:Array<Float> = Array<Float>()
+    private var repeatedFloatMemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedDouble:Array<Double> = Array<Double>()
+    private var repeatedDoubleMemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedBool:Array<Bool> = Array<Bool>()
+    private var repeatedBoolMemoizedSerializedSize:Int32 = -1
     private var repeatedNestedEnumMemoizedSerializedSize:Int32 = 0
     public private(set) var repeatedNestedEnum:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum> = Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum>()
     required public init() {
@@ -4853,68 +5026,94 @@ public extension Proto3ArenaUnittest {
     }
     override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
       if !repeatedInt32.isEmpty {
+        try output.writeRawVarint32(8)
+        try output.writeRawVarint32(repeatedInt32MemoizedSerializedSize)
         for oneValuerepeatedInt32 in repeatedInt32 {
-          try output.writeInt32(1, value:oneValuerepeatedInt32)
+          try output.writeInt32NoTag(oneValuerepeatedInt32)
         }
       }
       if !repeatedInt64.isEmpty {
+        try output.writeRawVarint32(16)
+        try output.writeRawVarint32(repeatedInt64MemoizedSerializedSize)
         for oneValuerepeatedInt64 in repeatedInt64 {
-          try output.writeInt64(2, value:oneValuerepeatedInt64)
+          try output.writeInt64NoTag(oneValuerepeatedInt64)
         }
       }
       if !repeatedUint32.isEmpty {
+        try output.writeRawVarint32(24)
+        try output.writeRawVarint32(repeatedUint32MemoizedSerializedSize)
         for oneValuerepeatedUint32 in repeatedUint32 {
-          try output.writeUInt32(3, value:oneValuerepeatedUint32)
+          try output.writeUInt32NoTag(oneValuerepeatedUint32)
         }
       }
       if !repeatedUint64.isEmpty {
+        try output.writeRawVarint32(32)
+        try output.writeRawVarint32(repeatedUint64MemoizedSerializedSize)
         for oneValuerepeatedUint64 in repeatedUint64 {
-          try output.writeUInt64(4, value:oneValuerepeatedUint64)
+          try output.writeUInt64NoTag(oneValuerepeatedUint64)
         }
       }
       if !repeatedSint32.isEmpty {
+        try output.writeRawVarint32(40)
+        try output.writeRawVarint32(repeatedSint32MemoizedSerializedSize)
         for oneValuerepeatedSint32 in repeatedSint32 {
-          try output.writeSInt32(5, value:oneValuerepeatedSint32)
+          try output.writeSInt32NoTag(oneValuerepeatedSint32)
         }
       }
       if !repeatedSint64.isEmpty {
+        try output.writeRawVarint32(48)
+        try output.writeRawVarint32(repeatedSint64MemoizedSerializedSize)
         for oneValuerepeatedSint64 in repeatedSint64 {
-          try output.writeSInt64(6, value:oneValuerepeatedSint64)
+          try output.writeSInt64NoTag(oneValuerepeatedSint64)
         }
       }
       if !repeatedFixed32.isEmpty {
+        try output.writeRawVarint32(61)
+        try output.writeRawVarint32(repeatedFixed32MemoizedSerializedSize)
         for oneValuerepeatedFixed32 in repeatedFixed32 {
-          try output.writeFixed32(7, value:oneValuerepeatedFixed32)
+          try output.writeFixed32NoTag(oneValuerepeatedFixed32)
         }
       }
       if !repeatedFixed64.isEmpty {
+        try output.writeRawVarint32(65)
+        try output.writeRawVarint32(repeatedFixed64MemoizedSerializedSize)
         for oneValuerepeatedFixed64 in repeatedFixed64 {
-          try output.writeFixed64(8, value:oneValuerepeatedFixed64)
+          try output.writeFixed64NoTag(oneValuerepeatedFixed64)
         }
       }
       if !repeatedSfixed32.isEmpty {
+        try output.writeRawVarint32(77)
+        try output.writeRawVarint32(repeatedSfixed32MemoizedSerializedSize)
         for oneValuerepeatedSfixed32 in repeatedSfixed32 {
-          try output.writeSFixed32(9, value:oneValuerepeatedSfixed32)
+          try output.writeSFixed32NoTag(oneValuerepeatedSfixed32)
         }
       }
       if !repeatedSfixed64.isEmpty {
+        try output.writeRawVarint32(81)
+        try output.writeRawVarint32(repeatedSfixed64MemoizedSerializedSize)
         for oneValuerepeatedSfixed64 in repeatedSfixed64 {
-          try output.writeSFixed64(10, value:oneValuerepeatedSfixed64)
+          try output.writeSFixed64NoTag(oneValuerepeatedSfixed64)
         }
       }
       if !repeatedFloat.isEmpty {
+        try output.writeRawVarint32(93)
+        try output.writeRawVarint32(repeatedFloatMemoizedSerializedSize)
         for oneValuerepeatedFloat in repeatedFloat {
-          try output.writeFloat(11, value:oneValuerepeatedFloat)
+          try output.writeFloatNoTag(oneValuerepeatedFloat)
         }
       }
       if !repeatedDouble.isEmpty {
+        try output.writeRawVarint32(97)
+        try output.writeRawVarint32(repeatedDoubleMemoizedSerializedSize)
         for oneValuerepeatedDouble in repeatedDouble {
-          try output.writeDouble(12, value:oneValuerepeatedDouble)
+          try output.writeDoubleNoTag(oneValuerepeatedDouble)
         }
       }
       if !repeatedBool.isEmpty {
+        try output.writeRawVarint32(104)
+        try output.writeRawVarint32(repeatedBoolMemoizedSerializedSize)
         for oneValuerepeatedBool in repeatedBool {
-          try output.writeBool(13, value:oneValuerepeatedBool)
+          try output.writeBoolNoTag(oneValuerepeatedBool)
         }
       }
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
@@ -4934,65 +5133,117 @@ public extension Proto3ArenaUnittest {
           dataSizeRepeatedInt32 += oneValuerepeatedInt32.computeInt32SizeNoTag()
       }
       serialize_size += dataSizeRepeatedInt32
-      serialize_size += 1 * Int32(repeatedInt32.count)
+      if !repeatedInt32.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedInt32.computeInt32SizeNoTag()
+      }
+      repeatedInt32MemoizedSerializedSize = dataSizeRepeatedInt32
       var dataSizeRepeatedInt64:Int32 = 0
       for oneValuerepeatedInt64 in repeatedInt64 {
           dataSizeRepeatedInt64 += oneValuerepeatedInt64.computeInt64SizeNoTag()
       }
       serialize_size += dataSizeRepeatedInt64
-      serialize_size += 1 * Int32(repeatedInt64.count)
+      if !repeatedInt64.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedInt64.computeInt32SizeNoTag()
+      }
+      repeatedInt64MemoizedSerializedSize = dataSizeRepeatedInt64
       var dataSizeRepeatedUint32:Int32 = 0
       for oneValuerepeatedUint32 in repeatedUint32 {
           dataSizeRepeatedUint32 += oneValuerepeatedUint32.computeUInt32SizeNoTag()
       }
       serialize_size += dataSizeRepeatedUint32
-      serialize_size += 1 * Int32(repeatedUint32.count)
+      if !repeatedUint32.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedUint32.computeInt32SizeNoTag()
+      }
+      repeatedUint32MemoizedSerializedSize = dataSizeRepeatedUint32
       var dataSizeRepeatedUint64:Int32 = 0
       for oneValuerepeatedUint64 in repeatedUint64 {
           dataSizeRepeatedUint64 += oneValuerepeatedUint64.computeUInt64SizeNoTag()
       }
       serialize_size += dataSizeRepeatedUint64
-      serialize_size += 1 * Int32(repeatedUint64.count)
+      if !repeatedUint64.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedUint64.computeInt32SizeNoTag()
+      }
+      repeatedUint64MemoizedSerializedSize = dataSizeRepeatedUint64
       var dataSizeRepeatedSint32:Int32 = 0
       for oneValuerepeatedSint32 in repeatedSint32 {
           dataSizeRepeatedSint32 += oneValuerepeatedSint32.computeSInt32SizeNoTag()
       }
       serialize_size += dataSizeRepeatedSint32
-      serialize_size += 1 * Int32(repeatedSint32.count)
+      if !repeatedSint32.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedSint32.computeInt32SizeNoTag()
+      }
+      repeatedSint32MemoizedSerializedSize = dataSizeRepeatedSint32
       var dataSizeRepeatedSint64:Int32 = 0
       for oneValuerepeatedSint64 in repeatedSint64 {
           dataSizeRepeatedSint64 += oneValuerepeatedSint64.computeSInt64SizeNoTag()
       }
       serialize_size += dataSizeRepeatedSint64
-      serialize_size += 1 * Int32(repeatedSint64.count)
+      if !repeatedSint64.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedSint64.computeInt32SizeNoTag()
+      }
+      repeatedSint64MemoizedSerializedSize = dataSizeRepeatedSint64
       var dataSizeRepeatedFixed32:Int32 = 0
       dataSizeRepeatedFixed32 = 4 * Int32(repeatedFixed32.count)
       serialize_size += dataSizeRepeatedFixed32
-      serialize_size += 1 * Int32(repeatedFixed32.count)
+      if !repeatedFixed32.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedFixed32.computeInt32SizeNoTag()
+      }
+      repeatedFixed32MemoizedSerializedSize = dataSizeRepeatedFixed32
       var dataSizeRepeatedFixed64:Int32 = 0
       dataSizeRepeatedFixed64 = 8 * Int32(repeatedFixed64.count)
       serialize_size += dataSizeRepeatedFixed64
-      serialize_size += 1 * Int32(repeatedFixed64.count)
+      if !repeatedFixed64.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedFixed64.computeInt32SizeNoTag()
+      }
+      repeatedFixed64MemoizedSerializedSize = dataSizeRepeatedFixed64
       var dataSizeRepeatedSfixed32:Int32 = 0
       dataSizeRepeatedSfixed32 = 4 * Int32(repeatedSfixed32.count)
       serialize_size += dataSizeRepeatedSfixed32
-      serialize_size += 1 * Int32(repeatedSfixed32.count)
+      if !repeatedSfixed32.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedSfixed32.computeInt32SizeNoTag()
+      }
+      repeatedSfixed32MemoizedSerializedSize = dataSizeRepeatedSfixed32
       var dataSizeRepeatedSfixed64:Int32 = 0
       dataSizeRepeatedSfixed64 = 8 * Int32(repeatedSfixed64.count)
       serialize_size += dataSizeRepeatedSfixed64
-      serialize_size += 1 * Int32(repeatedSfixed64.count)
+      if !repeatedSfixed64.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedSfixed64.computeInt32SizeNoTag()
+      }
+      repeatedSfixed64MemoizedSerializedSize = dataSizeRepeatedSfixed64
       var dataSizeRepeatedFloat:Int32 = 0
       dataSizeRepeatedFloat = 4 * Int32(repeatedFloat.count)
       serialize_size += dataSizeRepeatedFloat
-      serialize_size += 1 * Int32(repeatedFloat.count)
+      if !repeatedFloat.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedFloat.computeInt32SizeNoTag()
+      }
+      repeatedFloatMemoizedSerializedSize = dataSizeRepeatedFloat
       var dataSizeRepeatedDouble:Int32 = 0
       dataSizeRepeatedDouble = 8 * Int32(repeatedDouble.count)
       serialize_size += dataSizeRepeatedDouble
-      serialize_size += 1 * Int32(repeatedDouble.count)
+      if !repeatedDouble.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedDouble.computeInt32SizeNoTag()
+      }
+      repeatedDoubleMemoizedSerializedSize = dataSizeRepeatedDouble
       var dataSizeRepeatedBool:Int32 = 0
       dataSizeRepeatedBool = 1 * Int32(repeatedBool.count)
       serialize_size += dataSizeRepeatedBool
-      serialize_size += 1 * Int32(repeatedBool.count)
+      if !repeatedBool.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizeRepeatedBool.computeInt32SizeNoTag()
+      }
+      repeatedBoolMemoizedSerializedSize = dataSizeRepeatedBool
       var dataSizerepeatedNestedEnum:Int32 = 0
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
           dataSizerepeatedNestedEnum += oneValueOfrepeatedNestedEnum.rawValue.computeEnumSizeNoTag()
@@ -5610,46 +5861,111 @@ public extension Proto3ArenaUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
-            repeatedInt32 += [try input.readInt32()]
+          case 10:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedInt32 += [try input.readInt32()]
+            }
+            input.popLimit(limit)
 
-          case 16 :
-            repeatedInt64 += [try input.readInt64()]
+          case 18:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedInt64 += [try input.readInt64()]
+            }
+            input.popLimit(limit)
 
-          case 24 :
-            repeatedUint32 += [try input.readUInt32()]
+          case 26:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedUint32 += [try input.readUInt32()]
+            }
+            input.popLimit(limit)
 
-          case 32 :
-            repeatedUint64 += [try input.readUInt64()]
+          case 34:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedUint64 += [try input.readUInt64()]
+            }
+            input.popLimit(limit)
 
-          case 40 :
-            repeatedSint32 += [try input.readSInt32()]
+          case 42:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedSint32 += [try input.readSInt32()]
+            }
+            input.popLimit(limit)
 
-          case 48 :
-            repeatedSint64 += [try input.readSInt64()]
+          case 50:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedSint64 += [try input.readSInt64()]
+            }
+            input.popLimit(limit)
 
-          case 61 :
-            repeatedFixed32 += [try input.readFixed32()]
+          case 58:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedFixed32 += [try input.readFixed32()]
+            }
+            input.popLimit(limit)
 
-          case 65 :
-            repeatedFixed64 += [try input.readFixed64()]
+          case 66:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedFixed64 += [try input.readFixed64()]
+            }
+            input.popLimit(limit)
 
-          case 77 :
-            repeatedSfixed32 += [try input.readSFixed32()]
+          case 74:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedSfixed32 += [try input.readSFixed32()]
+            }
+            input.popLimit(limit)
 
-          case 81 :
-            repeatedSfixed64 += [try input.readSFixed64()]
+          case 82:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedSfixed64 += [try input.readSFixed64()]
+            }
+            input.popLimit(limit)
 
-          case 93 :
-            repeatedFloat += [try input.readFloat()]
+          case 90:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedFloat += [try input.readFloat()]
+            }
+            input.popLimit(limit)
 
-          case 97 :
-            repeatedDouble += [try input.readDouble()]
+          case 98:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedDouble += [try input.readDouble()]
+            }
+            input.popLimit(limit)
 
-          case 104 :
-            repeatedBool += [try input.readBool()]
+          case 106:
+            let length:Int32 = try input.readRawVarint32()
+            let limit:Int32 = try input.pushLimit(length)
+            while (input.bytesUntilLimit() > 0) {
+              builderResult.repeatedBool += [try input.readBool()]
+            }
+            input.popLimit(limit)
 
-          case 112 :
+          case 112:
             let valueIntrepeatedNestedEnum = try input.readEnum()
             if let enumsrepeatedNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
@@ -6090,7 +6406,7 @@ public extension Proto3ArenaUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:Proto3ArenaUnittest.NestedTestAllTypes.Builder = Proto3ArenaUnittest.NestedTestAllTypes.Builder()
             if hasChild {
               try subBuilder.mergeFrom(child)
@@ -6098,7 +6414,7 @@ public extension Proto3ArenaUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             child = subBuilder.buildPartial()
 
-          case 18 :
+          case 18:
             let subBuilder:Proto3ArenaUnittest.TestAllTypes.Builder = Proto3ArenaUnittest.TestAllTypes.Builder()
             if hasPayload {
               try subBuilder.mergeFrom(payload)
@@ -6339,7 +6655,7 @@ public extension Proto3ArenaUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             c = try input.readInt32()
 
           default:

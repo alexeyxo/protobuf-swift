@@ -82,12 +82,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         printer->Indent();
-        printer->Print("case $classname$OneOfNotSet\n\n",
+        printer->Print("case OneOf$classname$NotSet\n\n",
                        "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
         
         printer->Print("$acontrol$ func checkOneOfIsSet() -> Bool {\n"
                        "     switch self {\n"
-                       "     case .$name$OneOfNotSet:\n"
+                       "     case .OneOf$classname$NotSet:\n"
                        "          return false\n"
                        "     default:\n"
                        "          return true\n"

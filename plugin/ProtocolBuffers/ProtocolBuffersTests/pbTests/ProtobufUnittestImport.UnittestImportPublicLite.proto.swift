@@ -235,7 +235,7 @@ public extension ProtobufUnittestImport {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             e = try input.readInt32()
 
           default:

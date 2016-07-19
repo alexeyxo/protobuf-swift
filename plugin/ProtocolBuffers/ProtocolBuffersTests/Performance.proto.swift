@@ -401,7 +401,7 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
 
-        case 10 :
+        case 10:
           let subBuilder:PBGroup.Builder = PBGroup.Builder()
           if hasGroup {
             try subBuilder.mergeFrom(group)
@@ -409,7 +409,7 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
           try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
           group = subBuilder.buildPartial()
 
-        case 18 :
+        case 18:
           groupName = try input.readString()
 
         default:
@@ -677,7 +677,7 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
 
-        case 10 :
+        case 10:
           let subBuilder:PBUser.Builder = PBUser.Builder()
           if hasOwner {
             try subBuilder.mergeFrom(owner)
@@ -922,7 +922,7 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
 
-        case 10 :
+        case 10:
           let subBuilder = PBPerfomance.Builder()
           try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
           batch += [subBuilder.buildPartial()]
@@ -1435,25 +1435,25 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
 
-        case 8 :
+        case 8:
           ints = try input.readInt32()
 
-        case 16 :
+        case 16:
           ints64 = try input.readInt64()
 
-        case 25 :
+        case 25:
           doubles = try input.readDouble()
 
-        case 37 :
+        case 37:
           floats = try input.readFloat()
 
-        case 42 :
+        case 42:
           str = try input.readString()
 
-        case 50 :
+        case 50:
           bytes = try input.readData()
 
-        case 58 :
+        case 58:
           description_ = try input.readString()
 
         default:
@@ -1750,10 +1750,10 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
 
-        case 13 :
+        case 13:
           latitude = try input.readFloat()
 
-        case 21 :
+        case 21:
           longitude = try input.readFloat()
 
         default:
@@ -2060,10 +2060,10 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
 
-        case 8 :
+        case 8:
           scoops = try input.readInt32()
 
-        case 16 :
+        case 16:
           let valueIntflavor = try input.readEnum()
           if let enumsflavor = PBIceCreamCone.PBFlavor(rawValue:valueIntflavor){
                flavor = enumsflavor
@@ -2302,7 +2302,7 @@ final public class PBFoo : GeneratedMessage, GeneratedMessageProtocol {
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
 
-        case 8 :
+        case 8:
           val = try input.readInt32()
 
         default:
@@ -2566,7 +2566,7 @@ final public class PBBar : GeneratedMessage, GeneratedMessageProtocol {
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
 
-        case 10 :
+        case 10:
           let subBuilder:PBFoo.Builder = PBFoo.Builder()
           if hasFoo {
             try subBuilder.mergeFrom(foo)
@@ -2836,7 +2836,7 @@ final public class PBBaz : GeneratedMessage, GeneratedMessageProtocol {
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
 
-        case 10 :
+        case 10:
           let subBuilder:PBBar.Builder = PBBar.Builder()
           if hasBar {
             try subBuilder.mergeFrom(bar)

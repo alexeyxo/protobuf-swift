@@ -325,10 +325,10 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             seconds = try input.readInt64()
 
-          case 16 :
+          case 16:
             nanos = try input.readInt32()
 
           default:

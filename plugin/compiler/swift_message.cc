@@ -246,7 +246,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
             string classNames = ClassNameOneof(descriptor_->oneof_decl(i));
             OneofGenerator(descriptor_->oneof_decl(i)).GenerateSource(printer);
-            printer->Print("private var storage$storageName$:$classname$ =  $classname$.$storageName$OneOfNotSet\n",
+            printer->Print("private var storage$storageName$:$classname$ =  $classname$.OneOf$storageName$NotSet\n",
+                           "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
+                           "classname", classNames);
+            printer->Print("$acontrol$ func getOneOf$storageName$() ->  $classname$ {\n"
+                           "    let copyObject$storageName$ = storage$storageName$\n"
+                           "    return copyObject$storageName$\n"
+                           "}\n",
+                           "acontrol", GetAccessControlType(descriptor_->file()),
                            "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
                            "classname", classNames);
         }
@@ -841,9 +848,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         for (int i = 0; i < descriptor_->field_count(); i++) {
             const FieldDescriptor* field = sorted_fields[i];
             uint32 tag = WireFormatLite::MakeTag(field->number(),
-                                                 WireFormat::WireTypeForField(field));
+                                                 WireFormat::WireTypeForFieldType(field->type()));
             
-            printer->Print("case $tag$ :\n",
+            if (field->options().packed() || (isPackedTypeProto3(field) && field->is_repeated())) {
+                tag = WireFormatLite::MakeTag(field->number(),
+                                              WireFormatLite::WIRETYPE_LENGTH_DELIMITED);
+            }
+            
+            printer->Print("case $tag$:\n",
                            "tag", SimpleItoa(tag));
             
             printer->Indent();

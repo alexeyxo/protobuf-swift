@@ -2521,7 +2521,7 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 bb = try input.readInt32()
 
               default:
@@ -2756,7 +2756,7 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 136 :
+              case 136:
                 a = try input.readInt32()
 
               default:
@@ -2991,7 +2991,7 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 376 :
+              case 376:
                 a = try input.readInt32()
 
               default:
@@ -3028,11 +3028,11 @@ public extension ProtobufUnittest {
 
     // For oneof test
     public enum OneofField {
-      case OneofFieldOneOfNotSet
+      case OneOfOneofFieldNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .OneofFieldOneOfNotSet:
+           case .OneOfOneofFieldNotSet:
                 return false
            default:
                 return true
@@ -3081,7 +3081,11 @@ public extension ProtobufUnittest {
     }
     //OneOf declaration end
 
-    private var storageOneofField:TestAllTypes.OneofField =  TestAllTypes.OneofField.OneofFieldOneOfNotSet
+    private var storageOneofField:TestAllTypes.OneofField =  TestAllTypes.OneofField.OneOfOneofFieldNotSet
+    public func getOneOfOneofField() ->  TestAllTypes.OneofField {
+        let copyObjectOneofField = storageOneofField
+        return copyObjectOneofField
+    }
 
 
       //Enum type declaration start 
@@ -3283,10 +3287,10 @@ public extension ProtobufUnittest {
 
     public private(set) var hasOneofUint32:Bool {
           get {
-               if TestAllTypes.OneofField.getOneofUint32(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypes.OneofField.getOneofUint32(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -3301,10 +3305,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasOneofNestedMessage:Bool {
           get {
-               if TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -3319,10 +3323,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasOneofString:Bool {
           get {
-               if TestAllTypes.OneofField.getOneofString(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypes.OneofField.getOneofString(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -3337,10 +3341,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasOneofBytes:Bool {
           get {
-               if TestAllTypes.OneofField.getOneofBytes(storageOneofField) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestAllTypes.OneofField.getOneofBytes(storageOneofField) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -6889,52 +6893,52 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             optionalInt32 = try input.readInt32()
 
-          case 16 :
+          case 16:
             optionalInt64 = try input.readInt64()
 
-          case 24 :
+          case 24:
             optionalUint32 = try input.readUInt32()
 
-          case 32 :
+          case 32:
             optionalUint64 = try input.readUInt64()
 
-          case 40 :
+          case 40:
             optionalSint32 = try input.readSInt32()
 
-          case 48 :
+          case 48:
             optionalSint64 = try input.readSInt64()
 
-          case 61 :
+          case 61:
             optionalFixed32 = try input.readFixed32()
 
-          case 65 :
+          case 65:
             optionalFixed64 = try input.readFixed64()
 
-          case 77 :
+          case 77:
             optionalSfixed32 = try input.readSFixed32()
 
-          case 81 :
+          case 81:
             optionalSfixed64 = try input.readSFixed64()
 
-          case 93 :
+          case 93:
             optionalFloat = try input.readFloat()
 
-          case 97 :
+          case 97:
             optionalDouble = try input.readDouble()
 
-          case 104 :
+          case 104:
             optionalBool = try input.readBool()
 
-          case 114 :
+          case 114:
             optionalString = try input.readString()
 
-          case 122 :
+          case 122:
             optionalBytes = try input.readData()
 
-          case 131 :
+          case 131:
             let subBuilder:ProtobufUnittest.TestAllTypes.OptionalGroup.Builder = ProtobufUnittest.TestAllTypes.OptionalGroup.Builder()
             if hasOptionalGroup {
               try subBuilder.mergeFrom(optionalGroup)
@@ -6942,7 +6946,7 @@ public extension ProtobufUnittest {
             try input.readGroup(16, builder:subBuilder, extensionRegistry:extensionRegistry)
             optionalGroup = subBuilder.buildPartial()
 
-          case 146 :
+          case 146:
             let subBuilder:ProtobufUnittest.TestAllTypes.NestedMessage.Builder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalNestedMessage {
               try subBuilder.mergeFrom(optionalNestedMessage)
@@ -6950,7 +6954,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalNestedMessage = subBuilder.buildPartial()
 
-          case 154 :
+          case 154:
             let subBuilder:ProtobufUnittest.ForeignMessage.Builder = ProtobufUnittest.ForeignMessage.Builder()
             if hasOptionalForeignMessage {
               try subBuilder.mergeFrom(optionalForeignMessage)
@@ -6958,7 +6962,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalForeignMessage = subBuilder.buildPartial()
 
-          case 162 :
+          case 162:
             let subBuilder:ProtobufUnittestImport.ImportMessage.Builder = ProtobufUnittestImport.ImportMessage.Builder()
             if hasOptionalImportMessage {
               try subBuilder.mergeFrom(optionalImportMessage)
@@ -6966,7 +6970,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalImportMessage = subBuilder.buildPartial()
 
-          case 168 :
+          case 168:
             let valueIntoptionalNestedEnum = try input.readEnum()
             if let enumsoptionalNestedEnum = ProtobufUnittest.TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
                  optionalNestedEnum = enumsoptionalNestedEnum
@@ -6974,7 +6978,7 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
             }
 
-          case 176 :
+          case 176:
             let valueIntoptionalForeignEnum = try input.readEnum()
             if let enumsoptionalForeignEnum = ProtobufUnittest.ForeignEnum(rawValue:valueIntoptionalForeignEnum){
                  optionalForeignEnum = enumsoptionalForeignEnum
@@ -6982,7 +6986,7 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(22, value:Int64(valueIntoptionalForeignEnum))
             }
 
-          case 184 :
+          case 184:
             let valueIntoptionalImportEnum = try input.readEnum()
             if let enumsoptionalImportEnum = ProtobufUnittestImport.ImportEnum(rawValue:valueIntoptionalImportEnum){
                  optionalImportEnum = enumsoptionalImportEnum
@@ -6990,13 +6994,13 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(23, value:Int64(valueIntoptionalImportEnum))
             }
 
-          case 194 :
+          case 194:
             optionalStringPiece = try input.readString()
 
-          case 202 :
+          case 202:
             optionalCord = try input.readString()
 
-          case 210 :
+          case 210:
             let subBuilder:ProtobufUnittestImport.PublicImportMessage.Builder = ProtobufUnittestImport.PublicImportMessage.Builder()
             if hasOptionalPublicImportMessage {
               try subBuilder.mergeFrom(optionalPublicImportMessage)
@@ -7004,7 +7008,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalPublicImportMessage = subBuilder.buildPartial()
 
-          case 218 :
+          case 218:
             let subBuilder:ProtobufUnittest.TestAllTypes.NestedMessage.Builder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalLazyMessage {
               try subBuilder.mergeFrom(optionalLazyMessage)
@@ -7012,72 +7016,72 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalLazyMessage = subBuilder.buildPartial()
 
-          case 248 :
+          case 248:
             repeatedInt32 += [try input.readInt32()]
 
-          case 256 :
+          case 256:
             repeatedInt64 += [try input.readInt64()]
 
-          case 264 :
+          case 264:
             repeatedUint32 += [try input.readUInt32()]
 
-          case 272 :
+          case 272:
             repeatedUint64 += [try input.readUInt64()]
 
-          case 280 :
+          case 280:
             repeatedSint32 += [try input.readSInt32()]
 
-          case 288 :
+          case 288:
             repeatedSint64 += [try input.readSInt64()]
 
-          case 301 :
+          case 301:
             repeatedFixed32 += [try input.readFixed32()]
 
-          case 305 :
+          case 305:
             repeatedFixed64 += [try input.readFixed64()]
 
-          case 317 :
+          case 317:
             repeatedSfixed32 += [try input.readSFixed32()]
 
-          case 321 :
+          case 321:
             repeatedSfixed64 += [try input.readSFixed64()]
 
-          case 333 :
+          case 333:
             repeatedFloat += [try input.readFloat()]
 
-          case 337 :
+          case 337:
             repeatedDouble += [try input.readDouble()]
 
-          case 344 :
+          case 344:
             repeatedBool += [try input.readBool()]
 
-          case 354 :
+          case 354:
             repeatedString += [try input.readString()]
 
-          case 362 :
+          case 362:
             repeatedBytes += [try input.readData()]
 
-          case 371 :
+          case 371:
             let subBuilder = ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
             try input.readGroup(46,builder:subBuilder,extensionRegistry:extensionRegistry)
             repeatedGroup += [subBuilder.buildPartial()]
 
-          case 386 :
+          case 386:
             let subBuilder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedNestedMessage += [subBuilder.buildPartial()]
 
-          case 394 :
+          case 394:
             let subBuilder = ProtobufUnittest.ForeignMessage.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedForeignMessage += [subBuilder.buildPartial()]
 
-          case 402 :
+          case 402:
             let subBuilder = ProtobufUnittestImport.ImportMessage.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedImportMessage += [subBuilder.buildPartial()]
 
-          case 408 :
+          case 408:
             let valueIntrepeatedNestedEnum = try input.readEnum()
             if let enumsrepeatedNestedEnum = ProtobufUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
@@ -7085,7 +7089,7 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
             }
 
-          case 416 :
+          case 416:
             let valueIntrepeatedForeignEnum = try input.readEnum()
             if let enumsrepeatedForeignEnum = ProtobufUnittest.ForeignEnum(rawValue:valueIntrepeatedForeignEnum) {
                  builderResult.repeatedForeignEnum += [enumsrepeatedForeignEnum]
@@ -7093,7 +7097,7 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(52, value:Int64(valueIntrepeatedForeignEnum))
             }
 
-          case 424 :
+          case 424:
             let valueIntrepeatedImportEnum = try input.readEnum()
             if let enumsrepeatedImportEnum = ProtobufUnittestImport.ImportEnum(rawValue:valueIntrepeatedImportEnum) {
                  builderResult.repeatedImportEnum += [enumsrepeatedImportEnum]
@@ -7101,63 +7105,63 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(53, value:Int64(valueIntrepeatedImportEnum))
             }
 
-          case 434 :
+          case 434:
             repeatedStringPiece += [try input.readString()]
 
-          case 442 :
+          case 442:
             repeatedCord += [try input.readString()]
 
-          case 458 :
+          case 458:
             let subBuilder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedLazyMessage += [subBuilder.buildPartial()]
 
-          case 488 :
+          case 488:
             defaultInt32 = try input.readInt32()
 
-          case 496 :
+          case 496:
             defaultInt64 = try input.readInt64()
 
-          case 504 :
+          case 504:
             defaultUint32 = try input.readUInt32()
 
-          case 512 :
+          case 512:
             defaultUint64 = try input.readUInt64()
 
-          case 520 :
+          case 520:
             defaultSint32 = try input.readSInt32()
 
-          case 528 :
+          case 528:
             defaultSint64 = try input.readSInt64()
 
-          case 541 :
+          case 541:
             defaultFixed32 = try input.readFixed32()
 
-          case 545 :
+          case 545:
             defaultFixed64 = try input.readFixed64()
 
-          case 557 :
+          case 557:
             defaultSfixed32 = try input.readSFixed32()
 
-          case 561 :
+          case 561:
             defaultSfixed64 = try input.readSFixed64()
 
-          case 573 :
+          case 573:
             defaultFloat = try input.readFloat()
 
-          case 577 :
+          case 577:
             defaultDouble = try input.readDouble()
 
-          case 584 :
+          case 584:
             defaultBool = try input.readBool()
 
-          case 594 :
+          case 594:
             defaultString = try input.readString()
 
-          case 602 :
+          case 602:
             defaultBytes = try input.readData()
 
-          case 648 :
+          case 648:
             let valueIntdefaultNestedEnum = try input.readEnum()
             if let enumsdefaultNestedEnum = ProtobufUnittest.TestAllTypes.NestedEnum(rawValue:valueIntdefaultNestedEnum){
                  defaultNestedEnum = enumsdefaultNestedEnum
@@ -7165,7 +7169,7 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(81, value:Int64(valueIntdefaultNestedEnum))
             }
 
-          case 656 :
+          case 656:
             let valueIntdefaultForeignEnum = try input.readEnum()
             if let enumsdefaultForeignEnum = ProtobufUnittest.ForeignEnum(rawValue:valueIntdefaultForeignEnum){
                  defaultForeignEnum = enumsdefaultForeignEnum
@@ -7173,7 +7177,7 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(82, value:Int64(valueIntdefaultForeignEnum))
             }
 
-          case 664 :
+          case 664:
             let valueIntdefaultImportEnum = try input.readEnum()
             if let enumsdefaultImportEnum = ProtobufUnittestImport.ImportEnum(rawValue:valueIntdefaultImportEnum){
                  defaultImportEnum = enumsdefaultImportEnum
@@ -7181,16 +7185,16 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(83, value:Int64(valueIntdefaultImportEnum))
             }
 
-          case 674 :
+          case 674:
             defaultStringPiece = try input.readString()
 
-          case 682 :
+          case 682:
             defaultCord = try input.readString()
 
-          case 888 :
+          case 888:
             oneofUint32 = try input.readUInt32()
 
-          case 898 :
+          case 898:
             let subBuilder:ProtobufUnittest.TestAllTypes.NestedMessage.Builder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOneofNestedMessage {
               try subBuilder.mergeFrom(oneofNestedMessage)
@@ -7198,10 +7202,10 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             oneofNestedMessage = subBuilder.buildPartial()
 
-          case 906 :
+          case 906:
             oneofString = try input.readString()
 
-          case 914 :
+          case 914:
             oneofBytes = try input.readData()
 
           default:
@@ -7915,7 +7919,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.NestedTestAllTypes.Builder = ProtobufUnittest.NestedTestAllTypes.Builder()
             if hasChild {
               try subBuilder.mergeFrom(child)
@@ -7923,7 +7927,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             child = subBuilder.buildPartial()
 
-          case 18 :
+          case 18:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasPayload {
               try subBuilder.mergeFrom(payload)
@@ -7931,7 +7935,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             payload = subBuilder.buildPartial()
 
-          case 26 :
+          case 26:
             let subBuilder = ProtobufUnittest.NestedTestAllTypes.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedChild += [subBuilder.buildPartial()]
@@ -8176,7 +8180,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             deprecatedInt32 = try input.readInt32()
 
           default:
@@ -8407,7 +8411,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             c = try input.readInt32()
 
           default:
@@ -9002,7 +9006,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 136 :
+          case 136:
             a = try input.readInt32()
 
           default:
@@ -9231,7 +9235,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 376 :
+          case 376:
             a = try input.readInt32()
 
           default:
@@ -11075,103 +11079,103 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             a = try input.readInt32()
 
-          case 16 :
+          case 16:
             dummy2 = try input.readInt32()
 
-          case 24 :
+          case 24:
             b = try input.readInt32()
 
-          case 32 :
+          case 32:
             dummy4 = try input.readInt32()
 
-          case 40 :
+          case 40:
             dummy5 = try input.readInt32()
 
-          case 48 :
+          case 48:
             dummy6 = try input.readInt32()
 
-          case 56 :
+          case 56:
             dummy7 = try input.readInt32()
 
-          case 64 :
+          case 64:
             dummy8 = try input.readInt32()
 
-          case 72 :
+          case 72:
             dummy9 = try input.readInt32()
 
-          case 80 :
+          case 80:
             dummy10 = try input.readInt32()
 
-          case 88 :
+          case 88:
             dummy11 = try input.readInt32()
 
-          case 96 :
+          case 96:
             dummy12 = try input.readInt32()
 
-          case 104 :
+          case 104:
             dummy13 = try input.readInt32()
 
-          case 112 :
+          case 112:
             dummy14 = try input.readInt32()
 
-          case 120 :
+          case 120:
             dummy15 = try input.readInt32()
 
-          case 128 :
+          case 128:
             dummy16 = try input.readInt32()
 
-          case 136 :
+          case 136:
             dummy17 = try input.readInt32()
 
-          case 144 :
+          case 144:
             dummy18 = try input.readInt32()
 
-          case 152 :
+          case 152:
             dummy19 = try input.readInt32()
 
-          case 160 :
+          case 160:
             dummy20 = try input.readInt32()
 
-          case 168 :
+          case 168:
             dummy21 = try input.readInt32()
 
-          case 176 :
+          case 176:
             dummy22 = try input.readInt32()
 
-          case 184 :
+          case 184:
             dummy23 = try input.readInt32()
 
-          case 192 :
+          case 192:
             dummy24 = try input.readInt32()
 
-          case 200 :
+          case 200:
             dummy25 = try input.readInt32()
 
-          case 208 :
+          case 208:
             dummy26 = try input.readInt32()
 
-          case 216 :
+          case 216:
             dummy27 = try input.readInt32()
 
-          case 224 :
+          case 224:
             dummy28 = try input.readInt32()
 
-          case 232 :
+          case 232:
             dummy29 = try input.readInt32()
 
-          case 240 :
+          case 240:
             dummy30 = try input.readInt32()
 
-          case 248 :
+          case 248:
             dummy31 = try input.readInt32()
 
-          case 256 :
+          case 256:
             dummy32 = try input.readInt32()
 
-          case 264 :
+          case 264:
             c = try input.readInt32()
 
           default:
@@ -11634,7 +11638,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestRequired.Builder = ProtobufUnittest.TestRequired.Builder()
             if hasOptionalMessage {
               try subBuilder.mergeFrom(optionalMessage)
@@ -11642,12 +11646,12 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalMessage = subBuilder.buildPartial()
 
-          case 18 :
+          case 18:
             let subBuilder = ProtobufUnittest.TestRequired.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedMessage += [subBuilder.buildPartial()]
 
-          case 24 :
+          case 24:
             dummy = try input.readInt32()
 
           default:
@@ -11925,7 +11929,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestAllTypes.NestedMessage.Builder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
             if hasForeignNested {
               try subBuilder.mergeFrom(foreignNested)
@@ -12769,10 +12773,10 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             a = try input.readInt32()
 
-          case 2147483640 :
+          case 2147483640:
             bb = try input.readInt32()
 
           default:
@@ -13083,7 +13087,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestRecursiveMessage.Builder = ProtobufUnittest.TestRecursiveMessage.Builder()
             if hasA {
               try subBuilder.mergeFrom(a)
@@ -13091,7 +13095,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             a = subBuilder.buildPartial()
 
-          case 16 :
+          case 16:
             i = try input.readInt32()
 
           default:
@@ -13360,7 +13364,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestMutualRecursionB.Builder = ProtobufUnittest.TestMutualRecursionB.Builder()
             if hasBb {
               try subBuilder.mergeFrom(bb)
@@ -13674,7 +13678,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestMutualRecursionA.Builder = ProtobufUnittest.TestMutualRecursionA.Builder()
             if hasA {
               try subBuilder.mergeFrom(a)
@@ -13682,7 +13686,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             a = subBuilder.buildPartial()
 
-          case 16 :
+          case 16:
             optionalInt32 = try input.readInt32()
 
           default:
@@ -13924,7 +13928,7 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 a = try input.readInt32()
 
               default:
@@ -14159,7 +14163,7 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 a = try input.readInt32()
 
               default:
@@ -14548,10 +14552,10 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             a = try input.readInt32()
 
-          case 19 :
+          case 19:
             let subBuilder:ProtobufUnittest.TestDupFieldNumber.Foo.Builder = ProtobufUnittest.TestDupFieldNumber.Foo.Builder()
             if hasFoo {
               try subBuilder.mergeFrom(foo)
@@ -14559,7 +14563,7 @@ public extension ProtobufUnittest {
             try input.readGroup(2, builder:subBuilder, extensionRegistry:extensionRegistry)
             foo = subBuilder.buildPartial()
 
-          case 27 :
+          case 27:
             let subBuilder:ProtobufUnittest.TestDupFieldNumber.Bar.Builder = ProtobufUnittest.TestDupFieldNumber.Bar.Builder()
             if hasBar {
               try subBuilder.mergeFrom(bar)
@@ -14837,7 +14841,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasSubMessage {
               try subBuilder.mergeFrom(subMessage)
@@ -15107,7 +15111,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasSubMessage {
               try subBuilder.mergeFrom(subMessage)
@@ -15394,10 +15398,10 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 nestedmessageRepeatedInt32 += [try input.readInt32()]
 
-              case 18 :
+              case 18:
                 let subBuilder = ProtobufUnittest.ForeignMessage.Builder()
                 try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
                 nestedmessageRepeatedForeignmessage += [subBuilder.buildPartial()]
@@ -15677,7 +15681,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder = ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder()
             if hasOptionalNestedMessage {
               try subBuilder.mergeFrom(optionalNestedMessage)
@@ -16429,13 +16433,13 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             primitiveField = try input.readInt32()
 
-          case 18 :
+          case 18:
             stringField = try input.readString()
 
-          case 24 :
+          case 24:
             let valueIntenumField = try input.readEnum()
             if let enumsenumField = ProtobufUnittest.ForeignEnum(rawValue:valueIntenumField){
                  enumField = enumsenumField
@@ -16443,7 +16447,7 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(3, value:Int64(valueIntenumField))
             }
 
-          case 34 :
+          case 34:
             let subBuilder:ProtobufUnittest.ForeignMessage.Builder = ProtobufUnittest.ForeignMessage.Builder()
             if hasMessageField {
               try subBuilder.mergeFrom(messageField)
@@ -16451,19 +16455,19 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             messageField = subBuilder.buildPartial()
 
-          case 42 :
+          case 42:
             stringPieceField = try input.readString()
 
-          case 50 :
+          case 50:
             cordField = try input.readString()
 
-          case 56 :
+          case 56:
             repeatedPrimitiveField += [try input.readInt32()]
 
-          case 66 :
+          case 66:
             repeatedStringField += [try input.readString()]
 
-          case 72 :
+          case 72:
             let valueIntrepeatedEnumField = try input.readEnum()
             if let enumsrepeatedEnumField = ProtobufUnittest.ForeignEnum(rawValue:valueIntrepeatedEnumField) {
                  builderResult.repeatedEnumField += [enumsrepeatedEnumField]
@@ -16471,15 +16475,15 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(9, value:Int64(valueIntrepeatedEnumField))
             }
 
-          case 82 :
+          case 82:
             let subBuilder = ProtobufUnittest.ForeignMessage.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedMessageField += [subBuilder.buildPartial()]
 
-          case 90 :
+          case 90:
             repeatedStringPieceField += [try input.readString()]
 
-          case 98 :
+          case 98:
             repeatedCordField += [try input.readString()]
 
           default:
@@ -16811,10 +16815,10 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 bb = try input.readInt32()
 
-              case 16 :
+              case 16:
                 oo = try input.readInt64()
 
               default:
@@ -17225,16 +17229,16 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             myInt = try input.readInt64()
 
-          case 90 :
+          case 90:
             myString = try input.readString()
 
-          case 813 :
+          case 813:
             myFloat = try input.readFloat()
 
-          case 1602 :
+          case 1602:
             let subBuilder:ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder = ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
             if hasOptionalNestedMessage {
               try subBuilder.mergeFrom(optionalNestedMessage)
@@ -18634,85 +18638,85 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             escapedBytes = try input.readData()
 
-          case 16 :
+          case 16:
             largeUint32 = try input.readUInt32()
 
-          case 24 :
+          case 24:
             largeUint64 = try input.readUInt64()
 
-          case 32 :
+          case 32:
             smallInt32 = try input.readInt32()
 
-          case 40 :
+          case 40:
             smallInt64 = try input.readInt64()
 
-          case 50 :
+          case 50:
             utf8String = try input.readString()
 
-          case 61 :
+          case 61:
             zeroFloat = try input.readFloat()
 
-          case 69 :
+          case 69:
             oneFloat = try input.readFloat()
 
-          case 77 :
+          case 77:
             smallFloat = try input.readFloat()
 
-          case 85 :
+          case 85:
             negativeOneFloat = try input.readFloat()
 
-          case 93 :
+          case 93:
             negativeFloat = try input.readFloat()
 
-          case 101 :
+          case 101:
             largeFloat = try input.readFloat()
 
-          case 109 :
+          case 109:
             smallNegativeFloat = try input.readFloat()
 
-          case 113 :
+          case 113:
             infDouble = try input.readDouble()
 
-          case 121 :
+          case 121:
             negInfDouble = try input.readDouble()
 
-          case 129 :
+          case 129:
             nanDouble = try input.readDouble()
 
-          case 141 :
+          case 141:
             infFloat = try input.readFloat()
 
-          case 149 :
+          case 149:
             negInfFloat = try input.readFloat()
 
-          case 157 :
+          case 157:
             nanFloat = try input.readFloat()
 
-          case 162 :
+          case 162:
             cppTrigraph = try input.readString()
 
-          case 168 :
+          case 168:
             reallySmallInt32 = try input.readInt32()
 
-          case 176 :
+          case 176:
             reallySmallInt64 = try input.readInt64()
 
-          case 186 :
+          case 186:
             stringWithZero = try input.readString()
 
-          case 194 :
+          case 194:
             bytesWithZero = try input.readData()
 
-          case 202 :
+          case 202:
             stringPieceWithZero = try input.readString()
 
-          case 210 :
+          case 210:
             cordWithZero = try input.readString()
 
-          case 218 :
+          case 218:
             replacementString = try input.readString()
 
           default:
@@ -19018,7 +19022,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             let valueIntsparseEnum = try input.readEnum()
             if let enumssparseEnum = ProtobufUnittest.TestSparseEnum(rawValue:valueIntsparseEnum){
                  sparseEnum = enumssparseEnum
@@ -19253,7 +19257,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             data = try input.readString()
 
           default:
@@ -19480,7 +19484,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             data += [try input.readString()]
 
           default:
@@ -19709,7 +19713,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             data = try input.readData()
 
           default:
@@ -19940,7 +19944,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             data += [try input.readData()]
 
           default:
@@ -20174,7 +20178,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             data = try input.readInt32()
 
           default:
@@ -20403,7 +20407,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             data = try input.readUInt32()
 
           default:
@@ -20632,7 +20636,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             data = try input.readInt64()
 
           default:
@@ -20861,7 +20865,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             data = try input.readUInt64()
 
           default:
@@ -21090,7 +21094,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             data = try input.readBool()
 
           default:
@@ -21369,10 +21373,10 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 40 :
+              case 40:
                 a = try input.readInt32()
 
-              case 50 :
+              case 50:
                 b = try input.readString()
 
               default:
@@ -21411,11 +21415,11 @@ public extension ProtobufUnittest {
     //OneOf declaration start
 
     public enum Foo {
-      case FooOneOfNotSet
+      case OneOfFooNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .FooOneOfNotSet:
+           case .OneOfFooNotSet:
                 return false
            default:
                 return true
@@ -21464,13 +21468,17 @@ public extension ProtobufUnittest {
     }
     //OneOf declaration end
 
-    private var storageFoo:TestOneof.Foo =  TestOneof.Foo.FooOneOfNotSet
+    private var storageFoo:TestOneof.Foo =  TestOneof.Foo.OneOfFooNotSet
+    public func getOneOfFoo() ->  TestOneof.Foo {
+        let copyObjectFoo = storageFoo
+        return copyObjectFoo
+    }
     public private(set) var hasFooInt:Bool {
           get {
-               if TestOneof.Foo.getFooInt(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof.Foo.getFooInt(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -21485,10 +21493,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooString:Bool {
           get {
-               if TestOneof.Foo.getFooString(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof.Foo.getFooString(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -21503,10 +21511,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooMessage:Bool {
           get {
-               if TestOneof.Foo.getFooMessage(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof.Foo.getFooMessage(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -21521,10 +21529,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooGroup:Bool {
           get {
-               if TestOneof.Foo.getFooGroup(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof.Foo.getFooGroup(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -21928,13 +21936,13 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             fooInt = try input.readInt32()
 
-          case 18 :
+          case 18:
             fooString = try input.readString()
 
-          case 26 :
+          case 26:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasFooMessage {
               try subBuilder.mergeFrom(fooMessage)
@@ -21942,7 +21950,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             fooMessage = subBuilder.buildPartial()
 
-          case 35 :
+          case 35:
             let subBuilder:ProtobufUnittest.TestOneof.FooGroup.Builder = ProtobufUnittest.TestOneof.FooGroup.Builder()
             if hasFooGroup {
               try subBuilder.mergeFrom(fooGroup)
@@ -22236,10 +22244,10 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 40 :
+              case 40:
                 a = try input.readInt32()
 
-              case 50 :
+              case 50:
                 b = try input.readString()
 
               default:
@@ -22674,13 +22682,13 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             fooInt = try input.readInt32()
 
-          case 18 :
+          case 18:
             fooString = try input.readString()
 
-          case 26 :
+          case 26:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasFooMessage {
               try subBuilder.mergeFrom(fooMessage)
@@ -22688,7 +22696,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             fooMessage = subBuilder.buildPartial()
 
-          case 35 :
+          case 35:
             let subBuilder:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder = ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder()
             if hasFooGroup {
               try subBuilder.mergeFrom(fooGroup)
@@ -22982,10 +22990,10 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 72 :
+              case 72:
                 a = try input.readInt32()
 
-              case 82 :
+              case 82:
                 b = try input.readString()
 
               default:
@@ -23269,10 +23277,10 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 quxInt = try input.readInt64()
 
-              case 16 :
+              case 16:
                 corgeInt += [try input.readInt32()]
 
               default:
@@ -23315,11 +23323,11 @@ public extension ProtobufUnittest {
     //OneOf declaration start
 
     public enum Foo {
-      case FooOneOfNotSet
+      case OneOfFooNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .FooOneOfNotSet:
+           case .OneOfFooNotSet:
                 return false
            default:
                 return true
@@ -23418,17 +23426,21 @@ public extension ProtobufUnittest {
     }
     //OneOf declaration end
 
-    private var storageFoo:TestOneof2.Foo =  TestOneof2.Foo.FooOneOfNotSet
+    private var storageFoo:TestOneof2.Foo =  TestOneof2.Foo.OneOfFooNotSet
+    public func getOneOfFoo() ->  TestOneof2.Foo {
+        let copyObjectFoo = storageFoo
+        return copyObjectFoo
+    }
 
 
     //OneOf declaration start
 
     public enum Bar {
-      case BarOneOfNotSet
+      case OneOfBarNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .BarOneOfNotSet:
+           case .OneOfBarNotSet:
                 return false
            default:
                 return true
@@ -23497,7 +23509,11 @@ public extension ProtobufUnittest {
     }
     //OneOf declaration end
 
-    private var storageBar:TestOneof2.Bar =  TestOneof2.Bar.BarOneOfNotSet
+    private var storageBar:TestOneof2.Bar =  TestOneof2.Bar.OneOfBarNotSet
+    public func getOneOfBar() ->  TestOneof2.Bar {
+        let copyObjectBar = storageBar
+        return copyObjectBar
+    }
 
 
       //Enum type declaration start 
@@ -23536,10 +23552,10 @@ public extension ProtobufUnittest {
 
     public private(set) var hasFooInt:Bool {
           get {
-               if TestOneof2.Foo.getFooInt(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooInt(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23554,10 +23570,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooString:Bool {
           get {
-               if TestOneof2.Foo.getFooString(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooString(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23572,10 +23588,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooCord:Bool {
           get {
-               if TestOneof2.Foo.getFooCord(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooCord(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23590,10 +23606,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooStringPiece:Bool {
           get {
-               if TestOneof2.Foo.getFooStringPiece(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooStringPiece(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23608,10 +23624,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooBytes:Bool {
           get {
-               if TestOneof2.Foo.getFooBytes(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooBytes(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23626,10 +23642,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooEnum:Bool {
           get {
-               if TestOneof2.Foo.getFooEnum(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooEnum(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23644,10 +23660,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooMessage:Bool {
           get {
-               if TestOneof2.Foo.getFooMessage(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooMessage(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23662,10 +23678,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooGroup:Bool {
           get {
-               if TestOneof2.Foo.getFooGroup(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooGroup(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23680,10 +23696,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooLazyMessage:Bool {
           get {
-               if TestOneof2.Foo.getFooLazyMessage(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Foo.getFooLazyMessage(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23698,10 +23714,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasBarInt:Bool {
           get {
-               if TestOneof2.Bar.getBarInt(storageBar) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Bar.getBarInt(storageBar) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23716,10 +23732,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasBarString:Bool {
           get {
-               if TestOneof2.Bar.getBarString(storageBar) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Bar.getBarString(storageBar) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23734,10 +23750,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasBarCord:Bool {
           get {
-               if TestOneof2.Bar.getBarCord(storageBar) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Bar.getBarCord(storageBar) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23752,10 +23768,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasBarStringPiece:Bool {
           get {
-               if TestOneof2.Bar.getBarStringPiece(storageBar) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Bar.getBarStringPiece(storageBar) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23770,10 +23786,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasBarBytes:Bool {
           get {
-               if TestOneof2.Bar.getBarBytes(storageBar) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Bar.getBarBytes(storageBar) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -23788,10 +23804,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasBarEnum:Bool {
           get {
-               if TestOneof2.Bar.getBarEnum(storageBar) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestOneof2.Bar.getBarEnum(storageBar) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -24770,22 +24786,22 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             fooInt = try input.readInt32()
 
-          case 18 :
+          case 18:
             fooString = try input.readString()
 
-          case 26 :
+          case 26:
             fooCord = try input.readString()
 
-          case 34 :
+          case 34:
             fooStringPiece = try input.readString()
 
-          case 42 :
+          case 42:
             fooBytes = try input.readData()
 
-          case 48 :
+          case 48:
             let valueIntfooEnum = try input.readEnum()
             if let enumsfooEnum = ProtobufUnittest.TestOneof2.NestedEnum(rawValue:valueIntfooEnum){
                  fooEnum = enumsfooEnum
@@ -24793,7 +24809,7 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(6, value:Int64(valueIntfooEnum))
             }
 
-          case 58 :
+          case 58:
             let subBuilder:ProtobufUnittest.TestOneof2.NestedMessage.Builder = ProtobufUnittest.TestOneof2.NestedMessage.Builder()
             if hasFooMessage {
               try subBuilder.mergeFrom(fooMessage)
@@ -24801,7 +24817,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             fooMessage = subBuilder.buildPartial()
 
-          case 67 :
+          case 67:
             let subBuilder:ProtobufUnittest.TestOneof2.FooGroup.Builder = ProtobufUnittest.TestOneof2.FooGroup.Builder()
             if hasFooGroup {
               try subBuilder.mergeFrom(fooGroup)
@@ -24809,7 +24825,7 @@ public extension ProtobufUnittest {
             try input.readGroup(8, builder:subBuilder, extensionRegistry:extensionRegistry)
             fooGroup = subBuilder.buildPartial()
 
-          case 90 :
+          case 90:
             let subBuilder:ProtobufUnittest.TestOneof2.NestedMessage.Builder = ProtobufUnittest.TestOneof2.NestedMessage.Builder()
             if hasFooLazyMessage {
               try subBuilder.mergeFrom(fooLazyMessage)
@@ -24817,22 +24833,22 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             fooLazyMessage = subBuilder.buildPartial()
 
-          case 96 :
+          case 96:
             barInt = try input.readInt32()
 
-          case 106 :
+          case 106:
             barString = try input.readString()
 
-          case 114 :
+          case 114:
             barCord = try input.readString()
 
-          case 122 :
+          case 122:
             barStringPiece = try input.readString()
 
-          case 130 :
+          case 130:
             barBytes = try input.readData()
 
-          case 136 :
+          case 136:
             let valueIntbarEnum = try input.readEnum()
             if let enumsbarEnum = ProtobufUnittest.TestOneof2.NestedEnum(rawValue:valueIntbarEnum){
                  barEnum = enumsbarEnum
@@ -24840,10 +24856,10 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(17, value:Int64(valueIntbarEnum))
             }
 
-          case 144 :
+          case 144:
             bazInt = try input.readInt32()
 
-          case 154 :
+          case 154:
             bazString = try input.readString()
 
           default:
@@ -25131,7 +25147,7 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 9 :
+              case 9:
                 requiredDouble = try input.readDouble()
 
               default:
@@ -25167,11 +25183,11 @@ public extension ProtobufUnittest {
     //OneOf declaration start
 
     public enum Foo {
-      case FooOneOfNotSet
+      case OneOfFooNotSet
 
       public func checkOneOfIsSet() -> Bool {
            switch self {
-           case .FooOneOfNotSet:
+           case .OneOfFooNotSet:
                 return false
            default:
                 return true
@@ -25210,13 +25226,17 @@ public extension ProtobufUnittest {
     }
     //OneOf declaration end
 
-    private var storageFoo:TestRequiredOneof.Foo =  TestRequiredOneof.Foo.FooOneOfNotSet
+    private var storageFoo:TestRequiredOneof.Foo =  TestRequiredOneof.Foo.OneOfFooNotSet
+    public func getOneOfFoo() ->  TestRequiredOneof.Foo {
+        let copyObjectFoo = storageFoo
+        return copyObjectFoo
+    }
     public private(set) var hasFooInt:Bool {
           get {
-               if TestRequiredOneof.Foo.getFooInt(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestRequiredOneof.Foo.getFooInt(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -25231,10 +25251,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooString:Bool {
           get {
-               if TestRequiredOneof.Foo.getFooString(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestRequiredOneof.Foo.getFooString(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -25249,10 +25269,10 @@ public extension ProtobufUnittest {
     }
     public private(set) var hasFooMessage:Bool {
           get {
-               if TestRequiredOneof.Foo.getFooMessage(storageFoo) == nil {
-                   return false
-               }
-               return true
+                guard let _ = TestRequiredOneof.Foo.getFooMessage(storageFoo) else {
+                    return false
+                }
+                return true
           }
           set(newValue) {
           }
@@ -25584,13 +25604,13 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             fooInt = try input.readInt32()
 
-          case 18 :
+          case 18:
             fooString = try input.readString()
 
-          case 26 :
+          case 26:
             let subBuilder:ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder = ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder()
             if hasFooMessage {
               try subBuilder.mergeFrom(fooMessage)
@@ -26511,7 +26531,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 722 :
+          case 722:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26519,7 +26539,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 730 :
+          case 730:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26527,7 +26547,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 738 :
+          case 738:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26535,7 +26555,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 746 :
+          case 746:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26543,7 +26563,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 754 :
+          case 754:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26551,7 +26571,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 762 :
+          case 762:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26559,7 +26579,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 770 :
+          case 770:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26567,7 +26587,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 778 :
+          case 778:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26575,7 +26595,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 786 :
+          case 786:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26583,7 +26603,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 794 :
+          case 794:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26591,7 +26611,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 802 :
+          case 802:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26599,7 +26619,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 810 :
+          case 810:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26607,7 +26627,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 818 :
+          case 818:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -26615,7 +26635,7 @@ public extension ProtobufUnittest {
             }
             input.popLimit(limit)
 
-          case 826 :
+          case 826:
             let length:Int32 = try input.readRawVarint32()
             let oldLimit:Int32 = try input.pushLimit(length)
             while input.bytesUntilLimit() > 0 {
@@ -27529,46 +27549,46 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 720 :
+          case 720:
             unpackedInt32 += [try input.readInt32()]
 
-          case 728 :
+          case 728:
             unpackedInt64 += [try input.readInt64()]
 
-          case 736 :
+          case 736:
             unpackedUint32 += [try input.readUInt32()]
 
-          case 744 :
+          case 744:
             unpackedUint64 += [try input.readUInt64()]
 
-          case 752 :
+          case 752:
             unpackedSint32 += [try input.readSInt32()]
 
-          case 760 :
+          case 760:
             unpackedSint64 += [try input.readSInt64()]
 
-          case 773 :
+          case 773:
             unpackedFixed32 += [try input.readFixed32()]
 
-          case 777 :
+          case 777:
             unpackedFixed64 += [try input.readFixed64()]
 
-          case 789 :
+          case 789:
             unpackedSfixed32 += [try input.readSFixed32()]
 
-          case 793 :
+          case 793:
             unpackedSfixed64 += [try input.readSFixed64()]
 
-          case 805 :
+          case 805:
             unpackedFloat += [try input.readFloat()]
 
-          case 809 :
+          case 809:
             unpackedDouble += [try input.readDouble()]
 
-          case 816 :
+          case 816:
             unpackedBool += [try input.readBool()]
 
-          case 824 :
+          case 824:
             let valueIntunpackedEnum = try input.readEnum()
             if let enumsunpackedEnum = ProtobufUnittest.ForeignEnum(rawValue:valueIntunpackedEnum) {
                  builderResult.unpackedEnum += [enumsunpackedEnum]
@@ -28276,7 +28296,7 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 16800 :
+              case 16800:
                 dynamicField = try input.readInt32()
 
               default:
@@ -28881,10 +28901,10 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 16005 :
+          case 16005:
             scalarExtension = try input.readFixed32()
 
-          case 16008 :
+          case 16008:
             let valueIntenumExtension = try input.readEnum()
             if let enumsenumExtension = ProtobufUnittest.ForeignEnum(rawValue:valueIntenumExtension){
                  enumExtension = enumsenumExtension
@@ -28892,7 +28912,7 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(2001, value:Int64(valueIntenumExtension))
             }
 
-          case 16016 :
+          case 16016:
             let valueIntdynamicEnumExtension = try input.readEnum()
             if let enumsdynamicEnumExtension = ProtobufUnittest.TestDynamicExtensions.DynamicEnumType(rawValue:valueIntdynamicEnumExtension){
                  dynamicEnumExtension = enumsdynamicEnumExtension
@@ -28900,7 +28920,7 @@ public extension ProtobufUnittest {
                  try unknownFieldsBuilder.mergeVarintField(2002, value:Int64(valueIntdynamicEnumExtension))
             }
 
-          case 16026 :
+          case 16026:
             let subBuilder:ProtobufUnittest.ForeignMessage.Builder = ProtobufUnittest.ForeignMessage.Builder()
             if hasMessageExtension {
               try subBuilder.mergeFrom(messageExtension)
@@ -28908,7 +28928,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             messageExtension = subBuilder.buildPartial()
 
-          case 16034 :
+          case 16034:
             let subBuilder:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder = ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder()
             if hasDynamicMessageExtension {
               try subBuilder.mergeFrom(dynamicMessageExtension)
@@ -28916,10 +28936,10 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             dynamicMessageExtension = subBuilder.buildPartial()
 
-          case 16042 :
+          case 16042:
             repeatedExtension += [try input.readString()]
 
-          case 16050 :
+          case 16050:
             let length:Int32 = try input.readRawVarint32()
             let limit:Int32 = try input.pushLimit(length)
             while (input.bytesUntilLimit() > 0) {
@@ -29409,22 +29429,22 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 101 :
+          case 101:
             repeatedFixed32 += [try input.readFixed32()]
 
-          case 104 :
+          case 104:
             repeatedInt32 += [try input.readInt32()]
 
-          case 16369 :
+          case 16369:
             repeatedFixed64 += [try input.readFixed64()]
 
-          case 16376 :
+          case 16376:
             repeatedInt64 += [try input.readInt64()]
 
-          case 2097141 :
+          case 2097141:
             repeatedFloat += [try input.readFloat()]
 
-          case 2097144 :
+          case 2097144:
             repeatedUint64 += [try input.readUInt64()]
 
           default:
@@ -29744,7 +29764,7 @@ public extension ProtobufUnittest {
                     self.unknownFields = try unknownFieldsBuilder.build()
                     return self
 
-                  case 90 :
+                  case 90:
                     let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
                     if hasField1 {
                       try subBuilder.mergeFrom(field1)
@@ -30020,7 +30040,7 @@ public extension ProtobufUnittest {
                     self.unknownFields = try unknownFieldsBuilder.build()
                     return self
 
-                  case 170 :
+                  case 170:
                     let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
                     if hasField1 {
                       try subBuilder.mergeFrom(field1)
@@ -30520,37 +30540,37 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 10 :
+              case 10:
                 let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
                 try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
                 field1 += [subBuilder.buildPartial()]
 
-              case 18 :
+              case 18:
                 let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
                 try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
                 field2 += [subBuilder.buildPartial()]
 
-              case 26 :
+              case 26:
                 let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
                 try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
                 field3 += [subBuilder.buildPartial()]
 
-              case 83 :
+              case 83:
                 let subBuilder = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder()
                 try input.readGroup(10,builder:subBuilder,extensionRegistry:extensionRegistry)
                 group1 += [subBuilder.buildPartial()]
 
-              case 163 :
+              case 163:
                 let subBuilder = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder()
                 try input.readGroup(20,builder:subBuilder,extensionRegistry:extensionRegistry)
                 group2 += [subBuilder.buildPartial()]
 
-              case 8002 :
+              case 8002:
                 let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
                 try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
                 ext1 += [subBuilder.buildPartial()]
 
-              case 8010 :
+              case 8010:
                 let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
                 try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
                 ext2 += [subBuilder.buildPartial()]
@@ -30882,7 +30902,7 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 90 :
+              case 90:
                 let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
                 if hasOptionalGroupAllTypes {
                   try subBuilder.mergeFrom(optionalGroupAllTypes)
@@ -31158,7 +31178,7 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 170 :
+              case 170:
                 let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
                 if hasRepeatedGroupAllTypes {
                   try subBuilder.mergeFrom(repeatedGroupAllTypes)
@@ -31692,7 +31712,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasRequiredAllTypes {
               try subBuilder.mergeFrom(requiredAllTypes)
@@ -31700,7 +31720,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             requiredAllTypes = subBuilder.buildPartial()
 
-          case 18 :
+          case 18:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasOptionalAllTypes {
               try subBuilder.mergeFrom(optionalAllTypes)
@@ -31708,12 +31728,12 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             optionalAllTypes = subBuilder.buildPartial()
 
-          case 26 :
+          case 26:
             let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             repeatedAllTypes += [subBuilder.buildPartial()]
 
-          case 83 :
+          case 83:
             let subBuilder:ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder = ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder()
             if hasOptionalGroup {
               try subBuilder.mergeFrom(optionalGroup)
@@ -31721,7 +31741,7 @@ public extension ProtobufUnittest {
             try input.readGroup(10, builder:subBuilder, extensionRegistry:extensionRegistry)
             optionalGroup = subBuilder.buildPartial()
 
-          case 163 :
+          case 163:
             let subBuilder = ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder()
             try input.readGroup(20,builder:subBuilder,extensionRegistry:extensionRegistry)
             repeatedGroup += [subBuilder.buildPartial()]
@@ -31980,7 +32000,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             a = try input.readString()
 
           default:

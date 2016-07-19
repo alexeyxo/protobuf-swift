@@ -283,7 +283,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             a = try input.readInt32()
 
           default:

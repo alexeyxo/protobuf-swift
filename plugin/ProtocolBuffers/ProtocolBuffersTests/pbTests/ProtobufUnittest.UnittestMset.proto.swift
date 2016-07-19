@@ -530,7 +530,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.TestMessageSet.Builder = ProtobufUnittest.TestMessageSet.Builder()
             if hasMessageSet {
               try subBuilder.mergeFrom(messageSet)
@@ -768,7 +768,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 120 :
+          case 120:
             i = try input.readInt32()
 
           default:
@@ -1000,7 +1000,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 202 :
+          case 202:
             str = try input.readString()
 
           default:
@@ -1285,10 +1285,10 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 16 :
+              case 16:
                 typeId = try input.readInt32()
 
-              case 26 :
+              case 26:
                 message_ = try input.readData()
 
               default:
@@ -1531,7 +1531,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 11 :
+          case 11:
             let subBuilder = ProtobufUnittest.RawMessageSet.Item.Builder()
             try input.readGroup(1,builder:subBuilder,extensionRegistry:extensionRegistry)
             item += [subBuilder.buildPartial()]

@@ -328,7 +328,7 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             paths += [try input.readString()]
 
           default:

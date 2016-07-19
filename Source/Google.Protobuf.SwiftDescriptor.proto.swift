@@ -366,10 +366,10 @@ public extension Google.Protobuf {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             classPrefix = try input.readString()
 
-          case 16 :
+          case 16:
             let valueIntentitiesAccessControl = try input.readEnum()
             if let enumsentitiesAccessControl = Google.Protobuf.AccessControl(rawValue:valueIntentitiesAccessControl){
                  entitiesAccessControl = enumsentitiesAccessControl
@@ -377,7 +377,7 @@ public extension Google.Protobuf {
                  try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntentitiesAccessControl))
             }
 
-          case 24 :
+          case 24:
             compileForFramework = try input.readBool()
 
           default:

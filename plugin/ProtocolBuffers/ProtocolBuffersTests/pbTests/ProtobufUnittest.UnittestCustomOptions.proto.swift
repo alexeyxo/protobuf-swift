@@ -1044,7 +1044,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             field1 = try input.readString()
 
           default:
@@ -3418,16 +3418,16 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             foo = try input.readInt32()
 
-          case 16 :
+          case 16:
             foo2 = try input.readInt32()
 
-          case 24 :
+          case 24:
             foo3 = try input.readInt32()
 
-          case 32 :
+          case 32:
             foo4 += [try input.readInt32()]
 
           default:
@@ -3677,7 +3677,7 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 waldo = try input.readInt32()
 
               default:
@@ -4122,7 +4122,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             let subBuilder:ProtobufUnittest.ComplexOptionType1.Builder = ProtobufUnittest.ComplexOptionType1.Builder()
             if hasBar {
               try subBuilder.mergeFrom(bar)
@@ -4130,10 +4130,10 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             bar = subBuilder.buildPartial()
 
-          case 16 :
+          case 16:
             baz = try input.readInt32()
 
-          case 26 :
+          case 26:
             let subBuilder:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder()
             if hasFred {
               try subBuilder.mergeFrom(fred)
@@ -4141,7 +4141,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             fred = subBuilder.buildPartial()
 
-          case 34 :
+          case 34:
             let subBuilder = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder()
             try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
             barney += [subBuilder.buildPartial()]
@@ -4394,7 +4394,7 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 24 :
+              case 24:
                 plugh = try input.readInt32()
 
               default:
@@ -4703,10 +4703,10 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             qux = try input.readInt32()
 
-          case 19 :
+          case 19:
             let subBuilder:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder()
             if hasComplexOptionType5 {
               try subBuilder.mergeFrom(complexOptionType5)
@@ -4944,7 +4944,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 60751608 :
+          case 60751608:
             xyzzy = try input.readInt32()
 
           default:
@@ -5543,7 +5543,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
+          case 10:
             s = try input.readString()
 
           default:
@@ -6072,13 +6072,13 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             i = try input.readInt32()
 
-          case 18 :
+          case 18:
             s = try input.readString()
 
-          case 26 :
+          case 26:
             let subBuilder:ProtobufUnittest.Aggregate.Builder = ProtobufUnittest.Aggregate.Builder()
             if hasSub {
               try subBuilder.mergeFrom(sub)
@@ -6086,7 +6086,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             sub = subBuilder.buildPartial()
 
-          case 34 :
+          case 34:
             let subBuilder:Google.Protobuf.FileOptions.Builder = Google.Protobuf.FileOptions.Builder()
             if hasFile {
               try subBuilder.mergeFrom(file)
@@ -6094,7 +6094,7 @@ public extension ProtobufUnittest {
             try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
             file = subBuilder.buildPartial()
 
-          case 42 :
+          case 42:
             let subBuilder:ProtobufUnittest.AggregateMessageSet.Builder = ProtobufUnittest.AggregateMessageSet.Builder()
             if hasMset {
               try subBuilder.mergeFrom(mset)
@@ -6343,7 +6343,7 @@ public extension ProtobufUnittest {
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 8 :
+          case 8:
             fieldname = try input.readInt32()
 
           default:
@@ -6578,7 +6578,7 @@ public extension ProtobufUnittest {
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
-              case 8 :
+              case 8:
                 nestedField = try input.readInt32()
 
               default:
