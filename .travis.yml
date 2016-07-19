@@ -1,9 +1,6 @@
 language: objective-c
 osx_image: xcode8
 before_install:
-  - brew update
-  - brew uninstall xctool
-  - brew install xctool --HEAD
   - brew install protobuf
 install:
   - scripts/build.sh

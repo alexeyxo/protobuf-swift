@@ -1,6 +1,6 @@
 #Protocol Buffers for Swift
 
-[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=master)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Platform](http://img.shields.io/cocoapods/p/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers)
+[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=Protobuf2.6-Swift3.0)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Platform](http://img.shields.io/cocoapods/p/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers)
 
 An implementation of Protocol Buffers in Swift.
 
