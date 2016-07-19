@@ -28,7 +28,7 @@ class ProtocolBuffersTests: XCTestCase {
 //                       .setStr("string")
 //        let original = originalBuilder.build()
 //
-//        let original2 = PBPerfomance.parseFromData(original.data())
+//        let original2 = PBPerfomance.parseFrom(original.data())
 //        var builder = PBPerfomanceBatch.Builder()
 //        
 //        for in 0...2 {
@@ -47,7 +47,7 @@ class ProtocolBuffersTests: XCTestCase {
         
 //        let build = builder.build()
 //        
-        self.measureBlock() {
+        self.measure() {
 //            var baz = bazBuilder.build()
 //            var gg = group.build()
 //            println(baz)

@@ -45,11 +45,11 @@ public extension ProtobufUnittestImport {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream:CodedOutputStream) throws {
       if hasE {
-        try output.writeInt32(fieldNumber:1, value:e)
+        try codedOutputStream.writeInt32(fieldNumber:1, value:e)
       }
-      try unknownFields.writeToCodedOutputStream(output:output)
+      try unknownFields.writeTo(codedOutputStream:codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -65,33 +65,33 @@ public extension ProtobufUnittestImport {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:InputStream) throws -> Array<ProtobufUnittestImport.PublicImportMessageLite> {
+    public class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<ProtobufUnittestImport.PublicImportMessageLite> {
       var mergedArray = Array<ProtobufUnittestImport.PublicImportMessageLite>()
-      while let value = try parseFromDelimitedFromInputStream(input: input) {
+      while let value = try parseDelimitedFrom(inputStream: inputStream) {
         mergedArray += [value]
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:InputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite? {
-      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeDelimitedFromInputStream(input: input)?.build()
+    public class func parseDelimitedFrom(inputStream:InputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite? {
+      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
     }
-    public class func parseFromData(data:Data) throws -> ProtobufUnittestImport.PublicImportMessageLite {
-      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFromData(data: data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicLiteRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFrom(data:Data) throws -> ProtobufUnittestImport.PublicImportMessageLite {
+      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicLiteRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite {
-      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFromData(data: data, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite {
+      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:InputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite {
-      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFromInputStream(input: input).build()
+    public class func parseFrom(inputStream:InputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite {
+      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFrom(inputStream: inputStream).build()
     }
-    public class func parseFromInputStream(input:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite {
-      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFromInputStream(input: input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite {
+      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite {
-      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFromCodedInputStream(input: input).build()
+    public class func parseFrom(codedInputStream:CodedInputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite {
+      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFrom(codedInputStream: codedInputStream).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite {
-      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFromCodedInputStream(input: input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite {
+      return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
       return ProtobufUnittestImport.PublicImportMessageLite.classBuilder() as! ProtobufUnittestImport.PublicImportMessageLite.Builder
@@ -167,7 +167,7 @@ public extension ProtobufUnittestImport {
                builderResult.e = value
            }
       }
-      public func setE(value:Int32) -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
+      public func setE(_ value:Int32) -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
         self.e = value
         return self
       }
@@ -203,26 +203,26 @@ public extension ProtobufUnittestImport {
         if other.hasE {
              e = other.e
         }
-        _ = try mergeUnknownFields(unknownField: other.unknownFields)
+        _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
-           return try mergeFromCodedInputStream(input: input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFrom(codedInputStream:CodedInputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
+      public override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
-          let protobufTag = try input.readTag()
+          let protobufTag = try codedInputStream.readTag()
           switch protobufTag {
           case 0: 
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 8:
-            e = try input.readInt32()
+            e = try codedInputStream.readInt32()
 
           default:
-            if (!(try parseUnknownField(input:input, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
