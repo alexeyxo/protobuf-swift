@@ -209,6 +209,7 @@ SwiftFileOptions* SwiftFileOptions::New(::google::protobuf::Arena* arena) const 
 }
 
 void SwiftFileOptions::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.protobuf.SwiftFileOptions)
   if (_has_bits_[0 / 32] & 7u) {
     if (has_class_prefix()) {
       class_prefix_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -224,7 +225,7 @@ void SwiftFileOptions::Clear() {
 
 bool SwiftFileOptions::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:google.protobuf.SwiftFileOptions)
   for (;;) {
@@ -370,6 +371,7 @@ void SwiftFileOptions::SerializeWithCachedSizes(
 }
 
 int SwiftFileOptions::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:google.protobuf.SwiftFileOptions)
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & 7u) {
@@ -404,18 +406,22 @@ int SwiftFileOptions::ByteSize() const {
 }
 
 void SwiftFileOptions::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.SwiftFileOptions)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   const SwiftFileOptions* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const SwiftFileOptions>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.protobuf.SwiftFileOptions)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.protobuf.SwiftFileOptions)
     MergeFrom(*source);
   }
 }
 
 void SwiftFileOptions::MergeFrom(const SwiftFileOptions& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.SwiftFileOptions)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_class_prefix()) {
@@ -435,12 +441,14 @@ void SwiftFileOptions::MergeFrom(const SwiftFileOptions& from) {
 }
 
 void SwiftFileOptions::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:google.protobuf.SwiftFileOptions)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void SwiftFileOptions::CopyFrom(const SwiftFileOptions& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.protobuf.SwiftFileOptions)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -515,6 +523,7 @@ void SwiftFileOptions::clear_class_prefix() {
   return class_prefix_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* SwiftFileOptions::release_class_prefix() {
+  // @@protoc_insertion_point(field_release:google.protobuf.SwiftFileOptions.class_prefix)
   clear_has_class_prefix();
   return class_prefix_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }

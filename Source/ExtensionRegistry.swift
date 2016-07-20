@@ -19,7 +19,7 @@ import Foundation
 
 public typealias AnyClassType = GeneratedMessage.Type
 
-public protocol ExtensionField
+public protocol ExtensionField 
 {
     var fieldNumber:Int32 {get set}
     var extendedClass:AnyClassType {get}
@@ -27,11 +27,11 @@ public protocol ExtensionField
     func writeValueIncludingTagToCodedOutputStream(value:Any, output:CodedOutputStream) throws
     func computeSerializedSizeIncludingTag(value:Any) throws -> Int32
     func getDescription(value:Any, indent:String) throws -> String
-    func mergeFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) throws
+    func mergeFrom(codedInputStream:CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) throws
     
 }
 
-public class ExtensionRegistry
+public class ExtensionRegistry 
 {
     private var classMap:[String : [Int32 : ConcreateExtensionField]]
     

@@ -5,6 +5,7 @@
 import Foundation
 import ProtocolBuffers
 
+
 public struct Proto3PreserveUnknownEnumUnittest { }
 
 public func == (lhs: Proto3PreserveUnknownEnumUnittest.MyMessage, rhs: Proto3PreserveUnknownEnumUnittest.MyMessage) -> Bool {
@@ -49,9 +50,9 @@ public extension Proto3PreserveUnknownEnumUnittest {
 
     init() {
       extensionRegistry = ExtensionRegistry()
-      registerAllExtensions(extensionRegistry)
+      registerAllExtensions(registry: extensionRegistry)
     }
-    public func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(registry: ExtensionRegistry) {
     }
   }
 
@@ -60,31 +61,31 @@ public extension Proto3PreserveUnknownEnumUnittest {
   //Enum type declaration start 
 
   public enum MyEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-    case Foo = 0
-    case Bar = 1
-    case Baz = 2
+    case foo = 0
+    case bar = 1
+    case baz = 2
     public func toString() -> String {
       switch self {
-      case .Foo: return "FOO"
-      case .Bar: return "BAR"
-      case .Baz: return "BAZ"
+      case .foo: return "FOO"
+      case .bar: return "BAR"
+      case .baz: return "BAZ"
       }
     }
     public static func fromString(str:String) throws -> Proto3PreserveUnknownEnumUnittest.MyEnum {
       switch str {
-      case "FOO":  return .Foo
-      case "BAR":  return .Bar
-      case "BAZ":  return .Baz
-      default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
+      case "FOO":  return .foo
+      case "BAR":  return .bar
+      case "BAZ":  return .baz
+      default: throw ProtocolBuffersError.invalidProtocolBuffer("Conversion String to Enum has failed.")
       }
     }
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
         switch self {
-            case .Foo: return ".Foo"
-            case .Bar: return ".Bar"
-            case .Baz: return ".Baz"
+            case .foo: return ".foo"
+            case .bar: return ".bar"
+            case .baz: return ".baz"
         }
     }
   }
@@ -96,35 +97,35 @@ public extension Proto3PreserveUnknownEnumUnittest {
   //Enum type declaration start 
 
   public enum MyEnumPlusExtra:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-    case EFoo = 0
-    case EBar = 1
-    case EBaz = 2
-    case EExtra = 3
+    case eFoo = 0
+    case eBar = 1
+    case eBaz = 2
+    case eExtra = 3
     public func toString() -> String {
       switch self {
-      case .EFoo: return "E_FOO"
-      case .EBar: return "E_BAR"
-      case .EBaz: return "E_BAZ"
-      case .EExtra: return "E_EXTRA"
+      case .eFoo: return "E_FOO"
+      case .eBar: return "E_BAR"
+      case .eBaz: return "E_BAZ"
+      case .eExtra: return "E_EXTRA"
       }
     }
     public static func fromString(str:String) throws -> Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra {
       switch str {
-      case "E_FOO":  return .EFoo
-      case "E_BAR":  return .EBar
-      case "E_BAZ":  return .EBaz
-      case "E_EXTRA":  return .EExtra
-      default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
+      case "E_FOO":  return .eFoo
+      case "E_BAR":  return .eBar
+      case "E_BAZ":  return .eBaz
+      case "E_EXTRA":  return .eExtra
+      default: throw ProtocolBuffersError.invalidProtocolBuffer("Conversion String to Enum has failed.")
       }
     }
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
         switch self {
-            case .EFoo: return ".EFoo"
-            case .EBar: return ".EBar"
-            case .EBaz: return ".EBaz"
-            case .EExtra: return ".EExtra"
+            case .eFoo: return ".eFoo"
+            case .eBar: return ".eBar"
+            case .eBaz: return ".eBaz"
+            case .eExtra: return ".eExtra"
         }
     }
   }
@@ -149,7 +150,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       }
       case OneofE1(Proto3PreserveUnknownEnumUnittest.MyEnum)
 
-      public static func getOneofE1(value:O) -> Proto3PreserveUnknownEnumUnittest.MyEnum? {
+      public static func getOneofE1(_ value:O) -> Proto3PreserveUnknownEnumUnittest.MyEnum? {
            switch value {
            case .OneofE1(let enumValue):
                 return enumValue
@@ -159,7 +160,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       }
       case OneofE2(Proto3PreserveUnknownEnumUnittest.MyEnum)
 
-      public static func getOneofE2(value:O) -> Proto3PreserveUnknownEnumUnittest.MyEnum? {
+      public static func getOneofE2(_ value:O) -> Proto3PreserveUnknownEnumUnittest.MyEnum? {
            switch value {
            case .OneofE2(let enumValue):
                 return enumValue
@@ -175,7 +176,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
         let copyObjectO = storageO
         return copyObjectO
     }
-    public private(set) var e:Proto3PreserveUnknownEnumUnittest.MyEnum = Proto3PreserveUnknownEnumUnittest.MyEnum.Foo
+    public private(set) var e:Proto3PreserveUnknownEnumUnittest.MyEnum = Proto3PreserveUnknownEnumUnittest.MyEnum.foo
     public private(set) var hasE:Bool = false
     private var repeatedEMemoizedSerializedSize:Int32 = 0
     public private(set) var repeatedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnum> = Array<Proto3PreserveUnknownEnumUnittest.MyEnum>()
@@ -183,16 +184,6 @@ public extension Proto3PreserveUnknownEnumUnittest {
     public private(set) var repeatedPackedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnum> = Array<Proto3PreserveUnknownEnumUnittest.MyEnum>()
     private var repeatedPackedUnexpectedEMemoizedSerializedSize:Int32 = 0
     public private(set) var repeatedPackedUnexpectedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> = Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>()
-    public private(set) var hasOneofE1:Bool {
-          get {
-                guard let _ = MyMessage.O.getOneofE1(storageO) else {
-                    return false
-                }
-                return true
-          }
-          set(newValue) {
-          }
-    }
     public private(set) var oneofE1:Proto3PreserveUnknownEnumUnittest.MyEnum!{
          get {
               return MyMessage.O.getOneofE1(storageO)
@@ -201,9 +192,9 @@ public extension Proto3PreserveUnknownEnumUnittest {
               storageO = MyMessage.O.OneofE1(newvalue)
          }
     }
-    public private(set) var hasOneofE2:Bool {
+    public private(set) var hasOneofE1:Bool {
           get {
-                guard let _ = MyMessage.O.getOneofE2(storageO) else {
+                guard let _ = MyMessage.O.getOneofE1(storageO) else {
                     return false
                 }
                 return true
@@ -219,36 +210,46 @@ public extension Proto3PreserveUnknownEnumUnittest {
               storageO = MyMessage.O.OneofE2(newvalue)
          }
     }
+    public private(set) var hasOneofE2:Bool {
+          get {
+                guard let _ = MyMessage.O.getOneofE2(storageO) else {
+                    return false
+                }
+                return true
+          }
+          set(newValue) {
+          }
+    }
     required public init() {
          super.init()
     }
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasE {
-        try output.writeEnum(1, value:e.rawValue)
+        try codedOutputStream.writeEnum(fieldNumber: 1, value:e.rawValue)
       }
       for oneValueOfrepeatedE in repeatedE {
-          try output.writeEnum(2, value:oneValueOfrepeatedE.rawValue)
+          try codedOutputStream.writeEnum(fieldNumber: 2, value:oneValueOfrepeatedE.rawValue)
       }
       if !repeatedPackedE.isEmpty {
-        try output.writeRawVarint32(26)
-        try output.writeRawVarint32(repeatedPackedEMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 26)
+        try codedOutputStream.writeRawVarint32(value: repeatedPackedEMemoizedSerializedSize)
       }
       for oneValueOfrepeatedPackedE in repeatedPackedE {
-          try output.writeEnumNoTag(oneValueOfrepeatedPackedE.rawValue)
+          try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedPackedE.rawValue)
       }
       for oneValueOfrepeatedPackedUnexpectedE in repeatedPackedUnexpectedE {
-          try output.writeEnum(4, value:oneValueOfrepeatedPackedUnexpectedE.rawValue)
+          try codedOutputStream.writeEnum(fieldNumber: 4, value:oneValueOfrepeatedPackedUnexpectedE.rawValue)
       }
       if hasOneofE1 {
-        try output.writeEnum(5, value:oneofE1.rawValue)
+        try codedOutputStream.writeEnum(fieldNumber: 5, value:oneofE1.rawValue)
       }
       if hasOneofE2 {
-        try output.writeEnum(6, value:oneofE2.rawValue)
+        try codedOutputStream.writeEnum(fieldNumber: 6, value:oneofE2.rawValue)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -258,7 +259,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
 
       serialize_size = 0
       if (hasE) {
-        serialize_size += e.rawValue.computeEnumSize(1)
+        serialize_size += e.rawValue.computeEnumSize(fieldNumber: 1)
       }
       var dataSizerepeatedE:Int32 = 0
       for oneValueOfrepeatedE in repeatedE {
@@ -283,42 +284,42 @@ public extension Proto3PreserveUnknownEnumUnittest {
       serialize_size += dataSizerepeatedPackedUnexpectedE
       serialize_size += (1 * Int32(repeatedPackedUnexpectedE.count))
       if (hasOneofE1) {
-        serialize_size += oneofE1.rawValue.computeEnumSize(5)
+        serialize_size += oneofE1.rawValue.computeEnumSize(fieldNumber: 5)
       }
       if (hasOneofE2) {
-        serialize_size += oneofE2.rawValue.computeEnumSize(6)
+        serialize_size += oneofE2.rawValue.computeEnumSize(fieldNumber: 6)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3PreserveUnknownEnumUnittest.MyMessage> {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3PreserveUnknownEnumUnittest.MyMessage> {
       var mergedArray = Array<Proto3PreserveUnknownEnumUnittest.MyMessage>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
-        mergedArray += [value]
+      while let value = try parseDelimitedFrom(inputStream: inputStream) {
+        mergedArray.append(value)
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage? {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage? {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFromData(data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFrom(data: Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFromInputStream(input).build()
+    public class func parseFrom(inputStream: InputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(inputStream: inputStream).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
       return Proto3PreserveUnknownEnumUnittest.MyMessage.classBuilder() as! Proto3PreserveUnknownEnumUnittest.MyMessage.Builder
@@ -333,14 +334,14 @@ public extension Proto3PreserveUnknownEnumUnittest {
       return Proto3PreserveUnknownEnumUnittest.MyMessage.Builder()
     }
     public func toBuilder() throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.builderWithPrototype(self)
+      return try Proto3PreserveUnknownEnumUnittest.MyMessage.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:Proto3PreserveUnknownEnumUnittest.MyMessage) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(prototype)
+      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(other:prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
@@ -350,21 +351,21 @@ public extension Proto3PreserveUnknownEnumUnittest {
       if !repeatedE.isEmpty {
         var jsonArrayRepeatedE:Array<String> = []
           for oneValueRepeatedE in repeatedE {
-            jsonArrayRepeatedE += [oneValueRepeatedE.toString()]
+            jsonArrayRepeatedE.append(oneValueRepeatedE.toString())
           }
         jsonMap["repeatedE"] = jsonArrayRepeatedE
       }
       if !repeatedPackedE.isEmpty {
         var jsonArrayRepeatedPackedE:Array<String> = []
           for oneValueRepeatedPackedE in repeatedPackedE {
-            jsonArrayRepeatedPackedE += [oneValueRepeatedPackedE.toString()]
+            jsonArrayRepeatedPackedE.append(oneValueRepeatedPackedE.toString())
           }
         jsonMap["repeatedPackedE"] = jsonArrayRepeatedPackedE
       }
       if !repeatedPackedUnexpectedE.isEmpty {
         var jsonArrayRepeatedPackedUnexpectedE:Array<String> = []
           for oneValueRepeatedPackedUnexpectedE in repeatedPackedUnexpectedE {
-            jsonArrayRepeatedPackedUnexpectedE += [oneValueRepeatedPackedUnexpectedE.toString()]
+            jsonArrayRepeatedPackedUnexpectedE.append(oneValueRepeatedPackedUnexpectedE.toString())
           }
         jsonMap["repeatedPackedUnexpectedE"] = jsonArrayRepeatedPackedUnexpectedE
       }
@@ -377,10 +378,10 @@ public extension Proto3PreserveUnknownEnumUnittest {
       return jsonMap
     }
     override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder.decodeToBuilder(jsonMap).build()
+      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder.fromJSONToBuilder(data).build()
+    override class public func fromJSON(data:Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder.fromJSONToBuilder(data:data).build()
     }
     override public func getDescription(indent:String) throws -> String {
       var output = ""
@@ -408,7 +409,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       if (hasOneofE2) {
         output += "\(indent) oneofE2: \(oneofE2.description)\n"
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -474,13 +475,13 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 builderResult.e = value
             }
         }
-        public func setE(value:Proto3PreserveUnknownEnumUnittest.MyEnum) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+        public func setE(_ value:Proto3PreserveUnknownEnumUnittest.MyEnum) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
           self.e = value
           return self
         }
         public func clearE() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
            builderResult.hasE = false
-           builderResult.e = .Foo
+           builderResult.e = .foo
            return self
         }
       public var repeatedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnum> {
@@ -491,12 +492,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
               builderResult.repeatedE = value
           }
       }
-      public func setRepeatedE(value:Array<Proto3PreserveUnknownEnumUnittest.MyEnum>) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+      public func setRepeatedE(_ value:Array<Proto3PreserveUnknownEnumUnittest.MyEnum>) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         self.repeatedE = value
         return self
       }
       public func clearRepeatedE() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
-        builderResult.repeatedE.removeAll(keepCapacity: false)
+        builderResult.repeatedE.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedPackedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnum> {
@@ -507,12 +508,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
               builderResult.repeatedPackedE = value
           }
       }
-      public func setRepeatedPackedE(value:Array<Proto3PreserveUnknownEnumUnittest.MyEnum>) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+      public func setRepeatedPackedE(_ value:Array<Proto3PreserveUnknownEnumUnittest.MyEnum>) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         self.repeatedPackedE = value
         return self
       }
       public func clearRepeatedPackedE() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
-        builderResult.repeatedPackedE.removeAll(keepCapacity: false)
+        builderResult.repeatedPackedE.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedPackedUnexpectedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> {
@@ -523,12 +524,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
               builderResult.repeatedPackedUnexpectedE = value
           }
       }
-      public func setRepeatedPackedUnexpectedE(value:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+      public func setRepeatedPackedUnexpectedE(_ value:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         self.repeatedPackedUnexpectedE = value
         return self
       }
       public func clearRepeatedPackedUnexpectedE() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
-        builderResult.repeatedPackedUnexpectedE.removeAll(keepCapacity: false)
+        builderResult.repeatedPackedUnexpectedE.removeAll(keepingCapacity: false)
         return self
       }
         public var hasOneofE1:Bool{
@@ -545,13 +546,13 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 builderResult.oneofE1 = value
             }
         }
-        public func setOneofE1(value:Proto3PreserveUnknownEnumUnittest.MyEnum) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+        public func setOneofE1(_ value:Proto3PreserveUnknownEnumUnittest.MyEnum) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
           self.oneofE1 = value
           return self
         }
         public func clearOneofE1() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
            builderResult.hasOneofE1 = false
-           builderResult.oneofE1 = .Foo
+           builderResult.oneofE1 = .foo
            return self
         }
         public var hasOneofE2:Bool{
@@ -568,13 +569,13 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 builderResult.oneofE2 = value
             }
         }
-        public func setOneofE2(value:Proto3PreserveUnknownEnumUnittest.MyEnum) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+        public func setOneofE2(_ value:Proto3PreserveUnknownEnumUnittest.MyEnum) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
           self.oneofE2 = value
           return self
         }
         public func clearOneofE2() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
            builderResult.hasOneofE2 = false
-           builderResult.oneofE2 = .Foo
+           builderResult.oneofE2 = .foo
            return self
         }
       override public var internalGetResult:GeneratedMessage {
@@ -587,7 +588,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
         return self
       }
       override public func clone() throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
-        return try Proto3PreserveUnknownEnumUnittest.MyMessage.builderWithPrototype(builderResult)
+        return try Proto3PreserveUnknownEnumUnittest.MyMessage.builderWithPrototype(prototype:builderResult)
       }
       override public func build() throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
            try checkInitialized()
@@ -619,76 +620,76 @@ public extension Proto3PreserveUnknownEnumUnittest {
         if other.hasOneofE2 {
              oneofE2 = other.oneofE2
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
-          let protobufTag = try input.readTag()
+          let protobufTag = try codedInputStream.readTag()
           switch protobufTag {
           case 0: 
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 8:
-            let valueInte = try input.readEnum()
+            let valueInte = try codedInputStream.readEnum()
             if let enumse = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueInte){
                  e = enumse
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueInte))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueInte))
             }
 
           case 16:
-            let valueIntrepeatedE = try input.readEnum()
+            let valueIntrepeatedE = try codedInputStream.readEnum()
             if let enumsrepeatedE = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntrepeatedE) {
-                 builderResult.repeatedE += [enumsrepeatedE]
+                 builderResult.repeatedE.append(enumsrepeatedE)
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntrepeatedE))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntrepeatedE))
             }
 
           case 26:
-            let length:Int32 = try input.readRawVarint32()
-            let oldLimit:Int32 = try input.pushLimit(length)
-            while input.bytesUntilLimit() > 0 {
-            let valueIntrepeatedPackedE = try input.readEnum()
+            let length = Int(try codedInputStream.readRawVarint32())
+            let oldLimit = try codedInputStream.pushLimit(byteLimit: length)
+            while codedInputStream.bytesUntilLimit() > 0 {
+            let valueIntrepeatedPackedE = try codedInputStream.readEnum()
             if let enumsrepeatedPackedE = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntrepeatedPackedE) {
-                 builderResult.repeatedPackedE += [enumsrepeatedPackedE]
+                 builderResult.repeatedPackedE.append(enumsrepeatedPackedE)
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(3, value:Int64(valueIntrepeatedPackedE))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 3, value:Int64(valueIntrepeatedPackedE))
             }
             }
-            input.popLimit(oldLimit)
+            codedInputStream.popLimit(oldLimit: oldLimit)
 
           case 32:
-            let valueIntrepeatedPackedUnexpectedE = try input.readEnum()
+            let valueIntrepeatedPackedUnexpectedE = try codedInputStream.readEnum()
             if let enumsrepeatedPackedUnexpectedE = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedPackedUnexpectedE) {
-                 builderResult.repeatedPackedUnexpectedE += [enumsrepeatedPackedUnexpectedE]
+                 builderResult.repeatedPackedUnexpectedE.append(enumsrepeatedPackedUnexpectedE)
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(4, value:Int64(valueIntrepeatedPackedUnexpectedE))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 4, value:Int64(valueIntrepeatedPackedUnexpectedE))
             }
 
           case 40:
-            let valueIntoneofE1 = try input.readEnum()
+            let valueIntoneofE1 = try codedInputStream.readEnum()
             if let enumsoneofE1 = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntoneofE1){
                  oneofE1 = enumsoneofE1
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(5, value:Int64(valueIntoneofE1))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 5, value:Int64(valueIntoneofE1))
             }
 
           case 48:
-            let valueIntoneofE2 = try input.readEnum()
+            let valueIntoneofE2 = try codedInputStream.readEnum()
             if let enumsoneofE2 = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntoneofE2){
                  oneofE2 = enumsoneofE2
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(6, value:Int64(valueIntoneofE2))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 6, value:Int64(valueIntoneofE2))
             }
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -698,46 +699,46 @@ public extension Proto3PreserveUnknownEnumUnittest {
       override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         let resultDecodedBuilder = Proto3PreserveUnknownEnumUnittest.MyMessage.Builder()
         if let jsonValueE = jsonMap["e"] as? String {
-          resultDecodedBuilder.e = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(jsonValueE)
+          resultDecodedBuilder.e = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(str: jsonValueE)
         }
         if let jsonValueRepeatedE = jsonMap["repeatedE"] as? Array<String> {
           var jsonArrayRepeatedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnum> = []
           for oneValueRepeatedE in jsonValueRepeatedE {
-            let enumFromStringRepeatedE = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(oneValueRepeatedE)
-            jsonArrayRepeatedE += [enumFromStringRepeatedE]
+            let enumFromStringRepeatedE = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(str: oneValueRepeatedE)
+            jsonArrayRepeatedE.append(enumFromStringRepeatedE)
           }
           resultDecodedBuilder.repeatedE = jsonArrayRepeatedE
         }
         if let jsonValueRepeatedPackedE = jsonMap["repeatedPackedE"] as? Array<String> {
           var jsonArrayRepeatedPackedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnum> = []
           for oneValueRepeatedPackedE in jsonValueRepeatedPackedE {
-            let enumFromStringRepeatedPackedE = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(oneValueRepeatedPackedE)
-            jsonArrayRepeatedPackedE += [enumFromStringRepeatedPackedE]
+            let enumFromStringRepeatedPackedE = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(str: oneValueRepeatedPackedE)
+            jsonArrayRepeatedPackedE.append(enumFromStringRepeatedPackedE)
           }
           resultDecodedBuilder.repeatedPackedE = jsonArrayRepeatedPackedE
         }
         if let jsonValueRepeatedPackedUnexpectedE = jsonMap["repeatedPackedUnexpectedE"] as? Array<String> {
           var jsonArrayRepeatedPackedUnexpectedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> = []
           for oneValueRepeatedPackedUnexpectedE in jsonValueRepeatedPackedUnexpectedE {
-            let enumFromStringRepeatedPackedUnexpectedE = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(oneValueRepeatedPackedUnexpectedE)
-            jsonArrayRepeatedPackedUnexpectedE += [enumFromStringRepeatedPackedUnexpectedE]
+            let enumFromStringRepeatedPackedUnexpectedE = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(str: oneValueRepeatedPackedUnexpectedE)
+            jsonArrayRepeatedPackedUnexpectedE.append(enumFromStringRepeatedPackedUnexpectedE)
           }
           resultDecodedBuilder.repeatedPackedUnexpectedE = jsonArrayRepeatedPackedUnexpectedE
         }
         if let jsonValueOneofE1 = jsonMap["oneofE1"] as? String {
-          resultDecodedBuilder.oneofE1 = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(jsonValueOneofE1)
+          resultDecodedBuilder.oneofE1 = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(str: jsonValueOneofE1)
         }
         if let jsonValueOneofE2 = jsonMap["oneofE2"] as? String {
-          resultDecodedBuilder.oneofE2 = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(jsonValueOneofE2)
+          resultDecodedBuilder.oneofE2 = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(str: jsonValueOneofE2)
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(data:Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
-        return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder.decodeToBuilder(jsDataCast)
+        return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)
       }
     }
 
@@ -761,7 +762,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       }
       case OneofE1(Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra)
 
-      public static func getOneofE1(value:O) -> Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra? {
+      public static func getOneofE1(_ value:O) -> Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra? {
            switch value {
            case .OneofE1(let enumValue):
                 return enumValue
@@ -771,7 +772,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       }
       case OneofE2(Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra)
 
-      public static func getOneofE2(value:O) -> Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra? {
+      public static func getOneofE2(_ value:O) -> Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra? {
            switch value {
            case .OneofE2(let enumValue):
                 return enumValue
@@ -787,7 +788,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
         let copyObjectO = storageO
         return copyObjectO
     }
-    public private(set) var e:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.EFoo
+    public private(set) var e:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.eFoo
     public private(set) var hasE:Bool = false
     private var repeatedEMemoizedSerializedSize:Int32 = 0
     public private(set) var repeatedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> = Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>()
@@ -795,16 +796,6 @@ public extension Proto3PreserveUnknownEnumUnittest {
     public private(set) var repeatedPackedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> = Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>()
     private var repeatedPackedUnexpectedEMemoizedSerializedSize:Int32 = 0
     public private(set) var repeatedPackedUnexpectedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> = Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>()
-    public private(set) var hasOneofE1:Bool {
-          get {
-                guard let _ = MyMessagePlusExtra.O.getOneofE1(storageO) else {
-                    return false
-                }
-                return true
-          }
-          set(newValue) {
-          }
-    }
     public private(set) var oneofE1:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra!{
          get {
               return MyMessagePlusExtra.O.getOneofE1(storageO)
@@ -813,9 +804,9 @@ public extension Proto3PreserveUnknownEnumUnittest {
               storageO = MyMessagePlusExtra.O.OneofE1(newvalue)
          }
     }
-    public private(set) var hasOneofE2:Bool {
+    public private(set) var hasOneofE1:Bool {
           get {
-                guard let _ = MyMessagePlusExtra.O.getOneofE2(storageO) else {
+                guard let _ = MyMessagePlusExtra.O.getOneofE1(storageO) else {
                     return false
                 }
                 return true
@@ -831,40 +822,50 @@ public extension Proto3PreserveUnknownEnumUnittest {
               storageO = MyMessagePlusExtra.O.OneofE2(newvalue)
          }
     }
+    public private(set) var hasOneofE2:Bool {
+          get {
+                guard let _ = MyMessagePlusExtra.O.getOneofE2(storageO) else {
+                    return false
+                }
+                return true
+          }
+          set(newValue) {
+          }
+    }
     required public init() {
          super.init()
     }
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasE {
-        try output.writeEnum(1, value:e.rawValue)
+        try codedOutputStream.writeEnum(fieldNumber: 1, value:e.rawValue)
       }
       for oneValueOfrepeatedE in repeatedE {
-          try output.writeEnum(2, value:oneValueOfrepeatedE.rawValue)
+          try codedOutputStream.writeEnum(fieldNumber: 2, value:oneValueOfrepeatedE.rawValue)
       }
       if !repeatedPackedE.isEmpty {
-        try output.writeRawVarint32(26)
-        try output.writeRawVarint32(repeatedPackedEMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 26)
+        try codedOutputStream.writeRawVarint32(value: repeatedPackedEMemoizedSerializedSize)
       }
       for oneValueOfrepeatedPackedE in repeatedPackedE {
-          try output.writeEnumNoTag(oneValueOfrepeatedPackedE.rawValue)
+          try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedPackedE.rawValue)
       }
       if !repeatedPackedUnexpectedE.isEmpty {
-        try output.writeRawVarint32(34)
-        try output.writeRawVarint32(repeatedPackedUnexpectedEMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 34)
+        try codedOutputStream.writeRawVarint32(value: repeatedPackedUnexpectedEMemoizedSerializedSize)
       }
       for oneValueOfrepeatedPackedUnexpectedE in repeatedPackedUnexpectedE {
-          try output.writeEnumNoTag(oneValueOfrepeatedPackedUnexpectedE.rawValue)
+          try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedPackedUnexpectedE.rawValue)
       }
       if hasOneofE1 {
-        try output.writeEnum(5, value:oneofE1.rawValue)
+        try codedOutputStream.writeEnum(fieldNumber: 5, value:oneofE1.rawValue)
       }
       if hasOneofE2 {
-        try output.writeEnum(6, value:oneofE2.rawValue)
+        try codedOutputStream.writeEnum(fieldNumber: 6, value:oneofE2.rawValue)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -874,7 +875,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
 
       serialize_size = 0
       if (hasE) {
-        serialize_size += e.rawValue.computeEnumSize(1)
+        serialize_size += e.rawValue.computeEnumSize(fieldNumber: 1)
       }
       var dataSizerepeatedE:Int32 = 0
       for oneValueOfrepeatedE in repeatedE {
@@ -903,42 +904,42 @@ public extension Proto3PreserveUnknownEnumUnittest {
       }
       repeatedPackedUnexpectedEMemoizedSerializedSize = dataSizerepeatedPackedUnexpectedE
       if (hasOneofE1) {
-        serialize_size += oneofE1.rawValue.computeEnumSize(5)
+        serialize_size += oneofE1.rawValue.computeEnumSize(fieldNumber: 5)
       }
       if (hasOneofE2) {
-        serialize_size += oneofE2.rawValue.computeEnumSize(6)
+        serialize_size += oneofE2.rawValue.computeEnumSize(fieldNumber: 6)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra> {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra> {
       var mergedArray = Array<Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
-        mergedArray += [value]
+      while let value = try parseDelimitedFrom(inputStream: inputStream) {
+        mergedArray.append(value)
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra? {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra? {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFromData(data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFrom(data: Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFromInputStream(input).build()
+    public class func parseFrom(inputStream: InputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(inputStream: inputStream).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(codedInputStream: codedInputStream).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
       return Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.classBuilder() as! Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder
@@ -953,14 +954,14 @@ public extension Proto3PreserveUnknownEnumUnittest {
       return Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder()
     }
     public func toBuilder() throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.builderWithPrototype(self)
+      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(prototype)
+      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(other:prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
@@ -970,21 +971,21 @@ public extension Proto3PreserveUnknownEnumUnittest {
       if !repeatedE.isEmpty {
         var jsonArrayRepeatedE:Array<String> = []
           for oneValueRepeatedE in repeatedE {
-            jsonArrayRepeatedE += [oneValueRepeatedE.toString()]
+            jsonArrayRepeatedE.append(oneValueRepeatedE.toString())
           }
         jsonMap["repeatedE"] = jsonArrayRepeatedE
       }
       if !repeatedPackedE.isEmpty {
         var jsonArrayRepeatedPackedE:Array<String> = []
           for oneValueRepeatedPackedE in repeatedPackedE {
-            jsonArrayRepeatedPackedE += [oneValueRepeatedPackedE.toString()]
+            jsonArrayRepeatedPackedE.append(oneValueRepeatedPackedE.toString())
           }
         jsonMap["repeatedPackedE"] = jsonArrayRepeatedPackedE
       }
       if !repeatedPackedUnexpectedE.isEmpty {
         var jsonArrayRepeatedPackedUnexpectedE:Array<String> = []
           for oneValueRepeatedPackedUnexpectedE in repeatedPackedUnexpectedE {
-            jsonArrayRepeatedPackedUnexpectedE += [oneValueRepeatedPackedUnexpectedE.toString()]
+            jsonArrayRepeatedPackedUnexpectedE.append(oneValueRepeatedPackedUnexpectedE.toString())
           }
         jsonMap["repeatedPackedUnexpectedE"] = jsonArrayRepeatedPackedUnexpectedE
       }
@@ -997,10 +998,10 @@ public extension Proto3PreserveUnknownEnumUnittest {
       return jsonMap
     }
     override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder.decodeToBuilder(jsonMap).build()
+      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder.fromJSONToBuilder(data).build()
+    override class public func fromJSON(data:Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder.fromJSONToBuilder(data:data).build()
     }
     override public func getDescription(indent:String) throws -> String {
       var output = ""
@@ -1028,7 +1029,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       if (hasOneofE2) {
         output += "\(indent) oneofE2: \(oneofE2.description)\n"
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -1094,13 +1095,13 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 builderResult.e = value
             }
         }
-        public func setE(value:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        public func setE(_ value:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
           self.e = value
           return self
         }
         public func clearE() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
            builderResult.hasE = false
-           builderResult.e = .EFoo
+           builderResult.e = .eFoo
            return self
         }
       public var repeatedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> {
@@ -1111,12 +1112,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
               builderResult.repeatedE = value
           }
       }
-      public func setRepeatedE(value:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+      public func setRepeatedE(_ value:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         self.repeatedE = value
         return self
       }
       public func clearRepeatedE() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-        builderResult.repeatedE.removeAll(keepCapacity: false)
+        builderResult.repeatedE.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedPackedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> {
@@ -1127,12 +1128,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
               builderResult.repeatedPackedE = value
           }
       }
-      public func setRepeatedPackedE(value:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+      public func setRepeatedPackedE(_ value:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         self.repeatedPackedE = value
         return self
       }
       public func clearRepeatedPackedE() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-        builderResult.repeatedPackedE.removeAll(keepCapacity: false)
+        builderResult.repeatedPackedE.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedPackedUnexpectedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> {
@@ -1143,12 +1144,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
               builderResult.repeatedPackedUnexpectedE = value
           }
       }
-      public func setRepeatedPackedUnexpectedE(value:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+      public func setRepeatedPackedUnexpectedE(_ value:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         self.repeatedPackedUnexpectedE = value
         return self
       }
       public func clearRepeatedPackedUnexpectedE() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-        builderResult.repeatedPackedUnexpectedE.removeAll(keepCapacity: false)
+        builderResult.repeatedPackedUnexpectedE.removeAll(keepingCapacity: false)
         return self
       }
         public var hasOneofE1:Bool{
@@ -1165,13 +1166,13 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 builderResult.oneofE1 = value
             }
         }
-        public func setOneofE1(value:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        public func setOneofE1(_ value:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
           self.oneofE1 = value
           return self
         }
         public func clearOneofE1() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
            builderResult.hasOneofE1 = false
-           builderResult.oneofE1 = .EFoo
+           builderResult.oneofE1 = .eFoo
            return self
         }
         public var hasOneofE2:Bool{
@@ -1188,13 +1189,13 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 builderResult.oneofE2 = value
             }
         }
-        public func setOneofE2(value:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        public func setOneofE2(_ value:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
           self.oneofE2 = value
           return self
         }
         public func clearOneofE2() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
            builderResult.hasOneofE2 = false
-           builderResult.oneofE2 = .EFoo
+           builderResult.oneofE2 = .eFoo
            return self
         }
       override public var internalGetResult:GeneratedMessage {
@@ -1207,7 +1208,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
         return self
       }
       override public func clone() throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-        return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.builderWithPrototype(builderResult)
+        return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.builderWithPrototype(prototype:builderResult)
       }
       override public func build() throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
            try checkInitialized()
@@ -1239,81 +1240,81 @@ public extension Proto3PreserveUnknownEnumUnittest {
         if other.hasOneofE2 {
              oneofE2 = other.oneofE2
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
-          let protobufTag = try input.readTag()
+          let protobufTag = try codedInputStream.readTag()
           switch protobufTag {
           case 0: 
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 8:
-            let valueInte = try input.readEnum()
+            let valueInte = try codedInputStream.readEnum()
             if let enumse = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueInte){
                  e = enumse
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(1, value:Int64(valueInte))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueInte))
             }
 
           case 16:
-            let valueIntrepeatedE = try input.readEnum()
+            let valueIntrepeatedE = try codedInputStream.readEnum()
             if let enumsrepeatedE = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedE) {
-                 builderResult.repeatedE += [enumsrepeatedE]
+                 builderResult.repeatedE.append(enumsrepeatedE)
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(2, value:Int64(valueIntrepeatedE))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntrepeatedE))
             }
 
           case 26:
-            let length:Int32 = try input.readRawVarint32()
-            let oldLimit:Int32 = try input.pushLimit(length)
-            while input.bytesUntilLimit() > 0 {
-            let valueIntrepeatedPackedE = try input.readEnum()
+            let length = Int(try codedInputStream.readRawVarint32())
+            let oldLimit = try codedInputStream.pushLimit(byteLimit: length)
+            while codedInputStream.bytesUntilLimit() > 0 {
+            let valueIntrepeatedPackedE = try codedInputStream.readEnum()
             if let enumsrepeatedPackedE = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedPackedE) {
-                 builderResult.repeatedPackedE += [enumsrepeatedPackedE]
+                 builderResult.repeatedPackedE.append(enumsrepeatedPackedE)
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(3, value:Int64(valueIntrepeatedPackedE))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 3, value:Int64(valueIntrepeatedPackedE))
             }
             }
-            input.popLimit(oldLimit)
+            codedInputStream.popLimit(oldLimit: oldLimit)
 
           case 34:
-            let length:Int32 = try input.readRawVarint32()
-            let oldLimit:Int32 = try input.pushLimit(length)
-            while input.bytesUntilLimit() > 0 {
-            let valueIntrepeatedPackedUnexpectedE = try input.readEnum()
+            let length = Int(try codedInputStream.readRawVarint32())
+            let oldLimit = try codedInputStream.pushLimit(byteLimit: length)
+            while codedInputStream.bytesUntilLimit() > 0 {
+            let valueIntrepeatedPackedUnexpectedE = try codedInputStream.readEnum()
             if let enumsrepeatedPackedUnexpectedE = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedPackedUnexpectedE) {
-                 builderResult.repeatedPackedUnexpectedE += [enumsrepeatedPackedUnexpectedE]
+                 builderResult.repeatedPackedUnexpectedE.append(enumsrepeatedPackedUnexpectedE)
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(4, value:Int64(valueIntrepeatedPackedUnexpectedE))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 4, value:Int64(valueIntrepeatedPackedUnexpectedE))
             }
             }
-            input.popLimit(oldLimit)
+            codedInputStream.popLimit(oldLimit: oldLimit)
 
           case 40:
-            let valueIntoneofE1 = try input.readEnum()
+            let valueIntoneofE1 = try codedInputStream.readEnum()
             if let enumsoneofE1 = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntoneofE1){
                  oneofE1 = enumsoneofE1
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(5, value:Int64(valueIntoneofE1))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 5, value:Int64(valueIntoneofE1))
             }
 
           case 48:
-            let valueIntoneofE2 = try input.readEnum()
+            let valueIntoneofE2 = try codedInputStream.readEnum()
             if let enumsoneofE2 = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntoneofE2){
                  oneofE2 = enumsoneofE2
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(6, value:Int64(valueIntoneofE2))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 6, value:Int64(valueIntoneofE2))
             }
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -1323,46 +1324,46 @@ public extension Proto3PreserveUnknownEnumUnittest {
       override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         let resultDecodedBuilder = Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder()
         if let jsonValueE = jsonMap["e"] as? String {
-          resultDecodedBuilder.e = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(jsonValueE)
+          resultDecodedBuilder.e = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(str: jsonValueE)
         }
         if let jsonValueRepeatedE = jsonMap["repeatedE"] as? Array<String> {
           var jsonArrayRepeatedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> = []
           for oneValueRepeatedE in jsonValueRepeatedE {
-            let enumFromStringRepeatedE = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(oneValueRepeatedE)
-            jsonArrayRepeatedE += [enumFromStringRepeatedE]
+            let enumFromStringRepeatedE = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(str: oneValueRepeatedE)
+            jsonArrayRepeatedE.append(enumFromStringRepeatedE)
           }
           resultDecodedBuilder.repeatedE = jsonArrayRepeatedE
         }
         if let jsonValueRepeatedPackedE = jsonMap["repeatedPackedE"] as? Array<String> {
           var jsonArrayRepeatedPackedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> = []
           for oneValueRepeatedPackedE in jsonValueRepeatedPackedE {
-            let enumFromStringRepeatedPackedE = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(oneValueRepeatedPackedE)
-            jsonArrayRepeatedPackedE += [enumFromStringRepeatedPackedE]
+            let enumFromStringRepeatedPackedE = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(str: oneValueRepeatedPackedE)
+            jsonArrayRepeatedPackedE.append(enumFromStringRepeatedPackedE)
           }
           resultDecodedBuilder.repeatedPackedE = jsonArrayRepeatedPackedE
         }
         if let jsonValueRepeatedPackedUnexpectedE = jsonMap["repeatedPackedUnexpectedE"] as? Array<String> {
           var jsonArrayRepeatedPackedUnexpectedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> = []
           for oneValueRepeatedPackedUnexpectedE in jsonValueRepeatedPackedUnexpectedE {
-            let enumFromStringRepeatedPackedUnexpectedE = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(oneValueRepeatedPackedUnexpectedE)
-            jsonArrayRepeatedPackedUnexpectedE += [enumFromStringRepeatedPackedUnexpectedE]
+            let enumFromStringRepeatedPackedUnexpectedE = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(str: oneValueRepeatedPackedUnexpectedE)
+            jsonArrayRepeatedPackedUnexpectedE.append(enumFromStringRepeatedPackedUnexpectedE)
           }
           resultDecodedBuilder.repeatedPackedUnexpectedE = jsonArrayRepeatedPackedUnexpectedE
         }
         if let jsonValueOneofE1 = jsonMap["oneofE1"] as? String {
-          resultDecodedBuilder.oneofE1 = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(jsonValueOneofE1)
+          resultDecodedBuilder.oneofE1 = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(str: jsonValueOneofE1)
         }
         if let jsonValueOneofE2 = jsonMap["oneofE2"] as? String {
-          resultDecodedBuilder.oneofE2 = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(jsonValueOneofE2)
+          resultDecodedBuilder.oneofE2 = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(str: jsonValueOneofE2)
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(data:Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
-        return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder.decodeToBuilder(jsDataCast)
+        return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder.decodeToBuilder(jsonMap:jsDataCast)
       }
     }
 

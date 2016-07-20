@@ -112,7 +112,7 @@ final public class Field:Equatable,Hashable
     public var variantArray:Array<Int64>
     public var fixed32Array:Array<UInt32>
     public var fixed64Array:Array<UInt64>
-    public var lengthDelimited:Array<NSData>
+    public var lengthDelimited:Array<Data>
     public var groupArray:Array<UnknownFieldSet>
     
   
@@ -120,10 +120,10 @@ final public class Field:Equatable,Hashable
     public init()
     {
         
-        variantArray = [Int64](count: 0, repeatedValue: 0)
-        fixed32Array = [UInt32](count: 0, repeatedValue: 0)
-        fixed64Array = [UInt64](count: 0, repeatedValue: 0)
-        lengthDelimited = Array<NSData>()
+        variantArray = [Int64](repeating: 0, count: 0)
+        fixed32Array = [UInt32](repeating: 0, count: 0)
+        fixed64Array = [UInt64](repeating: 0, count: 0)
+        lengthDelimited = Array<Data>()
         groupArray = Array<UnknownFieldSet>()
     }
     
@@ -133,27 +133,27 @@ final public class Field:Equatable,Hashable
     
         for value in variantArray
         {
-            result +=  value.computeInt64Size(fieldNumber)
+            result +=  value.computeInt64Size(fieldNumber: fieldNumber)
         }
         
         for value in fixed32Array
         {
-            result +=  value.computeFixed32Size(fieldNumber)
+            result +=  value.computeFixed32Size(fieldNumber: fieldNumber)
         }
         
         for value in fixed64Array
         {
-            result +=  value.computeFixed64Size(fieldNumber)
+            result +=  value.computeFixed64Size(fieldNumber: fieldNumber)
         }
 
         for value in lengthDelimited
         {
-            result += value.computeDataSize(fieldNumber)
+            result += value.computeDataSize(fieldNumber: fieldNumber)
         }
 
         for  value in groupArray
         {
-            result += value.computeUnknownGroupSize(fieldNumber)
+            result += value.computeUnknownGroupSize(fieldNumber: fieldNumber)
         }
         
         return result
@@ -162,7 +162,7 @@ final public class Field:Equatable,Hashable
     public func getSerializedSizeAsMessageSetExtension(fieldNumber:Int32) -> Int32 {
         var result:Int32 = 0
         for value in lengthDelimited {
-            result += value.computeRawMessageSetExtensionSize(fieldNumber)
+            result += value.computeRawMessageSetExtensionSize(fieldNumber: fieldNumber)
         }
         return result
     }
@@ -172,23 +172,23 @@ final public class Field:Equatable,Hashable
 
         for value in variantArray
         {
-            try output.writeInt64(fieldNumber, value:value)
+            try output.writeInt64(fieldNumber: fieldNumber, value:value)
         }
         for value in fixed32Array
         {
-            try output.writeFixed32(fieldNumber, value: value)
+            try output.writeFixed32(fieldNumber: fieldNumber, value: value)
         }
         for value in fixed64Array
         {
-            try output.writeFixed64(fieldNumber, value:value)
+            try output.writeFixed64(fieldNumber: fieldNumber, value:value)
         }
         for value in lengthDelimited
         {
-            try output.writeData(fieldNumber, value: value)
+            try output.writeData(fieldNumber: fieldNumber, value: value)
         }
         for value in groupArray
         {
-            try output.writeUnknownGroup(fieldNumber, value:value)
+            try output.writeUnknownGroup(fieldNumber: fieldNumber, value:value)
         }
 
     }
@@ -219,18 +219,18 @@ final public class Field:Equatable,Hashable
         for value in groupArray
         {
             outputString += "\(indent)\(fieldNumber)[\n"
-            outputString += value.getDescription(indent)
+            outputString += value.getDescription(indent: indent)
             outputString += "\(indent)]"
         }
         return outputString
 
     }
     
-    public func writeAsMessageSetExtensionTo(fieldNumber:Int32, output:CodedOutputStream) throws
+    public func writeAsMessageSetExtensionTo(fieldNumber:Int32, codedOutputStream:CodedOutputStream) throws
     {
         for value in lengthDelimited
         {
-            try output.writeRawMessageSetExtension(fieldNumber, value: value)
+            try codedOutputStream.writeRawMessageSetExtension(fieldNumber: fieldNumber, value: value)
         }
     }
     
@@ -270,11 +270,11 @@ public extension Field
 {
     public func clear()
     {
-        variantArray.removeAll(keepCapacity: false)
-        fixed32Array.removeAll(keepCapacity: false)
-        fixed64Array.removeAll(keepCapacity: false)
-        groupArray.removeAll(keepCapacity: false)
-        lengthDelimited.removeAll(keepCapacity: false)
+        variantArray.removeAll(keepingCapacity: false)
+        fixed32Array.removeAll(keepingCapacity: false)
+        fixed64Array.removeAll(keepingCapacity: false)
+        groupArray.removeAll(keepingCapacity: false)
+        lengthDelimited.removeAll(keepingCapacity: false)
     }
     
     public func mergeFromField(other:Field) -> Field

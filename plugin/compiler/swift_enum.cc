@@ -93,7 +93,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print("return \"$name$\"\n", "name", canonical_values_[i]->name());
             
         }
-//        printer->Print("  default: throw ProtocolBuffersError.InvalidProtocolBuffer(\"Invalid enum value\")\n");
+//        printer->Print("  default: throw ProtocolBuffersError.invalidProtocolBuffer(\"Invalid enum value\")\n");
         printer->Print("  }\n");
         printer->Print("}\n");
         
@@ -106,7 +106,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print("  case \"$name$\":", "name", canonical_values_[i]->name());
             printer->Print("  return .$canonical$\n","canonical",EnumValueName(canonical_values_[i]));
         }
-        printer->Print("  default: throw ProtocolBuffersError.InvalidProtocolBuffer(\"Conversion String to Enum has failed.\")\n");
+        printer->Print("  default: throw ProtocolBuffersError.invalidProtocolBuffer(\"Conversion String to Enum has failed.\")\n");
         printer->Print("  }\n");
         printer->Print("}\n");
         

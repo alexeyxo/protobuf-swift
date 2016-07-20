@@ -5,6 +5,7 @@
 import Foundation
 import ProtocolBuffers
 
+
 public struct Proto3ArenaUnittest { }
 
 public func == (lhs: Proto3ArenaUnittest.TestAllTypes, rhs: Proto3ArenaUnittest.TestAllTypes) -> Bool {
@@ -165,10 +166,10 @@ public extension Proto3ArenaUnittest {
 
     init() {
       extensionRegistry = ExtensionRegistry()
-      registerAllExtensions(extensionRegistry)
-      ProtobufUnittestImport.UnittestImportRoot.sharedInstance.registerAllExtensions(extensionRegistry)
+      registerAllExtensions(registry: extensionRegistry)
+      ProtobufUnittestImport.UnittestImportRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
     }
-    public func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(registry: ExtensionRegistry) {
     }
   }
 
@@ -177,35 +178,35 @@ public extension Proto3ArenaUnittest {
   //Enum type declaration start 
 
   public enum ForeignEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-    case ForeignZero = 0
-    case ForeignFoo = 4
-    case ForeignBar = 5
-    case ForeignBaz = 6
+    case foreignZero = 0
+    case foreignFoo = 4
+    case foreignBar = 5
+    case foreignBaz = 6
     public func toString() -> String {
       switch self {
-      case .ForeignZero: return "FOREIGN_ZERO"
-      case .ForeignFoo: return "FOREIGN_FOO"
-      case .ForeignBar: return "FOREIGN_BAR"
-      case .ForeignBaz: return "FOREIGN_BAZ"
+      case .foreignZero: return "FOREIGN_ZERO"
+      case .foreignFoo: return "FOREIGN_FOO"
+      case .foreignBar: return "FOREIGN_BAR"
+      case .foreignBaz: return "FOREIGN_BAZ"
       }
     }
     public static func fromString(str:String) throws -> Proto3ArenaUnittest.ForeignEnum {
       switch str {
-      case "FOREIGN_ZERO":  return .ForeignZero
-      case "FOREIGN_FOO":  return .ForeignFoo
-      case "FOREIGN_BAR":  return .ForeignBar
-      case "FOREIGN_BAZ":  return .ForeignBaz
-      default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
+      case "FOREIGN_ZERO":  return .foreignZero
+      case "FOREIGN_FOO":  return .foreignFoo
+      case "FOREIGN_BAR":  return .foreignBar
+      case "FOREIGN_BAZ":  return .foreignBaz
+      default: throw ProtocolBuffersError.invalidProtocolBuffer("Conversion String to Enum has failed.")
       }
     }
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
         switch self {
-            case .ForeignZero: return ".ForeignZero"
-            case .ForeignFoo: return ".ForeignFoo"
-            case .ForeignBar: return ".ForeignBar"
-            case .ForeignBaz: return ".ForeignBaz"
+            case .foreignZero: return ".foreignZero"
+            case .foreignFoo: return ".foreignFoo"
+            case .foreignBar: return ".foreignBar"
+            case .foreignBaz: return ".foreignBaz"
         }
     }
   }
@@ -223,20 +224,20 @@ public extension Proto3ArenaUnittest {
         // The field name "b" fails to compile in proto1 because it conflicts with
         // a local variable named "b" in one of the generated methods.  Doh.
         // This file needs to compile in proto1 to test backwards-compatibility.
-        public private(set) var hasBb:Bool = false
         public private(set) var bb:Int32 = Int32(0)
 
+        public private(set) var hasBb:Bool = false
         required public init() {
              super.init()
         }
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasBb {
-            try output.writeInt32(1, value:bb)
+            try codedOutputStream.writeInt32(fieldNumber: 1, value:bb)
           }
-          try unknownFields.writeToCodedOutputStream(output)
+          try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
         override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
@@ -246,39 +247,39 @@ public extension Proto3ArenaUnittest {
 
           serialize_size = 0
           if hasBb {
-            serialize_size += bb.computeInt32Size(1)
+            serialize_size += bb.computeInt32Size(fieldNumber: 1)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
         }
-        public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage> {
+        public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage> {
           var mergedArray = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
-          while let value = try parseFromDelimitedFromInputStream(input) {
-            mergedArray += [value]
+          while let value = try parseDelimitedFrom(inputStream: inputStream) {
+            mergedArray.append(value)
           }
           return mergedArray
         }
-        public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage? {
-          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
+        public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage? {
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
         }
-        public class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
-          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
+        public class func parseFrom(data: Data) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
         }
-        public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
-          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+        public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
-          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFromInputStream(input).build()
+        public class func parseFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(inputStream: inputStream).build()
         }
-        public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
-          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
-          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFromCodedInputStream(input).build()
+        public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
         }
-        public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
-          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+        public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
           return Proto3ArenaUnittest.TestAllTypes.NestedMessage.classBuilder() as! Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder
@@ -293,34 +294,34 @@ public extension Proto3ArenaUnittest {
           return Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
         }
         public func toBuilder() throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
-          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(self)
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:self)
         }
         public class func builderWithPrototype(prototype:Proto3ArenaUnittest.TestAllTypes.NestedMessage) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
-          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(prototype)
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(other:prototype)
         }
         override public func encode() throws -> Dictionary<String,AnyObject> {
           guard isInitialized() else {
-            throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+            throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
 
           var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
           if hasBb {
-            jsonMap["bb"] = NSNumber(int:bb)
+            jsonMap["bb"] = NSNumber(value:bb)
           }
           return jsonMap
         }
         override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
-          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap).build()
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:NSData) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
-          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.fromJSONToBuilder(data).build()
+        override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
+          return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.fromJSONToBuilder(data:data).build()
         }
         override public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasBb {
             output += "\(indent) bb: \(bb) \n"
           }
-          output += unknownFields.getDescription(indent)
+          output += unknownFields.getDescription(indent: indent)
           return output
         }
         override public var hashValue:Int {
@@ -371,7 +372,7 @@ public extension Proto3ArenaUnittest {
                    builderResult.bb = value
                }
           }
-          public func setBb(value:Int32) -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
+          public func setBb(_ value:Int32) -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
             self.bb = value
             return self
           }
@@ -390,7 +391,7 @@ public extension Proto3ArenaUnittest {
             return self
           }
           override public func clone() throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
-            return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult)
+            return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult)
           }
           override public func build() throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
                try checkInitialized()
@@ -407,26 +408,26 @@ public extension Proto3ArenaUnittest {
             if other.hasBb {
                  bb = other.bb
             }
-            try mergeUnknownFields(other.unknownFields)
+            _ = try merge(unknownField: other.unknownFields)
             return self
           }
-          override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
-               return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
+               return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
-          override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
-            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
+            let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
-              let protobufTag = try input.readTag()
+              let protobufTag = try codedInputStream.readTag()
               switch protobufTag {
               case 0: 
                 self.unknownFields = try unknownFieldsBuilder.build()
                 return self
 
               case 8:
-                bb = try input.readInt32()
+                bb = try codedInputStream.readInt32()
 
               default:
-                if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                    unknownFields = try unknownFieldsBuilder.build()
                    return self
                 }
@@ -436,16 +437,16 @@ public extension Proto3ArenaUnittest {
           override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
             let resultDecodedBuilder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             if let jsonValueBb = jsonMap["bb"] as? NSNumber {
-              resultDecodedBuilder.bb = jsonValueBb.intValue
+              resultDecodedBuilder.bb = jsonValueBb.int32Value
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:NSData) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
-            let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+          override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
+            let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-              throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+              throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
-            return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsDataCast)
+            return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)
           }
         }
 
@@ -470,7 +471,7 @@ public extension Proto3ArenaUnittest {
       }
       case OneofUint32(UInt32)
 
-      public static func getOneofUint32(value:OneofField) -> UInt32? {
+      public static func getOneofUint32(_ value:OneofField) -> UInt32? {
            switch value {
            case .OneofUint32(let enumValue):
                 return enumValue
@@ -480,7 +481,7 @@ public extension Proto3ArenaUnittest {
       }
       case OneofNestedMessage(Proto3ArenaUnittest.TestAllTypes.NestedMessage)
 
-      public static func getOneofNestedMessage(value:OneofField) -> Proto3ArenaUnittest.TestAllTypes.NestedMessage? {
+      public static func getOneofNestedMessage(_ value:OneofField) -> Proto3ArenaUnittest.TestAllTypes.NestedMessage? {
            switch value {
            case .OneofNestedMessage(let enumValue):
                 return enumValue
@@ -490,7 +491,7 @@ public extension Proto3ArenaUnittest {
       }
       case OneofString(String)
 
-      public static func getOneofString(value:OneofField) -> String? {
+      public static func getOneofString(_ value:OneofField) -> String? {
            switch value {
            case .OneofString(let enumValue):
                 return enumValue
@@ -498,9 +499,9 @@ public extension Proto3ArenaUnittest {
                 return nil
            }
       }
-      case OneofBytes(NSData)
+      case OneofBytes(Data)
 
-      public static func getOneofBytes(value:OneofField) -> NSData? {
+      public static func getOneofBytes(_ value:OneofField) -> Data? {
            switch value {
            case .OneofBytes(let enumValue):
                 return enumValue
@@ -521,41 +522,41 @@ public extension Proto3ArenaUnittest {
       //Enum type declaration start 
 
       public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-        case Zero = 0
-        case Foo = 1
-        case Bar = 2
-        case Baz = 3
+        case zero = 0
+        case foo = 1
+        case bar = 2
+        case baz = 3
 
         // Intentionally negative.
-        case Neg = -1
+        case neg = -1
         public func toString() -> String {
           switch self {
-          case .Zero: return "ZERO"
-          case .Foo: return "FOO"
-          case .Bar: return "BAR"
-          case .Baz: return "BAZ"
-          case .Neg: return "NEG"
+          case .zero: return "ZERO"
+          case .foo: return "FOO"
+          case .bar: return "BAR"
+          case .baz: return "BAZ"
+          case .neg: return "NEG"
           }
         }
         public static func fromString(str:String) throws -> Proto3ArenaUnittest.TestAllTypes.NestedEnum {
           switch str {
-          case "ZERO":  return .Zero
-          case "FOO":  return .Foo
-          case "BAR":  return .Bar
-          case "BAZ":  return .Baz
-          case "NEG":  return .Neg
-          default: throw ProtocolBuffersError.InvalidProtocolBuffer("Conversion String to Enum has failed.")
+          case "ZERO":  return .zero
+          case "FOO":  return .foo
+          case "BAR":  return .bar
+          case "BAZ":  return .baz
+          case "NEG":  return .neg
+          default: throw ProtocolBuffersError.invalidProtocolBuffer("Conversion String to Enum has failed.")
           }
         }
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
             switch self {
-                case .Zero: return ".Zero"
-                case .Foo: return ".Foo"
-                case .Bar: return ".Bar"
-                case .Baz: return ".Baz"
-                case .Neg: return ".Neg"
+                case .zero: return ".zero"
+                case .foo: return ".foo"
+                case .bar: return ".bar"
+                case .baz: return ".baz"
+                case .neg: return ".neg"
             }
         }
       }
@@ -563,71 +564,71 @@ public extension Proto3ArenaUnittest {
       //Enum type declaration end 
 
     // Singular
-    public private(set) var hasOptionalInt32:Bool = false
     public private(set) var optionalInt32:Int32 = Int32(0)
 
-    public private(set) var hasOptionalInt64:Bool = false
+    public private(set) var hasOptionalInt32:Bool = false
     public private(set) var optionalInt64:Int64 = Int64(0)
 
-    public private(set) var hasOptionalUint32:Bool = false
+    public private(set) var hasOptionalInt64:Bool = false
     public private(set) var optionalUint32:UInt32 = UInt32(0)
 
-    public private(set) var hasOptionalUint64:Bool = false
+    public private(set) var hasOptionalUint32:Bool = false
     public private(set) var optionalUint64:UInt64 = UInt64(0)
 
-    public private(set) var hasOptionalSint32:Bool = false
+    public private(set) var hasOptionalUint64:Bool = false
     public private(set) var optionalSint32:Int32 = Int32(0)
 
-    public private(set) var hasOptionalSint64:Bool = false
+    public private(set) var hasOptionalSint32:Bool = false
     public private(set) var optionalSint64:Int64 = Int64(0)
 
-    public private(set) var hasOptionalFixed32:Bool = false
+    public private(set) var hasOptionalSint64:Bool = false
     public private(set) var optionalFixed32:UInt32 = UInt32(0)
 
-    public private(set) var hasOptionalFixed64:Bool = false
+    public private(set) var hasOptionalFixed32:Bool = false
     public private(set) var optionalFixed64:UInt64 = UInt64(0)
 
-    public private(set) var hasOptionalSfixed32:Bool = false
+    public private(set) var hasOptionalFixed64:Bool = false
     public private(set) var optionalSfixed32:Int32 = Int32(0)
 
-    public private(set) var hasOptionalSfixed64:Bool = false
+    public private(set) var hasOptionalSfixed32:Bool = false
     public private(set) var optionalSfixed64:Int64 = Int64(0)
 
-    public private(set) var hasOptionalFloat:Bool = false
+    public private(set) var hasOptionalSfixed64:Bool = false
     public private(set) var optionalFloat:Float = Float(0)
 
-    public private(set) var hasOptionalDouble:Bool = false
+    public private(set) var hasOptionalFloat:Bool = false
     public private(set) var optionalDouble:Double = Double(0)
 
-    public private(set) var hasOptionalBool:Bool = false
+    public private(set) var hasOptionalDouble:Bool = false
     public private(set) var optionalBool:Bool = false
 
-    public private(set) var hasOptionalString:Bool = false
+    public private(set) var hasOptionalBool:Bool = false
     public private(set) var optionalString:String = ""
 
-    public private(set) var hasOptionalBytes:Bool = false
-    public private(set) var optionalBytes:NSData = NSData()
+    public private(set) var hasOptionalString:Bool = false
+    public private(set) var optionalBytes:Data = Data()
 
-    public private(set) var hasOptionalNestedMessage:Bool = false
+    public private(set) var hasOptionalBytes:Bool = false
     public private(set) var optionalNestedMessage:Proto3ArenaUnittest.TestAllTypes.NestedMessage!
-    public private(set) var hasOptionalForeignMessage:Bool = false
+    public private(set) var hasOptionalNestedMessage:Bool = false
     public private(set) var optionalForeignMessage:Proto3ArenaUnittest.ForeignMessage!
-    public private(set) var hasOptionalImportMessage:Bool = false
+    public private(set) var hasOptionalForeignMessage:Bool = false
     public private(set) var optionalImportMessage:ProtobufUnittestImport.ImportMessage!
-    public private(set) var optionalNestedEnum:Proto3ArenaUnittest.TestAllTypes.NestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum.Zero
+    public private(set) var hasOptionalImportMessage:Bool = false
+    public private(set) var optionalNestedEnum:Proto3ArenaUnittest.TestAllTypes.NestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum.zero
     public private(set) var hasOptionalNestedEnum:Bool = false
-    public private(set) var optionalForeignEnum:Proto3ArenaUnittest.ForeignEnum = Proto3ArenaUnittest.ForeignEnum.ForeignZero
+    public private(set) var optionalForeignEnum:Proto3ArenaUnittest.ForeignEnum = Proto3ArenaUnittest.ForeignEnum.foreignZero
     public private(set) var hasOptionalForeignEnum:Bool = false
-    public private(set) var hasOptionalStringPiece:Bool = false
     public private(set) var optionalStringPiece:String = ""
 
-    public private(set) var hasOptionalCord:Bool = false
+    public private(set) var hasOptionalStringPiece:Bool = false
     public private(set) var optionalCord:String = ""
 
-    public private(set) var hasOptionalPublicImportMessage:Bool = false
+    public private(set) var hasOptionalCord:Bool = false
     public private(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage!
-    public private(set) var hasOptionalLazyMessage:Bool = false
+    public private(set) var hasOptionalPublicImportMessage:Bool = false
     public private(set) var optionalLazyMessage:Proto3ArenaUnittest.TestAllTypes.NestedMessage!
+    public private(set) var hasOptionalLazyMessage:Bool = false
     // Repeated
     public private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
     private var repeatedInt32MemoizedSerializedSize:Int32 = -1
@@ -656,7 +657,7 @@ public extension Proto3ArenaUnittest {
     public private(set) var repeatedBool:Array<Bool> = Array<Bool>()
     private var repeatedBoolMemoizedSerializedSize:Int32 = -1
     public private(set) var repeatedString:Array<String> = Array<String>()
-    public private(set) var repeatedBytes:Array<NSData> = Array<NSData>()
+    public private(set) var repeatedBytes:Array<Data> = Array<Data>()
     public private(set) var repeatedNestedMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>  = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
     public private(set) var repeatedForeignMessage:Array<Proto3ArenaUnittest.ForeignMessage>  = Array<Proto3ArenaUnittest.ForeignMessage>()
     public private(set) var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessage>  = Array<ProtobufUnittestImport.ImportMessage>()
@@ -667,16 +668,6 @@ public extension Proto3ArenaUnittest {
     public private(set) var repeatedStringPiece:Array<String> = Array<String>()
     public private(set) var repeatedCord:Array<String> = Array<String>()
     public private(set) var repeatedLazyMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>  = Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>()
-    public private(set) var hasOneofUint32:Bool {
-          get {
-                guard let _ = TestAllTypes.OneofField.getOneofUint32(storageOneofField) else {
-                    return false
-                }
-                return true
-          }
-          set(newValue) {
-          }
-    }
     public private(set) var oneofUint32:UInt32!{
          get {
               return TestAllTypes.OneofField.getOneofUint32(storageOneofField)
@@ -685,9 +676,9 @@ public extension Proto3ArenaUnittest {
               storageOneofField = TestAllTypes.OneofField.OneofUint32(newvalue)
          }
     }
-    public private(set) var hasOneofNestedMessage:Bool {
+    public private(set) var hasOneofUint32:Bool {
           get {
-                guard let _ = TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField) else {
+                guard let _ = TestAllTypes.OneofField.getOneofUint32(storageOneofField) else {
                     return false
                 }
                 return true
@@ -703,9 +694,9 @@ public extension Proto3ArenaUnittest {
               storageOneofField = TestAllTypes.OneofField.OneofNestedMessage(newvalue)
          }
     }
-    public private(set) var hasOneofString:Bool {
+    public private(set) var hasOneofNestedMessage:Bool {
           get {
-                guard let _ = TestAllTypes.OneofField.getOneofString(storageOneofField) else {
+                guard let _ = TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField) else {
                     return false
                 }
                 return true
@@ -721,6 +712,24 @@ public extension Proto3ArenaUnittest {
               storageOneofField = TestAllTypes.OneofField.OneofString(newvalue)
          }
     }
+    public private(set) var hasOneofString:Bool {
+          get {
+                guard let _ = TestAllTypes.OneofField.getOneofString(storageOneofField) else {
+                    return false
+                }
+                return true
+          }
+          set(newValue) {
+          }
+    }
+    public private(set) var oneofBytes:Data!{
+         get {
+              return TestAllTypes.OneofField.getOneofBytes(storageOneofField)
+         }
+         set (newvalue) {
+              storageOneofField = TestAllTypes.OneofField.OneofBytes(newvalue)
+         }
+    }
     public private(set) var hasOneofBytes:Bool {
           get {
                 guard let _ = TestAllTypes.OneofField.getOneofBytes(storageOneofField) else {
@@ -731,235 +740,227 @@ public extension Proto3ArenaUnittest {
           set(newValue) {
           }
     }
-    public private(set) var oneofBytes:NSData!{
-         get {
-              return TestAllTypes.OneofField.getOneofBytes(storageOneofField)
-         }
-         set (newvalue) {
-              storageOneofField = TestAllTypes.OneofField.OneofBytes(newvalue)
-         }
-    }
     required public init() {
          super.init()
     }
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasOptionalInt32 {
-        try output.writeInt32(1, value:optionalInt32)
+        try codedOutputStream.writeInt32(fieldNumber: 1, value:optionalInt32)
       }
       if hasOptionalInt64 {
-        try output.writeInt64(2, value:optionalInt64)
+        try codedOutputStream.writeInt64(fieldNumber: 2, value:optionalInt64)
       }
       if hasOptionalUint32 {
-        try output.writeUInt32(3, value:optionalUint32)
+        try codedOutputStream.writeUInt32(fieldNumber: 3, value:optionalUint32)
       }
       if hasOptionalUint64 {
-        try output.writeUInt64(4, value:optionalUint64)
+        try codedOutputStream.writeUInt64(fieldNumber: 4, value:optionalUint64)
       }
       if hasOptionalSint32 {
-        try output.writeSInt32(5, value:optionalSint32)
+        try codedOutputStream.writeSInt32(fieldNumber: 5, value:optionalSint32)
       }
       if hasOptionalSint64 {
-        try output.writeSInt64(6, value:optionalSint64)
+        try codedOutputStream.writeSInt64(fieldNumber: 6, value:optionalSint64)
       }
       if hasOptionalFixed32 {
-        try output.writeFixed32(7, value:optionalFixed32)
+        try codedOutputStream.writeFixed32(fieldNumber: 7, value:optionalFixed32)
       }
       if hasOptionalFixed64 {
-        try output.writeFixed64(8, value:optionalFixed64)
+        try codedOutputStream.writeFixed64(fieldNumber: 8, value:optionalFixed64)
       }
       if hasOptionalSfixed32 {
-        try output.writeSFixed32(9, value:optionalSfixed32)
+        try codedOutputStream.writeSFixed32(fieldNumber: 9, value:optionalSfixed32)
       }
       if hasOptionalSfixed64 {
-        try output.writeSFixed64(10, value:optionalSfixed64)
+        try codedOutputStream.writeSFixed64(fieldNumber: 10, value:optionalSfixed64)
       }
       if hasOptionalFloat {
-        try output.writeFloat(11, value:optionalFloat)
+        try codedOutputStream.writeFloat(fieldNumber: 11, value:optionalFloat)
       }
       if hasOptionalDouble {
-        try output.writeDouble(12, value:optionalDouble)
+        try codedOutputStream.writeDouble(fieldNumber: 12, value:optionalDouble)
       }
       if hasOptionalBool {
-        try output.writeBool(13, value:optionalBool)
+        try codedOutputStream.writeBool(fieldNumber: 13, value:optionalBool)
       }
       if hasOptionalString {
-        try output.writeString(14, value:optionalString)
+        try codedOutputStream.writeString(fieldNumber: 14, value:optionalString)
       }
       if hasOptionalBytes {
-        try output.writeData(15, value:optionalBytes)
+        try codedOutputStream.writeData(fieldNumber: 15, value:optionalBytes)
       }
       if hasOptionalNestedMessage {
-        try output.writeMessage(18, value:optionalNestedMessage)
+        try codedOutputStream.writeMessage(fieldNumber: 18, value:optionalNestedMessage)
       }
       if hasOptionalForeignMessage {
-        try output.writeMessage(19, value:optionalForeignMessage)
+        try codedOutputStream.writeMessage(fieldNumber: 19, value:optionalForeignMessage)
       }
       if hasOptionalImportMessage {
-        try output.writeMessage(20, value:optionalImportMessage)
+        try codedOutputStream.writeMessage(fieldNumber: 20, value:optionalImportMessage)
       }
       if hasOptionalNestedEnum {
-        try output.writeEnum(21, value:optionalNestedEnum.rawValue)
+        try codedOutputStream.writeEnum(fieldNumber: 21, value:optionalNestedEnum.rawValue)
       }
       if hasOptionalForeignEnum {
-        try output.writeEnum(22, value:optionalForeignEnum.rawValue)
+        try codedOutputStream.writeEnum(fieldNumber: 22, value:optionalForeignEnum.rawValue)
       }
       if hasOptionalStringPiece {
-        try output.writeString(24, value:optionalStringPiece)
+        try codedOutputStream.writeString(fieldNumber: 24, value:optionalStringPiece)
       }
       if hasOptionalCord {
-        try output.writeString(25, value:optionalCord)
+        try codedOutputStream.writeString(fieldNumber: 25, value:optionalCord)
       }
       if hasOptionalPublicImportMessage {
-        try output.writeMessage(26, value:optionalPublicImportMessage)
+        try codedOutputStream.writeMessage(fieldNumber: 26, value:optionalPublicImportMessage)
       }
       if hasOptionalLazyMessage {
-        try output.writeMessage(27, value:optionalLazyMessage)
+        try codedOutputStream.writeMessage(fieldNumber: 27, value:optionalLazyMessage)
       }
       if !repeatedInt32.isEmpty {
-        try output.writeRawVarint32(250)
-        try output.writeRawVarint32(repeatedInt32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 250)
+        try codedOutputStream.writeRawVarint32(value: repeatedInt32MemoizedSerializedSize)
         for oneValuerepeatedInt32 in repeatedInt32 {
-          try output.writeInt32NoTag(oneValuerepeatedInt32)
+          try codedOutputStream.writeInt32NoTag(value: oneValuerepeatedInt32)
         }
       }
       if !repeatedInt64.isEmpty {
-        try output.writeRawVarint32(258)
-        try output.writeRawVarint32(repeatedInt64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 258)
+        try codedOutputStream.writeRawVarint32(value: repeatedInt64MemoizedSerializedSize)
         for oneValuerepeatedInt64 in repeatedInt64 {
-          try output.writeInt64NoTag(oneValuerepeatedInt64)
+          try codedOutputStream.writeInt64NoTag(value: oneValuerepeatedInt64)
         }
       }
       if !repeatedUint32.isEmpty {
-        try output.writeRawVarint32(266)
-        try output.writeRawVarint32(repeatedUint32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 266)
+        try codedOutputStream.writeRawVarint32(value: repeatedUint32MemoizedSerializedSize)
         for oneValuerepeatedUint32 in repeatedUint32 {
-          try output.writeUInt32NoTag(oneValuerepeatedUint32)
+          try codedOutputStream.writeUInt32NoTag(value: oneValuerepeatedUint32)
         }
       }
       if !repeatedUint64.isEmpty {
-        try output.writeRawVarint32(274)
-        try output.writeRawVarint32(repeatedUint64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 274)
+        try codedOutputStream.writeRawVarint32(value: repeatedUint64MemoizedSerializedSize)
         for oneValuerepeatedUint64 in repeatedUint64 {
-          try output.writeUInt64NoTag(oneValuerepeatedUint64)
+          try codedOutputStream.writeUInt64NoTag(value: oneValuerepeatedUint64)
         }
       }
       if !repeatedSint32.isEmpty {
-        try output.writeRawVarint32(282)
-        try output.writeRawVarint32(repeatedSint32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 282)
+        try codedOutputStream.writeRawVarint32(value: repeatedSint32MemoizedSerializedSize)
         for oneValuerepeatedSint32 in repeatedSint32 {
-          try output.writeSInt32NoTag(oneValuerepeatedSint32)
+          try codedOutputStream.writeSInt32NoTag(value: oneValuerepeatedSint32)
         }
       }
       if !repeatedSint64.isEmpty {
-        try output.writeRawVarint32(290)
-        try output.writeRawVarint32(repeatedSint64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 290)
+        try codedOutputStream.writeRawVarint32(value: repeatedSint64MemoizedSerializedSize)
         for oneValuerepeatedSint64 in repeatedSint64 {
-          try output.writeSInt64NoTag(oneValuerepeatedSint64)
+          try codedOutputStream.writeSInt64NoTag(value: oneValuerepeatedSint64)
         }
       }
       if !repeatedFixed32.isEmpty {
-        try output.writeRawVarint32(298)
-        try output.writeRawVarint32(repeatedFixed32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 298)
+        try codedOutputStream.writeRawVarint32(value: repeatedFixed32MemoizedSerializedSize)
         for oneValuerepeatedFixed32 in repeatedFixed32 {
-          try output.writeFixed32NoTag(oneValuerepeatedFixed32)
+          try codedOutputStream.writeFixed32NoTag(value: oneValuerepeatedFixed32)
         }
       }
       if !repeatedFixed64.isEmpty {
-        try output.writeRawVarint32(306)
-        try output.writeRawVarint32(repeatedFixed64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 306)
+        try codedOutputStream.writeRawVarint32(value: repeatedFixed64MemoizedSerializedSize)
         for oneValuerepeatedFixed64 in repeatedFixed64 {
-          try output.writeFixed64NoTag(oneValuerepeatedFixed64)
+          try codedOutputStream.writeFixed64NoTag(value: oneValuerepeatedFixed64)
         }
       }
       if !repeatedSfixed32.isEmpty {
-        try output.writeRawVarint32(314)
-        try output.writeRawVarint32(repeatedSfixed32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 314)
+        try codedOutputStream.writeRawVarint32(value: repeatedSfixed32MemoizedSerializedSize)
         for oneValuerepeatedSfixed32 in repeatedSfixed32 {
-          try output.writeSFixed32NoTag(oneValuerepeatedSfixed32)
+          try codedOutputStream.writeSFixed32NoTag(value: oneValuerepeatedSfixed32)
         }
       }
       if !repeatedSfixed64.isEmpty {
-        try output.writeRawVarint32(322)
-        try output.writeRawVarint32(repeatedSfixed64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 322)
+        try codedOutputStream.writeRawVarint32(value: repeatedSfixed64MemoizedSerializedSize)
         for oneValuerepeatedSfixed64 in repeatedSfixed64 {
-          try output.writeSFixed64NoTag(oneValuerepeatedSfixed64)
+          try codedOutputStream.writeSFixed64NoTag(value: oneValuerepeatedSfixed64)
         }
       }
       if !repeatedFloat.isEmpty {
-        try output.writeRawVarint32(330)
-        try output.writeRawVarint32(repeatedFloatMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 330)
+        try codedOutputStream.writeRawVarint32(value: repeatedFloatMemoizedSerializedSize)
         for oneValuerepeatedFloat in repeatedFloat {
-          try output.writeFloatNoTag(oneValuerepeatedFloat)
+          try codedOutputStream.writeFloatNoTag(value: oneValuerepeatedFloat)
         }
       }
       if !repeatedDouble.isEmpty {
-        try output.writeRawVarint32(338)
-        try output.writeRawVarint32(repeatedDoubleMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 338)
+        try codedOutputStream.writeRawVarint32(value: repeatedDoubleMemoizedSerializedSize)
         for oneValuerepeatedDouble in repeatedDouble {
-          try output.writeDoubleNoTag(oneValuerepeatedDouble)
+          try codedOutputStream.writeDoubleNoTag(value: oneValuerepeatedDouble)
         }
       }
       if !repeatedBool.isEmpty {
-        try output.writeRawVarint32(346)
-        try output.writeRawVarint32(repeatedBoolMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 346)
+        try codedOutputStream.writeRawVarint32(value: repeatedBoolMemoizedSerializedSize)
         for oneValuerepeatedBool in repeatedBool {
-          try output.writeBoolNoTag(oneValuerepeatedBool)
+          try codedOutputStream.writeBoolNoTag(value: oneValuerepeatedBool)
         }
       }
       if !repeatedString.isEmpty {
         for oneValuerepeatedString in repeatedString {
-          try output.writeString(44, value:oneValuerepeatedString)
+          try codedOutputStream.writeString(fieldNumber: 44, value:oneValuerepeatedString)
         }
       }
       if !repeatedBytes.isEmpty {
         for oneValuerepeatedBytes in repeatedBytes {
-          try output.writeData(45, value:oneValuerepeatedBytes)
+          try codedOutputStream.writeData(fieldNumber: 45, value:oneValuerepeatedBytes)
         }
       }
       for oneElementRepeatedNestedMessage in repeatedNestedMessage {
-          try output.writeMessage(48, value:oneElementRepeatedNestedMessage)
+          try codedOutputStream.writeMessage(fieldNumber: 48, value:oneElementRepeatedNestedMessage)
       }
       for oneElementRepeatedForeignMessage in repeatedForeignMessage {
-          try output.writeMessage(49, value:oneElementRepeatedForeignMessage)
+          try codedOutputStream.writeMessage(fieldNumber: 49, value:oneElementRepeatedForeignMessage)
       }
       for oneElementRepeatedImportMessage in repeatedImportMessage {
-          try output.writeMessage(50, value:oneElementRepeatedImportMessage)
+          try codedOutputStream.writeMessage(fieldNumber: 50, value:oneElementRepeatedImportMessage)
       }
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
-          try output.writeEnum(51, value:oneValueOfrepeatedNestedEnum.rawValue)
+          try codedOutputStream.writeEnum(fieldNumber: 51, value:oneValueOfrepeatedNestedEnum.rawValue)
       }
       for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
-          try output.writeEnum(52, value:oneValueOfrepeatedForeignEnum.rawValue)
+          try codedOutputStream.writeEnum(fieldNumber: 52, value:oneValueOfrepeatedForeignEnum.rawValue)
       }
       if !repeatedStringPiece.isEmpty {
         for oneValuerepeatedStringPiece in repeatedStringPiece {
-          try output.writeString(54, value:oneValuerepeatedStringPiece)
+          try codedOutputStream.writeString(fieldNumber: 54, value:oneValuerepeatedStringPiece)
         }
       }
       if !repeatedCord.isEmpty {
         for oneValuerepeatedCord in repeatedCord {
-          try output.writeString(55, value:oneValuerepeatedCord)
+          try codedOutputStream.writeString(fieldNumber: 55, value:oneValuerepeatedCord)
         }
       }
       for oneElementRepeatedLazyMessage in repeatedLazyMessage {
-          try output.writeMessage(57, value:oneElementRepeatedLazyMessage)
+          try codedOutputStream.writeMessage(fieldNumber: 57, value:oneElementRepeatedLazyMessage)
       }
       if hasOneofUint32 {
-        try output.writeUInt32(111, value:oneofUint32)
+        try codedOutputStream.writeUInt32(fieldNumber: 111, value:oneofUint32)
       }
       if hasOneofNestedMessage {
-        try output.writeMessage(112, value:oneofNestedMessage)
+        try codedOutputStream.writeMessage(fieldNumber: 112, value:oneofNestedMessage)
       }
       if hasOneofString {
-        try output.writeString(113, value:oneofString)
+        try codedOutputStream.writeString(fieldNumber: 113, value:oneofString)
       }
       if hasOneofBytes {
-        try output.writeData(114, value:oneofBytes)
+        try codedOutputStream.writeData(fieldNumber: 114, value:oneofBytes)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -969,84 +970,84 @@ public extension Proto3ArenaUnittest {
 
       serialize_size = 0
       if hasOptionalInt32 {
-        serialize_size += optionalInt32.computeInt32Size(1)
+        serialize_size += optionalInt32.computeInt32Size(fieldNumber: 1)
       }
       if hasOptionalInt64 {
-        serialize_size += optionalInt64.computeInt64Size(2)
+        serialize_size += optionalInt64.computeInt64Size(fieldNumber: 2)
       }
       if hasOptionalUint32 {
-        serialize_size += optionalUint32.computeUInt32Size(3)
+        serialize_size += optionalUint32.computeUInt32Size(fieldNumber: 3)
       }
       if hasOptionalUint64 {
-        serialize_size += optionalUint64.computeUInt64Size(4)
+        serialize_size += optionalUint64.computeUInt64Size(fieldNumber: 4)
       }
       if hasOptionalSint32 {
-        serialize_size += optionalSint32.computeSInt32Size(5)
+        serialize_size += optionalSint32.computeSInt32Size(fieldNumber: 5)
       }
       if hasOptionalSint64 {
-        serialize_size += optionalSint64.computeSInt64Size(6)
+        serialize_size += optionalSint64.computeSInt64Size(fieldNumber: 6)
       }
       if hasOptionalFixed32 {
-        serialize_size += optionalFixed32.computeFixed32Size(7)
+        serialize_size += optionalFixed32.computeFixed32Size(fieldNumber: 7)
       }
       if hasOptionalFixed64 {
-        serialize_size += optionalFixed64.computeFixed64Size(8)
+        serialize_size += optionalFixed64.computeFixed64Size(fieldNumber: 8)
       }
       if hasOptionalSfixed32 {
-        serialize_size += optionalSfixed32.computeSFixed32Size(9)
+        serialize_size += optionalSfixed32.computeSFixed32Size(fieldNumber: 9)
       }
       if hasOptionalSfixed64 {
-        serialize_size += optionalSfixed64.computeSFixed64Size(10)
+        serialize_size += optionalSfixed64.computeSFixed64Size(fieldNumber: 10)
       }
       if hasOptionalFloat {
-        serialize_size += optionalFloat.computeFloatSize(11)
+        serialize_size += optionalFloat.computeFloatSize(fieldNumber: 11)
       }
       if hasOptionalDouble {
-        serialize_size += optionalDouble.computeDoubleSize(12)
+        serialize_size += optionalDouble.computeDoubleSize(fieldNumber: 12)
       }
       if hasOptionalBool {
-        serialize_size += optionalBool.computeBoolSize(13)
+        serialize_size += optionalBool.computeBoolSize(fieldNumber: 13)
       }
       if hasOptionalString {
-        serialize_size += optionalString.computeStringSize(14)
+        serialize_size += optionalString.computeStringSize(fieldNumber: 14)
       }
       if hasOptionalBytes {
-        serialize_size += optionalBytes.computeDataSize(15)
+        serialize_size += optionalBytes.computeDataSize(fieldNumber: 15)
       }
       if hasOptionalNestedMessage {
-          if let varSizeoptionalNestedMessage = optionalNestedMessage?.computeMessageSize(18) {
+          if let varSizeoptionalNestedMessage = optionalNestedMessage?.computeMessageSize(fieldNumber: 18) {
               serialize_size += varSizeoptionalNestedMessage
           }
       }
       if hasOptionalForeignMessage {
-          if let varSizeoptionalForeignMessage = optionalForeignMessage?.computeMessageSize(19) {
+          if let varSizeoptionalForeignMessage = optionalForeignMessage?.computeMessageSize(fieldNumber: 19) {
               serialize_size += varSizeoptionalForeignMessage
           }
       }
       if hasOptionalImportMessage {
-          if let varSizeoptionalImportMessage = optionalImportMessage?.computeMessageSize(20) {
+          if let varSizeoptionalImportMessage = optionalImportMessage?.computeMessageSize(fieldNumber: 20) {
               serialize_size += varSizeoptionalImportMessage
           }
       }
       if (hasOptionalNestedEnum) {
-        serialize_size += optionalNestedEnum.rawValue.computeEnumSize(21)
+        serialize_size += optionalNestedEnum.rawValue.computeEnumSize(fieldNumber: 21)
       }
       if (hasOptionalForeignEnum) {
-        serialize_size += optionalForeignEnum.rawValue.computeEnumSize(22)
+        serialize_size += optionalForeignEnum.rawValue.computeEnumSize(fieldNumber: 22)
       }
       if hasOptionalStringPiece {
-        serialize_size += optionalStringPiece.computeStringSize(24)
+        serialize_size += optionalStringPiece.computeStringSize(fieldNumber: 24)
       }
       if hasOptionalCord {
-        serialize_size += optionalCord.computeStringSize(25)
+        serialize_size += optionalCord.computeStringSize(fieldNumber: 25)
       }
       if hasOptionalPublicImportMessage {
-          if let varSizeoptionalPublicImportMessage = optionalPublicImportMessage?.computeMessageSize(26) {
+          if let varSizeoptionalPublicImportMessage = optionalPublicImportMessage?.computeMessageSize(fieldNumber: 26) {
               serialize_size += varSizeoptionalPublicImportMessage
           }
       }
       if hasOptionalLazyMessage {
-          if let varSizeoptionalLazyMessage = optionalLazyMessage?.computeMessageSize(27) {
+          if let varSizeoptionalLazyMessage = optionalLazyMessage?.computeMessageSize(fieldNumber: 27) {
               serialize_size += varSizeoptionalLazyMessage
           }
       }
@@ -1179,13 +1180,13 @@ public extension Proto3ArenaUnittest {
       serialize_size += dataSizeRepeatedBytes
       serialize_size += 2 * Int32(repeatedBytes.count)
       for oneElementRepeatedNestedMessage in repeatedNestedMessage {
-          serialize_size += oneElementRepeatedNestedMessage.computeMessageSize(48)
+          serialize_size += oneElementRepeatedNestedMessage.computeMessageSize(fieldNumber: 48)
       }
       for oneElementRepeatedForeignMessage in repeatedForeignMessage {
-          serialize_size += oneElementRepeatedForeignMessage.computeMessageSize(49)
+          serialize_size += oneElementRepeatedForeignMessage.computeMessageSize(fieldNumber: 49)
       }
       for oneElementRepeatedImportMessage in repeatedImportMessage {
-          serialize_size += oneElementRepeatedImportMessage.computeMessageSize(50)
+          serialize_size += oneElementRepeatedImportMessage.computeMessageSize(fieldNumber: 50)
       }
       var dataSizerepeatedNestedEnum:Int32 = 0
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
@@ -1212,53 +1213,53 @@ public extension Proto3ArenaUnittest {
       serialize_size += dataSizeRepeatedCord
       serialize_size += 2 * Int32(repeatedCord.count)
       for oneElementRepeatedLazyMessage in repeatedLazyMessage {
-          serialize_size += oneElementRepeatedLazyMessage.computeMessageSize(57)
+          serialize_size += oneElementRepeatedLazyMessage.computeMessageSize(fieldNumber: 57)
       }
       if hasOneofUint32 {
-        serialize_size += oneofUint32.computeUInt32Size(111)
+        serialize_size += oneofUint32.computeUInt32Size(fieldNumber: 111)
       }
       if hasOneofNestedMessage {
-          if let varSizeoneofNestedMessage = oneofNestedMessage?.computeMessageSize(112) {
+          if let varSizeoneofNestedMessage = oneofNestedMessage?.computeMessageSize(fieldNumber: 112) {
               serialize_size += varSizeoneofNestedMessage
           }
       }
       if hasOneofString {
-        serialize_size += oneofString.computeStringSize(113)
+        serialize_size += oneofString.computeStringSize(fieldNumber: 113)
       }
       if hasOneofBytes {
-        serialize_size += oneofBytes.computeDataSize(114)
+        serialize_size += oneofBytes.computeDataSize(fieldNumber: 114)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestAllTypes> {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3ArenaUnittest.TestAllTypes> {
       var mergedArray = Array<Proto3ArenaUnittest.TestAllTypes>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
-        mergedArray += [value]
+      while let value = try parseDelimitedFrom(inputStream: inputStream) {
+        mergedArray.append(value)
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestAllTypes? {
-      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.TestAllTypes? {
+      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestAllTypes {
-      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFrom(data: Data) throws -> Proto3ArenaUnittest.TestAllTypes {
+      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes {
-      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes {
+      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestAllTypes {
-      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFromInputStream(input).build()
+    public class func parseFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.TestAllTypes {
+      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFrom(inputStream: inputStream).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes {
-      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes {
+      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.TestAllTypes {
-      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestAllTypes {
+      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes {
-      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes {
+      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto3ArenaUnittest.TestAllTypes.Builder {
       return Proto3ArenaUnittest.TestAllTypes.classBuilder() as! Proto3ArenaUnittest.TestAllTypes.Builder
@@ -1273,52 +1274,52 @@ public extension Proto3ArenaUnittest {
       return Proto3ArenaUnittest.TestAllTypes.Builder()
     }
     public func toBuilder() throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
-      return try Proto3ArenaUnittest.TestAllTypes.builderWithPrototype(self)
+      return try Proto3ArenaUnittest.TestAllTypes.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:Proto3ArenaUnittest.TestAllTypes) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
-      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFrom(prototype)
+      return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFrom(other:prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasOptionalInt32 {
-        jsonMap["optionalInt32"] = NSNumber(int:optionalInt32)
+        jsonMap["optionalInt32"] = NSNumber(value:optionalInt32)
       }
       if hasOptionalInt64 {
         jsonMap["optionalInt64"] = "\(optionalInt64)"
       }
       if hasOptionalUint32 {
-        jsonMap["optionalUint32"] = NSNumber(unsignedInt:optionalUint32)
+        jsonMap["optionalUint32"] = NSNumber(value:optionalUint32)
       }
       if hasOptionalUint64 {
         jsonMap["optionalUint64"] = "\(optionalUint64)"
       }
       if hasOptionalSint32 {
-        jsonMap["optionalSint32"] = NSNumber(int:optionalSint32)
+        jsonMap["optionalSint32"] = NSNumber(value:optionalSint32)
       }
       if hasOptionalSint64 {
         jsonMap["optionalSint64"] = "\(optionalSint64)"
       }
       if hasOptionalFixed32 {
-        jsonMap["optionalFixed32"] = NSNumber(unsignedInt:optionalFixed32)
+        jsonMap["optionalFixed32"] = NSNumber(value:optionalFixed32)
       }
       if hasOptionalFixed64 {
         jsonMap["optionalFixed64"] = "\(optionalFixed64)"
       }
       if hasOptionalSfixed32 {
-        jsonMap["optionalSfixed32"] = NSNumber(int:optionalSfixed32)
+        jsonMap["optionalSfixed32"] = NSNumber(value:optionalSfixed32)
       }
       if hasOptionalSfixed64 {
         jsonMap["optionalSfixed64"] = "\(optionalSfixed64)"
       }
       if hasOptionalFloat {
-        jsonMap["optionalFloat"] = NSNumber(float:optionalFloat)
+        jsonMap["optionalFloat"] = NSNumber(value:optionalFloat)
       }
       if hasOptionalDouble {
-        jsonMap["optionalDouble"] = NSNumber(double:optionalDouble)
+        jsonMap["optionalDouble"] = NSNumber(value:optionalDouble)
       }
       if hasOptionalBool {
         jsonMap["optionalBool"] = optionalBool
@@ -1327,7 +1328,7 @@ public extension Proto3ArenaUnittest {
         jsonMap["optionalString"] = optionalString
       }
       if hasOptionalBytes {
-        jsonMap["optionalBytes"] = optionalBytes.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        jsonMap["optionalBytes"] = optionalBytes.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
       }
       if hasOptionalNestedMessage {
         jsonMap["optionalNestedMessage"] = try optionalNestedMessage.encode()
@@ -1359,84 +1360,84 @@ public extension Proto3ArenaUnittest {
       if !repeatedInt32.isEmpty {
         var jsonArrayRepeatedInt32:Array<NSNumber> = []
           for oneValueRepeatedInt32 in repeatedInt32 {
-            jsonArrayRepeatedInt32 += [NSNumber(int:oneValueRepeatedInt32)]
+            jsonArrayRepeatedInt32.append(NSNumber(value:oneValueRepeatedInt32))
           }
         jsonMap["repeatedInt32"] = jsonArrayRepeatedInt32
       }
       if !repeatedInt64.isEmpty {
         var jsonArrayRepeatedInt64:Array<String> = []
           for oneValueRepeatedInt64 in repeatedInt64 {
-            jsonArrayRepeatedInt64 += ["\(oneValueRepeatedInt64)"]
+            jsonArrayRepeatedInt64.append("\(oneValueRepeatedInt64)")
           }
         jsonMap["repeatedInt64"] = jsonArrayRepeatedInt64
       }
       if !repeatedUint32.isEmpty {
         var jsonArrayRepeatedUint32:Array<NSNumber> = []
           for oneValueRepeatedUint32 in repeatedUint32 {
-            jsonArrayRepeatedUint32 += [NSNumber(unsignedInt:oneValueRepeatedUint32)]
+            jsonArrayRepeatedUint32.append(NSNumber(value:oneValueRepeatedUint32))
           }
         jsonMap["repeatedUint32"] = jsonArrayRepeatedUint32
       }
       if !repeatedUint64.isEmpty {
         var jsonArrayRepeatedUint64:Array<String> = []
           for oneValueRepeatedUint64 in repeatedUint64 {
-            jsonArrayRepeatedUint64 += ["\(oneValueRepeatedUint64)"]
+            jsonArrayRepeatedUint64.append("\(oneValueRepeatedUint64)")
           }
         jsonMap["repeatedUint64"] = jsonArrayRepeatedUint64
       }
       if !repeatedSint32.isEmpty {
         var jsonArrayRepeatedSint32:Array<NSNumber> = []
           for oneValueRepeatedSint32 in repeatedSint32 {
-            jsonArrayRepeatedSint32 += [NSNumber(int:oneValueRepeatedSint32)]
+            jsonArrayRepeatedSint32.append(NSNumber(value:oneValueRepeatedSint32))
           }
         jsonMap["repeatedSint32"] = jsonArrayRepeatedSint32
       }
       if !repeatedSint64.isEmpty {
         var jsonArrayRepeatedSint64:Array<String> = []
           for oneValueRepeatedSint64 in repeatedSint64 {
-            jsonArrayRepeatedSint64 += ["\(oneValueRepeatedSint64)"]
+            jsonArrayRepeatedSint64.append("\(oneValueRepeatedSint64)")
           }
         jsonMap["repeatedSint64"] = jsonArrayRepeatedSint64
       }
       if !repeatedFixed32.isEmpty {
         var jsonArrayRepeatedFixed32:Array<NSNumber> = []
           for oneValueRepeatedFixed32 in repeatedFixed32 {
-            jsonArrayRepeatedFixed32 += [NSNumber(unsignedInt:oneValueRepeatedFixed32)]
+            jsonArrayRepeatedFixed32.append(NSNumber(value:oneValueRepeatedFixed32))
           }
         jsonMap["repeatedFixed32"] = jsonArrayRepeatedFixed32
       }
       if !repeatedFixed64.isEmpty {
         var jsonArrayRepeatedFixed64:Array<String> = []
           for oneValueRepeatedFixed64 in repeatedFixed64 {
-            jsonArrayRepeatedFixed64 += ["\(oneValueRepeatedFixed64)"]
+            jsonArrayRepeatedFixed64.append("\(oneValueRepeatedFixed64)")
           }
         jsonMap["repeatedFixed64"] = jsonArrayRepeatedFixed64
       }
       if !repeatedSfixed32.isEmpty {
         var jsonArrayRepeatedSfixed32:Array<NSNumber> = []
           for oneValueRepeatedSfixed32 in repeatedSfixed32 {
-            jsonArrayRepeatedSfixed32 += [NSNumber(int:oneValueRepeatedSfixed32)]
+            jsonArrayRepeatedSfixed32.append(NSNumber(value:oneValueRepeatedSfixed32))
           }
         jsonMap["repeatedSfixed32"] = jsonArrayRepeatedSfixed32
       }
       if !repeatedSfixed64.isEmpty {
         var jsonArrayRepeatedSfixed64:Array<String> = []
           for oneValueRepeatedSfixed64 in repeatedSfixed64 {
-            jsonArrayRepeatedSfixed64 += ["\(oneValueRepeatedSfixed64)"]
+            jsonArrayRepeatedSfixed64.append("\(oneValueRepeatedSfixed64)")
           }
         jsonMap["repeatedSfixed64"] = jsonArrayRepeatedSfixed64
       }
       if !repeatedFloat.isEmpty {
         var jsonArrayRepeatedFloat:Array<NSNumber> = []
           for oneValueRepeatedFloat in repeatedFloat {
-            jsonArrayRepeatedFloat += [NSNumber(float:oneValueRepeatedFloat)]
+            jsonArrayRepeatedFloat.append(NSNumber(value:oneValueRepeatedFloat))
           }
         jsonMap["repeatedFloat"] = jsonArrayRepeatedFloat
       }
       if !repeatedDouble.isEmpty {
         var jsonArrayRepeatedDouble:Array<NSNumber> = []
           for oneValueRepeatedDouble in repeatedDouble {
-            jsonArrayRepeatedDouble += [NSNumber(double:oneValueRepeatedDouble)]
+            jsonArrayRepeatedDouble.append(NSNumber(value:oneValueRepeatedDouble))
           }
         jsonMap["repeatedDouble"] = jsonArrayRepeatedDouble
       }
@@ -1449,7 +1450,7 @@ public extension Proto3ArenaUnittest {
       if !repeatedBytes.isEmpty {
         var jsonArrayRepeatedBytes:Array<String> = []
           for oneValueRepeatedBytes in repeatedBytes {
-            jsonArrayRepeatedBytes += [oneValueRepeatedBytes.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))]
+            jsonArrayRepeatedBytes.append(oneValueRepeatedBytes.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)))
           }
         jsonMap["repeatedBytes"] = jsonArrayRepeatedBytes
       }
@@ -1457,7 +1458,7 @@ public extension Proto3ArenaUnittest {
         var jsonArrayRepeatedNestedMessage:Array<Dictionary<String,AnyObject>> = []
           for oneValueRepeatedNestedMessage in repeatedNestedMessage {
             let ecodedMessageRepeatedNestedMessage = try oneValueRepeatedNestedMessage.encode()
-            jsonArrayRepeatedNestedMessage += [ecodedMessageRepeatedNestedMessage]
+            jsonArrayRepeatedNestedMessage.append(ecodedMessageRepeatedNestedMessage)
           }
         jsonMap["repeatedNestedMessage"] = jsonArrayRepeatedNestedMessage
       }
@@ -1465,7 +1466,7 @@ public extension Proto3ArenaUnittest {
         var jsonArrayRepeatedForeignMessage:Array<Dictionary<String,AnyObject>> = []
           for oneValueRepeatedForeignMessage in repeatedForeignMessage {
             let ecodedMessageRepeatedForeignMessage = try oneValueRepeatedForeignMessage.encode()
-            jsonArrayRepeatedForeignMessage += [ecodedMessageRepeatedForeignMessage]
+            jsonArrayRepeatedForeignMessage.append(ecodedMessageRepeatedForeignMessage)
           }
         jsonMap["repeatedForeignMessage"] = jsonArrayRepeatedForeignMessage
       }
@@ -1473,21 +1474,21 @@ public extension Proto3ArenaUnittest {
         var jsonArrayRepeatedImportMessage:Array<Dictionary<String,AnyObject>> = []
           for oneValueRepeatedImportMessage in repeatedImportMessage {
             let ecodedMessageRepeatedImportMessage = try oneValueRepeatedImportMessage.encode()
-            jsonArrayRepeatedImportMessage += [ecodedMessageRepeatedImportMessage]
+            jsonArrayRepeatedImportMessage.append(ecodedMessageRepeatedImportMessage)
           }
         jsonMap["repeatedImportMessage"] = jsonArrayRepeatedImportMessage
       }
       if !repeatedNestedEnum.isEmpty {
         var jsonArrayRepeatedNestedEnum:Array<String> = []
           for oneValueRepeatedNestedEnum in repeatedNestedEnum {
-            jsonArrayRepeatedNestedEnum += [oneValueRepeatedNestedEnum.toString()]
+            jsonArrayRepeatedNestedEnum.append(oneValueRepeatedNestedEnum.toString())
           }
         jsonMap["repeatedNestedEnum"] = jsonArrayRepeatedNestedEnum
       }
       if !repeatedForeignEnum.isEmpty {
         var jsonArrayRepeatedForeignEnum:Array<String> = []
           for oneValueRepeatedForeignEnum in repeatedForeignEnum {
-            jsonArrayRepeatedForeignEnum += [oneValueRepeatedForeignEnum.toString()]
+            jsonArrayRepeatedForeignEnum.append(oneValueRepeatedForeignEnum.toString())
           }
         jsonMap["repeatedForeignEnum"] = jsonArrayRepeatedForeignEnum
       }
@@ -1501,12 +1502,12 @@ public extension Proto3ArenaUnittest {
         var jsonArrayRepeatedLazyMessage:Array<Dictionary<String,AnyObject>> = []
           for oneValueRepeatedLazyMessage in repeatedLazyMessage {
             let ecodedMessageRepeatedLazyMessage = try oneValueRepeatedLazyMessage.encode()
-            jsonArrayRepeatedLazyMessage += [ecodedMessageRepeatedLazyMessage]
+            jsonArrayRepeatedLazyMessage.append(ecodedMessageRepeatedLazyMessage)
           }
         jsonMap["repeatedLazyMessage"] = jsonArrayRepeatedLazyMessage
       }
       if hasOneofUint32 {
-        jsonMap["oneofUint32"] = NSNumber(unsignedInt:oneofUint32)
+        jsonMap["oneofUint32"] = NSNumber(value:oneofUint32)
       }
       if hasOneofNestedMessage {
         jsonMap["oneofNestedMessage"] = try oneofNestedMessage.encode()
@@ -1515,15 +1516,15 @@ public extension Proto3ArenaUnittest {
         jsonMap["oneofString"] = oneofString
       }
       if hasOneofBytes {
-        jsonMap["oneofBytes"] = oneofBytes.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        jsonMap["oneofBytes"] = oneofBytes.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
       }
       return jsonMap
     }
     override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestAllTypes {
-      return try Proto3ArenaUnittest.TestAllTypes.Builder.decodeToBuilder(jsonMap).build()
+      return try Proto3ArenaUnittest.TestAllTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Proto3ArenaUnittest.TestAllTypes {
-      return try Proto3ArenaUnittest.TestAllTypes.Builder.fromJSONToBuilder(data).build()
+    override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.TestAllTypes {
+      return try Proto3ArenaUnittest.TestAllTypes.Builder.fromJSONToBuilder(data:data).build()
     }
     override public func getDescription(indent:String) throws -> String {
       var output = ""
@@ -1575,21 +1576,21 @@ public extension Proto3ArenaUnittest {
       if hasOptionalNestedMessage {
         output += "\(indent) optionalNestedMessage {\n"
         if let outDescOptionalNestedMessage = optionalNestedMessage {
-          output += try outDescOptionalNestedMessage.getDescription("\(indent)  ")
+          output += try outDescOptionalNestedMessage.getDescription(indent: "\(indent)  ")
         }
         output += "\(indent) }\n"
       }
       if hasOptionalForeignMessage {
         output += "\(indent) optionalForeignMessage {\n"
         if let outDescOptionalForeignMessage = optionalForeignMessage {
-          output += try outDescOptionalForeignMessage.getDescription("\(indent)  ")
+          output += try outDescOptionalForeignMessage.getDescription(indent: "\(indent)  ")
         }
         output += "\(indent) }\n"
       }
       if hasOptionalImportMessage {
         output += "\(indent) optionalImportMessage {\n"
         if let outDescOptionalImportMessage = optionalImportMessage {
-          output += try outDescOptionalImportMessage.getDescription("\(indent)  ")
+          output += try outDescOptionalImportMessage.getDescription(indent: "\(indent)  ")
         }
         output += "\(indent) }\n"
       }
@@ -1608,14 +1609,14 @@ public extension Proto3ArenaUnittest {
       if hasOptionalPublicImportMessage {
         output += "\(indent) optionalPublicImportMessage {\n"
         if let outDescOptionalPublicImportMessage = optionalPublicImportMessage {
-          output += try outDescOptionalPublicImportMessage.getDescription("\(indent)  ")
+          output += try outDescOptionalPublicImportMessage.getDescription(indent: "\(indent)  ")
         }
         output += "\(indent) }\n"
       }
       if hasOptionalLazyMessage {
         output += "\(indent) optionalLazyMessage {\n"
         if let outDescOptionalLazyMessage = optionalLazyMessage {
-          output += try outDescOptionalLazyMessage.getDescription("\(indent)  ")
+          output += try outDescOptionalLazyMessage.getDescription(indent: "\(indent)  ")
         }
         output += "\(indent) }\n"
       }
@@ -1697,21 +1698,21 @@ public extension Proto3ArenaUnittest {
       var repeatedNestedMessageElementIndex:Int = 0
       for oneElementRepeatedNestedMessage in repeatedNestedMessage {
           output += "\(indent) repeatedNestedMessage[\(repeatedNestedMessageElementIndex)] {\n"
-          output += try oneElementRepeatedNestedMessage.getDescription("\(indent)  ")
+          output += try oneElementRepeatedNestedMessage.getDescription(indent: "\(indent)  ")
           output += "\(indent)}\n"
           repeatedNestedMessageElementIndex += 1
       }
       var repeatedForeignMessageElementIndex:Int = 0
       for oneElementRepeatedForeignMessage in repeatedForeignMessage {
           output += "\(indent) repeatedForeignMessage[\(repeatedForeignMessageElementIndex)] {\n"
-          output += try oneElementRepeatedForeignMessage.getDescription("\(indent)  ")
+          output += try oneElementRepeatedForeignMessage.getDescription(indent: "\(indent)  ")
           output += "\(indent)}\n"
           repeatedForeignMessageElementIndex += 1
       }
       var repeatedImportMessageElementIndex:Int = 0
       for oneElementRepeatedImportMessage in repeatedImportMessage {
           output += "\(indent) repeatedImportMessage[\(repeatedImportMessageElementIndex)] {\n"
-          output += try oneElementRepeatedImportMessage.getDescription("\(indent)  ")
+          output += try oneElementRepeatedImportMessage.getDescription(indent: "\(indent)  ")
           output += "\(indent)}\n"
           repeatedImportMessageElementIndex += 1
       }
@@ -1738,7 +1739,7 @@ public extension Proto3ArenaUnittest {
       var repeatedLazyMessageElementIndex:Int = 0
       for oneElementRepeatedLazyMessage in repeatedLazyMessage {
           output += "\(indent) repeatedLazyMessage[\(repeatedLazyMessageElementIndex)] {\n"
-          output += try oneElementRepeatedLazyMessage.getDescription("\(indent)  ")
+          output += try oneElementRepeatedLazyMessage.getDescription(indent: "\(indent)  ")
           output += "\(indent)}\n"
           repeatedLazyMessageElementIndex += 1
       }
@@ -1748,7 +1749,7 @@ public extension Proto3ArenaUnittest {
       if hasOneofNestedMessage {
         output += "\(indent) oneofNestedMessage {\n"
         if let outDescOneofNestedMessage = oneofNestedMessage {
-          output += try outDescOneofNestedMessage.getDescription("\(indent)  ")
+          output += try outDescOneofNestedMessage.getDescription(indent: "\(indent)  ")
         }
         output += "\(indent) }\n"
       }
@@ -1758,7 +1759,7 @@ public extension Proto3ArenaUnittest {
       if hasOneofBytes {
         output += "\(indent) oneofBytes: \(oneofBytes) \n"
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -1971,7 +1972,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalInt32 = value
            }
       }
-      public func setOptionalInt32(value:Int32) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalInt32(_ value:Int32) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalInt32 = value
         return self
       }
@@ -1994,7 +1995,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalInt64 = value
            }
       }
-      public func setOptionalInt64(value:Int64) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalInt64(_ value:Int64) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalInt64 = value
         return self
       }
@@ -2017,7 +2018,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalUint32 = value
            }
       }
-      public func setOptionalUint32(value:UInt32) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalUint32(_ value:UInt32) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalUint32 = value
         return self
       }
@@ -2040,7 +2041,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalUint64 = value
            }
       }
-      public func setOptionalUint64(value:UInt64) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalUint64(_ value:UInt64) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalUint64 = value
         return self
       }
@@ -2063,7 +2064,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalSint32 = value
            }
       }
-      public func setOptionalSint32(value:Int32) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalSint32(_ value:Int32) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalSint32 = value
         return self
       }
@@ -2086,7 +2087,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalSint64 = value
            }
       }
-      public func setOptionalSint64(value:Int64) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalSint64(_ value:Int64) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalSint64 = value
         return self
       }
@@ -2109,7 +2110,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalFixed32 = value
            }
       }
-      public func setOptionalFixed32(value:UInt32) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalFixed32(_ value:UInt32) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalFixed32 = value
         return self
       }
@@ -2132,7 +2133,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalFixed64 = value
            }
       }
-      public func setOptionalFixed64(value:UInt64) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalFixed64(_ value:UInt64) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalFixed64 = value
         return self
       }
@@ -2155,7 +2156,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalSfixed32 = value
            }
       }
-      public func setOptionalSfixed32(value:Int32) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalSfixed32(_ value:Int32) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalSfixed32 = value
         return self
       }
@@ -2178,7 +2179,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalSfixed64 = value
            }
       }
-      public func setOptionalSfixed64(value:Int64) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalSfixed64(_ value:Int64) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalSfixed64 = value
         return self
       }
@@ -2201,7 +2202,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalFloat = value
            }
       }
-      public func setOptionalFloat(value:Float) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalFloat(_ value:Float) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalFloat = value
         return self
       }
@@ -2224,7 +2225,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalDouble = value
            }
       }
-      public func setOptionalDouble(value:Double) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalDouble(_ value:Double) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalDouble = value
         return self
       }
@@ -2247,7 +2248,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalBool = value
            }
       }
-      public func setOptionalBool(value:Bool) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalBool(_ value:Bool) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalBool = value
         return self
       }
@@ -2270,7 +2271,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalString = value
            }
       }
-      public func setOptionalString(value:String) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalString(_ value:String) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalString = value
         return self
       }
@@ -2284,7 +2285,7 @@ public extension Proto3ArenaUnittest {
                 return builderResult.hasOptionalBytes
            }
       }
-      public var optionalBytes:NSData {
+      public var optionalBytes:Data {
            get {
                 return builderResult.optionalBytes
            }
@@ -2293,13 +2294,13 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalBytes = value
            }
       }
-      public func setOptionalBytes(value:NSData) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalBytes(_ value:Data) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalBytes = value
         return self
       }
       public func clearOptionalBytes() -> Proto3ArenaUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalBytes = false
-           builderResult.optionalBytes = NSData()
+           builderResult.optionalBytes = Data()
            return self
       }
       public var hasOptionalNestedMessage:Bool {
@@ -2329,18 +2330,18 @@ public extension Proto3ArenaUnittest {
            optionalNestedMessageBuilder_ = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
            if optionalNestedMessage != nil {
-              try! optionalNestedMessageBuilder_.mergeFrom(optionalNestedMessage)
+              _ = try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
            }
         }
         return optionalNestedMessageBuilder_
       }
-      public func setOptionalNestedMessage(value:Proto3ArenaUnittest.TestAllTypes.NestedMessage!) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalNestedMessage(_ value:Proto3ArenaUnittest.TestAllTypes.NestedMessage!) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalNestedMessage = value
         return self
       }
       public func mergeOptionalNestedMessage(value:Proto3ArenaUnittest.TestAllTypes.NestedMessage) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalNestedMessage {
-          builderResult.optionalNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalNestedMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.optionalNestedMessage).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalNestedMessage = value
         }
@@ -2380,18 +2381,18 @@ public extension Proto3ArenaUnittest {
            optionalForeignMessageBuilder_ = Proto3ArenaUnittest.ForeignMessage.Builder()
            builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
            if optionalForeignMessage != nil {
-              try! optionalForeignMessageBuilder_.mergeFrom(optionalForeignMessage)
+              _ = try! optionalForeignMessageBuilder_.mergeFrom(other: optionalForeignMessage)
            }
         }
         return optionalForeignMessageBuilder_
       }
-      public func setOptionalForeignMessage(value:Proto3ArenaUnittest.ForeignMessage!) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalForeignMessage(_ value:Proto3ArenaUnittest.ForeignMessage!) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalForeignMessage = value
         return self
       }
       public func mergeOptionalForeignMessage(value:Proto3ArenaUnittest.ForeignMessage) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalForeignMessage {
-          builderResult.optionalForeignMessage = try Proto3ArenaUnittest.ForeignMessage.builderWithPrototype(builderResult.optionalForeignMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalForeignMessage = try Proto3ArenaUnittest.ForeignMessage.builderWithPrototype(prototype:builderResult.optionalForeignMessage).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalForeignMessage = value
         }
@@ -2431,18 +2432,18 @@ public extension Proto3ArenaUnittest {
            optionalImportMessageBuilder_ = ProtobufUnittestImport.ImportMessage.Builder()
            builderResult.optionalImportMessage = optionalImportMessageBuilder_.getMessage()
            if optionalImportMessage != nil {
-              try! optionalImportMessageBuilder_.mergeFrom(optionalImportMessage)
+              _ = try! optionalImportMessageBuilder_.mergeFrom(other: optionalImportMessage)
            }
         }
         return optionalImportMessageBuilder_
       }
-      public func setOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage!) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalImportMessage(_ value:ProtobufUnittestImport.ImportMessage!) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalImportMessage = value
         return self
       }
       public func mergeOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalImportMessage {
-          builderResult.optionalImportMessage = try ProtobufUnittestImport.ImportMessage.builderWithPrototype(builderResult.optionalImportMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalImportMessage = try ProtobufUnittestImport.ImportMessage.builderWithPrototype(prototype:builderResult.optionalImportMessage).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalImportMessage = value
         }
@@ -2469,13 +2470,13 @@ public extension Proto3ArenaUnittest {
                 builderResult.optionalNestedEnum = value
             }
         }
-        public func setOptionalNestedEnum(value:Proto3ArenaUnittest.TestAllTypes.NestedEnum) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+        public func setOptionalNestedEnum(_ value:Proto3ArenaUnittest.TestAllTypes.NestedEnum) -> Proto3ArenaUnittest.TestAllTypes.Builder {
           self.optionalNestedEnum = value
           return self
         }
         public func clearOptionalNestedEnum() -> Proto3ArenaUnittest.TestAllTypes.Builder {
            builderResult.hasOptionalNestedEnum = false
-           builderResult.optionalNestedEnum = .Zero
+           builderResult.optionalNestedEnum = .zero
            return self
         }
         public var hasOptionalForeignEnum:Bool{
@@ -2492,13 +2493,13 @@ public extension Proto3ArenaUnittest {
                 builderResult.optionalForeignEnum = value
             }
         }
-        public func setOptionalForeignEnum(value:Proto3ArenaUnittest.ForeignEnum) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+        public func setOptionalForeignEnum(_ value:Proto3ArenaUnittest.ForeignEnum) -> Proto3ArenaUnittest.TestAllTypes.Builder {
           self.optionalForeignEnum = value
           return self
         }
         public func clearOptionalForeignEnum() -> Proto3ArenaUnittest.TestAllTypes.Builder {
            builderResult.hasOptionalForeignEnum = false
-           builderResult.optionalForeignEnum = .ForeignZero
+           builderResult.optionalForeignEnum = .foreignZero
            return self
         }
       public var hasOptionalStringPiece:Bool {
@@ -2515,7 +2516,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalStringPiece = value
            }
       }
-      public func setOptionalStringPiece(value:String) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalStringPiece(_ value:String) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalStringPiece = value
         return self
       }
@@ -2538,7 +2539,7 @@ public extension Proto3ArenaUnittest {
                builderResult.optionalCord = value
            }
       }
-      public func setOptionalCord(value:String) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalCord(_ value:String) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalCord = value
         return self
       }
@@ -2574,18 +2575,18 @@ public extension Proto3ArenaUnittest {
            optionalPublicImportMessageBuilder_ = ProtobufUnittestImport.PublicImportMessage.Builder()
            builderResult.optionalPublicImportMessage = optionalPublicImportMessageBuilder_.getMessage()
            if optionalPublicImportMessage != nil {
-              try! optionalPublicImportMessageBuilder_.mergeFrom(optionalPublicImportMessage)
+              _ = try! optionalPublicImportMessageBuilder_.mergeFrom(other: optionalPublicImportMessage)
            }
         }
         return optionalPublicImportMessageBuilder_
       }
-      public func setOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage!) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalPublicImportMessage(_ value:ProtobufUnittestImport.PublicImportMessage!) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalPublicImportMessage = value
         return self
       }
       public func mergeOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalPublicImportMessage {
-          builderResult.optionalPublicImportMessage = try ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(builderResult.optionalPublicImportMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalPublicImportMessage = try ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(prototype:builderResult.optionalPublicImportMessage).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalPublicImportMessage = value
         }
@@ -2625,18 +2626,18 @@ public extension Proto3ArenaUnittest {
            optionalLazyMessageBuilder_ = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
            if optionalLazyMessage != nil {
-              try! optionalLazyMessageBuilder_.mergeFrom(optionalLazyMessage)
+              _ = try! optionalLazyMessageBuilder_.mergeFrom(other: optionalLazyMessage)
            }
         }
         return optionalLazyMessageBuilder_
       }
-      public func setOptionalLazyMessage(value:Proto3ArenaUnittest.TestAllTypes.NestedMessage!) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOptionalLazyMessage(_ value:Proto3ArenaUnittest.TestAllTypes.NestedMessage!) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.optionalLazyMessage = value
         return self
       }
       public func mergeOptionalLazyMessage(value:Proto3ArenaUnittest.TestAllTypes.NestedMessage) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalLazyMessage {
-          builderResult.optionalLazyMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.optionalLazyMessage).mergeFrom(value).buildPartial()
+          builderResult.optionalLazyMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.optionalLazyMessage).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.optionalLazyMessage = value
         }
@@ -2657,12 +2658,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedInt32 = array
            }
       }
-      public func setRepeatedInt32(value:Array<Int32>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedInt32(_ value:Array<Int32>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedInt32 = value
         return self
       }
       public func clearRepeatedInt32() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedInt32.removeAll(keepCapacity: false)
+         builderResult.repeatedInt32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedInt64:Array<Int64> {
@@ -2673,12 +2674,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedInt64 = array
            }
       }
-      public func setRepeatedInt64(value:Array<Int64>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedInt64(_ value:Array<Int64>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedInt64 = value
         return self
       }
       public func clearRepeatedInt64() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedInt64.removeAll(keepCapacity: false)
+         builderResult.repeatedInt64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedUint32:Array<UInt32> {
@@ -2689,12 +2690,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedUint32 = array
            }
       }
-      public func setRepeatedUint32(value:Array<UInt32>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedUint32(_ value:Array<UInt32>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedUint32 = value
         return self
       }
       public func clearRepeatedUint32() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedUint32.removeAll(keepCapacity: false)
+         builderResult.repeatedUint32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedUint64:Array<UInt64> {
@@ -2705,12 +2706,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedUint64 = array
            }
       }
-      public func setRepeatedUint64(value:Array<UInt64>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedUint64(_ value:Array<UInt64>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedUint64 = value
         return self
       }
       public func clearRepeatedUint64() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedUint64.removeAll(keepCapacity: false)
+         builderResult.repeatedUint64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedSint32:Array<Int32> {
@@ -2721,12 +2722,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedSint32 = array
            }
       }
-      public func setRepeatedSint32(value:Array<Int32>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedSint32(_ value:Array<Int32>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedSint32 = value
         return self
       }
       public func clearRepeatedSint32() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedSint32.removeAll(keepCapacity: false)
+         builderResult.repeatedSint32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedSint64:Array<Int64> {
@@ -2737,12 +2738,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedSint64 = array
            }
       }
-      public func setRepeatedSint64(value:Array<Int64>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedSint64(_ value:Array<Int64>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedSint64 = value
         return self
       }
       public func clearRepeatedSint64() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedSint64.removeAll(keepCapacity: false)
+         builderResult.repeatedSint64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedFixed32:Array<UInt32> {
@@ -2753,12 +2754,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedFixed32 = array
            }
       }
-      public func setRepeatedFixed32(value:Array<UInt32>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedFixed32(_ value:Array<UInt32>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedFixed32 = value
         return self
       }
       public func clearRepeatedFixed32() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedFixed32.removeAll(keepCapacity: false)
+         builderResult.repeatedFixed32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedFixed64:Array<UInt64> {
@@ -2769,12 +2770,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedFixed64 = array
            }
       }
-      public func setRepeatedFixed64(value:Array<UInt64>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedFixed64(_ value:Array<UInt64>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedFixed64 = value
         return self
       }
       public func clearRepeatedFixed64() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedFixed64.removeAll(keepCapacity: false)
+         builderResult.repeatedFixed64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedSfixed32:Array<Int32> {
@@ -2785,12 +2786,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedSfixed32 = array
            }
       }
-      public func setRepeatedSfixed32(value:Array<Int32>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedSfixed32(_ value:Array<Int32>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedSfixed32 = value
         return self
       }
       public func clearRepeatedSfixed32() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedSfixed32.removeAll(keepCapacity: false)
+         builderResult.repeatedSfixed32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedSfixed64:Array<Int64> {
@@ -2801,12 +2802,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedSfixed64 = array
            }
       }
-      public func setRepeatedSfixed64(value:Array<Int64>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedSfixed64(_ value:Array<Int64>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedSfixed64 = value
         return self
       }
       public func clearRepeatedSfixed64() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedSfixed64.removeAll(keepCapacity: false)
+         builderResult.repeatedSfixed64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedFloat:Array<Float> {
@@ -2817,12 +2818,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedFloat = array
            }
       }
-      public func setRepeatedFloat(value:Array<Float>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedFloat(_ value:Array<Float>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedFloat = value
         return self
       }
       public func clearRepeatedFloat() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedFloat.removeAll(keepCapacity: false)
+         builderResult.repeatedFloat.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedDouble:Array<Double> {
@@ -2833,12 +2834,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedDouble = array
            }
       }
-      public func setRepeatedDouble(value:Array<Double>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedDouble(_ value:Array<Double>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedDouble = value
         return self
       }
       public func clearRepeatedDouble() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedDouble.removeAll(keepCapacity: false)
+         builderResult.repeatedDouble.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedBool:Array<Bool> {
@@ -2849,12 +2850,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedBool = array
            }
       }
-      public func setRepeatedBool(value:Array<Bool>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedBool(_ value:Array<Bool>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedBool = value
         return self
       }
       public func clearRepeatedBool() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedBool.removeAll(keepCapacity: false)
+         builderResult.repeatedBool.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedString:Array<String> {
@@ -2865,15 +2866,15 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedString = array
            }
       }
-      public func setRepeatedString(value:Array<String>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedString(_ value:Array<String>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedString = value
         return self
       }
       public func clearRepeatedString() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedString.removeAll(keepCapacity: false)
+         builderResult.repeatedString.removeAll(keepingCapacity: false)
          return self
       }
-      public var repeatedBytes:Array<NSData> {
+      public var repeatedBytes:Array<Data> {
            get {
                return builderResult.repeatedBytes
            }
@@ -2881,12 +2882,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedBytes = array
            }
       }
-      public func setRepeatedBytes(value:Array<NSData>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedBytes(_ value:Array<Data>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedBytes = value
         return self
       }
       public func clearRepeatedBytes() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedBytes.removeAll(keepCapacity: false)
+         builderResult.repeatedBytes.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedNestedMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage> {
@@ -2897,12 +2898,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedNestedMessage = value
            }
       }
-      public func setRepeatedNestedMessage(value:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedNestedMessage(_ value:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedNestedMessage = value
         return self
       }
       public func clearRepeatedNestedMessage() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-        builderResult.repeatedNestedMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedNestedMessage.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedForeignMessage:Array<Proto3ArenaUnittest.ForeignMessage> {
@@ -2913,12 +2914,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedForeignMessage = value
            }
       }
-      public func setRepeatedForeignMessage(value:Array<Proto3ArenaUnittest.ForeignMessage>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedForeignMessage(_ value:Array<Proto3ArenaUnittest.ForeignMessage>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedForeignMessage = value
         return self
       }
       public func clearRepeatedForeignMessage() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-        builderResult.repeatedForeignMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedForeignMessage.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessage> {
@@ -2929,12 +2930,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedImportMessage = value
            }
       }
-      public func setRepeatedImportMessage(value:Array<ProtobufUnittestImport.ImportMessage>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedImportMessage(_ value:Array<ProtobufUnittestImport.ImportMessage>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedImportMessage = value
         return self
       }
       public func clearRepeatedImportMessage() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-        builderResult.repeatedImportMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedImportMessage.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedNestedEnum:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum> {
@@ -2945,12 +2946,12 @@ public extension Proto3ArenaUnittest {
               builderResult.repeatedNestedEnum = value
           }
       }
-      public func setRepeatedNestedEnum(value:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedNestedEnum(_ value:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedNestedEnum = value
         return self
       }
       public func clearRepeatedNestedEnum() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-        builderResult.repeatedNestedEnum.removeAll(keepCapacity: false)
+        builderResult.repeatedNestedEnum.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedForeignEnum:Array<Proto3ArenaUnittest.ForeignEnum> {
@@ -2961,12 +2962,12 @@ public extension Proto3ArenaUnittest {
               builderResult.repeatedForeignEnum = value
           }
       }
-      public func setRepeatedForeignEnum(value:Array<Proto3ArenaUnittest.ForeignEnum>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedForeignEnum(_ value:Array<Proto3ArenaUnittest.ForeignEnum>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedForeignEnum = value
         return self
       }
       public func clearRepeatedForeignEnum() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-        builderResult.repeatedForeignEnum.removeAll(keepCapacity: false)
+        builderResult.repeatedForeignEnum.removeAll(keepingCapacity: false)
         return self
       }
       public var repeatedStringPiece:Array<String> {
@@ -2977,12 +2978,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedStringPiece = array
            }
       }
-      public func setRepeatedStringPiece(value:Array<String>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedStringPiece(_ value:Array<String>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedStringPiece = value
         return self
       }
       public func clearRepeatedStringPiece() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedStringPiece.removeAll(keepCapacity: false)
+         builderResult.repeatedStringPiece.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedCord:Array<String> {
@@ -2993,12 +2994,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedCord = array
            }
       }
-      public func setRepeatedCord(value:Array<String>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedCord(_ value:Array<String>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedCord = value
         return self
       }
       public func clearRepeatedCord() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-         builderResult.repeatedCord.removeAll(keepCapacity: false)
+         builderResult.repeatedCord.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedLazyMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage> {
@@ -3009,12 +3010,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedLazyMessage = value
            }
       }
-      public func setRepeatedLazyMessage(value:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setRepeatedLazyMessage(_ value:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage>) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.repeatedLazyMessage = value
         return self
       }
       public func clearRepeatedLazyMessage() -> Proto3ArenaUnittest.TestAllTypes.Builder {
-        builderResult.repeatedLazyMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedLazyMessage.removeAll(keepingCapacity: false)
         return self
       }
       public var hasOneofUint32:Bool {
@@ -3031,7 +3032,7 @@ public extension Proto3ArenaUnittest {
                builderResult.oneofUint32 = value
            }
       }
-      public func setOneofUint32(value:UInt32) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOneofUint32(_ value:UInt32) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.oneofUint32 = value
         return self
       }
@@ -3067,18 +3068,18 @@ public extension Proto3ArenaUnittest {
            oneofNestedMessageBuilder_ = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
            if oneofNestedMessage != nil {
-              try! oneofNestedMessageBuilder_.mergeFrom(oneofNestedMessage)
+              _ = try! oneofNestedMessageBuilder_.mergeFrom(other: oneofNestedMessage)
            }
         }
         return oneofNestedMessageBuilder_
       }
-      public func setOneofNestedMessage(value:Proto3ArenaUnittest.TestAllTypes.NestedMessage!) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOneofNestedMessage(_ value:Proto3ArenaUnittest.TestAllTypes.NestedMessage!) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.oneofNestedMessage = value
         return self
       }
       public func mergeOneofNestedMessage(value:Proto3ArenaUnittest.TestAllTypes.NestedMessage) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if builderResult.hasOneofNestedMessage {
-          builderResult.oneofNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(builderResult.oneofNestedMessage).mergeFrom(value).buildPartial()
+          builderResult.oneofNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.oneofNestedMessage).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.oneofNestedMessage = value
         }
@@ -3105,7 +3106,7 @@ public extension Proto3ArenaUnittest {
                builderResult.oneofString = value
            }
       }
-      public func setOneofString(value:String) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOneofString(_ value:String) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.oneofString = value
         return self
       }
@@ -3119,7 +3120,7 @@ public extension Proto3ArenaUnittest {
                 return builderResult.hasOneofBytes
            }
       }
-      public var oneofBytes:NSData {
+      public var oneofBytes:Data {
            get {
                 return builderResult.oneofBytes
            }
@@ -3128,13 +3129,13 @@ public extension Proto3ArenaUnittest {
                builderResult.oneofBytes = value
            }
       }
-      public func setOneofBytes(value:NSData) -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      public func setOneofBytes(_ value:Data) -> Proto3ArenaUnittest.TestAllTypes.Builder {
         self.oneofBytes = value
         return self
       }
       public func clearOneofBytes() -> Proto3ArenaUnittest.TestAllTypes.Builder{
            builderResult.hasOneofBytes = false
-           builderResult.oneofBytes = NSData()
+           builderResult.oneofBytes = Data()
            return self
       }
       override public var internalGetResult:GeneratedMessage {
@@ -3147,7 +3148,7 @@ public extension Proto3ArenaUnittest {
         return self
       }
       override public func clone() throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
-        return try Proto3ArenaUnittest.TestAllTypes.builderWithPrototype(builderResult)
+        return try Proto3ArenaUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult)
       }
       override public func build() throws -> Proto3ArenaUnittest.TestAllTypes {
            try checkInitialized()
@@ -3207,13 +3208,13 @@ public extension Proto3ArenaUnittest {
              optionalBytes = other.optionalBytes
         }
         if (other.hasOptionalNestedMessage) {
-            try mergeOptionalNestedMessage(other.optionalNestedMessage)
+            _ = try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
         }
         if (other.hasOptionalForeignMessage) {
-            try mergeOptionalForeignMessage(other.optionalForeignMessage)
+            _ = try mergeOptionalForeignMessage(value: other.optionalForeignMessage)
         }
         if (other.hasOptionalImportMessage) {
-            try mergeOptionalImportMessage(other.optionalImportMessage)
+            _ = try mergeOptionalImportMessage(value: other.optionalImportMessage)
         }
         if other.hasOptionalNestedEnum {
              optionalNestedEnum = other.optionalNestedEnum
@@ -3228,10 +3229,10 @@ public extension Proto3ArenaUnittest {
              optionalCord = other.optionalCord
         }
         if (other.hasOptionalPublicImportMessage) {
-            try mergeOptionalPublicImportMessage(other.optionalPublicImportMessage)
+            _ = try mergeOptionalPublicImportMessage(value: other.optionalPublicImportMessage)
         }
         if (other.hasOptionalLazyMessage) {
-            try mergeOptionalLazyMessage(other.optionalLazyMessage)
+            _ = try mergeOptionalLazyMessage(value: other.optionalLazyMessage)
         }
         if !other.repeatedInt32.isEmpty {
             builderResult.repeatedInt32 += other.repeatedInt32
@@ -3306,7 +3307,7 @@ public extension Proto3ArenaUnittest {
              oneofUint32 = other.oneofUint32
         }
         if (other.hasOneofNestedMessage) {
-            try mergeOneofNestedMessage(other.oneofNestedMessage)
+            _ = try mergeOneofNestedMessage(value: other.oneofNestedMessage)
         }
         if other.hasOneofString {
              oneofString = other.oneofString
@@ -3314,299 +3315,299 @@ public extension Proto3ArenaUnittest {
         if other.hasOneofBytes {
              oneofBytes = other.oneofBytes
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
-          let protobufTag = try input.readTag()
+          let protobufTag = try codedInputStream.readTag()
           switch protobufTag {
           case 0: 
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 8:
-            optionalInt32 = try input.readInt32()
+            optionalInt32 = try codedInputStream.readInt32()
 
           case 16:
-            optionalInt64 = try input.readInt64()
+            optionalInt64 = try codedInputStream.readInt64()
 
           case 24:
-            optionalUint32 = try input.readUInt32()
+            optionalUint32 = try codedInputStream.readUInt32()
 
           case 32:
-            optionalUint64 = try input.readUInt64()
+            optionalUint64 = try codedInputStream.readUInt64()
 
           case 40:
-            optionalSint32 = try input.readSInt32()
+            optionalSint32 = try codedInputStream.readSInt32()
 
           case 48:
-            optionalSint64 = try input.readSInt64()
+            optionalSint64 = try codedInputStream.readSInt64()
 
           case 61:
-            optionalFixed32 = try input.readFixed32()
+            optionalFixed32 = try codedInputStream.readFixed32()
 
           case 65:
-            optionalFixed64 = try input.readFixed64()
+            optionalFixed64 = try codedInputStream.readFixed64()
 
           case 77:
-            optionalSfixed32 = try input.readSFixed32()
+            optionalSfixed32 = try codedInputStream.readSFixed32()
 
           case 81:
-            optionalSfixed64 = try input.readSFixed64()
+            optionalSfixed64 = try codedInputStream.readSFixed64()
 
           case 93:
-            optionalFloat = try input.readFloat()
+            optionalFloat = try codedInputStream.readFloat()
 
           case 97:
-            optionalDouble = try input.readDouble()
+            optionalDouble = try codedInputStream.readDouble()
 
           case 104:
-            optionalBool = try input.readBool()
+            optionalBool = try codedInputStream.readBool()
 
           case 114:
-            optionalString = try input.readString()
+            optionalString = try codedInputStream.readString()
 
           case 122:
-            optionalBytes = try input.readData()
+            optionalBytes = try codedInputStream.readData()
 
           case 146:
             let subBuilder:Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalNestedMessage {
-              try subBuilder.mergeFrom(optionalNestedMessage)
+              _ = try subBuilder.mergeFrom(other: optionalNestedMessage)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalNestedMessage = subBuilder.buildPartial()
 
           case 154:
             let subBuilder:Proto3ArenaUnittest.ForeignMessage.Builder = Proto3ArenaUnittest.ForeignMessage.Builder()
             if hasOptionalForeignMessage {
-              try subBuilder.mergeFrom(optionalForeignMessage)
+              _ = try subBuilder.mergeFrom(other: optionalForeignMessage)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalForeignMessage = subBuilder.buildPartial()
 
           case 162:
             let subBuilder:ProtobufUnittestImport.ImportMessage.Builder = ProtobufUnittestImport.ImportMessage.Builder()
             if hasOptionalImportMessage {
-              try subBuilder.mergeFrom(optionalImportMessage)
+              _ = try subBuilder.mergeFrom(other: optionalImportMessage)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalImportMessage = subBuilder.buildPartial()
 
           case 168:
-            let valueIntoptionalNestedEnum = try input.readEnum()
+            let valueIntoptionalNestedEnum = try codedInputStream.readEnum()
             if let enumsoptionalNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
                  optionalNestedEnum = enumsoptionalNestedEnum
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 21, value:Int64(valueIntoptionalNestedEnum))
             }
 
           case 176:
-            let valueIntoptionalForeignEnum = try input.readEnum()
+            let valueIntoptionalForeignEnum = try codedInputStream.readEnum()
             if let enumsoptionalForeignEnum = Proto3ArenaUnittest.ForeignEnum(rawValue:valueIntoptionalForeignEnum){
                  optionalForeignEnum = enumsoptionalForeignEnum
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(22, value:Int64(valueIntoptionalForeignEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 22, value:Int64(valueIntoptionalForeignEnum))
             }
 
           case 194:
-            optionalStringPiece = try input.readString()
+            optionalStringPiece = try codedInputStream.readString()
 
           case 202:
-            optionalCord = try input.readString()
+            optionalCord = try codedInputStream.readString()
 
           case 210:
             let subBuilder:ProtobufUnittestImport.PublicImportMessage.Builder = ProtobufUnittestImport.PublicImportMessage.Builder()
             if hasOptionalPublicImportMessage {
-              try subBuilder.mergeFrom(optionalPublicImportMessage)
+              _ = try subBuilder.mergeFrom(other: optionalPublicImportMessage)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalPublicImportMessage = subBuilder.buildPartial()
 
           case 218:
             let subBuilder:Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalLazyMessage {
-              try subBuilder.mergeFrom(optionalLazyMessage)
+              _ = try subBuilder.mergeFrom(other: optionalLazyMessage)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalLazyMessage = subBuilder.buildPartial()
 
           case 250:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedInt32 += [try input.readInt32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedInt32.append(try codedInputStream.readInt32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 258:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedInt64 += [try input.readInt64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedInt64.append(try codedInputStream.readInt64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 266:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedUint32 += [try input.readUInt32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedUint32.append(try codedInputStream.readUInt32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 274:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedUint64 += [try input.readUInt64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedUint64.append(try codedInputStream.readUInt64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 282:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedSint32 += [try input.readSInt32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedSint32.append(try codedInputStream.readSInt32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 290:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedSint64 += [try input.readSInt64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedSint64.append(try codedInputStream.readSInt64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 298:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedFixed32 += [try input.readFixed32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedFixed32.append(try codedInputStream.readFixed32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 306:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedFixed64 += [try input.readFixed64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedFixed64.append(try codedInputStream.readFixed64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 314:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedSfixed32 += [try input.readSFixed32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedSfixed32.append(try codedInputStream.readSFixed32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 322:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedSfixed64 += [try input.readSFixed64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedSfixed64.append(try codedInputStream.readSFixed64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 330:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedFloat += [try input.readFloat()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedFloat.append(try codedInputStream.readFloat())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 338:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedDouble += [try input.readDouble()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedDouble.append(try codedInputStream.readDouble())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 346:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedBool += [try input.readBool()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedBool.append(try codedInputStream.readBool())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 354:
-            repeatedString += [try input.readString()]
+            repeatedString += [try codedInputStream.readString()]
 
           case 362:
-            repeatedBytes += [try input.readData()]
+            repeatedBytes += [try codedInputStream.readData()]
 
           case 386:
             let subBuilder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
-            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-            repeatedNestedMessage += [subBuilder.buildPartial()]
+            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            repeatedNestedMessage.append(subBuilder.buildPartial())
 
           case 394:
             let subBuilder = Proto3ArenaUnittest.ForeignMessage.Builder()
-            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-            repeatedForeignMessage += [subBuilder.buildPartial()]
+            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            repeatedForeignMessage.append(subBuilder.buildPartial())
 
           case 402:
             let subBuilder = ProtobufUnittestImport.ImportMessage.Builder()
-            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-            repeatedImportMessage += [subBuilder.buildPartial()]
+            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            repeatedImportMessage.append(subBuilder.buildPartial())
 
           case 408:
-            let valueIntrepeatedNestedEnum = try input.readEnum()
+            let valueIntrepeatedNestedEnum = try codedInputStream.readEnum()
             if let enumsrepeatedNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
-                 builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
+                 builderResult.repeatedNestedEnum.append(enumsrepeatedNestedEnum)
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 51, value:Int64(valueIntrepeatedNestedEnum))
             }
 
           case 416:
-            let valueIntrepeatedForeignEnum = try input.readEnum()
+            let valueIntrepeatedForeignEnum = try codedInputStream.readEnum()
             if let enumsrepeatedForeignEnum = Proto3ArenaUnittest.ForeignEnum(rawValue:valueIntrepeatedForeignEnum) {
-                 builderResult.repeatedForeignEnum += [enumsrepeatedForeignEnum]
+                 builderResult.repeatedForeignEnum.append(enumsrepeatedForeignEnum)
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(52, value:Int64(valueIntrepeatedForeignEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 52, value:Int64(valueIntrepeatedForeignEnum))
             }
 
           case 434:
-            repeatedStringPiece += [try input.readString()]
+            repeatedStringPiece += [try codedInputStream.readString()]
 
           case 442:
-            repeatedCord += [try input.readString()]
+            repeatedCord += [try codedInputStream.readString()]
 
           case 458:
             let subBuilder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
-            try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
-            repeatedLazyMessage += [subBuilder.buildPartial()]
+            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            repeatedLazyMessage.append(subBuilder.buildPartial())
 
           case 888:
-            oneofUint32 = try input.readUInt32()
+            oneofUint32 = try codedInputStream.readUInt32()
 
           case 898:
             let subBuilder:Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOneofNestedMessage {
-              try subBuilder.mergeFrom(oneofNestedMessage)
+              _ = try subBuilder.mergeFrom(other: oneofNestedMessage)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             oneofNestedMessage = subBuilder.buildPartial()
 
           case 906:
-            oneofString = try input.readString()
+            oneofString = try codedInputStream.readString()
 
           case 914:
-            oneofBytes = try input.readData()
+            oneofBytes = try codedInputStream.readData()
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -3616,31 +3617,31 @@ public extension Proto3ArenaUnittest {
       override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         let resultDecodedBuilder = Proto3ArenaUnittest.TestAllTypes.Builder()
         if let jsonValueOptionalInt32 = jsonMap["optionalInt32"] as? NSNumber {
-          resultDecodedBuilder.optionalInt32 = jsonValueOptionalInt32.intValue
+          resultDecodedBuilder.optionalInt32 = jsonValueOptionalInt32.int32Value
         }
         if let jsonValueOptionalInt64 = jsonMap["optionalInt64"] as? String {
           resultDecodedBuilder.optionalInt64 = Int64(jsonValueOptionalInt64)!
         }
         if let jsonValueOptionalUint32 = jsonMap["optionalUint32"] as? NSNumber {
-          resultDecodedBuilder.optionalUint32 = jsonValueOptionalUint32.unsignedIntValue
+          resultDecodedBuilder.optionalUint32 = jsonValueOptionalUint32.uint32Value
         }
         if let jsonValueOptionalUint64 = jsonMap["optionalUint64"] as? String {
           resultDecodedBuilder.optionalUint64 = UInt64(jsonValueOptionalUint64)!
         }
         if let jsonValueOptionalSint32 = jsonMap["optionalSint32"] as? NSNumber {
-          resultDecodedBuilder.optionalSint32 = jsonValueOptionalSint32.intValue
+          resultDecodedBuilder.optionalSint32 = jsonValueOptionalSint32.int32Value
         }
         if let jsonValueOptionalSint64 = jsonMap["optionalSint64"] as? String {
           resultDecodedBuilder.optionalSint64 = Int64(jsonValueOptionalSint64)!
         }
         if let jsonValueOptionalFixed32 = jsonMap["optionalFixed32"] as? NSNumber {
-          resultDecodedBuilder.optionalFixed32 = jsonValueOptionalFixed32.unsignedIntValue
+          resultDecodedBuilder.optionalFixed32 = jsonValueOptionalFixed32.uint32Value
         }
         if let jsonValueOptionalFixed64 = jsonMap["optionalFixed64"] as? String {
           resultDecodedBuilder.optionalFixed64 = UInt64(jsonValueOptionalFixed64)!
         }
         if let jsonValueOptionalSfixed32 = jsonMap["optionalSfixed32"] as? NSNumber {
-          resultDecodedBuilder.optionalSfixed32 = jsonValueOptionalSfixed32.intValue
+          resultDecodedBuilder.optionalSfixed32 = jsonValueOptionalSfixed32.int32Value
         }
         if let jsonValueOptionalSfixed64 = jsonMap["optionalSfixed64"] as? String {
           resultDecodedBuilder.optionalSfixed64 = Int64(jsonValueOptionalSfixed64)!
@@ -3658,25 +3659,25 @@ public extension Proto3ArenaUnittest {
           resultDecodedBuilder.optionalString = jsonValueOptionalString
         }
         if let jsonValueOptionalBytes = jsonMap["optionalBytes"] as? String {
-          resultDecodedBuilder.optionalBytes = NSData(base64EncodedString:jsonValueOptionalBytes, options: NSDataBase64DecodingOptions(rawValue:0))!
+          resultDecodedBuilder.optionalBytes = Data(base64Encoded:jsonValueOptionalBytes, options: Data.Base64DecodingOptions(rawValue:0))!
         }
         if let jsonValueOptionalNestedMessage = jsonMap["optionalNestedMessage"] as? Dictionary<String,AnyObject> {
-          resultDecodedBuilder.optionalNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonValueOptionalNestedMessage).build()
+          resultDecodedBuilder.optionalNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalNestedMessage).build()
 
         }
         if let jsonValueOptionalForeignMessage = jsonMap["optionalForeignMessage"] as? Dictionary<String,AnyObject> {
-          resultDecodedBuilder.optionalForeignMessage = try Proto3ArenaUnittest.ForeignMessage.Builder.decodeToBuilder(jsonValueOptionalForeignMessage).build()
+          resultDecodedBuilder.optionalForeignMessage = try Proto3ArenaUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalForeignMessage).build()
 
         }
         if let jsonValueOptionalImportMessage = jsonMap["optionalImportMessage"] as? Dictionary<String,AnyObject> {
-          resultDecodedBuilder.optionalImportMessage = try ProtobufUnittestImport.ImportMessage.Builder.decodeToBuilder(jsonValueOptionalImportMessage).build()
+          resultDecodedBuilder.optionalImportMessage = try ProtobufUnittestImport.ImportMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalImportMessage).build()
 
         }
         if let jsonValueOptionalNestedEnum = jsonMap["optionalNestedEnum"] as? String {
-          resultDecodedBuilder.optionalNestedEnum = try Proto3ArenaUnittest.TestAllTypes.NestedEnum.fromString(jsonValueOptionalNestedEnum)
+          resultDecodedBuilder.optionalNestedEnum = try Proto3ArenaUnittest.TestAllTypes.NestedEnum.fromString(str: jsonValueOptionalNestedEnum)
         }
         if let jsonValueOptionalForeignEnum = jsonMap["optionalForeignEnum"] as? String {
-          resultDecodedBuilder.optionalForeignEnum = try Proto3ArenaUnittest.ForeignEnum.fromString(jsonValueOptionalForeignEnum)
+          resultDecodedBuilder.optionalForeignEnum = try Proto3ArenaUnittest.ForeignEnum.fromString(str: jsonValueOptionalForeignEnum)
         }
         if let jsonValueOptionalStringPiece = jsonMap["optionalStringPiece"] as? String {
           resultDecodedBuilder.optionalStringPiece = jsonValueOptionalStringPiece
@@ -3685,94 +3686,94 @@ public extension Proto3ArenaUnittest {
           resultDecodedBuilder.optionalCord = jsonValueOptionalCord
         }
         if let jsonValueOptionalPublicImportMessage = jsonMap["optionalPublicImportMessage"] as? Dictionary<String,AnyObject> {
-          resultDecodedBuilder.optionalPublicImportMessage = try ProtobufUnittestImport.PublicImportMessage.Builder.decodeToBuilder(jsonValueOptionalPublicImportMessage).build()
+          resultDecodedBuilder.optionalPublicImportMessage = try ProtobufUnittestImport.PublicImportMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalPublicImportMessage).build()
 
         }
         if let jsonValueOptionalLazyMessage = jsonMap["optionalLazyMessage"] as? Dictionary<String,AnyObject> {
-          resultDecodedBuilder.optionalLazyMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonValueOptionalLazyMessage).build()
+          resultDecodedBuilder.optionalLazyMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalLazyMessage).build()
 
         }
         if let jsonValueRepeatedInt32 = jsonMap["repeatedInt32"] as? Array<NSNumber> {
           var jsonArrayRepeatedInt32:Array<Int32> = []
           for oneValueRepeatedInt32 in jsonValueRepeatedInt32 {
-            jsonArrayRepeatedInt32 += [oneValueRepeatedInt32.intValue]
+            jsonArrayRepeatedInt32.append(oneValueRepeatedInt32.int32Value)
           }
           resultDecodedBuilder.repeatedInt32 = jsonArrayRepeatedInt32
         }
         if let jsonValueRepeatedInt64 = jsonMap["repeatedInt64"] as? Array<String> {
           var jsonArrayRepeatedInt64:Array<Int64> = []
           for oneValueRepeatedInt64 in jsonValueRepeatedInt64 {
-            jsonArrayRepeatedInt64 += [Int64(oneValueRepeatedInt64)!]
+            jsonArrayRepeatedInt64.append(Int64(oneValueRepeatedInt64)!)
           }
           resultDecodedBuilder.repeatedInt64 = jsonArrayRepeatedInt64
         }
         if let jsonValueRepeatedUint32 = jsonMap["repeatedUint32"] as? Array<NSNumber> {
           var jsonArrayRepeatedUint32:Array<UInt32> = []
           for oneValueRepeatedUint32 in jsonValueRepeatedUint32 {
-            jsonArrayRepeatedUint32 += [oneValueRepeatedUint32.unsignedIntValue]
+            jsonArrayRepeatedUint32.append(oneValueRepeatedUint32.uint32Value)
           }
           resultDecodedBuilder.repeatedUint32 = jsonArrayRepeatedUint32
         }
         if let jsonValueRepeatedUint64 = jsonMap["repeatedUint64"] as? Array<String> {
           var jsonArrayRepeatedUint64:Array<UInt64> = []
           for oneValueRepeatedUint64 in jsonValueRepeatedUint64 {
-            jsonArrayRepeatedUint64 += [UInt64(oneValueRepeatedUint64)!]
+            jsonArrayRepeatedUint64.append(UInt64(oneValueRepeatedUint64)!)
           }
           resultDecodedBuilder.repeatedUint64 = jsonArrayRepeatedUint64
         }
         if let jsonValueRepeatedSint32 = jsonMap["repeatedSint32"] as? Array<NSNumber> {
           var jsonArrayRepeatedSint32:Array<Int32> = []
           for oneValueRepeatedSint32 in jsonValueRepeatedSint32 {
-            jsonArrayRepeatedSint32 += [oneValueRepeatedSint32.intValue]
+            jsonArrayRepeatedSint32.append(oneValueRepeatedSint32.int32Value)
           }
           resultDecodedBuilder.repeatedSint32 = jsonArrayRepeatedSint32
         }
         if let jsonValueRepeatedSint64 = jsonMap["repeatedSint64"] as? Array<String> {
           var jsonArrayRepeatedSint64:Array<Int64> = []
           for oneValueRepeatedSint64 in jsonValueRepeatedSint64 {
-            jsonArrayRepeatedSint64 += [Int64(oneValueRepeatedSint64)!]
+            jsonArrayRepeatedSint64.append(Int64(oneValueRepeatedSint64)!)
           }
           resultDecodedBuilder.repeatedSint64 = jsonArrayRepeatedSint64
         }
         if let jsonValueRepeatedFixed32 = jsonMap["repeatedFixed32"] as? Array<NSNumber> {
           var jsonArrayRepeatedFixed32:Array<UInt32> = []
           for oneValueRepeatedFixed32 in jsonValueRepeatedFixed32 {
-            jsonArrayRepeatedFixed32 += [oneValueRepeatedFixed32.unsignedIntValue]
+            jsonArrayRepeatedFixed32.append(oneValueRepeatedFixed32.uint32Value)
           }
           resultDecodedBuilder.repeatedFixed32 = jsonArrayRepeatedFixed32
         }
         if let jsonValueRepeatedFixed64 = jsonMap["repeatedFixed64"] as? Array<String> {
           var jsonArrayRepeatedFixed64:Array<UInt64> = []
           for oneValueRepeatedFixed64 in jsonValueRepeatedFixed64 {
-            jsonArrayRepeatedFixed64 += [UInt64(oneValueRepeatedFixed64)!]
+            jsonArrayRepeatedFixed64.append(UInt64(oneValueRepeatedFixed64)!)
           }
           resultDecodedBuilder.repeatedFixed64 = jsonArrayRepeatedFixed64
         }
         if let jsonValueRepeatedSfixed32 = jsonMap["repeatedSfixed32"] as? Array<NSNumber> {
           var jsonArrayRepeatedSfixed32:Array<Int32> = []
           for oneValueRepeatedSfixed32 in jsonValueRepeatedSfixed32 {
-            jsonArrayRepeatedSfixed32 += [oneValueRepeatedSfixed32.intValue]
+            jsonArrayRepeatedSfixed32.append(oneValueRepeatedSfixed32.int32Value)
           }
           resultDecodedBuilder.repeatedSfixed32 = jsonArrayRepeatedSfixed32
         }
         if let jsonValueRepeatedSfixed64 = jsonMap["repeatedSfixed64"] as? Array<String> {
           var jsonArrayRepeatedSfixed64:Array<Int64> = []
           for oneValueRepeatedSfixed64 in jsonValueRepeatedSfixed64 {
-            jsonArrayRepeatedSfixed64 += [Int64(oneValueRepeatedSfixed64)!]
+            jsonArrayRepeatedSfixed64.append(Int64(oneValueRepeatedSfixed64)!)
           }
           resultDecodedBuilder.repeatedSfixed64 = jsonArrayRepeatedSfixed64
         }
         if let jsonValueRepeatedFloat = jsonMap["repeatedFloat"] as? Array<NSNumber> {
           var jsonArrayRepeatedFloat:Array<Float> = []
           for oneValueRepeatedFloat in jsonValueRepeatedFloat {
-            jsonArrayRepeatedFloat += [oneValueRepeatedFloat.floatValue]
+            jsonArrayRepeatedFloat.append(oneValueRepeatedFloat.floatValue)
           }
           resultDecodedBuilder.repeatedFloat = jsonArrayRepeatedFloat
         }
         if let jsonValueRepeatedDouble = jsonMap["repeatedDouble"] as? Array<NSNumber> {
           var jsonArrayRepeatedDouble:Array<Double> = []
           for oneValueRepeatedDouble in jsonValueRepeatedDouble {
-            jsonArrayRepeatedDouble += [oneValueRepeatedDouble.doubleValue]
+            jsonArrayRepeatedDouble.append(oneValueRepeatedDouble.doubleValue)
           }
           resultDecodedBuilder.repeatedDouble = jsonArrayRepeatedDouble
         }
@@ -3783,52 +3784,52 @@ public extension Proto3ArenaUnittest {
           resultDecodedBuilder.repeatedString = jsonValueRepeatedString
         }
         if let jsonValueRepeatedBytes = jsonMap["repeatedBytes"] as? Array<String> {
-          var jsonArrayRepeatedBytes:Array<NSData> = []
+          var jsonArrayRepeatedBytes:Array<Data> = []
           for oneValueRepeatedBytes in jsonValueRepeatedBytes {
-            jsonArrayRepeatedBytes += [NSData(base64EncodedString:oneValueRepeatedBytes, options: NSDataBase64DecodingOptions(rawValue:0))!]
+            jsonArrayRepeatedBytes.append(Data(base64Encoded:oneValueRepeatedBytes, options: Data.Base64DecodingOptions(rawValue:0))!)
           }
           resultDecodedBuilder.repeatedBytes = jsonArrayRepeatedBytes
         }
         if let jsonValueRepeatedNestedMessage = jsonMap["repeatedNestedMessage"] as? Array<Dictionary<String,AnyObject>> {
           var jsonArrayRepeatedNestedMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage> = []
           for oneValueRepeatedNestedMessage in jsonValueRepeatedNestedMessage {
-            let messageFromStringRepeatedNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(oneValueRepeatedNestedMessage).build()
+            let messageFromStringRepeatedNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:oneValueRepeatedNestedMessage).build()
 
-            jsonArrayRepeatedNestedMessage += [messageFromStringRepeatedNestedMessage]
+            jsonArrayRepeatedNestedMessage.append(messageFromStringRepeatedNestedMessage)
           }
           resultDecodedBuilder.repeatedNestedMessage = jsonArrayRepeatedNestedMessage
         }
         if let jsonValueRepeatedForeignMessage = jsonMap["repeatedForeignMessage"] as? Array<Dictionary<String,AnyObject>> {
           var jsonArrayRepeatedForeignMessage:Array<Proto3ArenaUnittest.ForeignMessage> = []
           for oneValueRepeatedForeignMessage in jsonValueRepeatedForeignMessage {
-            let messageFromStringRepeatedForeignMessage = try Proto3ArenaUnittest.ForeignMessage.Builder.decodeToBuilder(oneValueRepeatedForeignMessage).build()
+            let messageFromStringRepeatedForeignMessage = try Proto3ArenaUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:oneValueRepeatedForeignMessage).build()
 
-            jsonArrayRepeatedForeignMessage += [messageFromStringRepeatedForeignMessage]
+            jsonArrayRepeatedForeignMessage.append(messageFromStringRepeatedForeignMessage)
           }
           resultDecodedBuilder.repeatedForeignMessage = jsonArrayRepeatedForeignMessage
         }
         if let jsonValueRepeatedImportMessage = jsonMap["repeatedImportMessage"] as? Array<Dictionary<String,AnyObject>> {
           var jsonArrayRepeatedImportMessage:Array<ProtobufUnittestImport.ImportMessage> = []
           for oneValueRepeatedImportMessage in jsonValueRepeatedImportMessage {
-            let messageFromStringRepeatedImportMessage = try ProtobufUnittestImport.ImportMessage.Builder.decodeToBuilder(oneValueRepeatedImportMessage).build()
+            let messageFromStringRepeatedImportMessage = try ProtobufUnittestImport.ImportMessage.Builder.decodeToBuilder(jsonMap:oneValueRepeatedImportMessage).build()
 
-            jsonArrayRepeatedImportMessage += [messageFromStringRepeatedImportMessage]
+            jsonArrayRepeatedImportMessage.append(messageFromStringRepeatedImportMessage)
           }
           resultDecodedBuilder.repeatedImportMessage = jsonArrayRepeatedImportMessage
         }
         if let jsonValueRepeatedNestedEnum = jsonMap["repeatedNestedEnum"] as? Array<String> {
           var jsonArrayRepeatedNestedEnum:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum> = []
           for oneValueRepeatedNestedEnum in jsonValueRepeatedNestedEnum {
-            let enumFromStringRepeatedNestedEnum = try Proto3ArenaUnittest.TestAllTypes.NestedEnum.fromString(oneValueRepeatedNestedEnum)
-            jsonArrayRepeatedNestedEnum += [enumFromStringRepeatedNestedEnum]
+            let enumFromStringRepeatedNestedEnum = try Proto3ArenaUnittest.TestAllTypes.NestedEnum.fromString(str: oneValueRepeatedNestedEnum)
+            jsonArrayRepeatedNestedEnum.append(enumFromStringRepeatedNestedEnum)
           }
           resultDecodedBuilder.repeatedNestedEnum = jsonArrayRepeatedNestedEnum
         }
         if let jsonValueRepeatedForeignEnum = jsonMap["repeatedForeignEnum"] as? Array<String> {
           var jsonArrayRepeatedForeignEnum:Array<Proto3ArenaUnittest.ForeignEnum> = []
           for oneValueRepeatedForeignEnum in jsonValueRepeatedForeignEnum {
-            let enumFromStringRepeatedForeignEnum = try Proto3ArenaUnittest.ForeignEnum.fromString(oneValueRepeatedForeignEnum)
-            jsonArrayRepeatedForeignEnum += [enumFromStringRepeatedForeignEnum]
+            let enumFromStringRepeatedForeignEnum = try Proto3ArenaUnittest.ForeignEnum.fromString(str: oneValueRepeatedForeignEnum)
+            jsonArrayRepeatedForeignEnum.append(enumFromStringRepeatedForeignEnum)
           }
           resultDecodedBuilder.repeatedForeignEnum = jsonArrayRepeatedForeignEnum
         }
@@ -3841,33 +3842,33 @@ public extension Proto3ArenaUnittest {
         if let jsonValueRepeatedLazyMessage = jsonMap["repeatedLazyMessage"] as? Array<Dictionary<String,AnyObject>> {
           var jsonArrayRepeatedLazyMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage> = []
           for oneValueRepeatedLazyMessage in jsonValueRepeatedLazyMessage {
-            let messageFromStringRepeatedLazyMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(oneValueRepeatedLazyMessage).build()
+            let messageFromStringRepeatedLazyMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:oneValueRepeatedLazyMessage).build()
 
-            jsonArrayRepeatedLazyMessage += [messageFromStringRepeatedLazyMessage]
+            jsonArrayRepeatedLazyMessage.append(messageFromStringRepeatedLazyMessage)
           }
           resultDecodedBuilder.repeatedLazyMessage = jsonArrayRepeatedLazyMessage
         }
         if let jsonValueOneofUint32 = jsonMap["oneofUint32"] as? NSNumber {
-          resultDecodedBuilder.oneofUint32 = jsonValueOneofUint32.unsignedIntValue
+          resultDecodedBuilder.oneofUint32 = jsonValueOneofUint32.uint32Value
         }
         if let jsonValueOneofNestedMessage = jsonMap["oneofNestedMessage"] as? Dictionary<String,AnyObject> {
-          resultDecodedBuilder.oneofNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonValueOneofNestedMessage).build()
+          resultDecodedBuilder.oneofNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueOneofNestedMessage).build()
 
         }
         if let jsonValueOneofString = jsonMap["oneofString"] as? String {
           resultDecodedBuilder.oneofString = jsonValueOneofString
         }
         if let jsonValueOneofBytes = jsonMap["oneofBytes"] as? String {
-          resultDecodedBuilder.oneofBytes = NSData(base64EncodedString:jsonValueOneofBytes, options: NSDataBase64DecodingOptions(rawValue:0))!
+          resultDecodedBuilder.oneofBytes = Data(base64Encoded:jsonValueOneofBytes, options: Data.Base64DecodingOptions(rawValue:0))!
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
-        return try Proto3ArenaUnittest.TestAllTypes.Builder.decodeToBuilder(jsDataCast)
+        return try Proto3ArenaUnittest.TestAllTypes.Builder.decodeToBuilder(jsonMap:jsDataCast)
       }
     }
 
@@ -3908,106 +3909,106 @@ public extension Proto3ArenaUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !packedInt32.isEmpty {
-        try output.writeRawVarint32(722)
-        try output.writeRawVarint32(packedInt32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 722)
+        try codedOutputStream.writeRawVarint32(value: packedInt32MemoizedSerializedSize)
         for oneValuepackedInt32 in packedInt32 {
-          try output.writeInt32NoTag(oneValuepackedInt32)
+          try codedOutputStream.writeInt32NoTag(value: oneValuepackedInt32)
         }
       }
       if !packedInt64.isEmpty {
-        try output.writeRawVarint32(730)
-        try output.writeRawVarint32(packedInt64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 730)
+        try codedOutputStream.writeRawVarint32(value: packedInt64MemoizedSerializedSize)
         for oneValuepackedInt64 in packedInt64 {
-          try output.writeInt64NoTag(oneValuepackedInt64)
+          try codedOutputStream.writeInt64NoTag(value: oneValuepackedInt64)
         }
       }
       if !packedUint32.isEmpty {
-        try output.writeRawVarint32(738)
-        try output.writeRawVarint32(packedUint32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 738)
+        try codedOutputStream.writeRawVarint32(value: packedUint32MemoizedSerializedSize)
         for oneValuepackedUint32 in packedUint32 {
-          try output.writeUInt32NoTag(oneValuepackedUint32)
+          try codedOutputStream.writeUInt32NoTag(value: oneValuepackedUint32)
         }
       }
       if !packedUint64.isEmpty {
-        try output.writeRawVarint32(746)
-        try output.writeRawVarint32(packedUint64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 746)
+        try codedOutputStream.writeRawVarint32(value: packedUint64MemoizedSerializedSize)
         for oneValuepackedUint64 in packedUint64 {
-          try output.writeUInt64NoTag(oneValuepackedUint64)
+          try codedOutputStream.writeUInt64NoTag(value: oneValuepackedUint64)
         }
       }
       if !packedSint32.isEmpty {
-        try output.writeRawVarint32(754)
-        try output.writeRawVarint32(packedSint32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 754)
+        try codedOutputStream.writeRawVarint32(value: packedSint32MemoizedSerializedSize)
         for oneValuepackedSint32 in packedSint32 {
-          try output.writeSInt32NoTag(oneValuepackedSint32)
+          try codedOutputStream.writeSInt32NoTag(value: oneValuepackedSint32)
         }
       }
       if !packedSint64.isEmpty {
-        try output.writeRawVarint32(762)
-        try output.writeRawVarint32(packedSint64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 762)
+        try codedOutputStream.writeRawVarint32(value: packedSint64MemoizedSerializedSize)
         for oneValuepackedSint64 in packedSint64 {
-          try output.writeSInt64NoTag(oneValuepackedSint64)
+          try codedOutputStream.writeSInt64NoTag(value: oneValuepackedSint64)
         }
       }
       if !packedFixed32.isEmpty {
-        try output.writeRawVarint32(770)
-        try output.writeRawVarint32(packedFixed32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 770)
+        try codedOutputStream.writeRawVarint32(value: packedFixed32MemoizedSerializedSize)
         for oneValuepackedFixed32 in packedFixed32 {
-          try output.writeFixed32NoTag(oneValuepackedFixed32)
+          try codedOutputStream.writeFixed32NoTag(value: oneValuepackedFixed32)
         }
       }
       if !packedFixed64.isEmpty {
-        try output.writeRawVarint32(778)
-        try output.writeRawVarint32(packedFixed64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 778)
+        try codedOutputStream.writeRawVarint32(value: packedFixed64MemoizedSerializedSize)
         for oneValuepackedFixed64 in packedFixed64 {
-          try output.writeFixed64NoTag(oneValuepackedFixed64)
+          try codedOutputStream.writeFixed64NoTag(value: oneValuepackedFixed64)
         }
       }
       if !packedSfixed32.isEmpty {
-        try output.writeRawVarint32(786)
-        try output.writeRawVarint32(packedSfixed32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 786)
+        try codedOutputStream.writeRawVarint32(value: packedSfixed32MemoizedSerializedSize)
         for oneValuepackedSfixed32 in packedSfixed32 {
-          try output.writeSFixed32NoTag(oneValuepackedSfixed32)
+          try codedOutputStream.writeSFixed32NoTag(value: oneValuepackedSfixed32)
         }
       }
       if !packedSfixed64.isEmpty {
-        try output.writeRawVarint32(794)
-        try output.writeRawVarint32(packedSfixed64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 794)
+        try codedOutputStream.writeRawVarint32(value: packedSfixed64MemoizedSerializedSize)
         for oneValuepackedSfixed64 in packedSfixed64 {
-          try output.writeSFixed64NoTag(oneValuepackedSfixed64)
+          try codedOutputStream.writeSFixed64NoTag(value: oneValuepackedSfixed64)
         }
       }
       if !packedFloat.isEmpty {
-        try output.writeRawVarint32(802)
-        try output.writeRawVarint32(packedFloatMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 802)
+        try codedOutputStream.writeRawVarint32(value: packedFloatMemoizedSerializedSize)
         for oneValuepackedFloat in packedFloat {
-          try output.writeFloatNoTag(oneValuepackedFloat)
+          try codedOutputStream.writeFloatNoTag(value: oneValuepackedFloat)
         }
       }
       if !packedDouble.isEmpty {
-        try output.writeRawVarint32(810)
-        try output.writeRawVarint32(packedDoubleMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 810)
+        try codedOutputStream.writeRawVarint32(value: packedDoubleMemoizedSerializedSize)
         for oneValuepackedDouble in packedDouble {
-          try output.writeDoubleNoTag(oneValuepackedDouble)
+          try codedOutputStream.writeDoubleNoTag(value: oneValuepackedDouble)
         }
       }
       if !packedBool.isEmpty {
-        try output.writeRawVarint32(818)
-        try output.writeRawVarint32(packedBoolMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 818)
+        try codedOutputStream.writeRawVarint32(value: packedBoolMemoizedSerializedSize)
         for oneValuepackedBool in packedBool {
-          try output.writeBoolNoTag(oneValuepackedBool)
+          try codedOutputStream.writeBoolNoTag(value: oneValuepackedBool)
         }
       }
       if !packedEnum.isEmpty {
-        try output.writeRawVarint32(826)
-        try output.writeRawVarint32(packedEnumMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 826)
+        try codedOutputStream.writeRawVarint32(value: packedEnumMemoizedSerializedSize)
       }
       for oneValueOfpackedEnum in packedEnum {
-          try output.writeEnumNoTag(oneValueOfpackedEnum.rawValue)
+          try codedOutputStream.writeEnumNoTag(value: oneValueOfpackedEnum.rawValue)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -4146,33 +4147,33 @@ public extension Proto3ArenaUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestPackedTypes> {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3ArenaUnittest.TestPackedTypes> {
       var mergedArray = Array<Proto3ArenaUnittest.TestPackedTypes>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
-        mergedArray += [value]
+      while let value = try parseDelimitedFrom(inputStream: inputStream) {
+        mergedArray.append(value)
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestPackedTypes? {
-      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.TestPackedTypes? {
+      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestPackedTypes {
-      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFrom(data: Data) throws -> Proto3ArenaUnittest.TestPackedTypes {
+      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFrom(data: data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestPackedTypes {
-      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestPackedTypes {
+      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestPackedTypes {
-      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFromInputStream(input).build()
+    public class func parseFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.TestPackedTypes {
+      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFrom(inputStream: inputStream).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestPackedTypes {
-      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestPackedTypes {
+      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.TestPackedTypes {
-      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestPackedTypes {
+      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFrom(codedInputStream: codedInputStream).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestPackedTypes {
-      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestPackedTypes {
+      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
       return Proto3ArenaUnittest.TestPackedTypes.classBuilder() as! Proto3ArenaUnittest.TestPackedTypes.Builder
@@ -4187,98 +4188,98 @@ public extension Proto3ArenaUnittest {
       return Proto3ArenaUnittest.TestPackedTypes.Builder()
     }
     public func toBuilder() throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-      return try Proto3ArenaUnittest.TestPackedTypes.builderWithPrototype(self)
+      return try Proto3ArenaUnittest.TestPackedTypes.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:Proto3ArenaUnittest.TestPackedTypes) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFrom(prototype)
+      return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFrom(other:prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if !packedInt32.isEmpty {
         var jsonArrayPackedInt32:Array<NSNumber> = []
           for oneValuePackedInt32 in packedInt32 {
-            jsonArrayPackedInt32 += [NSNumber(int:oneValuePackedInt32)]
+            jsonArrayPackedInt32.append(NSNumber(value:oneValuePackedInt32))
           }
         jsonMap["packedInt32"] = jsonArrayPackedInt32
       }
       if !packedInt64.isEmpty {
         var jsonArrayPackedInt64:Array<String> = []
           for oneValuePackedInt64 in packedInt64 {
-            jsonArrayPackedInt64 += ["\(oneValuePackedInt64)"]
+            jsonArrayPackedInt64.append("\(oneValuePackedInt64)")
           }
         jsonMap["packedInt64"] = jsonArrayPackedInt64
       }
       if !packedUint32.isEmpty {
         var jsonArrayPackedUint32:Array<NSNumber> = []
           for oneValuePackedUint32 in packedUint32 {
-            jsonArrayPackedUint32 += [NSNumber(unsignedInt:oneValuePackedUint32)]
+            jsonArrayPackedUint32.append(NSNumber(value:oneValuePackedUint32))
           }
         jsonMap["packedUint32"] = jsonArrayPackedUint32
       }
       if !packedUint64.isEmpty {
         var jsonArrayPackedUint64:Array<String> = []
           for oneValuePackedUint64 in packedUint64 {
-            jsonArrayPackedUint64 += ["\(oneValuePackedUint64)"]
+            jsonArrayPackedUint64.append("\(oneValuePackedUint64)")
           }
         jsonMap["packedUint64"] = jsonArrayPackedUint64
       }
       if !packedSint32.isEmpty {
         var jsonArrayPackedSint32:Array<NSNumber> = []
           for oneValuePackedSint32 in packedSint32 {
-            jsonArrayPackedSint32 += [NSNumber(int:oneValuePackedSint32)]
+            jsonArrayPackedSint32.append(NSNumber(value:oneValuePackedSint32))
           }
         jsonMap["packedSint32"] = jsonArrayPackedSint32
       }
       if !packedSint64.isEmpty {
         var jsonArrayPackedSint64:Array<String> = []
           for oneValuePackedSint64 in packedSint64 {
-            jsonArrayPackedSint64 += ["\(oneValuePackedSint64)"]
+            jsonArrayPackedSint64.append("\(oneValuePackedSint64)")
           }
         jsonMap["packedSint64"] = jsonArrayPackedSint64
       }
       if !packedFixed32.isEmpty {
         var jsonArrayPackedFixed32:Array<NSNumber> = []
           for oneValuePackedFixed32 in packedFixed32 {
-            jsonArrayPackedFixed32 += [NSNumber(unsignedInt:oneValuePackedFixed32)]
+            jsonArrayPackedFixed32.append(NSNumber(value:oneValuePackedFixed32))
           }
         jsonMap["packedFixed32"] = jsonArrayPackedFixed32
       }
       if !packedFixed64.isEmpty {
         var jsonArrayPackedFixed64:Array<String> = []
           for oneValuePackedFixed64 in packedFixed64 {
-            jsonArrayPackedFixed64 += ["\(oneValuePackedFixed64)"]
+            jsonArrayPackedFixed64.append("\(oneValuePackedFixed64)")
           }
         jsonMap["packedFixed64"] = jsonArrayPackedFixed64
       }
       if !packedSfixed32.isEmpty {
         var jsonArrayPackedSfixed32:Array<NSNumber> = []
           for oneValuePackedSfixed32 in packedSfixed32 {
-            jsonArrayPackedSfixed32 += [NSNumber(int:oneValuePackedSfixed32)]
+            jsonArrayPackedSfixed32.append(NSNumber(value:oneValuePackedSfixed32))
           }
         jsonMap["packedSfixed32"] = jsonArrayPackedSfixed32
       }
       if !packedSfixed64.isEmpty {
         var jsonArrayPackedSfixed64:Array<String> = []
           for oneValuePackedSfixed64 in packedSfixed64 {
-            jsonArrayPackedSfixed64 += ["\(oneValuePackedSfixed64)"]
+            jsonArrayPackedSfixed64.append("\(oneValuePackedSfixed64)")
           }
         jsonMap["packedSfixed64"] = jsonArrayPackedSfixed64
       }
       if !packedFloat.isEmpty {
         var jsonArrayPackedFloat:Array<NSNumber> = []
           for oneValuePackedFloat in packedFloat {
-            jsonArrayPackedFloat += [NSNumber(float:oneValuePackedFloat)]
+            jsonArrayPackedFloat.append(NSNumber(value:oneValuePackedFloat))
           }
         jsonMap["packedFloat"] = jsonArrayPackedFloat
       }
       if !packedDouble.isEmpty {
         var jsonArrayPackedDouble:Array<NSNumber> = []
           for oneValuePackedDouble in packedDouble {
-            jsonArrayPackedDouble += [NSNumber(double:oneValuePackedDouble)]
+            jsonArrayPackedDouble.append(NSNumber(value:oneValuePackedDouble))
           }
         jsonMap["packedDouble"] = jsonArrayPackedDouble
       }
@@ -4288,17 +4289,17 @@ public extension Proto3ArenaUnittest {
       if !packedEnum.isEmpty {
         var jsonArrayPackedEnum:Array<String> = []
           for oneValuePackedEnum in packedEnum {
-            jsonArrayPackedEnum += [oneValuePackedEnum.toString()]
+            jsonArrayPackedEnum.append(oneValuePackedEnum.toString())
           }
         jsonMap["packedEnum"] = jsonArrayPackedEnum
       }
       return jsonMap
     }
     override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestPackedTypes {
-      return try Proto3ArenaUnittest.TestPackedTypes.Builder.decodeToBuilder(jsonMap).build()
+      return try Proto3ArenaUnittest.TestPackedTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Proto3ArenaUnittest.TestPackedTypes {
-      return try Proto3ArenaUnittest.TestPackedTypes.Builder.fromJSONToBuilder(data).build()
+    override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.TestPackedTypes {
+      return try Proto3ArenaUnittest.TestPackedTypes.Builder.fromJSONToBuilder(data:data).build()
     }
     override public func getDescription(indent:String) throws -> String {
       var output = ""
@@ -4372,7 +4373,7 @@ public extension Proto3ArenaUnittest {
           output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(oneValueOfpackedEnum.description)\n"
           packedEnumElementIndex += 1
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -4456,12 +4457,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedInt32 = array
            }
       }
-      public func setPackedInt32(value:Array<Int32>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedInt32(_ value:Array<Int32>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedInt32 = value
         return self
       }
       public func clearPackedInt32() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedInt32.removeAll(keepCapacity: false)
+         builderResult.packedInt32.removeAll(keepingCapacity: false)
          return self
       }
       public var packedInt64:Array<Int64> {
@@ -4472,12 +4473,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedInt64 = array
            }
       }
-      public func setPackedInt64(value:Array<Int64>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedInt64(_ value:Array<Int64>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedInt64 = value
         return self
       }
       public func clearPackedInt64() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedInt64.removeAll(keepCapacity: false)
+         builderResult.packedInt64.removeAll(keepingCapacity: false)
          return self
       }
       public var packedUint32:Array<UInt32> {
@@ -4488,12 +4489,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedUint32 = array
            }
       }
-      public func setPackedUint32(value:Array<UInt32>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedUint32(_ value:Array<UInt32>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedUint32 = value
         return self
       }
       public func clearPackedUint32() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedUint32.removeAll(keepCapacity: false)
+         builderResult.packedUint32.removeAll(keepingCapacity: false)
          return self
       }
       public var packedUint64:Array<UInt64> {
@@ -4504,12 +4505,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedUint64 = array
            }
       }
-      public func setPackedUint64(value:Array<UInt64>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedUint64(_ value:Array<UInt64>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedUint64 = value
         return self
       }
       public func clearPackedUint64() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedUint64.removeAll(keepCapacity: false)
+         builderResult.packedUint64.removeAll(keepingCapacity: false)
          return self
       }
       public var packedSint32:Array<Int32> {
@@ -4520,12 +4521,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedSint32 = array
            }
       }
-      public func setPackedSint32(value:Array<Int32>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedSint32(_ value:Array<Int32>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedSint32 = value
         return self
       }
       public func clearPackedSint32() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedSint32.removeAll(keepCapacity: false)
+         builderResult.packedSint32.removeAll(keepingCapacity: false)
          return self
       }
       public var packedSint64:Array<Int64> {
@@ -4536,12 +4537,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedSint64 = array
            }
       }
-      public func setPackedSint64(value:Array<Int64>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedSint64(_ value:Array<Int64>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedSint64 = value
         return self
       }
       public func clearPackedSint64() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedSint64.removeAll(keepCapacity: false)
+         builderResult.packedSint64.removeAll(keepingCapacity: false)
          return self
       }
       public var packedFixed32:Array<UInt32> {
@@ -4552,12 +4553,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedFixed32 = array
            }
       }
-      public func setPackedFixed32(value:Array<UInt32>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedFixed32(_ value:Array<UInt32>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedFixed32 = value
         return self
       }
       public func clearPackedFixed32() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedFixed32.removeAll(keepCapacity: false)
+         builderResult.packedFixed32.removeAll(keepingCapacity: false)
          return self
       }
       public var packedFixed64:Array<UInt64> {
@@ -4568,12 +4569,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedFixed64 = array
            }
       }
-      public func setPackedFixed64(value:Array<UInt64>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedFixed64(_ value:Array<UInt64>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedFixed64 = value
         return self
       }
       public func clearPackedFixed64() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedFixed64.removeAll(keepCapacity: false)
+         builderResult.packedFixed64.removeAll(keepingCapacity: false)
          return self
       }
       public var packedSfixed32:Array<Int32> {
@@ -4584,12 +4585,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedSfixed32 = array
            }
       }
-      public func setPackedSfixed32(value:Array<Int32>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedSfixed32(_ value:Array<Int32>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedSfixed32 = value
         return self
       }
       public func clearPackedSfixed32() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedSfixed32.removeAll(keepCapacity: false)
+         builderResult.packedSfixed32.removeAll(keepingCapacity: false)
          return self
       }
       public var packedSfixed64:Array<Int64> {
@@ -4600,12 +4601,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedSfixed64 = array
            }
       }
-      public func setPackedSfixed64(value:Array<Int64>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedSfixed64(_ value:Array<Int64>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedSfixed64 = value
         return self
       }
       public func clearPackedSfixed64() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedSfixed64.removeAll(keepCapacity: false)
+         builderResult.packedSfixed64.removeAll(keepingCapacity: false)
          return self
       }
       public var packedFloat:Array<Float> {
@@ -4616,12 +4617,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedFloat = array
            }
       }
-      public func setPackedFloat(value:Array<Float>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedFloat(_ value:Array<Float>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedFloat = value
         return self
       }
       public func clearPackedFloat() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedFloat.removeAll(keepCapacity: false)
+         builderResult.packedFloat.removeAll(keepingCapacity: false)
          return self
       }
       public var packedDouble:Array<Double> {
@@ -4632,12 +4633,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedDouble = array
            }
       }
-      public func setPackedDouble(value:Array<Double>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedDouble(_ value:Array<Double>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedDouble = value
         return self
       }
       public func clearPackedDouble() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedDouble.removeAll(keepCapacity: false)
+         builderResult.packedDouble.removeAll(keepingCapacity: false)
          return self
       }
       public var packedBool:Array<Bool> {
@@ -4648,12 +4649,12 @@ public extension Proto3ArenaUnittest {
                builderResult.packedBool = array
            }
       }
-      public func setPackedBool(value:Array<Bool>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedBool(_ value:Array<Bool>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedBool = value
         return self
       }
       public func clearPackedBool() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-         builderResult.packedBool.removeAll(keepCapacity: false)
+         builderResult.packedBool.removeAll(keepingCapacity: false)
          return self
       }
       public var packedEnum:Array<Proto3ArenaUnittest.ForeignEnum> {
@@ -4664,12 +4665,12 @@ public extension Proto3ArenaUnittest {
               builderResult.packedEnum = value
           }
       }
-      public func setPackedEnum(value:Array<Proto3ArenaUnittest.ForeignEnum>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      public func setPackedEnum(_ value:Array<Proto3ArenaUnittest.ForeignEnum>) -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         self.packedEnum = value
         return self
       }
       public func clearPackedEnum() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-        builderResult.packedEnum.removeAll(keepCapacity: false)
+        builderResult.packedEnum.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:GeneratedMessage {
@@ -4682,7 +4683,7 @@ public extension Proto3ArenaUnittest {
         return self
       }
       override public func clone() throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-        return try Proto3ArenaUnittest.TestPackedTypes.builderWithPrototype(builderResult)
+        return try Proto3ArenaUnittest.TestPackedTypes.builderWithPrototype(prototype:builderResult)
       }
       override public func build() throws -> Proto3ArenaUnittest.TestPackedTypes {
            try checkInitialized()
@@ -4738,140 +4739,140 @@ public extension Proto3ArenaUnittest {
         if !other.packedEnum.isEmpty {
            builderResult.packedEnum += other.packedEnum
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
-          let protobufTag = try input.readTag()
+          let protobufTag = try codedInputStream.readTag()
           switch protobufTag {
           case 0: 
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 722:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedInt32 += [try input.readInt32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedInt32.append(try codedInputStream.readInt32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 730:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedInt64 += [try input.readInt64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedInt64.append(try codedInputStream.readInt64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 738:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedUint32 += [try input.readUInt32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedUint32.append(try codedInputStream.readUInt32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 746:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedUint64 += [try input.readUInt64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedUint64.append(try codedInputStream.readUInt64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 754:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedSint32 += [try input.readSInt32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedSint32.append(try codedInputStream.readSInt32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 762:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedSint64 += [try input.readSInt64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedSint64.append(try codedInputStream.readSInt64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 770:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedFixed32 += [try input.readFixed32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedFixed32.append(try codedInputStream.readFixed32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 778:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedFixed64 += [try input.readFixed64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedFixed64.append(try codedInputStream.readFixed64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 786:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedSfixed32 += [try input.readSFixed32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedSfixed32.append(try codedInputStream.readSFixed32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 794:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedSfixed64 += [try input.readSFixed64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedSfixed64.append(try codedInputStream.readSFixed64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 802:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedFloat += [try input.readFloat()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedFloat.append(try codedInputStream.readFloat())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 810:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedDouble += [try input.readDouble()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedDouble.append(try codedInputStream.readDouble())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 818:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.packedBool += [try input.readBool()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.packedBool.append(try codedInputStream.readBool())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 826:
-            let length:Int32 = try input.readRawVarint32()
-            let oldLimit:Int32 = try input.pushLimit(length)
-            while input.bytesUntilLimit() > 0 {
-            let valueIntpackedEnum = try input.readEnum()
+            let length = Int(try codedInputStream.readRawVarint32())
+            let oldLimit = try codedInputStream.pushLimit(byteLimit: length)
+            while codedInputStream.bytesUntilLimit() > 0 {
+            let valueIntpackedEnum = try codedInputStream.readEnum()
             if let enumspackedEnum = Proto3ArenaUnittest.ForeignEnum(rawValue:valueIntpackedEnum) {
-                 builderResult.packedEnum += [enumspackedEnum]
+                 builderResult.packedEnum.append(enumspackedEnum)
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(103, value:Int64(valueIntpackedEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 103, value:Int64(valueIntpackedEnum))
             }
             }
-            input.popLimit(oldLimit)
+            codedInputStream.popLimit(oldLimit: oldLimit)
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -4883,84 +4884,84 @@ public extension Proto3ArenaUnittest {
         if let jsonValuePackedInt32 = jsonMap["packedInt32"] as? Array<NSNumber> {
           var jsonArrayPackedInt32:Array<Int32> = []
           for oneValuePackedInt32 in jsonValuePackedInt32 {
-            jsonArrayPackedInt32 += [oneValuePackedInt32.intValue]
+            jsonArrayPackedInt32.append(oneValuePackedInt32.int32Value)
           }
           resultDecodedBuilder.packedInt32 = jsonArrayPackedInt32
         }
         if let jsonValuePackedInt64 = jsonMap["packedInt64"] as? Array<String> {
           var jsonArrayPackedInt64:Array<Int64> = []
           for oneValuePackedInt64 in jsonValuePackedInt64 {
-            jsonArrayPackedInt64 += [Int64(oneValuePackedInt64)!]
+            jsonArrayPackedInt64.append(Int64(oneValuePackedInt64)!)
           }
           resultDecodedBuilder.packedInt64 = jsonArrayPackedInt64
         }
         if let jsonValuePackedUint32 = jsonMap["packedUint32"] as? Array<NSNumber> {
           var jsonArrayPackedUint32:Array<UInt32> = []
           for oneValuePackedUint32 in jsonValuePackedUint32 {
-            jsonArrayPackedUint32 += [oneValuePackedUint32.unsignedIntValue]
+            jsonArrayPackedUint32.append(oneValuePackedUint32.uint32Value)
           }
           resultDecodedBuilder.packedUint32 = jsonArrayPackedUint32
         }
         if let jsonValuePackedUint64 = jsonMap["packedUint64"] as? Array<String> {
           var jsonArrayPackedUint64:Array<UInt64> = []
           for oneValuePackedUint64 in jsonValuePackedUint64 {
-            jsonArrayPackedUint64 += [UInt64(oneValuePackedUint64)!]
+            jsonArrayPackedUint64.append(UInt64(oneValuePackedUint64)!)
           }
           resultDecodedBuilder.packedUint64 = jsonArrayPackedUint64
         }
         if let jsonValuePackedSint32 = jsonMap["packedSint32"] as? Array<NSNumber> {
           var jsonArrayPackedSint32:Array<Int32> = []
           for oneValuePackedSint32 in jsonValuePackedSint32 {
-            jsonArrayPackedSint32 += [oneValuePackedSint32.intValue]
+            jsonArrayPackedSint32.append(oneValuePackedSint32.int32Value)
           }
           resultDecodedBuilder.packedSint32 = jsonArrayPackedSint32
         }
         if let jsonValuePackedSint64 = jsonMap["packedSint64"] as? Array<String> {
           var jsonArrayPackedSint64:Array<Int64> = []
           for oneValuePackedSint64 in jsonValuePackedSint64 {
-            jsonArrayPackedSint64 += [Int64(oneValuePackedSint64)!]
+            jsonArrayPackedSint64.append(Int64(oneValuePackedSint64)!)
           }
           resultDecodedBuilder.packedSint64 = jsonArrayPackedSint64
         }
         if let jsonValuePackedFixed32 = jsonMap["packedFixed32"] as? Array<NSNumber> {
           var jsonArrayPackedFixed32:Array<UInt32> = []
           for oneValuePackedFixed32 in jsonValuePackedFixed32 {
-            jsonArrayPackedFixed32 += [oneValuePackedFixed32.unsignedIntValue]
+            jsonArrayPackedFixed32.append(oneValuePackedFixed32.uint32Value)
           }
           resultDecodedBuilder.packedFixed32 = jsonArrayPackedFixed32
         }
         if let jsonValuePackedFixed64 = jsonMap["packedFixed64"] as? Array<String> {
           var jsonArrayPackedFixed64:Array<UInt64> = []
           for oneValuePackedFixed64 in jsonValuePackedFixed64 {
-            jsonArrayPackedFixed64 += [UInt64(oneValuePackedFixed64)!]
+            jsonArrayPackedFixed64.append(UInt64(oneValuePackedFixed64)!)
           }
           resultDecodedBuilder.packedFixed64 = jsonArrayPackedFixed64
         }
         if let jsonValuePackedSfixed32 = jsonMap["packedSfixed32"] as? Array<NSNumber> {
           var jsonArrayPackedSfixed32:Array<Int32> = []
           for oneValuePackedSfixed32 in jsonValuePackedSfixed32 {
-            jsonArrayPackedSfixed32 += [oneValuePackedSfixed32.intValue]
+            jsonArrayPackedSfixed32.append(oneValuePackedSfixed32.int32Value)
           }
           resultDecodedBuilder.packedSfixed32 = jsonArrayPackedSfixed32
         }
         if let jsonValuePackedSfixed64 = jsonMap["packedSfixed64"] as? Array<String> {
           var jsonArrayPackedSfixed64:Array<Int64> = []
           for oneValuePackedSfixed64 in jsonValuePackedSfixed64 {
-            jsonArrayPackedSfixed64 += [Int64(oneValuePackedSfixed64)!]
+            jsonArrayPackedSfixed64.append(Int64(oneValuePackedSfixed64)!)
           }
           resultDecodedBuilder.packedSfixed64 = jsonArrayPackedSfixed64
         }
         if let jsonValuePackedFloat = jsonMap["packedFloat"] as? Array<NSNumber> {
           var jsonArrayPackedFloat:Array<Float> = []
           for oneValuePackedFloat in jsonValuePackedFloat {
-            jsonArrayPackedFloat += [oneValuePackedFloat.floatValue]
+            jsonArrayPackedFloat.append(oneValuePackedFloat.floatValue)
           }
           resultDecodedBuilder.packedFloat = jsonArrayPackedFloat
         }
         if let jsonValuePackedDouble = jsonMap["packedDouble"] as? Array<NSNumber> {
           var jsonArrayPackedDouble:Array<Double> = []
           for oneValuePackedDouble in jsonValuePackedDouble {
-            jsonArrayPackedDouble += [oneValuePackedDouble.doubleValue]
+            jsonArrayPackedDouble.append(oneValuePackedDouble.doubleValue)
           }
           resultDecodedBuilder.packedDouble = jsonArrayPackedDouble
         }
@@ -4970,19 +4971,19 @@ public extension Proto3ArenaUnittest {
         if let jsonValuePackedEnum = jsonMap["packedEnum"] as? Array<String> {
           var jsonArrayPackedEnum:Array<Proto3ArenaUnittest.ForeignEnum> = []
           for oneValuePackedEnum in jsonValuePackedEnum {
-            let enumFromStringPackedEnum = try Proto3ArenaUnittest.ForeignEnum.fromString(oneValuePackedEnum)
-            jsonArrayPackedEnum += [enumFromStringPackedEnum]
+            let enumFromStringPackedEnum = try Proto3ArenaUnittest.ForeignEnum.fromString(str: oneValuePackedEnum)
+            jsonArrayPackedEnum.append(enumFromStringPackedEnum)
           }
           resultDecodedBuilder.packedEnum = jsonArrayPackedEnum
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
-        return try Proto3ArenaUnittest.TestPackedTypes.Builder.decodeToBuilder(jsDataCast)
+        return try Proto3ArenaUnittest.TestPackedTypes.Builder.decodeToBuilder(jsonMap:jsDataCast)
       }
     }
 
@@ -5024,102 +5025,102 @@ public extension Proto3ArenaUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !repeatedInt32.isEmpty {
-        try output.writeRawVarint32(8)
-        try output.writeRawVarint32(repeatedInt32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 8)
+        try codedOutputStream.writeRawVarint32(value: repeatedInt32MemoizedSerializedSize)
         for oneValuerepeatedInt32 in repeatedInt32 {
-          try output.writeInt32NoTag(oneValuerepeatedInt32)
+          try codedOutputStream.writeInt32NoTag(value: oneValuerepeatedInt32)
         }
       }
       if !repeatedInt64.isEmpty {
-        try output.writeRawVarint32(16)
-        try output.writeRawVarint32(repeatedInt64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 16)
+        try codedOutputStream.writeRawVarint32(value: repeatedInt64MemoizedSerializedSize)
         for oneValuerepeatedInt64 in repeatedInt64 {
-          try output.writeInt64NoTag(oneValuerepeatedInt64)
+          try codedOutputStream.writeInt64NoTag(value: oneValuerepeatedInt64)
         }
       }
       if !repeatedUint32.isEmpty {
-        try output.writeRawVarint32(24)
-        try output.writeRawVarint32(repeatedUint32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 24)
+        try codedOutputStream.writeRawVarint32(value: repeatedUint32MemoizedSerializedSize)
         for oneValuerepeatedUint32 in repeatedUint32 {
-          try output.writeUInt32NoTag(oneValuerepeatedUint32)
+          try codedOutputStream.writeUInt32NoTag(value: oneValuerepeatedUint32)
         }
       }
       if !repeatedUint64.isEmpty {
-        try output.writeRawVarint32(32)
-        try output.writeRawVarint32(repeatedUint64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 32)
+        try codedOutputStream.writeRawVarint32(value: repeatedUint64MemoizedSerializedSize)
         for oneValuerepeatedUint64 in repeatedUint64 {
-          try output.writeUInt64NoTag(oneValuerepeatedUint64)
+          try codedOutputStream.writeUInt64NoTag(value: oneValuerepeatedUint64)
         }
       }
       if !repeatedSint32.isEmpty {
-        try output.writeRawVarint32(40)
-        try output.writeRawVarint32(repeatedSint32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 40)
+        try codedOutputStream.writeRawVarint32(value: repeatedSint32MemoizedSerializedSize)
         for oneValuerepeatedSint32 in repeatedSint32 {
-          try output.writeSInt32NoTag(oneValuerepeatedSint32)
+          try codedOutputStream.writeSInt32NoTag(value: oneValuerepeatedSint32)
         }
       }
       if !repeatedSint64.isEmpty {
-        try output.writeRawVarint32(48)
-        try output.writeRawVarint32(repeatedSint64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 48)
+        try codedOutputStream.writeRawVarint32(value: repeatedSint64MemoizedSerializedSize)
         for oneValuerepeatedSint64 in repeatedSint64 {
-          try output.writeSInt64NoTag(oneValuerepeatedSint64)
+          try codedOutputStream.writeSInt64NoTag(value: oneValuerepeatedSint64)
         }
       }
       if !repeatedFixed32.isEmpty {
-        try output.writeRawVarint32(61)
-        try output.writeRawVarint32(repeatedFixed32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 61)
+        try codedOutputStream.writeRawVarint32(value: repeatedFixed32MemoizedSerializedSize)
         for oneValuerepeatedFixed32 in repeatedFixed32 {
-          try output.writeFixed32NoTag(oneValuerepeatedFixed32)
+          try codedOutputStream.writeFixed32NoTag(value: oneValuerepeatedFixed32)
         }
       }
       if !repeatedFixed64.isEmpty {
-        try output.writeRawVarint32(65)
-        try output.writeRawVarint32(repeatedFixed64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 65)
+        try codedOutputStream.writeRawVarint32(value: repeatedFixed64MemoizedSerializedSize)
         for oneValuerepeatedFixed64 in repeatedFixed64 {
-          try output.writeFixed64NoTag(oneValuerepeatedFixed64)
+          try codedOutputStream.writeFixed64NoTag(value: oneValuerepeatedFixed64)
         }
       }
       if !repeatedSfixed32.isEmpty {
-        try output.writeRawVarint32(77)
-        try output.writeRawVarint32(repeatedSfixed32MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 77)
+        try codedOutputStream.writeRawVarint32(value: repeatedSfixed32MemoizedSerializedSize)
         for oneValuerepeatedSfixed32 in repeatedSfixed32 {
-          try output.writeSFixed32NoTag(oneValuerepeatedSfixed32)
+          try codedOutputStream.writeSFixed32NoTag(value: oneValuerepeatedSfixed32)
         }
       }
       if !repeatedSfixed64.isEmpty {
-        try output.writeRawVarint32(81)
-        try output.writeRawVarint32(repeatedSfixed64MemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 81)
+        try codedOutputStream.writeRawVarint32(value: repeatedSfixed64MemoizedSerializedSize)
         for oneValuerepeatedSfixed64 in repeatedSfixed64 {
-          try output.writeSFixed64NoTag(oneValuerepeatedSfixed64)
+          try codedOutputStream.writeSFixed64NoTag(value: oneValuerepeatedSfixed64)
         }
       }
       if !repeatedFloat.isEmpty {
-        try output.writeRawVarint32(93)
-        try output.writeRawVarint32(repeatedFloatMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 93)
+        try codedOutputStream.writeRawVarint32(value: repeatedFloatMemoizedSerializedSize)
         for oneValuerepeatedFloat in repeatedFloat {
-          try output.writeFloatNoTag(oneValuerepeatedFloat)
+          try codedOutputStream.writeFloatNoTag(value: oneValuerepeatedFloat)
         }
       }
       if !repeatedDouble.isEmpty {
-        try output.writeRawVarint32(97)
-        try output.writeRawVarint32(repeatedDoubleMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 97)
+        try codedOutputStream.writeRawVarint32(value: repeatedDoubleMemoizedSerializedSize)
         for oneValuerepeatedDouble in repeatedDouble {
-          try output.writeDoubleNoTag(oneValuerepeatedDouble)
+          try codedOutputStream.writeDoubleNoTag(value: oneValuerepeatedDouble)
         }
       }
       if !repeatedBool.isEmpty {
-        try output.writeRawVarint32(104)
-        try output.writeRawVarint32(repeatedBoolMemoizedSerializedSize)
+        try codedOutputStream.writeRawVarint32(value: 104)
+        try codedOutputStream.writeRawVarint32(value: repeatedBoolMemoizedSerializedSize)
         for oneValuerepeatedBool in repeatedBool {
-          try output.writeBoolNoTag(oneValuerepeatedBool)
+          try codedOutputStream.writeBoolNoTag(value: oneValuerepeatedBool)
         }
       }
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
-          try output.writeEnum(14, value:oneValueOfrepeatedNestedEnum.rawValue)
+          try codedOutputStream.writeEnum(fieldNumber: 14, value:oneValueOfrepeatedNestedEnum.rawValue)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -5254,33 +5255,33 @@ public extension Proto3ArenaUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestUnpackedTypes> {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3ArenaUnittest.TestUnpackedTypes> {
       var mergedArray = Array<Proto3ArenaUnittest.TestUnpackedTypes>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
-        mergedArray += [value]
+      while let value = try parseDelimitedFrom(inputStream: inputStream) {
+        mergedArray.append(value)
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestUnpackedTypes? {
-      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.TestUnpackedTypes? {
+      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
-      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFrom(data: Data) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
+      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFrom(data: data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
-      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
+      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
-      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFromInputStream(input).build()
+    public class func parseFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
+      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFrom(inputStream: inputStream).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
-      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
+      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
-      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
+      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFrom(codedInputStream: codedInputStream).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
-      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
+      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
       return Proto3ArenaUnittest.TestUnpackedTypes.classBuilder() as! Proto3ArenaUnittest.TestUnpackedTypes.Builder
@@ -5295,98 +5296,98 @@ public extension Proto3ArenaUnittest {
       return Proto3ArenaUnittest.TestUnpackedTypes.Builder()
     }
     public func toBuilder() throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-      return try Proto3ArenaUnittest.TestUnpackedTypes.builderWithPrototype(self)
+      return try Proto3ArenaUnittest.TestUnpackedTypes.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:Proto3ArenaUnittest.TestUnpackedTypes) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFrom(prototype)
+      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFrom(other:prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if !repeatedInt32.isEmpty {
         var jsonArrayRepeatedInt32:Array<NSNumber> = []
           for oneValueRepeatedInt32 in repeatedInt32 {
-            jsonArrayRepeatedInt32 += [NSNumber(int:oneValueRepeatedInt32)]
+            jsonArrayRepeatedInt32.append(NSNumber(value:oneValueRepeatedInt32))
           }
         jsonMap["repeatedInt32"] = jsonArrayRepeatedInt32
       }
       if !repeatedInt64.isEmpty {
         var jsonArrayRepeatedInt64:Array<String> = []
           for oneValueRepeatedInt64 in repeatedInt64 {
-            jsonArrayRepeatedInt64 += ["\(oneValueRepeatedInt64)"]
+            jsonArrayRepeatedInt64.append("\(oneValueRepeatedInt64)")
           }
         jsonMap["repeatedInt64"] = jsonArrayRepeatedInt64
       }
       if !repeatedUint32.isEmpty {
         var jsonArrayRepeatedUint32:Array<NSNumber> = []
           for oneValueRepeatedUint32 in repeatedUint32 {
-            jsonArrayRepeatedUint32 += [NSNumber(unsignedInt:oneValueRepeatedUint32)]
+            jsonArrayRepeatedUint32.append(NSNumber(value:oneValueRepeatedUint32))
           }
         jsonMap["repeatedUint32"] = jsonArrayRepeatedUint32
       }
       if !repeatedUint64.isEmpty {
         var jsonArrayRepeatedUint64:Array<String> = []
           for oneValueRepeatedUint64 in repeatedUint64 {
-            jsonArrayRepeatedUint64 += ["\(oneValueRepeatedUint64)"]
+            jsonArrayRepeatedUint64.append("\(oneValueRepeatedUint64)")
           }
         jsonMap["repeatedUint64"] = jsonArrayRepeatedUint64
       }
       if !repeatedSint32.isEmpty {
         var jsonArrayRepeatedSint32:Array<NSNumber> = []
           for oneValueRepeatedSint32 in repeatedSint32 {
-            jsonArrayRepeatedSint32 += [NSNumber(int:oneValueRepeatedSint32)]
+            jsonArrayRepeatedSint32.append(NSNumber(value:oneValueRepeatedSint32))
           }
         jsonMap["repeatedSint32"] = jsonArrayRepeatedSint32
       }
       if !repeatedSint64.isEmpty {
         var jsonArrayRepeatedSint64:Array<String> = []
           for oneValueRepeatedSint64 in repeatedSint64 {
-            jsonArrayRepeatedSint64 += ["\(oneValueRepeatedSint64)"]
+            jsonArrayRepeatedSint64.append("\(oneValueRepeatedSint64)")
           }
         jsonMap["repeatedSint64"] = jsonArrayRepeatedSint64
       }
       if !repeatedFixed32.isEmpty {
         var jsonArrayRepeatedFixed32:Array<NSNumber> = []
           for oneValueRepeatedFixed32 in repeatedFixed32 {
-            jsonArrayRepeatedFixed32 += [NSNumber(unsignedInt:oneValueRepeatedFixed32)]
+            jsonArrayRepeatedFixed32.append(NSNumber(value:oneValueRepeatedFixed32))
           }
         jsonMap["repeatedFixed32"] = jsonArrayRepeatedFixed32
       }
       if !repeatedFixed64.isEmpty {
         var jsonArrayRepeatedFixed64:Array<String> = []
           for oneValueRepeatedFixed64 in repeatedFixed64 {
-            jsonArrayRepeatedFixed64 += ["\(oneValueRepeatedFixed64)"]
+            jsonArrayRepeatedFixed64.append("\(oneValueRepeatedFixed64)")
           }
         jsonMap["repeatedFixed64"] = jsonArrayRepeatedFixed64
       }
       if !repeatedSfixed32.isEmpty {
         var jsonArrayRepeatedSfixed32:Array<NSNumber> = []
           for oneValueRepeatedSfixed32 in repeatedSfixed32 {
-            jsonArrayRepeatedSfixed32 += [NSNumber(int:oneValueRepeatedSfixed32)]
+            jsonArrayRepeatedSfixed32.append(NSNumber(value:oneValueRepeatedSfixed32))
           }
         jsonMap["repeatedSfixed32"] = jsonArrayRepeatedSfixed32
       }
       if !repeatedSfixed64.isEmpty {
         var jsonArrayRepeatedSfixed64:Array<String> = []
           for oneValueRepeatedSfixed64 in repeatedSfixed64 {
-            jsonArrayRepeatedSfixed64 += ["\(oneValueRepeatedSfixed64)"]
+            jsonArrayRepeatedSfixed64.append("\(oneValueRepeatedSfixed64)")
           }
         jsonMap["repeatedSfixed64"] = jsonArrayRepeatedSfixed64
       }
       if !repeatedFloat.isEmpty {
         var jsonArrayRepeatedFloat:Array<NSNumber> = []
           for oneValueRepeatedFloat in repeatedFloat {
-            jsonArrayRepeatedFloat += [NSNumber(float:oneValueRepeatedFloat)]
+            jsonArrayRepeatedFloat.append(NSNumber(value:oneValueRepeatedFloat))
           }
         jsonMap["repeatedFloat"] = jsonArrayRepeatedFloat
       }
       if !repeatedDouble.isEmpty {
         var jsonArrayRepeatedDouble:Array<NSNumber> = []
           for oneValueRepeatedDouble in repeatedDouble {
-            jsonArrayRepeatedDouble += [NSNumber(double:oneValueRepeatedDouble)]
+            jsonArrayRepeatedDouble.append(NSNumber(value:oneValueRepeatedDouble))
           }
         jsonMap["repeatedDouble"] = jsonArrayRepeatedDouble
       }
@@ -5396,17 +5397,17 @@ public extension Proto3ArenaUnittest {
       if !repeatedNestedEnum.isEmpty {
         var jsonArrayRepeatedNestedEnum:Array<String> = []
           for oneValueRepeatedNestedEnum in repeatedNestedEnum {
-            jsonArrayRepeatedNestedEnum += [oneValueRepeatedNestedEnum.toString()]
+            jsonArrayRepeatedNestedEnum.append(oneValueRepeatedNestedEnum.toString())
           }
         jsonMap["repeatedNestedEnum"] = jsonArrayRepeatedNestedEnum
       }
       return jsonMap
     }
     override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
-      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder.decodeToBuilder(jsonMap).build()
+      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
-      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder.fromJSONToBuilder(data).build()
+    override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
+      return try Proto3ArenaUnittest.TestUnpackedTypes.Builder.fromJSONToBuilder(data:data).build()
     }
     override public func getDescription(indent:String) throws -> String {
       var output = ""
@@ -5480,7 +5481,7 @@ public extension Proto3ArenaUnittest {
           output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(oneValueOfrepeatedNestedEnum.description)\n"
           repeatedNestedEnumElementIndex += 1
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -5564,12 +5565,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedInt32 = array
            }
       }
-      public func setRepeatedInt32(value:Array<Int32>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedInt32(_ value:Array<Int32>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedInt32 = value
         return self
       }
       public func clearRepeatedInt32() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedInt32.removeAll(keepCapacity: false)
+         builderResult.repeatedInt32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedInt64:Array<Int64> {
@@ -5580,12 +5581,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedInt64 = array
            }
       }
-      public func setRepeatedInt64(value:Array<Int64>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedInt64(_ value:Array<Int64>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedInt64 = value
         return self
       }
       public func clearRepeatedInt64() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedInt64.removeAll(keepCapacity: false)
+         builderResult.repeatedInt64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedUint32:Array<UInt32> {
@@ -5596,12 +5597,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedUint32 = array
            }
       }
-      public func setRepeatedUint32(value:Array<UInt32>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedUint32(_ value:Array<UInt32>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedUint32 = value
         return self
       }
       public func clearRepeatedUint32() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedUint32.removeAll(keepCapacity: false)
+         builderResult.repeatedUint32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedUint64:Array<UInt64> {
@@ -5612,12 +5613,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedUint64 = array
            }
       }
-      public func setRepeatedUint64(value:Array<UInt64>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedUint64(_ value:Array<UInt64>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedUint64 = value
         return self
       }
       public func clearRepeatedUint64() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedUint64.removeAll(keepCapacity: false)
+         builderResult.repeatedUint64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedSint32:Array<Int32> {
@@ -5628,12 +5629,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedSint32 = array
            }
       }
-      public func setRepeatedSint32(value:Array<Int32>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedSint32(_ value:Array<Int32>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedSint32 = value
         return self
       }
       public func clearRepeatedSint32() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedSint32.removeAll(keepCapacity: false)
+         builderResult.repeatedSint32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedSint64:Array<Int64> {
@@ -5644,12 +5645,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedSint64 = array
            }
       }
-      public func setRepeatedSint64(value:Array<Int64>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedSint64(_ value:Array<Int64>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedSint64 = value
         return self
       }
       public func clearRepeatedSint64() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedSint64.removeAll(keepCapacity: false)
+         builderResult.repeatedSint64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedFixed32:Array<UInt32> {
@@ -5660,12 +5661,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedFixed32 = array
            }
       }
-      public func setRepeatedFixed32(value:Array<UInt32>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedFixed32(_ value:Array<UInt32>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedFixed32 = value
         return self
       }
       public func clearRepeatedFixed32() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedFixed32.removeAll(keepCapacity: false)
+         builderResult.repeatedFixed32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedFixed64:Array<UInt64> {
@@ -5676,12 +5677,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedFixed64 = array
            }
       }
-      public func setRepeatedFixed64(value:Array<UInt64>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedFixed64(_ value:Array<UInt64>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedFixed64 = value
         return self
       }
       public func clearRepeatedFixed64() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedFixed64.removeAll(keepCapacity: false)
+         builderResult.repeatedFixed64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedSfixed32:Array<Int32> {
@@ -5692,12 +5693,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedSfixed32 = array
            }
       }
-      public func setRepeatedSfixed32(value:Array<Int32>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedSfixed32(_ value:Array<Int32>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedSfixed32 = value
         return self
       }
       public func clearRepeatedSfixed32() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedSfixed32.removeAll(keepCapacity: false)
+         builderResult.repeatedSfixed32.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedSfixed64:Array<Int64> {
@@ -5708,12 +5709,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedSfixed64 = array
            }
       }
-      public func setRepeatedSfixed64(value:Array<Int64>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedSfixed64(_ value:Array<Int64>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedSfixed64 = value
         return self
       }
       public func clearRepeatedSfixed64() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedSfixed64.removeAll(keepCapacity: false)
+         builderResult.repeatedSfixed64.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedFloat:Array<Float> {
@@ -5724,12 +5725,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedFloat = array
            }
       }
-      public func setRepeatedFloat(value:Array<Float>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedFloat(_ value:Array<Float>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedFloat = value
         return self
       }
       public func clearRepeatedFloat() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedFloat.removeAll(keepCapacity: false)
+         builderResult.repeatedFloat.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedDouble:Array<Double> {
@@ -5740,12 +5741,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedDouble = array
            }
       }
-      public func setRepeatedDouble(value:Array<Double>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedDouble(_ value:Array<Double>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedDouble = value
         return self
       }
       public func clearRepeatedDouble() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedDouble.removeAll(keepCapacity: false)
+         builderResult.repeatedDouble.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedBool:Array<Bool> {
@@ -5756,12 +5757,12 @@ public extension Proto3ArenaUnittest {
                builderResult.repeatedBool = array
            }
       }
-      public func setRepeatedBool(value:Array<Bool>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedBool(_ value:Array<Bool>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedBool = value
         return self
       }
       public func clearRepeatedBool() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-         builderResult.repeatedBool.removeAll(keepCapacity: false)
+         builderResult.repeatedBool.removeAll(keepingCapacity: false)
          return self
       }
       public var repeatedNestedEnum:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum> {
@@ -5772,12 +5773,12 @@ public extension Proto3ArenaUnittest {
               builderResult.repeatedNestedEnum = value
           }
       }
-      public func setRepeatedNestedEnum(value:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      public func setRepeatedNestedEnum(_ value:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum>) -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         self.repeatedNestedEnum = value
         return self
       }
       public func clearRepeatedNestedEnum() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-        builderResult.repeatedNestedEnum.removeAll(keepCapacity: false)
+        builderResult.repeatedNestedEnum.removeAll(keepingCapacity: false)
         return self
       }
       override public var internalGetResult:GeneratedMessage {
@@ -5790,7 +5791,7 @@ public extension Proto3ArenaUnittest {
         return self
       }
       override public func clone() throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-        return try Proto3ArenaUnittest.TestUnpackedTypes.builderWithPrototype(builderResult)
+        return try Proto3ArenaUnittest.TestUnpackedTypes.builderWithPrototype(prototype:builderResult)
       }
       override public func build() throws -> Proto3ArenaUnittest.TestUnpackedTypes {
            try checkInitialized()
@@ -5846,135 +5847,135 @@ public extension Proto3ArenaUnittest {
         if !other.repeatedNestedEnum.isEmpty {
            builderResult.repeatedNestedEnum += other.repeatedNestedEnum
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
-          let protobufTag = try input.readTag()
+          let protobufTag = try codedInputStream.readTag()
           switch protobufTag {
           case 0: 
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 10:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedInt32 += [try input.readInt32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedInt32.append(try codedInputStream.readInt32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 18:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedInt64 += [try input.readInt64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedInt64.append(try codedInputStream.readInt64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 26:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedUint32 += [try input.readUInt32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedUint32.append(try codedInputStream.readUInt32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 34:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedUint64 += [try input.readUInt64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedUint64.append(try codedInputStream.readUInt64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 42:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedSint32 += [try input.readSInt32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedSint32.append(try codedInputStream.readSInt32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 50:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedSint64 += [try input.readSInt64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedSint64.append(try codedInputStream.readSInt64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 58:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedFixed32 += [try input.readFixed32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedFixed32.append(try codedInputStream.readFixed32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 66:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedFixed64 += [try input.readFixed64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedFixed64.append(try codedInputStream.readFixed64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 74:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedSfixed32 += [try input.readSFixed32()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedSfixed32.append(try codedInputStream.readSFixed32())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 82:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedSfixed64 += [try input.readSFixed64()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedSfixed64.append(try codedInputStream.readSFixed64())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 90:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedFloat += [try input.readFloat()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedFloat.append(try codedInputStream.readFloat())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 98:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedDouble += [try input.readDouble()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedDouble.append(try codedInputStream.readDouble())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 106:
-            let length:Int32 = try input.readRawVarint32()
-            let limit:Int32 = try input.pushLimit(length)
-            while (input.bytesUntilLimit() > 0) {
-              builderResult.repeatedBool += [try input.readBool()]
+            let length = Int(try codedInputStream.readRawVarint32())
+            let limit = try codedInputStream.pushLimit(byteLimit: length)
+            while (codedInputStream.bytesUntilLimit() > 0) {
+              builderResult.repeatedBool.append(try codedInputStream.readBool())
             }
-            input.popLimit(limit)
+            codedInputStream.popLimit(oldLimit: limit)
 
           case 112:
-            let valueIntrepeatedNestedEnum = try input.readEnum()
+            let valueIntrepeatedNestedEnum = try codedInputStream.readEnum()
             if let enumsrepeatedNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
-                 builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
+                 builderResult.repeatedNestedEnum.append(enumsrepeatedNestedEnum)
             } else {
-                 try unknownFieldsBuilder.mergeVarintField(14, value:Int64(valueIntrepeatedNestedEnum))
+                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 14, value:Int64(valueIntrepeatedNestedEnum))
             }
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -5986,84 +5987,84 @@ public extension Proto3ArenaUnittest {
         if let jsonValueRepeatedInt32 = jsonMap["repeatedInt32"] as? Array<NSNumber> {
           var jsonArrayRepeatedInt32:Array<Int32> = []
           for oneValueRepeatedInt32 in jsonValueRepeatedInt32 {
-            jsonArrayRepeatedInt32 += [oneValueRepeatedInt32.intValue]
+            jsonArrayRepeatedInt32.append(oneValueRepeatedInt32.int32Value)
           }
           resultDecodedBuilder.repeatedInt32 = jsonArrayRepeatedInt32
         }
         if let jsonValueRepeatedInt64 = jsonMap["repeatedInt64"] as? Array<String> {
           var jsonArrayRepeatedInt64:Array<Int64> = []
           for oneValueRepeatedInt64 in jsonValueRepeatedInt64 {
-            jsonArrayRepeatedInt64 += [Int64(oneValueRepeatedInt64)!]
+            jsonArrayRepeatedInt64.append(Int64(oneValueRepeatedInt64)!)
           }
           resultDecodedBuilder.repeatedInt64 = jsonArrayRepeatedInt64
         }
         if let jsonValueRepeatedUint32 = jsonMap["repeatedUint32"] as? Array<NSNumber> {
           var jsonArrayRepeatedUint32:Array<UInt32> = []
           for oneValueRepeatedUint32 in jsonValueRepeatedUint32 {
-            jsonArrayRepeatedUint32 += [oneValueRepeatedUint32.unsignedIntValue]
+            jsonArrayRepeatedUint32.append(oneValueRepeatedUint32.uint32Value)
           }
           resultDecodedBuilder.repeatedUint32 = jsonArrayRepeatedUint32
         }
         if let jsonValueRepeatedUint64 = jsonMap["repeatedUint64"] as? Array<String> {
           var jsonArrayRepeatedUint64:Array<UInt64> = []
           for oneValueRepeatedUint64 in jsonValueRepeatedUint64 {
-            jsonArrayRepeatedUint64 += [UInt64(oneValueRepeatedUint64)!]
+            jsonArrayRepeatedUint64.append(UInt64(oneValueRepeatedUint64)!)
           }
           resultDecodedBuilder.repeatedUint64 = jsonArrayRepeatedUint64
         }
         if let jsonValueRepeatedSint32 = jsonMap["repeatedSint32"] as? Array<NSNumber> {
           var jsonArrayRepeatedSint32:Array<Int32> = []
           for oneValueRepeatedSint32 in jsonValueRepeatedSint32 {
-            jsonArrayRepeatedSint32 += [oneValueRepeatedSint32.intValue]
+            jsonArrayRepeatedSint32.append(oneValueRepeatedSint32.int32Value)
           }
           resultDecodedBuilder.repeatedSint32 = jsonArrayRepeatedSint32
         }
         if let jsonValueRepeatedSint64 = jsonMap["repeatedSint64"] as? Array<String> {
           var jsonArrayRepeatedSint64:Array<Int64> = []
           for oneValueRepeatedSint64 in jsonValueRepeatedSint64 {
-            jsonArrayRepeatedSint64 += [Int64(oneValueRepeatedSint64)!]
+            jsonArrayRepeatedSint64.append(Int64(oneValueRepeatedSint64)!)
           }
           resultDecodedBuilder.repeatedSint64 = jsonArrayRepeatedSint64
         }
         if let jsonValueRepeatedFixed32 = jsonMap["repeatedFixed32"] as? Array<NSNumber> {
           var jsonArrayRepeatedFixed32:Array<UInt32> = []
           for oneValueRepeatedFixed32 in jsonValueRepeatedFixed32 {
-            jsonArrayRepeatedFixed32 += [oneValueRepeatedFixed32.unsignedIntValue]
+            jsonArrayRepeatedFixed32.append(oneValueRepeatedFixed32.uint32Value)
           }
           resultDecodedBuilder.repeatedFixed32 = jsonArrayRepeatedFixed32
         }
         if let jsonValueRepeatedFixed64 = jsonMap["repeatedFixed64"] as? Array<String> {
           var jsonArrayRepeatedFixed64:Array<UInt64> = []
           for oneValueRepeatedFixed64 in jsonValueRepeatedFixed64 {
-            jsonArrayRepeatedFixed64 += [UInt64(oneValueRepeatedFixed64)!]
+            jsonArrayRepeatedFixed64.append(UInt64(oneValueRepeatedFixed64)!)
           }
           resultDecodedBuilder.repeatedFixed64 = jsonArrayRepeatedFixed64
         }
         if let jsonValueRepeatedSfixed32 = jsonMap["repeatedSfixed32"] as? Array<NSNumber> {
           var jsonArrayRepeatedSfixed32:Array<Int32> = []
           for oneValueRepeatedSfixed32 in jsonValueRepeatedSfixed32 {
-            jsonArrayRepeatedSfixed32 += [oneValueRepeatedSfixed32.intValue]
+            jsonArrayRepeatedSfixed32.append(oneValueRepeatedSfixed32.int32Value)
           }
           resultDecodedBuilder.repeatedSfixed32 = jsonArrayRepeatedSfixed32
         }
         if let jsonValueRepeatedSfixed64 = jsonMap["repeatedSfixed64"] as? Array<String> {
           var jsonArrayRepeatedSfixed64:Array<Int64> = []
           for oneValueRepeatedSfixed64 in jsonValueRepeatedSfixed64 {
-            jsonArrayRepeatedSfixed64 += [Int64(oneValueRepeatedSfixed64)!]
+            jsonArrayRepeatedSfixed64.append(Int64(oneValueRepeatedSfixed64)!)
           }
           resultDecodedBuilder.repeatedSfixed64 = jsonArrayRepeatedSfixed64
         }
         if let jsonValueRepeatedFloat = jsonMap["repeatedFloat"] as? Array<NSNumber> {
           var jsonArrayRepeatedFloat:Array<Float> = []
           for oneValueRepeatedFloat in jsonValueRepeatedFloat {
-            jsonArrayRepeatedFloat += [oneValueRepeatedFloat.floatValue]
+            jsonArrayRepeatedFloat.append(oneValueRepeatedFloat.floatValue)
           }
           resultDecodedBuilder.repeatedFloat = jsonArrayRepeatedFloat
         }
         if let jsonValueRepeatedDouble = jsonMap["repeatedDouble"] as? Array<NSNumber> {
           var jsonArrayRepeatedDouble:Array<Double> = []
           for oneValueRepeatedDouble in jsonValueRepeatedDouble {
-            jsonArrayRepeatedDouble += [oneValueRepeatedDouble.doubleValue]
+            jsonArrayRepeatedDouble.append(oneValueRepeatedDouble.doubleValue)
           }
           resultDecodedBuilder.repeatedDouble = jsonArrayRepeatedDouble
         }
@@ -6073,19 +6074,19 @@ public extension Proto3ArenaUnittest {
         if let jsonValueRepeatedNestedEnum = jsonMap["repeatedNestedEnum"] as? Array<String> {
           var jsonArrayRepeatedNestedEnum:Array<Proto3ArenaUnittest.TestAllTypes.NestedEnum> = []
           for oneValueRepeatedNestedEnum in jsonValueRepeatedNestedEnum {
-            let enumFromStringRepeatedNestedEnum = try Proto3ArenaUnittest.TestAllTypes.NestedEnum.fromString(oneValueRepeatedNestedEnum)
-            jsonArrayRepeatedNestedEnum += [enumFromStringRepeatedNestedEnum]
+            let enumFromStringRepeatedNestedEnum = try Proto3ArenaUnittest.TestAllTypes.NestedEnum.fromString(str: oneValueRepeatedNestedEnum)
+            jsonArrayRepeatedNestedEnum.append(enumFromStringRepeatedNestedEnum)
           }
           resultDecodedBuilder.repeatedNestedEnum = jsonArrayRepeatedNestedEnum
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
-        return try Proto3ArenaUnittest.TestUnpackedTypes.Builder.decodeToBuilder(jsDataCast)
+        return try Proto3ArenaUnittest.TestUnpackedTypes.Builder.decodeToBuilder(jsonMap:jsDataCast)
       }
     }
 
@@ -6093,24 +6094,24 @@ public extension Proto3ArenaUnittest {
 
   // This proto includes a recusively nested message.
   final public class NestedTestAllTypes : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasChild:Bool = false
     public private(set) var child:Proto3ArenaUnittest.NestedTestAllTypes!
-    public private(set) var hasPayload:Bool = false
+    public private(set) var hasChild:Bool = false
     public private(set) var payload:Proto3ArenaUnittest.TestAllTypes!
+    public private(set) var hasPayload:Bool = false
     required public init() {
          super.init()
     }
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasChild {
-        try output.writeMessage(1, value:child)
+        try codedOutputStream.writeMessage(fieldNumber: 1, value:child)
       }
       if hasPayload {
-        try output.writeMessage(2, value:payload)
+        try codedOutputStream.writeMessage(fieldNumber: 2, value:payload)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -6120,12 +6121,12 @@ public extension Proto3ArenaUnittest {
 
       serialize_size = 0
       if hasChild {
-          if let varSizechild = child?.computeMessageSize(1) {
+          if let varSizechild = child?.computeMessageSize(fieldNumber: 1) {
               serialize_size += varSizechild
           }
       }
       if hasPayload {
-          if let varSizepayload = payload?.computeMessageSize(2) {
+          if let varSizepayload = payload?.computeMessageSize(fieldNumber: 2) {
               serialize_size += varSizepayload
           }
       }
@@ -6133,33 +6134,33 @@ public extension Proto3ArenaUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.NestedTestAllTypes> {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3ArenaUnittest.NestedTestAllTypes> {
       var mergedArray = Array<Proto3ArenaUnittest.NestedTestAllTypes>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
-        mergedArray += [value]
+      while let value = try parseDelimitedFrom(inputStream: inputStream) {
+        mergedArray.append(value)
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.NestedTestAllTypes? {
-      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.NestedTestAllTypes? {
+      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
-      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFrom(data: Data) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
+      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
-      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
+      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
-      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFromInputStream(input).build()
+    public class func parseFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
+      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFrom(inputStream: inputStream).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
-      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
+      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
-      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
+      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
-      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
+      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
       return Proto3ArenaUnittest.NestedTestAllTypes.classBuilder() as! Proto3ArenaUnittest.NestedTestAllTypes.Builder
@@ -6174,14 +6175,14 @@ public extension Proto3ArenaUnittest {
       return Proto3ArenaUnittest.NestedTestAllTypes.Builder()
     }
     public func toBuilder() throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
-      return try Proto3ArenaUnittest.NestedTestAllTypes.builderWithPrototype(self)
+      return try Proto3ArenaUnittest.NestedTestAllTypes.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:Proto3ArenaUnittest.NestedTestAllTypes) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
-      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFrom(prototype)
+      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFrom(other:prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
@@ -6194,28 +6195,28 @@ public extension Proto3ArenaUnittest {
       return jsonMap
     }
     override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
-      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder.decodeToBuilder(jsonMap).build()
+      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
-      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder.fromJSONToBuilder(data).build()
+    override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
+      return try Proto3ArenaUnittest.NestedTestAllTypes.Builder.fromJSONToBuilder(data:data).build()
     }
     override public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasChild {
         output += "\(indent) child {\n"
         if let outDescChild = child {
-          output += try outDescChild.getDescription("\(indent)  ")
+          output += try outDescChild.getDescription(indent: "\(indent)  ")
         }
         output += "\(indent) }\n"
       }
       if hasPayload {
         output += "\(indent) payload {\n"
         if let outDescPayload = payload {
-          output += try outDescPayload.getDescription("\(indent)  ")
+          output += try outDescPayload.getDescription(indent: "\(indent)  ")
         }
         output += "\(indent) }\n"
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -6286,18 +6287,18 @@ public extension Proto3ArenaUnittest {
            childBuilder_ = Proto3ArenaUnittest.NestedTestAllTypes.Builder()
            builderResult.child = childBuilder_.getMessage()
            if child != nil {
-              try! childBuilder_.mergeFrom(child)
+              _ = try! childBuilder_.mergeFrom(other: child)
            }
         }
         return childBuilder_
       }
-      public func setChild(value:Proto3ArenaUnittest.NestedTestAllTypes!) -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
+      public func setChild(_ value:Proto3ArenaUnittest.NestedTestAllTypes!) -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
         self.child = value
         return self
       }
       public func mergeChild(value:Proto3ArenaUnittest.NestedTestAllTypes) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
         if builderResult.hasChild {
-          builderResult.child = try Proto3ArenaUnittest.NestedTestAllTypes.builderWithPrototype(builderResult.child).mergeFrom(value).buildPartial()
+          builderResult.child = try Proto3ArenaUnittest.NestedTestAllTypes.builderWithPrototype(prototype:builderResult.child).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.child = value
         }
@@ -6337,18 +6338,18 @@ public extension Proto3ArenaUnittest {
            payloadBuilder_ = Proto3ArenaUnittest.TestAllTypes.Builder()
            builderResult.payload = payloadBuilder_.getMessage()
            if payload != nil {
-              try! payloadBuilder_.mergeFrom(payload)
+              _ = try! payloadBuilder_.mergeFrom(other: payload)
            }
         }
         return payloadBuilder_
       }
-      public func setPayload(value:Proto3ArenaUnittest.TestAllTypes!) -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
+      public func setPayload(_ value:Proto3ArenaUnittest.TestAllTypes!) -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
         self.payload = value
         return self
       }
       public func mergePayload(value:Proto3ArenaUnittest.TestAllTypes) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
         if builderResult.hasPayload {
-          builderResult.payload = try Proto3ArenaUnittest.TestAllTypes.builderWithPrototype(builderResult.payload).mergeFrom(value).buildPartial()
+          builderResult.payload = try Proto3ArenaUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.payload).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.payload = value
         }
@@ -6371,7 +6372,7 @@ public extension Proto3ArenaUnittest {
         return self
       }
       override public func clone() throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
-        return try Proto3ArenaUnittest.NestedTestAllTypes.builderWithPrototype(builderResult)
+        return try Proto3ArenaUnittest.NestedTestAllTypes.builderWithPrototype(prototype:builderResult)
       }
       override public func build() throws -> Proto3ArenaUnittest.NestedTestAllTypes {
            try checkInitialized()
@@ -6386,21 +6387,21 @@ public extension Proto3ArenaUnittest {
          return self
         }
         if (other.hasChild) {
-            try mergeChild(other.child)
+            _ = try mergeChild(value: other.child)
         }
         if (other.hasPayload) {
-            try mergePayload(other.payload)
+            _ = try mergePayload(value: other.payload)
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
-          let protobufTag = try input.readTag()
+          let protobufTag = try codedInputStream.readTag()
           switch protobufTag {
           case 0: 
             self.unknownFields = try unknownFieldsBuilder.build()
@@ -6409,21 +6410,21 @@ public extension Proto3ArenaUnittest {
           case 10:
             let subBuilder:Proto3ArenaUnittest.NestedTestAllTypes.Builder = Proto3ArenaUnittest.NestedTestAllTypes.Builder()
             if hasChild {
-              try subBuilder.mergeFrom(child)
+              _ = try subBuilder.mergeFrom(other: child)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             child = subBuilder.buildPartial()
 
           case 18:
             let subBuilder:Proto3ArenaUnittest.TestAllTypes.Builder = Proto3ArenaUnittest.TestAllTypes.Builder()
             if hasPayload {
-              try subBuilder.mergeFrom(payload)
+              _ = try subBuilder.mergeFrom(other: payload)
             }
-            try input.readMessage(subBuilder, extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             payload = subBuilder.buildPartial()
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -6433,21 +6434,21 @@ public extension Proto3ArenaUnittest {
       override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
         let resultDecodedBuilder = Proto3ArenaUnittest.NestedTestAllTypes.Builder()
         if let jsonValueChild = jsonMap["child"] as? Dictionary<String,AnyObject> {
-          resultDecodedBuilder.child = try Proto3ArenaUnittest.NestedTestAllTypes.Builder.decodeToBuilder(jsonValueChild).build()
+          resultDecodedBuilder.child = try Proto3ArenaUnittest.NestedTestAllTypes.Builder.decodeToBuilder(jsonMap:jsonValueChild).build()
 
         }
         if let jsonValuePayload = jsonMap["payload"] as? Dictionary<String,AnyObject> {
-          resultDecodedBuilder.payload = try Proto3ArenaUnittest.TestAllTypes.Builder.decodeToBuilder(jsonValuePayload).build()
+          resultDecodedBuilder.payload = try Proto3ArenaUnittest.TestAllTypes.Builder.decodeToBuilder(jsonMap:jsonValuePayload).build()
 
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
-        return try Proto3ArenaUnittest.NestedTestAllTypes.Builder.decodeToBuilder(jsDataCast)
+        return try Proto3ArenaUnittest.NestedTestAllTypes.Builder.decodeToBuilder(jsonMap:jsDataCast)
       }
     }
 
@@ -6456,20 +6457,20 @@ public extension Proto3ArenaUnittest {
   // Define these after TestAllTypes to make sure the compiler can handle
   // that.
   final public class ForeignMessage : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasC:Bool = false
     public private(set) var c:Int32 = Int32(0)
 
+    public private(set) var hasC:Bool = false
     required public init() {
          super.init()
     }
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasC {
-        try output.writeInt32(1, value:c)
+        try codedOutputStream.writeInt32(fieldNumber: 1, value:c)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -6479,39 +6480,39 @@ public extension Proto3ArenaUnittest {
 
       serialize_size = 0
       if hasC {
-        serialize_size += c.computeInt32Size(1)
+        serialize_size += c.computeInt32Size(fieldNumber: 1)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.ForeignMessage> {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3ArenaUnittest.ForeignMessage> {
       var mergedArray = Array<Proto3ArenaUnittest.ForeignMessage>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
-        mergedArray += [value]
+      while let value = try parseDelimitedFrom(inputStream: inputStream) {
+        mergedArray.append(value)
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.ForeignMessage? {
-      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.ForeignMessage? {
+      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.ForeignMessage {
-      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFrom(data: Data) throws -> Proto3ArenaUnittest.ForeignMessage {
+      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.ForeignMessage {
-      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.ForeignMessage {
+      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.ForeignMessage {
-      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFromInputStream(input).build()
+    public class func parseFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.ForeignMessage {
+      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFrom(inputStream: inputStream).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.ForeignMessage {
-      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.ForeignMessage {
+      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.ForeignMessage {
-      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.ForeignMessage {
+      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.ForeignMessage {
-      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.ForeignMessage {
+      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto3ArenaUnittest.ForeignMessage.Builder {
       return Proto3ArenaUnittest.ForeignMessage.classBuilder() as! Proto3ArenaUnittest.ForeignMessage.Builder
@@ -6526,34 +6527,34 @@ public extension Proto3ArenaUnittest {
       return Proto3ArenaUnittest.ForeignMessage.Builder()
     }
     public func toBuilder() throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
-      return try Proto3ArenaUnittest.ForeignMessage.builderWithPrototype(self)
+      return try Proto3ArenaUnittest.ForeignMessage.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:Proto3ArenaUnittest.ForeignMessage) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
-      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFrom(prototype)
+      return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFrom(other:prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasC {
-        jsonMap["c"] = NSNumber(int:c)
+        jsonMap["c"] = NSNumber(value:c)
       }
       return jsonMap
     }
     override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.ForeignMessage {
-      return try Proto3ArenaUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap).build()
+      return try Proto3ArenaUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Proto3ArenaUnittest.ForeignMessage {
-      return try Proto3ArenaUnittest.ForeignMessage.Builder.fromJSONToBuilder(data).build()
+    override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.ForeignMessage {
+      return try Proto3ArenaUnittest.ForeignMessage.Builder.fromJSONToBuilder(data:data).build()
     }
     override public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasC {
         output += "\(indent) c: \(c) \n"
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -6604,7 +6605,7 @@ public extension Proto3ArenaUnittest {
                builderResult.c = value
            }
       }
-      public func setC(value:Int32) -> Proto3ArenaUnittest.ForeignMessage.Builder {
+      public func setC(_ value:Int32) -> Proto3ArenaUnittest.ForeignMessage.Builder {
         self.c = value
         return self
       }
@@ -6623,7 +6624,7 @@ public extension Proto3ArenaUnittest {
         return self
       }
       override public func clone() throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
-        return try Proto3ArenaUnittest.ForeignMessage.builderWithPrototype(builderResult)
+        return try Proto3ArenaUnittest.ForeignMessage.builderWithPrototype(prototype:builderResult)
       }
       override public func build() throws -> Proto3ArenaUnittest.ForeignMessage {
            try checkInitialized()
@@ -6640,26 +6641,26 @@ public extension Proto3ArenaUnittest {
         if other.hasC {
              c = other.c
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
-          let protobufTag = try input.readTag()
+          let protobufTag = try codedInputStream.readTag()
           switch protobufTag {
           case 0: 
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 8:
-            c = try input.readInt32()
+            c = try codedInputStream.readInt32()
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -6669,16 +6670,16 @@ public extension Proto3ArenaUnittest {
       override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
         let resultDecodedBuilder = Proto3ArenaUnittest.ForeignMessage.Builder()
         if let jsonValueC = jsonMap["c"] as? NSNumber {
-          resultDecodedBuilder.c = jsonValueC.intValue
+          resultDecodedBuilder.c = jsonValueC.int32Value
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
-        return try Proto3ArenaUnittest.ForeignMessage.Builder.decodeToBuilder(jsDataCast)
+        return try Proto3ArenaUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)
       }
     }
 
@@ -6692,8 +6693,8 @@ public extension Proto3ArenaUnittest {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
-      try unknownFields.writeToCodedOutputStream(output)
+    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -6706,33 +6707,33 @@ public extension Proto3ArenaUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Proto3ArenaUnittest.TestEmptyMessage> {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3ArenaUnittest.TestEmptyMessage> {
       var mergedArray = Array<Proto3ArenaUnittest.TestEmptyMessage>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
-        mergedArray += [value]
+      while let value = try parseDelimitedFrom(inputStream: inputStream) {
+        mergedArray.append(value)
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestEmptyMessage? {
-      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.TestEmptyMessage? {
+      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Proto3ArenaUnittest.TestEmptyMessage {
-      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFromData(data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFrom(data: Data) throws -> Proto3ArenaUnittest.TestEmptyMessage {
+      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto3ArenaUnittest.UnittestProto3ArenaRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestEmptyMessage {
-      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestEmptyMessage {
+      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Proto3ArenaUnittest.TestEmptyMessage {
-      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFromInputStream(input).build()
+    public class func parseFrom(inputStream: InputStream) throws -> Proto3ArenaUnittest.TestEmptyMessage {
+      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFrom(inputStream: inputStream).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestEmptyMessage {
-      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestEmptyMessage {
+      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.TestEmptyMessage {
-      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestEmptyMessage {
+      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestEmptyMessage {
-      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestEmptyMessage {
+      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
       return Proto3ArenaUnittest.TestEmptyMessage.classBuilder() as! Proto3ArenaUnittest.TestEmptyMessage.Builder
@@ -6747,28 +6748,28 @@ public extension Proto3ArenaUnittest {
       return Proto3ArenaUnittest.TestEmptyMessage.Builder()
     }
     public func toBuilder() throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
-      return try Proto3ArenaUnittest.TestEmptyMessage.builderWithPrototype(self)
+      return try Proto3ArenaUnittest.TestEmptyMessage.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:Proto3ArenaUnittest.TestEmptyMessage) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
-      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFrom(prototype)
+      return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFrom(other:prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       return jsonMap
     }
     override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestEmptyMessage {
-      return try Proto3ArenaUnittest.TestEmptyMessage.Builder.decodeToBuilder(jsonMap).build()
+      return try Proto3ArenaUnittest.TestEmptyMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Proto3ArenaUnittest.TestEmptyMessage {
-      return try Proto3ArenaUnittest.TestEmptyMessage.Builder.fromJSONToBuilder(data).build()
+    override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.TestEmptyMessage {
+      return try Proto3ArenaUnittest.TestEmptyMessage.Builder.fromJSONToBuilder(data:data).build()
     }
     override public func getDescription(indent:String) throws -> String {
       var output = ""
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -6812,7 +6813,7 @@ public extension Proto3ArenaUnittest {
         return self
       }
       override public func clone() throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
-        return try Proto3ArenaUnittest.TestEmptyMessage.builderWithPrototype(builderResult)
+        return try Proto3ArenaUnittest.TestEmptyMessage.builderWithPrototype(prototype:builderResult)
       }
       override public func build() throws -> Proto3ArenaUnittest.TestEmptyMessage {
            try checkInitialized()
@@ -6826,23 +6827,23 @@ public extension Proto3ArenaUnittest {
         if other == Proto3ArenaUnittest.TestEmptyMessage() {
          return self
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
-          let protobufTag = try input.readTag()
+          let protobufTag = try codedInputStream.readTag()
           switch protobufTag {
           case 0: 
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -6853,12 +6854,12 @@ public extension Proto3ArenaUnittest {
         let resultDecodedBuilder = Proto3ArenaUnittest.TestEmptyMessage.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
-        return try Proto3ArenaUnittest.TestEmptyMessage.Builder.decodeToBuilder(jsDataCast)
+        return try Proto3ArenaUnittest.TestEmptyMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)
       }
     }
 

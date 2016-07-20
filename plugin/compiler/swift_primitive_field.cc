@@ -54,7 +54,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 case FieldDescriptor::TYPE_DOUBLE  : return "Double" ;
                 case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
                 case FieldDescriptor::TYPE_STRING  : return "String";
-                case FieldDescriptor::TYPE_BYTES   : return "NSData"  ;
+                case FieldDescriptor::TYPE_BYTES   : return "Data"  ;
                 default                            : return NULL;
             }
             
@@ -171,6 +171,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
 
         if (isOneOfField(descriptor_)) {
+   
+            printer->Print(variables_,"$acontrol$private(set) var $name$:$storage_type$!{\n"
+                           "     get {\n"
+                           "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
+                           "     }\n"
+                           "     set (newvalue) {\n"
+                           "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
+                           "     }\n"
+                           "}\n");
             printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
                            "            guard let _ = $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) else {\n"
@@ -181,20 +190,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "      set(newValue) {\n"
                            "      }\n"
                            "}\n");
-            
-            printer->Print(variables_,"$acontrol$private(set) var $name$:$storage_type$!{\n"
-                           "     get {\n"
-                           "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
-                           "     }\n"
-                           "     set (newvalue) {\n"
-                           "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
-                           "     }\n"
-                           "}\n");
         }
         else
         {
-            printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
             printer->Print(variables_,"$acontrol$private(set) var $name$:$storage_type$ = $default$\n\n");
+            printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
         }
     }
     
@@ -224,7 +224,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:$storage_type$) -> $containing_class$.Builder {\n"
+                       "$acontrol$func set$capitalized_name$(_ value:$storage_type$) -> $containing_class$.Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
@@ -249,20 +249,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void PrimitiveFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "$name$ = try input.read$capitalized_type$()\n");
+                       "$name$ = try codedInputStream.read$capitalized_type$()\n");
     }
     
     void PrimitiveFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  try output.write$capitalized_type$($number$, value:$name$)\n"
+                       "  try codedOutputStream.write$capitalized_type$(fieldNumber: $number$, value:$name$)\n"
                        "}\n");
     }
     
     void PrimitiveFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  serialize_size += $name$.compute$capitalized_type$Size($number$)\n"
+                       "  serialize_size += $name$.compute$capitalized_type$Size(fieldNumber: $number$)\n"
                        "}\n");
     }
     
@@ -348,12 +348,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = array\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:Array<$storage_type$>) -> $containing_class$.Builder {\n"
+                       "$acontrol$func set$capitalized_name$(_ value:Array<$storage_type$>) -> $containing_class$.Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
                        "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
-                       "   builderResult.$name$.removeAll(keepCapacity: false)\n"
+                       "   builderResult.$name$.removeAll(keepingCapacity: false)\n"
                        "   return self\n"
                        "}\n");
     }
@@ -374,17 +374,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->options().packed() || isPackedTypeProto3(descriptor_)) {
             printer->Print(variables_,
-                           "let length:Int32 = try input.readRawVarint32()\n"
-                           "let limit:Int32 = try input.pushLimit(length)\n"
-                           "while (input.bytesUntilLimit() > 0) {\n"
-                           "  builderResult.$name$ += [try input.read$capitalized_type$()]\n"
+                           "let length = Int(try codedInputStream.readRawVarint32())\n"
+                           "let limit = try codedInputStream.pushLimit(byteLimit: length)\n"
+                           "while (codedInputStream.bytesUntilLimit() > 0) {\n"
+                           "  builderResult.$name$.append(try codedInputStream.read$capitalized_type$())\n"
                            "}\n"
-                           "input.popLimit(limit)\n");
+                           "codedInputStream.popLimit(oldLimit: limit)\n");
         }
         else
         {
             printer->Print(variables_,
-                           "$name$ += [try input.read$capitalized_type$()]\n");
+                           "$name$ += [try codedInputStream.read$capitalized_type$()]\n");
         }
     }
     
@@ -396,15 +396,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->options().packed() || isPackedTypeProto3(descriptor_)) {
             printer->Print(variables_,
-                           "try output.writeRawVarint32($tag$)\n"
-                           "try output.writeRawVarint32($name$MemoizedSerializedSize)\n"
+                           "try codedOutputStream.writeRawVarint32(value: $tag$)\n"
+                           "try codedOutputStream.writeRawVarint32(value: $name$MemoizedSerializedSize)\n"
                            "for oneValue$name$ in $name$ {\n"
-                           "  try output.write$capitalized_type$NoTag(oneValue$name$)\n"
+                           "  try codedOutputStream.write$capitalized_type$NoTag(value: oneValue$name$)\n"
                            "}\n");
         } else {
             printer->Print(variables_,
                            "for oneValue$name$ in $name$ {\n"
-                           "  try output.write$capitalized_type$($number$, value:oneValue$name$)\n"
+                           "  try codedOutputStream.write$capitalized_type$(fieldNumber: $number$, value:oneValue$name$)\n"
                            "}\n");
         }
         printer->Outdent();
@@ -462,7 +462,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "if !$name$.isEmpty {\n"
                            "  var jsonArray$capitalized_name$:Array<$to_json_value_repeated_storage_type$> = []\n"
                            "    for oneValue$capitalized_name$ in $name$ {\n"
-                           "      jsonArray$capitalized_name$ += [$to_json_value_repeated$]\n"
+                           "      jsonArray$capitalized_name$.append($to_json_value_repeated$)\n"
                            "    }\n"
                            "  jsonMap[\"$json_name$\"] = jsonArray$capitalized_name$\n"
                            "}\n");
@@ -481,7 +481,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? Array<$json_casting_type$> {\n"
                            "  var jsonArray$capitalized_name$:Array<$storage_type$> = []\n"
                            "  for oneValue$capitalized_name$ in jsonValue$capitalized_name$ {\n"
-                           "    jsonArray$capitalized_name$ += [$from_json_value_repeated$]\n"
+                           "    jsonArray$capitalized_name$.append($from_json_value_repeated$)\n"
                            "  }\n"
                            "  resultDecodedBuilder.$name$ = jsonArray$capitalized_name$\n"
                            "}\n");

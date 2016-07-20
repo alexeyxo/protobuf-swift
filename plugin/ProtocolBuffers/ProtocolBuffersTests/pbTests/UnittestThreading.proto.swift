@@ -5,6 +5,7 @@
 import Foundation
 import ProtocolBuffers
 
+
 public func == (lhs: ThreadingMessages, rhs: ThreadingMessages) -> Bool {
   if (lhs === rhs) {
     return true
@@ -26,27 +27,27 @@ public struct UnittestThreadingRoot {
 
   init() {
     extensionRegistry = ExtensionRegistry()
-    registerAllExtensions(extensionRegistry)
+    registerAllExtensions(registry: extensionRegistry)
   }
-  public func registerAllExtensions(registry:ExtensionRegistry) {
+  public func registerAllExtensions(registry: ExtensionRegistry) {
   }
 }
 
 final public class ThreadingMessages : GeneratedMessage, GeneratedMessageProtocol {
-  public private(set) var hasTestString:Bool = false
   public private(set) var testString:String = ""
 
+  public private(set) var hasTestString:Bool = false
   required public init() {
        super.init()
   }
   override public func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+  override public func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasTestString {
-      try output.writeString(1, value:testString)
+      try codedOutputStream.writeString(fieldNumber: 1, value:testString)
     }
-    try unknownFields.writeToCodedOutputStream(output)
+    try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
   override public func serializedSize() -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
@@ -56,39 +57,39 @@ final public class ThreadingMessages : GeneratedMessage, GeneratedMessageProtoco
 
     serialize_size = 0
     if hasTestString {
-      serialize_size += testString.computeStringSize(1)
+      serialize_size += testString.computeStringSize(fieldNumber: 1)
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
     return serialize_size
   }
-  public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ThreadingMessages> {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ThreadingMessages> {
     var mergedArray = Array<ThreadingMessages>()
-    while let value = try parseFromDelimitedFromInputStream(input) {
-      mergedArray += [value]
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
     }
     return mergedArray
   }
-  public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ThreadingMessages? {
-    return try ThreadingMessages.Builder().mergeDelimitedFromInputStream(input)?.build()
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ThreadingMessages? {
+    return try ThreadingMessages.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
-  public class func parseFromData(data:NSData) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFromData(data, extensionRegistry:UnittestThreadingRoot.sharedInstance.extensionRegistry).build()
+  public class func parseFrom(data: Data) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(data: data, extensionRegistry:UnittestThreadingRoot.sharedInstance.extensionRegistry).build()
   }
-  public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFromInputStream(input:NSInputStream) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFromInputStream(input).build()
+  public class func parseFrom(inputStream: InputStream) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(inputStream: inputStream).build()
   }
-  public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFromCodedInputStream(input).build()
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(codedInputStream: codedInputStream).build()
   }
-  public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
   }
   public class func getBuilder() -> ThreadingMessages.Builder {
     return ThreadingMessages.classBuilder() as! ThreadingMessages.Builder
@@ -103,14 +104,14 @@ final public class ThreadingMessages : GeneratedMessage, GeneratedMessageProtoco
     return ThreadingMessages.Builder()
   }
   public func toBuilder() throws -> ThreadingMessages.Builder {
-    return try ThreadingMessages.builderWithPrototype(self)
+    return try ThreadingMessages.builderWithPrototype(prototype:self)
   }
   public class func builderWithPrototype(prototype:ThreadingMessages) throws -> ThreadingMessages.Builder {
-    return try ThreadingMessages.Builder().mergeFrom(prototype)
+    return try ThreadingMessages.Builder().mergeFrom(other:prototype)
   }
   override public func encode() throws -> Dictionary<String,AnyObject> {
     guard isInitialized() else {
-      throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+      throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
     }
 
     var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
@@ -120,17 +121,17 @@ final public class ThreadingMessages : GeneratedMessage, GeneratedMessageProtoco
     return jsonMap
   }
   override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder.decodeToBuilder(jsonMap).build()
+    return try ThreadingMessages.Builder.decodeToBuilder(jsonMap:jsonMap).build()
   }
-  override class public func fromJSON(data:NSData) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder.fromJSONToBuilder(data).build()
+  override class public func fromJSON(data:Data) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder.fromJSONToBuilder(data:data).build()
   }
   override public func getDescription(indent:String) throws -> String {
     var output = ""
     if hasTestString {
       output += "\(indent) testString: \(testString) \n"
     }
-    output += unknownFields.getDescription(indent)
+    output += unknownFields.getDescription(indent: indent)
     return output
   }
   override public var hashValue:Int {
@@ -181,7 +182,7 @@ final public class ThreadingMessages : GeneratedMessage, GeneratedMessageProtoco
              builderResult.testString = value
          }
     }
-    public func setTestString(value:String) -> ThreadingMessages.Builder {
+    public func setTestString(_ value:String) -> ThreadingMessages.Builder {
       self.testString = value
       return self
     }
@@ -200,7 +201,7 @@ final public class ThreadingMessages : GeneratedMessage, GeneratedMessageProtoco
       return self
     }
     override public func clone() throws -> ThreadingMessages.Builder {
-      return try ThreadingMessages.builderWithPrototype(builderResult)
+      return try ThreadingMessages.builderWithPrototype(prototype:builderResult)
     }
     override public func build() throws -> ThreadingMessages {
          try checkInitialized()
@@ -217,26 +218,26 @@ final public class ThreadingMessages : GeneratedMessage, GeneratedMessageProtoco
       if other.hasTestString {
            testString = other.testString
       }
-      try mergeUnknownFields(other.unknownFields)
+      _ = try merge(unknownField: other.unknownFields)
       return self
     }
-    override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> ThreadingMessages.Builder {
-         return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+    override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ThreadingMessages.Builder {
+         return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
-    override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages.Builder {
-      let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages.Builder {
+      let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
-        let protobufTag = try input.readTag()
+        let protobufTag = try codedInputStream.readTag()
         switch protobufTag {
         case 0: 
           self.unknownFields = try unknownFieldsBuilder.build()
           return self
 
         case 10:
-          testString = try input.readString()
+          testString = try codedInputStream.readString()
 
         default:
-          if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+          if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
              unknownFields = try unknownFieldsBuilder.build()
              return self
           }
@@ -250,12 +251,12 @@ final public class ThreadingMessages : GeneratedMessage, GeneratedMessageProtoco
       }
       return resultDecodedBuilder
     }
-    override class public func fromJSONToBuilder(data:NSData) throws -> ThreadingMessages.Builder {
-      let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+    override class public func fromJSONToBuilder(data:Data) throws -> ThreadingMessages.Builder {
+      let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
       guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
       }
-      return try ThreadingMessages.Builder.decodeToBuilder(jsDataCast)
+      return try ThreadingMessages.Builder.decodeToBuilder(jsonMap:jsDataCast)
     }
   }
 

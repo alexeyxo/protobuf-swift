@@ -226,6 +226,7 @@ inline ::std::string* SwiftFileOptions::mutable_class_prefix() {
   return class_prefix_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* SwiftFileOptions::release_class_prefix() {
+  // @@protoc_insertion_point(field_release:google.protobuf.SwiftFileOptions.class_prefix)
   clear_has_class_prefix();
   return class_prefix_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }

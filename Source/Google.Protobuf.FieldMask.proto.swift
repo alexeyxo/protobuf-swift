@@ -3,6 +3,7 @@
 // Syntax "Proto3"
 
 import Foundation
+
 public extension Google.Protobuf{}
 
 public func == (lhs: Google.Protobuf.FieldMask, rhs: Google.Protobuf.FieldMask) -> Bool {
@@ -27,10 +28,10 @@ public extension Google.Protobuf {
 
     init() {
       extensionRegistry = ExtensionRegistry()
-      registerAllExtensions(extensionRegistry)
-      Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
+      registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
     }
-    public func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(registry: ExtensionRegistry) {
     }
   }
 
@@ -138,13 +139,13 @@ public extension Google.Protobuf {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !paths.isEmpty {
         for oneValuepaths in paths {
-          try output.writeString(1, value:oneValuepaths)
+          try codedOutputStream.writeString(fieldNumber: 1, value:oneValuepaths)
         }
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -163,33 +164,33 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Google.Protobuf.FieldMask> {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.FieldMask> {
       var mergedArray = Array<Google.Protobuf.FieldMask>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
-        mergedArray += [value]
+      while let value = try parseDelimitedFrom(inputStream: inputStream) {
+        mergedArray.append(value)
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Google.Protobuf.FieldMask? {
-      return try Google.Protobuf.FieldMask.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.FieldMask? {
+      return try Google.Protobuf.FieldMask.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder().mergeFromData(data, extensionRegistry:Google.Protobuf.FieldMaskRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFrom(data: Data) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.FieldMaskRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder().mergeFromInputStream(input).build()
+    public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder().mergeFrom(inputStream: inputStream).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder().mergeFrom(codedInputStream: codedInputStream).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Google.Protobuf.FieldMask.Builder {
       return Google.Protobuf.FieldMask.classBuilder() as! Google.Protobuf.FieldMask.Builder
@@ -204,14 +205,14 @@ public extension Google.Protobuf {
       return Google.Protobuf.FieldMask.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.FieldMask.Builder {
-      return try Google.Protobuf.FieldMask.builderWithPrototype(self)
+      return try Google.Protobuf.FieldMask.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:Google.Protobuf.FieldMask) throws -> Google.Protobuf.FieldMask.Builder {
-      return try Google.Protobuf.FieldMask.Builder().mergeFrom(prototype)
+      return try Google.Protobuf.FieldMask.Builder().mergeFrom(other:prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
@@ -221,10 +222,10 @@ public extension Google.Protobuf {
       return jsonMap
     }
     override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder.decodeToBuilder(jsonMap).build()
+      return try Google.Protobuf.FieldMask.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder.fromJSONToBuilder(data).build()
+    override class public func fromJSON(data:Data) throws -> Google.Protobuf.FieldMask {
+      return try Google.Protobuf.FieldMask.Builder.fromJSONToBuilder(data:data).build()
     }
     override public func getDescription(indent:String) throws -> String {
       var output = ""
@@ -233,7 +234,7 @@ public extension Google.Protobuf {
           output += "\(indent) paths[\(pathsElementIndex)]: \(oneValuePaths)\n"
           pathsElementIndex += 1
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -278,12 +279,12 @@ public extension Google.Protobuf {
                builderResult.paths = array
            }
       }
-      public func setPaths(value:Array<String>) -> Google.Protobuf.FieldMask.Builder {
+      public func setPaths(_ value:Array<String>) -> Google.Protobuf.FieldMask.Builder {
         self.paths = value
         return self
       }
       public func clearPaths() -> Google.Protobuf.FieldMask.Builder {
-         builderResult.paths.removeAll(keepCapacity: false)
+         builderResult.paths.removeAll(keepingCapacity: false)
          return self
       }
       override public var internalGetResult:GeneratedMessage {
@@ -296,7 +297,7 @@ public extension Google.Protobuf {
         return self
       }
       override public func clone() throws -> Google.Protobuf.FieldMask.Builder {
-        return try Google.Protobuf.FieldMask.builderWithPrototype(builderResult)
+        return try Google.Protobuf.FieldMask.builderWithPrototype(prototype:builderResult)
       }
       override public func build() throws -> Google.Protobuf.FieldMask {
            try checkInitialized()
@@ -313,26 +314,26 @@ public extension Google.Protobuf {
         if !other.paths.isEmpty {
             builderResult.paths += other.paths
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> Google.Protobuf.FieldMask.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.FieldMask.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
-          let protobufTag = try input.readTag()
+          let protobufTag = try codedInputStream.readTag()
           switch protobufTag {
           case 0: 
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 10:
-            paths += [try input.readString()]
+            paths += [try codedInputStream.readString()]
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -346,12 +347,12 @@ public extension Google.Protobuf {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> Google.Protobuf.FieldMask.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.FieldMask.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
-        return try Google.Protobuf.FieldMask.Builder.decodeToBuilder(jsDataCast)
+        return try Google.Protobuf.FieldMask.Builder.decodeToBuilder(jsonMap:jsDataCast)
       }
     }
 
