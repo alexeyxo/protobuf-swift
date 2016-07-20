@@ -90,6 +90,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void EnumFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
         if (isOneOfField(descriptor_)) {
+            
+            printer->Print(variables_,
+                           "$acontrol$private(set) var $name$:$type$!{\n"
+                           "     get {\n"
+                           "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
+                           "     }\n"
+                           "     set (newvalue) {\n"
+                           "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
+                           "     }\n"
+                           "}\n");
+            
             printer->Print(variables_,
                            "$acontrol$private(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
@@ -102,15 +113,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "      }\n"
                            "}\n");
             
-            printer->Print(variables_,
-                           "$acontrol$private(set) var $name$:$type$!{\n"
-                           "     get {\n"
-                           "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
-                           "     }\n"
-                           "     set (newvalue) {\n"
-                           "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
-                           "     }\n"
-                           "}\n");
+        
         }
         else
         {
@@ -142,7 +145,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  }\n");
         
         printer->Print(variables_,
-                       "  $acontrolFunc$ func set$capitalized_name$(value:$type$) -> $containing_class$.Builder {\n"
+                       "  $acontrolFunc$ func set$capitalized_name$(_ value:$type$) -> $containing_class$.Builder {\n"
                        "    self.$name$ = value\n"
                        "    return self\n"
                        "  }\n"
@@ -168,18 +171,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        
-                       "let valueInt$name$ = try input.readEnum()\n"
+                       "let valueInt$name$ = try codedInputStream.readEnum()\n"
                        "if let enums$name$ = $type$(rawValue:valueInt$name$){\n"
                        "     $name$ = enums$name$\n"
                        "} else {\n"
-                       "     try unknownFieldsBuilder.mergeVarintField($number$, value:Int64(valueInt$name$))\n"
+                       "     _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
                        "}\n");
     }
     
     void EnumFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  try output.writeEnum($number$, value:$name$.rawValue)\n"
+                       "  try codedOutputStream.writeEnum(fieldNumber: $number$, value:$name$.rawValue)\n"
                        "}\n");
     }
     
@@ -187,7 +190,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if (has$capitalized_name$) {\n"
-                       "  serialize_size += $name$.rawValue.computeEnumSize($number$)\n"
+                       "  serialize_size += $name$.rawValue.computeEnumSize(fieldNumber: $number$)\n"
                        "}\n");
     }
     
@@ -272,12 +275,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "        builderResult.$name$ = value\n"
                        "    }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:Array<$type$>) -> $containing_class$.Builder {\n"
+                       "$acontrol$func set$capitalized_name$(_ value:Array<$type$>) -> $containing_class$.Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
                        "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
-                       "  builderResult.$name$.removeAll(keepCapacity: false)\n"
+                       "  builderResult.$name$.removeAll(keepingCapacity: false)\n"
                        "  return self\n"
                        "}\n");
     }
@@ -297,25 +300,25 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         // If packed, set up the while loop
         if (descriptor_->options().packed()) {
             printer->Print(variables_,
-                           "let length:Int32 = try input.readRawVarint32()\n"
-                           "let oldLimit:Int32 = try input.pushLimit(length)\n"
-                           "while input.bytesUntilLimit() > 0 {\n");
+                           "let length = Int(try codedInputStream.readRawVarint32())\n"
+                           "let oldLimit = try codedInputStream.pushLimit(byteLimit: length)\n"
+                           "while codedInputStream.bytesUntilLimit() > 0 {\n");
             
         }
         
         printer->Print(variables_,
-                       "let valueInt$name$ = try input.readEnum()\n"
+                       "let valueInt$name$ = try codedInputStream.readEnum()\n"
                        "if let enums$name$ = $type$(rawValue:valueInt$name$) {\n"
-                       "     builderResult.$name$ += [enums$name$]\n"
+                       "     builderResult.$name$.append(enums$name$)\n"
                        "} else {\n"
-                       "     try unknownFieldsBuilder.mergeVarintField($number$, value:Int64(valueInt$name$))\n"
+                       "     _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
                        "}\n");
         
         if (descriptor_->options().packed()) {
             
             printer->Print(variables_,
                            "}\n"
-                           "input.popLimit(oldLimit)\n");
+                           "codedInputStream.popLimit(oldLimit: oldLimit)\n");
         }
     }
     
@@ -324,16 +327,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (descriptor_->options().packed()) {
             printer->Print(variables_,
                            "if !$name$.isEmpty {\n"
-                           "  try output.writeRawVarint32($tag$)\n"
-                           "  try output.writeRawVarint32($name$MemoizedSerializedSize)\n"
+                           "  try codedOutputStream.writeRawVarint32(value: $tag$)\n"
+                           "  try codedOutputStream.writeRawVarint32(value: $name$MemoizedSerializedSize)\n"
                            "}\n"
                            "for oneValueOf$name$ in $name$ {\n"
-                           "    try output.writeEnumNoTag(oneValueOf$name$.rawValue)\n"
+                           "    try codedOutputStream.writeEnumNoTag(value: oneValueOf$name$.rawValue)\n"
                            "}\n");
         } else {
             printer->Print(variables_,
                            "for oneValueOf$name$ in $name$ {\n"
-                           "    try output.writeEnum($number$, value:oneValueOf$name$.rawValue)\n"
+                           "    try codedOutputStream.writeEnum(fieldNumber: $number$, value:oneValueOf$name$.rawValue)\n"
                            "}\n");
         }
     }
@@ -387,7 +390,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "if !$name$.isEmpty {\n"
                            "  var jsonArray$capitalized_name$:Array<$to_json_value_repeated_storage_type$> = []\n"
                            "    for oneValue$capitalized_name$ in $name$ {\n"
-                           "      jsonArray$capitalized_name$ += [$to_json_value_repeated$]\n"
+                           "      jsonArray$capitalized_name$.append($to_json_value_repeated$)\n"
                            "    }\n"
                            "  jsonMap[\"$json_name$\"] = jsonArray$capitalized_name$\n"
                            "}\n");
@@ -401,7 +404,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "  var jsonArray$capitalized_name$:Array<$type$> = []\n"
                            "  for oneValue$capitalized_name$ in jsonValue$capitalized_name$ {\n"
                            "    let enumFromString$capitalized_name$ = $from_json_value_repeated$\n"
-                           "    jsonArray$capitalized_name$ += [enumFromString$capitalized_name$]\n"
+                           "    jsonArray$capitalized_name$.append(enumFromString$capitalized_name$)\n"
                            "  }\n"
                            "  resultDecodedBuilder.$name$ = jsonArray$capitalized_name$\n"
                            "}\n");

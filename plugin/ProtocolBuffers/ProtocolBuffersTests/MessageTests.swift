@@ -65,7 +65,7 @@ class MessageTests: XCTestCase {
     
     func testMergeFrom() {
         do {
-            let result = try ProtobufUnittest.TestAllTypes.builderWithPrototype(mergeDestination()).mergeFrom(mergeSource()).build()
+            let result = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype: mergeDestination()).mergeFrom(other: mergeSource()).build()
             let data = try mergeResult().data()
             XCTAssertTrue(result.data() == data, "")
         }
@@ -126,16 +126,16 @@ class MessageTests: XCTestCase {
         XCTAssertTrue(builder.isInitialized(), "")
         
         do {
-            try builder.setExtension(ProtobufUnittest.TestRequired.single(), value:testRequiredUninitialized())
+            _ = try builder.setExtension(extensions: ProtobufUnittest.TestRequired.single(), value:testRequiredUninitialized())
             XCTAssertFalse(builder.isInitialized(), "")
         
-            try builder.setExtension(ProtobufUnittest.TestRequired.single(), value:testRequiredInitialized())
+            _ = try builder.setExtension(extensions: ProtobufUnittest.TestRequired.single(), value:testRequiredInitialized())
             XCTAssertTrue(builder.isInitialized(), "")
         
-            try builder.addExtension(ProtobufUnittest.TestRequired.multi(), value:testRequiredUninitialized())
+            _ = try builder.addExtension(extensions: ProtobufUnittest.TestRequired.multi(), value:testRequiredUninitialized())
             XCTAssertFalse(builder.isInitialized(), "")
         
-            try builder.setExtension(ProtobufUnittest.TestRequired.multi(), index:0, value:testRequiredInitialized())
+            _ = try builder.setExtension(extensions:ProtobufUnittest.TestRequired.multi(), index:0, value:testRequiredInitialized())
             XCTAssertTrue(builder.isInitialized(), "")
         }
         catch {

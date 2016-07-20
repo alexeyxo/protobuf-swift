@@ -23,8 +23,8 @@ class WireFormatTests: XCTestCase {
         do {
             let message = try TestUtilities.allSet()
             let rawBytes = message.data()
-            XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
-            let message2 = try ProtobufUnittest.TestAllTypes.parseFromData(rawBytes)
+            XCTAssertTrue(rawBytes.count == Int(message.serializedSize()), "")
+            let message2 = try ProtobufUnittest.TestAllTypes.parseFrom(data:rawBytes)
             TestUtilities.assertAllFieldsSet(message2)
         }
         catch
@@ -38,8 +38,8 @@ class WireFormatTests: XCTestCase {
         do {
             let message = try TestUtilities.packedSet()
             let rawBytes = message.data()
-            XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
-            let message2 = try ProtobufUnittest.TestPackedTypes.parseFromData(rawBytes)
+            XCTAssertTrue(rawBytes.count == Int(message.serializedSize()), "")
+            let message2 = try ProtobufUnittest.TestPackedTypes.parseFrom(data:rawBytes)
             TestUtilities.assertPackedFieldsSet(message2)
         }
         catch {
@@ -52,8 +52,8 @@ class WireFormatTests: XCTestCase {
         do {
             let message = try TestUtilities.allExtensionsSet()
             let rawBytes = message.data()
-            XCTAssertTrue(rawBytes.length == Int(message.serializedSize()), "")
-            let message2 = try ProtobufUnittest.TestAllTypes.parseFromData(rawBytes)
+            XCTAssertTrue(rawBytes.count == Int(message.serializedSize()), "")
+            let message2 = try ProtobufUnittest.TestAllTypes.parseFrom(data:rawBytes)
             TestUtilities.assertAllFieldsSet(message2)
         }
         catch {
@@ -85,7 +85,7 @@ class WireFormatTests: XCTestCase {
             let rawBytes = message.data()
             let registry = ExtensionRegistry()
             TestUtilities.registerAllExtensions(registry)
-            let message2 = try ProtobufUnittest.TestAllExtensions.parseFromData(rawBytes, extensionRegistry:registry)
+            let message2 = try ProtobufUnittest.TestAllExtensions.parseFrom(data:rawBytes, extensionRegistry:registry)
             TestUtilities.assertAllExtensionsSet(message2)
         }
         catch {
@@ -112,7 +112,7 @@ class WireFormatTests: XCTestCase {
             let message = try TestUtilities.packedExtensionsSet()
             let rawBytes = message.data()
             let registry = TestUtilities.extensionRegistry()
-            let message2 = try ProtobufUnittest.TestPackedExtensions.parseFromData(rawBytes, extensionRegistry:registry)
+            let message2 = try ProtobufUnittest.TestPackedExtensions.parseFrom(data:rawBytes, extensionRegistry:registry)
             TestUtilities.assertPackedExtensionsSet(message2)
         }
         catch {

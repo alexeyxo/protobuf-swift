@@ -523,6 +523,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (name == UnderscoresToCapitalizedCamelCase(descriptor->type()->name()) || name == "String") {
             name += "Field";
         }
+        name[0] = tolower(name[0]);
         return name;
     }
 
@@ -584,7 +585,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case SWIFTTYPE_DOUBLE : return "Double";
             case SWIFTTYPE_BOOLEAN: return "Bool";
             case SWIFTTYPE_STRING : return "String";
-            case SWIFTTYPE_DATA   : return "NSData";
+            case SWIFTTYPE_DATA   : return "Data";
             case SWIFTTYPE_ENUM   : return "Int32";
             case SWIFTTYPE_MESSAGE: return NULL;
             case SWIFTTYPE_MAP: return NULL;
@@ -677,7 +678,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_SFIXED64: return "Int64" ;
             case FieldDescriptor::TYPE_BOOL    : return "Bool"  ;
             case FieldDescriptor::TYPE_STRING  : return "String";
-            case FieldDescriptor::TYPE_BYTES   : return "NSData";
+            case FieldDescriptor::TYPE_BYTES   : return "Data";
             case FieldDescriptor::TYPE_GROUP   :
             case FieldDescriptor::TYPE_MESSAGE :
             {
@@ -785,9 +786,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 if (field->type() == FieldDescriptor::TYPE_BYTES) {
                     if (field->has_default_value()) {
                         return
-                        "NSData(bytes:([UInt8]() + \"" + CEscape(field->default_value_string()) + "\".utf8), length:" + SimpleItoa(field->default_value_string().length()) + ")";
+                        "Data(bytes:([UInt8]() + \"" + CEscape(field->default_value_string()) + "\".utf8), count:" + SimpleItoa(field->default_value_string().length()) + ")";
                     } else {
-                        return "NSData()";
+                        return "Data()";
                     }
                 } else {
                     if (AllAscii(field->default_value_string())) {
@@ -876,11 +877,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     string FromJSONValue(const FieldDescriptor* field, string value) {
         switch (field->type()) {
-            case FieldDescriptor::TYPE_INT32   : return value + ".intValue";
-            case FieldDescriptor::TYPE_UINT32  : return value + ".unsignedIntValue";
-            case FieldDescriptor::TYPE_SINT32  : return value + ".intValue";
-            case FieldDescriptor::TYPE_FIXED32 : return value + ".unsignedIntValue";
-            case FieldDescriptor::TYPE_SFIXED32: return value + ".intValue";
+            case FieldDescriptor::TYPE_INT32   : return value + ".int32Value";
+            case FieldDescriptor::TYPE_UINT32  : return value + ".uint32Value";
+            case FieldDescriptor::TYPE_SINT32  : return value + ".int32Value";
+            case FieldDescriptor::TYPE_FIXED32 : return value + ".uint32Value";
+            case FieldDescriptor::TYPE_SFIXED32: return value + ".int32Value";
                 
             case FieldDescriptor::TYPE_INT64   : return "Int64(" + value + ")!";
             case FieldDescriptor::TYPE_UINT64  : return "UInt64(" + value + ")!";
@@ -892,10 +893,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_DOUBLE  : return value + ".doubleValue";
             case FieldDescriptor::TYPE_BOOL    : return value;
             case FieldDescriptor::TYPE_STRING  : return value;
-            case FieldDescriptor::TYPE_BYTES   : return "NSData(base64EncodedString:" + value  +", options: NSDataBase64DecodingOptions(rawValue:0))!";
-            case FieldDescriptor::TYPE_ENUM: return "try " + ClassNameReturedType(field->enum_type()) + ".fromString(" + value + ")";
+            case FieldDescriptor::TYPE_BYTES   : return "Data(base64Encoded:" + value  +", options: Data.Base64DecodingOptions(rawValue:0))!";
+            case FieldDescriptor::TYPE_ENUM: return "try " + ClassNameReturedType(field->enum_type()) + ".fromString(str: " + value + ")";
             case FieldDescriptor::TYPE_GROUP:
-            case FieldDescriptor::TYPE_MESSAGE: return "try " + ClassNameReturedType(field->message_type()) +  ".Builder.decodeToBuilder(" + value + ").build()\n";
+            case FieldDescriptor::TYPE_MESSAGE: return "try " + ClassNameReturedType(field->message_type()) +  ".Builder.decodeToBuilder(jsonMap:" + value + ").build()\n";
         }
         GOOGLE_LOG(FATAL) << "Can't get here.";
         return NULL;
@@ -918,10 +919,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_DOUBLE  : return value + ".doubleValue";
             case FieldDescriptor::TYPE_BOOL    : return value;
             case FieldDescriptor::TYPE_STRING  : return value;
-            case FieldDescriptor::TYPE_BYTES   : return "NSData(base64EncodedString:" + value  +", options: NSDataBase64DecodingOptions(rawValue:0))!";
+            case FieldDescriptor::TYPE_BYTES   : return "Data(base64Encoded:" + value  +", options: Data.Base64DecodingOptions(rawValue:0))!";
             case FieldDescriptor::TYPE_ENUM: return "try " + ClassNameReturedType(field->enum_type()) + ".fromString(" + value + ")";
             case FieldDescriptor::TYPE_GROUP:
-            case FieldDescriptor::TYPE_MESSAGE: return "try " + ClassNameReturedType(field->message_type()) +  ".Builder.decodeToBuilder(" + value + ").build()\n";
+            case FieldDescriptor::TYPE_MESSAGE: return "try " + ClassNameReturedType(field->message_type()) +  ".Builder.decodeToBuilder(jsonMap:" + value + ").build()\n";
         }
         GOOGLE_LOG(FATAL) << "Can't get here.";
         return NULL;
@@ -959,11 +960,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     string ToJSONValue(const FieldDescriptor* field, string value) {
         switch (field->type()) {
-            case FieldDescriptor::TYPE_INT32   : return "NSNumber(int:" + value + ")";
-            case FieldDescriptor::TYPE_UINT32  : return "NSNumber(unsignedInt:" + value + ")";
-            case FieldDescriptor::TYPE_SINT32  : return "NSNumber(int:" + value + ")";
-            case FieldDescriptor::TYPE_FIXED32 : return "NSNumber(unsignedInt:" + value + ")";
-            case FieldDescriptor::TYPE_SFIXED32: return "NSNumber(int:" + value + ")";
+            case FieldDescriptor::TYPE_INT32   : return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_UINT32  : return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_SINT32  : return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_FIXED32 : return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_SFIXED32: return "NSNumber(value:" + value + ")";
                 
             case FieldDescriptor::TYPE_INT64   : return "\"\\(" + value + ")\"";
             case FieldDescriptor::TYPE_UINT64  : return "\"\\(" + value + ")\"";
@@ -971,11 +972,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_FIXED64 : return "\"\\(" + value + ")\"";
             case FieldDescriptor::TYPE_SFIXED64: return "\"\\(" + value + ")\"";
                 
-            case FieldDescriptor::TYPE_FLOAT   : return "NSNumber(float:" + value + ")";
-            case FieldDescriptor::TYPE_DOUBLE  : return "NSNumber(double:" + value + ")";
+            case FieldDescriptor::TYPE_FLOAT   : return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_DOUBLE  : return "NSNumber(value:" + value + ")";
             case FieldDescriptor::TYPE_BOOL    : return value;
             case FieldDescriptor::TYPE_STRING  : return value;
-            case FieldDescriptor::TYPE_BYTES   : return value + ".base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))";
+            case FieldDescriptor::TYPE_BYTES   : return value + ".base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))";
             case FieldDescriptor::TYPE_ENUM: return value + ".toString()";
             case FieldDescriptor::TYPE_GROUP:
             case FieldDescriptor::TYPE_MESSAGE: return "try " + value + ".encode()";

@@ -12,128 +12,127 @@ import ProtocolBuffers
 internal class CodedOuputStreamTests: XCTestCase
 {
     func openMemoryStream() ->NSOutputStream {
-        let stream:NSOutputStream = NSOutputStream.outputStreamToMemory()
+        let stream:NSOutputStream = NSOutputStream.toMemory()
         stream.open()
         return stream
     }
     
-    func bytes(from:UInt8...) -> NSData
+    func bytes(_ from:UInt8...) -> Data
     {
         let returnData:NSMutableData = NSMutableData()
-        var bytesArray = [UInt8](count:Int(from.count), repeatedValue: 0)
+        var bytesArray = [UInt8](repeating: 0, count: Int(from.count))
         var i:Int = 0
         for index:UInt8 in from
         {
             bytesArray[i] = index
             i += 1
         }
-        returnData.appendBytes(&bytesArray, length: bytesArray.count)
-        return returnData
+        returnData.append(&bytesArray, length: bytesArray.count)
+        return returnData as Data
     }
     
-    func assertWriteLittleEndian32(data:NSData, value:Int32) throws {
+    func assertWriteLittleEndian32(_ data:Data, value:Int32) throws {
         let rawOutput:NSOutputStream = openMemoryStream()
-        let output:CodedOutputStream = CodedOutputStream(output: rawOutput)
+        let output:CodedOutputStream = CodedOutputStream(stream: rawOutput)
 
-        try output.writeRawLittleEndian32(value)
+        try output.writeRawLittleEndian32(value: value)
         try output.flush()
     
-        let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
+        let actual:Data = rawOutput.property(forKey: Stream.PropertyKey.dataWrittenToMemoryStreamKey) as! Data
         
-        XCTAssertTrue(data.isEqualToData(actual), "Test32")
-    
-        var blockSize:Int32 = 1
+        XCTAssertTrue(data == actual, "Test32")
+        
+        var blockSize:Int = 1
         while blockSize <= 16 {
-            
             let rawOutput:NSOutputStream = openMemoryStream()
-            let output:CodedOutputStream = CodedOutputStream(output: rawOutput, bufferSize: blockSize)
+            let output:CodedOutputStream = CodedOutputStream(stream: rawOutput, bufferSize: blockSize)
             
-            try output.writeRawLittleEndian32(value)
+            try output.writeRawLittleEndian32(value: value)
             try output.flush()
-    
-            let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
-            XCTAssertTrue(data.isEqualToData(actual), "Test32")
+            
+            let actual:Data = rawOutput.property(forKey: Stream.PropertyKey.dataWrittenToMemoryStreamKey) as! Data
+            XCTAssertTrue(data == actual, "Test32")
             blockSize *= 2
         }
     }
     
-    func assertWriteLittleEndian64(data:NSData, value:Int64) throws {
+    func assertWriteLittleEndian64(_ data:Data, value:Int64) throws {
         let rawOutput:NSOutputStream = openMemoryStream()
-        let output:CodedOutputStream = CodedOutputStream(output: rawOutput)
-        try output.writeRawLittleEndian64(value)
+        let output:CodedOutputStream = CodedOutputStream(stream: rawOutput)
+        try output.writeRawLittleEndian64(value: value)
         try output.flush()
         
-        let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
+        let actual:Data = rawOutput.property(forKey: Stream.PropertyKey.dataWrittenToMemoryStreamKey) as! Data
 
-        XCTAssertTrue(data.isEqualToData(actual), "Test64")
+        XCTAssertTrue(data == actual, "Test64")
         
-        var blockSize:Int32 = 1
+        
+        var blockSize:Int = 1
         while blockSize <= 16 {
-            
             let rawOutput:NSOutputStream = openMemoryStream()
-            let output:CodedOutputStream = CodedOutputStream(output: rawOutput, bufferSize: blockSize)
+            let output:CodedOutputStream = CodedOutputStream(stream: rawOutput, bufferSize: blockSize)
             
-            try output.writeRawLittleEndian64(value)
+            try output.writeRawLittleEndian64(value: value)
             try output.flush()
             
-            let actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
+            let actual:Data = rawOutput.property(forKey: Stream.PropertyKey.dataWrittenToMemoryStreamKey) as! Data
             
-            XCTAssertTrue(data.isEqualToData(actual),"Test64")
+            XCTAssertTrue(data == actual,"Test64")
             blockSize *= 2
         }
+
     }
     
-    func assertWriteVarint(data:NSData, value:Int64) throws
+    func assertWriteVarint(_ data:Data, value:Int64) throws
     {
         let shift = WireFormat.logicalRightShift64(value:value, spaces: 31)
         if (shift == 0)
         {
             let rawOutput1:NSOutputStream = openMemoryStream()
-            let output1:CodedOutputStream = CodedOutputStream(output: rawOutput1)
+            let output1:CodedOutputStream = CodedOutputStream(stream: rawOutput1)
             let invalue = Int32(value)
-            try output1.writeRawVarint32(invalue)
+            try output1.writeRawVarint32(value: invalue)
             try output1.flush()
     
-            let actual1:NSData = rawOutput1.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
-            XCTAssertTrue(data.isEqualToData(actual1), "")
+            let actual1:Data = rawOutput1.property(forKey: Stream.PropertyKey.dataWrittenToMemoryStreamKey) as! Data
+            XCTAssertTrue(data == actual1, "")
 
-            XCTAssertTrue(Int32(data.length) == Int32(value).computeRawVarint32Size(), "")
+            XCTAssertTrue(Int32(data.count) == Int32(value).computeRawVarint32Size(), "")
         }
     
         let rawOutput2:NSOutputStream = openMemoryStream()
-        let output2:CodedOutputStream = CodedOutputStream(output:rawOutput2)
-        try output2.writeRawVarint64(value)
+        let output2:CodedOutputStream = CodedOutputStream(stream:rawOutput2)
+        try output2.writeRawVarint64(value: value)
         try output2.flush()
     
-        let actual2:NSData = rawOutput2.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
-        XCTAssertTrue(data.isEqualToData(actual2), "")
+        let actual2:Data = rawOutput2.property(forKey: Stream.PropertyKey.dataWrittenToMemoryStreamKey) as! Data
+        XCTAssertTrue(data == actual2, "")
     
     
-        XCTAssertTrue(Int32(data.length) == value.computeRawVarint64Size(), "")
+        XCTAssertTrue(Int32(data.count) == value.computeRawVarint64Size(), "")
     
-        var blockSize:Int32 = 1
+        var blockSize:Int = 1
         while blockSize <= 16 {
-    
             if (WireFormat.logicalRightShift64(value:value, spaces: 31) == 0)
             {
                 let rawOutput3:NSOutputStream = openMemoryStream()
-                let output3:CodedOutputStream = CodedOutputStream(output: rawOutput3, bufferSize: Int32(blockSize))
-    
-                try output3.writeRawVarint32(Int32(value))
+                let output3:CodedOutputStream = CodedOutputStream(stream: rawOutput3, bufferSize: blockSize)
+                
+                try output3.writeRawVarint32(value: Int32(value))
                 try output3.flush()
-    
-                let actual3:NSData = rawOutput3.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
-                XCTAssertTrue(data.isEqualToData(actual3), "")
+                
+                let actual3:Data = rawOutput3.property(forKey: Stream.PropertyKey.dataWrittenToMemoryStreamKey) as! Data
+                XCTAssertTrue(data == actual3, "")
             }
-    
-
+            
+            
             let rawOutput4:NSOutputStream = openMemoryStream()
-            let output4:CodedOutputStream = CodedOutputStream(output: rawOutput4, bufferSize: Int32(blockSize))
-            try output4.writeRawVarint64(value)
+            let output4:CodedOutputStream = CodedOutputStream(stream: rawOutput4, bufferSize: blockSize)
+            try output4.writeRawVarint64(value: value)
             try output4.flush()
-    
-            let actual4:NSData = rawOutput4.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
-            XCTAssertTrue(data.isEqualToData(actual4), "")
+            
+            let actual4:Data = rawOutput4.property(forKey: Stream.PropertyKey.dataWrittenToMemoryStreamKey) as! Data
+            XCTAssertTrue(data == actual4, "")
             blockSize *= 2
         }
     }
@@ -286,34 +285,34 @@ internal class CodedOuputStreamTests: XCTestCase
     
     func testEncodeZigZag()
     {
-        XCTAssertTrue(0 == WireFormat.encodeZigZag32(0), "")
-        XCTAssertTrue(1 == WireFormat.encodeZigZag32(-1), "")
-        XCTAssertTrue(2 == WireFormat.encodeZigZag32(1), "")
-        XCTAssertTrue(3 == WireFormat.encodeZigZag32(-2), "")
-        XCTAssertTrue(0x7FFFFFFE == WireFormat.encodeZigZag32(0x3FFFFFFF), "")
+        XCTAssertTrue(0 == WireFormat.encodeZigZag32(n: 0), "")
+        XCTAssertTrue(1 == WireFormat.encodeZigZag32(n: -1), "")
+        XCTAssertTrue(2 == WireFormat.encodeZigZag32(n: 1), "")
+        XCTAssertTrue(3 == WireFormat.encodeZigZag32(n: -2), "")
+        XCTAssertTrue(0x7FFFFFFE == WireFormat.encodeZigZag32(n: 0x3FFFFFFF), "")
         
         
-        XCTAssertTrue(0 == WireFormat.encodeZigZag64( 0), "")
-        XCTAssertTrue(1 == WireFormat.encodeZigZag64(-1), "")
-        XCTAssertTrue(2 == WireFormat.encodeZigZag64( 1), "")
-        XCTAssertTrue(3 == WireFormat.encodeZigZag64(-2), "")
-        XCTAssertTrue(0x000000007FFFFFFE == WireFormat.encodeZigZag64(0x000000003FFFFFFF), "")
+        XCTAssertTrue(0 == WireFormat.encodeZigZag64(n:  0), "")
+        XCTAssertTrue(1 == WireFormat.encodeZigZag64(n: -1), "")
+        XCTAssertTrue(2 == WireFormat.encodeZigZag64(n:  1), "")
+        XCTAssertTrue(3 == WireFormat.encodeZigZag64(n: -2), "")
+        XCTAssertTrue(0x000000007FFFFFFE == WireFormat.encodeZigZag64(n: 0x000000003FFFFFFF), "")
         
         
-        XCTAssertTrue(0 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(0)), "")
-        XCTAssertTrue(1 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(1)), "")
-        XCTAssertTrue(-1 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(-1)), "")
-        XCTAssertTrue(14927 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(14927)), "")
-        XCTAssertTrue(-3612 == WireFormat.encodeZigZag32(WireFormat.decodeZigZag32(-3612)), "")
+        XCTAssertTrue(0 == WireFormat.encodeZigZag32(n: WireFormat.decodeZigZag32(n: 0)), "")
+        XCTAssertTrue(1 == WireFormat.encodeZigZag32(n: WireFormat.decodeZigZag32(n: 1)), "")
+        XCTAssertTrue(-1 == WireFormat.encodeZigZag32(n: WireFormat.decodeZigZag32(n: -1)), "")
+        XCTAssertTrue(14927 == WireFormat.encodeZigZag32(n: WireFormat.decodeZigZag32(n: 14927)), "")
+        XCTAssertTrue(-3612 == WireFormat.encodeZigZag32(n: WireFormat.decodeZigZag32(n: -3612)), "")
         
-        XCTAssertTrue(0 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(0)), "")
-        XCTAssertTrue(1 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(1)), "")
-        XCTAssertTrue(-1 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(-1)), "")
-        XCTAssertTrue(14927 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(14927)), "")
-        XCTAssertTrue(-3612 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(-3612)), "")
+        XCTAssertTrue(0 == WireFormat.encodeZigZag64(n: WireFormat.decodeZigZag64(n: 0)), "")
+        XCTAssertTrue(1 == WireFormat.encodeZigZag64(n: WireFormat.decodeZigZag64(n: 1)), "")
+        XCTAssertTrue(-1 == WireFormat.encodeZigZag64(n: WireFormat.decodeZigZag64(n: -1)), "")
+        XCTAssertTrue(14927 == WireFormat.encodeZigZag64(n: WireFormat.decodeZigZag64(n: 14927)), "")
+        XCTAssertTrue(-3612 == WireFormat.encodeZigZag64(n: WireFormat.decodeZigZag64(n: -3612)), "")
         
-        XCTAssertTrue(856912304801416 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(856912304801416)), "")
-        XCTAssertTrue(-75123905439571256 == WireFormat.encodeZigZag64(WireFormat.decodeZigZag64(-75123905439571256)), "")
+        XCTAssertTrue(856912304801416 == WireFormat.encodeZigZag64(n: WireFormat.decodeZigZag64(n: 856912304801416)), "")
+        XCTAssertTrue(-75123905439571256 == WireFormat.encodeZigZag64(n: WireFormat.decodeZigZag64(n: -75123905439571256)), "")
     }
     
     func testWriteWholeMessage()
@@ -326,13 +325,14 @@ internal class CodedOuputStreamTests: XCTestCase
             XCTAssertTrue(rawBytes == goldenData, "")
         
         // Try different block sizes.
-            var blockSize:Int32 = 1
-            while blockSize <= 1256 {
+            
+            var blockSize:Int = 1
+            while blockSize <= 256 {
                 let rawOutput = openMemoryStream()
-                let output:CodedOutputStream = CodedOutputStream(output:rawOutput, bufferSize:Int32(blockSize))
-                try message.writeToCodedOutputStream(output)
+                let output:CodedOutputStream = CodedOutputStream(stream:rawOutput, bufferSize:blockSize)
+                try message.writeTo(codedOutputStream:output)
                 try output.flush()
-                let actual = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as! NSData
+                let actual = rawOutput.property(forKey: Stream.PropertyKey.dataWrittenToMemoryStreamKey) as! Data
                 XCTAssertTrue(rawBytes == actual, "")
                 blockSize *= 2
             }
@@ -347,18 +347,18 @@ internal class CodedOuputStreamTests: XCTestCase
     func testDelimitedEncodingEncoding()
     {
          do {
-            let str =  (NSBundle(forClass:TestUtilities.self).resourcePath! as NSString).stringByAppendingPathComponent("delimitedFile.dat")
+            let str =  (Bundle(for:TestUtilities.self).resourcePath! as NSString).appendingPathComponent("delimitedFile.dat")
             let stream = NSOutputStream(toFileAtPath: str, append: false)
             stream?.open()
             for i in 1...100 {
                 let mes = try PBProtoPoint.Builder().setLatitude(1.0).setLongitude(Float(i)).build()
-                try mes.writeDelimitedToOutputStream(stream!)
+                try mes.writeDelimitedTo(outputStream:stream!)
             }
             stream?.close()
             
-            let input = NSInputStream(fileAtPath: str)
+            let input = InputStream(fileAtPath: str)
             input?.open()
-            let message = try PBProtoPoint.parseArrayDelimitedFromInputStream(input!)
+            let message = try PBProtoPoint.parseArrayDelimitedFrom(inputStream:input!)
             XCTAssertTrue(message[1].longitude == 2.0, "")
         }
         catch

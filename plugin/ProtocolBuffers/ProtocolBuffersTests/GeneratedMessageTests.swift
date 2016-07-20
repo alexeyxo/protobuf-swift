@@ -41,28 +41,12 @@ class GeneratedMessageTests: XCTestCase {
         
     }
     
-    func testAccessorsJSON()
-    {
-        let builder = ProtobufUnittest.TestAllTypes.Builder()
-        do {
-            try TestUtilities.setAllFields(builder)
-            let message = try builder.build()
-            let messageData = try message.toJSON()
-            let message2 = try ProtobufUnittest.TestAllTypes.fromJSON(messageData)
-            TestUtilities.assertAllFieldsSet(message2)
-        }
-        catch {
-            XCTFail("testAccessorsJSON")
-        }
-        
-    }
-    
     func testRepeatedAppend()
     {
         
         let builder = ProtobufUnittest.TestAllTypes.Builder()
         builder.repeatedInt32 = [1,2,3,4]
-        builder.repeatedForeignEnum = [ProtobufUnittest.ForeignEnum.ForeignBaz]
+        builder.repeatedForeignEnum = [ProtobufUnittest.ForeignEnum.foreignBaz]
         let foreignMessageBuilder = ProtobufUnittest.ForeignMessage.Builder()
         foreignMessageBuilder.c = 12
         
@@ -83,14 +67,14 @@ class GeneratedMessageTests: XCTestCase {
     {
         let  builder1 = ProtobufUnittest.TestAllExtensions.Builder()
         do {
-            try builder1.setExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension(), value:Int32(1))
-            XCTAssertTrue(builder1.hasExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension()), "")
-            builder1.clearExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension())
-            XCTAssertFalse(builder1.hasExtension(ProtobufUnittest.UnittestRoot.optionalInt32Extension()), "")
+            try builder1.setExtension(extensions:ProtobufUnittest.UnittestRoot.optionalInt32Extension(), value:Int32(1))
+            XCTAssertTrue(builder1.hasExtension(extensions:ProtobufUnittest.UnittestRoot.optionalInt32Extension()), "")
+            builder1.clearExtension(extensions: ProtobufUnittest.UnittestRoot.optionalInt32Extension())
+            XCTAssertFalse(builder1.hasExtension(extensions:ProtobufUnittest.UnittestRoot.optionalInt32Extension()), "")
             
             let builder2 = ProtobufUnittest.TestAllExtensions.Builder()
-            try builder2.addExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), value:Int32(1))
-            if let val = builder2.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
+            try builder2.addExtension(extensions: ProtobufUnittest.UnittestRoot.repeatedInt32Extension(), value:Int32(1))
+            if let val = builder2.getExtension(extensions:ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
             {
                 XCTAssertTrue(1 == val.count, "")
             }
@@ -98,9 +82,9 @@ class GeneratedMessageTests: XCTestCase {
             {
                 XCTAssertTrue(false, "")
             }
-            builder2.clearExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension())
+            builder2.clearExtension(extensions: ProtobufUnittest.UnittestRoot.repeatedInt32Extension())
             
-            if let val = builder2.getExtension(ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
+            if let val = builder2.getExtension(extensions:ProtobufUnittest.UnittestRoot.repeatedInt32Extension()) as? [Int32]
             {
                 XCTAssertTrue(0 == val.count, "")
             }
@@ -152,7 +136,7 @@ class GeneratedMessageTests: XCTestCase {
             try TestUtilities.modifyRepeatedExtensions(builder)
             let message = try builder.build()
             TestUtilities.assertRepeatedExtensionsModified(message)
-            let message2 = try ProtobufUnittest.TestAllExtensions.Builder().mergeFrom(message).build()
+            let message2 = try ProtobufUnittest.TestAllExtensions.Builder().mergeFrom(other:message).build()
             TestUtilities.assertRepeatedExtensionsModified(message2)
         }
         catch {

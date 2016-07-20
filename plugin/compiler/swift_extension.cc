@@ -142,58 +142,58 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         switch (descriptor_->type()) {
             case FieldDescriptor::TYPE_INT32:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeInt32";
+                vars["extension_type"] = "ExtensionType.extensionTypeInt32";
                 break;
             case FieldDescriptor::TYPE_UINT32:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeUInt32";
+                vars["extension_type"] = "ExtensionType.extensionTypeUInt32";
                 break;
             case FieldDescriptor::TYPE_SINT32:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeSInt32";
+                vars["extension_type"] = "ExtensionType.extensionTypeSInt32";
                 break;
             case FieldDescriptor::TYPE_FIXED32:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeFixed32";
+                vars["extension_type"] = "ExtensionType.extensionTypeFixed32";
                 break;
             case FieldDescriptor::TYPE_SFIXED32:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeSFixed32";
+                vars["extension_type"] = "ExtensionType.extensionTypeSFixed32";
                 break;
             case FieldDescriptor::TYPE_INT64:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeInt64";
+                vars["extension_type"] = "ExtensionType.extensionTypeInt64";
                 break;
             case FieldDescriptor::TYPE_UINT64:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeUInt64";
+                vars["extension_type"] = "ExtensionType.extensionTypeUInt64";
                 break;
             case FieldDescriptor::TYPE_SINT64:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeSInt64";
+                vars["extension_type"] = "ExtensionType.extensionTypeSInt64";
                 break;
             case FieldDescriptor::TYPE_FIXED64:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeFixed64";
+                vars["extension_type"] = "ExtensionType.extensionTypeFixed64";
                 break;
             case FieldDescriptor::TYPE_SFIXED64:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeSFixed64";
+                vars["extension_type"] = "ExtensionType.extensionTypeSFixed64";
                 break;
             case FieldDescriptor::TYPE_FLOAT:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeFloat";
+                vars["extension_type"] = "ExtensionType.extensionTypeFloat";
                 break;
             case FieldDescriptor::TYPE_DOUBLE:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeDouble";
+                vars["extension_type"] = "ExtensionType.extensionTypeDouble";
                 break;
             case FieldDescriptor::TYPE_BOOL:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeBool";
+                vars["extension_type"] = "ExtensionType.extensionTypeBool";
                 break;
             case FieldDescriptor::TYPE_STRING:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeString";
+                vars["extension_type"] = "ExtensionType.extensionTypeString";
                 break;
             case FieldDescriptor::TYPE_BYTES:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeBytes";
+                vars["extension_type"] = "ExtensionType.extensionTypeBytes";
                 break;
             case FieldDescriptor::TYPE_MESSAGE:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeMessage";
+                vars["extension_type"] = "ExtensionType.extensionTypeMessage";
                 break;
             case FieldDescriptor::TYPE_ENUM:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeEnum";
+                vars["extension_type"] = "ExtensionType.extensionTypeEnum";
                 break;
             case FieldDescriptor::TYPE_GROUP:
-                vars["extension_type"] = "ExtensionType.ExtensionTypeGroup";
+                vars["extension_type"] = "ExtensionType.extensionTypeGroup";
                 break;
         }
         
@@ -225,7 +225,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void ExtensionGenerator::GenerateRegistrationSource(io::Printer* printer) {
         printer->Print(
-                       "registry.addExtension($scope$$name$Static)\n",
+                       "registry.addExtension(extensions: $scope$$name$Static)\n",
                        "scope", classname_,
                        "name", UnderscoresToCamelCase(descriptor_));
     }

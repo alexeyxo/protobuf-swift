@@ -30,27 +30,27 @@ public extension ProtobufUnittestImport {
 
     init() {
       extensionRegistry = ExtensionRegistry()
-      registerAllExtensions(extensionRegistry)
+      registerAllExtensions(registry: extensionRegistry)
     }
-    public func registerAllExtensions(registry:ExtensionRegistry) {
+    public func registerAllExtensions(registry: ExtensionRegistry) {
     }
   }
 
   final public class PublicImportMessage : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hasE:Bool = false
     public private(set) var e:Int32 = Int32(0)
 
+    public private(set) var hasE:Bool = false
     required public init() {
          super.init()
     }
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasE {
-        try output.writeInt32(1, value:e)
+        try codedOutputStream.writeInt32(fieldNumber: 1, value:e)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -60,39 +60,39 @@ public extension ProtobufUnittestImport {
 
       serialize_size = 0
       if hasE {
-        serialize_size += e.computeInt32Size(1)
+        serialize_size += e.computeInt32Size(fieldNumber: 1)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<ProtobufUnittestImport.PublicImportMessage> {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestImport.PublicImportMessage> {
       var mergedArray = Array<ProtobufUnittestImport.PublicImportMessage>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
-        mergedArray += [value]
+      while let value = try parseDelimitedFrom(inputStream: inputStream) {
+        mergedArray.append(value)
       }
       return mergedArray
     }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> ProtobufUnittestImport.PublicImportMessage? {
-      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeDelimitedFromInputStream(input)?.build()
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestImport.PublicImportMessage? {
+      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
     }
-    public class func parseFromData(data:NSData) throws -> ProtobufUnittestImport.PublicImportMessage {
-      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFromData(data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicRoot.sharedInstance.extensionRegistry).build()
+    public class func parseFrom(data: Data) throws -> ProtobufUnittestImport.PublicImportMessage {
+      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicRoot.sharedInstance.extensionRegistry).build()
     }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessage {
-      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessage {
+      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromInputStream(input:NSInputStream) throws -> ProtobufUnittestImport.PublicImportMessage {
-      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFromInputStream(input).build()
+    public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestImport.PublicImportMessage {
+      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFrom(inputStream: inputStream).build()
     }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessage {
-      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessage {
+      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittestImport.PublicImportMessage {
-      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFromCodedInputStream(input).build()
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestImport.PublicImportMessage {
+      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
     }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessage {
-      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessage {
+      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittestImport.PublicImportMessage.Builder {
       return ProtobufUnittestImport.PublicImportMessage.classBuilder() as! ProtobufUnittestImport.PublicImportMessage.Builder
@@ -107,34 +107,34 @@ public extension ProtobufUnittestImport {
       return ProtobufUnittestImport.PublicImportMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
-      return try ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(self)
+      return try ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittestImport.PublicImportMessage) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
-      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFrom(prototype)
+      return try ProtobufUnittestImport.PublicImportMessage.Builder().mergeFrom(other:prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
-        throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasE {
-        jsonMap["e"] = NSNumber(int:e)
+        jsonMap["e"] = NSNumber(value:e)
       }
       return jsonMap
     }
     override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittestImport.PublicImportMessage {
-      return try ProtobufUnittestImport.PublicImportMessage.Builder.decodeToBuilder(jsonMap).build()
+      return try ProtobufUnittestImport.PublicImportMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:NSData) throws -> ProtobufUnittestImport.PublicImportMessage {
-      return try ProtobufUnittestImport.PublicImportMessage.Builder.fromJSONToBuilder(data).build()
+    override class public func fromJSON(data:Data) throws -> ProtobufUnittestImport.PublicImportMessage {
+      return try ProtobufUnittestImport.PublicImportMessage.Builder.fromJSONToBuilder(data:data).build()
     }
     override public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasE {
         output += "\(indent) e: \(e) \n"
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -185,7 +185,7 @@ public extension ProtobufUnittestImport {
                builderResult.e = value
            }
       }
-      public func setE(value:Int32) -> ProtobufUnittestImport.PublicImportMessage.Builder {
+      public func setE(_ value:Int32) -> ProtobufUnittestImport.PublicImportMessage.Builder {
         self.e = value
         return self
       }
@@ -204,7 +204,7 @@ public extension ProtobufUnittestImport {
         return self
       }
       override public func clone() throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
-        return try ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(builderResult)
+        return try ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(prototype:builderResult)
       }
       override public func build() throws -> ProtobufUnittestImport.PublicImportMessage {
            try checkInitialized()
@@ -221,26 +221,26 @@ public extension ProtobufUnittestImport {
         if other.hasE {
              e = other.e
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
-          let protobufTag = try input.readTag()
+          let protobufTag = try codedInputStream.readTag()
           switch protobufTag {
           case 0: 
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
           case 8:
-            e = try input.readInt32()
+            e = try codedInputStream.readInt32()
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -250,16 +250,16 @@ public extension ProtobufUnittestImport {
       override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittestImport.PublicImportMessage.Builder()
         if let jsonValueE = jsonMap["e"] as? NSNumber {
-          resultDecodedBuilder.e = jsonValueE.intValue
+          resultDecodedBuilder.e = jsonValueE.int32Value
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:NSData) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
-        let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
-          throw ProtocolBuffersError.InvalidProtocolBuffer("Invalid JSON data")
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
-        return try ProtobufUnittestImport.PublicImportMessage.Builder.decodeToBuilder(jsDataCast)
+        return try ProtobufUnittestImport.PublicImportMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)
       }
     }
 
