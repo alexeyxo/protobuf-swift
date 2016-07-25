@@ -315,11 +315,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     string ClassNameWorker(const Descriptor* descriptor) {
         string name = "";
-        name += FileClassPrefix(descriptor->file());
         if (descriptor->containing_type() != NULL) {
-            name = ClassNameWorker(descriptor->containing_type());
+            name += ClassNameWorker(descriptor->containing_type());
             name += ".";
         }
+        name += FileClassPrefix(descriptor->file());
         return CheckReservedNames(name + UnderscoresToCapitalizedCamelCase(descriptor->name()));
     }
     ////
