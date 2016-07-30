@@ -78,7 +78,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 }
             }
 
-            printer->Print("case $name$ = $value$\n",
+            printer->Print("case `$name$` = $value$\n",
                            "name", EnumValueName(canonical_values_[i]),
                            "value", SimpleItoa(canonical_values_[i]->number()));
         }
