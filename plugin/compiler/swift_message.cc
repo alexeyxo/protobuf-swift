@@ -217,11 +217,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(variables_,
-                           "final $acontrol$ class $className$ : ExtendableMessage, GeneratedMessageProtocol{\n"
+                           "final $acontrol$ class $className$ : ExtendableMessage {\n"
                           );
         } else {
             printer->Print(variables_,
-                           "final $acontrol$ class $className$ : GeneratedMessage, GeneratedMessageProtocol {\n"
+                           "final $acontrol$ class $className$ : GeneratedMessage {\n"
                            );
         }
         printer->Indent();
@@ -299,7 +299,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         GenerateIsInitializedSource(printer);
         GenerateMessageSerializationMethodsSource(printer);
         
-        GenerateParseFromMethodsSource(printer);
+//        GenerateParseFromMethodsSource(printer);
     
         printer->Print(variables_,
                        "$acontrol$ class func getBuilder() -> $classNameReturnedType$.Builder {\n"
@@ -560,6 +560,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void MessageGenerator::GenerateParseFromMethodsSource(io::Printer* printer) {
+        
+        printer->Print(variables_,"extension $classNameReturnedType$: GeneratedMessageProtocol {\n");
+        printer->Indent();
         printer->Print(variables_,
                        "$acontrol$ class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<$classNameReturnedType$> {\n"
                        "  var mergedArray = Array<$classNameReturnedType$>()\n"
@@ -589,6 +592,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrol$ class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()\n"
                        "}\n");
+      
+        printer->Outdent();
+       
+        printer->Print(
+                      "}\n");
+        for (int i = 0; i < descriptor_->nested_type_count(); i++) {
+            MessageGenerator(descriptor_->nested_type(i)).GenerateParseFromMethodsSource(printer);
+        }
     }
     
     

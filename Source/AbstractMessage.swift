@@ -20,8 +20,7 @@ import Foundation
 
 public typealias ONEOF_NOT_SET = Int
 
-public protocol MessageInit:class {
-    init()
+public protocol MessageInit {
 }
 
 public enum ProtocolBuffersError: ErrorProtocol {
@@ -33,7 +32,7 @@ public enum ProtocolBuffersError: ErrorProtocol {
     case outOfSpace
 }
 
-public protocol Message:class,MessageInit {
+public protocol Message:MessageInit {
     var unknownFields:UnknownFieldSet{get}
     func serializedSize() -> Int32
     func isInitialized() -> Bool
@@ -45,7 +44,7 @@ public protocol Message:class,MessageInit {
     
 }
 
-public protocol MessageBuilder: class {
+public protocol MessageBuilder {
      var unknownFields:UnknownFieldSet{get set}
      func clear() -> Self
      func isInitialized()-> Bool
@@ -71,7 +70,7 @@ public class AbstractMessage:Hashable, Message {
         unknownFields = UnknownFieldSet(fields: Dictionary())
     }
 
-    public func data() -> Data {
+    final public func data() -> Data {
         let ser_size = serializedSize()
         let data = Data(count: Int(ser_size))!
         let stream:CodedOutputStream = CodedOutputStream(data: data)
@@ -96,7 +95,7 @@ public class AbstractMessage:Hashable, Message {
         throw ProtocolBuffersError.obvious("Override")
     }
     
-    public func writeTo(outputStream: NSOutputStream) throws {
+    final public func writeTo(outputStream: NSOutputStream) throws {
         let codedOutput:CodedOutputStream = CodedOutputStream(stream:outputStream)
         try! writeTo(codedOutputStream: codedOutput)
         try codedOutput.flush()
@@ -164,7 +163,7 @@ public class AbstractMessageBuilder:MessageBuilder {
         return self
     }
     
-    public func mergeFrom(data:Data) throws ->  Self {
+    final public func mergeFrom(data:Data) throws ->  Self {
         let input:CodedInputStream = CodedInputStream(data:data)
         _ = try mergeFrom(codedInputStream: input)
         try input.checkLastTagWas(value: 0)
@@ -172,14 +171,14 @@ public class AbstractMessageBuilder:MessageBuilder {
     }
     
     
-    public func mergeFrom(data:Data, extensionRegistry:ExtensionRegistry) throws ->  Self {
+    final public func mergeFrom(data:Data, extensionRegistry:ExtensionRegistry) throws ->  Self {
         let input:CodedInputStream = CodedInputStream(data:data)
         _ = try mergeFrom(codedInputStream: input, extensionRegistry:extensionRegistry)
         try input.checkLastTagWas(value: 0)
         return self
     }
     
-    public func mergeFrom(inputStream: InputStream) throws -> Self {
+    final public func mergeFrom(inputStream: InputStream) throws -> Self {
         let codedInput:CodedInputStream = CodedInputStream(stream: inputStream)
         _ = try mergeFrom(codedInputStream: codedInput)
         try codedInput.checkLastTagWas(value: 0)
@@ -187,7 +186,7 @@ public class AbstractMessageBuilder:MessageBuilder {
         
         
     }
-    public func mergeFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Self {
+    final public func mergeFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Self {
         let codedInput:CodedInputStream = CodedInputStream(stream: inputStream)
         _ = try mergeFrom(codedInputStream: codedInput, extensionRegistry:extensionRegistry)
         try codedInput.checkLastTagWas(value: 0)

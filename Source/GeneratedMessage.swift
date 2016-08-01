@@ -17,7 +17,7 @@
 
 import Foundation
 
-public protocol GeneratedMessageProtocol: class, Message
+public protocol GeneratedMessageProtocol: Message
 {
     static func parseFrom(data:Data) throws -> Self
     static func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> Self

@@ -159,9 +159,13 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
             MessageGenerator(file_->message_type(i)).GenerateSource(printer);
         }
         
-       if (tokens.size() > 0) {
+        if (tokens.size() > 0) {
             printer->Outdent();
             printer->Print("}\n");
+        }
+        
+        for (int i = 0; i < file_->message_type_count(); i++) {
+            MessageGenerator(file_->message_type(i)).GenerateParseFromMethodsSource(printer);
         }
 
         printer->Print(

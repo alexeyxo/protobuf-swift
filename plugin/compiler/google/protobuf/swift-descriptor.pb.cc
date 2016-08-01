@@ -86,15 +86,15 @@ void protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n&google/protobuf/swift-descriptor.proto"
     "\022\017google.protobuf\032 google/protobuf/descr"
-    "iptor.proto\"\240\001\n\020SwiftFileOptions\022\024\n\014clas"
-    "s_prefix\030\001 \001(\t\022Q\n\027entities_access_contro"
+    "iptor.proto\"\236\001\n\020SwiftFileOptions\022\024\n\014clas"
+    "s_prefix\030\001 \001(\t\022O\n\027entities_access_contro"
     "l\030\002 \001(\0162\036.google.protobuf.AccessControl:"
-    "\020InternalEntities\022#\n\025compile_for_framewo"
-    "rk\030\003 \001(\010:\004true*9\n\rAccessControl\022\024\n\020Inter"
-    "nalEntities\020\000\022\022\n\016PublicEntities\020\001:^\n\022swi"
-    "ft_file_options\022\034.google.protobuf.FileOp"
-    "tions\030\256\345\266\002 \001(\0132!.google.protobuf.SwiftFi"
-    "leOptionsB\016\362\252\266\023\002\030\000\362\252\266\023\002\020\001", 425);
+    "\016PublicEntities\022#\n\025compile_for_framework"
+    "\030\003 \001(\010:\004true*9\n\rAccessControl\022\024\n\020Interna"
+    "lEntities\020\000\022\022\n\016PublicEntities\020\001:^\n\022swift"
+    "_file_options\022\034.google.protobuf.FileOpti"
+    "ons\030\256\345\266\002 \001(\0132!.google.protobuf.SwiftFile"
+    "OptionsB\016\362\252\266\023\002\030\000\362\252\266\023\002\020\001", 423);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "google/protobuf/swift-descriptor.proto", &protobuf_RegisterTypes);
   SwiftFileOptions::default_instance_ = new SwiftFileOptions();
@@ -155,7 +155,7 @@ void SwiftFileOptions::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   class_prefix_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  entities_access_control_ = 0;
+  entities_access_control_ = 1;
   compile_for_framework_ = true;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -201,7 +201,7 @@ void SwiftFileOptions::Clear() {
         class_prefix_->clear();
       }
     }
-    entities_access_control_ = 0;
+    entities_access_control_ = 1;
     compile_for_framework_ = true;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -234,7 +234,7 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+      // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
       case 2: {
         if (tag == 16) {
          parse_entities_access_control:
@@ -304,7 +304,7 @@ void SwiftFileOptions::SerializeWithCachedSizes(
       1, this->class_prefix(), output);
   }
 
-  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
   if (has_entities_access_control()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->entities_access_control(), output);
@@ -336,7 +336,7 @@ void SwiftFileOptions::SerializeWithCachedSizes(
         1, this->class_prefix(), target);
   }
 
-  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
   if (has_entities_access_control()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       2, this->entities_access_control(), target);
@@ -366,7 +366,7 @@ int SwiftFileOptions::ByteSize() const {
           this->class_prefix());
     }
 
-    // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+    // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
     if (has_entities_access_control()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->entities_access_control());

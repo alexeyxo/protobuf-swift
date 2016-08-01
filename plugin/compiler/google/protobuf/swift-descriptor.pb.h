@@ -124,7 +124,7 @@ class SwiftFileOptions : public ::google::protobuf::Message {
   inline ::std::string* release_class_prefix();
   inline void set_allocated_class_prefix(::std::string* class_prefix);
 
-  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
   inline bool has_entities_access_control() const;
   inline void clear_entities_access_control();
   static const int kEntitiesAccessControlFieldNumber = 2;
@@ -248,7 +248,7 @@ inline void SwiftFileOptions::set_allocated_class_prefix(::std::string* class_pr
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.SwiftFileOptions.class_prefix)
 }
 
-// optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+// optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
 inline bool SwiftFileOptions::has_entities_access_control() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -259,7 +259,7 @@ inline void SwiftFileOptions::clear_has_entities_access_control() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void SwiftFileOptions::clear_entities_access_control() {
-  entities_access_control_ = 0;
+  entities_access_control_ = 1;
   clear_has_entities_access_control();
 }
 inline ::google::protobuf::AccessControl SwiftFileOptions::entities_access_control() const {

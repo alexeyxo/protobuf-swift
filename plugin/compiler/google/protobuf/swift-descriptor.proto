@@ -26,7 +26,7 @@ enum AccessControl {
 message SwiftFileOptions {
 
   optional string class_prefix = 1;
-  optional AccessControl entities_access_control = 2 [default = InternalEntities];
+  optional AccessControl entities_access_control = 2 [default = PublicEntities];
   optional bool compile_for_framework = 3 [default = true];
 }
 

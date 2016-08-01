@@ -48,10 +48,11 @@ namespace google {
                     void GenerateExtensionRegistrationSource(io::Printer* printer);
                     void DetermineDependencies(set<string>* dependencies);
                     void GenerateGlobalStaticVariablesSource(io::Printer* printer, string rootclass);
+                    void GenerateParseFromMethodsSource(io::Printer* printer);
                 private:
                     
                     void GenerateMessageSerializationMethodsSource(io::Printer* printer);
-                    void GenerateParseFromMethodsSource(io::Printer* printer);
+                    
                     void GenerateSerializeOneFieldSource(io::Printer* printer,
                                                          const FieldDescriptor* field);
                     void GenerateSerializeOneExtensionRangeSource(
