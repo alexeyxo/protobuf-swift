@@ -2,7 +2,7 @@ syntax = "proto2";
 
 import "google/protobuf/swift-descriptor.proto";
 
-option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
+option (.google.protobuf.swift_file_options).entities_access_control = InternalEntities;
 option (.google.protobuf.swift_file_options).class_prefix = "PB";
 
 message User {
