@@ -5,7 +5,7 @@ import Foundation
 import ProtocolBuffers
 
 
-public func == (lhs: PBUser, rhs: PBUser) -> Bool {
+internal func == (lhs: PBUser, rhs: PBUser) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -15,7 +15,7 @@ public func == (lhs: PBUser, rhs: PBUser) -> Bool {
   return fieldCheck
 }
 
-public func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
+internal func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -25,7 +25,7 @@ public func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
   return fieldCheck
 }
 
-public func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
+internal func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -35,7 +35,7 @@ public func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
   return fieldCheck
 }
 
-public func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
+internal func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -51,7 +51,7 @@ public func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
   return fieldCheck
 }
 
-public func == (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
+internal func == (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -62,7 +62,7 @@ public func == (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
   return fieldCheck
 }
 
-public func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
+internal func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -73,40 +73,40 @@ public func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
   return fieldCheck
 }
 
-public struct PerformanceRoot {
-  public static var sharedInstance : PerformanceRoot {
+internal struct PerformanceRoot {
+  internal static var sharedInstance : PerformanceRoot {
    struct Static {
        static let instance : PerformanceRoot = PerformanceRoot()
    }
    return Static.instance
   }
-  public var extensionRegistry:ExtensionRegistry
+  internal var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(registry: extensionRegistry)
     Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
   }
-  public func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
-final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
-  public private(set) var group:PBGroup!
-  public private(set) var hasGroup:Bool = false
-  required public init() {
+final internal class PBUser : GeneratedMessage {
+  internal private(set) var group:PBGroup!
+  internal private(set) var hasGroup:Bool = false
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeTo(codedOutputStream:CodedOutputStream) throws {
+  override internal func writeTo(codedOutputStream:CodedOutputStream) throws {
     if hasGroup {
       try codedOutputStream.writeMessage(fieldNumber:1, value:group)
     }
     try unknownFields.writeTo(codedOutputStream:codedOutputStream)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -122,53 +122,25 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
     memoizedSerializedSize = serialize_size
     return serialize_size
   }
-  public class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<PBUser> {
-    var mergedArray = Array<PBUser>()
-    while let value = try parseDelimitedFrom(inputStream: inputStream) {
-      mergedArray += [value]
-    }
-    return mergedArray
-  }
-  public class func parseDelimitedFrom(inputStream:InputStream) throws -> PBUser? {
-    return try PBUser.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
-  }
-  public class func parseFrom(data:Data) throws -> PBUser {
-    return try PBUser.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
-  }
-  public class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> PBUser {
-    return try PBUser.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(inputStream:InputStream) throws -> PBUser {
-    return try PBUser.Builder().mergeFrom(inputStream: inputStream).build()
-  }
-  public class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> PBUser {
-    return try PBUser.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(codedInputStream:CodedInputStream) throws -> PBUser {
-    return try PBUser.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-  }
-  public class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBUser {
-    return try PBUser.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func getBuilder() -> PBUser.Builder {
+  internal class func getBuilder() -> PBUser.Builder {
     return PBUser.classBuilder() as! PBUser.Builder
   }
-  public func getBuilder() -> PBUser.Builder {
+  internal func getBuilder() -> PBUser.Builder {
     return classBuilder() as! PBUser.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBUser.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBUser.Builder()
   }
-  public func toBuilder() throws -> PBUser.Builder {
+  internal func toBuilder() throws -> PBUser.Builder {
     return try PBUser.builderWithPrototype(prototype: self)
   }
-  public class func builderWithPrototype(prototype:PBUser) throws -> PBUser.Builder {
+  internal class func builderWithPrototype(prototype:PBUser) throws -> PBUser.Builder {
     return try PBUser.Builder().mergeFrom(other: prototype)
   }
-  override public func getDescription(indent:String) throws -> String {
+  override internal func getDescription(indent:String) throws -> String {
     var output:String = ""
     if hasGroup {
       output += "\(indent) group {\n"
@@ -180,7 +152,7 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
     output += unknownFields.getDescription(indent: indent)
     return output
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasGroup {
@@ -196,32 +168,32 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBUser"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBUser"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBUser.self
   }
   //Meta information declaration end
 
-  final public class Builder : GeneratedMessageBuilder {
+  final internal class Builder : GeneratedMessageBuilder {
     private var builderResult:PBUser = PBUser()
-    public func getMessage() -> PBUser {
+    internal func getMessage() -> PBUser {
         return builderResult
     }
 
-    required override public init () {
+    required override internal init () {
        super.init()
     }
-    public var hasGroup:Bool {
+    internal var hasGroup:Bool {
          get {
              return builderResult.hasGroup
          }
     }
-    public var group:PBGroup! {
+    internal var group:PBGroup! {
          get {
              if groupBuilder_ != nil {
                 builderResult.group = groupBuilder_.getMessage()
@@ -238,7 +210,7 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
             builderResult.hasGroup = true
          }
     }
-    public func getGroupBuilder() -> PBGroup.Builder {
+    internal func getGroupBuilder() -> PBGroup.Builder {
       if groupBuilder_ == nil {
          groupBuilder_ = PBGroup.Builder()
          builderResult.group = groupBuilder_.getMessage()
@@ -248,11 +220,11 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
       }
       return groupBuilder_
     }
-    public func setGroup(_ value:PBGroup!) -> PBUser.Builder {
+    internal func setGroup(_ value:PBGroup!) -> PBUser.Builder {
       self.group = value
       return self
     }
-    public func mergeGroup(value:PBGroup) throws -> PBUser.Builder {
+    internal func mergeGroup(value:PBGroup) throws -> PBUser.Builder {
       if builderResult.hasGroup {
         builderResult.group = try PBGroup.builderWithPrototype(prototype: builderResult.group).mergeFrom(other: value).buildPartial()
       } else {
@@ -261,33 +233,33 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
       builderResult.hasGroup = true
       return self
     }
-    public func clearGroup() -> PBUser.Builder {
+    internal func clearGroup() -> PBUser.Builder {
       groupBuilder_ = nil
       builderResult.hasGroup = false
       builderResult.group = nil
       return self
     }
-    override public var internalGetResult:GeneratedMessage {
+    override internal var internalGetResult:GeneratedMessage {
          get {
             return builderResult
          }
     }
-    public override func clear() -> PBUser.Builder {
+    internal override func clear() -> PBUser.Builder {
       builderResult = PBUser()
       return self
     }
-    public override func clone() throws -> PBUser.Builder {
+    internal override func clone() throws -> PBUser.Builder {
       return try PBUser.builderWithPrototype(prototype: builderResult)
     }
-    public override func build() throws -> PBUser {
+    internal override func build() throws -> PBUser {
          try checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> PBUser {
+    internal func buildPartial() -> PBUser {
       let returnMe:PBUser = builderResult
       return returnMe
     }
-    public func mergeFrom(other:PBUser) throws -> PBUser.Builder {
+    internal func mergeFrom(other:PBUser) throws -> PBUser.Builder {
       if other == PBUser() {
        return self
       }
@@ -297,10 +269,10 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
       _ = try merge(unknownField: other.unknownFields)
       return self
     }
-    public override func mergeFrom(codedInputStream:CodedInputStream) throws -> PBUser.Builder {
+    internal override func mergeFrom(codedInputStream:CodedInputStream) throws -> PBUser.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBUser.Builder {
+    internal override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBUser.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
       while (true) {
         let protobufTag = try codedInputStream.readTag()
@@ -329,22 +301,22 @@ final public class PBUser : GeneratedMessage, GeneratedMessageProtocol {
 
 }
 
-final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
-  public private(set) var owner:PBUser!
-  public private(set) var hasOwner:Bool = false
-  required public init() {
+final internal class PBGroup : GeneratedMessage {
+  internal private(set) var owner:PBUser!
+  internal private(set) var hasOwner:Bool = false
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeTo(codedOutputStream:CodedOutputStream) throws {
+  override internal func writeTo(codedOutputStream:CodedOutputStream) throws {
     if hasOwner {
       try codedOutputStream.writeMessage(fieldNumber:1, value:owner)
     }
     try unknownFields.writeTo(codedOutputStream:codedOutputStream)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -360,53 +332,25 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
     memoizedSerializedSize = serialize_size
     return serialize_size
   }
-  public class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<PBGroup> {
-    var mergedArray = Array<PBGroup>()
-    while let value = try parseDelimitedFrom(inputStream: inputStream) {
-      mergedArray += [value]
-    }
-    return mergedArray
-  }
-  public class func parseDelimitedFrom(inputStream:InputStream) throws -> PBGroup? {
-    return try PBGroup.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
-  }
-  public class func parseFrom(data:Data) throws -> PBGroup {
-    return try PBGroup.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
-  }
-  public class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> PBGroup {
-    return try PBGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(inputStream:InputStream) throws -> PBGroup {
-    return try PBGroup.Builder().mergeFrom(inputStream: inputStream).build()
-  }
-  public class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> PBGroup {
-    return try PBGroup.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(codedInputStream:CodedInputStream) throws -> PBGroup {
-    return try PBGroup.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-  }
-  public class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBGroup {
-    return try PBGroup.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func getBuilder() -> PBGroup.Builder {
+  internal class func getBuilder() -> PBGroup.Builder {
     return PBGroup.classBuilder() as! PBGroup.Builder
   }
-  public func getBuilder() -> PBGroup.Builder {
+  internal func getBuilder() -> PBGroup.Builder {
     return classBuilder() as! PBGroup.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBGroup.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBGroup.Builder()
   }
-  public func toBuilder() throws -> PBGroup.Builder {
+  internal func toBuilder() throws -> PBGroup.Builder {
     return try PBGroup.builderWithPrototype(prototype: self)
   }
-  public class func builderWithPrototype(prototype:PBGroup) throws -> PBGroup.Builder {
+  internal class func builderWithPrototype(prototype:PBGroup) throws -> PBGroup.Builder {
     return try PBGroup.Builder().mergeFrom(other: prototype)
   }
-  override public func getDescription(indent:String) throws -> String {
+  override internal func getDescription(indent:String) throws -> String {
     var output:String = ""
     if hasOwner {
       output += "\(indent) owner {\n"
@@ -418,7 +362,7 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
     output += unknownFields.getDescription(indent: indent)
     return output
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasOwner {
@@ -434,32 +378,32 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBGroup"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBGroup"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBGroup.self
   }
   //Meta information declaration end
 
-  final public class Builder : GeneratedMessageBuilder {
+  final internal class Builder : GeneratedMessageBuilder {
     private var builderResult:PBGroup = PBGroup()
-    public func getMessage() -> PBGroup {
+    internal func getMessage() -> PBGroup {
         return builderResult
     }
 
-    required override public init () {
+    required override internal init () {
        super.init()
     }
-    public var hasOwner:Bool {
+    internal var hasOwner:Bool {
          get {
              return builderResult.hasOwner
          }
     }
-    public var owner:PBUser! {
+    internal var owner:PBUser! {
          get {
              if ownerBuilder_ != nil {
                 builderResult.owner = ownerBuilder_.getMessage()
@@ -476,7 +420,7 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
             builderResult.hasOwner = true
          }
     }
-    public func getOwnerBuilder() -> PBUser.Builder {
+    internal func getOwnerBuilder() -> PBUser.Builder {
       if ownerBuilder_ == nil {
          ownerBuilder_ = PBUser.Builder()
          builderResult.owner = ownerBuilder_.getMessage()
@@ -486,11 +430,11 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
       }
       return ownerBuilder_
     }
-    public func setOwner(_ value:PBUser!) -> PBGroup.Builder {
+    internal func setOwner(_ value:PBUser!) -> PBGroup.Builder {
       self.owner = value
       return self
     }
-    public func mergeOwner(value:PBUser) throws -> PBGroup.Builder {
+    internal func mergeOwner(value:PBUser) throws -> PBGroup.Builder {
       if builderResult.hasOwner {
         builderResult.owner = try PBUser.builderWithPrototype(prototype: builderResult.owner).mergeFrom(other: value).buildPartial()
       } else {
@@ -499,33 +443,33 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
       builderResult.hasOwner = true
       return self
     }
-    public func clearOwner() -> PBGroup.Builder {
+    internal func clearOwner() -> PBGroup.Builder {
       ownerBuilder_ = nil
       builderResult.hasOwner = false
       builderResult.owner = nil
       return self
     }
-    override public var internalGetResult:GeneratedMessage {
+    override internal var internalGetResult:GeneratedMessage {
          get {
             return builderResult
          }
     }
-    public override func clear() -> PBGroup.Builder {
+    internal override func clear() -> PBGroup.Builder {
       builderResult = PBGroup()
       return self
     }
-    public override func clone() throws -> PBGroup.Builder {
+    internal override func clone() throws -> PBGroup.Builder {
       return try PBGroup.builderWithPrototype(prototype: builderResult)
     }
-    public override func build() throws -> PBGroup {
+    internal override func build() throws -> PBGroup {
          try checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> PBGroup {
+    internal func buildPartial() -> PBGroup {
       let returnMe:PBGroup = builderResult
       return returnMe
     }
-    public func mergeFrom(other:PBGroup) throws -> PBGroup.Builder {
+    internal func mergeFrom(other:PBGroup) throws -> PBGroup.Builder {
       if other == PBGroup() {
        return self
       }
@@ -535,10 +479,10 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
       _ = try merge(unknownField: other.unknownFields)
       return self
     }
-    public override func mergeFrom(codedInputStream:CodedInputStream) throws -> PBGroup.Builder {
+    internal override func mergeFrom(codedInputStream:CodedInputStream) throws -> PBGroup.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBGroup.Builder {
+    internal override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBGroup.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
       while (true) {
         let protobufTag = try codedInputStream.readTag()
@@ -567,12 +511,12 @@ final public class PBGroup : GeneratedMessage, GeneratedMessageProtocol {
 
 }
 
-final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtocol {
-  public private(set) var batch:Array<PBPerfomance> = Array<PBPerfomance>()
-  required public init() {
+final internal class PBPerfomanceBatch : GeneratedMessage {
+  internal private(set) var batch:Array<PBPerfomance> = Array<PBPerfomance>()
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInitbatch:Bool = true
     for oneElementbatch in batch {
         if (!oneElementbatch.isInitialized()) {
@@ -585,13 +529,13 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
      }
    return true
   }
-  override public func writeTo(codedOutputStream:CodedOutputStream) throws {
+  override internal func writeTo(codedOutputStream:CodedOutputStream) throws {
     for oneElementbatch in batch {
         try codedOutputStream.writeMessage(fieldNumber:1, value:oneElementbatch)
     }
     try unknownFields.writeTo(codedOutputStream:codedOutputStream)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -605,53 +549,25 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
     memoizedSerializedSize = serialize_size
     return serialize_size
   }
-  public class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<PBPerfomanceBatch> {
-    var mergedArray = Array<PBPerfomanceBatch>()
-    while let value = try parseDelimitedFrom(inputStream: inputStream) {
-      mergedArray += [value]
-    }
-    return mergedArray
-  }
-  public class func parseDelimitedFrom(inputStream:InputStream) throws -> PBPerfomanceBatch? {
-    return try PBPerfomanceBatch.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
-  }
-  public class func parseFrom(data:Data) throws -> PBPerfomanceBatch {
-    return try PBPerfomanceBatch.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
-  }
-  public class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch {
-    return try PBPerfomanceBatch.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(inputStream:InputStream) throws -> PBPerfomanceBatch {
-    return try PBPerfomanceBatch.Builder().mergeFrom(inputStream: inputStream).build()
-  }
-  public class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch {
-    return try PBPerfomanceBatch.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(codedInputStream:CodedInputStream) throws -> PBPerfomanceBatch {
-    return try PBPerfomanceBatch.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-  }
-  public class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch {
-    return try PBPerfomanceBatch.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func getBuilder() -> PBPerfomanceBatch.Builder {
+  internal class func getBuilder() -> PBPerfomanceBatch.Builder {
     return PBPerfomanceBatch.classBuilder() as! PBPerfomanceBatch.Builder
   }
-  public func getBuilder() -> PBPerfomanceBatch.Builder {
+  internal func getBuilder() -> PBPerfomanceBatch.Builder {
     return classBuilder() as! PBPerfomanceBatch.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBPerfomanceBatch.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBPerfomanceBatch.Builder()
   }
-  public func toBuilder() throws -> PBPerfomanceBatch.Builder {
+  internal func toBuilder() throws -> PBPerfomanceBatch.Builder {
     return try PBPerfomanceBatch.builderWithPrototype(prototype: self)
   }
-  public class func builderWithPrototype(prototype:PBPerfomanceBatch) throws -> PBPerfomanceBatch.Builder {
+  internal class func builderWithPrototype(prototype:PBPerfomanceBatch) throws -> PBPerfomanceBatch.Builder {
     return try PBPerfomanceBatch.Builder().mergeFrom(other: prototype)
   }
-  override public func getDescription(indent:String) throws -> String {
+  override internal func getDescription(indent:String) throws -> String {
     var output:String = ""
     var batchElementIndex:Int = 0
     for oneElementbatch in batch {
@@ -663,7 +579,7 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
     output += unknownFields.getDescription(indent: indent)
     return output
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           for oneElementbatch in batch {
@@ -677,27 +593,27 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBPerfomanceBatch"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBPerfomanceBatch"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBPerfomanceBatch.self
   }
   //Meta information declaration end
 
-  final public class Builder : GeneratedMessageBuilder {
+  final internal class Builder : GeneratedMessageBuilder {
     private var builderResult:PBPerfomanceBatch = PBPerfomanceBatch()
-    public func getMessage() -> PBPerfomanceBatch {
+    internal func getMessage() -> PBPerfomanceBatch {
         return builderResult
     }
 
-    required override public init () {
+    required override internal init () {
        super.init()
     }
-    public var batch:Array<PBPerfomance> {
+    internal var batch:Array<PBPerfomance> {
          get {
              return builderResult.batch
          }
@@ -705,35 +621,35 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
              builderResult.batch = value
          }
     }
-    public func setBatch(_ value:Array<PBPerfomance>) -> PBPerfomanceBatch.Builder {
+    internal func setBatch(_ value:Array<PBPerfomance>) -> PBPerfomanceBatch.Builder {
       self.batch = value
       return self
     }
-    public func clearBatch() -> PBPerfomanceBatch.Builder {
+    internal func clearBatch() -> PBPerfomanceBatch.Builder {
       builderResult.batch.removeAll(keepingCapacity: false)
       return self
     }
-    override public var internalGetResult:GeneratedMessage {
+    override internal var internalGetResult:GeneratedMessage {
          get {
             return builderResult
          }
     }
-    public override func clear() -> PBPerfomanceBatch.Builder {
+    internal override func clear() -> PBPerfomanceBatch.Builder {
       builderResult = PBPerfomanceBatch()
       return self
     }
-    public override func clone() throws -> PBPerfomanceBatch.Builder {
+    internal override func clone() throws -> PBPerfomanceBatch.Builder {
       return try PBPerfomanceBatch.builderWithPrototype(prototype: builderResult)
     }
-    public override func build() throws -> PBPerfomanceBatch {
+    internal override func build() throws -> PBPerfomanceBatch {
          try checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> PBPerfomanceBatch {
+    internal func buildPartial() -> PBPerfomanceBatch {
       let returnMe:PBPerfomanceBatch = builderResult
       return returnMe
     }
-    public func mergeFrom(other:PBPerfomanceBatch) throws -> PBPerfomanceBatch.Builder {
+    internal func mergeFrom(other:PBPerfomanceBatch) throws -> PBPerfomanceBatch.Builder {
       if other == PBPerfomanceBatch() {
        return self
       }
@@ -743,10 +659,10 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
       _ = try merge(unknownField: other.unknownFields)
       return self
     }
-    public override func mergeFrom(codedInputStream:CodedInputStream) throws -> PBPerfomanceBatch.Builder {
+    internal override func mergeFrom(codedInputStream:CodedInputStream) throws -> PBPerfomanceBatch.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch.Builder {
+    internal override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
       while (true) {
         let protobufTag = try codedInputStream.readTag()
@@ -772,32 +688,32 @@ final public class PBPerfomanceBatch : GeneratedMessage, GeneratedMessageProtoco
 
 }
 
-final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
-  public private(set) var ints:Int32 = Int32(0)
+final internal class PBPerfomance : GeneratedMessage {
+  internal private(set) var ints:Int32 = Int32(0)
 
-  public private(set) var hasInts:Bool = false
-  public private(set) var ints64:Int64 = Int64(0)
+  internal private(set) var hasInts:Bool = false
+  internal private(set) var ints64:Int64 = Int64(0)
 
-  public private(set) var hasInts64:Bool = false
-  public private(set) var doubles:Double = Double(0)
+  internal private(set) var hasInts64:Bool = false
+  internal private(set) var doubles:Double = Double(0)
 
-  public private(set) var hasDoubles:Bool = false
-  public private(set) var floats:Float = Float(0)
+  internal private(set) var hasDoubles:Bool = false
+  internal private(set) var floats:Float = Float(0)
 
-  public private(set) var hasFloats:Bool = false
-  public private(set) var str:String = ""
+  internal private(set) var hasFloats:Bool = false
+  internal private(set) var str:String = ""
 
-  public private(set) var hasStr:Bool = false
-  public private(set) var bytes:Data = Data()
+  internal private(set) var hasStr:Bool = false
+  internal private(set) var bytes:Data = Data()
 
-  public private(set) var hasBytes:Bool = false
-  public private(set) var description_:String = ""
+  internal private(set) var hasBytes:Bool = false
+  internal private(set) var description_:String = ""
 
-  public private(set) var hasDescription:Bool = false
-  required public init() {
+  internal private(set) var hasDescription:Bool = false
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !hasInts {
       return false
     }
@@ -812,7 +728,7 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
     }
    return true
   }
-  override public func writeTo(codedOutputStream:CodedOutputStream) throws {
+  override internal func writeTo(codedOutputStream:CodedOutputStream) throws {
     if hasInts {
       try codedOutputStream.writeInt32(fieldNumber:1, value:ints)
     }
@@ -836,7 +752,7 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
     }
     try unknownFields.writeTo(codedOutputStream:codedOutputStream)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -868,53 +784,25 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
     memoizedSerializedSize = serialize_size
     return serialize_size
   }
-  public class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<PBPerfomance> {
-    var mergedArray = Array<PBPerfomance>()
-    while let value = try parseDelimitedFrom(inputStream: inputStream) {
-      mergedArray += [value]
-    }
-    return mergedArray
-  }
-  public class func parseDelimitedFrom(inputStream:InputStream) throws -> PBPerfomance? {
-    return try PBPerfomance.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
-  }
-  public class func parseFrom(data:Data) throws -> PBPerfomance {
-    return try PBPerfomance.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
-  }
-  public class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance {
-    return try PBPerfomance.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(inputStream:InputStream) throws -> PBPerfomance {
-    return try PBPerfomance.Builder().mergeFrom(inputStream: inputStream).build()
-  }
-  public class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance {
-    return try PBPerfomance.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(codedInputStream:CodedInputStream) throws -> PBPerfomance {
-    return try PBPerfomance.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-  }
-  public class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance {
-    return try PBPerfomance.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func getBuilder() -> PBPerfomance.Builder {
+  internal class func getBuilder() -> PBPerfomance.Builder {
     return PBPerfomance.classBuilder() as! PBPerfomance.Builder
   }
-  public func getBuilder() -> PBPerfomance.Builder {
+  internal func getBuilder() -> PBPerfomance.Builder {
     return classBuilder() as! PBPerfomance.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBPerfomance.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBPerfomance.Builder()
   }
-  public func toBuilder() throws -> PBPerfomance.Builder {
+  internal func toBuilder() throws -> PBPerfomance.Builder {
     return try PBPerfomance.builderWithPrototype(prototype: self)
   }
-  public class func builderWithPrototype(prototype:PBPerfomance) throws -> PBPerfomance.Builder {
+  internal class func builderWithPrototype(prototype:PBPerfomance) throws -> PBPerfomance.Builder {
     return try PBPerfomance.Builder().mergeFrom(other: prototype)
   }
-  override public func getDescription(indent:String) throws -> String {
+  override internal func getDescription(indent:String) throws -> String {
     var output:String = ""
     if hasInts {
       output += "\(indent) ints: \(ints) \n"
@@ -940,7 +828,7 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
     output += unknownFields.getDescription(indent: indent)
     return output
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasInts {
@@ -972,32 +860,32 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBPerfomance"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBPerfomance"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBPerfomance.self
   }
   //Meta information declaration end
 
-  final public class Builder : GeneratedMessageBuilder {
+  final internal class Builder : GeneratedMessageBuilder {
     private var builderResult:PBPerfomance = PBPerfomance()
-    public func getMessage() -> PBPerfomance {
+    internal func getMessage() -> PBPerfomance {
         return builderResult
     }
 
-    required override public init () {
+    required override internal init () {
        super.init()
     }
-    public var hasInts:Bool {
+    internal var hasInts:Bool {
          get {
               return builderResult.hasInts
          }
     }
-    public var ints:Int32 {
+    internal var ints:Int32 {
          get {
               return builderResult.ints
          }
@@ -1006,21 +894,21 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
              builderResult.ints = value
          }
     }
-    public func setInts(_ value:Int32) -> PBPerfomance.Builder {
+    internal func setInts(_ value:Int32) -> PBPerfomance.Builder {
       self.ints = value
       return self
     }
-    public func clearInts() -> PBPerfomance.Builder{
+    internal func clearInts() -> PBPerfomance.Builder{
          builderResult.hasInts = false
          builderResult.ints = Int32(0)
          return self
     }
-    public var hasInts64:Bool {
+    internal var hasInts64:Bool {
          get {
               return builderResult.hasInts64
          }
     }
-    public var ints64:Int64 {
+    internal var ints64:Int64 {
          get {
               return builderResult.ints64
          }
@@ -1029,21 +917,21 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
              builderResult.ints64 = value
          }
     }
-    public func setInts64(_ value:Int64) -> PBPerfomance.Builder {
+    internal func setInts64(_ value:Int64) -> PBPerfomance.Builder {
       self.ints64 = value
       return self
     }
-    public func clearInts64() -> PBPerfomance.Builder{
+    internal func clearInts64() -> PBPerfomance.Builder{
          builderResult.hasInts64 = false
          builderResult.ints64 = Int64(0)
          return self
     }
-    public var hasDoubles:Bool {
+    internal var hasDoubles:Bool {
          get {
               return builderResult.hasDoubles
          }
     }
-    public var doubles:Double {
+    internal var doubles:Double {
          get {
               return builderResult.doubles
          }
@@ -1052,21 +940,21 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
              builderResult.doubles = value
          }
     }
-    public func setDoubles(_ value:Double) -> PBPerfomance.Builder {
+    internal func setDoubles(_ value:Double) -> PBPerfomance.Builder {
       self.doubles = value
       return self
     }
-    public func clearDoubles() -> PBPerfomance.Builder{
+    internal func clearDoubles() -> PBPerfomance.Builder{
          builderResult.hasDoubles = false
          builderResult.doubles = Double(0)
          return self
     }
-    public var hasFloats:Bool {
+    internal var hasFloats:Bool {
          get {
               return builderResult.hasFloats
          }
     }
-    public var floats:Float {
+    internal var floats:Float {
          get {
               return builderResult.floats
          }
@@ -1075,21 +963,21 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
              builderResult.floats = value
          }
     }
-    public func setFloats(_ value:Float) -> PBPerfomance.Builder {
+    internal func setFloats(_ value:Float) -> PBPerfomance.Builder {
       self.floats = value
       return self
     }
-    public func clearFloats() -> PBPerfomance.Builder{
+    internal func clearFloats() -> PBPerfomance.Builder{
          builderResult.hasFloats = false
          builderResult.floats = Float(0)
          return self
     }
-    public var hasStr:Bool {
+    internal var hasStr:Bool {
          get {
               return builderResult.hasStr
          }
     }
-    public var str:String {
+    internal var str:String {
          get {
               return builderResult.str
          }
@@ -1098,21 +986,21 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
              builderResult.str = value
          }
     }
-    public func setStr(_ value:String) -> PBPerfomance.Builder {
+    internal func setStr(_ value:String) -> PBPerfomance.Builder {
       self.str = value
       return self
     }
-    public func clearStr() -> PBPerfomance.Builder{
+    internal func clearStr() -> PBPerfomance.Builder{
          builderResult.hasStr = false
          builderResult.str = ""
          return self
     }
-    public var hasBytes:Bool {
+    internal var hasBytes:Bool {
          get {
               return builderResult.hasBytes
          }
     }
-    public var bytes:Data {
+    internal var bytes:Data {
          get {
               return builderResult.bytes
          }
@@ -1121,21 +1009,21 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
              builderResult.bytes = value
          }
     }
-    public func setBytes(_ value:Data) -> PBPerfomance.Builder {
+    internal func setBytes(_ value:Data) -> PBPerfomance.Builder {
       self.bytes = value
       return self
     }
-    public func clearBytes() -> PBPerfomance.Builder{
+    internal func clearBytes() -> PBPerfomance.Builder{
          builderResult.hasBytes = false
          builderResult.bytes = Data()
          return self
     }
-    public var hasDescription:Bool {
+    internal var hasDescription:Bool {
          get {
               return builderResult.hasDescription
          }
     }
-    public var description_:String {
+    internal var description_:String {
          get {
               return builderResult.description_
          }
@@ -1144,36 +1032,36 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
              builderResult.description_ = value
          }
     }
-    public func setDescription(_ value:String) -> PBPerfomance.Builder {
+    internal func setDescription(_ value:String) -> PBPerfomance.Builder {
       self.description_ = value
       return self
     }
-    public func clearDescription() -> PBPerfomance.Builder{
+    internal func clearDescription() -> PBPerfomance.Builder{
          builderResult.hasDescription = false
          builderResult.description_ = ""
          return self
     }
-    override public var internalGetResult:GeneratedMessage {
+    override internal var internalGetResult:GeneratedMessage {
          get {
             return builderResult
          }
     }
-    public override func clear() -> PBPerfomance.Builder {
+    internal override func clear() -> PBPerfomance.Builder {
       builderResult = PBPerfomance()
       return self
     }
-    public override func clone() throws -> PBPerfomance.Builder {
+    internal override func clone() throws -> PBPerfomance.Builder {
       return try PBPerfomance.builderWithPrototype(prototype: builderResult)
     }
-    public override func build() throws -> PBPerfomance {
+    internal override func build() throws -> PBPerfomance {
          try checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> PBPerfomance {
+    internal func buildPartial() -> PBPerfomance {
       let returnMe:PBPerfomance = builderResult
       return returnMe
     }
-    public func mergeFrom(other:PBPerfomance) throws -> PBPerfomance.Builder {
+    internal func mergeFrom(other:PBPerfomance) throws -> PBPerfomance.Builder {
       if other == PBPerfomance() {
        return self
       }
@@ -1201,10 +1089,10 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
       _ = try merge(unknownField: other.unknownFields)
       return self
     }
-    public override func mergeFrom(codedInputStream:CodedInputStream) throws -> PBPerfomance.Builder {
+    internal override func mergeFrom(codedInputStream:CodedInputStream) throws -> PBPerfomance.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance.Builder {
+    internal override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
       while (true) {
         let protobufTag = try codedInputStream.readTag()
@@ -1246,17 +1134,17 @@ final public class PBPerfomance : GeneratedMessage, GeneratedMessageProtocol {
 
 }
 
-final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
-  public private(set) var latitude:Float = Float(0)
+final internal class PBProtoPoint : GeneratedMessage {
+  internal private(set) var latitude:Float = Float(0)
 
-  public private(set) var hasLatitude:Bool = false
-  public private(set) var longitude:Float = Float(0)
+  internal private(set) var hasLatitude:Bool = false
+  internal private(set) var longitude:Float = Float(0)
 
-  public private(set) var hasLongitude:Bool = false
-  required public init() {
+  internal private(set) var hasLongitude:Bool = false
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !hasLatitude {
       return false
     }
@@ -1265,7 +1153,7 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
     }
    return true
   }
-  override public func writeTo(codedOutputStream:CodedOutputStream) throws {
+  override internal func writeTo(codedOutputStream:CodedOutputStream) throws {
     if hasLatitude {
       try codedOutputStream.writeFloat(fieldNumber:1, value:latitude)
     }
@@ -1274,7 +1162,7 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
     }
     try unknownFields.writeTo(codedOutputStream:codedOutputStream)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -1291,53 +1179,25 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
     memoizedSerializedSize = serialize_size
     return serialize_size
   }
-  public class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<PBProtoPoint> {
-    var mergedArray = Array<PBProtoPoint>()
-    while let value = try parseDelimitedFrom(inputStream: inputStream) {
-      mergedArray += [value]
-    }
-    return mergedArray
-  }
-  public class func parseDelimitedFrom(inputStream:InputStream) throws -> PBProtoPoint? {
-    return try PBProtoPoint.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
-  }
-  public class func parseFrom(data:Data) throws -> PBProtoPoint {
-    return try PBProtoPoint.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
-  }
-  public class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint {
-    return try PBProtoPoint.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(inputStream:InputStream) throws -> PBProtoPoint {
-    return try PBProtoPoint.Builder().mergeFrom(inputStream: inputStream).build()
-  }
-  public class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint {
-    return try PBProtoPoint.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(codedInputStream:CodedInputStream) throws -> PBProtoPoint {
-    return try PBProtoPoint.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-  }
-  public class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint {
-    return try PBProtoPoint.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func getBuilder() -> PBProtoPoint.Builder {
+  internal class func getBuilder() -> PBProtoPoint.Builder {
     return PBProtoPoint.classBuilder() as! PBProtoPoint.Builder
   }
-  public func getBuilder() -> PBProtoPoint.Builder {
+  internal func getBuilder() -> PBProtoPoint.Builder {
     return classBuilder() as! PBProtoPoint.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBProtoPoint.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBProtoPoint.Builder()
   }
-  public func toBuilder() throws -> PBProtoPoint.Builder {
+  internal func toBuilder() throws -> PBProtoPoint.Builder {
     return try PBProtoPoint.builderWithPrototype(prototype: self)
   }
-  public class func builderWithPrototype(prototype:PBProtoPoint) throws -> PBProtoPoint.Builder {
+  internal class func builderWithPrototype(prototype:PBProtoPoint) throws -> PBProtoPoint.Builder {
     return try PBProtoPoint.Builder().mergeFrom(other: prototype)
   }
-  override public func getDescription(indent:String) throws -> String {
+  override internal func getDescription(indent:String) throws -> String {
     var output:String = ""
     if hasLatitude {
       output += "\(indent) latitude: \(latitude) \n"
@@ -1348,7 +1208,7 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
     output += unknownFields.getDescription(indent: indent)
     return output
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasLatitude {
@@ -1365,32 +1225,32 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBProtoPoint"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBProtoPoint"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBProtoPoint.self
   }
   //Meta information declaration end
 
-  final public class Builder : GeneratedMessageBuilder {
+  final internal class Builder : GeneratedMessageBuilder {
     private var builderResult:PBProtoPoint = PBProtoPoint()
-    public func getMessage() -> PBProtoPoint {
+    internal func getMessage() -> PBProtoPoint {
         return builderResult
     }
 
-    required override public init () {
+    required override internal init () {
        super.init()
     }
-    public var hasLatitude:Bool {
+    internal var hasLatitude:Bool {
          get {
               return builderResult.hasLatitude
          }
     }
-    public var latitude:Float {
+    internal var latitude:Float {
          get {
               return builderResult.latitude
          }
@@ -1399,21 +1259,21 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
              builderResult.latitude = value
          }
     }
-    public func setLatitude(_ value:Float) -> PBProtoPoint.Builder {
+    internal func setLatitude(_ value:Float) -> PBProtoPoint.Builder {
       self.latitude = value
       return self
     }
-    public func clearLatitude() -> PBProtoPoint.Builder{
+    internal func clearLatitude() -> PBProtoPoint.Builder{
          builderResult.hasLatitude = false
          builderResult.latitude = Float(0)
          return self
     }
-    public var hasLongitude:Bool {
+    internal var hasLongitude:Bool {
          get {
               return builderResult.hasLongitude
          }
     }
-    public var longitude:Float {
+    internal var longitude:Float {
          get {
               return builderResult.longitude
          }
@@ -1422,36 +1282,36 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
              builderResult.longitude = value
          }
     }
-    public func setLongitude(_ value:Float) -> PBProtoPoint.Builder {
+    internal func setLongitude(_ value:Float) -> PBProtoPoint.Builder {
       self.longitude = value
       return self
     }
-    public func clearLongitude() -> PBProtoPoint.Builder{
+    internal func clearLongitude() -> PBProtoPoint.Builder{
          builderResult.hasLongitude = false
          builderResult.longitude = Float(0)
          return self
     }
-    override public var internalGetResult:GeneratedMessage {
+    override internal var internalGetResult:GeneratedMessage {
          get {
             return builderResult
          }
     }
-    public override func clear() -> PBProtoPoint.Builder {
+    internal override func clear() -> PBProtoPoint.Builder {
       builderResult = PBProtoPoint()
       return self
     }
-    public override func clone() throws -> PBProtoPoint.Builder {
+    internal override func clone() throws -> PBProtoPoint.Builder {
       return try PBProtoPoint.builderWithPrototype(prototype: builderResult)
     }
-    public override func build() throws -> PBProtoPoint {
+    internal override func build() throws -> PBProtoPoint {
          try checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> PBProtoPoint {
+    internal func buildPartial() -> PBProtoPoint {
       let returnMe:PBProtoPoint = builderResult
       return returnMe
     }
-    public func mergeFrom(other:PBProtoPoint) throws -> PBProtoPoint.Builder {
+    internal func mergeFrom(other:PBProtoPoint) throws -> PBProtoPoint.Builder {
       if other == PBProtoPoint() {
        return self
       }
@@ -1464,10 +1324,10 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
       _ = try merge(unknownField: other.unknownFields)
       return self
     }
-    public override func mergeFrom(codedInputStream:CodedInputStream) throws -> PBProtoPoint.Builder {
+    internal override func mergeFrom(codedInputStream:CodedInputStream) throws -> PBProtoPoint.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint.Builder {
+    internal override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
       while (true) {
         let protobufTag = try codedInputStream.readTag()
@@ -1494,17 +1354,17 @@ final public class PBProtoPoint : GeneratedMessage, GeneratedMessageProtocol {
 
 }
 
-final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
+final internal class PBIceCreamCone : GeneratedMessage {
 
 
     //Enum type declaration start 
 
-    public enum PBFlavor:Int32, CustomDebugStringConvertible, CustomStringConvertible {
+    internal enum PBFlavor:Int32, CustomDebugStringConvertible, CustomStringConvertible {
       case chocolate = 1
       case vanilla = 2
 
-      public var debugDescription:String { return getDescription() }
-      public var description:String { return getDescription() }
+      internal var debugDescription:String { return getDescription() }
+      internal var description:String { return getDescription() }
       private func getDescription() -> String { 
           switch self {
               case .chocolate: return ".chocolate"
@@ -1515,18 +1375,18 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
 
     //Enum type declaration end 
 
-  public private(set) var scoops:Int32 = Int32(0)
+  internal private(set) var scoops:Int32 = Int32(0)
 
-  public private(set) var hasScoops:Bool = false
-  public private(set) var flavor:PBIceCreamCone.PBFlavor = PBIceCreamCone.PBFlavor.chocolate
-  public private(set) var hasFlavor:Bool = false
-  required public init() {
+  internal private(set) var hasScoops:Bool = false
+  internal private(set) var flavor:PBIceCreamCone.PBFlavor = PBIceCreamCone.PBFlavor.chocolate
+  internal private(set) var hasFlavor:Bool = false
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeTo(codedOutputStream:CodedOutputStream) throws {
+  override internal func writeTo(codedOutputStream:CodedOutputStream) throws {
     if hasScoops {
       try codedOutputStream.writeInt32(fieldNumber:1, value:scoops)
     }
@@ -1535,7 +1395,7 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
     }
     try unknownFields.writeTo(codedOutputStream:codedOutputStream)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -1552,53 +1412,25 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
     memoizedSerializedSize = serialize_size
     return serialize_size
   }
-  public class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<PBIceCreamCone> {
-    var mergedArray = Array<PBIceCreamCone>()
-    while let value = try parseDelimitedFrom(inputStream: inputStream) {
-      mergedArray += [value]
-    }
-    return mergedArray
-  }
-  public class func parseDelimitedFrom(inputStream:InputStream) throws -> PBIceCreamCone? {
-    return try PBIceCreamCone.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
-  }
-  public class func parseFrom(data:Data) throws -> PBIceCreamCone {
-    return try PBIceCreamCone.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
-  }
-  public class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone {
-    return try PBIceCreamCone.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(inputStream:InputStream) throws -> PBIceCreamCone {
-    return try PBIceCreamCone.Builder().mergeFrom(inputStream: inputStream).build()
-  }
-  public class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone {
-    return try PBIceCreamCone.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(codedInputStream:CodedInputStream) throws -> PBIceCreamCone {
-    return try PBIceCreamCone.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-  }
-  public class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone {
-    return try PBIceCreamCone.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func getBuilder() -> PBIceCreamCone.Builder {
+  internal class func getBuilder() -> PBIceCreamCone.Builder {
     return PBIceCreamCone.classBuilder() as! PBIceCreamCone.Builder
   }
-  public func getBuilder() -> PBIceCreamCone.Builder {
+  internal func getBuilder() -> PBIceCreamCone.Builder {
     return classBuilder() as! PBIceCreamCone.Builder
   }
-  public override class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> MessageBuilder {
     return PBIceCreamCone.Builder()
   }
-  public override func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return PBIceCreamCone.Builder()
   }
-  public func toBuilder() throws -> PBIceCreamCone.Builder {
+  internal func toBuilder() throws -> PBIceCreamCone.Builder {
     return try PBIceCreamCone.builderWithPrototype(prototype: self)
   }
-  public class func builderWithPrototype(prototype:PBIceCreamCone) throws -> PBIceCreamCone.Builder {
+  internal class func builderWithPrototype(prototype:PBIceCreamCone) throws -> PBIceCreamCone.Builder {
     return try PBIceCreamCone.Builder().mergeFrom(other: prototype)
   }
-  override public func getDescription(indent:String) throws -> String {
+  override internal func getDescription(indent:String) throws -> String {
     var output:String = ""
     if hasScoops {
       output += "\(indent) scoops: \(scoops) \n"
@@ -1609,7 +1441,7 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
     output += unknownFields.getDescription(indent: indent)
     return output
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasScoops {
@@ -1626,32 +1458,32 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "PBIceCreamCone"
   }
-  override public func className() -> String {
+  override internal func className() -> String {
       return "PBIceCreamCone"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return PBIceCreamCone.self
   }
   //Meta information declaration end
 
-  final public class Builder : GeneratedMessageBuilder {
+  final internal class Builder : GeneratedMessageBuilder {
     private var builderResult:PBIceCreamCone = PBIceCreamCone()
-    public func getMessage() -> PBIceCreamCone {
+    internal func getMessage() -> PBIceCreamCone {
         return builderResult
     }
 
-    required override public init () {
+    required override internal init () {
        super.init()
     }
-    public var hasScoops:Bool {
+    internal var hasScoops:Bool {
          get {
               return builderResult.hasScoops
          }
     }
-    public var scoops:Int32 {
+    internal var scoops:Int32 {
          get {
               return builderResult.scoops
          }
@@ -1660,21 +1492,21 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
              builderResult.scoops = value
          }
     }
-    public func setScoops(_ value:Int32) -> PBIceCreamCone.Builder {
+    internal func setScoops(_ value:Int32) -> PBIceCreamCone.Builder {
       self.scoops = value
       return self
     }
-    public func clearScoops() -> PBIceCreamCone.Builder{
+    internal func clearScoops() -> PBIceCreamCone.Builder{
          builderResult.hasScoops = false
          builderResult.scoops = Int32(0)
          return self
     }
-      public var hasFlavor:Bool{
+      internal var hasFlavor:Bool{
           get {
               return builderResult.hasFlavor
           }
       }
-      public var flavor:PBIceCreamCone.PBFlavor {
+      internal var flavor:PBIceCreamCone.PBFlavor {
           get {
               return builderResult.flavor
           }
@@ -1683,36 +1515,36 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
               builderResult.flavor = value
           }
       }
-      public func setFlavor(_ value:PBIceCreamCone.PBFlavor) -> PBIceCreamCone.Builder {
+      internal func setFlavor(_ value:PBIceCreamCone.PBFlavor) -> PBIceCreamCone.Builder {
         self.flavor = value
         return self
       }
-      public func clearFlavor() -> PBIceCreamCone.Builder {
+      internal func clearFlavor() -> PBIceCreamCone.Builder {
          builderResult.hasFlavor = false
          builderResult.flavor = .chocolate
          return self
       }
-    override public var internalGetResult:GeneratedMessage {
+    override internal var internalGetResult:GeneratedMessage {
          get {
             return builderResult
          }
     }
-    public override func clear() -> PBIceCreamCone.Builder {
+    internal override func clear() -> PBIceCreamCone.Builder {
       builderResult = PBIceCreamCone()
       return self
     }
-    public override func clone() throws -> PBIceCreamCone.Builder {
+    internal override func clone() throws -> PBIceCreamCone.Builder {
       return try PBIceCreamCone.builderWithPrototype(prototype: builderResult)
     }
-    public override func build() throws -> PBIceCreamCone {
+    internal override func build() throws -> PBIceCreamCone {
          try checkInitialized()
          return buildPartial()
     }
-    public func buildPartial() -> PBIceCreamCone {
+    internal func buildPartial() -> PBIceCreamCone {
       let returnMe:PBIceCreamCone = builderResult
       return returnMe
     }
-    public func mergeFrom(other:PBIceCreamCone) throws -> PBIceCreamCone.Builder {
+    internal func mergeFrom(other:PBIceCreamCone) throws -> PBIceCreamCone.Builder {
       if other == PBIceCreamCone() {
        return self
       }
@@ -1725,10 +1557,10 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
       _ = try merge(unknownField: other.unknownFields)
       return self
     }
-    public override func mergeFrom(codedInputStream:CodedInputStream) throws -> PBIceCreamCone.Builder {
+    internal override func mergeFrom(codedInputStream:CodedInputStream) throws -> PBIceCreamCone.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
-    public override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone.Builder {
+    internal override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
       while (true) {
         let protobufTag = try codedInputStream.readTag()
@@ -1760,5 +1592,185 @@ final public class PBIceCreamCone : GeneratedMessage, GeneratedMessageProtocol {
 
 }
 
+extension PBUser: GeneratedMessageProtocol {
+  internal class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<PBUser> {
+    var mergedArray = Array<PBUser>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  internal class func parseDelimitedFrom(inputStream:InputStream) throws -> PBUser? {
+    return try PBUser.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
+  }
+  internal class func parseFrom(data:Data) throws -> PBUser {
+    return try PBUser.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+  }
+  internal class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> PBUser {
+    return try PBUser.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFrom(inputStream:InputStream) throws -> PBUser {
+    return try PBUser.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  internal class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> PBUser {
+    return try PBUser.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFrom(codedInputStream:CodedInputStream) throws -> PBUser {
+    return try PBUser.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  internal class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBUser {
+    return try PBUser.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension PBGroup: GeneratedMessageProtocol {
+  internal class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<PBGroup> {
+    var mergedArray = Array<PBGroup>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  internal class func parseDelimitedFrom(inputStream:InputStream) throws -> PBGroup? {
+    return try PBGroup.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
+  }
+  internal class func parseFrom(data:Data) throws -> PBGroup {
+    return try PBGroup.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+  }
+  internal class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> PBGroup {
+    return try PBGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFrom(inputStream:InputStream) throws -> PBGroup {
+    return try PBGroup.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  internal class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> PBGroup {
+    return try PBGroup.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFrom(codedInputStream:CodedInputStream) throws -> PBGroup {
+    return try PBGroup.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  internal class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBGroup {
+    return try PBGroup.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension PBPerfomanceBatch: GeneratedMessageProtocol {
+  internal class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<PBPerfomanceBatch> {
+    var mergedArray = Array<PBPerfomanceBatch>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  internal class func parseDelimitedFrom(inputStream:InputStream) throws -> PBPerfomanceBatch? {
+    return try PBPerfomanceBatch.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
+  }
+  internal class func parseFrom(data:Data) throws -> PBPerfomanceBatch {
+    return try PBPerfomanceBatch.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+  }
+  internal class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch {
+    return try PBPerfomanceBatch.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFrom(inputStream:InputStream) throws -> PBPerfomanceBatch {
+    return try PBPerfomanceBatch.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  internal class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch {
+    return try PBPerfomanceBatch.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFrom(codedInputStream:CodedInputStream) throws -> PBPerfomanceBatch {
+    return try PBPerfomanceBatch.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  internal class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch {
+    return try PBPerfomanceBatch.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension PBPerfomance: GeneratedMessageProtocol {
+  internal class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<PBPerfomance> {
+    var mergedArray = Array<PBPerfomance>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  internal class func parseDelimitedFrom(inputStream:InputStream) throws -> PBPerfomance? {
+    return try PBPerfomance.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
+  }
+  internal class func parseFrom(data:Data) throws -> PBPerfomance {
+    return try PBPerfomance.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+  }
+  internal class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance {
+    return try PBPerfomance.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFrom(inputStream:InputStream) throws -> PBPerfomance {
+    return try PBPerfomance.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  internal class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance {
+    return try PBPerfomance.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFrom(codedInputStream:CodedInputStream) throws -> PBPerfomance {
+    return try PBPerfomance.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  internal class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance {
+    return try PBPerfomance.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension PBProtoPoint: GeneratedMessageProtocol {
+  internal class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<PBProtoPoint> {
+    var mergedArray = Array<PBProtoPoint>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  internal class func parseDelimitedFrom(inputStream:InputStream) throws -> PBProtoPoint? {
+    return try PBProtoPoint.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
+  }
+  internal class func parseFrom(data:Data) throws -> PBProtoPoint {
+    return try PBProtoPoint.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+  }
+  internal class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint {
+    return try PBProtoPoint.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFrom(inputStream:InputStream) throws -> PBProtoPoint {
+    return try PBProtoPoint.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  internal class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint {
+    return try PBProtoPoint.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFrom(codedInputStream:CodedInputStream) throws -> PBProtoPoint {
+    return try PBProtoPoint.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  internal class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint {
+    return try PBProtoPoint.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension PBIceCreamCone: GeneratedMessageProtocol {
+  internal class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<PBIceCreamCone> {
+    var mergedArray = Array<PBIceCreamCone>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  internal class func parseDelimitedFrom(inputStream:InputStream) throws -> PBIceCreamCone? {
+    return try PBIceCreamCone.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
+  }
+  internal class func parseFrom(data:Data) throws -> PBIceCreamCone {
+    return try PBIceCreamCone.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+  }
+  internal class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone {
+    return try PBIceCreamCone.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFrom(inputStream:InputStream) throws -> PBIceCreamCone {
+    return try PBIceCreamCone.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  internal class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone {
+    return try PBIceCreamCone.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFrom(codedInputStream:CodedInputStream) throws -> PBIceCreamCone {
+    return try PBIceCreamCone.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  internal class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone {
+    return try PBIceCreamCone.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
 
 // @@protoc_insertion_point(global_scope)
