@@ -30,6 +30,7 @@ const ::google::protobuf::EnumDescriptor* AccessControl_descriptor_ = NULL;
 }  // namespace
 
 
+void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
   protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
   const ::google::protobuf::FileDescriptor* file =
@@ -64,6 +65,7 @@ inline void protobuf_AssignDescriptorsOnce() {
                  &protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto);
 }
 
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -77,6 +79,7 @@ void protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
   delete SwiftFileOptions_reflection_;
 }
 
+void protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
   static bool already_here = false;
   if (already_here) return;
@@ -87,15 +90,15 @@ void protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n&google/protobuf/swift-descriptor.proto"
     "\022\017google.protobuf\032 google/protobuf/descr"
-    "iptor.proto\"\240\001\n\020SwiftFileOptions\022\024\n\014clas"
-    "s_prefix\030\001 \001(\t\022Q\n\027entities_access_contro"
+    "iptor.proto\"\236\001\n\020SwiftFileOptions\022\024\n\014clas"
+    "s_prefix\030\001 \001(\t\022O\n\027entities_access_contro"
     "l\030\002 \001(\0162\036.google.protobuf.AccessControl:"
-    "\020InternalEntities\022#\n\025compile_for_framewo"
-    "rk\030\003 \001(\010:\004true*9\n\rAccessControl\022\024\n\020Inter"
-    "nalEntities\020\000\022\022\n\016PublicEntities\020\001:^\n\022swi"
-    "ft_file_options\022\034.google.protobuf.FileOp"
-    "tions\030\256\345\266\002 \001(\0132!.google.protobuf.SwiftFi"
-    "leOptionsB\016\362\252\266\023\002\030\000\362\252\266\023\002\020\001", 425);
+    "\016PublicEntities\022#\n\025compile_for_framework"
+    "\030\003 \001(\010:\004true*9\n\rAccessControl\022\024\n\020Interna"
+    "lEntities\020\000\022\022\n\016PublicEntities\020\001:^\n\022swift"
+    "_file_options\022\034.google.protobuf.FileOpti"
+    "ons\030\256\345\266\002 \001(\0132!.google.protobuf.SwiftFile"
+    "OptionsB\016\362\252\266\023\002\030\000\362\252\266\023\002\020\001", 423);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "google/protobuf/swift-descriptor.proto", &protobuf_RegisterTypes);
   SwiftFileOptions::default_instance_ = new SwiftFileOptions();
@@ -128,16 +131,6 @@ bool AccessControl_IsValid(int value) {
 }
 
 
-namespace {
-
-static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD;
-static void MergeFromFail(int line) {
-  GOOGLE_CHECK(false) << __FILE__ << ":" << line;
-}
-
-}  // namespace
-
-
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -167,7 +160,7 @@ void SwiftFileOptions::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   class_prefix_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  entities_access_control_ = 0;
+  entities_access_control_ = 1;
   compile_for_framework_ = true;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -214,7 +207,7 @@ void SwiftFileOptions::Clear() {
     if (has_class_prefix()) {
       class_prefix_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
-    entities_access_control_ = 0;
+    entities_access_control_ = 1;
     compile_for_framework_ = true;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -249,7 +242,7 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+      // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
       case 2: {
         if (tag == 16) {
          parse_entities_access_control:
@@ -319,7 +312,7 @@ void SwiftFileOptions::SerializeWithCachedSizes(
       1, this->class_prefix(), output);
   }
 
-  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
   if (has_entities_access_control()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->entities_access_control(), output);
@@ -337,8 +330,8 @@ void SwiftFileOptions::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:google.protobuf.SwiftFileOptions)
 }
 
-::google::protobuf::uint8* SwiftFileOptions::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* SwiftFileOptions::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.SwiftFileOptions)
   // optional string class_prefix = 1;
   if (has_class_prefix()) {
@@ -351,7 +344,7 @@ void SwiftFileOptions::SerializeWithCachedSizes(
         1, this->class_prefix(), target);
   }
 
-  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
   if (has_entities_access_control()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       2, this->entities_access_control(), target);
@@ -382,7 +375,7 @@ int SwiftFileOptions::ByteSize() const {
           this->class_prefix());
     }
 
-    // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+    // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
     if (has_entities_access_control()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->entities_access_control());
@@ -407,7 +400,9 @@ int SwiftFileOptions::ByteSize() const {
 
 void SwiftFileOptions::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.SwiftFileOptions)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const SwiftFileOptions* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const SwiftFileOptions>(
           &from);
@@ -422,7 +417,9 @@ void SwiftFileOptions::MergeFrom(const ::google::protobuf::Message& from) {
 
 void SwiftFileOptions::MergeFrom(const SwiftFileOptions& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.SwiftFileOptions)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_class_prefix()) {
       set_has_class_prefix();
@@ -537,7 +534,7 @@ void SwiftFileOptions::clear_class_prefix() {
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.SwiftFileOptions.class_prefix)
 }
 
-// optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+// optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
 bool SwiftFileOptions::has_entities_access_control() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -548,7 +545,7 @@ void SwiftFileOptions::clear_has_entities_access_control() {
   _has_bits_[0] &= ~0x00000002u;
 }
 void SwiftFileOptions::clear_entities_access_control() {
-  entities_access_control_ = 0;
+  entities_access_control_ = 1;
   clear_has_entities_access_control();
 }
  ::google::protobuf::AccessControl SwiftFileOptions::entities_access_control() const {

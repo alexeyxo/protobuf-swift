@@ -130,7 +130,7 @@ public extension Google.Protobuf {
   //     {
   //       mask: "user.displayName,photo"
   //     }
-  final public class FieldMask : GeneratedMessage, GeneratedMessageProtocol {
+  final public class FieldMask : GeneratedMessage {
     // The set of field mask paths.
     public private(set) var paths:Array<String> = Array<String>()
     required public init() {
@@ -163,34 +163,6 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.FieldMask> {
-      var mergedArray = Array<Google.Protobuf.FieldMask>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.FieldMask? {
-      return try Google.Protobuf.FieldMask.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.FieldMaskRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
-      return try Google.Protobuf.FieldMask.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Google.Protobuf.FieldMask.Builder {
       return Google.Protobuf.FieldMask.classBuilder() as! Google.Protobuf.FieldMask.Builder
@@ -358,6 +330,36 @@ public extension Google.Protobuf {
 
   }
 
+}
+extension Google.Protobuf.FieldMask: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.FieldMask> {
+    var mergedArray = Array<Google.Protobuf.FieldMask>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.FieldMask? {
+    return try Google.Protobuf.FieldMask.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> Google.Protobuf.FieldMask {
+    return try Google.Protobuf.FieldMask.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.FieldMaskRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
+    return try Google.Protobuf.FieldMask.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.FieldMask {
+    return try Google.Protobuf.FieldMask.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
+    return try Google.Protobuf.FieldMask.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.FieldMask {
+    return try Google.Protobuf.FieldMask.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
+    return try Google.Protobuf.FieldMask.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)

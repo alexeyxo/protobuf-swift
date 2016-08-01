@@ -36,7 +36,7 @@ public extension Bar {
     }
   }
 
-  final public class Foo : GeneratedMessage, GeneratedMessageProtocol {
+  final public class Foo : GeneratedMessage {
     public private(set) var hello:String = ""
 
     public private(set) var hasHello:Bool = false
@@ -65,34 +65,6 @@ public extension Bar {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Bar.Foo> {
-      var mergedArray = Array<Bar.Foo>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Bar.Foo? {
-      return try Bar.Foo.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> Bar.Foo {
-      return try Bar.Foo.Builder().mergeFrom(data: data, extensionRegistry:Bar.FooRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
-      return try Bar.Foo.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> Bar.Foo {
-      return try Bar.Foo.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
-      return try Bar.Foo.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Bar.Foo {
-      return try Bar.Foo.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
-      return try Bar.Foo.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Bar.Foo.Builder {
       return Bar.Foo.classBuilder() as! Bar.Foo.Builder
@@ -265,6 +237,36 @@ public extension Bar {
 
   }
 
+}
+extension Bar.Foo: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Bar.Foo> {
+    var mergedArray = Array<Bar.Foo>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Bar.Foo? {
+    return try Bar.Foo.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> Bar.Foo {
+    return try Bar.Foo.Builder().mergeFrom(data: data, extensionRegistry:Bar.FooRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    return try Bar.Foo.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> Bar.Foo {
+    return try Bar.Foo.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    return try Bar.Foo.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Bar.Foo {
+    return try Bar.Foo.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    return try Bar.Foo.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)

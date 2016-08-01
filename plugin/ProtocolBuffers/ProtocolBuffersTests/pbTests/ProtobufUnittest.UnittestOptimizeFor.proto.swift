@@ -77,7 +77,7 @@ public extension ProtobufUnittest {
     }
   }
 
-  final public class TestOptimizedForSize : ExtendableMessage, GeneratedMessageProtocol{
+  final public class TestOptimizedForSize : ExtendableMessage {
 
 
     //OneOf declaration start
@@ -218,34 +218,6 @@ public extension ProtobufUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOptimizedForSize> {
-      var mergedArray = Array<ProtobufUnittest.TestOptimizedForSize>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestOptimizedForSize? {
-      return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOptimizedForSize {
-      return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptimizedForSize {
-      return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestOptimizedForSize {
-      return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptimizedForSize {
-      return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOptimizedForSize {
-      return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptimizedForSize {
-      return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestOptimizedForSize.Builder {
       return ProtobufUnittest.TestOptimizedForSize.classBuilder() as! ProtobufUnittest.TestOptimizedForSize.Builder
@@ -584,7 +556,7 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestRequiredOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol {
+  final public class TestRequiredOptimizedForSize : GeneratedMessage {
     public private(set) var x:Int32 = Int32(0)
 
     public private(set) var hasX:Bool = false
@@ -616,34 +588,6 @@ public extension ProtobufUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestRequiredOptimizedForSize> {
-      var mergedArray = Array<ProtobufUnittest.TestRequiredOptimizedForSize>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestRequiredOptimizedForSize? {
-      return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
-      return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
-      return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
-      return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
-      return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
-      return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
-      return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
       return ProtobufUnittest.TestRequiredOptimizedForSize.classBuilder() as! ProtobufUnittest.TestRequiredOptimizedForSize.Builder
@@ -816,7 +760,7 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestOptionalOptimizedForSize : GeneratedMessage, GeneratedMessageProtocol {
+  final public class TestOptionalOptimizedForSize : GeneratedMessage {
     public private(set) var o:ProtobufUnittest.TestRequiredOptimizedForSize!
     public private(set) var hasO:Bool = false
     required public init() {
@@ -851,34 +795,6 @@ public extension ProtobufUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOptionalOptimizedForSize> {
-      var mergedArray = Array<ProtobufUnittest.TestOptionalOptimizedForSize>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestOptionalOptimizedForSize? {
-      return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
-      return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
-      return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
-      return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
-      return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
-      return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
-      return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
       return ProtobufUnittest.TestOptionalOptimizedForSize.classBuilder() as! ProtobufUnittest.TestOptionalOptimizedForSize.Builder
@@ -1091,6 +1007,96 @@ public extension ProtobufUnittest {
 
   }
 
+}
+extension ProtobufUnittest.TestOptimizedForSize: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOptimizedForSize> {
+    var mergedArray = Array<ProtobufUnittest.TestOptimizedForSize>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestOptimizedForSize? {
+    return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOptimizedForSize {
+    return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptimizedForSize {
+    return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestOptimizedForSize {
+    return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptimizedForSize {
+    return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOptimizedForSize {
+    return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptimizedForSize {
+    return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension ProtobufUnittest.TestRequiredOptimizedForSize: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestRequiredOptimizedForSize> {
+    var mergedArray = Array<ProtobufUnittest.TestRequiredOptimizedForSize>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestRequiredOptimizedForSize? {
+    return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
+    return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
+    return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
+    return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
+    return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
+    return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
+    return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension ProtobufUnittest.TestOptionalOptimizedForSize: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOptionalOptimizedForSize> {
+    var mergedArray = Array<ProtobufUnittest.TestOptionalOptimizedForSize>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestOptionalOptimizedForSize? {
+    return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
+    return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
+    return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
+    return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
+    return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
+    return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
+    return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)

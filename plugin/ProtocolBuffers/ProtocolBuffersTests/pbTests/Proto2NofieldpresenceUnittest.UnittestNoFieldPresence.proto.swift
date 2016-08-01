@@ -154,12 +154,12 @@ public extension Proto2NofieldpresenceUnittest {
 
   // This proto includes every type of field in both singular and repeated
   // forms.
-  final public class TestAllTypes : GeneratedMessage, GeneratedMessageProtocol {
+  final public class TestAllTypes : GeneratedMessage {
 
 
     //Nested type declaration start
 
-      final public class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
+      final public class NestedMessage : GeneratedMessage {
         public private(set) var bb:Int32 = Int32(0)
 
         public private(set) var hasBb:Bool = false
@@ -188,34 +188,6 @@ public extension Proto2NofieldpresenceUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage> {
-          var mergedArray = Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage>()
-          while let value = try parseDelimitedFrom(inputStream: inputStream) {
-            mergedArray.append(value)
-          }
-          return mergedArray
-        }
-        public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage? {
-          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-        }
-        public class func parseFrom(data: Data) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
-        }
-        public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(inputStream: inputStream).build()
-        }
-        public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-          return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
           return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.classBuilder() as! Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder
@@ -1150,34 +1122,6 @@ public extension Proto2NofieldpresenceUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto2NofieldpresenceUnittest.TestAllTypes> {
-      var mergedArray = Array<Proto2NofieldpresenceUnittest.TestAllTypes>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes? {
-      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
-      return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
       return Proto2NofieldpresenceUnittest.TestAllTypes.classBuilder() as! Proto2NofieldpresenceUnittest.TestAllTypes.Builder
@@ -3716,7 +3660,7 @@ public extension Proto2NofieldpresenceUnittest {
 
   }
 
-  final public class TestProto2Required : GeneratedMessage, GeneratedMessageProtocol {
+  final public class TestProto2Required : GeneratedMessage {
     public private(set) var proto2:ProtobufUnittest.TestRequired!
     public private(set) var hasProto2:Bool = false
     required public init() {
@@ -3751,34 +3695,6 @@ public extension Proto2NofieldpresenceUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto2NofieldpresenceUnittest.TestProto2Required> {
-      var mergedArray = Array<Proto2NofieldpresenceUnittest.TestProto2Required>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required? {
-      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
-      return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
       return Proto2NofieldpresenceUnittest.TestProto2Required.classBuilder() as! Proto2NofieldpresenceUnittest.TestProto2Required.Builder
@@ -3993,7 +3909,7 @@ public extension Proto2NofieldpresenceUnittest {
 
   // Define these after TestAllTypes to make sure the compiler can handle
   // that.
-  final public class ForeignMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final public class ForeignMessage : GeneratedMessage {
     public private(set) var c:Int32 = Int32(0)
 
     public private(set) var hasC:Bool = false
@@ -4022,34 +3938,6 @@ public extension Proto2NofieldpresenceUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto2NofieldpresenceUnittest.ForeignMessage> {
-      var mergedArray = Array<Proto2NofieldpresenceUnittest.ForeignMessage>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage? {
-      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
-      return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
       return Proto2NofieldpresenceUnittest.ForeignMessage.classBuilder() as! Proto2NofieldpresenceUnittest.ForeignMessage.Builder
@@ -4222,6 +4110,126 @@ public extension Proto2NofieldpresenceUnittest {
 
   }
 
+}
+extension Proto2NofieldpresenceUnittest.TestAllTypes: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto2NofieldpresenceUnittest.TestAllTypes> {
+    var mergedArray = Array<Proto2NofieldpresenceUnittest.TestAllTypes>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes? {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage> {
+    var mergedArray = Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage? {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension Proto2NofieldpresenceUnittest.TestProto2Required: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto2NofieldpresenceUnittest.TestProto2Required> {
+    var mergedArray = Array<Proto2NofieldpresenceUnittest.TestProto2Required>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required? {
+    return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+    return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+    return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+    return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+    return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+    return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
+    return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension Proto2NofieldpresenceUnittest.ForeignMessage: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto2NofieldpresenceUnittest.ForeignMessage> {
+    var mergedArray = Array<Proto2NofieldpresenceUnittest.ForeignMessage>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage? {
+    return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+    return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+    return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+    return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+    return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+    return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
+    return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)

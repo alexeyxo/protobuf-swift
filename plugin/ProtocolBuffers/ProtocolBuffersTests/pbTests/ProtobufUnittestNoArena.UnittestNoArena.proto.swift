@@ -201,12 +201,12 @@ public extension ProtobufUnittestNoArena {
 
   // This proto includes every type of field in both singular and repeated
   // forms.
-  final public class TestAllTypes : GeneratedMessage, GeneratedMessageProtocol {
+  final public class TestAllTypes : GeneratedMessage {
 
 
     //Nested type declaration start
 
-      final public class NestedMessage : GeneratedMessage, GeneratedMessageProtocol {
+      final public class NestedMessage : GeneratedMessage {
         // The field name "b" fails to compile in proto1 because it conflicts with
         // a local variable named "b" in one of the generated methods.  Doh.
         // This file needs to compile in proto1 to test backwards-compatibility.
@@ -238,34 +238,6 @@ public extension ProtobufUnittestNoArena {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage> {
-          var mergedArray = Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>()
-          while let value = try parseDelimitedFrom(inputStream: inputStream) {
-            mergedArray.append(value)
-          }
-          return mergedArray
-        }
-        public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage? {
-          return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-        }
-        public class func parseFrom(data: Data) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
-        }
-        public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(inputStream: inputStream).build()
-        }
-        public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-          return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.NestedMessage.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder
@@ -444,7 +416,7 @@ public extension ProtobufUnittestNoArena {
 
     //Nested type declaration start
 
-      final public class OptionalGroup : GeneratedMessage, GeneratedMessageProtocol {
+      final public class OptionalGroup : GeneratedMessage {
         public private(set) var a:Int32 = Int32(0)
 
         public private(set) var hasA:Bool = false
@@ -473,34 +445,6 @@ public extension ProtobufUnittestNoArena {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestNoArena.TestAllTypes.OptionalGroup> {
-          var mergedArray = Array<ProtobufUnittestNoArena.TestAllTypes.OptionalGroup>()
-          while let value = try parseDelimitedFrom(inputStream: inputStream) {
-            mergedArray.append(value)
-          }
-          return mergedArray
-        }
-        public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup? {
-          return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-        }
-        public class func parseFrom(data: Data) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
-        }
-        public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(inputStream: inputStream).build()
-        }
-        public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-          return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder
@@ -679,7 +623,7 @@ public extension ProtobufUnittestNoArena {
 
     //Nested type declaration start
 
-      final public class RepeatedGroup : GeneratedMessage, GeneratedMessageProtocol {
+      final public class RepeatedGroup : GeneratedMessage {
         public private(set) var a:Int32 = Int32(0)
 
         public private(set) var hasA:Bool = false
@@ -708,34 +652,6 @@ public extension ProtobufUnittestNoArena {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup> {
-          var mergedArray = Array<ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup>()
-          while let value = try parseDelimitedFrom(inputStream: inputStream) {
-            mergedArray.append(value)
-          }
-          return mergedArray
-        }
-        public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup? {
-          return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-        }
-        public class func parseFrom(data: Data) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
-        }
-        public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(inputStream: inputStream).build()
-        }
-        public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-          return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
           return ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder
@@ -1844,34 +1760,6 @@ public extension ProtobufUnittestNoArena {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestNoArena.TestAllTypes> {
-      var mergedArray = Array<ProtobufUnittestNoArena.TestAllTypes>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes? {
-      return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> ProtobufUnittestNoArena.TestAllTypes {
-      return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes {
-      return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes {
-      return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes {
-      return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes {
-      return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes {
-      return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
       return ProtobufUnittestNoArena.TestAllTypes.classBuilder() as! ProtobufUnittestNoArena.TestAllTypes.Builder
@@ -5567,7 +5455,7 @@ public extension ProtobufUnittestNoArena {
 
   // Define these after TestAllTypes to make sure the compiler can handle
   // that.
-  final public class ForeignMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final public class ForeignMessage : GeneratedMessage {
     public private(set) var c:Int32 = Int32(0)
 
     public private(set) var hasC:Bool = false
@@ -5596,34 +5484,6 @@ public extension ProtobufUnittestNoArena {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestNoArena.ForeignMessage> {
-      var mergedArray = Array<ProtobufUnittestNoArena.ForeignMessage>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.ForeignMessage? {
-      return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> ProtobufUnittestNoArena.ForeignMessage {
-      return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.ForeignMessage {
-      return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.ForeignMessage {
-      return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.ForeignMessage {
-      return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.ForeignMessage {
-      return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.ForeignMessage {
-      return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
       return ProtobufUnittestNoArena.ForeignMessage.classBuilder() as! ProtobufUnittestNoArena.ForeignMessage.Builder
@@ -5796,7 +5656,7 @@ public extension ProtobufUnittestNoArena {
 
   }
 
-  final public class TestNoArenaMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final public class TestNoArenaMessage : GeneratedMessage {
     public private(set) var arenaMessage:Proto2ArenaUnittest.ArenaMessage!
     public private(set) var hasArenaMessage:Bool = false
     required public init() {
@@ -5826,34 +5686,6 @@ public extension ProtobufUnittestNoArena {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestNoArena.TestNoArenaMessage> {
-      var mergedArray = Array<ProtobufUnittestNoArena.TestNoArenaMessage>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestNoArenaMessage? {
-      return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
-      return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
       return ProtobufUnittestNoArena.TestNoArenaMessage.classBuilder() as! ProtobufUnittestNoArena.TestNoArenaMessage.Builder
@@ -6066,6 +5898,186 @@ public extension ProtobufUnittestNoArena {
 
   }
 
+}
+extension ProtobufUnittestNoArena.TestAllTypes: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestNoArena.TestAllTypes> {
+    var mergedArray = Array<ProtobufUnittestNoArena.TestAllTypes>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes? {
+    return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> ProtobufUnittestNoArena.TestAllTypes {
+    return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes {
+    return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes {
+    return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes {
+    return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes {
+    return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes {
+    return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension ProtobufUnittestNoArena.TestAllTypes.NestedMessage: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage> {
+    var mergedArray = Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage? {
+    return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
+    return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
+    return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
+    return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
+    return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
+    return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
+    return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension ProtobufUnittestNoArena.TestAllTypes.OptionalGroup: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestNoArena.TestAllTypes.OptionalGroup> {
+    var mergedArray = Array<ProtobufUnittestNoArena.TestAllTypes.OptionalGroup>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup? {
+    return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup> {
+    var mergedArray = Array<ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup? {
+    return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension ProtobufUnittestNoArena.ForeignMessage: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestNoArena.ForeignMessage> {
+    var mergedArray = Array<ProtobufUnittestNoArena.ForeignMessage>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.ForeignMessage? {
+    return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> ProtobufUnittestNoArena.ForeignMessage {
+    return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.ForeignMessage {
+    return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.ForeignMessage {
+    return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.ForeignMessage {
+    return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.ForeignMessage {
+    return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.ForeignMessage {
+    return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension ProtobufUnittestNoArena.TestNoArenaMessage: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittestNoArena.TestNoArenaMessage> {
+    var mergedArray = Array<ProtobufUnittestNoArena.TestNoArenaMessage>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestNoArenaMessage? {
+    return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
+    return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestNoArena.UnittestNoArenaRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
+    return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
+    return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
+    return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
+    return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
+    return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)

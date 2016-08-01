@@ -80,11 +80,11 @@ public extension Google.Protobuf {
 
   //Enum type declaration end 
 
-  final public class SwiftFileOptions : GeneratedMessage, GeneratedMessageProtocol {
+  final public class SwiftFileOptions : GeneratedMessage {
     public private(set) var classPrefix:String = ""
 
     public private(set) var hasClassPrefix:Bool = false
-    public private(set) var entitiesAccessControl:Google.Protobuf.AccessControl = Google.Protobuf.AccessControl.internalEntities
+    public private(set) var entitiesAccessControl:Google.Protobuf.AccessControl = Google.Protobuf.AccessControl.publicEntities
     public private(set) var hasEntitiesAccessControl:Bool = false
     public private(set) var compileForFramework:Bool = true
 
@@ -126,34 +126,6 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.SwiftFileOptions> {
-      var mergedArray = Array<Google.Protobuf.SwiftFileOptions>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.SwiftFileOptions? {
-      return try Google.Protobuf.SwiftFileOptions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> Google.Protobuf.SwiftFileOptions {
-      return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
-      return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.SwiftFileOptions {
-      return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
-      return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions {
-      return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
-      return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Google.Protobuf.SwiftFileOptions.Builder {
       return Google.Protobuf.SwiftFileOptions.classBuilder() as! Google.Protobuf.SwiftFileOptions.Builder
@@ -293,7 +265,7 @@ public extension Google.Protobuf {
         }
         public func clearEntitiesAccessControl() -> Google.Protobuf.SwiftFileOptions.Builder {
            builderResult.hasEntitiesAccessControl = false
-           builderResult.entitiesAccessControl = .internalEntities
+           builderResult.entitiesAccessControl = .publicEntities
            return self
         }
       public var hasCompileForFramework:Bool {
@@ -413,6 +385,36 @@ public extension Google.Protobuf {
 
   }
 
+}
+extension Google.Protobuf.SwiftFileOptions: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.SwiftFileOptions> {
+    var mergedArray = Array<Google.Protobuf.SwiftFileOptions>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.SwiftFileOptions? {
+    return try Google.Protobuf.SwiftFileOptions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> Google.Protobuf.SwiftFileOptions {
+    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
+    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.SwiftFileOptions {
+    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
+    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions {
+    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
+    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)

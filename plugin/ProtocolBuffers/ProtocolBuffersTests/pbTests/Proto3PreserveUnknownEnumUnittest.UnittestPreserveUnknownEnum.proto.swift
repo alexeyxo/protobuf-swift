@@ -132,7 +132,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
 
   //Enum type declaration end 
 
-  final public class MyMessage : GeneratedMessage, GeneratedMessageProtocol {
+  final public class MyMessage : GeneratedMessage {
 
 
     //OneOf declaration start
@@ -292,34 +292,6 @@ public extension Proto3PreserveUnknownEnumUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3PreserveUnknownEnumUnittest.MyMessage> {
-      var mergedArray = Array<Proto3PreserveUnknownEnumUnittest.MyMessage>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage? {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
       return Proto3PreserveUnknownEnumUnittest.MyMessage.classBuilder() as! Proto3PreserveUnknownEnumUnittest.MyMessage.Builder
@@ -744,7 +716,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
 
   }
 
-  final public class MyMessagePlusExtra : GeneratedMessage, GeneratedMessageProtocol {
+  final public class MyMessagePlusExtra : GeneratedMessage {
 
 
     //OneOf declaration start
@@ -912,34 +884,6 @@ public extension Proto3PreserveUnknownEnumUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra> {
-      var mergedArray = Array<Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra? {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-      return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
       return Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.classBuilder() as! Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder
@@ -1369,6 +1313,66 @@ public extension Proto3PreserveUnknownEnumUnittest {
 
   }
 
+}
+extension Proto3PreserveUnknownEnumUnittest.MyMessage: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3PreserveUnknownEnumUnittest.MyMessage> {
+    var mergedArray = Array<Proto3PreserveUnknownEnumUnittest.MyMessage>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage? {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra> {
+    var mergedArray = Array<Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra? {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+    return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)

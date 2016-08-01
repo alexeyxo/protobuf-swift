@@ -117,7 +117,7 @@ public extension SwiftProtobufUnittest {
     }
   }
 
-  final public class MapMessageValue : GeneratedMessage, GeneratedMessageProtocol {
+  final public class MapMessageValue : GeneratedMessage {
     public private(set) var valueInMapMessage:Int32 = Int32(0)
 
     public private(set) var hasValueInMapMessage:Bool = false
@@ -146,34 +146,6 @@ public extension SwiftProtobufUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MapMessageValue> {
-      var mergedArray = Array<SwiftProtobufUnittest.MapMessageValue>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MapMessageValue? {
-      return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MapMessageValue {
-      return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue {
-      return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MapMessageValue {
-      return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue {
-      return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MapMessageValue {
-      return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue {
-      return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> SwiftProtobufUnittest.MapMessageValue.Builder {
       return SwiftProtobufUnittest.MapMessageValue.classBuilder() as! SwiftProtobufUnittest.MapMessageValue.Builder
@@ -346,12 +318,12 @@ public extension SwiftProtobufUnittest {
 
   }
 
-  final public class MessageContainsMap : GeneratedMessage, GeneratedMessageProtocol {
+  final public class MessageContainsMap : GeneratedMessage {
 
 
     //Nested type declaration start
 
-      final public class MapInt32Int32Entry : GeneratedMessage, GeneratedMessageProtocol {
+      final public class MapInt32Int32Entry : GeneratedMessage {
         public private(set) var key:Int32 = Int32(0)
 
         public private(set) var hasKey:Bool = false
@@ -389,34 +361,6 @@ public extension SwiftProtobufUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry> {
-          var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry>()
-          while let value = try parseDelimitedFrom(inputStream: inputStream) {
-            mergedArray.append(value)
-          }
-          return mergedArray
-        }
-        public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry? {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-        }
-        public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
-        }
-        public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(inputStream: inputStream).build()
-        }
-        public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder
@@ -636,7 +580,7 @@ public extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class MapInt64Int64Entry : GeneratedMessage, GeneratedMessageProtocol {
+      final public class MapInt64Int64Entry : GeneratedMessage {
         public private(set) var key:Int64 = Int64(0)
 
         public private(set) var hasKey:Bool = false
@@ -674,34 +618,6 @@ public extension SwiftProtobufUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry> {
-          var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry>()
-          while let value = try parseDelimitedFrom(inputStream: inputStream) {
-            mergedArray.append(value)
-          }
-          return mergedArray
-        }
-        public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry? {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-        }
-        public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
-        }
-        public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(inputStream: inputStream).build()
-        }
-        public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder
@@ -921,7 +837,7 @@ public extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class MapStringStringEntry : GeneratedMessage, GeneratedMessageProtocol {
+      final public class MapStringStringEntry : GeneratedMessage {
         public private(set) var key:String = ""
 
         public private(set) var hasKey:Bool = false
@@ -959,34 +875,6 @@ public extension SwiftProtobufUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry> {
-          var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry>()
-          while let value = try parseDelimitedFrom(inputStream: inputStream) {
-            mergedArray.append(value)
-          }
-          return mergedArray
-        }
-        public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry? {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-        }
-        public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
-        }
-        public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(inputStream: inputStream).build()
-        }
-        public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder
@@ -1206,7 +1094,7 @@ public extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class MapStringBytesEntry : GeneratedMessage, GeneratedMessageProtocol {
+      final public class MapStringBytesEntry : GeneratedMessage {
         public private(set) var key:String = ""
 
         public private(set) var hasKey:Bool = false
@@ -1244,34 +1132,6 @@ public extension SwiftProtobufUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry> {
-          var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry>()
-          while let value = try parseDelimitedFrom(inputStream: inputStream) {
-            mergedArray.append(value)
-          }
-          return mergedArray
-        }
-        public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry? {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-        }
-        public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
-        }
-        public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(inputStream: inputStream).build()
-        }
-        public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder
@@ -1491,7 +1351,7 @@ public extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class MapStringMessageEntry : GeneratedMessage, GeneratedMessageProtocol {
+      final public class MapStringMessageEntry : GeneratedMessage {
         public private(set) var key:String = ""
 
         public private(set) var hasKey:Bool = false
@@ -1530,34 +1390,6 @@ public extension SwiftProtobufUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry> {
-          var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry>()
-          while let value = try parseDelimitedFrom(inputStream: inputStream) {
-            mergedArray.append(value)
-          }
-          return mergedArray
-        }
-        public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry? {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-        }
-        public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
-        }
-        public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(inputStream: inputStream).build()
-        }
-        public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder
@@ -1817,7 +1649,7 @@ public extension SwiftProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class MapInt32EnumEntry : GeneratedMessage, GeneratedMessageProtocol {
+      final public class MapInt32EnumEntry : GeneratedMessage {
         public private(set) var key:Int32 = Int32(0)
 
         public private(set) var hasKey:Bool = false
@@ -1854,34 +1686,6 @@ public extension SwiftProtobufUnittest {
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry> {
-          var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry>()
-          while let value = try parseDelimitedFrom(inputStream: inputStream) {
-            mergedArray.append(value)
-          }
-          return mergedArray
-        }
-        public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry? {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-        }
-        public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
-        }
-        public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(inputStream: inputStream).build()
-        }
-        public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-        }
-        public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
-          return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
         }
         public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder
@@ -2243,34 +2047,6 @@ public extension SwiftProtobufUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap> {
-      var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap? {
-      return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap {
-      return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap {
-      return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap {
-      return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap {
-      return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap {
-      return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap {
-      return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.Builder {
       return SwiftProtobufUnittest.MessageContainsMap.classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.Builder
@@ -2739,6 +2515,246 @@ public extension SwiftProtobufUnittest {
 
   }
 
+}
+extension SwiftProtobufUnittest.MapMessageValue: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MapMessageValue> {
+    var mergedArray = Array<SwiftProtobufUnittest.MapMessageValue>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MapMessageValue? {
+    return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MapMessageValue {
+    return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue {
+    return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MapMessageValue {
+    return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue {
+    return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MapMessageValue {
+    return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue {
+    return try SwiftProtobufUnittest.MapMessageValue.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap> {
+    var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap? {
+    return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap {
+    return try SwiftProtobufUnittest.MessageContainsMap.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry> {
+    var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry? {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry> {
+    var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry? {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry> {
+    var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry? {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry> {
+    var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry? {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry> {
+    var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry? {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry> {
+    var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry? {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(data: data, extensionRegistry:SwiftProtobufUnittest.UnittestMapsRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+    return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)

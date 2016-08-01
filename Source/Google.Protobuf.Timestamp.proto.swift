@@ -75,7 +75,7 @@ public extension Google.Protobuf {
   //     seconds = int(time.mktime(now.timetuple()))
   //     nanos = now.microsecond * 1000
   //     timestamp = Timestamp(seconds=seconds, nanos=nanos)
-  final public class Timestamp : GeneratedMessage, GeneratedMessageProtocol {
+  final public class Timestamp : GeneratedMessage {
     // Represents seconds of UTC time since Unix epoch
     // 1970-01-01T00:00:00Z. Must be from from 0001-01-01T00:00:00Z to
     // 9999-12-31T23:59:59Z inclusive.
@@ -120,34 +120,6 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.Timestamp> {
-      var mergedArray = Array<Google.Protobuf.Timestamp>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.Timestamp? {
-      return try Google.Protobuf.Timestamp.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> Google.Protobuf.Timestamp {
-      return try Google.Protobuf.Timestamp.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TimestampRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
-      return try Google.Protobuf.Timestamp.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.Timestamp {
-      return try Google.Protobuf.Timestamp.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
-      return try Google.Protobuf.Timestamp.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Timestamp {
-      return try Google.Protobuf.Timestamp.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
-      return try Google.Protobuf.Timestamp.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Google.Protobuf.Timestamp.Builder {
       return Google.Protobuf.Timestamp.classBuilder() as! Google.Protobuf.Timestamp.Builder
@@ -361,6 +333,36 @@ public extension Google.Protobuf {
 
   }
 
+}
+extension Google.Protobuf.Timestamp: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.Timestamp> {
+    var mergedArray = Array<Google.Protobuf.Timestamp>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.Timestamp? {
+    return try Google.Protobuf.Timestamp.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> Google.Protobuf.Timestamp {
+    return try Google.Protobuf.Timestamp.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TimestampRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
+    return try Google.Protobuf.Timestamp.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.Timestamp {
+    return try Google.Protobuf.Timestamp.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
+    return try Google.Protobuf.Timestamp.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Timestamp {
+    return try Google.Protobuf.Timestamp.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
+    return try Google.Protobuf.Timestamp.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)

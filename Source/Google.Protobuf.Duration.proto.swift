@@ -68,7 +68,7 @@ public extension Google.Protobuf {
   //       end.seconds += 1;
   //       end.nanos -= 1000000000;
   //     }
-  final public class Duration : GeneratedMessage, GeneratedMessageProtocol {
+  final public class Duration : GeneratedMessage {
     // Signed seconds of the span of time. Must be from -315,576,000,000
     // to +315,576,000,000 inclusive.
     public private(set) var seconds:Int64 = Int64(0)
@@ -114,34 +114,6 @@ public extension Google.Protobuf {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.Duration> {
-      var mergedArray = Array<Google.Protobuf.Duration>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.Duration? {
-      return try Google.Protobuf.Duration.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> Google.Protobuf.Duration {
-      return try Google.Protobuf.Duration.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.DurationRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Duration {
-      return try Google.Protobuf.Duration.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.Duration {
-      return try Google.Protobuf.Duration.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Duration {
-      return try Google.Protobuf.Duration.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Duration {
-      return try Google.Protobuf.Duration.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Duration {
-      return try Google.Protobuf.Duration.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Google.Protobuf.Duration.Builder {
       return Google.Protobuf.Duration.classBuilder() as! Google.Protobuf.Duration.Builder
@@ -355,6 +327,36 @@ public extension Google.Protobuf {
 
   }
 
+}
+extension Google.Protobuf.Duration: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.Duration> {
+    var mergedArray = Array<Google.Protobuf.Duration>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.Duration? {
+    return try Google.Protobuf.Duration.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> Google.Protobuf.Duration {
+    return try Google.Protobuf.Duration.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.DurationRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Duration {
+    return try Google.Protobuf.Duration.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.Duration {
+    return try Google.Protobuf.Duration.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Duration {
+    return try Google.Protobuf.Duration.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Duration {
+    return try Google.Protobuf.Duration.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Duration {
+    return try Google.Protobuf.Duration.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)

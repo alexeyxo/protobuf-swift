@@ -49,7 +49,7 @@ public extension UnittestDropUnknownFields {
     }
   }
 
-  final public class Foo : GeneratedMessage, GeneratedMessageProtocol {
+  final public class Foo : GeneratedMessage {
 
 
       //Enum type declaration start 
@@ -122,34 +122,6 @@ public extension UnittestDropUnknownFields {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<UnittestDropUnknownFields.Foo> {
-      var mergedArray = Array<UnittestDropUnknownFields.Foo>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> UnittestDropUnknownFields.Foo? {
-      return try UnittestDropUnknownFields.Foo.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> UnittestDropUnknownFields.Foo {
-      return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(data: data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
-      return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> UnittestDropUnknownFields.Foo {
-      return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
-      return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> UnittestDropUnknownFields.Foo {
-      return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
-      return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> UnittestDropUnknownFields.Foo.Builder {
       return UnittestDropUnknownFields.Foo.classBuilder() as! UnittestDropUnknownFields.Foo.Builder
@@ -368,7 +340,7 @@ public extension UnittestDropUnknownFields {
 
   }
 
-  final public class FooWithExtraFields : GeneratedMessage, GeneratedMessageProtocol {
+  final public class FooWithExtraFields : GeneratedMessage {
 
 
       //Enum type declaration start 
@@ -454,34 +426,6 @@ public extension UnittestDropUnknownFields {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<UnittestDropUnknownFields.FooWithExtraFields> {
-      var mergedArray = Array<UnittestDropUnknownFields.FooWithExtraFields>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields? {
-      return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> UnittestDropUnknownFields.FooWithExtraFields {
-      return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(data: data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
-      return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields {
-      return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
-      return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields {
-      return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
-      return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
       return UnittestDropUnknownFields.FooWithExtraFields.classBuilder() as! UnittestDropUnknownFields.FooWithExtraFields.Builder
@@ -741,6 +685,66 @@ public extension UnittestDropUnknownFields {
 
   }
 
+}
+extension UnittestDropUnknownFields.Foo: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<UnittestDropUnknownFields.Foo> {
+    var mergedArray = Array<UnittestDropUnknownFields.Foo>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> UnittestDropUnknownFields.Foo? {
+    return try UnittestDropUnknownFields.Foo.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> UnittestDropUnknownFields.Foo {
+    return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(data: data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
+    return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> UnittestDropUnknownFields.Foo {
+    return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
+    return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> UnittestDropUnknownFields.Foo {
+    return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
+    return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension UnittestDropUnknownFields.FooWithExtraFields: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<UnittestDropUnknownFields.FooWithExtraFields> {
+    var mergedArray = Array<UnittestDropUnknownFields.FooWithExtraFields>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields? {
+    return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(data: data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)

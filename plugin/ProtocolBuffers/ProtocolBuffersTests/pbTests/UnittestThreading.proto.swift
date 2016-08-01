@@ -33,7 +33,7 @@ public struct UnittestThreadingRoot {
   }
 }
 
-final public class ThreadingMessages : GeneratedMessage, GeneratedMessageProtocol {
+final public class ThreadingMessages : GeneratedMessage {
   public private(set) var testString:String = ""
 
   public private(set) var hasTestString:Bool = false
@@ -62,34 +62,6 @@ final public class ThreadingMessages : GeneratedMessage, GeneratedMessageProtoco
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
     return serialize_size
-  }
-  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ThreadingMessages> {
-    var mergedArray = Array<ThreadingMessages>()
-    while let value = try parseDelimitedFrom(inputStream: inputStream) {
-      mergedArray.append(value)
-    }
-    return mergedArray
-  }
-  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ThreadingMessages? {
-    return try ThreadingMessages.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-  }
-  public class func parseFrom(data: Data) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFrom(data: data, extensionRegistry:UnittestThreadingRoot.sharedInstance.extensionRegistry).build()
-  }
-  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(inputStream: InputStream) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFrom(inputStream: inputStream).build()
-  }
-  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-  }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-  }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
   }
   public class func getBuilder() -> ThreadingMessages.Builder {
     return ThreadingMessages.classBuilder() as! ThreadingMessages.Builder
@@ -262,5 +234,35 @@ final public class ThreadingMessages : GeneratedMessage, GeneratedMessageProtoco
 
 }
 
+extension ThreadingMessages: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ThreadingMessages> {
+    var mergedArray = Array<ThreadingMessages>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ThreadingMessages? {
+    return try ThreadingMessages.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(data: data, extensionRegistry:UnittestThreadingRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

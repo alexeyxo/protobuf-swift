@@ -56,7 +56,7 @@ public extension ProtobufUnittest {
   }
 
   // Test that we can include all well-known types.
-  final public class TestWellKnownTypes : GeneratedMessage, GeneratedMessageProtocol {
+  final public class TestWellKnownTypes : GeneratedMessage {
     public private(set) var anyField:Google.Protobuf.AnyType!
     public private(set) var hasAnyField:Bool = false
     public private(set) var apiField:Google.Protobuf.Api!
@@ -176,34 +176,6 @@ public extension ProtobufUnittest {
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestWellKnownTypes> {
-      var mergedArray = Array<ProtobufUnittest.TestWellKnownTypes>()
-      while let value = try parseDelimitedFrom(inputStream: inputStream) {
-        mergedArray.append(value)
-      }
-      return mergedArray
-    }
-    public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestWellKnownTypes? {
-      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
-    }
-    public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestWellKnownTypes {
-      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestWellKnownTypesRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes {
-      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestWellKnownTypes {
-      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(inputStream: inputStream).build()
-    }
-    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes {
-      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestWellKnownTypes {
-      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(codedInputStream: codedInputStream).build()
-    }
-    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes {
-      return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> ProtobufUnittest.TestWellKnownTypes.Builder {
       return ProtobufUnittest.TestWellKnownTypes.classBuilder() as! ProtobufUnittest.TestWellKnownTypes.Builder
@@ -1145,6 +1117,36 @@ public extension ProtobufUnittest {
 
   }
 
+}
+extension ProtobufUnittest.TestWellKnownTypes: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestWellKnownTypes> {
+    var mergedArray = Array<ProtobufUnittest.TestWellKnownTypes>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestWellKnownTypes? {
+    return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestWellKnownTypes {
+    return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestWellKnownTypesRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes {
+    return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> ProtobufUnittest.TestWellKnownTypes {
+    return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes {
+    return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestWellKnownTypes {
+    return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes {
+    return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)
