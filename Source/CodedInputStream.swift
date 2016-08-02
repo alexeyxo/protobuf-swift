@@ -43,7 +43,7 @@ public class CodedInputStream {
         sizeLimit = DEFAULT_SIZE_LIMIT
     }
     public init (stream:InputStream) {
-        buffer = Data(count: BUFFER_SIZE)!
+        buffer = Data(count: BUFFER_SIZE)
         bufferSize = 0
         input = stream
         input?.open()
@@ -120,7 +120,7 @@ public class CodedInputStream {
             return data
         } else if (size < BUFFER_SIZE) {
             
-            let bytes = Data(count: size)!
+            let bytes = Data(count: size)
             var pos = bufferSize - bufferPos
             let byPointer = UnsafeMutablePointer<UInt8>((bytes as NSData).bytes)
             memcpy(byPointer, pointer + bufferPos, pos)
@@ -152,7 +152,7 @@ public class CodedInputStream {
             var chunks:Array<Data> = Array<Data>()
             
             while (sizeLeft > 0) {
-                var chunk = Data(count:min(sizeLeft, BUFFER_SIZE))!
+                var chunk = Data(count:min(sizeLeft, BUFFER_SIZE))
             
                 var pos:Int = 0
                 while pos < chunk.count {
@@ -173,7 +173,7 @@ public class CodedInputStream {
             }
             
             
-            let bytes = Data(count: size)!
+            let bytes = Data(count: size)
             let byPointer = UnsafeMutablePointer<UInt8>((bytes as NSData).bytes)
             var pos = originalBufferSize - originalBufferPos
             memcpy(byPointer, pointer + originalBufferPos, pos)

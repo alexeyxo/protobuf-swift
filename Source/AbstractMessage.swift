@@ -23,7 +23,7 @@ public typealias ONEOF_NOT_SET = Int
 public protocol MessageInit {
 }
 
-public enum ProtocolBuffersError: ErrorProtocol {
+public enum ProtocolBuffersError: Error {
     case obvious(String)
     //Streams
     case invalidProtocolBuffer(String)
@@ -72,7 +72,7 @@ public class AbstractMessage:Hashable, Message {
 
     final public func data() -> Data {
         let ser_size = serializedSize()
-        let data = Data(count: Int(ser_size))!
+        let data = Data(count: Int(ser_size))
         let stream:CodedOutputStream = CodedOutputStream(data: data)
         do {
             try writeTo(codedOutputStream: stream)
