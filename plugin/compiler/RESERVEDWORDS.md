@@ -1,3 +1,6 @@
+# Reserved Words
+
+```swift
 "_", 
 "@available",
 "#column",
@@ -84,5 +87,4 @@
 "weak",
 "willSet",
 "String",
-"description",
-"hashValue"
+```
