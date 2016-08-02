@@ -25,6 +25,94 @@
 
 #include "google/protobuf/swift-descriptor.pb.h"
 
+static const std::string reservedWords[] = { "_",
+    "@available",
+    "#column",
+    "#else",
+    "#elseif",
+    "#endif",
+    "#file",
+    "#function",
+    "#if",
+    "#line",
+    "#selector",
+    "description",
+    "debugDescription",
+    "as",
+    "associatedtype",
+    "break",
+    "case",
+    "catch",
+    "class",
+    "continue",
+    "default",
+    "defer",
+    "deinit",
+    "do",
+    "dynamicType",
+    "else",
+    "enum",
+    "extension",
+    "fallthrough",
+    "false",
+    "for",
+    "func",
+    "guard",
+    "if",
+    "import",
+    "in",
+    "init",
+    "inout",
+    "internal",
+    "is",
+    "protocol",
+    "public",
+    "repeat",
+    "rethrows",
+    "return",
+    "self",
+    "Self",
+    "static",
+    "struct",
+    "subscript",
+    "super",
+    "switch",
+    "throw",
+    "throws",
+    "true",
+    "try",
+    "typealias",
+    "var",
+    "where",
+    "while",
+    "Any",
+    "associativity",
+    "convenience",
+    "dynamic",
+    "didSet",
+    "final",
+    "get",
+    "infix",
+    "indirect",
+    "lazy",
+    "left",
+    "mutating",
+    "none",
+    "nonmutating",
+    "optional",
+    "override",
+    "postfix",
+    "Protocol",
+    "required",
+    "right",
+    "set",
+    "Type",
+    "unowned",
+    "weak",
+    "willSet",
+    "String",
+};
+
 namespace google { namespace protobuf { namespace compiler { namespace swift {
     namespace {
         const string& FieldName(const FieldDescriptor* field) {
@@ -39,21 +127,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string CheckReservedNames(const string& input)
     {
         string result;
-        if (input == "extension" ||
-            input == "String" ||
-            input == "description"||
-            input == "Message" ||
-            input == "message" ||
-            input == "func") {
-            result = input + "_";
-        }
-        else if (input == "Type") {
-            result = input + "s";
-        }
-        else
+        bool exists = std::find(std::begin(reservedWords), std::end(reservedWords), input) != std::end(reservedWords);
+        if (input == "description" || input == "debugDescription" || input ==  "hashValue")
         {
+            return  input + "_";
+        }
+        
+        if (exists) {
+            result = "`" + input + "`";
+        } else {
             result = input;
         }
+        return result;
         return result;
     }
 
@@ -113,7 +198,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         for (vector<string>::iterator i = values.begin(); i != values.end(); ++i) {
             result += *i;
         }
-        return CheckReservedNames(result);
+        return result;
     }
 
     bool isCompileForFramework(const FileDescriptor* file) {
@@ -164,7 +249,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
 
         result[0] = tolower(result[0]);
-        return CheckReservedNames(result);
+        return result;
     }
 
 
@@ -493,7 +578,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string EnumValueName(const EnumValueDescriptor* descriptor) {
         string name = UnderscoresToCapitalizedCamelCase(SafeName(descriptor->name()));
         if (name == UnderscoresToCapitalizedCamelCase(descriptor->type()->name())) {
-            name += "Field";
+            name += "`" + name + "`";
         }
         name[0] = tolower(name[0]);
         return name;

@@ -12,7 +12,7 @@ public func == (lhs: ProtobufUnittest.TestLiteImportsNonlite, rhs: ProtobufUnitt
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasMessage_ == rhs.hasMessage_) && (!lhs.hasMessage_ || lhs.message_ == rhs.message_)
+  fieldCheck = fieldCheck && (lhs.hasMessage == rhs.hasMessage) && (!lhs.hasMessage || lhs.message == rhs.message)
   fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
   return fieldCheck
 }
@@ -37,8 +37,8 @@ public extension ProtobufUnittest {
   }
 
   final public class TestLiteImportsNonlite : GeneratedMessage {
-    public private(set) var message_:ProtobufUnittest.TestAllTypes!
-    public private(set) var hasMessage_:Bool = false
+    public private(set) var message:ProtobufUnittest.TestAllTypes!
+    public private(set) var hasMessage:Bool = false
     required public init() {
          super.init()
     }
@@ -46,8 +46,8 @@ public extension ProtobufUnittest {
      return true
     }
     override public func writeTo(codedOutputStream:CodedOutputStream) throws {
-      if hasMessage_ {
-        try codedOutputStream.writeMessage(fieldNumber:1, value:message_)
+      if hasMessage {
+        try codedOutputStream.writeMessage(fieldNumber:1, value:message)
       }
       try unknownFields.writeTo(codedOutputStream:codedOutputStream)
     }
@@ -58,9 +58,9 @@ public extension ProtobufUnittest {
       }
 
       serialize_size = 0
-      if hasMessage_ {
-          if let varSizemessage_ = message_?.computeMessageSize(fieldNumber: 1) {
-              serialize_size += varSizemessage_
+      if hasMessage {
+          if let varSizemessage = message?.computeMessageSize(fieldNumber: 1) {
+              serialize_size += varSizemessage
           }
       }
       serialize_size += unknownFields.serializedSize()
@@ -73,10 +73,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
       return classBuilder() as! ProtobufUnittest.TestLiteImportsNonlite.Builder
     }
-    public override class func classBuilder() -> MessageBuilder {
+    public override class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestLiteImportsNonlite.Builder()
     }
-    public override func classBuilder() -> MessageBuilder {
+    public override func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestLiteImportsNonlite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
@@ -87,10 +87,10 @@ public extension ProtobufUnittest {
     }
     override public func getDescription(indent:String) throws -> String {
       var output:String = ""
-      if hasMessage_ {
-        output += "\(indent) message_ {\n"
-        if let outDescMessage_ = message_ {
-          output += try outDescMessage_.getDescription(indent:"\(indent)  ")
+      if hasMessage {
+        output += "\(indent) message {\n"
+        if let outDescMessage = message {
+          output += try outDescMessage.getDescription(indent:"\(indent)  ")
         }
         output += "\(indent) }\n"
       }
@@ -100,9 +100,9 @@ public extension ProtobufUnittest {
     override public var hashValue:Int {
         get {
             var hashCode:Int = 7
-            if hasMessage_ {
-                if let hashValuemessage_ = message_?.hashValue {
-                    hashCode = (hashCode &* 31) &+ hashValuemessage_
+            if hasMessage {
+                if let hashValuemessage = message?.hashValue {
+                    hashCode = (hashCode &* 31) &+ hashValuemessage
                 }
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -119,9 +119,6 @@ public extension ProtobufUnittest {
     override public func className() -> String {
         return "ProtobufUnittest.TestLiteImportsNonlite"
     }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestLiteImportsNonlite.self
-    }
     //Meta information declaration end
 
     final public class Builder : GeneratedMessageBuilder {
@@ -133,55 +130,55 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasMessage_:Bool {
+      public var hasMessage:Bool {
            get {
-               return builderResult.hasMessage_
+               return builderResult.hasMessage
            }
       }
-      public var message_:ProtobufUnittest.TestAllTypes! {
+      public var message:ProtobufUnittest.TestAllTypes! {
            get {
-               if message_Builder_ != nil {
-                  builderResult.message_ = message_Builder_.getMessage()
+               if messageBuilder_ != nil {
+                  builderResult.message = messageBuilder_.getMessage()
                }
-               return builderResult.message_
+               return builderResult.message
            }
            set (value) {
-               builderResult.hasMessage_ = true
-               builderResult.message_ = value
+               builderResult.hasMessage = true
+               builderResult.message = value
            }
       }
-      private var message_Builder_:ProtobufUnittest.TestAllTypes.Builder! {
+      private var messageBuilder_:ProtobufUnittest.TestAllTypes.Builder! {
            didSet {
-              builderResult.hasMessage_ = true
+              builderResult.hasMessage = true
            }
       }
-      public func getMessage_Builder() -> ProtobufUnittest.TestAllTypes.Builder {
-        if message_Builder_ == nil {
-           message_Builder_ = ProtobufUnittest.TestAllTypes.Builder()
-           builderResult.message_ = message_Builder_.getMessage()
-           if message_ != nil {
-              _ = try! message_Builder_.mergeFrom(other: message_)
+      public func getMessageBuilder() -> ProtobufUnittest.TestAllTypes.Builder {
+        if messageBuilder_ == nil {
+           messageBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
+           builderResult.message = messageBuilder_.getMessage()
+           if message != nil {
+              _ = try! messageBuilder_.mergeFrom(other: message)
            }
         }
-        return message_Builder_
+        return messageBuilder_
       }
-      public func setMessage_(_ value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
-        self.message_ = value
+      public func setMessage(_ value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
+        self.message = value
         return self
       }
-      public func mergeMessage_(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
-        if builderResult.hasMessage_ {
-          builderResult.message_ = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype: builderResult.message_).mergeFrom(other: value).buildPartial()
+      public func mergeMessage(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
+        if builderResult.hasMessage {
+          builderResult.message = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype: builderResult.message).mergeFrom(other: value).buildPartial()
         } else {
-          builderResult.message_ = value
+          builderResult.message = value
         }
-        builderResult.hasMessage_ = true
+        builderResult.hasMessage = true
         return self
       }
-      public func clearMessage_() -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
-        message_Builder_ = nil
-        builderResult.hasMessage_ = false
-        builderResult.message_ = nil
+      public func clearMessage() -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
+        messageBuilder_ = nil
+        builderResult.hasMessage = false
+        builderResult.message = nil
         return self
       }
       override public var internalGetResult:GeneratedMessage {
@@ -208,8 +205,8 @@ public extension ProtobufUnittest {
         if other == ProtobufUnittest.TestLiteImportsNonlite() {
          return self
         }
-        if other.hasMessage_ {
-            _ = try mergeMessage_(value: other.message_)
+        if other.hasMessage {
+            _ = try mergeMessage(value: other.message)
         }
         _ = try merge(unknownField: other.unknownFields)
         return self
@@ -228,11 +225,11 @@ public extension ProtobufUnittest {
 
           case 10:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
-            if hasMessage_ {
-             _ = try subBuilder.mergeFrom(other: message_)
+            if hasMessage {
+             _ = try subBuilder.mergeFrom(other: message)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
-            message_ = subBuilder.buildPartial()
+            message = subBuilder.buildPartial()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

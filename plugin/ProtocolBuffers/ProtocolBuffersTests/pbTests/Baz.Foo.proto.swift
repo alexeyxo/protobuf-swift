@@ -71,10 +71,10 @@ public extension Baz {
     public func getBuilder() -> Baz.Foo.Builder {
       return classBuilder() as! Baz.Foo.Builder
     }
-    public override class func classBuilder() -> MessageBuilder {
+    public override class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Baz.Foo.Builder()
     }
-    public override func classBuilder() -> MessageBuilder {
+    public override func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Baz.Foo.Builder()
     }
     public func toBuilder() throws -> Baz.Foo.Builder {
@@ -110,9 +110,6 @@ public extension Baz {
     }
     override public func className() -> String {
         return "Baz.Foo"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Baz.Foo.self
     }
     //Meta information declaration end
 

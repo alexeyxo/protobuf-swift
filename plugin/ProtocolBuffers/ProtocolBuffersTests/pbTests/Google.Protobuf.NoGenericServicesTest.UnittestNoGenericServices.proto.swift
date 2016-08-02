@@ -106,10 +106,10 @@ public extension Google.Protobuf.NoGenericServicesTest {
     public func getBuilder() -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
       return classBuilder() as! Google.Protobuf.NoGenericServicesTest.TestMessage.Builder
     }
-    public override class func classBuilder() -> MessageBuilder {
+    public override class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.NoGenericServicesTest.TestMessage.Builder()
     }
-    public override func classBuilder() -> MessageBuilder {
+    public override func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.NoGenericServicesTest.TestMessage.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
@@ -147,9 +147,6 @@ public extension Google.Protobuf.NoGenericServicesTest {
     }
     override public func className() -> String {
         return "Google.Protobuf.NoGenericServicesTest.TestMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.NoGenericServicesTest.TestMessage.self
     }
     //Meta information declaration end
 

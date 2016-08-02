@@ -96,10 +96,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
       return classBuilder() as! ProtobufUnittest.TestEmbedOptimizedForSize.Builder
     }
-    public override class func classBuilder() -> MessageBuilder {
+    public override class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestEmbedOptimizedForSize.Builder()
     }
-    public override func classBuilder() -> MessageBuilder {
+    public override func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestEmbedOptimizedForSize.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
@@ -151,9 +151,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestEmbedOptimizedForSize"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestEmbedOptimizedForSize.self
     }
     //Meta information declaration end
 
@@ -289,7 +286,7 @@ public extension ProtobufUnittest {
           case 18:
             let subBuilder = ProtobufUnittest.TestOptimizedForSize.Builder()
             try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
-            repeatedMessage += [subBuilder.buildPartial()]
+            repeatedMessage.append(subBuilder.buildPartial())
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

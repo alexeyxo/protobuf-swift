@@ -94,10 +94,10 @@ public extension ProtobufUnittestImport {
     public func getBuilder() -> ProtobufUnittestImport.ImportMessage.Builder {
       return classBuilder() as! ProtobufUnittestImport.ImportMessage.Builder
     }
-    public override class func classBuilder() -> MessageBuilder {
+    public override class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittestImport.ImportMessage.Builder()
     }
-    public override func classBuilder() -> MessageBuilder {
+    public override func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittestImport.ImportMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittestImport.ImportMessage.Builder {
@@ -133,9 +133,6 @@ public extension ProtobufUnittestImport {
     }
     override public func className() -> String {
         return "ProtobufUnittestImport.ImportMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittestImport.ImportMessage.self
     }
     //Meta information declaration end
 

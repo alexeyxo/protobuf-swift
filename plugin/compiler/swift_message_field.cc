@@ -33,6 +33,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
             std::string name = UnderscoresToCamelCase(descriptor);
             (*variables)["name"] = name;
+            (*variables)["name_reserved"] = CheckReservedNames(name);
             (*variables)["capitalized_name"] = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());
             
@@ -76,7 +77,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (isOneOfField(descriptor_)) {
             
             printer->Print(variables_,
-                           "$acontrol$private(set) var $name$:$type$!{\n"
+                           "$acontrol$private(set) var $name_reserved$:$type$!{\n"
                            "     get {\n"
                            "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "     }\n"
@@ -99,7 +100,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
        
         }
         else {
-            printer->Print(variables_, "$acontrol$private(set) var $name$:$type$!\n");
+            printer->Print(variables_, "$acontrol$private(set) var $name_reserved$:$type$!\n");
             printer->Print(variables_, "$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
         }
         
@@ -115,16 +116,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         return builderResult.has$capitalized_name$\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$var $name$:$type$! {\n"
+                       "$acontrol$var $name_reserved$:$type$! {\n"
                        "     get {\n"
                        "         if $name$Builder_ != nil {\n"
-                       "            builderResult.$name$ = $name$Builder_.getMessage()\n"
+                       "            builderResult.$name_reserved$ = $name$Builder_.getMessage()\n"
                        "         }\n"
-                       "         return builderResult.$name$\n"
+                       "         return builderResult.$name_reserved$\n"
                        "     }\n"
                        "     set (value) {\n"
                        "         builderResult.has$capitalized_name$ = true\n"
-                       "         builderResult.$name$ = value\n"
+                       "         builderResult.$name_reserved$ = value\n"
                        "     }\n"
                        "}\n"
                        "private var $name$Builder_:$type$.Builder! {\n"
@@ -135,22 +136,22 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrolFunc$ func get$capitalized_name$Builder() -> $type$.Builder {\n"
                        "  if $name$Builder_ == nil {\n"
                        "     $name$Builder_ = $type$.Builder()\n"
-                       "     builderResult.$name$ = $name$Builder_.getMessage()\n"
-                       "     if $name$ != nil {\n"
-                       "        _ = try! $name$Builder_.mergeFrom(other: $name$)\n"
+                       "     builderResult.$name_reserved$ = $name$Builder_.getMessage()\n"
+                       "     if $name_reserved$ != nil {\n"
+                       "        _ = try! $name$Builder_.mergeFrom(other: $name_reserved$)\n"
                        "     }\n"
                        "  }\n"
                        "  return $name$Builder_\n"
                        "}\n"
                        "$acontrol$func set$capitalized_name$(_ value:$type$!) -> $containing_class$.Builder {\n"
-                       "  self.$name$ = value\n"
+                       "  self.$name_reserved$ = value\n"
                        "  return self\n"
                        "}\n"
                        "$acontrolFunc$ func merge$capitalized_name$(value:$type$) throws -> $containing_class$.Builder {\n"
                        "  if builderResult.has$capitalized_name$ {\n"
-                       "    builderResult.$name$ = try $type$.builderWithPrototype(prototype: builderResult.$name$).mergeFrom(other: value).buildPartial()\n"
+                       "    builderResult.$name_reserved$ = try $type$.builderWithPrototype(prototype: builderResult.$name_reserved$).mergeFrom(other: value).buildPartial()\n"
                        "  } else {\n"
-                       "    builderResult.$name$ = value\n"
+                       "    builderResult.$name_reserved$ = value\n"
                        "  }\n"
                        "  builderResult.has$capitalized_name$ = true\n"
                        "  return self\n"
@@ -158,7 +159,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
                        "  $name$Builder_ = nil\n"
                        "  builderResult.has$capitalized_name$ = false\n"
-                       "  builderResult.$name$ = nil\n"
+                       "  builderResult.$name_reserved$ = nil\n"
                        "  return self\n"
                        "}\n"
                        );
@@ -167,7 +168,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if other.has$capitalized_name$ {\n"
-                       "    _ = try merge$capitalized_name$(value: other.$name$)\n"
+                       "    _ = try merge$capitalized_name$(value: other.$name_reserved$)\n"
                        "}\n");
     }
     
@@ -180,7 +181,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "let subBuilder:$type$.Builder = $type$.Builder()\n"
                        "if has$capitalized_name$ {\n"
-                       " _ = try subBuilder.mergeFrom(other: $name$)\n"
+                       " _ = try subBuilder.mergeFrom(other: $name_reserved$)\n"
                        "}\n");
         
         if (descriptor_->type() == FieldDescriptor::TYPE_GROUP) {
@@ -192,14 +193,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         printer->Print(variables_,
-                       "$name$ = subBuilder.buildPartial()\n");
+                       "$name_reserved$ = subBuilder.buildPartial()\n");
     }
     
     
     void MessageFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  try codedOutputStream.write$group_or_message$(fieldNumber:$number$, value:$name$)\n"
+                       "  try codedOutputStream.write$group_or_message$(fieldNumber:$number$, value:$name_reserved$)\n"
                        "}\n");
     }
     
@@ -207,7 +208,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "    if let varSize$name$ = $name$?.compute$group_or_message$Size(fieldNumber: $number$) {\n"
+                       "    if let varSize$name$ = $name_reserved$?.compute$group_or_message$Size(fieldNumber: $number$) {\n"
                        "        serialize_size += varSize$name$\n"
                        "    }\n"
                        "}\n");
@@ -218,7 +219,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
                        "  output += \"\\(indent) $name$ {\\n\"\n"
-                       "  if let outDesc$capitalized_name$ = $name$ {\n"
+                       "  if let outDesc$capitalized_name$ = $name_reserved$ {\n"
                        "    output += try outDesc$capitalized_name$.getDescription(indent:\"\\(indent)  \")\n"
                        "  }\n"
                        "  output += \"\\(indent) }\\n\"\n"
@@ -228,14 +229,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "(lhs.has$capitalized_name$ == rhs.has$capitalized_name$) && (!lhs.has$capitalized_name$ || lhs.$name$ == rhs.$name$)");
+                       "(lhs.has$capitalized_name$ == rhs.has$capitalized_name$) && (!lhs.has$capitalized_name$ || lhs.$name_reserved$ == rhs.$name_reserved$)");
     }
     
     
     void MessageFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "    if let hashValue$name$ = $name$?.hashValue {\n"
+                       "    if let hashValue$name$ = $name_reserved$?.hashValue {\n"
                        "        hashCode = (hashCode &* 31) &+ hashValue$name$\n"
                        "    }\n"
                        "}\n");
@@ -266,7 +267,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void RepeatedMessageFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
-           printer->Print(variables_, "$acontrol$private(set) var $name$:Array<$type$> = Array<$type$>()\n");
+           printer->Print(variables_, "$acontrol$private(set) var $name_reserved$:Array<$type$> = Array<$type$>()\n");
     }
     
     
@@ -283,20 +284,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedMessageFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "$acontrol$var $name$:Array<$type$> {\n"
+                       "$acontrol$var $name_reserved$:Array<$type$> {\n"
                        "     get {\n"
-                       "         return builderResult.$name$\n"
+                       "         return builderResult.$name_reserved$\n"
                        "     }\n"
                        "     set (value) {\n"
-                       "         builderResult.$name$ = value\n"
+                       "         builderResult.$name_reserved$ = value\n"
                        "     }\n"
                        "}\n"
                        "$acontrol$func set$capitalized_name$(_ value:Array<$type$>) -> $containing_class$.Builder {\n"
-                       "  self.$name$ = value\n"
+                       "  self.$name_reserved$ = value\n"
                        "  return self\n"
                        "}\n"
                        "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
-                       "  builderResult.$name$.removeAll(keepingCapacity: false)\n"
+                       "  builderResult.$name_reserved$.removeAll(keepingCapacity: false)\n"
                        "  return self\n"
                        "}\n");
     }
@@ -304,8 +305,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedMessageFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
         
         printer->Print(variables_,
-                       "if !other.$name$.isEmpty  {\n"
-                       "   builderResult.$name$ += other.$name$\n"
+                       "if !other.$name_reserved$.isEmpty  {\n"
+                       "   builderResult.$name_reserved$ += other.$name_reserved$\n"
                        "}\n");
     }
     
@@ -326,19 +327,19 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         printer->Print(variables_,
-                       "$name$ += [subBuilder.buildPartial()]\n");
+                       "$name_reserved$.append(subBuilder.buildPartial())\n");
     }
     
     void RepeatedMessageFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "for oneElement$name$ in $name$ {\n"
+                       "for oneElement$name$ in $name_reserved$ {\n"
                        "    try codedOutputStream.write$group_or_message$(fieldNumber:$number$, value:oneElement$name$)\n"
                        "}\n");
     }
     
     void RepeatedMessageFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "for oneElement$name$ in $name$ {\n"
+                       "for oneElement$name$ in $name_reserved$ {\n"
                        "    serialize_size += oneElement$name$.compute$group_or_message$Size(fieldNumber: $number$)\n"
                        "}\n");
     }
@@ -346,7 +347,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedMessageFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "var $name$ElementIndex:Int = 0\n"
-                       "for oneElement$name$ in $name$ {\n"
+                       "for oneElement$name$ in $name_reserved$ {\n"
                        "    output += \"\\(indent) $name$[\\($name$ElementIndex)] {\\n\"\n"
                        "    output += try oneElement$name$.getDescription(indent:\"\\(indent)  \")\n"
                        "    output += \"\\(indent)}\\n\"\n"
@@ -355,12 +356,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void RepeatedMessageFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
-        printer->Print(variables_, "(lhs.$name$ == rhs.$name$)");
+        printer->Print(variables_, "(lhs.$name_reserved$ == rhs.$name_reserved$)");
     }
     
     void RepeatedMessageFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "for oneElement$name$ in $name$ {\n"
+                       "for oneElement$name$ in $name_reserved$ {\n"
                        "    hashCode = (hashCode &* 31) &+ oneElement$name$.hashValue\n"
                        "}\n");
     }

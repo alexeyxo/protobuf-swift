@@ -120,10 +120,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.SwiftFileOptions.Builder {
       return classBuilder() as! Google.Protobuf.SwiftFileOptions.Builder
     }
-    public override class func classBuilder() -> MessageBuilder {
+    public override class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.SwiftFileOptions.Builder()
     }
-    public override func classBuilder() -> MessageBuilder {
+    public override func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.SwiftFileOptions.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.SwiftFileOptions.Builder {
@@ -171,9 +171,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.SwiftFileOptions"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.SwiftFileOptions.self
     }
     //Meta information declaration end
 

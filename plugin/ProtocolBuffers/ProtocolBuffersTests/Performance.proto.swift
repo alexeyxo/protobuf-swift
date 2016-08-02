@@ -128,10 +128,10 @@ final internal class PBUser : GeneratedMessage {
   internal func getBuilder() -> PBUser.Builder {
     return classBuilder() as! PBUser.Builder
   }
-  internal override class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> ProtocolBuffersMessageBuilder {
     return PBUser.Builder()
   }
-  internal override func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> ProtocolBuffersMessageBuilder {
     return PBUser.Builder()
   }
   internal func toBuilder() throws -> PBUser.Builder {
@@ -173,9 +173,6 @@ final internal class PBUser : GeneratedMessage {
   }
   override internal func className() -> String {
       return "PBUser"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return PBUser.self
   }
   //Meta information declaration end
 
@@ -338,10 +335,10 @@ final internal class PBGroup : GeneratedMessage {
   internal func getBuilder() -> PBGroup.Builder {
     return classBuilder() as! PBGroup.Builder
   }
-  internal override class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> ProtocolBuffersMessageBuilder {
     return PBGroup.Builder()
   }
-  internal override func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> ProtocolBuffersMessageBuilder {
     return PBGroup.Builder()
   }
   internal func toBuilder() throws -> PBGroup.Builder {
@@ -383,9 +380,6 @@ final internal class PBGroup : GeneratedMessage {
   }
   override internal func className() -> String {
       return "PBGroup"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return PBGroup.self
   }
   //Meta information declaration end
 
@@ -555,10 +549,10 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
   internal func getBuilder() -> PBPerfomanceBatch.Builder {
     return classBuilder() as! PBPerfomanceBatch.Builder
   }
-  internal override class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> ProtocolBuffersMessageBuilder {
     return PBPerfomanceBatch.Builder()
   }
-  internal override func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> ProtocolBuffersMessageBuilder {
     return PBPerfomanceBatch.Builder()
   }
   internal func toBuilder() throws -> PBPerfomanceBatch.Builder {
@@ -598,9 +592,6 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
   }
   override internal func className() -> String {
       return "PBPerfomanceBatch"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return PBPerfomanceBatch.self
   }
   //Meta information declaration end
 
@@ -674,7 +665,7 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
         case 10:
           let subBuilder = PBPerfomance.Builder()
           try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
-          batch += [subBuilder.buildPartial()]
+          batch.append(subBuilder.buildPartial())
 
         default:
           if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -790,10 +781,10 @@ final internal class PBPerfomance : GeneratedMessage {
   internal func getBuilder() -> PBPerfomance.Builder {
     return classBuilder() as! PBPerfomance.Builder
   }
-  internal override class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> ProtocolBuffersMessageBuilder {
     return PBPerfomance.Builder()
   }
-  internal override func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> ProtocolBuffersMessageBuilder {
     return PBPerfomance.Builder()
   }
   internal func toBuilder() throws -> PBPerfomance.Builder {
@@ -823,7 +814,7 @@ final internal class PBPerfomance : GeneratedMessage {
       output += "\(indent) bytes: \(bytes) \n"
     }
     if hasDescription {
-      output += "\(indent) description_: \(description_) \n"
+      output += "\(indent) description: \(description_) \n"
     }
     output += unknownFields.getDescription(indent: indent)
     return output
@@ -865,9 +856,6 @@ final internal class PBPerfomance : GeneratedMessage {
   }
   override internal func className() -> String {
       return "PBPerfomance"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return PBPerfomance.self
   }
   //Meta information declaration end
 
@@ -1185,10 +1173,10 @@ final internal class PBProtoPoint : GeneratedMessage {
   internal func getBuilder() -> PBProtoPoint.Builder {
     return classBuilder() as! PBProtoPoint.Builder
   }
-  internal override class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> ProtocolBuffersMessageBuilder {
     return PBProtoPoint.Builder()
   }
-  internal override func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> ProtocolBuffersMessageBuilder {
     return PBProtoPoint.Builder()
   }
   internal func toBuilder() throws -> PBProtoPoint.Builder {
@@ -1230,9 +1218,6 @@ final internal class PBProtoPoint : GeneratedMessage {
   }
   override internal func className() -> String {
       return "PBProtoPoint"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return PBProtoPoint.self
   }
   //Meta information declaration end
 
@@ -1418,10 +1403,10 @@ final internal class PBIceCreamCone : GeneratedMessage {
   internal func getBuilder() -> PBIceCreamCone.Builder {
     return classBuilder() as! PBIceCreamCone.Builder
   }
-  internal override class func classBuilder() -> MessageBuilder {
+  internal override class func classBuilder() -> ProtocolBuffersMessageBuilder {
     return PBIceCreamCone.Builder()
   }
-  internal override func classBuilder() -> MessageBuilder {
+  internal override func classBuilder() -> ProtocolBuffersMessageBuilder {
     return PBIceCreamCone.Builder()
   }
   internal func toBuilder() throws -> PBIceCreamCone.Builder {
@@ -1463,9 +1448,6 @@ final internal class PBIceCreamCone : GeneratedMessage {
   }
   override internal func className() -> String {
       return "PBIceCreamCone"
-  }
-  override internal func classMetaType() -> GeneratedMessage.Type {
-      return PBIceCreamCone.self
   }
   //Meta information declaration end
 

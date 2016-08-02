@@ -170,12 +170,12 @@ public class CodedOutputStream {
         try writeStringNoTag(value: value)
     }
     
-    public func writeGroupNoTag(fieldNumber:Int32, value:Message) throws {
+    public func writeGroupNoTag(fieldNumber:Int32, value:ProtocolBuffersMessage) throws {
         try value.writeTo(codedOutputStream: self)
         try writeTag(fieldNumber: fieldNumber, format: WireFormat.endGroup)
     }
     
-    public func writeGroup(fieldNumber:Int32, value:Message) throws {
+    public func writeGroup(fieldNumber:Int32, value:ProtocolBuffersMessage) throws {
         try writeTag(fieldNumber: fieldNumber, format: WireFormat.startGroup)
         try writeGroupNoTag(fieldNumber: fieldNumber, value: value)
     }
@@ -190,12 +190,12 @@ public class CodedOutputStream {
         try writeUnknownGroupNoTag(fieldNumber: fieldNumber, value:value)
     }
     
-    public func writeMessageNoTag(value:Message) throws {
+    public func writeMessageNoTag(value:ProtocolBuffersMessage) throws {
         try writeRawVarint32(value: value.serializedSize())
         try value.writeTo(codedOutputStream: self)
     }
     
-    public func writeMessage(fieldNumber:Int32, value:Message) throws {
+    public func writeMessage(fieldNumber:Int32, value:ProtocolBuffersMessage) throws {
         try writeTag(fieldNumber: fieldNumber, format: WireFormat.lengthDelimited)
         try writeMessageNoTag(value: value)
     }
@@ -266,7 +266,7 @@ public class CodedOutputStream {
         try writeSInt64NoTag(value: value)
     }
     
-    public func writeMessageSetExtension(fieldNumber:Int32, value:Message) throws {
+    public func writeMessageSetExtension(fieldNumber:Int32, value:ProtocolBuffersMessage) throws {
         try writeTag(fieldNumber: WireFormatMessage.setItem.rawValue, format:WireFormat.startGroup)
         try writeUInt32(fieldNumber: WireFormatMessage.setTypeId.rawValue, value:UInt32(fieldNumber))
         try writeMessage(fieldNumber: WireFormatMessage.setMessage.rawValue, value: value)

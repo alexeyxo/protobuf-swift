@@ -42,10 +42,6 @@ public class ExtendableMessage : GeneratedMessage
     {
         return "ExtendableMessage"
     }
-    override public func classMetaType() -> GeneratedMessage.Type
-    {
-        return ExtendableMessage.self
-    }
     //
     
     public func isInitialized(object:Any) -> Bool
@@ -333,7 +329,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         let wireType = WireFormat.getTagWireType(tag: tag)
         let fieldNumber:Int32 = WireFormat.getTagFieldNumber(tag: tag)
         
-        let extensions = extensionRegistry.getExtension(clName: message.classMetaType(), fieldNumber: fieldNumber)
+        let extensions = extensionRegistry.getExtension(clName: message.dynamicType, fieldNumber: fieldNumber)
         
         if extensions != nil {
             if extensions!.wireType.rawValue == wireType {
