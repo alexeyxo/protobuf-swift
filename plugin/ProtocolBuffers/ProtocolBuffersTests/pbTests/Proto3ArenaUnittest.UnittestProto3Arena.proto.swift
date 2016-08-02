@@ -225,8 +225,8 @@ public extension Proto3ArenaUnittest {
         // a local variable named "b" in one of the generated methods.  Doh.
         // This file needs to compile in proto1 to test backwards-compatibility.
         public private(set) var bb:Int32 = Int32(0)
-
         public private(set) var hasBb:Bool = false
+
         required public init() {
              super.init()
         }
@@ -259,10 +259,10 @@ public extension Proto3ArenaUnittest {
         public func getBuilder() -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
           return classBuilder() as! Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
         }
         public func toBuilder() throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
@@ -315,9 +315,6 @@ public extension Proto3ArenaUnittest {
         }
         override public func className() -> String {
             return "Proto3ArenaUnittest.TestAllTypes.NestedMessage"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return Proto3ArenaUnittest.TestAllTypes.NestedMessage.self
         }
         //Meta information declaration end
 
@@ -537,50 +534,50 @@ public extension Proto3ArenaUnittest {
 
     // Singular
     public private(set) var optionalInt32:Int32 = Int32(0)
-
     public private(set) var hasOptionalInt32:Bool = false
+
     public private(set) var optionalInt64:Int64 = Int64(0)
-
     public private(set) var hasOptionalInt64:Bool = false
+
     public private(set) var optionalUint32:UInt32 = UInt32(0)
-
     public private(set) var hasOptionalUint32:Bool = false
+
     public private(set) var optionalUint64:UInt64 = UInt64(0)
-
     public private(set) var hasOptionalUint64:Bool = false
+
     public private(set) var optionalSint32:Int32 = Int32(0)
-
     public private(set) var hasOptionalSint32:Bool = false
+
     public private(set) var optionalSint64:Int64 = Int64(0)
-
     public private(set) var hasOptionalSint64:Bool = false
+
     public private(set) var optionalFixed32:UInt32 = UInt32(0)
-
     public private(set) var hasOptionalFixed32:Bool = false
+
     public private(set) var optionalFixed64:UInt64 = UInt64(0)
-
     public private(set) var hasOptionalFixed64:Bool = false
+
     public private(set) var optionalSfixed32:Int32 = Int32(0)
-
     public private(set) var hasOptionalSfixed32:Bool = false
+
     public private(set) var optionalSfixed64:Int64 = Int64(0)
-
     public private(set) var hasOptionalSfixed64:Bool = false
+
     public private(set) var optionalFloat:Float = Float(0)
-
     public private(set) var hasOptionalFloat:Bool = false
+
     public private(set) var optionalDouble:Double = Double(0)
-
     public private(set) var hasOptionalDouble:Bool = false
+
     public private(set) var optionalBool:Bool = false
-
     public private(set) var hasOptionalBool:Bool = false
+
     public private(set) var optionalString:String = ""
-
     public private(set) var hasOptionalString:Bool = false
-    public private(set) var optionalBytes:Data = Data()
 
+    public private(set) var optionalBytes:Data = Data()
     public private(set) var hasOptionalBytes:Bool = false
+
     public private(set) var optionalNestedMessage:Proto3ArenaUnittest.TestAllTypes.NestedMessage!
     public private(set) var hasOptionalNestedMessage:Bool = false
     public private(set) var optionalForeignMessage:Proto3ArenaUnittest.ForeignMessage!
@@ -592,11 +589,11 @@ public extension Proto3ArenaUnittest {
     public private(set) var optionalForeignEnum:Proto3ArenaUnittest.ForeignEnum = Proto3ArenaUnittest.ForeignEnum.foreignZero
     public private(set) var hasOptionalForeignEnum:Bool = false
     public private(set) var optionalStringPiece:String = ""
-
     public private(set) var hasOptionalStringPiece:Bool = false
-    public private(set) var optionalCord:String = ""
 
+    public private(set) var optionalCord:String = ""
     public private(set) var hasOptionalCord:Bool = false
+
     public private(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage!
     public private(set) var hasOptionalPublicImportMessage:Bool = false
     public private(set) var optionalLazyMessage:Proto3ArenaUnittest.TestAllTypes.NestedMessage!
@@ -1211,10 +1208,10 @@ public extension Proto3ArenaUnittest {
     public func getBuilder() -> Proto3ArenaUnittest.TestAllTypes.Builder {
       return classBuilder() as! Proto3ArenaUnittest.TestAllTypes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3ArenaUnittest.TestAllTypes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3ArenaUnittest.TestAllTypes.Builder()
     }
     public func toBuilder() throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
@@ -1887,9 +1884,6 @@ public extension Proto3ArenaUnittest {
     }
     override public func className() -> String {
         return "Proto3ArenaUnittest.TestAllTypes"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto3ArenaUnittest.TestAllTypes.self
     }
     //Meta information declaration end
 
@@ -4097,10 +4091,10 @@ public extension Proto3ArenaUnittest {
     public func getBuilder() -> Proto3ArenaUnittest.TestPackedTypes.Builder {
       return classBuilder() as! Proto3ArenaUnittest.TestPackedTypes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3ArenaUnittest.TestPackedTypes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3ArenaUnittest.TestPackedTypes.Builder()
     }
     public func toBuilder() throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
@@ -4350,9 +4344,6 @@ public extension Proto3ArenaUnittest {
     }
     override public func className() -> String {
         return "Proto3ArenaUnittest.TestPackedTypes"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto3ArenaUnittest.TestPackedTypes.self
     }
     //Meta information declaration end
 
@@ -5177,10 +5168,10 @@ public extension Proto3ArenaUnittest {
     public func getBuilder() -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
       return classBuilder() as! Proto3ArenaUnittest.TestUnpackedTypes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3ArenaUnittest.TestUnpackedTypes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3ArenaUnittest.TestUnpackedTypes.Builder()
     }
     public func toBuilder() throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
@@ -5430,9 +5421,6 @@ public extension Proto3ArenaUnittest {
     }
     override public func className() -> String {
         return "Proto3ArenaUnittest.TestUnpackedTypes"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto3ArenaUnittest.TestUnpackedTypes.self
     }
     //Meta information declaration end
 
@@ -6028,10 +6016,10 @@ public extension Proto3ArenaUnittest {
     public func getBuilder() -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
       return classBuilder() as! Proto3ArenaUnittest.NestedTestAllTypes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3ArenaUnittest.NestedTestAllTypes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3ArenaUnittest.NestedTestAllTypes.Builder()
     }
     public func toBuilder() throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
@@ -6105,9 +6093,6 @@ public extension Proto3ArenaUnittest {
     }
     override public func className() -> String {
         return "Proto3ArenaUnittest.NestedTestAllTypes"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto3ArenaUnittest.NestedTestAllTypes.self
     }
     //Meta information declaration end
 
@@ -6318,8 +6303,8 @@ public extension Proto3ArenaUnittest {
   // that.
   final public class ForeignMessage : GeneratedMessage {
     public private(set) var c:Int32 = Int32(0)
-
     public private(set) var hasC:Bool = false
+
     required public init() {
          super.init()
     }
@@ -6352,10 +6337,10 @@ public extension Proto3ArenaUnittest {
     public func getBuilder() -> Proto3ArenaUnittest.ForeignMessage.Builder {
       return classBuilder() as! Proto3ArenaUnittest.ForeignMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3ArenaUnittest.ForeignMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3ArenaUnittest.ForeignMessage.Builder()
     }
     public func toBuilder() throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
@@ -6408,9 +6393,6 @@ public extension Proto3ArenaUnittest {
     }
     override public func className() -> String {
         return "Proto3ArenaUnittest.ForeignMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto3ArenaUnittest.ForeignMessage.self
     }
     //Meta information declaration end
 
@@ -6545,10 +6527,10 @@ public extension Proto3ArenaUnittest {
     public func getBuilder() -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
       return classBuilder() as! Proto3ArenaUnittest.TestEmptyMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3ArenaUnittest.TestEmptyMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3ArenaUnittest.TestEmptyMessage.Builder()
     }
     public func toBuilder() throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
@@ -6592,9 +6574,6 @@ public extension Proto3ArenaUnittest {
     }
     override public func className() -> String {
         return "Proto3ArenaUnittest.TestEmptyMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto3ArenaUnittest.TestEmptyMessage.self
     }
     //Meta information declaration end
 

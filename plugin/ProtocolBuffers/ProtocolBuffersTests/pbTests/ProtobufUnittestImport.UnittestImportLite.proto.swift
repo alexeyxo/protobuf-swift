@@ -75,8 +75,8 @@ public extension ProtobufUnittestImport {
 
   final public class ImportMessageLite : GeneratedMessage {
     public private(set) var d:Int32 = Int32(0)
-
     public private(set) var hasD:Bool = false
+
     required public init() {
          super.init()
     }
@@ -109,10 +109,10 @@ public extension ProtobufUnittestImport {
     public func getBuilder() -> ProtobufUnittestImport.ImportMessageLite.Builder {
       return classBuilder() as! ProtobufUnittestImport.ImportMessageLite.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittestImport.ImportMessageLite.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittestImport.ImportMessageLite.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
@@ -165,9 +165,6 @@ public extension ProtobufUnittestImport {
     }
     override public func className() -> String {
         return "ProtobufUnittestImport.ImportMessageLite"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittestImport.ImportMessageLite.self
     }
     //Meta information declaration end
 

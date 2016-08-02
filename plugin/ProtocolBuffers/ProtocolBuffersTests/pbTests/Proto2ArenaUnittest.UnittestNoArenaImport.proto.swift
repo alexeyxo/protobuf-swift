@@ -38,8 +38,8 @@ public extension Proto2ArenaUnittest {
 
   final public class ImportNoArenaNestedMessage : GeneratedMessage {
     public private(set) var d:Int32 = Int32(0)
-
     public private(set) var hasD:Bool = false
+
     required public init() {
          super.init()
     }
@@ -72,10 +72,10 @@ public extension Proto2ArenaUnittest {
     public func getBuilder() -> Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder {
       return classBuilder() as! Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder()
     }
     public func toBuilder() throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder {
@@ -128,9 +128,6 @@ public extension Proto2ArenaUnittest {
     }
     override public func className() -> String {
         return "Proto2ArenaUnittest.ImportNoArenaNestedMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto2ArenaUnittest.ImportNoArenaNestedMessage.self
     }
     //Meta information declaration end
 

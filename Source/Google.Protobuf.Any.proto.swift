@@ -6,7 +6,7 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.AnyType, rhs: Google.Protobuf.AnyType) -> Bool {
+public func == (lhs: Google.Protobuf.`Any`, rhs: Google.Protobuf.`Any`) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -18,10 +18,10 @@ public func == (lhs: Google.Protobuf.AnyType, rhs: Google.Protobuf.AnyType) -> B
 }
 
 public extension Google.Protobuf {
-  public struct AnyTypeRoot {
-    public static var sharedInstance : AnyTypeRoot {
+  public struct AnyRoot {
+    public static var sharedInstance : AnyRoot {
      struct Static {
-         static let instance : AnyTypeRoot = AnyTypeRoot()
+         static let instance : AnyRoot = AnyRoot()
      }
      return Static.instance
     }
@@ -62,7 +62,7 @@ public extension Google.Protobuf {
   //       "@type": "type.googleapis.com/google.protobuf.Duration",
   //       "value": "1.212s"
   //     }
-  final public class AnyType : GeneratedMessage {
+  final public class `Any` : GeneratedMessage {
     // A URL/resource name whose content describes the type of the
     // serialized message.
     // For URLs which use the schema `http`, `https`, or no schema, the
@@ -84,12 +84,12 @@ public extension Google.Protobuf {
     // schema and path). A type service will eventually become available which
     // serves those URLs (projected Q2/15).
     public private(set) var typeUrl:String = ""
-
     public private(set) var hasTypeUrl:Bool = false
+
     // Must be valid serialized data of the above specified type.
     public private(set) var value:Data = Data()
-
     public private(set) var hasValue:Bool = false
+
     required public init() {
          super.init()
     }
@@ -122,23 +122,23 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> Google.Protobuf.AnyType.Builder {
-      return Google.Protobuf.AnyType.classBuilder() as! Google.Protobuf.AnyType.Builder
+    public class func getBuilder() -> Google.Protobuf.`Any`.Builder {
+      return Google.Protobuf.`Any`.classBuilder() as! Google.Protobuf.`Any`.Builder
     }
-    public func getBuilder() -> Google.Protobuf.AnyType.Builder {
-      return classBuilder() as! Google.Protobuf.AnyType.Builder
+    public func getBuilder() -> Google.Protobuf.`Any`.Builder {
+      return classBuilder() as! Google.Protobuf.`Any`.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.AnyType.Builder()
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
+      return Google.Protobuf.`Any`.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
-      return Google.Protobuf.AnyType.Builder()
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
+      return Google.Protobuf.`Any`.Builder()
     }
-    public func toBuilder() throws -> Google.Protobuf.AnyType.Builder {
-      return try Google.Protobuf.AnyType.builderWithPrototype(prototype:self)
+    public func toBuilder() throws -> Google.Protobuf.`Any`.Builder {
+      return try Google.Protobuf.`Any`.builderWithPrototype(prototype:self)
     }
-    public class func builderWithPrototype(prototype:Google.Protobuf.AnyType) throws -> Google.Protobuf.AnyType.Builder {
-      return try Google.Protobuf.AnyType.Builder().mergeFrom(other:prototype)
+    public class func builderWithPrototype(prototype:Google.Protobuf.`Any`) throws -> Google.Protobuf.`Any`.Builder {
+      return try Google.Protobuf.`Any`.Builder().mergeFrom(other:prototype)
     }
     override public func encode() throws -> Dictionary<String,AnyObject> {
       guard isInitialized() else {
@@ -154,11 +154,11 @@ public extension Google.Protobuf {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.AnyType {
-      return try Google.Protobuf.AnyType.Builder.decodeToBuilder(jsonMap:jsonMap).build()
+    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.`Any` {
+      return try Google.Protobuf.`Any`.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> Google.Protobuf.AnyType {
-      return try Google.Protobuf.AnyType.Builder.fromJSONToBuilder(data:data).build()
+    override class public func fromJSON(data:Data) throws -> Google.Protobuf.`Any` {
+      return try Google.Protobuf.`Any`.Builder.fromJSONToBuilder(data:data).build()
     }
     override public func getDescription(indent:String) throws -> String {
       var output = ""
@@ -189,19 +189,16 @@ public extension Google.Protobuf {
     //Meta information declaration start
 
     override public class func className() -> String {
-        return "Google.Protobuf.AnyType"
+        return "Google.Protobuf.`Any`"
     }
     override public func className() -> String {
-        return "Google.Protobuf.AnyType"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.AnyType.self
+        return "Google.Protobuf.`Any`"
     }
     //Meta information declaration end
 
     final public class Builder : GeneratedMessageBuilder {
-      private var builderResult:Google.Protobuf.AnyType = Google.Protobuf.AnyType()
-      public func getMessage() -> Google.Protobuf.AnyType {
+      private var builderResult:Google.Protobuf.`Any` = Google.Protobuf.`Any`()
+      public func getMessage() -> Google.Protobuf.`Any` {
           return builderResult
       }
 
@@ -222,11 +219,11 @@ public extension Google.Protobuf {
                builderResult.typeUrl = value
            }
       }
-      public func setTypeUrl(_ value:String) -> Google.Protobuf.AnyType.Builder {
+      public func setTypeUrl(_ value:String) -> Google.Protobuf.`Any`.Builder {
         self.typeUrl = value
         return self
       }
-      public func clearTypeUrl() -> Google.Protobuf.AnyType.Builder{
+      public func clearTypeUrl() -> Google.Protobuf.`Any`.Builder{
            builderResult.hasTypeUrl = false
            builderResult.typeUrl = ""
            return self
@@ -245,11 +242,11 @@ public extension Google.Protobuf {
                builderResult.value = value
            }
       }
-      public func setValue(_ value:Data) -> Google.Protobuf.AnyType.Builder {
+      public func setValue(_ value:Data) -> Google.Protobuf.`Any`.Builder {
         self.value = value
         return self
       }
-      public func clearValue() -> Google.Protobuf.AnyType.Builder{
+      public func clearValue() -> Google.Protobuf.`Any`.Builder{
            builderResult.hasValue = false
            builderResult.value = Data()
            return self
@@ -259,23 +256,23 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
-      override public func clear() -> Google.Protobuf.AnyType.Builder {
-        builderResult = Google.Protobuf.AnyType()
+      override public func clear() -> Google.Protobuf.`Any`.Builder {
+        builderResult = Google.Protobuf.`Any`()
         return self
       }
-      override public func clone() throws -> Google.Protobuf.AnyType.Builder {
-        return try Google.Protobuf.AnyType.builderWithPrototype(prototype:builderResult)
+      override public func clone() throws -> Google.Protobuf.`Any`.Builder {
+        return try Google.Protobuf.`Any`.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> Google.Protobuf.AnyType {
+      override public func build() throws -> Google.Protobuf.`Any` {
            try checkInitialized()
            return buildPartial()
       }
-      public func buildPartial() -> Google.Protobuf.AnyType {
-        let returnMe:Google.Protobuf.AnyType = builderResult
+      public func buildPartial() -> Google.Protobuf.`Any` {
+        let returnMe:Google.Protobuf.`Any` = builderResult
         return returnMe
       }
-      public func mergeFrom(other:Google.Protobuf.AnyType) throws -> Google.Protobuf.AnyType.Builder {
-        if other == Google.Protobuf.AnyType() {
+      public func mergeFrom(other:Google.Protobuf.`Any`) throws -> Google.Protobuf.`Any`.Builder {
+        if other == Google.Protobuf.`Any`() {
          return self
         }
         if other.hasTypeUrl {
@@ -287,10 +284,10 @@ public extension Google.Protobuf {
         _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.AnyType.Builder {
+      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.`Any`.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.AnyType.Builder {
+      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.`Any`.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -313,8 +310,8 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.AnyType.Builder {
-        let resultDecodedBuilder = Google.Protobuf.AnyType.Builder()
+      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.`Any`.Builder {
+        let resultDecodedBuilder = Google.Protobuf.`Any`.Builder()
         if let jsonValueTypeUrl = jsonMap["typeUrl"] as? String {
           resultDecodedBuilder.typeUrl = jsonValueTypeUrl
         }
@@ -323,46 +320,46 @@ public extension Google.Protobuf {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.AnyType.Builder {
+      override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.`Any`.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
-        return try Google.Protobuf.AnyType.Builder.decodeToBuilder(jsonMap:jsDataCast)
+        return try Google.Protobuf.`Any`.Builder.decodeToBuilder(jsonMap:jsDataCast)
       }
     }
 
   }
 
 }
-extension Google.Protobuf.AnyType: GeneratedMessageProtocol {
-  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.AnyType> {
-    var mergedArray = Array<Google.Protobuf.AnyType>()
+extension Google.Protobuf.`Any`: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.`Any`> {
+    var mergedArray = Array<Google.Protobuf.`Any`>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
       mergedArray.append(value)
     }
     return mergedArray
   }
-  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.AnyType? {
-    return try Google.Protobuf.AnyType.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.`Any`? {
+    return try Google.Protobuf.`Any`.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
-  public class func parseFrom(data: Data) throws -> Google.Protobuf.AnyType {
-    return try Google.Protobuf.AnyType.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.AnyTypeRoot.sharedInstance.extensionRegistry).build()
+  public class func parseFrom(data: Data) throws -> Google.Protobuf.`Any` {
+    return try Google.Protobuf.`Any`.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.AnyRoot.sharedInstance.extensionRegistry).build()
   }
-  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.AnyType {
-    return try Google.Protobuf.AnyType.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.`Any` {
+    return try Google.Protobuf.`Any`.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.AnyType {
-    return try Google.Protobuf.AnyType.Builder().mergeFrom(inputStream: inputStream).build()
+  public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.`Any` {
+    return try Google.Protobuf.`Any`.Builder().mergeFrom(inputStream: inputStream).build()
   }
-  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.AnyType {
-    return try Google.Protobuf.AnyType.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.`Any` {
+    return try Google.Protobuf.`Any`.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.AnyType {
-    return try Google.Protobuf.AnyType.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.`Any` {
+    return try Google.Protobuf.`Any`.Builder().mergeFrom(codedInputStream: codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.AnyType {
-    return try Google.Protobuf.AnyType.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.`Any` {
+    return try Google.Protobuf.`Any`.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 

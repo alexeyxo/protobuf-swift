@@ -41,8 +41,8 @@ public extension Google.Protobuf {
     // The path-qualified name of the .proto file that contained the associated
     // protobuf element.  For example: `"google/protobuf/source.proto"`.
     public private(set) var fileName:String = ""
-
     public private(set) var hasFileName:Bool = false
+
     required public init() {
          super.init()
     }
@@ -75,10 +75,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.SourceContext.Builder {
       return classBuilder() as! Google.Protobuf.SourceContext.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.SourceContext.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.SourceContext.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.SourceContext.Builder {
@@ -131,9 +131,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.SourceContext"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.SourceContext.self
     }
     //Meta information declaration end
 

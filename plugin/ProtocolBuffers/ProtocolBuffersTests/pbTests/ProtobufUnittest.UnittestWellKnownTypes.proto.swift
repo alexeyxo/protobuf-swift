@@ -40,7 +40,7 @@ public extension ProtobufUnittest {
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.AnyTypeRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.AnyRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
       Google.Protobuf.ApiRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
       Google.Protobuf.DurationRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
       Google.Protobuf.EmptyRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
@@ -48,7 +48,7 @@ public extension ProtobufUnittest {
       Google.Protobuf.SourceContextRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
       Google.Protobuf.StructRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
       Google.Protobuf.TimestampRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.TypesRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.TypeRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
       Google.Protobuf.WrappersRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
@@ -57,7 +57,7 @@ public extension ProtobufUnittest {
 
   // Test that we can include all well-known types.
   final public class TestWellKnownTypes : GeneratedMessage {
-    public private(set) var anyField:Google.Protobuf.AnyType!
+    public private(set) var anyField:Google.Protobuf.`Any`!
     public private(set) var hasAnyField:Bool = false
     public private(set) var apiField:Google.Protobuf.Api!
     public private(set) var hasApiField:Bool = false
@@ -73,7 +73,7 @@ public extension ProtobufUnittest {
     public private(set) var hasStructField:Bool = false
     public private(set) var timestampField:Google.Protobuf.Timestamp!
     public private(set) var hasTimestampField:Bool = false
-    public private(set) var typeField:Google.Protobuf.Types!
+    public private(set) var typeField:Google.Protobuf.`Type`!
     public private(set) var hasTypeField:Bool = false
     public private(set) var int32Field:Google.Protobuf.Int32Value!
     public private(set) var hasInt32Field:Bool = false
@@ -183,10 +183,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestWellKnownTypes.Builder {
       return classBuilder() as! ProtobufUnittest.TestWellKnownTypes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestWellKnownTypes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestWellKnownTypes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
@@ -381,9 +381,6 @@ public extension ProtobufUnittest {
     override public func className() -> String {
         return "ProtobufUnittest.TestWellKnownTypes"
     }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestWellKnownTypes.self
-    }
     //Meta information declaration end
 
     final public class Builder : GeneratedMessageBuilder {
@@ -400,7 +397,7 @@ public extension ProtobufUnittest {
                return builderResult.hasAnyField
            }
       }
-      public var anyField:Google.Protobuf.AnyType! {
+      public var anyField:Google.Protobuf.`Any`! {
            get {
                if anyFieldBuilder_ != nil {
                   builderResult.anyField = anyFieldBuilder_.getMessage()
@@ -412,14 +409,14 @@ public extension ProtobufUnittest {
                builderResult.anyField = value
            }
       }
-      private var anyFieldBuilder_:Google.Protobuf.AnyType.Builder! {
+      private var anyFieldBuilder_:Google.Protobuf.`Any`.Builder! {
            didSet {
               builderResult.hasAnyField = true
            }
       }
-      public func getAnyFieldBuilder() -> Google.Protobuf.AnyType.Builder {
+      public func getAnyFieldBuilder() -> Google.Protobuf.`Any`.Builder {
         if anyFieldBuilder_ == nil {
-           anyFieldBuilder_ = Google.Protobuf.AnyType.Builder()
+           anyFieldBuilder_ = Google.Protobuf.`Any`.Builder()
            builderResult.anyField = anyFieldBuilder_.getMessage()
            if anyField != nil {
               _ = try! anyFieldBuilder_.mergeFrom(other: anyField)
@@ -427,13 +424,13 @@ public extension ProtobufUnittest {
         }
         return anyFieldBuilder_
       }
-      public func setAnyField(_ value:Google.Protobuf.AnyType!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      public func setAnyField(_ value:Google.Protobuf.`Any`!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
         self.anyField = value
         return self
       }
-      public func mergeAnyField(value:Google.Protobuf.AnyType) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      public func mergeAnyField(value:Google.Protobuf.`Any`) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasAnyField {
-          builderResult.anyField = try Google.Protobuf.AnyType.builderWithPrototype(prototype:builderResult.anyField).mergeFrom(other: value).buildPartial()
+          builderResult.anyField = try Google.Protobuf.`Any`.builderWithPrototype(prototype:builderResult.anyField).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.anyField = value
         }
@@ -808,7 +805,7 @@ public extension ProtobufUnittest {
                return builderResult.hasTypeField
            }
       }
-      public var typeField:Google.Protobuf.Types! {
+      public var typeField:Google.Protobuf.`Type`! {
            get {
                if typeFieldBuilder_ != nil {
                   builderResult.typeField = typeFieldBuilder_.getMessage()
@@ -820,14 +817,14 @@ public extension ProtobufUnittest {
                builderResult.typeField = value
            }
       }
-      private var typeFieldBuilder_:Google.Protobuf.Types.Builder! {
+      private var typeFieldBuilder_:Google.Protobuf.`Type`.Builder! {
            didSet {
               builderResult.hasTypeField = true
            }
       }
-      public func getTypeFieldBuilder() -> Google.Protobuf.Types.Builder {
+      public func getTypeFieldBuilder() -> Google.Protobuf.`Type`.Builder {
         if typeFieldBuilder_ == nil {
-           typeFieldBuilder_ = Google.Protobuf.Types.Builder()
+           typeFieldBuilder_ = Google.Protobuf.`Type`.Builder()
            builderResult.typeField = typeFieldBuilder_.getMessage()
            if typeField != nil {
               _ = try! typeFieldBuilder_.mergeFrom(other: typeField)
@@ -835,13 +832,13 @@ public extension ProtobufUnittest {
         }
         return typeFieldBuilder_
       }
-      public func setTypeField(_ value:Google.Protobuf.Types!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      public func setTypeField(_ value:Google.Protobuf.`Type`!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
         self.typeField = value
         return self
       }
-      public func mergeTypeField(value:Google.Protobuf.Types) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      public func mergeTypeField(value:Google.Protobuf.`Type`) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasTypeField {
-          builderResult.typeField = try Google.Protobuf.Types.builderWithPrototype(prototype:builderResult.typeField).mergeFrom(other: value).buildPartial()
+          builderResult.typeField = try Google.Protobuf.`Type`.builderWithPrototype(prototype:builderResult.typeField).mergeFrom(other: value).buildPartial()
         } else {
           builderResult.typeField = value
         }
@@ -975,7 +972,7 @@ public extension ProtobufUnittest {
             return self
 
           case 10:
-            let subBuilder:Google.Protobuf.AnyType.Builder = Google.Protobuf.AnyType.Builder()
+            let subBuilder:Google.Protobuf.`Any`.Builder = Google.Protobuf.`Any`.Builder()
             if hasAnyField {
               _ = try subBuilder.mergeFrom(other: anyField)
             }
@@ -1039,7 +1036,7 @@ public extension ProtobufUnittest {
             timestampField = subBuilder.buildPartial()
 
           case 74:
-            let subBuilder:Google.Protobuf.Types.Builder = Google.Protobuf.Types.Builder()
+            let subBuilder:Google.Protobuf.`Type`.Builder = Google.Protobuf.`Type`.Builder()
             if hasTypeField {
               _ = try subBuilder.mergeFrom(other: typeField)
             }
@@ -1065,7 +1062,7 @@ public extension ProtobufUnittest {
       override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestWellKnownTypes.Builder()
         if let jsonValueAnyField = jsonMap["anyField"] as? Dictionary<String,AnyObject> {
-          resultDecodedBuilder.anyField = try Google.Protobuf.AnyType.Builder.decodeToBuilder(jsonMap:jsonValueAnyField).build()
+          resultDecodedBuilder.anyField = try Google.Protobuf.`Any`.Builder.decodeToBuilder(jsonMap:jsonValueAnyField).build()
 
         }
         if let jsonValueApiField = jsonMap["apiField"] as? Dictionary<String,AnyObject> {
@@ -1097,7 +1094,7 @@ public extension ProtobufUnittest {
 
         }
         if let jsonValueTypeField = jsonMap["typeField"] as? Dictionary<String,AnyObject> {
-          resultDecodedBuilder.typeField = try Google.Protobuf.Types.Builder.decodeToBuilder(jsonMap:jsonValueTypeField).build()
+          resultDecodedBuilder.typeField = try Google.Protobuf.`Type`.Builder.decodeToBuilder(jsonMap:jsonValueTypeField).build()
 
         }
         if let jsonValueInt32Field = jsonMap["int32Field"] as? Dictionary<String,AnyObject> {

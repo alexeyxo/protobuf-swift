@@ -35,8 +35,8 @@ public struct UnittestThreadingRoot {
 
 final public class ThreadingMessages : GeneratedMessage {
   public private(set) var testString:String = ""
-
   public private(set) var hasTestString:Bool = false
+
   required public init() {
        super.init()
   }
@@ -69,10 +69,10 @@ final public class ThreadingMessages : GeneratedMessage {
   public func getBuilder() -> ThreadingMessages.Builder {
     return classBuilder() as! ThreadingMessages.Builder
   }
-  override public class func classBuilder() -> MessageBuilder {
+  override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
     return ThreadingMessages.Builder()
   }
-  override public func classBuilder() -> MessageBuilder {
+  override public func classBuilder() -> ProtocolBuffersMessageBuilder {
     return ThreadingMessages.Builder()
   }
   public func toBuilder() throws -> ThreadingMessages.Builder {
@@ -125,9 +125,6 @@ final public class ThreadingMessages : GeneratedMessage {
   }
   override public func className() -> String {
       return "ThreadingMessages"
-  }
-  override public func classMetaType() -> GeneratedMessage.Type {
-      return ThreadingMessages.self
   }
   //Meta information declaration end
 

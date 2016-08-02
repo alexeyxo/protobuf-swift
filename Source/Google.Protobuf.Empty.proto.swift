@@ -67,10 +67,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Empty.Builder {
       return classBuilder() as! Google.Protobuf.Empty.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Empty.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Empty.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Empty.Builder {
@@ -114,9 +114,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.Empty"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.Empty.self
     }
     //Meta information declaration end
 

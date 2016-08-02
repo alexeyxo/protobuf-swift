@@ -80,15 +80,15 @@ public extension Google.Protobuf {
     // 1970-01-01T00:00:00Z. Must be from from 0001-01-01T00:00:00Z to
     // 9999-12-31T23:59:59Z inclusive.
     public private(set) var seconds:Int64 = Int64(0)
-
     public private(set) var hasSeconds:Bool = false
+
     // Non-negative fractions of a second at nanosecond resolution. Negative
     // second values with fractions must still have non-negative nanos values
     // that count forward in time. Must be from 0 to 999,999,999
     // inclusive.
     public private(set) var nanos:Int32 = Int32(0)
-
     public private(set) var hasNanos:Bool = false
+
     required public init() {
          super.init()
     }
@@ -127,10 +127,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Timestamp.Builder {
       return classBuilder() as! Google.Protobuf.Timestamp.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Timestamp.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Timestamp.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Timestamp.Builder {
@@ -192,9 +192,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.Timestamp"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.Timestamp.self
     }
     //Meta information declaration end
 

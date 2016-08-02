@@ -97,10 +97,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
       return classBuilder() as! ProtobufUnittest.TestEmbedOptimizedForSize.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestEmbedOptimizedForSize.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestEmbedOptimizedForSize.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
@@ -177,9 +177,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestEmbedOptimizedForSize"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestEmbedOptimizedForSize.self
     }
     //Meta information declaration end
 

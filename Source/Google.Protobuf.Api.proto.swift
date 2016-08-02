@@ -50,7 +50,7 @@ public extension Google.Protobuf {
       registerAllExtensions(registry: extensionRegistry)
       Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
       Google.Protobuf.SourceContextRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.TypesRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.TypeRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -61,8 +61,8 @@ public extension Google.Protobuf {
     // The fully qualified name of this api, including package name
     // followed by the api's simple name.
     public private(set) var name:String = ""
-
     public private(set) var hasName:Bool = false
+
     public private(set) var methods:Array<Google.Protobuf.Method>  = Array<Google.Protobuf.Method>()
     public private(set) var options:Array<Google.Protobuf.Option>  = Array<Google.Protobuf.Option>()
     // A version string for this api. If specified, must have the form
@@ -85,8 +85,8 @@ public extension Google.Protobuf {
     // experimental, none-GA apis.
     // See also: [design doc](http://go/api-versioning).
     public private(set) var version:String = ""
-
     public private(set) var hasVersion:Bool = false
+
     public private(set) var sourceContext:Google.Protobuf.SourceContext!
     public private(set) var hasSourceContext:Bool = false
     required public init() {
@@ -147,10 +147,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Api.Builder {
       return classBuilder() as! Google.Protobuf.Api.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Api.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Api.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Api.Builder {
@@ -263,9 +263,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.Api"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.Api.self
     }
     //Meta information declaration end
 
@@ -540,24 +537,24 @@ public extension Google.Protobuf {
   final public class Method : GeneratedMessage {
     // The simple name of this method.
     public private(set) var name:String = ""
-
     public private(set) var hasName:Bool = false
+
     // A URL of the input message type.
     public private(set) var requestTypeUrl:String = ""
-
     public private(set) var hasRequestTypeUrl:Bool = false
+
     // If true, the request is streamed.
     public private(set) var requestStreaming:Bool = false
-
     public private(set) var hasRequestStreaming:Bool = false
+
     // The URL of the output message type.
     public private(set) var responseTypeUrl:String = ""
-
     public private(set) var hasResponseTypeUrl:Bool = false
+
     // If true, the response is streamed.
     public private(set) var responseStreaming:Bool = false
-
     public private(set) var hasResponseStreaming:Bool = false
+
     public private(set) var options:Array<Google.Protobuf.Option>  = Array<Google.Protobuf.Option>()
     required public init() {
          super.init()
@@ -621,10 +618,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Method.Builder {
       return classBuilder() as! Google.Protobuf.Method.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Method.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Method.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Method.Builder {
@@ -731,9 +728,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.Method"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.Method.self
     }
     //Meta information declaration end
 

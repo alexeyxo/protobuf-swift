@@ -2324,8 +2324,8 @@ public extension ProtobufUnittest {
         // a local variable named "b" in one of the generated methods.  Doh.
         // This file needs to compile in proto1 to test backwards-compatibility.
         public private(set) var bb:Int32 = Int32(0)
-
         public private(set) var hasBb:Bool = false
+
         required public init() {
              super.init()
         }
@@ -2358,10 +2358,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
           return classBuilder() as! ProtobufUnittest.TestAllTypes.NestedMessage.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
@@ -2414,9 +2414,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestAllTypes.NestedMessage"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestAllTypes.NestedMessage.self
         }
         //Meta information declaration end
 
@@ -2531,8 +2528,8 @@ public extension ProtobufUnittest {
 
       final public class OptionalGroup : GeneratedMessage {
         public private(set) var a:Int32 = Int32(0)
-
         public private(set) var hasA:Bool = false
+
         required public init() {
              super.init()
         }
@@ -2565,10 +2562,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
           return classBuilder() as! ProtobufUnittest.TestAllTypes.OptionalGroup.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestAllTypes.OptionalGroup.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestAllTypes.OptionalGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
@@ -2621,9 +2618,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestAllTypes.OptionalGroup"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestAllTypes.OptionalGroup.self
         }
         //Meta information declaration end
 
@@ -2738,8 +2732,8 @@ public extension ProtobufUnittest {
 
       final public class RepeatedGroup : GeneratedMessage {
         public private(set) var a:Int32 = Int32(0)
-
         public private(set) var hasA:Bool = false
+
         required public init() {
              super.init()
         }
@@ -2772,10 +2766,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
           return classBuilder() as! ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
@@ -2828,9 +2822,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestAllTypes.RepeatedGroup"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestAllTypes.RepeatedGroup.self
         }
         //Meta information declaration end
 
@@ -3047,50 +3038,50 @@ public extension ProtobufUnittest {
 
     // Singular
     public private(set) var optionalInt32:Int32 = Int32(0)
-
     public private(set) var hasOptionalInt32:Bool = false
+
     public private(set) var optionalInt64:Int64 = Int64(0)
-
     public private(set) var hasOptionalInt64:Bool = false
+
     public private(set) var optionalUint32:UInt32 = UInt32(0)
-
     public private(set) var hasOptionalUint32:Bool = false
+
     public private(set) var optionalUint64:UInt64 = UInt64(0)
-
     public private(set) var hasOptionalUint64:Bool = false
+
     public private(set) var optionalSint32:Int32 = Int32(0)
-
     public private(set) var hasOptionalSint32:Bool = false
+
     public private(set) var optionalSint64:Int64 = Int64(0)
-
     public private(set) var hasOptionalSint64:Bool = false
+
     public private(set) var optionalFixed32:UInt32 = UInt32(0)
-
     public private(set) var hasOptionalFixed32:Bool = false
+
     public private(set) var optionalFixed64:UInt64 = UInt64(0)
-
     public private(set) var hasOptionalFixed64:Bool = false
+
     public private(set) var optionalSfixed32:Int32 = Int32(0)
-
     public private(set) var hasOptionalSfixed32:Bool = false
+
     public private(set) var optionalSfixed64:Int64 = Int64(0)
-
     public private(set) var hasOptionalSfixed64:Bool = false
+
     public private(set) var optionalFloat:Float = Float(0)
-
     public private(set) var hasOptionalFloat:Bool = false
+
     public private(set) var optionalDouble:Double = Double(0)
-
     public private(set) var hasOptionalDouble:Bool = false
+
     public private(set) var optionalBool:Bool = false
-
     public private(set) var hasOptionalBool:Bool = false
+
     public private(set) var optionalString:String = ""
-
     public private(set) var hasOptionalString:Bool = false
-    public private(set) var optionalBytes:Data = Data()
 
+    public private(set) var optionalBytes:Data = Data()
     public private(set) var hasOptionalBytes:Bool = false
+
     public private(set) var optionalGroup:ProtobufUnittest.TestAllTypes.OptionalGroup!
     public private(set) var hasOptionalGroup:Bool = false
     public private(set) var optionalNestedMessage:ProtobufUnittest.TestAllTypes.NestedMessage!
@@ -3106,11 +3097,11 @@ public extension ProtobufUnittest {
     public private(set) var optionalImportEnum:ProtobufUnittestImport.ImportEnum = ProtobufUnittestImport.ImportEnum.importFoo
     public private(set) var hasOptionalImportEnum:Bool = false
     public private(set) var optionalStringPiece:String = ""
-
     public private(set) var hasOptionalStringPiece:Bool = false
-    public private(set) var optionalCord:String = ""
 
+    public private(set) var optionalCord:String = ""
     public private(set) var hasOptionalCord:Bool = false
+
     public private(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage!
     public private(set) var hasOptionalPublicImportMessage:Bool = false
     public private(set) var optionalLazyMessage:ProtobufUnittest.TestAllTypes.NestedMessage!
@@ -3146,50 +3137,50 @@ public extension ProtobufUnittest {
     public private(set) var repeatedLazyMessage:Array<ProtobufUnittest.TestAllTypes.NestedMessage>  = Array<ProtobufUnittest.TestAllTypes.NestedMessage>()
     // Singular with defaults
     public private(set) var defaultInt32:Int32 = Int32(41)
-
     public private(set) var hasDefaultInt32:Bool = false
+
     public private(set) var defaultInt64:Int64 = Int64(42)
-
     public private(set) var hasDefaultInt64:Bool = false
+
     public private(set) var defaultUint32:UInt32 = UInt32(43)
-
     public private(set) var hasDefaultUint32:Bool = false
+
     public private(set) var defaultUint64:UInt64 = UInt64(44)
-
     public private(set) var hasDefaultUint64:Bool = false
+
     public private(set) var defaultSint32:Int32 = Int32(-45)
-
     public private(set) var hasDefaultSint32:Bool = false
+
     public private(set) var defaultSint64:Int64 = Int64(46)
-
     public private(set) var hasDefaultSint64:Bool = false
+
     public private(set) var defaultFixed32:UInt32 = UInt32(47)
-
     public private(set) var hasDefaultFixed32:Bool = false
+
     public private(set) var defaultFixed64:UInt64 = UInt64(48)
-
     public private(set) var hasDefaultFixed64:Bool = false
+
     public private(set) var defaultSfixed32:Int32 = Int32(49)
-
     public private(set) var hasDefaultSfixed32:Bool = false
+
     public private(set) var defaultSfixed64:Int64 = Int64(-50)
-
     public private(set) var hasDefaultSfixed64:Bool = false
+
     public private(set) var defaultFloat:Float = Float(51.5)
-
     public private(set) var hasDefaultFloat:Bool = false
+
     public private(set) var defaultDouble:Double = Double(52000)
-
     public private(set) var hasDefaultDouble:Bool = false
+
     public private(set) var defaultBool:Bool = true
-
     public private(set) var hasDefaultBool:Bool = false
+
     public private(set) var defaultString:String = "hello"
-
     public private(set) var hasDefaultString:Bool = false
-    public private(set) var defaultBytes:Data = Data(bytes:([UInt8]() + "world".utf8), count:5)
 
+    public private(set) var defaultBytes:Data = Data(bytes:([UInt8]() + "world".utf8), count:5)
     public private(set) var hasDefaultBytes:Bool = false
+
     public private(set) var defaultNestedEnum:ProtobufUnittest.TestAllTypes.NestedEnum = ProtobufUnittest.TestAllTypes.NestedEnum.bar
     public private(set) var hasDefaultNestedEnum:Bool = false
     public private(set) var defaultForeignEnum:ProtobufUnittest.ForeignEnum = ProtobufUnittest.ForeignEnum.foreignBar
@@ -3197,11 +3188,11 @@ public extension ProtobufUnittest {
     public private(set) var defaultImportEnum:ProtobufUnittestImport.ImportEnum = ProtobufUnittestImport.ImportEnum.importBar
     public private(set) var hasDefaultImportEnum:Bool = false
     public private(set) var defaultStringPiece:String = "abc"
-
     public private(set) var hasDefaultStringPiece:Bool = false
-    public private(set) var defaultCord:String = "123"
 
+    public private(set) var defaultCord:String = "123"
     public private(set) var hasDefaultCord:Bool = false
+
     public private(set) var oneofUint32:UInt32!{
          get {
               return TestAllTypes.OneofField.getOneofUint32(storageOneofField)
@@ -3844,10 +3835,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestAllTypes.Builder {
       return classBuilder() as! ProtobufUnittest.TestAllTypes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestAllTypes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestAllTypes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestAllTypes.Builder {
@@ -4757,9 +4748,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestAllTypes"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestAllTypes.self
     }
     //Meta information declaration end
 
@@ -7504,10 +7492,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.NestedTestAllTypes.Builder {
       return classBuilder() as! ProtobufUnittest.NestedTestAllTypes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.NestedTestAllTypes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.NestedTestAllTypes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
@@ -7599,9 +7587,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.NestedTestAllTypes"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.NestedTestAllTypes.self
     }
     //Meta information declaration end
 
@@ -7844,8 +7829,8 @@ public extension ProtobufUnittest {
   final public class TestDeprecatedFields : GeneratedMessage {
     @available(*, deprecated:0.1, message:"The field is marked as \"Deprecated\"")
     public private(set) var deprecatedInt32:Int32 = Int32(0)
-
     public private(set) var hasDeprecatedInt32:Bool = false
+
     required public init() {
          super.init()
     }
@@ -7878,10 +7863,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestDeprecatedFields.Builder {
       return classBuilder() as! ProtobufUnittest.TestDeprecatedFields.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestDeprecatedFields.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestDeprecatedFields.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
@@ -7934,9 +7919,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestDeprecatedFields"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestDeprecatedFields.self
     }
     //Meta information declaration end
 
@@ -8047,8 +8029,8 @@ public extension ProtobufUnittest {
   // that.
   final public class ForeignMessage : GeneratedMessage {
     public private(set) var c:Int32 = Int32(0)
-
     public private(set) var hasC:Bool = false
+
     required public init() {
          super.init()
     }
@@ -8081,10 +8063,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.ForeignMessage.Builder {
       return classBuilder() as! ProtobufUnittest.ForeignMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.ForeignMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.ForeignMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.ForeignMessage.Builder {
@@ -8137,9 +8119,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.ForeignMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.ForeignMessage.self
     }
     //Meta information declaration end
 
@@ -8273,10 +8252,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestReservedFields.Builder {
       return classBuilder() as! ProtobufUnittest.TestReservedFields.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestReservedFields.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestReservedFields.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestReservedFields.Builder {
@@ -8320,9 +8299,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestReservedFields"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestReservedFields.self
     }
     //Meta information declaration end
 
@@ -8429,10 +8405,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestAllExtensions.Builder {
       return classBuilder() as! ProtobufUnittest.TestAllExtensions.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestAllExtensions.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestAllExtensions.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestAllExtensions.Builder {
@@ -8478,9 +8454,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestAllExtensions"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestAllExtensions.self
     }
     //Meta information declaration end
 
@@ -8558,8 +8531,8 @@ public extension ProtobufUnittest {
 
   final public class OptionalGroupExtension : GeneratedMessage {
     public private(set) var a:Int32 = Int32(0)
-
     public private(set) var hasA:Bool = false
+
     required public init() {
          super.init()
     }
@@ -8592,10 +8565,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.OptionalGroupExtension.Builder {
       return classBuilder() as! ProtobufUnittest.OptionalGroupExtension.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.OptionalGroupExtension.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.OptionalGroupExtension.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
@@ -8648,9 +8621,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.OptionalGroupExtension"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.OptionalGroupExtension.self
     }
     //Meta information declaration end
 
@@ -8759,8 +8729,8 @@ public extension ProtobufUnittest {
 
   final public class RepeatedGroupExtension : GeneratedMessage {
     public private(set) var a:Int32 = Int32(0)
-
     public private(set) var hasA:Bool = false
+
     required public init() {
          super.init()
     }
@@ -8793,10 +8763,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.RepeatedGroupExtension.Builder {
       return classBuilder() as! ProtobufUnittest.RepeatedGroupExtension.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.RepeatedGroupExtension.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.RepeatedGroupExtension.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
@@ -8849,9 +8819,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.RepeatedGroupExtension"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.RepeatedGroupExtension.self
     }
     //Meta information declaration end
 
@@ -8991,10 +8958,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestNestedExtension.Builder {
       return classBuilder() as! ProtobufUnittest.TestNestedExtension.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestNestedExtension.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestNestedExtension.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestNestedExtension.Builder {
@@ -9038,9 +9005,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestNestedExtension"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestNestedExtension.self
     }
     //Meta information declaration end
 
@@ -9122,106 +9086,106 @@ public extension ProtobufUnittest {
   // optional fields for all types.
   final public class TestRequired : GeneratedMessage {
     public private(set) var a:Int32 = Int32(0)
-
     public private(set) var hasA:Bool = false
+
     public private(set) var dummy2:Int32 = Int32(0)
-
     public private(set) var hasDummy2:Bool = false
-    public private(set) var b:Int32 = Int32(0)
 
+    public private(set) var b:Int32 = Int32(0)
     public private(set) var hasB:Bool = false
+
     // Pad the field count to 32 so that we can test that IsInitialized()
     // properly checks multiple elements of has_bits_.
     public private(set) var dummy4:Int32 = Int32(0)
-
     public private(set) var hasDummy4:Bool = false
+
     public private(set) var dummy5:Int32 = Int32(0)
-
     public private(set) var hasDummy5:Bool = false
+
     public private(set) var dummy6:Int32 = Int32(0)
-
     public private(set) var hasDummy6:Bool = false
+
     public private(set) var dummy7:Int32 = Int32(0)
-
     public private(set) var hasDummy7:Bool = false
+
     public private(set) var dummy8:Int32 = Int32(0)
-
     public private(set) var hasDummy8:Bool = false
+
     public private(set) var dummy9:Int32 = Int32(0)
-
     public private(set) var hasDummy9:Bool = false
+
     public private(set) var dummy10:Int32 = Int32(0)
-
     public private(set) var hasDummy10:Bool = false
+
     public private(set) var dummy11:Int32 = Int32(0)
-
     public private(set) var hasDummy11:Bool = false
+
     public private(set) var dummy12:Int32 = Int32(0)
-
     public private(set) var hasDummy12:Bool = false
+
     public private(set) var dummy13:Int32 = Int32(0)
-
     public private(set) var hasDummy13:Bool = false
+
     public private(set) var dummy14:Int32 = Int32(0)
-
     public private(set) var hasDummy14:Bool = false
+
     public private(set) var dummy15:Int32 = Int32(0)
-
     public private(set) var hasDummy15:Bool = false
+
     public private(set) var dummy16:Int32 = Int32(0)
-
     public private(set) var hasDummy16:Bool = false
+
     public private(set) var dummy17:Int32 = Int32(0)
-
     public private(set) var hasDummy17:Bool = false
+
     public private(set) var dummy18:Int32 = Int32(0)
-
     public private(set) var hasDummy18:Bool = false
+
     public private(set) var dummy19:Int32 = Int32(0)
-
     public private(set) var hasDummy19:Bool = false
+
     public private(set) var dummy20:Int32 = Int32(0)
-
     public private(set) var hasDummy20:Bool = false
+
     public private(set) var dummy21:Int32 = Int32(0)
-
     public private(set) var hasDummy21:Bool = false
+
     public private(set) var dummy22:Int32 = Int32(0)
-
     public private(set) var hasDummy22:Bool = false
+
     public private(set) var dummy23:Int32 = Int32(0)
-
     public private(set) var hasDummy23:Bool = false
+
     public private(set) var dummy24:Int32 = Int32(0)
-
     public private(set) var hasDummy24:Bool = false
+
     public private(set) var dummy25:Int32 = Int32(0)
-
     public private(set) var hasDummy25:Bool = false
+
     public private(set) var dummy26:Int32 = Int32(0)
-
     public private(set) var hasDummy26:Bool = false
+
     public private(set) var dummy27:Int32 = Int32(0)
-
     public private(set) var hasDummy27:Bool = false
+
     public private(set) var dummy28:Int32 = Int32(0)
-
     public private(set) var hasDummy28:Bool = false
+
     public private(set) var dummy29:Int32 = Int32(0)
-
     public private(set) var hasDummy29:Bool = false
+
     public private(set) var dummy30:Int32 = Int32(0)
-
     public private(set) var hasDummy30:Bool = false
+
     public private(set) var dummy31:Int32 = Int32(0)
-
     public private(set) var hasDummy31:Bool = false
+
     public private(set) var dummy32:Int32 = Int32(0)
-
     public private(set) var hasDummy32:Bool = false
-    public private(set) var c:Int32 = Int32(0)
 
+    public private(set) var c:Int32 = Int32(0)
     public private(set) var hasC:Bool = false
+
     public class func single() -> ConcreateExtensionField {
          return TestRequiredsingle
     }
@@ -9461,10 +9425,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestRequired.Builder {
       return classBuilder() as! ProtobufUnittest.TestRequired.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestRequired.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestRequired.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestRequired.Builder {
@@ -9805,9 +9769,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestRequired"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestRequired.self
     }
     //Meta information declaration end
 
@@ -10943,8 +10904,8 @@ public extension ProtobufUnittest {
     public private(set) var hasOptionalMessage:Bool = false
     public private(set) var repeatedMessage:Array<ProtobufUnittest.TestRequired>  = Array<ProtobufUnittest.TestRequired>()
     public private(set) var dummy:Int32 = Int32(0)
-
     public private(set) var hasDummy:Bool = false
+
     required public init() {
          super.init()
     }
@@ -11006,10 +10967,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestRequiredForeign.Builder {
       return classBuilder() as! ProtobufUnittest.TestRequiredForeign.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestRequiredForeign.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestRequiredForeign.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestRequiredForeign.Builder {
@@ -11095,9 +11056,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestRequiredForeign"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestRequiredForeign.self
     }
     //Meta information declaration end
 
@@ -11341,10 +11299,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestForeignNested.Builder {
       return classBuilder() as! ProtobufUnittest.TestForeignNested.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestForeignNested.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestForeignNested.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestForeignNested.Builder {
@@ -11403,9 +11361,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestForeignNested"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestForeignNested.self
     }
     //Meta information declaration end
 
@@ -11574,10 +11529,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestEmptyMessage.Builder {
       return classBuilder() as! ProtobufUnittest.TestEmptyMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestEmptyMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestEmptyMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestEmptyMessage.Builder {
@@ -11621,9 +11576,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestEmptyMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestEmptyMessage.self
     }
     //Meta information declaration end
 
@@ -11732,10 +11684,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
       return classBuilder() as! ProtobufUnittest.TestEmptyMessageWithExtensions.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestEmptyMessageWithExtensions.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestEmptyMessageWithExtensions.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
@@ -11781,9 +11733,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestEmptyMessageWithExtensions"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestEmptyMessageWithExtensions.self
     }
     //Meta information declaration end
 
@@ -11893,10 +11842,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
       return classBuilder() as! ProtobufUnittest.TestMultipleExtensionRanges.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestMultipleExtensionRanges.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestMultipleExtensionRanges.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
@@ -11946,9 +11895,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestMultipleExtensionRanges"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestMultipleExtensionRanges.self
     }
     //Meta information declaration end
 
@@ -12029,11 +11975,11 @@ public extension ProtobufUnittest {
     // The largest possible tag number is 2^28 - 1, since the wire format uses
     // three bits to communicate wire type.
     public private(set) var a:Int32 = Int32(0)
-
     public private(set) var hasA:Bool = false
-    public private(set) var bb:Int32 = Int32(0)
 
+    public private(set) var bb:Int32 = Int32(0)
     public private(set) var hasBb:Bool = false
+
     required public init() {
          super.init()
     }
@@ -12072,10 +12018,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
       return classBuilder() as! ProtobufUnittest.TestReallyLargeTagNumber.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestReallyLargeTagNumber.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestReallyLargeTagNumber.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
@@ -12137,9 +12083,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestReallyLargeTagNumber"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestReallyLargeTagNumber.self
     }
     //Meta information declaration end
 
@@ -12282,8 +12225,8 @@ public extension ProtobufUnittest {
     public private(set) var a:ProtobufUnittest.TestRecursiveMessage!
     public private(set) var hasA:Bool = false
     public private(set) var i:Int32 = Int32(0)
-
     public private(set) var hasI:Bool = false
+
     required public init() {
          super.init()
     }
@@ -12324,10 +12267,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestRecursiveMessage.Builder {
       return classBuilder() as! ProtobufUnittest.TestRecursiveMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestRecursiveMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestRecursiveMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
@@ -12395,9 +12338,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestRecursiveMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestRecursiveMessage.self
     }
     //Meta information declaration end
 
@@ -12608,10 +12548,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestMutualRecursionA.Builder {
       return classBuilder() as! ProtobufUnittest.TestMutualRecursionA.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestMutualRecursionA.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestMutualRecursionA.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
@@ -12670,9 +12610,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestMutualRecursionA"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestMutualRecursionA.self
     }
     //Meta information declaration end
 
@@ -12817,8 +12754,8 @@ public extension ProtobufUnittest {
     public private(set) var a:ProtobufUnittest.TestMutualRecursionA!
     public private(set) var hasA:Bool = false
     public private(set) var optionalInt32:Int32 = Int32(0)
-
     public private(set) var hasOptionalInt32:Bool = false
+
     required public init() {
          super.init()
     }
@@ -12859,10 +12796,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestMutualRecursionB.Builder {
       return classBuilder() as! ProtobufUnittest.TestMutualRecursionB.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestMutualRecursionB.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestMutualRecursionB.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
@@ -12930,9 +12867,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestMutualRecursionB"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestMutualRecursionB.self
     }
     //Meta information declaration end
 
@@ -13116,8 +13050,8 @@ public extension ProtobufUnittest {
 
       final public class Foo : GeneratedMessage {
         public private(set) var a:Int32 = Int32(0)
-
         public private(set) var hasA:Bool = false
+
         required public init() {
              super.init()
         }
@@ -13150,10 +13084,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
           return classBuilder() as! ProtobufUnittest.TestDupFieldNumber.Foo.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestDupFieldNumber.Foo.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestDupFieldNumber.Foo.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
@@ -13206,9 +13140,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestDupFieldNumber.Foo"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestDupFieldNumber.Foo.self
         }
         //Meta information declaration end
 
@@ -13323,8 +13254,8 @@ public extension ProtobufUnittest {
 
       final public class Bar : GeneratedMessage {
         public private(set) var a:Int32 = Int32(0)
-
         public private(set) var hasA:Bool = false
+
         required public init() {
              super.init()
         }
@@ -13357,10 +13288,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
           return classBuilder() as! ProtobufUnittest.TestDupFieldNumber.Bar.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestDupFieldNumber.Bar.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestDupFieldNumber.Bar.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
@@ -13413,9 +13344,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestDupFieldNumber.Bar"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestDupFieldNumber.Bar.self
         }
         //Meta information declaration end
 
@@ -13526,8 +13454,8 @@ public extension ProtobufUnittest {
 
     // NO_PROTO1
     public private(set) var a:Int32 = Int32(0)
-
     public private(set) var hasA:Bool = false
+
     public private(set) var foo:ProtobufUnittest.TestDupFieldNumber.Foo!
     public private(set) var hasFoo:Bool = false
     public private(set) var bar:ProtobufUnittest.TestDupFieldNumber.Bar!
@@ -13580,10 +13508,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestDupFieldNumber.Builder {
       return classBuilder() as! ProtobufUnittest.TestDupFieldNumber.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestDupFieldNumber.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestDupFieldNumber.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
@@ -13666,9 +13594,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestDupFieldNumber"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestDupFieldNumber.self
     }
     //Meta information declaration end
 
@@ -13945,10 +13870,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestEagerMessage.Builder {
       return classBuilder() as! ProtobufUnittest.TestEagerMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestEagerMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestEagerMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestEagerMessage.Builder {
@@ -14007,9 +13932,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestEagerMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestEagerMessage.self
     }
     //Meta information declaration end
 
@@ -14187,10 +14109,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestLazyMessage.Builder {
       return classBuilder() as! ProtobufUnittest.TestLazyMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestLazyMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestLazyMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestLazyMessage.Builder {
@@ -14249,9 +14171,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestLazyMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestLazyMessage.self
     }
     //Meta information declaration end
 
@@ -14444,10 +14363,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
           return classBuilder() as! ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
@@ -14524,9 +14443,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestNestedMessageHasBits.NestedMessage"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.self
         }
         //Meta information declaration end
 
@@ -14701,10 +14617,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
       return classBuilder() as! ProtobufUnittest.TestNestedMessageHasBits.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestNestedMessageHasBits.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestNestedMessageHasBits.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
@@ -14763,9 +14679,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestNestedMessageHasBits"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestNestedMessageHasBits.self
     }
     //Meta information declaration end
 
@@ -14910,21 +14823,21 @@ public extension ProtobufUnittest {
   // standard style.
   final public class TestCamelCaseFieldNames : GeneratedMessage {
     public private(set) var primitiveField:Int32 = Int32(0)
-
     public private(set) var hasPrimitiveField:Bool = false
-    public private(set) var stringField:String = ""
 
+    public private(set) var stringField:String = ""
     public private(set) var hasStringField:Bool = false
+
     public private(set) var enumField:ProtobufUnittest.ForeignEnum = ProtobufUnittest.ForeignEnum.foreignFoo
     public private(set) var hasEnumField:Bool = false
     public private(set) var messageField:ProtobufUnittest.ForeignMessage!
     public private(set) var hasMessageField:Bool = false
     public private(set) var stringPieceField:String = ""
-
     public private(set) var hasStringPieceField:Bool = false
-    public private(set) var cordField:String = ""
 
+    public private(set) var cordField:String = ""
     public private(set) var hasCordField:Bool = false
+
     public private(set) var repeatedPrimitiveField:Array<Int32> = Array<Int32>()
     public private(set) var repeatedStringField:Array<String> = Array<String>()
     private var repeatedEnumFieldMemoizedSerializedSize:Int32 = 0
@@ -15055,10 +14968,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
       return classBuilder() as! ProtobufUnittest.TestCamelCaseFieldNames.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestCamelCaseFieldNames.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestCamelCaseFieldNames.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
@@ -15243,9 +15156,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestCamelCaseFieldNames"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestCamelCaseFieldNames.self
     }
     //Meta information declaration end
 
@@ -15732,14 +15642,14 @@ public extension ProtobufUnittest {
 
       final public class NestedMessage : GeneratedMessage {
         public private(set) var oo:Int64 = Int64(0)
-
         public private(set) var hasOo:Bool = false
+
         // The field name "b" fails to compile in proto1 because it conflicts with
         // a local variable named "b" in one of the generated methods.  Doh.
         // This file needs to compile in proto1 to test backwards-compatibility.
         public private(set) var bb:Int32 = Int32(0)
-
         public private(set) var hasBb:Bool = false
+
         required public init() {
              super.init()
         }
@@ -15778,10 +15688,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
           return classBuilder() as! ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
@@ -15843,9 +15753,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestFieldOrderings.NestedMessage"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestFieldOrderings.NestedMessage.self
         }
         //Meta information declaration end
 
@@ -15987,14 +15894,14 @@ public extension ProtobufUnittest {
     //Nested type declaration end
 
     public private(set) var myString:String = ""
-
     public private(set) var hasMyString:Bool = false
+
     public private(set) var myInt:Int64 = Int64(0)
-
     public private(set) var hasMyInt:Bool = false
-    public private(set) var myFloat:Float = Float(0)
 
+    public private(set) var myFloat:Float = Float(0)
     public private(set) var hasMyFloat:Bool = false
+
     public private(set) var optionalNestedMessage:ProtobufUnittest.TestFieldOrderings.NestedMessage!
     public private(set) var hasOptionalNestedMessage:Bool = false
     required public init() {
@@ -16055,10 +15962,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestFieldOrderings.Builder {
       return classBuilder() as! ProtobufUnittest.TestFieldOrderings.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestFieldOrderings.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestFieldOrderings.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestFieldOrderings.Builder {
@@ -16148,9 +16055,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestFieldOrderings"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestFieldOrderings.self
     }
     //Meta information declaration end
 
@@ -16390,98 +16294,98 @@ public extension ProtobufUnittest {
 
   final public class TestExtremeDefaultValues : GeneratedMessage {
     public private(set) var escapedBytes:Data = Data(bytes:([UInt8]() + "world".utf8), count:5)
-
     public private(set) var hasEscapedBytes:Bool = false
+
     public private(set) var largeUint32:UInt32 = UInt32(255)
-
     public private(set) var hasLargeUint32:Bool = false
+
     public private(set) var largeUint64:UInt64 = UInt64(255)
-
     public private(set) var hasLargeUint64:Bool = false
+
     public private(set) var smallInt32:Int32 = Int32(-127)
-
     public private(set) var hasSmallInt32:Bool = false
+
     public private(set) var smallInt64:Int64 = Int64(-127)
-
     public private(set) var hasSmallInt64:Bool = false
+
     public private(set) var reallySmallInt32:Int32 = Int32(-128)
-
     public private(set) var hasReallySmallInt32:Bool = false
-    public private(set) var reallySmallInt64:Int64 = Int64(-128)
 
+    public private(set) var reallySmallInt64:Int64 = Int64(-128)
     public private(set) var hasReallySmallInt64:Bool = false
+
     // The default value here is UTF-8 for "\u1234".  (We could also just type
     // the UTF-8 text directly into this text file rather than escape it, but
     // lots of people use editors that would be confused by this.)
     public private(set) var utf8String:String = "hello"
-
     public private(set) var hasUtf8String:Bool = false
+
     // Tests for single-precision floating-point values.
     public private(set) var zeroFloat:Float = Float(0)
-
     public private(set) var hasZeroFloat:Bool = false
+
     public private(set) var oneFloat:Float = Float(1)
-
     public private(set) var hasOneFloat:Bool = false
+
     public private(set) var smallFloat:Float = Float(1.5)
-
     public private(set) var hasSmallFloat:Bool = false
+
     public private(set) var negativeOneFloat:Float = Float(-1)
-
     public private(set) var hasNegativeOneFloat:Bool = false
-    public private(set) var negativeFloat:Float = Float(-1.5)
 
+    public private(set) var negativeFloat:Float = Float(-1.5)
     public private(set) var hasNegativeFloat:Bool = false
+
     // Using exponents
     public private(set) var largeFloat:Float = Float(2e+08)
-
     public private(set) var hasLargeFloat:Bool = false
-    public private(set) var smallNegativeFloat:Float = Float(-8e-28)
 
+    public private(set) var smallNegativeFloat:Float = Float(-8e-28)
     public private(set) var hasSmallNegativeFloat:Bool = false
+
     // Text for nonfinite floating-point values.
     public private(set) var infDouble:Double = Double(HUGE)
-
     public private(set) var hasInfDouble:Bool = false
+
     public private(set) var negInfDouble:Double = Double(-HUGE)
-
     public private(set) var hasNegInfDouble:Bool = false
+
     public private(set) var nanDouble:Double = 0.0
-
     public private(set) var hasNanDouble:Bool = false
+
     public private(set) var infFloat:Float = HUGE
-
     public private(set) var hasInfFloat:Bool = false
+
     public private(set) var negInfFloat:Float = -HUGE
-
     public private(set) var hasNegInfFloat:Bool = false
-    public private(set) var nanFloat:Float = 0.0
 
+    public private(set) var nanFloat:Float = 0.0
     public private(set) var hasNanFloat:Bool = false
+
     // Tests for C++ trigraphs.
     // Trigraphs should be escaped in C++ generated files, but they should not be
     // escaped for other languages.
     // Note that in .proto file, "\?" is a valid way to escape ? in string
     // literals.
     public private(set) var cppTrigraph:String = "asdfasdf"
-
     public private(set) var hasCppTrigraph:Bool = false
+
     // String defaults containing the character '\000'
     public private(set) var stringWithZero:String = "hel\000lo"
-
     public private(set) var hasStringWithZero:Bool = false
+
     public private(set) var bytesWithZero:Data = Data(bytes:([UInt8]() + "wor\000ld".utf8), count:6)
-
     public private(set) var hasBytesWithZero:Bool = false
+
     public private(set) var stringPieceWithZero:String = "ab\000c"
-
     public private(set) var hasStringPieceWithZero:Bool = false
+
     public private(set) var cordWithZero:String = "12\0003"
-
     public private(set) var hasCordWithZero:Bool = false
-    public private(set) var replacementString:String = "${unknown}"
 
+    public private(set) var replacementString:String = "${unknown}"
     public private(set) var hasReplacementString:Bool = false
+
     required public init() {
          super.init()
     }
@@ -16670,10 +16574,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
       return classBuilder() as! ProtobufUnittest.TestExtremeDefaultValues.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestExtremeDefaultValues.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestExtremeDefaultValues.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
@@ -16960,9 +16864,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestExtremeDefaultValues"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestExtremeDefaultValues.self
     }
     //Meta information declaration end
 
@@ -17936,10 +17837,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.SparseEnumMessage.Builder {
       return classBuilder() as! ProtobufUnittest.SparseEnumMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.SparseEnumMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.SparseEnumMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.SparseEnumMessage.Builder {
@@ -17992,9 +17893,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.SparseEnumMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.SparseEnumMessage.self
     }
     //Meta information declaration end
 
@@ -18109,8 +18007,8 @@ public extension ProtobufUnittest {
   // Test String and Bytes: string is for valid UTF-8 strings
   final public class OneString : GeneratedMessage {
     public private(set) var data:String = ""
-
     public private(set) var hasData:Bool = false
+
     required public init() {
          super.init()
     }
@@ -18143,10 +18041,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.OneString.Builder {
       return classBuilder() as! ProtobufUnittest.OneString.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.OneString.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.OneString.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.OneString.Builder {
@@ -18199,9 +18097,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.OneString"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.OneString.self
     }
     //Meta information declaration end
 
@@ -18347,10 +18242,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.MoreString.Builder {
       return classBuilder() as! ProtobufUnittest.MoreString.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.MoreString.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.MoreString.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.MoreString.Builder {
@@ -18405,9 +18300,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.MoreString"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.MoreString.self
     }
     //Meta information declaration end
 
@@ -18509,8 +18401,8 @@ public extension ProtobufUnittest {
 
   final public class OneBytes : GeneratedMessage {
     public private(set) var data:Data = Data()
-
     public private(set) var hasData:Bool = false
+
     required public init() {
          super.init()
     }
@@ -18543,10 +18435,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.OneBytes.Builder {
       return classBuilder() as! ProtobufUnittest.OneBytes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.OneBytes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.OneBytes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.OneBytes.Builder {
@@ -18599,9 +18491,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.OneBytes"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.OneBytes.self
     }
     //Meta information declaration end
 
@@ -18747,10 +18636,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.MoreBytes.Builder {
       return classBuilder() as! ProtobufUnittest.MoreBytes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.MoreBytes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.MoreBytes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.MoreBytes.Builder {
@@ -18809,9 +18698,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.MoreBytes"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.MoreBytes.self
     }
     //Meta information declaration end
 
@@ -18918,8 +18804,8 @@ public extension ProtobufUnittest {
   // Test int32, uint32, int64, uint64, and bool are all compatible
   final public class Int32Message : GeneratedMessage {
     public private(set) var data:Int32 = Int32(0)
-
     public private(set) var hasData:Bool = false
+
     required public init() {
          super.init()
     }
@@ -18952,10 +18838,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.Int32Message.Builder {
       return classBuilder() as! ProtobufUnittest.Int32Message.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.Int32Message.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.Int32Message.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.Int32Message.Builder {
@@ -19008,9 +18894,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.Int32Message"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.Int32Message.self
     }
     //Meta information declaration end
 
@@ -19119,8 +19002,8 @@ public extension ProtobufUnittest {
 
   final public class Uint32Message : GeneratedMessage {
     public private(set) var data:UInt32 = UInt32(0)
-
     public private(set) var hasData:Bool = false
+
     required public init() {
          super.init()
     }
@@ -19153,10 +19036,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.Uint32Message.Builder {
       return classBuilder() as! ProtobufUnittest.Uint32Message.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.Uint32Message.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.Uint32Message.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.Uint32Message.Builder {
@@ -19209,9 +19092,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.Uint32Message"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.Uint32Message.self
     }
     //Meta information declaration end
 
@@ -19320,8 +19200,8 @@ public extension ProtobufUnittest {
 
   final public class Int64Message : GeneratedMessage {
     public private(set) var data:Int64 = Int64(0)
-
     public private(set) var hasData:Bool = false
+
     required public init() {
          super.init()
     }
@@ -19354,10 +19234,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.Int64Message.Builder {
       return classBuilder() as! ProtobufUnittest.Int64Message.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.Int64Message.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.Int64Message.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.Int64Message.Builder {
@@ -19410,9 +19290,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.Int64Message"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.Int64Message.self
     }
     //Meta information declaration end
 
@@ -19521,8 +19398,8 @@ public extension ProtobufUnittest {
 
   final public class Uint64Message : GeneratedMessage {
     public private(set) var data:UInt64 = UInt64(0)
-
     public private(set) var hasData:Bool = false
+
     required public init() {
          super.init()
     }
@@ -19555,10 +19432,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.Uint64Message.Builder {
       return classBuilder() as! ProtobufUnittest.Uint64Message.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.Uint64Message.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.Uint64Message.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.Uint64Message.Builder {
@@ -19611,9 +19488,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.Uint64Message"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.Uint64Message.self
     }
     //Meta information declaration end
 
@@ -19722,8 +19596,8 @@ public extension ProtobufUnittest {
 
   final public class BoolMessage : GeneratedMessage {
     public private(set) var data:Bool = false
-
     public private(set) var hasData:Bool = false
+
     required public init() {
          super.init()
     }
@@ -19756,10 +19630,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.BoolMessage.Builder {
       return classBuilder() as! ProtobufUnittest.BoolMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.BoolMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.BoolMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.BoolMessage.Builder {
@@ -19812,9 +19686,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.BoolMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.BoolMessage.self
     }
     //Meta information declaration end
 
@@ -19929,11 +19800,11 @@ public extension ProtobufUnittest {
 
       final public class FooGroup : GeneratedMessage {
         public private(set) var a:Int32 = Int32(0)
-
         public private(set) var hasA:Bool = false
-        public private(set) var b:String = ""
 
+        public private(set) var b:String = ""
         public private(set) var hasB:Bool = false
+
         required public init() {
              super.init()
         }
@@ -19972,10 +19843,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestOneof.FooGroup.Builder {
           return classBuilder() as! ProtobufUnittest.TestOneof.FooGroup.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestOneof.FooGroup.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestOneof.FooGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
@@ -20037,9 +19908,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestOneof.FooGroup"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestOneof.FooGroup.self
         }
         //Meta information declaration end
 
@@ -20369,10 +20237,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestOneof.Builder {
       return classBuilder() as! ProtobufUnittest.TestOneof.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestOneof.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestOneof.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestOneof.Builder {
@@ -20464,9 +20332,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestOneof"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestOneof.self
     }
     //Meta information declaration end
 
@@ -20744,11 +20609,11 @@ public extension ProtobufUnittest {
 
       final public class FooGroup : GeneratedMessage {
         public private(set) var a:Int32 = Int32(0)
-
         public private(set) var hasA:Bool = false
-        public private(set) var b:String = ""
 
+        public private(set) var b:String = ""
         public private(set) var hasB:Bool = false
+
         required public init() {
              super.init()
         }
@@ -20787,10 +20652,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
           return classBuilder() as! ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
@@ -20852,9 +20717,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.self
         }
         //Meta information declaration end
 
@@ -20996,11 +20858,11 @@ public extension ProtobufUnittest {
     //Nested type declaration end
 
     public private(set) var fooInt:Int32 = Int32(0)
-
     public private(set) var hasFooInt:Bool = false
-    public private(set) var fooString:String = ""
 
+    public private(set) var fooString:String = ""
     public private(set) var hasFooString:Bool = false
+
     public private(set) var fooMessage:ProtobufUnittest.TestAllTypes!
     public private(set) var hasFooMessage:Bool = false
     public private(set) var fooGroup:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup!
@@ -21059,10 +20921,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
       return classBuilder() as! ProtobufUnittest.TestOneofBackwardsCompatible.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestOneofBackwardsCompatible.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestOneofBackwardsCompatible.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
@@ -21154,9 +21016,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestOneofBackwardsCompatible"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestOneofBackwardsCompatible.self
     }
     //Meta information declaration end
 
@@ -21434,11 +21293,11 @@ public extension ProtobufUnittest {
 
       final public class FooGroup : GeneratedMessage {
         public private(set) var a:Int32 = Int32(0)
-
         public private(set) var hasA:Bool = false
-        public private(set) var b:String = ""
 
+        public private(set) var b:String = ""
         public private(set) var hasB:Bool = false
+
         required public init() {
              super.init()
         }
@@ -21477,10 +21336,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
           return classBuilder() as! ProtobufUnittest.TestOneof2.FooGroup.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestOneof2.FooGroup.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestOneof2.FooGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
@@ -21542,9 +21401,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestOneof2.FooGroup"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestOneof2.FooGroup.self
         }
         //Meta information declaration end
 
@@ -21691,8 +21547,8 @@ public extension ProtobufUnittest {
 
       final public class NestedMessage : GeneratedMessage {
         public private(set) var quxInt:Int64 = Int64(0)
-
         public private(set) var hasQuxInt:Bool = false
+
         public private(set) var corgeInt:Array<Int32> = Array<Int32>()
         required public init() {
              super.init()
@@ -21737,10 +21593,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
           return classBuilder() as! ProtobufUnittest.TestOneof2.NestedMessage.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestOneof2.NestedMessage.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestOneof2.NestedMessage.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
@@ -21808,9 +21664,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestOneof2.NestedMessage"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestOneof2.NestedMessage.self
         }
         //Meta information declaration end
 
@@ -22451,11 +22304,11 @@ public extension ProtobufUnittest {
           }
     }
     public private(set) var bazInt:Int32 = Int32(0)
-
     public private(set) var hasBazInt:Bool = false
-    public private(set) var bazString:String = "BAZ"
 
+    public private(set) var bazString:String = "BAZ"
     public private(set) var hasBazString:Bool = false
+
     required public init() {
          super.init()
     }
@@ -22590,10 +22443,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestOneof2.Builder {
       return classBuilder() as! ProtobufUnittest.TestOneof2.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestOneof2.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestOneof2.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestOneof2.Builder {
@@ -22808,9 +22661,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestOneof2"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestOneof2.self
     }
     //Meta information declaration end
 
@@ -23548,8 +23398,8 @@ public extension ProtobufUnittest {
 
       final public class NestedMessage : GeneratedMessage {
         public private(set) var requiredDouble:Double = Double(0)
-
         public private(set) var hasRequiredDouble:Bool = false
+
         required public init() {
              super.init()
         }
@@ -23585,10 +23435,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
           return classBuilder() as! ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
@@ -23641,9 +23491,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestRequiredOneof.NestedMessage"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestRequiredOneof.NestedMessage.self
         }
         //Meta information declaration end
 
@@ -23910,10 +23757,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestRequiredOneof.Builder {
       return classBuilder() as! ProtobufUnittest.TestRequiredOneof.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestRequiredOneof.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestRequiredOneof.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestRequiredOneof.Builder {
@@ -23990,9 +23837,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestRequiredOneof"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestRequiredOneof.self
     }
     //Meta information declaration end
 
@@ -24476,10 +24320,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestPackedTypes.Builder {
       return classBuilder() as! ProtobufUnittest.TestPackedTypes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestPackedTypes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestPackedTypes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestPackedTypes.Builder {
@@ -24729,9 +24573,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestPackedTypes"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestPackedTypes.self
     }
     //Meta information declaration end
 
@@ -25466,10 +25307,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestUnpackedTypes.Builder {
       return classBuilder() as! ProtobufUnittest.TestUnpackedTypes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestUnpackedTypes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestUnpackedTypes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
@@ -25719,9 +25560,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestUnpackedTypes"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestUnpackedTypes.self
     }
     //Meta information declaration end
 
@@ -26236,10 +26074,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestPackedExtensions.Builder {
       return classBuilder() as! ProtobufUnittest.TestPackedExtensions.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestPackedExtensions.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestPackedExtensions.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestPackedExtensions.Builder {
@@ -26285,9 +26123,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestPackedExtensions"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestPackedExtensions.self
     }
     //Meta information declaration end
 
@@ -26395,10 +26230,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestUnpackedExtensions.Builder {
       return classBuilder() as! ProtobufUnittest.TestUnpackedExtensions.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestUnpackedExtensions.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestUnpackedExtensions.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
@@ -26444,9 +26279,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestUnpackedExtensions"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestUnpackedExtensions.self
     }
     //Meta information declaration end
 
@@ -26532,8 +26364,8 @@ public extension ProtobufUnittest {
 
       final public class DynamicMessageType : GeneratedMessage {
         public private(set) var dynamicField:Int32 = Int32(0)
-
         public private(set) var hasDynamicField:Bool = false
+
         required public init() {
              super.init()
         }
@@ -26566,10 +26398,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
           return classBuilder() as! ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
@@ -26622,9 +26454,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestDynamicExtensions.DynamicMessageType"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.self
         }
         //Meta information declaration end
 
@@ -26770,8 +26599,8 @@ public extension ProtobufUnittest {
       //Enum type declaration end 
 
     public private(set) var scalarExtension:UInt32 = UInt32(0)
-
     public private(set) var hasScalarExtension:Bool = false
+
     public private(set) var enumExtension:ProtobufUnittest.ForeignEnum = ProtobufUnittest.ForeignEnum.foreignFoo
     public private(set) var hasEnumExtension:Bool = false
     public private(set) var dynamicEnumExtension:ProtobufUnittest.TestDynamicExtensions.DynamicEnumType = ProtobufUnittest.TestDynamicExtensions.DynamicEnumType.dynamicFoo
@@ -26871,10 +26700,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestDynamicExtensions.Builder {
       return classBuilder() as! ProtobufUnittest.TestDynamicExtensions.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestDynamicExtensions.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestDynamicExtensions.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
@@ -27001,9 +26830,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestDynamicExtensions"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestDynamicExtensions.self
     }
     //Meta information declaration end
 
@@ -27474,10 +27300,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
       return classBuilder() as! ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
@@ -27611,9 +27437,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestRepeatedScalarDifferentTagSizes"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.self
     }
     //Meta information declaration end
 
@@ -27916,10 +27739,10 @@ public extension ProtobufUnittest {
             public func getBuilder() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
               return classBuilder() as! ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder
             }
-            override public class func classBuilder() -> MessageBuilder {
+            override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
               return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder()
             }
-            override public func classBuilder() -> MessageBuilder {
+            override public func classBuilder() -> ProtocolBuffersMessageBuilder {
               return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder()
             }
             public func toBuilder() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
@@ -27978,9 +27801,6 @@ public extension ProtobufUnittest {
             }
             override public func className() -> String {
                 return "ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1"
-            }
-            override public func classMetaType() -> GeneratedMessage.Type {
-                return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.self
             }
             //Meta information declaration end
 
@@ -28164,10 +27984,10 @@ public extension ProtobufUnittest {
             public func getBuilder() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
               return classBuilder() as! ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder
             }
-            override public class func classBuilder() -> MessageBuilder {
+            override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
               return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder()
             }
-            override public func classBuilder() -> MessageBuilder {
+            override public func classBuilder() -> ProtocolBuffersMessageBuilder {
               return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder()
             }
             public func toBuilder() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
@@ -28226,9 +28046,6 @@ public extension ProtobufUnittest {
             }
             override public func className() -> String {
                 return "ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2"
-            }
-            override public func classMetaType() -> GeneratedMessage.Type {
-                return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.self
             }
             //Meta information declaration end
 
@@ -28446,10 +28263,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
           return classBuilder() as! ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
@@ -28619,9 +28436,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.self
         }
         //Meta information declaration end
 
@@ -28970,10 +28784,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
           return classBuilder() as! ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
@@ -29032,9 +28846,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestParsingMerge.OptionalGroup"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestParsingMerge.OptionalGroup.self
         }
         //Meta information declaration end
 
@@ -29218,10 +29029,10 @@ public extension ProtobufUnittest {
         public func getBuilder() -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
           return classBuilder() as! ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
@@ -29280,9 +29091,6 @@ public extension ProtobufUnittest {
         }
         override public func className() -> String {
             return "ProtobufUnittest.TestParsingMerge.RepeatedGroup"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return ProtobufUnittest.TestParsingMerge.RepeatedGroup.self
         }
         //Meta information declaration end
 
@@ -29509,10 +29317,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestParsingMerge.Builder {
       return classBuilder() as! ProtobufUnittest.TestParsingMerge.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestParsingMerge.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestParsingMerge.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestParsingMerge.Builder {
@@ -29639,9 +29447,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestParsingMerge"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestParsingMerge.self
     }
     //Meta information declaration end
 
@@ -29984,8 +29789,8 @@ public extension ProtobufUnittest {
   final public class TestCommentInjectionMessage : GeneratedMessage {
     // */ <- This should not close the generated doc comment
     public private(set) var a:String = "*/ <- Neither should this."
-
     public private(set) var hasA:Bool = false
+
     required public init() {
          super.init()
     }
@@ -30018,10 +29823,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
       return classBuilder() as! ProtobufUnittest.TestCommentInjectionMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestCommentInjectionMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestCommentInjectionMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
@@ -30074,9 +29879,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestCommentInjectionMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestCommentInjectionMessage.self
     }
     //Meta information declaration end
 
@@ -30211,10 +30013,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.FooRequest.Builder {
       return classBuilder() as! ProtobufUnittest.FooRequest.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.FooRequest.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.FooRequest.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.FooRequest.Builder {
@@ -30258,9 +30060,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.FooRequest"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.FooRequest.self
     }
     //Meta information declaration end
 
@@ -30362,10 +30161,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.FooResponse.Builder {
       return classBuilder() as! ProtobufUnittest.FooResponse.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.FooResponse.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.FooResponse.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.FooResponse.Builder {
@@ -30409,9 +30208,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.FooResponse"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.FooResponse.self
     }
     //Meta information declaration end
 
@@ -30513,10 +30309,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.FooClientMessage.Builder {
       return classBuilder() as! ProtobufUnittest.FooClientMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.FooClientMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.FooClientMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.FooClientMessage.Builder {
@@ -30560,9 +30356,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.FooClientMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.FooClientMessage.self
     }
     //Meta information declaration end
 
@@ -30664,10 +30457,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.FooServerMessage.Builder {
       return classBuilder() as! ProtobufUnittest.FooServerMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.FooServerMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.FooServerMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.FooServerMessage.Builder {
@@ -30711,9 +30504,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.FooServerMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.FooServerMessage.self
     }
     //Meta information declaration end
 
@@ -30815,10 +30605,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.BarRequest.Builder {
       return classBuilder() as! ProtobufUnittest.BarRequest.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.BarRequest.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.BarRequest.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.BarRequest.Builder {
@@ -30862,9 +30652,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.BarRequest"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.BarRequest.self
     }
     //Meta information declaration end
 
@@ -30966,10 +30753,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.BarResponse.Builder {
       return classBuilder() as! ProtobufUnittest.BarResponse.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.BarResponse.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.BarResponse.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.BarResponse.Builder {
@@ -31013,9 +30800,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.BarResponse"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.BarResponse.self
     }
     //Meta information declaration end
 

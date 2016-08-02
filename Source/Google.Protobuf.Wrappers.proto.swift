@@ -119,8 +119,8 @@ public extension Google.Protobuf {
   final public class DoubleValue : GeneratedMessage {
     // The double value.
     public private(set) var value:Double = Double(0)
-
     public private(set) var hasValue:Bool = false
+
     required public init() {
          super.init()
     }
@@ -153,10 +153,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.DoubleValue.Builder {
       return classBuilder() as! Google.Protobuf.DoubleValue.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.DoubleValue.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.DoubleValue.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.DoubleValue.Builder {
@@ -209,9 +209,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.DoubleValue"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.DoubleValue.self
     }
     //Meta information declaration end
 
@@ -322,8 +319,8 @@ public extension Google.Protobuf {
   final public class FloatValue : GeneratedMessage {
     // The float value.
     public private(set) var value:Float = Float(0)
-
     public private(set) var hasValue:Bool = false
+
     required public init() {
          super.init()
     }
@@ -356,10 +353,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.FloatValue.Builder {
       return classBuilder() as! Google.Protobuf.FloatValue.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.FloatValue.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.FloatValue.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.FloatValue.Builder {
@@ -412,9 +409,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.FloatValue"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.FloatValue.self
     }
     //Meta information declaration end
 
@@ -525,8 +519,8 @@ public extension Google.Protobuf {
   final public class Int64Value : GeneratedMessage {
     // The int64 value.
     public private(set) var value:Int64 = Int64(0)
-
     public private(set) var hasValue:Bool = false
+
     required public init() {
          super.init()
     }
@@ -559,10 +553,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Int64Value.Builder {
       return classBuilder() as! Google.Protobuf.Int64Value.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Int64Value.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Int64Value.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Int64Value.Builder {
@@ -615,9 +609,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.Int64Value"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.Int64Value.self
     }
     //Meta information declaration end
 
@@ -728,8 +719,8 @@ public extension Google.Protobuf {
   final public class Uint64Value : GeneratedMessage {
     // The uint64 value.
     public private(set) var value:UInt64 = UInt64(0)
-
     public private(set) var hasValue:Bool = false
+
     required public init() {
          super.init()
     }
@@ -762,10 +753,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Uint64Value.Builder {
       return classBuilder() as! Google.Protobuf.Uint64Value.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Uint64Value.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Uint64Value.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Uint64Value.Builder {
@@ -818,9 +809,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.Uint64Value"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.Uint64Value.self
     }
     //Meta information declaration end
 
@@ -931,8 +919,8 @@ public extension Google.Protobuf {
   final public class Int32Value : GeneratedMessage {
     // The int32 value.
     public private(set) var value:Int32 = Int32(0)
-
     public private(set) var hasValue:Bool = false
+
     required public init() {
          super.init()
     }
@@ -965,10 +953,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Int32Value.Builder {
       return classBuilder() as! Google.Protobuf.Int32Value.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Int32Value.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Int32Value.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Int32Value.Builder {
@@ -1021,9 +1009,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.Int32Value"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.Int32Value.self
     }
     //Meta information declaration end
 
@@ -1134,8 +1119,8 @@ public extension Google.Protobuf {
   final public class Uint32Value : GeneratedMessage {
     // The uint32 value.
     public private(set) var value:UInt32 = UInt32(0)
-
     public private(set) var hasValue:Bool = false
+
     required public init() {
          super.init()
     }
@@ -1168,10 +1153,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Uint32Value.Builder {
       return classBuilder() as! Google.Protobuf.Uint32Value.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Uint32Value.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Uint32Value.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Uint32Value.Builder {
@@ -1224,9 +1209,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.Uint32Value"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.Uint32Value.self
     }
     //Meta information declaration end
 
@@ -1337,8 +1319,8 @@ public extension Google.Protobuf {
   final public class BoolValue : GeneratedMessage {
     // The bool value.
     public private(set) var value:Bool = false
-
     public private(set) var hasValue:Bool = false
+
     required public init() {
          super.init()
     }
@@ -1371,10 +1353,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.BoolValue.Builder {
       return classBuilder() as! Google.Protobuf.BoolValue.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.BoolValue.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.BoolValue.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.BoolValue.Builder {
@@ -1427,9 +1409,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.BoolValue"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.BoolValue.self
     }
     //Meta information declaration end
 
@@ -1540,8 +1519,8 @@ public extension Google.Protobuf {
   final public class StringValue : GeneratedMessage {
     // The string value.
     public private(set) var value:String = ""
-
     public private(set) var hasValue:Bool = false
+
     required public init() {
          super.init()
     }
@@ -1574,10 +1553,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.StringValue.Builder {
       return classBuilder() as! Google.Protobuf.StringValue.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.StringValue.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.StringValue.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.StringValue.Builder {
@@ -1630,9 +1609,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.StringValue"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.StringValue.self
     }
     //Meta information declaration end
 
@@ -1743,8 +1719,8 @@ public extension Google.Protobuf {
   final public class BytesValue : GeneratedMessage {
     // The bytes value.
     public private(set) var value:Data = Data()
-
     public private(set) var hasValue:Bool = false
+
     required public init() {
          super.init()
     }
@@ -1777,10 +1753,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.BytesValue.Builder {
       return classBuilder() as! Google.Protobuf.BytesValue.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.BytesValue.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.BytesValue.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.BytesValue.Builder {
@@ -1833,9 +1809,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.BytesValue"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.BytesValue.self
     }
     //Meta information declaration end
 

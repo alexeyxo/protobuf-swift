@@ -82,13 +82,13 @@ public extension Google.Protobuf {
 
   final public class SwiftFileOptions : GeneratedMessage {
     public private(set) var classPrefix:String = ""
-
     public private(set) var hasClassPrefix:Bool = false
+
     public private(set) var entitiesAccessControl:Google.Protobuf.AccessControl = Google.Protobuf.AccessControl.publicEntities
     public private(set) var hasEntitiesAccessControl:Bool = false
     public private(set) var compileForFramework:Bool = true
-
     public private(set) var hasCompileForFramework:Bool = false
+
     required public init() {
          super.init()
     }
@@ -133,10 +133,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.SwiftFileOptions.Builder {
       return classBuilder() as! Google.Protobuf.SwiftFileOptions.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.SwiftFileOptions.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.SwiftFileOptions.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.SwiftFileOptions.Builder {
@@ -207,9 +207,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.SwiftFileOptions"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.SwiftFileOptions.self
     }
     //Meta information declaration end
 

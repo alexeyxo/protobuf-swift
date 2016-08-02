@@ -87,8 +87,8 @@ public extension UnittestDropUnknownFields {
       //Enum type declaration end 
 
     public private(set) var int32Value:Int32 = Int32(0)
-
     public private(set) var hasInt32Value:Bool = false
+
     public private(set) var enumValue:UnittestDropUnknownFields.Foo.NestedEnum = UnittestDropUnknownFields.Foo.NestedEnum.foo
     public private(set) var hasEnumValue:Bool = false
     required public init() {
@@ -129,10 +129,10 @@ public extension UnittestDropUnknownFields {
     public func getBuilder() -> UnittestDropUnknownFields.Foo.Builder {
       return classBuilder() as! UnittestDropUnknownFields.Foo.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return UnittestDropUnknownFields.Foo.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return UnittestDropUnknownFields.Foo.Builder()
     }
     public func toBuilder() throws -> UnittestDropUnknownFields.Foo.Builder {
@@ -194,9 +194,6 @@ public extension UnittestDropUnknownFields {
     }
     override public func className() -> String {
         return "UnittestDropUnknownFields.Foo"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return UnittestDropUnknownFields.Foo.self
     }
     //Meta information declaration end
 
@@ -382,13 +379,13 @@ public extension UnittestDropUnknownFields {
       //Enum type declaration end 
 
     public private(set) var int32Value:Int32 = Int32(0)
-
     public private(set) var hasInt32Value:Bool = false
+
     public private(set) var enumValue:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum = UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.foo
     public private(set) var hasEnumValue:Bool = false
     public private(set) var extraInt32Value:Int32 = Int32(0)
-
     public private(set) var hasExtraInt32Value:Bool = false
+
     required public init() {
          super.init()
     }
@@ -433,10 +430,10 @@ public extension UnittestDropUnknownFields {
     public func getBuilder() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
       return classBuilder() as! UnittestDropUnknownFields.FooWithExtraFields.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return UnittestDropUnknownFields.FooWithExtraFields.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return UnittestDropUnknownFields.FooWithExtraFields.Builder()
     }
     public func toBuilder() throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
@@ -507,9 +504,6 @@ public extension UnittestDropUnknownFields {
     }
     override public func className() -> String {
         return "UnittestDropUnknownFields.FooWithExtraFields"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return UnittestDropUnknownFields.FooWithExtraFields.self
     }
     //Meta information declaration end
 

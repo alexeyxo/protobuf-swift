@@ -72,8 +72,8 @@ public extension Google.Protobuf {
     // Signed seconds of the span of time. Must be from -315,576,000,000
     // to +315,576,000,000 inclusive.
     public private(set) var seconds:Int64 = Int64(0)
-
     public private(set) var hasSeconds:Bool = false
+
     // Signed fractions of a second at nanosecond resolution of the span
     // of time. Durations less than one second are represented with a 0
     // `seconds` field and a positive or negative `nanos` field. For durations
@@ -81,8 +81,8 @@ public extension Google.Protobuf {
     // of the same sign as the `seconds` field. Must be from -999,999,999
     // to +999,999,999 inclusive.
     public private(set) var nanos:Int32 = Int32(0)
-
     public private(set) var hasNanos:Bool = false
+
     required public init() {
          super.init()
     }
@@ -121,10 +121,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Duration.Builder {
       return classBuilder() as! Google.Protobuf.Duration.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Duration.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Duration.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Duration.Builder {
@@ -186,9 +186,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.Duration"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.Duration.self
     }
     //Meta information declaration end
 

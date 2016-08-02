@@ -79,15 +79,15 @@ public extension Google.Protobuf {
   // value for the `Value` type union.
   public enum NullValue:Int32, CustomDebugStringConvertible, CustomStringConvertible {
     // Null value.
-    case nullValueField = 0
+    case `NullValue` = 0
     public func toString() -> String {
       switch self {
-      case .nullValueField: return "NULL_VALUE"
+      case .`NullValue`: return "NULL_VALUE"
       }
     }
     public static func fromString(str:String) throws -> Google.Protobuf.NullValue {
       switch str {
-      case "NULL_VALUE":  return .nullValueField
+      case "NULL_VALUE":  return .`NullValue`
       default: throw ProtocolBuffersError.invalidProtocolBuffer("Conversion String to Enum has failed.")
       }
     }
@@ -95,7 +95,7 @@ public extension Google.Protobuf {
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
         switch self {
-            case .nullValueField: return ".nullValueField"
+            case .`NullValue`: return ".`NullValue`"
         }
     }
   }
@@ -115,8 +115,8 @@ public extension Google.Protobuf {
 
       final public class FieldsEntry : GeneratedMessage {
         public private(set) var key:String = ""
-
         public private(set) var hasKey:Bool = false
+
         public private(set) var value:Google.Protobuf.Value!
         public private(set) var hasValue:Bool = false
         required public init() {
@@ -159,10 +159,10 @@ public extension Google.Protobuf {
         public func getBuilder() -> Google.Protobuf.Struct.FieldsEntry.Builder {
           return classBuilder() as! Google.Protobuf.Struct.FieldsEntry.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return Google.Protobuf.Struct.FieldsEntry.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return Google.Protobuf.Struct.FieldsEntry.Builder()
         }
         public func toBuilder() throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
@@ -230,9 +230,6 @@ public extension Google.Protobuf {
         }
         override public func className() -> String {
             return "Google.Protobuf.Struct.FieldsEntry"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return Google.Protobuf.Struct.FieldsEntry.self
         }
         //Meta information declaration end
 
@@ -448,10 +445,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Struct.Builder {
       return classBuilder() as! Google.Protobuf.Struct.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Struct.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Struct.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Struct.Builder {
@@ -511,9 +508,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.Struct"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.Struct.self
     }
     //Meta information declaration end
 
@@ -894,10 +888,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.Value.Builder {
       return classBuilder() as! Google.Protobuf.Value.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Value.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.Value.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.Value.Builder {
@@ -1008,9 +1002,6 @@ public extension Google.Protobuf {
     override public func className() -> String {
         return "Google.Protobuf.Value"
     }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.Value.self
-    }
     //Meta information declaration end
 
     final public class Builder : GeneratedMessageBuilder {
@@ -1042,7 +1033,7 @@ public extension Google.Protobuf {
         }
         public func clearNullValue() -> Google.Protobuf.Value.Builder {
            builderResult.hasNullValue = false
-           builderResult.nullValue = .nullValueField
+           builderResult.nullValue = .`NullValue`
            return self
         }
       public var hasNumberValue:Bool {
@@ -1384,10 +1375,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.ListValue.Builder {
       return classBuilder() as! Google.Protobuf.ListValue.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.ListValue.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.ListValue.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.ListValue.Builder {
@@ -1449,9 +1440,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.ListValue"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.ListValue.self
     }
     //Meta information declaration end
 

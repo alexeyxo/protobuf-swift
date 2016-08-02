@@ -170,10 +170,10 @@ public extension Google.Protobuf {
     public func getBuilder() -> Google.Protobuf.FieldMask.Builder {
       return classBuilder() as! Google.Protobuf.FieldMask.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.FieldMask.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Google.Protobuf.FieldMask.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.FieldMask.Builder {
@@ -228,9 +228,6 @@ public extension Google.Protobuf {
     }
     override public func className() -> String {
         return "Google.Protobuf.FieldMask"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Google.Protobuf.FieldMask.self
     }
     //Meta information declaration end
 

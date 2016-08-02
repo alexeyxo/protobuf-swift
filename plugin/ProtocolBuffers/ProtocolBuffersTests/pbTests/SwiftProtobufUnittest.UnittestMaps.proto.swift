@@ -119,8 +119,8 @@ public extension SwiftProtobufUnittest {
 
   final public class MapMessageValue : GeneratedMessage {
     public private(set) var valueInMapMessage:Int32 = Int32(0)
-
     public private(set) var hasValueInMapMessage:Bool = false
+
     required public init() {
          super.init()
     }
@@ -153,10 +153,10 @@ public extension SwiftProtobufUnittest {
     public func getBuilder() -> SwiftProtobufUnittest.MapMessageValue.Builder {
       return classBuilder() as! SwiftProtobufUnittest.MapMessageValue.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return SwiftProtobufUnittest.MapMessageValue.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return SwiftProtobufUnittest.MapMessageValue.Builder()
     }
     public func toBuilder() throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
@@ -209,9 +209,6 @@ public extension SwiftProtobufUnittest {
     }
     override public func className() -> String {
         return "SwiftProtobufUnittest.MapMessageValue"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return SwiftProtobufUnittest.MapMessageValue.self
     }
     //Meta information declaration end
 
@@ -325,11 +322,11 @@ public extension SwiftProtobufUnittest {
 
       final public class MapInt32Int32Entry : GeneratedMessage {
         public private(set) var key:Int32 = Int32(0)
-
         public private(set) var hasKey:Bool = false
-        public private(set) var value:Int32 = Int32(0)
 
+        public private(set) var value:Int32 = Int32(0)
         public private(set) var hasValue:Bool = false
+
         required public init() {
              super.init()
         }
@@ -368,10 +365,10 @@ public extension SwiftProtobufUnittest {
         public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
           return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder()
         }
         public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
@@ -433,9 +430,6 @@ public extension SwiftProtobufUnittest {
         }
         override public func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.self
         }
         //Meta information declaration end
 
@@ -582,11 +576,11 @@ public extension SwiftProtobufUnittest {
 
       final public class MapInt64Int64Entry : GeneratedMessage {
         public private(set) var key:Int64 = Int64(0)
-
         public private(set) var hasKey:Bool = false
-        public private(set) var value:Int64 = Int64(0)
 
+        public private(set) var value:Int64 = Int64(0)
         public private(set) var hasValue:Bool = false
+
         required public init() {
              super.init()
         }
@@ -625,10 +619,10 @@ public extension SwiftProtobufUnittest {
         public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
           return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder()
         }
         public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
@@ -690,9 +684,6 @@ public extension SwiftProtobufUnittest {
         }
         override public func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.self
         }
         //Meta information declaration end
 
@@ -839,11 +830,11 @@ public extension SwiftProtobufUnittest {
 
       final public class MapStringStringEntry : GeneratedMessage {
         public private(set) var key:String = ""
-
         public private(set) var hasKey:Bool = false
-        public private(set) var value:String = ""
 
+        public private(set) var value:String = ""
         public private(set) var hasValue:Bool = false
+
         required public init() {
              super.init()
         }
@@ -882,10 +873,10 @@ public extension SwiftProtobufUnittest {
         public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
           return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder()
         }
         public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
@@ -947,9 +938,6 @@ public extension SwiftProtobufUnittest {
         }
         override public func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.self
         }
         //Meta information declaration end
 
@@ -1096,11 +1084,11 @@ public extension SwiftProtobufUnittest {
 
       final public class MapStringBytesEntry : GeneratedMessage {
         public private(set) var key:String = ""
-
         public private(set) var hasKey:Bool = false
-        public private(set) var value:Data = Data()
 
+        public private(set) var value:Data = Data()
         public private(set) var hasValue:Bool = false
+
         required public init() {
              super.init()
         }
@@ -1139,10 +1127,10 @@ public extension SwiftProtobufUnittest {
         public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
           return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder()
         }
         public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
@@ -1204,9 +1192,6 @@ public extension SwiftProtobufUnittest {
         }
         override public func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.self
         }
         //Meta information declaration end
 
@@ -1353,8 +1338,8 @@ public extension SwiftProtobufUnittest {
 
       final public class MapStringMessageEntry : GeneratedMessage {
         public private(set) var key:String = ""
-
         public private(set) var hasKey:Bool = false
+
         public private(set) var value:SwiftProtobufUnittest.MapMessageValue!
         public private(set) var hasValue:Bool = false
         required public init() {
@@ -1397,10 +1382,10 @@ public extension SwiftProtobufUnittest {
         public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
           return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder()
         }
         public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
@@ -1468,9 +1453,6 @@ public extension SwiftProtobufUnittest {
         }
         override public func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.self
         }
         //Meta information declaration end
 
@@ -1651,8 +1633,8 @@ public extension SwiftProtobufUnittest {
 
       final public class MapInt32EnumEntry : GeneratedMessage {
         public private(set) var key:Int32 = Int32(0)
-
         public private(set) var hasKey:Bool = false
+
         public private(set) var value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue = SwiftProtobufUnittest.MessageContainsMap.EnumMapValue.firstValueEnum
         public private(set) var hasValue:Bool = false
         required public init() {
@@ -1693,10 +1675,10 @@ public extension SwiftProtobufUnittest {
         public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
           return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder()
         }
         public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
@@ -1758,9 +1740,6 @@ public extension SwiftProtobufUnittest {
         }
         override public func className() -> String {
             return "SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.self
         }
         //Meta information declaration end
 
@@ -2054,10 +2033,10 @@ public extension SwiftProtobufUnittest {
     public func getBuilder() -> SwiftProtobufUnittest.MessageContainsMap.Builder {
       return classBuilder() as! SwiftProtobufUnittest.MessageContainsMap.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return SwiftProtobufUnittest.MessageContainsMap.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return SwiftProtobufUnittest.MessageContainsMap.Builder()
     }
     public func toBuilder() throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
@@ -2197,9 +2176,6 @@ public extension SwiftProtobufUnittest {
     }
     override public func className() -> String {
         return "SwiftProtobufUnittest.MessageContainsMap"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return SwiftProtobufUnittest.MessageContainsMap.self
     }
     //Meta information declaration end
 

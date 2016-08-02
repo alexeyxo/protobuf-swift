@@ -299,10 +299,10 @@ public extension Proto3PreserveUnknownEnumUnittest {
     public func getBuilder() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
       return classBuilder() as! Proto3PreserveUnknownEnumUnittest.MyMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3PreserveUnknownEnumUnittest.MyMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3PreserveUnknownEnumUnittest.MyMessage.Builder()
     }
     public func toBuilder() throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
@@ -418,9 +418,6 @@ public extension Proto3PreserveUnknownEnumUnittest {
     }
     override public func className() -> String {
         return "Proto3PreserveUnknownEnumUnittest.MyMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto3PreserveUnknownEnumUnittest.MyMessage.self
     }
     //Meta information declaration end
 
@@ -891,10 +888,10 @@ public extension Proto3PreserveUnknownEnumUnittest {
     public func getBuilder() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
       return classBuilder() as! Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder()
     }
     public func toBuilder() throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
@@ -1010,9 +1007,6 @@ public extension Proto3PreserveUnknownEnumUnittest {
     }
     override public func className() -> String {
         return "Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.self
     }
     //Meta information declaration end
 

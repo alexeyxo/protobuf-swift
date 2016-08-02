@@ -161,8 +161,8 @@ public extension Proto2NofieldpresenceUnittest {
 
       final public class NestedMessage : GeneratedMessage {
         public private(set) var bb:Int32 = Int32(0)
-
         public private(set) var hasBb:Bool = false
+
         required public init() {
              super.init()
         }
@@ -195,10 +195,10 @@ public extension Proto2NofieldpresenceUnittest {
         public func getBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
           return classBuilder() as! Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder
         }
-        override public class func classBuilder() -> MessageBuilder {
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
           return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
         }
-        override public func classBuilder() -> MessageBuilder {
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
           return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
         }
         public func toBuilder() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
@@ -251,9 +251,6 @@ public extension Proto2NofieldpresenceUnittest {
         }
         override public func className() -> String {
             return "Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage"
-        }
-        override public func classMetaType() -> GeneratedMessage.Type {
-            return Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.self
         }
         //Meta information declaration end
 
@@ -465,50 +462,50 @@ public extension Proto2NofieldpresenceUnittest {
     // TODO: remove 'optional' labels as soon as CL 69188077 is LGTM'd to make
     // 'optional' optional.
     public private(set) var optionalInt32:Int32 = Int32(0)
-
     public private(set) var hasOptionalInt32:Bool = false
+
     public private(set) var optionalInt64:Int64 = Int64(0)
-
     public private(set) var hasOptionalInt64:Bool = false
+
     public private(set) var optionalUint32:UInt32 = UInt32(0)
-
     public private(set) var hasOptionalUint32:Bool = false
+
     public private(set) var optionalUint64:UInt64 = UInt64(0)
-
     public private(set) var hasOptionalUint64:Bool = false
+
     public private(set) var optionalSint32:Int32 = Int32(0)
-
     public private(set) var hasOptionalSint32:Bool = false
+
     public private(set) var optionalSint64:Int64 = Int64(0)
-
     public private(set) var hasOptionalSint64:Bool = false
+
     public private(set) var optionalFixed32:UInt32 = UInt32(0)
-
     public private(set) var hasOptionalFixed32:Bool = false
+
     public private(set) var optionalFixed64:UInt64 = UInt64(0)
-
     public private(set) var hasOptionalFixed64:Bool = false
+
     public private(set) var optionalSfixed32:Int32 = Int32(0)
-
     public private(set) var hasOptionalSfixed32:Bool = false
+
     public private(set) var optionalSfixed64:Int64 = Int64(0)
-
     public private(set) var hasOptionalSfixed64:Bool = false
+
     public private(set) var optionalFloat:Float = Float(0)
-
     public private(set) var hasOptionalFloat:Bool = false
+
     public private(set) var optionalDouble:Double = Double(0)
-
     public private(set) var hasOptionalDouble:Bool = false
+
     public private(set) var optionalBool:Bool = false
-
     public private(set) var hasOptionalBool:Bool = false
+
     public private(set) var optionalString:String = ""
-
     public private(set) var hasOptionalString:Bool = false
-    public private(set) var optionalBytes:Data = Data()
 
+    public private(set) var optionalBytes:Data = Data()
     public private(set) var hasOptionalBytes:Bool = false
+
     public private(set) var optionalNestedMessage:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage!
     public private(set) var hasOptionalNestedMessage:Bool = false
     public private(set) var optionalForeignMessage:Proto2NofieldpresenceUnittest.ForeignMessage!
@@ -520,11 +517,11 @@ public extension Proto2NofieldpresenceUnittest {
     public private(set) var optionalForeignEnum:Proto2NofieldpresenceUnittest.ForeignEnum = Proto2NofieldpresenceUnittest.ForeignEnum.foreignFoo
     public private(set) var hasOptionalForeignEnum:Bool = false
     public private(set) var optionalStringPiece:String = ""
-
     public private(set) var hasOptionalStringPiece:Bool = false
-    public private(set) var optionalCord:String = ""
 
+    public private(set) var optionalCord:String = ""
     public private(set) var hasOptionalCord:Bool = false
+
     public private(set) var optionalLazyMessage:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage!
     public private(set) var hasOptionalLazyMessage:Bool = false
     // Repeated
@@ -1129,10 +1126,10 @@ public extension Proto2NofieldpresenceUnittest {
     public func getBuilder() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
       return classBuilder() as! Proto2NofieldpresenceUnittest.TestAllTypes.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto2NofieldpresenceUnittest.TestAllTypes.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto2NofieldpresenceUnittest.TestAllTypes.Builder()
     }
     public func toBuilder() throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
@@ -1790,9 +1787,6 @@ public extension Proto2NofieldpresenceUnittest {
     }
     override public func className() -> String {
         return "Proto2NofieldpresenceUnittest.TestAllTypes"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto2NofieldpresenceUnittest.TestAllTypes.self
     }
     //Meta information declaration end
 
@@ -3702,10 +3696,10 @@ public extension Proto2NofieldpresenceUnittest {
     public func getBuilder() -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
       return classBuilder() as! Proto2NofieldpresenceUnittest.TestProto2Required.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto2NofieldpresenceUnittest.TestProto2Required.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto2NofieldpresenceUnittest.TestProto2Required.Builder()
     }
     public func toBuilder() throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
@@ -3764,9 +3758,6 @@ public extension Proto2NofieldpresenceUnittest {
     }
     override public func className() -> String {
         return "Proto2NofieldpresenceUnittest.TestProto2Required"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto2NofieldpresenceUnittest.TestProto2Required.self
     }
     //Meta information declaration end
 
@@ -3911,8 +3902,8 @@ public extension Proto2NofieldpresenceUnittest {
   // that.
   final public class ForeignMessage : GeneratedMessage {
     public private(set) var c:Int32 = Int32(0)
-
     public private(set) var hasC:Bool = false
+
     required public init() {
          super.init()
     }
@@ -3945,10 +3936,10 @@ public extension Proto2NofieldpresenceUnittest {
     public func getBuilder() -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
       return classBuilder() as! Proto2NofieldpresenceUnittest.ForeignMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto2NofieldpresenceUnittest.ForeignMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto2NofieldpresenceUnittest.ForeignMessage.Builder()
     }
     public func toBuilder() throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
@@ -4001,9 +3992,6 @@ public extension Proto2NofieldpresenceUnittest {
     }
     override public func className() -> String {
         return "Proto2NofieldpresenceUnittest.ForeignMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto2NofieldpresenceUnittest.ForeignMessage.self
     }
     //Meta information declaration end
 

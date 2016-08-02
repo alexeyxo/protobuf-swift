@@ -38,8 +38,8 @@ public extension Bar {
 
   final public class Foo : GeneratedMessage {
     public private(set) var hello:String = ""
-
     public private(set) var hasHello:Bool = false
+
     required public init() {
          super.init()
     }
@@ -72,10 +72,10 @@ public extension Bar {
     public func getBuilder() -> Bar.Foo.Builder {
       return classBuilder() as! Bar.Foo.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Bar.Foo.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Bar.Foo.Builder()
     }
     public func toBuilder() throws -> Bar.Foo.Builder {
@@ -128,9 +128,6 @@ public extension Bar {
     }
     override public func className() -> String {
         return "Bar.Foo"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Bar.Foo.self
     }
     //Meta information declaration end
 

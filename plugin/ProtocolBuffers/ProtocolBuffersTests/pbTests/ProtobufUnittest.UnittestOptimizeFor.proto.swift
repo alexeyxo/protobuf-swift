@@ -122,8 +122,8 @@ public extension ProtobufUnittest {
         return copyObjectFoo
     }
     public private(set) var i:Int32 = Int32(0)
-
     public private(set) var hasI:Bool = false
+
     public private(set) var msg:ProtobufUnittest.ForeignMessage!
     public private(set) var hasMsg:Bool = false
     public private(set) var integerField:Int32!{
@@ -225,10 +225,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestOptimizedForSize.Builder {
       return classBuilder() as! ProtobufUnittest.TestOptimizedForSize.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestOptimizedForSize.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestOptimizedForSize.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
@@ -316,9 +316,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestOptimizedForSize"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestOptimizedForSize.self
     }
     //Meta information declaration end
 
@@ -558,8 +555,8 @@ public extension ProtobufUnittest {
 
   final public class TestRequiredOptimizedForSize : GeneratedMessage {
     public private(set) var x:Int32 = Int32(0)
-
     public private(set) var hasX:Bool = false
+
     required public init() {
          super.init()
     }
@@ -595,10 +592,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
       return classBuilder() as! ProtobufUnittest.TestRequiredOptimizedForSize.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestRequiredOptimizedForSize.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestRequiredOptimizedForSize.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
@@ -651,9 +648,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestRequiredOptimizedForSize"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestRequiredOptimizedForSize.self
     }
     //Meta information declaration end
 
@@ -802,10 +796,10 @@ public extension ProtobufUnittest {
     public func getBuilder() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
       return classBuilder() as! ProtobufUnittest.TestOptionalOptimizedForSize.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestOptionalOptimizedForSize.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return ProtobufUnittest.TestOptionalOptimizedForSize.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
@@ -864,9 +858,6 @@ public extension ProtobufUnittest {
     }
     override public func className() -> String {
         return "ProtobufUnittest.TestOptionalOptimizedForSize"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return ProtobufUnittest.TestOptionalOptimizedForSize.self
     }
     //Meta information declaration end
 

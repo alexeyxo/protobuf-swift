@@ -50,8 +50,8 @@ public extension Proto2ArenaUnittest {
 
   final public class NestedMessage : GeneratedMessage {
     public private(set) var d:Int32 = Int32(0)
-
     public private(set) var hasD:Bool = false
+
     required public init() {
          super.init()
     }
@@ -84,10 +84,10 @@ public extension Proto2ArenaUnittest {
     public func getBuilder() -> Proto2ArenaUnittest.NestedMessage.Builder {
       return classBuilder() as! Proto2ArenaUnittest.NestedMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto2ArenaUnittest.NestedMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto2ArenaUnittest.NestedMessage.Builder()
     }
     public func toBuilder() throws -> Proto2ArenaUnittest.NestedMessage.Builder {
@@ -140,9 +140,6 @@ public extension Proto2ArenaUnittest {
     }
     override public func className() -> String {
         return "Proto2ArenaUnittest.NestedMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto2ArenaUnittest.NestedMessage.self
     }
     //Meta information declaration end
 
@@ -290,10 +287,10 @@ public extension Proto2ArenaUnittest {
     public func getBuilder() -> Proto2ArenaUnittest.ArenaMessage.Builder {
       return classBuilder() as! Proto2ArenaUnittest.ArenaMessage.Builder
     }
-    override public class func classBuilder() -> MessageBuilder {
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto2ArenaUnittest.ArenaMessage.Builder()
     }
-    override public func classBuilder() -> MessageBuilder {
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Proto2ArenaUnittest.ArenaMessage.Builder()
     }
     public func toBuilder() throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
@@ -373,9 +370,6 @@ public extension Proto2ArenaUnittest {
     }
     override public func className() -> String {
         return "Proto2ArenaUnittest.ArenaMessage"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Proto2ArenaUnittest.ArenaMessage.self
     }
     //Meta information declaration end
 
