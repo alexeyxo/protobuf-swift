@@ -18,7 +18,7 @@
 import Foundation
 
 
-typealias ExtensionsValueType = protocol<Hashable, Equatable>
+typealias ExtensionsValueType = Hashable & Equatable
 
 
 public class ExtendableMessage : GeneratedMessage  
@@ -108,7 +108,7 @@ public class ExtendableMessage : GeneratedMessage
     public func writeExtensionsTo(codedOutputStream:CodedOutputStream, startInclusive:Int32, endExclusive:Int32) throws
     {
         var keys = Array(extensionMap.keys)
-        keys.sort(isOrderedBefore: { $0 < $1 })
+        keys.sort(by: { $0 < $1 })
         for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let extensions = extensionRegistry[fieldNumber]!
@@ -121,7 +121,7 @@ public class ExtendableMessage : GeneratedMessage
     public func getExtensionDescription(startInclusive:Int32 ,endExclusive:Int32, indent:String) throws -> String {
         var output = ""
         var keys = Array(extensionMap.keys)
-        keys.sort(isOrderedBefore: { $0 < $1 })
+        keys.sort(by: { $0 < $1 })
         for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let extensions = extensionRegistry[fieldNumber]!
@@ -136,7 +136,7 @@ public class ExtendableMessage : GeneratedMessage
     public func isEqualExtensionsInOther(otherMessage:ExtendableMessage, startInclusive:Int32, endExclusive:Int32) -> Bool {
 
         var keys = Array(extensionMap.keys)
-        keys.sort(isOrderedBefore: { $0 < $1 })
+        keys.sort(by: { $0 < $1 })
         for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let value = extensionMap[fieldNumber]!
@@ -245,7 +245,7 @@ public class ExtendableMessage : GeneratedMessage
         }
     }
 
-    private func getHashValueRepeated<T where T:Collection, T.Iterator.Element:protocol<Hashable,Equatable>>(lhs:T) -> Int!
+    private func getHashValueRepeated<T where T:Collection, T.Iterator.Element:Hashable & Equatable>(lhs:T) -> Int!
     {
         var hashCode:Int = 0
         for vv in lhs
@@ -255,7 +255,7 @@ public class ExtendableMessage : GeneratedMessage
         return hashCode
     }
     
-    private func getHashValue<T where T:protocol<Hashable,Equatable>>(lhs:T) -> Int!
+    private func getHashValue<T where T:Hashable & Equatable>(lhs:T) -> Int!
     {
         return lhs.hashValue
     }
@@ -263,7 +263,7 @@ public class ExtendableMessage : GeneratedMessage
     public func hashExtensionsFrom(startInclusive:Int32, endExclusive:Int32) -> Int {
         var hashCode:Int = 0
         var keys = Array(extensionMap.keys)
-        keys.sort(isOrderedBefore: { $0 < $1 })
+        keys.sort(by: { $0 < $1 })
         for fieldNumber in keys {
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let value = extensionMap[fieldNumber]!

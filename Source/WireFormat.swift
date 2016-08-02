@@ -40,7 +40,7 @@ public enum WireFormat:Int32
     
     public func makeTag(fieldNumber:Int32) -> Int32
     {
-        let res:Int32 = fieldNumber << startGroup.rawValue
+        let res:Int32 = fieldNumber << WireFormat.startGroup.rawValue
         return res | self.rawValue
     }
     
