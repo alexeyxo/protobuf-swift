@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F1422981A07FDBF0090CEE9 /* ProtocolBuffers.framework in Copy Framework */ = {isa = PBXBuildFile; fileRef = 3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3F1747FC1C4160B70051A9DF /* Google.Protobuf.AnyType.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1747FB1C4160B70051A9DF /* Google.Protobuf.AnyType.proto.swift */; };
 		3F26F7471B909AD300428569 /* delimitedFile.dat in Resources */ = {isa = PBXBuildFile; fileRef = 3F26F7461B909AD300428569 /* delimitedFile.dat */; };
 		3F26F7481B909AD300428569 /* delimitedFile.dat in Resources */ = {isa = PBXBuildFile; fileRef = 3F26F7461B909AD300428569 /* delimitedFile.dat */; };
 		3F4106271A1A667800742090 /* ProtocolBuffers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F41061C1A1A667700742090 /* ProtocolBuffers.framework */; };
@@ -24,6 +23,8 @@
 		3F4106511A1A677A00742090 /* UnknowFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */; };
 		3F4106531A1A67C000742090 /* ProtocolBuffers.framework in CopyFramework */ = {isa = PBXBuildFile; fileRef = 3F41061C1A1A667700742090 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3F4375BE19E44ADF007C23B1 /* TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */; };
+		3F586C391D50EE720015E6F5 /* Google.Protobuf.Any.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F586C371D50EE720015E6F5 /* Google.Protobuf.Any.proto.swift */; };
+		3F586C3A1D50EE720015E6F5 /* Google.Protobuf.Type.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F586C381D50EE720015E6F5 /* Google.Protobuf.Type.proto.swift */; };
 		3F62EF9A19C720F80007F248 /* ProtocolBuffers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		3F813FF41A1030000008F493 /* SizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F813FF31A1030000008F493 /* SizeTest.swift */; };
 		3F813FF61A12C0E90008F493 /* WireFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F813FF51A12C0E90008F493 /* WireFormatTests.swift */; };
@@ -48,7 +49,6 @@
 		3F89A8111C396BA9009876B8 /* Google.Protobuf.Struct.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7F91C396BA9009876B8 /* Google.Protobuf.Struct.proto.swift */; };
 		3F89A8121C396BA9009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FA1C396BA9009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift */; };
 		3F89A8131C396BA9009876B8 /* Google.Protobuf.Timestamp.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FB1C396BA9009876B8 /* Google.Protobuf.Timestamp.proto.swift */; };
-		3F89A8141C396BA9009876B8 /* Google.Protobuf.Types.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FC1C396BA9009876B8 /* Google.Protobuf.Types.proto.swift */; };
 		3F89A8151C396BA9009876B8 /* Google.Protobuf.Wrappers.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FD1C396BA9009876B8 /* Google.Protobuf.Wrappers.proto.swift */; };
 		3F89A8161C396BA9009876B8 /* ProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F89A7FE1C396BA9009876B8 /* ProtocolBuffers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F89A8171C396BA9009876B8 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FF1C396BA9009876B8 /* RingBuffer.swift */; };
@@ -73,7 +73,6 @@
 		3F89A82B1C396BD6009876B8 /* Google.Protobuf.Struct.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7F91C396BA9009876B8 /* Google.Protobuf.Struct.proto.swift */; };
 		3F89A82C1C396BD6009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FA1C396BA9009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift */; };
 		3F89A82D1C396BD6009876B8 /* Google.Protobuf.Timestamp.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FB1C396BA9009876B8 /* Google.Protobuf.Timestamp.proto.swift */; };
-		3F89A82E1C396BD6009876B8 /* Google.Protobuf.Types.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FC1C396BA9009876B8 /* Google.Protobuf.Types.proto.swift */; };
 		3F89A82F1C396BD6009876B8 /* Google.Protobuf.Wrappers.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FD1C396BA9009876B8 /* Google.Protobuf.Wrappers.proto.swift */; };
 		3F89A8301C396BD6009876B8 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FF1C396BA9009876B8 /* RingBuffer.swift */; };
 		3F89A8311C396BD6009876B8 /* UnknownFieldSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A8001C396BA9009876B8 /* UnknownFieldSet.swift */; };
@@ -95,7 +94,6 @@
 		3F89A8421C396BD8009876B8 /* Google.Protobuf.Struct.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7F91C396BA9009876B8 /* Google.Protobuf.Struct.proto.swift */; };
 		3F89A8431C396BD8009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FA1C396BA9009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift */; };
 		3F89A8441C396BD8009876B8 /* Google.Protobuf.Timestamp.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FB1C396BA9009876B8 /* Google.Protobuf.Timestamp.proto.swift */; };
-		3F89A8451C396BD8009876B8 /* Google.Protobuf.Types.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FC1C396BA9009876B8 /* Google.Protobuf.Types.proto.swift */; };
 		3F89A8461C396BD8009876B8 /* Google.Protobuf.Wrappers.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FD1C396BA9009876B8 /* Google.Protobuf.Wrappers.proto.swift */; };
 		3F89A8471C396BD8009876B8 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A7FF1C396BA9009876B8 /* RingBuffer.swift */; };
 		3F89A8481C396BD8009876B8 /* UnknownFieldSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F89A8001C396BA9009876B8 /* UnknownFieldSet.swift */; };
@@ -105,8 +103,6 @@
 		3F9301401A0964ED00F7A20B /* golden_packed_fields_message in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */; };
 		3F9301411A0964ED00F7A20B /* text_format_unittest_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */; };
 		3F9301421A0964ED00F7A20B /* text_format_unittest_extensions_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */; };
-		3F97FD321C4D5CE40093DC65 /* Google.Protobuf.AnyType.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1747FB1C4160B70051A9DF /* Google.Protobuf.AnyType.proto.swift */; };
-		3F97FD331C4D5CE50093DC65 /* Google.Protobuf.AnyType.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1747FB1C4160B70051A9DF /* Google.Protobuf.AnyType.proto.swift */; };
 		3FC236AE1A18E3120006EC7D /* UnknowFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */; };
 		3FC5190E1B1C7EB100436FA6 /* ThreadingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */; };
 		3FC5190F1B1C7EB100436FA6 /* ThreadingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */; };
@@ -216,13 +212,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3F1747FB1C4160B70051A9DF /* Google.Protobuf.AnyType.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.AnyType.proto.swift; sourceTree = "<group>"; };
 		3F26F7461B909AD300428569 /* delimitedFile.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = delimitedFile.dat; sourceTree = "<group>"; };
 		3F31A1A91BA199C000F477C1 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41061C1A1A667700742090 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4106261A1A667800742090 /* UnitTesting(OSX).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UnitTesting(OSX).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41062C1A1A667800742090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F4375BD19E44ADF007C23B1 /* TestUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TestUtilities.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3F586C371D50EE720015E6F5 /* Google.Protobuf.Any.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Any.proto.swift; sourceTree = "<group>"; };
+		3F586C381D50EE720015E6F5 /* Google.Protobuf.Type.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Type.proto.swift; sourceTree = "<group>"; };
 		3F813FF31A1030000008F493 /* SizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeTest.swift; sourceTree = "<group>"; };
 		3F813FF51A12C0E90008F493 /* WireFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireFormatTests.swift; sourceTree = "<group>"; };
 		3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,14 +230,14 @@
 		3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedInputStreamTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3F8556CF19C71C05003802F2 /* CodedOuputStreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedOuputStreamTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3F8556D019C71C05003802F2 /* SmallBlockInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallBlockInputStream.swift; sourceTree = "<group>"; };
-		3F89A7EA1C396BA9009876B8 /* AbstractMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractMessage.swift; sourceTree = "<group>"; };
-		3F89A7EB1C396BA9009876B8 /* CodedInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodedInputStream.swift; sourceTree = "<group>"; };
-		3F89A7EC1C396BA9009876B8 /* CodedOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodedOutputStream.swift; sourceTree = "<group>"; };
-		3F89A7ED1C396BA9009876B8 /* ConcreateExtensionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcreateExtensionField.swift; sourceTree = "<group>"; };
-		3F89A7EE1C396BA9009876B8 /* ExtendableMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendableMessage.swift; sourceTree = "<group>"; };
+		3F89A7EA1C396BA9009876B8 /* AbstractMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AbstractMessage.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3F89A7EB1C396BA9009876B8 /* CodedInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedInputStream.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3F89A7EC1C396BA9009876B8 /* CodedOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodedOutputStream.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3F89A7ED1C396BA9009876B8 /* ConcreateExtensionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ConcreateExtensionField.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3F89A7EE1C396BA9009876B8 /* ExtendableMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ExtendableMessage.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3F89A7EF1C396BA9009876B8 /* ExtensionRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionRegistry.swift; sourceTree = "<group>"; };
 		3F89A7F01C396BA9009876B8 /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
-		3F89A7F11C396BA9009876B8 /* GeneratedMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMessage.swift; sourceTree = "<group>"; };
+		3F89A7F11C396BA9009876B8 /* GeneratedMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GeneratedMessage.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3F89A7F31C396BA9009876B8 /* Google.Protobuf.Api.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Api.proto.swift; sourceTree = "<group>"; };
 		3F89A7F41C396BA9009876B8 /* Google.Protobuf.Descriptor.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Descriptor.proto.swift; sourceTree = "<group>"; };
 		3F89A7F51C396BA9009876B8 /* Google.Protobuf.Duration.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Duration.proto.swift; sourceTree = "<group>"; };
@@ -250,7 +247,6 @@
 		3F89A7F91C396BA9009876B8 /* Google.Protobuf.Struct.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Struct.proto.swift; sourceTree = "<group>"; };
 		3F89A7FA1C396BA9009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.SwiftDescriptor.proto.swift; sourceTree = "<group>"; };
 		3F89A7FB1C396BA9009876B8 /* Google.Protobuf.Timestamp.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Timestamp.proto.swift; sourceTree = "<group>"; };
-		3F89A7FC1C396BA9009876B8 /* Google.Protobuf.Types.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Types.proto.swift; sourceTree = "<group>"; };
 		3F89A7FD1C396BA9009876B8 /* Google.Protobuf.Wrappers.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Google.Protobuf.Wrappers.proto.swift; sourceTree = "<group>"; };
 		3F89A7FE1C396BA9009876B8 /* ProtocolBuffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolBuffers.h; sourceTree = "<group>"; };
 		3F89A7FF1C396BA9009876B8 /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
@@ -466,9 +462,10 @@
 				3F89A7EF1C396BA9009876B8 /* ExtensionRegistry.swift */,
 				3F89A7F01C396BA9009876B8 /* Field.swift */,
 				3F89A7F11C396BA9009876B8 /* GeneratedMessage.swift */,
-				3F1747FB1C4160B70051A9DF /* Google.Protobuf.AnyType.proto.swift */,
 				3F89A7F31C396BA9009876B8 /* Google.Protobuf.Api.proto.swift */,
 				3F89A7F41C396BA9009876B8 /* Google.Protobuf.Descriptor.proto.swift */,
+				3F586C371D50EE720015E6F5 /* Google.Protobuf.Any.proto.swift */,
+				3F586C381D50EE720015E6F5 /* Google.Protobuf.Type.proto.swift */,
 				3F89A7F51C396BA9009876B8 /* Google.Protobuf.Duration.proto.swift */,
 				3F89A7F61C396BA9009876B8 /* Google.Protobuf.Empty.proto.swift */,
 				3F89A7F71C396BA9009876B8 /* Google.Protobuf.FieldMask.proto.swift */,
@@ -476,7 +473,6 @@
 				3F89A7F91C396BA9009876B8 /* Google.Protobuf.Struct.proto.swift */,
 				3F89A7FA1C396BA9009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift */,
 				3F89A7FB1C396BA9009876B8 /* Google.Protobuf.Timestamp.proto.swift */,
-				3F89A7FC1C396BA9009876B8 /* Google.Protobuf.Types.proto.swift */,
 				3F89A7FD1C396BA9009876B8 /* Google.Protobuf.Wrappers.proto.swift */,
 				3F89A7FE1C396BA9009876B8 /* ProtocolBuffers.h */,
 				3F89A7FF1C396BA9009876B8 /* RingBuffer.swift */,
@@ -751,11 +747,9 @@
 				3F89A83C1C396BD8009876B8 /* Google.Protobuf.Api.proto.swift in Sources */,
 				3F89A8361C396BD8009876B8 /* ConcreateExtensionField.swift in Sources */,
 				3F89A8421C396BD8009876B8 /* Google.Protobuf.Struct.proto.swift in Sources */,
-				3F89A8451C396BD8009876B8 /* Google.Protobuf.Types.proto.swift in Sources */,
 				3F89A8481C396BD8009876B8 /* UnknownFieldSet.swift in Sources */,
 				3F89A8341C396BD8009876B8 /* CodedInputStream.swift in Sources */,
 				3F89A8381C396BD8009876B8 /* ExtensionRegistry.swift in Sources */,
-				3F97FD331C4D5CE50093DC65 /* Google.Protobuf.AnyType.proto.swift in Sources */,
 				3F89A83A1C396BD8009876B8 /* GeneratedMessage.swift in Sources */,
 				3F89A8391C396BD8009876B8 /* Field.swift in Sources */,
 				3F89A83D1C396BD8009876B8 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
@@ -781,11 +775,9 @@
 				3F89A8251C396BD6009876B8 /* Google.Protobuf.Api.proto.swift in Sources */,
 				3F89A81F1C396BD6009876B8 /* ConcreateExtensionField.swift in Sources */,
 				3F89A82B1C396BD6009876B8 /* Google.Protobuf.Struct.proto.swift in Sources */,
-				3F89A82E1C396BD6009876B8 /* Google.Protobuf.Types.proto.swift in Sources */,
 				3F89A8311C396BD6009876B8 /* UnknownFieldSet.swift in Sources */,
 				3F89A81D1C396BD6009876B8 /* CodedInputStream.swift in Sources */,
 				3F89A8211C396BD6009876B8 /* ExtensionRegistry.swift in Sources */,
-				3F97FD321C4D5CE40093DC65 /* Google.Protobuf.AnyType.proto.swift in Sources */,
 				3F89A8231C396BD6009876B8 /* GeneratedMessage.swift in Sources */,
 				3F89A8221C396BD6009876B8 /* Field.swift in Sources */,
 				3F89A8261C396BD6009876B8 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
@@ -857,16 +849,16 @@
 				3F89A80B1C396BA9009876B8 /* Google.Protobuf.Api.proto.swift in Sources */,
 				3F89A8051C396BA9009876B8 /* ConcreateExtensionField.swift in Sources */,
 				3F89A8111C396BA9009876B8 /* Google.Protobuf.Struct.proto.swift in Sources */,
-				3F89A8141C396BA9009876B8 /* Google.Protobuf.Types.proto.swift in Sources */,
 				3F89A8181C396BA9009876B8 /* UnknownFieldSet.swift in Sources */,
 				3F89A8031C396BA9009876B8 /* CodedInputStream.swift in Sources */,
 				3F89A8071C396BA9009876B8 /* ExtensionRegistry.swift in Sources */,
-				3F1747FC1C4160B70051A9DF /* Google.Protobuf.AnyType.proto.swift in Sources */,
 				3F89A8091C396BA9009876B8 /* GeneratedMessage.swift in Sources */,
 				3F89A8081C396BA9009876B8 /* Field.swift in Sources */,
 				3F89A80C1C396BA9009876B8 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
 				3F89A8101C396BA9009876B8 /* Google.Protobuf.SourceContext.proto.swift in Sources */,
 				3F89A8151C396BA9009876B8 /* Google.Protobuf.Wrappers.proto.swift in Sources */,
+				3F586C3A1D50EE720015E6F5 /* Google.Protobuf.Type.proto.swift in Sources */,
+				3F586C391D50EE720015E6F5 /* Google.Protobuf.Any.proto.swift in Sources */,
 				3F89A8021C396BA9009876B8 /* AbstractMessage.swift in Sources */,
 				3F89A8121C396BA9009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */,
 				3F89A80F1C396BA9009876B8 /* Google.Protobuf.FieldMask.proto.swift in Sources */,

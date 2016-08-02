@@ -316,10 +316,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrol$ func getBuilder() -> $classNameReturnedType$.Builder {\n"
                        "  return classBuilder() as! $classNameReturnedType$.Builder\n"
                        "}\n"
-                       "override $acontrol$ class func classBuilder() -> MessageBuilder {\n"
+                       "override $acontrol$ class func classBuilder() -> ProtocolBuffersMessageBuilder {\n"
                        "  return $classNameReturnedType$.Builder()\n"
                        "}\n"
-                       "override $acontrol$ func classBuilder() -> MessageBuilder {\n"
+                       "override $acontrol$ func classBuilder() -> ProtocolBuffersMessageBuilder {\n"
                        "  return $classNameReturnedType$.Builder()\n"
                        "}\n"
                        "$acontrol$ func toBuilder() throws -> $classNameReturnedType$.Builder {\n"
@@ -343,9 +343,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n"
                        "override $acontrol$ func className() -> String {\n"
                        "    return \"$classNameReturnedType$\"\n"
-                       "}\n"
-                       "override $acontrol$ func classMetaType() -> GeneratedMessage.Type {\n"
-                       "    return $classNameReturnedType$.self\n"
                        "}\n");
         
         printer->Print("//Meta information declaration end\n\n");
@@ -918,19 +915,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 map<string,string> vars;
                 vars["type"] = ClassName(field->message_type());
                 vars["name"] = UnderscoresToCamelCase(field);
+                vars["name_reserved"] = CheckReservedNames(UnderscoresToCamelCase(field));
                 vars["capitalized_name"] = UnderscoresToCapitalizedCamelCase(field);
                 
                 switch (field->label()) {
                     case FieldDescriptor::LABEL_REQUIRED:
                         printer->Print(vars,
-                                       "if !$name$.isInitialized() {\n"
+                                       "if !$name_reserved$.isInitialized() {\n"
                                        "  return false\n"
                                        "}\n");
                         break;
                     case FieldDescriptor::LABEL_OPTIONAL:
                         printer->Print(vars,
                                        "if has$capitalized_name$ {\n"
-                                       " if !$name$.isInitialized() {\n"
+                                       " if !$name_reserved$.isInitialized() {\n"
                                        "   return false\n"
                                        " }\n"
                                        "}\n");
@@ -938,7 +936,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                     case FieldDescriptor::LABEL_REPEATED:
                         printer->Print(vars,
                                        "var isInit$capitalized_name$:Bool = true\n"
-                                       "for oneElement$capitalized_name$ in $name$ {\n"
+                                       "for oneElement$capitalized_name$ in $name_reserved$ {\n"
                                        "  if !oneElement$capitalized_name$.isInitialized() {\n"
                                        "    isInit$capitalized_name$ = false\n"
                                        "    break \n"

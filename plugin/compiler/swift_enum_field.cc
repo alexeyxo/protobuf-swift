@@ -42,7 +42,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             string containing_class = ClassNameReturedType(descriptor->containing_type());
             
             (*variables)["name"]                  = name;
+            (*variables)["name_reserved"]         = CheckReservedNames(name);
             (*variables)["capitalized_name"]      = capname;
+            (*variables)["capitalized_name_reserved"] = CheckReservedNames(capname);
             (*variables)["number"] = SimpleItoa(descriptor->number());
             
             (*variables)["type"] = type;
@@ -81,7 +83,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void EnumFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-        printer->Print(variables_,"$acontrol$var $name$:$type$\n");
+        printer->Print(variables_,"$acontrol$var $name_reserved$:$type$\n");
     }
     
     void EnumFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
@@ -92,7 +94,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (isOneOfField(descriptor_)) {
             
             printer->Print(variables_,
-                           "$acontrol$private(set) var $name$:$type$!{\n"
+                           "$acontrol$private(set) var $name_reserved$:$type$!{\n"
                            "     get {\n"
                            "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "     }\n"
@@ -117,7 +119,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         else
         {
-            printer->Print(variables_, "$acontrol$private(set) var $name$:$type$ = $type$.$default$\n");
+            printer->Print(variables_,"$acontrol$private(set) var $name_reserved$:$type$ = $type$.$default$\n");
             printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
         }
     }
@@ -134,24 +136,24 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "          return builderResult.has$capitalized_name$\n"
                        "      }\n"
                        "  }\n"
-                       "  $acontrol$var $name$:$type$ {\n"
+                       "  $acontrol$var $name_reserved$:$type$ {\n"
                        "      get {\n"
-                       "          return builderResult.$name$\n"
+                       "          return builderResult.$name_reserved$\n"
                        "      }\n"
                        "      set (value) {\n"
                        "          builderResult.has$capitalized_name$ = true\n"
-                       "          builderResult.$name$ = value\n"
+                       "          builderResult.$name_reserved$ = value\n"
                        "      }\n"
                        "  }\n");
         
         printer->Print(variables_,
                        "  $acontrolFunc$ func set$capitalized_name$(_ value:$type$) -> $containing_class$.Builder {\n"
-                       "    self.$name$ = value\n"
+                       "    self.$name_reserved$ = value\n"
                        "    return self\n"
                        "  }\n"
                        "  $acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
                        "     builderResult.has$capitalized_name$ = false\n"
-                       "     builderResult.$name$ = .$default$\n"
+                       "     builderResult.$name_reserved$ = .$default$\n"
                        "     return self\n"
                        "  }\n");
     }
@@ -161,7 +163,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if other.has$capitalized_name$ {\n"
-                       "     $name$ = other.$name$\n"
+                       "     $name_reserved$ = other.$name_reserved$\n"
                        "}\n");
     }
     
@@ -173,7 +175,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        
                        "let valueInt$name$ = try codedInputStream.readEnum()\n"
                        "if let enums$name$ = $type$(rawValue:valueInt$name$){\n"
-                       "     $name$ = enums$name$\n"
+                       "     $name_reserved$ = enums$name$\n"
                        "} else {\n"
                        "     _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
                        "}\n");
@@ -182,7 +184,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  try codedOutputStream.writeEnum(fieldNumber: $number$, value:$name$.rawValue)\n"
+                       "  try codedOutputStream.writeEnum(fieldNumber: $number$, value:$name_reserved$.rawValue)\n"
                        "}\n");
     }
     
@@ -190,7 +192,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if (has$capitalized_name$) {\n"
-                       "  serialize_size += $name$.rawValue.computeEnumSize(fieldNumber: $number$)\n"
+                       "  serialize_size += $name_reserved$.rawValue.computeEnumSize(fieldNumber: $number$)\n"
                        "}\n");
     }
     
@@ -198,7 +200,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if (has$capitalized_name$) {\n"
-                       "  output += \"\\(indent) $name$: \\($name$.description)\\n\"\n"
+                       "  output += \"\\(indent) $name$: \\($name_reserved$.description)\\n\"\n"
                        "}\n");
     }
     
@@ -212,21 +214,21 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateJSONDecodeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? $json_casting_type$ {\n"
-                       "  resultDecodedBuilder.$name$ = $from_json_value$\n"
+                       "  resultDecodedBuilder.$name_reserved$ = $from_json_value$\n"
                        "}\n");
     }
     
     
     void EnumFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "(lhs.has$capitalized_name$ == rhs.has$capitalized_name$) && (!lhs.has$capitalized_name$ || lhs.$name$ == rhs.$name$)");
+                       "(lhs.has$capitalized_name$ == rhs.has$capitalized_name$) && (!lhs.has$capitalized_name$ || lhs.$name_reserved$ == rhs.$name_reserved$)");
     }
     
     
     void EnumFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "   hashCode = (hashCode &* 31) &+ Int($name$.rawValue)\n"
+                       "   hashCode = (hashCode &* 31) &+ Int($name_reserved$.rawValue)\n"
                        "}\n");
     }
     
@@ -248,14 +250,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void RepeatedEnumFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-        printer->Print(variables_,"$acontrol$var $name$:[$type$] = [$type$]()\n");
+        printer->Print(variables_,"$acontrol$var $name_reserved$:[$type$] = [$type$]()\n");
     }
     
     void RepeatedEnumFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "private var $name$MemoizedSerializedSize:Int32 = 0\n");
         printer->Print(variables_,
-                       "$acontrol$private(set) var $name$:Array<$type$> = Array<$type$>()\n");
+                       "$acontrol$private(set) var $name_reserved$:Array<$type$> = Array<$type$>()\n");
     }
     
     void RepeatedEnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
@@ -267,28 +269,28 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedEnumFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         
         printer->Print(variables_,
-                       "$acontrol$var $name$:Array<$type$> {\n"
+                       "$acontrol$var $name_reserved$:Array<$type$> {\n"
                        "    get {\n"
-                       "        return builderResult.$name$\n"
+                       "        return builderResult.$name_reserved$\n"
                        "    }\n"
                        "    set (value) {\n"
-                       "        builderResult.$name$ = value\n"
+                       "        builderResult.$name_reserved$ = value\n"
                        "    }\n"
                        "}\n"
                        "$acontrol$func set$capitalized_name$(_ value:Array<$type$>) -> $containing_class$.Builder {\n"
-                       "  self.$name$ = value\n"
+                       "  self.$name_reserved$ = value\n"
                        "  return self\n"
                        "}\n"
                        "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
-                       "  builderResult.$name$.removeAll(keepingCapacity: false)\n"
+                       "  builderResult.$name_reserved$.removeAll(keepingCapacity: false)\n"
                        "  return self\n"
                        "}\n");
     }
     
     void RepeatedEnumFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "if !other.$name$.isEmpty {\n"
-                       "   builderResult.$name$ += other.$name$\n"
+                       "if !other.$name_reserved$.isEmpty {\n"
+                       "   builderResult.$name_reserved$ += other.$name_reserved$\n"
                        "}\n"
                        );
     }
@@ -309,7 +311,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "let valueInt$name$ = try codedInputStream.readEnum()\n"
                        "if let enums$name$ = $type$(rawValue:valueInt$name$) {\n"
-                       "     builderResult.$name$.append(enums$name$)\n"
+                       "     builderResult.$name_reserved$.append(enums$name$)\n"
                        "} else {\n"
                        "     _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
                        "}\n");
@@ -326,17 +328,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->options().packed()) {
             printer->Print(variables_,
-                           "if !$name$.isEmpty {\n"
+                           "if !$name_reserved$.isEmpty {\n"
                            "  try codedOutputStream.writeRawVarint32(value: $tag$)\n"
                            "  try codedOutputStream.writeRawVarint32(value: $name$MemoizedSerializedSize)\n"
                            "}\n"
-                           "for oneValueOf$name$ in $name$ {\n"
+                           "for oneValueOf$name$ in $name_reserved$ {\n"
                            "    try codedOutputStream.writeEnumNoTag(value: oneValueOf$name$.rawValue)\n"
                            "}\n");
         } else {
             printer->Print(variables_,
-                           "for oneValueOf$name$ in $name$ {\n"
-                           "    try codedOutputStream.writeEnum(fieldNumber: $number$, value:oneValueOf$name$.rawValue)\n"
+                           "for oneValueOf$name$ in $name_reserved$ {\n"
+                           "    try codedOutputStream.writeEnum(fieldNumber: $number$, value:oneValueOf$name_reserved$.rawValue)\n"
                            "}\n");
         }
     }
@@ -348,7 +350,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         printer->Print(variables_,
-                       "for oneValueOf$name$ in $name$ {\n"
+                       "for oneValueOf$name$ in $name_reserved$ {\n"
                        "    dataSize$name$ += oneValueOf$name$.rawValue.computeEnumSizeNoTag()\n"
                        "}\n");
         
@@ -357,14 +359,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (descriptor_->options().packed()) {
             
             printer->Print(variables_,
-                           "if !$name$.isEmpty {\n"
+                           "if !$name_reserved$.isEmpty {\n"
                            "  serialize_size += $tag_size$\n"
                            "  serialize_size += dataSize$name$.computeRawVarint32Size()\n"
                            "}\n");
             
         } else {
             printer->Print(variables_,
-                           "serialize_size += ($tag_size$ * Int32($name$.count))\n");
+                           "serialize_size += ($tag_size$ * Int32($name_reserved$.count))\n");
         }
         
         if (descriptor_->options().packed()) {
@@ -378,7 +380,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedEnumFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "var $name$ElementIndex:Int = 0\n"
-                       "for oneValueOf$name$ in $name$ {\n"
+                       "for oneValueOf$name$ in $name_reserved$ {\n"
                        "    output += \"\\(indent) $name$[\\($name$ElementIndex)]: \\(oneValueOf$name$.description)\\n\"\n"
                        "    $name$ElementIndex += 1\n"
                        "}\n");
@@ -387,9 +389,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedEnumFieldGenerator::GenerateJSONEncodeCodeSource(io::Printer* printer) const {
         
         printer->Print(variables_,
-                           "if !$name$.isEmpty {\n"
+                           "if !$name_reserved$.isEmpty {\n"
                            "  var jsonArray$capitalized_name$:Array<$to_json_value_repeated_storage_type$> = []\n"
-                           "    for oneValue$capitalized_name$ in $name$ {\n"
+                           "    for oneValue$capitalized_name$ in $name_reserved$ {\n"
                            "      jsonArray$capitalized_name$.append($to_json_value_repeated$)\n"
                            "    }\n"
                            "  jsonMap[\"$json_name$\"] = jsonArray$capitalized_name$\n"
@@ -406,20 +408,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "    let enumFromString$capitalized_name$ = $from_json_value_repeated$\n"
                            "    jsonArray$capitalized_name$.append(enumFromString$capitalized_name$)\n"
                            "  }\n"
-                           "  resultDecodedBuilder.$name$ = jsonArray$capitalized_name$\n"
+                           "  resultDecodedBuilder.$name_reserved$ = jsonArray$capitalized_name$\n"
                            "}\n");
       
     }
     
     
     void RepeatedEnumFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
-        printer->Print(variables_, "(lhs.$name$ == rhs.$name$)");
+        printer->Print(variables_, "(lhs.$name_reserved$ == rhs.$name_reserved$)");
     }
     
     
     void RepeatedEnumFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "for oneValueOf$name$ in $name$ {\n"
+                       "for oneValueOf$name$ in $name_reserved$ {\n"
                        "    hashCode = (hashCode &* 31) &+ Int(oneValueOf$name$.rawValue)\n"
                        "}\n");
     }

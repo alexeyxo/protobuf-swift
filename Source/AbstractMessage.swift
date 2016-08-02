@@ -20,7 +20,7 @@ import Foundation
 
 public typealias ONEOF_NOT_SET = Int
 
-public protocol MessageInit {
+public protocol ProtocolBuffersMessageInit {
 }
 
 public enum ProtocolBuffersError: Error {
@@ -32,15 +32,15 @@ public enum ProtocolBuffersError: Error {
     case outOfSpace
 }
 
-public protocol Message:MessageInit {
+public protocol ProtocolBuffersMessage:ProtocolBuffersMessageInit {
     var unknownFields:UnknownFieldSet{get}
     func serializedSize() -> Int32
     func isInitialized() -> Bool
     func writeTo(codedOutputStream:CodedOutputStream) throws
     func writeTo(outputStream:NSOutputStream) throws
     func data() throws -> Data
-    static func classBuilder()-> MessageBuilder
-    func classBuilder()-> MessageBuilder
+    static func classBuilder()-> ProtocolBuffersMessageBuilder
+    func classBuilder()-> ProtocolBuffersMessageBuilder
     
     //JSON
     func encode() throws -> Dictionary<String,AnyObject>
@@ -50,11 +50,11 @@ public protocol Message:MessageInit {
     
 }
 
-public protocol MessageBuilder {
+public protocol ProtocolBuffersMessageBuilder {
      var unknownFields:UnknownFieldSet{get set}
      func clear() -> Self
      func isInitialized()-> Bool
-     func build() throws -> AbstractMessage
+     func build() throws -> AbstractProtocolBuffersMessage
      func merge(unknownField:UnknownFieldSet) throws -> Self
      func mergeFrom(codedInputStream:CodedInputStream) throws ->  Self
      func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
@@ -69,10 +69,10 @@ public protocol MessageBuilder {
     static func fromJSONToBuilder(data:Data) throws -> Self
 }
 
-public func == (lhs: AbstractMessage, rhs: AbstractMessage) -> Bool {
+public func == (lhs: AbstractProtocolBuffersMessage, rhs: AbstractProtocolBuffersMessage) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }
-public class AbstractMessage:Hashable, Message {
+public class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
     
     public var unknownFields:UnknownFieldSet
     required public init() {
@@ -118,12 +118,12 @@ public class AbstractMessage:Hashable, Message {
         try codedOutputStream.flush()
     }
     
-    public class func classBuilder() -> MessageBuilder {
-        return AbstractMessageBuilder()
+    public class func classBuilder() -> ProtocolBuffersMessageBuilder {
+        return AbstractProtocolBuffersMessageBuilder()
     }
     
-    public func classBuilder() -> MessageBuilder {
-        return AbstractMessageBuilder()
+    public func classBuilder() -> ProtocolBuffersMessageBuilder {
+        return AbstractProtocolBuffersMessageBuilder()
     }
     
     public var hashValue: Int {
@@ -154,15 +154,15 @@ public class AbstractMessage:Hashable, Message {
 
 
 
-public class AbstractMessageBuilder:MessageBuilder {
+public class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
     public var unknownFields:UnknownFieldSet
     public init() {
         unknownFields = UnknownFieldSet(fields:Dictionary())
     }
     
     
-    public func build() throws -> AbstractMessage {
-        return AbstractMessage()
+    public func build() throws -> AbstractProtocolBuffersMessage {
+        return AbstractProtocolBuffersMessage()
     }
     
     public func clone() throws -> Self {

@@ -668,7 +668,7 @@ public class CodedInputStream {
         return currentLimit - currentAbsolutePosition
     }
     
-    public func readGroup(fieldNumber:Int, builder:MessageBuilder, extensionRegistry:ExtensionRegistry) throws {
+    public func readGroup(fieldNumber:Int, builder:ProtocolBuffersMessageBuilder, extensionRegistry:ExtensionRegistry) throws {
         
         guard recursionDepth < recursionLimit else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Recursion Limit Exceeded")
@@ -688,7 +688,7 @@ public class CodedInputStream {
         recursionDepth-=1
     }
 
-    public func readMessage(builder:MessageBuilder, extensionRegistry:ExtensionRegistry) throws {
+    public func readMessage(builder:ProtocolBuffersMessageBuilder, extensionRegistry:ExtensionRegistry) throws {
         let length = try readRawVarint32()
         guard recursionDepth < recursionLimit else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Recursion Limit Exceeded")

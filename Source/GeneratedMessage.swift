@@ -17,7 +17,7 @@
 
 import Foundation
 
-public protocol GeneratedMessageProtocol: Message
+public protocol GeneratedMessageProtocol: ProtocolBuffersMessage
 {
     static func parseFrom(data: Data) throws -> Self
     static func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Self
@@ -27,7 +27,7 @@ public protocol GeneratedMessageProtocol: Message
     static func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
 }
 
-public class GeneratedMessage:AbstractMessage
+public class GeneratedMessage:AbstractProtocolBuffersMessage
 {
     public var memoizedSerializedSize:Int32 = -1
     required public init()
@@ -45,22 +45,18 @@ public class GeneratedMessage:AbstractMessage
     {
         return "GeneratedMessage"
     }
-    public func classMetaType() -> GeneratedMessage.Type
-    {
-        return GeneratedMessage.self
-    }
-    public override class func classBuilder() -> MessageBuilder
+    public override class func classBuilder() -> ProtocolBuffersMessageBuilder
     {
         return GeneratedMessageBuilder()
     }
-    public override func classBuilder() -> MessageBuilder
+    public override func classBuilder() -> ProtocolBuffersMessageBuilder
     {
         return GeneratedMessageBuilder()
     }
     //
 }
 
-public class GeneratedMessageBuilder:AbstractMessageBuilder
+public class GeneratedMessageBuilder:AbstractProtocolBuffersMessageBuilder
 {
     public var internalGetResult:GeneratedMessage
     {
@@ -121,8 +117,7 @@ public class GeneratedMessageBuilder:AbstractMessageBuilder
 
 extension GeneratedMessage:CustomDebugStringConvertible
 {
-    public var debugDescription:String
-        {
+    public var debugDescription:String {
             return description
     }
 }
@@ -140,9 +135,15 @@ extension GeneratedMessage:CustomStringConvertible
 
 extension GeneratedMessageBuilder:CustomDebugStringConvertible
 {
-    public var debugDescription:String
-    {
+    public var debugDescription:String {
+        return internalGetResult.description
+    }
+}
+extension GeneratedMessageBuilder:CustomStringConvertible {
+    public var description:String {
+        get {
             return internalGetResult.description
+        }
     }
 }
 

@@ -332,7 +332,7 @@ public extension String
     }
 }
 
-public extension AbstractMessage
+public extension AbstractProtocolBuffersMessage
 {
     func computeGroupSizeNoTag() -> Int32
     {
