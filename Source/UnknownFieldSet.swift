@@ -54,7 +54,7 @@ public class UnknownFieldSet:Hashable,Equatable {
     }
     public func writeTo(codedOutputStream:CodedOutputStream) throws {
         var sortedKeys = Array(fields.keys)
-        sortedKeys.sort(isOrderedBefore: { $0 < $1 })
+        sortedKeys.sort(by: { $0 < $1 })
         for number in sortedKeys {
             let value:Field = fields[number]!
             try value.writeTo(fieldNumber: number, output: codedOutputStream)
@@ -70,7 +70,7 @@ public class UnknownFieldSet:Hashable,Equatable {
     public func getDescription(indent:String) -> String {
         var output = ""
         var sortedKeys = Array(fields.keys)
-        sortedKeys.sort(isOrderedBefore: { $0 < $1 })
+        sortedKeys.sort(by: { $0 < $1 })
         for number in sortedKeys {
             let value:Field = fields[number]!
             output += value.getDescription(fieldNumber: number, indent: indent)

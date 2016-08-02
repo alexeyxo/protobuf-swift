@@ -29,7 +29,7 @@ public class CodedOutputStream {
     }
   
     public init(stream:NSOutputStream!, bufferSize:Int) {
-        let data = Data(count: bufferSize)!
+        let data = Data(count: bufferSize)
         self.output = stream
         buffer = RingBuffer(data: data)
     }
@@ -37,7 +37,7 @@ public class CodedOutputStream {
     public init(stream:NSOutputStream) {
         let data = Data(count:DEFAULT_BUFFER_SIZE)
         self.output = stream
-        buffer = RingBuffer(data: data!)
+        buffer = RingBuffer(data: data)
     }
     
     public init(data:Data) {
