@@ -167,6 +167,10 @@
 		3FF2DCBE1A1A681A00226761 /* golden_packed_fields_message in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */; };
 		3FF2DCBF1A1A681A00226761 /* text_format_unittest_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */; };
 		3FF2DCC01A1A681A00226761 /* text_format_unittest_extensions_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */; };
+		A5EDD56C1D51B14C00E4B1F6 /* Google.Protobuf.Any.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F586C371D50EE720015E6F5 /* Google.Protobuf.Any.proto.swift */; };
+		A5EDD56D1D51B14D00E4B1F6 /* Google.Protobuf.Any.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F586C371D50EE720015E6F5 /* Google.Protobuf.Any.proto.swift */; };
+		A5EDD56E1D51B15000E4B1F6 /* Google.Protobuf.Type.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F586C381D50EE720015E6F5 /* Google.Protobuf.Type.proto.swift */; };
+		A5EDD56F1D51B15000E4B1F6 /* Google.Protobuf.Type.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F586C381D50EE720015E6F5 /* Google.Protobuf.Type.proto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -755,6 +759,8 @@
 				3F89A83D1C396BD8009876B8 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
 				3F89A8411C396BD8009876B8 /* Google.Protobuf.SourceContext.proto.swift in Sources */,
 				3F89A8461C396BD8009876B8 /* Google.Protobuf.Wrappers.proto.swift in Sources */,
+				A5EDD56E1D51B15000E4B1F6 /* Google.Protobuf.Type.proto.swift in Sources */,
+				A5EDD56D1D51B14D00E4B1F6 /* Google.Protobuf.Any.proto.swift in Sources */,
 				3F89A8331C396BD8009876B8 /* AbstractMessage.swift in Sources */,
 				3F89A8431C396BD8009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */,
 				3F89A8401C396BD8009876B8 /* Google.Protobuf.FieldMask.proto.swift in Sources */,
@@ -783,6 +789,8 @@
 				3F89A8261C396BD6009876B8 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
 				3F89A82A1C396BD6009876B8 /* Google.Protobuf.SourceContext.proto.swift in Sources */,
 				3F89A82F1C396BD6009876B8 /* Google.Protobuf.Wrappers.proto.swift in Sources */,
+				A5EDD56F1D51B15000E4B1F6 /* Google.Protobuf.Type.proto.swift in Sources */,
+				A5EDD56C1D51B14C00E4B1F6 /* Google.Protobuf.Any.proto.swift in Sources */,
 				3F89A81C1C396BD6009876B8 /* AbstractMessage.swift in Sources */,
 				3F89A82C1C396BD6009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */,
 				3F89A8291C396BD6009876B8 /* Google.Protobuf.FieldMask.proto.swift in Sources */,
