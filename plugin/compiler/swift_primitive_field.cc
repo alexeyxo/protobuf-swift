@@ -100,7 +100,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["containing_class"] = ClassNameReturedType(descriptor->containing_type());
             
             (*variables)["name"] = name;
-            (*variables)["name_reserved"] = CheckReservedNames(name);
+            (*variables)["name_reserved"] = SafeName(name);
             (*variables)["capitalized_name"] = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());
             (*variables)["type"] = PrimitiveTypeName(descriptor);

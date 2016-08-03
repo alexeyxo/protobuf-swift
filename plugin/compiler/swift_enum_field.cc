@@ -39,9 +39,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             string containing_class = ClassNameReturedType(descriptor->containing_type());
             
             (*variables)["name"]                  = UnderscoresToCamelCase(descriptor);
-            (*variables)["name_reserved"]                  = CheckReservedNames(UnderscoresToCamelCase(descriptor));
+            (*variables)["name_reserved"]                  = SafeName(UnderscoresToCamelCase(descriptor));
             (*variables)["capitalized_name"]      = UnderscoresToCapitalizedCamelCase(descriptor);
-            (*variables)["capitalized_name_reserved"]      = CheckReservedNames(UnderscoresToCapitalizedCamelCase(descriptor));
+            (*variables)["capitalized_name_reserved"]      = SafeName(UnderscoresToCapitalizedCamelCase(descriptor));
             (*variables)["number"] = SimpleItoa(descriptor->number());
             
             (*variables)["type"] = type;

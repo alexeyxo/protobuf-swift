@@ -835,7 +835,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 map<string,string> vars;
                 vars["type"] = ClassName(field->message_type());
                 vars["name"] = UnderscoresToCamelCase(field);
-                vars["name_reserved"] = CheckReservedNames(UnderscoresToCamelCase(field));
+                vars["name_reserved"] = SafeName(UnderscoresToCamelCase(field));
                 vars["capitalized_name"] = UnderscoresToCapitalizedCamelCase(field);
                 
                 switch (field->label()) {

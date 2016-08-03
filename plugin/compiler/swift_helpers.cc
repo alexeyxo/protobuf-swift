@@ -25,94 +25,6 @@
 
 #include "google/protobuf/swift-descriptor.pb.h"
 
-static const std::string reservedWords[] = { "_",
-    "@available",
-    "#column",
-    "#else",
-    "#elseif",
-    "#endif",
-    "#file",
-    "#function",
-    "#if",
-    "#line",
-    "#selector",
-    "description",
-    "debugDescription",
-    "as",
-    "associatedtype",
-    "break",
-    "case",
-    "catch",
-    "class",
-    "continue",
-    "default",
-    "defer",
-    "deinit",
-    "do",
-    "dynamicType",
-    "else",
-    "enum",
-    "extension",
-    "fallthrough",
-    "false",
-    "for",
-    "func",
-    "guard",
-    "if",
-    "import",
-    "in",
-    "init",
-    "inout",
-    "internal",
-    "is",
-    "protocol",
-    "public",
-    "repeat",
-    "rethrows",
-    "return",
-    "self",
-    "Self",
-    "static",
-    "struct",
-    "subscript",
-    "super",
-    "switch",
-    "throw",
-    "throws",
-    "true",
-    "try",
-    "typealias",
-    "var",
-    "where",
-    "while",
-    "Any",
-    "associativity",
-    "convenience",
-    "dynamic",
-    "didSet",
-    "final",
-    "get",
-    "infix",
-    "indirect",
-    "lazy",
-    "left",
-    "mutating",
-    "none",
-    "nonmutating",
-    "optional",
-    "override",
-    "postfix",
-    "Protocol",
-    "required",
-    "right",
-    "set",
-    "Type",
-    "unowned",
-    "weak",
-    "willSet",
-    "String",
-};
-
 namespace google { namespace protobuf { namespace compiler { namespace swift {
     namespace {
         const string& FieldName(const FieldDescriptor* field) {
@@ -123,25 +35,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             }
         }
     }
-
-    string CheckReservedNames(const string& input)
-    {
-        string result;
-        bool exists = std::find(std::begin(reservedWords), std::end(reservedWords), input) != std::end(reservedWords);
-        if (input == "description" || input == "debugDescription" || input ==  "hashValue")
-        {
-            return  input + "_";
-        }
-        
-        if (exists) {
-            result = "`" + input + "`";
-        } else {
-            result = input;
-        }
-        return result;
-        return result;
-    }
-
 
     string UnderscoresToCapitalizedCamelCase(const string& input) {
         vector<string> values;
@@ -405,7 +298,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             name += ".";
         }
         name += FileClassPrefix(descriptor->file());
-        return CheckReservedNames(name + UnderscoresToCapitalizedCamelCase(descriptor->name()));
+        return SafeName(name + UnderscoresToCapitalizedCamelCase(descriptor->name()));
     }
     ////
     
@@ -465,7 +358,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string name;
         name += FileClassPrefix(descriptor->file());
         name += UnderscoresToCapitalizedCamelCase(descriptor->name());
-        return CheckReservedNames(name);
+        return SafeName(name);
     }
     
     string ClassNameReturedType(const EnumDescriptor* descriptor) {
@@ -478,8 +371,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
    
         name += FileClassPrefix(descriptor->file());
-        name += CheckReservedNames(UnderscoresToCapitalizedCamelCase(descriptor->name()));
-        return CheckReservedNames(name);
+        name += SafeName(UnderscoresToCapitalizedCamelCase(descriptor->name()));
+        return SafeName(name);
         
     }
     
@@ -501,7 +394,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string name;
         name += FileClassPrefix(descriptor->file());
         name += UnderscoresToCapitalizedCamelCase(descriptor->name());
-        return CheckReservedNames(name);
+        return SafeName(name);
     }
     
     string ClassNameReturedType(const Descriptor* descriptor) {
@@ -512,9 +405,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
 
         name += FileClassPrefix(descriptor->file());
-        name += CheckReservedNames(UnderscoresToCapitalizedCamelCase(descriptor->name()));
+        name += SafeName(UnderscoresToCapitalizedCamelCase(descriptor->name()));
 
-        return CheckReservedNames(name);
+        return SafeName(name);
     }
     
     string PackageName(const Descriptor* descriptor)
@@ -537,14 +430,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             name = ClassNameWorkerExtensions(descriptor->containing_type());
             name += "";
         }
-        return CheckReservedNames(name + descriptor->name());
+        return SafeName(name + descriptor->name());
     }
     
     string ClassNameExtensions(const Descriptor* descriptor) {
         string name;
         name += FileClassPrefix(descriptor->file());
         name += ClassNameWorkerExtensions(descriptor);
-        return CheckReservedNames(name);
+        return SafeName(name);
     }
 
 
@@ -555,7 +448,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             name = ClassNameWorker(descriptor->containing_type());
             name += ".";
         }
-        return CheckReservedNames(name + UnderscoresToCapitalizedCamelCase(descriptor->name()));
+        return SafeName(name + UnderscoresToCapitalizedCamelCase(descriptor->name()));
     }
 
     bool isOneOfField(const FieldDescriptor* descriptor) {
@@ -571,16 +464,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string name;
         name += FileClassPrefix(descriptor->file());
         name += descriptor->name();
-        return CheckReservedNames(name);
+        return SafeName(name);
     }
 
     //Swift bug: when enumName == enaumFieldName
     string EnumValueName(const EnumValueDescriptor* descriptor) {
-        string name = UnderscoresToCapitalizedCamelCase(SafeName(descriptor->name()));
-        if (name == UnderscoresToCapitalizedCamelCase(descriptor->type()->name())) {
-            name += "`" + name + "`";
-        }
+        string name = UnderscoresToCapitalizedCamelCase(descriptor->name());
         name[0] = tolower(name[0]);
+        if (name == UnderscoresToCapitalizedCamelCase(descriptor->type()->name())) {
+            name = "`" + name + "`";
+        }
+        name = SafeName(name);
         return name;
     }
 
@@ -774,7 +668,91 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
 
         const char* const kKeywordList[] = {
-            "TYPE_BOOL"
+            "@available",
+            "#column",
+            "#else",
+            "#elseif",
+            "#endif",
+            "#file",
+            "#function",
+            "#if",
+            "#line",
+            "#selector",
+            "description",
+            "debugDescription",
+            "as",
+            "associatedtype",
+            "break",
+            "case",
+            "catch",
+            "class",
+            "continue",
+            "default",
+            "defer",
+            "deinit",
+            "do",
+            "dynamicType",
+            "else",
+            "enum",
+            "extension",
+            "fallthrough",
+            "false",
+            "for",
+            "func",
+            "guard",
+            "if",
+            "import",
+            "in",
+            "init",
+            "inout",
+            "internal",
+            "is",
+            "protocol",
+            "public",
+            "repeat",
+            "rethrows",
+            "return",
+            "self",
+            "Self",
+            "static",
+            "struct",
+            "subscript",
+            "super",
+            "switch",
+            "throw",
+            "throws",
+            "true",
+            "try",
+            "typealias",
+            "var",
+            "where",
+            "while",
+            "Any",
+            "associativity",
+            "convenience",
+            "dynamic",
+            "didSet",
+            "final",
+            "get",
+            "infix",
+            "indirect",
+            "lazy",
+            "left",
+            "mutating",
+            "none",
+            "nonmutating",
+            "optional",
+            "override",
+            "postfix",
+            "Protocol",
+            "required",
+            "right",
+            "set",
+            "Type",
+            "unowned",
+            "weak",
+            "willSet",
+            "String",
         };
 
 
@@ -792,8 +770,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
     string SafeName(const string& name) {
         string result = name;
+        
+        if (result == "description" || result == "debugDescription" || result ==  "hashValue")
+        {
+            return  result + "_";
+        }
+        
         if (kKeywords.count(result) > 0) {
-            result.append("_");
+            result = "`" + result + "`";
         }
         return result;
     }
