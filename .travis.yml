@@ -2,10 +2,14 @@ language: objective-c
 osx_image: xcode8
 before_install:
   - brew update
+#  - brew uninstall xctool
+#  - brew install xctool --HEAD
   - brew install protobuf --devel
 install:
   - scripts/build.sh
   - scripts/makeTests.sh
 script:
-  - xctool -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -sdk iphonesimulator -scheme ProtocolBuffers build test
-  - xctool -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -scheme "ProtocolBuffers(OSX)" build test
+  - xcodebuild test -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -scheme ProtocolBuffers -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0'
+#  - xctool -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -sdk iphonesimulator -scheme ProtocolBuffers build test
+#  - xctool -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -scheme "ProtocolBuffers(OSX)" build test
+#  - xctool -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -sdk appletvsimulator -scheme "ProtocolBuffers(tvOS)" build test
