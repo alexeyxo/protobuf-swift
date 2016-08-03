@@ -606,7 +606,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             name = "`" + name + "`";
         }
         name[0] = tolower(name[0]);
-        return name;
+        return CheckReservedNames(name);
     }
 
 
