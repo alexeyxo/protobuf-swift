@@ -107,14 +107,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["containing_class"] = ClassNameReturedType(descriptor->containing_type());
             
             (*variables)["name"] = name;
-            (*variables)["name_reserved"] = CheckReservedNames(name);
+            (*variables)["name_reserved"] = SafeName(name);
             (*variables)["capitalized_name"] = capname;
             (*variables)["number"] = SimpleItoa(descriptor->number());
             (*variables)["type"] = PrimitiveTypeName(descriptor);
             
             //JSON
             (*variables)["json_name"] = descriptor->json_name();
-            (*variables)["to_json_value"] = CheckReservedNames(ToJSONValue(descriptor, name));
+            (*variables)["to_json_value"] = SafeName(ToJSONValue(descriptor, name));
             (*variables)["to_json_value_repeated_storage_type"] = ToJSONValueRepeatedStorageType(descriptor);
             (*variables)["to_json_value_repeated"] = ToJSONValue(descriptor, "oneValue" + capname);
             (*variables)["from_json_value"] = FromJSONValue(descriptor, "jsonValue" + capname);

@@ -34,7 +34,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             std::string name = UnderscoresToCamelCase(descriptor);
             std::string capname = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["name"] = name;
-            (*variables)["name_reserved"] = CheckReservedNames(name);
+            (*variables)["name_reserved"] = SafeName(name);
             (*variables)["capitalized_name"] = capname;
             (*variables)["number"] = SimpleItoa(descriptor->number());
             

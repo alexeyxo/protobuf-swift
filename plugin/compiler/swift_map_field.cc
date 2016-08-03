@@ -52,7 +52,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["capitalized_type_key"] = GetCapitalizedType(key_descriptor);
             (*variables)["capitalized_type_value"] = GetCapitalizedType(value_descriptor);
             (*variables)["name"] = name;
-            (*variables)["name_reserved"] = CheckReservedNames(name);
+            (*variables)["name_reserved"] = SafeName(name);
             (*variables)["default"] = DefaultValue(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());
             (*variables)["backward_class"] = ClassNameReturedType(descriptor->message_type());

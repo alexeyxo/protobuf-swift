@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3F1422981A07FDBF0090CEE9 /* ProtocolBuffers.framework in Copy Framework */ = {isa = PBXBuildFile; fileRef = 3F85569919C71BCF003802F2 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3F2275591D5201BB00FBB3DF /* Google.Protobuf.Any.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F586C371D50EE720015E6F5 /* Google.Protobuf.Any.proto.swift */; };
+		3F22755A1D5201BB00FBB3DF /* Google.Protobuf.Type.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F586C381D50EE720015E6F5 /* Google.Protobuf.Type.proto.swift */; };
+		3F22755B1D5201BC00FBB3DF /* Google.Protobuf.Any.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F586C371D50EE720015E6F5 /* Google.Protobuf.Any.proto.swift */; };
+		3F22755C1D5201BC00FBB3DF /* Google.Protobuf.Type.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F586C381D50EE720015E6F5 /* Google.Protobuf.Type.proto.swift */; };
 		3F26F7471B909AD300428569 /* delimitedFile.dat in Resources */ = {isa = PBXBuildFile; fileRef = 3F26F7461B909AD300428569 /* delimitedFile.dat */; };
 		3F26F7481B909AD300428569 /* delimitedFile.dat in Resources */ = {isa = PBXBuildFile; fileRef = 3F26F7461B909AD300428569 /* delimitedFile.dat */; };
 		3F4106271A1A667800742090 /* ProtocolBuffers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F41061C1A1A667700742090 /* ProtocolBuffers.framework */; };
@@ -755,6 +759,8 @@
 				3F89A83D1C396BD8009876B8 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
 				3F89A8411C396BD8009876B8 /* Google.Protobuf.SourceContext.proto.swift in Sources */,
 				3F89A8461C396BD8009876B8 /* Google.Protobuf.Wrappers.proto.swift in Sources */,
+				3F22755C1D5201BC00FBB3DF /* Google.Protobuf.Type.proto.swift in Sources */,
+				3F22755B1D5201BC00FBB3DF /* Google.Protobuf.Any.proto.swift in Sources */,
 				3F89A8331C396BD8009876B8 /* AbstractMessage.swift in Sources */,
 				3F89A8431C396BD8009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */,
 				3F89A8401C396BD8009876B8 /* Google.Protobuf.FieldMask.proto.swift in Sources */,
@@ -783,6 +789,8 @@
 				3F89A8261C396BD6009876B8 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
 				3F89A82A1C396BD6009876B8 /* Google.Protobuf.SourceContext.proto.swift in Sources */,
 				3F89A82F1C396BD6009876B8 /* Google.Protobuf.Wrappers.proto.swift in Sources */,
+				3F22755A1D5201BB00FBB3DF /* Google.Protobuf.Type.proto.swift in Sources */,
+				3F2275591D5201BB00FBB3DF /* Google.Protobuf.Any.proto.swift in Sources */,
 				3F89A81C1C396BD6009876B8 /* AbstractMessage.swift in Sources */,
 				3F89A82C1C396BD6009876B8 /* Google.Protobuf.SwiftDescriptor.proto.swift in Sources */,
 				3F89A8291C396BD6009876B8 /* Google.Protobuf.FieldMask.proto.swift in Sources */,
