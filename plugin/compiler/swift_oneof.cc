@@ -77,7 +77,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string acControl = GetAccessControlType(descriptor_->containing_type()->file());
 
         printer->Print("$acontrol$ enum $classname$ {\n",
-                       "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
+                       "classname",CheckReservedNames(UnderscoresToCapitalizedCamelCase(descriptor_->name())),
                        "acontrol", acControl);
         
         
@@ -94,7 +94,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "     }\n"
                        "}\n",
                        "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
-                       "name",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
+                       "name",CheckReservedNames(UnderscoresToCapitalizedCamelCase(descriptor_->name())),
                       "acontrol", acControl);
         
         printer->Outdent();
@@ -108,7 +108,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 
                 string classNames = ClassNameReturedType(fieldType->message_type());
                 printer->Print("case $name$($type$)\n\n",
-                               "name",UnderscoresToCapitalizedCamelCase(fieldType),
+                               "name",CheckReservedNames(UnderscoresToCapitalizedCamelCase(fieldType)),
                                "type",classNames);
                 
                 
@@ -131,7 +131,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 const FieldDescriptor* enumDesc = descriptor_->field(i);
                 string type = ClassNameReturedType(enumDesc->enum_type());
                 printer->Print("case $name$($type$)\n\n",
-                               "name",UnderscoresToCapitalizedCamelCase(enumDesc->name()),
+                               "name",CheckReservedNames(UnderscoresToCapitalizedCamelCase(enumDesc->name())),
                                "type",type);
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
@@ -150,7 +150,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             else
             {
                 printer->Print("case $name$($type$)\n\n",
-                               "name",UnderscoresToCapitalizedCamelCase(fieldType->name()),
+                               "name",CheckReservedNames(UnderscoresToCapitalizedCamelCase(fieldType->name())),
                                "type",PrimitiveTypeName(fieldType));
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
