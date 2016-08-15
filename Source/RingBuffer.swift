@@ -92,7 +92,7 @@ internal class RingBuffer {
         return totalWritten
     }
     
-    func flushToOutputStream(stream:NSOutputStream) -> Int {
+    func flushToOutputStream(stream:OutputStream) -> Int {
         var totalWritten:Int = 0
         
 //        let data = buffer

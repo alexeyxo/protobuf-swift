@@ -61,7 +61,7 @@ public enum WireFormat:Int32
     {
         var retValue = defaultValue
         var curValue = value
-        memcpy(&retValue, &curValue, sizeof(T.self))
+        memcpy(&retValue, &curValue, MemoryLayout<T>.size)
         return retValue
     }
     

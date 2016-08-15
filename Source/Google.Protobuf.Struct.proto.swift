@@ -178,10 +178,10 @@ public extension Google.Protobuf {
 
           var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
           if hasKey {
-            jsonMap["key"] = key
+            jsonMap["key"] = key as AnyObject
           }
           if hasValue {
-            jsonMap["value"] = try value.encode()
+            jsonMap["value"] = try value.encode() as AnyObject
           }
           return jsonMap
         }
@@ -468,7 +468,7 @@ public extension Google.Protobuf {
           for (keyFields, valueFields) in fields {
               mapFields["\(keyFields)"] = try valueFields.encode()
           }
-          jsonMap["fields"] = mapFields
+          jsonMap["fields"] = mapFields as AnyObject
       }
       return jsonMap
     }
@@ -907,22 +907,22 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasNullValue {
-        jsonMap["nullValue"] = nullValue.toString()
+        jsonMap["nullValue"] = nullValue.toString() as AnyObject
       }
       if hasNumberValue {
-        jsonMap["numberValue"] = NSNumber(value:numberValue)
+        jsonMap["numberValue"] = NSNumber(value:numberValue) as AnyObject
       }
       if hasStringValue {
-        jsonMap["stringValue"] = stringValue
+        jsonMap["stringValue"] = stringValue as AnyObject
       }
       if hasBoolValue {
-        jsonMap["boolValue"] = boolValue
+        jsonMap["boolValue"] = boolValue as AnyObject
       }
       if hasStructValue {
-        jsonMap["structValue"] = try structValue.encode()
+        jsonMap["structValue"] = try structValue.encode() as AnyObject
       }
       if hasListValue {
-        jsonMap["listValue"] = try listValue.encode()
+        jsonMap["listValue"] = try listValue.encode() as AnyObject
       }
       return jsonMap
     }
@@ -1399,7 +1399,7 @@ public extension Google.Protobuf {
             let ecodedMessageValues = try oneValueValues.encode()
             jsonArrayValues.append(ecodedMessageValues)
           }
-        jsonMap["values"] = jsonArrayValues
+        jsonMap["values"] = jsonArrayValues as AnyObject
       }
       return jsonMap
     }

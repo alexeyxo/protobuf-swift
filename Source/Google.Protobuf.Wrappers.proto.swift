@@ -172,7 +172,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasValue {
-        jsonMap["value"] = NSNumber(value:value)
+        jsonMap["value"] = NSNumber(value:value) as AnyObject
       }
       return jsonMap
     }
@@ -372,7 +372,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasValue {
-        jsonMap["value"] = NSNumber(value:value)
+        jsonMap["value"] = NSNumber(value:value) as AnyObject
       }
       return jsonMap
     }
@@ -572,7 +572,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasValue {
-        jsonMap["value"] = "\(value)"
+        jsonMap["value"] = "\(value)" as AnyObject
       }
       return jsonMap
     }
@@ -772,7 +772,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasValue {
-        jsonMap["value"] = "\(value)"
+        jsonMap["value"] = "\(value)" as AnyObject
       }
       return jsonMap
     }
@@ -972,7 +972,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasValue {
-        jsonMap["value"] = NSNumber(value:value)
+        jsonMap["value"] = NSNumber(value:value) as AnyObject
       }
       return jsonMap
     }
@@ -1172,7 +1172,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasValue {
-        jsonMap["value"] = NSNumber(value:value)
+        jsonMap["value"] = NSNumber(value:value) as AnyObject
       }
       return jsonMap
     }
@@ -1372,7 +1372,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasValue {
-        jsonMap["value"] = value
+        jsonMap["value"] = value as AnyObject
       }
       return jsonMap
     }
@@ -1572,7 +1572,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasValue {
-        jsonMap["value"] = value
+        jsonMap["value"] = value as AnyObject
       }
       return jsonMap
     }
@@ -1772,7 +1772,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasValue {
-        jsonMap["value"] = value.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
+        jsonMap["value"] = value.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)) as AnyObject
       }
       return jsonMap
     }

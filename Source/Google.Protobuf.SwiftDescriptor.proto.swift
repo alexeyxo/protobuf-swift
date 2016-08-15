@@ -152,13 +152,13 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasClassPrefix {
-        jsonMap["classPrefix"] = classPrefix
+        jsonMap["classPrefix"] = classPrefix as AnyObject
       }
       if hasEntitiesAccessControl {
-        jsonMap["entitiesAccessControl"] = entitiesAccessControl.toString()
+        jsonMap["entitiesAccessControl"] = entitiesAccessControl.toString() as AnyObject
       }
       if hasCompileForFramework {
-        jsonMap["compileForFramework"] = compileForFramework
+        jsonMap["compileForFramework"] = compileForFramework as AnyObject
       }
       return jsonMap
     }

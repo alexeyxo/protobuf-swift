@@ -189,7 +189,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if !paths.isEmpty {
-        jsonMap["paths"] = paths
+        jsonMap["paths"] = paths as AnyObject
       }
       return jsonMap
     }

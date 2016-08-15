@@ -147,10 +147,10 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasTypeUrl {
-        jsonMap["typeUrl"] = typeUrl
+        jsonMap["typeUrl"] = typeUrl as AnyObject
       }
       if hasValue {
-        jsonMap["value"] = value.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
+        jsonMap["value"] = value.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)) as AnyObject
       }
       return jsonMap
     }
