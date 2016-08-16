@@ -166,7 +166,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasName {
-        jsonMap["name"] = name
+        jsonMap["name"] = name as AnyObject
       }
       if !methods.isEmpty {
         var jsonArrayMethods:Array<Dictionary<String,AnyObject>> = []
@@ -174,7 +174,7 @@ public extension Google.Protobuf {
             let ecodedMessageMethods = try oneValueMethods.encode()
             jsonArrayMethods.append(ecodedMessageMethods)
           }
-        jsonMap["methods"] = jsonArrayMethods
+        jsonMap["methods"] = jsonArrayMethods as AnyObject
       }
       if !options.isEmpty {
         var jsonArrayOptions:Array<Dictionary<String,AnyObject>> = []
@@ -182,13 +182,13 @@ public extension Google.Protobuf {
             let ecodedMessageOptions = try oneValueOptions.encode()
             jsonArrayOptions.append(ecodedMessageOptions)
           }
-        jsonMap["options"] = jsonArrayOptions
+        jsonMap["options"] = jsonArrayOptions as AnyObject
       }
       if hasVersion {
-        jsonMap["version"] = version
+        jsonMap["version"] = version as AnyObject
       }
       if hasSourceContext {
-        jsonMap["sourceContext"] = try sourceContext.encode()
+        jsonMap["sourceContext"] = try sourceContext.encode() as AnyObject
       }
       return jsonMap
     }
@@ -637,19 +637,19 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasName {
-        jsonMap["name"] = name
+        jsonMap["name"] = name as AnyObject
       }
       if hasRequestTypeUrl {
-        jsonMap["requestTypeUrl"] = requestTypeUrl
+        jsonMap["requestTypeUrl"] = requestTypeUrl as AnyObject
       }
       if hasRequestStreaming {
-        jsonMap["requestStreaming"] = requestStreaming
+        jsonMap["requestStreaming"] = requestStreaming as AnyObject
       }
       if hasResponseTypeUrl {
-        jsonMap["responseTypeUrl"] = responseTypeUrl
+        jsonMap["responseTypeUrl"] = responseTypeUrl as AnyObject
       }
       if hasResponseStreaming {
-        jsonMap["responseStreaming"] = responseStreaming
+        jsonMap["responseStreaming"] = responseStreaming as AnyObject
       }
       if !options.isEmpty {
         var jsonArrayOptions:Array<Dictionary<String,AnyObject>> = []
@@ -657,7 +657,7 @@ public extension Google.Protobuf {
             let ecodedMessageOptions = try oneValueOptions.encode()
             jsonArrayOptions.append(ecodedMessageOptions)
           }
-        jsonMap["options"] = jsonArrayOptions
+        jsonMap["options"] = jsonArrayOptions as AnyObject
       }
       return jsonMap
     }

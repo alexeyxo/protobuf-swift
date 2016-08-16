@@ -94,7 +94,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasFileName {
-        jsonMap["fileName"] = fileName
+        jsonMap["fileName"] = fileName as AnyObject
       }
       return jsonMap
     }

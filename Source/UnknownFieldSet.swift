@@ -61,7 +61,7 @@ public class UnknownFieldSet:Hashable,Equatable {
         }
     }
     
-    public func writeTo(outputStream:NSOutputStream) throws {
+    public func writeTo(outputStream:OutputStream) throws {
         let codedOutput:CodedOutputStream = CodedOutputStream(stream: outputStream)
         try writeTo(codedOutputStream: codedOutput)
         try codedOutput.flush()

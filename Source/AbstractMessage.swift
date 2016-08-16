@@ -37,7 +37,7 @@ public protocol ProtocolBuffersMessage:ProtocolBuffersMessageInit {
     func serializedSize() -> Int32
     func isInitialized() -> Bool
     func writeTo(codedOutputStream:CodedOutputStream) throws
-    func writeTo(outputStream:NSOutputStream) throws
+    func writeTo(outputStream:OutputStream) throws
     func data() throws -> Data
     static func classBuilder()-> ProtocolBuffersMessageBuilder
     func classBuilder()-> ProtocolBuffersMessageBuilder
@@ -104,13 +104,13 @@ public class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
         throw ProtocolBuffersError.obvious("Override")
     }
     
-    final public func writeTo(outputStream: NSOutputStream) throws {
+    final public func writeTo(outputStream: OutputStream) throws {
         let codedOutput:CodedOutputStream = CodedOutputStream(stream:outputStream)
         try! writeTo(codedOutputStream: codedOutput)
         try codedOutput.flush()
     }
     
-    public func writeDelimitedTo(outputStream: NSOutputStream) throws {
+    public func writeDelimitedTo(outputStream: OutputStream) throws {
         let serializedDataSize = serializedSize()
         let codedOutputStream = CodedOutputStream(stream: outputStream)
         try codedOutputStream.writeRawVarint32(value: serializedDataSize)
@@ -228,7 +228,7 @@ public class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder
         }
         let rSize = try CodedInputStream.readRawVarint32(firstByte: firstByte, inputStream: inputStream)
         let data  = Data(bytes: [0],count: Int(rSize))
-        let pointer = UnsafeMutablePointer<UInt8>((data as NSData).bytes)
+        let pointer = UnsafeMutablePointerUInt8From(data: data)
         inputStream.read(pointer, maxLength: Int(rSize))
         return try mergeFrom(data: data)
     }

@@ -140,10 +140,10 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasSeconds {
-        jsonMap["seconds"] = "\(seconds)"
+        jsonMap["seconds"] = "\(seconds)" as AnyObject
       }
       if hasNanos {
-        jsonMap["nanos"] = NSNumber(value:nanos)
+        jsonMap["nanos"] = NSNumber(value:nanos) as AnyObject
       }
       return jsonMap
     }

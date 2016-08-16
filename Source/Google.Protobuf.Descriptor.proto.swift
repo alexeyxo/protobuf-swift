@@ -402,7 +402,7 @@ public extension Google.Protobuf {
             let ecodedMessageFile = try oneValueFile.encode()
             jsonArrayFile.append(ecodedMessageFile)
           }
-        jsonMap["file"] = jsonArrayFile
+        jsonMap["file"] = jsonArrayFile as AnyObject  as AnyObject
       }
       return jsonMap
     }
@@ -761,27 +761,27 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasName {
-        jsonMap["name"] = name
+        jsonMap["name"] = name as AnyObject
       }
       if hasPackage {
-        jsonMap["package"] = package
+        jsonMap["package"] = package as AnyObject
       }
       if !dependency.isEmpty {
-        jsonMap["dependency"] = dependency
+        jsonMap["dependency"] = dependency as AnyObject
       }
       if !publicDependency.isEmpty {
         var jsonArrayPublicDependency:Array<NSNumber> = []
           for oneValuePublicDependency in publicDependency {
             jsonArrayPublicDependency.append(NSNumber(value:oneValuePublicDependency))
           }
-        jsonMap["publicDependency"] = jsonArrayPublicDependency
+        jsonMap["publicDependency"] = jsonArrayPublicDependency as AnyObject
       }
       if !weakDependency.isEmpty {
         var jsonArrayWeakDependency:Array<NSNumber> = []
           for oneValueWeakDependency in weakDependency {
             jsonArrayWeakDependency.append(NSNumber(value:oneValueWeakDependency))
           }
-        jsonMap["weakDependency"] = jsonArrayWeakDependency
+        jsonMap["weakDependency"] = jsonArrayWeakDependency as AnyObject
       }
       if !messageType.isEmpty {
         var jsonArrayMessageType:Array<Dictionary<String,AnyObject>> = []
@@ -789,7 +789,7 @@ public extension Google.Protobuf {
             let ecodedMessageMessageType = try oneValueMessageType.encode()
             jsonArrayMessageType.append(ecodedMessageMessageType)
           }
-        jsonMap["messageType"] = jsonArrayMessageType
+        jsonMap["messageType"] = jsonArrayMessageType as AnyObject
       }
       if !enumType.isEmpty {
         var jsonArrayEnumType:Array<Dictionary<String,AnyObject>> = []
@@ -797,7 +797,7 @@ public extension Google.Protobuf {
             let ecodedMessageEnumType = try oneValueEnumType.encode()
             jsonArrayEnumType.append(ecodedMessageEnumType)
           }
-        jsonMap["enumType"] = jsonArrayEnumType
+        jsonMap["enumType"] = jsonArrayEnumType as AnyObject
       }
       if !service.isEmpty {
         var jsonArrayService:Array<Dictionary<String,AnyObject>> = []
@@ -805,7 +805,7 @@ public extension Google.Protobuf {
             let ecodedMessageService = try oneValueService.encode()
             jsonArrayService.append(ecodedMessageService)
           }
-        jsonMap["service"] = jsonArrayService
+        jsonMap["service"] = jsonArrayService as AnyObject
       }
       if !`extension`.isEmpty {
         var jsonArrayExtension:Array<Dictionary<String,AnyObject>> = []
@@ -813,16 +813,16 @@ public extension Google.Protobuf {
             let ecodedMessageExtension = try oneValueExtension.encode()
             jsonArrayExtension.append(ecodedMessageExtension)
           }
-        jsonMap["extension"] = jsonArrayExtension
+        jsonMap["extension"] = jsonArrayExtension as AnyObject
       }
       if hasOptions {
-        jsonMap["options"] = try options.encode()
+        jsonMap["options"] = try options.encode() as AnyObject
       }
       if hasSourceCodeInfo {
-        jsonMap["sourceCodeInfo"] = try sourceCodeInfo.encode()
+        jsonMap["sourceCodeInfo"] = try sourceCodeInfo.encode() as AnyObject
       }
       if hasSyntax {
-        jsonMap["syntax"] = syntax
+        jsonMap["syntax"] = syntax as AnyObject
       }
       return jsonMap
     }
@@ -1546,10 +1546,10 @@ public extension Google.Protobuf {
 
           var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
           if hasStart {
-            jsonMap["start"] = NSNumber(value:start)
+            jsonMap["start"] = NSNumber(value:start) as AnyObject
           }
           if hasEnd {
-            jsonMap["end"] = NSNumber(value:end)
+            jsonMap["end"] = NSNumber(value:end) as AnyObject
           }
           return jsonMap
         }
@@ -1805,10 +1805,10 @@ public extension Google.Protobuf {
 
           var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
           if hasStart {
-            jsonMap["start"] = NSNumber(value:start)
+            jsonMap["start"] = NSNumber(value:start) as AnyObject
           }
           if hasEnd {
-            jsonMap["end"] = NSNumber(value:end)
+            jsonMap["end"] = NSNumber(value:end) as AnyObject
           }
           return jsonMap
         }
@@ -2163,7 +2163,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasName {
-        jsonMap["name"] = name
+        jsonMap["name"] = name as AnyObject
       }
       if !field.isEmpty {
         var jsonArrayField:Array<Dictionary<String,AnyObject>> = []
@@ -2171,7 +2171,7 @@ public extension Google.Protobuf {
             let ecodedMessageField = try oneValueField.encode()
             jsonArrayField.append(ecodedMessageField)
           }
-        jsonMap["field"] = jsonArrayField
+        jsonMap["field"] = jsonArrayField as AnyObject
       }
       if !`extension`.isEmpty {
         var jsonArrayExtension:Array<Dictionary<String,AnyObject>> = []
@@ -2179,7 +2179,7 @@ public extension Google.Protobuf {
             let ecodedMessageExtension = try oneValueExtension.encode()
             jsonArrayExtension.append(ecodedMessageExtension)
           }
-        jsonMap["extension"] = jsonArrayExtension
+        jsonMap["extension"] = jsonArrayExtension as AnyObject
       }
       if !nestedType.isEmpty {
         var jsonArrayNestedType:Array<Dictionary<String,AnyObject>> = []
@@ -2187,7 +2187,7 @@ public extension Google.Protobuf {
             let ecodedMessageNestedType = try oneValueNestedType.encode()
             jsonArrayNestedType.append(ecodedMessageNestedType)
           }
-        jsonMap["nestedType"] = jsonArrayNestedType
+        jsonMap["nestedType"] = jsonArrayNestedType as AnyObject
       }
       if !enumType.isEmpty {
         var jsonArrayEnumType:Array<Dictionary<String,AnyObject>> = []
@@ -2195,7 +2195,7 @@ public extension Google.Protobuf {
             let ecodedMessageEnumType = try oneValueEnumType.encode()
             jsonArrayEnumType.append(ecodedMessageEnumType)
           }
-        jsonMap["enumType"] = jsonArrayEnumType
+        jsonMap["enumType"] = jsonArrayEnumType as AnyObject
       }
       if !extensionRange.isEmpty {
         var jsonArrayExtensionRange:Array<Dictionary<String,AnyObject>> = []
@@ -2203,7 +2203,7 @@ public extension Google.Protobuf {
             let ecodedMessageExtensionRange = try oneValueExtensionRange.encode()
             jsonArrayExtensionRange.append(ecodedMessageExtensionRange)
           }
-        jsonMap["extensionRange"] = jsonArrayExtensionRange
+        jsonMap["extensionRange"] = jsonArrayExtensionRange as AnyObject
       }
       if !oneofDecl.isEmpty {
         var jsonArrayOneofDecl:Array<Dictionary<String,AnyObject>> = []
@@ -2211,10 +2211,10 @@ public extension Google.Protobuf {
             let ecodedMessageOneofDecl = try oneValueOneofDecl.encode()
             jsonArrayOneofDecl.append(ecodedMessageOneofDecl)
           }
-        jsonMap["oneofDecl"] = jsonArrayOneofDecl
+        jsonMap["oneofDecl"] = jsonArrayOneofDecl as AnyObject
       }
       if hasOptions {
-        jsonMap["options"] = try options.encode()
+        jsonMap["options"] = try options.encode() as AnyObject
       }
       if !reservedRange.isEmpty {
         var jsonArrayReservedRange:Array<Dictionary<String,AnyObject>> = []
@@ -2222,10 +2222,10 @@ public extension Google.Protobuf {
             let ecodedMessageReservedRange = try oneValueReservedRange.encode()
             jsonArrayReservedRange.append(ecodedMessageReservedRange)
           }
-        jsonMap["reservedRange"] = jsonArrayReservedRange
+        jsonMap["reservedRange"] = jsonArrayReservedRange as AnyObject
       }
       if !reservedName.isEmpty {
-        jsonMap["reservedName"] = reservedName
+        jsonMap["reservedName"] = reservedName as AnyObject
       }
       return jsonMap
     }
@@ -3079,31 +3079,31 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasName {
-        jsonMap["name"] = name
+        jsonMap["name"] = name as AnyObject
       }
       if hasNumber {
-        jsonMap["number"] = NSNumber(value:number)
+        jsonMap["number"] = NSNumber(value:number) as AnyObject
       }
       if hasLabel {
-        jsonMap["label"] = label.toString()
+        jsonMap["label"] = label.toString() as AnyObject
       }
       if hasType {
-        jsonMap["type"] = type.toString()
+        jsonMap["type"] = type.toString() as AnyObject
       }
       if hasTypeName {
-        jsonMap["typeName"] = typeName
+        jsonMap["typeName"] = typeName as AnyObject
       }
       if hasExtendee {
-        jsonMap["extendee"] = extendee
+        jsonMap["extendee"] = extendee as AnyObject
       }
       if hasDefaultValue {
-        jsonMap["defaultValue"] = defaultValue
+        jsonMap["defaultValue"] = defaultValue as AnyObject
       }
       if hasOneofIndex {
-        jsonMap["oneofIndex"] = NSNumber(value:oneofIndex)
+        jsonMap["oneofIndex"] = NSNumber(value:oneofIndex) as AnyObject
       }
       if hasOptions {
-        jsonMap["options"] = try options.encode()
+        jsonMap["options"] = try options.encode() as AnyObject
       }
       return jsonMap
     }
@@ -3656,7 +3656,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasName {
-        jsonMap["name"] = name
+        jsonMap["name"] = name as AnyObject
       }
       return jsonMap
     }
@@ -3887,7 +3887,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasName {
-        jsonMap["name"] = name
+        jsonMap["name"] = name as AnyObject
       }
       if !value.isEmpty {
         var jsonArrayValue:Array<Dictionary<String,AnyObject>> = []
@@ -3895,10 +3895,10 @@ public extension Google.Protobuf {
             let ecodedMessageValue = try oneValueValue.encode()
             jsonArrayValue.append(ecodedMessageValue)
           }
-        jsonMap["value"] = jsonArrayValue
+        jsonMap["value"] = jsonArrayValue as AnyObject
       }
       if hasOptions {
-        jsonMap["options"] = try options.encode()
+        jsonMap["options"] = try options.encode() as AnyObject
       }
       return jsonMap
     }
@@ -4242,13 +4242,13 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasName {
-        jsonMap["name"] = name
+        jsonMap["name"] = name as AnyObject
       }
       if hasNumber {
-        jsonMap["number"] = NSNumber(value:number)
+        jsonMap["number"] = NSNumber(value:number) as AnyObject
       }
       if hasOptions {
-        jsonMap["options"] = try options.encode()
+        jsonMap["options"] = try options.encode() as AnyObject
       }
       return jsonMap
     }
@@ -4595,7 +4595,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasName {
-        jsonMap["name"] = name
+        jsonMap["name"] = name as AnyObject
       }
       if !method.isEmpty {
         var jsonArrayMethod:Array<Dictionary<String,AnyObject>> = []
@@ -4603,10 +4603,10 @@ public extension Google.Protobuf {
             let ecodedMessageMethod = try oneValueMethod.encode()
             jsonArrayMethod.append(ecodedMessageMethod)
           }
-        jsonMap["method"] = jsonArrayMethod
+        jsonMap["method"] = jsonArrayMethod as AnyObject
       }
       if hasOptions {
-        jsonMap["options"] = try options.encode()
+        jsonMap["options"] = try options.encode() as AnyObject
       }
       return jsonMap
     }
@@ -4981,22 +4981,22 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasName {
-        jsonMap["name"] = name
+        jsonMap["name"] = name as AnyObject
       }
       if hasInputType {
-        jsonMap["inputType"] = inputType
+        jsonMap["inputType"] = inputType as AnyObject
       }
       if hasOutputType {
-        jsonMap["outputType"] = outputType
+        jsonMap["outputType"] = outputType as AnyObject
       }
       if hasOptions {
-        jsonMap["options"] = try options.encode()
+        jsonMap["options"] = try options.encode() as AnyObject
       }
       if hasClientStreaming {
-        jsonMap["clientStreaming"] = clientStreaming
+        jsonMap["clientStreaming"] = clientStreaming as AnyObject
       }
       if hasServerStreaming {
-        jsonMap["serverStreaming"] = serverStreaming
+        jsonMap["serverStreaming"] = serverStreaming as AnyObject
       }
       return jsonMap
     }
@@ -5658,46 +5658,46 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasJavaPackage {
-        jsonMap["javaPackage"] = javaPackage
+        jsonMap["javaPackage"] = javaPackage as AnyObject
       }
       if hasJavaOuterClassname {
-        jsonMap["javaOuterClassname"] = javaOuterClassname
+        jsonMap["javaOuterClassname"] = javaOuterClassname as AnyObject
       }
       if hasJavaMultipleFiles {
-        jsonMap["javaMultipleFiles"] = javaMultipleFiles
+        jsonMap["javaMultipleFiles"] = javaMultipleFiles as AnyObject
       }
       if hasJavaGenerateEqualsAndHash {
-        jsonMap["javaGenerateEqualsAndHash"] = javaGenerateEqualsAndHash
+        jsonMap["javaGenerateEqualsAndHash"] = javaGenerateEqualsAndHash as AnyObject
       }
       if hasJavaStringCheckUtf8 {
-        jsonMap["javaStringCheckUtf8"] = javaStringCheckUtf8
+        jsonMap["javaStringCheckUtf8"] = javaStringCheckUtf8 as AnyObject
       }
       if hasOptimizeFor {
-        jsonMap["optimizeFor"] = optimizeFor.toString()
+        jsonMap["optimizeFor"] = optimizeFor.toString() as AnyObject
       }
       if hasGoPackage {
-        jsonMap["goPackage"] = goPackage
+        jsonMap["goPackage"] = goPackage as AnyObject
       }
       if hasCcGenericServices {
-        jsonMap["ccGenericServices"] = ccGenericServices
+        jsonMap["ccGenericServices"] = ccGenericServices as AnyObject
       }
       if hasJavaGenericServices {
-        jsonMap["javaGenericServices"] = javaGenericServices
+        jsonMap["javaGenericServices"] = javaGenericServices as AnyObject
       }
       if hasPyGenericServices {
-        jsonMap["pyGenericServices"] = pyGenericServices
+        jsonMap["pyGenericServices"] = pyGenericServices as AnyObject
       }
       if hasDeprecated {
-        jsonMap["deprecated"] = deprecated
+        jsonMap["deprecated"] = deprecated as AnyObject
       }
       if hasCcEnableArenas {
-        jsonMap["ccEnableArenas"] = ccEnableArenas
+        jsonMap["ccEnableArenas"] = ccEnableArenas as AnyObject
       }
       if hasObjcClassPrefix {
-        jsonMap["objcClassPrefix"] = objcClassPrefix
+        jsonMap["objcClassPrefix"] = objcClassPrefix as AnyObject
       }
       if hasCsharpNamespace {
-        jsonMap["csharpNamespace"] = csharpNamespace
+        jsonMap["csharpNamespace"] = csharpNamespace as AnyObject
       }
       if !uninterpretedOption.isEmpty {
         var jsonArrayUninterpretedOption:Array<Dictionary<String,AnyObject>> = []
@@ -5705,7 +5705,7 @@ public extension Google.Protobuf {
             let ecodedMessageUninterpretedOption = try oneValueUninterpretedOption.encode()
             jsonArrayUninterpretedOption.append(ecodedMessageUninterpretedOption)
           }
-        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption
+        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption as AnyObject
       }
       return jsonMap
     }
@@ -6537,16 +6537,16 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasMessageSetWireFormat {
-        jsonMap["messageSetWireFormat"] = messageSetWireFormat
+        jsonMap["messageSetWireFormat"] = messageSetWireFormat as AnyObject
       }
       if hasNoStandardDescriptorAccessor {
-        jsonMap["noStandardDescriptorAccessor"] = noStandardDescriptorAccessor
+        jsonMap["noStandardDescriptorAccessor"] = noStandardDescriptorAccessor as AnyObject
       }
       if hasDeprecated {
-        jsonMap["deprecated"] = deprecated
+        jsonMap["deprecated"] = deprecated as AnyObject
       }
       if hasMapEntry {
-        jsonMap["mapEntry"] = mapEntry
+        jsonMap["mapEntry"] = mapEntry as AnyObject
       }
       if !uninterpretedOption.isEmpty {
         var jsonArrayUninterpretedOption:Array<Dictionary<String,AnyObject>> = []
@@ -6554,7 +6554,7 @@ public extension Google.Protobuf {
             let ecodedMessageUninterpretedOption = try oneValueUninterpretedOption.encode()
             jsonArrayUninterpretedOption.append(ecodedMessageUninterpretedOption)
           }
-        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption
+        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption as AnyObject
       }
       return jsonMap
     }
@@ -7089,22 +7089,22 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasCtype {
-        jsonMap["ctype"] = ctype.toString()
+        jsonMap["ctype"] = ctype.toString() as AnyObject
       }
       if hasPacked {
-        jsonMap["packed"] = packed
+        jsonMap["packed"] = packed as AnyObject
       }
       if hasJstype {
-        jsonMap["jstype"] = jstype.toString()
+        jsonMap["jstype"] = jstype.toString() as AnyObject
       }
       if hasLazy {
-        jsonMap["lazy"] = `lazy`
+        jsonMap["lazy"] = `lazy` as AnyObject
       }
       if hasDeprecated {
-        jsonMap["deprecated"] = deprecated
+        jsonMap["deprecated"] = deprecated as AnyObject
       }
       if hasWeak {
-        jsonMap["weak"] = `weak`
+        jsonMap["weak"] = `weak` as AnyObject
       }
       if !uninterpretedOption.isEmpty {
         var jsonArrayUninterpretedOption:Array<Dictionary<String,AnyObject>> = []
@@ -7112,7 +7112,7 @@ public extension Google.Protobuf {
             let ecodedMessageUninterpretedOption = try oneValueUninterpretedOption.encode()
             jsonArrayUninterpretedOption.append(ecodedMessageUninterpretedOption)
           }
-        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption
+        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption as AnyObject
       }
       return jsonMap
     }
@@ -7593,10 +7593,10 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasAllowAlias {
-        jsonMap["allowAlias"] = allowAlias
+        jsonMap["allowAlias"] = allowAlias as AnyObject
       }
       if hasDeprecated {
-        jsonMap["deprecated"] = deprecated
+        jsonMap["deprecated"] = deprecated as AnyObject
       }
       if !uninterpretedOption.isEmpty {
         var jsonArrayUninterpretedOption:Array<Dictionary<String,AnyObject>> = []
@@ -7604,7 +7604,7 @@ public extension Google.Protobuf {
             let ecodedMessageUninterpretedOption = try oneValueUninterpretedOption.encode()
             jsonArrayUninterpretedOption.append(ecodedMessageUninterpretedOption)
           }
-        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption
+        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption as AnyObject
       }
       return jsonMap
     }
@@ -7912,7 +7912,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasDeprecated {
-        jsonMap["deprecated"] = deprecated
+        jsonMap["deprecated"] = deprecated as AnyObject
       }
       if !uninterpretedOption.isEmpty {
         var jsonArrayUninterpretedOption:Array<Dictionary<String,AnyObject>> = []
@@ -7920,7 +7920,7 @@ public extension Google.Protobuf {
             let ecodedMessageUninterpretedOption = try oneValueUninterpretedOption.encode()
             jsonArrayUninterpretedOption.append(ecodedMessageUninterpretedOption)
           }
-        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption
+        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption as AnyObject
       }
       return jsonMap
     }
@@ -8190,7 +8190,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasDeprecated {
-        jsonMap["deprecated"] = deprecated
+        jsonMap["deprecated"] = deprecated as AnyObject
       }
       if !uninterpretedOption.isEmpty {
         var jsonArrayUninterpretedOption:Array<Dictionary<String,AnyObject>> = []
@@ -8198,7 +8198,7 @@ public extension Google.Protobuf {
             let ecodedMessageUninterpretedOption = try oneValueUninterpretedOption.encode()
             jsonArrayUninterpretedOption.append(ecodedMessageUninterpretedOption)
           }
-        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption
+        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption as AnyObject
       }
       return jsonMap
     }
@@ -8468,7 +8468,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
       if hasDeprecated {
-        jsonMap["deprecated"] = deprecated
+        jsonMap["deprecated"] = deprecated as AnyObject
       }
       if !uninterpretedOption.isEmpty {
         var jsonArrayUninterpretedOption:Array<Dictionary<String,AnyObject>> = []
@@ -8476,7 +8476,7 @@ public extension Google.Protobuf {
             let ecodedMessageUninterpretedOption = try oneValueUninterpretedOption.encode()
             jsonArrayUninterpretedOption.append(ecodedMessageUninterpretedOption)
           }
-        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption
+        jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption as AnyObject
       }
       return jsonMap
     }
@@ -8751,10 +8751,10 @@ public extension Google.Protobuf {
 
           var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
           if hasNamePart {
-            jsonMap["namePart"] = namePart
+            jsonMap["namePart"] = namePart as AnyObject
           }
           if hasIsExtension {
-            jsonMap["isExtension"] = isExtension
+            jsonMap["isExtension"] = isExtension as AnyObject
           }
           return jsonMap
         }
@@ -9060,25 +9060,25 @@ public extension Google.Protobuf {
             let ecodedMessageName = try oneValueName.encode()
             jsonArrayName.append(ecodedMessageName)
           }
-        jsonMap["name"] = jsonArrayName
+        jsonMap["name"] = jsonArrayName as AnyObject
       }
       if hasIdentifierValue {
-        jsonMap["identifierValue"] = identifierValue
+        jsonMap["identifierValue"] = identifierValue as AnyObject
       }
       if hasPositiveIntValue {
-        jsonMap["positiveIntValue"] = "\(positiveIntValue)"
+        jsonMap["positiveIntValue"] = "\(positiveIntValue)" as AnyObject
       }
       if hasNegativeIntValue {
-        jsonMap["negativeIntValue"] = "\(negativeIntValue)"
+        jsonMap["negativeIntValue"] = "\(negativeIntValue)" as AnyObject
       }
       if hasDoubleValue {
-        jsonMap["doubleValue"] = NSNumber(value:doubleValue)
+        jsonMap["doubleValue"] = NSNumber(value:doubleValue) as AnyObject
       }
       if hasStringValue {
-        jsonMap["stringValue"] = stringValue.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
+        jsonMap["stringValue"] = stringValue.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)) as AnyObject
       }
       if hasAggregateValue {
-        jsonMap["aggregateValue"] = aggregateValue
+        jsonMap["aggregateValue"] = aggregateValue as AnyObject
       }
       return jsonMap
     }
@@ -9641,23 +9641,23 @@ public extension Google.Protobuf {
               for oneValuePath in path {
                 jsonArrayPath.append(NSNumber(value:oneValuePath))
               }
-            jsonMap["path"] = jsonArrayPath
+            jsonMap["path"] = jsonArrayPath as AnyObject
           }
           if !span.isEmpty {
             var jsonArraySpan:Array<NSNumber> = []
               for oneValueSpan in span {
                 jsonArraySpan.append(NSNumber(value:oneValueSpan))
               }
-            jsonMap["span"] = jsonArraySpan
+            jsonMap["span"] = jsonArraySpan as AnyObject
           }
           if hasLeadingComments {
-            jsonMap["leadingComments"] = leadingComments
+            jsonMap["leadingComments"] = leadingComments as AnyObject
           }
           if hasTrailingComments {
-            jsonMap["trailingComments"] = trailingComments
+            jsonMap["trailingComments"] = trailingComments as AnyObject
           }
           if !leadingDetachedComments.isEmpty {
-            jsonMap["leadingDetachedComments"] = leadingDetachedComments
+            jsonMap["leadingDetachedComments"] = leadingDetachedComments as AnyObject
           }
           return jsonMap
         }
@@ -10014,7 +10014,7 @@ public extension Google.Protobuf {
             let ecodedMessageLocation = try oneValueLocation.encode()
             jsonArrayLocation.append(ecodedMessageLocation)
           }
-        jsonMap["location"] = jsonArrayLocation
+        jsonMap["location"] = jsonArrayLocation as AnyObject
       }
       return jsonMap
     }
