@@ -251,7 +251,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateJSONDecodeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? $json_casting_type$ {\n"
-                       "  resultDecodedBuilder.$name_reserved$ = $from_json_value$\n");
+                       "  resultDecodedBuilder.$name_reserved$ = $from_json_value$ as AnyObject\n");
         printer->Print(variables_,
                        "}\n");
     }
@@ -394,7 +394,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "      let ecodedMessage$capitalized_name$ = $to_json_value_repeated$\n"
                        "      jsonArray$capitalized_name$.append(ecodedMessage$capitalized_name$)\n"
                        "    }\n"
-                       "  jsonMap[\"$json_name$\"] = jsonArray$capitalized_name$\n"
+                       "  jsonMap[\"$json_name$\"] = jsonArray$capitalized_name$ as AnyObject\n"
                        "}\n");
         
     }

@@ -27,7 +27,7 @@ public protocol GeneratedMessageProtocol: ProtocolBuffersMessage
     static func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
 }
 
-public class GeneratedMessage:AbstractProtocolBuffersMessage
+open class GeneratedMessage:AbstractProtocolBuffersMessage
 {
     public var memoizedSerializedSize:Int32 = -1
     required public init()
@@ -37,28 +37,28 @@ public class GeneratedMessage:AbstractProtocolBuffersMessage
     }
     
     //Override
-    public class func className() -> String
+    open class func className() -> String
     {
         return "GeneratedMessage"
     }
-    public func className() -> String
+    open func className() -> String
     {
         return "GeneratedMessage"
     }
-    public override class func classBuilder() -> ProtocolBuffersMessageBuilder
+    open override class func classBuilder() -> ProtocolBuffersMessageBuilder
     {
         return GeneratedMessageBuilder()
     }
-    public override func classBuilder() -> ProtocolBuffersMessageBuilder
+    open override func classBuilder() -> ProtocolBuffersMessageBuilder
     {
         return GeneratedMessageBuilder()
     }
     //
 }
 
-public class GeneratedMessageBuilder:AbstractProtocolBuffersMessageBuilder
+open class GeneratedMessageBuilder:AbstractProtocolBuffersMessageBuilder
 {
-    public var internalGetResult:GeneratedMessage
+    open var internalGetResult:GeneratedMessage
     {
         get
         {
@@ -67,7 +67,7 @@ public class GeneratedMessageBuilder:AbstractProtocolBuffersMessageBuilder
         
     }
     
-    override public var unknownFields:UnknownFieldSet
+    override open var unknownFields:UnknownFieldSet
     {
         get
         {
@@ -99,12 +99,12 @@ public class GeneratedMessageBuilder:AbstractProtocolBuffersMessageBuilder
         }
     }
     
-    override public func isInitialized() -> Bool
+    override open func isInitialized() -> Bool
     {
         return internalGetResult.isInitialized()
     }
     
-    override public func merge(unknownField: UnknownFieldSet) throws -> Self
+    override open func merge(unknownField: UnknownFieldSet) throws -> Self
     {
         let result:GeneratedMessage = internalGetResult
         result.unknownFields = try UnknownFieldSet.builderWithUnknownFields(copyFrom: result.unknownFields).merge(unknownFields: unknownField).build()

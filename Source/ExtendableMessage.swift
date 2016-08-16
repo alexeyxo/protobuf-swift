@@ -21,7 +21,7 @@ import Foundation
 typealias ExtensionsValueType = Hashable & Equatable
 
 
-public class ExtendableMessage : GeneratedMessage  
+open class ExtendableMessage : GeneratedMessage
 {
 
     fileprivate var extensionMap:[Int32:Any] = [Int32:Any]()
@@ -34,11 +34,11 @@ public class ExtendableMessage : GeneratedMessage
     }
     
     //Override
-    override public class func className() -> String
+    override open class func className() -> String
     {
         return "ExtendableMessage"
     }
-    override public func className() -> String
+    override open func className() -> String
     {
         return "ExtendableMessage"
     }
@@ -73,7 +73,7 @@ public class ExtendableMessage : GeneratedMessage
         return true
     }
     
-    public func extensionsAreInitialized() -> Bool {
+    open func extensionsAreInitialized() -> Bool {
         let arr = Array(extensionMap.values)
         return isInitialized(object:arr)
     }
@@ -284,7 +284,7 @@ public class ExtendableMessage : GeneratedMessage
 
 public class ExtendableMessageBuilder:GeneratedMessageBuilder  
 {
-    override public var internalGetResult:ExtendableMessage {
+    override open var internalGetResult:ExtendableMessage {
         get
         {
             return ExtendableMessage()
@@ -293,7 +293,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
     }
     
     
-    override public func checkInitialized() throws
+    override open func checkInitialized() throws
     {
         let result = internalGetResult
         if (!result.isInitialized())
@@ -302,7 +302,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         }
     }
     
-    override public func checkInitializedParsed() throws
+    override open func checkInitializedParsed() throws
     {
         let result = internalGetResult
         if (!result.isInitialized())

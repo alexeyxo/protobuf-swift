@@ -72,7 +72,7 @@ public protocol ProtocolBuffersMessageBuilder {
 public func == (lhs: AbstractProtocolBuffersMessage, rhs: AbstractProtocolBuffersMessage) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }
-public class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
+open class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
     
     public var unknownFields:UnknownFieldSet
     required public init() {
@@ -89,18 +89,18 @@ public class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
         catch {}
         return stream.buffer.buffer
     }
-    public func isInitialized() -> Bool {
+    open func isInitialized() -> Bool {
         return false
     }
-    public func serializedSize() -> Int32 {
+    open func serializedSize() -> Int32 {
         return 0
     }
     
-    public func getDescription(indent:String) throws -> String {
+    open func getDescription(indent:String) throws -> String {
         throw ProtocolBuffersError.obvious("Override")
     }
     
-    public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    open func writeTo(codedOutputStream: CodedOutputStream) throws {
         throw ProtocolBuffersError.obvious("Override")
     }
     
@@ -118,35 +118,35 @@ public class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
         try codedOutputStream.flush()
     }
     
-    public class func classBuilder() -> ProtocolBuffersMessageBuilder {
+    open class func classBuilder() -> ProtocolBuffersMessageBuilder {
         return AbstractProtocolBuffersMessageBuilder()
     }
     
-    public func classBuilder() -> ProtocolBuffersMessageBuilder {
+    open func classBuilder() -> ProtocolBuffersMessageBuilder {
         return AbstractProtocolBuffersMessageBuilder()
     }
     
-    public var hashValue: Int {
+    open var hashValue: Int {
         get {
             return unknownFields.hashValue
         }
     }
     
     //JSON
-    public func encode() throws -> Dictionary<String, AnyObject> {
+    open func encode() throws -> Dictionary<String, AnyObject> {
         throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
     
-    public class func decode(jsonMap: Dictionary<String, AnyObject>) throws -> Self {
+    open class func decode(jsonMap: Dictionary<String, AnyObject>) throws -> Self {
         throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
     
-    public func toJSON() throws -> Data {
+    open func toJSON() throws -> Data {
         let json = try JSONSerialization.data(withJSONObject: encode(), options: JSONSerialization.WritingOptions(rawValue: 0))
         return json
     }
     
-    public class func fromJSON(data:Data) throws -> Self {
+    open class func fromJSON(data:Data) throws -> Self {
         throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
     
@@ -154,37 +154,37 @@ public class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
 
 
 
-public class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
-    public var unknownFields:UnknownFieldSet
+open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
+    open var unknownFields:UnknownFieldSet
     public init() {
         unknownFields = UnknownFieldSet(fields:Dictionary())
     }
     
     
-    public func build() throws -> AbstractProtocolBuffersMessage {
+    open func build() throws -> AbstractProtocolBuffersMessage {
         return AbstractProtocolBuffersMessage()
     }
     
-    public func clone() throws -> Self {
+    open func clone() throws -> Self {
         return self
     }
-    public func clear() -> Self {
+    open func clear() -> Self {
         return self
     }
     
-    public func isInitialized() -> Bool {
+    open func isInitialized() -> Bool {
         return false
     }
     
-    public func mergeFrom(codedInputStream:CodedInputStream) throws ->  Self {
+    open func mergeFrom(codedInputStream:CodedInputStream) throws ->  Self {
         return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
     
-    public func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws ->  Self {
+    open func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws ->  Self {
         throw ProtocolBuffersError.obvious("Override")
     }
     
-    public func merge(unknownField: UnknownFieldSet) throws ->  Self {
+    open func merge(unknownField: UnknownFieldSet) throws ->  Self {
         let merged:UnknownFieldSet = try UnknownFieldSet.builderWithUnknownFields(copyFrom: unknownFields).merge(unknownFields: unknownField).build()
         unknownFields = merged
         return self
@@ -234,11 +234,11 @@ public class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder
     }
     
     //JSON
-    class public func decodeToBuilder(jsonMap: Dictionary<String, AnyObject>) throws -> Self {
+    class open func decodeToBuilder(jsonMap: Dictionary<String, AnyObject>) throws -> Self {
         throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
     
-    public class func fromJSONToBuilder(data: Data) throws -> Self {
+    open class func fromJSONToBuilder(data: Data) throws -> Self {
         throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
 

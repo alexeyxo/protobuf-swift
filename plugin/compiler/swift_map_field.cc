@@ -175,7 +175,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "    for (key$capitalized_name$, value$capitalized_name$) in $name_reserved$ {\n"
                        "        map$capitalized_name$[\"\\(key$capitalized_name$)\"] = $to_json_value_value$\n"
                        "    }\n"
-                       "    jsonMap[\"$json_name$\"] = map$capitalized_name$\n"
+                       "    jsonMap[\"$json_name$\"] = map$capitalized_name$ as AnyObject\n"
                        "}\n");
     }
     
