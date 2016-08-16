@@ -241,7 +241,7 @@ public class ExtendableMessage : GeneratedMessage
         }
     }
 
-    private func getHashValueRepeated<T where T:Collection, T.Iterator.Element:Hashable & Equatable>(lhs:T) -> Int!
+    private func getHashValueRepeated<T>(lhs:T) -> Int! where T:Collection, T.Iterator.Element:Hashable & Equatable
     {
         var hashCode:Int = 0
         for vv in lhs
@@ -251,7 +251,7 @@ public class ExtendableMessage : GeneratedMessage
         return hashCode
     }
     
-    private func getHashValue<T where T:Hashable & Equatable>(lhs:T) -> Int!
+    private func getHashValue<T>(lhs:T) -> Int! where T:Hashable & Equatable
     {
         return lhs.hashValue
     }
@@ -413,7 +413,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         return self
     }
 
-    private func mergeRepeatedExtensionFields<T where T:Collection>(otherList:T, extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Iterator.Element]
+    private func mergeRepeatedExtensionFields<T>(otherList:T, extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Iterator.Element] where T:Collection
     {
         var list:[T.Iterator.Element]! = extensionMap[fieldNumber] as? [T.Iterator.Element] ?? []
         list! += otherList

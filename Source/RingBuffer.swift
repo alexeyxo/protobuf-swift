@@ -16,6 +16,15 @@
 // limitations under the License.
 
 import Foundation
+
+func UnsafeMutablePointerUInt8From(data: Data) -> UnsafeMutablePointer<UInt8> {
+    return UnsafeMutablePointer<UInt8>(mutating: (data as NSData).bytes.bindMemory(to: UInt8.self, capacity: data.count))
+}
+
+func UnsafeMutablePointerInt8From(data: Data) -> UnsafeMutablePointer<Int8> {
+    return UnsafeMutablePointer<Int8>(mutating: (data as NSData).bytes.bindMemory(to: Int8.self, capacity: data.count))
+}
+
 internal class RingBuffer {
     internal var buffer:Data
     var position:Int = 0
@@ -49,12 +58,12 @@ internal class RingBuffer {
         position+=1
         return true
     }
-    
+
     func appendData(input:Data, offset:Int, length:Int) -> Int {
         var totalWritten:Int = 0
         var aLength = length
         var aOffset = offset
-        let pointer = UnsafeMutablePointer<UInt8>((buffer as NSData).bytes)
+        let pointer = UnsafeMutablePointerUInt8From(data: buffer)
         if position >= tail {
             totalWritten = min(buffer.count - position, aLength)
             memcpy(pointer + Int(position), (input as NSData).bytes + Int(aOffset), Int(totalWritten))
@@ -96,7 +105,7 @@ internal class RingBuffer {
         var totalWritten:Int = 0
         
 //        let data = buffer
-        let pointer = UnsafeMutablePointer<UInt8>((buffer as NSData).bytes)
+        let pointer = UnsafeMutablePointerUInt8From(data: buffer)
         if tail > position {
             
             let written:Int = stream.write(pointer + tail, maxLength:buffer.count - tail)
