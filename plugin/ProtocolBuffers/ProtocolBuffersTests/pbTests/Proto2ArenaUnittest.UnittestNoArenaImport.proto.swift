@@ -84,18 +84,18 @@ public extension Proto2ArenaUnittest {
     public class func builderWithPrototype(prototype:Proto2ArenaUnittest.ImportNoArenaNestedMessage) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder {
       return try Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasD {
         jsonMap["d"] = NSNumber(value:d)
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
       return try Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
@@ -216,7 +216,7 @@ public extension Proto2ArenaUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder {
         let resultDecodedBuilder = Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder()
         if let jsonValueD = jsonMap["d"] as? NSNumber {
           resultDecodedBuilder.d = jsonValueD.int32Value
@@ -225,7 +225,7 @@ public extension Proto2ArenaUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)

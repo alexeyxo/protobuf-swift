@@ -893,18 +893,18 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestMessageWithCustomOptions) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
       return try ProtobufUnittest.TestMessageWithCustomOptions.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasField1 {
         jsonMap["field1"] = field1
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
       return try ProtobufUnittest.TestMessageWithCustomOptions.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestMessageWithCustomOptions {
@@ -1025,7 +1025,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestMessageWithCustomOptions.Builder()
         if let jsonValueField1 = jsonMap["field1"] as? String {
           resultDecodedBuilder.field1 = jsonValueField1
@@ -1034,7 +1034,7 @@ public extension ProtobufUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.TestMessageWithCustomOptions.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -1084,15 +1084,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionFooRequest) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
       return try ProtobufUnittest.CustomOptionFooRequest.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooRequest {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooRequest {
       return try ProtobufUnittest.CustomOptionFooRequest.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.CustomOptionFooRequest {
@@ -1178,13 +1178,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionFooRequest.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.CustomOptionFooRequest.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -1232,15 +1232,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionFooResponse) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
       return try ProtobufUnittest.CustomOptionFooResponse.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooResponse {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooResponse {
       return try ProtobufUnittest.CustomOptionFooResponse.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.CustomOptionFooResponse {
@@ -1326,13 +1326,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionFooResponse.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.CustomOptionFooResponse.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -1380,15 +1380,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionFooClientMessage) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
       return try ProtobufUnittest.CustomOptionFooClientMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
       return try ProtobufUnittest.CustomOptionFooClientMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.CustomOptionFooClientMessage {
@@ -1474,13 +1474,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionFooClientMessage.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.CustomOptionFooClientMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -1528,15 +1528,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionFooServerMessage) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
       return try ProtobufUnittest.CustomOptionFooServerMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
       return try ProtobufUnittest.CustomOptionFooServerMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.CustomOptionFooServerMessage {
@@ -1622,13 +1622,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionFooServerMessage.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.CustomOptionFooServerMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -1708,15 +1708,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.DummyMessageContainingEnum) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
       return try ProtobufUnittest.DummyMessageContainingEnum.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.DummyMessageContainingEnum {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.DummyMessageContainingEnum {
       return try ProtobufUnittest.DummyMessageContainingEnum.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.DummyMessageContainingEnum {
@@ -1802,13 +1802,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
         let resultDecodedBuilder = ProtobufUnittest.DummyMessageContainingEnum.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.DummyMessageContainingEnum.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -1856,15 +1856,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.DummyMessageInvalidAsOptionType) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
       return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType {
@@ -1950,13 +1950,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
         let resultDecodedBuilder = ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -2004,15 +2004,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionMinIntegerValues) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
       return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.CustomOptionMinIntegerValues {
@@ -2098,13 +2098,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionMinIntegerValues.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.CustomOptionMinIntegerValues.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -2152,15 +2152,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionMaxIntegerValues) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
       return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues {
@@ -2246,13 +2246,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionMaxIntegerValues.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.CustomOptionMaxIntegerValues.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -2300,15 +2300,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.CustomOptionOtherValues) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
       return try ProtobufUnittest.CustomOptionOtherValues.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionOtherValues {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionOtherValues {
       return try ProtobufUnittest.CustomOptionOtherValues.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.CustomOptionOtherValues {
@@ -2394,13 +2394,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionOtherValues.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.CustomOptionOtherValues.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -2448,15 +2448,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.SettingRealsFromPositiveInts) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
       return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.SettingRealsFromPositiveInts {
@@ -2542,13 +2542,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
         let resultDecodedBuilder = ProtobufUnittest.SettingRealsFromPositiveInts.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.SettingRealsFromPositiveInts.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -2596,15 +2596,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.SettingRealsFromNegativeInts) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
       return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.SettingRealsFromNegativeInts {
@@ -2690,13 +2690,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
         let resultDecodedBuilder = ProtobufUnittest.SettingRealsFromNegativeInts.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.SettingRealsFromNegativeInts.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -2788,12 +2788,12 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType1) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
       return try ProtobufUnittest.ComplexOptionType1.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasFoo {
         jsonMap["foo"] = NSNumber(value:foo)
       }
@@ -2812,7 +2812,7 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType1 {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType1 {
       return try ProtobufUnittest.ComplexOptionType1.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.ComplexOptionType1 {
@@ -3036,7 +3036,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType1.Builder()
         if let jsonValueFoo = jsonMap["foo"] as? NSNumber {
           resultDecodedBuilder.foo = jsonValueFoo.int32Value
@@ -3058,7 +3058,7 @@ public extension ProtobufUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.ComplexOptionType1.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -3123,18 +3123,18 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,AnyObject> {
+        override public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
 
-          var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+          var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasWaldo {
             jsonMap["waldo"] = NSNumber(value:waldo)
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
+        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
           return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
         override class public func fromJSON(data:Data) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 {
@@ -3255,7 +3255,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
+          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
             let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder()
             if let jsonValueWaldo = jsonMap["waldo"] as? NSNumber {
               resultDecodedBuilder.waldo = jsonValueWaldo.int32Value
@@ -3264,7 +3264,7 @@ public extension ProtobufUnittest {
           }
           override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-            guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+            guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
             return try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -3359,12 +3359,12 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType2) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
       return try ProtobufUnittest.ComplexOptionType2.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasBar {
         jsonMap["bar"] = try bar.encode()
       }
@@ -3375,7 +3375,7 @@ public extension ProtobufUnittest {
         jsonMap["fred"] = try fred.encode()
       }
       if !barney.isEmpty {
-        var jsonArrayBarney:Array<Dictionary<String,AnyObject>> = []
+        var jsonArrayBarney:Array<Dictionary<String,Any>> = []
           for oneValueBarney in barney {
             let ecodedMessageBarney = try oneValueBarney.encode()
             jsonArrayBarney.append(ecodedMessageBarney)
@@ -3384,7 +3384,7 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType2 {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType2 {
       return try ProtobufUnittest.ComplexOptionType2.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.ComplexOptionType2 {
@@ -3690,20 +3690,20 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType2.Builder()
-        if let jsonValueBar = jsonMap["bar"] as? Dictionary<String,AnyObject> {
+        if let jsonValueBar = jsonMap["bar"] as? Dictionary<String,Any> {
           resultDecodedBuilder.bar = try ProtobufUnittest.ComplexOptionType1.Builder.decodeToBuilder(jsonMap:jsonValueBar).build()
 
         }
         if let jsonValueBaz = jsonMap["baz"] as? NSNumber {
           resultDecodedBuilder.baz = jsonValueBaz.int32Value
         }
-        if let jsonValueFred = jsonMap["fred"] as? Dictionary<String,AnyObject> {
+        if let jsonValueFred = jsonMap["fred"] as? Dictionary<String,Any> {
           resultDecodedBuilder.fred = try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder.decodeToBuilder(jsonMap:jsonValueFred).build()
 
         }
-        if let jsonValueBarney = jsonMap["barney"] as? Array<Dictionary<String,AnyObject>> {
+        if let jsonValueBarney = jsonMap["barney"] as? Array<Dictionary<String,Any>> {
           var jsonArrayBarney:Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4> = []
           for oneValueBarney in jsonValueBarney {
             let messageFromStringBarney = try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder.decodeToBuilder(jsonMap:oneValueBarney).build()
@@ -3716,7 +3716,7 @@ public extension ProtobufUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.ComplexOptionType2.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -3778,18 +3778,18 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,AnyObject> {
+        override public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
 
-          var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+          var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasPlugh {
             jsonMap["plugh"] = NSNumber(value:plugh)
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
+        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
           return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
         override class public func fromJSON(data:Data) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 {
@@ -3910,7 +3910,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
+          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
             let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder()
             if let jsonValuePlugh = jsonMap["plugh"] as? NSNumber {
               resultDecodedBuilder.plugh = jsonValuePlugh.int32Value
@@ -3919,7 +3919,7 @@ public extension ProtobufUnittest {
           }
           override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-            guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+            guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
             return try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -3987,12 +3987,12 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOptionType3) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
       return try ProtobufUnittest.ComplexOptionType3.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasQux {
         jsonMap["qux"] = NSNumber(value:qux)
       }
@@ -4001,7 +4001,7 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType3 {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType3 {
       return try ProtobufUnittest.ComplexOptionType3.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.ComplexOptionType3 {
@@ -4196,12 +4196,12 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType3.Builder()
         if let jsonValueQux = jsonMap["qux"] as? NSNumber {
           resultDecodedBuilder.qux = jsonValueQux.int32Value
         }
-        if let jsonValueComplexOptionType5 = jsonMap["complexoptiontype5"] as? Dictionary<String,AnyObject> {
+        if let jsonValueComplexOptionType5 = jsonMap["complexoptiontype5"] as? Dictionary<String,Any> {
           resultDecodedBuilder.complexOptionType5 = try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder.decodeToBuilder(jsonMap:jsonValueComplexOptionType5).build()
 
         }
@@ -4209,7 +4209,7 @@ public extension ProtobufUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.ComplexOptionType3.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -4266,18 +4266,18 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.ComplexOpt6) throws -> ProtobufUnittest.ComplexOpt6.Builder {
       return try ProtobufUnittest.ComplexOpt6.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasXyzzy {
         jsonMap["xyzzy"] = NSNumber(value:xyzzy)
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOpt6 {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOpt6 {
       return try ProtobufUnittest.ComplexOpt6.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.ComplexOpt6 {
@@ -4398,7 +4398,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.ComplexOpt6.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOpt6.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOpt6.Builder()
         if let jsonValueXyzzy = jsonMap["xyzzy"] as? NSNumber {
           resultDecodedBuilder.xyzzy = jsonValueXyzzy.int32Value
@@ -4407,7 +4407,7 @@ public extension ProtobufUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.ComplexOpt6.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.ComplexOpt6.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -4456,15 +4456,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.VariousComplexOptions) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
       return try ProtobufUnittest.VariousComplexOptions.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.VariousComplexOptions {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.VariousComplexOptions {
       return try ProtobufUnittest.VariousComplexOptions.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.VariousComplexOptions {
@@ -4550,13 +4550,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
         let resultDecodedBuilder = ProtobufUnittest.VariousComplexOptions.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.VariousComplexOptions.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -4609,15 +4609,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.AggregateMessageSet) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
       return try ProtobufUnittest.AggregateMessageSet.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessageSet {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessageSet {
       return try ProtobufUnittest.AggregateMessageSet.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.AggregateMessageSet {
@@ -4706,13 +4706,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
         let resultDecodedBuilder = ProtobufUnittest.AggregateMessageSet.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.AggregateMessageSet.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -4772,18 +4772,18 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.AggregateMessageSetElement) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
       return try ProtobufUnittest.AggregateMessageSetElement.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasS {
         jsonMap["s"] = s
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessageSetElement {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessageSetElement {
       return try ProtobufUnittest.AggregateMessageSetElement.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.AggregateMessageSetElement {
@@ -4904,7 +4904,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
         let resultDecodedBuilder = ProtobufUnittest.AggregateMessageSetElement.Builder()
         if let jsonValueS = jsonMap["s"] as? String {
           resultDecodedBuilder.s = jsonValueS
@@ -4913,7 +4913,7 @@ public extension ProtobufUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.AggregateMessageSetElement.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -5028,12 +5028,12 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.Aggregate) throws -> ProtobufUnittest.Aggregate.Builder {
       return try ProtobufUnittest.Aggregate.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasI {
         jsonMap["i"] = NSNumber(value:i)
       }
@@ -5051,7 +5051,7 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.Aggregate {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Aggregate {
       return try ProtobufUnittest.Aggregate.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.Aggregate {
@@ -5429,7 +5429,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.Aggregate.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Aggregate.Builder {
         let resultDecodedBuilder = ProtobufUnittest.Aggregate.Builder()
         if let jsonValueI = jsonMap["i"] as? NSNumber {
           resultDecodedBuilder.i = jsonValueI.int32Value
@@ -5437,15 +5437,15 @@ public extension ProtobufUnittest {
         if let jsonValueS = jsonMap["s"] as? String {
           resultDecodedBuilder.s = jsonValueS
         }
-        if let jsonValueSub = jsonMap["sub"] as? Dictionary<String,AnyObject> {
+        if let jsonValueSub = jsonMap["sub"] as? Dictionary<String,Any> {
           resultDecodedBuilder.sub = try ProtobufUnittest.Aggregate.Builder.decodeToBuilder(jsonMap:jsonValueSub).build()
 
         }
-        if let jsonValueFile = jsonMap["file"] as? Dictionary<String,AnyObject> {
+        if let jsonValueFile = jsonMap["file"] as? Dictionary<String,Any> {
           resultDecodedBuilder.file = try Google.Protobuf.FileOptions.Builder.decodeToBuilder(jsonMap:jsonValueFile).build()
 
         }
-        if let jsonValueMset = jsonMap["mset"] as? Dictionary<String,AnyObject> {
+        if let jsonValueMset = jsonMap["mset"] as? Dictionary<String,Any> {
           resultDecodedBuilder.mset = try ProtobufUnittest.AggregateMessageSet.Builder.decodeToBuilder(jsonMap:jsonValueMset).build()
 
         }
@@ -5453,7 +5453,7 @@ public extension ProtobufUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.Aggregate.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.Aggregate.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -5510,18 +5510,18 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.AggregateMessage) throws -> ProtobufUnittest.AggregateMessage.Builder {
       return try ProtobufUnittest.AggregateMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasFieldname {
         jsonMap["fieldname"] = NSNumber(value:fieldname)
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessage {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessage {
       return try ProtobufUnittest.AggregateMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.AggregateMessage {
@@ -5642,7 +5642,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.AggregateMessage.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittest.AggregateMessage.Builder()
         if let jsonValueFieldname = jsonMap["fieldname"] as? NSNumber {
           resultDecodedBuilder.fieldname = jsonValueFieldname.int32Value
@@ -5651,7 +5651,7 @@ public extension ProtobufUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.AggregateMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.AggregateMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -5714,18 +5714,18 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.NestedOptionType.NestedMessage) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,AnyObject> {
+        override public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
 
-          var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+          var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasNestedField {
             jsonMap["nestedField"] = NSNumber(value:nestedField)
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
+        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
           return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
         override class public func fromJSON(data:Data) throws -> ProtobufUnittest.NestedOptionType.NestedMessage {
@@ -5846,7 +5846,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
+          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
             let resultDecodedBuilder = ProtobufUnittest.NestedOptionType.NestedMessage.Builder()
             if let jsonValueNestedField = jsonMap["nestedField"] as? NSNumber {
               resultDecodedBuilder.nestedField = jsonValueNestedField.int32Value
@@ -5855,7 +5855,7 @@ public extension ProtobufUnittest {
           }
           override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-            guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+            guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
             return try ProtobufUnittest.NestedOptionType.NestedMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -5935,15 +5935,15 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.NestedOptionType) throws -> ProtobufUnittest.NestedOptionType.Builder {
       return try ProtobufUnittest.NestedOptionType.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.NestedOptionType {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.NestedOptionType {
       return try ProtobufUnittest.NestedOptionType.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.NestedOptionType {
@@ -6029,13 +6029,13 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.NestedOptionType.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.NestedOptionType.Builder {
         let resultDecodedBuilder = ProtobufUnittest.NestedOptionType.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.NestedOptionType.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.NestedOptionType.Builder.decodeToBuilder(jsonMap:jsDataCast)

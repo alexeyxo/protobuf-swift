@@ -79,15 +79,15 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.Empty) throws -> Google.Protobuf.Empty.Builder {
       return try Google.Protobuf.Empty.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Empty {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Empty {
       return try Google.Protobuf.Empty.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Google.Protobuf.Empty {
@@ -173,13 +173,13 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Empty.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Empty.Builder {
         let resultDecodedBuilder = Google.Protobuf.Empty.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.Empty.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.Empty.Builder.decodeToBuilder(jsonMap:jsDataCast)

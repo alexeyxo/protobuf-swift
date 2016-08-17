@@ -237,12 +237,12 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestOptimizedForSize) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
       return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasI {
         jsonMap["i"] = NSNumber(value:i)
       }
@@ -257,7 +257,7 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestOptimizedForSize {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOptimizedForSize {
       return try ProtobufUnittest.TestOptimizedForSize.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOptimizedForSize {
@@ -525,12 +525,12 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestOptimizedForSize.Builder()
         if let jsonValueI = jsonMap["i"] as? NSNumber {
           resultDecodedBuilder.i = jsonValueI.int32Value
         }
-        if let jsonValueMsg = jsonMap["msg"] as? Dictionary<String,AnyObject> {
+        if let jsonValueMsg = jsonMap["msg"] as? Dictionary<String,Any> {
           resultDecodedBuilder.msg = try ProtobufUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsonValueMsg).build()
 
         }
@@ -544,7 +544,7 @@ public extension ProtobufUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.TestOptimizedForSize.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -604,18 +604,18 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestRequiredOptimizedForSize) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
       return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasX {
         jsonMap["x"] = NSNumber(value:x)
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
       return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
@@ -736,7 +736,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestRequiredOptimizedForSize.Builder()
         if let jsonValueX = jsonMap["x"] as? NSNumber {
           resultDecodedBuilder.x = jsonValueX.int32Value
@@ -745,7 +745,7 @@ public extension ProtobufUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -808,18 +808,18 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestOptionalOptimizedForSize) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
       return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasO {
         jsonMap["o"] = try o.encode()
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
       return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
@@ -979,9 +979,9 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestOptionalOptimizedForSize.Builder()
-        if let jsonValueO = jsonMap["o"] as? Dictionary<String,AnyObject> {
+        if let jsonValueO = jsonMap["o"] as? Dictionary<String,Any> {
           resultDecodedBuilder.o = try ProtobufUnittest.TestRequiredOptimizedForSize.Builder.decodeToBuilder(jsonMap:jsonValueO).build()
 
         }
@@ -989,7 +989,7 @@ public extension ProtobufUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder.decodeToBuilder(jsonMap:jsDataCast)

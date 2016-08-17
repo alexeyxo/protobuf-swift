@@ -87,18 +87,18 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.SourceContext) throws -> Google.Protobuf.SourceContext.Builder {
       return try Google.Protobuf.SourceContext.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasFileName {
-        jsonMap["fileName"] = fileName as AnyObject
+        jsonMap["fileName"] = fileName
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.SourceContext {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SourceContext {
       return try Google.Protobuf.SourceContext.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Google.Protobuf.SourceContext {
@@ -219,7 +219,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.SourceContext.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SourceContext.Builder {
         let resultDecodedBuilder = Google.Protobuf.SourceContext.Builder()
         if let jsonValueFileName = jsonMap["fileName"] as? String {
           resultDecodedBuilder.fileName = jsonValueFileName
@@ -228,7 +228,7 @@ public extension Google.Protobuf {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.SourceContext.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.SourceContext.Builder.decodeToBuilder(jsonMap:jsDataCast)

@@ -207,14 +207,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateJSONEncodeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  jsonMap[\"$json_name$\"] = $to_json_value$ as AnyObject\n"
+                       "  jsonMap[\"$json_name$\"] = $to_json_value$\n"
                        "}\n");
     }
     
     void EnumFieldGenerator::GenerateJSONDecodeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? $json_casting_type$ {\n"
-                       "  resultDecodedBuilder.$name_reserved$ = $from_json_value$ as AnyObject\n"
+                       "  resultDecodedBuilder.$name_reserved$ = $from_json_value$\n"
                        "}\n");
     }
     
@@ -394,7 +394,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "    for oneValue$capitalized_name$ in $name_reserved$ {\n"
                            "      jsonArray$capitalized_name$.append($to_json_value_repeated$)\n"
                            "    }\n"
-                           "  jsonMap[\"$json_name$\"] = jsonArray$capitalized_name$ as AnyObject\n"
+                           "  jsonMap[\"$json_name$\"] = jsonArray$capitalized_name$\n"
                            "}\n");
         
     }

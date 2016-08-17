@@ -171,21 +171,21 @@ public extension Google.Protobuf {
         public class func builderWithPrototype(prototype:Google.Protobuf.Struct.FieldsEntry) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
           return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,AnyObject> {
+        override public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
 
-          var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+          var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasKey {
-            jsonMap["key"] = key as AnyObject
+            jsonMap["key"] = key
           }
           if hasValue {
-            jsonMap["value"] = try value.encode() as AnyObject
+            jsonMap["value"] = try value.encode()
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Struct.FieldsEntry {
+        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Struct.FieldsEntry {
           return try Google.Protobuf.Struct.FieldsEntry.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
         override class public func fromJSON(data:Data) throws -> Google.Protobuf.Struct.FieldsEntry {
@@ -380,12 +380,12 @@ public extension Google.Protobuf {
               }
             }
           }
-          override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
+          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
             let resultDecodedBuilder = Google.Protobuf.Struct.FieldsEntry.Builder()
             if let jsonValueKey = jsonMap["key"] as? String {
               resultDecodedBuilder.key = jsonValueKey
             }
-            if let jsonValueValue = jsonMap["value"] as? Dictionary<String,AnyObject> {
+            if let jsonValueValue = jsonMap["value"] as? Dictionary<String,Any> {
               resultDecodedBuilder.value = try Google.Protobuf.Value.Builder.decodeToBuilder(jsonMap:jsonValueValue).build()
 
             }
@@ -393,7 +393,7 @@ public extension Google.Protobuf {
           }
           override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-            guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+            guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
             return try Google.Protobuf.Struct.FieldsEntry.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -457,22 +457,22 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.Struct) throws -> Google.Protobuf.Struct.Builder {
       return try Google.Protobuf.Struct.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasFields {
-          var mapFields = Dictionary<String, Dictionary<String,AnyObject>>()
+          var mapFields = Dictionary<String, Dictionary<String,Any>>()
           for (keyFields, valueFields) in fields {
               mapFields["\(keyFields)"] = try valueFields.encode()
           }
-          jsonMap["fields"] = mapFields as AnyObject
+          jsonMap["fields"] = mapFields
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Struct {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Struct {
       return try Google.Protobuf.Struct.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Google.Protobuf.Struct {
@@ -599,9 +599,9 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Struct.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Struct.Builder {
         let resultDecodedBuilder = Google.Protobuf.Struct.Builder()
-        if let jsonValueFields = jsonMap["fields"] as? Dictionary<String, Dictionary<String,AnyObject>> {
+        if let jsonValueFields = jsonMap["fields"] as? Dictionary<String, Dictionary<String,Any>> {
             var mapFields = Dictionary<String, Google.Protobuf.Value>()
             for (keyFields, valueFields) in jsonValueFields {
                 let keyFromFields = keyFields
@@ -614,7 +614,7 @@ public extension Google.Protobuf {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.Struct.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.Struct.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -900,33 +900,33 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.Value) throws -> Google.Protobuf.Value.Builder {
       return try Google.Protobuf.Value.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasNullValue {
-        jsonMap["nullValue"] = nullValue.toString() as AnyObject
+        jsonMap["nullValue"] = nullValue.toString()
       }
       if hasNumberValue {
-        jsonMap["numberValue"] = NSNumber(value:numberValue) as AnyObject
+        jsonMap["numberValue"] = NSNumber(value:numberValue)
       }
       if hasStringValue {
-        jsonMap["stringValue"] = stringValue as AnyObject
+        jsonMap["stringValue"] = stringValue
       }
       if hasBoolValue {
-        jsonMap["boolValue"] = boolValue as AnyObject
+        jsonMap["boolValue"] = boolValue
       }
       if hasStructValue {
-        jsonMap["structValue"] = try structValue.encode() as AnyObject
+        jsonMap["structValue"] = try structValue.encode()
       }
       if hasListValue {
-        jsonMap["listValue"] = try listValue.encode() as AnyObject
+        jsonMap["listValue"] = try listValue.encode()
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Value {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Value {
       return try Google.Protobuf.Value.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Google.Protobuf.Value {
@@ -1305,7 +1305,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Value.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Value.Builder {
         let resultDecodedBuilder = Google.Protobuf.Value.Builder()
         if let jsonValueNullValue = jsonMap["nullValue"] as? String {
           resultDecodedBuilder.nullValue = try Google.Protobuf.NullValue.fromString(str: jsonValueNullValue)
@@ -1319,11 +1319,11 @@ public extension Google.Protobuf {
         if let jsonValueBoolValue = jsonMap["boolValue"] as? Bool {
           resultDecodedBuilder.boolValue = jsonValueBoolValue
         }
-        if let jsonValueStructValue = jsonMap["structValue"] as? Dictionary<String,AnyObject> {
+        if let jsonValueStructValue = jsonMap["structValue"] as? Dictionary<String,Any> {
           resultDecodedBuilder.structValue = try Google.Protobuf.Struct.Builder.decodeToBuilder(jsonMap:jsonValueStructValue).build()
 
         }
-        if let jsonValueListValue = jsonMap["listValue"] as? Dictionary<String,AnyObject> {
+        if let jsonValueListValue = jsonMap["listValue"] as? Dictionary<String,Any> {
           resultDecodedBuilder.listValue = try Google.Protobuf.ListValue.Builder.decodeToBuilder(jsonMap:jsonValueListValue).build()
 
         }
@@ -1331,7 +1331,7 @@ public extension Google.Protobuf {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.Value.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.Value.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -1387,23 +1387,23 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.ListValue) throws -> Google.Protobuf.ListValue.Builder {
       return try Google.Protobuf.ListValue.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if !values.isEmpty {
-        var jsonArrayValues:Array<Dictionary<String,AnyObject>> = []
+        var jsonArrayValues:Array<Dictionary<String,Any>> = []
           for oneValueValues in values {
             let ecodedMessageValues = try oneValueValues.encode()
             jsonArrayValues.append(ecodedMessageValues)
           }
-        jsonMap["values"] = jsonArrayValues as AnyObject
+        jsonMap["values"] = jsonArrayValues
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.ListValue {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.ListValue {
       return try Google.Protobuf.ListValue.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Google.Protobuf.ListValue {
@@ -1523,9 +1523,9 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.ListValue.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.ListValue.Builder {
         let resultDecodedBuilder = Google.Protobuf.ListValue.Builder()
-        if let jsonValueValues = jsonMap["values"] as? Array<Dictionary<String,AnyObject>> {
+        if let jsonValueValues = jsonMap["values"] as? Array<Dictionary<String,Any>> {
           var jsonArrayValues:Array<Google.Protobuf.Value> = []
           for oneValueValues in jsonValueValues {
             let messageFromStringValues = try Google.Protobuf.Value.Builder.decodeToBuilder(jsonMap:oneValueValues).build()
@@ -1538,7 +1538,7 @@ public extension Google.Protobuf {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.ListValue.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.ListValue.Builder.decodeToBuilder(jsonMap:jsDataCast)

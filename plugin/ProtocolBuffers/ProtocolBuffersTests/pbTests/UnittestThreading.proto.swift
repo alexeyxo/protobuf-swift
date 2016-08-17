@@ -81,18 +81,18 @@ final public class ThreadingMessages : GeneratedMessage {
   public class func builderWithPrototype(prototype:ThreadingMessages) throws -> ThreadingMessages.Builder {
     return try ThreadingMessages.Builder().mergeFrom(other:prototype)
   }
-  override public func encode() throws -> Dictionary<String,AnyObject> {
+  override public func encode() throws -> Dictionary<String,Any> {
     guard isInitialized() else {
       throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
     }
 
-    var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+    var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasTestString {
       jsonMap["testString"] = testString
     }
     return jsonMap
   }
-  override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ThreadingMessages {
+  override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder.decodeToBuilder(jsonMap:jsonMap).build()
   }
   override class public func fromJSON(data:Data) throws -> ThreadingMessages {
@@ -213,7 +213,7 @@ final public class ThreadingMessages : GeneratedMessage {
         }
       }
     }
-    override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ThreadingMessages.Builder {
+    class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ThreadingMessages.Builder {
       let resultDecodedBuilder = ThreadingMessages.Builder()
       if let jsonValueTestString = jsonMap["testString"] as? String {
         resultDecodedBuilder.testString = jsonValueTestString
@@ -222,7 +222,7 @@ final public class ThreadingMessages : GeneratedMessage {
     }
     override class public func fromJSONToBuilder(data:Data) throws -> ThreadingMessages.Builder {
       let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-      guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+      guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
       }
       return try ThreadingMessages.Builder.decodeToBuilder(jsonMap:jsDataCast)

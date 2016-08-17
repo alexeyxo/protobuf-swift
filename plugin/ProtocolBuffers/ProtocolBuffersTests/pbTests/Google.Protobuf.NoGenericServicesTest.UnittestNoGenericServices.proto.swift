@@ -129,18 +129,18 @@ public extension Google.Protobuf.NoGenericServicesTest {
     public class func builderWithPrototype(prototype:Google.Protobuf.NoGenericServicesTest.TestMessage) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
       return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasA {
         jsonMap["a"] = NSNumber(value:a)
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
       return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
@@ -264,7 +264,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         let resultDecodedBuilder = Google.Protobuf.NoGenericServicesTest.TestMessage.Builder()
         if let jsonValueA = jsonMap["a"] as? NSNumber {
           resultDecodedBuilder.a = jsonValueA.int32Value
@@ -273,7 +273,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)

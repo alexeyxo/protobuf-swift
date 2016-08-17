@@ -271,18 +271,18 @@ public extension Proto3ArenaUnittest {
         public class func builderWithPrototype(prototype:Proto3ArenaUnittest.TestAllTypes.NestedMessage) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
           return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,AnyObject> {
+        override public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
 
-          var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+          var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasBb {
             jsonMap["bb"] = NSNumber(value:bb)
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
+        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
           return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
         override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage {
@@ -403,7 +403,7 @@ public extension Proto3ArenaUnittest {
               }
             }
           }
-          override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
+          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
             let resultDecodedBuilder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             if let jsonValueBb = jsonMap["bb"] as? NSNumber {
               resultDecodedBuilder.bb = jsonValueBb.int32Value
@@ -412,7 +412,7 @@ public extension Proto3ArenaUnittest {
           }
           override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-            guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+            guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
             return try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -1220,12 +1220,12 @@ public extension Proto3ArenaUnittest {
     public class func builderWithPrototype(prototype:Proto3ArenaUnittest.TestAllTypes) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
       return try Proto3ArenaUnittest.TestAllTypes.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasOptionalInt32 {
         jsonMap["optionalInt32"] = NSNumber(value:optionalInt32)
       }
@@ -1396,7 +1396,7 @@ public extension Proto3ArenaUnittest {
         jsonMap["repeatedBytes"] = jsonArrayRepeatedBytes
       }
       if !repeatedNestedMessage.isEmpty {
-        var jsonArrayRepeatedNestedMessage:Array<Dictionary<String,AnyObject>> = []
+        var jsonArrayRepeatedNestedMessage:Array<Dictionary<String,Any>> = []
           for oneValueRepeatedNestedMessage in repeatedNestedMessage {
             let ecodedMessageRepeatedNestedMessage = try oneValueRepeatedNestedMessage.encode()
             jsonArrayRepeatedNestedMessage.append(ecodedMessageRepeatedNestedMessage)
@@ -1404,7 +1404,7 @@ public extension Proto3ArenaUnittest {
         jsonMap["repeatedNestedMessage"] = jsonArrayRepeatedNestedMessage
       }
       if !repeatedForeignMessage.isEmpty {
-        var jsonArrayRepeatedForeignMessage:Array<Dictionary<String,AnyObject>> = []
+        var jsonArrayRepeatedForeignMessage:Array<Dictionary<String,Any>> = []
           for oneValueRepeatedForeignMessage in repeatedForeignMessage {
             let ecodedMessageRepeatedForeignMessage = try oneValueRepeatedForeignMessage.encode()
             jsonArrayRepeatedForeignMessage.append(ecodedMessageRepeatedForeignMessage)
@@ -1412,7 +1412,7 @@ public extension Proto3ArenaUnittest {
         jsonMap["repeatedForeignMessage"] = jsonArrayRepeatedForeignMessage
       }
       if !repeatedImportMessage.isEmpty {
-        var jsonArrayRepeatedImportMessage:Array<Dictionary<String,AnyObject>> = []
+        var jsonArrayRepeatedImportMessage:Array<Dictionary<String,Any>> = []
           for oneValueRepeatedImportMessage in repeatedImportMessage {
             let ecodedMessageRepeatedImportMessage = try oneValueRepeatedImportMessage.encode()
             jsonArrayRepeatedImportMessage.append(ecodedMessageRepeatedImportMessage)
@@ -1440,7 +1440,7 @@ public extension Proto3ArenaUnittest {
         jsonMap["repeatedCord"] = repeatedCord
       }
       if !repeatedLazyMessage.isEmpty {
-        var jsonArrayRepeatedLazyMessage:Array<Dictionary<String,AnyObject>> = []
+        var jsonArrayRepeatedLazyMessage:Array<Dictionary<String,Any>> = []
           for oneValueRepeatedLazyMessage in repeatedLazyMessage {
             let ecodedMessageRepeatedLazyMessage = try oneValueRepeatedLazyMessage.encode()
             jsonArrayRepeatedLazyMessage.append(ecodedMessageRepeatedLazyMessage)
@@ -1461,7 +1461,7 @@ public extension Proto3ArenaUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestAllTypes {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.TestAllTypes {
       return try Proto3ArenaUnittest.TestAllTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.TestAllTypes {
@@ -3552,7 +3552,7 @@ public extension Proto3ArenaUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         let resultDecodedBuilder = Proto3ArenaUnittest.TestAllTypes.Builder()
         if let jsonValueOptionalInt32 = jsonMap["optionalInt32"] as? NSNumber {
           resultDecodedBuilder.optionalInt32 = jsonValueOptionalInt32.int32Value
@@ -3599,15 +3599,15 @@ public extension Proto3ArenaUnittest {
         if let jsonValueOptionalBytes = jsonMap["optionalBytes"] as? String {
           resultDecodedBuilder.optionalBytes = Data(base64Encoded:jsonValueOptionalBytes, options: Data.Base64DecodingOptions(rawValue:0))!
         }
-        if let jsonValueOptionalNestedMessage = jsonMap["optionalNestedMessage"] as? Dictionary<String,AnyObject> {
+        if let jsonValueOptionalNestedMessage = jsonMap["optionalNestedMessage"] as? Dictionary<String,Any> {
           resultDecodedBuilder.optionalNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalNestedMessage).build()
 
         }
-        if let jsonValueOptionalForeignMessage = jsonMap["optionalForeignMessage"] as? Dictionary<String,AnyObject> {
+        if let jsonValueOptionalForeignMessage = jsonMap["optionalForeignMessage"] as? Dictionary<String,Any> {
           resultDecodedBuilder.optionalForeignMessage = try Proto3ArenaUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalForeignMessage).build()
 
         }
-        if let jsonValueOptionalImportMessage = jsonMap["optionalImportMessage"] as? Dictionary<String,AnyObject> {
+        if let jsonValueOptionalImportMessage = jsonMap["optionalImportMessage"] as? Dictionary<String,Any> {
           resultDecodedBuilder.optionalImportMessage = try ProtobufUnittestImport.ImportMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalImportMessage).build()
 
         }
@@ -3623,11 +3623,11 @@ public extension Proto3ArenaUnittest {
         if let jsonValueOptionalCord = jsonMap["optionalCord"] as? String {
           resultDecodedBuilder.optionalCord = jsonValueOptionalCord
         }
-        if let jsonValueOptionalPublicImportMessage = jsonMap["optionalPublicImportMessage"] as? Dictionary<String,AnyObject> {
+        if let jsonValueOptionalPublicImportMessage = jsonMap["optionalPublicImportMessage"] as? Dictionary<String,Any> {
           resultDecodedBuilder.optionalPublicImportMessage = try ProtobufUnittestImport.PublicImportMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalPublicImportMessage).build()
 
         }
-        if let jsonValueOptionalLazyMessage = jsonMap["optionalLazyMessage"] as? Dictionary<String,AnyObject> {
+        if let jsonValueOptionalLazyMessage = jsonMap["optionalLazyMessage"] as? Dictionary<String,Any> {
           resultDecodedBuilder.optionalLazyMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalLazyMessage).build()
 
         }
@@ -3728,7 +3728,7 @@ public extension Proto3ArenaUnittest {
           }
           resultDecodedBuilder.repeatedBytes = jsonArrayRepeatedBytes
         }
-        if let jsonValueRepeatedNestedMessage = jsonMap["repeatedNestedMessage"] as? Array<Dictionary<String,AnyObject>> {
+        if let jsonValueRepeatedNestedMessage = jsonMap["repeatedNestedMessage"] as? Array<Dictionary<String,Any>> {
           var jsonArrayRepeatedNestedMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage> = []
           for oneValueRepeatedNestedMessage in jsonValueRepeatedNestedMessage {
             let messageFromStringRepeatedNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:oneValueRepeatedNestedMessage).build()
@@ -3737,7 +3737,7 @@ public extension Proto3ArenaUnittest {
           }
           resultDecodedBuilder.repeatedNestedMessage = jsonArrayRepeatedNestedMessage
         }
-        if let jsonValueRepeatedForeignMessage = jsonMap["repeatedForeignMessage"] as? Array<Dictionary<String,AnyObject>> {
+        if let jsonValueRepeatedForeignMessage = jsonMap["repeatedForeignMessage"] as? Array<Dictionary<String,Any>> {
           var jsonArrayRepeatedForeignMessage:Array<Proto3ArenaUnittest.ForeignMessage> = []
           for oneValueRepeatedForeignMessage in jsonValueRepeatedForeignMessage {
             let messageFromStringRepeatedForeignMessage = try Proto3ArenaUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:oneValueRepeatedForeignMessage).build()
@@ -3746,7 +3746,7 @@ public extension Proto3ArenaUnittest {
           }
           resultDecodedBuilder.repeatedForeignMessage = jsonArrayRepeatedForeignMessage
         }
-        if let jsonValueRepeatedImportMessage = jsonMap["repeatedImportMessage"] as? Array<Dictionary<String,AnyObject>> {
+        if let jsonValueRepeatedImportMessage = jsonMap["repeatedImportMessage"] as? Array<Dictionary<String,Any>> {
           var jsonArrayRepeatedImportMessage:Array<ProtobufUnittestImport.ImportMessage> = []
           for oneValueRepeatedImportMessage in jsonValueRepeatedImportMessage {
             let messageFromStringRepeatedImportMessage = try ProtobufUnittestImport.ImportMessage.Builder.decodeToBuilder(jsonMap:oneValueRepeatedImportMessage).build()
@@ -3777,7 +3777,7 @@ public extension Proto3ArenaUnittest {
         if let jsonValueRepeatedCord = jsonMap["repeatedCord"] as? Array<String> {
           resultDecodedBuilder.repeatedCord = jsonValueRepeatedCord
         }
-        if let jsonValueRepeatedLazyMessage = jsonMap["repeatedLazyMessage"] as? Array<Dictionary<String,AnyObject>> {
+        if let jsonValueRepeatedLazyMessage = jsonMap["repeatedLazyMessage"] as? Array<Dictionary<String,Any>> {
           var jsonArrayRepeatedLazyMessage:Array<Proto3ArenaUnittest.TestAllTypes.NestedMessage> = []
           for oneValueRepeatedLazyMessage in jsonValueRepeatedLazyMessage {
             let messageFromStringRepeatedLazyMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:oneValueRepeatedLazyMessage).build()
@@ -3789,7 +3789,7 @@ public extension Proto3ArenaUnittest {
         if let jsonValueOneofUint32 = jsonMap["oneofUint32"] as? NSNumber {
           resultDecodedBuilder.oneofUint32 = jsonValueOneofUint32.uint32Value
         }
-        if let jsonValueOneofNestedMessage = jsonMap["oneofNestedMessage"] as? Dictionary<String,AnyObject> {
+        if let jsonValueOneofNestedMessage = jsonMap["oneofNestedMessage"] as? Dictionary<String,Any> {
           resultDecodedBuilder.oneofNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueOneofNestedMessage).build()
 
         }
@@ -3803,7 +3803,7 @@ public extension Proto3ArenaUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Proto3ArenaUnittest.TestAllTypes.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -4103,12 +4103,12 @@ public extension Proto3ArenaUnittest {
     public class func builderWithPrototype(prototype:Proto3ArenaUnittest.TestPackedTypes) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
       return try Proto3ArenaUnittest.TestPackedTypes.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if !packedInt32.isEmpty {
         var jsonArrayPackedInt32:Array<NSNumber> = []
           for oneValuePackedInt32 in packedInt32 {
@@ -4205,7 +4205,7 @@ public extension Proto3ArenaUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestPackedTypes {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.TestPackedTypes {
       return try Proto3ArenaUnittest.TestPackedTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.TestPackedTypes {
@@ -4786,7 +4786,7 @@ public extension Proto3ArenaUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         let resultDecodedBuilder = Proto3ArenaUnittest.TestPackedTypes.Builder()
         if let jsonValuePackedInt32 = jsonMap["packedInt32"] as? Array<NSNumber> {
           var jsonArrayPackedInt32:Array<Int32> = []
@@ -4887,7 +4887,7 @@ public extension Proto3ArenaUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Proto3ArenaUnittest.TestPackedTypes.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -5180,12 +5180,12 @@ public extension Proto3ArenaUnittest {
     public class func builderWithPrototype(prototype:Proto3ArenaUnittest.TestUnpackedTypes) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
       return try Proto3ArenaUnittest.TestUnpackedTypes.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if !repeatedInt32.isEmpty {
         var jsonArrayRepeatedInt32:Array<NSNumber> = []
           for oneValueRepeatedInt32 in repeatedInt32 {
@@ -5282,7 +5282,7 @@ public extension Proto3ArenaUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
       return try Proto3ArenaUnittest.TestUnpackedTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.TestUnpackedTypes {
@@ -5858,7 +5858,7 @@ public extension Proto3ArenaUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         let resultDecodedBuilder = Proto3ArenaUnittest.TestUnpackedTypes.Builder()
         if let jsonValueRepeatedInt32 = jsonMap["repeatedInt32"] as? Array<NSNumber> {
           var jsonArrayRepeatedInt32:Array<Int32> = []
@@ -5959,7 +5959,7 @@ public extension Proto3ArenaUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Proto3ArenaUnittest.TestUnpackedTypes.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -6028,12 +6028,12 @@ public extension Proto3ArenaUnittest {
     public class func builderWithPrototype(prototype:Proto3ArenaUnittest.NestedTestAllTypes) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
       return try Proto3ArenaUnittest.NestedTestAllTypes.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasChild {
         jsonMap["child"] = try child.encode()
       }
@@ -6042,7 +6042,7 @@ public extension Proto3ArenaUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
       return try Proto3ArenaUnittest.NestedTestAllTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.NestedTestAllTypes {
@@ -6276,13 +6276,13 @@ public extension Proto3ArenaUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
         let resultDecodedBuilder = Proto3ArenaUnittest.NestedTestAllTypes.Builder()
-        if let jsonValueChild = jsonMap["child"] as? Dictionary<String,AnyObject> {
+        if let jsonValueChild = jsonMap["child"] as? Dictionary<String,Any> {
           resultDecodedBuilder.child = try Proto3ArenaUnittest.NestedTestAllTypes.Builder.decodeToBuilder(jsonMap:jsonValueChild).build()
 
         }
-        if let jsonValuePayload = jsonMap["payload"] as? Dictionary<String,AnyObject> {
+        if let jsonValuePayload = jsonMap["payload"] as? Dictionary<String,Any> {
           resultDecodedBuilder.payload = try Proto3ArenaUnittest.TestAllTypes.Builder.decodeToBuilder(jsonMap:jsonValuePayload).build()
 
         }
@@ -6290,7 +6290,7 @@ public extension Proto3ArenaUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Proto3ArenaUnittest.NestedTestAllTypes.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -6349,18 +6349,18 @@ public extension Proto3ArenaUnittest {
     public class func builderWithPrototype(prototype:Proto3ArenaUnittest.ForeignMessage) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
       return try Proto3ArenaUnittest.ForeignMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasC {
         jsonMap["c"] = NSNumber(value:c)
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.ForeignMessage {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.ForeignMessage {
       return try Proto3ArenaUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.ForeignMessage {
@@ -6481,7 +6481,7 @@ public extension Proto3ArenaUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
         let resultDecodedBuilder = Proto3ArenaUnittest.ForeignMessage.Builder()
         if let jsonValueC = jsonMap["c"] as? NSNumber {
           resultDecodedBuilder.c = jsonValueC.int32Value
@@ -6490,7 +6490,7 @@ public extension Proto3ArenaUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Proto3ArenaUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -6539,15 +6539,15 @@ public extension Proto3ArenaUnittest {
     public class func builderWithPrototype(prototype:Proto3ArenaUnittest.TestEmptyMessage) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
       return try Proto3ArenaUnittest.TestEmptyMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestEmptyMessage {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.TestEmptyMessage {
       return try Proto3ArenaUnittest.TestEmptyMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Proto3ArenaUnittest.TestEmptyMessage {
@@ -6633,13 +6633,13 @@ public extension Proto3ArenaUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
         let resultDecodedBuilder = Proto3ArenaUnittest.TestEmptyMessage.Builder()
         return resultDecodedBuilder
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Proto3ArenaUnittest.TestEmptyMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)

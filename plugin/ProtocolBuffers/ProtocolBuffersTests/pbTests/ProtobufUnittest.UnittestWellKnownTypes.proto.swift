@@ -195,12 +195,12 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestWellKnownTypes) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
       return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasAnyField {
         jsonMap["anyField"] = try anyField.encode()
       }
@@ -233,7 +233,7 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestWellKnownTypes {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestWellKnownTypes {
       return try ProtobufUnittest.TestWellKnownTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestWellKnownTypes {
@@ -1059,45 +1059,45 @@ public extension ProtobufUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestWellKnownTypes.Builder()
-        if let jsonValueAnyField = jsonMap["anyField"] as? Dictionary<String,AnyObject> {
+        if let jsonValueAnyField = jsonMap["anyField"] as? Dictionary<String,Any> {
           resultDecodedBuilder.anyField = try Google.Protobuf.`Any`.Builder.decodeToBuilder(jsonMap:jsonValueAnyField).build()
 
         }
-        if let jsonValueApiField = jsonMap["apiField"] as? Dictionary<String,AnyObject> {
+        if let jsonValueApiField = jsonMap["apiField"] as? Dictionary<String,Any> {
           resultDecodedBuilder.apiField = try Google.Protobuf.Api.Builder.decodeToBuilder(jsonMap:jsonValueApiField).build()
 
         }
-        if let jsonValueDurationField = jsonMap["durationField"] as? Dictionary<String,AnyObject> {
+        if let jsonValueDurationField = jsonMap["durationField"] as? Dictionary<String,Any> {
           resultDecodedBuilder.durationField = try Google.Protobuf.Duration.Builder.decodeToBuilder(jsonMap:jsonValueDurationField).build()
 
         }
-        if let jsonValueEmptyField = jsonMap["emptyField"] as? Dictionary<String,AnyObject> {
+        if let jsonValueEmptyField = jsonMap["emptyField"] as? Dictionary<String,Any> {
           resultDecodedBuilder.emptyField = try Google.Protobuf.Empty.Builder.decodeToBuilder(jsonMap:jsonValueEmptyField).build()
 
         }
-        if let jsonValueFieldMaskField = jsonMap["fieldMaskField"] as? Dictionary<String,AnyObject> {
+        if let jsonValueFieldMaskField = jsonMap["fieldMaskField"] as? Dictionary<String,Any> {
           resultDecodedBuilder.fieldMaskField = try Google.Protobuf.FieldMask.Builder.decodeToBuilder(jsonMap:jsonValueFieldMaskField).build()
 
         }
-        if let jsonValueSourceContextField = jsonMap["sourceContextField"] as? Dictionary<String,AnyObject> {
+        if let jsonValueSourceContextField = jsonMap["sourceContextField"] as? Dictionary<String,Any> {
           resultDecodedBuilder.sourceContextField = try Google.Protobuf.SourceContext.Builder.decodeToBuilder(jsonMap:jsonValueSourceContextField).build()
 
         }
-        if let jsonValueStructField = jsonMap["structField"] as? Dictionary<String,AnyObject> {
+        if let jsonValueStructField = jsonMap["structField"] as? Dictionary<String,Any> {
           resultDecodedBuilder.structField = try Google.Protobuf.Struct.Builder.decodeToBuilder(jsonMap:jsonValueStructField).build()
 
         }
-        if let jsonValueTimestampField = jsonMap["timestampField"] as? Dictionary<String,AnyObject> {
+        if let jsonValueTimestampField = jsonMap["timestampField"] as? Dictionary<String,Any> {
           resultDecodedBuilder.timestampField = try Google.Protobuf.Timestamp.Builder.decodeToBuilder(jsonMap:jsonValueTimestampField).build()
 
         }
-        if let jsonValueTypeField = jsonMap["typeField"] as? Dictionary<String,AnyObject> {
+        if let jsonValueTypeField = jsonMap["typeField"] as? Dictionary<String,Any> {
           resultDecodedBuilder.typeField = try Google.Protobuf.`Type`.Builder.decodeToBuilder(jsonMap:jsonValueTypeField).build()
 
         }
-        if let jsonValueInt32Field = jsonMap["int32Field"] as? Dictionary<String,AnyObject> {
+        if let jsonValueInt32Field = jsonMap["int32Field"] as? Dictionary<String,Any> {
           resultDecodedBuilder.int32Field = try Google.Protobuf.Int32Value.Builder.decodeToBuilder(jsonMap:jsonValueInt32Field).build()
 
         }
@@ -1105,7 +1105,7 @@ public extension ProtobufUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try ProtobufUnittest.TestWellKnownTypes.Builder.decodeToBuilder(jsonMap:jsDataCast)

@@ -133,21 +133,21 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.Duration) throws -> Google.Protobuf.Duration.Builder {
       return try Google.Protobuf.Duration.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasSeconds {
-        jsonMap["seconds"] = "\(seconds)" as AnyObject
+        jsonMap["seconds"] = "\(seconds)"
       }
       if hasNanos {
-        jsonMap["nanos"] = NSNumber(value:nanos) as AnyObject
+        jsonMap["nanos"] = NSNumber(value:nanos)
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Duration {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Duration {
       return try Google.Protobuf.Duration.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Google.Protobuf.Duration {
@@ -303,7 +303,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.Duration.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Duration.Builder {
         let resultDecodedBuilder = Google.Protobuf.Duration.Builder()
         if let jsonValueSeconds = jsonMap["seconds"] as? String {
           resultDecodedBuilder.seconds = Int64(jsonValueSeconds)!
@@ -315,7 +315,7 @@ public extension Google.Protobuf {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.Duration.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.Duration.Builder.decodeToBuilder(jsonMap:jsDataCast)

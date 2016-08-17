@@ -460,7 +460,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         //
         
-        printer->Print(variables_,"override $acontrol$ func encode() throws -> Dictionary<String,AnyObject> {\n");
+        printer->Print(variables_,"override $acontrol$ func encode() throws -> Dictionary<String,Any> {\n");
         
         printer->Indent();
         
@@ -469,10 +469,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n\n");
         
         if (descriptor_->field_count() == 0) {
-            printer->Print("let jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()\n");
+            printer->Print("let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()\n");
         }
         else {
-            printer->Print("var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()\n");
+            printer->Print("var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()\n");
         }
         
         
@@ -484,7 +484,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print("  return jsonMap\n"
                        "}\n");
         
-        printer->Print(variables_,"override class $acontrol$ func decode(jsonMap:Dictionary<String,AnyObject>) throws -> $classNameReturnedType$ {\n"
+        printer->Print(variables_,"override class $acontrol$ func decode(jsonMap:Dictionary<String,Any>) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder.decodeToBuilder(jsonMap:jsonMap).build()\n"
                        "}\n");
         
@@ -495,7 +495,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateMessageBuilderJSONSource(io::Printer* printer) {
         //
-        printer->Print(variables_, "override class $acontrol$ func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> $classNameReturnedType$.Builder {\n");
+        printer->Print(variables_, "class $acontrol$ func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> $classNameReturnedType$.Builder {\n");
         
         printer->Indent();
         printer->Print(variables_,"let resultDecodedBuilder = $classNameReturnedType$.Builder()\n");
@@ -512,7 +512,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print(variables_,"override class $acontrol$ func fromJSONToBuilder(data:Data) throws -> $classNameReturnedType$.Builder {\n"
                        "  let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))\n"
-                       "  guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {\n"
+                       "  guard let jsDataCast = jsonData as? Dictionary<String,Any> else {\n"
                        "    throw ProtocolBuffersError.invalidProtocolBuffer(\"Invalid JSON data\")\n"
                        "  }\n"
                        "  return try $classNameReturnedType$.Builder.decodeToBuilder(jsonMap:jsDataCast)\n"

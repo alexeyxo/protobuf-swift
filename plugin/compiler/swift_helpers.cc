@@ -937,7 +937,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_BYTES   : return "String";
             case FieldDescriptor::TYPE_ENUM: return "String";
             case FieldDescriptor::TYPE_GROUP:
-            case FieldDescriptor::TYPE_MESSAGE: return "Dictionary<String,AnyObject>";
+            case FieldDescriptor::TYPE_MESSAGE: return "Dictionary<String,Any>";
         }
         GOOGLE_LOG(FATAL) << "Can't get here.";
         return NULL;

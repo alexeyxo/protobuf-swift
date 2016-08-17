@@ -311,12 +311,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
     public class func builderWithPrototype(prototype:Proto3PreserveUnknownEnumUnittest.MyMessage) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
       return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasE {
         jsonMap["e"] = e.toString()
       }
@@ -349,7 +349,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
       return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
@@ -665,7 +665,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         let resultDecodedBuilder = Proto3PreserveUnknownEnumUnittest.MyMessage.Builder()
         if let jsonValueE = jsonMap["e"] as? String {
           resultDecodedBuilder.e = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(str: jsonValueE)
@@ -704,7 +704,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -900,12 +900,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
     public class func builderWithPrototype(prototype:Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
       return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasE {
         jsonMap["e"] = e.toString()
       }
@@ -938,7 +938,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
       return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
@@ -1259,7 +1259,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         let resultDecodedBuilder = Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder()
         if let jsonValueE = jsonMap["e"] as? String {
           resultDecodedBuilder.e = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(str: jsonValueE)
@@ -1298,7 +1298,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder.decodeToBuilder(jsonMap:jsDataCast)

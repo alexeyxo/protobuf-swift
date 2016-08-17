@@ -182,18 +182,18 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.FieldMask) throws -> Google.Protobuf.FieldMask.Builder {
       return try Google.Protobuf.FieldMask.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if !paths.isEmpty {
-        jsonMap["paths"] = paths as AnyObject
+        jsonMap["paths"] = paths
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.FieldMask {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FieldMask {
       return try Google.Protobuf.FieldMask.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Google.Protobuf.FieldMask {
@@ -309,7 +309,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Google.Protobuf.FieldMask.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FieldMask.Builder {
         let resultDecodedBuilder = Google.Protobuf.FieldMask.Builder()
         if let jsonValuePaths = jsonMap["paths"] as? Array<String> {
           resultDecodedBuilder.paths = jsonValuePaths
@@ -318,7 +318,7 @@ public extension Google.Protobuf {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.FieldMask.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Google.Protobuf.FieldMask.Builder.decodeToBuilder(jsonMap:jsDataCast)

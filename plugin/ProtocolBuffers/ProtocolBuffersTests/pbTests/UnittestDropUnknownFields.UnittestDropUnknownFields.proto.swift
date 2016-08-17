@@ -141,12 +141,12 @@ public extension UnittestDropUnknownFields {
     public class func builderWithPrototype(prototype:UnittestDropUnknownFields.Foo) throws -> UnittestDropUnknownFields.Foo.Builder {
       return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasInt32Value {
         jsonMap["int32Value"] = NSNumber(value:int32Value)
       }
@@ -155,7 +155,7 @@ public extension UnittestDropUnknownFields {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.Foo {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.Foo {
       return try UnittestDropUnknownFields.Foo.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> UnittestDropUnknownFields.Foo {
@@ -316,7 +316,7 @@ public extension UnittestDropUnknownFields {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.Foo.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.Foo.Builder {
         let resultDecodedBuilder = UnittestDropUnknownFields.Foo.Builder()
         if let jsonValueInt32Value = jsonMap["int32Value"] as? NSNumber {
           resultDecodedBuilder.int32Value = jsonValueInt32Value.int32Value
@@ -328,7 +328,7 @@ public extension UnittestDropUnknownFields {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> UnittestDropUnknownFields.Foo.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try UnittestDropUnknownFields.Foo.Builder.decodeToBuilder(jsonMap:jsDataCast)
@@ -442,12 +442,12 @@ public extension UnittestDropUnknownFields {
     public class func builderWithPrototype(prototype:UnittestDropUnknownFields.FooWithExtraFields) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasInt32Value {
         jsonMap["int32Value"] = NSNumber(value:int32Value)
       }
@@ -459,7 +459,7 @@ public extension UnittestDropUnknownFields {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.FooWithExtraFields {
       return try UnittestDropUnknownFields.FooWithExtraFields.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> UnittestDropUnknownFields.FooWithExtraFields {
@@ -655,7 +655,7 @@ public extension UnittestDropUnknownFields {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         let resultDecodedBuilder = UnittestDropUnknownFields.FooWithExtraFields.Builder()
         if let jsonValueInt32Value = jsonMap["int32Value"] as? NSNumber {
           resultDecodedBuilder.int32Value = jsonValueInt32Value.int32Value
@@ -670,7 +670,7 @@ public extension UnittestDropUnknownFields {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try UnittestDropUnknownFields.FooWithExtraFields.Builder.decodeToBuilder(jsonMap:jsDataCast)

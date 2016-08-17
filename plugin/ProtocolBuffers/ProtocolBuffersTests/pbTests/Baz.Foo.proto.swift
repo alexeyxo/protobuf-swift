@@ -84,18 +84,18 @@ public extension Baz {
     public class func builderWithPrototype(prototype:Baz.Foo) throws -> Baz.Foo.Builder {
       return try Baz.Foo.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,AnyObject> {
+    override public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
 
-      var jsonMap:Dictionary<String,AnyObject> = Dictionary<String,AnyObject>()
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasHello {
         jsonMap["hello"] = hello
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Baz.Foo {
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Baz.Foo {
       return try Baz.Foo.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
     override class public func fromJSON(data:Data) throws -> Baz.Foo {
@@ -216,7 +216,7 @@ public extension Baz {
           }
         }
       }
-      override class public func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Baz.Foo.Builder {
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Baz.Foo.Builder {
         let resultDecodedBuilder = Baz.Foo.Builder()
         if let jsonValueHello = jsonMap["hello"] as? String {
           resultDecodedBuilder.hello = jsonValueHello
@@ -225,7 +225,7 @@ public extension Baz {
       }
       override class public func fromJSONToBuilder(data:Data) throws -> Baz.Foo.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-        guard let jsDataCast = jsonData as? Dictionary<String,AnyObject> else {
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
         }
         return try Baz.Foo.Builder.decodeToBuilder(jsonMap:jsDataCast)
