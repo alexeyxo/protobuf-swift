@@ -282,7 +282,7 @@ open class ExtendableMessage : GeneratedMessage
     }
 }
 
-public class ExtendableMessageBuilder:GeneratedMessageBuilder  
+open class ExtendableMessageBuilder:GeneratedMessageBuilder
 {
     override open var internalGetResult:ExtendableMessage {
         get
@@ -311,12 +311,12 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         }
     }
     
-    override public func isInitialized() -> Bool
+    override open func isInitialized() -> Bool
     {
         return internalGetResult.isInitialized()
     }
     
-    override public func merge(unknownField: UnknownFieldSet) throws -> Self
+    override open func merge(unknownField: UnknownFieldSet) throws -> Self
     {
         let result:GeneratedMessage = internalGetResult
         result.unknownFields = try UnknownFieldSet.builderWithUnknownFields(copyFrom: result.unknownFields).merge(unknownFields: unknownField).build()

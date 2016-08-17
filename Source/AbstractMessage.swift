@@ -43,8 +43,8 @@ public protocol ProtocolBuffersMessage:ProtocolBuffersMessageInit {
     func classBuilder()-> ProtocolBuffersMessageBuilder
     
     //JSON
-    func encode() throws -> Dictionary<String,AnyObject>
-    static func decode(jsonMap:Dictionary<String,AnyObject>) throws -> Self
+    func encode() throws -> Dictionary<String,Any>
+    static func decode(jsonMap:Dictionary<String,Any>) throws -> Self
     func toJSON() throws -> Data
     static func fromJSON(data:Data) throws -> Self
     
@@ -133,11 +133,11 @@ open class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
     }
     
     //JSON
-    open func encode() throws -> Dictionary<String, AnyObject> {
+    open func encode() throws -> Dictionary<String, Any> {
         throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
     
-    open class func decode(jsonMap: Dictionary<String, AnyObject>) throws -> Self {
+    open class func decode(jsonMap: Dictionary<String, Any>) throws -> Self {
         throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
     
