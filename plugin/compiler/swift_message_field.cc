@@ -221,7 +221,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "    if let varSize$name_reserved$ = $name_reserved$?.compute$group_or_message$Size(fieldNumber: $number$) {\n"
+                       "    if let varSize$name$ = $name_reserved$?.compute$group_or_message$Size(fieldNumber: $number$) {\n"
                        "        serialize_size += varSize$name$\n"
                        "    }\n"
                        "}\n");
