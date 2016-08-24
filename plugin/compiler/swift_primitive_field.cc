@@ -430,7 +430,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
     }
     
-    
     void RepeatedPrimitiveFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "(lhs.$name_reserved$ == rhs.$name_reserved$)");

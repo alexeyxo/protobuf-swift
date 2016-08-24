@@ -189,7 +189,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
     }
     
-    
     void EnumFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "(lhs.has$capitalized_name$ == rhs.has$capitalized_name$) && (!lhs.has$capitalized_name$ || lhs.$name_reserved$ == rhs.$name_reserved$)");
@@ -356,7 +355,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "    $name$ElementIndex += 1\n"
                        "}\n");
     }
-    
     
     void RepeatedEnumFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_, "(lhs.$name_reserved$ == rhs.$name_reserved$)");

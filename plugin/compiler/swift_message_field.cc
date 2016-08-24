@@ -226,7 +226,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
     }
     
-    
     void MessageFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "(lhs.has$capitalized_name$ == rhs.has$capitalized_name$) && (!lhs.has$capitalized_name$ || lhs.$name_reserved$ == rhs.$name_reserved$)");
