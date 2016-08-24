@@ -24,7 +24,7 @@ typealias ExtensionsValueType = Hashable & Equatable
 public class ExtendableMessage : GeneratedMessage  
 {
 
-    private var extensionMap:[Int32:Any] = [Int32:Any]()
+    fileprivate var extensionMap:[Int32:Any] = [Int32:Any]()
     public var extensionRegistry:[Int32:ConcreateExtensionField] = [Int32:ConcreateExtensionField]()
 
     required public init()
@@ -241,7 +241,7 @@ public class ExtendableMessage : GeneratedMessage
         }
     }
 
-    private func getHashValueRepeated<T where T:Collection, T.Iterator.Element:Hashable & Equatable>(lhs:T) -> Int!
+    private func getHashValueRepeated<T>(lhs:T) -> Int! where T:Collection, T.Iterator.Element:Hashable & Equatable
     {
         var hashCode:Int = 0
         for vv in lhs
@@ -251,7 +251,7 @@ public class ExtendableMessage : GeneratedMessage
         return hashCode
     }
     
-    private func getHashValue<T where T:Hashable & Equatable>(lhs:T) -> Int!
+    private func getHashValue<T>(lhs:T) -> Int! where T:Hashable & Equatable
     {
         return lhs.hashValue
     }
@@ -329,7 +329,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         let wireType = WireFormat.getTagWireType(tag: tag)
         let fieldNumber:Int32 = WireFormat.getTagFieldNumber(tag: tag)
         
-        let extensions = extensionRegistry.getExtension(clName: message.dynamicType, fieldNumber: fieldNumber)
+        let extensions = extensionRegistry.getExtension(clName: type(of: message), fieldNumber: fieldNumber)
         
         if extensions != nil {
             if extensions!.wireType.rawValue == wireType {
@@ -413,7 +413,7 @@ public class ExtendableMessageBuilder:GeneratedMessageBuilder
         return self
     }
 
-    private func mergeRepeatedExtensionFields<T where T:Collection>(otherList:T, extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Iterator.Element]
+    private func mergeRepeatedExtensionFields<T>(otherList:T, extensionMap:[Int32:Any], fieldNumber:Int32) -> [T.Iterator.Element] where T:Collection
     {
         var list:[T.Iterator.Element]! = extensionMap[fieldNumber] as? [T.Iterator.Element] ?? []
         list! += otherList

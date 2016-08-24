@@ -20,21 +20,21 @@ import Foundation
 let DEFAULT_BUFFER_SIZE:Int = 4 * 1024
 
 public class CodedOutputStream {
-    private var output:NSOutputStream?
+    private var output:OutputStream?
     internal var buffer:RingBuffer
     
-    public init (stream:NSOutputStream!, data:Data) {
+    public init (stream:OutputStream!, data:Data) {
         self.output = stream
         buffer = RingBuffer(data:data)
     }
   
-    public init(stream:NSOutputStream!, bufferSize:Int) {
+    public init(stream:OutputStream!, bufferSize:Int) {
         let data = Data(count: bufferSize)
         self.output = stream
         buffer = RingBuffer(data: data)
     }
    
-    public init(stream:NSOutputStream) {
+    public init(stream:OutputStream) {
         let data = Data(count:DEFAULT_BUFFER_SIZE)
         self.output = stream
         buffer = RingBuffer(data: data)
