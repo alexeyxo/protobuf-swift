@@ -11,8 +11,8 @@ import XCTest
 import ProtocolBuffers
 internal class CodedOuputStreamTests: XCTestCase
 {
-    func openMemoryStream() ->NSOutputStream {
-        let stream:NSOutputStream = NSOutputStream.toMemory()
+    func openMemoryStream() ->OutputStream {
+        let stream:OutputStream = OutputStream.toMemory()
         stream.open()
         return stream
     }
@@ -32,7 +32,7 @@ internal class CodedOuputStreamTests: XCTestCase
     }
     
     func assertWriteLittleEndian32(_ data:Data, value:Int32) throws {
-        let rawOutput:NSOutputStream = openMemoryStream()
+        let rawOutput:OutputStream = openMemoryStream()
         let output:CodedOutputStream = CodedOutputStream(stream: rawOutput)
 
         try output.writeRawLittleEndian32(value: value)
@@ -44,7 +44,7 @@ internal class CodedOuputStreamTests: XCTestCase
         
         var blockSize:Int = 1
         while blockSize <= 16 {
-            let rawOutput:NSOutputStream = openMemoryStream()
+            let rawOutput:OutputStream = openMemoryStream()
             let output:CodedOutputStream = CodedOutputStream(stream: rawOutput, bufferSize: blockSize)
             
             try output.writeRawLittleEndian32(value: value)
@@ -57,7 +57,7 @@ internal class CodedOuputStreamTests: XCTestCase
     }
     
     func assertWriteLittleEndian64(_ data:Data, value:Int64) throws {
-        let rawOutput:NSOutputStream = openMemoryStream()
+        let rawOutput:OutputStream = openMemoryStream()
         let output:CodedOutputStream = CodedOutputStream(stream: rawOutput)
         try output.writeRawLittleEndian64(value: value)
         try output.flush()
@@ -69,7 +69,7 @@ internal class CodedOuputStreamTests: XCTestCase
         
         var blockSize:Int = 1
         while blockSize <= 16 {
-            let rawOutput:NSOutputStream = openMemoryStream()
+            let rawOutput:OutputStream = openMemoryStream()
             let output:CodedOutputStream = CodedOutputStream(stream: rawOutput, bufferSize: blockSize)
             
             try output.writeRawLittleEndian64(value: value)
@@ -88,7 +88,7 @@ internal class CodedOuputStreamTests: XCTestCase
         let shift = WireFormat.logicalRightShift64(value:value, spaces: 31)
         if (shift == 0)
         {
-            let rawOutput1:NSOutputStream = openMemoryStream()
+            let rawOutput1:OutputStream = openMemoryStream()
             let output1:CodedOutputStream = CodedOutputStream(stream: rawOutput1)
             let invalue = Int32(value)
             try output1.writeRawVarint32(value: invalue)
@@ -100,7 +100,7 @@ internal class CodedOuputStreamTests: XCTestCase
             XCTAssertTrue(Int32(data.count) == Int32(value).computeRawVarint32Size(), "")
         }
     
-        let rawOutput2:NSOutputStream = openMemoryStream()
+        let rawOutput2:OutputStream = openMemoryStream()
         let output2:CodedOutputStream = CodedOutputStream(stream:rawOutput2)
         try output2.writeRawVarint64(value: value)
         try output2.flush()
@@ -115,7 +115,7 @@ internal class CodedOuputStreamTests: XCTestCase
         while blockSize <= 16 {
             if (WireFormat.logicalRightShift64(value:value, spaces: 31) == 0)
             {
-                let rawOutput3:NSOutputStream = openMemoryStream()
+                let rawOutput3:OutputStream = openMemoryStream()
                 let output3:CodedOutputStream = CodedOutputStream(stream: rawOutput3, bufferSize: blockSize)
                 
                 try output3.writeRawVarint32(value: Int32(value))
@@ -126,7 +126,7 @@ internal class CodedOuputStreamTests: XCTestCase
             }
             
             
-            let rawOutput4:NSOutputStream = openMemoryStream()
+            let rawOutput4:OutputStream = openMemoryStream()
             let output4:CodedOutputStream = CodedOutputStream(stream: rawOutput4, bufferSize: blockSize)
             try output4.writeRawVarint64(value: value)
             try output4.flush()
@@ -348,7 +348,7 @@ internal class CodedOuputStreamTests: XCTestCase
     {
          do {
             let str =  (Bundle(for:TestUtilities.self).resourcePath! as NSString).appendingPathComponent("delimitedFile.dat")
-            let stream = NSOutputStream(toFileAtPath: str, append: false)
+            let stream = OutputStream(toFileAtPath: str, append: false)
             stream?.open()
             for i in 1...100 {
                 let mes = try PBProtoPoint.Builder().setLatitude(1.0).setLongitude(Float(i)).build()

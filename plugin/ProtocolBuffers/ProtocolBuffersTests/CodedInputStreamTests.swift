@@ -99,7 +99,7 @@ class CodedInputStreamTests: XCTestCase
     
     func assertReadLittleEndian32(data:Data, value:Int32) throws
     {
-        var dataByte:[UInt8] = [UInt8](repeating: 0, count: data.count/sizeof(UInt8.self))
+        var dataByte:[UInt8] = [UInt8](repeating: 0, count: data.count/MemoryLayout<UInt8>.size)
         (data as NSData).getBytes(&dataByte, length: data.count)
         
         let input:CodedInputStream = CodedInputStream(data:data)
@@ -121,7 +121,7 @@ class CodedInputStreamTests: XCTestCase
 
     func assertReadLittleEndian64(data:Data, value:Int64) throws
     {
-        var dataByte:[UInt8] = [UInt8](repeating: 0, count: data.count/sizeof(UInt8.self))
+        var dataByte:[UInt8] = [UInt8](repeating: 0, count: data.count/MemoryLayout<UInt8>.size)
         (data as NSData).getBytes(&dataByte, length: data.count)
         
         let input:CodedInputStream = CodedInputStream(data:data)
@@ -235,7 +235,7 @@ class CodedInputStreamTests: XCTestCase
     func testReadMaliciouslyLargeBlob()
     {
         do {
-            let rawOutput:NSOutputStream = NSOutputStream.toMemory()
+            let rawOutput:OutputStream = OutputStream.toMemory()
             rawOutput.open()
             let output:CodedOutputStream = CodedOutputStream(stream: rawOutput)
             
@@ -343,7 +343,7 @@ class CodedInputStreamTests: XCTestCase
             
             var i:Int = 0
             while i < blob.length {
-                let pointer = UnsafeMutablePointer<UInt8>(blob.mutableBytes)
+                let pointer = UnsafeMutablePointer<UInt8>(blob.mutableBytes.bindMemory(to: UInt8.self, capacity: blob.length))
                 let bpointer = UnsafeMutableBufferPointer(start: pointer, count: blob.length)
                 bpointer[i] = UInt8(1)
                 i += 1
