@@ -328,7 +328,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             name += ".";
         }
         name += FileClassPrefix(descriptor->file());
-        return SafeName(name + UnderscoresToCapitalizedCamelCase(descriptor->name()));
+        name += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name);
     }
     ////
     
@@ -401,7 +402,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
    
         name += FileClassPrefix(descriptor->file());
-        name += SafeName(UnderscoresToCapitalizedCamelCase(descriptor->name()));
+        name += UnderscoresToCapitalizedCamelCase(descriptor->name());
         return SafeName(name);
         
     }
@@ -435,7 +436,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
 
         name += FileClassPrefix(descriptor->file());
-        name += SafeName(UnderscoresToCapitalizedCamelCase(descriptor->name()));
+        name += UnderscoresToCapitalizedCamelCase(descriptor->name());
 
         return SafeName(name);
     }
@@ -498,16 +499,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
 
     string EnumValueName(const EnumValueDescriptor* descriptor) {
-        string name = descriptor->name();
-        name = UnderscoresToCapitalizedCamelCase(name);
-        name[0] = tolower(name[0]);
-        name = SafeName(name); // must check if safe after all transformations
 
-        //Swift bug: when enumName == enaumFieldName
+        string name = UnderscoresToCapitalizedCamelCase(descriptor->name());
         if (name == UnderscoresToCapitalizedCamelCase(descriptor->type()->name()) || name == "String") {
             name = "`" + name + "`";
         }
-        return name;
+        name[0] = tolower(name[0]);
+        return SafeName(name);
     }
 
 
@@ -792,7 +790,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         hash_set<string> MakeKeywordsMap() {
             hash_set<string> result;
             for (unsigned int i = 0; i < GOOGLE_ARRAYSIZE(kKeywordList); i++) {
-                result.insert(kKeywordList[i]);
+                string keyWord = kKeywordList[i];
+                result.insert(keyWord);
+                std::transform(keyWord.begin(), keyWord.end(),keyWord.begin(), ::toupper);
+                result.insert(keyWord);
             }
             return result;
         }

@@ -2845,7 +2845,7 @@ public extension Google.Protobuf {
           case .typeSint64: return "TYPE_SINT64"
           }
         }
-        public static func fromString(str:String) throws -> Google.Protobuf.FieldDescriptorProto.`Type` {
+        public static func fromString(str:String) throws -> Google.Protobuf.FieldDescriptorProto.Type {
           switch str {
           case "TYPE_DOUBLE":  return .typeDouble
           case "TYPE_FLOAT":  return .typeFloat
@@ -2943,7 +2943,7 @@ public extension Google.Protobuf {
 
     public private(set) var label:Google.Protobuf.FieldDescriptorProto.Label = Google.Protobuf.FieldDescriptorProto.Label.labelOptional
     public private(set) var hasLabel:Bool = false
-    public private(set) var type:Google.Protobuf.FieldDescriptorProto.`Type` = Google.Protobuf.FieldDescriptorProto.`Type`.typeDouble
+    public private(set) var type:Google.Protobuf.FieldDescriptorProto.Type = Google.Protobuf.FieldDescriptorProto.Type.typeDouble
     public private(set) var hasType:Bool = false
     // For message and enum types, this is the name of the type.  If the name
     // starts with a '.', it is fully-qualified.  Otherwise, C++-like scoping
@@ -3280,7 +3280,7 @@ public extension Google.Protobuf {
                 return builderResult.hasType
             }
         }
-        public var type:Google.Protobuf.FieldDescriptorProto.`Type` {
+        public var type:Google.Protobuf.FieldDescriptorProto.Type {
             get {
                 return builderResult.type
             }
@@ -3289,7 +3289,7 @@ public extension Google.Protobuf {
                 builderResult.type = value
             }
         }
-        public func setType(_ value:Google.Protobuf.FieldDescriptorProto.`Type`) -> Google.Protobuf.FieldDescriptorProto.Builder {
+        public func setType(_ value:Google.Protobuf.FieldDescriptorProto.Type) -> Google.Protobuf.FieldDescriptorProto.Builder {
           self.type = value
           return self
         }
@@ -3526,7 +3526,7 @@ public extension Google.Protobuf {
 
           case 40:
             let valueInttype = try codedInputStream.readEnum()
-            if let enumstype = Google.Protobuf.FieldDescriptorProto.`Type`(rawValue:valueInttype){
+            if let enumstype = Google.Protobuf.FieldDescriptorProto.Type(rawValue:valueInttype){
                  type = enumstype
             } else {
                  _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 5, value:Int64(valueInttype))
@@ -3569,7 +3569,7 @@ public extension Google.Protobuf {
           resultDecodedBuilder.label = try Google.Protobuf.FieldDescriptorProto.Label.fromString(str: jsonValueLabel)
         }
         if let jsonValueType = jsonMap["type"] as? String {
-          resultDecodedBuilder.type = try Google.Protobuf.FieldDescriptorProto.`Type`.fromString(str: jsonValueType)
+          resultDecodedBuilder.type = try Google.Protobuf.FieldDescriptorProto.Type.fromString(str: jsonValueType)
         }
         if let jsonValueTypeName = jsonMap["typeName"] as? String {
           resultDecodedBuilder.typeName = jsonValueTypeName
