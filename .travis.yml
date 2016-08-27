@@ -9,7 +9,7 @@ install:
   - scripts/build.sh
   - scripts/makeTests.sh
 script:
-  - xcodebuild test -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -scheme ProtocolBuffers -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0'
+  - xcodebuild test -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -scheme "ProtocolBuffers(OSX)" -destination 'platform=macos'
 #  - xctool -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -sdk iphonesimulator -scheme ProtocolBuffers build test
 #  - xctool -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -scheme "ProtocolBuffers(OSX)" build test
 #  - xctool -project ./plugin/ProtocolBuffers/ProtocolBuffers.xcodeproj -sdk appletvsimulator -scheme "ProtocolBuffers(tvOS)" build test
