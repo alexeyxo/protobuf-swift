@@ -401,7 +401,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
    
         name += FileClassPrefix(descriptor->file());
-        name += SafeName(UnderscoresToCapitalizedCamelCase(descriptor->name()));
+        name += UnderscoresToCapitalizedCamelCase(descriptor->name());
         return SafeName(name);
         
     }
