@@ -400,10 +400,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             name += ClassNameWorker(descriptor->containing_type());
             name += ".";
         }
-   
-        name += FileClassPrefix(descriptor->file());
-        name += UnderscoresToCapitalizedCamelCase(descriptor->name());
-        return SafeName(name);
+        string className = FileClassPrefix(descriptor->file());
+        className += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name + SafeName(className));
         
     }
     
@@ -434,11 +433,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             name += ClassNameWorker(descriptor->containing_type());
             name += ".";
         }
-
-        name += FileClassPrefix(descriptor->file());
-        name += UnderscoresToCapitalizedCamelCase(descriptor->name());
-
-        return SafeName(name);
+        string className = FileClassPrefix(descriptor->file());
+        className += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name + SafeName(className));
     }
     
     string PackageName(const Descriptor* descriptor)
