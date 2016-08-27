@@ -497,13 +497,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return SafeName(name);
     }
 
-    //Swift bug: when enumName == enaumFieldName
     string EnumValueName(const EnumValueDescriptor* descriptor) {
-        string name = UnderscoresToCapitalizedCamelCase(SafeName(descriptor->name()));
+        string name = descriptor->name();
+        name = UnderscoresToCapitalizedCamelCase(name);
+        name[0] = tolower(name[0]);
+        name = SafeName(name); // must check if safe after all transformations
+
+        //Swift bug: when enumName == enaumFieldName
         if (name == UnderscoresToCapitalizedCamelCase(descriptor->type()->name()) || name == "String") {
             name = "`" + name + "`";
         }
-        name[0] = tolower(name[0]);
         return name;
     }
 
