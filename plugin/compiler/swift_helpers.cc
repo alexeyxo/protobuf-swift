@@ -388,6 +388,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return name;
     }
     
+    //Errors
+    
+    bool HasOptionForGenerateErrors(const EnumDescriptor* descriptor) {
+        if (descriptor->options().HasExtension(swift_enum_options)) {
+            SwiftEnumOptions options = descriptor->options().GetExtension(swift_enum_options);
+            return options.generate_error_type();
+        }
+        return false;
+    }
+    
     //// Messages class name and returned type
     string ClassName(const Descriptor* descriptor) {
         string name;

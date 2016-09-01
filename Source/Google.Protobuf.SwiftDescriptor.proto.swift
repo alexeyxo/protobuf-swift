@@ -17,9 +17,24 @@ public func == (lhs: Google.Protobuf.SwiftFileOptions, rhs: Google.Protobuf.Swif
   return fieldCheck
 }
 
+public func == (lhs: Google.Protobuf.SwiftEnumOptions, rhs: Google.Protobuf.SwiftEnumOptions) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasGenerateErrorType == rhs.hasGenerateErrorType) && (!lhs.hasGenerateErrorType || lhs.generateErrorType == rhs.generateErrorType)
+  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  return fieldCheck
+}
+
 public var SwiftDescriptorRootswiftFileOptions:ConcreateExtensionField {
    get {
        return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftFileOptionsStatic
+   }
+}
+public var SwiftDescriptorRootswiftEnumOptions:ConcreateExtensionField {
+   get {
+       return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftEnumOptionsStatic
    }
 }
 public extension Google.Protobuf {
@@ -31,19 +46,25 @@ public extension Google.Protobuf {
      return Static.instance
     }
     var SwiftDescriptorRootswiftFileOptionsStatic:ConcreateExtensionField
+    var SwiftDescriptorRootswiftEnumOptionsStatic:ConcreateExtensionField
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       SwiftDescriptorRootswiftFileOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 5092014, defaultValue:Google.Protobuf.SwiftFileOptions(), messageOrGroupClass:Google.Protobuf.SwiftFileOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      SwiftDescriptorRootswiftEnumOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.EnumOptions.self, fieldNumber: 5092015, defaultValue:Google.Protobuf.SwiftEnumOptions(), messageOrGroupClass:Google.Protobuf.SwiftEnumOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
       Google.Protobuf.DescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry:ExtensionRegistry) {
       registry.addExtension(extensions: SwiftDescriptorRootswiftFileOptionsStatic)
+      registry.addExtension(extensions: SwiftDescriptorRootswiftEnumOptionsStatic)
     }
     public static func swiftFileOptions() -> ConcreateExtensionField {
          return SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftFileOptionsStatic
+    }
+    public static func swiftEnumOptions() -> ConcreateExtensionField {
+         return SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftEnumOptionsStatic
     }
   }
 
@@ -326,6 +347,173 @@ public extension Google.Protobuf {
 
   }
 
+  final public class SwiftEnumOptions : GeneratedMessage {
+    public private(set) var generateErrorType:Bool = false
+
+    public private(set) var hasGenerateErrorType:Bool = false
+    required public init() {
+         super.init()
+    }
+    override public func isInitialized() -> Bool {
+     return true
+    }
+    override public func writeTo(codedOutputStream:CodedOutputStream) throws {
+      if hasGenerateErrorType {
+        try codedOutputStream.writeBool(fieldNumber:1, value:generateErrorType)
+      }
+      try unknownFields.writeTo(codedOutputStream:codedOutputStream)
+    }
+    override public func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      if hasGenerateErrorType {
+        serialize_size += generateErrorType.computeBoolSize(fieldNumber: 1)
+      }
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    public class func getBuilder() -> Google.Protobuf.SwiftEnumOptions.Builder {
+      return Google.Protobuf.SwiftEnumOptions.classBuilder() as! Google.Protobuf.SwiftEnumOptions.Builder
+    }
+    public func getBuilder() -> Google.Protobuf.SwiftEnumOptions.Builder {
+      return classBuilder() as! Google.Protobuf.SwiftEnumOptions.Builder
+    }
+    public override class func classBuilder() -> ProtocolBuffersMessageBuilder {
+      return Google.Protobuf.SwiftEnumOptions.Builder()
+    }
+    public override func classBuilder() -> ProtocolBuffersMessageBuilder {
+      return Google.Protobuf.SwiftEnumOptions.Builder()
+    }
+    public func toBuilder() throws -> Google.Protobuf.SwiftEnumOptions.Builder {
+      return try Google.Protobuf.SwiftEnumOptions.builderWithPrototype(prototype: self)
+    }
+    public class func builderWithPrototype(prototype:Google.Protobuf.SwiftEnumOptions) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
+      return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(other: prototype)
+    }
+    override public func getDescription(indent:String) throws -> String {
+      var output:String = ""
+      if hasGenerateErrorType {
+        output += "\(indent) generateErrorType: \(generateErrorType) \n"
+      }
+      output += unknownFields.getDescription(indent: indent)
+      return output
+    }
+    override public var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            if hasGenerateErrorType {
+               hashCode = (hashCode &* 31) &+ generateErrorType.hashValue
+            }
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override public class func className() -> String {
+        return "Google.Protobuf.SwiftEnumOptions"
+    }
+    override public func className() -> String {
+        return "Google.Protobuf.SwiftEnumOptions"
+    }
+    //Meta information declaration end
+
+    final public class Builder : GeneratedMessageBuilder {
+      private var builderResult:Google.Protobuf.SwiftEnumOptions = Google.Protobuf.SwiftEnumOptions()
+      public func getMessage() -> Google.Protobuf.SwiftEnumOptions {
+          return builderResult
+      }
+
+      required override public init () {
+         super.init()
+      }
+      public var hasGenerateErrorType:Bool {
+           get {
+                return builderResult.hasGenerateErrorType
+           }
+      }
+      public var generateErrorType:Bool {
+           get {
+                return builderResult.generateErrorType
+           }
+           set (value) {
+               builderResult.hasGenerateErrorType = true
+               builderResult.generateErrorType = value
+           }
+      }
+      public func setGenerateErrorType(_ value:Bool) -> Google.Protobuf.SwiftEnumOptions.Builder {
+        self.generateErrorType = value
+        return self
+      }
+      public func clearGenerateErrorType() -> Google.Protobuf.SwiftEnumOptions.Builder{
+           builderResult.hasGenerateErrorType = false
+           builderResult.generateErrorType = false
+           return self
+      }
+      override public var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      public override func clear() -> Google.Protobuf.SwiftEnumOptions.Builder {
+        builderResult = Google.Protobuf.SwiftEnumOptions()
+        return self
+      }
+      public override func clone() throws -> Google.Protobuf.SwiftEnumOptions.Builder {
+        return try Google.Protobuf.SwiftEnumOptions.builderWithPrototype(prototype: builderResult)
+      }
+      public override func build() throws -> Google.Protobuf.SwiftEnumOptions {
+           try checkInitialized()
+           return buildPartial()
+      }
+      public func buildPartial() -> Google.Protobuf.SwiftEnumOptions {
+        let returnMe:Google.Protobuf.SwiftEnumOptions = builderResult
+        return returnMe
+      }
+      public func mergeFrom(other:Google.Protobuf.SwiftEnumOptions) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
+        if other == Google.Protobuf.SwiftEnumOptions() {
+         return self
+        }
+        if other.hasGenerateErrorType {
+             generateErrorType = other.generateErrorType
+        }
+        _ = try merge(unknownField: other.unknownFields)
+        return self
+      }
+      public override func mergeFrom(codedInputStream:CodedInputStream) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+      }
+      public override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
+        while (true) {
+          let protobufTag = try codedInputStream.readTag()
+          switch protobufTag {
+          case 0: 
+            self.unknownFields = try unknownFieldsBuilder.build()
+            return self
+
+          case 8:
+            generateErrorType = try codedInputStream.readBool()
+
+          default:
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+               unknownFields = try unknownFieldsBuilder.build()
+               return self
+            }
+          }
+        }
+      }
+    }
+
+  }
+
 }
 extension Google.Protobuf.SwiftFileOptions: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<Google.Protobuf.SwiftFileOptions> {
@@ -355,6 +543,36 @@ extension Google.Protobuf.SwiftFileOptions: GeneratedMessageProtocol {
   }
   public class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
     return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension Google.Protobuf.SwiftEnumOptions: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<Google.Protobuf.SwiftEnumOptions> {
+    var mergedArray = Array<Google.Protobuf.SwiftEnumOptions>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream:InputStream) throws -> Google.Protobuf.SwiftEnumOptions? {
+    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
+  }
+  public class func parseFrom(data:Data) throws -> Google.Protobuf.SwiftEnumOptions {
+    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions {
+    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream:InputStream) throws -> Google.Protobuf.SwiftEnumOptions {
+    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions {
+    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream:CodedInputStream) throws -> Google.Protobuf.SwiftEnumOptions {
+    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions {
+    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 
