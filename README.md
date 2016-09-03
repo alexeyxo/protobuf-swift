@@ -322,6 +322,95 @@ Generated class and all fields are marked a `public`:
 final public class MessageWithCustomOption : GeneratedMessage
 ```
 
+###Generate enum conforming to "Error" protocol
+
+```protobuf
+option (.google.protobuf.swift_enum_options).generate_error_type = true;
+```
+
+####Example
+```protobuf
+import 'google/protobuf/swift-descriptor.proto';
+
+enum ServiceError {
+  option (.google.protobuf.swift_enum_options).generate_error_type = true;
+  BadRequest = 0;
+  InternalServerError = 1;
+}
+
+message UserProfile {
+    message Request {
+        required string userId = 1;
+    }
+    message Response {
+        optional UserProfile profile = 1;
+        optional ServiceError error = 2;
+    }
+    
+    optional string firstName = 1;
+    optional string lastName = 2;
+    optional string avatarUrl = 3;
+}
+```
+
+```swift
+public enum ServiceError:Error, RawRepresentable, CustomDebugStringConvertible, CustomStringConvertible {
+  public typealias RawValue = Int32
+
+  case badRequest
+  case internalServerError
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+    case 0: self = .badRequest
+    case 1: self = .internalServerError
+    default: return nil
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+    case .badRequest: return 0
+    case .internalServerError: return 1
+    }
+  }
+
+  public func throwException() throws {
+    throw self
+  }
+
+  public var debugDescription:String { return getDescription() }
+  public var description:String { return getDescription() }
+  private func getDescription() -> String { 
+    switch self {
+    case .badRequest: return ".badRequest"
+    case .internalServerError: return ".internalServerError"
+    }
+  }
+}
+```
+```swift
+func generateException() {
+    let user = UserProfile.Response.Builder()
+    user.error = .internalServerError
+    let data = try user.build().data()
+    let userError = try UserProfile.Response.parseFrom(data:data)
+    if userError.hasError {
+        throw userError.error //userError.error.throwException()
+    }
+}
+
+do {
+    try generateException()
+} catch let err as ServiceError where err == .internalServerError {
+    XCTAssertTrue(true)
+} catch {
+    XCTAssertTrue(false)
+}
+  
+```
+
+
 ###Compile for framework
 
 ```protobuf
@@ -331,7 +420,6 @@ option (.google.protobuf.swift_file_options).compile_for_framework = false;
 This option deletes the string `import ProtocolBuffers` of the generated files.
 
 ####If you will need some other options, write me. I will add them.
-
 
 
 
