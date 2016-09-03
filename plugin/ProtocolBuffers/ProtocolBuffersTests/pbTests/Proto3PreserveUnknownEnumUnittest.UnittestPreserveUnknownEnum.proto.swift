@@ -82,11 +82,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .foo: return ".foo"
-            case .bar: return ".bar"
-            case .baz: return ".baz"
-        }
+      switch self {
+      case .foo: return ".foo"
+      case .bar: return ".bar"
+      case .baz: return ".baz"
+      }
     }
   }
 
@@ -121,12 +121,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .eFoo: return ".eFoo"
-            case .eBar: return ".eBar"
-            case .eBaz: return ".eBaz"
-            case .eExtra: return ".eExtra"
-        }
+      switch self {
+      case .eFoo: return ".eFoo"
+      case .eBar: return ".eBar"
+      case .eBaz: return ".eBaz"
+      case .eExtra: return ".eExtra"
+      }
     }
   }
 

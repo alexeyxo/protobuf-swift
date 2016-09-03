@@ -68,9 +68,9 @@ public extension Google.Protobuf.NoGenericServicesTest {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .foo: return ".foo"
-        }
+      switch self {
+      case .foo: return ".foo"
+      }
     }
   }
 

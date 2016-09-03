@@ -63,11 +63,11 @@ public extension ProtobufUnittestImport {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .importFoo: return ".importFoo"
-            case .importBar: return ".importBar"
-            case .importBaz: return ".importBaz"
-        }
+      switch self {
+      case .importFoo: return ".importFoo"
+      case .importBar: return ".importBar"
+      case .importBaz: return ".importBaz"
+      }
     }
   }
 

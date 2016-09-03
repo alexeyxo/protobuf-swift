@@ -189,11 +189,11 @@ public extension ProtobufUnittestNoArena {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .foreignFoo: return ".foreignFoo"
-            case .foreignBar: return ".foreignBar"
-            case .foreignBaz: return ".foreignBaz"
-        }
+      switch self {
+      case .foreignFoo: return ".foreignFoo"
+      case .foreignBar: return ".foreignBar"
+      case .foreignBaz: return ".foreignBaz"
+      }
     }
   }
 
@@ -922,12 +922,12 @@ public extension ProtobufUnittestNoArena {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .foo: return ".foo"
-                case .bar: return ".bar"
-                case .baz: return ".baz"
-                case .neg: return ".neg"
-            }
+          switch self {
+          case .foo: return ".foo"
+          case .bar: return ".bar"
+          case .baz: return ".baz"
+          case .neg: return ".neg"
+          }
         }
       }
 

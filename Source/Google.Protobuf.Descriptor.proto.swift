@@ -2871,26 +2871,26 @@ public extension Google.Protobuf {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .typeDouble: return ".typeDouble"
-                case .typeFloat: return ".typeFloat"
-                case .typeInt64: return ".typeInt64"
-                case .typeUint64: return ".typeUint64"
-                case .typeInt32: return ".typeInt32"
-                case .typeFixed64: return ".typeFixed64"
-                case .typeFixed32: return ".typeFixed32"
-                case .typeBool: return ".typeBool"
-                case .typeString: return ".typeString"
-                case .typeGroup: return ".typeGroup"
-                case .typeMessage: return ".typeMessage"
-                case .typeBytes: return ".typeBytes"
-                case .typeUint32: return ".typeUint32"
-                case .typeEnum: return ".typeEnum"
-                case .typeSfixed32: return ".typeSfixed32"
-                case .typeSfixed64: return ".typeSfixed64"
-                case .typeSint32: return ".typeSint32"
-                case .typeSint64: return ".typeSint64"
-            }
+          switch self {
+          case .typeDouble: return ".typeDouble"
+          case .typeFloat: return ".typeFloat"
+          case .typeInt64: return ".typeInt64"
+          case .typeUint64: return ".typeUint64"
+          case .typeInt32: return ".typeInt32"
+          case .typeFixed64: return ".typeFixed64"
+          case .typeFixed32: return ".typeFixed32"
+          case .typeBool: return ".typeBool"
+          case .typeString: return ".typeString"
+          case .typeGroup: return ".typeGroup"
+          case .typeMessage: return ".typeMessage"
+          case .typeBytes: return ".typeBytes"
+          case .typeUint32: return ".typeUint32"
+          case .typeEnum: return ".typeEnum"
+          case .typeSfixed32: return ".typeSfixed32"
+          case .typeSfixed64: return ".typeSfixed64"
+          case .typeSint32: return ".typeSint32"
+          case .typeSint64: return ".typeSint64"
+          }
         }
       }
 
@@ -2925,11 +2925,11 @@ public extension Google.Protobuf {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .labelOptional: return ".labelOptional"
-                case .labelRequired: return ".labelRequired"
-                case .labelRepeated: return ".labelRepeated"
-            }
+          switch self {
+          case .labelOptional: return ".labelOptional"
+          case .labelRequired: return ".labelRequired"
+          case .labelRepeated: return ".labelRepeated"
+          }
         }
       }
 
@@ -5402,11 +5402,11 @@ public extension Google.Protobuf {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .speed: return ".speed"
-                case .codeSize: return ".codeSize"
-                case .liteRuntime: return ".liteRuntime"
-            }
+          switch self {
+          case .speed: return ".speed"
+          case .codeSize: return ".codeSize"
+          case .liteRuntime: return ".liteRuntime"
+          }
         }
       }
 
@@ -6885,11 +6885,11 @@ public extension Google.Protobuf {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .`String`: return ".`String`"
-                case .cord: return ".cord"
-                case .stringPiece: return ".stringPiece"
-            }
+          switch self {
+          case .`String`: return ".`String`"
+          case .cord: return ".cord"
+          case .stringPiece: return ".stringPiece"
+          }
         }
       }
 
@@ -6926,11 +6926,11 @@ public extension Google.Protobuf {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .jsNormal: return ".jsNormal"
-                case .jsString: return ".jsString"
-                case .jsNumber: return ".jsNumber"
-            }
+          switch self {
+          case .jsNormal: return ".jsNormal"
+          case .jsString: return ".jsString"
+          case .jsNumber: return ".jsNumber"
+          }
         }
       }
 

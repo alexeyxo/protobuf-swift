@@ -660,26 +660,26 @@ public extension Google.Protobuf {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .typeUnknown: return ".typeUnknown"
-                case .typeDouble: return ".typeDouble"
-                case .typeFloat: return ".typeFloat"
-                case .typeInt64: return ".typeInt64"
-                case .typeUint64: return ".typeUint64"
-                case .typeInt32: return ".typeInt32"
-                case .typeFixed64: return ".typeFixed64"
-                case .typeFixed32: return ".typeFixed32"
-                case .typeBool: return ".typeBool"
-                case .typeString: return ".typeString"
-                case .typeMessage: return ".typeMessage"
-                case .typeBytes: return ".typeBytes"
-                case .typeUint32: return ".typeUint32"
-                case .typeEnum: return ".typeEnum"
-                case .typeSfixed32: return ".typeSfixed32"
-                case .typeSfixed64: return ".typeSfixed64"
-                case .typeSint32: return ".typeSint32"
-                case .typeSint64: return ".typeSint64"
-            }
+          switch self {
+          case .typeUnknown: return ".typeUnknown"
+          case .typeDouble: return ".typeDouble"
+          case .typeFloat: return ".typeFloat"
+          case .typeInt64: return ".typeInt64"
+          case .typeUint64: return ".typeUint64"
+          case .typeInt32: return ".typeInt32"
+          case .typeFixed64: return ".typeFixed64"
+          case .typeFixed32: return ".typeFixed32"
+          case .typeBool: return ".typeBool"
+          case .typeString: return ".typeString"
+          case .typeMessage: return ".typeMessage"
+          case .typeBytes: return ".typeBytes"
+          case .typeUint32: return ".typeUint32"
+          case .typeEnum: return ".typeEnum"
+          case .typeSfixed32: return ".typeSfixed32"
+          case .typeSfixed64: return ".typeSfixed64"
+          case .typeSint32: return ".typeSint32"
+          case .typeSint64: return ".typeSint64"
+          }
         }
       }
 
@@ -723,12 +723,12 @@ public extension Google.Protobuf {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .cardinalityUnknown: return ".cardinalityUnknown"
-                case .cardinalityOptional: return ".cardinalityOptional"
-                case .cardinalityRequired: return ".cardinalityRequired"
-                case .cardinalityRepeated: return ".cardinalityRepeated"
-            }
+          switch self {
+          case .cardinalityUnknown: return ".cardinalityUnknown"
+          case .cardinalityOptional: return ".cardinalityOptional"
+          case .cardinalityRequired: return ".cardinalityRequired"
+          case .cardinalityRepeated: return ".cardinalityRepeated"
+          }
         }
       }
 

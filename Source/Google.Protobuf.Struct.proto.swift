@@ -94,9 +94,9 @@ public extension Google.Protobuf {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .`NullValue`: return ".`NullValue`"
-        }
+      switch self {
+      case .`NullValue`: return ".`NullValue`"
+      }
     }
   }
 

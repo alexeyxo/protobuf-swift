@@ -774,10 +774,10 @@ public extension ProtobufUnittest {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .methodopt1Val1: return ".methodopt1Val1"
-            case .methodopt1Val2: return ".methodopt1Val2"
-        }
+      switch self {
+      case .methodopt1Val1: return ".methodopt1Val1"
+      case .methodopt1Val2: return ".methodopt1Val2"
+      }
     }
   }
 
@@ -803,9 +803,9 @@ public extension ProtobufUnittest {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .value: return ".value"
-        }
+      switch self {
+      case .value: return ".value"
+      }
     }
   }
 
@@ -837,10 +837,10 @@ public extension ProtobufUnittest {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .anenumVal1: return ".anenumVal1"
-                case .anenumVal2: return ".anenumVal2"
-            }
+          switch self {
+          case .anenumVal1: return ".anenumVal1"
+          case .anenumVal2: return ".anenumVal2"
+          }
         }
       }
 
@@ -1661,10 +1661,10 @@ public extension ProtobufUnittest {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .testOptionEnumType1: return ".testOptionEnumType1"
-                case .testOptionEnumType2: return ".testOptionEnumType2"
-            }
+          switch self {
+          case .testOptionEnumType1: return ".testOptionEnumType1"
+          case .testOptionEnumType2: return ".testOptionEnumType2"
+          }
         }
       }
 
@@ -5886,9 +5886,9 @@ public extension ProtobufUnittest {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .nestedEnumValue: return ".nestedEnumValue"
-            }
+          switch self {
+          case .nestedEnumValue: return ".nestedEnumValue"
+          }
         }
       }
 

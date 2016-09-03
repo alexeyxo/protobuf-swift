@@ -76,11 +76,11 @@ public extension UnittestDropUnknownFields {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .foo: return ".foo"
-                case .bar: return ".bar"
-                case .baz: return ".baz"
-            }
+          switch self {
+          case .foo: return ".foo"
+          case .bar: return ".bar"
+          case .baz: return ".baz"
+          }
         }
       }
 
@@ -367,12 +367,12 @@ public extension UnittestDropUnknownFields {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .foo: return ".foo"
-                case .bar: return ".bar"
-                case .baz: return ".baz"
-                case .qux: return ".qux"
-            }
+          switch self {
+          case .foo: return ".foo"
+          case .bar: return ".bar"
+          case .baz: return ".baz"
+          case .qux: return ".qux"
+          }
         }
       }
 

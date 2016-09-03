@@ -81,6 +81,10 @@ public enum ServiceError:Error, RawRepresentable, CustomDebugStringConvertible, 
     case .internalServerError: return 1
     }
   }
+
+  public func throwException() throws {
+    throw self
+  }
   public func toString() -> String {
     switch self {
     case .badRequest: return "BadRequest"
@@ -97,10 +101,10 @@ public enum ServiceError:Error, RawRepresentable, CustomDebugStringConvertible, 
   public var debugDescription:String { return getDescription() }
   public var description:String { return getDescription() }
   private func getDescription() -> String { 
-      switch self {
-          case .badRequest: return ".badRequest"
-          case .internalServerError: return ".internalServerError"
-      }
+    switch self {
+    case .badRequest: return ".badRequest"
+    case .internalServerError: return ".internalServerError"
+    }
   }
 }
 

@@ -1655,10 +1655,10 @@ final internal class PBIceCreamCone : GeneratedMessage {
       internal var debugDescription:String { return getDescription() }
       internal var description:String { return getDescription() }
       private func getDescription() -> String { 
-          switch self {
-              case .chocolate: return ".chocolate"
-              case .vanilla: return ".vanilla"
-          }
+        switch self {
+        case .chocolate: return ".chocolate"
+        case .vanilla: return ".vanilla"
+        }
       }
     }
 

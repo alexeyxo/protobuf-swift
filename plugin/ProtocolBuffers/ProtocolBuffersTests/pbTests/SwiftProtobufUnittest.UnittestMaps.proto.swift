@@ -1908,10 +1908,10 @@ public extension SwiftProtobufUnittest {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .firstValueEnum: return ".firstValueEnum"
-                case .secondValueEnum: return ".secondValueEnum"
-            }
+          switch self {
+          case .firstValueEnum: return ".firstValueEnum"
+          case .secondValueEnum: return ".secondValueEnum"
+          }
         }
       }
 
