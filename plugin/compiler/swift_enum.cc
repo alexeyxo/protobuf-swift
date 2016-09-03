@@ -88,6 +88,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             GenerateInit(printer);
             printer->Print("\n");
             GenerateRawRepresentable(printer);
+            printer->Print("\n");
+            GenerateMethodThrow(printer);
             
         }
         printer->Print("\n");
@@ -122,6 +124,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             }
            
         }
+    }
+    
+    void EnumGenerator::GenerateMethodThrow(io::Printer* printer) {
+        
+        printer->Print("$acontrol$ func throwException() throws {\n","acontrol", GetAccessControlType(descriptor_->file()));
+        printer->Indent();
+        printer->Print("throw self\n");
+        printer->Outdent();
+        printer->Print("}\n");
     }
     
     void EnumGenerator::GenerateInit(io::Printer* printer) {

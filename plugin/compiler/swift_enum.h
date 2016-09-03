@@ -47,6 +47,7 @@ namespace google {
                     const EnumDescriptor* descriptor_;
                     void GenerateRawRepresentable(io::Printer* printer);
                     void GenerateInit(io::Printer* printer);
+                    void GenerateMethodThrow(io::Printer* printer);
                     vector<const EnumValueDescriptor*> canonical_values_;
                     
                     struct Alias {
