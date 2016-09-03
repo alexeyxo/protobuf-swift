@@ -87,6 +87,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             GenerateInit(printer);
             printer->Print("\n");
             GenerateRawRepresentable(printer);
+            printer->Print("\n");
+            GenerateMethodThrow(printer);
             
         }
        
@@ -100,7 +102,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print("return \"$name$\"\n", "name", canonical_values_[i]->name());
             
         }
-//        printer->Print("  default: throw ProtocolBuffersError.invalidProtocolBuffer(\"Invalid enum value\")\n");
+
         printer->Print("  }\n");
         printer->Print("}\n");
         
@@ -153,6 +155,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
     }
     
+    void EnumGenerator::GenerateMethodThrow(io::Printer* printer) {
+        
+        printer->Print("$acontrol$ func throwException() throws {\n","acontrol", GetAccessControlType(descriptor_->file()));
+        printer->Indent();
+        printer->Print("throw self\n");
+        printer->Outdent();
+        printer->Print("}\n");
+    }
+    
     void EnumGenerator::GenerateInit(io::Printer* printer) {
         
         printer->Print("$acontrol$ init?(rawValue: RawValue) {\n","acontrol", GetAccessControlType(descriptor_->file()));
@@ -195,13 +206,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Print("private func getDescription() -> String { \n");
-        printer->Print("    switch self {\n");
+        printer->Indent();
+        printer->Print("switch self {\n");
         for (int i = 0; i < canonical_values_.size(); i++) {
-            printer->Print("        case .$name$: return \".$name$\"\n",
+            printer->Print("case .$name$: return \".$name$\"\n",
                            "name", EnumValueName(canonical_values_[i])
                            );
         }
-        printer->Print("    }\n");
+        printer->Print("}\n");
+        printer->Outdent();
         printer->Print("}\n");
         
     }

@@ -23,12 +23,8 @@ class ErrorHandlingTest: XCTestCase {
     func testExample() {
         do {
             try throwException()
-        } catch let err as ServiceError {
-            if err == .internalServerError {
-                XCTAssertTrue(true)
-            } else {
-                XCTAssertTrue(false)
-            }
+        } catch let err as ServiceError where err == .internalServerError {
+            XCTAssertTrue(true)
         } catch {
             XCTAssertTrue(false)
         }
