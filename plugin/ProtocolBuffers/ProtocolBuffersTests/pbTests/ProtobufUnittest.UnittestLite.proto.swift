@@ -1341,11 +1341,11 @@ public extension ProtobufUnittest {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .foreignLiteFoo: return ".foreignLiteFoo"
-            case .foreignLiteBar: return ".foreignLiteBar"
-            case .foreignLiteBaz: return ".foreignLiteBaz"
-        }
+      switch self {
+      case .foreignLiteFoo: return ".foreignLiteFoo"
+      case .foreignLiteBar: return ".foreignLiteBar"
+      case .foreignLiteBaz: return ".foreignLiteBaz"
+      }
     }
   }
 
@@ -1944,11 +1944,11 @@ public extension ProtobufUnittest {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .foo: return ".foo"
-                case .bar: return ".bar"
-                case .baz: return ".baz"
-            }
+          switch self {
+          case .foo: return ".foo"
+          case .bar: return ".bar"
+          case .baz: return ".baz"
+          }
         }
       }
 

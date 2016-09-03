@@ -79,10 +79,10 @@ public extension Google.Protobuf {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .internalEntities: return ".internalEntities"
-            case .publicEntities: return ".publicEntities"
-        }
+      switch self {
+      case .internalEntities: return ".internalEntities"
+      case .publicEntities: return ".publicEntities"
+      }
     }
   }
 

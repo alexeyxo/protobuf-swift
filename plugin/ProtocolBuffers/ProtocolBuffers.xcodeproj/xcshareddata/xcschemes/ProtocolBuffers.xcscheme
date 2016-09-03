@@ -28,8 +28,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3F8556A319C71BCF003802F2"
-               BuildableName = "ProtocolBuffersTests.xctest"
+               BlueprintIdentifier = "3FAEDBA11D71A3BF0007DF99"
+               BuildableName = "UnitTesting.xctest"
                BlueprintName = "UnitTesting"
                ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
             </BuildableReference>

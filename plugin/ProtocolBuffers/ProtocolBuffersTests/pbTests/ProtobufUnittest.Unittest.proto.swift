@@ -2175,11 +2175,11 @@ public extension ProtobufUnittest {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .foreignFoo: return ".foreignFoo"
-            case .foreignBar: return ".foreignBar"
-            case .foreignBaz: return ".foreignBaz"
-        }
+      switch self {
+      case .foreignFoo: return ".foreignFoo"
+      case .foreignBar: return ".foreignBar"
+      case .foreignBaz: return ".foreignBaz"
+      }
     }
   }
 
@@ -2198,11 +2198,11 @@ public extension ProtobufUnittest {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .foo1: return ".foo1"
-            case .bar1: return ".bar1"
-            case .baz: return ".baz"
-        }
+      switch self {
+      case .foo1: return ".foo1"
+      case .bar1: return ".bar1"
+      case .baz: return ".baz"
+      }
     }
   }
 
@@ -2225,15 +2225,15 @@ public extension ProtobufUnittest {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .sparseA: return ".sparseA"
-            case .sparseB: return ".sparseB"
-            case .sparseC: return ".sparseC"
-            case .sparseD: return ".sparseD"
-            case .sparseE: return ".sparseE"
-            case .sparseF: return ".sparseF"
-            case .sparseG: return ".sparseG"
-        }
+      switch self {
+      case .sparseA: return ".sparseA"
+      case .sparseB: return ".sparseB"
+      case .sparseC: return ".sparseC"
+      case .sparseD: return ".sparseD"
+      case .sparseE: return ".sparseE"
+      case .sparseF: return ".sparseF"
+      case .sparseG: return ".sparseG"
+      }
     }
   }
 
@@ -2839,12 +2839,12 @@ public extension ProtobufUnittest {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .foo: return ".foo"
-                case .bar: return ".bar"
-                case .baz: return ".baz"
-                case .neg: return ".neg"
-            }
+          switch self {
+          case .foo: return ".foo"
+          case .bar: return ".bar"
+          case .baz: return ".baz"
+          case .neg: return ".neg"
+          }
         }
       }
 
@@ -18647,11 +18647,11 @@ public extension ProtobufUnittest {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .foo: return ".foo"
-                case .bar: return ".bar"
-                case .baz: return ".baz"
-            }
+          switch self {
+          case .foo: return ".foo"
+          case .bar: return ".bar"
+          case .baz: return ".baz"
+          }
         }
       }
 
@@ -22462,11 +22462,11 @@ public extension ProtobufUnittest {
         public var debugDescription:String { return getDescription() }
         public var description:String { return getDescription() }
         private func getDescription() -> String { 
-            switch self {
-                case .dynamicFoo: return ".dynamicFoo"
-                case .dynamicBar: return ".dynamicBar"
-                case .dynamicBaz: return ".dynamicBaz"
-            }
+          switch self {
+          case .dynamicFoo: return ".dynamicFoo"
+          case .dynamicBar: return ".dynamicBar"
+          case .dynamicBaz: return ".dynamicBaz"
+          }
         }
       }
 

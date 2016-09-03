@@ -48,11 +48,11 @@ public extension ProtobufUnittestImport {
     public var debugDescription:String { return getDescription() }
     public var description:String { return getDescription() }
     private func getDescription() -> String { 
-        switch self {
-            case .importLiteFoo: return ".importLiteFoo"
-            case .importLiteBar: return ".importLiteBar"
-            case .importLiteBaz: return ".importLiteBaz"
-        }
+      switch self {
+      case .importLiteFoo: return ".importLiteFoo"
+      case .importLiteBar: return ".importLiteBar"
+      case .importLiteBaz: return ".importLiteBaz"
+      }
     }
   }
 
