@@ -81,6 +81,10 @@ public enum ServiceError:Error, RawRepresentable, CustomDebugStringConvertible, 
     }
   }
 
+  public func throwException() throws {
+    throw self
+  }
+
   public var debugDescription:String { return getDescription() }
   public var description:String { return getDescription() }
   private func getDescription() -> String { 
