@@ -25,6 +25,9 @@ namespace {
 const ::google::protobuf::Descriptor* SwiftFileOptions_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SwiftFileOptions_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SwiftEnumOptions_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SwiftEnumOptions_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* AccessControl_descriptor_ = NULL;
 
 }  // namespace
@@ -54,6 +57,21 @@ void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
       sizeof(SwiftFileOptions),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, _internal_metadata_),
       -1);
+  SwiftEnumOptions_descriptor_ = file->message_type(1);
+  static const int SwiftEnumOptions_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftEnumOptions, generate_error_type_),
+  };
+  SwiftEnumOptions_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      SwiftEnumOptions_descriptor_,
+      SwiftEnumOptions::default_instance_,
+      SwiftEnumOptions_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftEnumOptions, _has_bits_[0]),
+      -1,
+      -1,
+      sizeof(SwiftEnumOptions),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftEnumOptions, _internal_metadata_),
+      -1);
   AccessControl_descriptor_ = file->enum_type(0);
 }
 
@@ -70,6 +88,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       SwiftFileOptions_descriptor_, &SwiftFileOptions::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      SwiftEnumOptions_descriptor_, &SwiftEnumOptions::default_instance());
 }
 
 }  // namespace
@@ -77,6 +97,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
   delete SwiftFileOptions::default_instance_;
   delete SwiftFileOptions_reflection_;
+  delete SwiftEnumOptions::default_instance_;
+  delete SwiftEnumOptions_reflection_;
 }
 
 void protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() GOOGLE_ATTRIBUTE_COLD;
@@ -94,19 +116,29 @@ void protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
     "s_prefix\030\001 \001(\t\022O\n\027entities_access_contro"
     "l\030\002 \001(\0162\036.google.protobuf.AccessControl:"
     "\016PublicEntities\022#\n\025compile_for_framework"
-    "\030\003 \001(\010:\004true*9\n\rAccessControl\022\024\n\020Interna"
-    "lEntities\020\000\022\022\n\016PublicEntities\020\001:^\n\022swift"
-    "_file_options\022\034.google.protobuf.FileOpti"
-    "ons\030\256\345\266\002 \001(\0132!.google.protobuf.SwiftFile"
-    "OptionsB\016\362\252\266\023\002\030\000\362\252\266\023\002\020\001", 423);
+    "\030\003 \001(\010:\004true\"6\n\020SwiftEnumOptions\022\"\n\023gene"
+    "rate_error_type\030\001 \001(\010:\005false*9\n\rAccessCo"
+    "ntrol\022\024\n\020InternalEntities\020\000\022\022\n\016PublicEnt"
+    "ities\020\001:^\n\022swift_file_options\022\034.google.p"
+    "rotobuf.FileOptions\030\256\345\266\002 \001(\0132!.google.pr"
+    "otobuf.SwiftFileOptions:^\n\022swift_enum_op"
+    "tions\022\034.google.protobuf.EnumOptions\030\257\345\266\002"
+    " \001(\0132!.google.protobuf.SwiftEnumOptionsB"
+    "\016\362\252\266\023\002\030\000\362\252\266\023\002\020\001", 575);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "google/protobuf/swift-descriptor.proto", &protobuf_RegisterTypes);
   SwiftFileOptions::default_instance_ = new SwiftFileOptions();
+  SwiftEnumOptions::default_instance_ = new SwiftEnumOptions();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     &::google::protobuf::FileOptions::default_instance(),
     5092014, 11, false, false,
     &::google::protobuf::SwiftFileOptions::default_instance());
+  ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
+    &::google::protobuf::EnumOptions::default_instance(),
+    5092015, 11, false, false,
+    &::google::protobuf::SwiftEnumOptions::default_instance());
   SwiftFileOptions::default_instance_->InitAsDefaultInstance();
+  SwiftEnumOptions::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto);
 }
 
@@ -584,9 +616,281 @@ void SwiftFileOptions::clear_compile_for_framework() {
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SwiftEnumOptions::kGenerateErrorTypeFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SwiftEnumOptions::SwiftEnumOptions()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:google.protobuf.SwiftEnumOptions)
+}
+
+void SwiftEnumOptions::InitAsDefaultInstance() {
+}
+
+SwiftEnumOptions::SwiftEnumOptions(const SwiftEnumOptions& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:google.protobuf.SwiftEnumOptions)
+}
+
+void SwiftEnumOptions::SharedCtor() {
+  _cached_size_ = 0;
+  generate_error_type_ = false;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SwiftEnumOptions::~SwiftEnumOptions() {
+  // @@protoc_insertion_point(destructor:google.protobuf.SwiftEnumOptions)
+  SharedDtor();
+}
+
+void SwiftEnumOptions::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SwiftEnumOptions::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SwiftEnumOptions::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SwiftEnumOptions_descriptor_;
+}
+
+const SwiftEnumOptions& SwiftEnumOptions::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  return *default_instance_;
+}
+
+SwiftEnumOptions* SwiftEnumOptions::default_instance_ = NULL;
+
+SwiftEnumOptions* SwiftEnumOptions::New(::google::protobuf::Arena* arena) const {
+  SwiftEnumOptions* n = new SwiftEnumOptions;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void SwiftEnumOptions::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.protobuf.SwiftEnumOptions)
+  generate_error_type_ = false;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
+}
+
+bool SwiftEnumOptions::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:google.protobuf.SwiftEnumOptions)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional bool generate_error_type = 1 [default = false];
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &generate_error_type_)));
+          set_has_generate_error_type();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:google.protobuf.SwiftEnumOptions)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:google.protobuf.SwiftEnumOptions)
+  return false;
+#undef DO_
+}
+
+void SwiftEnumOptions::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:google.protobuf.SwiftEnumOptions)
+  // optional bool generate_error_type = 1 [default = false];
+  if (has_generate_error_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->generate_error_type(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:google.protobuf.SwiftEnumOptions)
+}
+
+::google::protobuf::uint8* SwiftEnumOptions::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.SwiftEnumOptions)
+  // optional bool generate_error_type = 1 [default = false];
+  if (has_generate_error_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->generate_error_type(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.protobuf.SwiftEnumOptions)
+  return target;
+}
+
+int SwiftEnumOptions::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:google.protobuf.SwiftEnumOptions)
+  int total_size = 0;
+
+  // optional bool generate_error_type = 1 [default = false];
+  if (has_generate_error_type()) {
+    total_size += 1 + 1;
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SwiftEnumOptions::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.SwiftEnumOptions)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const SwiftEnumOptions* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const SwiftEnumOptions>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.protobuf.SwiftEnumOptions)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.protobuf.SwiftEnumOptions)
+    MergeFrom(*source);
+  }
+}
+
+void SwiftEnumOptions::MergeFrom(const SwiftEnumOptions& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.SwiftEnumOptions)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_generate_error_type()) {
+      set_generate_error_type(from.generate_error_type());
+    }
+  }
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
+}
+
+void SwiftEnumOptions::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:google.protobuf.SwiftEnumOptions)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SwiftEnumOptions::CopyFrom(const SwiftEnumOptions& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.protobuf.SwiftEnumOptions)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SwiftEnumOptions::IsInitialized() const {
+
+  return true;
+}
+
+void SwiftEnumOptions::Swap(SwiftEnumOptions* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SwiftEnumOptions::InternalSwap(SwiftEnumOptions* other) {
+  std::swap(generate_error_type_, other->generate_error_type_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata SwiftEnumOptions::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SwiftEnumOptions_descriptor_;
+  metadata.reflection = SwiftEnumOptions_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// SwiftEnumOptions
+
+// optional bool generate_error_type = 1 [default = false];
+bool SwiftEnumOptions::has_generate_error_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void SwiftEnumOptions::set_has_generate_error_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void SwiftEnumOptions::clear_has_generate_error_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void SwiftEnumOptions::clear_generate_error_type() {
+  generate_error_type_ = false;
+  clear_has_generate_error_type();
+}
+ bool SwiftEnumOptions::generate_error_type() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftEnumOptions.generate_error_type)
+  return generate_error_type_;
+}
+ void SwiftEnumOptions::set_generate_error_type(bool value) {
+  set_has_generate_error_type();
+  generate_error_type_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftEnumOptions.generate_error_type)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FileOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftFileOptions >, 11, false >
   swift_file_options(kSwiftFileOptionsFieldNumber, ::google::protobuf::SwiftFileOptions::default_instance());
+::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumOptions,
+    ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftEnumOptions >, 11, false >
+  swift_enum_options(kSwiftEnumOptionsFieldNumber, ::google::protobuf::SwiftEnumOptions::default_instance());
 
 // @@protoc_insertion_point(namespace_scope)
 

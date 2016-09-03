@@ -31,8 +31,16 @@ message SwiftFileOptions {
   optional bool compile_for_framework = 3 [default = true];
 }
 
+message SwiftEnumOptions {
+  optional bool generate_error_type = 1 [default = false];
+}
+
 extend google.protobuf.FileOptions {
   optional SwiftFileOptions swift_file_options = 5092014;
+}
+
+extend google.protobuf.EnumOptions {
+  optional SwiftEnumOptions swift_enum_options = 5092015;
 }
 
 option (.google.protobuf.swift_file_options).compile_for_framework = false;

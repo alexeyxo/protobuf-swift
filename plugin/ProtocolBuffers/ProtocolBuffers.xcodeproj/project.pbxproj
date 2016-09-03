@@ -112,6 +112,9 @@
 		3FC5190F1B1C7EB100436FA6 /* ThreadingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */; };
 		3FC519331B1E11F000436FA6 /* Performance.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519321B1E11F000436FA6 /* Performance.proto.swift */; };
 		3FC519341B1E11F000436FA6 /* Performance.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519321B1E11F000436FA6 /* Performance.proto.swift */; };
+		3FCFED1D1D7B008C006CF502 /* UnittestErrorType.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCFED1B1D7B0089006CF502 /* UnittestErrorType.proto.swift */; };
+		3FCFED1E1D7B008D006CF502 /* UnittestErrorType.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCFED1B1D7B0089006CF502 /* UnittestErrorType.proto.swift */; };
+		3FCFED201D7B00E4006CF502 /* ErrorHandlingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCFED1F1D7B00E4006CF502 /* ErrorHandlingTest.swift */; };
 		3FE641A41B53A6BC00BDAE9A /* MapFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE641A31B53A6BC00BDAE9A /* MapFieldsTests.swift */; };
 		3FE641A51B53A6BC00BDAE9A /* MapFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE641A31B53A6BC00BDAE9A /* MapFieldsTests.swift */; };
 		3FE641F81B53AE4000BDAE9A /* Bar.Foo.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE641DE1B53AE4000BDAE9A /* Bar.Foo.proto.swift */; };
@@ -264,6 +267,8 @@
 		3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UnknowFieldsTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThreadingTest.swift; path = pbTests/ThreadingTest.swift; sourceTree = "<group>"; };
 		3FC519321B1E11F000436FA6 /* Performance.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Performance.proto.swift; sourceTree = "<group>"; };
+		3FCFED1B1D7B0089006CF502 /* UnittestErrorType.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnittestErrorType.proto.swift; sourceTree = "<group>"; };
+		3FCFED1F1D7B00E4006CF502 /* ErrorHandlingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandlingTest.swift; sourceTree = "<group>"; };
 		3FE641A31B53A6BC00BDAE9A /* MapFieldsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapFieldsTests.swift; path = ProtocolBuffersTests/MapFieldsTests.swift; sourceTree = SOURCE_ROOT; };
 		3FE641DE1B53AE4000BDAE9A /* Bar.Foo.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bar.Foo.proto.swift; sourceTree = "<group>"; };
 		3FE641DF1B53AE4000BDAE9A /* Baz.Foo.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Baz.Foo.proto.swift; sourceTree = "<group>"; };
@@ -366,6 +371,7 @@
 		3F2B1CD719E2A6EC001A505E /* pbTests */ = {
 			isa = PBXGroup;
 			children = (
+				3FCFED1B1D7B0089006CF502 /* UnittestErrorType.proto.swift */,
 				3FE641EF1B53AE4000BDAE9A /* ProtobufUnittestImport.UnittestImport.proto.swift */,
 				3FE641F01B53AE4000BDAE9A /* ProtobufUnittestImport.UnittestImportLite.proto.swift */,
 				3FE641F11B53AE4000BDAE9A /* ProtobufUnittestImport.UnittestImportPublic.proto.swift */,
@@ -439,6 +445,7 @@
 				3F93013A1A0964ED00F7A20B /* testdata */,
 				3F2B1CD719E2A6EC001A505E /* pbTests */,
 				3FE641A31B53A6BC00BDAE9A /* MapFieldsTests.swift */,
+				3FCFED1F1D7B00E4006CF502 /* ErrorHandlingTest.swift */,
 				3F8556CE19C71C05003802F2 /* CodedInputStreamTests.swift */,
 				3F8556CF19C71C05003802F2 /* CodedOuputStreamTests.swift */,
 				3F8556D019C71C05003802F2 /* SmallBlockInputStream.swift */,
@@ -815,6 +822,7 @@
 				3F4106471A1A677A00742090 /* CodedInputStreamTests.swift in Sources */,
 				3FE642031B53AE4000BDAE9A /* Proto2ArenaUnittest.UnittestNoArenaImport.proto.swift in Sources */,
 				3FE641A51B53A6BC00BDAE9A /* MapFieldsTests.swift in Sources */,
+				3FCFED1E1D7B008D006CF502 /* UnittestErrorType.proto.swift in Sources */,
 				3F4106481A1A677A00742090 /* CodedOuputStreamTests.swift in Sources */,
 				3F4106491A1A677A00742090 /* SmallBlockInputStream.swift in Sources */,
 				3F41064A1A1A677A00742090 /* ProtocolBuffersTests.swift in Sources */,
@@ -864,6 +872,7 @@
 				3F89A8081C396BA9009876B8 /* Field.swift in Sources */,
 				3F89A80C1C396BA9009876B8 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
 				3F89A8101C396BA9009876B8 /* Google.Protobuf.SourceContext.proto.swift in Sources */,
+				3FCFED201D7B00E4006CF502 /* ErrorHandlingTest.swift in Sources */,
 				3F89A8151C396BA9009876B8 /* Google.Protobuf.Wrappers.proto.swift in Sources */,
 				3F586C3A1D50EE720015E6F5 /* Google.Protobuf.Type.proto.swift in Sources */,
 				3F586C391D50EE720015E6F5 /* Google.Protobuf.Any.proto.swift in Sources */,
@@ -891,6 +900,7 @@
 				3FC236AE1A18E3120006EC7D /* UnknowFieldsTests.swift in Sources */,
 				3FE642021B53AE4000BDAE9A /* Proto2ArenaUnittest.UnittestNoArenaImport.proto.swift in Sources */,
 				3FE641A41B53A6BC00BDAE9A /* MapFieldsTests.swift in Sources */,
+				3FCFED1D1D7B008C006CF502 /* UnittestErrorType.proto.swift in Sources */,
 				3FEFE99F1A12612E005DEAF3 /* MessageTests.swift in Sources */,
 				3F813FF41A1030000008F493 /* SizeTest.swift in Sources */,
 				3F8556D119C71C05003802F2 /* CodedInputStreamTests.swift in Sources */,
