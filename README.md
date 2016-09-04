@@ -262,6 +262,10 @@ public extension FooBar {
 ##Custom Options
 
 ```protobuf
+import "google/protobuf/descriptor.proto";
+
+package google.protobuf;
+
 enum AccessControl {
   InternalEntities = 0;
   PublicEntities = 1;
@@ -269,16 +273,40 @@ enum AccessControl {
 message SwiftFileOptions {
 
   optional string class_prefix = 1;
-  optional AccessControl entities_access_control = 2 [default = InternalEntities];
+  optional AccessControl entities_access_control = 2 [default = PublicEntities];
   optional bool compile_for_framework = 3 [default = true];
 }
+
+message SwiftMessageOptions {
+  optional bool generate_error_type = 1 [default = false];
+}
+
+message SwiftEnumOptions {
+  optional bool generate_error_type = 1 [default = false];
+}
+
+extend google.protobuf.FileOptions {
+  optional SwiftFileOptions swift_file_options = 5092014;
+}
+
+extend google.protobuf.MessageOptions {
+  optional SwiftMessageOptions swift_message_options = 5092014;
+}
+
+extend google.protobuf.EnumOptions {
+  optional SwiftEnumOptions swift_enum_options = 5092015;
+}
+
+option (.google.protobuf.swift_file_options).compile_for_framework = false;
+option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
 ```
 
 At now protobuf-swift's compiler is supporting three custom options(file options).
 
 1.	Class Prefix
 2.	Access Control
-3.	Compile for framework
+3.  Error Types 
+4.	Compile for framework
 
 If you have use custom options, you need to add:
 
@@ -332,6 +360,117 @@ Generated class and all fields are marked a `public`:
 
 ```swift
 final public class MessageWithCustomOption : GeneratedMessage
+```
+
+###Generate enum/message conforming to "Error" protocol
+
+```protobuf
+option (.google.protobuf.swift_enum_options).generate_error_type = true;
+```
+
+####Example
+```protobuf
+import 'google/protobuf/swift-descriptor.proto';
+
+enum ServiceError {
+  option (.google.protobuf.swift_enum_options).generate_error_type = true;
+  BadRequest = 0;
+  InternalServerError = 1;
+}
+
+message UserProfile {
+    message Request {
+        required string userId = 1;
+    }
+    message Response {
+        optional UserProfile profile = 1;
+        optional ServiceError error = 2;
+    }
+    
+    optional string firstName = 1;
+    optional string lastName = 2;
+    optional string avatarUrl = 3;
+}
+```
+
+```swift
+public enum ServiceError:Error, RawRepresentable, CustomDebugStringConvertible, CustomStringConvertible {
+  public typealias RawValue = Int32
+
+  case badRequest
+  case internalServerError
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+    case 0: self = .badRequest
+    case 1: self = .internalServerError
+    default: return nil
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+    case .badRequest: return 0
+    case .internalServerError: return 1
+    }
+  }
+
+  public func throwException() throws {
+    throw self
+  }
+
+  public var debugDescription:String { return getDescription() }
+  public var description:String { return getDescription() }
+  private func getDescription() -> String { 
+    switch self {
+    case .badRequest: return ".badRequest"
+    case .internalServerError: return ".internalServerError"
+    }
+  }
+}
+```
+```swift
+func generateException()throws {
+    let user = UserProfile.Response.Builder()
+    user.error = .internalServerError
+    let data = try user.build().data()
+    let userError = try UserProfile.Response.parseFrom(data:data)
+    if userError.hasError {
+        throw userError.error //userError.error.throwException()
+    }
+}
+
+
+
+do {
+    try generateException()
+} catch let err as ServiceError where err == .internalServerError {
+    XCTAssertTrue(true)
+} catch {
+    XCTAssertTrue(false)
+}
+
+func throwExceptionMessage() throws {
+  let exception = UserProfile.Exception.Builder()
+  exception.errorCode = 403
+  exception.errorDescription = "Bad Request"
+  let exc = try exception.build()
+  let data = try UserProfile.Response.Builder().setException(exc).build().data()
+  let userError = try UserProfile.Response.parseFrom(data:data)
+  if userError.hasException {
+      throw userError.exception
+  }
+}
+
+do {
+    try throwExceptionMessage()
+} catch let err as UserProfile.Exception {
+    print(err)
+    XCTAssertTrue(true)
+} catch {
+    XCTAssertTrue(false)
+}
+  
 ```
 
 ###Compile for framework

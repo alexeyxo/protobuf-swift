@@ -429,6 +429,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return false;
     }
     
+    bool HasOptionForGenerateErrors(const Descriptor* descriptor) {
+        if (descriptor->options().HasExtension(swift_message_options)) {
+            SwiftMessageOptions options = descriptor->options().GetExtension(swift_message_options);
+            return options.generate_error_type();
+        }
+        return false;
+    }
+    
     //// Messages class name and returned type
     string ClassName(const Descriptor* descriptor) {
         string name;
