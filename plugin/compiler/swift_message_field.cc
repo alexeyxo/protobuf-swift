@@ -89,7 +89,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (isOneOfField(descriptor_)) {
             
             printer->Print(variables_,
-                           "$acontrol$private(set) var $name_reserved$:$type$!{\n"
+                           "$acontrol$fileprivate(set) var $name_reserved$:$type$!{\n"
                            "     get {\n"
                            "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "     }\n"
@@ -99,7 +99,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "}\n");
             
             printer->Print(variables_,
-                           "$acontrol$private(set) var has$capitalized_name$:Bool {\n"
+                           "$acontrol$fileprivate(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
                            "            guard let _ = $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) else {\n"
                            "                return false\n"
@@ -113,8 +113,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
       
         }
         else {
-            printer->Print(variables_, "$acontrol$private(set) var $name_reserved$:$type$!\n");
-            printer->Print(variables_, "$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
+            printer->Print(variables_, "$acontrol$fileprivate(set) var $name_reserved$:$type$!\n");
+            printer->Print(variables_, "$acontrol$fileprivate(set) var has$capitalized_name$:Bool = false\n");
         }
         
     }
@@ -297,7 +297,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void RepeatedMessageFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
-           printer->Print(variables_, "$acontrol$private(set) var $name_reserved$:Array<$type$>  = Array<$type$>()\n");
+           printer->Print(variables_, "$acontrol$fileprivate(set) var $name_reserved$:Array<$type$>  = Array<$type$>()\n");
     }
     
     
