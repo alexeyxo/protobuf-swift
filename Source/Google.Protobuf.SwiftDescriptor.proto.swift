@@ -18,6 +18,16 @@ public func == (lhs: Google.Protobuf.SwiftFileOptions, rhs: Google.Protobuf.Swif
   return fieldCheck
 }
 
+public func == (lhs: Google.Protobuf.SwiftMessageOptions, rhs: Google.Protobuf.SwiftMessageOptions) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasGenerateErrorType == rhs.hasGenerateErrorType) && (!lhs.hasGenerateErrorType || lhs.generateErrorType == rhs.generateErrorType)
+  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  return fieldCheck
+}
+
 public func == (lhs: Google.Protobuf.SwiftEnumOptions, rhs: Google.Protobuf.SwiftEnumOptions) -> Bool {
   if (lhs === rhs) {
     return true
@@ -31,6 +41,11 @@ public func == (lhs: Google.Protobuf.SwiftEnumOptions, rhs: Google.Protobuf.Swif
 public var SwiftDescriptorRootswiftFileOptions:ConcreateExtensionField {
    get {
        return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftFileOptionsStatic
+   }
+}
+public var SwiftDescriptorRootswiftMessageOptions:ConcreateExtensionField {
+   get {
+       return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftMessageOptionsStatic
    }
 }
 public var SwiftDescriptorRootswiftEnumOptions:ConcreateExtensionField {
@@ -47,11 +62,13 @@ public extension Google.Protobuf {
      return Static.instance
     }
     var SwiftDescriptorRootswiftFileOptionsStatic:ConcreateExtensionField
+    var SwiftDescriptorRootswiftMessageOptionsStatic:ConcreateExtensionField
     var SwiftDescriptorRootswiftEnumOptionsStatic:ConcreateExtensionField
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       SwiftDescriptorRootswiftFileOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 5092014, defaultValue:Google.Protobuf.SwiftFileOptions(), messageOrGroupClass:Google.Protobuf.SwiftFileOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+      SwiftDescriptorRootswiftMessageOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 5092014, defaultValue:Google.Protobuf.SwiftMessageOptions(), messageOrGroupClass:Google.Protobuf.SwiftMessageOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       SwiftDescriptorRootswiftEnumOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.EnumOptions.self, fieldNumber: 5092015, defaultValue:Google.Protobuf.SwiftEnumOptions(), messageOrGroupClass:Google.Protobuf.SwiftEnumOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
@@ -59,10 +76,14 @@ public extension Google.Protobuf {
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
       registry.addExtension(extensions: SwiftDescriptorRootswiftFileOptionsStatic)
+      registry.addExtension(extensions: SwiftDescriptorRootswiftMessageOptionsStatic)
       registry.addExtension(extensions: SwiftDescriptorRootswiftEnumOptionsStatic)
     }
     public static func swiftFileOptions() -> ConcreateExtensionField {
          return SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftFileOptionsStatic
+    }
+    public static func swiftMessageOptions() -> ConcreateExtensionField {
+         return SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftMessageOptionsStatic
     }
     public static func swiftEnumOptions() -> ConcreateExtensionField {
          return SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftEnumOptionsStatic
@@ -403,6 +424,204 @@ public extension Google.Protobuf {
 
   }
 
+  final public class SwiftMessageOptions : GeneratedMessage {
+    public private(set) var generateErrorType:Bool = false
+    public private(set) var hasGenerateErrorType:Bool = false
+
+    required public init() {
+         super.init()
+    }
+    override public func isInitialized() -> Bool {
+     return true
+    }
+    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+      if hasGenerateErrorType {
+        try codedOutputStream.writeBool(fieldNumber: 1, value:generateErrorType)
+      }
+      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+    }
+    override public func serializedSize() -> Int32 {
+      var serialize_size:Int32 = memoizedSerializedSize
+      if serialize_size != -1 {
+       return serialize_size
+      }
+
+      serialize_size = 0
+      if hasGenerateErrorType {
+        serialize_size += generateErrorType.computeBoolSize(fieldNumber: 1)
+      }
+      serialize_size += unknownFields.serializedSize()
+      memoizedSerializedSize = serialize_size
+      return serialize_size
+    }
+    public class func getBuilder() -> Google.Protobuf.SwiftMessageOptions.Builder {
+      return Google.Protobuf.SwiftMessageOptions.classBuilder() as! Google.Protobuf.SwiftMessageOptions.Builder
+    }
+    public func getBuilder() -> Google.Protobuf.SwiftMessageOptions.Builder {
+      return classBuilder() as! Google.Protobuf.SwiftMessageOptions.Builder
+    }
+    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
+      return Google.Protobuf.SwiftMessageOptions.Builder()
+    }
+    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
+      return Google.Protobuf.SwiftMessageOptions.Builder()
+    }
+    public func toBuilder() throws -> Google.Protobuf.SwiftMessageOptions.Builder {
+      return try Google.Protobuf.SwiftMessageOptions.builderWithPrototype(prototype:self)
+    }
+    public class func builderWithPrototype(prototype:Google.Protobuf.SwiftMessageOptions) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
+      return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(other:prototype)
+    }
+    override public func encode() throws -> Dictionary<String,Any> {
+      guard isInitialized() else {
+        throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
+      }
+
+      var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
+      if hasGenerateErrorType {
+        jsonMap["generateErrorType"] = generateErrorType
+      }
+      return jsonMap
+    }
+    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftMessageOptions {
+      return try Google.Protobuf.SwiftMessageOptions.Builder.decodeToBuilder(jsonMap:jsonMap).build()
+    }
+    override class public func fromJSON(data:Data) throws -> Google.Protobuf.SwiftMessageOptions {
+      return try Google.Protobuf.SwiftMessageOptions.Builder.fromJSONToBuilder(data:data).build()
+    }
+    override public func getDescription(indent:String) throws -> String {
+      var output = ""
+      if hasGenerateErrorType {
+        output += "\(indent) generateErrorType: \(generateErrorType) \n"
+      }
+      output += unknownFields.getDescription(indent: indent)
+      return output
+    }
+    override public var hashValue:Int {
+        get {
+            var hashCode:Int = 7
+            if hasGenerateErrorType {
+               hashCode = (hashCode &* 31) &+ generateErrorType.hashValue
+            }
+            hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+            return hashCode
+        }
+    }
+
+
+    //Meta information declaration start
+
+    override public class func className() -> String {
+        return "Google.Protobuf.SwiftMessageOptions"
+    }
+    override public func className() -> String {
+        return "Google.Protobuf.SwiftMessageOptions"
+    }
+    //Meta information declaration end
+
+    final public class Builder : GeneratedMessageBuilder {
+      private var builderResult:Google.Protobuf.SwiftMessageOptions = Google.Protobuf.SwiftMessageOptions()
+      public func getMessage() -> Google.Protobuf.SwiftMessageOptions {
+          return builderResult
+      }
+
+      required override public init () {
+         super.init()
+      }
+      public var hasGenerateErrorType:Bool {
+           get {
+                return builderResult.hasGenerateErrorType
+           }
+      }
+      public var generateErrorType:Bool {
+           get {
+                return builderResult.generateErrorType
+           }
+           set (value) {
+               builderResult.hasGenerateErrorType = true
+               builderResult.generateErrorType = value
+           }
+      }
+      public func setGenerateErrorType(_ value:Bool) -> Google.Protobuf.SwiftMessageOptions.Builder {
+        self.generateErrorType = value
+        return self
+      }
+      public func clearGenerateErrorType() -> Google.Protobuf.SwiftMessageOptions.Builder{
+           builderResult.hasGenerateErrorType = false
+           builderResult.generateErrorType = false
+           return self
+      }
+      override public var internalGetResult:GeneratedMessage {
+           get {
+              return builderResult
+           }
+      }
+      override public func clear() -> Google.Protobuf.SwiftMessageOptions.Builder {
+        builderResult = Google.Protobuf.SwiftMessageOptions()
+        return self
+      }
+      override public func clone() throws -> Google.Protobuf.SwiftMessageOptions.Builder {
+        return try Google.Protobuf.SwiftMessageOptions.builderWithPrototype(prototype:builderResult)
+      }
+      override public func build() throws -> Google.Protobuf.SwiftMessageOptions {
+           try checkInitialized()
+           return buildPartial()
+      }
+      public func buildPartial() -> Google.Protobuf.SwiftMessageOptions {
+        let returnMe:Google.Protobuf.SwiftMessageOptions = builderResult
+        return returnMe
+      }
+      public func mergeFrom(other:Google.Protobuf.SwiftMessageOptions) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
+        if other == Google.Protobuf.SwiftMessageOptions() {
+         return self
+        }
+        if other.hasGenerateErrorType {
+             generateErrorType = other.generateErrorType
+        }
+        _ = try merge(unknownField: other.unknownFields)
+        return self
+      }
+      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+      }
+      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
+        while (true) {
+          let protobufTag = try codedInputStream.readTag()
+          switch protobufTag {
+          case 0: 
+            self.unknownFields = try unknownFieldsBuilder.build()
+            return self
+
+          case 8:
+            generateErrorType = try codedInputStream.readBool()
+
+          default:
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+               unknownFields = try unknownFieldsBuilder.build()
+               return self
+            }
+          }
+        }
+      }
+      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
+        let resultDecodedBuilder = Google.Protobuf.SwiftMessageOptions.Builder()
+        if let jsonValueGenerateErrorType = jsonMap["generateErrorType"] as? Bool {
+          resultDecodedBuilder.generateErrorType = jsonValueGenerateErrorType
+        }
+        return resultDecodedBuilder
+      }
+      override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
+        let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+        guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
+          throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
+        }
+        return try Google.Protobuf.SwiftMessageOptions.Builder.decodeToBuilder(jsonMap:jsDataCast)
+      }
+    }
+
+  }
+
   final public class SwiftEnumOptions : GeneratedMessage {
     public private(set) var generateErrorType:Bool = false
     public private(set) var hasGenerateErrorType:Bool = false
@@ -630,6 +849,36 @@ extension Google.Protobuf.SwiftFileOptions: GeneratedMessageProtocol {
   }
   public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
     return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension Google.Protobuf.SwiftMessageOptions: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.SwiftMessageOptions> {
+    var mergedArray = Array<Google.Protobuf.SwiftMessageOptions>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray.append(value)
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.SwiftMessageOptions? {
+    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+  }
+  public class func parseFrom(data: Data) throws -> Google.Protobuf.SwiftMessageOptions {
+    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions {
+    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.SwiftMessageOptions {
+    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions {
+    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftMessageOptions {
+    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions {
+    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 extension Google.Protobuf.SwiftEnumOptions: GeneratedMessageProtocol {

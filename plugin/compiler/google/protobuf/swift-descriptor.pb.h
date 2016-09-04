@@ -41,6 +41,7 @@ void protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
 
 class SwiftEnumOptions;
 class SwiftFileOptions;
+class SwiftMessageOptions;
 
 enum AccessControl {
   InternalEntities = 0,
@@ -181,6 +182,99 @@ class SwiftFileOptions : public ::google::protobuf::Message /* @@protoc_insertio
 };
 // -------------------------------------------------------------------
 
+class SwiftMessageOptions : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.SwiftMessageOptions) */ {
+ public:
+  SwiftMessageOptions();
+  virtual ~SwiftMessageOptions();
+
+  SwiftMessageOptions(const SwiftMessageOptions& from);
+
+  inline SwiftMessageOptions& operator=(const SwiftMessageOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SwiftMessageOptions& default_instance();
+
+  void Swap(SwiftMessageOptions* other);
+
+  // implements Message ----------------------------------------------
+
+  inline SwiftMessageOptions* New() const { return New(NULL); }
+
+  SwiftMessageOptions* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SwiftMessageOptions& from);
+  void MergeFrom(const SwiftMessageOptions& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(SwiftMessageOptions* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool generate_error_type = 1 [default = false];
+  bool has_generate_error_type() const;
+  void clear_generate_error_type();
+  static const int kGenerateErrorTypeFieldNumber = 1;
+  bool generate_error_type() const;
+  void set_generate_error_type(bool value);
+
+  // @@protoc_insertion_point(class_scope:google.protobuf.SwiftMessageOptions)
+ private:
+  inline void set_has_generate_error_type();
+  inline void clear_has_generate_error_type();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  bool generate_error_type_;
+  friend void  protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  friend void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  friend void protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+
+  void InitAsDefaultInstance();
+  static SwiftMessageOptions* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class SwiftEnumOptions : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.SwiftEnumOptions) */ {
  public:
   SwiftEnumOptions();
@@ -278,6 +372,10 @@ static const int kSwiftFileOptionsFieldNumber = 5092014;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FileOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftFileOptions >, 11, false >
   swift_file_options;
+static const int kSwiftMessageOptionsFieldNumber = 5092014;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
+    ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftMessageOptions >, 11, false >
+  swift_message_options;
 static const int kSwiftEnumOptionsFieldNumber = 5092015;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftEnumOptions >, 11, false >
@@ -393,6 +491,34 @@ inline void SwiftFileOptions::set_compile_for_framework(bool value) {
 
 // -------------------------------------------------------------------
 
+// SwiftMessageOptions
+
+// optional bool generate_error_type = 1 [default = false];
+inline bool SwiftMessageOptions::has_generate_error_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SwiftMessageOptions::set_has_generate_error_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SwiftMessageOptions::clear_has_generate_error_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SwiftMessageOptions::clear_generate_error_type() {
+  generate_error_type_ = false;
+  clear_has_generate_error_type();
+}
+inline bool SwiftMessageOptions::generate_error_type() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftMessageOptions.generate_error_type)
+  return generate_error_type_;
+}
+inline void SwiftMessageOptions::set_generate_error_type(bool value) {
+  set_has_generate_error_type();
+  generate_error_type_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftMessageOptions.generate_error_type)
+}
+
+// -------------------------------------------------------------------
+
 // SwiftEnumOptions
 
 // optional bool generate_error_type = 1 [default = false];
@@ -420,6 +546,8 @@ inline void SwiftEnumOptions::set_generate_error_type(bool value) {
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

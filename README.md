@@ -301,7 +301,7 @@ option (.google.protobuf.swift_file_options).compile_for_framework = false;
 option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
 ```
 
-At now protobuf-swift's compiler is supporting three custom options(file options).
+At now protobuf-swift's compiler is supporting custom options.
 
 1.	Class Prefix
 2.	Access Control
@@ -369,7 +369,9 @@ option (.google.protobuf.swift_enum_options).generate_error_type = true;
 ```
 
 ####Example
+
 ```protobuf
+
 import 'google/protobuf/swift-descriptor.proto';
 
 enum ServiceError {
@@ -385,6 +387,13 @@ message UserProfile {
     message Response {
         optional UserProfile profile = 1;
         optional ServiceError error = 2;
+        optional Exception exception = 3;
+    }
+
+     message Exception {
+        option (.google.protobuf.swift_message_options).generate_error_type = true;
+        required int32 errorCode = 1;
+        required string errorDescription = 2;
     }
     
     optional string firstName = 1;
@@ -439,8 +448,6 @@ func generateException()throws {
         throw userError.error //userError.error.throwException()
     }
 }
-
-
 
 do {
     try generateException()
