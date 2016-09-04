@@ -41,6 +41,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         void SetMapVariables(const Descriptor* descriptor, map<string, string>* variables) {
             (*variables)["acontrol"] = GetAccessControlType(descriptor->file());
             (*variables)["className"] =  ClassName(descriptor);
+            (*variables)["errorType"] = HasOptionForGenerateErrors(descriptor) ? ", Error" : "";
             (*variables)["classNameReturnedType"] = ClassNameReturedType(descriptor);
             (*variables)["fileName"] = FileClassName(descriptor->file());
         }
@@ -217,11 +218,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(variables_,
-                           "final $acontrol$ class $className$ : ExtendableMessage {\n"
+                           "final $acontrol$ class $className$ : ExtendableMessage$errorType$ {\n"
                           );
         } else {
             printer->Print(variables_,
-                           "final $acontrol$ class $className$ : GeneratedMessage {\n"
+                           "final $acontrol$ class $className$ : GeneratedMessage$errorType$ {\n"
                            );
         }
         printer->Indent();

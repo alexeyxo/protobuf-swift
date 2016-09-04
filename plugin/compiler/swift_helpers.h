@@ -91,6 +91,7 @@ namespace google {
                 string ClassName(const EnumDescriptor* descriptor);
                 string ClassNameReturedType(const EnumDescriptor* descriptor);
                 bool HasOptionForGenerateErrors(const EnumDescriptor* descriptor);
+                bool HasOptionForGenerateErrors(const Descriptor* descriptor);
                 //
                 
                 //Message

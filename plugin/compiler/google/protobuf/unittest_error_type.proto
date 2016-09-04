@@ -13,6 +13,13 @@ message UserProfile {
     message Response {
         optional UserProfile profile = 1;
         optional ServiceError error = 2;
+        optional Exception exception = 3;
+    }
+
+     message Exception {
+        option (.google.protobuf.swift_message_options).generate_error_type = true;
+        required int32 errorCode = 1;
+        required string errorDescription = 2;
     }
     
     optional string firstName = 1;
