@@ -1,12 +1,12 @@
 #Protocol Buffers for Swift
 
-[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=Protobuf2.6-Swift3.0)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Platform](http://img.shields.io/cocoapods/p/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers)
+[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=ProtoBuf3.0-Swift3.0)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Platform](http://img.shields.io/cocoapods/p/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers)
 
 An implementation of Protocol Buffers in Swift.
 
 Protocol Buffers are a way of encoding structured data in an efficient yet extensible format. This project is based on an implementation of Protocol Buffers from Google. See the [Google protobuf project](https://developers.google.com/protocol-buffers/docs/overview) for more information.
 
-####Required Protocol Buffers 2.6
+####Required Protocol Buffers 3.0
 
 ##How To Install Protobuf Compiler from Homebrew
 
@@ -65,7 +65,7 @@ message Person {
 ```
 
 ```swift
-let personBuilder = Person.Builder()
+let personBuilder = Person.builder()
 personBuilder.id = 123
 personBuilder.name = "Bob"
 personBuilder.email = "bob@example.com"
@@ -165,6 +165,18 @@ final internal class MessageContainsMap : GeneratedMessage, GeneratedMessageProt
     private(set) var mapInt32Enum:Dictionary<Int32,MessageContainsMap.EnumMapValue> = Dictionary<Int32,MessageContainsMap.EnumMapValue>()
     ...
 }
+```
+
+##JSON(proto3)
+```swift
+let personBuilder = Person.builder()
+personBuilder.id = 123
+personBuilder.name = "Bob"
+personBuilder.email = "bob@example.com"
+let person = personBuilder.build()
+let jsonData = person.toJSON() //return NSData
+let jsonDictionaryObject:Dictionary<String,AnyObject> = person.encode()
+let personFromJson = Person.fromJSON(jsonData) //Person
 ```
 
 ##Deserializing
@@ -289,7 +301,7 @@ option (.google.protobuf.swift_file_options).compile_for_framework = false;
 option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
 ```
 
-At now protobuf-swift's compiler is supporting three custom options(file options).
+At now protobuf-swift's compiler is supporting custom options.
 
 1.	Class Prefix
 2.	Access Control
@@ -357,7 +369,9 @@ option (.google.protobuf.swift_enum_options).generate_error_type = true;
 ```
 
 ####Example
+
 ```protobuf
+
 import 'google/protobuf/swift-descriptor.proto';
 
 enum ServiceError {
@@ -373,6 +387,13 @@ message UserProfile {
     message Response {
         optional UserProfile profile = 1;
         optional ServiceError error = 2;
+        optional Exception exception = 3;
+    }
+
+     message Exception {
+        option (.google.protobuf.swift_message_options).generate_error_type = true;
+        required int32 errorCode = 1;
+        required string errorDescription = 2;
     }
     
     optional string firstName = 1;
@@ -428,8 +449,6 @@ func generateException()throws {
     }
 }
 
-
-
 do {
     try generateException()
 } catch let err as ServiceError where err == .internalServerError {
@@ -461,7 +480,6 @@ do {
   
 ```
 
-
 ###Compile for framework
 
 ```protobuf
@@ -471,6 +489,7 @@ option (.google.protobuf.swift_file_options).compile_for_framework = false;
 This option deletes the string `import ProtocolBuffers` of the generated files.
 
 ####If you will need some other options, write me. I will add them.
+
 
 
 

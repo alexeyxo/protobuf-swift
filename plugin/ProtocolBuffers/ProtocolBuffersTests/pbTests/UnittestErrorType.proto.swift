@@ -34,6 +34,18 @@ public func == (lhs: UserProfile.Response, rhs: UserProfile.Response) -> Bool {
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.hasProfile == rhs.hasProfile) && (!lhs.hasProfile || lhs.profile == rhs.profile)
   fieldCheck = fieldCheck && (lhs.hasError == rhs.hasError) && (!lhs.hasError || lhs.error == rhs.error)
+  fieldCheck = fieldCheck && (lhs.hasException == rhs.hasException) && (!lhs.hasException || lhs.exception == rhs.exception)
+  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+  return fieldCheck
+}
+
+public func == (lhs: UserProfile.Exception, rhs: UserProfile.Exception) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasErrorCode == rhs.hasErrorCode) && (!lhs.hasErrorCode || lhs.errorCode == rhs.errorCode)
+  fieldCheck = fieldCheck && (lhs.hasErrorDescription == rhs.hasErrorDescription) && (!lhs.hasErrorDescription || lhs.errorDescription == rhs.errorDescription)
   fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
   return fieldCheck
 }
@@ -283,10 +295,17 @@ final public class UserProfile : GeneratedMessage {
       public private(set) var hasProfile:Bool = false
       public private(set) var error:ServiceError = ServiceError.badRequest
       public private(set) var hasError:Bool = false
+      public private(set) var exception:UserProfile.Exception!
+      public private(set) var hasException:Bool = false
       required public init() {
            super.init()
       }
       override public func isInitialized() -> Bool {
+        if hasException {
+         if !exception.isInitialized() {
+           return false
+         }
+        }
        return true
       }
       override public func writeTo(codedOutputStream:CodedOutputStream) throws {
@@ -295,6 +314,9 @@ final public class UserProfile : GeneratedMessage {
         }
         if hasError {
           try codedOutputStream.writeEnum(fieldNumber:2, value:error.rawValue)
+        }
+        if hasException {
+          try codedOutputStream.writeMessage(fieldNumber:3, value:exception)
         }
         try unknownFields.writeTo(codedOutputStream:codedOutputStream)
       }
@@ -312,6 +334,11 @@ final public class UserProfile : GeneratedMessage {
         }
         if (hasError) {
           serialize_size += error.rawValue.computeEnumSize(fieldNumber: 2)
+        }
+        if hasException {
+            if let varSizeexception = exception?.computeMessageSize(fieldNumber: 3) {
+                serialize_size += varSizeexception
+            }
         }
         serialize_size += unknownFields.serializedSize()
         memoizedSerializedSize = serialize_size
@@ -347,6 +374,13 @@ final public class UserProfile : GeneratedMessage {
         if (hasError) {
           output += "\(indent) error: \(error.description)\n"
         }
+        if hasException {
+          output += "\(indent) exception {\n"
+          if let outDescException = exception {
+            output += try outDescException.getDescription(indent:"\(indent)  ")
+          }
+          output += "\(indent) }\n"
+        }
         output += unknownFields.getDescription(indent: indent)
         return output
       }
@@ -360,6 +394,11 @@ final public class UserProfile : GeneratedMessage {
               }
               if hasError {
                  hashCode = (hashCode &* 31) &+ Int(error.rawValue)
+              }
+              if hasException {
+                  if let hashValueexception = exception?.hashValue {
+                      hashCode = (hashCode &* 31) &+ hashValueexception
+                  }
               }
               hashCode = (hashCode &* 31) &+  unknownFields.hashValue
               return hashCode
@@ -460,6 +499,57 @@ final public class UserProfile : GeneratedMessage {
              builderResult.error = .badRequest
              return self
           }
+        public var hasException:Bool {
+             get {
+                 return builderResult.hasException
+             }
+        }
+        public var exception:UserProfile.Exception! {
+             get {
+                 if exceptionBuilder_ != nil {
+                    builderResult.exception = exceptionBuilder_.getMessage()
+                 }
+                 return builderResult.exception
+             }
+             set (value) {
+                 builderResult.hasException = true
+                 builderResult.exception = value
+             }
+        }
+        private var exceptionBuilder_:UserProfile.Exception.Builder! {
+             didSet {
+                builderResult.hasException = true
+             }
+        }
+        public func getExceptionBuilder() -> UserProfile.Exception.Builder {
+          if exceptionBuilder_ == nil {
+             exceptionBuilder_ = UserProfile.Exception.Builder()
+             builderResult.exception = exceptionBuilder_.getMessage()
+             if exception != nil {
+                _ = try! exceptionBuilder_.mergeFrom(other: exception)
+             }
+          }
+          return exceptionBuilder_
+        }
+        public func setException(_ value:UserProfile.Exception!) -> UserProfile.Response.Builder {
+          self.exception = value
+          return self
+        }
+        public func mergeException(value:UserProfile.Exception) throws -> UserProfile.Response.Builder {
+          if builderResult.hasException {
+            builderResult.exception = try UserProfile.Exception.builderWithPrototype(prototype: builderResult.exception).mergeFrom(other: value).buildPartial()
+          } else {
+            builderResult.exception = value
+          }
+          builderResult.hasException = true
+          return self
+        }
+        public func clearException() -> UserProfile.Response.Builder {
+          exceptionBuilder_ = nil
+          builderResult.hasException = false
+          builderResult.exception = nil
+          return self
+        }
         override public var internalGetResult:GeneratedMessage {
              get {
                 return builderResult
@@ -489,6 +579,9 @@ final public class UserProfile : GeneratedMessage {
           }
           if other.hasError {
                error = other.error
+          }
+          if other.hasException {
+              _ = try mergeException(value: other.exception)
           }
           _ = try merge(unknownField: other.unknownFields)
           return self
@@ -520,6 +613,237 @@ final public class UserProfile : GeneratedMessage {
               } else {
                    _ = try unknownFieldsBuilder.mergeVarintField(number: 2, value:Int64(valueInterror))
               }
+
+            case 26:
+              let subBuilder:UserProfile.Exception.Builder = UserProfile.Exception.Builder()
+              if hasException {
+               _ = try subBuilder.mergeFrom(other: exception)
+              }
+              try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
+              exception = subBuilder.buildPartial()
+
+            default:
+              if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                 unknownFields = try unknownFieldsBuilder.build()
+                 return self
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+  //Nested type declaration end
+
+
+
+  //Nested type declaration start
+
+    final public class Exception : GeneratedMessage, Error {
+      public private(set) var errorCode:Int32 = Int32(0)
+
+      public private(set) var hasErrorCode:Bool = false
+      public private(set) var errorDescription:String = ""
+
+      public private(set) var hasErrorDescription:Bool = false
+      required public init() {
+           super.init()
+      }
+      override public func isInitialized() -> Bool {
+        if !hasErrorCode {
+          return false
+        }
+        if !hasErrorDescription {
+          return false
+        }
+       return true
+      }
+      override public func writeTo(codedOutputStream:CodedOutputStream) throws {
+        if hasErrorCode {
+          try codedOutputStream.writeInt32(fieldNumber:1, value:errorCode)
+        }
+        if hasErrorDescription {
+          try codedOutputStream.writeString(fieldNumber:2, value:errorDescription)
+        }
+        try unknownFields.writeTo(codedOutputStream:codedOutputStream)
+      }
+      override public func serializedSize() -> Int32 {
+        var serialize_size:Int32 = memoizedSerializedSize
+        if serialize_size != -1 {
+         return serialize_size
+        }
+
+        serialize_size = 0
+        if hasErrorCode {
+          serialize_size += errorCode.computeInt32Size(fieldNumber: 1)
+        }
+        if hasErrorDescription {
+          serialize_size += errorDescription.computeStringSize(fieldNumber: 2)
+        }
+        serialize_size += unknownFields.serializedSize()
+        memoizedSerializedSize = serialize_size
+        return serialize_size
+      }
+      public class func getBuilder() -> UserProfile.Exception.Builder {
+        return UserProfile.Exception.classBuilder() as! UserProfile.Exception.Builder
+      }
+      public func getBuilder() -> UserProfile.Exception.Builder {
+        return classBuilder() as! UserProfile.Exception.Builder
+      }
+      public override class func classBuilder() -> ProtocolBuffersMessageBuilder {
+        return UserProfile.Exception.Builder()
+      }
+      public override func classBuilder() -> ProtocolBuffersMessageBuilder {
+        return UserProfile.Exception.Builder()
+      }
+      public func toBuilder() throws -> UserProfile.Exception.Builder {
+        return try UserProfile.Exception.builderWithPrototype(prototype: self)
+      }
+      public class func builderWithPrototype(prototype:UserProfile.Exception) throws -> UserProfile.Exception.Builder {
+        return try UserProfile.Exception.Builder().mergeFrom(other: prototype)
+      }
+      override public func getDescription(indent:String) throws -> String {
+        var output:String = ""
+        if hasErrorCode {
+          output += "\(indent) errorCode: \(errorCode) \n"
+        }
+        if hasErrorDescription {
+          output += "\(indent) errorDescription: \(errorDescription) \n"
+        }
+        output += unknownFields.getDescription(indent: indent)
+        return output
+      }
+      override public var hashValue:Int {
+          get {
+              var hashCode:Int = 7
+              if hasErrorCode {
+                 hashCode = (hashCode &* 31) &+ errorCode.hashValue
+              }
+              if hasErrorDescription {
+                 hashCode = (hashCode &* 31) &+ errorDescription.hashValue
+              }
+              hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+              return hashCode
+          }
+      }
+
+
+      //Meta information declaration start
+
+      override public class func className() -> String {
+          return "UserProfile.Exception"
+      }
+      override public func className() -> String {
+          return "UserProfile.Exception"
+      }
+      //Meta information declaration end
+
+      final public class Builder : GeneratedMessageBuilder {
+        private var builderResult:UserProfile.Exception = UserProfile.Exception()
+        public func getMessage() -> UserProfile.Exception {
+            return builderResult
+        }
+
+        required override public init () {
+           super.init()
+        }
+        public var hasErrorCode:Bool {
+             get {
+                  return builderResult.hasErrorCode
+             }
+        }
+        public var errorCode:Int32 {
+             get {
+                  return builderResult.errorCode
+             }
+             set (value) {
+                 builderResult.hasErrorCode = true
+                 builderResult.errorCode = value
+             }
+        }
+        public func setErrorCode(_ value:Int32) -> UserProfile.Exception.Builder {
+          self.errorCode = value
+          return self
+        }
+        public func clearErrorCode() -> UserProfile.Exception.Builder{
+             builderResult.hasErrorCode = false
+             builderResult.errorCode = Int32(0)
+             return self
+        }
+        public var hasErrorDescription:Bool {
+             get {
+                  return builderResult.hasErrorDescription
+             }
+        }
+        public var errorDescription:String {
+             get {
+                  return builderResult.errorDescription
+             }
+             set (value) {
+                 builderResult.hasErrorDescription = true
+                 builderResult.errorDescription = value
+             }
+        }
+        public func setErrorDescription(_ value:String) -> UserProfile.Exception.Builder {
+          self.errorDescription = value
+          return self
+        }
+        public func clearErrorDescription() -> UserProfile.Exception.Builder{
+             builderResult.hasErrorDescription = false
+             builderResult.errorDescription = ""
+             return self
+        }
+        override public var internalGetResult:GeneratedMessage {
+             get {
+                return builderResult
+             }
+        }
+        public override func clear() -> UserProfile.Exception.Builder {
+          builderResult = UserProfile.Exception()
+          return self
+        }
+        public override func clone() throws -> UserProfile.Exception.Builder {
+          return try UserProfile.Exception.builderWithPrototype(prototype: builderResult)
+        }
+        public override func build() throws -> UserProfile.Exception {
+             try checkInitialized()
+             return buildPartial()
+        }
+        public func buildPartial() -> UserProfile.Exception {
+          let returnMe:UserProfile.Exception = builderResult
+          return returnMe
+        }
+        public func mergeFrom(other:UserProfile.Exception) throws -> UserProfile.Exception.Builder {
+          if other == UserProfile.Exception() {
+           return self
+          }
+          if other.hasErrorCode {
+               errorCode = other.errorCode
+          }
+          if other.hasErrorDescription {
+               errorDescription = other.errorDescription
+          }
+          _ = try merge(unknownField: other.unknownFields)
+          return self
+        }
+        public override func mergeFrom(codedInputStream:CodedInputStream) throws -> UserProfile.Exception.Builder {
+             return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+        }
+        public override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception.Builder {
+          let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
+          while (true) {
+            let protobufTag = try codedInputStream.readTag()
+            switch protobufTag {
+            case 0: 
+              self.unknownFields = try unknownFieldsBuilder.build()
+              return self
+
+            case 8:
+              errorCode = try codedInputStream.readInt32()
+
+            case 18:
+              errorDescription = try codedInputStream.readString()
 
             default:
               if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -877,6 +1201,36 @@ extension UserProfile.Response: GeneratedMessageProtocol {
   }
   public class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Response {
     return try UserProfile.Response.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
+}
+extension UserProfile.Exception: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<UserProfile.Exception> {
+    var mergedArray = Array<UserProfile.Exception>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream:InputStream) throws -> UserProfile.Exception? {
+    return try UserProfile.Exception.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
+  }
+  public class func parseFrom(data:Data) throws -> UserProfile.Exception {
+    return try UserProfile.Exception.Builder().mergeFrom(data: data, extensionRegistry:UnittestErrorTypeRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception {
+    return try UserProfile.Exception.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream:InputStream) throws -> UserProfile.Exception {
+    return try UserProfile.Exception.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception {
+    return try UserProfile.Exception.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream:CodedInputStream) throws -> UserProfile.Exception {
+    return try UserProfile.Exception.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception {
+    return try UserProfile.Exception.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 
