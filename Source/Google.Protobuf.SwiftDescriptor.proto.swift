@@ -13,6 +13,7 @@ public func == (lhs: Google.Protobuf.SwiftFileOptions, rhs: Google.Protobuf.Swif
   fieldCheck = fieldCheck && (lhs.hasClassPrefix == rhs.hasClassPrefix) && (!lhs.hasClassPrefix || lhs.classPrefix == rhs.classPrefix)
   fieldCheck = fieldCheck && (lhs.hasEntitiesAccessControl == rhs.hasEntitiesAccessControl) && (!lhs.hasEntitiesAccessControl || lhs.entitiesAccessControl == rhs.entitiesAccessControl)
   fieldCheck = fieldCheck && (lhs.hasCompileForFramework == rhs.hasCompileForFramework) && (!lhs.hasCompileForFramework || lhs.compileForFramework == rhs.compileForFramework)
+  fieldCheck = fieldCheck && (lhs.hasGenerateStruct == rhs.hasGenerateStruct) && (!lhs.hasGenerateStruct || lhs.generateStruct == rhs.generateStruct)
   fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
   return fieldCheck
 }
@@ -110,14 +111,17 @@ public extension Google.Protobuf {
   //Enum type declaration end 
 
   final public class SwiftFileOptions : GeneratedMessage {
-    public private(set) var classPrefix:String = ""
+    public fileprivate(set) var classPrefix:String = ""
 
-    public private(set) var hasClassPrefix:Bool = false
-    public private(set) var entitiesAccessControl:Google.Protobuf.AccessControl = Google.Protobuf.AccessControl.publicEntities
-    public private(set) var hasEntitiesAccessControl:Bool = false
-    public private(set) var compileForFramework:Bool = true
+    public fileprivate(set) var hasClassPrefix:Bool = false
+    public fileprivate(set) var entitiesAccessControl:Google.Protobuf.AccessControl = Google.Protobuf.AccessControl.publicEntities
+    public fileprivate(set) var hasEntitiesAccessControl:Bool = false
+    public fileprivate(set) var compileForFramework:Bool = true
 
-    public private(set) var hasCompileForFramework:Bool = false
+    public fileprivate(set) var hasCompileForFramework:Bool = false
+    public fileprivate(set) var generateStruct:Bool = false
+
+    public fileprivate(set) var hasGenerateStruct:Bool = false
     required public init() {
          super.init()
     }
@@ -133,6 +137,9 @@ public extension Google.Protobuf {
       }
       if hasCompileForFramework {
         try codedOutputStream.writeBool(fieldNumber:3, value:compileForFramework)
+      }
+      if hasGenerateStruct {
+        try codedOutputStream.writeBool(fieldNumber:4, value:generateStruct)
       }
       try unknownFields.writeTo(codedOutputStream:codedOutputStream)
     }
@@ -151,6 +158,9 @@ public extension Google.Protobuf {
       }
       if hasCompileForFramework {
         serialize_size += compileForFramework.computeBoolSize(fieldNumber: 3)
+      }
+      if hasGenerateStruct {
+        serialize_size += generateStruct.computeBoolSize(fieldNumber: 4)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -185,6 +195,9 @@ public extension Google.Protobuf {
       if hasCompileForFramework {
         output += "\(indent) compileForFramework: \(compileForFramework) \n"
       }
+      if hasGenerateStruct {
+        output += "\(indent) generateStruct: \(generateStruct) \n"
+      }
       output += unknownFields.getDescription(indent: indent)
       return output
     }
@@ -199,6 +212,9 @@ public extension Google.Protobuf {
             }
             if hasCompileForFramework {
                hashCode = (hashCode &* 31) &+ compileForFramework.hashValue
+            }
+            if hasGenerateStruct {
+               hashCode = (hashCode &* 31) &+ generateStruct.hashValue
             }
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
             return hashCode
@@ -294,6 +310,29 @@ public extension Google.Protobuf {
            builderResult.compileForFramework = true
            return self
       }
+      public var hasGenerateStruct:Bool {
+           get {
+                return builderResult.hasGenerateStruct
+           }
+      }
+      public var generateStruct:Bool {
+           get {
+                return builderResult.generateStruct
+           }
+           set (value) {
+               builderResult.hasGenerateStruct = true
+               builderResult.generateStruct = value
+           }
+      }
+      public func setGenerateStruct(_ value:Bool) -> Google.Protobuf.SwiftFileOptions.Builder {
+        self.generateStruct = value
+        return self
+      }
+      public func clearGenerateStruct() -> Google.Protobuf.SwiftFileOptions.Builder{
+           builderResult.hasGenerateStruct = false
+           builderResult.generateStruct = false
+           return self
+      }
       override public var internalGetResult:GeneratedMessage {
            get {
               return builderResult
@@ -327,6 +366,9 @@ public extension Google.Protobuf {
         if other.hasCompileForFramework {
              compileForFramework = other.compileForFramework
         }
+        if other.hasGenerateStruct {
+             generateStruct = other.generateStruct
+        }
         _ = try merge(unknownField: other.unknownFields)
         return self
       }
@@ -356,6 +398,9 @@ public extension Google.Protobuf {
           case 24:
             compileForFramework = try codedInputStream.readBool()
 
+          case 32:
+            generateStruct = try codedInputStream.readBool()
+
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
@@ -369,9 +414,9 @@ public extension Google.Protobuf {
   }
 
   final public class SwiftMessageOptions : GeneratedMessage {
-    public private(set) var generateErrorType:Bool = false
+    public fileprivate(set) var generateErrorType:Bool = false
 
-    public private(set) var hasGenerateErrorType:Bool = false
+    public fileprivate(set) var hasGenerateErrorType:Bool = false
     required public init() {
          super.init()
     }
@@ -536,9 +581,9 @@ public extension Google.Protobuf {
   }
 
   final public class SwiftEnumOptions : GeneratedMessage {
-    public private(set) var generateErrorType:Bool = false
+    public fileprivate(set) var generateErrorType:Bool = false
 
-    public private(set) var hasGenerateErrorType:Bool = false
+    public fileprivate(set) var hasGenerateErrorType:Bool = false
     required public init() {
          super.init()
     }

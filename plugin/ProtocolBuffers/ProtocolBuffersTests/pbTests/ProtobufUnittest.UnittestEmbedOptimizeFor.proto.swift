@@ -38,9 +38,9 @@ public extension ProtobufUnittest {
   }
 
   final public class TestEmbedOptimizedForSize : GeneratedMessage {
-    public private(set) var optionalMessage:ProtobufUnittest.TestOptimizedForSize!
-    public private(set) var hasOptionalMessage:Bool = false
-    public private(set) var repeatedMessage:Array<ProtobufUnittest.TestOptimizedForSize> = Array<ProtobufUnittest.TestOptimizedForSize>()
+    public fileprivate(set) var optionalMessage:ProtobufUnittest.TestOptimizedForSize!
+    public fileprivate(set) var hasOptionalMessage:Bool = false
+    public fileprivate(set) var repeatedMessage:Array<ProtobufUnittest.TestOptimizedForSize> = Array<ProtobufUnittest.TestOptimizedForSize>()
     required public init() {
          super.init()
     }

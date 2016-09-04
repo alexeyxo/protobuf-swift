@@ -92,8 +92,8 @@ internal struct PerformanceRoot {
 }
 
 final internal class PBUser : GeneratedMessage {
-  internal private(set) var group:PBGroup!
-  internal private(set) var hasGroup:Bool = false
+  internal fileprivate(set) var group:PBGroup!
+  internal fileprivate(set) var hasGroup:Bool = false
   required internal init() {
        super.init()
   }
@@ -299,8 +299,8 @@ final internal class PBUser : GeneratedMessage {
 }
 
 final internal class PBGroup : GeneratedMessage {
-  internal private(set) var owner:PBUser!
-  internal private(set) var hasOwner:Bool = false
+  internal fileprivate(set) var owner:PBUser!
+  internal fileprivate(set) var hasOwner:Bool = false
   required internal init() {
        super.init()
   }
@@ -506,7 +506,7 @@ final internal class PBGroup : GeneratedMessage {
 }
 
 final internal class PBPerfomanceBatch : GeneratedMessage {
-  internal private(set) var batch:Array<PBPerfomance> = Array<PBPerfomance>()
+  internal fileprivate(set) var batch:Array<PBPerfomance> = Array<PBPerfomance>()
   required internal init() {
        super.init()
   }
@@ -680,27 +680,27 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
 }
 
 final internal class PBPerfomance : GeneratedMessage {
-  internal private(set) var ints:Int32 = Int32(0)
+  internal fileprivate(set) var ints:Int32 = Int32(0)
 
-  internal private(set) var hasInts:Bool = false
-  internal private(set) var ints64:Int64 = Int64(0)
+  internal fileprivate(set) var hasInts:Bool = false
+  internal fileprivate(set) var ints64:Int64 = Int64(0)
 
-  internal private(set) var hasInts64:Bool = false
-  internal private(set) var doubles:Double = Double(0)
+  internal fileprivate(set) var hasInts64:Bool = false
+  internal fileprivate(set) var doubles:Double = Double(0)
 
-  internal private(set) var hasDoubles:Bool = false
-  internal private(set) var floats:Float = Float(0)
+  internal fileprivate(set) var hasDoubles:Bool = false
+  internal fileprivate(set) var floats:Float = Float(0)
 
-  internal private(set) var hasFloats:Bool = false
-  internal private(set) var str:String = ""
+  internal fileprivate(set) var hasFloats:Bool = false
+  internal fileprivate(set) var str:String = ""
 
-  internal private(set) var hasStr:Bool = false
-  internal private(set) var bytes:Data = Data()
+  internal fileprivate(set) var hasStr:Bool = false
+  internal fileprivate(set) var bytes:Data = Data()
 
-  internal private(set) var hasBytes:Bool = false
-  internal private(set) var description_:String = ""
+  internal fileprivate(set) var hasBytes:Bool = false
+  internal fileprivate(set) var description_:String = ""
 
-  internal private(set) var hasDescription:Bool = false
+  internal fileprivate(set) var hasDescription:Bool = false
   required internal init() {
        super.init()
   }
@@ -1123,12 +1123,12 @@ final internal class PBPerfomance : GeneratedMessage {
 }
 
 final internal class PBProtoPoint : GeneratedMessage {
-  internal private(set) var latitude:Float = Float(0)
+  internal fileprivate(set) var latitude:Float = Float(0)
 
-  internal private(set) var hasLatitude:Bool = false
-  internal private(set) var longitude:Float = Float(0)
+  internal fileprivate(set) var hasLatitude:Bool = false
+  internal fileprivate(set) var longitude:Float = Float(0)
 
-  internal private(set) var hasLongitude:Bool = false
+  internal fileprivate(set) var hasLongitude:Bool = false
   required internal init() {
        super.init()
   }
@@ -1360,11 +1360,11 @@ final internal class PBIceCreamCone : GeneratedMessage {
 
     //Enum type declaration end 
 
-  internal private(set) var scoops:Int32 = Int32(0)
+  internal fileprivate(set) var scoops:Int32 = Int32(0)
 
-  internal private(set) var hasScoops:Bool = false
-  internal private(set) var flavor:PBIceCreamCone.PBFlavor = PBIceCreamCone.PBFlavor.chocolate
-  internal private(set) var hasFlavor:Bool = false
+  internal fileprivate(set) var hasScoops:Bool = false
+  internal fileprivate(set) var flavor:PBIceCreamCone.PBFlavor = PBIceCreamCone.PBFlavor.chocolate
+  internal fileprivate(set) var hasFlavor:Bool = false
   required internal init() {
        super.init()
   }

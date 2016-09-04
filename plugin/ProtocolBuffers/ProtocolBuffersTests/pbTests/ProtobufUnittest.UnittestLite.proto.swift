@@ -1358,9 +1358,9 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class NestedMessage : GeneratedMessage {
-        public private(set) var bb:Int32 = Int32(0)
+        public fileprivate(set) var bb:Int32 = Int32(0)
 
-        public private(set) var hasBb:Bool = false
+        public fileprivate(set) var hasBb:Bool = false
         required public init() {
              super.init()
         }
@@ -1531,9 +1531,9 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class OptionalGroup : GeneratedMessage {
-        public private(set) var a:Int32 = Int32(0)
+        public fileprivate(set) var a:Int32 = Int32(0)
 
-        public private(set) var hasA:Bool = false
+        public fileprivate(set) var hasA:Bool = false
         required public init() {
              super.init()
         }
@@ -1704,9 +1704,9 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class RepeatedGroup : GeneratedMessage {
-        public private(set) var a:Int32 = Int32(0)
+        public fileprivate(set) var a:Int32 = Int32(0)
 
-        public private(set) var hasA:Bool = false
+        public fileprivate(set) var hasA:Bool = false
         required public init() {
              super.init()
         }
@@ -1955,163 +1955,163 @@ public extension ProtobufUnittest {
       //Enum type declaration end 
 
     // Singular
-    public private(set) var optionalInt32:Int32 = Int32(0)
+    public fileprivate(set) var optionalInt32:Int32 = Int32(0)
 
-    public private(set) var hasOptionalInt32:Bool = false
-    public private(set) var optionalInt64:Int64 = Int64(0)
+    public fileprivate(set) var hasOptionalInt32:Bool = false
+    public fileprivate(set) var optionalInt64:Int64 = Int64(0)
 
-    public private(set) var hasOptionalInt64:Bool = false
-    public private(set) var optionalUint32:UInt32 = UInt32(0)
+    public fileprivate(set) var hasOptionalInt64:Bool = false
+    public fileprivate(set) var optionalUint32:UInt32 = UInt32(0)
 
-    public private(set) var hasOptionalUint32:Bool = false
-    public private(set) var optionalUint64:UInt64 = UInt64(0)
+    public fileprivate(set) var hasOptionalUint32:Bool = false
+    public fileprivate(set) var optionalUint64:UInt64 = UInt64(0)
 
-    public private(set) var hasOptionalUint64:Bool = false
-    public private(set) var optionalSint32:Int32 = Int32(0)
+    public fileprivate(set) var hasOptionalUint64:Bool = false
+    public fileprivate(set) var optionalSint32:Int32 = Int32(0)
 
-    public private(set) var hasOptionalSint32:Bool = false
-    public private(set) var optionalSint64:Int64 = Int64(0)
+    public fileprivate(set) var hasOptionalSint32:Bool = false
+    public fileprivate(set) var optionalSint64:Int64 = Int64(0)
 
-    public private(set) var hasOptionalSint64:Bool = false
-    public private(set) var optionalFixed32:UInt32 = UInt32(0)
+    public fileprivate(set) var hasOptionalSint64:Bool = false
+    public fileprivate(set) var optionalFixed32:UInt32 = UInt32(0)
 
-    public private(set) var hasOptionalFixed32:Bool = false
-    public private(set) var optionalFixed64:UInt64 = UInt64(0)
+    public fileprivate(set) var hasOptionalFixed32:Bool = false
+    public fileprivate(set) var optionalFixed64:UInt64 = UInt64(0)
 
-    public private(set) var hasOptionalFixed64:Bool = false
-    public private(set) var optionalSfixed32:Int32 = Int32(0)
+    public fileprivate(set) var hasOptionalFixed64:Bool = false
+    public fileprivate(set) var optionalSfixed32:Int32 = Int32(0)
 
-    public private(set) var hasOptionalSfixed32:Bool = false
-    public private(set) var optionalSfixed64:Int64 = Int64(0)
+    public fileprivate(set) var hasOptionalSfixed32:Bool = false
+    public fileprivate(set) var optionalSfixed64:Int64 = Int64(0)
 
-    public private(set) var hasOptionalSfixed64:Bool = false
-    public private(set) var optionalFloat:Float = Float(0)
+    public fileprivate(set) var hasOptionalSfixed64:Bool = false
+    public fileprivate(set) var optionalFloat:Float = Float(0)
 
-    public private(set) var hasOptionalFloat:Bool = false
-    public private(set) var optionalDouble:Double = Double(0)
+    public fileprivate(set) var hasOptionalFloat:Bool = false
+    public fileprivate(set) var optionalDouble:Double = Double(0)
 
-    public private(set) var hasOptionalDouble:Bool = false
-    public private(set) var optionalBool:Bool = false
+    public fileprivate(set) var hasOptionalDouble:Bool = false
+    public fileprivate(set) var optionalBool:Bool = false
 
-    public private(set) var hasOptionalBool:Bool = false
-    public private(set) var optionalString:String = ""
+    public fileprivate(set) var hasOptionalBool:Bool = false
+    public fileprivate(set) var optionalString:String = ""
 
-    public private(set) var hasOptionalString:Bool = false
-    public private(set) var optionalBytes:Data = Data()
+    public fileprivate(set) var hasOptionalString:Bool = false
+    public fileprivate(set) var optionalBytes:Data = Data()
 
-    public private(set) var hasOptionalBytes:Bool = false
-    public private(set) var optionalGroup:ProtobufUnittest.TestAllTypesLite.OptionalGroup!
-    public private(set) var hasOptionalGroup:Bool = false
-    public private(set) var optionalNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage!
-    public private(set) var hasOptionalNestedMessage:Bool = false
-    public private(set) var optionalForeignMessage:ProtobufUnittest.ForeignMessageLite!
-    public private(set) var hasOptionalForeignMessage:Bool = false
-    public private(set) var optionalImportMessage:ProtobufUnittestImport.ImportMessageLite!
-    public private(set) var hasOptionalImportMessage:Bool = false
-    public private(set) var optionalNestedEnum:ProtobufUnittest.TestAllTypesLite.NestedEnum = ProtobufUnittest.TestAllTypesLite.NestedEnum.foo
-    public private(set) var hasOptionalNestedEnum:Bool = false
-    public private(set) var optionalForeignEnum:ProtobufUnittest.ForeignEnumLite = ProtobufUnittest.ForeignEnumLite.foreignLiteFoo
-    public private(set) var hasOptionalForeignEnum:Bool = false
-    public private(set) var optionalImportEnum:ProtobufUnittestImport.ImportEnumLite = ProtobufUnittestImport.ImportEnumLite.importLiteFoo
-    public private(set) var hasOptionalImportEnum:Bool = false
-    public private(set) var optionalStringPiece:String = ""
+    public fileprivate(set) var hasOptionalBytes:Bool = false
+    public fileprivate(set) var optionalGroup:ProtobufUnittest.TestAllTypesLite.OptionalGroup!
+    public fileprivate(set) var hasOptionalGroup:Bool = false
+    public fileprivate(set) var optionalNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage!
+    public fileprivate(set) var hasOptionalNestedMessage:Bool = false
+    public fileprivate(set) var optionalForeignMessage:ProtobufUnittest.ForeignMessageLite!
+    public fileprivate(set) var hasOptionalForeignMessage:Bool = false
+    public fileprivate(set) var optionalImportMessage:ProtobufUnittestImport.ImportMessageLite!
+    public fileprivate(set) var hasOptionalImportMessage:Bool = false
+    public fileprivate(set) var optionalNestedEnum:ProtobufUnittest.TestAllTypesLite.NestedEnum = ProtobufUnittest.TestAllTypesLite.NestedEnum.foo
+    public fileprivate(set) var hasOptionalNestedEnum:Bool = false
+    public fileprivate(set) var optionalForeignEnum:ProtobufUnittest.ForeignEnumLite = ProtobufUnittest.ForeignEnumLite.foreignLiteFoo
+    public fileprivate(set) var hasOptionalForeignEnum:Bool = false
+    public fileprivate(set) var optionalImportEnum:ProtobufUnittestImport.ImportEnumLite = ProtobufUnittestImport.ImportEnumLite.importLiteFoo
+    public fileprivate(set) var hasOptionalImportEnum:Bool = false
+    public fileprivate(set) var optionalStringPiece:String = ""
 
-    public private(set) var hasOptionalStringPiece:Bool = false
-    public private(set) var optionalCord:String = ""
+    public fileprivate(set) var hasOptionalStringPiece:Bool = false
+    public fileprivate(set) var optionalCord:String = ""
 
-    public private(set) var hasOptionalCord:Bool = false
-    public private(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessageLite!
-    public private(set) var hasOptionalPublicImportMessage:Bool = false
-    public private(set) var optionalLazyMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage!
-    public private(set) var hasOptionalLazyMessage:Bool = false
+    public fileprivate(set) var hasOptionalCord:Bool = false
+    public fileprivate(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessageLite!
+    public fileprivate(set) var hasOptionalPublicImportMessage:Bool = false
+    public fileprivate(set) var optionalLazyMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage!
+    public fileprivate(set) var hasOptionalLazyMessage:Bool = false
     // Repeated
-    public private(set) var repeatedInt32:Array<Int32> = Array<Int32>()
-    public private(set) var repeatedInt64:Array<Int64> = Array<Int64>()
-    public private(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
-    public private(set) var repeatedUint64:Array<UInt64> = Array<UInt64>()
-    public private(set) var repeatedSint32:Array<Int32> = Array<Int32>()
-    public private(set) var repeatedSint64:Array<Int64> = Array<Int64>()
-    public private(set) var repeatedFixed32:Array<UInt32> = Array<UInt32>()
-    public private(set) var repeatedFixed64:Array<UInt64> = Array<UInt64>()
-    public private(set) var repeatedSfixed32:Array<Int32> = Array<Int32>()
-    public private(set) var repeatedSfixed64:Array<Int64> = Array<Int64>()
-    public private(set) var repeatedFloat:Array<Float> = Array<Float>()
-    public private(set) var repeatedDouble:Array<Double> = Array<Double>()
-    public private(set) var repeatedBool:Array<Bool> = Array<Bool>()
-    public private(set) var repeatedString:Array<String> = Array<String>()
-    public private(set) var repeatedBytes:Array<Data> = Array<Data>()
-    public private(set) var repeatedGroup:Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup> = Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup>()
-    public private(set) var repeatedNestedMessage:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage> = Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>()
-    public private(set) var repeatedForeignMessage:Array<ProtobufUnittest.ForeignMessageLite> = Array<ProtobufUnittest.ForeignMessageLite>()
-    public private(set) var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessageLite> = Array<ProtobufUnittestImport.ImportMessageLite>()
+    public fileprivate(set) var repeatedInt32:Array<Int32> = Array<Int32>()
+    public fileprivate(set) var repeatedInt64:Array<Int64> = Array<Int64>()
+    public fileprivate(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
+    public fileprivate(set) var repeatedUint64:Array<UInt64> = Array<UInt64>()
+    public fileprivate(set) var repeatedSint32:Array<Int32> = Array<Int32>()
+    public fileprivate(set) var repeatedSint64:Array<Int64> = Array<Int64>()
+    public fileprivate(set) var repeatedFixed32:Array<UInt32> = Array<UInt32>()
+    public fileprivate(set) var repeatedFixed64:Array<UInt64> = Array<UInt64>()
+    public fileprivate(set) var repeatedSfixed32:Array<Int32> = Array<Int32>()
+    public fileprivate(set) var repeatedSfixed64:Array<Int64> = Array<Int64>()
+    public fileprivate(set) var repeatedFloat:Array<Float> = Array<Float>()
+    public fileprivate(set) var repeatedDouble:Array<Double> = Array<Double>()
+    public fileprivate(set) var repeatedBool:Array<Bool> = Array<Bool>()
+    public fileprivate(set) var repeatedString:Array<String> = Array<String>()
+    public fileprivate(set) var repeatedBytes:Array<Data> = Array<Data>()
+    public fileprivate(set) var repeatedGroup:Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup> = Array<ProtobufUnittest.TestAllTypesLite.RepeatedGroup>()
+    public fileprivate(set) var repeatedNestedMessage:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage> = Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>()
+    public fileprivate(set) var repeatedForeignMessage:Array<ProtobufUnittest.ForeignMessageLite> = Array<ProtobufUnittest.ForeignMessageLite>()
+    public fileprivate(set) var repeatedImportMessage:Array<ProtobufUnittestImport.ImportMessageLite> = Array<ProtobufUnittestImport.ImportMessageLite>()
     private var repeatedNestedEnumMemoizedSerializedSize:Int32 = 0
-    public private(set) var repeatedNestedEnum:Array<ProtobufUnittest.TestAllTypesLite.NestedEnum> = Array<ProtobufUnittest.TestAllTypesLite.NestedEnum>()
+    public fileprivate(set) var repeatedNestedEnum:Array<ProtobufUnittest.TestAllTypesLite.NestedEnum> = Array<ProtobufUnittest.TestAllTypesLite.NestedEnum>()
     private var repeatedForeignEnumMemoizedSerializedSize:Int32 = 0
-    public private(set) var repeatedForeignEnum:Array<ProtobufUnittest.ForeignEnumLite> = Array<ProtobufUnittest.ForeignEnumLite>()
+    public fileprivate(set) var repeatedForeignEnum:Array<ProtobufUnittest.ForeignEnumLite> = Array<ProtobufUnittest.ForeignEnumLite>()
     private var repeatedImportEnumMemoizedSerializedSize:Int32 = 0
-    public private(set) var repeatedImportEnum:Array<ProtobufUnittestImport.ImportEnumLite> = Array<ProtobufUnittestImport.ImportEnumLite>()
-    public private(set) var repeatedStringPiece:Array<String> = Array<String>()
-    public private(set) var repeatedCord:Array<String> = Array<String>()
-    public private(set) var repeatedLazyMessage:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage> = Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>()
+    public fileprivate(set) var repeatedImportEnum:Array<ProtobufUnittestImport.ImportEnumLite> = Array<ProtobufUnittestImport.ImportEnumLite>()
+    public fileprivate(set) var repeatedStringPiece:Array<String> = Array<String>()
+    public fileprivate(set) var repeatedCord:Array<String> = Array<String>()
+    public fileprivate(set) var repeatedLazyMessage:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage> = Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>()
     // Singular with defaults
-    public private(set) var defaultInt32:Int32 = Int32(41)
+    public fileprivate(set) var defaultInt32:Int32 = Int32(41)
 
-    public private(set) var hasDefaultInt32:Bool = false
-    public private(set) var defaultInt64:Int64 = Int64(42)
+    public fileprivate(set) var hasDefaultInt32:Bool = false
+    public fileprivate(set) var defaultInt64:Int64 = Int64(42)
 
-    public private(set) var hasDefaultInt64:Bool = false
-    public private(set) var defaultUint32:UInt32 = UInt32(43)
+    public fileprivate(set) var hasDefaultInt64:Bool = false
+    public fileprivate(set) var defaultUint32:UInt32 = UInt32(43)
 
-    public private(set) var hasDefaultUint32:Bool = false
-    public private(set) var defaultUint64:UInt64 = UInt64(44)
+    public fileprivate(set) var hasDefaultUint32:Bool = false
+    public fileprivate(set) var defaultUint64:UInt64 = UInt64(44)
 
-    public private(set) var hasDefaultUint64:Bool = false
-    public private(set) var defaultSint32:Int32 = Int32(-45)
+    public fileprivate(set) var hasDefaultUint64:Bool = false
+    public fileprivate(set) var defaultSint32:Int32 = Int32(-45)
 
-    public private(set) var hasDefaultSint32:Bool = false
-    public private(set) var defaultSint64:Int64 = Int64(46)
+    public fileprivate(set) var hasDefaultSint32:Bool = false
+    public fileprivate(set) var defaultSint64:Int64 = Int64(46)
 
-    public private(set) var hasDefaultSint64:Bool = false
-    public private(set) var defaultFixed32:UInt32 = UInt32(47)
+    public fileprivate(set) var hasDefaultSint64:Bool = false
+    public fileprivate(set) var defaultFixed32:UInt32 = UInt32(47)
 
-    public private(set) var hasDefaultFixed32:Bool = false
-    public private(set) var defaultFixed64:UInt64 = UInt64(48)
+    public fileprivate(set) var hasDefaultFixed32:Bool = false
+    public fileprivate(set) var defaultFixed64:UInt64 = UInt64(48)
 
-    public private(set) var hasDefaultFixed64:Bool = false
-    public private(set) var defaultSfixed32:Int32 = Int32(49)
+    public fileprivate(set) var hasDefaultFixed64:Bool = false
+    public fileprivate(set) var defaultSfixed32:Int32 = Int32(49)
 
-    public private(set) var hasDefaultSfixed32:Bool = false
-    public private(set) var defaultSfixed64:Int64 = Int64(-50)
+    public fileprivate(set) var hasDefaultSfixed32:Bool = false
+    public fileprivate(set) var defaultSfixed64:Int64 = Int64(-50)
 
-    public private(set) var hasDefaultSfixed64:Bool = false
-    public private(set) var defaultFloat:Float = Float(51.5)
+    public fileprivate(set) var hasDefaultSfixed64:Bool = false
+    public fileprivate(set) var defaultFloat:Float = Float(51.5)
 
-    public private(set) var hasDefaultFloat:Bool = false
-    public private(set) var defaultDouble:Double = Double(52000)
+    public fileprivate(set) var hasDefaultFloat:Bool = false
+    public fileprivate(set) var defaultDouble:Double = Double(52000)
 
-    public private(set) var hasDefaultDouble:Bool = false
-    public private(set) var defaultBool:Bool = true
+    public fileprivate(set) var hasDefaultDouble:Bool = false
+    public fileprivate(set) var defaultBool:Bool = true
 
-    public private(set) var hasDefaultBool:Bool = false
-    public private(set) var defaultString:String = "hello"
+    public fileprivate(set) var hasDefaultBool:Bool = false
+    public fileprivate(set) var defaultString:String = "hello"
 
-    public private(set) var hasDefaultString:Bool = false
-    public private(set) var defaultBytes:Data = Data(bytes:([UInt8]() + "world".utf8), count:5)
+    public fileprivate(set) var hasDefaultString:Bool = false
+    public fileprivate(set) var defaultBytes:Data = Data(bytes:([UInt8]() + "world".utf8), count:5)
 
-    public private(set) var hasDefaultBytes:Bool = false
-    public private(set) var defaultNestedEnum:ProtobufUnittest.TestAllTypesLite.NestedEnum = ProtobufUnittest.TestAllTypesLite.NestedEnum.bar
-    public private(set) var hasDefaultNestedEnum:Bool = false
-    public private(set) var defaultForeignEnum:ProtobufUnittest.ForeignEnumLite = ProtobufUnittest.ForeignEnumLite.foreignLiteBar
-    public private(set) var hasDefaultForeignEnum:Bool = false
-    public private(set) var defaultImportEnum:ProtobufUnittestImport.ImportEnumLite = ProtobufUnittestImport.ImportEnumLite.importLiteBar
-    public private(set) var hasDefaultImportEnum:Bool = false
-    public private(set) var defaultStringPiece:String = "abc"
+    public fileprivate(set) var hasDefaultBytes:Bool = false
+    public fileprivate(set) var defaultNestedEnum:ProtobufUnittest.TestAllTypesLite.NestedEnum = ProtobufUnittest.TestAllTypesLite.NestedEnum.bar
+    public fileprivate(set) var hasDefaultNestedEnum:Bool = false
+    public fileprivate(set) var defaultForeignEnum:ProtobufUnittest.ForeignEnumLite = ProtobufUnittest.ForeignEnumLite.foreignLiteBar
+    public fileprivate(set) var hasDefaultForeignEnum:Bool = false
+    public fileprivate(set) var defaultImportEnum:ProtobufUnittestImport.ImportEnumLite = ProtobufUnittestImport.ImportEnumLite.importLiteBar
+    public fileprivate(set) var hasDefaultImportEnum:Bool = false
+    public fileprivate(set) var defaultStringPiece:String = "abc"
 
-    public private(set) var hasDefaultStringPiece:Bool = false
-    public private(set) var defaultCord:String = "123"
+    public fileprivate(set) var hasDefaultStringPiece:Bool = false
+    public fileprivate(set) var defaultCord:String = "123"
 
-    public private(set) var hasDefaultCord:Bool = false
-    public private(set) var oneofUint32:UInt32!{
+    public fileprivate(set) var hasDefaultCord:Bool = false
+    public fileprivate(set) var oneofUint32:UInt32!{
          get {
               return TestAllTypesLite.OneofField.getOneofUint32(storageOneofField)
          }
@@ -2119,7 +2119,7 @@ public extension ProtobufUnittest {
               storageOneofField = TestAllTypesLite.OneofField.OneofUint32(newValue)
          }
     }
-    public private(set) var hasOneofUint32:Bool {
+    public fileprivate(set) var hasOneofUint32:Bool {
           get {
                if TestAllTypesLite.OneofField.getOneofUint32(storageOneofField) == nil {
                    return false
@@ -2128,7 +2128,7 @@ public extension ProtobufUnittest {
           }
           set(newValue) {}
     }
-    public private(set) var oneofNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage!{
+    public fileprivate(set) var oneofNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage!{
          get {
               return TestAllTypesLite.OneofField.getOneofNestedMessage(storageOneofField)
          }
@@ -2136,7 +2136,7 @@ public extension ProtobufUnittest {
               storageOneofField = TestAllTypesLite.OneofField.OneofNestedMessage(newValue)
          }
     }
-    public private(set) var hasOneofNestedMessage:Bool {
+    public fileprivate(set) var hasOneofNestedMessage:Bool {
           get {
                if TestAllTypesLite.OneofField.getOneofNestedMessage(storageOneofField) == nil {
                    return false
@@ -2145,7 +2145,7 @@ public extension ProtobufUnittest {
           }
           set(newValue) {}
     }
-    public private(set) var oneofString:String!{
+    public fileprivate(set) var oneofString:String!{
          get {
               return TestAllTypesLite.OneofField.getOneofString(storageOneofField)
          }
@@ -2153,7 +2153,7 @@ public extension ProtobufUnittest {
               storageOneofField = TestAllTypesLite.OneofField.OneofString(newValue)
          }
     }
-    public private(set) var hasOneofString:Bool {
+    public fileprivate(set) var hasOneofString:Bool {
           get {
                if TestAllTypesLite.OneofField.getOneofString(storageOneofField) == nil {
                    return false
@@ -2162,7 +2162,7 @@ public extension ProtobufUnittest {
           }
           set(newValue) {}
     }
-    public private(set) var oneofBytes:Data!{
+    public fileprivate(set) var oneofBytes:Data!{
          get {
               return TestAllTypesLite.OneofField.getOneofBytes(storageOneofField)
          }
@@ -2170,7 +2170,7 @@ public extension ProtobufUnittest {
               storageOneofField = TestAllTypesLite.OneofField.OneofBytes(newValue)
          }
     }
-    public private(set) var hasOneofBytes:Bool {
+    public fileprivate(set) var hasOneofBytes:Bool {
           get {
                if TestAllTypesLite.OneofField.getOneofBytes(storageOneofField) == nil {
                    return false
@@ -5684,9 +5684,9 @@ public extension ProtobufUnittest {
   }
 
   final public class ForeignMessageLite : GeneratedMessage {
-    public private(set) var c:Int32 = Int32(0)
+    public fileprivate(set) var c:Int32 = Int32(0)
 
-    public private(set) var hasC:Bool = false
+    public fileprivate(set) var hasC:Bool = false
     required public init() {
          super.init()
     }
@@ -5851,34 +5851,34 @@ public extension ProtobufUnittest {
   }
 
   final public class TestPackedTypesLite : GeneratedMessage {
-    public private(set) var packedInt32:Array<Int32> = Array<Int32>()
+    public fileprivate(set) var packedInt32:Array<Int32> = Array<Int32>()
     private var packedInt32MemoizedSerializedSize:Int32 = -1
-    public private(set) var packedInt64:Array<Int64> = Array<Int64>()
+    public fileprivate(set) var packedInt64:Array<Int64> = Array<Int64>()
     private var packedInt64MemoizedSerializedSize:Int32 = -1
-    public private(set) var packedUint32:Array<UInt32> = Array<UInt32>()
+    public fileprivate(set) var packedUint32:Array<UInt32> = Array<UInt32>()
     private var packedUint32MemoizedSerializedSize:Int32 = -1
-    public private(set) var packedUint64:Array<UInt64> = Array<UInt64>()
+    public fileprivate(set) var packedUint64:Array<UInt64> = Array<UInt64>()
     private var packedUint64MemoizedSerializedSize:Int32 = -1
-    public private(set) var packedSint32:Array<Int32> = Array<Int32>()
+    public fileprivate(set) var packedSint32:Array<Int32> = Array<Int32>()
     private var packedSint32MemoizedSerializedSize:Int32 = -1
-    public private(set) var packedSint64:Array<Int64> = Array<Int64>()
+    public fileprivate(set) var packedSint64:Array<Int64> = Array<Int64>()
     private var packedSint64MemoizedSerializedSize:Int32 = -1
-    public private(set) var packedFixed32:Array<UInt32> = Array<UInt32>()
+    public fileprivate(set) var packedFixed32:Array<UInt32> = Array<UInt32>()
     private var packedFixed32MemoizedSerializedSize:Int32 = -1
-    public private(set) var packedFixed64:Array<UInt64> = Array<UInt64>()
+    public fileprivate(set) var packedFixed64:Array<UInt64> = Array<UInt64>()
     private var packedFixed64MemoizedSerializedSize:Int32 = -1
-    public private(set) var packedSfixed32:Array<Int32> = Array<Int32>()
+    public fileprivate(set) var packedSfixed32:Array<Int32> = Array<Int32>()
     private var packedSfixed32MemoizedSerializedSize:Int32 = -1
-    public private(set) var packedSfixed64:Array<Int64> = Array<Int64>()
+    public fileprivate(set) var packedSfixed64:Array<Int64> = Array<Int64>()
     private var packedSfixed64MemoizedSerializedSize:Int32 = -1
-    public private(set) var packedFloat:Array<Float> = Array<Float>()
+    public fileprivate(set) var packedFloat:Array<Float> = Array<Float>()
     private var packedFloatMemoizedSerializedSize:Int32 = -1
-    public private(set) var packedDouble:Array<Double> = Array<Double>()
+    public fileprivate(set) var packedDouble:Array<Double> = Array<Double>()
     private var packedDoubleMemoizedSerializedSize:Int32 = -1
-    public private(set) var packedBool:Array<Bool> = Array<Bool>()
+    public fileprivate(set) var packedBool:Array<Bool> = Array<Bool>()
     private var packedBoolMemoizedSerializedSize:Int32 = -1
     private var packedEnumMemoizedSerializedSize:Int32 = 0
-    public private(set) var packedEnum:Array<ProtobufUnittest.ForeignEnumLite> = Array<ProtobufUnittest.ForeignEnumLite>()
+    public fileprivate(set) var packedEnum:Array<ProtobufUnittest.ForeignEnumLite> = Array<ProtobufUnittest.ForeignEnumLite>()
     required public init() {
          super.init()
     }
@@ -6852,9 +6852,9 @@ public extension ProtobufUnittest {
   }
 
   final public class OptionalGroupExtensionLite : GeneratedMessage {
-    public private(set) var a:Int32 = Int32(0)
+    public fileprivate(set) var a:Int32 = Int32(0)
 
-    public private(set) var hasA:Bool = false
+    public fileprivate(set) var hasA:Bool = false
     required public init() {
          super.init()
     }
@@ -7019,9 +7019,9 @@ public extension ProtobufUnittest {
   }
 
   final public class RepeatedGroupExtensionLite : GeneratedMessage {
-    public private(set) var a:Int32 = Int32(0)
+    public fileprivate(set) var a:Int32 = Int32(0)
 
-    public private(set) var hasA:Bool = false
+    public fileprivate(set) var hasA:Bool = false
     required public init() {
          super.init()
     }
@@ -7446,9 +7446,9 @@ public extension ProtobufUnittest {
   // point this failed).
   final public class TestDeprecatedLite : GeneratedMessage {
     @available(*, deprecated:0.1, message:"The field is marked as \"Deprecated\"")
-    public private(set) var deprecatedField:Int32 = Int32(0)
+    public fileprivate(set) var deprecatedField:Int32 = Int32(0)
 
-    public private(set) var hasDeprecatedField:Bool = false
+    public fileprivate(set) var hasDeprecatedField:Bool = false
     required public init() {
          super.init()
     }
@@ -7624,8 +7624,8 @@ public extension ProtobufUnittest {
         //Nested type declaration start
 
           final public class Group1 : GeneratedMessage {
-            public private(set) var field1:ProtobufUnittest.TestAllTypesLite!
-            public private(set) var hasField1:Bool = false
+            public fileprivate(set) var field1:ProtobufUnittest.TestAllTypesLite!
+            public fileprivate(set) var hasField1:Bool = false
             required public init() {
                  super.init()
             }
@@ -7837,8 +7837,8 @@ public extension ProtobufUnittest {
         //Nested type declaration start
 
           final public class Group2 : GeneratedMessage {
-            public private(set) var field1:ProtobufUnittest.TestAllTypesLite!
-            public private(set) var hasField1:Bool = false
+            public fileprivate(set) var field1:ProtobufUnittest.TestAllTypesLite!
+            public fileprivate(set) var hasField1:Bool = false
             required public init() {
                  super.init()
             }
@@ -8045,13 +8045,13 @@ public extension ProtobufUnittest {
 
         //Nested type declaration end
 
-        public private(set) var field1:Array<ProtobufUnittest.TestAllTypesLite> = Array<ProtobufUnittest.TestAllTypesLite>()
-        public private(set) var field2:Array<ProtobufUnittest.TestAllTypesLite> = Array<ProtobufUnittest.TestAllTypesLite>()
-        public private(set) var field3:Array<ProtobufUnittest.TestAllTypesLite> = Array<ProtobufUnittest.TestAllTypesLite>()
-        public private(set) var group1:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1> = Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1>()
-        public private(set) var group2:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2> = Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2>()
-        public private(set) var ext1:Array<ProtobufUnittest.TestAllTypesLite> = Array<ProtobufUnittest.TestAllTypesLite>()
-        public private(set) var ext2:Array<ProtobufUnittest.TestAllTypesLite> = Array<ProtobufUnittest.TestAllTypesLite>()
+        public fileprivate(set) var field1:Array<ProtobufUnittest.TestAllTypesLite> = Array<ProtobufUnittest.TestAllTypesLite>()
+        public fileprivate(set) var field2:Array<ProtobufUnittest.TestAllTypesLite> = Array<ProtobufUnittest.TestAllTypesLite>()
+        public fileprivate(set) var field3:Array<ProtobufUnittest.TestAllTypesLite> = Array<ProtobufUnittest.TestAllTypesLite>()
+        public fileprivate(set) var group1:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1> = Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1>()
+        public fileprivate(set) var group2:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2> = Array<ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2>()
+        public fileprivate(set) var ext1:Array<ProtobufUnittest.TestAllTypesLite> = Array<ProtobufUnittest.TestAllTypesLite>()
+        public fileprivate(set) var ext2:Array<ProtobufUnittest.TestAllTypesLite> = Array<ProtobufUnittest.TestAllTypesLite>()
         required public init() {
              super.init()
         }
@@ -8461,8 +8461,8 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class OptionalGroup : GeneratedMessage {
-        public private(set) var optionalGroupAllTypes:ProtobufUnittest.TestAllTypesLite!
-        public private(set) var hasOptionalGroupAllTypes:Bool = false
+        public fileprivate(set) var optionalGroupAllTypes:ProtobufUnittest.TestAllTypesLite!
+        public fileprivate(set) var hasOptionalGroupAllTypes:Bool = false
         required public init() {
              super.init()
         }
@@ -8674,8 +8674,8 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class RepeatedGroup : GeneratedMessage {
-        public private(set) var repeatedGroupAllTypes:ProtobufUnittest.TestAllTypesLite!
-        public private(set) var hasRepeatedGroupAllTypes:Bool = false
+        public fileprivate(set) var repeatedGroupAllTypes:ProtobufUnittest.TestAllTypesLite!
+        public fileprivate(set) var hasRepeatedGroupAllTypes:Bool = false
         required public init() {
              super.init()
         }
@@ -8882,14 +8882,14 @@ public extension ProtobufUnittest {
 
     //Nested type declaration end
 
-    public private(set) var requiredAllTypes:ProtobufUnittest.TestAllTypesLite!
-    public private(set) var hasRequiredAllTypes:Bool = false
-    public private(set) var optionalAllTypes:ProtobufUnittest.TestAllTypesLite!
-    public private(set) var hasOptionalAllTypes:Bool = false
-    public private(set) var repeatedAllTypes:Array<ProtobufUnittest.TestAllTypesLite> = Array<ProtobufUnittest.TestAllTypesLite>()
-    public private(set) var optionalGroup:ProtobufUnittest.TestParsingMergeLite.OptionalGroup!
-    public private(set) var hasOptionalGroup:Bool = false
-    public private(set) var repeatedGroup:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup> = Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup>()
+    public fileprivate(set) var requiredAllTypes:ProtobufUnittest.TestAllTypesLite!
+    public fileprivate(set) var hasRequiredAllTypes:Bool = false
+    public fileprivate(set) var optionalAllTypes:ProtobufUnittest.TestAllTypesLite!
+    public fileprivate(set) var hasOptionalAllTypes:Bool = false
+    public fileprivate(set) var repeatedAllTypes:Array<ProtobufUnittest.TestAllTypesLite> = Array<ProtobufUnittest.TestAllTypesLite>()
+    public fileprivate(set) var optionalGroup:ProtobufUnittest.TestParsingMergeLite.OptionalGroup!
+    public fileprivate(set) var hasOptionalGroup:Bool = false
+    public fileprivate(set) var repeatedGroup:Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup> = Array<ProtobufUnittest.TestParsingMergeLite.RepeatedGroup>()
     public class func optionalExt() -> ConcreateExtensionField {
          return TestParsingMergeLiteoptionalExt
     }

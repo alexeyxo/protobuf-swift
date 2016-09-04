@@ -811,9 +811,9 @@ public extension ProtobufUnittest {
 
       //Enum type declaration end 
 
-    public private(set) var field1:String = ""
+    public fileprivate(set) var field1:String = ""
 
-    public private(set) var hasField1:Bool = false
+    public fileprivate(set) var hasField1:Bool = false
     required public init() {
          super.init()
     }
@@ -2353,16 +2353,16 @@ public extension ProtobufUnittest {
   }
 
   final public class ComplexOptionType1 : ExtendableMessage {
-    public private(set) var foo:Int32 = Int32(0)
+    public fileprivate(set) var foo:Int32 = Int32(0)
 
-    public private(set) var hasFoo:Bool = false
-    public private(set) var foo2:Int32 = Int32(0)
+    public fileprivate(set) var hasFoo:Bool = false
+    public fileprivate(set) var foo2:Int32 = Int32(0)
 
-    public private(set) var hasFoo2:Bool = false
-    public private(set) var foo3:Int32 = Int32(0)
+    public fileprivate(set) var hasFoo2:Bool = false
+    public fileprivate(set) var foo3:Int32 = Int32(0)
 
-    public private(set) var hasFoo3:Bool = false
-    public private(set) var foo4:Array<Int32> = Array<Int32>()
+    public fileprivate(set) var hasFoo3:Bool = false
+    public fileprivate(set) var foo4:Array<Int32> = Array<Int32>()
     required public init() {
          super.init()
     }
@@ -2663,9 +2663,9 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class ComplexOptionType4 : GeneratedMessage {
-        public private(set) var waldo:Int32 = Int32(0)
+        public fileprivate(set) var waldo:Int32 = Int32(0)
 
-        public private(set) var hasWaldo:Bool = false
+        public fileprivate(set) var hasWaldo:Bool = false
         public class func complexOpt4() -> ConcreateExtensionField {
              return ComplexOptionType2ComplexOptionType4complexOpt4
         }
@@ -2834,14 +2834,14 @@ public extension ProtobufUnittest {
 
     //Nested type declaration end
 
-    public private(set) var bar:ProtobufUnittest.ComplexOptionType1!
-    public private(set) var hasBar:Bool = false
-    public private(set) var baz:Int32 = Int32(0)
+    public fileprivate(set) var bar:ProtobufUnittest.ComplexOptionType1!
+    public fileprivate(set) var hasBar:Bool = false
+    public fileprivate(set) var baz:Int32 = Int32(0)
 
-    public private(set) var hasBaz:Bool = false
-    public private(set) var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4!
-    public private(set) var hasFred:Bool = false
-    public private(set) var barney:Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4> = Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4>()
+    public fileprivate(set) var hasBaz:Bool = false
+    public fileprivate(set) var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4!
+    public fileprivate(set) var hasFred:Bool = false
+    public fileprivate(set) var barney:Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4> = Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4>()
     required public init() {
          super.init()
     }
@@ -3228,9 +3228,9 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class ComplexOptionType5 : GeneratedMessage {
-        public private(set) var plugh:Int32 = Int32(0)
+        public fileprivate(set) var plugh:Int32 = Int32(0)
 
-        public private(set) var hasPlugh:Bool = false
+        public fileprivate(set) var hasPlugh:Bool = false
         required public init() {
              super.init()
         }
@@ -3396,11 +3396,11 @@ public extension ProtobufUnittest {
 
     //Nested type declaration end
 
-    public private(set) var qux:Int32 = Int32(0)
+    public fileprivate(set) var qux:Int32 = Int32(0)
 
-    public private(set) var hasQux:Bool = false
-    public private(set) var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5!
-    public private(set) var hasComplexOptionType5:Bool = false
+    public fileprivate(set) var hasQux:Bool = false
+    public fileprivate(set) var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5!
+    public fileprivate(set) var hasComplexOptionType5:Bool = false
     required public init() {
          super.init()
     }
@@ -3647,9 +3647,9 @@ public extension ProtobufUnittest {
   }
 
   final public class ComplexOpt6 : GeneratedMessage {
-    public private(set) var xyzzy:Int32 = Int32(0)
+    public fileprivate(set) var xyzzy:Int32 = Int32(0)
 
-    public private(set) var hasXyzzy:Bool = false
+    public fileprivate(set) var hasXyzzy:Bool = false
     required public init() {
          super.init()
     }
@@ -4069,9 +4069,9 @@ public extension ProtobufUnittest {
   }
 
   final public class AggregateMessageSetElement : GeneratedMessage {
-    public private(set) var s:String = ""
+    public fileprivate(set) var s:String = ""
 
-    public private(set) var hasS:Bool = false
+    public fileprivate(set) var hasS:Bool = false
     public class func messageSetExtension() -> ConcreateExtensionField {
          return AggregateMessageSetElementmessageSetExtension
     }
@@ -4240,18 +4240,18 @@ public extension ProtobufUnittest {
 
   // A helper type used to test aggregate option parsing
   final public class Aggregate : GeneratedMessage {
-    public private(set) var i:Int32 = Int32(0)
+    public fileprivate(set) var i:Int32 = Int32(0)
 
-    public private(set) var hasI:Bool = false
-    public private(set) var s:String = ""
+    public fileprivate(set) var hasI:Bool = false
+    public fileprivate(set) var s:String = ""
 
-    public private(set) var hasS:Bool = false
-    public private(set) var sub:ProtobufUnittest.Aggregate!
-    public private(set) var hasSub:Bool = false
-    public private(set) var file:Google.Protobuf.FileOptions!
-    public private(set) var hasFile:Bool = false
-    public private(set) var mset:ProtobufUnittest.AggregateMessageSet!
-    public private(set) var hasMset:Bool = false
+    public fileprivate(set) var hasS:Bool = false
+    public fileprivate(set) var sub:ProtobufUnittest.Aggregate!
+    public fileprivate(set) var hasSub:Bool = false
+    public fileprivate(set) var file:Google.Protobuf.FileOptions!
+    public fileprivate(set) var hasFile:Bool = false
+    public fileprivate(set) var mset:ProtobufUnittest.AggregateMessageSet!
+    public fileprivate(set) var hasMset:Bool = false
     public class func nested() -> ConcreateExtensionField {
          return Aggregatenested
     }
@@ -4721,9 +4721,9 @@ public extension ProtobufUnittest {
   }
 
   final public class AggregateMessage : GeneratedMessage {
-    public private(set) var fieldname:Int32 = Int32(0)
+    public fileprivate(set) var fieldname:Int32 = Int32(0)
 
-    public private(set) var hasFieldname:Bool = false
+    public fileprivate(set) var hasFieldname:Bool = false
     required public init() {
          super.init()
     }
@@ -4894,9 +4894,9 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class NestedMessage : GeneratedMessage {
-        public private(set) var nestedField:Int32 = Int32(0)
+        public fileprivate(set) var nestedField:Int32 = Int32(0)
 
-        public private(set) var hasNestedField:Bool = false
+        public fileprivate(set) var hasNestedField:Bool = false
         required public init() {
              super.init()
         }

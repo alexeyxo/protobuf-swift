@@ -140,6 +140,13 @@ class SwiftFileOptions : public ::google::protobuf::Message {
   inline bool compile_for_framework() const;
   inline void set_compile_for_framework(bool value);
 
+  // optional bool generate_struct = 4 [default = false];
+  inline bool has_generate_struct() const;
+  inline void clear_generate_struct();
+  static const int kGenerateStructFieldNumber = 4;
+  inline bool generate_struct() const;
+  inline void set_generate_struct(bool value);
+
   // @@protoc_insertion_point(class_scope:google.protobuf.SwiftFileOptions)
  private:
   inline void set_has_class_prefix();
@@ -148,6 +155,8 @@ class SwiftFileOptions : public ::google::protobuf::Message {
   inline void clear_has_entities_access_control();
   inline void set_has_compile_for_framework();
   inline void clear_has_compile_for_framework();
+  inline void set_has_generate_struct();
+  inline void clear_has_generate_struct();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -156,6 +165,7 @@ class SwiftFileOptions : public ::google::protobuf::Message {
   ::std::string* class_prefix_;
   int entities_access_control_;
   bool compile_for_framework_;
+  bool generate_struct_;
   friend void  protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
   friend void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
   friend void protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
@@ -463,6 +473,30 @@ inline void SwiftFileOptions::set_compile_for_framework(bool value) {
   set_has_compile_for_framework();
   compile_for_framework_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftFileOptions.compile_for_framework)
+}
+
+// optional bool generate_struct = 4 [default = false];
+inline bool SwiftFileOptions::has_generate_struct() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SwiftFileOptions::set_has_generate_struct() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SwiftFileOptions::clear_has_generate_struct() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SwiftFileOptions::clear_generate_struct() {
+  generate_struct_ = false;
+  clear_has_generate_struct();
+}
+inline bool SwiftFileOptions::generate_struct() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftFileOptions.generate_struct)
+  return generate_struct_;
+}
+inline void SwiftFileOptions::set_generate_struct(bool value) {
+  set_has_generate_struct();
+  generate_struct_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftFileOptions.generate_struct)
 }
 
 // -------------------------------------------------------------------

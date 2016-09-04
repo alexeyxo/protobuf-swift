@@ -115,9 +115,9 @@ final public class UserProfile : GeneratedMessage {
   //Nested type declaration start
 
     final public class Request : GeneratedMessage {
-      public private(set) var userId:String = ""
+      public fileprivate(set) var userId:String = ""
 
-      public private(set) var hasUserId:Bool = false
+      public fileprivate(set) var hasUserId:Bool = false
       required public init() {
            super.init()
       }
@@ -291,12 +291,12 @@ final public class UserProfile : GeneratedMessage {
   //Nested type declaration start
 
     final public class Response : GeneratedMessage {
-      public private(set) var profile:UserProfile!
-      public private(set) var hasProfile:Bool = false
-      public private(set) var error:ServiceError = ServiceError.badRequest
-      public private(set) var hasError:Bool = false
-      public private(set) var exception:UserProfile.Exception!
-      public private(set) var hasException:Bool = false
+      public fileprivate(set) var profile:UserProfile!
+      public fileprivate(set) var hasProfile:Bool = false
+      public fileprivate(set) var error:ServiceError = ServiceError.badRequest
+      public fileprivate(set) var hasError:Bool = false
+      public fileprivate(set) var exception:UserProfile.Exception!
+      public fileprivate(set) var hasException:Bool = false
       required public init() {
            super.init()
       }
@@ -641,12 +641,12 @@ final public class UserProfile : GeneratedMessage {
   //Nested type declaration start
 
     final public class Exception : GeneratedMessage, Error {
-      public private(set) var errorCode:Int32 = Int32(0)
+      public fileprivate(set) var errorCode:Int32 = Int32(0)
 
-      public private(set) var hasErrorCode:Bool = false
-      public private(set) var errorDescription:String = ""
+      public fileprivate(set) var hasErrorCode:Bool = false
+      public fileprivate(set) var errorDescription:String = ""
 
-      public private(set) var hasErrorDescription:Bool = false
+      public fileprivate(set) var hasErrorDescription:Bool = false
       required public init() {
            super.init()
       }
@@ -859,15 +859,15 @@ final public class UserProfile : GeneratedMessage {
 
   //Nested type declaration end
 
-  public private(set) var firstName:String = ""
+  public fileprivate(set) var firstName:String = ""
 
-  public private(set) var hasFirstName:Bool = false
-  public private(set) var lastName:String = ""
+  public fileprivate(set) var hasFirstName:Bool = false
+  public fileprivate(set) var lastName:String = ""
 
-  public private(set) var hasLastName:Bool = false
-  public private(set) var avatarUrl:String = ""
+  public fileprivate(set) var hasLastName:Bool = false
+  public fileprivate(set) var avatarUrl:String = ""
 
-  public private(set) var hasAvatarUrl:Bool = false
+  public fileprivate(set) var hasAvatarUrl:Bool = false
   required public init() {
        super.init()
   }

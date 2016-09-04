@@ -36,9 +36,9 @@ public extension ProtobufUnittestImport {
   }
 
   final public class PublicImportMessageLite : GeneratedMessage {
-    public private(set) var e:Int32 = Int32(0)
+    public fileprivate(set) var e:Int32 = Int32(0)
 
-    public private(set) var hasE:Bool = false
+    public fileprivate(set) var hasE:Bool = false
     required public init() {
          super.init()
     }

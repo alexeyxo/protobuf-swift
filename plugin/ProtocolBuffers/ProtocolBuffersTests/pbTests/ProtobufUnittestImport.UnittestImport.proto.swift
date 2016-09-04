@@ -59,9 +59,9 @@ public extension ProtobufUnittestImport {
   //Enum type declaration end 
 
   final public class ImportMessage : GeneratedMessage {
-    public private(set) var d:Int32 = Int32(0)
+    public fileprivate(set) var d:Int32 = Int32(0)
 
-    public private(set) var hasD:Bool = false
+    public fileprivate(set) var hasD:Bool = false
     required public init() {
          super.init()
     }

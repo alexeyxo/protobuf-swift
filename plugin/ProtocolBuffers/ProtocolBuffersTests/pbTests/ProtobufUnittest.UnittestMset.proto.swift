@@ -235,8 +235,8 @@ public extension ProtobufUnittest {
   }
 
   final public class TestMessageSetContainer : GeneratedMessage {
-    public private(set) var messageSet:ProtobufUnittest.TestMessageSet!
-    public private(set) var hasMessageSet:Bool = false
+    public fileprivate(set) var messageSet:ProtobufUnittest.TestMessageSet!
+    public fileprivate(set) var hasMessageSet:Bool = false
     required public init() {
          super.init()
     }
@@ -447,9 +447,9 @@ public extension ProtobufUnittest {
   }
 
   final public class TestMessageSetExtension1 : GeneratedMessage {
-    public private(set) var i:Int32 = Int32(0)
+    public fileprivate(set) var i:Int32 = Int32(0)
 
-    public private(set) var hasI:Bool = false
+    public fileprivate(set) var hasI:Bool = false
     public class func messageSetExtension() -> ConcreateExtensionField {
          return TestMessageSetExtension1messageSetExtension
     }
@@ -617,9 +617,9 @@ public extension ProtobufUnittest {
   }
 
   final public class TestMessageSetExtension2 : GeneratedMessage {
-    public private(set) var str:String = ""
+    public fileprivate(set) var str:String = ""
 
-    public private(set) var hasStr:Bool = false
+    public fileprivate(set) var hasStr:Bool = false
     public class func messageSetExtension() -> ConcreateExtensionField {
          return TestMessageSetExtension2messageSetExtension
     }
@@ -793,12 +793,12 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class Item : GeneratedMessage {
-        public private(set) var typeId:Int32 = Int32(0)
+        public fileprivate(set) var typeId:Int32 = Int32(0)
 
-        public private(set) var hasTypeId:Bool = false
-        public private(set) var message:Data = Data()
+        public fileprivate(set) var hasTypeId:Bool = false
+        public fileprivate(set) var message:Data = Data()
 
-        public private(set) var hasMessage:Bool = false
+        public fileprivate(set) var hasMessage:Bool = false
         required public init() {
              super.init()
         }
@@ -1011,7 +1011,7 @@ public extension ProtobufUnittest {
 
     //Nested type declaration end
 
-    public private(set) var item:Array<ProtobufUnittest.RawMessageSet.Item> = Array<ProtobufUnittest.RawMessageSet.Item>()
+    public fileprivate(set) var item:Array<ProtobufUnittest.RawMessageSet.Item> = Array<ProtobufUnittest.RawMessageSet.Item>()
     required public init() {
          super.init()
     }

@@ -66,9 +66,9 @@ public extension Google.Protobuf.NoGenericServicesTest {
   //Enum type declaration end 
 
   final public class TestMessage : ExtendableMessage {
-    public private(set) var a:Int32 = Int32(0)
+    public fileprivate(set) var a:Int32 = Int32(0)
 
-    public private(set) var hasA:Bool = false
+    public fileprivate(set) var hasA:Bool = false
     required public init() {
          super.init()
     }

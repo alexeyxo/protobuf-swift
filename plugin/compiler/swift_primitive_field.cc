@@ -158,7 +158,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (isOneOfField(descriptor_)) {
             
             printer->Print(variables_,
-                           "$acontrol$private(set) var $name_reserved$:$storage_type$!{\n"
+                           "$acontrol$fileprivate(set) var $name_reserved$:$storage_type$!{\n"
                            "     get {\n"
                            "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "     }\n"
@@ -166,7 +166,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "          storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newValue)\n"
                            "     }\n"
                            "}\n");
-            printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool {\n"
+            printer->Print(variables_,"$acontrol$fileprivate(set) var has$capitalized_name$:Bool {\n"
                            "      get {\n"
                            "           if $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) == nil {\n"
                            "               return false\n"
@@ -179,8 +179,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         else
         {
-            printer->Print(variables_,"$acontrol$private(set) var $name_reserved$:$type$ = $default$\n\n");
-            printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
+            printer->Print(variables_,"$acontrol$fileprivate(set) var $name_reserved$:$type$ = $default$\n\n");
+            printer->Print(variables_,"$acontrol$fileprivate(set) var has$capitalized_name$:Bool = false\n");
         }
     }
     
@@ -296,7 +296,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print(comments.c_str());
         }
 
-        printer->Print(variables_, "$acontrol$private(set) var $name_reserved$:Array<$storage_type$> = Array<$storage_type$>()\n");
+        printer->Print(variables_, "$acontrol$fileprivate(set) var $name_reserved$:Array<$storage_type$> = Array<$storage_type$>()\n");
         if (descriptor_->options().packed()) {
             printer->Print(variables_,"private var $name$MemoizedSerializedSize:Int32 = -1\n");
         }

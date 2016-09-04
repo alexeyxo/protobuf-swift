@@ -116,12 +116,12 @@ public extension ProtobufUnittest {
     //OneOf declaration end
 
     private var storageFoo:TestOptimizedForSize.Foo =  TestOptimizedForSize.Foo.FooOneOfNotSet
-    public private(set) var i:Int32 = Int32(0)
+    public fileprivate(set) var i:Int32 = Int32(0)
 
-    public private(set) var hasI:Bool = false
-    public private(set) var msg:ProtobufUnittest.ForeignMessage!
-    public private(set) var hasMsg:Bool = false
-    public private(set) var integerField:Int32!{
+    public fileprivate(set) var hasI:Bool = false
+    public fileprivate(set) var msg:ProtobufUnittest.ForeignMessage!
+    public fileprivate(set) var hasMsg:Bool = false
+    public fileprivate(set) var integerField:Int32!{
          get {
               return TestOptimizedForSize.Foo.getIntegerField(storageFoo)
          }
@@ -129,7 +129,7 @@ public extension ProtobufUnittest {
               storageFoo = TestOptimizedForSize.Foo.IntegerField(newValue)
          }
     }
-    public private(set) var hasIntegerField:Bool {
+    public fileprivate(set) var hasIntegerField:Bool {
           get {
                if TestOptimizedForSize.Foo.getIntegerField(storageFoo) == nil {
                    return false
@@ -138,7 +138,7 @@ public extension ProtobufUnittest {
           }
           set(newValue) {}
     }
-    public private(set) var stringField:String!{
+    public fileprivate(set) var stringField:String!{
          get {
               return TestOptimizedForSize.Foo.getStringField(storageFoo)
          }
@@ -146,7 +146,7 @@ public extension ProtobufUnittest {
               storageFoo = TestOptimizedForSize.Foo.StringField(newValue)
          }
     }
-    public private(set) var hasStringField:Bool {
+    public fileprivate(set) var hasStringField:Bool {
           get {
                if TestOptimizedForSize.Foo.getStringField(storageFoo) == nil {
                    return false
@@ -497,9 +497,9 @@ public extension ProtobufUnittest {
   }
 
   final public class TestRequiredOptimizedForSize : GeneratedMessage {
-    public private(set) var x:Int32 = Int32(0)
+    public fileprivate(set) var x:Int32 = Int32(0)
 
-    public private(set) var hasX:Bool = false
+    public fileprivate(set) var hasX:Bool = false
     required public init() {
          super.init()
     }
@@ -667,8 +667,8 @@ public extension ProtobufUnittest {
   }
 
   final public class TestOptionalOptimizedForSize : GeneratedMessage {
-    public private(set) var o:ProtobufUnittest.TestRequiredOptimizedForSize!
-    public private(set) var hasO:Bool = false
+    public fileprivate(set) var o:ProtobufUnittest.TestRequiredOptimizedForSize!
+    public fileprivate(set) var hasO:Bool = false
     required public init() {
          super.init()
     }
