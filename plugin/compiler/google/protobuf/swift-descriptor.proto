@@ -24,10 +24,10 @@ enum AccessControl {
   PublicEntities = 1;
 }
 message SwiftFileOptions {
-
   optional string class_prefix = 1;
   optional AccessControl entities_access_control = 2 [default = PublicEntities];
   optional bool compile_for_framework = 3 [default = true];
+  optional bool generate_struct = 4 [default = false];
 }
 
 message SwiftMessageOptions {
