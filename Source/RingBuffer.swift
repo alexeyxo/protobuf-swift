@@ -16,130 +16,125 @@
 // limitations under the License.
 
 import Foundation
-internal class RingBuffer
-{
-    internal var buffer:NSMutableData
-    var position:Int32 = 0
-    var tail:Int32 = 0
+
+func UnsafeMutablePointerUInt8From(data: Data) -> UnsafeMutablePointer<UInt8> {
+    return UnsafeMutablePointer<UInt8>(mutating: (data as NSData).bytes.bindMemory(to: UInt8.self, capacity: data.count))
+}
+
+func UnsafeMutablePointerInt8From(data: Data) -> UnsafeMutablePointer<Int8> {
+    return UnsafeMutablePointer<Int8>(mutating: (data as NSData).bytes.bindMemory(to: Int8.self, capacity: data.count))
+}
+
+internal class RingBuffer {
+    internal var buffer:Data
+    var position:Int = 0
+    var tail:Int = 0
     
-    init(data:NSMutableData)
-    {
-        buffer = NSMutableData(data: data)
+    init(data:Data) {
+        buffer = data
     }
-    func freeSpace() ->UInt32
-    {
-        var res:UInt32 = 0
+    func freeSpace() -> Int {
+        var res:Int = 0
         
-        if position < tail
-        {
-            res = UInt32(tail - position)
+        if position < tail {
+            res = tail - position
         }
-        else
-        {
-            let dataLength = buffer.length
-            res = UInt32((Int32(dataLength) - position) + tail)
+        else {
+            let dataLength = buffer.count
+            res = (dataLength - position) + tail
         }
         
-        if tail != 0
-        {
+        if tail != 0 {
             res -=  1
         }
         return res
     }
     
-    func appendByte(byte aByte:UInt8) -> Bool
-    {
-        if freeSpace() < 1
-        {
+    func appendByte(byte:UInt8) -> Bool {
+        if freeSpace() < 1 {
             return false
         }
-        let pointer = UnsafeMutablePointer<UInt8>(buffer.mutableBytes)
-        let bpointer = UnsafeMutableBufferPointer(start: pointer, count: buffer.length)
-        bpointer[Int(position)] = aByte
+        buffer[position] = byte
         position+=1
         return true
     }
-    
-    func appendData(input:NSData, offset:Int32, length:Int32) -> Int32
-    {
-        var totalWritten:Int32 = 0
+
+    func appendData(input:Data, offset:Int, length:Int) -> Int {
+        var totalWritten:Int = 0
         var aLength = length
         var aOffset = offset
-        if (position >= tail)
-        {
-            totalWritten = min(Int32(buffer.length) - Int32(position), Int32(aLength))
-            memcpy(buffer.mutableBytes + Int(position), input.bytes + Int(aOffset), Int(totalWritten))
+        let pointer = UnsafeMutablePointerUInt8From(data: buffer)
+        if position >= tail {
+            totalWritten = min(buffer.count - position, aLength)
+            memcpy(pointer + Int(position), (input as NSData).bytes + Int(aOffset), Int(totalWritten))
+//            buffer[position..<(position+totalWritten)] = input[aOffset..<input.count]
+            
+//            input.copyBytes(to: pointer + position, from: aOffset..<aOffset + totalWritten)
             position += totalWritten
-            if totalWritten == aLength
-            {
+            
+            if totalWritten == aLength {
                 return aLength
             }
-            aLength -= Int32(totalWritten)
-            aOffset += Int32(totalWritten)
+            aLength -= totalWritten
+            aOffset += totalWritten
             
         }
         
-        let freeSpaces:UInt32 = freeSpace()
+        let freeSpaces = freeSpace()
         
-        if freeSpaces == 0
-        {
+        if freeSpaces == 0 {
             return totalWritten
         }
         
-        if (position == Int32(buffer.length)) {
+        if position == buffer.count {
             position = 0
         }
         
-        let written:Int32 = min(Int32(freeSpaces), aLength)
-        memcpy(buffer.mutableBytes + Int(position), input.bytes + Int(aOffset), Int(written))
+        let written = min(freeSpaces, aLength)
+        
+        memcpy(pointer + position, (input as NSData).bytes + Int(aOffset), Int(written))
+        
+//        input.copyBytes(to: pointer + position, from: aOffset..<aOffset + written)
         position += written
         totalWritten += written
         
         return totalWritten
     }
     
-    func flushToOutputStream(stream:NSOutputStream) ->Int32
-    {
-        var totalWritten:Int32 = 0
+    func flushToOutputStream(stream:OutputStream) -> Int {
+        var totalWritten:Int = 0
         
-        let data = buffer
-        let pointer = UnsafeMutablePointer<UInt8>(data.mutableBytes)
-        if tail > position
-        {
+//        let data = buffer
+        let pointer = UnsafeMutablePointerUInt8From(data: buffer)
+        if tail > position {
             
-            let written:Int = stream.write(pointer + Int(tail), maxLength:Int(buffer.length - Int(tail)))
-            if written <= 0
-            {
+            let written:Int = stream.write(pointer + tail, maxLength:buffer.count - tail)
+            if written <= 0 {
                 return totalWritten
             }
-            totalWritten+=Int32(written)
-            tail += Int32(written)
-            if (tail == Int32(buffer.length)) {
+            totalWritten += written
+            tail += written
+            if tail == buffer.count {
                 tail = 0
             }
         }
         
-        if (tail < position) {
-            
-            let written:Int = stream.write(pointer + Int(tail), maxLength:Int(position - tail))
-            if (written <= 0)
-            {
+        if tail < position {
+            let written = stream.write(pointer + tail, maxLength:position - tail)
+            if written <= 0 {
                 return totalWritten
             }
-            totalWritten += Int32(written)
-            tail += Int32(written)
+            totalWritten += written
+            tail += written
         }
-        
-        if (tail == position) {
+        if tail == position {
             tail = 0
             position = 0
         }
-        
-        if (position == Int32(buffer.length) && tail > 0) {
+        if position == buffer.count && tail > 0 {
             position = 0
         }
-        
-        if (tail == Int32(buffer.length)) {
+        if tail == buffer.count {
             tail = 0
         }
         

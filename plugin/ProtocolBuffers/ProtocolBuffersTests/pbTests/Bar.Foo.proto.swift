@@ -5,7 +5,7 @@ import Foundation
 import ProtocolBuffers
 
 
-public struct Bar { }
+public class Bar { }
 
 public func == (lhs: Bar.Foo, rhs: Bar.Foo) -> Bool {
   if (lhs === rhs) {
@@ -29,27 +29,27 @@ public extension Bar {
 
     init() {
       extensionRegistry = ExtensionRegistry()
-      registerAllExtensions(extensionRegistry)
+      registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry:ExtensionRegistry) {
     }
   }
 
-  final public class Foo : GeneratedMessage, GeneratedMessageProtocol {
-    public private(set) var hello:String = ""
+  final public class Foo : GeneratedMessage {
+    public fileprivate(set) var hello:String = ""
 
-    public private(set) var hasHello:Bool = false
+    public fileprivate(set) var hasHello:Bool = false
     required public init() {
          super.init()
     }
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeToCodedOutputStream(output:CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream:CodedOutputStream) throws {
       if hasHello {
-        try output.writeString(1, value:hello)
+        try codedOutputStream.writeString(fieldNumber:1, value:hello)
       }
-      try unknownFields.writeToCodedOutputStream(output)
+      try unknownFields.writeTo(codedOutputStream:codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -59,39 +59,11 @@ public extension Bar {
 
       serialize_size = 0
       if hasHello {
-        serialize_size += hello.computeStringSize(1)
+        serialize_size += hello.computeStringSize(fieldNumber: 1)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func parseArrayDelimitedFromInputStream(input:NSInputStream) throws -> Array<Bar.Foo> {
-      var mergedArray = Array<Bar.Foo>()
-      while let value = try parseFromDelimitedFromInputStream(input) {
-        mergedArray += [value]
-      }
-      return mergedArray
-    }
-    public class func parseFromDelimitedFromInputStream(input:NSInputStream) throws -> Bar.Foo? {
-      return try Bar.Foo.Builder().mergeDelimitedFromInputStream(input)?.build()
-    }
-    public class func parseFromData(data:NSData) throws -> Bar.Foo {
-      return try Bar.Foo.Builder().mergeFromData(data, extensionRegistry:Bar.FooRoot.sharedInstance.extensionRegistry).build()
-    }
-    public class func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
-      return try Bar.Foo.Builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFromInputStream(input:NSInputStream) throws -> Bar.Foo {
-      return try Bar.Foo.Builder().mergeFromInputStream(input).build()
-    }
-    public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
-      return try Bar.Foo.Builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
-    }
-    public class func parseFromCodedInputStream(input:CodedInputStream) throws -> Bar.Foo {
-      return try Bar.Foo.Builder().mergeFromCodedInputStream(input).build()
-    }
-    public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
-      return try Bar.Foo.Builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
     }
     public class func getBuilder() -> Bar.Foo.Builder {
       return Bar.Foo.classBuilder() as! Bar.Foo.Builder
@@ -99,24 +71,24 @@ public extension Bar {
     public func getBuilder() -> Bar.Foo.Builder {
       return classBuilder() as! Bar.Foo.Builder
     }
-    public override class func classBuilder() -> MessageBuilder {
+    public override class func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Bar.Foo.Builder()
     }
-    public override func classBuilder() -> MessageBuilder {
+    public override func classBuilder() -> ProtocolBuffersMessageBuilder {
       return Bar.Foo.Builder()
     }
     public func toBuilder() throws -> Bar.Foo.Builder {
-      return try Bar.Foo.builderWithPrototype(self)
+      return try Bar.Foo.builderWithPrototype(prototype: self)
     }
     public class func builderWithPrototype(prototype:Bar.Foo) throws -> Bar.Foo.Builder {
-      return try Bar.Foo.Builder().mergeFrom(prototype)
+      return try Bar.Foo.Builder().mergeFrom(other: prototype)
     }
     override public func getDescription(indent:String) throws -> String {
       var output:String = ""
       if hasHello {
         output += "\(indent) hello: \(hello) \n"
       }
-      output += unknownFields.getDescription(indent)
+      output += unknownFields.getDescription(indent: indent)
       return output
     }
     override public var hashValue:Int {
@@ -138,9 +110,6 @@ public extension Bar {
     }
     override public func className() -> String {
         return "Bar.Foo"
-    }
-    override public func classMetaType() -> GeneratedMessage.Type {
-        return Bar.Foo.self
     }
     //Meta information declaration end
 
@@ -167,7 +136,7 @@ public extension Bar {
                builderResult.hello = value
            }
       }
-      public func setHello(value:String) -> Bar.Foo.Builder {
+      public func setHello(_ value:String) -> Bar.Foo.Builder {
         self.hello = value
         return self
       }
@@ -186,7 +155,7 @@ public extension Bar {
         return self
       }
       public override func clone() throws -> Bar.Foo.Builder {
-        return try Bar.Foo.builderWithPrototype(builderResult)
+        return try Bar.Foo.builderWithPrototype(prototype: builderResult)
       }
       public override func build() throws -> Bar.Foo {
            try checkInitialized()
@@ -203,26 +172,26 @@ public extension Bar {
         if other.hasHello {
              hello = other.hello
         }
-        try mergeUnknownFields(other.unknownFields)
+        _ = try merge(unknownField: other.unknownFields)
         return self
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream) throws -> Bar.Foo.Builder {
-           return try mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+      public override func mergeFrom(codedInputStream:CodedInputStream) throws -> Bar.Foo.Builder {
+           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
-      public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo.Builder {
-        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+      public override func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo.Builder {
+        let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom: self.unknownFields)
         while (true) {
-          let protobufTag = try input.readTag()
+          let protobufTag = try codedInputStream.readTag()
           switch protobufTag {
           case 0: 
             self.unknownFields = try unknownFieldsBuilder.build()
             return self
 
-          case 10 :
-            hello = try input.readString()
+          case 10:
+            hello = try codedInputStream.readString()
 
           default:
-            if (!(try parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -233,6 +202,36 @@ public extension Bar {
 
   }
 
+}
+extension Bar.Foo: GeneratedMessageProtocol {
+  public class func parseArrayDelimitedFrom(inputStream:InputStream) throws -> Array<Bar.Foo> {
+    var mergedArray = Array<Bar.Foo>()
+    while let value = try parseDelimitedFrom(inputStream: inputStream) {
+      mergedArray += [value]
+    }
+    return mergedArray
+  }
+  public class func parseDelimitedFrom(inputStream:InputStream) throws -> Bar.Foo? {
+    return try Bar.Foo.Builder().mergeDelimitedFrom(inputStream:inputStream)?.build()
+  }
+  public class func parseFrom(data:Data) throws -> Bar.Foo {
+    return try Bar.Foo.Builder().mergeFrom(data: data, extensionRegistry:Bar.FooRoot.sharedInstance.extensionRegistry).build()
+  }
+  public class func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    return try Bar.Foo.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(inputStream:InputStream) throws -> Bar.Foo {
+    return try Bar.Foo.Builder().mergeFrom(inputStream: inputStream).build()
+  }
+  public class func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    return try Bar.Foo.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+  }
+  public class func parseFrom(codedInputStream:CodedInputStream) throws -> Bar.Foo {
+    return try Bar.Foo.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  }
+  public class func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
+    return try Bar.Foo.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  }
 }
 
 // @@protoc_insertion_point(global_scope)

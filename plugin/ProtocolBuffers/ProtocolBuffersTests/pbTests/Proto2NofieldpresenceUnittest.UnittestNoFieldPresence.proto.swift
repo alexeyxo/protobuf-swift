@@ -2054,7 +2054,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedInt32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedInt32.removeAll(keepCapacity: false)
+         builderResult.repeatedInt32.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedInt64:Array<Int64> {
@@ -2070,7 +2070,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedInt64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedInt64.removeAll(keepCapacity: false)
+         builderResult.repeatedInt64.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedUint32:Array<UInt32> {
@@ -2086,7 +2086,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedUint32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedUint32.removeAll(keepCapacity: false)
+         builderResult.repeatedUint32.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedUint64:Array<UInt64> {
@@ -2102,7 +2102,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedUint64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedUint64.removeAll(keepCapacity: false)
+         builderResult.repeatedUint64.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedSint32:Array<Int32> {
@@ -2118,7 +2118,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedSint32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedSint32.removeAll(keepCapacity: false)
+         builderResult.repeatedSint32.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedSint64:Array<Int64> {
@@ -2134,7 +2134,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedSint64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedSint64.removeAll(keepCapacity: false)
+         builderResult.repeatedSint64.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedFixed32:Array<UInt32> {
@@ -2150,7 +2150,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedFixed32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedFixed32.removeAll(keepCapacity: false)
+         builderResult.repeatedFixed32.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedFixed64:Array<UInt64> {
@@ -2166,7 +2166,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedFixed64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedFixed64.removeAll(keepCapacity: false)
+         builderResult.repeatedFixed64.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedSfixed32:Array<Int32> {
@@ -2182,7 +2182,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedSfixed32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedSfixed32.removeAll(keepCapacity: false)
+         builderResult.repeatedSfixed32.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedSfixed64:Array<Int64> {
@@ -2198,7 +2198,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedSfixed64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedSfixed64.removeAll(keepCapacity: false)
+         builderResult.repeatedSfixed64.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedFloat:Array<Float> {
@@ -2214,7 +2214,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedFloat() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedFloat.removeAll(keepCapacity: false)
+         builderResult.repeatedFloat.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedDouble:Array<Double> {
@@ -2230,7 +2230,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedDouble() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedDouble.removeAll(keepCapacity: false)
+         builderResult.repeatedDouble.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedBool:Array<Bool> {
@@ -2246,7 +2246,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedBool() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedBool.removeAll(keepCapacity: false)
+         builderResult.repeatedBool.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedString:Array<String> {
@@ -2262,7 +2262,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedString() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedString.removeAll(keepCapacity: false)
+         builderResult.repeatedString.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedBytes:Array<NSData> {
@@ -2278,7 +2278,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedBytes() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedBytes.removeAll(keepCapacity: false)
+         builderResult.repeatedBytes.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedNestedMessage:Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage> {
@@ -2294,7 +2294,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedNestedMessage() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-        builderResult.repeatedNestedMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedNestedMessage.removeAll(keepingCapacity: false)
         return self
       }
       var repeatedForeignMessage:Array<Proto2NofieldpresenceUnittest.ForeignMessage> {
@@ -2310,7 +2310,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedForeignMessage() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-        builderResult.repeatedForeignMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedForeignMessage.removeAll(keepingCapacity: false)
         return self
       }
       var repeatedProto2Message:Array<ProtobufUnittest.TestAllTypes> {
@@ -2326,7 +2326,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedProto2Message() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-        builderResult.repeatedProto2Message.removeAll(keepCapacity: false)
+        builderResult.repeatedProto2Message.removeAll(keepingCapacity: false)
         return self
       }
       var repeatedNestedEnum:Array<TestAllTypes.NestedEnum> {
@@ -2342,7 +2342,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedNestedEnum() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-        builderResult.repeatedNestedEnum.removeAll(keepCapacity: false)
+        builderResult.repeatedNestedEnum.removeAll(keepingCapacity: false)
         return self
       }
       var repeatedForeignEnum:Array<Proto2NofieldpresenceUnittest.ForeignEnum> {
@@ -2358,7 +2358,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedForeignEnum() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-        builderResult.repeatedForeignEnum.removeAll(keepCapacity: false)
+        builderResult.repeatedForeignEnum.removeAll(keepingCapacity: false)
         return self
       }
       var repeatedStringPiece:Array<String> {
@@ -2374,7 +2374,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedStringPiece() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedStringPiece.removeAll(keepCapacity: false)
+         builderResult.repeatedStringPiece.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedCord:Array<String> {
@@ -2390,7 +2390,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedCord() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-         builderResult.repeatedCord.removeAll(keepCapacity: false)
+         builderResult.repeatedCord.removeAll(keepingCapacity: false)
          return self
       }
       var repeatedLazyMessage:Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage> {
@@ -2406,7 +2406,7 @@ internal extension Proto2NofieldpresenceUnittest {
         return self
       }
       internal func clearRepeatedLazyMessage() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-        builderResult.repeatedLazyMessage.removeAll(keepCapacity: false)
+        builderResult.repeatedLazyMessage.removeAll(keepingCapacity: false)
         return self
       }
       var hasOneofUint32:Bool {

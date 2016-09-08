@@ -23,45 +23,45 @@ let LITTLE_ENDIAN_64_SIZE:Int32 = 8
 
 public enum WireFormatMessage:Int32
 {
-    case SetItem = 1
-    case SetTypeId = 2
-    case SetMessage = 3
+    case setItem = 1
+    case setTypeId = 2
+    case setMessage = 3
 }
 
 public enum WireFormat:Int32
 {
-    case Varint = 0
-    case Fixed64 = 1
-    case LengthDelimited = 2
-    case StartGroup = 3
-    case EndGroup = 4
-    case Fixed32 = 5
-    case TagTypeMask = 7
+    case varint = 0
+    case fixed64 = 1
+    case lengthDelimited = 2
+    case startGroup = 3
+    case endGroup = 4
+    case fixed32 = 5
+    case tagTypeMask = 7
     
     public func makeTag(fieldNumber:Int32) -> Int32
     {
-        let res:Int32 = fieldNumber << StartGroup.rawValue
+        let res:Int32 = fieldNumber << WireFormat.startGroup.rawValue
         return res | self.rawValue
     }
     
     public static func getTagWireType(tag:Int32) -> Int32
     {
-        return tag &  WireFormat.TagTypeMask.rawValue
+        return tag &  WireFormat.tagTypeMask.rawValue
     }
     
     public static func getTagFieldNumber(tag:Int32) -> Int32
     {
-        return WireFormat.logicalRightShift32(value: tag ,spaces: StartGroup.rawValue)
+        return WireFormat.logicalRightShift32(value: tag ,spaces: startGroup.rawValue)
     }
     
     
     ///Utilities
     
-    public static func convertTypes<Type, ReturnType>(convertValue value:Type, defaultValue:ReturnType) -> ReturnType
+    public static func convertTypes<T, ReturnType>(convertValue value:T, defaultValue:ReturnType) -> ReturnType
     {
         var retValue = defaultValue
         var curValue = value
-        memcpy(&retValue, &curValue, sizeof(Type))
+        memcpy(&retValue, &curValue, MemoryLayout<T>.size)
         return retValue
     }
     
@@ -144,7 +144,7 @@ public extension Int32
     
     func computeTagSize() ->Int32
     {
-        return WireFormat.Varint.makeTag(self).computeRawVarint32Size()
+        return WireFormat.varint.makeTag(fieldNumber: self).computeRawVarint32Size()
     }
     
     func computeEnumSizeNoTag() -> Int32
@@ -154,7 +154,7 @@ public extension Int32
     
     func computeSInt32SizeNoTag() -> Int32
     {
-        return  WireFormat.encodeZigZag32(self).computeRawVarint32Size()
+        return  WireFormat.encodeZigZag32(n: self).computeRawVarint32Size()
     }
     
     func computeInt32Size(fieldNumber:Int32) ->Int32
@@ -202,7 +202,7 @@ public extension Int64
     
     func computeSInt64SizeNoTag() -> Int32
     {
-        return WireFormat.encodeZigZag64(self).computeRawVarint64Size()
+        return WireFormat.encodeZigZag64(n: self).computeRawVarint64Size()
     }
     
     func computeInt64Size(fieldNumber:Int32) -> Int32
@@ -222,7 +222,7 @@ public extension Int64
     
     func computeSInt64Size(fieldNumber:Int32) ->Int32
     {
-        return fieldNumber.computeTagSize() + WireFormat.encodeZigZag64(self).computeRawVarint64Size()
+        return fieldNumber.computeTagSize() + WireFormat.encodeZigZag64(n: self).computeRawVarint64Size()
     }
 
 
@@ -316,7 +316,7 @@ public extension Bool
 public extension String
 {
     func computeStringSizeNoTag() -> Int32 {
-        let length:UInt32  = UInt32(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        let length:UInt32  = UInt32(self.lengthOfBytes(using: String.Encoding.utf8))
         return Int32(length).computeRawVarint32Size() + Int32(length)
     }
     
@@ -324,15 +324,15 @@ public extension String
     {
         return fieldNumber.computeTagSize() + computeStringSizeNoTag()
     }
-    func utf8ToNSData()-> NSData
+    func utf8ToNSData()-> Data
     {
         let bytes = [UInt8]() + self.utf8
-        let data = NSData(bytes: bytes, length:bytes.count)
+        let data = Data(bytes: UnsafePointer<UInt8>(bytes), count:bytes.count)
         return data
     }
 }
 
-public extension AbstractMessage
+public extension AbstractProtocolBuffersMessage
 {
     func computeGroupSizeNoTag() -> Int32
     {
@@ -357,15 +357,15 @@ public extension AbstractMessage
     
     func computeMessageSetExtensionSize(fieldNumber:Int32) -> Int32
     {
-        return WireFormatMessage.SetItem.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(WireFormatMessage.SetTypeId.rawValue) + computeMessageSize(WireFormatMessage.SetMessage.rawValue)
+        return WireFormatMessage.setItem.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(fieldNumber: WireFormatMessage.setTypeId.rawValue) + computeMessageSize(fieldNumber: WireFormatMessage.setMessage.rawValue)
     }
 }
 
-public extension NSData
+public extension Data
 {
     func computeDataSizeNoTag() -> Int32
     {
-        return Int32(self.length).computeRawVarint32Size() + Int32(self.length)
+        return Int32(self.count).computeRawVarint32Size() + Int32(self.count)
     }
     
     func computeDataSize(fieldNumber:Int32) -> Int32
@@ -375,7 +375,7 @@ public extension NSData
     
     func computeRawMessageSetExtensionSize(fieldNumber:Int32) -> Int32
     {
-        return WireFormatMessage.SetItem.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(WireFormatMessage.SetTypeId.rawValue) + computeDataSize(WireFormatMessage.SetMessage.rawValue)
+        return WireFormatMessage.setItem.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(fieldNumber: WireFormatMessage.setTypeId.rawValue) + computeDataSize(fieldNumber: WireFormatMessage.setMessage.rawValue)
     }
 
 }

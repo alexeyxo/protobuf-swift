@@ -17,17 +17,17 @@
 
 import Foundation
 
-public protocol GeneratedMessageProtocol: class, Message
+public protocol GeneratedMessageProtocol: ProtocolBuffersMessage
 {
-    static func parseFromData(data:NSData) throws -> Self
-    static func parseFromData(data:NSData, extensionRegistry:ExtensionRegistry) throws -> Self
-    static func parseFromInputStream(input:NSInputStream) throws -> Self
-    static func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
-    static func parseFromCodedInputStream(input:CodedInputStream) throws -> Self
-    static func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
+    static func parseFrom(data:Data) throws -> Self
+    static func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> Self
+    static func parseFrom(inputStream:InputStream) throws -> Self
+    static func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> Self
+    static func parseFrom(codedInputStream:CodedInputStream) throws -> Self
+    static func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
 }
 
-public class GeneratedMessage:AbstractMessage
+open class GeneratedMessage:AbstractProtocolBuffersMessage
 {
     public var memoizedSerializedSize:Int32 = -1
     required public init()
@@ -37,32 +37,28 @@ public class GeneratedMessage:AbstractMessage
     }
     
     //Override
-    public class func className() -> String
+    open class func className() -> String
     {
         return "GeneratedMessage"
     }
-    public func className() -> String
+    open func className() -> String
     {
         return "GeneratedMessage"
     }
-    public func classMetaType() -> GeneratedMessage.Type
-    {
-        return GeneratedMessage.self
-    }
-    public override class func classBuilder() -> MessageBuilder
+    open override class func classBuilder() -> ProtocolBuffersMessageBuilder
     {
         return GeneratedMessageBuilder()
     }
-    public override func classBuilder() -> MessageBuilder
+    open override func classBuilder() -> ProtocolBuffersMessageBuilder
     {
         return GeneratedMessageBuilder()
     }
     //
 }
 
-public class GeneratedMessageBuilder:AbstractMessageBuilder
+open class GeneratedMessageBuilder:AbstractProtocolBuffersMessageBuilder
 {
-    public var internalGetResult:GeneratedMessage
+    open var internalGetResult:GeneratedMessage
     {
         get
         {
@@ -71,7 +67,7 @@ public class GeneratedMessageBuilder:AbstractMessageBuilder
         
     }
     
-    override public var unknownFields:UnknownFieldSet
+    override open var unknownFields:UnknownFieldSet
     {
         get
         {
@@ -90,7 +86,7 @@ public class GeneratedMessageBuilder:AbstractMessageBuilder
         
         guard result.isInitialized() else
         {
-            throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+            throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
         }
     }
     
@@ -99,30 +95,29 @@ public class GeneratedMessageBuilder:AbstractMessageBuilder
         let result = internalGetResult
         guard result.isInitialized() else
         {
-            throw ProtocolBuffersError.InvalidProtocolBuffer("Uninitialized Message")
+            throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
         }
     }
     
-    override public func isInitialized() -> Bool
+    override open func isInitialized() -> Bool
     {
         return internalGetResult.isInitialized()
     }
     
-    override public func mergeUnknownFields(unknownFields: UnknownFieldSet) throws -> Self
+    override open func merge(unknownField: UnknownFieldSet) throws -> Self
     {
         let result:GeneratedMessage = internalGetResult
-        result.unknownFields = try UnknownFieldSet.builderWithUnknownFields(result.unknownFields).mergeUnknownFields(unknownFields).build()
+        result.unknownFields = try UnknownFieldSet.builderWithUnknownFields(copyFrom: result.unknownFields).merge(unknownFields: unknownField).build()
         return self
     }
-    public func parseUnknownField(input:CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) throws -> Bool {
-        return try unknownFields.mergeFieldFrom(tag, input:input)
+    public func parse(codedInputStream:CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) throws -> Bool {
+        return try unknownFields.mergeFieldFrom(tag: tag, input:codedInputStream)
     }
 }
 
 extension GeneratedMessage:CustomDebugStringConvertible
 {
-    public var debugDescription:String
-        {
+    public var debugDescription:String {
             return description
     }
 }
@@ -132,7 +127,7 @@ extension GeneratedMessage:CustomStringConvertible
     public var description:String {
         get {
             var output:String = ""
-            output += try! getDescription("")
+            output += try! getDescription(indent: "")
             return output
         }
     }
@@ -140,9 +135,15 @@ extension GeneratedMessage:CustomStringConvertible
 
 extension GeneratedMessageBuilder:CustomDebugStringConvertible
 {
-    public var debugDescription:String
-    {
+    public var debugDescription:String {
+        return internalGetResult.description
+    }
+}
+extension GeneratedMessageBuilder:CustomStringConvertible {
+    public var description:String {
+        get {
             return internalGetResult.description
+        }
     }
 }
 

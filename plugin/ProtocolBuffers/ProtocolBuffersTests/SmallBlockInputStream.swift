@@ -8,37 +8,30 @@
 
 import Foundation
 
-class SmallBlockInputStream:NSInputStream
-{
-    var underlyingStream:NSInputStream?
+class SmallBlockInputStream:InputStream {
+    var underlyingStream:InputStream?
     var blockSize:Int32 = 0
     
-    
-    func setup(data aData:NSData, blocksSize:Int32)
-    {
-        underlyingStream = NSInputStream(data: aData)
+    func setup(data aData:Data, blocksSize:Int32) {
+        underlyingStream = InputStream(data: aData)
         blockSize = blocksSize
     }
     
-    override func open()
-    {
+    override func open() {
         underlyingStream!.open()
     }
-    override func close()
-    {
+    override func close() {
         underlyingStream!.close()
     }
-    override func read(buffer: UnsafeMutablePointer<UInt8>, maxLength len: Int) -> Int
-    {
+    override func read(_ buffer: UnsafeMutablePointer<UInt8>, maxLength len: Int) -> Int {
         return underlyingStream!.read(buffer, maxLength:min(len, Int(blockSize)))
     }
     
-    override func getBuffer(buffer: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>, length len: UnsafeMutablePointer<Int>) -> Bool {
+    override internal func getBuffer(_ buffer: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>?>, length len: UnsafeMutablePointer<Int>) -> Bool {
         return underlyingStream!.getBuffer(buffer, length: len)
     }
     
-    override var hasBytesAvailable:Bool
-    {
+    override var hasBytesAvailable:Bool {
         get {
             return underlyingStream!.hasBytesAvailable
         }

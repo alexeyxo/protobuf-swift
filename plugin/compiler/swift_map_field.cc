@@ -92,8 +92,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MapFieldGenerator::GenerateVariablesSource(io::Printer* printer) const
     {
-        printer->Print(variables_,"$acontrol$private(set) var $name$:$type$ = $default$\n\n");
-        printer->Print(variables_,"$acontrol$private(set) var has$capitalized_name$:Bool = false\n");
+        printer->Print(variables_,"$acontrol$fileprivate(set) var $name$ = $default$\n\n");
+        printer->Print(variables_,"$acontrol$fileprivate(set) var has$capitalized_name$:Bool = false\n");
     }
     
     void MapFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {}
@@ -116,7 +116,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "         builderResult.$name$ = value\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$func set$capitalized_name$(value:$type$) -> $containing_class$.Builder {\n"
+                       "$acontrol$func set$capitalized_name$(_ value:$type$) -> $containing_class$.Builder {\n"
                        "  self.$name$ = value\n"
                        "  return self\n"
                        "}\n"
@@ -144,7 +144,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "let subBuilder = $backward_class$.Builder()\n");
         printer->Print(variables_,
-                       "try input.readMessage(subBuilder,extensionRegistry:extensionRegistry)\n");
+                       "try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)\n");
         printer->Print(variables_,
                        "let buildOf$capitalized_name$ = subBuilder.buildPartial()\n"
                        "$name$[buildOf$capitalized_name$.key] = buildOf$capitalized_name$.value\n");
@@ -155,7 +155,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "if has$capitalized_name$ {\n"
                        "    for (key$capitalized_name$, value$capitalized_name$) in $name$ {\n"
                        "        let valueOf$capitalized_name$ = $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
-                       "        try output.writeMessage($number$, value:valueOf$capitalized_name$)\n"
+                       "        try codedOutputStream.writeMessage(fieldNumber:$number$, value:valueOf$capitalized_name$)\n"
                        "    }\n"
                        "}\n");
     }
@@ -165,7 +165,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "if has$capitalized_name$ {\n"
                        "    for (key$capitalized_name$, value$capitalized_name$) in $name$ {\n"
                        "        var valueOf$capitalized_name$ = $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
-                       "        serialize_size += valueOf$capitalized_name$.computeMessageSize($number$)\n"
+                       "        serialize_size += valueOf$capitalized_name$.computeMessageSize(fieldNumber: $number$)\n"
                        "    }\n"
                        "}\n");
     }

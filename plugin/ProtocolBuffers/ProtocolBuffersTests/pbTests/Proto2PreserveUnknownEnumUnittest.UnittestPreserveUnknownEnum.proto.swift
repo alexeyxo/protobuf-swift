@@ -364,7 +364,7 @@ internal extension Proto2PreserveUnknownEnumUnittest {
         return self
       }
       internal func clearRepeatedE() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
-        builderResult.repeatedE.removeAll(keepCapacity: false)
+        builderResult.repeatedE.removeAll(keepingCapacity: false)
         return self
       }
       var repeatedPackedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnum> {
@@ -380,7 +380,7 @@ internal extension Proto2PreserveUnknownEnumUnittest {
         return self
       }
       internal func clearRepeatedPackedE() -> Proto2PreserveUnknownEnumUnittest.MyMessage.Builder {
-        builderResult.repeatedPackedE.removeAll(keepCapacity: false)
+        builderResult.repeatedPackedE.removeAll(keepingCapacity: false)
         return self
       }
         var hasOneofE1:Bool{
@@ -826,7 +826,7 @@ internal extension Proto2PreserveUnknownEnumUnittest {
         return self
       }
       internal func clearRepeatedE() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-        builderResult.repeatedE.removeAll(keepCapacity: false)
+        builderResult.repeatedE.removeAll(keepingCapacity: false)
         return self
       }
       var repeatedPackedE:Array<Proto2PreserveUnknownEnumUnittest.MyEnumPlusExtra> {
@@ -842,7 +842,7 @@ internal extension Proto2PreserveUnknownEnumUnittest {
         return self
       }
       internal func clearRepeatedPackedE() -> Proto2PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
-        builderResult.repeatedPackedE.removeAll(keepCapacity: false)
+        builderResult.repeatedPackedE.removeAll(keepingCapacity: false)
         return self
       }
         var hasOneofE1:Bool{

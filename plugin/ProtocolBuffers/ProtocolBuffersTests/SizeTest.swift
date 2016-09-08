@@ -20,13 +20,13 @@ class SizeTest: XCTestCase {
     }
     
     func testTypeSizes() {
-        XCTAssertTrue(4 == sizeof(Int32))
-        XCTAssertTrue(8 == sizeof(Int64))
-        XCTAssertTrue(8 == sizeof(UInt64))
-        XCTAssertTrue(4 == sizeof(UInt32))
-        XCTAssertTrue(4 == sizeof(Float))
-        XCTAssertTrue(8 == sizeof(Double))
-        XCTAssertTrue(1 == sizeof(Bool))
+        XCTAssertTrue(4 == MemoryLayout<Int32>.size)
+        XCTAssertTrue(8 == MemoryLayout<Int64>.size)
+        XCTAssertTrue(8 == MemoryLayout<UInt64>.size)
+        XCTAssertTrue(4 == MemoryLayout<UInt32>.size)
+        XCTAssertTrue(4 == MemoryLayout<Float>.size)
+        XCTAssertTrue(8 == MemoryLayout<Double>.size)
+        XCTAssertTrue(1 == MemoryLayout<Bool>.size)
     }
 
 }

@@ -91,7 +91,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                             printer.Print("{ ");
                             countBraces++;
                         }
-                        printer.Print("$acontrol$ struct $package$ { ",
+                        printer.Print("$acontrol$ class $package$ { ",
                                       "acontrol", GetAccessControlType(file),
                                       "package", tokens[i]);
                         lastPackage = lastPackage + "." + tokens[i];

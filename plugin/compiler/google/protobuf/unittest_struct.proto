@@ -1,0 +1,8 @@
+import 'google/protobuf/swift-descriptor.proto';
+
+option (.google.protobuf.swift_file_options).generate_struct = true;
+
+message UnitTestStruct {
+    optional string testStr = 1;
+    optional int32 testInt = 2;
+}
