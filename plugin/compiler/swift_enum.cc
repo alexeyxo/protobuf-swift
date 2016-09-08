@@ -62,11 +62,48 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print(comments.c_str());
         }
 
-        printer->Print("$acontrol$ enum $classname$:Int32, CustomDebugStringConvertible, CustomStringConvertible {\n",
-                       "classname",ClassName(descriptor_),
-                       "acontrol", GetAccessControlType(descriptor_->file()));
+        if (HasOptionForGenerateErrors(descriptor_)) {
+            printer->Print("$acontrol$ enum $classname$:Error, RawRepresentable, CustomDebugStringConvertible, CustomStringConvertible {\n",
+                           "classname",ClassName(descriptor_),
+                           "acontrol", GetAccessControlType(descriptor_->file()));
+            printer->Indent();
+            printer->Print("$acontrol$ typealias RawValue = Int32\n\n", "acontrol", GetAccessControlType(descriptor_->file()));
+            printer->Outdent();
+        
+        
+        } else {
+            printer->Print("$acontrol$ enum $classname$:Int32, CustomDebugStringConvertible, CustomStringConvertible {\n",
+                           "classname",ClassName(descriptor_),
+                           "acontrol", GetAccessControlType(descriptor_->file()));
+        
+        }
+        
         
         printer->Indent();
+        
+        GenerateCaseFields(printer);
+        
+        if (HasOptionForGenerateErrors(descriptor_)) {
+            printer->Print("\n");
+            GenerateInit(printer);
+            printer->Print("\n");
+            GenerateRawRepresentable(printer);
+            printer->Print("\n");
+            GenerateMethodThrow(printer);
+            
+        }
+        printer->Print("\n");
+        GenerateDescription(printer);
+        
+        printer->Outdent();
+        printer->Print(
+                       "}\n"
+                       "\n");
+        printer->Print("//Enum type declaration end \n\n");
+    }
+    
+    void EnumGenerator::GenerateCaseFields(io::Printer* printer) {
+        
         for (int i = 0; i < canonical_values_.size(); i++) {
             SourceLocation location;
             if (canonical_values_[i]->GetSourceLocation(&location)) {
@@ -77,20 +114,60 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                     printer->Print(comments.c_str());
                 }
             }
-
-            printer->Print("case $name$ = $value$\n",
+            if (HasOptionForGenerateErrors(descriptor_)) {
+                printer->Print("case $name$\n",
+                               "name", EnumValueName(canonical_values_[i]));
+            } else {
+                printer->Print("case $name$ = $value$\n",
+                               "name", EnumValueName(canonical_values_[i]),
+                               "value", SimpleItoa(canonical_values_[i]->number()));
+            }
+           
+        }
+    }
+    
+    void EnumGenerator::GenerateMethodThrow(io::Printer* printer) {
+        
+        printer->Print("$acontrol$ func throwException() throws {\n","acontrol", GetAccessControlType(descriptor_->file()));
+        printer->Indent();
+        printer->Print("throw self\n");
+        printer->Outdent();
+        printer->Print("}\n");
+    }
+    
+    void EnumGenerator::GenerateInit(io::Printer* printer) {
+        
+        printer->Print("$acontrol$ init?(rawValue: RawValue) {\n","acontrol", GetAccessControlType(descriptor_->file()));
+        printer->Indent();
+        printer->Print("switch rawValue {\n");
+        for (int i = 0; i < canonical_values_.size(); i++) {
+            printer->Print("case $value$: self = .$name$\n",
                            "name", EnumValueName(canonical_values_[i]),
                            "value", SimpleItoa(canonical_values_[i]->number()));
+            
         }
-        
-        printer->Print("\n");
-        GenerateDescription(printer);
+        printer->Print("default: return nil\n");
+        printer->Print("}\n");
         printer->Outdent();
-        printer->Print(
-                       "}\n"
-                       "\n");
-        printer->Print("//Enum type declaration end \n\n");
+        printer->Print("}\n");
     }
+    
+    void EnumGenerator::GenerateRawRepresentable(io::Printer* printer) {
+        
+        printer->Print("$acontrol$ var rawValue: RawValue {\n","acontrol", GetAccessControlType(descriptor_->file()));
+        printer->Indent();
+        printer->Print("switch self {\n");
+        for (int i = 0; i < canonical_values_.size(); i++) {
+            printer->Print("case .$name$: return $value$\n",
+                           "name", EnumValueName(canonical_values_[i]),
+                           "value", SimpleItoa(canonical_values_[i]->number()));
+            
+        }
+        printer->Print("}\n");
+        printer->Outdent();
+        printer->Print("}\n");
+    }
+    
     void EnumGenerator::GenerateDescription(io::Printer* printer) {
         
         printer->Print("$acontrol$ var debugDescription:String { return getDescription() }\n",
@@ -100,13 +177,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Print("private func getDescription() -> String { \n");
-        printer->Print("    switch self {\n");
+        printer->Indent();
+        printer->Print("switch self {\n");
         for (int i = 0; i < canonical_values_.size(); i++) {
-            printer->Print("        case .$name$: return \".$name$\"\n",
+            printer->Print("case .$name$: return \".$name$\"\n",
                            "name", EnumValueName(canonical_values_[i])
                            );
         }
-        printer->Print("    }\n");
+        printer->Print("}\n");
+        printer->Outdent();
         printer->Print("}\n");
         
     }

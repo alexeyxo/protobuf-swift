@@ -1,0 +1,28 @@
+import 'google/protobuf/swift-descriptor.proto';
+
+enum ServiceError {
+  option (.google.protobuf.swift_enum_options).generate_error_type = true;
+  BadRequest = 0;
+  InternalServerError = 1;
+}
+
+message UserProfile {
+    message Request {
+        required string userId = 1;
+    }
+    message Response {
+        optional UserProfile profile = 1;
+        optional ServiceError error = 2;
+        optional Exception exception = 3;
+    }
+
+     message Exception {
+        option (.google.protobuf.swift_message_options).generate_error_type = true;
+        required int32 errorCode = 1;
+        required string errorDescription = 2;
+    }
+    
+    optional string firstName = 1;
+    optional string lastName = 2;
+    optional string avatarUrl = 3;
+}

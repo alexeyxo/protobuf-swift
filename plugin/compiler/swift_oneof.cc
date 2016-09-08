@@ -50,7 +50,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_DOUBLE  : return "Double" ;
             case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
             case FieldDescriptor::TYPE_STRING  : return "String";
-            case FieldDescriptor::TYPE_BYTES   : return "NSData"  ;
+            case FieldDescriptor::TYPE_BYTES   : return "Data"  ;
             default                            : return NULL;
         }
         
@@ -77,7 +77,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string acControl = GetAccessControlType(descriptor_->containing_type()->file());
 
         printer->Print("$acontrol$ enum $classname$ {\n",
-                       "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
+                       "classname", SafeName(UnderscoresToCapitalizedCamelCase(descriptor_->name())),
                        "acontrol", acControl);
         
         
@@ -108,13 +108,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 
                 string classNames = ClassNameReturedType(fieldType->message_type());
                 printer->Print("case $name$($type$)\n\n",
-                               "name",UnderscoresToCapitalizedCamelCase(fieldType),
+                               "name",SafeName(UnderscoresToCapitalizedCamelCase(fieldType)),
                                "type",classNames);
                 
                 
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
-                printer->Print("static func get$name$(value:$type$) -> $fieldType$? {\n"
+                printer->Print("static func get$name$(_ value:$type$) -> $fieldType$? {\n"
                                "     switch value {\n"
                                "     case .$name$(let enumValue):\n"
                                "          return enumValue\n"
@@ -122,7 +122,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                "          return nil\n"
                                "     }\n"
                                "}\n",
-                               "name",UnderscoresToCapitalizedCamelCase(fieldType),
+                               "name",SafeName(UnderscoresToCapitalizedCamelCase(fieldType)),
                                "fieldType",classNames,
                                "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
             }
@@ -135,7 +135,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                "type",type);
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
-                printer->Print("static func get$name$(value:$type$) -> $fieldType$? {\n"
+                printer->Print("static func get$name$(_ value:$type$) -> $fieldType$? {\n"
                                "     switch value {\n"
                                "     case .$name$(let enumValue):\n"
                                "          return enumValue\n"
@@ -143,18 +143,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                "          return nil\n"
                                "     }\n"
                                "}\n",
-                               "name",UnderscoresToCapitalizedCamelCase(enumDesc->name()),
+                               "name",SafeName(UnderscoresToCapitalizedCamelCase(enumDesc->name())),
                                "fieldType",type,
                                "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
             }
             else
             {
                 printer->Print("case $name$($type$)\n\n",
-                               "name",UnderscoresToCapitalizedCamelCase(fieldType->name()),
+                               "name",SafeName(UnderscoresToCapitalizedCamelCase(fieldType->name())),
                                "type",PrimitiveTypeName(fieldType));
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
-                printer->Print("static func get$name$(value:$type$) -> $fieldType$? {\n"
+                printer->Print("static func get$name$(_ value:$type$) -> $fieldType$? {\n"
                                "     switch value {\n"
                                "     case .$name$(let enumValue):\n"
                                "          return enumValue\n"
@@ -162,7 +162,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                "          return nil\n"
                                "     }\n"
                                "}\n",
-                               "name",UnderscoresToCapitalizedCamelCase(fieldType->name()),
+                               "name",SafeName(UnderscoresToCapitalizedCamelCase(fieldType->name())),
                                "fieldType",PrimitiveTypeName(fieldType),
                                "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
             }

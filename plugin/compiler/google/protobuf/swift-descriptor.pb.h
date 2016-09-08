@@ -37,6 +37,8 @@ void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
 void protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
 
 class SwiftFileOptions;
+class SwiftMessageOptions;
+class SwiftEnumOptions;
 
 enum AccessControl {
   InternalEntities = 0,
@@ -124,7 +126,7 @@ class SwiftFileOptions : public ::google::protobuf::Message {
   inline ::std::string* release_class_prefix();
   inline void set_allocated_class_prefix(::std::string* class_prefix);
 
-  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+  // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
   inline bool has_entities_access_control() const;
   inline void clear_entities_access_control();
   static const int kEntitiesAccessControlFieldNumber = 2;
@@ -138,6 +140,13 @@ class SwiftFileOptions : public ::google::protobuf::Message {
   inline bool compile_for_framework() const;
   inline void set_compile_for_framework(bool value);
 
+  // optional bool generate_struct = 4 [default = false];
+  inline bool has_generate_struct() const;
+  inline void clear_generate_struct();
+  static const int kGenerateStructFieldNumber = 4;
+  inline bool generate_struct() const;
+  inline void set_generate_struct(bool value);
+
   // @@protoc_insertion_point(class_scope:google.protobuf.SwiftFileOptions)
  private:
   inline void set_has_class_prefix();
@@ -146,6 +155,8 @@ class SwiftFileOptions : public ::google::protobuf::Message {
   inline void clear_has_entities_access_control();
   inline void set_has_compile_for_framework();
   inline void clear_has_compile_for_framework();
+  inline void set_has_generate_struct();
+  inline void clear_has_generate_struct();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -154,6 +165,7 @@ class SwiftFileOptions : public ::google::protobuf::Message {
   ::std::string* class_prefix_;
   int entities_access_control_;
   bool compile_for_framework_;
+  bool generate_struct_;
   friend void  protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
   friend void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
   friend void protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
@@ -161,12 +173,178 @@ class SwiftFileOptions : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static SwiftFileOptions* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class SwiftMessageOptions : public ::google::protobuf::Message {
+ public:
+  SwiftMessageOptions();
+  virtual ~SwiftMessageOptions();
+
+  SwiftMessageOptions(const SwiftMessageOptions& from);
+
+  inline SwiftMessageOptions& operator=(const SwiftMessageOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SwiftMessageOptions& default_instance();
+
+  void Swap(SwiftMessageOptions* other);
+
+  // implements Message ----------------------------------------------
+
+  SwiftMessageOptions* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SwiftMessageOptions& from);
+  void MergeFrom(const SwiftMessageOptions& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool generate_error_type = 1 [default = false];
+  inline bool has_generate_error_type() const;
+  inline void clear_generate_error_type();
+  static const int kGenerateErrorTypeFieldNumber = 1;
+  inline bool generate_error_type() const;
+  inline void set_generate_error_type(bool value);
+
+  // @@protoc_insertion_point(class_scope:google.protobuf.SwiftMessageOptions)
+ private:
+  inline void set_has_generate_error_type();
+  inline void clear_has_generate_error_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  bool generate_error_type_;
+  friend void  protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  friend void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  friend void protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+
+  void InitAsDefaultInstance();
+  static SwiftMessageOptions* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SwiftEnumOptions : public ::google::protobuf::Message {
+ public:
+  SwiftEnumOptions();
+  virtual ~SwiftEnumOptions();
+
+  SwiftEnumOptions(const SwiftEnumOptions& from);
+
+  inline SwiftEnumOptions& operator=(const SwiftEnumOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SwiftEnumOptions& default_instance();
+
+  void Swap(SwiftEnumOptions* other);
+
+  // implements Message ----------------------------------------------
+
+  SwiftEnumOptions* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SwiftEnumOptions& from);
+  void MergeFrom(const SwiftEnumOptions& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool generate_error_type = 1 [default = false];
+  inline bool has_generate_error_type() const;
+  inline void clear_generate_error_type();
+  static const int kGenerateErrorTypeFieldNumber = 1;
+  inline bool generate_error_type() const;
+  inline void set_generate_error_type(bool value);
+
+  // @@protoc_insertion_point(class_scope:google.protobuf.SwiftEnumOptions)
+ private:
+  inline void set_has_generate_error_type();
+  inline void clear_has_generate_error_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  bool generate_error_type_;
+  friend void  protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  friend void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  friend void protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+
+  void InitAsDefaultInstance();
+  static SwiftEnumOptions* default_instance_;
+};
 // ===================================================================
 
 static const int kSwiftFileOptionsFieldNumber = 5092014;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FileOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftFileOptions >, 11, false >
   swift_file_options;
+static const int kSwiftMessageOptionsFieldNumber = 5092014;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
+    ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftMessageOptions >, 11, false >
+  swift_message_options;
+static const int kSwiftEnumOptionsFieldNumber = 5092015;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumOptions,
+    ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftEnumOptions >, 11, false >
+  swift_enum_options;
 
 // ===================================================================
 
@@ -248,7 +426,7 @@ inline void SwiftFileOptions::set_allocated_class_prefix(::std::string* class_pr
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.SwiftFileOptions.class_prefix)
 }
 
-// optional .google.protobuf.AccessControl entities_access_control = 2 [default = InternalEntities];
+// optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
 inline bool SwiftFileOptions::has_entities_access_control() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -259,7 +437,7 @@ inline void SwiftFileOptions::clear_has_entities_access_control() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void SwiftFileOptions::clear_entities_access_control() {
-  entities_access_control_ = 0;
+  entities_access_control_ = 1;
   clear_has_entities_access_control();
 }
 inline ::google::protobuf::AccessControl SwiftFileOptions::entities_access_control() const {
@@ -295,6 +473,86 @@ inline void SwiftFileOptions::set_compile_for_framework(bool value) {
   set_has_compile_for_framework();
   compile_for_framework_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftFileOptions.compile_for_framework)
+}
+
+// optional bool generate_struct = 4 [default = false];
+inline bool SwiftFileOptions::has_generate_struct() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SwiftFileOptions::set_has_generate_struct() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SwiftFileOptions::clear_has_generate_struct() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SwiftFileOptions::clear_generate_struct() {
+  generate_struct_ = false;
+  clear_has_generate_struct();
+}
+inline bool SwiftFileOptions::generate_struct() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftFileOptions.generate_struct)
+  return generate_struct_;
+}
+inline void SwiftFileOptions::set_generate_struct(bool value) {
+  set_has_generate_struct();
+  generate_struct_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftFileOptions.generate_struct)
+}
+
+// -------------------------------------------------------------------
+
+// SwiftMessageOptions
+
+// optional bool generate_error_type = 1 [default = false];
+inline bool SwiftMessageOptions::has_generate_error_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SwiftMessageOptions::set_has_generate_error_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SwiftMessageOptions::clear_has_generate_error_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SwiftMessageOptions::clear_generate_error_type() {
+  generate_error_type_ = false;
+  clear_has_generate_error_type();
+}
+inline bool SwiftMessageOptions::generate_error_type() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftMessageOptions.generate_error_type)
+  return generate_error_type_;
+}
+inline void SwiftMessageOptions::set_generate_error_type(bool value) {
+  set_has_generate_error_type();
+  generate_error_type_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftMessageOptions.generate_error_type)
+}
+
+// -------------------------------------------------------------------
+
+// SwiftEnumOptions
+
+// optional bool generate_error_type = 1 [default = false];
+inline bool SwiftEnumOptions::has_generate_error_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SwiftEnumOptions::set_has_generate_error_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SwiftEnumOptions::clear_has_generate_error_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SwiftEnumOptions::clear_generate_error_type() {
+  generate_error_type_ = false;
+  clear_has_generate_error_type();
+}
+inline bool SwiftEnumOptions::generate_error_type() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftEnumOptions.generate_error_type)
+  return generate_error_type_;
+}
+inline void SwiftEnumOptions::set_generate_error_type(bool value) {
+  set_has_generate_error_type();
+  generate_error_type_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftEnumOptions.generate_error_type)
 }
 
 

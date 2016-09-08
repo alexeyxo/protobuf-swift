@@ -41,9 +41,13 @@ namespace google {
                     
                     void GenerateSource(io::Printer* printer);
                     void GenerateDescription(io::Printer* printer);
+                    void GenerateCaseFields(io::Printer* printer);
                     
                 private:
                     const EnumDescriptor* descriptor_;
+                    void GenerateRawRepresentable(io::Printer* printer);
+                    void GenerateInit(io::Printer* printer);
+                    void GenerateMethodThrow(io::Printer* printer);
                     vector<const EnumValueDescriptor*> canonical_values_;
                     
                     struct Alias {

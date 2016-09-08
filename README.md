@@ -1,12 +1,12 @@
 #Protocol Buffers for Swift
 
-[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=master)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Platform](http://img.shields.io/cocoapods/p/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers)
+[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=ProtoBuf3.0-Swift3.0)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Platform](http://img.shields.io/cocoapods/p/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers)
 
 An implementation of Protocol Buffers in Swift.
 
 Protocol Buffers are a way of encoding structured data in an efficient yet extensible format. This project is based on an implementation of Protocol Buffers from Google. See the [Google protobuf project](https://developers.google.com/protocol-buffers/docs/overview) for more information.
 
-####Required Protocol Buffers 2.6
+####Required Protocol Buffers 3.0
 
 ##How To Install Protobuf Compiler from Homebrew
 
@@ -65,7 +65,7 @@ message Person {
 ```
 
 ```swift
-let personBuilder = Person.Builder()
+let personBuilder = Person.builder()
 personBuilder.id = 123
 personBuilder.name = "Bob"
 personBuilder.email = "bob@example.com"
@@ -167,6 +167,18 @@ final internal class MessageContainsMap : GeneratedMessage, GeneratedMessageProt
 }
 ```
 
+##JSON(proto3)
+```swift
+let personBuilder = Person.builder()
+personBuilder.id = 123
+personBuilder.name = "Bob"
+personBuilder.email = "bob@example.com"
+let person = personBuilder.build()
+let jsonData = person.toJSON() //return NSData
+let jsonDictionaryObject:Dictionary<String,AnyObject> = person.encode()
+let personFromJson = Person.fromJSON(jsonData) //Person
+```
+
 ##Deserializing
 
 ```swift
@@ -250,6 +262,10 @@ public extension FooBar {
 ##Custom Options
 
 ```protobuf
+import "google/protobuf/descriptor.proto";
+
+package google.protobuf;
+
 enum AccessControl {
   InternalEntities = 0;
   PublicEntities = 1;
@@ -257,16 +273,40 @@ enum AccessControl {
 message SwiftFileOptions {
 
   optional string class_prefix = 1;
-  optional AccessControl entities_access_control = 2 [default = InternalEntities];
+  optional AccessControl entities_access_control = 2 [default = PublicEntities];
   optional bool compile_for_framework = 3 [default = true];
 }
+
+message SwiftMessageOptions {
+  optional bool generate_error_type = 1 [default = false];
+}
+
+message SwiftEnumOptions {
+  optional bool generate_error_type = 1 [default = false];
+}
+
+extend google.protobuf.FileOptions {
+  optional SwiftFileOptions swift_file_options = 5092014;
+}
+
+extend google.protobuf.MessageOptions {
+  optional SwiftMessageOptions swift_message_options = 5092014;
+}
+
+extend google.protobuf.EnumOptions {
+  optional SwiftEnumOptions swift_enum_options = 5092015;
+}
+
+option (.google.protobuf.swift_file_options).compile_for_framework = false;
+option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
 ```
 
-At now protobuf-swift's compiler is supporting three custom options(file options).
+At now protobuf-swift's compiler is supporting custom options.
 
 1.	Class Prefix
 2.	Access Control
-3.	Compile for framework
+3.  Error Types 
+4.	Compile for framework
 
 If you have use custom options, you need to add:
 
@@ -320,6 +360,124 @@ Generated class and all fields are marked a `public`:
 
 ```swift
 final public class MessageWithCustomOption : GeneratedMessage
+```
+
+###Generate enum/message conforming to "Error" protocol
+
+```protobuf
+option (.google.protobuf.swift_enum_options).generate_error_type = true;
+```
+
+####Example
+
+```protobuf
+
+import 'google/protobuf/swift-descriptor.proto';
+
+enum ServiceError {
+  option (.google.protobuf.swift_enum_options).generate_error_type = true;
+  BadRequest = 0;
+  InternalServerError = 1;
+}
+
+message UserProfile {
+    message Request {
+        required string userId = 1;
+    }
+    message Response {
+        optional UserProfile profile = 1;
+        optional ServiceError error = 2;
+        optional Exception exception = 3;
+    }
+
+     message Exception {
+        option (.google.protobuf.swift_message_options).generate_error_type = true;
+        required int32 errorCode = 1;
+        required string errorDescription = 2;
+    }
+    
+    optional string firstName = 1;
+    optional string lastName = 2;
+    optional string avatarUrl = 3;
+}
+```
+
+```swift
+public enum ServiceError:Error, RawRepresentable, CustomDebugStringConvertible, CustomStringConvertible {
+  public typealias RawValue = Int32
+
+  case badRequest
+  case internalServerError
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+    case 0: self = .badRequest
+    case 1: self = .internalServerError
+    default: return nil
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+    case .badRequest: return 0
+    case .internalServerError: return 1
+    }
+  }
+
+  public func throwException() throws {
+    throw self
+  }
+
+  public var debugDescription:String { return getDescription() }
+  public var description:String { return getDescription() }
+  private func getDescription() -> String { 
+    switch self {
+    case .badRequest: return ".badRequest"
+    case .internalServerError: return ".internalServerError"
+    }
+  }
+}
+```
+```swift
+func generateException()throws {
+    let user = UserProfile.Response.Builder()
+    user.error = .internalServerError
+    let data = try user.build().data()
+    let userError = try UserProfile.Response.parseFrom(data:data)
+    if userError.hasError {
+        throw userError.error //userError.error.throwException()
+    }
+}
+
+do {
+    try generateException()
+} catch let err as ServiceError where err == .internalServerError {
+    XCTAssertTrue(true)
+} catch {
+    XCTAssertTrue(false)
+}
+
+func throwExceptionMessage() throws {
+  let exception = UserProfile.Exception.Builder()
+  exception.errorCode = 403
+  exception.errorDescription = "Bad Request"
+  let exc = try exception.build()
+  let data = try UserProfile.Response.Builder().setException(exc).build().data()
+  let userError = try UserProfile.Response.parseFrom(data:data)
+  if userError.hasException {
+      throw userError.exception
+  }
+}
+
+do {
+    try throwExceptionMessage()
+} catch let err as UserProfile.Exception {
+    print(err)
+    XCTAssertTrue(true)
+} catch {
+    XCTAssertTrue(false)
+}
+  
 ```
 
 ###Compile for framework

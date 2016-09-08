@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -28,8 +28,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3F8556A319C71BCF003802F2"
-               BuildableName = "ProtocolBuffersTests.xctest"
+               BlueprintIdentifier = "3FAEDBA11D71A3BF0007DF99"
+               BuildableName = "UnitTesting.xctest"
                BlueprintName = "UnitTesting"
                ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
             </BuildableReference>
@@ -46,8 +46,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3F8556A319C71BCF003802F2"
-               BuildableName = "ProtocolBuffersTests.xctest"
+               BlueprintIdentifier = "3FAEDBA11D71A3BF0007DF99"
+               BuildableName = "UnitTesting.xctest"
                BlueprintName = "UnitTesting"
                ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
             </BuildableReference>
