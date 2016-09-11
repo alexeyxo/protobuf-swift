@@ -249,12 +249,12 @@ public class UnknownFieldSet:Hashable,Equatable {
             throw ProtocolBuffersError.obvious("UnsupportedMethod")
         }
         
-        public func mergeVarintField(number:Int32, value:Int64) throws -> UnknownFieldSet.Builder {
-            guard number != 0 else
+        public func mergeVarintField(fieldNumber:Int32, value:Int64) throws -> UnknownFieldSet.Builder {
+            guard fieldNumber != 0 else
             {
                 throw ProtocolBuffersError.illegalArgument("Illegal Field Number: Zero is not a valid field number.")
             }
-            try getFieldBuilder(number: number)?.variantArray.append(value)
+            try getFieldBuilder(number: fieldNumber)?.variantArray.append(value)
             return self
         }
         

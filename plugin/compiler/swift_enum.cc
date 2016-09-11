@@ -69,18 +69,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Indent();
             printer->Print("$acontrol$ typealias RawValue = Int32\n\n", "acontrol", GetAccessControlType(descriptor_->file()));
             printer->Outdent();
-        
-        
+            
+            
         } else {
             printer->Print("$acontrol$ enum $classname$:Int32, CustomDebugStringConvertible, CustomStringConvertible {\n",
                            "classname",ClassName(descriptor_),
                            "acontrol", GetAccessControlType(descriptor_->file()));
-        
+            
         }
-        
+
         
         printer->Indent();
-        
         GenerateCaseFields(printer);
         
         if (HasOptionForGenerateErrors(descriptor_)) {
@@ -92,9 +91,39 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             GenerateMethodThrow(printer);
             
         }
-        printer->Print("\n");
-        GenerateDescription(printer);
+       
         
+        //JSON
+        printer->Print("$acontrol$ func toString() -> String {\n"
+                       "  switch self {\n",
+                       "acontrol", GetAccessControlType(descriptor_->file()));
+        for (int i = 0; i < canonical_values_.size(); i++) {
+            printer->Print("  case .$canonical$: ","canonical",EnumValueName(canonical_values_[i]));
+            printer->Print("return \"$name$\"\n", "name", canonical_values_[i]->name());
+            
+        }
+
+        printer->Print("  }\n");
+        printer->Print("}\n");
+        
+        
+        printer->Print("$acontrol$ static func fromString(str:String) throws -> $className$ {\n"
+                       "  switch str {\n",
+                       "acontrol", GetAccessControlType(descriptor_->file()),
+                       "className", ClassNameReturedType(descriptor_));
+        for (int i = 0; i < canonical_values_.size(); i++) {
+            printer->Print("  case \"$name$\":", "name", canonical_values_[i]->name());
+            printer->Print("  return .$canonical$\n","canonical",EnumValueName(canonical_values_[i]));
+        }
+        printer->Print("  default: throw ProtocolBuffersError.invalidProtocolBuffer(\"Conversion String to Enum has failed.\")\n");
+        printer->Print("  }\n");
+        printer->Print("}\n");
+        
+        //
+        
+        
+        
+        GenerateDescription(printer);
         printer->Outdent();
         printer->Print(
                        "}\n"
@@ -122,7 +151,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                "name", EnumValueName(canonical_values_[i]),
                                "value", SimpleItoa(canonical_values_[i]->number()));
             }
-           
+            
         }
     }
     

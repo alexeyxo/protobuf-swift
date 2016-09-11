@@ -40,44 +40,35 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             
             
             std::string name = UnderscoresToCamelCase(descriptor);
-            
-          
-//
-
-//
-//            (*variables)["storage_type"] = MapKeyName(descriptor);
-//            (*variables)["storage_attribute"] = "";
-//            if (isOneOfField(descriptor)) {
-//                const OneofDescriptor* oneof = descriptor->containing_oneof();
-//                (*variables)["oneof_name"] = UnderscoresToCapitalizedCamelCase(oneof->name());
-//                (*variables)["oneof_class_name"] = ClassNameOneof(oneof);
-//            }
-//            
-            
-
-//
-      
+            std::string capname = UnderscoresToCapitalizedCamelCase(descriptor);
             
             const FieldDescriptor* key_descriptor = descriptor->message_type()->FindFieldByName("key");
             const FieldDescriptor* value_descriptor = descriptor->message_type()->FindFieldByName("value");
             
-            (*variables)["capitalized_name"] = UnderscoresToCapitalizedCamelCase(descriptor);
+            (*variables)["capitalized_name"] = capname;
             (*variables)["keyType"] = MapKeyName(key_descriptor);
             (*variables)["valueType"] = MapValueName(value_descriptor);
             (*variables)["containing_class"] = ClassNameReturedType(descriptor->containing_type());
             (*variables)["capitalized_type_key"] = GetCapitalizedType(key_descriptor);
             (*variables)["capitalized_type_value"] = GetCapitalizedType(value_descriptor);
             (*variables)["name"] = name;
+            (*variables)["name_reserved"] = SafeName(name);
             (*variables)["default"] = DefaultValue(descriptor);
             (*variables)["number"] = SimpleItoa(descriptor->number());
             (*variables)["backward_class"] = ClassNameReturedType(descriptor->message_type());
             (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->containing_type()->file());
             (* variables)["acontrolFunc"] = GetAccessControlType(descriptor->containing_type()->file());
             (* variables)["type"] =  "Dictionary<" + MapKeyName(key_descriptor) + "," + MapValueName(value_descriptor) + ">";
+            
+            //JSON
+            (*variables)["json_name"] = descriptor->json_name();
+//            (*variables)["to_json_value_key"] = ToJSONValue(key_descriptor, name);
+            (*variables)["to_json_value_value"] = ToJSONValue(value_descriptor, "value" + capname);
+            (*variables)["from_json_value"] = FromJSONValue(value_descriptor, "value" + capname);
+            (*variables)["from_json_key_value"] = FromJSONMapKeyValue(key_descriptor, "key" + capname);
+            (*variables)["json_casting_type_value"] = JSONCastingValue(value_descriptor);
+            ///
            
-//            (*variables)["tag"] = SimpleItoa(WireFormat::MakeTag(descriptor));
-//            (*variables)["tag_size"] = SimpleItoa(WireFormat::TagSize(descriptor->number(), descriptor->type()));
-
         }
     }  // namespace
     
@@ -92,8 +83,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MapFieldGenerator::GenerateVariablesSource(io::Printer* printer) const
     {
-        printer->Print(variables_,"$acontrol$fileprivate(set) var $name$ = $default$\n\n");
         printer->Print(variables_,"$acontrol$fileprivate(set) var has$capitalized_name$:Bool = false\n");
+        printer->Print(variables_,"$acontrol$fileprivate(set) var $name_reserved$:$type$ = $default$\n\n");
     }
     
     void MapFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {}
@@ -107,22 +98,22 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "          return builderResult.has$capitalized_name$\n"
                        "     }\n"
                        "}\n"
-                       "$acontrol$var $name$:$type$ {\n"
+                       "$acontrol$var $name_reserved$:$type$ {\n"
                        "     get {\n"
-                       "          return builderResult.$name$\n"
+                       "          return builderResult.$name_reserved$\n"
                        "     }\n"
                        "     set (value) {\n"
                        "         builderResult.has$capitalized_name$ = true\n"
-                       "         builderResult.$name$ = value\n"
+                       "         builderResult.$name_reserved$ = value\n"
                        "     }\n"
                        "}\n"
                        "$acontrol$func set$capitalized_name$(_ value:$type$) -> $containing_class$.Builder {\n"
-                       "  self.$name$ = value\n"
+                       "  self.$name_reserved$ = value\n"
                        "  return self\n"
                        "}\n"
                        "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder{\n"
                        "     builderResult.has$capitalized_name$ = false\n"
-                       "     builderResult.$name$ = $default$\n"
+                       "     builderResult.$name_reserved$ = $default$\n"
                        "     return self\n"
                        "}\n");
         
@@ -132,7 +123,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MapFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if other.has$capitalized_name$ {\n"
-                       "     $name$ = other.$name$\n"
+                       "     $name_reserved$ = other.$name_reserved$\n"
                        "}\n");
     }
     
@@ -144,18 +135,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "let subBuilder = $backward_class$.Builder()\n");
         printer->Print(variables_,
-                       "try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)\n");
+                       "try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)\n");
         printer->Print(variables_,
                        "let buildOf$capitalized_name$ = subBuilder.buildPartial()\n"
-                       "$name$[buildOf$capitalized_name$.key] = buildOf$capitalized_name$.value\n");
+                       "$name_reserved$[buildOf$capitalized_name$.key] = buildOf$capitalized_name$.value\n");
     }
     
     void MapFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "    for (key$capitalized_name$, value$capitalized_name$) in $name$ {\n"
-                       "        let valueOf$capitalized_name$ = $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
-                       "        try codedOutputStream.writeMessage(fieldNumber:$number$, value:valueOf$capitalized_name$)\n"
+                       "    for (key$capitalized_name$, value$capitalized_name$) in $name_reserved$ {\n"
+                       "        let valueOf$capitalized_name$ = try! $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
+                       "        try codedOutputStream.writeMessage(fieldNumber: $number$, value:valueOf$capitalized_name$)\n"
                        "    }\n"
                        "}\n");
     }
@@ -163,8 +154,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MapFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "    for (key$capitalized_name$, value$capitalized_name$) in $name$ {\n"
-                       "        var valueOf$capitalized_name$ = $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
+                       "    for (key$capitalized_name$, value$capitalized_name$) in $name_reserved$ {\n"
+                       "        let valueOf$capitalized_name$ = try! $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
                        "        serialize_size += valueOf$capitalized_name$.computeMessageSize(fieldNumber: $number$)\n"
                        "    }\n"
                        "}\n");
@@ -173,20 +164,44 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MapFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  output += \"\\(indent) $name$: \\($name$) \\n\"\n"
+                       "  output += \"\\(indent) $name$: \\($name_reserved$) \\n\"\n"
                        "}\n");
     }
     
+    void MapFieldGenerator::GenerateJSONEncodeCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if has$capitalized_name$ {\n"
+                       "    var map$capitalized_name$ = Dictionary<String, $json_casting_type_value$>()\n"
+                       "    for (key$capitalized_name$, value$capitalized_name$) in $name_reserved$ {\n"
+                       "        map$capitalized_name$[\"\\(key$capitalized_name$)\"] = $to_json_value_value$\n"
+                       "    }\n"
+                       "    jsonMap[\"$json_name$\"] = map$capitalized_name$\n"
+                       "}\n");
+    }
+    
+    void MapFieldGenerator::GenerateJSONDecodeCodeSource(io::Printer* printer) const {
+        printer->Print(variables_,
+                       "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? Dictionary<String, $json_casting_type_value$> {\n"
+                       "    var map$capitalized_name$ = Dictionary<$keyType$, $valueType$>()\n"
+                       "    for (key$capitalized_name$, value$capitalized_name$) in jsonValue$capitalized_name$ {\n"
+                       "        let keyFrom$capitalized_name$ = $from_json_key_value$\n"
+                       "        map$capitalized_name$[keyFrom$capitalized_name$] = $from_json_value$\n"
+                       "    }\n"
+                       "    resultDecodedBuilder.$name_reserved$ = map$capitalized_name$\n"
+                       "}\n");
+    }
+    
+    
     void MapFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "(lhs.has$capitalized_name$ == rhs.has$capitalized_name$) && (!lhs.has$capitalized_name$ || lhs.$name$ == rhs.$name$)");
+                       "(lhs.has$capitalized_name$ == rhs.has$capitalized_name$) && (!lhs.has$capitalized_name$ || lhs.$name_reserved$ == rhs.$name_reserved$)");
         
     }
     
     void MapFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
             printer->Print(variables_,
                            "if has$capitalized_name$ {\n"
-                           "    for (key$capitalized_name$, value$capitalized_name$) in $name$ {\n"
+                           "    for (key$capitalized_name$, value$capitalized_name$) in $name_reserved$ {\n"
                            "        hashCode = (hashCode &* 31) &+ key$capitalized_name$.hashValue\n"
                            "        hashCode = (hashCode &* 31) &+ value$capitalized_name$.hashValue\n"
                            "    }\n"

@@ -27,20 +27,44 @@
 // THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-syntax = "proto3";
 
-package google.protobuf;
-
-option java_multiple_files = true;
-option java_outer_classname = "SourceContextProto";
-option java_package = "com.google.protobuf";
-option objc_class_prefix = "GPB";
+syntax = "proto2";
 
 
-// `SourceContext` represents information about the source of a
-// protobuf element, like the file in which it is defined.
-message SourceContext {
-  // The path-qualified name of the .proto file that contained the associated
-  // protobuf element.  For example: `"google/protobuf/source.proto"`.
-  string file_name = 1;
+// We don't put this in a package within proto2 because we need to make sure
+// that the generated code doesn't depend on being in the proto2 namespace.
+// In map_test_util.h we do "using namespace unittest = protobuf_unittest".
+package protobuf_unittest;
+
+option csharp_namespace = "Google.ProtocolBuffers.TestProtos";
+
+enum Proto2MapEnum {
+  PROTO2_MAP_ENUM_FOO   = 0;
+  PROTO2_MAP_ENUM_BAR   = 1;
+  PROTO2_MAP_ENUM_BAZ   = 2;
+}
+
+enum Proto2MapEnumPlusExtra {
+  E_PROTO2_MAP_ENUM_FOO   = 0;
+  E_PROTO2_MAP_ENUM_BAR   = 1;
+  E_PROTO2_MAP_ENUM_BAZ   = 2;
+  E_PROTO2_MAP_ENUM_EXTRA = 3;
+}
+
+enum Proto2MapEnumStartWithNonZero {
+  PROTO2_NON_ZERO_MAP_ENUM_FOO = 1;
+}
+
+message TestEnumMap {
+  map<int32, Proto2MapEnum> known_map_field = 101;
+  map<int32, Proto2MapEnum> unknown_map_field = 102;
+}
+
+message TestEnumMapPlusExtra {
+  map<int32, Proto2MapEnumPlusExtra> known_map_field = 101;
+  map<int32, Proto2MapEnumPlusExtra> unknown_map_field = 102;
+}
+
+message TestEnumStartWithNonZeroMap {
+  map<int32, Proto2MapEnumStartWithNonZero> map_field = 101;
 }

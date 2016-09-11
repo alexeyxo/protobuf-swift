@@ -188,6 +188,102 @@ public class CodedInputStream {
     }
 
     
+//    public func readRawData(size:Int) throws -> Data {
+//        
+//        guard size >= 0 else {
+//            throw ProtocolBuffersError.invalidProtocolBuffer("Negative Size")
+//        }
+//        
+//        if totalBytesRetired + bufferPos + size > currentLimit {
+//            try skipRawData(size: currentLimit - totalBytesRetired - bufferPos)
+//            throw ProtocolBuffersError.invalidProtocolBuffer("Truncated Message")
+//        }
+//        
+//        if size <= bufferSize - bufferPos {
+//            let pointer = UnsafePointer<UInt8>((buffer as NSData).bytes)
+//            let data = Data(bytes: UnsafePointer<UInt8>(pointer + Int(bufferPos)), count: Int(size))
+//            bufferPos += size
+//            return data
+//        } else if (size < BUFFER_SIZE) {
+//            
+//            let bytes = Data(bytes: [0], count: size)
+//            var pos = bufferSize - bufferPos
+//            let pointer = UnsafeMutablePointer<UInt8>((bytes as NSData).bytes)
+//            let bpointer = UnsafeMutablePointer<UInt8>((buffer as NSData).bytes)
+//            memcpy(pointer, bpointer + bufferPos, pos)
+//  
+////            buffer.copyBytes(to: pointer, from: bufferPos..<bufferPos+pos)
+//            bufferPos = bufferSize
+//            
+//            _ = try refillBuffer(mustSucceed: true)
+//            
+//            while (size - pos > bufferSize) {
+//                
+////                let pointerBuffer = UnsafeMutablePointer<UInt8>((buffer as NSData).bytes)
+//                memcpy(pointer + pos, bpointer, bufferSize)
+//                
+////                bytes.copyBytes(to: pointerBuffer, from: pos..<pos + bufferSize)
+//                pos += bufferSize
+//                bufferPos = bufferSize
+//                _ = try refillBuffer(mustSucceed: true)
+//            }
+//            
+//            let pointerBuffer = UnsafeMutablePointer<UInt8>((buffer as NSData).bytes)
+////            bytes.copyBytes(to: pointerBuffer, from: pos..<(pos + bufferSize) - size - pos)
+//            memcpy(pointer + pos, bpointer, size - pos)
+//            bufferPos = size - pos
+//            return bytes
+//            
+//        } else {
+//            
+//            let originalBufferPos = bufferPos
+//            let originalBufferSize = bufferSize
+//            
+//            totalBytesRetired += bufferSize
+//            bufferPos = 0
+//            bufferSize = 0
+//            let bpointer = UnsafeMutablePointer<UInt8>((buffer as NSData).bytes)
+//            var sizeLeft = size - (originalBufferSize - originalBufferPos)
+//            var chunks:Array<Data> = Array<Data>()
+//            
+//            while (sizeLeft > 0) {
+//                var chunk = Data(bytes: [0], count: BUFFER_SIZE)
+//                var pos:Int = 0
+//                while (pos < chunk.count) {
+//                    
+//                    var n:Int = 0
+//                    if let input = self.input {
+//                        let pointer = UnsafeMutablePointer<UInt8>((chunk as NSData).bytes)
+//                        n = input.read(pointer + pos, maxLength:chunk.count - pos)
+//                    }
+//                    guard n > 0 else {
+//                        throw ProtocolBuffersError.invalidProtocolBuffer("Truncated Message")
+//                    }
+//                    totalBytesRetired += n
+//                    pos += n
+//                }
+//                sizeLeft -= chunk.count
+//                chunks.append(chunk)
+//            }
+//            
+//            
+//            var bytes = Data(bytes: [0], count: 0)
+//            var pos:Int = originalBufferSize - originalBufferPos
+//            let cpointer = UnsafeMutablePointer<UInt8>((bytes as NSData).bytes)
+//            memcpy(cpointer, bpointer + Int(originalBufferPos), pos)
+////            bytes[0..<pos] = buffer[originalBufferPos..<originalBufferPos+pos]
+//            
+//            for chunk in chunks {
+//                let chpointer = UnsafeMutablePointer<UInt8>((chunk as NSData).bytes)
+//                memcpy(pointer + pos, cpointer, chunk.count)
+////                bytes[pos..<pos+chunk.count] = chunk[0..<chunk.count]
+//                pos += chunk.count
+//            }
+//            
+//            return bytes
+//        }
+//    }
+    
     public func skipRawData(size:Int) throws{
         
         guard size >= 0 else {
@@ -467,9 +563,6 @@ public class CodedInputStream {
             let pointer = UnsafeMutablePointerInt8From(data: buffer)
             let result = String(bytesNoCopy: pointer + bufferPos, length: size, encoding: String.Encoding.utf8, freeWhenDone: false)
             bufferPos += size
-            guard result != nil else {
-                throw ProtocolBuffersError.invalidProtocolBuffer("InvalidUTF8StringData")
-            }
             return result!
         } else {
             let data = try readRawData(size: size)

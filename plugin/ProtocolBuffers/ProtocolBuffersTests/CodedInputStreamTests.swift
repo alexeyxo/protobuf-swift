@@ -330,8 +330,6 @@ class CodedInputStreamTests: XCTestCase
         catch {
             XCTFail("Fail testSkipWholeMessage")
         }
-        
-        
     }
     
     
@@ -369,20 +367,6 @@ class CodedInputStreamTests: XCTestCase
     }
     
     
-    func testReadStringWithInvalidDataThrows()
-    {
-        let invalidUTF8Bytes : [UInt8] = [0x02, 0xfe, 0xff]
-        let invalidUTF8Data = Data(bytes: invalidUTF8Bytes, count: invalidUTF8Bytes.count)
-        let input1 = CodedInputStream(data:invalidUTF8Data)
-        do {
-            try input1.readString()
-            XCTFail("Fail testReadStringWithInvalidData")
-        }
-        catch {
-            //success
-        }
-        
-    }
-    
+
     
 }

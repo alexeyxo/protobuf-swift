@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -34,12 +34,15 @@
 //
 // A proto file we will use for unit testing.
 
+syntax = "proto2";
 
 // Some generic_services option(s) added automatically.
 // See:  http://go/proto2-generic-services-default
 option cc_generic_services = true;     // auto-added
 option java_generic_services = true;   // auto-added
 option py_generic_services = true;     // auto-added
+option cc_enable_arenas = true;
+option csharp_namespace = "Google.ProtocolBuffers.TestProtos";
 
 import "google/protobuf/unittest_import.proto";
 
@@ -182,6 +185,7 @@ message TestAllTypes {
 message NestedTestAllTypes {
   optional NestedTestAllTypes child = 1;
   optional TestAllTypes payload = 2;
+  repeated NestedTestAllTypes repeated_child = 3;
 }
 
 message TestDeprecatedFields {
@@ -198,6 +202,11 @@ enum ForeignEnum {
   FOREIGN_FOO = 4;
   FOREIGN_BAR = 5;
   FOREIGN_BAZ = 6;
+}
+
+message TestReservedFields {
+  reserved 2, 15, 9 to 11;
+  reserved "bar", "baz";
 }
 
 message TestAllExtensions {
@@ -429,7 +438,7 @@ message TestMutualRecursionB {
 }
 
 // Test that groups have disjoint field numbers from their siblings and
-// parents.  This is NOT possible in proto1; only proto2.  When attempting
+// parents.  This is NOT possible in proto1; only google.protobuf.  When attempting
 // to compile with proto1, this will emit an error; so we only include it
 // in protobuf_unittest_proto.
 message TestDupFieldNumber {                        // NO_PROTO1
@@ -505,6 +514,15 @@ message TestFieldOrderings {
   optional int64 my_int = 1;
   extensions 12 to 100;
   optional float my_float = 101;
+  message NestedMessage {
+    optional int64 oo = 2;
+    // The field name "b" fails to compile in proto1 because it conflicts with
+    // a local variable named "b" in one of the generated methods.  Doh.
+    // This file needs to compile in proto1 to test backwards-compatibility.
+    optional int32 bb = 1;
+  }
+
+  optional NestedMessage optional_nested_message  = 200;
 }
 
 
@@ -515,17 +533,18 @@ extend TestFieldOrderings {
 
 
 message TestExtremeDefaultValues {
-  optional bytes escaped_bytes = 1 [default = "testsr"];
+  optional bytes escaped_bytes = 1 [default = "world"];
   optional uint32 large_uint32 = 2 [default = 0xFF];
-  optional uint64 large_uint64 = 3 [default = 0xFFF];
+  optional uint64 large_uint64 = 3 [default = 0xFF];
   optional  int32 small_int32  = 4 [default = -0x7F];
   optional  int64 small_int64  = 5 [default = -0x7F];
   optional  int32 really_small_int32 = 21 [default = -0x80];
-  optional  int64 really_small_int64 = 22 [default = -0x800];
-  // The default value here is UTF-8 for "\u1234".  (We could also
+  optional  int64 really_small_int64 = 22 [default = -0x80];
+
+  // The default value here is UTF-8 for "\u1234".  (We could also just type
   // the UTF-8 text directly into this text file rather than escape it, but
   // lots of people use editors that would be confused by this.)
-  optional string utf8_string = 6 [default = "tests"];
+  optional string utf8_string = 6 [default = "hello"];
 
   // Tests for single-precision floating-point values.
   optional float zero_float = 7 [default = 0];
@@ -550,7 +569,7 @@ message TestExtremeDefaultValues {
   // escaped for other languages.
   // Note that in .proto file, "\?" is a valid way to escape ? in string
   // literals.
-  optional string cpp_trigraph = 20 [default = "teststsrs"];
+  optional string cpp_trigraph = 20 [default = "asdfasdf"];
 
   // String defaults containing the character '\000'
   optional string string_with_zero       = 23 [default = "hel\000lo"];

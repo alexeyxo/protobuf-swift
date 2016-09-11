@@ -15,7 +15,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 #include "swift_helpers.h"
-
 #include <limits>
 #include <vector>
 
@@ -24,6 +23,8 @@
 #include <google/protobuf/stubs/strutil.h>
 
 #include "google/protobuf/swift-descriptor.pb.h"
+
+
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
     namespace {
@@ -35,6 +36,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             }
         }
     }
+   
+
+
 
 
     string UnderscoresToCapitalizedCamelCase(const string& input) {
@@ -199,6 +203,31 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
         return result;
     }
+    
+    bool isPackedTypeProto3(const FieldDescriptor* field) {
+        
+        if (field->file()->syntax() != FileDescriptor::SYNTAX_PROTO3) {
+            return  false;
+        }
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   :
+            case FieldDescriptor::TYPE_UINT32  :
+            case FieldDescriptor::TYPE_SINT32  :
+            case FieldDescriptor::TYPE_FIXED32 :
+            case FieldDescriptor::TYPE_SFIXED32:
+                
+            case FieldDescriptor::TYPE_INT64   :
+            case FieldDescriptor::TYPE_UINT64  :
+            case FieldDescriptor::TYPE_SINT64  :
+            case FieldDescriptor::TYPE_FIXED64 :
+            case FieldDescriptor::TYPE_SFIXED64:
+                
+            case FieldDescriptor::TYPE_FLOAT   :
+            case FieldDescriptor::TYPE_DOUBLE  :
+            case FieldDescriptor::TYPE_BOOL    : return true;
+            default                            : return false;
+        }
+    }
 
 
     string StripProto(const string& filename) {
@@ -299,7 +328,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             name += ".";
         }
         name += FileClassPrefix(descriptor->file());
-        return SafeName(name + UnderscoresToCapitalizedCamelCase(descriptor->name()));
+        name += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name);
     }
     ////
     
@@ -483,15 +513,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return SafeName(name);
     }
 
-    //Swift bug: when enumName == enaumFieldName
     string EnumValueName(const EnumValueDescriptor* descriptor) {
+
         string name = UnderscoresToCapitalizedCamelCase(descriptor->name());
-        name[0] = tolower(name[0]);
-        if (name == UnderscoresToCapitalizedCamelCase(descriptor->type()->name())) {
+        if (name == UnderscoresToCapitalizedCamelCase(descriptor->type()->name()) || name == "String") {
             name = "`" + name + "`";
         }
-        name = SafeName(name);
-        return name;
+        name[0] = tolower(name[0]);
+        return SafeName(name);
     }
 
 
@@ -531,9 +560,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
             case FieldDescriptor::TYPE_GROUP:
             case FieldDescriptor::TYPE_MESSAGE: {
-//                if (field->is_map()) {
-//                    return SWIFTTYPE_MAP;
-//                }
+                if (field->is_map()) {
+                    return SWIFTTYPE_MAP;
+                }
                 return SWIFTTYPE_MESSAGE;
             }
             
@@ -684,6 +713,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
 
         const char* const kKeywordList[] = {
+            "TYPE_BOOL",
             "@available",
             "#column",
             "#else",
@@ -775,7 +805,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         hash_set<string> MakeKeywordsMap() {
             hash_set<string> result;
             for (unsigned int i = 0; i < GOOGLE_ARRAYSIZE(kKeywordList); i++) {
-                result.insert(kKeywordList[i]);
+                string keyWord = kKeywordList[i];
+                result.insert(keyWord);
+                std::transform(keyWord.begin(), keyWord.end(),keyWord.begin(), ::toupper);
+                result.insert(keyWord);
             }
             return result;
         }
@@ -786,12 +819,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
     string SafeName(const string& name) {
         string result = name;
-        
         if (result == "description" || result == "debugDescription" || result ==  "hashValue")
         {
             return  result + "_";
         }
-        
         if (kKeywords.count(result) > 0) {
             result = "`" + result + "`";
         }
@@ -859,12 +890,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             
             case FieldDescriptor::CPPTYPE_MESSAGE:
             {
-//                if (field->is_map()) {
-//                 
-//                    const FieldDescriptor* key_descriptor = field->message_type()->FindFieldByName("key");
-//                    const FieldDescriptor* value_descriptor = field->message_type()->FindFieldByName("value");
-//                    return "Dictionary<" + MapKeyName(key_descriptor) + "," + MapValueName(value_descriptor) + ">()";
-//                }
+                if (field->is_map()) {
+                 
+                    const FieldDescriptor* key_descriptor = field->message_type()->FindFieldByName("key");
+                    const FieldDescriptor* value_descriptor = field->message_type()->FindFieldByName("value");
+                    return "Dictionary<" + MapKeyName(key_descriptor) + "," + MapValueName(value_descriptor) + ">()";
+                }
                 
                 return ClassNameReturedType(field->message_type()) + "()";
             }
@@ -900,6 +931,147 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string EscapeUnicode(const string& to_escape) {
         return to_escape;
 
+    }
+    
+    
+    //JSON
+    string JSONCastingValue(const FieldDescriptor* field) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "NSNumber" ;
+            case FieldDescriptor::TYPE_UINT32  : return "NSNumber" ;
+            case FieldDescriptor::TYPE_SINT32  : return "NSNumber" ;
+            case FieldDescriptor::TYPE_FIXED32 : return "NSNumber" ;
+            case FieldDescriptor::TYPE_SFIXED32: return "NSNumber" ;
+                
+            case FieldDescriptor::TYPE_INT64   : return "String";
+            case FieldDescriptor::TYPE_UINT64  : return "String";
+            case FieldDescriptor::TYPE_SINT64  : return "String";
+            case FieldDescriptor::TYPE_FIXED64 : return "String";
+            case FieldDescriptor::TYPE_SFIXED64: return "String";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return "NSNumber";
+            case FieldDescriptor::TYPE_DOUBLE  : return "NSNumber";
+            case FieldDescriptor::TYPE_BOOL    : return "Bool";
+            case FieldDescriptor::TYPE_STRING  : return "String";
+            case FieldDescriptor::TYPE_BYTES   : return "String";
+            case FieldDescriptor::TYPE_ENUM: return "String";
+            case FieldDescriptor::TYPE_GROUP:
+            case FieldDescriptor::TYPE_MESSAGE: return "Dictionary<String,Any>";
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+    }
+
+    
+    string FromJSONValue(const FieldDescriptor* field, string value) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return value + ".int32Value";
+            case FieldDescriptor::TYPE_UINT32  : return value + ".uint32Value";
+            case FieldDescriptor::TYPE_SINT32  : return value + ".int32Value";
+            case FieldDescriptor::TYPE_FIXED32 : return value + ".uint32Value";
+            case FieldDescriptor::TYPE_SFIXED32: return value + ".int32Value";
+                
+            case FieldDescriptor::TYPE_INT64   : return "Int64(" + value + ")!";
+            case FieldDescriptor::TYPE_UINT64  : return "UInt64(" + value + ")!";
+            case FieldDescriptor::TYPE_SINT64  : return "Int64(" + value + ")!";
+            case FieldDescriptor::TYPE_FIXED64 : return "UInt64(" + value + ")!";
+            case FieldDescriptor::TYPE_SFIXED64: return "Int64(" + value + ")!";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return value + ".floatValue";
+            case FieldDescriptor::TYPE_DOUBLE  : return value + ".doubleValue";
+            case FieldDescriptor::TYPE_BOOL    : return value;
+            case FieldDescriptor::TYPE_STRING  : return value;
+            case FieldDescriptor::TYPE_BYTES   : return "Data(base64Encoded:" + value  +", options: Data.Base64DecodingOptions(rawValue:0))!";
+            case FieldDescriptor::TYPE_ENUM: return "try " + ClassNameReturedType(field->enum_type()) + ".fromString(str: " + value + ")";
+            case FieldDescriptor::TYPE_GROUP:
+            case FieldDescriptor::TYPE_MESSAGE: return "try " + ClassNameReturedType(field->message_type()) +  ".Builder.decodeToBuilder(jsonMap:" + value + ").build()\n";
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+    }
+    string FromJSONMapKeyValue(const FieldDescriptor* field, string value) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "Int32(" + value + ")!";
+            case FieldDescriptor::TYPE_UINT32  : return "UInt32(" + value + ")!";
+            case FieldDescriptor::TYPE_SINT32  : return "Int32(" + value + ")!";
+            case FieldDescriptor::TYPE_FIXED32 : return "UInt32(" + value + ")!";
+            case FieldDescriptor::TYPE_SFIXED32: return "Int32(" + value + ")!";
+                
+            case FieldDescriptor::TYPE_INT64   : return "Int64(" + value + ")!";
+            case FieldDescriptor::TYPE_UINT64  : return "UInt64(" + value + ")!";
+            case FieldDescriptor::TYPE_SINT64  : return "Int64(" + value + ")!";
+            case FieldDescriptor::TYPE_FIXED64 : return "UInt64(" + value + ")!";
+            case FieldDescriptor::TYPE_SFIXED64: return "Int64(" + value + ")!";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return value + ".floatValue";
+            case FieldDescriptor::TYPE_DOUBLE  : return value + ".doubleValue";
+            case FieldDescriptor::TYPE_BOOL    : return value;
+            case FieldDescriptor::TYPE_STRING  : return value;
+            case FieldDescriptor::TYPE_BYTES   : return "Data(base64Encoded:" + value  +", options: Data.Base64DecodingOptions(rawValue:0))!";
+            case FieldDescriptor::TYPE_ENUM: return "try " + ClassNameReturedType(field->enum_type()) + ".fromString(" + value + ")";
+            case FieldDescriptor::TYPE_GROUP:
+            case FieldDescriptor::TYPE_MESSAGE: return "try " + ClassNameReturedType(field->message_type()) +  ".Builder.decodeToBuilder(jsonMap:" + value + ").build()\n";
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+    }
+    
+    string ToJSONValueRepeatedStorageType(const FieldDescriptor* field) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "NSNumber";
+            case FieldDescriptor::TYPE_UINT32  : return "NSNumber";
+            case FieldDescriptor::TYPE_SINT32  : return "NSNumber";
+            case FieldDescriptor::TYPE_FIXED32 : return "NSNumber";
+            case FieldDescriptor::TYPE_SFIXED32: return "NSNumber";
+            case FieldDescriptor::TYPE_BOOL    :
+            case FieldDescriptor::TYPE_STRING  : return "";
+
+                
+            case FieldDescriptor::TYPE_INT64   :
+            case FieldDescriptor::TYPE_UINT64  :
+            case FieldDescriptor::TYPE_SINT64  :
+            case FieldDescriptor::TYPE_FIXED64 :
+            case FieldDescriptor::TYPE_BYTES   :
+            case FieldDescriptor::TYPE_SFIXED64: return "String";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return "NSNumber";
+            case FieldDescriptor::TYPE_DOUBLE  : return "NSNumber";
+            case FieldDescriptor::TYPE_ENUM: return "String";
+            case FieldDescriptor::TYPE_GROUP:
+            case FieldDescriptor::TYPE_MESSAGE: return ".encode()";
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+
+        
+    }
+    
+    string ToJSONValue(const FieldDescriptor* field, string value) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_UINT32  : return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_SINT32  : return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_FIXED32 : return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_SFIXED32: return "NSNumber(value:" + value + ")";
+                
+            case FieldDescriptor::TYPE_INT64   : return "\"\\(" + value + ")\"";
+            case FieldDescriptor::TYPE_UINT64  : return "\"\\(" + value + ")\"";
+            case FieldDescriptor::TYPE_SINT64  : return "\"\\(" + value + ")\"";
+            case FieldDescriptor::TYPE_FIXED64 : return "\"\\(" + value + ")\"";
+            case FieldDescriptor::TYPE_SFIXED64: return "\"\\(" + value + ")\"";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_DOUBLE  : return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_BOOL    : return value;
+            case FieldDescriptor::TYPE_STRING  : return value;
+            case FieldDescriptor::TYPE_BYTES   : return value + ".base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))";
+            case FieldDescriptor::TYPE_ENUM: return value + ".toString()";
+            case FieldDescriptor::TYPE_GROUP:
+            case FieldDescriptor::TYPE_MESSAGE: return "try " + value + ".encode()";
+
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
     }
 
 }  // namespace swift

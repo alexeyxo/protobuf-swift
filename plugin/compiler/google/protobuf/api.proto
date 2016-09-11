@@ -29,10 +29,14 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 syntax = "proto3";
 
+import 'google/protobuf/swift-descriptor.proto';
+option (.google.protobuf.swift_file_options).compile_for_framework = false;
+option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
+
 package google.protobuf;
 
-import "google/protobuf/Utilities/source_context.proto";
-import "google/protobuf/Utilities/type.proto";
+import "google/protobuf/source_context.proto";
+import "google/protobuf/type.proto";
 
 option java_multiple_files = true;
 option java_outer_classname = "ApiProto";

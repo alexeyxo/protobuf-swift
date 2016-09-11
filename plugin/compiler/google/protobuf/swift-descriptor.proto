@@ -43,7 +43,7 @@ extend google.protobuf.FileOptions {
 }
 
 extend google.protobuf.MessageOptions {
-  optional SwiftMessageOptions swift_message_options = 5092014;
+  optional SwiftMessageOptions swift_message_options = 5092016;
 }
 
 extend google.protobuf.EnumOptions {

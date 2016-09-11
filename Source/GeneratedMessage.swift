@@ -19,8 +19,8 @@ import Foundation
 
 public protocol GeneratedMessageProtocol: ProtocolBuffersMessage
 {
-    static func parseFrom(data:Data) throws -> Self
-    static func parseFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> Self
+    static func parseFrom(data: Data) throws -> Self
+    static func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Self
     static func parseFrom(inputStream:InputStream) throws -> Self
     static func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> Self
     static func parseFrom(codedInputStream:CodedInputStream) throws -> Self
