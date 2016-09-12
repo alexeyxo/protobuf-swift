@@ -11,7 +11,7 @@ import XCTest
 import ProtocolBuffers
 internal class CodedOuputStreamTests: XCTestCase
 {
-    func openMemoryStream() ->OutputStream {
+    func openMemoryStream() -> OutputStream {
         let stream:OutputStream = OutputStream.toMemory()
         stream.open()
         return stream

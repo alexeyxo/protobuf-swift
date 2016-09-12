@@ -127,7 +127,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         printer->Print("}\n");
         
         
-        printer->Print("$acontrol$ func registerAllExtensions(registry:ExtensionRegistry) {\n",
+        printer->Print("$acontrol$ func registerAllExtensions(registry: ExtensionRegistry) {\n",
                        "acontrol", GetAccessControlType(file_));
         
         printer->Indent();

@@ -49,6 +49,7 @@ namespace google {
                 // Returns true if the name requires a ns_returns_not_retained attribute applied
                 // to it.
                 
+                bool isPackedTypeProto3(const FieldDescriptor* field);
                 
                 //Packages
                 vector<string> FullNameSplit(const FileDescriptor* file);
@@ -167,6 +168,13 @@ namespace google {
                 inline bool HasDescriptorMethods(const FileDescriptor *file) {
                     return file->options().optimize_for() != FileOptions::LITE_RUNTIME;
                 }
+                
+                //JSON
+                string JSONCastingValue(const FieldDescriptor* field);
+                string FromJSONValue(const FieldDescriptor* field, string value);
+                string FromJSONMapKeyValue(const FieldDescriptor* field, string value);
+                string ToJSONValue(const FieldDescriptor* field, string value);
+                string ToJSONValueRepeatedStorageType(const FieldDescriptor* field);
                 
             }  // namespace swift
         }  // namespace compiler

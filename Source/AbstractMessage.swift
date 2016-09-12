@@ -42,6 +42,12 @@ public protocol ProtocolBuffersMessage:ProtocolBuffersMessageInit {
     static func classBuilder()-> ProtocolBuffersMessageBuilder
     func classBuilder()-> ProtocolBuffersMessageBuilder
     
+    //JSON
+    func encode() throws -> Dictionary<String,Any>
+    static func decode(jsonMap:Dictionary<String,Any>) throws -> Self
+    func toJSON() throws -> Data
+    static func fromJSON(data:Data) throws -> Self
+    
 }
 
 public protocol ProtocolBuffersMessageBuilder {
@@ -58,6 +64,9 @@ public protocol ProtocolBuffersMessageBuilder {
      func mergeFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> Self
      //Delimited Encoding/Decoding
      func mergeDelimitedFrom(inputStream:InputStream) throws -> Self?
+    
+    static func decodeToBuilder(jsonMap:Dictionary<String,AnyObject>) throws -> Self
+    static func fromJSONToBuilder(data:Data) throws -> Self
 }
 
 public func == (lhs: AbstractProtocolBuffersMessage, rhs: AbstractProtocolBuffersMessage) -> Bool {
@@ -122,6 +131,25 @@ open class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
             return unknownFields.hashValue
         }
     }
+    
+    //JSON
+    open func encode() throws -> Dictionary<String, Any> {
+        throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
+    }
+    
+    open class func decode(jsonMap: Dictionary<String, Any>) throws -> Self {
+        throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
+    }
+    
+    open func toJSON() throws -> Data {
+        let json = try JSONSerialization.data(withJSONObject: encode(), options: JSONSerialization.WritingOptions(rawValue: 0))
+        return json
+    }
+    
+    open class func fromJSON(data:Data) throws -> Self {
+        throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
+    }
+    
 }
 
 
@@ -204,5 +232,15 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
         inputStream.read(pointer, maxLength: Int(rSize))
         return try mergeFrom(data: data)
     }
+    
+    //JSON
+    class open func decodeToBuilder(jsonMap: Dictionary<String, AnyObject>) throws -> Self {
+        throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
+    }
+    
+    open class func fromJSONToBuilder(data: Data) throws -> Self {
+        throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
+    }
+
 }
 

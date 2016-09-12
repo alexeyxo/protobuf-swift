@@ -44,6 +44,8 @@ namespace google {
                     void GenerateSerializationCodeSource(io::Printer* printer) const;
                     void GenerateSerializedSizeCodeSource(io::Printer* printer) const;
                     void GenerateDescriptionCodeSource(io::Printer* printer) const;
+                    void GenerateJSONEncodeCodeSource(io::Printer* printer) const;
+                    void GenerateJSONDecodeCodeSource(io::Printer* printer) const;
                     void GenerateIsEqualCodeSource(io::Printer* printer) const;
                     void GenerateHashCodeSource(io::Printer* printer) const;
                     
