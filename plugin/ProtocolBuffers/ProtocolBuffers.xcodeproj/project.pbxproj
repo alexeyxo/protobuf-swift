@@ -114,7 +114,6 @@
 		3FC519341B1E11F000436FA6 /* Performance.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC519321B1E11F000436FA6 /* Performance.proto.swift */; };
 		3FCFED1D1D7B008C006CF502 /* UnittestErrorType.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCFED1B1D7B0089006CF502 /* UnittestErrorType.proto.swift */; };
 		3FCFED1E1D7B008D006CF502 /* UnittestErrorType.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCFED1B1D7B0089006CF502 /* UnittestErrorType.proto.swift */; };
-		3FCFED201D7B00E4006CF502 /* ErrorHandlingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCFED1F1D7B00E4006CF502 /* ErrorHandlingTest.swift */; };
 		3FE641A41B53A6BC00BDAE9A /* MapFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE641A31B53A6BC00BDAE9A /* MapFieldsTests.swift */; };
 		3FE641A51B53A6BC00BDAE9A /* MapFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE641A31B53A6BC00BDAE9A /* MapFieldsTests.swift */; };
 		3FE641F81B53AE4000BDAE9A /* Bar.Foo.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE641DE1B53AE4000BDAE9A /* Bar.Foo.proto.swift */; };
@@ -174,6 +173,8 @@
 		3FF2DCBE1A1A681A00226761 /* golden_packed_fields_message in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */; };
 		3FF2DCBF1A1A681A00226761 /* text_format_unittest_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */; };
 		3FF2DCC01A1A681A00226761 /* text_format_unittest_extensions_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */; };
+		F77F9EAD1D89436200BCBB5B /* ErrorHandlingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCFED1F1D7B00E4006CF502 /* ErrorHandlingTest.swift */; };
+		F77F9EAE1D89436300BCBB5B /* ErrorHandlingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCFED1F1D7B00E4006CF502 /* ErrorHandlingTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -842,6 +843,7 @@
 				3FE641FD1B53AE4000BDAE9A /* Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServices.proto.swift in Sources */,
 				3F41064F1A1A677A00742090 /* SizeTest.swift in Sources */,
 				3FE642191B53AE4000BDAE9A /* ProtobufUnittest.UnittestWellKnownTypes.proto.swift in Sources */,
+				F77F9EAE1D89436300BCBB5B /* ErrorHandlingTest.swift in Sources */,
 				3F4106501A1A677A00742090 /* WireFormatTests.swift in Sources */,
 				3FE642051B53AE4000BDAE9A /* Proto2NofieldpresenceUnittest.UnittestNoFieldPresence.proto.swift in Sources */,
 				3FE6420D1B53AE4000BDAE9A /* ProtobufUnittest.UnittestCustomOptions.proto.swift in Sources */,
@@ -872,7 +874,6 @@
 				3F89A8081C396BA9009876B8 /* Field.swift in Sources */,
 				3F89A80C1C396BA9009876B8 /* Google.Protobuf.Descriptor.proto.swift in Sources */,
 				3F89A8101C396BA9009876B8 /* Google.Protobuf.SourceContext.proto.swift in Sources */,
-				3FCFED201D7B00E4006CF502 /* ErrorHandlingTest.swift in Sources */,
 				3F89A8151C396BA9009876B8 /* Google.Protobuf.Wrappers.proto.swift in Sources */,
 				3F586C3A1D50EE720015E6F5 /* Google.Protobuf.Type.proto.swift in Sources */,
 				3F586C391D50EE720015E6F5 /* Google.Protobuf.Any.proto.swift in Sources */,
@@ -920,6 +921,7 @@
 				3FE641FC1B53AE4000BDAE9A /* Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServices.proto.swift in Sources */,
 				3F9301391A095F2B00F7A20B /* GeneratedMessageTests.swift in Sources */,
 				3FE642181B53AE4000BDAE9A /* ProtobufUnittest.UnittestWellKnownTypes.proto.swift in Sources */,
+				F77F9EAD1D89436200BCBB5B /* ErrorHandlingTest.swift in Sources */,
 				3F813FF61A12C0E90008F493 /* WireFormatTests.swift in Sources */,
 				3FE642041B53AE4000BDAE9A /* Proto2NofieldpresenceUnittest.UnittestNoFieldPresence.proto.swift in Sources */,
 				3FE6420C1B53AE4000BDAE9A /* ProtobufUnittest.UnittestCustomOptions.proto.swift in Sources */,
