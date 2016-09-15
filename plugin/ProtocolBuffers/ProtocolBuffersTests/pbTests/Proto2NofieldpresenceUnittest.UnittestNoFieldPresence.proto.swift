@@ -803,11 +803,19 @@ public extension Proto2NofieldpresenceUnittest {
       for oneElementRepeatedProto2Message in repeatedProto2Message {
           try codedOutputStream.writeMessage(fieldNumber: 50, value:oneElementRepeatedProto2Message)
       }
+      if !repeatedNestedEnum.isEmpty {
+        try codedOutputStream.writeRawVarint32(value: 410)
+        try codedOutputStream.writeRawVarint32(value: repeatedNestedEnumMemoizedSerializedSize)
+      }
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
-          try codedOutputStream.writeEnum(fieldNumber: 51, value:oneValueOfrepeatedNestedEnum.rawValue)
+          try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedNestedEnum.rawValue)
+      }
+      if !repeatedForeignEnum.isEmpty {
+        try codedOutputStream.writeRawVarint32(value: 418)
+        try codedOutputStream.writeRawVarint32(value: repeatedForeignEnumMemoizedSerializedSize)
       }
       for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
-          try codedOutputStream.writeEnum(fieldNumber: 52, value:oneValueOfrepeatedForeignEnum.rawValue)
+          try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedForeignEnum.rawValue)
       }
       if !repeatedStringPiece.isEmpty {
         for oneValuerepeatedStringPiece in repeatedStringPiece {
@@ -1062,13 +1070,21 @@ public extension Proto2NofieldpresenceUnittest {
           dataSizerepeatedNestedEnum += oneValueOfrepeatedNestedEnum.rawValue.computeEnumSizeNoTag()
       }
       serialize_size += dataSizerepeatedNestedEnum
-      serialize_size += (2 * Int32(repeatedNestedEnum.count))
+      if !repeatedNestedEnum.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizerepeatedNestedEnum.computeRawVarint32Size()
+      }
+      repeatedNestedEnumMemoizedSerializedSize = dataSizerepeatedNestedEnum
       var dataSizerepeatedForeignEnum:Int32 = 0
       for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
           dataSizerepeatedForeignEnum += oneValueOfrepeatedForeignEnum.rawValue.computeEnumSizeNoTag()
       }
       serialize_size += dataSizerepeatedForeignEnum
-      serialize_size += (2 * Int32(repeatedForeignEnum.count))
+      if !repeatedForeignEnum.isEmpty {
+        serialize_size += 2
+        serialize_size += dataSizerepeatedForeignEnum.computeRawVarint32Size()
+      }
+      repeatedForeignEnumMemoizedSerializedSize = dataSizerepeatedForeignEnum
       var dataSizeRepeatedStringPiece:Int32 = 0
       for oneValuerepeatedStringPiece in repeatedStringPiece {
           dataSizeRepeatedStringPiece += oneValuerepeatedStringPiece.computeStringSizeNoTag()
@@ -3339,21 +3355,31 @@ public extension Proto2NofieldpresenceUnittest {
             try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
             repeatedProto2Message.append(subBuilder.buildPartial())
 
-          case 408:
+          case 410:
+            let length = Int(try codedInputStream.readRawVarint32())
+            let oldLimit = try codedInputStream.pushLimit(byteLimit: length)
+            while codedInputStream.bytesUntilLimit() > 0 {
             let valueIntrepeatedNestedEnum = try codedInputStream.readEnum()
             if let enumsrepeatedNestedEnum = Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum.append(enumsrepeatedNestedEnum)
             } else {
                  _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 51, value:Int64(valueIntrepeatedNestedEnum))
             }
+            }
+            codedInputStream.popLimit(oldLimit: oldLimit)
 
-          case 416:
+          case 418:
+            let length = Int(try codedInputStream.readRawVarint32())
+            let oldLimit = try codedInputStream.pushLimit(byteLimit: length)
+            while codedInputStream.bytesUntilLimit() > 0 {
             let valueIntrepeatedForeignEnum = try codedInputStream.readEnum()
             if let enumsrepeatedForeignEnum = Proto2NofieldpresenceUnittest.ForeignEnum(rawValue:valueIntrepeatedForeignEnum) {
                  builderResult.repeatedForeignEnum.append(enumsrepeatedForeignEnum)
             } else {
                  _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 52, value:Int64(valueIntrepeatedForeignEnum))
             }
+            }
+            codedInputStream.popLimit(oldLimit: oldLimit)
 
           case 434:
             repeatedStringPiece += [try codedInputStream.readString()]

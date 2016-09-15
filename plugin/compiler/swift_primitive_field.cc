@@ -326,7 +326,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
 
         printer->Print(variables_, "$acontrol$fileprivate(set) var $name_reserved$:Array<$storage_type$> = Array<$storage_type$>()\n");
-        if (descriptor_->options().packed() || isPackedTypeProto3(descriptor_)) {
+        if (isPackedTypeProto3(descriptor_)) {
             printer->Print(variables_,"private var $name$MemoizedSerializedSize:Int32 = -1\n");
         }
     }
@@ -373,7 +373,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedPrimitiveFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         
-        if (descriptor_->options().packed() || isPackedTypeProto3(descriptor_)) {
+        if (isPackedTypeProto3(descriptor_)) {
             printer->Print(variables_,
                            "let length = Int(try codedInputStream.readRawVarint32())\n"
                            "let limit = try codedInputStream.pushLimit(byteLimit: length)\n"
@@ -395,7 +395,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,"if !$name_reserved$.isEmpty {\n");
         printer->Indent();
         
-        if (descriptor_->options().packed() || isPackedTypeProto3(descriptor_)) {
+        if (isPackedTypeProto3(descriptor_)) {
             printer->Print(variables_,
                            "try codedOutputStream.writeRawVarint32(value: $tag$)\n"
                            "try codedOutputStream.writeRawVarint32(value: $name$MemoizedSerializedSize)\n"
@@ -430,7 +430,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print(variables_,"serialize_size += dataSize$capitalized_name$\n");
         
-         if (descriptor_->options().packed() || isPackedTypeProto3(descriptor_)) {
+         if (isPackedTypeProto3(descriptor_)) {
             printer->Print(variables_,
                            "if !$name_reserved$.isEmpty {\n"
                            "  serialize_size += $tag_size$\n"

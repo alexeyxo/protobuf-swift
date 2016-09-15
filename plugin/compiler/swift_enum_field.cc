@@ -300,7 +300,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedEnumFieldGenerator::GenerateParsingCodeSource(io::Printer* printer) const {
         // If packed, set up the while loop
-        if (descriptor_->options().packed()) {
+        if (isPackedTypeProto3(descriptor_)) {
             printer->Print(variables_,
                            "let length = Int(try codedInputStream.readRawVarint32())\n"
                            "let oldLimit = try codedInputStream.pushLimit(byteLimit: length)\n"
@@ -316,7 +316,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "     _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
                        "}\n");
         
-        if (descriptor_->options().packed()) {
+        if (isPackedTypeProto3(descriptor_)) {
             
             printer->Print(variables_,
                            "}\n"
@@ -326,7 +326,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedEnumFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         
-        if (descriptor_->options().packed()) {
+        if (isPackedTypeProto3(descriptor_)) {
             printer->Print(variables_,
                            "if !$name_reserved$.isEmpty {\n"
                            "  try codedOutputStream.writeRawVarint32(value: $tag$)\n"
@@ -356,7 +356,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print(variables_,"serialize_size += dataSize$name$\n");
         
-        if (descriptor_->options().packed()) {
+        if (isPackedTypeProto3(descriptor_)) {
             
             printer->Print(variables_,
                            "if !$name_reserved$.isEmpty {\n"
@@ -369,7 +369,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "serialize_size += ($tag_size$ * Int32($name_reserved$.count))\n");
         }
         
-        if (descriptor_->options().packed()) {
+        if (isPackedTypeProto3(descriptor_)) {
             printer->Print(variables_,
                            "$name$MemoizedSerializedSize = dataSize$name$\n");
         }

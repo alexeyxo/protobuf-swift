@@ -205,7 +205,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     bool isPackedTypeProto3(const FieldDescriptor* field) {
-        
+        if (field->options().packed()) {
+            return true;
+        }
         if (field->file()->syntax() != FileDescriptor::SYNTAX_PROTO3) {
             return  false;
         }
@@ -224,7 +226,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 
             case FieldDescriptor::TYPE_FLOAT   :
             case FieldDescriptor::TYPE_DOUBLE  :
-            case FieldDescriptor::TYPE_BOOL    : return true;
+            case FieldDescriptor::TYPE_BOOL    :
+            case FieldDescriptor::TYPE_ENUM    : return true;
             default                            : return false;
         }
     }

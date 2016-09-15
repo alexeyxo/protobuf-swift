@@ -216,8 +216,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
       if hasE {
         try codedOutputStream.writeEnum(fieldNumber: 1, value:e.rawValue)
       }
+      if !repeatedE.isEmpty {
+        try codedOutputStream.writeRawVarint32(value: 18)
+        try codedOutputStream.writeRawVarint32(value: repeatedEMemoizedSerializedSize)
+      }
       for oneValueOfrepeatedE in repeatedE {
-          try codedOutputStream.writeEnum(fieldNumber: 2, value:oneValueOfrepeatedE.rawValue)
+          try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedE.rawValue)
       }
       if !repeatedPackedE.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 26)
@@ -226,8 +230,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
       for oneValueOfrepeatedPackedE in repeatedPackedE {
           try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedPackedE.rawValue)
       }
+      if !repeatedPackedUnexpectedE.isEmpty {
+        try codedOutputStream.writeRawVarint32(value: 34)
+        try codedOutputStream.writeRawVarint32(value: repeatedPackedUnexpectedEMemoizedSerializedSize)
+      }
       for oneValueOfrepeatedPackedUnexpectedE in repeatedPackedUnexpectedE {
-          try codedOutputStream.writeEnum(fieldNumber: 4, value:oneValueOfrepeatedPackedUnexpectedE.rawValue)
+          try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedPackedUnexpectedE.rawValue)
       }
       if hasOneofE1 {
         try codedOutputStream.writeEnum(fieldNumber: 5, value:oneofE1.rawValue)
@@ -252,7 +260,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
           dataSizerepeatedE += oneValueOfrepeatedE.rawValue.computeEnumSizeNoTag()
       }
       serialize_size += dataSizerepeatedE
-      serialize_size += (1 * Int32(repeatedE.count))
+      if !repeatedE.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizerepeatedE.computeRawVarint32Size()
+      }
+      repeatedEMemoizedSerializedSize = dataSizerepeatedE
       var dataSizerepeatedPackedE:Int32 = 0
       for oneValueOfrepeatedPackedE in repeatedPackedE {
           dataSizerepeatedPackedE += oneValueOfrepeatedPackedE.rawValue.computeEnumSizeNoTag()
@@ -268,7 +280,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
           dataSizerepeatedPackedUnexpectedE += oneValueOfrepeatedPackedUnexpectedE.rawValue.computeEnumSizeNoTag()
       }
       serialize_size += dataSizerepeatedPackedUnexpectedE
-      serialize_size += (1 * Int32(repeatedPackedUnexpectedE.count))
+      if !repeatedPackedUnexpectedE.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizerepeatedPackedUnexpectedE.computeRawVarint32Size()
+      }
+      repeatedPackedUnexpectedEMemoizedSerializedSize = dataSizerepeatedPackedUnexpectedE
       if (hasOneofE1) {
         serialize_size += oneofE1.rawValue.computeEnumSize(fieldNumber: 5)
       }
@@ -598,13 +614,18 @@ public extension Proto3PreserveUnknownEnumUnittest {
                  _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueInte))
             }
 
-          case 16:
+          case 18:
+            let length = Int(try codedInputStream.readRawVarint32())
+            let oldLimit = try codedInputStream.pushLimit(byteLimit: length)
+            while codedInputStream.bytesUntilLimit() > 0 {
             let valueIntrepeatedE = try codedInputStream.readEnum()
             if let enumsrepeatedE = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntrepeatedE) {
                  builderResult.repeatedE.append(enumsrepeatedE)
             } else {
                  _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntrepeatedE))
             }
+            }
+            codedInputStream.popLimit(oldLimit: oldLimit)
 
           case 26:
             let length = Int(try codedInputStream.readRawVarint32())
@@ -619,13 +640,18 @@ public extension Proto3PreserveUnknownEnumUnittest {
             }
             codedInputStream.popLimit(oldLimit: oldLimit)
 
-          case 32:
+          case 34:
+            let length = Int(try codedInputStream.readRawVarint32())
+            let oldLimit = try codedInputStream.pushLimit(byteLimit: length)
+            while codedInputStream.bytesUntilLimit() > 0 {
             let valueIntrepeatedPackedUnexpectedE = try codedInputStream.readEnum()
             if let enumsrepeatedPackedUnexpectedE = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedPackedUnexpectedE) {
                  builderResult.repeatedPackedUnexpectedE.append(enumsrepeatedPackedUnexpectedE)
             } else {
                  _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 4, value:Int64(valueIntrepeatedPackedUnexpectedE))
             }
+            }
+            codedInputStream.popLimit(oldLimit: oldLimit)
 
           case 40:
             let valueIntoneofE1 = try codedInputStream.readEnum()
@@ -813,8 +839,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
       if hasE {
         try codedOutputStream.writeEnum(fieldNumber: 1, value:e.rawValue)
       }
+      if !repeatedE.isEmpty {
+        try codedOutputStream.writeRawVarint32(value: 18)
+        try codedOutputStream.writeRawVarint32(value: repeatedEMemoizedSerializedSize)
+      }
       for oneValueOfrepeatedE in repeatedE {
-          try codedOutputStream.writeEnum(fieldNumber: 2, value:oneValueOfrepeatedE.rawValue)
+          try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedE.rawValue)
       }
       if !repeatedPackedE.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 26)
@@ -853,7 +883,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
           dataSizerepeatedE += oneValueOfrepeatedE.rawValue.computeEnumSizeNoTag()
       }
       serialize_size += dataSizerepeatedE
-      serialize_size += (1 * Int32(repeatedE.count))
+      if !repeatedE.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizerepeatedE.computeRawVarint32Size()
+      }
+      repeatedEMemoizedSerializedSize = dataSizerepeatedE
       var dataSizerepeatedPackedE:Int32 = 0
       for oneValueOfrepeatedPackedE in repeatedPackedE {
           dataSizerepeatedPackedE += oneValueOfrepeatedPackedE.rawValue.computeEnumSizeNoTag()
@@ -1203,13 +1237,18 @@ public extension Proto3PreserveUnknownEnumUnittest {
                  _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueInte))
             }
 
-          case 16:
+          case 18:
+            let length = Int(try codedInputStream.readRawVarint32())
+            let oldLimit = try codedInputStream.pushLimit(byteLimit: length)
+            while codedInputStream.bytesUntilLimit() > 0 {
             let valueIntrepeatedE = try codedInputStream.readEnum()
             if let enumsrepeatedE = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedE) {
                  builderResult.repeatedE.append(enumsrepeatedE)
             } else {
                  _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntrepeatedE))
             }
+            }
+            codedInputStream.popLimit(oldLimit: oldLimit)
 
           case 26:
             let length = Int(try codedInputStream.readRawVarint32())
