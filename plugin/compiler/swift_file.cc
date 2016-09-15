@@ -49,9 +49,9 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         vector<string> tokens = FullNameSplit(file_);
         
         
-        for (int i = 0; i < file_->message_type_count(); i++) {
-            MessageGenerator(file_->message_type(i)).GenerateMessageIsEqualSource(printer);
-        }
+        //for (int i = 0; i < file_->message_type_count(); i++) {
+          //  MessageGenerator(file_->message_type(i)).GenerateMessageIsEqualSource(printer);
+        //}
         
         //fields
         for (int i = 0; i < file_->extension_count(); i++) {

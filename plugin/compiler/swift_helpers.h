@@ -131,9 +131,7 @@ namespace google {
                 
                 SwiftType GetSwiftType(const FieldDescriptor *field);
                 
-                // Get the fully-qualified class name for a boxed primitive type, e.g.
-                // "NSNumber" for SWIFTTYPE_INT.  Returns NULL for enum and message
-                // types.
+                
                 const char* BoxedPrimitiveTypeName(SwiftType type);
                 
                 bool IsPrimitiveType(SwiftType type);

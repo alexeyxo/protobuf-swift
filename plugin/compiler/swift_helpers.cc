@@ -937,24 +937,24 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     //JSON
     string JSONCastingValue(const FieldDescriptor* field) {
         switch (field->type()) {
-            case FieldDescriptor::TYPE_INT32   : return "NSNumber" ;
-            case FieldDescriptor::TYPE_UINT32  : return "NSNumber" ;
-            case FieldDescriptor::TYPE_SINT32  : return "NSNumber" ;
-            case FieldDescriptor::TYPE_FIXED32 : return "NSNumber" ;
-            case FieldDescriptor::TYPE_SFIXED32: return "NSNumber" ;
+            case FieldDescriptor::TYPE_INT32   : return "Int32" ;
+            case FieldDescriptor::TYPE_UINT32  : return "UInt32" ;
+            case FieldDescriptor::TYPE_SINT32  : return "Int32" ;
+            case FieldDescriptor::TYPE_FIXED32 : return "UInt32" ;
+            case FieldDescriptor::TYPE_SFIXED32: return "Int32" ;
                 
-            case FieldDescriptor::TYPE_INT64   : return "String";
-            case FieldDescriptor::TYPE_UINT64  : return "String";
-            case FieldDescriptor::TYPE_SINT64  : return "String";
-            case FieldDescriptor::TYPE_FIXED64 : return "String";
-            case FieldDescriptor::TYPE_SFIXED64: return "String";
+            case FieldDescriptor::TYPE_INT64   : return "Int64";
+            case FieldDescriptor::TYPE_UINT64  : return "UInt64";
+            case FieldDescriptor::TYPE_SINT64  : return "Int64";
+            case FieldDescriptor::TYPE_FIXED64 : return "UInt64";
+            case FieldDescriptor::TYPE_SFIXED64: return "Int64";
                 
-            case FieldDescriptor::TYPE_FLOAT   : return "NSNumber";
-            case FieldDescriptor::TYPE_DOUBLE  : return "NSNumber";
+            case FieldDescriptor::TYPE_FLOAT   : return "Float";
+            case FieldDescriptor::TYPE_DOUBLE  : return "Double";
             case FieldDescriptor::TYPE_BOOL    : return "Bool";
             case FieldDescriptor::TYPE_STRING  : return "String";
             case FieldDescriptor::TYPE_BYTES   : return "String";
-            case FieldDescriptor::TYPE_ENUM: return "String";
+            case FieldDescriptor::TYPE_ENUM    : return "String";
             case FieldDescriptor::TYPE_GROUP:
             case FieldDescriptor::TYPE_MESSAGE: return "Dictionary<String,Any>";
         }
@@ -965,20 +965,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     string FromJSONValue(const FieldDescriptor* field, string value) {
         switch (field->type()) {
-            case FieldDescriptor::TYPE_INT32   : return value + ".int32Value";
-            case FieldDescriptor::TYPE_UINT32  : return value + ".uint32Value";
-            case FieldDescriptor::TYPE_SINT32  : return value + ".int32Value";
-            case FieldDescriptor::TYPE_FIXED32 : return value + ".uint32Value";
-            case FieldDescriptor::TYPE_SFIXED32: return value + ".int32Value";
+            case FieldDescriptor::TYPE_INT32   : return value;
+            case FieldDescriptor::TYPE_UINT32  : return value;
+            case FieldDescriptor::TYPE_SINT32  : return value;
+            case FieldDescriptor::TYPE_FIXED32 : return value;
+            case FieldDescriptor::TYPE_SFIXED32: return value;
                 
-            case FieldDescriptor::TYPE_INT64   : return "Int64(" + value + ")!";
-            case FieldDescriptor::TYPE_UINT64  : return "UInt64(" + value + ")!";
-            case FieldDescriptor::TYPE_SINT64  : return "Int64(" + value + ")!";
-            case FieldDescriptor::TYPE_FIXED64 : return "UInt64(" + value + ")!";
-            case FieldDescriptor::TYPE_SFIXED64: return "Int64(" + value + ")!";
+            case FieldDescriptor::TYPE_INT64   : return value;
+            case FieldDescriptor::TYPE_UINT64  : return value;
+            case FieldDescriptor::TYPE_SINT64  : return value;
+            case FieldDescriptor::TYPE_FIXED64 : return value;
+            case FieldDescriptor::TYPE_SFIXED64: return value;
                 
-            case FieldDescriptor::TYPE_FLOAT   : return value + ".floatValue";
-            case FieldDescriptor::TYPE_DOUBLE  : return value + ".doubleValue";
+            case FieldDescriptor::TYPE_FLOAT   : return value;
+            case FieldDescriptor::TYPE_DOUBLE  : return value;
             case FieldDescriptor::TYPE_BOOL    : return value;
             case FieldDescriptor::TYPE_STRING  : return value;
             case FieldDescriptor::TYPE_BYTES   : return "Data(base64Encoded:" + value  +", options: Data.Base64DecodingOptions(rawValue:0))!";
@@ -1003,8 +1003,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_FIXED64 : return "UInt64(" + value + ")!";
             case FieldDescriptor::TYPE_SFIXED64: return "Int64(" + value + ")!";
                 
-            case FieldDescriptor::TYPE_FLOAT   : return value + ".floatValue";
-            case FieldDescriptor::TYPE_DOUBLE  : return value + ".doubleValue";
+            case FieldDescriptor::TYPE_FLOAT   : return "Float(" + value + ")!" ;
+            case FieldDescriptor::TYPE_DOUBLE  : return "Double(" + value + ")!";
             case FieldDescriptor::TYPE_BOOL    : return value;
             case FieldDescriptor::TYPE_STRING  : return value;
             case FieldDescriptor::TYPE_BYTES   : return "Data(base64Encoded:" + value  +", options: Data.Base64DecodingOptions(rawValue:0))!";
@@ -1015,27 +1015,29 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         GOOGLE_LOG(FATAL) << "Can't get here.";
         return NULL;
     }
+
     
     string ToJSONValueRepeatedStorageType(const FieldDescriptor* field) {
         switch (field->type()) {
-            case FieldDescriptor::TYPE_INT32   : return "NSNumber";
-            case FieldDescriptor::TYPE_UINT32  : return "NSNumber";
-            case FieldDescriptor::TYPE_SINT32  : return "NSNumber";
-            case FieldDescriptor::TYPE_FIXED32 : return "NSNumber";
-            case FieldDescriptor::TYPE_SFIXED32: return "NSNumber";
-            case FieldDescriptor::TYPE_BOOL    :
-            case FieldDescriptor::TYPE_STRING  : return "";
+            case FieldDescriptor::TYPE_INT32   : return "Int32";
+            case FieldDescriptor::TYPE_UINT32  : return "UInt32";
+            case FieldDescriptor::TYPE_SINT32  : return "Int32";
+            case FieldDescriptor::TYPE_FIXED32 : return "UInt32";
+            case FieldDescriptor::TYPE_SFIXED32: return "Int32";
+            case FieldDescriptor::TYPE_BOOL    : return "Bool";
+            case FieldDescriptor::TYPE_STRING  : return "String";
 
                 
-            case FieldDescriptor::TYPE_INT64   :
-            case FieldDescriptor::TYPE_UINT64  :
-            case FieldDescriptor::TYPE_SINT64  :
-            case FieldDescriptor::TYPE_FIXED64 :
-            case FieldDescriptor::TYPE_BYTES   :
-            case FieldDescriptor::TYPE_SFIXED64: return "String";
+            case FieldDescriptor::TYPE_INT64   : return "Int64";
+            case FieldDescriptor::TYPE_UINT64  : return "UInt64";
+            case FieldDescriptor::TYPE_SINT64  : return "Int64";
+            case FieldDescriptor::TYPE_FIXED64 : return "UInt64";
+            case FieldDescriptor::TYPE_SFIXED64: return "Int64";
+            case FieldDescriptor::TYPE_BYTES   : return "String";
+            
                 
-            case FieldDescriptor::TYPE_FLOAT   : return "NSNumber";
-            case FieldDescriptor::TYPE_DOUBLE  : return "NSNumber";
+            case FieldDescriptor::TYPE_FLOAT   : return "Float";
+            case FieldDescriptor::TYPE_DOUBLE  : return "Double";
             case FieldDescriptor::TYPE_ENUM: return "String";
             case FieldDescriptor::TYPE_GROUP:
             case FieldDescriptor::TYPE_MESSAGE: return ".encode()";
@@ -1048,20 +1050,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     string ToJSONValue(const FieldDescriptor* field, string value) {
         switch (field->type()) {
-            case FieldDescriptor::TYPE_INT32   : return "NSNumber(value:" + value + ")";
-            case FieldDescriptor::TYPE_UINT32  : return "NSNumber(value:" + value + ")";
-            case FieldDescriptor::TYPE_SINT32  : return "NSNumber(value:" + value + ")";
-            case FieldDescriptor::TYPE_FIXED32 : return "NSNumber(value:" + value + ")";
-            case FieldDescriptor::TYPE_SFIXED32: return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_INT32   : return value;
+            case FieldDescriptor::TYPE_UINT32  : return value;
+            case FieldDescriptor::TYPE_SINT32  : return value;
+            case FieldDescriptor::TYPE_FIXED32 : return value;
+            case FieldDescriptor::TYPE_SFIXED32: return value;
                 
-            case FieldDescriptor::TYPE_INT64   : return "\"\\(" + value + ")\"";
-            case FieldDescriptor::TYPE_UINT64  : return "\"\\(" + value + ")\"";
-            case FieldDescriptor::TYPE_SINT64  : return "\"\\(" + value + ")\"";
-            case FieldDescriptor::TYPE_FIXED64 : return "\"\\(" + value + ")\"";
-            case FieldDescriptor::TYPE_SFIXED64: return "\"\\(" + value + ")\"";
+            case FieldDescriptor::TYPE_INT64   : return value;
+            case FieldDescriptor::TYPE_UINT64  : return value;
+            case FieldDescriptor::TYPE_SINT64  : return value;
+            case FieldDescriptor::TYPE_FIXED64 : return value;
+            case FieldDescriptor::TYPE_SFIXED64: return value;
                 
-            case FieldDescriptor::TYPE_FLOAT   : return "NSNumber(value:" + value + ")";
-            case FieldDescriptor::TYPE_DOUBLE  : return "NSNumber(value:" + value + ")";
+            case FieldDescriptor::TYPE_FLOAT   : return value;
+            case FieldDescriptor::TYPE_DOUBLE  : return value;
             case FieldDescriptor::TYPE_BOOL    : return value;
             case FieldDescriptor::TYPE_STRING  : return value;
             case FieldDescriptor::TYPE_BYTES   : return value + ".base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))";

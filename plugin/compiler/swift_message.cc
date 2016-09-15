@@ -227,6 +227,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         printer->Indent();
         
+        printer->Print("\n");
+        GenerateMessageIsEqualSource(printer);
         
         //Nested Types
         for (int i = 0; i < descriptor_->nested_type_count(); i++) {
@@ -532,7 +534,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         sort(sorted_extensions.begin(), sorted_extensions.end(),
              ExtensionRangeOrdering());
         
-        printer->Print(variables_,"$acontrol$ func == (lhs: $classNameReturnedType$, rhs: $classNameReturnedType$) -> Bool {\n");
+        printer->Print(variables_,"$acontrol$ static func == (lhs: $classNameReturnedType$, rhs: $classNameReturnedType$) -> Bool {\n");
                        
         printer->Indent();
         
@@ -574,10 +576,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Outdent();
         printer->Print("}\n\n");
-        
-        for (int j = 0; j < descriptor_->nested_type_count(); j++) {
-             MessageGenerator(descriptor_->nested_type(j)).GenerateMessageIsEqualSource(printer);
-        }
     }
     
     
@@ -964,7 +962,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        " return true\n"
                        "}\n");
     }
-}  // namespace objectivec
+}  // namespace swift
 }  // namespace compiler
 }  // namespace protobuf
 }  // namespace google
